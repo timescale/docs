@@ -1,0 +1,14 @@
+## remove_continuous_aggregate_policy() <tag type="community">Community</tag> 
+Remove refresh policy for a continuous aggregate.
+
+#### Required Arguments 
+
+|Name|Description|
+|---|---|
+| `continuous_aggregate` | (REGCLASS) Name of the continuous aggregate the policy should be removed from |
+
+#### Sample Usage 
+Remove the refresh policy from the 'cpu_view' continuous aggregate:
+``` sql
+SELECT remove_continuous_aggregate_policy('cpu_view');
+```

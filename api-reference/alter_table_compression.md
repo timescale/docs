@@ -1,0 +1,35 @@
+## ALTER TABLE (Compression) <tag type="community" content="community" />
+
+'ALTER TABLE' statement is used to turn on compression and set compression
+options.
+
+The syntax is:
+
+``` sql
+ALTER TABLE <table_name> SET (timescaledb.compress, timescaledb.compress_orderby = '<column_name> [ASC | DESC] [ NULLS { FIRST | LAST } ] [, ...]',
+timescaledb.compress_segmentby = '<column_name> [, ...]'
+);
+```
+#### Required Options 
+|Name|Description|
+|---|---|
+| `timescaledb.compress` | Boolean to enable compression |
+
+#### Other Options 
+|Name|Description|
+|---|---|
+| `timescaledb.compress_orderby` | Order used by compression, specified in the same way as the ORDER BY clause in a SELECT query. The default is the descending order of the hypertable's time column. |
+| `timescaledb.compress_segmentby` | Column list on which to key the compressed segments. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. The default is no `segment by` columns. |
+
+#### Parameters
+|Name|Description|
+|---|---|
+| `table_name` | Name of the hypertable that will support compression |
+| `column_name` | Name of the column used to order by and/or segment by |
+
+#### Sample Usage 
+Configure a hypertable that ingests device data to use compression.
+
+```sql
+ALTER TABLE metrics SET (timescaledb.compress, timescaledb.compress_orderby = 'time DESC', timescaledb.compress_segmentby = 'device_id');
+```

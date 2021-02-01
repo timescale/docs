@@ -1,0 +1,20 @@
+## detach_tablespaces() 
+
+Detach all tablespaces from a hypertable. After issuing this command
+on a hypertable, it will no longer have any tablespaces attached to
+it. New chunks will instead be placed in the database's default
+tablespace.
+
+#### Required Arguments 
+
+|Name|Description|
+|---|---|
+| `hypertable` | (REGCLASS) Hypertable to detach a the tablespace from.|
+
+#### Sample Usage 
+
+Detach all tablespaces from the hypertable `conditions`:
+
+```sql
+SELECT detach_tablespaces('conditions');
+```

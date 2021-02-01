@@ -1,0 +1,37 @@
+## timescaledb_information.continuous_aggregates 
+
+Get metadata and settings information for continuous aggregates.
+
+#### Available Columns
+
+|Name|Description|
+|---|---|
+|`hypertable_schema` | (NAME) Schema of the hypertable from the continuous aggregate view|
+|`hypertable_name` | (NAME) Name of the hypertable from the continuous aggregate view|
+|`view_schema` | (NAME) Schema for continuous aggregate view |
+|`view_name` | (NAME) User supplied name for continuous aggregate view |
+|`view_owner` | (NAME) Owner of the continuous aggregate view|
+|`materialized_only` | (BOOLEAN) Return only materialized data when querying the continuous aggregate view. |
+|`materialization_hypertable_schema` | (NAME) Schema of the underlying materialization table|
+|`materialization_hypertable_name` | (NAME) Name of the underlying materialization table|
+|`view_definition` |(TEXT) `SELECT` query for continuous aggregate view|
+
+#### Sample Usage
+```sql
+SELECT * FROM timescaledb_information.continuous_aggregates;
+
+-[ RECORD 1 ]---------------------+-------------------------------------------------
+hypertable_schema                 | public
+hypertable_name                   | foo
+view_schema                       | public 
+view_name                         | contagg_view
+view_owner                        | postgres
+materialized_only                 | f
+materialization_hypertable_schema | _timescaledb_internal
+materialization_hypertable_name   | _materialized_hypertable_2
+view_definition                   |  SELECT foo.a,                                  +
+                                  |     COUNT(foo.b) AS countb                      +
+                                  |    FROM foo                                     +
+                                  |   GROUP BY (time_bucket('1 day', foo.a)), foo.a;
+
+```

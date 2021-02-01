@@ -1,0 +1,50 @@
+## distributed_exec() 
+
+This procedure is used on an access node to execute a SQL command
+across the data nodes of a distributed database. For instance, one use
+case is to create the roles and permissions needed in a distributed
+database.
+
+The procedure can run distributed commands transactionally, so a command
+is executed either everywhere or nowhere. However, not all SQL commands can run in a 
+transaction. This can be toggled with the argument `transactional`. Note if the execution 
+is not transactional, a failure on one of the data node will require manual dealing with
+any introduced inconsistency.
+
+Note that the command is _not_ executed on the access node itself and
+it is not possible to chain multiple commands together in one call.
+
+#### Required Arguments 
+
+|Name|Description|
+|---|---|
+| `query` | The command to execute on data nodes. |
+
+#### Optional Arguments 
+
+|Name|Description|
+|---|---|
+| `node_list` | An array of data nodes where the command should be executed. Defaults to all data nodes if not specified. |
+| `transactional` | Allows to specify if the execution of the statement should be transactional or not. Defaults to TRUE. |
+
+#### Sample Usage 
+
+Create the role `testrole` across all data nodes in a distributed database:
+
+```sql
+CALL distributed_exec($$ CREATE USER testrole WITH LOGIN $$);
+
+```
+
+Create the role `testrole` on two specific data nodes:
+
+```sql
+CALL distributed_exec($$ CREATE USER testrole WITH LOGIN $$, node_list => '{ "dn1", "dn2" }');
+
+```
+
+Create new databases `dist_database` on data nodes, which requires to set `transactional` to FALSE:
+
+```sql
+CALL distributed_exec('CREATE DATABASE dist_database', transactional => FALSE);
+```
