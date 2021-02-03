@@ -2,436 +2,363 @@
 
 module.exports = [
   {
-    Title: "Api Reference",
-    type: 'page',
+    title: "Api Reference",
     filePath: 'index.md',
     href: "api-reference",
     name: 'Api Reference',
     excerpt: 'blah blha blha',
     children: [
       {
-        Title: "Hypertables & Chunks",
+        title: "Hypertables & Chunks",
         type: 'directory',
         href: "hypertables-and-chunks",
         children: [
           {
-            Title: "create_hypertable",
-            type: 'page',
+            title: "create_hypertable",
             href: "create_hypertable"
           },
           {
-            Title: "show_chunks",
-            type: 'page',
+            title: "show_chunks",
             href: "show_chunks"
           },
           {
-            Title: "drop_chunks",
-            type: 'page',
+            title: "drop_chunks",
             href: "drop_chunks"
           },
           {
-            Title: "reorder_chunk",
-            type: 'page',
+            title: "reorder_chunk",
             href: "reorder_chunk"
           },
           {
-            Title: "add_reorder_policy",
-            type: 'page',
+            title: "add_reorder_policy",
             href: "add_reorder_policy"
-          },           
+          },
           {
-            Title: "remove_reorder_policy",
-            type: 'page',
+            title: "remove_reorder_policy",
             href: "remove_reorder_policy"
           },
           {
-            Title: "attach_tablespace",
-            type: 'page',
+            title: "attach_tablespace",
             href: "attach_tablespace"
-          },          
+          },
           {
-            Title: "detach_tablespace",
-            type: 'page',
+            title: "detach_tablespace",
             href: "detach_tablespace"
           },
           {
-            Title: "detach_tablespaces",
-            type: 'page',
+            title: "detach_tablespaces",
             href: "detach_tablespaces"
           },
           {
-            Title: "show_tablespaces",
-            type: 'page',
+            title: "show_tablespaces",
             href: "show_tablespaces"
-          },                                                               
+          },
           {
-            Title: "set_chunk_time_interval",
-            type: 'page',
+            title: "set_chunk_time_interval",
             href: "set_chunk_time_interval"
           },
           {
-            Title: "set_number_partitions",
-            type: 'page',
+            title: "set_number_partitions",
             href: "set_number_partitions"
           },
           {
-            Title: "set_replication_factor",
-            type: 'page',
+            title: "set_replication_factor",
             href: "set_replication_factor"
-          },  
+          },
           {
-            Title: "set_integer_now_func",
-            type: 'page',
+            title: "set_integer_now_func",
             href: "set_integer_now_func"
           },
           {
-            Title: "add_dimension",
-            type: 'page',
+            title: "add_dimension",
             href: "add_dimension"
-          },                         
+          },
           {
-            Title: "create_index (transaction per chunk)",
-            type: 'page',
+            title: "create_index (transaction per chunk)",
             href: "create_index"
           }
         ]
       },
       {
-        Title: "Distributed Hypertables",
+        title: "Distributed Hypertables",
         type: 'directory',
         href: "distributed-hypertables",
         children: [
           {
-            Title: "create_distributed_hypertable",
-            type: 'page',
+            title: "create_distributed_hypertable",
             href: "create_distributed_hypertable"
           },
           {
-            Title: "add_data_node",
-            type: 'page',
+            title: "add_data_node",
             href: "add_data_node"
           },
           {
-            Title: "attach_data_node",
-            type: 'page',
+            title: "attach_data_node",
             href: "attach_data_node"
-          },          
+          },
           {
-            Title: "detach_data_node",
-            type: 'page',
+            title: "detach_data_node",
             href: "detach_data_node"
-          },          
+          },
           {
-            Title: "delete_data_node",
-            type: 'page',
+            title: "delete_data_node",
             href: "delete_data_node"
           },
           {
-            Title: "distributed_exec",
-            type: 'page',
+            title: "distributed_exec",
             href: "distributed_exec"
           },
           {
-            Title: "reorder_chunk",
-            type: 'page',
+            title: "reorder_chunk",
             href: "reorder_chunk"
           },
           {
-            Title: "add_reorder_policy",
-            type: 'page',
+            title: "add_reorder_policy",
             href: "add_reorder_policy"
           },
           {
-            Title: "remove_reorder_policy",
-            type: 'page',
+            title: "remove_reorder_policy",
             href: "remove_reorder_policy"
-          },                                                   
+          },
           {
-            Title: "set_chunk_time_interval",
-            type: 'page',
+            title: "set_chunk_time_interval",
             href: "set_chunk_time_interval"
           },
           {
-            Title: "set_number_partitions",
-            type: 'page',
+            title: "set_number_partitions",
             href: "set_number_partitions"
           },
           {
-            Title: "set_replication_factor",
-            type: 'page',
+            title: "set_replication_factor",
             href: "set_replication_factor"
-          },  
+          },
           {
-            Title: "set_integer_now_func",
-            type: 'page',
+            title: "set_integer_now_func",
             href: "set_integer_now_func"
-          },                         
+          },
           {
-            Title: "create_index",
-            type: 'page',
+            title: "create_index",
             href: "create_index"
           }
         ]
-      },      
+      },
       {
-        Title: "Compression",
+        title: "Compression",
         type: 'directory',
         href: "compression",
         children: [
           {
-            Title: "ALTER TABLE (Compression)",
-            type: 'page',
+            title: "ALTER TABLE (Compression)",
             href: "alter_table_compression"
           },
           {
-            Title: "add_compression_policy",
-            type: 'page',
+            title: "add_compression_policy",
             href: "add_compression_policy"
           },
           {
-            Title: "remove_compression_policy",
-            type: 'page',
+            title: "remove_compression_policy",
             href: "remove_compression_policy"
           },
           {
-            Title: "compress_chunk",
-            type: 'page',
+            title: "compress_chunk",
             href: "compress_chunk"
           },
           {
-            Title: "decompress_chunk",
-            type: 'page',
+            title: "decompress_chunk",
             href: "decompress_chunk"
           },
           {
-            Title: "hypertable_size",
-            type: 'page',
+            title: "hypertable_size",
             href: "hypertable_size"
-          },          
+          },
           {
-            Title: "hypertable_detailed_size",
-            type: 'page',
+            title: "hypertable_detailed_size",
             href: "hypertable_detailed_size"
-          },          
+          },
           {
-            Title: "hypertable_index_size",
-            type: 'page',
+            title: "hypertable_index_size",
             href: "hypertable_index_size"
-          },          
+          },
           {
-            Title: "hypertable_compression_stats",
-            type: 'page',
+            title: "hypertable_compression_stats",
             href: "hypertable_compression_stats"
-          },          
+          },
         ]
       },
       {
-        Title: "Continuous Aggregates",
+        title: "Continuous Aggregates",
         type: 'directory',
         href: "continuous-aggregates",
         children: [
           {
-            Title: "CREATE MATERIALIZED VIEW (Continuous Aggregate)",
-            type: 'page',
+            title: "CREATE MATERIALIZED VIEW (Continuous Aggregate)",
             href: "create_materialized_view"
           },
           {
-            Title: "ALTER MATERIALIZED VIEW (Continuous Aggregate)",
-            type: 'page',
+            title: "ALTER MATERIALIZED VIEW (Continuous Aggregate)",
             href: "alter_materialized_view"
           },
           {
-            Title: "DROP MATERIALIZED VIEW (Continuous Aggregate)",
-            type: 'page',
+            title: "DROP MATERIALIZED VIEW (Continuous Aggregate)",
             href: "drop_materialized_view"
-          }, 
+          },
           {
-            Title: "add_continuous_aggregate_policy",
-            type: 'page',
+            title: "add_continuous_aggregate_policy",
             href: "add_continuous_aggregate_policy"
-          },     
+          },
           {
-            Title: "refresh_continuous_aggregate",
-            type: 'page',
+            title: "refresh_continuous_aggregate",
             href: "refresh_continuous_aggregate"
           },
           {
-            Title: "remove_continuous_aggregate_policy",
-            type: 'page',
+            title: "remove_continuous_aggregate_policy",
             href: "remove_continuous_aggregate_policy"
-          }          
+          }
         ]
       },
       {
-        Title: "Data Retention",
+        title: "Data Retention",
         type: 'directory',
         href: "data-retention",
         children: [
           {
-            Title: "add_retention_policy",
-            type: 'page',
+            title: "add_retention_policy",
             href: "add_retention_policy"
           },
           {
-            Title: "remove_retention_policy",
-            type: 'page',
+            title: "remove_retention_policy",
             href: "remove_retention_policy"
-          }          
+          }
         ]
       },
       {
-        Title: "Actions and Automation",
+        title: "Actions and Automation",
         type: 'directory',
         href: "actions-and-automation",
         children: [
           {
-            Title: "add_job",
-            type: 'page',
+            title: "add_job",
             href: "add_job"
           },
           {
-            Title: "alter_job",
-            type: 'page',
+            title: "alter_job",
             href: "alter_job"
           },
           {
-            Title: "delete_job",
-            type: 'page',
+            title: "delete_job",
             href: "delete_job"
           },
           {
-            Title: "run_job",
-            type: 'page',
+            title: "run_job",
             href: "run_job"
-          }                      
+          }
         ]
       },
       {
-        Title: "Analytics",
+        title: "Analytics",
         type: 'directory',
         href: "analytics",
         children: [
           {
-            Title: "approximate_row_count",
-            type: 'page',
+            title: "approximate_row_count",
             href: "approximate_row_count"
           },
           {
-            Title: "first",
-            type: 'page',
+            title: "first",
             href: "first"
           },
           {
-            Title: "last",
-            type: 'page',
+            title: "last",
             href: "last"
           },
           {
-            Title: "histogram",
-            type: 'page',
+            title: "histogram",
             href: "histogram"
           },
           {
-            Title: "locf",
-            type: 'page',
+            title: "locf",
             href: "locf"
-          },                     
+          },
           {
-            Title: "interpolate",
-            type: 'page',
+            title: "interpolate",
             href: "interpolate"
           },
           {
-            Title: "time_bucket",
-            type: 'page',
+            title: "time_bucket",
             href: "time_bucket"
           },
           {
-            Title: "time_bucket_gapfill",
-            type: 'page',
+            title: "time_bucket_gapfill",
             href: "time_bucket_gapfill"
-          }                              
+          }
         ]
       },
       {
-        Title: "Informational Views",
+        title: "Informational Views",
         type: 'directory',
         href: "informational-views",
         children: [
           {
-            Title: "timescaledb_information-chunks",
-            type: 'page',
+            title: "timescaledb_information-chunks",
             href: "timescaledb_information-chunks"
           },
           {
-            Title: "timescaledb_information-continuous_aggregates",
-            type: 'page',
+            title: "timescaledb_information-continuous_aggregates",
             href: "timescaledb_information-continuous_aggregates"
           },
           {
-            Title: "timescaledb_information-compression_settings",
-            type: 'page',
+            title: "timescaledb_information-compression_settings",
             href: "timescaledb_information-compression_settings"
           },
           {
-            Title: "timescaledb_information-data_nodes",
-            type: 'page',
+            title: "timescaledb_information-data_nodes",
             href: "timescaledb_information-data_nodes"
           },
           {
-            Title: "timescaledb_information-dimensions",
-            type: 'page',
+            title: "timescaledb_information-dimensions",
             href: "timescaledb_information-dimensions"
           },
           {
-            Title: "timescaledb_information-hypertables",
-            type: 'page',
+            title: "timescaledb_information-hypertables",
             href: "timescaledb_information-hypertables"
           },
           {
-            Title: "timescaledb_information-jobs",
-            type: 'page',
+            title: "timescaledb_information-jobs",
             href: "timescaledb_information-jobs"
           },
           {
-            Title: "timescaledb_information-job_stats",
-            type: 'page',
+            title: "timescaledb_information-job_stats",
             href: "timescaledb_information-job_stats"
           },
           {
-            Title: "timescaledb_information-license",
-            type: 'page',
+            title: "timescaledb_information-license",
             href: "timescaledb_information-license"
           }
         ]
       },
       {
-        Title: "Administration Functions",
+        title: "Administration Functions",
         type: 'directory',
         href: "administration-functions",
         children: [
           {
-            Title: "timescaledb_pre_restore",
-            type: 'page',
+            title: "timescaledb_pre_restore",
             href: "timescaledb_pre_restore"
           },
           {
-            Title: "timescaledb_post_restore",
-            type: 'page',
+            title: "timescaledb_post_restore",
             href: "timescaledb_post_restore"
           },
           {
-            Title: "get_telemetry_report",
-            type: 'page',
+            title: "get_telemetry_report",
             href: "get_telemetry_report"
-          },           
+          },
           {
-            Title: "dump_meta_data",
-            type: 'page',
+            title: "dump_meta_data",
             href: "dump_meta_data"
-          }          
+          }
         ]
-      }             
+      }
 ],
   }
 ]

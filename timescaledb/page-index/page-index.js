@@ -2,456 +2,328 @@
 
 module.exports = [
   {
-    Title: "TimescaleDB",
-    type: 'page',
+    title: "TimescaleDB",
     filePath: 'index.md',
     href: "timescaledb",
     name: 'TimescaleDB',
     excerpt: 'blah blha blha',
     children: [
       {
-        Title: "Overview",
-        type: 'directory',
+        title: "Overview",
         href: "overview",
         children: [
           {
-            Title: "What is time-series data?",
-            type: 'page',
+            title: "What is time-series data?",
             href: "what-is-time-series-data"
           },
           {
-            Title: "Why use TimescaleDB?",
-            type: 'page',
+            title: "Why use TimescaleDB?",
             href: "why-timescaledb"
           },
           {
-            Title: "Core Concepts",
-            type: 'page',
             href: "core-concepts",
             children : [
               {
-                Title: "Single vs. Multi-node",
-                type: 'page',
+                title: "Single vs. Multi-node",
                 href: "single-vs-multinode"
               },
               {
-                Title: "Hypertables",
-                type: 'page',
                 href: "hypertables"
               },
               {
-                Title: "Chunks",
-                type: 'page',
                 href: "chunks"
               },
               {
-                Title: "Distributed Hypertables",
-                type: 'page',
                 href: "distributed-hypertables"
               },
               {
-                Title: "Compression",
-                type: 'page',
                 href: "compression"
               },
               {
-                Title: "Continuous Aggregates",
-                type: 'page',
                 href: "continuous-aggregates"
               },
               {
-                Title: "Data Retention",
-                type: 'page',
                 href: "data-retention"
               },
               {
-                Title: "User Defined Actions",
-                type: 'page',
                 href: "user-defined-actions"
               },
               {
-                Title: "Backup & Restore",
-                type: 'page',
+                title: "Backup & Restore",
                 href: "backup-restore"
               }
             ]
           },
           {
-            Title: "Deployment Options",
-            type: 'page',
             href: "deployment-options",
             children: [
               {
-                Title: "Self hosted (including containers)",
-                type: 'page',
+                title: "Self hosted (including containers)",
                 href: "self-hosted"
               },
               {
-                Title: "Timescale Forge",
-                type: 'page',
                 href: "timescale-forge"
               },
               {
-                Title: "Timescale Cloud",
-                type: 'page',
                 href: "timescale-cloud"
-              }              
+              }
             ]
           },
           {
-            Title: "Data model flexibility",
-            type: 'page',
+            title: "Data model flexibility",
             href: "data-model-flexibility",
             children: [
               {
-                Title: "Wide data model",
-                type: 'page',
                 href: "wide-data-model"
               },
               {
-                Title: "Narrow data model",
-                type: 'page',
                 href: "narrow-data-model"
               },
               {
-                Title: "Relational + Time-series",
-                type: 'page',
+                title: "Relational + Time-series",
                 href: "relational-timeseries"
               },
               {
-                Title: "Geospatial Compatible",
-                type: 'page',
+                title: "Geospatial Compatible",
                 href: "geospatial"
               }
             ]
           },
           {
-            Title: "How does it compare?",
-            type: 'page',
+            title: "How does it compare?",
             href: "how-does-it-compare",
             children: [
               {
-                Title: "PostgreSQL",
-                type: 'page',
+                title: "PostgreSQL",
                 href: "timescaledb-vs-postgres"
               },
               {
-                Title: "NoSQL",
-                type: 'page',
+                title: "NoSQL",
                 href: "timescaledb-vs-nosql"
               },
             ]
           },
           {
-            Title: "Release Notes",
-            type: 'page',
             href: "release-notes"
-          },          
+          },
           {
-            Title: "Limitations",
-            type: 'page',
             href: "limitations"
           },
           {
-            Title: "FAQ",
-            type: 'page',
+            title: "FAQ",
             href: "faq"
           }
         ]
       },
       {
-        Title: "Getting Started",
-        type: 'directory',
+        title: "Getting Started",
         href: "getting-started",
         children: [
           {
-            Title: "Launch your first instance",
-            type: 'page',
+            title: "Launch your first instance",
             href: "launch-timescaledb"
           },
           {
-            Title: "Access your database",
-            type: 'page',
+            title: "Access your database",
             href: "access-timescaledb"
           },
           {
-            Title: "Add time-series data",
-            type: 'page',
+            title: "Add time-series data",
             href: "add-data"
-          },          
+          },
           {
-            Title: "Create a Continuous Aggregate",
-            type: 'page',
+            title: "Create a Continuous Aggregate",
             href: "create-cagg"
-          },          
+          },
           {
-            Title: "Save space with Compression",
-            type: 'page',
+            title: "Save space with Compression",
             href: "compress-data"
           },
           {
-            Title: "Learn about Data Retention",
-            type: 'page',
+            title: "Learn about Data Retention",
             href: "learn-data-retention"
           },
           {
-            Title: "Analyze your data",
-            type: 'page',
             href: "analyze-your-data"
           },
           {
-            Title: "Visualize your data",
-            type: 'page',
             href: "visualize-your-data"
           },
           {
-            Title: "Migrate data to TimescaleDB",
-            type: 'page',
+            title: "Migrate data to TimescaleDB",
             href: "migrate-data"
-          },                                                   
+          },
           {
-            Title: "Connect with Code",
-            type: 'page',
             href: "connect-with-code"
           },
           {
-            Title: "Other sample datasets",
-            type: 'page',
+            title: "Other sample datasets",
             href: "sample-datasets"
           }
         ]
-      },      
+      },
       {
-        Title: "How-to Guides",
-        type: 'directory',
+        title: "How-to Guides",
         href: "how-to-guides",
         children: [
           {
-            Title: "Install TimescaleDB",
-            type: 'page',
+            title: "Install TimescaleDB",
             href: "install-timescaledb"
           },
           {
-            Title: "Hypertables",
-            type: 'page',
             href: "hypertables"
           },
           {
-            Title: "Distributed Hypertables",
-            type: 'page',
             href: "distributed-hypertables"
           },
           {
-            Title: "Write Data",
-            type: 'page',
             href: "write-data"
           },
           {
-            Title: "Query Data",
-            type: 'page',
             href: "query-data"
           },
           {
-            Title: "Multi-node Setup",
-            type: 'page',
+            title: "Multi-node Setup",
             href: "multi-node-setup"
-          },          
+          },
           {
-            Title: "Continuous Aggregates",
-            type: 'page',
             href: "continuous-aggregates"
-          },          
+          },
           {
-            Title: "Compression",
-            type: 'page',
             href: "compression"
-          },          
+          },
           {
-            Title: "User Defined Actions",
-            type: 'page',
             href: "user-defined-actions"
           },
           {
-            Title: "Data Retention",
-            type: 'page',
             href: "data-retention"
           },
           {
-            Title: "Data Reordering",
-            type: 'page',
             href: "data-reordering"
           },
           {
-            Title: "Replication and HA",
-            type: 'page',
+            title: "Replication and HA",
             href: "replication-and-ha"
           },
           {
-            Title: "Visualize Data",
-            type: 'page',
             href: "visualize-data"
           },
           {
-            Title: "Backup and Restore",
-            type: 'page',
             href: "backup-and-restore"
           },
           {
-            Title: "Schema Management",
-            type: 'page',
             href: "schema-management"
           },
           {
-            Title: "Migrate Existing Data",
-            type: 'page',
+            title: "Migrate Existing Data",
             href: "migrate-data"
           },
           {
-            Title: "Update TimescaleDB",
-            type: 'page',
             href: "update-timescaledb"
           },
           {
-            Title: "Ingest data from other sources",
-            type: 'page',
+            title: "Ingest data from other sources",
             href: "ingest-from-other-sources"
-          },          
+          },
         ]
       },
       {
-        Title: "Tutorials",
-        type: 'directory',
+        title: "Tutorials",
         href: "tutorials",
         children: [
           {
-            Title: "Introduction to time-series forecasting",
-            type: 'page',
+            title: "Introduction to time-series forecasting",
             href: "time-series-forecast"
           },
           {
-            Title: "Analyzing cryptocurrency data",
-            type: 'page',
+            title: "Analyzing cryptocurrency data",
             href: "analyzing-crypto-data"
           },
           {
-            Title: "Create SQL Notebooks for time-series",
-            type: 'page',
+            title: "Create SQL Notebooks for time-series",
             href: "create-sql-notebooks"
-          }, 
+          },
           {
-            Title: "Grafana",
-            type: 'page',
+            title: "Grafana",
             href: "grafana",
             childern: [
               {
-                Title: "Installation",
-                type: 'page',
                 href: "installation"
               },
               {
-                Title: "Create a dashboard and panel",
-                type: 'page',
+                title: "Create a dashboard and panel",
                 href: "create-dashboard-and-panel"
               },
               {
-                Title: "Build Geospatial dashboards",
-                type: 'page',
+                title: "Build Geospatial dashboards",
                 href: "geospatial-dashboards"
               },
               {
-                Title: "Use Grafana variables",
-                type: 'page',
+                title: "Use Grafana variables",
                 href: "grafana-variables"
               },
               {
-                Title: "Visualize missing data",
-                type: 'page',
+                title: "Visualize missing data",
                 href: "visualize-missing-data"
               },
               {
-                Title: "Setup alerts",
-                type: 'page',
+                title: "Setup alerts",
                 href: "setup-alerts"
               }
             ]
-          },     
+          },
           {
-            Title: "Visualize data in Tableau",
-            type: 'page',
+            title: "Visualize data in Tableau",
             href: "visualize-with-tableu"
           },
           {
-            Title: "Visualize with Power BI",
-            type: 'page',
+            title: "Visualize with Power BI",
             href: "visualize-with-power-bi"
-          }          
+          }
         ]
       },
       {
-        Title: "Administration",
-        type: 'directory',
         href: "administration",
         children: [
           {
-            Title: "Configuration",
-            type: 'page',
             href: "configuration"
           },
           {
-            Title: "Single node",
-            type: 'page',
             href: "single-node"
           },
           {
-            Title: "Multi-node",
-            type: 'page',
+            title: "Multi-node",
             href: "multi-node"
           },
           {
-            Title: "Primary/Replica Setup",
-            type: 'page',
+            title: "Primary/Replica Setup",
             href: "primary-replica-setup"
           },
           {
-            Title: "Telemetry",
-            type: 'page',
             href: "telemetry"
-          }                              
+          }
         ]
       },
       {
-        Title: "Integrations",
-        type: 'directory',
         href: "integrations",
         children: [
           {
-            Title: "Psql",
-            type: 'page',
             href: "psql"
           },
           {
-            Title: "Prometheus",
-            type: 'page',
             href: "prometheus"
           },
           {
-            Title: "Kafka",
-            type: 'page',
             href: "kafka"
           },
           {
-            Title: "Telegraf",
-            type: 'page',
             href: "telegraf"
           },
           {
-            Title: "Tableau",
-            type: 'page',
             href: "tebleau"
           },
           {
-            Title: "Power BI",
-            type: 'page',
+            title: "Power BI",
             href: "power-bi"
           }
         ]
