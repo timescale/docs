@@ -321,7 +321,7 @@ module.exports = [
       {
         Title: "Tutorials",
         type: 'directory',
-        href: "Tutorials",
+        href: "tutorials",
         children: [
           {
             Title: "Introduction to time-series forecasting",

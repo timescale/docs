@@ -1,1 +1,0 @@
-This will be an explanation of single vs multi-node setups
