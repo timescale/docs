@@ -1,5 +1,3 @@
-
-
 module.exports = [
   {
     title: "TimescaleDB",
@@ -21,6 +19,7 @@ module.exports = [
             href: "why-timescaledb"
           },
           {
+            title: "Core Concepts",
             href: "core-concepts",
             children : [
               {
@@ -55,19 +54,7 @@ module.exports = [
             ]
           },
           {
-            href: "deployment-options",
-            children: [
-              {
-                title: "Self hosted (including containers)",
-                href: "self-hosted"
-              },
-              {
-                href: "timescale-forge"
-              },
-              {
-                href: "timescale-cloud"
-              }
-            ]
+            href: "deployment-options"
           },
           {
             title: "Data model flexibility",
@@ -121,11 +108,175 @@ module.exports = [
         children: [
           {
             title: "Launch your first instance",
-            href: "launch-timescaledb"
+            href: "launch-timescaledb",
+            type: 'page',
+            children: [
+              {
+                href: "fully-managed-timescaledb",
+                type: 'directory',
+                children: [
+                  {
+                    href: "timescale-forge"
+                  },
+                  {
+                    href: "timescale-cloud"
+                  }
+                ]
+              },
+              {
+                title: "Self hosted (including containers)",
+                href: "self-hosted",
+                type: 'react-page',
+                options: { pg_version: ["12", "11"] },
+                component: "InstallationPage",
+                showNewsletterForm: true,
+                children: [
+                 {
+                    Title: "Docker",
+                    type: 'directory',
+                    href: "docker",
+                    src: "//assets.iobeam.com/images/docs/moby.png",
+                    children: [
+                      {
+                        Title: "Docker",
+                        type: 'non-menu-page',
+                        href: "installation-docker",
+                      },
+                    ],
+                  },
+                  {
+                    Title: "Ubuntu",
+                    type: 'directory',
+                    href: "ubuntu",
+                    src: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
+                    children: [
+                      {
+                        Title: "apt",
+                        type: 'non-menu-page',
+                        href: "installation-apt-ubuntu",
+                      },
+                      {
+                        Title: "Source",
+                        type: 'non-menu-page',
+                        href: "installation-source",
+                      },
+                    ],
+                  },
+                  {
+                    Title: "Debian",
+                    type: 'directory',
+                    href: "debian",
+                    src: "//assets.iobeam.com/images/docs/Debian_logo.svg",
+                    children: [
+                      {
+                        Title: "apt",
+                        type: 'non-menu-page',
+                        href: "installation-apt-debian",
+                      },
+                      {
+                        Title: "Source",
+                        type: 'non-menu-page',
+                        href: "installation-source",
+                      },
+                    ],
+                  },
+                  {
+                    Title: "RHEL/CentOS",
+                    type: 'directory',
+                    href: "rhel-centos",
+                    src: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
+                    children: [
+                      {
+                        Title: "yum/dnf",
+                        type: 'non-menu-page',
+                        href: "installation-yum",
+                      },
+                      {
+                        Title: "Source",
+                        type: 'non-menu-page',
+                        href: "installation-source",
+                      },
+                    ],
+                  },
+                  {
+                    Title: "Windows",
+                    type: 'directory',
+                    href: "windows",
+                    src: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+                    children: [
+                      {
+                        Title: "Installer (.zip)",
+                        type: 'non-menu-page',
+                        href: "installation-windows",
+                      },
+                      {
+                        Title: "Source",
+                        type: 'non-menu-page',
+                        href: "installation-source-windows",
+                      },
+                    ],
+                  },
+                  {
+                    Title: "AMI",
+                    type: 'directory',
+                    href: "ami",
+                    src: "//assets.iobeam.com/images/docs/aws_logo.svg",
+                    children: [
+                      {
+                        Title: "Amazon AMI (Ubuntu)",
+                        type: 'non-menu-page',
+                        href: "installation-ubuntu-ami",
+                      },
+                    ],
+                  },
+                  {
+                    Title: "MacOS",
+                    type: 'directory',
+                    href: "macos",
+                    src: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
+                    children: [
+                      {
+                        Title: "Homebrew",
+                        type: 'non-menu-page',
+                        href: "installation-homebrew",
+                      },
+                      {
+                        Title: "Source",
+                        type: 'non-menu-page',
+                        href: "installation-source",
+                      },
+                    ],
+                  }
+                ],
+              }
+            ]
           },
           {
             title: "Access your database",
-            href: "access-timescaledb"
+            href: "access-timescaledb",
+            children: [
+              {
+                href: "install-psql"
+              },
+              {
+                title: "Connect with IDEs",
+                href: "connect-with-ide",
+                type: 'directory',
+                children: [
+                  {
+                    title: "pgAdmin",
+                    href: "pgadmin"
+                  },
+                  {
+                    title: "DBeaver",
+                    href: "dbeaver"
+                  },
+                  {
+                    href: "azure-data-studio"
+                  }
+                ]
+              }
+            ]
           },
           {
             title: "Add time-series data",
@@ -180,7 +331,16 @@ module.exports = [
             href: "write-data"
           },
           {
-            href: "query-data"
+            href: "query-data",
+            children: [
+              {
+                title: "SELECT",
+                href: "select"   
+              },
+              {
+                href: "advanced-analytic-queries"
+              }
+            ]
           },
           {
             title: "Multi-node Setup",
