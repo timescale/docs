@@ -27,20 +27,26 @@ table, or use
 create a [distributed hypertable][using-distributed-hypertables] that
 scales out across multiple data nodes.
 
->:TIP: If you need to *migrate* data from an existing table to a hypertable, make
-sure to set the `migrate_data` argument to `true` when calling the function.
-If you would like finer control over index formation and other aspects
-of your hypertable, [follow these migration instructions instead][migrate-from-postgresql].
+<highlight>
+    If you need to *migrate* data from an existing table to a hypertable, make
+    sure to set the `migrate_data` argument to `true` when calling the function.
+    If you would like finer control over index formation and other aspects
+    of your hypertable, [follow these migration instructions instead][migrate-from-postgresql].
+</highlight>
 
 <!-- -->
->:WARNING: The use of the `migrate_data` argument to convert a non-empty table can
-lock the table for a significant amount of time, depending on how much data is
-in the table.
+<highlight type="warning">
+    The use of the `migrate_data` argument to convert a non-empty table can
+    lock the table for a significant amount of time, depending on how much data is
+    in the table.
+</highlight>
 
->:TIP: The 'time' column used in the `create_hypertable` function supports
-timestamp, date, or integer types, so you can use a parameter that is not
-explicitly time-based, as long as it can increment.  For example, a
-monotonically increasing id would work.
+<highlight>
+    The 'time' column used in the `create_hypertable` function supports
+    timestamp, date, or integer types, so you can use a parameter that is not
+    explicitly time-based, as long as it can increment.  For example, a
+    monotonically increasing id would work.
+</highlight>
 
 ---
 
@@ -56,10 +62,12 @@ ALTER TABLE conditions
 TimescaleDB will then automatically propagate these schema changes to
 the chunks that constitute this hypertable.
 
->:WARNING: Altering a table's schema is quite efficient provided that the default
- value for any additional column is set to NULL.  If the default is set to a
- non-null value, TimescaleDB will need to fill in this value for all rows
- (of all chunks) belonging to this hypertable.
+<highlight type="warning">
+    Altering a table's schema is quite efficient provided that the default
+    value for any additional column is set to NULL.  If the default is set to a
+    non-null value, TimescaleDB will need to fill in this value for all rows
+    (of all chunks) belonging to this hypertable.
+</highlight>
 
 ---
 
@@ -106,7 +114,9 @@ metrics       |    604800000000
 (1 row)
 ```
 
->:TIP: Make sure that you are planning for single chunks from _all_ active hypertables fit into 25% of main memory, rather than 25% per hypertable.
+<highlight>
+Make sure that you are planning for single chunks from _all_ active hypertables fit into 25% of main memory, rather than 25% per hypertable.
+</highlight>
 
 To determine this, you need to have a general idea of your data rate.  If
 you are writing roughly 2GB of data per day and have 64GB of memory,
@@ -120,11 +130,13 @@ While it's generally safer to make chunks smaller rather than too
 large, setting intervals too small can lead to *many* chunks, which
 corresponds to increased planning latency for some types of queries.
 
->:TIP: One caveat is that the total chunk size is actually dependent on
+<highlight>
+One caveat is that the total chunk size is actually dependent on
 both the underlying data size *and* any indexes, so some care might be
 taken if you make heavy use of expensive index types (e.g., some
 PostGIS geospatial indexes).  During testing, you might check your
 total chunk sizes via the [`chunk_relation_size`][chunk_relation_size] function.
+</highlight>
 
 **Space partitions**: [](best-practices-space-partitions)
 Space partitioning is optional but can make
@@ -138,13 +150,15 @@ more buckets could map to the same node). In non-distributed
 hypertables, each bucket can map to a distinct disk (using, e.g., a
 tablespace).
 
->:TIP: TimescaleDB does *not* benefit from a very large number of
-space partitions (such as the number of unique items you expect in
-partition field).  A very large number of such partitions leads both
-to poorer per-partition load balancing (the mapping of items to
-partitions using hashing), as well as increased planning latency
-for some types of queries. We recommend tying the number of space
-partitions to the number of disks and/or data nodes.
+<highlight>
+    TimescaleDB does *not* benefit from a very large number of
+    space partitions (such as the number of unique items you expect in
+    partition field).  A very large number of such partitions leads both
+    to poorer per-partition load balancing (the mapping of items to
+    partitions using hashing), as well as increased planning latency
+    for some types of queries. We recommend tying the number of space
+    partitions to the number of disks and/or data nodes.
+</highlight>
 
 Spreading chunks along disks and nodes in the space dimension allows
 for increased I/O parallelization, either by (a) having multiple
