@@ -37,8 +37,10 @@ In the resulting screen, you'll see several options that enable you to choose:
 - **Cloud region**. We support most cloud regions offered by each cloud provider.
 - **Service plan**. We support many common configurations of CPU, memory, storage, backup, and nodes. *If you're still a Timescale Cloud trial user*, we recommend using the `Dev` plan as it will be most cost effective during your evaluation period.
 
->:TIP: During your Timescale Cloud trial, you have up to $300 USD in credits to use.
+<highlight type="tip">
+During your Timescale Cloud trial, you have up to $300 USD in credits to use.
 This will be sufficient to complete all our tutorials and run a few test projects.
+</highlight>
 
 If you're interested in learning more about pricing of Timescale Cloud, visit the
 [Timescale Cloud pricing calculator][timescale-pricing]. Or, [contact us][contact]
@@ -138,7 +140,9 @@ the port we will protect by managing inbound access.
 Scroll down to find the 'Allowed IP Addresses' section. By default, this value is set to
 `0.0.0.0/0` which is actually wide-open.
 
->:WARNING: This wide-open setting simplifies getting started since it will accept incoming traffic from all sources, but you will absolutely want to narrow this range.
+<highlight type="warning">
+ This wide-open setting simplifies getting started since it will accept incoming traffic from all sources, but you will absolutely want to narrow this range.
+</highlight>
 
 If you are curious about how to interpret this [Classless Inter-Domain Routing][cidr-wiki] (CIDR) syntax,
 check out [this great online tool][cidr-tool] to help decipher CIDR.

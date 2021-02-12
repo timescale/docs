@@ -41,9 +41,11 @@ We wrote the PostgreSQL output plugin which also has the ability to send data to
 batching, processing, and aggregating the data collected prior to inserting that data into TimescaleDB.
 
 <!-- -->
->:WARNING: The [pull request][pull-request] is open and currently under review by the Telegraf developers, waiting to be
+<highlight type="warning">
+ The [pull request][pull-request] is open and currently under review by the Telegraf developers, waiting to be
 merged. To give users the opportunity to try this functionality, we built [downloadable binaries][downloadable-binaries] of
 Telegraf with our plugin already included.
+</highlight>
 
 The PostgreSQL plugin extends the ease of use users get from leveraging Telegraf by handling schema generation and
 modification. This means that as metrics are collected by Telegraf, the plugin creates a table if it doesn’t exist and alters
@@ -67,13 +69,15 @@ consumed by one or more clients. Kafka Connect can be distributed to provide
 fault tolerance to ensure the connectors are running and continually keeping
 up with changes in the database.
 
->:TIP: The PostgreSQL connector can also be used as a library without Kafka or
+<highlight type="tip">
+The PostgreSQL connector can also be used as a library without Kafka or
 Kafka Connect, enabling applications and services to directly connect to
 TimescaleDB and obtain the ordered change events. This approach requires the
 application to record the progress of the connector so that upon restart,
 the connect can continue where it left off. This approach may be useful for
 less critical use cases. However, for production use cases, it’s recommended
 that you use this connector with Kafka and Kafka Connect.
+</highlight>
 
 To start using the PostgreSQL connector, visit the [GitHub page][github-debezium].
 If you are interested in an alternative method to ingest data from Kafka to

@@ -39,10 +39,13 @@ storage (although compression rates can vary based on your data).
 configuration options best suited for your use case.
 1. Click 'Create service' once your configuration is complete.
 
->:TIP:Don't worry if too much about the size settings that you choose initially. With Timescale Forge,
-it's easy to modify both the compute (CPU/Memory) and storage associated with the service
-that you just created. As you get to know TimescaleDB and how your data processing needs vary,
-it's easy to [right-size your service with a few clicks](#forge-resize)!
+<highlight type="tip">
+Don't worry if too much about the size settings that you choose initially. With
+Timescale Forge, it's easy to modify both the compute (CPU/Memory) and storage 
+associated with the service that you just created. As you get to know 
+TimescaleDB and how your data processing needs vary, it's easy to 
+[right-size your service with a few clicks](#forge-resize)!
+</highlight>
 
 After you select 'Create service', you will see confirmation of your service account and
 password information. You should save the information in this confirmation screen in 
@@ -50,7 +53,9 @@ a safe place:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-confirmation.png" alt="View Timescale Forge service information"/>
 
->:WARNING: If you forget your password in the future, you can reset your password from the *service dashboard*.
+<highlight type="warning">
+ If you forget your password in the future, you can reset your password from the *service dashboard*.
+</highlight>
 
 It will take a couple minutes for your service to be provisioned. When your database is 
 ready for connection, you should see a green `Running` label above the service in the

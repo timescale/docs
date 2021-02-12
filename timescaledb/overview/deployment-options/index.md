@@ -1,6 +1,6 @@
 # Deploying TimescaleDB
 
-TimescaleDB can quickly deployed and ready to use with one of our
+TimescaleDB can quickly be deployed and ready to use with one of our
 fully managed hosting options. There are also multiple options for
 deploying TimescaleDB in your own environment, including Docker images
 and K8 Helm charts.

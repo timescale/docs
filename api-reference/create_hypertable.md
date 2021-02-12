@@ -40,29 +40,13 @@ still work on the resulting hypertable.
 | `created` | TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created. |
 
 <highlight type="tip">
- If you use `SELECT * FROM create_hypertable(...)` you will get the return value formatted
-as a table with column headings.
+ If you use `SELECT * FROM create_hypertable(...)` you will get the return value formatted as a table with column headings.
 </highlight>
 
 <highlight type="warning">
 The use of the `migrate_data` argument to convert a non-empty table can
 lock the table for a significant amount of time, depending on how much data is
-in the table. It can also run into deadlock if foreign key constraints exist to other
-tables.
-
-If you would like finer control over index formation and other aspects
-of your hypertable, [follow these migration instructions instead][migrate-from-postgresql].
-
-When converting a normal SQL table to a hypertable, pay attention
-to how you handle constraints. A hypertable can contain foreign keys to normal SQL table
-columns, but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the
-partitioning key.
-
-The deadlock is likely to happen when concurrent transactions simultaneously try
-to insert data into tables that are referenced in the foreign key constraints and into the
-converting table itself. The deadlock can be prevented by manually obtaining `SHARE ROW EXCLUSIVE` lock
-on the referenced tables before calling `create_hypertable` in the same transaction,
-see [PostgreSQL documentation][postgres-lock] for the syntax.
+in the table. It can also run into deadlock if foreign key constraints exist to other tables. //If you would like finer control over index formation and other aspects of your hypertable, [follow these migration instructions instead][migrate-from-postgresql]. //When converting a normal SQL table to a hypertable, pay attention to how you handle constraints. A hypertable can contain foreign keys to normal SQL table columns, but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the partitioning key. //The deadlock is likely to happen when concurrent transactions simultaneously try to insert data into tables that are referenced in the foreign key constraints and into the converting table itself. The deadlock can be prevented by manually obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling `create_hypertable` in the same transaction, see [PostgreSQL documentation][postgres-lock] for the syntax.
 </highlight>
 
 #### Units 

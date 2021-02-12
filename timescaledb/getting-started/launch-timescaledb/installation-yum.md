@@ -11,11 +11,13 @@ This will install both TimescaleDB *and* PostgreSQL via `yum`
 
 #### Build & Install
 
->:WARNING: If you have another PostgreSQL installation not
+<highlight type="warning">
+ If you have another PostgreSQL installation not
 via `yum`, this will likely cause problems.
 If you wish to maintain your current version of PostgreSQL outside of `yum`,
 we recommend installing from source.  Otherwise please be
 sure to remove non-`yum` installations before using this method.
+</highlight>
 
 You'll need to [download the correct PGDG from PostgreSQL][pgdg] for
 your operating system and architecture and install it:

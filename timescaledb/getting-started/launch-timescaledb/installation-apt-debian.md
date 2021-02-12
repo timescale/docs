@@ -10,11 +10,13 @@ This will install TimescaleDB via `apt` on Debian distros.
 
 #### Build & Install
 
->:WARNING: If you have another PostgreSQL installation not via `apt`,
+<highlight type="warning">
+ If you have another PostgreSQL installation not via `apt`,
 this will likely cause problems.
 If you wish to maintain your current version of PostgreSQL outside
 of `apt`, we recommend installing from source.  Otherwise, please be
 sure to remove non-`apt` installations before using this method.
+</highlight>
 
 **If you don't already have PostgreSQL installed**, add PostgreSQL's third
 party repository to get the latest PostgreSQL packages:

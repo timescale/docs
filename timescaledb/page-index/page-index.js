@@ -1,7 +1,6 @@
 module.exports = [
   {
     title: "TimescaleDB",
-    filePath: 'index.md',
     href: "timescaledb",
     name: 'TimescaleDB',
     excerpt: 'blah blha blha',
@@ -54,7 +53,13 @@ module.exports = [
             ]
           },
           {
-            href: "deployment-options"
+            title: "Deployment Options",
+            href: "deployment-options",
+            children: [
+              {
+                href: "self-hosted"
+              }
+            ]
           },
           {
             title: "Data model flexibility",
@@ -322,13 +327,46 @@ module.exports = [
             href: "install-timescaledb"
           },
           {
-            href: "hypertables"
+            href: "hypertables",
+            children: [
+              {
+                href: "create-a-hypertable"
+              },
+              {
+                href: "alter-hypertable-settings"
+              },
+              {
+                href: "determine-optimal-settings"
+              }
+            ]
           },
           {
             href: "distributed-hypertables"
           },
           {
-            href: "write-data"
+            href: "write-data",
+            children: [
+              {
+                title: "INSERT",
+                href: "insert"
+              },
+              {
+                title: "UPDATE",
+                href: "update"
+              },              
+              {
+                title: "UPSERT",
+                href: "upsert"
+              },              
+              {
+                title: "DELETE",
+                href: "delete"
+              },
+              {
+                href: "batching-for-better-performance"
+              }              
+
+            ]
           },
           {
             href: "query-data",
@@ -397,7 +435,7 @@ module.exports = [
           },
           {
             title: "Analyzing cryptocurrency data",
-            href: "analyzing-crypto-data"
+            href: "analyze-cryptocurrency-data"
           },
           {
             title: "Create SQL Notebooks for time-series",
@@ -406,7 +444,7 @@ module.exports = [
           {
             title: "Grafana",
             href: "grafana",
-            childern: [
+            children: [
               {
                 href: "installation"
               },

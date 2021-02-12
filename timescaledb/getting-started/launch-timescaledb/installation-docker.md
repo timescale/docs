@@ -8,7 +8,8 @@ Start a TimescaleDB instance, pulling our Docker image from [Docker Hub][] if it
 docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:x.y.z-pg:pg_version:
 ```
 
->:WARNING: The -p flag binds the container port to the host port, meaning
+<highlight type="warning">
+ The -p flag binds the container port to the host port, meaning
 anything that can access the host port will be able to access your TimescaleDB
 container. This can be particularly dangerous if you do not set a PostgreSQL
 password at runtime using the `POSTGRES_PASSWORD` environment variable as we
@@ -17,8 +18,8 @@ disable password checks for all database users. If you want to access the
 container from the host but avoid exposing it to the outside world, you can
 explicitly have it bind to 127.0.0.1 instead of the public interface by using
 `-p 127.0.0.1:5432:5432`.
->
->Otherwise, you'll want to ensure that your host box is adequately locked down
+--
+Otherwise, you'll want to ensure that your host box is adequately locked down
 through security groups, IP Tables, or whatever you're using for access
 control. Note also that Docker binds the container by modifying your Linux IP
 Tables. For systems that use Linux UFW (Uncomplicated Firewall) for security
@@ -28,6 +29,7 @@ network security, consider adding `DOCKER_OPTS="--iptables=false"` to
 `/etc/default/docker` to prevent Docker from overwriting IP Tables.
 See [this writeup on the vulnerability][docker-vulnerability]
 for more details.
+</highlight>
 
 If you have PostgreSQL client tools (e.g., `psql`) installed locally,
 you can use those to access the TimescaleDB docker instance.  Otherwise,
@@ -68,10 +70,12 @@ until explicitly removed. Use `docker volume ls` to list the existing
 docker volumes.
 ([More information on data volumes][docker-data-volumes])
 
->:TIP: Our standard binary releases are licensed under the Timescale License,
+<highlight type="tip">
+ Our standard binary releases are licensed under the Timescale License,
 which allows to use all our capabilities.
 If you want to use a version that contains _only_ Apache 2.0 licensed
 code, you should pull the tag `x.y.z-pg:pg_version:-oss`.
+</highlight>
 
 ## Prebuilt with PostGIS [](postgis-docker)
 

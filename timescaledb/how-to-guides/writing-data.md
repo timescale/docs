@@ -28,11 +28,13 @@ INSERT INTO conditions
     (NOW(), 'garage', 77.0, 65.2);
 ```
 
->:TIP: The rows that belong to a single batch INSERT command do **not** need
+<highlight type="tip">
+The rows that belong to a single batch INSERT command do **not** need
 to belong to the same chunk (by time interval or partitioning key).
 Upon receiving an `INSERT` command for multiple rows, the TimescaleDB
 engine will determine which rows (sub-batches) belong to which chunks,
 and will write them accordingly to each chunk in a single transaction.
+</highlight>
 
 You can also specify that `INSERT` returns some or all of the inserted
 data via the `RETURNING` statement:
@@ -66,12 +68,13 @@ UPDATE conditions SET temperature = temperature + 0.1
   WHERE time >= '2017-07-28 11:40' AND time < '2017-07-28 11:50';
 ```
 
->:WARNING: TimescaleDB achieves much higher insert performance compared to
+<highlight type="warning">
+ TimescaleDB achieves much higher insert performance compared to
  vanilla PostgreSQL when inserts are localized to the most recent time
  interval (or two).  If your workload is heavily based on `UPDATE`s to old
  time intervals instead, you may observe significantly lower write
  throughput.
-
+</highlight>
 ---
 
 ## UPSERT Functionality [](upsert)
@@ -148,24 +151,26 @@ INSERT INTO conditions
         humidity = excluded.humidity;
 ```
 
->:TIP: Unique constraints must include all partitioning keys.
+<highlight type="tip">
+ Unique constraints must include all partitioning keys.
  For example, if the table just uses time partitioning,
  the system requires `time` as part of the
  constraint: `UNIQUE(time)`, `UNIQUE(time, location)`, `UNIQUE(location, time)`, etc.
  On the other hand, `UNIQUE(location)` is *not* a valid constraint.
->
->If the schema were to have an additional column like `device` that is used
+ --
+ If the schema were to have an additional column like `device` that is used
  as an additional partition dimension, then the constraint would have
  to be `UNIQUE(time, device)` or `UNIQUE(time, device, location)`. In
  such scenarios then, `UNIQUE(time, location)` would *no longer* be
  a valid constraint.
+</highlight>
 
-<!-- -->
->:WARNING: TimescaleDB does not yet support using `ON CONFLICT ON CONSTRAINT` with
+<highlight type="warning">
+ TimescaleDB does not yet support using `ON CONFLICT ON CONSTRAINT` with
  a named key (e.g., `conditions_time_location_idx`), but much of this
  functionality can be captured by specifying the same columns as above with
  a unique index/constraint. This limitation will be removed in a future version.
-
+</highlight>
 
 ---
 
@@ -185,13 +190,14 @@ After running a large `DELETE` operation, users are recommended to
 `VACUUM` or `VACUUM FULL` the hypertable to reclaim storage occupied
 by deleted or obsoleted rows ([PostgreSQL docs][postgres-vacuum]).
 
->:TIP: For deleting old data, such as in the second example
+<highlight type="tip">
+ For deleting old data, such as in the second example
  above, we recommend using the TimescaleDB function
  [`drop_chunks`][drop_chunks] instead.  This feature is much more
  performant: it deletes entire *chunks* of data (basically, removing
  files), rather than at the individual row level (necessitating
  vacuuming). See the section on [data retention][].
-
+</highlight>
 
 [postgres-insert]: https://www.postgresql.org/docs/current/static/sql-insert.html
 [postgres-update]: https://www.postgresql.org/docs/current/static/sql-update.html

@@ -10,11 +10,13 @@ This will install both TimescaleDB *and* PostgreSQL via Homebrew.
 
 #### Build & Install
 
->:WARNING: If you have another PostgreSQL installation
+<highlight type="warning">
+ If you have another PostgreSQL installation
 (such as through Postgres.app), the following instructions will
 cause problems. If you wish to maintain your current version of PostgreSQL
 outside of Homebrew we recommend installing from source.  Otherwise please be
 sure to remove non-Homebrew installations before using this method.
+</highlight>
 
 ```bash
 # Add our tap
@@ -53,10 +55,12 @@ brew services restart postgresql
 createuser postgres -s
 ```
 
->:TIP: Our standard binary releases are licensed under the Timescale License,
+<highlight type="tip">
+Our standard binary releases are licensed under the Timescale License,
 which allows to use all our capabilities.
 If you want to use a version that contains _only_ Apache 2.0 licensed
 code, you should use `brew install timescaledb --with-oss-only`.
+</highlight>
 
 [config]: /getting-started/configuring
 [Homebrew]: https://brew.sh/

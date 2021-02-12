@@ -10,8 +10,10 @@
 - Make sure all relevant binaries are in your PATH: `pg_config` and `cmake`
 
 #### Build & Install with Local PostgreSQL
->:TIP: It is **highly recommended** that you checkout the latest
+<highlight type="tip">
+It is **highly recommended** that you checkout the latest
 tagged commit to build from (see the repo's [Releases][github-releases] page for that)
+</highlight>
 
 Clone the repository from [GitHub][github-timescale]:
 
@@ -27,7 +29,9 @@ care of the rest.
 
 If you are using an earlier version of Visual Studio:
 
->:WARNING: This install step has to be made as admin.
+<highlight type="warning">
+This install step has to be made as admin.
+</highlight>
 
 ```bash
 # Bootstrap the build system
@@ -60,7 +64,9 @@ Make sure to uncomment it when adding our library.
 ```bash
 shared_preload_libraries = 'timescaledb'
 ```
->:TIP: If you have other libraries you are preloading, they should be comma separated.
+<highlight type="tip">
+If you have other libraries you are preloading, they should be comma separated.
+</highlight>
 
 Then, restart the PostgreSQL instance.
 
@@ -69,11 +75,13 @@ Once the latest TimescaleDB 2.0 are installed, you can update the EXTENSION
 in your database as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 
 
->:TIP: Our standard binary releases are licensed under the Timescale License,
+<highlight type="tip">
+Our standard binary releases are licensed under the Timescale License,
 which allows to use all our capabilities.
 To build a version of this software that contains
 source code that is only licensed under Apache License 2.0, pass `-DAPACHE_ONLY=1`
 to `bootstrap`.
+</highlight>
 
 [CMake]: https://cmake.org/
 [github-releases]: https://github.com/timescale/timescaledb/releases

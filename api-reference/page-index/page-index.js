@@ -2,10 +2,10 @@
 
 module.exports = [
   {
-    title: "Api Reference",
+    title: "API Reference",
     filePath: 'index.md',
     href: "api-reference",
-    name: 'Api Reference',
+    name: 'API Reference',
     excerpt: 'blah blha blha',
     children: [
       {

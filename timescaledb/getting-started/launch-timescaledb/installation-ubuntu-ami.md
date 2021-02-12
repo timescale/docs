@@ -34,16 +34,19 @@ Depending on your user/permission needs, you will also need to set up a postgres
 database by following these [postgres instructions][]. Another possibility is using the operating
 system's `ubuntu` user and modifying the [pg_hba][].
 
->:WARNING: AMIs do not know what instance type you are using beforehand. Therefore
+<highlight type="warning">
+ AMIs do not know what instance type you are using beforehand. Therefore
 the PostgreSQL configuration (postgresql.conf) that comes with our AMI uses the default
 settings, which are not optimal for most systems. Our AMI is packaged with `timescaledb-tune`,
 which you can use to tune postgresql.conf based on the underlying system resources of your instance.
 See our [configuration][] section for details.
+</highlight>
 
->:TIP: These AMIs are made for EBS attached volumes. This allows for snapshots, protection of
+<highlight type="tip">
+These AMIs are made for EBS attached volumes. This allows for snapshots, protection of
 data if the EC2 instance goes down, and dynamic IOPS configuration. You should choose an
-EC2 instance type that is optimized for EBS attached volumes. For information on choosing the right
-EBS optimized EC2 instance type, see the AWS [instance configuration page][].
+EC2 instance type that is optimized for EBS attached volumes. For information on choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page][].
+</highlight>
 
 [setup]: /getting-started/setup
 [postgres instructions]: https://www.postgresql.org/docs/current/sql-createrole.html
