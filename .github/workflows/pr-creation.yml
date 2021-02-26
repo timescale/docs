@@ -1,0 +1,18 @@
+name: Write deploy comment
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  trigger:
+    name: Write comment with docs url
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write comment
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: $(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          body: |
+            Test comment
