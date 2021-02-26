@@ -1,0 +1,25 @@
+name: Deploy docs to dev
+
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
+
+jobs:
+  trigger:
+    name: Docs dev deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set variables
+        run: |
+          echo "::set-output name=BRANCH_NAME::$(echo ${GITHUB_REF:11} | sed 's|/|-|')"
+        id: timescale
+
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: timescale/web-documentation
+          event-type: build-docs-content
+          client-payload: '{"branch": "${{ steps.timescale.outputs.BRANCH_NAME }}"}'
