@@ -1,6 +1,6 @@
 ## Windows ZIP Installer [](installation-windows)
 
-**Note: TimescaleDB requires PostgreSQL 11 or 12.**
+**Note: TimescaleDB requires PostgreSQL 11, 12 or 13.**
 
 #### Prerequisites
 

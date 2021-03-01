@@ -2,9 +2,10 @@
 
 TimescaleDB offers three key benefits over vanilla PostgreSQL or other
 traditional RDBMSs for storing time-series data:
-1. Much higher data ingest rates, especially at larger database sizes.
-2. Query performance ranging from equivalent to _orders of magnitude greater_.
-3. Time-oriented features.
+
+ * Much higher data ingest rates, especially at larger database sizes.
+ * Query performance ranging from equivalent to _orders of magnitude greater_.
+ * Time-oriented features.
 
 And because TimescaleDB still allows you to use the full range of
 PostgreSQL features and tools &mdash; e.g., JOINs with relational tables,

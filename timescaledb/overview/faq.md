@@ -110,7 +110,7 @@ Montréal, Sydney, Taiwan, Mumbai, Hong Kong, Tokyo, Singapore
 **Timescale** is the company. Timescale builds a category-defining time-series database called **TimescaleDB**. 
 Timescale hosts and manages TimescaleDB on behalf of its customers via a product called **Timescale Cloud**. [[Top]](#top)
 
-### **Do you really support “all of SQL”?** [](sql-support)
+### **Do you really support "all of SQL"?** [](sql-support)
 Yes, all of SQL, including: secondary indexes, JOINs, window functions. In fact,
 to the outside world, TimescaleDB looks like a PostgreSQL database: You connect
 to the database as if it's PostgreSQL, and you can administer the database as if
@@ -184,7 +184,7 @@ two-dimensional "chunks" (i.e., smaller PostgreSQL tables), performing
 operations and optimizing query planning across all chunks. This partitioning of the
 data into chunks ensures that recent tables' indexes are kept in memory as data is inserted
 into the database. Yet all this complexity is abstracted away from the user and
-they are exposed to a single table interface (a “hypertable”) that functions exactly as
+they are exposed to a single table interface (a "hypertable") that functions exactly as
 a normal table in PostgreSQL does. For more information, see this blog post:
 [Time-series data: Why (and how) to use a relational database instead of NoSQL][rdbms > nosql].
 [[Top]](#top)

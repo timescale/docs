@@ -14,22 +14,33 @@ module.exports = [
             href: "what-is-time-series-data"
           },
           {
-            title: "Why use TimescaleDB?",
-            href: "why-timescaledb"
-          },
-          {
             title: "Core Concepts",
             href: "core-concepts",
             children : [
               {
-                title: "Single vs. Multi-node",
-                href: "single-vs-multinode"
+                title: "Hypertables & Chunks",
+                href: "hypertables-and-chunks"
               },
               {
-                href: "hypertables"
-              },
-              {
-                href: "chunks"
+                title: "Scaling",
+                href: "scaling",
+                children: [
+                  {
+                    title: "Single Node",
+                    href: "#single-node",
+                    type: 'anchor'
+                  },
+                  {
+                    title: "Primary/Replication",
+                    href: "#primary-replication",
+                    type: 'anchor'
+                  },
+                  {
+                    title: "Multi-node",
+                    href: "#multi-node",
+                    type: 'anchor'
+                  }
+                ]
               },
               {
                 href: "distributed-hypertables"
@@ -58,6 +69,12 @@ module.exports = [
             children: [
               {
                 href: "self-hosted"
+              },
+              {
+                href: "timescale-forge"
+              },
+              {
+                href: "timescale-cloud"
               }
             ]
           },

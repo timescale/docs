@@ -1,3 +1,22 @@
+# Hypertables
+
+From a user's perspective, TimescaleDB exposes what look like singular tables,
+called **hypertables**. A hypertable is your primarily point of interaction
+with you data, as it provides the standard table abstraction that you can query
+via standard SQL.  Creating a hypertable in TimescaleDB takes two simple
+SQL commands: `CREATE TABLE` (with standard SQL syntax),
+followed by `SELECT create_hypertable()`.
+
+Virtually all user interactions with TimescaleDB are with hypertables.
+Inserting, updating, or deleting data, querying data via SELECTs, altering
+tables, adding new columns or indexes, JOINs with other tables or hypertables,
+and so forth can (and should) all be executed on the hypertable.
+
+However, hypertables are actually an abstraction or virtual view of
+many individual tables that actually store the data, called **chunks**.
+
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg" alt="hypertable and chunks"/>
+
 ### Partitioning in Hypertables with Chunks
 
 Chunks are created by partitioning a hypertable's data into one

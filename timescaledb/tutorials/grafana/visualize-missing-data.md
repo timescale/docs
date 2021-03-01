@@ -99,7 +99,7 @@ data points (flat line) during that time period.
 
 For interpolating the missing data, we use
 [`time_bucket_gapfill`][docs-timebucket-gapfill],
-combined with [`LOCF`][docs-LOCF] (“Last Observation Carried Forward”).
+combined with [`LOCF`][docs-LOCF] ("Last Observation Carried Forward").
 This takes the last reading before the missing data began and plots it
 (the last recorded value) at regular time intervals until new data is
 received:

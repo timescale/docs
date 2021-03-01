@@ -40,7 +40,7 @@ FROM generate_series(TIMESTAMP '2020-01-01 00:00:00',
 		     INTERVAL '10 min') AS time;
 ```
 
-You can then create a continuous aggregate view to compute the daily
+You can then create a continuous aggregate view to compute the hourly
 average, minimum, and maximum temperature:
 
 ```sql

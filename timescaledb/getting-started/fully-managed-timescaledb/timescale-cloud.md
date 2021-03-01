@@ -98,7 +98,7 @@ You should see something similar to the following output:
 | Name        | Version | Schema     | Description                                  |
 |-------------|---------|------------|----------------------------------------------|
 | plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language                 |
-| timescaledb | 1.6.0   | public     | Enables scalable inserts and complex queries |
+| timescaledb | 2.0.2   | public     | Enables scalable inserts and complex queries |
 ```
 
 ### Step 6: Hello, Timescale!

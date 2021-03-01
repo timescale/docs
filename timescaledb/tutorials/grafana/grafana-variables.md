@@ -46,7 +46,7 @@ In this case, we use the 'Query' type, where our variable will be defined as the
 of SQL query.
 
 Under the 'General' section, we’ll name our variable `payment_type` and give it a type of `Query`.
-Then, we’ll assign it the label of “Payment Type", which is how it will appear in a drop-down menu.
+Then, we’ll assign it the label of "Payment Type", which is how it will appear in a drop-down menu.
 
 We will select our data source and supply the query:
 

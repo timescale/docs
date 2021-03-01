@@ -13,13 +13,14 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 
 ### What to expect from our next release
 
-For our next release (2.1), we plan to add:
-- [Support for PostgreSQL 13](https://github.com/timescale/timescaledb/issues/2779): PG13 offers various improvements in performance and usability. We want to provide our users the latest and greatest versions of PG.
+For our next release, we plan to add:
+
 - Consistent distributed restore points for multi-node deployments, so our users can employ backup and restore across entire multi-node clusters, and ensure that restores can happen to a transactionally-consistent point-in-time.
-- The ability to add and rename columns to compressed hypertables, as a step towards advancing our support for compressed hypertables (and enable them to be more mutable).
+- Partially mutable compressed chunks to support INSERTs into a compressed hypertable.
+- Query performance improvements for distributed hypertables.
 - Various bug fixes.
 
-We are currently in the Generally Available (GA) version 2.0.
+We are currently in the Generally Available (GA) version 2.1.
 
 You can read more about our architecture and design for distributed hypertables
 [here](https://docs.timescale.com/v2.0/introduction/architecture#distributed-hypertables).
@@ -32,37 +33,129 @@ functionality works, and, as a result, made APIs simpler and more consistent,
 while also empowering users with more control and flexibility to customize
 behaviors to suit your needs.  Some of these API updates are **breaking changes**.
 
-What's new in TimescaleDB 2.0:
+What's new in TimescaleDB 2.1:
 
-- **Multi-node TimescaleDB**: Distribute hypertables across multiple nodes for
-  more scale and reliability.
-
-- **Continuous Aggregates 2.0**: Use an improved API to manually refresh data
-  or automatically set policies (more control over your data).
-
-- **User-defined Actions**: Define custom behaviors inside the database and
-  schedule them, using our job scheduling system.
-
-- **All remaining enterprise features now in Community Edition**: everything's
-  free and a more permissive Timescale License grants more rights to users.
-
-- **New and improved informational views**: Get more insight about hypertables,
-  chunks, policies, and job scheduling.
+- [Support for PostgreSQL 13.2](https://github.com/timescale/timescaledb/issues/2779):
+PG13.2 offers various improvements in functionality, administration, and security,
+among others. Also, as a result of our own @svenklemm upstream report of
+CVE-2021-20229 on PostgreSQL, we have waited for the release of PG13.2
+(released Feb 11, 2021) to provide the safest experience to our users.
+- Support for [ALTER/RENAME columns for compressed hypertables](https://github.com/timescale/timescaledb-private/issues/849), 
+which simplifies the user journey if a user wants to change the schema and
+they have already compressed their hypertables. 
 
 <highlight type="tip">
-TimescaleDB 2.0 is currently GA, we encourage
+TimescaleDB 2.1 is currently GA, we encourage
 users to upgrade in testing environments to gain experience and provide feedback on 
 new and updated features.
 --
-Especially because some API updates are **breaking changes**, we recommend reviewing the
-[Changes in TimescaleDB 2.0](https://docs.timescale.com/v2.0/release-notes/changes-in-timescaledb-2)
-for more information and links to installation instructions.
+Especially because some API updates from TimescaleDB 1.x to 2.0 are breaking changes, 
+we recommend reviewing the [Changes in TimescaleDB 2.0](https://docs.timescale.com/v2.0/release-notes/changes-in-timescaledb-2) for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
 </highlight>
-
 ## Release Notes
 
 In this section, we will cover historical information on
 past releases and how you can learn more.
+
+**Please note: When updating your database, you should connect using
+`psql` with the `-X` flag to prevent any `.psqlrc` commands from
+accidentally triggering the load of a previous DB version.**
+
+## Unreleased
+
+**Bugfixes**
+* #2974 Fix index creation for hypertables with dropped columns
+
+**Thanks**
+* @jocrau for reporting an issue with index creation
+
+## 2.1.0 (2021-02-22)
+
+This release adds major new features since the 2.0.2 release.
+We deem it moderate priority for upgrading.
+
+This release adds the long-awaited support for PostgreSQL 13 to TimescaleDB.
+The minimum required PostgreSQL 13 version is 13.2 due to a security vulnerability
+affecting TimescaleDB functionality present in earlier versions of PostgreSQL 13.
+
+This release also relaxes some restrictions for compressed hypertables;
+namely, TimescaleDB now supports adding columns to compressed hypertables
+and renaming columns of compressed hypertables.
+
+**Major Features**
+* #2779 Add support for PostgreSQL 13
+
+**Minor features**
+* #2736 Support adding columns to hypertables with compression enabled
+* #2909 Support renaming columns of hypertables with compression enabled
+
+## 2.0.2 (2021-02-19)
+
+This maintenance release contains bugfixes since the 2.0.1 release. We
+deem it high priority for upgrading.
+
+The bug fixes in this release address issues with joins, the status of
+background jobs, and disabling compression. It also includes
+enhancements to continuous aggregates, including improved validation
+of policies and optimizations for faster refreshes when there are a
+lot of invalidations.
+
+**Minor features**
+* #2926 Optimize cagg refresh for small invalidations
+
+**Bugfixes**
+* #2850 Set status for backend in background jobs
+* #2883 Fix join qual propagation for nested joins
+* #2884 Add GUC to control join qual propagation
+* #2885 Fix compressed chunk check when disabling compression
+* #2908 Fix changing column type of clustered hypertables
+* #2942 Validate continuous aggregate policy
+
+**Thanks**
+* @zeeshanshabbir93 for reporting an issue with joins
+* @Antiarchitect for reporting the issue with slow refreshes of
+  continuous aggregates.
+* @diego-hermida for reporting the issue about being unable to disable
+  compression
+* @mtin for reporting the issue about wrong job status
+
+## 1.7.5 (2021-02-12)
+
+This maintenance release contains bugfixes since the 1.7.4 release.
+Most of these fixes were backported from the 2.0.0 and 2.0.1 releases.
+We deem it high priority for upgrading for users on TimescaleDB 1.7.4
+or previous versions.
+
+In particular the fixes contained in this maintenance release address
+issues in continuous aggregates, compression, JOINs with hypertables,
+and when upgrading from previous versions.
+
+**Bugfixes**
+* #2502 Replace check function when updating
+* #2558 Repair dimension slice table on update
+* #2619 Fix segfault in decompress_chunk for chunks with dropped 
+  columns
+* #2664 Fix support for complex aggregate expression
+* #2800 Lock dimension slices when creating new chunk
+* #2860 Fix projection in ChunkAppend nodes
+* #2865 Apply volatile function quals at decompresschunk
+* #2851 Fix nested loop joins that involve compressed chunks
+* #2868 Fix corruption in gapfill plan
+* #2883 Fix join qual propagation for nested joins
+* #2885 Fix compressed chunk check when disabling compression
+* #2920 Fix repair in update scripts
+
+**Thanks**
+* @akamensky for reporting several issues including segfaults after
+  version update
+* @alex88 for reporting an issue with joined hypertables
+* @dhodyn for reporting an issue when joining compressed chunks
+* @diego-hermida for reporting an issue with disabling compression
+* @Netskeh for reporting bug on time_bucket problem in continuous
+  aggregates
+* @WarriorOfWire for reporting the bug with gapfill queries not being
+  able to find pathkey item to sort
+* @zeeshanshabbir93 for reporting an issue with joins
 
 ## 2.0.1 (2021-01-28)
 

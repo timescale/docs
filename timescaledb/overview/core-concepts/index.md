@@ -1,23 +1,74 @@
-# Core Concepts
+# Why use TimescaleDB
 
-TimescaleDB is implemented as an extension on PostgreSQL, which means that it
-runs within an overall PostgreSQL instance.  The extension
-model allows the database to take advantage of many of the attributes of
-PostgreSQL such as reliability, security, and connectivity to a wide range of
-third-party tools.  At the same time, TimescaleDB leverages the high degree of
-customization available to extensions by adding hooks deep into PostgreSQL's
-query planner, data model, and execution engine.
+TimescaleDB is a **relational database for time-series data**.
 
-From a user perspective, TimescaleDB exposes what look like singular tables,
-called **hypertables**, that are actually an abstraction or a virtual view of
-many individual tables holding the data, called **chunks**.
+It is implemented as an extension to PostgreSQL, which means that it runs
+within an PostgreSQL server as part of the same process, with code that
+introduces new capabilities for time-series data management, new functions
+for data analytics, new query planner and query execution optimizations, and
+new storage mechanisms for more cost effective and performant analytics.
+Any operations to a PostgreSQL database that includes TimescaleDB (whether
+SELECTs or INSERTs, or schema management like creating indexes) are first
+processed by TimescaleDB to determine how they should be planned or
+executed against TimescaleDB's data structures.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg" alt="hypertable and chunks"/>
+This extension model allows the database to take advantage of the richness of
+PostgreSQL, from 40+ data types (from integers, floats, strings, timestamps,
+to arrays and JSON data types), to a dozen types of indexes, to complex
+schemas, to an advanced query planner, and to a larger extension ecosystem
+that plays nicely with TimescaleDB (including geo-spatial support through
+PostGIS, monitoring with pg_stat_statements, foreign data wrappers, and more).
 
-Chunks are created by partitioning the hypertable's data into
-one or multiple dimensions: All hypertables are partitioned by a time interval,
-and can additionally be partitioned by a key such as device ID, location,
-user id, etc. We sometimes refer to this as partitioning across "time and space".
+This design also allows TimescaleDB to take advantage of PostgreSQL's maturity
+from a reliability, robustness, security, and ecosystem perspective.  One can
+use PostgreSQL's physical replication to create multiple replicas for higher-
+availability and scaling read queries; snapshots and incremental WAL streaming
+for continuous backups to support full point-in-time recovery; role-based
+access control at the schema, table, or even row-level; and integrations with
+a huge number of third-party connectors and systems that speak the standard
+PostgreSQL protocol, such as popular programming languages, ORMs, data science
+tools, streaming systems, ETL tools, visualization libraries and dashboards,
+and more.
+
+At the same time, TimescaleDB leverages the high degree of customization
+available to extensions by adding hooks deep into PostgreSQL's query planner,
+data and storage model, and execution engine. This allows for new,
+advanced capabilities designed specifically for time-series data, including:
+
+- **Transparent and automated time partitioning**, where time-series tables are
+  automatically and continuously "chunked" into smaller intervals to improve
+  performance and to unlock various data-management capabilities.  Data
+  and indexes for the latest chunks naturally remain in memory,
+  insuring fast inserts and performant queries to recent data.
+
+- **Native columnar compression** with advanced datatype-specific compression,
+  employing various best-in-class algorithms based on whether the data are
+  timestamps, integers, floats, strings, or others.  Users typically report 94-97\%
+  storage reduction and faster queries to compressed data.
+
+- **Continuous and real-time aggregations**, in which the database continually
+  and incrementally maintains a materialized view of aggregate time-series data
+  to improve query performance, while properly handling late data or data
+  backfills.  TimescaleDB even enables queries to transparently merge pre-
+  computed aggregates with the latest raw data to ensure always up-to-date
+  answers.
+
+- **Automated time-series data management features**, such as explicit or
+  policy-based data retention policies, data reordering policies, aggregation
+  and compression policies, downsampling policies, and more.
+
+- **In-database job-scheduling framework** to power both native policies and to
+  support user-defined actions, including those written in SQL or PL/pgSQL.
+
+- **Horizontally-scalable multi-node operation** to automatically and
+  elastically scale your time-series data across many TimescaleDB databases,
+  while still giving the abstraction of a single time-series table.
+
+To better understand TimescaleDB, we first want to better explain two main
+concepts of how TimescaleDB scales: its data abstractions of **hypertables**
+and **chunks** (and how these are stored and processed), and how TimescaleDB
+can deployed either in single-node mode, with physical replicas, or in multi-
+node mode to enable distributed hypertables.
 
 
 

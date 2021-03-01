@@ -18,7 +18,7 @@ specified one.
 
 |Name|Description|
 |---|---|
-| `relation` | Hypertable or continuous aggregate from which to drop chunks. |
+| `relation` | (REGCLASS) Hypertable or continuous aggregate from which to drop chunks. |
 | `older_than` | Specification of cut-off point where any full chunks older than this timestamp should be removed. |
 
 #### Optional Arguments 
@@ -96,4 +96,10 @@ SELECT drop_chunks('conditions', 1483228800000);
 Drop all chunks older than 3 months ago and newer than 4 months ago from hypertable `conditions`:
 ```sql
 SELECT drop_chunks('conditions', older_than => INTERVAL '3 months', newer_than => INTERVAL '4 months')
+```
+
+Drop all chunks older than 3 months ago across all hypertables:
+```sql
+SELECT drop_chunks(format('%I.%I', hypertable_schema, hypertable_name)::regclass, INTERVAL '3 months')
+  FROM timescaledb_information.hypertables;
 ```
