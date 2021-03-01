@@ -40,7 +40,7 @@ sudo apt-get update
 sudo apt-get install postgresql-client
 ```
 
-<highlight type="tip"> This only installs the `psql` client and not the PostgreSQL database.
+<highlight type="tip"> This only installs the `psql` client and not the PostgreSQL database.</highlight>
 
 ### Install on Windows 10
 We recommend using the installer from [PostgreSQL.org][windows-installer].
