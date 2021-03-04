@@ -3,7 +3,7 @@ module.exports = [
     title: "TimescaleDB",
     href: "timescaledb",
     name: 'TimescaleDB',
-    excerpt: 'blah blha blha',
+    excerpt: 'blah blha blha ryan changed this',
     children: [
       {
         title: "Overview",
