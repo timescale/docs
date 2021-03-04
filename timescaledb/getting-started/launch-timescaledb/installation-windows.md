@@ -12,12 +12,10 @@
 #### Build & Install
 
 1. Download the the [.zip file for your PostgreSQL version][windows-dl].
-
 1. Extract the zip file locally
-
 1. Run `setup.exe`, making sure that PostgreSQL is not currently running
-
 1. If successful, a `cmd.exe` window will pop open and you will see the following:
+
 ```bash
 TimescaleDB installation completed succesfully.
 Press ENTER/Return key to close...

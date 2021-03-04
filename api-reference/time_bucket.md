@@ -6,9 +6,8 @@ provided by `date_trunc`. The return value is the bucket's start time.
 Below is necessary information for using it effectively.
 
 <highlight type="tip">
- TIMESTAMPTZ arguments are
-bucketed by the time at UTC. So the alignment of buckets is
-on UTC time. One consequence of this is that daily buckets are
+TIMESTAMPTZ arguments are bucketed by the time at UTC. So the alignment of 
+buckets is on UTC time. One consequence of this is that daily buckets are
 aligned to midnight UTC, not local time.
 
 If the user wants buckets aligned by local time, the TIMESTAMPTZ input should be

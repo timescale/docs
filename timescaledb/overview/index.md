@@ -41,8 +41,6 @@ The rest of this section describes the design and motivation around the Timescal
 architecture, including why time-series data is different, and how we leverage
 its characteristics when building TimescaleDB. 
 
-**Next:** In part to understand TimescaleDB's design choices, let us ask: [What is time-series data?][time-series-data]
-
 ## Download the Guide
 If you want a quick visual intro to TimescaleDB, click on the image below to download the starter guide. 
 
@@ -50,6 +48,6 @@ If you want a quick visual intro to TimescaleDB, click on the image below to dow
 src="https://assets.timescale.com/images/covers/TimescaleDB_Starter_Guide.svg" 
 alt="starter guide"/>][starter-guide]
 
-[time-series-data]: /introduction/time-series-data
+
 [starter-guide]: https://assets.timescale.com/resources/TimescaleDB_Starter_Guide.pdf
 

@@ -52,9 +52,9 @@ In such cases, for the same hour, information about some portion of the
 devices will be stored on each node.  This allows multi-node TimescaleDB
 to parallelize inserts and queries for data during that time interval.
 
-[//]: # (Comment: We should include an image that shows a chunk picture of a
-[//]: # partition pointing at multiple chunks, each chunk have some range of
-[//]: # data, and an index (binary tree-like data structure) associated with it
+[//]: # (Comment: We should include an image that shows a chunk picture of a)
+[//]: # (partition pointing at multiple chunks, each chunk have some range of)
+[//]: # (data, and an index --binary tree-like data structure-- associated with it)
 
 Each chunk is implemented using a standard database table.  (In PostgreSQL
 internals, the chunk is actually a "child table" of the "parent" hypertable.)

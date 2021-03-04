@@ -1,4 +1,4 @@
-## Distributed Hypertables [](distributed-hypertables)
+# Distributed Hypertables
 
 TimescaleDB supports distributing hypertables across multiple nodes
 (i.e., a cluster) by leveraging the same hypertable and chunk

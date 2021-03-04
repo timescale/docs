@@ -6,8 +6,31 @@ in a tradition primary/replica deployment, or in a multi-node deployment with ho
 scalability.
 
 [//]: # (Comment: Is there a section on single node here)
+### Single Instance (node)
+A single instance of PostgreSQL with TimescaleDB installed can often support
+the needs of very large datasets and application querying. In a regular PostgreSQL
+instance without TimescaleDB, a common problem with scaling database performance 
+on a single machine is the significant cost/performance trade-off between memory 
+and disk. Eventually, our entire dataset will not fit in memory, and you will need
+to write your data and indexes to disk.
 
-### Primary / Backup Replication [](primary-replication)
+Once the data is sufficiently large that we can’t fit all pages of our indexes
+(e.g., B-trees) in memory, then updating a random part of the tree can involve
+swapping in data from disk.  And databases like PostgreSQL keep a B-tree (or
+other data structure) for each table index, in order for values in that
+index to be found efficiently. So, the problem compounds as you index more
+columns.
+
+But because each of the chunks created by TimescaleDB is itself stored as a
+separate database table, all of its indexes are built only across these much
+smaller tables rather than a single table representing the entire
+dataset. So if we size these chunks properly, we can fit the latest tables
+(and their B-trees) completely in memory, and avoid this swap-to-disk problem,
+while maintaining support for multiple indexes.
+
+For more on the motivation and design of TimescaleDB, please see our
+[technical blog post][chunking].
+### Primary / Backup Replication
 
 [//]: # (Comment: Update this image: https://blog.timescale.com/content/images/2018/12/image-12.png )
 
@@ -49,7 +72,7 @@ of the database.
 
 TimescaleDB 2.0 also supports horizontally scaling across many servers.
 Instead of a primary node (and each replica) which stores the full copy
-of the data, a *distributed hypertable* can be spread across multiple
+of the data, a *[distributed hypertables][distributed-hypertables]* can be spread across multiple
 nodes, such that each node only stores a portion of the distributed
 hypertable (namely, a subset of the chunks). This allows TimescaleDB
 to scale storage, inserts, and queries beyond the capabilities of a single
@@ -93,5 +116,6 @@ back to the access node for merging and returning to a client.
 [compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
+[distributed-hypertables]: /overview/core-concepts/distributed-hypertables
 [distributed-hypertable-limitations]: /overview/limitations/#distributed-hypertable-limitations
 [multi-node-basic]: /getting-started/setup-multi-node-basic
