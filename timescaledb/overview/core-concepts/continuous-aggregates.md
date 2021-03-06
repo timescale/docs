@@ -145,7 +145,7 @@ provides great control and flexibility!
 [api-continuous-aggs-create]: /api#continuous_aggregate-create_view
 [postgres-parallel-agg]:https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [api-refresh-continuous-aggs]: /api#continuous_aggregate-refresh_view
-[api-alter-cagg]: /api#continuous_aggregate-alter_view
+[api-alter-cagg]: /continuous-aggregates/alter_materialized_view/
 [api-continuous-aggregates-info]: /api#timescaledb_information-continuous_aggregate
 [api-job-stats]: /api#timescaledb_information-job_stats
 [api-drop-chunks]: /api#drop_chunks
