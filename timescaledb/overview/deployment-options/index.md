@@ -7,15 +7,22 @@ and K8 Helm charts.
 
 ## Timescale Forge
 
-Creating an account in Timescale Forge takes 30 seconds and allows you to
-quickly deploy instances of many sizes.
+Timescale Forge combines the power and reliability of TimescaleDB with a 
+fully-managed, cloud-native experience that is easy to start and less expensive 
+to operate. Creating an account in Timescale Forge takes 30 seconds and allows 
+you to quickly deploy instances of many sizes.
 
 [Learn how to create your first instance][timescale-forge] in Timescale Forge.
 
 
 ## Timescale Cloud
 
-Timescale Cloud is a fully managed service that is available in 75+ regions across AWS, Azure, and GCP.
+Timescale Cloud is a Database as a Service (DBaaS) offering that provides an easy
+way for you to analyze time-series. Powered by TimescaleDB, you can create database
+ instances in the cloud and automate many of your most common operational tasks. 
+ This allows you to spend more time focusing on your time-series workloads and less 
+ time worrying about database management. Timescale Cloud is available in 75+ 
+ regions across AWS, Azure, and GCP.
 
 [Learn how to create your first instance][timescale-cloud] in Timescale Cloud.
 
@@ -28,6 +35,6 @@ distro, or a Docker image for your cluster deployment, we have you covered!
 [See a listing of current deployment][self-hosted] options for self-hosted installations.
 
 
-[timescale-forge]: /timescaledb/getting-started/launch-timescaledb/fully-managed-timescaledb/timescale-forge
-[timescale-cloud]: /timescaledb/getting-started/launch-timescaledb/fully-managed-timescaledb/timescale-cloud
-[self-hosted]: /timescaledb/getting-started/launch-timescaledb/self-hosted
+[timescale-forge]: /getting-started/launch-timescaledb/fully-managed-timescaledb/timescale-forge/
+[timescale-cloud]: /getting-started/launch-timescaledb/fully-managed-timescaledb/timescale-cloud/
+[self-hosted]: /getting-started/launch-timescaledb/self-hosted/

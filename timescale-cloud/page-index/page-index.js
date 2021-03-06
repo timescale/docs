@@ -4,7 +4,7 @@ module.exports = [
     filePath: 'index.md',
     href: "timescale-cloud",
     name: 'Timescale Cloud',
-    excerpt: 'blah blha blha',
+    excerpt: 'Timescale Cloud is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP',
     children: [
       {
         href: "create-a-service",
@@ -13,7 +13,7 @@ module.exports = [
         href: "scaling-a-service",
       },
       {
-        title: "Forging a DB",
+        title: "Forking a DB",
         href: "forking-a-db"
       },
       {

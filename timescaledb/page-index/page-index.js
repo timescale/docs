@@ -3,7 +3,7 @@ module.exports = [
     title: "TimescaleDB",
     href: "timescaledb",
     name: 'TimescaleDB',
-    excerpt: 'blah blha blha',
+    excerpt: 'All you need to know about TimescaleDB architecture, concepts, setup, how-to\'s, tutorials and management',
     children: [
       {
         title: "Overview",
@@ -68,13 +68,13 @@ module.exports = [
             href: "deployment-options",
             children: [
               {
-                href: "self-hosted"
-              },
-              {
                 href: "timescale-forge"
               },
               {
                 href: "timescale-cloud"
+              },
+              {
+                href: "self-hosted"
               }
             ]
           },
@@ -131,145 +131,9 @@ module.exports = [
           {
             title: "Launch your first instance",
             href: "launch-timescaledb",
-            type: 'page',
             children: [
               {
-                href: "fully-managed-timescaledb",
-                type: 'directory',
-                children: [
-                  {
-                    href: "timescale-forge"
-                  },
-                  {
-                    href: "timescale-cloud"
-                  }
-                ]
-              },
-              {
-                title: "Self hosted (including containers)",
-                href: "self-hosted",
-                type: 'react-page',
-                options: { pg_version: ["12", "11"] },
-                component: "InstallationPage",
-                showNewsletterForm: true,
-                children: [
-                 {
-                    Title: "Docker",
-                    type: 'directory',
-                    href: "docker",
-                    src: "//assets.iobeam.com/images/docs/moby.png",
-                    children: [
-                      {
-                        Title: "Docker",
-                        type: 'non-menu-page',
-                        href: "installation-docker",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "Ubuntu",
-                    type: 'directory',
-                    href: "ubuntu",
-                    src: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
-                    children: [
-                      {
-                        Title: "apt",
-                        type: 'non-menu-page',
-                        href: "installation-apt-ubuntu",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "Debian",
-                    type: 'directory',
-                    href: "debian",
-                    src: "//assets.iobeam.com/images/docs/Debian_logo.svg",
-                    children: [
-                      {
-                        Title: "apt",
-                        type: 'non-menu-page',
-                        href: "installation-apt-debian",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "RHEL/CentOS",
-                    type: 'directory',
-                    href: "rhel-centos",
-                    src: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
-                    children: [
-                      {
-                        Title: "yum/dnf",
-                        type: 'non-menu-page',
-                        href: "installation-yum",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "Windows",
-                    type: 'directory',
-                    href: "windows",
-                    src: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
-                    children: [
-                      {
-                        Title: "Installer (.zip)",
-                        type: 'non-menu-page',
-                        href: "installation-windows",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source-windows",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "AMI",
-                    type: 'directory',
-                    href: "ami",
-                    src: "//assets.iobeam.com/images/docs/aws_logo.svg",
-                    children: [
-                      {
-                        Title: "Amazon AMI (Ubuntu)",
-                        type: 'non-menu-page',
-                        href: "installation-ubuntu-ami",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "MacOS",
-                    type: 'directory',
-                    href: "macos",
-                    src: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
-                    children: [
-                      {
-                        Title: "Homebrew",
-                        type: 'non-menu-page',
-                        href: "installation-homebrew",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  }
-                ],
+                href: 'temporary'
               }
             ]
           },
@@ -341,7 +205,139 @@ module.exports = [
         children: [
           {
             title: "Install TimescaleDB",
-            href: "install-timescaledb"
+            href: "install-timescaledb",
+            children: [
+                  {
+                    href: "timescale-cloud"
+                  },
+                  {
+                    title: "Self hosted (including containers)",
+                    href: "self-hosted",
+                    type: 'react-page',
+                    options: { pg_version: ["12", "11"] },
+                    component: "InstallationPage",
+                    showNewsletterForm: true,
+                    children: [
+                     {
+                        Title: "Docker",
+                        type: 'directory',
+                        href: "docker",
+                        src: "//assets.iobeam.com/images/docs/moby.png",
+                        children: [
+                          {
+                            Title: "Docker",
+                            type: 'non-menu-page',
+                            href: "installation-docker",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "Ubuntu",
+                        type: 'directory',
+                        href: "ubuntu",
+                        src: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
+                        children: [
+                          {
+                            Title: "apt",
+                            type: 'non-menu-page',
+                            href: "installation-apt-ubuntu",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "Debian",
+                        type: 'directory',
+                        href: "debian",
+                        src: "//assets.iobeam.com/images/docs/Debian_logo.svg",
+                        children: [
+                          {
+                            Title: "apt",
+                            type: 'non-menu-page',
+                            href: "installation-apt-debian",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "RHEL/CentOS",
+                        type: 'directory',
+                        href: "rhel-centos",
+                        src: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
+                        children: [
+                          {
+                            Title: "yum/dnf",
+                            type: 'non-menu-page',
+                            href: "installation-yum",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "Windows",
+                        type: 'directory',
+                        href: "windows",
+                        src: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+                        children: [
+                          {
+                            Title: "Installer (.zip)",
+                            type: 'non-menu-page',
+                            href: "installation-windows",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source-windows",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "AMI",
+                        type: 'directory',
+                        href: "ami",
+                        src: "//assets.iobeam.com/images/docs/aws_logo.svg",
+                        children: [
+                          {
+                            Title: "Amazon AMI (Ubuntu)",
+                            type: 'non-menu-page',
+                            href: "installation-ubuntu-ami",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "MacOS",
+                        type: 'directory',
+                        href: "macos",
+                        src: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
+                        children: [
+                          {
+                            Title: "Homebrew",
+                            type: 'non-menu-page',
+                            href: "installation-homebrew",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      }
+                    ],
+                  }
+                ]
+
           },
           {
             href: "hypertables",
