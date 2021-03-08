@@ -11,10 +11,12 @@ the many available TimescaleDB and PostgreSQL parameters. By providing the abili
 to tune various runtime settings, Timescale Forge provides the balance and flexibility you need when running your workloads
 in our hosted environment.
 
->:WARNING: Modifications of most parameters can be applied without restarting
+<highlight type="warning">
+Modifications of most parameters can be applied without restarting
 the Timescale Forge Service. However, as when modifying the compute resources
 of a running Service, some settings will require that a restart be performed,
 resulting in some brief downtime (usually about 30 seconds).
+</highlight>
 
 ### Step 1: View Service operation details  [](service-details)
 To modify configuration parameters, first select the Service that 
