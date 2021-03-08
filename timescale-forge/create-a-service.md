@@ -52,7 +52,9 @@ a safe place:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-confirmation.png" alt="View Timescale Forge service information"/>
 
->:WARNING: If you forget your password in the future, you can reset your password from the *service dashboard*.
+<highlight type="warning">
+If you forget your password in the future, you can reset your password from the *service dashboard*.
+</highlight>
 
 It will take a couple minutes for your service to be provisioned. When your database is 
 ready for connection, you should see a green `Running` label above the service in the

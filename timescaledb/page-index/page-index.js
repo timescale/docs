@@ -343,18 +343,55 @@ module.exports = [
             href: "hypertables",
             children: [
               {
-                href: "create-a-hypertable"
+                title: "CREATE",
+                href: "create"
               },
               {
-                href: "alter-hypertable-settings"
+                title: "ALTER",
+                href: "alter"
               },
               {
-                href: "determine-optimal-settings"
+                title: "DROP",
+                href: "drop"
+              },
+              {
+                href: "best-practices"
               }
             ]
           },
           {
-            href: "distributed-hypertables"
+            href: "distributed-hypertables",
+            children: [
+              {
+                title: "CREATE",
+                href: "create"
+              },
+              {
+                title: "INSERT",
+                href: "insert"
+              },
+              {
+                title: "SELECT",
+                href: "select"
+              },
+              {
+                href: "manage-data-nodes"
+              },
+              {
+                href: "enable-native-replication"
+              },
+              {
+                title: "ALTER",
+                href: "alter"
+              },
+              {
+                title: "DROP",
+                href: "drop"
+              },
+              {
+                href: "best-practices"
+              }
+            ]
           },
           {
             href: "write-data",
@@ -398,16 +435,73 @@ module.exports = [
             href: "multi-node-setup"
           },
           {
-            href: "continuous-aggregates"
+            href: "continuous-aggregates",
+            children: [
+              {
+                href: "create-a-continuous-aggregate"
+              },
+              {
+                href: "adding-automatic-refresh-policies"
+              },
+              {
+                href: "query-a-continuous-aggregate"
+              },
+              {
+                href: "manually-refresh-specific-ranges"
+              },
+              {
+                href: "best-practices"
+              },
+              {
+                title:"Using integer-based time",
+                href: "integer-based-time"
+              },
+              {
+                href: "drop-raw-data"
+              }
+            ]
           },
           {
-            href: "compression"
+            href: "compression",
+            children: [
+              {
+                href: "manually-compress-chunks"
+              },
+              {
+                href: "decompress-chunks"
+              },
+              {
+                href: "backfill-historical-data"
+              },
+              {
+                href: "modify-a-schema"
+              }
+            ]
           },
           {
-            href: "user-defined-actions"
+            href: "user-defined-actions",
+            children: [
+              {
+                href: "create-and-register"
+              },
+              {
+                href: "test-and-debug"
+              }
+            ]
           },
           {
-            href: "data-retention"
+            href: "data-retention",
+            children: [
+              {
+                href: "create-a-retention-policy"
+              },
+              {
+                href: "manually-drop-chunks"
+              },
+              {
+                href: "data-retention-with-continuous-aggregates"
+              }
+            ]
           },
           {
             href: "data-reordering"
