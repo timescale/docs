@@ -1,0 +1,23 @@
+name: Write deploy comment
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  trigger:
+    name: Write comment with docs url
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set dev folder
+        run: |
+          echo "::set-output name=DEV_FOLDER::$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')"
+        id: timescale
+
+      - name: Write comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            Link to build for this PR: <a href="http://docs-v3-dev.timescale.com.s3-website-us-east-1.amazonaws.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-v3-dev.timescale.com.s3-website-us-east-1.amazonaws.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>
