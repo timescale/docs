@@ -78,7 +78,7 @@ Unique constraints must include all partitioning keys.
  the system requires `time` as part of the
  constraint: `UNIQUE(time)`, `UNIQUE(time, location)`, `UNIQUE(location, time)`, etc.
  On the other hand, `UNIQUE(location)` is *not* a valid constraint.
---
+
 If the schema were to have an additional column like `device` that is used
  as an additional partition dimension, then the constraint would have
  to be `UNIQUE(time, device)` or `UNIQUE(time, device, location)`. In

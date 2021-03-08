@@ -18,7 +18,7 @@ disable password checks for all database users. If you want to access the
 container from the host but avoid exposing it to the outside world, you can
 explicitly have it bind to 127.0.0.1 instead of the public interface by using
 `-p 127.0.0.1:5432:5432`.
---
+
 Otherwise, you'll want to ensure that your host box is adequately locked down
 through security groups, IP Tables, or whatever you're using for access
 control. Note also that Docker binds the container by modifying your Linux IP

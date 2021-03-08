@@ -7,7 +7,10 @@ physical backups with `pg_basebackup` or another tool, or logical backups with
 (WAL) archiving to achieve an ongoing backup.
 
 <highlight type="warning">
-TimescaleDB currently does not natively support a consistent restore point for multi-node environments. Care should be taken to ensure third-party solutions properly quiesce the environment before backing up, so that the backup point used across nodes does not have outstanding transactions.
+TimescaleDB currently does not natively support a consistent restore point for 
+multi-node environments. Care should be taken to ensure third-party solutions 
+properly quiesce the environment before backing up, so that the backup point used 
+across nodes does not have outstanding transactions.
 </highlight>
 
 

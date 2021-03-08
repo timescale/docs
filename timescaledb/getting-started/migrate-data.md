@@ -1,6 +1,7 @@
 # Migrating Data
 <highlight type="tip">
-First make sure that you have properly [installed][] **AND [setup][]** TimescaleDB within your PostgreSQL instance.
+First make sure that you have properly [installed][] **AND [setup][]** TimescaleDB 
+within your PostgreSQL instance.
 </highlight>
 
 There are a number of choices available to migrate data into TimescaleDB:
@@ -18,7 +19,8 @@ a different database or a different PostgreSQL instance
 altogether, [follow these instructions][different-db].
 
 ### 2. Importing data from `.csv`
-If you have a dataset stored in a `.csv` file, you can import it into an empty TimescaleDB hypertable. [follow these instructions][import-data]
+If you have a dataset stored in a `.csv` file, you can import it into an empty 
+TimescaleDB hypertable. [follow these instructions][import-data]
 
 <highlight type="tip">
 When converting a normal SQL table to a hypertable, pay attention to how you handle constraints.

@@ -141,7 +141,8 @@ Scroll down to find the 'Allowed IP Addresses' section. By default, this value i
 `0.0.0.0/0` which is actually wide-open.
 
 <highlight type="warning">
- This wide-open setting simplifies getting started since it will accept incoming traffic from all sources, but you will absolutely want to narrow this range.
+ This wide-open setting simplifies getting started since it will accept incoming 
+ traffic from all sources, but you will absolutely want to narrow this range.
 </highlight>
 
 If you are curious about how to interpret this [Classless Inter-Domain Routing][cidr-wiki] (CIDR) syntax,

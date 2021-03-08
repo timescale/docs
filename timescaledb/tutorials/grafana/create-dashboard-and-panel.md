@@ -143,7 +143,9 @@ When we visualize this query in Grafana, we see the following:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
 
 <highlight type="tip">
- Remember to set the time filter in the upper right corner of your Grafana dashboard. If you're using the pre-built sample dataset for this example, you will want to set your time filter around January 1st, 2016.
+ Remember to set the time filter in the upper right corner of your Grafana dashboard. 
+ If you're using the pre-built sample dataset for this example, you will want to set
+ your time filter around January 1st, 2016.
 </highlight>
 
 Currently, the data is bucketed into 1 day groupings. Adjust the `time_bucket`

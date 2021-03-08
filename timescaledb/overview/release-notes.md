@@ -48,9 +48,10 @@ they have already compressed their hypertables.
 TimescaleDB 2.1 is currently GA, we encourage
 users to upgrade in testing environments to gain experience and provide feedback on 
 new and updated features.
---
+
 Especially because some API updates from TimescaleDB 1.x to 2.0 are breaking changes, 
-we recommend reviewing the [Changes in TimescaleDB 2.0](https://docs.timescale.com/v2.0/release-notes/changes-in-timescaledb-2) for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
+we recommend reviewing the [Changes in TimescaleDB 2.0](https://docs.timescale.com/v2.0/release-notes/changes-in-timescaledb-2) 
+for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
 </highlight>
 ## Release Notes
 

@@ -46,7 +46,23 @@ still work on the resulting hypertable.
 <highlight type="warning">
 The use of the `migrate_data` argument to convert a non-empty table can
 lock the table for a significant amount of time, depending on how much data is
-in the table. It can also run into deadlock if foreign key constraints exist to other tables. //If you would like finer control over index formation and other aspects of your hypertable, [follow these migration instructions instead][migrate-from-postgresql]. //When converting a normal SQL table to a hypertable, pay attention to how you handle constraints. A hypertable can contain foreign keys to normal SQL table columns, but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the partitioning key. //The deadlock is likely to happen when concurrent transactions simultaneously try to insert data into tables that are referenced in the foreign key constraints and into the converting table itself. The deadlock can be prevented by manually obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling `create_hypertable` in the same transaction, see [PostgreSQL documentation][postgres-lock] for the syntax.
+in the table. It can also run into deadlock if foreign key constraints exist to 
+other tables.
+
+If you would like finer control over index formation and other aspects of your 
+hypertable, [follow these migration instructions instead][migrate-from-postgresql].
+
+When converting a normal SQL table to a hypertable, pay attention to how you handle 
+constraints. A hypertable can contain foreign keys to normal SQL table columns, 
+but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the 
+partitioning key.
+
+The deadlock is likely to happen when concurrent transactions simultaneously try
+to insert data into tables that are referenced in the foreign key constraints 
+and into the converting table itself. The deadlock can be prevented by manually
+obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling 
+`create_hypertable` in the same transaction, see 
+[PostgreSQL documentation][postgres-lock] for the syntax.
 </highlight>
 
 #### Units 
@@ -59,12 +75,14 @@ The 'time' column supports the following data types:
 | DATE |
 | Integer (SMALLINT, INT, BIGINT) |
 
-<highlight type="tip"> The type flexibility of the 'time' column allows the use of non-time-based values as the primary chunk partitioning column, as long as those values can increment.
+<highlight type="tip"> The type flexibility of the 'time' column allows the use 
+of non-time-based values as the primary chunk partitioning column, as long as 
+those values can increment.
 </highlight>
 
-Test
-
-<highlight type="tip"> For incompatible data types (e.g. `jsonb`) you can specify a function to the `time_partitioning_func` argument which can extract a compatible data type
+<highlight type="tip"> For incompatible data types (e.g. `jsonb`) you can 
+specify a function to the `time_partitioning_func` argument which can extract 
+a compatible data type
 </highlight>
 
 The units of `chunk_time_interval` should be set as follows:
@@ -170,13 +188,15 @@ manually-set intervals, users should specify a `chunk_time_interval`
 when creating their hypertable (the default value is 1 week). The
 interval used for new chunks can be changed by calling [`set_chunk_time_interval()`](#set_chunk_time_interval).
 
-The key property of choosing the time interval is that the chunk (including indexes) belonging to the most recent interval (or chunks if using space
+The key property of choosing the time interval is that the chunk (including indexes) 
+belonging to the most recent interval (or chunks if using space
 partitions) fit into memory.  As such, we typically recommend setting
 the interval so that these chunk(s) comprise no more than 25% of main
 memory.
 
 <highlight type="tip">
-Make sure that you are planning for recent chunks from _all_ active hypertables to fit into 25% of main memory, rather than 25% per hypertable.
+Make sure that you are planning for recent chunks from _all_ active hypertables 
+to fit into 25% of main memory, rather than 25% per hypertable.
 </highlight>
 
 To determine this, you roughly need to understand your data rate.  If
