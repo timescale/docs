@@ -65,18 +65,7 @@ module.exports = [
           },
           {
             title: "Deployment Options",
-            href: "deployment-options",
-            children: [
-              {
-                href: "timescale-forge"
-              },
-              {
-                href: "timescale-cloud"
-              },
-              {
-                href: "self-hosted"
-              }
-            ]
+            href: "deployment-options"
           },
           {
             title: "Data model flexibility",
@@ -431,8 +420,21 @@ module.exports = [
             ]
           },
           {
-            title: "Multi-node Setup",
-            href: "multi-node-setup"
+            href: "multi-node-setup",
+            children: [
+              {
+                href: "required-configuration"
+              },
+              {
+                href: "setup-trust-authentication"
+              },
+              {
+                href: "setup-password-authentication"
+              },
+              {
+                href: "setup-certificate-authentication"
+              }
+            ]
           },
           {
             href: "continuous-aggregates",
@@ -486,6 +488,19 @@ module.exports = [
               },
               {
                 href: "test-and-debug"
+              },
+              {
+                title: "Altering and Deleting",
+                href: "alter-and-delete"
+              },
+              {
+                href: "example-generic-retention"
+              },
+              {
+                href: "example-tiered-storage"
+              },
+              {
+                href: "example-downsample-and-compress"
               }
             ]
           },
@@ -514,17 +529,69 @@ module.exports = [
             href: "visualize-data"
           },
           {
-            href: "backup-and-restore"
+            href: "backup-and-restore",
+            children: [
+              {
+                title: "Using pg_dump/pg_restore",
+                href: "pg-dump-and-restore"
+              },
+              {
+                title: "Docker & WAL-E",
+                href: "docker-and-wale"
+              }
+            ]
           },
           {
-            href: "schema-management"
+            href: "schema-management",
+            children: [
+              {
+                title: "ALTER hypertables",
+                href: "alter"
+              },
+              {
+                href: "indexing"
+              },
+              {
+                href: "triggers"
+              },
+              {
+                href: "constraints"
+              },
+              {
+                title: "JSON",
+                href: "json"
+              },
+              {
+                href: "tablespaces"
+              }
+            ]
           },
           {
             title: "Migrate Existing Data",
-            href: "migrate-data"
+            href: "migrate-data",
+            children: [
+              {
+                title: "Migrate InfluxDB data",
+                href: "migrate-influxdb"
+              }
+            ]
           },
           {
-            href: "update-timescaledb"
+            title: "Update TimescaleDB",
+            href: "update-timescaledb",
+            children: [
+              {
+                title: "Update TimescaleDB from 1.x to 2.x",
+                href: "update-timescaledb-2"
+              },
+              {
+                href: "updating-docker"
+              },
+              {
+                title: "Upgrade PostgreSQL",
+                href: "upgrade-postgresql"
+              }
+            ]
           },
           {
             title: "Ingest data from other sources",
@@ -543,10 +610,6 @@ module.exports = [
           {
             title: "Analyzing cryptocurrency data",
             href: "analyze-cryptocurrency-data"
-          },
-          {
-            title: "Create SQL Notebooks for time-series",
-            href: "create-sql-notebooks"
           },
           {
             title: "Grafana",
