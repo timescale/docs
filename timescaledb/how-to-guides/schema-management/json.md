@@ -22,11 +22,13 @@ efficient.
 2. We use the JSONB data type (that is, JSON stored in a binary format) and not the JSON data type. JSONB data types are
 are more efficient in both storage overhead and lookup performance.
 
->:TIP: [](sparse_json) Often, people use JSON for sparse data as opposed
+<highlight type="tip">
+[](sparse_json) Often, people use JSON for sparse data as opposed
 to user-defined data. We do not recommend this usage inside TimescaleDB for most
 datasets (unless the data is extremely sparse, e.g., more than 95% of fields for
 a row are empty). Instead, we suggest using NULLable fields and, if possible,
 running on top of a compressed file system like ZFS.
+</highlight>
 
 
 ### Indexing the entire JSONB structure [](indexing-all-json)

@@ -1,7 +1,9 @@
 ## Creating a continuous aggregates
 
-Creating a refreshing [continuous aggregate][api-continuous-aggs] is a two-step 
-process. First, one needs to create a continuous aggregate view of the data 
+
+
+Creating a refreshing [continuous aggregate][api-continuous-aggs] is a two-step
+process. First, one needs to create a continuous aggregate view of the data
 using [`CREATE MATERIALIZED VIEW`][postgres-createview] with the
 `timescaledb.continuous` option. Second, a continuous aggregate
 policy needs to be created to keep it refreshed.
@@ -27,6 +29,11 @@ SELECT add_continuous_aggregate_policy('conditions_summary_daily',
 	end_offset => INTERVAL '1 day',
 	schedule_interval => INTERVAL '1 hour');
 ```
+
+<highlight type="tip">
+If you have a lot of historical data to aggregate into the view, consider using
+the `WITH NO DATA` option as outlined in the [alternative approach](#with-no-data).
+</highlight>
 
 A `time_bucket` on the time partitioning column of the hypertable is
 required in all continuous aggregate views. If you do not provide one,
@@ -77,3 +84,38 @@ PostgreSQL. In addition, TimescaleDB continuous aggregates do not
 currently support the `FILTER` clause (not to be confused with
 `WHERE`) even though it is possible to parallelize but we might add
 support for this in a future version.
+
+
+## Using `WITH NO DATA` when creating a Continuous Aggregate [](with-no-data)
+
+If you have a lot of historical data, we suggest creating the continuous aggregate
+using the `WITH NO DATA` parameter for the `CREATE MATERIALIZED VIEW` command. Doing
+so will allow the continuous aggregate to be created instantly (you won't have to wait
+for the data to be aggregated on creation!). Data will then begin to populate as the
+continuous aggregate policy begins to run.
+
+**However**, only data newer than `start_offset` would begin to populate the continuous
+aggregate. If you have historical data that is older than the `start_offset` INTERVAL,
+you need to manually refresh history up to the current `start_offset` to allow
+real-time queries to run efficiently.
+
+```sql
+CREATE MATERIALIZED VIEW cagg_rides_view WITH
+  (timescaledb.continuous)
+AS
+SELECT vendor_id, time_bucket('1h', pickup_datetime) as day,
+  count(*) total_rides,
+  avg(fare_amount) avg_fare,
+  max(trip_distance) as max_trip_distance,
+  min(trip_distance) as min_trip_distance
+FROM rides
+GROUP BY vendor_id, time_bucket('1h', pickup_datetime)
+WITH NO DATA;
+
+CALL refresh_continuous_aggregate('cagg_rides_view', NULL, localtimestamp - INTERVAL '1 week');
+
+SELECT add_continuous_aggregate_policy('cagg_rides_view',
+  start_offset => INTERVAL '1 week',
+  end_offset   => INTERVAL '1 hour',
+  schedule_interval => INTERVAL '30 minutes');
+```

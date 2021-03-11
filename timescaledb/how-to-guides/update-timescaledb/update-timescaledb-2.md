@@ -114,11 +114,12 @@ upgrade process involves three-steps:
 ALTER EXTENSION timescaledb UPDATE;
 ```
 
->:WARNING: When executing `ALTER EXTENSION`, you should connect using `psql`
+<highlight type="warning">
+When executing `ALTER EXTENSION`, you should connect using `psql`
 with the `-X` flag to prevent any `.psqlrc` commands from accidentally
 triggering the load of a previous TimescaleDB version on session startup. 
-It must also be the first command you execute in the session. 
-<!-- -->
+It must also be the first command you execute in the session.
+</highlight> 
 
 This will upgrade TimescaleDB to the latest installed version, even if you
 are several versions behind.

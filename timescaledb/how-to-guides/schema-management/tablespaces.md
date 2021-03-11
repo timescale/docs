@@ -32,10 +32,12 @@ calculation is used to pick a tablespace, so there can be more partitions
 than tablespaces (e.g., if there are two tablespaces, partition number
 three will use the first tablespace).
 
->:TIP: Note that attaching more tablespaces than there are partitions for the
+<highlight type="tip">
+Note that attaching more tablespaces than there are partitions for the
 hypertable might leave some tablespaces unused until some of them are detached
 or additional partitions are added. This is especially true for
 hash-partitioned tables.
+</highlight>
 
 Hypertables that are only time-partitioned will add new
 partitions continuously, and will therefore have chunks assigned to

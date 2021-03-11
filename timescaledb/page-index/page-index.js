@@ -23,24 +23,7 @@ module.exports = [
               },
               {
                 title: "Scaling",
-                href: "scaling",
-                children: [
-                  {
-                    title: "Single Node",
-                    href: "#single-node",
-                    type: 'anchor'
-                  },
-                  {
-                    title: "Primary/Replication",
-                    href: "#primary-replication",
-                    type: 'anchor'
-                  },
-                  {
-                    title: "Multi-node",
-                    href: "#multi-node",
-                    type: 'anchor'
-                  }
-                ]
+                href: "scaling"
               },
               {
                 href: "distributed-hypertables"
@@ -173,18 +156,7 @@ module.exports = [
             href: "analyze-your-data"
           },
           {
-            href: "visualize-your-data"
-          },
-          {
-            title: "Migrate data to TimescaleDB",
-            href: "migrate-data"
-          },
-          {
-            href: "connect-with-code"
-          },
-          {
-            title: "Other sample datasets",
-            href: "sample-datasets"
+            href: "next-steps"
           }
         ]
       },
@@ -523,7 +495,12 @@ module.exports = [
           },
           {
             title: "Replication and HA",
-            href: "replication-and-ha"
+            href: "replication-and-ha",
+            children: [
+              {
+                href: "replication"
+              }
+            ]
           },
           {
             href: "visualize-data"
@@ -600,9 +577,49 @@ module.exports = [
         ]
       },
       {
-        title: "Tutorials",
+        title: "Tutorials and Quick Starts",
         href: "tutorials",
         children: [
+          {
+            title: "Quick Start Guides",
+            href: "quick-starts",
+            children: [
+              {
+                href: "node-quickstart"
+              },
+              {
+                href: "python-quickstart"
+              },
+              {
+                href: "ruby-quickstart"
+              },
+              {
+                href: "golang-quickstart"
+              }
+            ]
+          },
+          {
+            title: "Getting started with Promscale",
+            href: "promscale",
+            children: [
+              {
+                title: "The Benefits of using Promscale",
+                href: "promscale-benefits"
+              },
+              {
+                title: "How Promscale works",
+                href: "promscale-how-it-works"
+              },
+              {
+                title: "Installing Promscale",
+                href: "promscale-install"
+              },
+              {
+                title: "Run queries with PromQL and SQL",
+                href: "promscale-run-queries"
+              }
+            ]
+          },
           {
             title: "Introduction to time-series forecasting",
             href: "time-series-forecast"
@@ -647,6 +664,9 @@ module.exports = [
           {
             title: "Visualize with Power BI",
             href: "visualize-with-power-bi"
+          },
+          {
+            href: "sample-datasets"
           }
         ]
       },
