@@ -6,7 +6,7 @@ module.exports = [
     filePath: 'index.md',
     href: "api-reference",
     name: 'API Reference',
-    excerpt: 'blah blha blha',
+    excerpt: 'The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension',
     children: [
       {
         title: "Hypertables & Chunks",
@@ -28,6 +28,10 @@ module.exports = [
           {
             title: "reorder_chunk",
             href: "reorder_chunk"
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk"
           },
           {
             title: "add_reorder_policy",

@@ -1,9 +1,9 @@
 # Hypertables
 
 From a user's perspective, TimescaleDB exposes what look like singular tables,
-called **hypertables**. A hypertable is your primarily point of interaction
-with you data, as it provides the standard table abstraction that you can query
-via standard SQL.  Creating a hypertable in TimescaleDB takes two simple
+called **hypertables**. A hypertable is the primarily point of interaction
+with your data, as it provides the standard table abstraction that you can query
+via standard SQL.  [Creating a hypertable][create-hypertable] in TimescaleDB takes two 
 SQL commands: `CREATE TABLE` (with standard SQL syntax),
 followed by `SELECT create_hypertable()`.
 
@@ -17,14 +17,14 @@ many individual tables that actually store the data, called **chunks**.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg" alt="hypertable and chunks"/>
 
-### Partitioning in Hypertables with Chunks
+## Partitioning in Hypertables with Chunks
 
 Chunks are created by partitioning a hypertable's data into one
 (or potentially multiple) dimensions. All hypertables are partitioned
 by the values belonging to a time column, which may be in timestamp,
 date, or various integer forms.  If the time partitioning interval is one
 day, for example, then rows with timestamps that belong to the same
-day are colocated within the same chunk, while rows belonging to
+day are co-located within the same chunk, while rows belonging to
 different days belong to different chunks.
 
 TimescaleDB creates these chunks automatically as rows are inserted into the
@@ -45,7 +45,7 @@ buckets), although interval-based partitioning can be employed here as well.
 We sometimes refer to hypertables partitioned by both time and this additional
 dimension as "time and space" partitions.
 
-This time-and-space partitioning is primarily used for *distributed hypertables*.
+This time-and-space partitioning is primarily used for *[distributed hypertables]*.
 With such two-dimensional partitioning, each time interval will also be
 partitioned across multiple nodes comprising the distributed hypertables.
 In such cases, for the same hour, information about some portion of the
@@ -76,7 +76,7 @@ the past week, and excludes any chunks before that time.  This happens
 transparently to the user, however, who simply queries the hypertable with
 a standard SQL statement.
 
-### Benefits of Hypertables and Chunks[](hypertable-benefits)
+## Benefits of Hypertables and Chunks[](hypertable-benefits)
 
 This chunk-based architecture benefits many aspects of time-series data
 management. These includes:
@@ -101,11 +101,11 @@ management. These includes:
   on the hypertable, and these operations (and configurations) are pushed down
   to both existing and new chunks.
 
-- **Easy Data Retention**.  In many time-series applications, whether based on
-  cost, storage, compliance, or other reasons, users often only want to retain
-  data only for a certain amount of time. With TimescaleDB, users can quickly
+- **Easy Data Retention**. In many time-series applications users often only 
+  want to retain raw data only for a certain amount of time, usually because of
+  cost, storage, compliance, or other reasons. With TimescaleDB, users can quickly
   delete chunks based on their time ranges (e.g., all chunks whose data has
-  timestamps more than 6 months old). Even easier, useres can create a data
+  timestamps more than 6 months old). Even easier, users can create a data
   retention policy within TimescaleDB to make this automatic, which employs its
   internal job-scheduling framework. Chunk-based deletion is fast -- it's simply
   deleting a file from disk -- as opposed to deleting individual rows, which
@@ -121,11 +121,11 @@ management. These includes:
   type-specific compression on each column. Or data reordering, which
   asynchronously rewrites data stored on disk from the order it was inserted
   into an order specified by the user based on a specified index. By reordering
-  data based on (device_id, timestap), for example, all data associated with a
+  data based on (device_id, timestamp), for example, all data associated with a
   specific device becomes written contiguously on disk, making "deep and
   narrow" scans for a particular device's data much faster.
 
-- ** Instant Multi-Node Elasticity**.  TimescaleDB supports horizontally
+- **Instant Multi-Node Elasticity**.  TimescaleDB supports horizontally
   scaling across multiple nodes. Unlike traditional one-dimensional
   database sharding, where shards must be migrated to a newly-added
   server as part of the process of expanding the cluster, TimescaleDB
@@ -152,3 +152,6 @@ management. These includes:
   can also occur across nodes in a distributed hypertable, e.g., in order to
   asynchronous rebalance a cluster after adding a server or to prepare for
   retiring a server (coming soon).
+
+
+  [create-hypertable]: /how-to-guides/hypertables/create/
