@@ -3,7 +3,7 @@
 TimescaleDB is a **relational database for time-series data**.
 
 It is implemented as an extension to PostgreSQL, which means that it runs
-within an PostgreSQL server as part of the same process, with code that
+within a PostgreSQL server as part of the same process, with code that
 introduces new capabilities for time-series data management, new functions
 for data analytics, new query planner and query execution optimizations, and
 new storage mechanisms for more cost effective and performant analytics.
@@ -13,14 +13,14 @@ processed by TimescaleDB to determine how they should be planned or
 executed against TimescaleDB's data structures.
 
 This extension model allows the database to take advantage of the richness of
-PostgreSQL, from 40+ data types (from integers, floats, strings, timestamps,
+PostgreSQL, from 40+ data types (integers, floats, strings, timestamps,
 to arrays and JSON data types), to a dozen types of indexes, to complex
 schemas, to an advanced query planner, and to a larger extension ecosystem
 that plays nicely with TimescaleDB (including geo-spatial support through
 PostGIS, monitoring with pg_stat_statements, foreign data wrappers, and more).
 
 This design also allows TimescaleDB to take advantage of PostgreSQL's maturity
-from a reliability, robustness, security, and ecosystem perspective.  One can
+from a reliability, robustness, security, and ecosystem perspective. One can
 use PostgreSQL's physical replication to create multiple replicas for higher-
 availability and scaling read queries; snapshots and incremental WAL streaming
 for continuous backups to support full point-in-time recovery; role-based
@@ -43,7 +43,7 @@ advanced capabilities designed specifically for time-series data, including:
 
 - **Native columnar compression** with advanced datatype-specific compression,
   employing various best-in-class algorithms based on whether the data are
-  timestamps, integers, floats, strings, or others.  Users typically report 94-97\%
+  timestamps, integers, floats, strings, or others.  Users typically report 94-97%
   storage reduction and faster queries to compressed data.
 
 - **Continuous and real-time aggregations**, in which the database continually
@@ -67,18 +67,8 @@ advanced capabilities designed specifically for time-series data, including:
 To better understand TimescaleDB, we first want to better explain two main
 concepts of how TimescaleDB scales: its data abstractions of **hypertables**
 and **chunks** (and how these are stored and processed), and how TimescaleDB
-can deployed either in single-node mode, with physical replicas, or in multi-
-node mode to enable distributed hypertables.
+can be deployed as either a single-node, with physical replicas, or as a multi-
+node cluster to enable distributed hypertables.
 
 
 
-[data model]: /introduction/data-model
-[chunking]: https://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c#2362
-[jumpSQL]: /using-timescaledb/hypertables
-[TvsP]: /introduction/timescaledb-vs-postgres
-[Compression Operational Overview]: /using-timescaledb/compression
-[compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
-[contact]: https://www.timescale.com/contact
-[slack]: https://slack.timescale.com/
-[distributed-hypertable-limitations]: /using-timescaledb/limitations#distributed-hypertable-limitations
-[multi-node-basic]: /getting-started/setup-multi-node-basic

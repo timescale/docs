@@ -5,8 +5,7 @@ TimescaleDB supports three main deployment options:  as an single database serve
 in a tradition primary/replica deployment, or in a multi-node deployment with horizontal
 scalability.
 
-[//]: # (Comment: Is there a section on single node here)
-### Single Instance (node)
+## Single Instance (node)
 A single instance of PostgreSQL with TimescaleDB installed can often support
 the needs of very large datasets and application querying. In a regular PostgreSQL
 instance without TimescaleDB, a common problem with scaling database performance 
@@ -30,7 +29,8 @@ while maintaining support for multiple indexes.
 
 For more on the motivation and design of TimescaleDB, please see our
 [technical blog post][chunking].
-### Primary / Backup Replication
+
+## Primary / Backup Replication
 
 [//]: # (Comment: Update this image: https://blog.timescale.com/content/images/2018/12/image-12.png )
 
@@ -68,7 +68,7 @@ of the database.
 
 [//]: # ( Link to section on distributed hypertables?  Timescale Cloud? )
 
-### Multi-node TimescaleDB and Distributed Hypertables [](multi-node)
+## Multi-node TimescaleDB and Distributed Hypertables [](multi-node)
 
 TimescaleDB 2.0 also supports horizontally scaling across many servers.
 Instead of a primary node (and each replica) which stores the full copy
@@ -106,12 +106,9 @@ access node, such that aggregates are performed on data nodes
 whenever possible, and only aggregated or filtered results are passed
 back to the access node for merging and returning to a client.
 
-[//]: # ( Link to section on distributed hypertables?  Setting up on Cloud/Forge? )
 
 [data model]: /introduction/data-model
-[chunking]: https://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c#2362
-[jumpSQL]: /using-timescaledb/hypertables
-[TvsP]: /introduction/timescaledb-vs-postgres
+[chunking]: https://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
 [Compression Operational Overview]: /using-timescaledb/compression
 [compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
 [contact]: https://www.timescale.com/contact

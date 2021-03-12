@@ -25,7 +25,7 @@ raw data older than 30 days, you might want to delete data older than
 
 However, deleting large swaths of data from tables can be costly and
 slow if done row-by-row using the standard `DELETE` command. Instead,
-TimescaleDB provides a function `drop_chunks` that quickly drop data
+TimescaleDB provides a function [`drop_chunks`][drop-chunks] that quickly drop data
 at the granularity of chunks without incurring the same overhead.
 
 For example:
@@ -39,16 +39,17 @@ include data older than this duration, and will _not_ delete any
 individual rows of data in chunks.
 
 
-### Automatic Data Retention Policies [](retention-policy)
+## Automatic Data Retention Policies [](retention-policy)
 
 TimescaleDB also includes a background job scheduling framework for automating 
-data management tasks, such as enabling easy data retention policies. With
+data management tasks, such as enabling easy [data retention policies][add-retention-policy]. With
 policies, you can set data retention standards on each hypertable and allow
 TimescaleDB to drop data as necessary.
 
-It's worth noting that continuous aggregates are also valid targets retention 
+It's worth noting that [continuous aggregates][continuous-aggregates] are also valid targets retention 
 policies. 
 
-[drop_chunks]: /api#drop_chunks
-[add_retention_policy]: /api#add_retention_policy
-[continuous_aggregates]: /using-timescaledb/continuous-aggregates
+
+[drop-chunks]: /api-reference/{currentVersion}/hypertables-and-chunks/drop_chunks/
+[add-retention-policy]: /api-reference/{currentVersion}/data-retention/add_retention_policy/
+[continuous-aggregates]: /overview/core-concepts/continuous-aggregates/

@@ -48,9 +48,10 @@ docker run --name timescaledb \
 The above commands create a TimescaleDB instanced named `timescaledb` (via the `--name` flag), on the network named `promscale-timescale` (via the `--network` flag), whose container will run in the background with the container ID printed after created (via the `-d` flag), with port-forwarding it to port `5432` on your machine (via the `-p` flag).
 
 <highlight type="warning">
+
 We set the `POSTGRES_PASSWORD` environment variable (using the `-e` flag) in the command above. Please ensure to replace `<password>` with the password of your choice for the `postgres` superuser.
  
-For production deployments, you will want to fix the docker tag to a particular version instead of `pg12-latest`
+For production deployments, you will want to fix the docker tag to a particular version instead of `pg12-latest` 
 </highlight>
 
 ## 3.2: Install Promscale [](install-promscale)
@@ -132,7 +133,7 @@ docker run \
 To save time spinning up and running each docker container separately, here is a sample`docker-compose.yml` file that will spin up docker containers for TimescaleDB, Promscale, node_exporter and Prometheus using the configurations mentioned in Steps 1-4 above. 
 
 <highlight type="warning">
-Ensure you have the Prometheus configuration file `prometheus.yml` in the same directory as `docker-compose.yml`
+Ensure you have the Prometheus configuration file `prometheus.yml` in the same directory as `docker-compose.yml` 
 </highlight>
 
 **A sample `docker-compose.yml` file to spin up and connect TimescaleDB, Promscale, node_exporter and Prometheus:** is available in the [Promscale Github repo][promscale-docker-compose].
