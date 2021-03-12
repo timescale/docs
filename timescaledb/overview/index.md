@@ -44,7 +44,7 @@ its characteristics when building TimescaleDB.
 ## Download the Guide
 If you want a quick visual intro to TimescaleDB, click on the image below to download the starter guide. 
 
-[<img class="main-content__illustration" style="margin: 0 5% 0 10%;"
+[<img class="main-content__illustration"
 src="https://assets.timescale.com/images/covers/TimescaleDB_Starter_Guide.svg" 
 alt="starter guide"/>][starter-guide]
 
