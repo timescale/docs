@@ -16,9 +16,9 @@ not to run through the scripts to create your database schema or your dataset.
 
 You can also download the resources for this tutorial:
 
-- Schema creation script: [:DOWNLOAD_LINK: `schema.sql`][schema-creation]
-- Dataset creation script: [:DOWNLOAD_LINK: `crypto_data_extraction.py`][dataset-creation]
-- Dataset: [:DOWNLOAD_LINK: Crypto Currency Dataset September 2019][dataset] (note that this data is from September 2019. You will want to follow the steps in Section 2 of this tutorial if you require fresh data)
+- Schema creation script: <tag type="download" >[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</tag>
+- Dataset creation script: <tag type="download" >[crypto_data_extraction.py](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</tag>
+- Dataset: <tag type="download" >[Crypto Currency Dataset September 2019](https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019)</tag> (note that this data is from September 2019. You will want to follow the steps in Section 2 of this tutorial if you require fresh data)
 
 ### Pre-requisites
 
@@ -158,7 +158,7 @@ The script consists of five parts:
 - Get historical Bitcoin prices in different fiat currencies to populate `btc_prices`
 - Get historical Ethereum prices in different fiat currencies to populate `eth_prices`
 
-Here's the full Python script, which you can also [:DOWNLOAD_LINK: download][dataset-creation]:
+Here's the full Python script, which you can also <tag type="download" >[download](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</tag>
 
 ```python
 #####################################################################
