@@ -169,7 +169,7 @@ SELECT add_job('downsample_compress','1d', config => '{"lag":"12 month"}');
 [api-alter_job]: /api#alter_job
 [api-delete_job]: /api#delete_job
 [api-run_job]: /api#run_job
-[api-move_chunk]: /api-reference/{currentVersion}/hypertables-and-chunks/move_chunks/
+[api-move_chunk]: /api-reference/{currentVersion}/hypertables-and-chunks/move_chunk/
 [api-timescaledb_information-jobs]: /api#timescaledb_information-jobs
 [postgres-call]: https://www.postgresql.org/docs/current/sql-call.html
 [postgres-createfunction]: https://www.postgresql.org/docs/current/sql-createfunction.html
