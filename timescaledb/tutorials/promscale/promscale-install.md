@@ -48,10 +48,9 @@ docker run --name timescaledb \
 The above commands create a TimescaleDB instanced named `timescaledb` (via the `--name` flag), on the network named `promscale-timescale` (via the `--network` flag), whose container will run in the background with the container ID printed after created (via the `-d` flag), with port-forwarding it to port `5432` on your machine (via the `-p` flag).
 
 <highlight type="warning">
+We set the `POSTGRES_PASSWORD` environment variable (using the `-e` flag) in the command above. Please ensure to replace `[password]` with the password of your choice for the `postgres` superuser.
 
-We set the `POSTGRES_PASSWORD` environment variable (using the `-e` flag) in the command above. Please ensure to replace `<password>` with the password of your choice for the `postgres` superuser.
- 
-For production deployments, you will want to fix the docker tag to a particular version instead of `pg12-latest` 
+For production deployments, you will want to fix the docker tag to a particular version instead of `pg12-latest`
 </highlight>
 
 ## 3.2: Install Promscale [](install-promscale)
