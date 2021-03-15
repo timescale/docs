@@ -383,10 +383,10 @@ What analytic functions are we missing?  [Let us know on github][issues].
 
 
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[time_bucket]: /api#time_bucket
+[time_bucket]: /api-reference/{currentversion}/analytics/time_bucket
 [date_trunc]: https://www.postgresql.org/docs/current/static/functions-datetime.html#functions-datetime-trunc
-[first]: /api#first
-[last]: /api#last
-[histogram]: /api#histogram
+[first]: /api-reference/{currentversion}/analytics/first
+[last]: /api-reference/{currentversion}/analytics/last
+[histogram]: /api-reference/{currentversion}/analytics/histogram
 [loose index scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
 [issues]: https://github.com/timescale/timescaledb/issues

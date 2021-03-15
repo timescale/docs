@@ -247,6 +247,6 @@ documentation:
 [install-timescale]: /getting-started/installation
 [get-psql]: /getting-started/install-psql-tutorial
 [docs-hypertable]: /using-timescaledb/hypertables
-[docs-timebucket]: /api#time_bucket
-[docs-last]: /api#last
+[docs-timebucket]: /api-reference/{currentversion}/analytics/time_bucket
+[docs-last]: /api-reference/{currentversion}/analytics/last
 [docs-timescaledb-intro]: /introduction

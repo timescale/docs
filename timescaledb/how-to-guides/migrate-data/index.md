@@ -257,7 +257,7 @@ Now check out some common [hypertable commands][] for exploring your data.
 [different-db]: #different-db
 [import-data]: #import-data
 [outflux]: #outflux
-[create_hypertable]: /api#create_hypertable
+[create_hypertable]: /api-reference/{currentversion}/hypertables-and-chunks/create_hypertable
 [unique_indexes]: /using-timescaledb/schema-management#unique_indexes
 [indexing]: /using-timescaledb/schema-management#indexing
 [csv-import]: #csv-import

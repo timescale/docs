@@ -87,7 +87,7 @@ SELECT alter_job(<job_id>, scheduled => true);
 
 This job will re-compress any chunks that were decompressed during your backfilling
 operation the next time it runs. To have it run immediately, you can expressly execute
-the command via [`run_job`](/api#run_job):
+the command via [`run_job`][run-job]:
 
 ``` sql
 CALL run_job(<job_id>);
@@ -106,3 +106,4 @@ in future releases.
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
+[run-job]: /api-reference/{currentVersion}/actions-and-automation/run_job/

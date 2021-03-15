@@ -92,6 +92,6 @@ DROP MATERIALIZED VIEW conditions_summary_hourly;
 
 
 
-[sec-data-retention]: /using-timescaledb/data-retention#data-retention
-[api-drop-chunks]: /api#drop_chunks
+[sec-data-retention]: /hot-to-guides/data-retention
+[api-drop-chunks]: /api-reference/{currentVersion}/hypertables-and-chunks/drop_chunks
 
