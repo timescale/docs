@@ -12,7 +12,7 @@ that you are ready to dive into the world of time-series data with TimescaleDB!
 <highlight type="tip">
 If you would prefer to setup TimescaleDB in your own environment and following 
 along with the rest of the _Getting Started_ tutorial, please see our documentation
-for installing self-hosted TimescaleDB
+for [installing self-hosted TimescaleDB][install-timescaledb]
 </highlight>
 
 ### Step 1: Create a Timescale Forge account [](step1-create-account)
@@ -78,3 +78,6 @@ or starts your compute, although your storage persists), or delete
 a service altogether.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-details.png" alt="View Timescale Forge service information"/>
+
+
+[install-timescaledb]: /how-to-guides/install-timescaledb/

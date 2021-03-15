@@ -23,10 +23,10 @@ For our next release, we plan to add:
 We are currently in the Generally Available (GA) version 2.1.
 
 You can read more about our architecture and design for distributed hypertables
-[here](https://docs.timescale.com/v2.0/introduction/architecture#distributed-hypertables).
-To test out the beta version for yourself, join our #multinode channel on
+[here][distributed-hypertables].
+If you have questions about distributed hypertables, join our #multinode channel on
 [community slack](https://slack.timescale.com/) for installation details and
-follow these [setup instructions](https://docs.timescale.com/v2.0/getting-started/setup-multi-node-basic).
+follow these [setup instructions][distributed-hypertables-setup].
 
 In addition to multi-node, we've also reassessed how some core
 functionality works, and, as a result, made APIs simpler and more consistent,
@@ -50,7 +50,7 @@ users to upgrade in testing environments to gain experience and provide feedback
 new and updated features.
 
 Especially because some API updates from TimescaleDB 1.x to 2.0 are breaking changes, 
-we recommend reviewing the [Changes in TimescaleDB 2.0](https://docs.timescale.com/v2.0/release-notes/changes-in-timescaledb-2) 
+we recommend reviewing the [Changes in TimescaleDB 2.0][changes-in-timescaledb-2] 
 for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
 </highlight>
 ## Release Notes
@@ -1168,3 +1168,8 @@ For more information on this release, read the [blog announcement](https://blog.
 
 
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
+
+
+[distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
+[distributed-hypertables-setup]: /how-to-guides/multi-node-setup/
+[changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/

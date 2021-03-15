@@ -39,8 +39,8 @@ that your use case will work as expected. You can also [contact
 us][contact] or join the #multinode channel in our [community Slack][slack].
 </highlight>
 
-[getting-started-multi-node]: /getting-started/setup-multi-node-basic
-[using-hypertables]: /using-timescaledb/hypertables
-[distributed-hypertable-limitations]: /using-timescaledb/limitations#distributed-hypertable-limitations
+[getting-started-multi-node]: /how-to-guides/multi-node-setup/
+[using-hypertables]: /how-to-guides/hypertables/
+[distributed-hypertable-limitations]: /overview/limitations#distributed-hypertable-limitations
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/

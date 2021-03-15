@@ -135,27 +135,6 @@ a backfill process. Using both tools to keep continuous aggregates up-to-date
 provides great control and flexibility!
 
 
-[fff-system]: https://en.wikipedia.org/wiki/FFF_system
-[sec-data-retention]: /using-timescaledb/data-retention#data-retention
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[api-continuous-aggs]:/api#continuous-aggregates
-[postgres-createview]: https://www.postgresql.org/docs/current/static/sql-createview.html
-[pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html
-[time-bucket]: /api#time_bucket
-[api-continuous-aggs-create]: /api#continuous_aggregate-create_view
 [postgres-parallel-agg]:https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[api-refresh-continuous-aggs]: /api#continuous_aggregate-refresh_view
-[api-alter-cagg]: /continuous-aggregates/alter_materialized_view/
-[api-continuous-aggregates-info]: /api#timescaledb_information-continuous_aggregate
-[api-job-stats]: /api#timescaledb_information-job_stats
-[api-drop-chunks]: /api#drop_chunks
-[api-set-chunk-interval]: /api#set_chunk_time_interval
-[api-set-integer-now-func]: /api#set_integer_now_func
-[api-add-retention]: /api#add_retention_policy
-[timescale-github]: https://github.com/timescale/timescaledb
-[support-slack]: https://slack-login.timescale.com
-[postgres-ordered-set]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[clock_timestamp]: http://www.postgresql.org/docs/12/functions-datetime.html#FUNCTIONS-DATETIME-CURRENT
-[add-continuous-aggregate-policy]: /api#add_continuous_aggregate_policy
-[refresh_continuous_aggregate]: /api#refresh_continuous_aggregate
-[retention-aggregate]: /using-timescaledb/data-retention#retention-with-aggregates
+[api-alter-cagg]: /api-reference/{currentVersion}/continuous-aggregates/alter_materialized_view/

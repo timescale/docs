@@ -1,4 +1,4 @@
-### Create a Hypertable [](create)
+## Create a Hypertable
 
 Creating a hypertable is a two-step process.
 <!-- add steps format?-->
@@ -17,6 +17,10 @@ table, or use
 [`create_distributed_hypertable`][create_distributed_hypertable] to
 create a [distributed hypertable][using-distributed-hypertables] that
 scales out across multiple data nodes.
+
+```sql
+SELECT create_hypertable('conditions', 'time');
+```
 
 <highlight type="tip">
 If you need to *migrate* data from an existing table to a hypertable, make
@@ -37,3 +41,9 @@ timestamp, date, or integer types, so you can use a parameter that is not
 explicitly time-based, as long as it can increment.  For example, a
 monotonically increasing id would work.
 </highlight>
+
+
+[create_hypertable]: /api-reference/{currentVersion}/hypertables-and-chunks/create_hypertable
+[create_distributed_hypertable]: /api-reference/{currentVersion}/distributed-hypertables/create_distributed_hypertable
+[using-distributed-hypertables]: /how-to-guides/distributed-hypertables
+[migrate-from-postgresql]: /how-to-guides/migrate-existing-data

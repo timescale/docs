@@ -35,6 +35,6 @@ You can now insert data into the distributed hypertable and the data
 will automatically be routed to the correct data node.
 
 
-[getting-started-multi-node]: /getting-started/setup-multi-node-basic
-[create_distributed_hypertable]: /api#create_distributed_hypertable
-[create_hypertable]: /api#create_hypertable
+[getting-started-multi-node]: /how-to-guides/multi-node-setup/
+[create_distributed_hypertable]: /api-reference/{currentVersion}/distributed-hypertables/create_distributed_hypertable
+[create_hypertable]: /api-reference/{currentVersion}/hypertables-and-chunks/create_hypertable

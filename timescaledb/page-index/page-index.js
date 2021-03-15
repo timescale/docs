@@ -2,11 +2,9 @@ module.exports = [
   {
     title: "TimescaleDB",
     href: "timescaledb",
-    name: 'TimescaleDB',
     excerpt: 'All you need to know about TimescaleDB architecture, concepts, setup, how-to\'s, tutorials and management',
     children: [
       {
-        title: "Overview",
         href: "overview",
         children: [
           {
@@ -14,7 +12,6 @@ module.exports = [
             href: "what-is-time-series-data"
           },
           {
-            title: "Core Concepts",
             href: "core-concepts",
             children : [
               {
@@ -22,7 +19,6 @@ module.exports = [
                 href: "hypertables-and-chunks"
               },
               {
-                title: "Scaling",
                 href: "scaling"
               },
               {
@@ -47,8 +43,12 @@ module.exports = [
             ]
           },
           {
-            title: "Deployment Options",
-            href: "deployment-options"
+            href: "deployment-options",
+            children: [
+              {
+                href: "temporary"
+              }
+            ]
           },
           {
             title: "Data model flexibility",
@@ -85,7 +85,13 @@ module.exports = [
             ]
           },
           {
-            href: "release-notes"
+            href: "release-notes",
+            children: [
+              {
+                title: "Changes in TimescaleDB 2.0",
+                href: "changes-in-timescaledb-2"
+              }
+            ]
           },
           {
             href: "limitations"
@@ -392,6 +398,7 @@ module.exports = [
             ]
           },
           {
+            title: "Multi-node Setup",
             href: "multi-node-setup",
             children: [
               {
@@ -680,7 +687,7 @@ module.exports = [
             href: "single-node"
           },
           {
-            title: "Multi-node",
+            title: "Multi&hyphen;node",
             href: "multi-node"
           },
           {

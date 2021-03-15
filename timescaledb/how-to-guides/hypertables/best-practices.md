@@ -5,12 +5,12 @@ Users of TimescaleDB often have two common questions:
 1. How large should I configure my intervals for time partitioning?
 1. Should I use space partitioning, and how many space partitions should I use?
 
-**Time intervals**:
+### Time intervals:
 Users can use the default time interval, which is 7 days starting in v0.11.0
-and 1 month prior to v0.11.0.
-Alternatively, users can explicitly configure time intervals by
-setting `chunk_time_interval` when creating a hypertable.
-After the hypertable has been created, the interval used for new chunks can be changed by calling [`set_chunk_time_interval`][set_chunk_time_interval].
+and 1 month prior to v0.11.0. Alternatively, users can explicitly configure time 
+intervals by setting `chunk_time_interval` when creating a hypertable. After the
+hypertable has been created, the interval used for new chunks can be changed by
+calling [`set_chunk_time_interval`][set_chunk_time_interval].
 
 The key property of choosing the time interval is that the chunk (including indexes) belonging to the most recent interval (or chunks if using space
 partitions) fit into memory.  As such, we typically recommend setting
@@ -53,10 +53,10 @@ One caveat is that the total chunk size is actually dependent on
 both the underlying data size *and* any indexes, so some care might be
 taken if you make heavy use of expensive index types (e.g., some
 PostGIS geospatial indexes).  During testing, you might check your
-total chunk sizes via the [`chunk_relation_size`][chunk_relation_size] function.
+total chunk sizes via the [`chunk_detailed_size`][chunk_detailed_size] function.
 </highlight>
 
-**Space partitions**: [](best-practices-space-partitions)
+### Space partitions
 Space partitioning is optional but can make
 sense for certain types of data and is recommended when using
 distributed hypertables.
@@ -102,12 +102,7 @@ across multiple physical disks, and expose a single logical disk to
 the hypertable (i.e., via a single tablespace). With a RAID setup, *no
 spatial partitioning is required* on a single node.
 
-[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[add_data_node]: /api#add_data_node
-[create_hypertable]: /api#create_hypertable
-[create_distributed_hypertable]: /api#create_distributed_hypertable
-[using-distributed-hypertables]: /using-timescaledb/distributed-hypertables
-[migrate-from-postgresql]: /getting-started/migrating-data
-[postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
-[set_chunk_time_interval]: /api#set_chunk_time_interval
-[chunk_relation_size]: /api#chunk_relation_size
+
+
+[set_chunk_time_interval]: /api-reference/{currentVersion}/hypertables-and-chunks/set_chunk_time_interval
+[chunk_detailed_size]: /api-reference/{currentVersion}/hypertables-and-chunks/chunk_detailed_size

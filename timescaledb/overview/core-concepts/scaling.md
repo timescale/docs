@@ -107,12 +107,12 @@ whenever possible, and only aggregated or filtered results are passed
 back to the access node for merging and returning to a client.
 
 
-[data model]: /introduction/data-model
+[data model]: /overview/data-model-flexibility/
 [chunking]: https://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
-[Compression Operational Overview]: /using-timescaledb/compression
+[Compression Operational Overview]: /how-to-guides/compression/
 [compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
 [distributed-hypertables]: /overview/core-concepts/distributed-hypertables
 [distributed-hypertable-limitations]: /overview/limitations/#distributed-hypertable-limitations
-[multi-node-basic]: /getting-started/setup-multi-node-basic
+[multi-node-basic]: /how-to-guides/multi-node-setup/

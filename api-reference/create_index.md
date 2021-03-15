@@ -27,7 +27,7 @@ wish to ensure _all_ chunks have a copy of the index, drop and recreate it.
 </highlight>
 
 
-#### Sample Usage 
+### Sample Usage 
 
 Anonymous index
 ```SQL
