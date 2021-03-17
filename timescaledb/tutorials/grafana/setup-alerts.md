@@ -298,7 +298,7 @@ and PagerDuty (API or Integration Key).
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
-[install-timescale]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /getting-started/installation-grafana
 [tutorial-prometheus]: /tutorials/tutorial-setup-timescale-prometheus
 [tutorial-grafana]: /tutorials/tutorial-grafana

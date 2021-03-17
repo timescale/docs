@@ -62,7 +62,7 @@ If you want to use a version that contains _only_ Apache 2.0 licensed
 code, you should use `brew install timescaledb --with-oss-only`.
 </highlight>
 
-[config]: /getting-started/configuring
+[config]: /administration/configuration/
 [Homebrew]: https://brew.sh/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/

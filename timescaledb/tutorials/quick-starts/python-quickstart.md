@@ -370,9 +370,9 @@ tutorials:
 - [Migrate your own Data][migrate]
 
 
-[install-timescale]: /getting-started/installation
-[setup-psql]: /getting-started/install-psql-tutorial
-[install]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
+[setup-psql]: /getting-started/access-timescaledb/install-psql/
+[install]: /how-to-guides/install-timescaledb/
 [virtual-env]: https://opensource.com/article/19/6/virtual-environments-python-macos
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
@@ -382,7 +382,7 @@ tutorials:
 [create-hypertable-docs]: /api-reference/{currentVersion/hypertables-and-chunks/create_hypertable
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
-[time-series-forecasting]: /tutorials/tutorial-forecasting
+[time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /tutorials/continuous-aggs-tutorial
-[other-samples]: /tutorials/other-sample-datasets
-[migrate]: /getting-started/migrating-data
+[other-samples]: /tutorials/sample-datasets/
+[migrate]: /how-to-guides/migrate-data/

@@ -166,7 +166,7 @@ account when securing your data. To learn more about security options within Tim
 visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 
 
-[timescale-cloud-install]: /getting-started/installation/timescale-cloud/installation-timescale-cloud
+[timescale-cloud-install]: /how-to-guides/install-timescaledb//timescale-cloud/installation-timescale-cloud
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cidr-tool]: http://www.subnet-calculator.com/cidr.php
 [timescale-cloud-kb]: https://kb.timescale.cloud/en/collections/1600092-security

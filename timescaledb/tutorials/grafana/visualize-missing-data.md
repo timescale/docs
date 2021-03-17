@@ -179,7 +179,7 @@ how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).
 
 [grafana-external]: https://grafana.com/
-[install-timescale]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
 [get-grafana]: /tutorials/tutorial-grafana
 [tutorial-simulate-iot]: /tutorials/tutorial-howto-simulate-iot-sensor-data
 [docs-hypertable]: /how-to-guides/hypertables-and-chunks/

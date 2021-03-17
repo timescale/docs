@@ -252,8 +252,8 @@ For more information on how to get started, please follow [this tutorial][outflu
 Now check out some common [hypertable commands][] for exploring your data.
 
 
-[installed]: /getting-started/installation
-[setup]: /getting-started/setup
+[installed]: /how-to-guides/install-timescaledb/
+[setup]: /how-to-guides/install-timescaledb/post-install-setup/
 [same-db]: #same-db
 [different-db]: #different-db
 [import-data]: #import-data

@@ -404,9 +404,8 @@ high availability solution with automatic failover functionality.
 [postgres-pgpass-docs]: https://www.postgresql.org/docs/current/static/libpq-pgpass.html
 [postgres-recovery-docs]: https://www.postgresql.org/docs/current/static/recovery-config.html
 [postgres-pgpass-docs]: https://www.postgresql.org/docs/current/static/libpq-pgpass.html
-[timescale-setup-docs]: /getting-started/setup
+[timescale-setup-docs]: /how-to-guides/install-timescaledb/post-install-setup/
 [postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/10/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW
-[timescale-setup-docs]: /getting-started/setup
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni

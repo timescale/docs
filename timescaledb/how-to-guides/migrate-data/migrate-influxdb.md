@@ -195,6 +195,6 @@ Additionally, we have several other [tutorials][] available for you to explore a
 [outflux-releases]: https://github.com/timescale/outflux/releases
 [outflux-readme]: https://github.com/timescale/outflux/blob/master/README.md
 [outflux-connection]: https://github.com/timescale/outflux#connection
-[architecture]: /introduction/architecture
-[API reference]: /api
-[tutorials]: /tutorials
+[architecture]: /overview/core-concepts/
+[API reference]: /api-reference/{currentVersion}/
+[tutorials]: /how-to-guides/

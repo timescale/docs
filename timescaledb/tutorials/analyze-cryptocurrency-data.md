@@ -632,7 +632,7 @@ Ready for even more learning? Here’s a few suggestions:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-[install-timescale]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
 [crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
 [schema-creation]: https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql
 [dataset-creation]: https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py
@@ -641,8 +641,8 @@ Ready for even more learning? Here’s a few suggestions:
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
 [cryptocompare]: https://www.cryptocompare.com
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
-[tableau-tutorial]: /tutorials/visualizing-time-series-data-in-tableau
-[time-series-forecasting]: /tutorials/tutorial-forecasting
+[tableau-tutorial]: /tutorials/visualize-with-tableu/
+[time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /tutorials/continuous-aggs-tutorial
-[other-samples]: /tutorials/other-sample-datasets
-[migrate]: /getting-started/migrating-data
+[other-samples]: /tutorials/sample-datasets/
+[migrate]: /how-to-guides/migrating-data

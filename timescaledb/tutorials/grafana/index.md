@@ -24,7 +24,7 @@ helpful if you've seen SQL before.
 * To start, [install TimescaleDB][install-timescale].
 * Next [setup Grafana][install-grafana].
 
-[install-timescale]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /getting-started/installation-grafana
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [tutorial-grafana-dashboards]: /tutorials/tutorial-grafana-dashboards

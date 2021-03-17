@@ -201,7 +201,7 @@ total_failures         | 0
 [update-tsdb-2]: /hot-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/
-[Install]: /getting-started/installation
+[Install]: /how-to-guides/install-timescaledb/
 [telemetry]: /administration/telemetry/
 [volumes]: https://docs.docker.com/engine/admin/volumes/volumes/
 [bind-mounts]: https://docs.docker.com/engine/admin/volumes/bind-mounts/

@@ -87,8 +87,8 @@ sudo service postgresql restart
 ```
 
 [ubuntu-releases]: http://releases.ubuntu.com/
-[config]: /getting-started/configuring
+[config]: /administration/configuration/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
-[multi-node-basic]: /getting-started/setup-multi-node-basic
-[update-tsdb-2]: /update-timescaledb/update-tsdb-2
+[multi-node-basic]: /how-to-guides/multi-node-setup/
+[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/

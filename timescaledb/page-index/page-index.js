@@ -302,6 +302,9 @@ module.exports = [
                         ],
                       }
                     ],
+                  },
+                  {
+                    href: "post-install-setup"
                   }
                 ]
 
@@ -412,6 +415,9 @@ module.exports = [
               },
               {
                 href: "setup-certificate-authentication"
+              },
+              {
+                href: "maintenance-tasks"
               }
             ]
           },
@@ -690,7 +696,7 @@ module.exports = [
             href: "single-node"
           },
           {
-            title: "Multi&hyphen;node",
+            title: "Multi-node",
             href: "multi-node"
           },
           {

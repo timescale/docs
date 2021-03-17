@@ -32,4 +32,4 @@ Note that it will be necessary to reload the configuration if modified.
 pg_ctl reload
 ```
 
-[configuration]: /getting-started/configuring
+[configuration]: /administration/configuration/

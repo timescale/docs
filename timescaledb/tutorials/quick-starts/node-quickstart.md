@@ -488,13 +488,13 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 - [Migrate your own Data][migrate]
 
 
-[install-timescale]: /getting-started/installation
-[setup-psql]: /getting-started/install-psql-tutorial
+[install-timescale]: /how-to-guides/install-timescaledb/
+[setup-psql]: /getting-started/access-timescaledb/install-psql/
 [indexing-api-guide]: /how-to-guides/schema-management/indexing/
-[time-series-forecasting]: /tutorials/tutorial-forecasting
+[time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /tutorials/continuous-aggs-tutorial
-[other-samples]: /tutorials/other-sample-datasets
-[migrate]: /getting-started/migrating-data
+[other-samples]: /tutorials/sample-datasets/
+[migrate]: /how-to-guides/migrate-data/
 [hypertables]: /overview/core-concepts/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm

@@ -429,15 +429,15 @@ tutorials:
 - [Migrate your own Data][migrate]
 
 
-[install-timescale]: /getting-started/installation
-[setup-psql]: /getting-started/install-psql-tutorial
-[install]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
+[setup-psql]: /getting-started/access-timescaledb/install-psql/
+[install]: /how-to-guides/install-timescaledb/
 [indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
-[time-series-forecasting]: /tutorials/tutorial-forecasting
+[time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /tutorials/continuous-aggs-tutorial
-[other-samples]: /tutorials/other-sample-datasets
-[migrate]: /getting-started/migrating-data
+[other-samples]: /tutorials/sample-datasets/
+[migrate]: /how-to-guides/migrate-data/
 [hypertables]: /overview/core-concepts/
 [active-record-query]: https://guides.rubyonrails.org/v2.3.11/active_record_querying.html
 [rails-install]: https://guides.rubyonrails.org/v5.0/getting_started.html

@@ -770,7 +770,7 @@ that you can use to analyze and make predictions on time-series
 data in your TimescaleDB database.
 
 [hello_timescale]: /tutorials/tutorial-hello-timescale
-[install]: /getting-started/installation
+[install]: /how-to-guides/install-timescaledb/
 [tutorial-postgis]: /tutorials/tutorial-hello-nyc#tutorial-postgis
 [install_r]: https://www.r-project.org/
 [install_python]: https://www.python.org/downloads/

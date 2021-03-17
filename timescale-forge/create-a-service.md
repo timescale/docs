@@ -123,7 +123,7 @@ Please see additional documentation on how to:
 [forge-signup]: https://forge.timescale.com
 [billing-info]: /forge/managing-billing-payments
 [slack-info]: https://slack-login.timescale.com
-[install-psql]: /getting-started/install-psql-tutorial
+[install-psql]: /timescaledb/{currentVersion}/getting-started/access-timescaledb/install-psql/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
@@ -131,6 +131,6 @@ Please see additional documentation on how to:
 [time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
 [gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
 [aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial
-[resize]: /getting-started/exploring-forge/forge-resize
-[configuration]: /getting-started/exploring-forge/forge-configuration
-[multi-node]: /getting-started/exploring-forge/forge-multi-node
+[resize]: /scaling-a-service/
+[configuration]: /customize-configuration/
+[multi-node]: /multi-node-setup

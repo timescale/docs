@@ -171,7 +171,7 @@ When we visualize this query, it will look like this:
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
-[install-timescale]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /getting-started/installation-grafana
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [time-bucket-reference]: /api-reference/{currentVersion}/analytics/time_bucket

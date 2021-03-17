@@ -320,6 +320,6 @@ Additional examples of passing in arguments at boot can be found in our
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
 [synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
-[docker]: /getting-started/installation/docker/installation-docker
+[docker]: /how-to-guides/install-timescaledb//docker/installation-docker
 [wale]: /how-to-guides/backup-and-restore/docker-and-wale/
 [chunk_detailed_size]: /api-reference/{currentVersion}/hypertables/chunk_detailed_size
