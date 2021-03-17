@@ -165,17 +165,17 @@ Cloud database instance. There are many other types of security measures you sho
 account when securing your data. To learn more about security options within Timescale Cloud,
 visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 
+
 [timescale-cloud-install]: /getting-started/installation/timescale-cloud/installation-timescale-cloud
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cidr-tool]: http://www.subnet-calculator.com/cidr.php
 [timescale-cloud-kb]: https://kb.timescale.cloud/en/collections/1600092-security
- 
 [timescale-cloud-portal]: http://portal.timescale.cloud
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-features]: https://www.timescale.com/products
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[using-timescale]: /using-timescaledb
+[using-timescale]: /overview/core-concepts/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
-[install-psql]: /getting-started/install-psql-tutorial
+[install-psql]: /getting-started/access-timescaledb/install-psql/
 

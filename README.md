@@ -218,11 +218,12 @@ formatting within the docs.
   for a tutorial.
 + Adding a text free link to a header with a text address (Ex. `## Important Header [](indexing)`) will create an anchor icon that links to that header with the hash name of the text.
 + Adding `:FOOTER_LINK: ` to the start of a paragraph(line) will format it as a "footer link".
-+ Adding `:DOWNLOAD_LINK: ` to the start of a link will append a 'download link' icon to the end of the link inline.
 + Adding `x.y.z` anywhere in the text will be replaced by the version number of the branch.  Ex. `look at file foo-x.y.z` >> `look at file foo-0.4.2`.
 + Adding `:pg_version:` to text displayed in an installation section (i.e. any page with a filename beginning `installation-`) will display the PostgreSQL version number.  This is primarily to be used for displayed filenames in install instructions that need to be modular based on the version.
++ Wrapping a link with `<tag type="download">[file link here](https://link-to-file.com)</tag>` will create a tag "bubble" wrapper around the link and append a 'download link' icon to the end of the link inline.
 + Designating functions
-    + Adding `:community_function:` to a header (for example, in the api section) adds decorator text "community function".
+    + Adding `<tag type="community">Community</tag>` next to a header (for example, in the api section) adds decorator text "community".
+    + Adding `<tag type="function">TSDB Function</tag>` next to a header (for example, in the api section) adds decorator text "TSDB Function".
 
 _Make sure to include the space after the formatting command!_
 

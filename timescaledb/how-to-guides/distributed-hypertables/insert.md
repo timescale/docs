@@ -42,6 +42,6 @@ uses corresponding methods when interacting with its data nodes):
 
 
 
-[upserts]: /using-timescaledb/writing-data#upsert
+[upserts]: /how-to-guides/write-data/upsert/
 [insert]: https://www.postgresql.org/docs/current/sql-insert.html
 [copy]: https://www.postgresql.org/docs/current/sql-copy.html

@@ -117,7 +117,7 @@ SELECT time, value FROM (
 WHERE diff IS NULL OR diff != 0;
 ```
 
-### Time Bucket :timescale_function: [](time-bucket)
+### Time Bucket <tag type="function">TSDB Function</tag> [](time-bucket)
 
 TimescaleDB's [`time_bucket`][time_bucket] acts as a more powerful version of the PostgreSQL function [`date_trunc`][date_trunc].  It accepts arbitrary time intervals as well as optional offsets and returns the bucket start time.
 
@@ -128,7 +128,7 @@ SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
   ORDER BY five_min DESC LIMIT 12;
 ```
 
-### First, Last <tag type="timescale_function" content="TSDB Function" /> [](first-last)
+### First, Last <tag type="function">TSDB Function</tag> [](first-last)
 
 TimescaleDB defines functions for [`first`][first] and [`last`][last],
 which allow you to get the value of one column as ordered by another.
@@ -148,7 +148,7 @@ SELECT time_bucket('5 minutes', time) five_min, location, last(temperature, time
   ORDER BY five_min DESC LIMIT 12;
 ```
 
-### Histogram :timescale_function: [](histogram)
+### Histogram <tag type="function">TSDB Function</tag> [](histogram)
 
 TimescaleDB also provides a [`histogram`][histogram] function.
 The following example defines a histogram with five buckets defined over
@@ -173,7 +173,7 @@ This query will output data in the following form:
  garage     | 10080 | {0,2679,957,2420,2150,1874,0}
 ```
 
-### Gap Filling :timescale_function: :community_function: [](gap-filling)
+### Gap Filling <tag type="function">TSDB Function</tag> <tag type="community">Community</tag> [](gap-filling)
 
 Some time-series analyses or visualizations want to display records for
 each selected time period, even if no data was recorded during that
@@ -273,7 +273,7 @@ This query will output data of the form:
  2018-03-09 20:53:20+00 |  1037.78
 ```
 
-### Last Observation Carried Forward (locf) :timescale_function: :community_function: [](locf)
+### Last Observation Carried Forward (locf) <tag type="function">TSDB Function</tag> <tag type="community">Community</tag> [](locf)
 
 If your data collections only records rows when the actual value changes,
 your visualizations might still need all data points to properly display
@@ -383,10 +383,10 @@ What analytic functions are we missing?  [Let us know on github][issues].
 
 
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[time_bucket]: /api-reference/{currentversion}/analytics/time_bucket
+[time_bucket]: /api-reference/{currentVersion}/analytics/time_bucket
 [date_trunc]: https://www.postgresql.org/docs/current/static/functions-datetime.html#functions-datetime-trunc
-[first]: /api-reference/{currentversion}/analytics/first
-[last]: /api-reference/{currentversion}/analytics/last
-[histogram]: /api-reference/{currentversion}/analytics/histogram
+[first]: /api-reference/{currentVersion}/analytics/first
+[last]: /api-reference/{currentVersion}/analytics/last
+[histogram]: /api-reference/{currentVersion}/analytics/histogram
 [loose index scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
 [issues]: https://github.com/timescale/timescaledb/issues

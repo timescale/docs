@@ -446,6 +446,9 @@ module.exports = [
             href: "compression",
             children: [
               {
+                href: "compression-basics"
+              },
+              {
                 href: "manually-compress-chunks"
               },
               {

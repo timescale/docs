@@ -127,9 +127,9 @@ Please see additional documentation on how to:
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: https://docs.timescale.com/latest/using-timescaledb/hypertables
-[time-bucket-info]: https://docs.timescale.com/latest/using-timescaledb/reading-data#time-bucket
-[gap-filling-info]: https://docs.timescale.com/latest/using-timescaledb/reading-data#gap-filling
+[hypertable-info]: /how-to-guides/hypertables-and-chunks
+[time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
+[gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
 [aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial
 [resize]: /getting-started/exploring-forge/forge-resize
 [configuration]: /getting-started/exploring-forge/forge-configuration

@@ -27,4 +27,4 @@ For more information, please see the [API documentation][add_retention_policy].
 
 
 
-[add_retention_policy]: /api-reference/{currentversion}/data-retention/add_retention_policy
+[add_retention_policy]: /api-reference/{currentVersion}/data-retention/add_retention_policy
