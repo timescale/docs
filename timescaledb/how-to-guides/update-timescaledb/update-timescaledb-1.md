@@ -143,13 +143,13 @@ ALTER EXTENSION timescaledb UPDATE;
 You can then run the `\dx` command to make sure you have the
 latest version of TimescaleDB installed.
 
-[changes-in-2.0]: /v2.0/release-notes/changes-in-timescaledb-2
-[upgrade-pg]: /update-timescaledb/upgrade-pg
-[update-tsdb-1]: /update-timescaledb/update-db-1
-[update-tsdb-2]: /v2.0/update-timescaledb/update-db-2
+[changes-in-2.0]: /overview/release-notes/changes-in-timescaledb-2/
+[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
+[update-tsdb-1]: https://docs.timescale.com/v1.7/update-timescaledb/update-tsdb-1
+[update-tsdb-2]: /hot-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /using-timescaledb/backup
+[backup]: /how-to-guides/backup-and-restore/
 [Install]: /getting-started/installation
-[telemetry]: /using-timescaledb/telemetry
+[telemetry]: /administration/telemetry/
 [volumes]: https://docs.docker.com/engine/admin/volumes/volumes/
 [bind-mounts]: https://docs.docker.com/engine/admin/volumes/bind-mounts/

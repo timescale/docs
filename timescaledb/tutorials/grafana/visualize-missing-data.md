@@ -182,8 +182,8 @@ how to use TimescaleDB, check out our other [tutorials][tutorials]
 [install-timescale]: /getting-started/installation
 [get-grafana]: /tutorials/tutorial-grafana
 [tutorial-simulate-iot]: /tutorials/tutorial-howto-simulate-iot-sensor-data
-[docs-hypertable]: /using-timescaledb/hypertables
-[docs-timebucket]: /api-reference/{currentversion}/analytics/time_bucket
-[docs-timebucket-gapfill]: /api-reference/{currentversion}/analytics/time_bucket_gapfill
-[docs-LOCF]: /api-reference/{currentversion}/analytics/locf
+[docs-hypertable]: /how-to-guides/hypertables-and-chunks/
+[docs-timebucket]: /api-reference/{currentVersion}/analytics/time_bucket
+[docs-timebucket-gapfill]: /api-reference/{currentVersion}/analytics/time_bucket_gapfill
+[docs-LOCF]: /api-reference/{currentVersion}/analytics/locf
 [tutorials]: /tutorials

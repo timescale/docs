@@ -40,7 +40,6 @@ writing different types of data.
 We wrote the PostgreSQL output plugin which also has the ability to send data to a TimescaleDB hypertable. Telegraf handles
 batching, processing, and aggregating the data collected prior to inserting that data into TimescaleDB.
 
-<!-- -->
 <highlight type="warning">
  The [pull request][pull-request] is open and currently under review by the Telegraf developers, waiting to be
 merged. To give users the opportunity to try this functionality, we built [downloadable binaries][downloadable-binaries] of
@@ -85,14 +84,12 @@ TimescaleDB, you can download the [StreamSets Data Collector][streamsets-data-co
 and get started with this [tutorial][tutorial-streamsets].  
 
 
-[writing-data]: /using-timescaledb/writing-data
+[writing-data]: /how-to-guides/writing-data
 [prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
 [postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
 [promscale-sql]: https://github.com/timescale/promscale/blob/master/docs/sql_schema.md
 [timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
-[grafana]: /using-timescaledb/visualizing-data#grafana
-[other-viz-tools]: /using-timescaledb/visualizing-data#other-viz-tools
 [pull-request]: https://github.com/influxdata/telegraf/pull/3428
 [downloadable-binaries]: https://docs.timescale.com/tutorials/telegraf-output-plugin#telegraf-installation
 [wide-model]: https://docs.timescale.com/introduction/data-model

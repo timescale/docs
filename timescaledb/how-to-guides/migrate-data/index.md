@@ -251,16 +251,17 @@ For more information on how to get started, please follow [this tutorial][outflu
 
 Now check out some common [hypertable commands][] for exploring your data.
 
+
 [installed]: /getting-started/installation
 [setup]: /getting-started/setup
 [same-db]: #same-db
 [different-db]: #different-db
 [import-data]: #import-data
 [outflux]: #outflux
-[create_hypertable]: /api-reference/{currentversion}/hypertables-and-chunks/create_hypertable
-[unique_indexes]: /using-timescaledb/schema-management#unique_indexes
-[indexing]: /using-timescaledb/schema-management#indexing
+[create_hypertable]: /api-reference/{currentVersion}/hypertables-and-chunks/create_hypertable
+[unique_indexes]: /how-to-guides/schema-management/indexing/#default-indexes
+[indexing]: /how-to-guides/schema-management/indexing/#indexing-data
 [csv-import]: #csv-import
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
-[outflux-tutorial]: /tutorials/outflux
-[hypertable commands]: /using-timescaledb/hypertables
+[outflux-tutorial]: /how-to-guides/migrate-data/migrate-influxdb/
+[hypertable commands]: /how-to-guides/hypertables-and-chunks/

@@ -246,7 +246,7 @@ documentation:
 [github-tsbs]: https://github.com/timescale/tsbs
 [install-timescale]: /getting-started/installation
 [get-psql]: /getting-started/install-psql-tutorial
-[docs-hypertable]: /using-timescaledb/hypertables
-[docs-timebucket]: /api-reference/{currentversion}/analytics/time_bucket
-[docs-last]: /api-reference/{currentversion}/analytics/last
+[docs-hypertable]: /how-to-guides/hypertables-and-chunks/
+[docs-timebucket]: /api-reference/{currentVersion}/analytics/time_bucket
+[docs-last]: /api-reference/{currentVersion}/analytics/last
 [docs-timescaledb-intro]: /introduction

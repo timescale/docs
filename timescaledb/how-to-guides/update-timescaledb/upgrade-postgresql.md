@@ -28,4 +28,4 @@ Please see our documentation on [Backup & Restore][backup] strategies for more i
 
 
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /using-timescaledb/backup
+[backup]: /how-to-guides/backup-and-restore/

@@ -234,7 +234,7 @@ to automate your data retention policies.
 
 **Next:** How does TimescaleDB compare to NoSQL time-series DBs? [TimescaleDB vs. NoSQL][vs NoSQL]
 
-[architectural discussion]: /introduction/architecture#benefits-chunking
-[api]: /api
-[data retention]: /using-timescaledb/data-retention
-[vs NoSQL]: /introduction/timescaledb-vs-nosql
+[architectural discussion]: /overview/core-concepts/
+[api]: /api-reference/{currentVersion}/
+[data retention]: /how-to-guides/data-retention
+[vs NoSQL]: /overview/how-does-it-compare/timescaledb-vs-nosql/

@@ -196,18 +196,18 @@ total_failures         | 0
 ```
 
 
-[upgrade-pg]: /update-timescaledb/upgrade-pg
-[update-tsdb-1]: /v1.7/update-timescaledb/update-tsdb-1
-[update-tsdb-2]: /update-timescaledb/update-tsdb-2
+[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
+[update-tsdb-1]: https://docs.timescale.com/v1.7/update-timescaledb/update-tsdb-1
+[update-tsdb-2]: /hot-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /using-timescaledb/backup
+[backup]: /how-to-guides/backup-and-restore/
 [Install]: /getting-started/installation
-[telemetry]: /using-timescaledb/telemetry
+[telemetry]: /administration/telemetry/
 [volumes]: https://docs.docker.com/engine/admin/volumes/volumes/
 [bind-mounts]: https://docs.docker.com/engine/admin/volumes/bind-mounts/
-[caggs]: /using-timescaledb/continuous-aggregates
-[compression]: /using-timescaledb/compression
-[retention]: /using-timescaledb/data-retention
-[retention-cagg-changes]: /release-notes/changes-in-timescaledb-2#retention-and-caggs
-[changes-in-ts2]: /release-notes/changes-in-timescaledb-2
-[changes-in-ts2-caggs]: /release-notes/changes-in-timescaledb-2#updating-continuous-aggregates
+[caggs]: /how-to-guides/continuous-aggregates
+[compression]: /how-to-guides/compression
+[retention]: /how-to-guides/data-retention
+[retention-cagg-changes]: /overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
+[changes-in-ts2]: /overview/release-notes/changes-in-timescaledb-2
+[changes-in-ts2-caggs]: /overview/release-notes/changes-in-timescaledb-2#updating-continuous-aggregates

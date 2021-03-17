@@ -432,13 +432,13 @@ tutorials:
 [install-timescale]: /getting-started/installation
 [setup-psql]: /getting-started/install-psql-tutorial
 [install]: /getting-started/installation
-[indexing-api-guide]: /using-timescaledb/schema-management#indexing
+[indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
 [time-series-forecasting]: /tutorials/tutorial-forecasting
 [continuous-aggregates]: /tutorials/continuous-aggs-tutorial
 [other-samples]: /tutorials/other-sample-datasets
 [migrate]: /getting-started/migrating-data
-[hypertables]: /introduction/architecture
+[hypertables]: /overview/core-concepts/
 [active-record-query]: https://guides.rubyonrails.org/v2.3.11/active_record_querying.html
 [rails-install]: https://guides.rubyonrails.org/v5.0/getting_started.html
 [composite-primary-key-gem]: https://github.com/composite-primary-keys/composite_primary_keys
