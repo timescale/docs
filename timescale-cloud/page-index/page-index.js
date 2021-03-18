@@ -10,28 +10,15 @@ module.exports = [
         href: "create-a-service",
       },
       {
-        href: "scaling-a-service",
+        title: "Create a Multi-node Cluster",
+        href: "cloud-multi-node"
       },
       {
-        title: "Forking a DB",
-        href: "forking-a-db"
-      },
-      {
-        title: "Point-in-time Recovery",
-        href: "pitr-recovery",
-      },
-      {
-        href: "metrics-and-logs",
-      },
-      {
-        href: "customize-configuration",
+        href: "viewing-service-logs",
       },
       {
         title: "VPC Peering",
         href: "vpc-peering",
-      },
-      {
-        href: "updating-a-service"
       },
       {
         href: "security",

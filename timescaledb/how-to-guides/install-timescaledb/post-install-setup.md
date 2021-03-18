@@ -4,8 +4,10 @@ Ok, you have [installed][] TimescaleDB, and now you are ready to work with some
 data.  The first thing to do is to create a new empty database or convert an
 existing PostgreSQL database to use TimescaleDB.
 
->:TIP: If you are planning on doing any performance testing on TimescaleDB, we
+<highlight type="tip">
+If you are planning on doing any performance testing on TimescaleDB, we
 strongly recommend that you [configure][] TimescaleDB properly.
+</highlight>
 
 <img class="main-content__illustration" style="margin: 0 5% 0 10%;" src="https://assets.iobeam.com/images/docs/illustration-setup.svg" alt="setup illustration"/>
 
@@ -23,10 +25,12 @@ Now create a new empty database (skip this if you already have a database):
 CREATE database tutorial;
 ```
 
->:WARNING: Starting in v0.12.0, TimescaleDB enables [telemetry reporting][]
+<highlight type="warning">
+Starting in v0.12.0, TimescaleDB enables [telemetry reporting][]
 by default. You can opt-out by following the instructions detailed
 in our [telemetry documentation][]. However, please do note that telemetry is
 anonymous, and by keeping it on, you help us [improve our product][].
+</highlight>
 
 Lastly add TimescaleDB:
 
@@ -38,9 +42,11 @@ Lastly add TimescaleDB:
 CREATE EXTENSION IF NOT EXISTS timescaledb;
 ```
 
->:TIP: If you want to install a version that is not the most
+<highlight type="tip">
+If you want to install a version that is not the most
 recent available on your system you can specify the version like so:
 `CREATE EXTENSION timescaledb VERSION '1.7.4';`
+</highlight>
 
 _That's it!_  Connecting to the new database is as simple as:
 

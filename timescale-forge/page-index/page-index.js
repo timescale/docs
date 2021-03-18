@@ -13,10 +13,11 @@ module.exports = [
         href: "scaling-a-service",
       },
       {
-        href: "metrics-and-logs",
+        href: "customize-configuration",
       },
       {
-        href: "customize-configuration",
+        title: "Create a Multi-node Cluster",
+        href: "forge-multi-node"
       }
     ]
   }

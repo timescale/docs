@@ -27,10 +27,12 @@ applications connect to once the cluster is set up. It becomes the "brains" and
 traffic controller of all distributed hypertable activity. In contrast, data nodes 
 are not intended to be accessed directly once joined to a multi-node cluster.
 
->:TIP:A proper TimescaleDB cluster should have at least two data nodes to begin 
+<highlight type="tip">
+A proper TimescaleDB cluster should have at least two data nodes to begin 
 realizing the benefits of distributed hypertables. While it is technically possible
 to add just one data node to a cluster, this will perform worse than a
-single-node TimescaleDB instance and is not recommended. 
+single-node TimescaleDB instance and is not recommended.
+</highlight> 
 
 ### Step 1: Create Services for Access and Data node Services [](step1-create-services)
 
@@ -48,13 +50,17 @@ For simplicity you can start with the same hardware configuration for all Servic
 On Timescale Forge, Service configuration can be modified later to better tune access 
 and data node requirements.
 
->:TIP:More advanced users might consider using larger disks on data nodes (this is 
+<highlight type="tip">
+More advanced users might consider using larger disks on data nodes (this is 
 where the distributed hypertable data is stored) and more memory and CPU for the 
 access node.
+</highlight>
 
->:WARNING: Services created prior to January 2021 may be running TimescaleDB
+<highlight type="warning">
+Services created prior to January 2021 may be running TimescaleDB
 v1.7.4 or earlier.  We recommend creating a new Service when setting up
 multi-node, although some earlier Services may be upgradable to v2.0.
+</highlight>
 
 ### Step 2: Modify Access Node settings [](step2)
 
