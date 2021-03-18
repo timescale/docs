@@ -129,6 +129,10 @@ module.exports = [
             href: "distributed_exec"
           },
           {
+            title: "drop_chunk",
+            href: "drop_chunk"
+          },
+          {
             title: "reorder_chunk",
             href: "reorder_chunk"
           },
@@ -267,7 +271,7 @@ module.exports = [
         ]
       },
       {
-        title: "Analytics",
+        title: "Analytic Functions",
         type: 'directory',
         href: "analytics",
         children: [
