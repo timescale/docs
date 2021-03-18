@@ -19,7 +19,8 @@ to that database. Be sure to follow the full tutorial if you’re interested in 
 on how to use TimescaleDB.
 
 <highlight type="tip">
- Be sure to pay close attention to the [geospatial query portion][hello-timescale-geospatial] of the tutorial and complete those steps.
+ Be sure to pay close attention to the [geospatial query portion](/tutorials/tutorial-hello-timescale#postgis)
+ of the tutorial and complete those steps.
 </highlight>
 
 ### Build a geospatial query
@@ -70,7 +71,8 @@ Finally, in the `GROUP BY` clause, we supply the `trip_distance` and location va
 so that Grafana can plot data properly.
 
 <highlight type="warning">
- This query may take a while, depending on the speed of your Internet connection. This is why we’re using the `LIMIT` statement for demonstration purposes.
+ This query may take a while, depending on the speed of your Internet connection. This 
+ is why we’re using the `LIMIT` statement for demonstration purposes.
 </highlight>
 
 ### Configure the Worldmap Grafana panel
@@ -106,7 +108,7 @@ for different timeframes.
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
-[install-timescale]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /getting-started/installation-grafana
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [hello-timescale-geospatial]: /tutorials/tutorial-hello-timescale#postgis

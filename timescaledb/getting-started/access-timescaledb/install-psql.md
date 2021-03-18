@@ -1,10 +1,10 @@
 # Tutorial: How to install psql on Mac, Ubuntu, Debian, Windows
 
-### Introduction
+## Introduction
 `psql` is the standard command line interface for interacting with a PostgreSQL 
 or TimescaleDB instance. Here we explain how to install `psql` on various platforms.
 
-### Before you start
+## Before you start
 Before you start, you should confirm that you don’t already have `psql` installed. 
 In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already 
 have `psql` installed.
@@ -13,7 +13,7 @@ have `psql` installed.
 psql --version
 ```
 
-### Install on macOS using Homebrew
+## Install on macOS using Homebrew
 First, install the [Brew Package Manager][brew-package-manager]. Homebrew simplifies
 the installation of software on macOS.
 
@@ -32,7 +32,7 @@ so that you can reach it from any command on the macOS Terminal.
 brew link --force libpq ail
 ```
 
-### Install on Ubuntu 16.04,18.04 and Debian 9,10
+## Install on Ubuntu 16.04,18.04 and Debian 9,10
 Install on Ubuntu and Debian using the `apt` package manager:
 
 ```bash
@@ -42,10 +42,10 @@ sudo apt-get install postgresql-client
 
 <highlight type="tip"> This only installs the `psql` client and not the PostgreSQL database.</highlight>
 
-### Install on Windows 10
+## Install on Windows 10
 We recommend using the installer from [PostgreSQL.org][windows-installer].
 
-### Last step: Connect to your PostgreSQL server
+## Last step: Connect to your PostgreSQL server
 Let’s confirm that `psql` is installed:
 
 ```bash
@@ -62,7 +62,7 @@ connection parameters:
 
 There are two ways to use these parameters to connect to your PostgreSQL database.
 
-#### Option 1: Supply parameters at the command line
+### Option 1: Supply parameters at the command line
 In this method, use parameter flags on the command line to supply the required
 information to connect to a PostgreSQL database: 
 
@@ -73,16 +73,16 @@ psql -h HOSTNAME -p PORT -U USERNAME -W -d DATABASENAME
 Once you run that command, the prompt will ask you for your password. (This is the purpose 
 of the `-W` flag.)
 
-#### Option 2: Use a service URI
+### Option 2: Use a service URI
 The Service URI begins with `postgres://`.
 
 ```bash
 psql postgres://[USERNAME]:[PASSWORD]@[HOSTNAME]:[PORT]/[DATABASENAME]?sslmode=require
 ```
 
-### Fun things to do with psql
+## Fun things to do with psql
 
-#### Common psql commands
+### Common psql commands
 Here is a table of common commands you'll find yourself using a lot:
 
 | Command       |      Actions                             |
@@ -100,7 +100,7 @@ Here is a table of common commands you'll find yourself using a lot:
 |`\x`           | Show expanded query results              |
 |`\q`           | Quit `psql`                              |
 
-#### Save results of a query to a comma-separated file
+### Save results of a query to a comma-separated file
 You may often find yourself running SQL queries with lengthy results. You can save these
 results to a comma-separated file (CSV) using the `COPY` command:
 
@@ -111,9 +111,8 @@ results to a comma-separated file (CSV) using the `COPY` command:
 You would then be able to open `/tmp/myoutput.csv` using any spreadsheet or similar
 program that reads CSV files.
 
-#### Edit a SQL query in an editor
-Sometimes you may find yourself writing a lengthy query such as this one from our
-[Hello Timescale!][hello-timescale] tutorial:
+### Edit a SQL query in an editor
+Sometimes you may find yourself writing a lengthy query such as this one below:
 
 ```sql
 -- For each airport: num trips, avg trip duration, avg cost, avg tip, avg distance, min distance, max distance, avg number of passengers

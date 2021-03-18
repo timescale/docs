@@ -13,25 +13,25 @@ more information, see [`detach_data_node`](#detach_data_node).
 An error will be generated if the data node cannot be detached from
 all attached hypertables.
 
-#### Required Arguments 
+### Required Arguments
 
-| Name        | Description            |
-| ----------- | -----------            |
-| `node_name` | (NAME) Name of the data node. |
+|Name|Type|Description|
+|---|---|---|
+| `node_name` | TEXT | Name of the data node. |
 
-#### Optional Arguments 
+### Optional Arguments
 
-| Name          | Description                                           |
-|---------------|-------------------------------------------------------|
-| `if_exists`   | (BOOLEAN) Prevent error if the data node does not exist. Defaults to false. |
-| `force`       | (BOOLEAN) Force removal of data nodes from hypertables unless that would result in data loss.  Defaults to false. |
-| `repartition` | (BOOLEAN) Make the number of space partitions equal to the new number of data nodes (if such partitioning exists). This ensures that the remaining data nodes are used evenly. Defaults to true. |
+|Name|Type|Description|
+|---|---|---|
+| `if_exists`   | BOOLEAN | Prevent error if the data node does not exist. Defaults to false. |
+| `force`       | BOOLEAN | Force removal of data nodes from hypertables unless that would result in data loss.  Defaults to false. |
+| `repartition` | BOOLEAN | Make the number of space partitions equal to the new number of data nodes (if such partitioning exists). This ensures that the remaining data nodes are used evenly. Defaults to true. |
 
-#### Returns 
+### Returns 
 
 A boolean indicating if the operation was successful or not.
 
-#### Sample usage 
+### Sample Usage 
 
 To delete a data node named `dn1`:
 ```sql

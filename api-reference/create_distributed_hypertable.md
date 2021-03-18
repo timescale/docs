@@ -4,17 +4,17 @@ Creates a TimescaleDB hypertable distributed across a multinode
 environment.  Use this function in place of [`create_hypertable`](#create_hypertable)
 when creating distributed hypertables.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `relation` | Identifier of table to convert to hypertable. |
 | `time_column_name` | Name of the column containing time values as well as the primary column to partition by. |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `partitioning_column` | Name of an additional column to partition by. |
 | `number_partitions` | Number of hash partitions to use for `partitioning_column`. Must be > 0. Default is the number of `data_nodes`. |
 | `associated_schema_name` | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
@@ -28,16 +28,16 @@ when creating distributed hypertables.
 | `replication_factor` | The number of data nodes to which the same data is written to. This is done by creating chunk copies on this amount of data nodes.  Must be >= 1; default is 1.  Read [the best practices](#create_distributed_hypertable-best-practices) before changing the default. |
 | `data_nodes` | The set of data nodes used for the distributed hypertable.  If not present, defaults to all data nodes known by the access node (the node on which the distributed hypertable is created). |
 
-#### Returns
+### Returns
 
-|Column|Description|
-|---|---|
+|Column|Type|Description|
+|---|---|---|
 | `hypertable_id` | ID of the hypertable in TimescaleDB. |
 | `schema_name` | Schema name of the table converted to hypertable. |
 | `table_name` | Table name of the table converted to hypertable. |
 | `created` | TRUE if the hypertable was created, FALSE when `if_not_exists` is TRUE and no hypertable was created. |
 
-#### Sample Usage 
+### Sample Usage 
 
 Create a table `conditions` which will be partitioned across data
 nodes by the 'location' column.  Note that the number of space

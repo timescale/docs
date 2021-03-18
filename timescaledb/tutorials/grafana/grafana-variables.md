@@ -221,7 +221,7 @@ Your dashboard should look something like this:
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
-[install-timescale]: /getting-started/installation
+[install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /getting-started/installation-grafana
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [tutorial-grafana]: /tutorials/tutorial-grafana

@@ -1,4 +1,4 @@
-## Compression :community_function:
+## Compression <tag type="community">Community</tag>
 
 We highly recommend reading the [blog post][blog-compression] and
 [tutorial][using-compression] about compression before trying to set it up
@@ -11,7 +11,7 @@ policy](#add_compression_policy) for when to compress chunks.
 Advanced usage of compression allows users to [compress chunks
 manually](#compress_chunk), instead of automatically as they age.
 
-#### Restrictions
+### Restrictions
 
 The current version does not support altering or inserting data into compressed
 chunks. The data can be queried without any modifications, however if you

@@ -21,15 +21,15 @@ or 1 hour.
 
 #### Required Arguments 
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `bucket_width` | A PostgreSQL time interval for how long each bucket is (interval) |
 | `time` | The timestamp to bucket (timestamp/timestamptz/date)|
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `offset` | The time interval to offset all buckets by (interval) |
 | `origin` | Buckets are aligned relative to this timestamp (timestamp/timestamptz/date) |
 
@@ -37,19 +37,19 @@ or 1 hour.
 
 #### Required Arguments 
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `bucket_width` | The bucket width (integer) |
 | `time` | The timestamp to bucket (integer) |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `offset` | The amount to offset all buckets by (integer) |
 
 
-#### Sample Usage 
+### Sample Usage 
 
 Simple 5-minute averaging:
 

@@ -12,10 +12,11 @@ function is run following the restore. See [backup/restore docs][backup-restore]
 
 <highlight type="warning">
  After running `SELECT timescaledb_pre_restore()` you must run the
-  [`timescaledb_post_restore`](#timescaledb_post_restore) function before using the database normally.
+  [`timescaledb_post_restore`](#timescaledb_post_restore) function before using 
+  the database normally.
 </highlight>
 
-#### Sample Usage  
+### Sample Usage  
 
 ```sql
 SELECT timescaledb_pre_restore();

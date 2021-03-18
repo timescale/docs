@@ -2,22 +2,22 @@
 
 Get metadata information about hypertables.
 
-#### Available Columns 
+### Available Columns 
 
-|Name|Description|
-|---|---|
-| `hypertable_schema` | (NAME) Schema name of the hypertable |
-| `hypertable_name` | (NAME) Table name of the hypertable |
-| `owner` | (NAME) Owner of the hypertable |
-| `num_dimensions` | (SMALLINT) Number of dimensions |
-| `num_chunks` | (BIGINT) Number of chunks |
-| `compression_enabled` | (BOOLEAN) Is compression enabled on the hypertable?|
-| `is_distributed` | (BOOLEAN) Is the hypertable distributed?|
-| `replication_factor` | (SMALLINT) Replication factor for a distributed hypertable|
+|Name|Type|Description|
+|---|---|---|
+| `hypertable_schema` | TEXT | Schema name of the hypertable |
+| `hypertable_name` | TEXT | Table name of the hypertable |
+| `owner` | TEXT | Owner of the hypertable |
+| `num_dimensions` | SMALLINT | Number of dimensions |
+| `num_chunks` | BIGINT | Number of chunks |
+| `compression_enabled` | BOOLEAN | Is compression enabled on the hypertable?|
+| `is_distributed` | BOOLEAN | Is the hypertable distributed?|
+| `replication_factor` | SMALLINT | Replication factor for a distributed hypertable|
 | `data_nodes` | (NAME Nodes on which hypertable is distributed|
 | `tablespaces` | (NAME Tablespaces attached to the hypertable |
 
-#### Sample Usage 
+### Sample Usage 
 
 Get information about a hypertable.
 

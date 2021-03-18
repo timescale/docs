@@ -16,7 +16,7 @@ continuous aggregate or just a specific time range. In either case,
 the refresh only recomputes the aggregate buckets that have changed
 since the last refresh.
  
-### An introductory example [](quick-start)
+## An introductory example [](quick-start)
 
 As a quick introductory example, let's create a hypertable
 `conditions` containing temperature data for devices and a continuous
@@ -89,7 +89,7 @@ currently support the `FILTER` clause (not to be confused with
 `WHERE`) even though it is possible to parallelize but we might add
 support for this in a future version.
 
-### Real-Time Aggregation [](real-time-aggregates)
+## Real-Time Aggregation [](real-time-aggregates)
 
 A query on a continuous aggregate will, by default, use *real-time
 aggregation* (first introduced in TimescaleDB 1.7) to combine
@@ -112,7 +112,7 @@ in a version earlier than TimescaleDB 1.7, alter the view to set
 `timescaledb.materialized_only=false`.
 </highlight>
 
-#### Automatic refresh with a continuous aggregate policy
+### Automatic refresh with a continuous aggregate policy
 
 Continuous aggregates can be kept up-to-date through the last bucket width of
 time by using continuous aggregate policies. Policies allow you to keep a
@@ -124,7 +124,7 @@ This provides the ability to do things like:
 - keep the aggregate data in the continuous aggregate when removing
   source data from the hypertable.
 
-#### Manually Refreshing continuous aggregate ranges [](refresh-cagg)
+### Manually Refreshing continuous aggregate ranges [](refresh-cagg)
 
 It is also possible, starting with TimescaleDB 2.0, to manually refresh
 a specific window of time in a continuous aggregate using 
@@ -135,27 +135,6 @@ a backfill process. Using both tools to keep continuous aggregates up-to-date
 provides great control and flexibility!
 
 
-[fff-system]: https://en.wikipedia.org/wiki/FFF_system
-[sec-data-retention]: /using-timescaledb/data-retention#data-retention
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[api-continuous-aggs]:/api#continuous-aggregates
-[postgres-createview]: https://www.postgresql.org/docs/current/static/sql-createview.html
-[pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html
-[time-bucket]: /api#time_bucket
-[api-continuous-aggs-create]: /api#continuous_aggregate-create_view
 [postgres-parallel-agg]:https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[api-refresh-continuous-aggs]: /api#continuous_aggregate-refresh_view
-[api-alter-cagg]: /api#continuous_aggregate-alter_view
-[api-continuous-aggregates-info]: /api#timescaledb_information-continuous_aggregate
-[api-job-stats]: /api#timescaledb_information-job_stats
-[api-drop-chunks]: /api#drop_chunks
-[api-set-chunk-interval]: /api#set_chunk_time_interval
-[api-set-integer-now-func]: /api#set_integer_now_func
-[api-add-retention]: /api#add_retention_policy
-[timescale-github]: https://github.com/timescale/timescaledb
-[support-slack]: https://slack-login.timescale.com
-[postgres-ordered-set]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[clock_timestamp]: http://www.postgresql.org/docs/12/functions-datetime.html#FUNCTIONS-DATETIME-CURRENT
-[add-continuous-aggregate-policy]: /api#add_continuous_aggregate_policy
-[refresh_continuous_aggregate]: /api#refresh_continuous_aggregate
-[retention-aggregate]: /using-timescaledb/data-retention#retention-with-aggregates
+[api-alter-cagg]: /api-reference/{currentVersion}/continuous-aggregates/alter_materialized_view/

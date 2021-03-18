@@ -12,27 +12,27 @@ re-run the [reorder_chunk](#reorder_chunk) function on older chunks, or to drop
 and re-create the policy if many older chunks have been affected.
 </highlight>
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Hypertable to create the policy for. |
-| `index_name` | (NAME) Existing index by which to order rows on disk. |
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to create the policy for. |
+| `index_name` | TEXT | Existing index by which to order rows on disk. |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `if_not_exists` | (BOOLEAN)  Set to true to avoid throwing an error if the reorder_policy already exists. A notice is issued instead. Defaults to false. |
+|Name|Type|Description|
+|---|---|---|
+| `if_not_exists` | BOOLEAN |  Set to true to avoid throwing an error if the reorder_policy already exists. A notice is issued instead. Defaults to false. |
 
-#### Returns 
+### Returns 
 
-|Column|Description|
-|---|---|
-|`job_id`| (INTEGER) TimescaleDB background job id created to implement this policy|
+|Column|Type|Description|
+|---|---|---|
+|`job_id`| INTEGER | TimescaleDB background job id created to implement this policy|
 
 
-#### Sample Usage 
+### Sample Usage 
 
 
 ```sql

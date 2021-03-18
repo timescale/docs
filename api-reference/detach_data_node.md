@@ -9,22 +9,22 @@ removed from all hypertables that use it
 - You want to have fewer data nodes for a distributed hypertable to
 partition across
 
-#### Required Arguments 
+### Required Arguments
 
-| Name        | Description                       |
-|-------------|-----------------------------------|
-| `node_name` | (NAME) Name of data node to detach from the distributed hypertable |
+| Name        | Type|Description                       |
+|-------------|----|-------------------------------|
+| `node_name` | TEXT | Name of data node to detach from the distributed hypertable |
 
-#### Optional Arguments 
+### Optional Arguments
 
-| Name          | Description                            |
-|---------------|----------------------------------------|
-| `hypertable`  | (REGCLASS) Name of the distributed hypertable where the data node should be detached. If NULL, the data node will be detached from all hypertables. |
-| `if_attached` | (BOOLEAN) Prevent error if the data node is not attached. Defaults to false. |
-| `force`       | (BOOLEAN) Force detach of the data node even if that means that the replication factor is reduced below what was set. Note that it will never be allowed to reduce the replication factor below 1 since that would cause data loss.         |
-| `repartition` | (BOOLEAN) Make the number of space partitions equal to the new number of data nodes (if such partitioning exists). This ensures that the remaining data nodes are used evenly. Defaults to true. |
+| Name          | Type|Description                            |
+|---------------|---|-------------------------------------|
+| `hypertable`  | REGCLASS | Name of the distributed hypertable where the data node should be detached. If NULL, the data node will be detached from all hypertables. |
+| `if_attached` | BOOLEAN | Prevent error if the data node is not attached. Defaults to false. |
+| `force`       | BOOLEAN | Force detach of the data node even if that means that the replication factor is reduced below what was set. Note that it will never be allowed to reduce the replication factor below 1 since that would cause data loss.         |
+| `repartition` | BOOLEAN | Make the number of space partitions equal to the new number of data nodes (if such partitioning exists). This ensures that the remaining data nodes are used evenly. Defaults to true. |
 
-#### Returns
+### Returns
 
 The number of hypertables the data node was detached from.
 
@@ -48,7 +48,7 @@ up with under-replicated chunks.
 The only safe way to detach a data node is to first safely delete any
 data on it or replicate it to another data node.
 
-#### Sample Usage 
+### Sample Usage 
 
 Detach data node `dn3` from `conditions`:
 

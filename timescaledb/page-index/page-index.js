@@ -2,11 +2,9 @@ module.exports = [
   {
     title: "TimescaleDB",
     href: "timescaledb",
-    name: 'TimescaleDB',
-    excerpt: 'blah blha blha',
+    excerpt: 'All you need to know about TimescaleDB architecture, concepts, setup, how-to\'s, tutorials and management',
     children: [
       {
-        title: "Overview",
         href: "overview",
         children: [
           {
@@ -14,7 +12,6 @@ module.exports = [
             href: "what-is-time-series-data"
           },
           {
-            title: "Core Concepts",
             href: "core-concepts",
             children : [
               {
@@ -22,25 +19,7 @@ module.exports = [
                 href: "hypertables-and-chunks"
               },
               {
-                title: "Scaling",
-                href: "scaling",
-                children: [
-                  {
-                    title: "Single Node",
-                    href: "#single-node",
-                    type: 'anchor'
-                  },
-                  {
-                    title: "Primary/Replication",
-                    href: "#primary-replication",
-                    type: 'anchor'
-                  },
-                  {
-                    title: "Multi-node",
-                    href: "#multi-node",
-                    type: 'anchor'
-                  }
-                ]
+                href: "scaling"
               },
               {
                 href: "distributed-hypertables"
@@ -64,17 +43,10 @@ module.exports = [
             ]
           },
           {
-            title: "Deployment Options",
             href: "deployment-options",
             children: [
               {
-                href: "self-hosted"
-              },
-              {
-                href: "timescale-forge"
-              },
-              {
-                href: "timescale-cloud"
+                href: "temporary"
               }
             ]
           },
@@ -113,7 +85,13 @@ module.exports = [
             ]
           },
           {
-            href: "release-notes"
+            href: "release-notes",
+            children: [
+              {
+                title: "Changes in TimescaleDB 2.0",
+                href: "changes-in-timescaledb-2"
+              }
+            ]
           },
           {
             href: "limitations"
@@ -131,145 +109,9 @@ module.exports = [
           {
             title: "Launch your first instance",
             href: "launch-timescaledb",
-            type: 'page',
             children: [
               {
-                href: "fully-managed-timescaledb",
-                type: 'directory',
-                children: [
-                  {
-                    href: "timescale-forge"
-                  },
-                  {
-                    href: "timescale-cloud"
-                  }
-                ]
-              },
-              {
-                title: "Self hosted (including containers)",
-                href: "self-hosted",
-                type: 'react-page',
-                options: { pg_version: ["12", "11"] },
-                component: "InstallationPage",
-                showNewsletterForm: true,
-                children: [
-                 {
-                    Title: "Docker",
-                    type: 'directory',
-                    href: "docker",
-                    src: "//assets.iobeam.com/images/docs/moby.png",
-                    children: [
-                      {
-                        Title: "Docker",
-                        type: 'non-menu-page',
-                        href: "installation-docker",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "Ubuntu",
-                    type: 'directory',
-                    href: "ubuntu",
-                    src: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
-                    children: [
-                      {
-                        Title: "apt",
-                        type: 'non-menu-page',
-                        href: "installation-apt-ubuntu",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "Debian",
-                    type: 'directory',
-                    href: "debian",
-                    src: "//assets.iobeam.com/images/docs/Debian_logo.svg",
-                    children: [
-                      {
-                        Title: "apt",
-                        type: 'non-menu-page',
-                        href: "installation-apt-debian",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "RHEL/CentOS",
-                    type: 'directory',
-                    href: "rhel-centos",
-                    src: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
-                    children: [
-                      {
-                        Title: "yum/dnf",
-                        type: 'non-menu-page',
-                        href: "installation-yum",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "Windows",
-                    type: 'directory',
-                    href: "windows",
-                    src: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
-                    children: [
-                      {
-                        Title: "Installer (.zip)",
-                        type: 'non-menu-page',
-                        href: "installation-windows",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source-windows",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "AMI",
-                    type: 'directory',
-                    href: "ami",
-                    src: "//assets.iobeam.com/images/docs/aws_logo.svg",
-                    children: [
-                      {
-                        Title: "Amazon AMI (Ubuntu)",
-                        type: 'non-menu-page',
-                        href: "installation-ubuntu-ami",
-                      },
-                    ],
-                  },
-                  {
-                    Title: "MacOS",
-                    type: 'directory',
-                    href: "macos",
-                    src: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
-                    children: [
-                      {
-                        Title: "Homebrew",
-                        type: 'non-menu-page',
-                        href: "installation-homebrew",
-                      },
-                      {
-                        Title: "Source",
-                        type: 'non-menu-page',
-                        href: "installation-source",
-                      },
-                    ],
-                  }
-                ],
+                href: 'temporary'
               }
             ]
           },
@@ -320,18 +162,7 @@ module.exports = [
             href: "analyze-your-data"
           },
           {
-            href: "visualize-your-data"
-          },
-          {
-            title: "Migrate data to TimescaleDB",
-            href: "migrate-data"
-          },
-          {
-            href: "connect-with-code"
-          },
-          {
-            title: "Other sample datasets",
-            href: "sample-datasets"
+            href: "next-steps"
           }
         ]
       },
@@ -341,24 +172,196 @@ module.exports = [
         children: [
           {
             title: "Install TimescaleDB",
-            href: "install-timescaledb"
+            href: "install-timescaledb",
+            children: [
+                  {
+                    href: "timescale-cloud"
+                  },
+                  {
+                    title: "Self hosted (including containers)",
+                    href: "self-hosted",
+                    type: 'react-page',
+                    options: { pg_version: ["12", "11"] },
+                    component: "InstallationPage",
+                    showNewsletterForm: true,
+                    children: [
+                     {
+                        Title: "Docker",
+                        type: 'directory',
+                        href: "docker",
+                        src: "//assets.iobeam.com/images/docs/moby.png",
+                        children: [
+                          {
+                            Title: "Docker",
+                            type: 'non-menu-page',
+                            href: "installation-docker",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "Ubuntu",
+                        type: 'directory',
+                        href: "ubuntu",
+                        src: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
+                        children: [
+                          {
+                            Title: "apt",
+                            type: 'non-menu-page',
+                            href: "installation-apt-ubuntu",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "Debian",
+                        type: 'directory',
+                        href: "debian",
+                        src: "//assets.iobeam.com/images/docs/Debian_logo.svg",
+                        children: [
+                          {
+                            Title: "apt",
+                            type: 'non-menu-page',
+                            href: "installation-apt-debian",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "RHEL/CentOS",
+                        type: 'directory',
+                        href: "rhel-centos",
+                        src: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
+                        children: [
+                          {
+                            Title: "yum/dnf",
+                            type: 'non-menu-page',
+                            href: "installation-yum",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "Windows",
+                        type: 'directory',
+                        href: "windows",
+                        src: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+                        children: [
+                          {
+                            Title: "Installer (.zip)",
+                            type: 'non-menu-page',
+                            href: "installation-windows",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source-windows",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "AMI",
+                        type: 'directory',
+                        href: "ami",
+                        src: "//assets.iobeam.com/images/docs/aws_logo.svg",
+                        children: [
+                          {
+                            Title: "Amazon AMI (Ubuntu)",
+                            type: 'non-menu-page',
+                            href: "installation-ubuntu-ami",
+                          },
+                        ],
+                      },
+                      {
+                        Title: "MacOS",
+                        type: 'directory',
+                        href: "macos",
+                        src: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
+                        children: [
+                          {
+                            Title: "Homebrew",
+                            type: 'non-menu-page',
+                            href: "installation-homebrew",
+                          },
+                          {
+                            Title: "Source",
+                            type: 'non-menu-page',
+                            href: "installation-source",
+                          },
+                        ],
+                      }
+                    ],
+                  },
+                  {
+                    href: "post-install-setup"
+                  }
+                ]
+
           },
           {
             href: "hypertables",
             children: [
               {
-                href: "create-a-hypertable"
+                title: "CREATE",
+                href: "create"
               },
               {
-                href: "alter-hypertable-settings"
+                title: "ALTER",
+                href: "alter"
               },
               {
-                href: "determine-optimal-settings"
+                title: "DROP",
+                href: "drop"
+              },
+              {
+                href: "best-practices"
               }
             ]
           },
           {
-            href: "distributed-hypertables"
+            href: "distributed-hypertables",
+            children: [
+              {
+                title: "CREATE",
+                href: "create"
+              },
+              {
+                title: "INSERT",
+                href: "insert"
+              },
+              {
+                title: "SELECT",
+                href: "select"
+              },
+              {
+                href: "manage-data-nodes"
+              },
+              {
+                href: "enable-native-replication"
+              },
+              {
+                title: "ALTER",
+                href: "alter"
+              },
+              {
+                title: "DROP",
+                href: "drop"
+              },
+              {
+                href: "best-practices"
+              }
+            ]
           },
           {
             href: "write-data",
@@ -399,42 +402,189 @@ module.exports = [
           },
           {
             title: "Multi-node Setup",
-            href: "multi-node-setup"
+            href: "multi-node-setup",
+            children: [
+              {
+                href: "required-configuration"
+              },
+              {
+                href: "setup-trust-authentication"
+              },
+              {
+                href: "setup-password-authentication"
+              },
+              {
+                href: "setup-certificate-authentication"
+              },
+              {
+                href: "maintenance-tasks"
+              }
+            ]
           },
           {
-            href: "continuous-aggregates"
+            href: "continuous-aggregates",
+            children: [
+              {
+                href: "create-a-continuous-aggregate"
+              },
+              {
+                href: "adding-automatic-refresh-policies"
+              },
+              {
+                href: "query-a-continuous-aggregate"
+              },
+              {
+                href: "manually-refresh-specific-ranges"
+              },
+              {
+                href: "best-practices"
+              },
+              {
+                title:"Using integer-based time",
+                href: "integer-based-time"
+              },
+              {
+                href: "drop-raw-data"
+              }
+            ]
           },
           {
-            href: "compression"
+            href: "compression",
+            children: [
+              {
+                href: "compression-basics"
+              },
+              {
+                href: "manually-compress-chunks"
+              },
+              {
+                href: "decompress-chunks"
+              },
+              {
+                href: "backfill-historical-data"
+              },
+              {
+                href: "modify-a-schema"
+              }
+            ]
           },
           {
-            href: "user-defined-actions"
+            href: "user-defined-actions",
+            children: [
+              {
+                href: "create-and-register"
+              },
+              {
+                href: "test-and-debug"
+              },
+              {
+                title: "Altering and Deleting",
+                href: "alter-and-delete"
+              },
+              {
+                href: "example-generic-retention"
+              },
+              {
+                href: "example-tiered-storage"
+              },
+              {
+                href: "example-downsample-and-compress"
+              }
+            ]
           },
           {
-            href: "data-retention"
+            href: "data-retention",
+            children: [
+              {
+                href: "create-a-retention-policy"
+              },
+              {
+                href: "manually-drop-chunks"
+              },
+              {
+                href: "data-retention-with-continuous-aggregates"
+              }
+            ]
           },
           {
             href: "data-reordering"
           },
           {
             title: "Replication and HA",
-            href: "replication-and-ha"
+            href: "replication-and-ha",
+            children: [
+              {
+                href: "replication"
+              }
+            ]
           },
           {
             href: "visualize-data"
           },
           {
-            href: "backup-and-restore"
+            href: "backup-and-restore",
+            children: [
+              {
+                title: "Using pg_dump/pg_restore",
+                href: "pg-dump-and-restore"
+              },
+              {
+                title: "Docker & WAL-E",
+                href: "docker-and-wale"
+              }
+            ]
           },
           {
-            href: "schema-management"
+            href: "schema-management",
+            children: [
+              {
+                title: "ALTER hypertables",
+                href: "alter"
+              },
+              {
+                href: "indexing"
+              },
+              {
+                href: "triggers"
+              },
+              {
+                href: "constraints"
+              },
+              {
+                title: "JSON",
+                href: "json"
+              },
+              {
+                href: "tablespaces"
+              }
+            ]
           },
           {
             title: "Migrate Existing Data",
-            href: "migrate-data"
+            href: "migrate-data",
+            children: [
+              {
+                title: "Migrate InfluxDB data",
+                href: "migrate-influxdb"
+              }
+            ]
           },
           {
-            href: "update-timescaledb"
+            title: "Update TimescaleDB",
+            href: "update-timescaledb",
+            children: [
+              {
+                title: "Update TimescaleDB from 1.x to 2.x",
+                href: "update-timescaledb-2"
+              },
+              {
+                href: "updating-docker"
+              },
+              {
+                title: "Upgrade PostgreSQL",
+                href: "upgrade-postgresql"
+              }
+            ]
           },
           {
             title: "Ingest data from other sources",
@@ -443,9 +593,49 @@ module.exports = [
         ]
       },
       {
-        title: "Tutorials",
+        title: "Tutorials and Quick Starts",
         href: "tutorials",
         children: [
+          {
+            title: "Quick Start Guides",
+            href: "quick-starts",
+            children: [
+              {
+                href: "node"
+              },
+              {
+                href: "python"
+              },
+              {
+                href: "ruby"
+              },
+              {
+                href: "golang"
+              }
+            ]
+          },
+          {
+            title: "Getting started with Promscale",
+            href: "promscale",
+            children: [
+              {
+                title: "The Benefits of using Promscale",
+                href: "promscale-benefits"
+              },
+              {
+                title: "How Promscale works",
+                href: "promscale-how-it-works"
+              },
+              {
+                title: "Installing Promscale",
+                href: "promscale-install"
+              },
+              {
+                title: "Run queries with PromQL and SQL",
+                href: "promscale-run-queries"
+              }
+            ]
+          },
           {
             title: "Introduction to time-series forecasting",
             href: "time-series-forecast"
@@ -453,10 +643,6 @@ module.exports = [
           {
             title: "Analyzing cryptocurrency data",
             href: "analyze-cryptocurrency-data"
-          },
-          {
-            title: "Create SQL Notebooks for time-series",
-            href: "create-sql-notebooks"
           },
           {
             title: "Grafana",
@@ -492,8 +678,7 @@ module.exports = [
             href: "visualize-with-tableu"
           },
           {
-            title: "Visualize with Power BI",
-            href: "visualize-with-power-bi"
+            href: "sample-datasets"
           }
         ]
       },

@@ -4,7 +4,7 @@ module.exports = [
     filePath: 'index.md',
     href: "timescale-forge",
     name: 'Timescale Forge',
-    excerpt: 'blah blha blha',
+    excerpt: 'Timescale Forge is a fully managed TimescaleDB service that allows you to start querying data in less than a minute!',
     children: [
       {
         href: "create-a-service",
@@ -13,21 +13,11 @@ module.exports = [
         href: "scaling-a-service",
       },
       {
-        title: "Point-in-time Recovery",
-        href: "pitr-recovery",
-      },
-      {
-        href: "metrics-and-logs",
-      },
-      {
         href: "customize-configuration",
       },
       {
-        title: "VPC Peering",
-        href: "vpc-peering",
-      },
-      {
-        href: "security",
+        title: "Create a Multi-node Cluster",
+        href: "forge-multi-node"
       }
     ]
   }

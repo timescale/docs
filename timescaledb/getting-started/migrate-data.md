@@ -1,6 +1,7 @@
 # Migrating Data
 <highlight type="tip">
-First make sure that you have properly [installed][] **AND [setup][]** TimescaleDB within your PostgreSQL instance.
+First make sure that you have properly [installed](/how-to-guides/install-timescaledb/) **AND [setup](/how-to-guides/install-timescaledb/post-install-setup)** TimescaleDB 
+within your PostgreSQL instance.
 </highlight>
 
 There are a number of choices available to migrate data into TimescaleDB:
@@ -18,7 +19,8 @@ a different database or a different PostgreSQL instance
 altogether, [follow these instructions][different-db].
 
 ### 2. Importing data from `.csv`
-If you have a dataset stored in a `.csv` file, you can import it into an empty TimescaleDB hypertable. [follow these instructions][import-data]
+If you have a dataset stored in a `.csv` file, you can import it into an empty 
+TimescaleDB hypertable. [follow these instructions][import-data]
 
 <highlight type="tip">
 When converting a normal SQL table to a hypertable, pay attention to how you handle constraints.
@@ -249,16 +251,16 @@ For more information on how to get started, please follow [this tutorial][outflu
 
 Now check out some common [hypertable commands][] for exploring your data.
 
-[installed]: /getting-started/installation
-[setup]: /getting-started/setup
+[installed]: /how-to-guides/install-timescaledb/
+[setup]: /how-to-guides/install-timescaledb/
 [same-db]: #same-db
 [different-db]: #different-db
 [import-data]: #import-data
 [outflux]: #outflux
-[create_hypertable]: /api#create_hypertable
-[unique_indexes]: /using-timescaledb/schema-management#unique_indexes
-[indexing]: /using-timescaledb/schema-management#indexing
+[create_hypertable]: /api-reference/{currentVersion}/hypertables-and-chunks/create_hypertable
+[unique_indexes]: /how-to-guides/schema-management/indexing/
+[indexing]: /how-to-guides/schema-management/indexing/
 [csv-import]: #csv-import
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
-[outflux-tutorial]: /tutorials/outflux
-[hypertable commands]: /using-timescaledb/hypertables
+[outflux-tutorial]: /how-to-guides/migrate-data/migrate-influxdb/
+[hypertable commands]: /hot-to-guides/hypertables

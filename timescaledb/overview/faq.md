@@ -1,40 +1,5 @@
 # FAQ [](top)
 
->:TOPLIST:
-> ### Questions
-> - [What is TimescaleDB?](#what)
-> - [Why build another time-series database?](#why-build)
-> - [Why should I use TimescaleDB?](#why-use)
-> - [What can I use TimescaleDB for?](#what-for)
-> - [Why should I choose Timescale Cloud](#why-cloud)
-> - [Which regions and cloud providers are supported by Timescale Cloud?](#which-cloud-regions)
-> - [What is the difference between Timescale, TimescaleDB, and Timescale Cloud?](#what-does-timescale-mean)
-> - [Do you really support "all of SQL"](#sql-support)
-> - [Why SQL?](#why-sql)
-> - [What SQL features are supported (JOIN)?](#sql-features)
-> - [How do I write data?](#write)
-> - [How do I read data?](#read)
-> - [What are my compression options?](#compression)
-> - [How far can TimescaleDB scale?](#scaling)
-> - [How does TimescaleDB scale?](#how-scaling)
-> - [Is there a clustered version and how can I try it?](#clustered)
-> - [What are hypertables and chunks?](#hypertable-chunks)
-> - [How should I configure chunking?](#partitions-best-practice)
-> - [How are hypertable chunks determined across the space dimension?](#partitions)
-> - [Why would I use TimescaleDB over vanilla PostgreSQL?](#vs-postgresql)
-> - [How compatible is TimescaleDB with PostgreSQL?](#postgresql-compatibility)
-> - [How does TimescaleDB handle geospatial data?](#geo-spatial)
-> - [Is TimescaleDB currently being used in production?](#in-production)
-> - [When is TimescaleDB a good choice?](#when-good)
-> - [What is the TimescaleDB open-source license?](#license)
-> - [Is there a TimescaleDB community or group I can join?](#community)
-> - [Can I get support or a commercial license?](#license-commercial)
-> - [Where can I get TimescaleDB source code?](#where)
-> - [How do I install TimescaleDB?](#install)
-> - [How do I update an existing installation?](#update)
-> - [What if I my use case is simple key-value reads?](#key-value)
-> - [What if I have very sparse or unstructured data?](#unstructured-data)
-
 ### **What is TimescaleDB?** [](what)
 TimescaleDB is the only open source time-series database that supports full SQL.
 Optimized for fast ingest and complex queries, TimescaleDB is easy to use like a
@@ -230,7 +195,7 @@ customer id, or other unique id. Space partitions use hashing: Every distinct it
 is hashed to one of N buckets. The main purpose of space partitioning is to enable
 parallel I/O to the same time interval or to build smaller tables when regularly
 performing a range query for a single device/customer/ticker. For more
-details on space partitioning, see [Best Practices][best-practices].  [[Top]](#top)
+details on space partitioning, see [Best Practices][hypertable-best-practices].  [[Top]](#top)
 
 ### **Why would I use TimescaleDB over vanilla PostgreSQL?** [](vs-postgresql)
 Read our TimescaleDB-PostgreSQL benchmarks:
@@ -353,24 +318,23 @@ See our [updating documentation][update]. [[Top]](#top)
 
 [api]: /api
 [why-sql]: https://www.timescale.com/blog/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
-[new-queries]: /using-timescaledb/reading-data#advanced-analytics
-[INSERT]: /using-timescaledb/writing-data#insert
-[SELECT]: /using-timescaledb/reading-data#select
+[new-queries]: /how-to-guides/query-data/advanced-analytic-queries/
+[INSERT]: /how-to-guides/write-data/insert/
+[SELECT]: /how-to-guides/query-data/select/
 [rdbms > nosql]: http://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
-[docs-architecture]: /introduction/architecture
-[hypertable-best-practices]: /using-timescaledb/hypertables#best-practices
-[best-practices]: /using-timescaledb/hypertables#best-practices
+[docs-architecture]: /overview/core-concepts/hypertables-and-chunks/
+[hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
 [PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e
 [PostgreSQL-problems-time-series]: https://www.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5
-[time_bucket]: /api#time_bucket
-[first]: /api#first
-[last]: /api#last
-[data-retention]: /using-timescaledb/data-retention
+[time_bucket]: /api-reference/{currentVersion}/analytics/time_bucket/
+[first]: /api-reference/{currentVersion}/analytics/first/
+[last]: /api-reference/{currentVersion}/analytics/last/
+[data-retention]: /how-to-guides/data-retention/
 [postgis]: /tutorials/tutorial-hello-nyc#tutorial-postgis
 [GitHub]: https://github.com/timescale/timescaledb/issues
 [contact]: https://www.timescale.com/contact
-[join_slack]: https://slack-login.timescale.com/
-[install]: /getting-started/installation
-[update]: /update-timescaledb
-[compression-docs]: /using-timescaledb/compression
+[join_slack]: https://slack.timescale.com/
+[install]: /how-to-guides/install-timescaledb/
+[update]: /how-to-guides/update-timescaledb/
+[compression-docs]: /how-to-guides/compression/
 [compression-blog]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/

@@ -4,16 +4,16 @@ The `interpolate` function does linear interpolation for missing values.
 It can only be used in an aggregation query with [time_bucket_gapfill](#time_bucket_gapfill).
 The `interpolate` function call cannot be nested inside other function calls.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `value` | The value to interpolate (int2/int4/int8/float4/float8) |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `prev` | The lookup expression for values before the gapfill time range (record) |
 | `next` | The lookup expression for values after the gapfill time range (record) |
 
@@ -32,7 +32,7 @@ The returned record for `prev` and `next` needs to be a time, value tuple.
 The datatype of time needs to be the same as the time datatype in the `time_bucket_gapfill` call.
 The datatype of value needs to be the same as the `value` datatype of the `interpolate` call.
 
-#### Sample Usage 
+### Sample Usage 
 
 Get the temperature every day for each device over the last week interpolating for missing readings:
 ```sql

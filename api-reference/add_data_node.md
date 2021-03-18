@@ -32,14 +32,14 @@ node during bootstrapping. The [`distributed_exec`](#distributed_exec)
 procedure can be used to create additional roles on the data node
 after it is added.
 
-#### Required Arguments 
+### Required Arguments
 
 | Name        | Description                         |
 | ----------- | -----------                         |
 | `node_name` | Name for the data node.             |
 | `host`      | Host name for the remote data node. |
 
-#### Optional Arguments 
+### Optional Arguments
 
 | Name                 | Description                                           |
 |----------------------|-------------------------------------------------------|
@@ -49,7 +49,7 @@ after it is added.
 | `bootstrap`          | Bootstrap the remote data node. The default is `TRUE`. |
 | `password`           | Password for authenticating with the remote data node during bootstrapping or validation. A password only needs to be provided if the data node requires password authentication and a password for the user does not exist in a local password file on the access node. If password authentication is not used, the specified password will be ignored. |
 
-#### Returns 
+### Returns 
 
 | Column              | Description                                       |
 |---------------------|---------------------------------------------------|
@@ -87,7 +87,7 @@ Note, however, that superuser privileges might still be necessary on
 the data node in order to bootstrap it, including creating the
 TimescaleDB extension on the data node unless it is already installed.
 
-#### Sample usage 
+### Sample Usage 
 
 Let's assume that you have an existing hypertable `conditions` and
 want to use `time` as the time partitioning column and `location` as

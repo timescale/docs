@@ -1,1 +1,0 @@
-This is all about fully-managed TimescaleDB.

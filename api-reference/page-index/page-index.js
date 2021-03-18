@@ -6,7 +6,7 @@ module.exports = [
     filePath: 'index.md',
     href: "api-reference",
     name: 'API Reference',
-    excerpt: 'blah blha blha',
+    excerpt: 'The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension',
     children: [
       {
         title: "Hypertables & Chunks",
@@ -28,6 +28,10 @@ module.exports = [
           {
             title: "reorder_chunk",
             href: "reorder_chunk"
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk"
           },
           {
             title: "add_reorder_policy",
@@ -76,6 +80,22 @@ module.exports = [
           {
             title: "create_index (transaction per chunk)",
             href: "create_index"
+          },
+          {
+            title: "hypertable_size",
+            href: "hypertable_size"
+          },
+          {
+            title: "hypertable_detailed_size",
+            href: "hypertable_detailed_size"
+          },
+          {
+            title: "hypertable_index_size",
+            href: "hypertable_index_size"
+          },
+          {
+            title: "chunks_detailed_size",
+            href: "chunks_detailed_size"
           }
         ]
       },
@@ -107,6 +127,10 @@ module.exports = [
           {
             title: "distributed_exec",
             href: "distributed_exec"
+          },
+          {
+            title: "drop_chunks",
+            href: "drop_chunks"
           },
           {
             title: "reorder_chunk",
@@ -168,21 +192,13 @@ module.exports = [
             href: "decompress_chunk"
           },
           {
-            title: "hypertable_size",
-            href: "hypertable_size"
-          },
-          {
-            title: "hypertable_detailed_size",
-            href: "hypertable_detailed_size"
-          },
-          {
-            title: "hypertable_index_size",
-            href: "hypertable_index_size"
-          },
-          {
             title: "hypertable_compression_stats",
             href: "hypertable_compression_stats"
           },
+          {
+            title: "chunk_compression_stats",
+            href: "chunk_compression_stats"
+          }
         ]
       },
       {
@@ -255,7 +271,7 @@ module.exports = [
         ]
       },
       {
-        title: "Analytics",
+        title: "Analytic Functions",
         type: 'directory',
         href: "analytics",
         children: [
@@ -299,39 +315,39 @@ module.exports = [
         href: "informational-views",
         children: [
           {
-            title: "timescaledb_information-chunks",
+            title: "timescaledb_information.chunks",
             href: "timescaledb_information-chunks"
           },
           {
-            title: "timescaledb_information-continuous_aggregates",
+            title: "timescaledb_information.continuous_aggregates",
             href: "timescaledb_information-continuous_aggregates"
           },
           {
-            title: "timescaledb_information-compression_settings",
+            title: "timescaledb_information.compression_settings",
             href: "timescaledb_information-compression_settings"
           },
           {
-            title: "timescaledb_information-data_nodes",
+            title: "timescaledb_information.data_nodes",
             href: "timescaledb_information-data_nodes"
           },
           {
-            title: "timescaledb_information-dimensions",
+            title: "timescaledb_information.dimensions",
             href: "timescaledb_information-dimensions"
           },
           {
-            title: "timescaledb_information-hypertables",
+            title: "timescaledb_information.hypertables",
             href: "timescaledb_information-hypertables"
           },
           {
-            title: "timescaledb_information-jobs",
+            title: "timescaledb_information.jobs",
             href: "timescaledb_information-jobs"
           },
           {
-            title: "timescaledb_information-job_stats",
+            title: "timescaledb_information.job_stats",
             href: "timescaledb_information-job_stats"
           },
           {
-            title: "timescaledb_information-license",
+            title: "timescaledb_information.license",
             href: "timescaledb_information-license"
           }
         ]

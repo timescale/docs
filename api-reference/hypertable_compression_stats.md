@@ -3,28 +3,28 @@
 Get statistics related to hypertable compression.
 All sizes are in bytes.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Hypertable to show stats for. |
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to show stats for. |
 
-#### Returns 
-|Column|Description|
-|---|---|
-|`total_chunks` | (BIGINT) the number of chunks used by the hypertable |
-|`number_compressed_chunks` | (INTEGER) the number of chunks used by the hypertable that are currently compressed |
-|`before_compression_table_bytes` | (BIGINT) Size of the heap before compression (NULL if currently uncompressed) |
-|`before_compression_index_bytes` | (BIGINT) Size of all the indexes before compression (NULL if currently uncompressed) |
-|`before_compression_toast_bytes` | (BIGINT) Size the TOAST table before compression (NULL if currently uncompressed) |
-|`before_compression_total_bytes` | (BIGINT) Size of the entire table (table+indexes+toast) before compression (NULL if currently uncompressed) |
-|`after_compression_table_bytes` | (BIGINT) Size of the heap after compression (NULL if currently uncompressed) |
-|`after_compression_index_bytes` | (BIGINT) Size of all the indexes after compression (NULL if currently uncompressed) |
-|`after_compression_toast_bytes` | (BIGINT) Size the TOAST table after compression (NULL if currently uncompressed) |
-|`after_compression_total_bytes` | (BIGINT) Size of the entire table (table+indexes+toast) after compression (NULL if currently uncompressed) |
-|`node_name` | (NAME) nodes on which the hypertable is located, applicable only to distributed hypertables |
+### Returns 
+|Column|Type|Description|
+|---|---|---|
+|`total_chunks` | BIGINT | the number of chunks used by the hypertable |
+|`number_compressed_chunks` | INTEGER | the number of chunks used by the hypertable that are currently compressed |
+|`before_compression_table_bytes` | BIGINT | Size of the heap before compression (NULL if currently uncompressed) |
+|`before_compression_index_bytes` | BIGINT | Size of all the indexes before compression (NULL if currently uncompressed) |
+|`before_compression_toast_bytes` | BIGINT | Size the TOAST table before compression (NULL if currently uncompressed) |
+|`before_compression_total_bytes` | BIGINT | Size of the entire table (table+indexes+toast) before compression (NULL if currently uncompressed) |
+|`after_compression_table_bytes` | BIGINT | Size of the heap after compression (NULL if currently uncompressed) |
+|`after_compression_index_bytes` | BIGINT | Size of all the indexes after compression (NULL if currently uncompressed) |
+|`after_compression_toast_bytes` | BIGINT | Size the TOAST table after compression (NULL if currently uncompressed) |
+|`after_compression_total_bytes` | BIGINT | Size of the entire table (table+indexes+toast) after compression (NULL if currently uncompressed) |
+|`node_name` | TEXT | nodes on which the hypertable is located, applicable only to distributed hypertables |
 
-#### Sample Usage 
+### Sample Usage 
 ```sql
 SELECT * FROM hypertable_compression_stats('conditions');
 

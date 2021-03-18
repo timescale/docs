@@ -11,24 +11,24 @@ information as a separate row per node.
 Additional metadata associated with a chunk can be accessed 
 via the `timescaledb_information.chunks` view.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Name of the hypertable |
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Name of the hypertable |
 
-#### Returns 
-|Column|Description|
-|---|---|
-|chunk_schema| (NAME) Schema name of the chunk |
-|chunk_name| (NAME) Name of the chunk|
+### Returns 
+|Column|Type|Description|
+|---|---|---|
+|chunk_schema| TEXT | Schema name of the chunk |
+|chunk_name| TEXT | Name of the chunk|
 |table_bytes|(BIGINT) Disk space used by the chunk table|
 |index_bytes|(BIGINT) Disk space used by indexes|
 |toast_bytes|(BIGINT) Disk space of toast tables|
 |total_bytes|(BIGINT) Total disk space used by the chunk, including all indexes and TOAST data|
-|node_name| (NAME) Node for which size is reported, applicable only to distributed hypertables|
+|node_name| TEXT | Node for which size is reported, applicable only to distributed hypertables|
 
-#### Sample Usage 
+### Sample Usage 
 ```sql
 SELECT * FROM chunks_detailed_size('dist_table')
   ORDER BY chunk_name, node_name;
@@ -39,30 +39,4 @@ SELECT * FROM chunks_detailed_size('dist_table')
  _timescaledb_internal | _dist_hyper_1_2_chunk |        8192 |       32768 |           0 |       40960 | db_node2
  _timescaledb_internal | _dist_hyper_1_3_chunk |        8192 |       32768 |           0 |       40960 | db_node3
 ```
----
 
-## hypertable_size()  
-
-Get total size of hypertable i.e. the sum of the size for the table itself, 
-any indexes on the table, and any toast tables. The size is reported in bytes. 
-This is equivalent to computing the sum of `total_bytes` column from the 
-output of `hypertable_detailed_size` function.
-
-#### Required Arguments 
-
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Hypertable to show size of. |
-
-#### Returns 
-(BIGINT) Total disk space used by the specified table, including all indexes and TOAST data|
-
-#### Sample Usage 
-Get size information for a hypertable.
-```sql
-SELECT hypertable_size('devices') ;
-
- hypertable_size
------------------
-           73728
-```

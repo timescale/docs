@@ -70,26 +70,26 @@ per-partition load balancing (the mapping of items to partitions using
 hashing), as well as much increased planning latency for some types of
 queries.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Hypertable to add the dimension to.|
-| `column_name` | (NAME)  Column to partition by.|
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to add the dimension to.|
+| `column_name` | TEXT |  Column to partition by.|
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `number_partitions` | Number of hash partitions to use on `column_name`. Must be > 0.|
-| `chunk_time_interval` | Interval that each chunk covers. Must be > 0.|
-| `partitioning_func` | The function to use for calculating a value's partition (see `create_hypertable` [instructions](#create_hypertable)).|
-| `if_not_exists` | Set to true to avoid throwing an error if a dimension for the column already exists. A notice is issued instead. Defaults to false. |
+|Name|Type|Description|
+|---|---|---|
+| `number_partitions` | INTEGER | Number of hash partitions to use on `column_name`. Must be > 0.|
+| `chunk_time_interval` | INTERVAL | Interval that each chunk covers. Must be > 0.|
+| `partitioning_func` | REGCLASS | The function to use for calculating a value's partition (see `create_hypertable` [instructions](#create_hypertable)).|
+| `if_not_exists` | BOOLEAN | Set to true to avoid throwing an error if a dimension for the column already exists. A notice is issued instead. Defaults to false. |
 
-#### Returns
+### Returns
 
-|Column|Description|
-|---|---|
+|Column|Type|Description|
+|---|---|---|
 | `dimension_id` | ID of the dimension in the TimescaleDB internal catalog. |
 | `schema_name` | Schema name of the hypertable.|
 | `table_name` | Table name of the hypertable. |
@@ -118,7 +118,7 @@ is the number of milliseconds since the UNIX epoch).
  to use at most one "space" dimension.
 </highlight>
 
-#### Sample Usage 
+### Sample Usage 
 
 First convert table `conditions` to hypertable with just time
 partitioning on column `time`, then add an additional partition key on `location` with four partitions:

@@ -1,20 +1,20 @@
 ## remove_retention_policy() <tag type="community">Community</tag> 
 Remove a policy to drop chunks of a particular hypertable.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `relation` | (REGCLASS) Name of the hypertable or continuous aggregate from which to remove the policy |
+|Name|Type|Description|
+|---|---|---|
+| `relation` | REGCLASS | Name of the hypertable or continuous aggregate from which to remove the policy |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `if_exists` | (BOOLEAN)  Set to true to avoid throwing an error if the policy does not exist. Defaults to false.|
+|Name|Type|Description|
+|---|---|---|
+| `if_exists` | BOOLEAN |  Set to true to avoid throwing an error if the policy does not exist. Defaults to false.|
 
 
-#### Sample Usage 
+### Sample Usage 
 
 ```sql
 SELECT remove_retention_policy('conditions');

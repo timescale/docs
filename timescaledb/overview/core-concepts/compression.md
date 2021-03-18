@@ -1,4 +1,4 @@
-## Native Compression [](native-compression)
+# Native Compression [](native-compression)
 
 Compression is powered by TimescaleDB’s built-in job scheduler framework. We
 leverage it to asynchronously convert individual chunks from an uncompressed
@@ -21,6 +21,10 @@ approach is compatible with everything you expect from TimescaleDB, such as
 relational JOINs and analytical queries, as well as aggressive constraint exclusion
 to avoid processing chunks.
 
-For more information on using compression, please see our [Compression Operational Overview].
+For more information on using compression, please see our [Compression How-to guide].
 For a deep dive on the design motivations and architecture supporting
 compression, read our [compression blog post].
+
+
+[ompression How-to guide]: /how-to-guides/compression/
+[compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database

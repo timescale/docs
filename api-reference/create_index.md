@@ -14,15 +14,20 @@ if a regular `CREATE INDEX` were called on that chunk, however other chunks are
 completely un-blocked.
 
 <highlight type="tip">
-	This version of `CREATE INDEX` can be used as an alternative to `CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
+	This version of `CREATE INDEX` can be used as an alternative to 
+	`CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
 </highlight>
 
 <highlight type="warning">
-	If the operation fails partway through, indexes may not be created on all hypertable chunks. If this occurs, the index on the root table of the hypertable will be marked as invalid (this can be seen by running `\d+` on the hypertable). The index will still work, and will be created on new chunks, but if you wish to ensure _all_ chunks have a copy of the index, drop and recreate it.
+If the operation fails partway through, indexes may not be created on all 
+hypertable chunks. If this occurs, the index on the root table of the hypertable
+will be marked as invalid (this can be seen by running `\d+` on the hypertable).
+The index will still work, and will be created on new chunks, but if you 
+wish to ensure _all_ chunks have a copy of the index, drop and recreate it.
 </highlight>
 
 
-#### Sample Usage 
+### Sample Usage 
 
 Anonymous index
 ```SQL

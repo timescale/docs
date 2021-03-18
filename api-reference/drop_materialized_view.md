@@ -12,11 +12,11 @@ derived.
 DROP MATERIALIZED VIEW <view_name>;
 ```
 #### Parameters
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `<view_name>` | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 
-#### Sample Usage 
+### Sample Usage 
 Drop existing continuous aggregate.
 
 ```sql

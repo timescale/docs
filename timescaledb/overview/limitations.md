@@ -58,4 +58,4 @@ continuous aggregates) might still work on individual data nodes, but
 such usage is neither tested nor officially supported. Future versions
 of TimescaleDB might remove some of these limitations.
 
-[native-replication]: /using-timescaledb/distributed-hypertables#native-replication
+[native-replication]: /how-to-guides/distributed-hypertables/enable-native-replication/
