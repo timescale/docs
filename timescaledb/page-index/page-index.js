@@ -601,16 +601,16 @@ module.exports = [
             href: "quick-starts",
             children: [
               {
-                href: "node-quickstart"
+                href: "node"
               },
               {
-                href: "python-quickstart"
+                href: "python"
               },
               {
-                href: "ruby-quickstart"
+                href: "ruby"
               },
               {
-                href: "golang-quickstart"
+                href: "golang"
               }
             ]
           },
@@ -676,10 +676,6 @@ module.exports = [
           {
             title: "Visualize data in Tableau",
             href: "visualize-with-tableu"
-          },
-          {
-            title: "Visualize with Power BI",
-            href: "visualize-with-power-bi"
           },
           {
             href: "sample-datasets"

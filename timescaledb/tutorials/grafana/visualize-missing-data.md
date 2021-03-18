@@ -1,16 +1,5 @@
 # Tutorial: How to visualize and aggregate missing time-series data in Grafana
 
->:TOPLIST:
-> ### Contents
-> - [Introduction](#introduction)
-> - [Prerequisites](#prereqs)
-> - [Step 0 - Load your time-series data into TimescaleDB and simulate 
-missing data (optional)](#step0)
-> - [Step 1 - Plot the dataset and confirm missing data](#step1)
-> - [Step 2 - Interpolate (fill in) the missing data](#step2)
-> - [Step 3 - Aggregate across a larger time window](#step3)
-> - [Next Steps](#next-steps)
-
 ### Introduction [](introduction)
 Sometimes there are gaps in our time-series data: because systems
 are offline, or devices lose power, etc. This causes problems when you 

@@ -1,15 +1,5 @@
 # Set up Grafana alerts
 
->:TOPLIST:
-> ### Contents
-> - [Prerequisites](#prereqs)
-> - [Alerting principles](#alerting-principles)
-> - [Introduction alerts in Grafana](#intro-grafana-alerts)
-> - [Alert 1: Integrating with Slack](#alert1)
-> - [Alert 2: Integrating with PagerDuty](#alert2)
-> - [Alert 3: Integrating with other notifications platforms](#alert3)
-> - [Summary](#summary)
-
 Alerts are an important aspect of monitoring because they proactively 
 inform us when things go wrong and need our attention. This could be:
 
@@ -301,6 +291,6 @@ Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tuto
 [install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /getting-started/installation-grafana
 [tutorial-prometheus]: /tutorials/tutorial-setup-timescale-prometheus
-[tutorial-grafana]: /tutorials/tutorial-grafana
+[tutorial-grafana]: /tutorials/grafana
 [slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack
 [pagerduty-integration-key]: https://support.pagerduty.com/docs/services-and-integrations
