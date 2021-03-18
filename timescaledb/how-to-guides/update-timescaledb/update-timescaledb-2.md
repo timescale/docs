@@ -20,7 +20,7 @@ a compatible release, please upgrade before updating TimescaleDB.
  2.1                 | 11, 12, 13
 
 <highlight type="tip">
-If you need to upgrade PostgreSQL first, please see [our documentation][upgrade-pg].
+If you need to upgrade PostgreSQL first, please see [our documentation](/how-to-guides/update-timescaledb/upgrade-postgresql/).
 </highlight>
 
 ### Notice of breaking changes from TimescaleDB 1.3+
@@ -51,7 +51,7 @@ PostgreSQL 12 and TimescaleDB 2.0 would be:
 1. Update TimescaleDB 1.7 to TimescaleDB 2.0 on PostgreSQL with the instructions below
 
 <highlight type="tip">
-Whenever possible, prefer the most recent supported version, PostgreSQL 12. Please see our [Upgrading PostgreSQL][upgrade-pg] guide for help.
+Whenever possible, prefer the most recent supported version, PostgreSQL 12. Please see our [Upgrading PostgreSQL](/how-to-guides/update-timescaledb/upgrade-postgresql/) guide for help.
 </highlight>
 
 #### Fix Continuous Aggregate Errors Before Upgrading
@@ -62,7 +62,7 @@ still incompatible with the `ignore_invalidation_older_than` setting will automa
 the upgrade and a notice provided.
 
 <highlight type="tip">
-Read more about changes to continuous aggregates and data retension policies [here][retention-cagg-changes].
+Read more about changes to continuous aggregates and data retension policies [here](/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs).
 </highlight>
 
 

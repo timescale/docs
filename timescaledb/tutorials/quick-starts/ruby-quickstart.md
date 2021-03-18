@@ -223,7 +223,7 @@ A hypertable is defined by a standard schema with column names and types, with a
 least one column specifying a time value.
 
 <highlight type="tip">
-The TimescaleDB documentation on [schema management and indexing][indexing-api-guide] 
+The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/) 
 explains this in further detail.
 </highlight>
 

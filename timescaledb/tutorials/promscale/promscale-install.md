@@ -7,7 +7,7 @@ We recommend four methods to setup and install Promscale:
 4. [Bare Metal][promscale-baremetal-docs]
 
 <highlight type="tip">
-See the [Promscale github installation guide][promscale-github-installation] for more information on installation options.
+See the [Promscale github installation guide](https://github.com/timescale/promscale#-choose-your-own-installation-adventure) for more information on installation options.
 </highlight>
 
 For demonstration purposes, we will use Docker to get up and running with Promscale.

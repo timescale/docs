@@ -43,12 +43,11 @@ CREATE ROLE repuser WITH REPLICATION PASSWORD 'password' LOGIN;
 ```
 
 <highlight type="warning">
-[scram-sha-256][postgres-scram-docs] is PostgreSQL's most secure
+[scram-sha-256](https://www.postgresql.org/docs/current/static/sasl-authentication.html#SASL-SCRAM-SHA-256) is PostgreSQL's most secure
 password based authentication, but it is only available in PostgreSQL 10 and
 above. If you are using an earlier version, consider using `md5` authentication
 by replacing the first line in the above SQL with `SET password_encryption = true;`
-and changing the `AUTH_METHOD` in `pg_hba` (see [Configure Host Based Authentication](#configure-host-based-authentication))
-to `md5`.
+and changing the `AUTH_METHOD` in `pg_hba` to `md5`. (see [Configure Host Based Authentication](#configure-host-based-authentication))
 </highlight>
 
 ### Configure Replication Parameters

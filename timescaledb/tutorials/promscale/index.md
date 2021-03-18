@@ -16,7 +16,7 @@ There are existing ways to durably store Prometheus data, but while these option
 Promscale is built on top of TimescaleDB, the leading relational database for time-series. Promscale also supports native compression, handles high-cardinality, provides rock-solid reliability, and more. Furthermore, it offers other native time-series capabilities, such as data retention policies, continuous aggregate views, downsampling, data gap-filling, and interpolation. It is already natively supported by Grafana via the Prometheus and PostgreSQL/TimescaleDB data sources.
 
 <highlight type="tip">
-For an overview of Promscale, see this short introductory video: [Intro to Promscale - Advanced analytics for Prometheus][promscale-intro-video].
+For an overview of Promscale, see this short introductory video: [Intro to Promscale - Advanced analytics for Prometheus](https://youtube.com/playlist?list=PLsceB9ac9MHTrmU-q7WCEvies-o7ts3ps).
 </highlight>
 
 ## Roadmap

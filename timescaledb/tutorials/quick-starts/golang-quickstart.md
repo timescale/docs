@@ -694,7 +694,7 @@ func main() {
 ```
 
 <highlight type="tip">
-If you are inserting data from a CSV file, we recommend the [timescale-parallel-copy tool][parallel-copy-tool], 
+If you are inserting data from a CSV file, we recommend the [timescale-parallel-copy tool](https://github.com/timescale/timescaledb-parallel-copy), 
 which is a command line program for parallelizing PostgreSQL's built-in `COPY` 
 functionality for bulk inserting data into TimescaleDB.
 </highlight>

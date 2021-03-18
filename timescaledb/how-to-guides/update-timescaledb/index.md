@@ -23,7 +23,7 @@ PostgreSQL is supported with the extension version you want to install or update
  2.1                 | 11, 12, 13
 
 <highlight type="tip">
-If you need to upgrade PostgreSQL first, please see [our documentation][upgrade-pg].
+If you need to upgrade PostgreSQL first, please see [our documentation](/how-to-guides/update-timescaledb/upgrade-postgresql/).
 </highlight>
 
 ### Upgrade TimescaleDB
@@ -38,7 +38,7 @@ your current upgrade path.
 **TimescaleDB 1.x**: [Updating TimescaleDB 1.x to 1.7.4][update-tsdb-1]
 
 
-[upgrade-pg]: /update-timescaledb/upgrade-pg
+[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
 [update-tsdb-1]: https://docs.timescale.com/v1.7/update-timescaledb/update-tsdb-1
-[update-tsdb-2]: /update-timescaledb/update-tsdb-2
-[update-docker]: /update-timescaledb/update-docker
+[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
+[update-docker]: /how-to-guides/update-timescaledb/updating-docker/

@@ -19,7 +19,7 @@ to that database. Be sure to follow the full tutorial if you’re interested in 
 on how to use TimescaleDB.
 
 <highlight type="tip">
- Be sure to pay close attention to the [geospatial query portion][hello-timescale-geospatial] 
+ Be sure to pay close attention to the [geospatial query portion](/tutorials/tutorial-hello-timescale#postgis)
  of the tutorial and complete those steps.
 </highlight>
 

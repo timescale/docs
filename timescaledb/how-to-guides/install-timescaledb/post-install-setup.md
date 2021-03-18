@@ -26,10 +26,10 @@ CREATE database tutorial;
 ```
 
 <highlight type="warning">
-Starting in v0.12.0, TimescaleDB enables [telemetry reporting][]
+Starting in v0.12.0, TimescaleDB enables [telemetry reporting](/api-reference/{currentVersion}/administration-functions/get_telemetry_report/)
 by default. You can opt-out by following the instructions detailed
-in our [telemetry documentation][]. However, please do note that telemetry is
-anonymous, and by keeping it on, you help us [improve our product][].
+in our [telemetry documentation](/administration/telemetry). However, please do note that telemetry is
+anonymous, and by keeping it on, you help us [improve our product](https://www.timescale.com/blog/why-introduced-telemetry-in-timescaledb-2ed11014d95d/).
 </highlight>
 
 Lastly add TimescaleDB:
