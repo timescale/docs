@@ -1,21 +1,21 @@
 ## remove_reorder_policy() <tag type="community">Community</tag> 
 Remove a policy to reorder a particular hypertable.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Name of the hypertable from which to remove the policy. |
-
-
-#### Optional Arguments 
-
-|Name|Description|
-|---|---|
-| `if_exists` | (BOOLEAN)  Set to true to avoid throwing an error if the reorder_policy does not exist. A notice is issued instead. Defaults to false. |
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Name of the hypertable from which to remove the policy. |
 
 
-#### Sample Usage 
+### Optional Arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `if_exists` | BOOLEAN |  Set to true to avoid throwing an error if the reorder_policy does not exist. A notice is issued instead. Defaults to false. |
+
+
+### Sample Usage 
 
 
 ```sql

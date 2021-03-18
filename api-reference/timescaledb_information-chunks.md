@@ -10,25 +10,25 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 `range_end` are set.  Otherwise, if the primary dimension type is integer based,
 `range_start_integer` and `range_end_integer` are set.
 
-#### Available Columns 
+### Available Columns 
 
-|Name|Description|
-|---|---|
-| `hypertable_schema` | (NAME) Schema name of the hypertable |
-| `hypertable_name` | (NAME) Table name of the hypertable |
-| `chunk_schema` | (NAME) Schema name of the chunk |
-| `chunk_name` | (NAME) Name of the chunk |
-| `primary_dimension` | (NAME) Name of the column that is the primary dimension|
-| `primary_dimension_type` | (REGTYPE) Type of the column that is the primary dimension|
-| `range_start` | (TIMESTAMP WITH TIME ZONE) Start of the range for the chunk's dimension |
-| `range_end` | (TIMESTAMP WITH TIME ZONE) End of the range for the chunk's dimension |
-| `range_start_integer` | (BIGINT) Start of the range for the chunk's dimension, if the dimension type is integer based |
-| `range_end_integer` | (BIGINT) End of the range for the chunk's dimension, if the dimension type is integer based |
-| `is_compressed` | (BOOLEAN) Is the data in the chunk compressed? NULL for distributed chunks. Use `chunk_compression_stats()` function to get compression status for distributed chunks.|
-| `chunk_tablespace` | (NAME) Tablespace used by the chunk|
+|Name|Type|Description|
+|---|---|---|
+| `hypertable_schema` | TEXT | Schema name of the hypertable |
+| `hypertable_name` | TEXT | Table name of the hypertable |
+| `chunk_schema` | TEXT | Schema name of the chunk |
+| `chunk_name` | TEXT | Name of the chunk |
+| `primary_dimension` | TEXT | Name of the column that is the primary dimension|
+| `primary_dimension_type` | REGTYPE | Type of the column that is the primary dimension|
+| `range_start` | TIMESTAMP WITH TIME ZONE | Start of the range for the chunk's dimension |
+| `range_end` | TIMESTAMP WITH TIME ZONE | End of the range for the chunk's dimension |
+| `range_start_integer` | BIGINT | Start of the range for the chunk's dimension, if the dimension type is integer based |
+| `range_end_integer` | BIGINT | End of the range for the chunk's dimension, if the dimension type is integer based |
+| `is_compressed` | BOOLEAN | Is the data in the chunk compressed? NULL for distributed chunks. Use `chunk_compression_stats()` function to get compression status for distributed chunks.|
+| `chunk_tablespace` | TEXT | Tablespace used by the chunk|
 | `data_nodes` | (NAME Nodes on which the chunk is replicated. This is applicable only to chunks for distributed hypertables |
 
-#### Sample Usage 
+### Sample Usage 
 
 Get information about the chunks of a hypertable.
 

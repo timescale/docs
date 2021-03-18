@@ -4,19 +4,19 @@ Get list of chunks associated with a hypertable.
 Function accepts the following required and optional arguments. These arguments 
 have the same semantics as the `drop_chunks` [function](/api-reference/drop_chunks).
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `relation` | (REGCLASS) Hypertable or continuous aggregate from which to select chunks. |
+|Name|Type|Description|
+|---|---|---|
+| `relation` | REGCLASS | Hypertable or continuous aggregate from which to select chunks. |
 
-#### Optional Arguments 
+### Optional Arguments
 
 
-|Name|Description|
-|---|---|
-| `older_than` | (ANY) Specification of cut-off point where any full chunks older than this timestamp should be shown. |
-| `newer_than` | (ANY) Specification of cut-off point where any full chunks newer than this timestamp should be shown. |
+|Name|Type|Description|
+|---|---|---|
+| `older_than` | ANY | Specification of cut-off point where any full chunks older than this timestamp should be shown. |
+| `newer_than` | ANY | Specification of cut-off point where any full chunks newer than this timestamp should be shown. |
 
 The `older_than` and `newer_than` parameters can be specified in two ways:
 
@@ -35,7 +35,7 @@ specifying `newer_than => 4 months` and `older_than => 3 months` will show all f
 all full chunks between '2017-01-01' and '2017-02-01'. Specifying parameters that do not result in an overlapping
 intersection between two ranges will result in an error.
 
-#### Sample Usage 
+### Sample Usage 
 
 Get list of all chunks associated with a table:
 ```sql

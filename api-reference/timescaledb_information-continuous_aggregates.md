@@ -2,21 +2,21 @@
 
 Get metadata and settings information for continuous aggregates.
 
-#### Available Columns
+### Available Columns
 
-|Name|Description|
-|---|---|
-|`hypertable_schema` | (NAME) Schema of the hypertable from the continuous aggregate view|
-|`hypertable_name` | (NAME) Name of the hypertable from the continuous aggregate view|
-|`view_schema` | (NAME) Schema for continuous aggregate view |
-|`view_name` | (NAME) User supplied name for continuous aggregate view |
-|`view_owner` | (NAME) Owner of the continuous aggregate view|
-|`materialized_only` | (BOOLEAN) Return only materialized data when querying the continuous aggregate view. |
-|`materialization_hypertable_schema` | (NAME) Schema of the underlying materialization table|
-|`materialization_hypertable_name` | (NAME) Name of the underlying materialization table|
+|Name|Type|Description|
+|---|---|---|
+|`hypertable_schema` | TEXT | Schema of the hypertable from the continuous aggregate view|
+|`hypertable_name` | TEXT | Name of the hypertable from the continuous aggregate view|
+|`view_schema` | TEXT | Schema for continuous aggregate view |
+|`view_name` | TEXT | User supplied name for continuous aggregate view |
+|`view_owner` | TEXT | Owner of the continuous aggregate view|
+|`materialized_only` | BOOLEAN | Return only materialized data when querying the continuous aggregate view. |
+|`materialization_hypertable_schema` | TEXT | Schema of the underlying materialization table|
+|`materialization_hypertable_name` | TEXT | Name of the underlying materialization table|
 |`view_definition` |(TEXT) `SELECT` query for continuous aggregate view|
 
-#### Sample Usage
+### Sample Usage
 ```sql
 SELECT * FROM timescaledb_information.continuous_aggregates;
 

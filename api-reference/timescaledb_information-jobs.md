@@ -1,26 +1,26 @@
 ## timescaledb_information.jobs 
 Shows information about all jobs registered with the automation framework. 
 
-#### Available Columns 
+### Available Columns 
 
-|Name|Description|
-|---|---|
-|`job_id` | (INTEGER) The id of the background job |
-|`application_name` | (NAME) Name of the policy or user defined action |
-|`schedule_interval` | (INTERVAL)  The interval at which the job runs |
-|`max_runtime` | (INTERVAL) The maximum amount of time the job will be allowed to run by the background worker scheduler before it is stopped |
-|`max_retries` | (INTEGER)  The number of times the job will be retried should it fail |
-|`retry_period` | (INTERVAL) The amount of time the scheduler will wait between retries of the job on failure |
-|`proc_schema` | (NAME) Schema name of the function or procedure executed by the job |
-|`proc_name` | (NAME) Name of the function or procedure executed by the job |
-|`owner` | (NAME) Owner of the job |
-|`scheduled` | (BOOLEAN) | Is the job scheduled to run automatically? |
-|`config` | (JSONB) | Configuration passed to the function specified by `proc_name` at execution time |
-|`next_start` | (TIMESTAMP WITH TIME ZONE) | Next start time for the job, if it is scheduled to run automatically |
-|`hypertable_schema` | (NAME) Schema name of the hypertable. NULL, if this is a user defined action.|
-|`hypertable_name` | (NAME) Table name of the hypertable. NULL, if this is a user defined action. |
+|Name|Type|Description|
+|---|---|---|
+|`job_id` | INTEGER | The id of the background job |
+|`application_name` | TEXT | Name of the policy or user defined action |
+|`schedule_interval` | INTERVAL |  The interval at which the job runs |
+|`max_runtime` | INTERVAL | The maximum amount of time the job will be allowed to run by the background worker scheduler before it is stopped |
+|`max_retries` | INTEGER |  The number of times the job will be retried should it fail |
+|`retry_period` | INTERVAL | The amount of time the scheduler will wait between retries of the job on failure |
+|`proc_schema` | TEXT | Schema name of the function or procedure executed by the job |
+|`proc_name` | TEXT | Name of the function or procedure executed by the job |
+|`owner` | TEXT | Owner of the job |
+|`scheduled` | BOOLEAN | | Is the job scheduled to run automatically? |
+|`config` | JSONB | | Configuration passed to the function specified by `proc_name` at execution time |
+|`next_start` | TIMESTAMP WITH TIME ZONE | | Next start time for the job, if it is scheduled to run automatically |
+|`hypertable_schema` | TEXT | Schema name of the hypertable. NULL, if this is a user defined action.|
+|`hypertable_name` | TEXT | Table name of the hypertable. NULL, if this is a user defined action. |
 
-#### Sample Usage 
+### Sample Usage 
 
 Get information about jobs.
 ```sql

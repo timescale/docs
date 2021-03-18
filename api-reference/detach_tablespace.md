@@ -12,11 +12,11 @@ detached tablespace since existing data is not cleared from a detached
 tablespace. A detached tablespace can be reattached if desired to once
 again be considered for chunk placement.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `tablespace` | (NAME) Tablespace to detach.|
+|Name|Type|Description|
+|---|---|---|
+| `tablespace` | TEXT | Tablespace to detach.|
 
 When giving only the tablespace name as argument, the given tablespace
 will be detached from all hypertables that the current role has the
@@ -25,19 +25,19 @@ the tablespace may still receive new chunks after this command
 is issued.
 
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Hypertable to detach a the tablespace from.|
-| `if_attached` | (BOOLEAN) Set to true to avoid throwing an error if the tablespace is not attached to the given table. A notice is issued instead. Defaults to false. |
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to detach a the tablespace from.|
+| `if_attached` | BOOLEAN | Set to true to avoid throwing an error if the tablespace is not attached to the given table. A notice is issued instead. Defaults to false. |
 
 
 When specifying a specific hypertable, the tablespace will only be
 detached from the given hypertable and thus may remain attached to
 other hypertables.
 
-#### Sample Usage 
+### Sample Usage 
 
 Detach the tablespace `disk1` from the hypertable `conditions`:
 

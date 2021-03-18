@@ -4,16 +4,16 @@ The `locf` function (last observation carried forward) allows you to carry the l
 It can only be used in an aggregation query with [time_bucket_gapfill](#time_bucket_gapfill).
 The `locf` function call cannot be nested inside other function calls.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `value` | The value to carry forward (anyelement) |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `prev` | The lookup expression for values before gapfill start (anyelement) |
 | `treat_null_as_missing` | Ignore NULL values in locf and only carry non-NULL values forward |
 
@@ -28,7 +28,7 @@ values outside of the range specified by the time predicate.
 The `prev` expression will only be evaluated when no previous value is returned
 by the outer query (i.e., the first bucket in the queried time range is empty).
 
-#### Sample Usage 
+### Sample Usage 
 
 Get the average temperature every day for each device over the last 7 days carrying forward the last value for missing readings:
 ```sql

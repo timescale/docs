@@ -11,20 +11,20 @@ You can get a list of chunks belonging to a hypertable using the
 `show_chunks` [function](/api-reference/show_chunks).
 </highlight>
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `chunk_name` | (REGCLASS) Name of the chunk to be compressed|
+|Name|Type|Description|
+|---|---|---|
+| `chunk_name` | REGCLASS | Name of the chunk to be compressed|
 
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `if_not_compressed` | (BOOLEAN) Setting to true will skip chunks that are already compressed. Defaults to false.|
+|Name|Type|Description|
+|---|---|---|
+| `if_not_compressed` | BOOLEAN | Setting to true will skip chunks that are already compressed. Defaults to false.|
 
-#### Sample Usage 
+### Sample Usage 
 Compress a single chunk.
 
 ``` sql

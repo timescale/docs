@@ -16,22 +16,22 @@ For space based dimensions, metadata is returned that specifies their number
 of `num_partitions`. The `time_interval` and `integer_interval` columns are 
 not applicable for space based dimensions.
  
-#### Available Columns 
+### Available Columns 
 
-|Name|Description|
-|---|---|
-| `hypertable_schema` | (NAME) Schema name of the hypertable |
-| `hypertable_name` | (NAME) Table name of the hypertable |
-| `dimension_number` | (BIGINT) Dimension number of the hypertable, starting from 1 |
-| `column_name` | (NAME) Name of the column used to create this dimension |
-| `column_type` | (REGTYPE) Type of the column used to create this dimension|
-| `dimension_type` | (TEXT) Is this time based or space based dimension?|
-| `time_interval` | (INTERVAL) Time interval for primary dimension if the column type is based on Postgres time datatypes |
-| `integer_interval` | (BIGINT) Integer interval for primary dimension if the column type is an integer datatype |
-| `integer_now_func` | (NAME) integer_now function for primary dimension if the column type is integer based datatype|
-| `num_partitions` | (SMALLINT) Number of partitions for the dimension |
+|Name|Type|Description|
+|---|---|---|
+| `hypertable_schema` | TEXT | Schema name of the hypertable |
+| `hypertable_name` | TEXT | Table name of the hypertable |
+| `dimension_number` | BIGINT | Dimension number of the hypertable, starting from 1 |
+| `column_name` | TEXT | Name of the column used to create this dimension |
+| `column_type` | REGTYPE | Type of the column used to create this dimension|
+| `dimension_type` | TEXT | Is this time based or space based dimension?|
+| `time_interval` | INTERVAL | Time interval for primary dimension if the column type is based on Postgres time datatypes |
+| `integer_interval` | BIGINT | Integer interval for primary dimension if the column type is an integer datatype |
+| `integer_now_func` | TEXT | integer_now function for primary dimension if the column type is integer based datatype|
+| `num_partitions` | SMALLINT | Number of partitions for the dimension |
 
-#### Sample Usage 
+### Sample Usage 
 
 Get information about the dimensions of hypertables.
 

@@ -1,4 +1,4 @@
-## add_compression_policy() <tag type="community" content="community" /> 
+# add_compression_policy() <tag type="community" content="community" /> 
 Allows you to set a policy by which the system will compress a chunk
 automatically in the background after it reaches a given age. 
 
@@ -6,25 +6,25 @@ Note that compression policies can only be created on hypertables that already
 have compression enabled, e.g., via the [`ALTER TABLE`][compression_alter-table] command
 to set `timescaledb.compress` and other configuration parameters.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Name of the hypertable|
-| `compress_after` | (INTERVAL or INTEGER) The age after which the policy job will compress chunks|
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` |REGCLASS| Name of the hypertable|
+| `compress_after` | INTERVAL or INTEGER | The age after which the policy job will compress chunks|
 
 The `compress_after` parameter should be specified differently depending on the type of the time column of the hypertable:
 - For hypertables with TIMESTAMP, TIMESTAMPTZ, and DATE time columns: the time interval should be an INTERVAL type.
 - For hypertables with integer-based timestamps: the time interval should be an integer type (this requires
 the [integer_now_func][set_integer_now_func] to be set).
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `if_not_exists` | (BOOLEAN) Setting to true will cause the command to fail with a warning instead of an error if a compression policy already exists on the hypertable. Defaults to false.|
+|Name|Type|Description|
+|---|---|---|
+| `if_not_exists` | BOOLEAN | Setting to true will cause the command to fail with a warning instead of an error if a compression policy already exists on the hypertable. Defaults to false.|
 
-#### Sample Usage 
+### Sample Usage 
 Add a policy to compress chunks older than 60 days on the 'cpu' hypertable.
 
 ``` sql

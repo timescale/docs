@@ -12,23 +12,23 @@ of the process. This comes at a cost of slightly higher disk usage during the
 operation. For a more detailed discussion of this capability, please see the
 [Data Tiering][using-data-tiering] documentation.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `chunk` | (REGCLASS) Name of chunk to be moved. |
-| `destination_tablespace` | (Name) Target tablespace for chunk you are moving. |
-| `index_destination_tablespace` | (Name) Target tablespace for index associated with the chunk you are moving. |
+|Name|Type|Description|
+|---|---|---|
+| `chunk` | REGCLASS | Name of chunk to be moved. |
+| `destination_tablespace` | TEXT | Target tablespace for chunk you are moving. |
+| `index_destination_tablespace` | TEXT | Target tablespace for index associated with the chunk you are moving. |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `reorder_index` | (REGCLASS) The name of the index (on either the hypertable or chunk) to order by.|
-| `verbose` | (BOOLEAN) Setting to true will display messages about the progress of the move_chunk command. Defaults to false.|
+|Name|Type|Description|
+|---|---|---|
+| `reorder_index` | REGCLASS | The name of the index (on either the hypertable or chunk) to order by.|
+| `verbose` | BOOLEAN | Setting to true will display messages about the progress of the move_chunk command. Defaults to false.|
 
 
-#### Sample Usage 
+### Sample Usage 
 
 ``` sql
 SELECT move_chunk(

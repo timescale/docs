@@ -28,8 +28,8 @@ subqueries are supported. The `GROUP BY` clause must include a time bucket on
 the hypertable's time column, and all aggregates must be parallelizable.
 
 #### Parameters
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `<view_name>` | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 | `<column_name>`| Optional list of names to be used for columns of the view. If not given, the column names are deduced from the query.|
 | `WITH` clause | This clause specifies [options](#continuous_aggregate-create_view-with) for the continuous aggregate view.|
@@ -38,7 +38,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 #### Required `WITH` clause options 
 
 |**Name**|||
-|---|---|---|
+|---|---|---|---|
 |`timescaledb.continuous`|||
 |**Description**|**Type**|**Default**|
 |If timescaledb.continuous is not specified, then this is a regular PostgresSQL materialized view. | `BOOLEAN` ||
@@ -46,7 +46,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 #### Optional `WITH` clause options 
 
 |**Name**|||
-|---|---|---|
+|---|---|---|---|
 |`timescaledb.materialized_only`|||
 |**Description**|**Type**|**Default**|
 | Return only materialized data when querying the continuous aggregate view. See more in section on [real-time aggregates][real-time-aggregates]. | `BOOLEAN` | false |
@@ -92,7 +92,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 [statistics](#timescaledb_information-job_stats) in `timescaledb_information` views.
 </highlight>
 
-#### Sample Usage 
+### Sample Usage 
 Create a continuous aggregate view.
 ```sql
 CREATE MATERIALIZED VIEW continuous_aggregate_view( timec, minl, sumt, sumh )

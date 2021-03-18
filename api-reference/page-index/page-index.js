@@ -129,8 +129,8 @@ module.exports = [
             href: "distributed_exec"
           },
           {
-            title: "drop_chunk",
-            href: "drop_chunk"
+            title: "drop_chunks",
+            href: "drop_chunks"
           },
           {
             title: "reorder_chunk",

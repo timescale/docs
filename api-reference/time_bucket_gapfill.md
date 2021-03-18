@@ -21,17 +21,17 @@ subquery, as shown in the above examples.  You cannot, for example, do
 something like `round(time_bucket_gapfill(...))` or cast the result of the gapfill
 call (unless as a subquery where the outer query does the type cast).
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `bucket_width` | A PostgreSQL time interval for how long each bucket is (interval) |
 | `time` | The timestamp to bucket (timestamp/timestamptz/date)|
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `start` | The start of the gapfill period (timestamp/timestamptz/date)|
 | `finish` | The end of the gapfill period (timestamp/timestamptz/date)|
 
@@ -44,22 +44,22 @@ call to `now()`, but cannot reference to columns of a table.
 
 #### Required Arguments 
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `bucket_width` | integer interval for how long each bucket is (int2/int4/int8) |
 | `time` | The timestamp to bucket (int2/int4/int8)|
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `start` | The start of the gapfill period (int2/int4/int8)|
 | `finish` | The end of the gapfill period (int2/int4/int8)|
 
 Starting with version 1.3.0 `start` and `finish` are optional arguments and will
 be inferred from the WHERE clause if not supplied as arguments.
 
-#### Sample Usage 
+### Sample Usage 
 
 Get the metric value every day over the last 7 days:
 

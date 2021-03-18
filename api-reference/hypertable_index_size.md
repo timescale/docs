@@ -2,16 +2,18 @@
 
 Get size of an index on a hypertable. The size is reported in bytes.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `index_name` | (REGCLASS) Name of the index on a  hypertable |
+|Name|Type|Description|
+|---|---|---|
+| `index_name` | REGCLASS | Name of the index on a  hypertable |
 
-#### Returns 
-(BIGINT) Returns disk space used by the index. 
+### Returns 
+|Column|Type|Description|
+|---|---|---|
+|hypertable_index_size|BIGINT| Returns disk space used by the index. |
 
-#### Sample Usage 
+### Sample Usage 
 
 Get size of a specific index on a hypertable.
 

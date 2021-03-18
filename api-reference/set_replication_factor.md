@@ -9,12 +9,12 @@ the command aborts with an error.
 If existing chunks have less replicas than new value of the replication factor,
 the function will print a warning.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Distributed hypertable to update the replication factor for.|
-| `replication_factor` | (INTEGER) The new value of the replication factor. Must be greater than 0, and smaller than or equal to the number of attached data nodes.|
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Distributed hypertable to update the replication factor for.|
+| `replication_factor` | INTEGER | The new value of the replication factor. Must be greater than 0, and smaller than or equal to the number of attached data nodes.|
 
 #### Errors
 
@@ -26,7 +26,7 @@ An error will be given if:
 If a bigger replication factor is desired, it is necessary to attach more data nodes
 by using [attach_data_node](#attach_data_node).
 
-#### Sample Usage 
+### Sample Usage 
 
 Update the replication factor for a distributed hypertable to `2`:
 ```sql

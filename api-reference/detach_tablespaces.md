@@ -5,13 +5,13 @@ on a hypertable, it will no longer have any tablespaces attached to
 it. New chunks will instead be placed in the database's default
 tablespace.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `hypertable` | (REGCLASS) Hypertable to detach a the tablespace from.|
+|Name|Type|Description|
+|---|---|---|
+| `hypertable` | REGCLASS | Hypertable to detach a the tablespace from.|
 
-#### Sample Usage 
+### Sample Usage 
 
 Detach all tablespaces from the hypertable `conditions`:
 

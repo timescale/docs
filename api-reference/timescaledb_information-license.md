@@ -8,7 +8,7 @@ by setting `timescaledb.license` to `apache`, it is only possible to use Timesca
 that are implemented under the Apache 2 license. The default value is `timescale`, however, which
 allows access to all features.
 
-#### Sample Usage 
+### Sample Usage 
 
 View current license.
 

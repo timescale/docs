@@ -13,16 +13,16 @@ Each bucket is inclusive on its lower bound, and exclusive on its upper
 bound. Therefore, values equal to the `min` are included in the bucket
 starting with `min`, but values equal to the `max` are in the last bucket.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `value` | A set of values to partition into a histogram |
 | `min` | The histogram’s lower bound used in bucketing (inclusive) |
 | `max` | The histogram’s upper bound used in bucketing (exclusive) |
 | `nbuckets` | The integer value for the number of histogram buckets (partitions) |
 
-#### Sample Usage 
+### Sample Usage 
 
 A simple bucketing of device's battery levels from the `readings` dataset:
 
@@ -57,16 +57,16 @@ The `interpolate` function does linear interpolation for missing values.
 It can only be used in an aggregation query with [time_bucket_gapfill](#time_bucket_gapfill).
 The `interpolate` function call cannot be nested inside other function calls.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `value` | The value to interpolate (int2/int4/int8/float4/float8) |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
+|Name|Type|Description|
+|---|---|---|
 | `prev` | The lookup expression for values before the gapfill time range (record) |
 | `next` | The lookup expression for values after the gapfill time range (record) |
 
@@ -85,7 +85,7 @@ The returned record for `prev` and `next` needs to be a time, value tuple.
 The datatype of time needs to be the same as the time datatype in the `time_bucket_gapfill` call.
 The datatype of value needs to be the same as the `value` datatype of the `interpolate` call.
 
-#### Sample Usage 
+### Sample Usage 
 
 Get the temperature every day for each device over the last week interpolating for missing readings:
 ```sql

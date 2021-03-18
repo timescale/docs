@@ -14,19 +14,19 @@ falls fully before (or after) the specified timestamp, the remaining
 data may still contain timestamps that are before (or after) the
 specified one.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `relation` | (REGCLASS) Hypertable or continuous aggregate from which to drop chunks. |
-| `older_than` | Specification of cut-off point where any full chunks older than this timestamp should be removed. |
+|Name|Type|Description|
+|---|---|---|
+| `relation` | REGCLASS | Hypertable or continuous aggregate from which to drop chunks. |
+| `older_than` | INTERVAL | Specification of cut-off point where any full chunks older than this timestamp should be removed. |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `newer_than` | Specification of cut-off point where any full chunks newer than this timestamp should be removed. |
-| `verbose` | (BOOLEAN) Setting to true will display messages about the progress of the reorder command. Defaults to false.|
+|Name|Type|Description|
+|---|---|---|
+| `newer_than` | INTERVAL | Specification of cut-off point where any full chunks newer than this timestamp should be removed. |
+| `verbose` | BOOLEAN | Setting to true will display messages about the progress of the reorder command. Defaults to false.|
 
 The `older_than` and `newer_than` parameters can be specified in two ways:
 
@@ -53,7 +53,7 @@ specifying `newer_than => 4 months` and `older_than => 3 months` will drop all f
 all full chunks between '2017-01-01' and '2017-02-01'. Specifying parameters that do not result in an overlapping
 intersection between two ranges will result in an error.
 
-#### Sample Usage 
+### Sample Usage 
 
 Drop all chunks from hypertable `conditions` older than 3 months:
 ```sql

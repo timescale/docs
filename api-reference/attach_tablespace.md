@@ -17,12 +17,12 @@ may also change the placement behavior. A hypertable with no attached
 tablespaces will have its chunks placed in the database's default
 tablespace.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `tablespace` | (NAME) Name of the tablespace to attach.|
-| `hypertable` | (REGCLASS) Hypertable to attach the tablespace to.|
+|Name|Type|Description|
+|---|---|---|
+| `tablespace` | TEXT | Name of the tablespace to attach.|
+| `hypertable` | REGCLASS | Hypertable to attach the tablespace to.|
 
 Tablespaces need to be [created][postgres-createtablespace] before
 being attached to a hypertable. Once created, tablespaces can be
@@ -32,13 +32,13 @@ using the `TABLESPACE` option to `CREATE TABLE`, prior to calling
 `create_hypertable`, will have the same effect as calling
 `attach_tablespace` immediately following `create_hypertable`.
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `if_not_attached` | Set to true to avoid throwing an error if the tablespace is already attached to the table. A notice is issued instead. Defaults to false. |
+|Name|Type|Description|
+|---|---|---|
+| `if_not_attached` | BOOLEAN |Set to true to avoid throwing an error if the tablespace is already attached to the table. A notice is issued instead. Defaults to false. |
 
-#### Sample Usage 
+### Sample Usage 
 
 Attach the tablespace `disk1` to the hypertable `conditions`:
 

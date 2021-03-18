@@ -16,7 +16,7 @@ function is run following the restore. See [backup/restore docs][backup-restore]
   the database normally.
 </highlight>
 
-#### Sample Usage  
+### Sample Usage  
 
 ```sql
 SELECT timescaledb_pre_restore();

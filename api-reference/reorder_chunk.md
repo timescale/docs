@@ -17,25 +17,25 @@ these types of queries.
 One can call this function directly on individual chunks of a hypertable, but
 using [add_reorder_policy](#add_reorder_policy) is often much more convenient.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-| `chunk` | (REGCLASS) Name of the chunk to reorder. |
+|Name|Type|Description|
+|---|---|---|
+| `chunk` | REGCLASS | Name of the chunk to reorder. |
 
-#### Optional Arguments 
+### Optional Arguments
 
-|Name|Description|
-|---|---|
-| `index` | (REGCLASS) The name of the index (on either the hypertable or chunk) to order by.|
-| `verbose` | (BOOLEAN) Setting to true will display messages about the progress of the reorder command. Defaults to false.|
+|Name|Type|Description|
+|---|---|---|
+| `index` | REGCLASS | The name of the index (on either the hypertable or chunk) to order by.|
+| `verbose` | BOOLEAN | Setting to true will display messages about the progress of the reorder command. Defaults to false.|
 
-#### Returns 
+### Returns 
 
 This function returns void.
 
 
-#### Sample Usage 
+### Sample Usage 
 
 ```sql
 SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', 'conditions_device_id_time_idx');

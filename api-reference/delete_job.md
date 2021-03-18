@@ -5,13 +5,13 @@ This works for user-defined actions as well as policies.
 
 If the job is currently running, the process will be terminated.
 
-#### Required Arguments 
+### Required Arguments
 
-|Name|Description|
-|---|---|
-|`job_id`| (INTEGER)  TimescaleDB background job id |
+|Name|Type|Description|
+|---|---|---|
+|`job_id`| INTEGER |  TimescaleDB background job id |
 
-#### Sample Usage 
+### Sample Usage 
 
 ```sql
 SELECT delete_job(1000);

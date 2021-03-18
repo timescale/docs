@@ -12,21 +12,21 @@ If you want a hypertable to use a data node that was created later,
 you must attach the data node to the hypertable using this
 function.
 
-#### Required Arguments 
+### Required Arguments
 
 | Name              | Description                                   |
 |-------------------|-----------------------------------------------|
 | `node_name`       | Name of data node to attach             |
 | `hypertable`      | Name of distributed hypertable to attach node to          |
 
-#### Optional Arguments 
+### Optional Arguments
 
 | Name              | Description                                   |
 |-------------------|-----------------------------------------------|
 | `if_not_attached` | Prevents error if the data node is already attached to the hypertable. A notice will be printed that the data node is attached. Defaults to `FALSE`. |
 | `repartition`     | Change the partitioning configuration so that all the attached data nodes are used. Defaults to `TRUE`. |
 
-#### Returns
+### Returns
 
 | Column               | Description                              |
 |-------------------|-----------------------------------------------|
@@ -34,7 +34,7 @@ function.
 | `node_hypertable_id` | Hypertable id on the remote data node    |
 | `node_name`          | Name of the attached data node     |
 
-#### Sample Usage 
+### Sample Usage 
 
 Attach a data node `dn3` to a distributed hypertable `conditions`
 previously created with
