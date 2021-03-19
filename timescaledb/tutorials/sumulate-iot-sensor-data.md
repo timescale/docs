@@ -40,7 +40,7 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 ### Step 1 - Set up your tables [](step1)
 First, connect to your database via `psql`.
 
-Second, create the “sensors” and “sensor_data” tables:
+Second, create the "sensors" and "sensor_data" tables:
 
 ```sql
 CREATE TABLE sensors(

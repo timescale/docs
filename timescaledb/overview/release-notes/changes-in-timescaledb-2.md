@@ -50,18 +50,18 @@ we’ve added many new capabilities: support for compression, continuous aggrega
 lifecycle management, and numerous optimizations, as well as two new underlying PostgreSQL 
 versions (11 and 12). At the same time, the core of TimescaleDB hasn’t changed significantly: 
 we still have hypertables, auto-partitioning, query optimizations, and a basic user 
-experience that many have come to appreciate because things “just work”. 
+experience that many have come to appreciate because things "just work". 
 
 Still, as with any technology solution, there are some things that we didn’t get 100% 
 right in our first release. In particular, as usage of TimescaleDB has skyrocketed, many 
 users have told us that our informational views aren’t always clear and consistent, nor 
 do they provide enough detail on what is happening in the background. Likewise, while it 
-is “easy” to create a continuous aggregate, it wasn’t always clear why aggregates sometimes 
+is "easy" to create a continuous aggregate, it wasn’t always clear why aggregates sometimes 
 returned no data, or why new raw data is slow to be materialized. As a side effect of creating 
 a continuous aggregate, data retention on hypertables can become blocked, and understanding 
 how to re-enable it is a common support question.
 
-While our ambition to provide a solution that “just works” remains, too much “magic” and 
+While our ambition to provide a solution that "just works" remains, too much "magic" and 
 automation behind the scenes related to features like hypertables, compression, and continuous 
 aggregations can lead to outcomes not in line with user expectations or intentions. And, with 
 a general database like PostgreSQL, the expected behavior varies widely depending on the use 
@@ -101,7 +101,7 @@ Consistent with our desire to improve visibility into all aspects of TimescaleDB
 the following views and functions about hypertable information have been updated or added:
 
 *   [`timescaledb_information.hypertables`](//api-reference/{currentVersion}/informational-views/timescaledb_information-hypertables): 
-    *   The view with basic information about hypertables has been renamed from the singular “hypertable”.
+    *   The view with basic information about hypertables has been renamed from the singular "hypertable".
     *   Some columns have new names for consistency with other views.
     *   Table size information has been removed and made available through new size functions discussed later.
     *   Additional columns have been added related to distributed hypertables.
@@ -120,7 +120,7 @@ chunks in the database, we instead recommend using the new chunks view described
 
 These views can be used together to answer certain questions.  For example:
 
-**Q:  Get all chunks written to tablespace “ts1” during the past month:**
+**Q:  Get all chunks written to tablespace "ts1" during the past month:**
 
 ```SQL
 SELECT * FROM timescaledb_information.chunks 
@@ -239,7 +239,7 @@ returned by the function `now()`).
 
 ### Understanding Continuous Aggregate Policies [](cagg-policies)
 
-It is worth noting the way that “start_offset” and “end_offset” work as new data arrives and is added to the source hypertables.
+It is worth noting the way that "start_offset" and "end_offset" work as new data arrives and is added to the source hypertables.
 
 The above example sets the refresh interval as between four weeks and two hours ago (start_offset and end_offset 
 respectively). Therefore, if any late data arrives with timestamps within the last four weeks and is backfilled 
@@ -367,7 +367,7 @@ SELECT add_job('refresh_and_drop_policy', '2 weeks',
 In TimescaleDB 1.x, data that was backfilled into hypertables wasn’t handled optimally; modification of 
 any hypertable data, regardless of how old, would cause the continuous aggregate materializer job to restart 
 from the point of the earliest backfill and then materialize from that point forward. Unfortunately, 
-this could also cause the materializer to get “stuck”, since the background job only processed a limited 
+this could also cause the materializer to get "stuck", since the background job only processed a limited 
 amount of data per run, as governed by the `max_interval_per_job` setting. When this happened, one job run 
 could potentially force the next job to start all over again. 
 
@@ -383,7 +383,7 @@ one should simply use a refresh window that does not include that region of data
 always be refreshed at a later time, either manually or via a policy.
 
 To ensure that previously ignored backfill can be refreshed after the upgrade to TimescaleDB 2.0, the upgrade 
-process will mark the region older than the `ignore_invalidation_older_than` threshold as “requiring refresh”. 
+process will mark the region older than the `ignore_invalidation_older_than` threshold as "requiring refresh". 
 This allows a manual refresh to bring a continuous aggregate up-to-date with the underlying source data. If 
 the `ignore_invalidation_older_than` threshold was modified at some point to a longer interval, we recommend 
 setting it back to the smaller interval prior to upgrading to ensure that all the backfill can be refreshed, 
@@ -495,8 +495,8 @@ built-in actions (e.g., `remove_retention_policy`).
 
 ## License information [](license-changes)
 
-In TimescaleDB 2.0, all features which had been classified previously as “enterprise” have become “community” features 
-and are available for free under the Timescale License.  As such, the need for an “enterprise license” to unlock any 
+In TimescaleDB 2.0, all features which had been classified previously as "enterprise" have become "community" features 
+and are available for free under the Timescale License.  As such, the need for an "enterprise license" to unlock any 
 features has been removed; all features are available either under the community Timescale License or under the 
 open-source Apache-2 License. [This blog post](https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/) 
 explains the changes. The following changes were made to license API:

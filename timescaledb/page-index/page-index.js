@@ -585,6 +585,9 @@ module.exports = [
             title: "Ingest data from other sources",
             href: "ingest-from-other-sources"
           },
+          {
+            href: "troubleshooting"
+          }
         ]
       },
       {

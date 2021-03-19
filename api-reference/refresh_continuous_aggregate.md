@@ -1,12 +1,28 @@
 ## refresh_continuous_aggregate() <tag type="community">Community</tag> 
 
-Refresh all buckets of a continuous aggregate between two points of
-time. 
+Refresh all buckets of a continuous aggregate in the _refresh window_
+given by `window_start` and `window_end`.
 
-The function expects the parameter values to have the same time type
-as used in the continuous aggregate's time bucket expression (e.g., if
-the time bucket specifies in `timestamptz`, then the start and end time
-supplied should also be `timestamptz`).
+A continuous aggregate materializes aggregates in time buckets (e.g.,
+min, max, average over 1 day worth of data), as determined by the
+`time_bucket` interval specified when the continuous aggregate was
+created. Therefore, when refreshing the continuous aggregate, only
+buckets that completely fit within the refresh window will be
+refreshed. In other words, it is not possible to compute the aggregate
+over, for example, half a bucket. Therefore, any buckets that do no
+fit within the given refresh window will be excluded.
+
+The function expects the window parameter values to have a time type
+that is compatible with the continuous aggregate's time bucket
+expression&mdash;for example, if the time bucket is specified in
+`TIMESTAMP WITH TIME ZONE`, then the start and end time should be a
+date or timestamp type. Note that a continuous aggregate using the
+`TIMESTAMP WITH TIME ZONE` type aligns with the UTC time zone, so, if
+`window_start` and `window_end` is specified in the local time zone,
+any time zone shift relative UTC needs to be accounted for when
+refreshing in order to align with bucket boundaries (for examples, see
+[Sample Usage](#refresh_continuous_aggregate-examples)).
+
 
 ### Required Arguments
 

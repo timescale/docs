@@ -9,7 +9,7 @@ The following instructions assume that your docker instance is named
 commands.
 
 #### Step 1: Pull new image [](update-docker-1)
-Install the current TimescaleDB 2.0-RC3 image:
+Install the current TimescaleDB 2.0 image:
 
 ```bash
 docker pull timescale/timescaledb:2.0.0-pg12
