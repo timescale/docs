@@ -7,7 +7,6 @@ module.exports = [
     children: [
       {
         href: "overview",
-        pageComponents: ['content-list'],
         children: [
           {
             title: "What is time-series data?",
@@ -105,11 +104,11 @@ module.exports = [
         pageComponents: ['featured-cards'],
         children: [
           {
-            title: "Launch your first instance",
+            title: "1. Launch your first instance",
             href: "launch-timescaledb"
           },
           {
-            title: "Access your database",
+            title: "2. Access your database",
             href: "access-timescaledb",
             children: [
               {
@@ -136,25 +135,27 @@ module.exports = [
             ]
           },
           {
-            title: "Add time-series data",
+            title: "3. Add time-series data",
             href: "add-data"
           },
           {
-            title: "Create a Continuous Aggregate",
+            title: "4. Create a Continuous Aggregate",
             href: "create-cagg"
           },
           {
-            title: "Save space with Compression",
+            title: "5. Save space with Compression",
             href: "compress-data"
           },
           {
-            title: "Learn about Data Retention",
+            title: "6. Learn about Data Retention",
             href: "learn-data-retention"
           },
           {
+            title: "7. Analyze your data",
             href: "analyze-your-data"
           },
           {
+            title: "8. Next steps!",
             href: "next-steps"
           }
         ]

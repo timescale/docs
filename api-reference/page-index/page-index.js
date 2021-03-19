@@ -6,6 +6,7 @@ module.exports = [
     filePath: 'index.md',
     href: "api-reference",
     name: 'API Reference',
+    pageComponents: ['content-list'],
     excerpt: 'The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension',
     children: [
       {
