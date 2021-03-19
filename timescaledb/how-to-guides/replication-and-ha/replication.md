@@ -25,9 +25,9 @@ our [Streaming Replication Docker Repository][timescale-streamrep-docker].
 <highlight type="tip">
 PostgreSQL achieves streaming replication by having replicas continuously
 stream the WAL from the primary database.  See the official
-[replication documentation][postgres-streaming-replication-docs] for details. For more
+[replication documentation](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION) for details. For more
 information about how PostgreSQL implements Write-Ahead Logging,
-see their [WAL Documentation][postgres-wal-docs].
+see their [WAL Documentation](https://www.postgresql.org/docs/current/static/wal-intro.html).
 </highlight>
 
 ## Configure the Primary Database
@@ -143,7 +143,7 @@ from `REPLICATION_HOST_IP` as the PostgreSQL user `repuser` with a valid
 password.  `REPLICATION_HOST_IP` will be able to initiate streaming replication
 from that machine without additional credentials.  You may want to
 change the `address` and `method` values to match your security and network
-settings. Read more about `pg_hba.conf` in the [official documentation][hba-docs].
+settings. Read more about `pg_hba.conf` in the [official documentation](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html).
 </highlight>
 
 ## Configure the Replica Database
@@ -175,7 +175,7 @@ pg_basebackup -h <PRIMARY_IP> -D <DATA_DIRECTORY> -U repuser -vP -W
 The -W flag will prompt you for a password on the command line. This may
 cause problems for automated setups. If you are using password based
 authentication in an automated setup, you may need to make use of a
-[pgpass file][postgres-pgpass-docs].
+[pgpass file](https://www.postgresql.org/docs/current/static/libpq-pgpass.html).
 </highlight>
 
 When the backup finishes, create a [recovery.conf][postgres-recovery-docs] file
