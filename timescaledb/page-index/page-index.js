@@ -3,9 +3,11 @@ module.exports = [
     title: "TimescaleDB",
     href: "timescaledb",
     excerpt: 'All you need to know about TimescaleDB architecture, concepts, setup, how-to\'s, tutorials and management',
+    pageComponents: ['featured-cards'],
     children: [
       {
         href: "overview",
+        pageComponents: ['content-list'],
         children: [
           {
             title: "What is time-series data?",
@@ -100,6 +102,7 @@ module.exports = [
       {
         title: "Getting Started",
         href: "getting-started",
+        pageComponents: ['featured-cards'],
         children: [
           {
             title: "Launch your first instance",
@@ -159,6 +162,7 @@ module.exports = [
       {
         title: "How-to Guides",
         href: "how-to-guides",
+        pageComponents: ['content-list'],
         children: [
           {
             title: "Install TimescaleDB",
@@ -363,18 +367,18 @@ module.exports = [
               {
                 title: "UPDATE",
                 href: "update"
-              },              
+              },
               {
                 title: "UPSERT",
                 href: "upsert"
-              },              
+              },
               {
                 title: "DELETE",
                 href: "delete"
               },
               {
                 href: "batching-for-better-performance"
-              }              
+              }
 
             ]
           },
@@ -383,7 +387,7 @@ module.exports = [
             children: [
               {
                 title: "SELECT",
-                href: "select"   
+                href: "select"
               },
               {
                 href: "advanced-analytic-queries"
