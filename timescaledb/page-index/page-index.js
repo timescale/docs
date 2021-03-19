@@ -43,12 +43,7 @@ module.exports = [
             ]
           },
           {
-            href: "deployment-options",
-            children: [
-              {
-                href: "temporary"
-              }
-            ]
+            href: "deployment-options"
           },
           {
             title: "Data model flexibility",
@@ -108,12 +103,7 @@ module.exports = [
         children: [
           {
             title: "Launch your first instance",
-            href: "launch-timescaledb",
-            children: [
-              {
-                href: 'temporary'
-              }
-            ]
+            href: "launch-timescaledb"
           },
           {
             title: "Access your database",
