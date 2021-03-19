@@ -73,6 +73,11 @@ the text in the tree (Camel Case and all hyphens replaced by spaces).
 as described above, add a `title` tag provide the exact text you would like to
 appear in the tree (and browser `Title` area).
 
+- **pageComponents**: Any page that has children pages can list the children titles
+in a "card" or "list" style at the bottom of any other content for the parent page. To
+direct how a parent page should format links to the child object, use a value of
+either `['featured-cards']` or `['content-list']`
+
  - **children**: An array of additional `title`/`href` objects, assumed to be inside
 of an on-disk folder with the same name as the parent.
 
@@ -87,6 +92,7 @@ specific functionality is required, it may be necessary to inquire about other p
 __Example__ 
 ```json
     href: "overview",
+    pageComponents: ['featured-cards'],
     children: [
         {
         title: "What is time-series data?",
@@ -117,6 +123,10 @@ tree under the **TimescaleDB** section in a browser, you will see the output is 
 - **Overview** will have a visual indicator in the browser that it has children,
 in this case at least **What is time-series data?** and **Core Concepts** (among
 others)
+
+- The content for the **Overview** page will be displayed first, and then all `title` elements
+for the children will be displayed as "cards" below any content because of the **pageComponents**
+setting
 
 - Two of the examples above display a  navigation and page title text that is different from 
 the name of their source Markdown files. For instance, the content for **Hypertables
@@ -178,36 +188,40 @@ Programming language samples aside, most code blocks will usually be one of:
 ### General formatting conventions
 
 To maintain consistency, please follow these general rules.
-1. Maintain text editor width for paragraphs at 80 characters. We ask you to do
+
+ * Maintain text editor width for paragraphs at 80 characters. We ask you to do
 this to assist in reviewing documentation changes. When text is very wide, it
 is difficult to visually see where text has changed within a paragraph and keeping
-a narrow width on text assists in making PRs easier to review.
-
-Most editors such as Visual Studio Code have settings to do this visually.
-1. Make sure to add line breaks to your paragraphs so that your PRs are readable
-in the browser.
-1. All links should be reference-style links where the link address is at the
-bottom of the page.  The only exceptions are links to anchors on the same page
-as the link itself.
-1. All functions, commands and standalone function arguments (ex. `SELECT`,
+a narrow width on text assists in making PRs easier to review. **Most editors such 
+as Visual Studio Code have settings to do this visually.**
+ * Most links should be reference-style links where the link address is at the
+bottom of the page. The two exceptions are:
+   * Links within Tip/Warning Callouts. These must be inline links for now
+   * Links to anchors on the same page as the link itself.
+ * All functions, commands and standalone function arguments (ex. `SELECT`,
 `time_bucket`) should be set as inline code within backticks ("\`command\`").
-1. Functions should not be written with parentheses unless the function is
+ * Functions should not be written with parentheses unless the function is
 being written with arguments within the parentheses.
-1. "PostgreSQL" is the way to write the elephant database name, rather than
+ * "PostgreSQL" is the way to write the elephant database name, rather than
 "Postgres".  "TimescaleDB" refers to the database, "Timescale" refers to the
 company.
-1. Use single quotes when referring to the object of a user interface action.
+ * Use single quotes when referring to the object of a user interface action.
 For example: Click 'Get started' to proceed with the tutorial.
 
 ### Callout/Highlight Blocks
 To create a callout around a paragraph of text, wrap it with the following custom
-React component tag. 
+React component tag. **Reminder**, any links within the callout text MUST have
+inline link styles. 
 
 The "type" can currently support a value of "tip" or "warning"
 
+```html
 <highlight type="tip">
 Callout text goes here...
+ 
+Example link style would [look like this](http://link_to_something.com/)
 </highlight>
+```
 
 ### Special Formatting helpers
 There are some custom modifications to the markdown parser to allow for special
@@ -216,13 +230,12 @@ formatting within the docs.
 + Adding `sss` to the start of every list item in an ordered list will result in
   a switch to "steps" formatting which is used to denote instructional steps, as
   for a tutorial.
-+ Adding a text free link to a header with a text address (Ex. `## Important Header [](indexing)`) will create an anchor icon that links to that header with the hash name of the text.
 + Adding `:FOOTER_LINK: ` to the start of a paragraph(line) will format it as a "footer link".
 + Adding `x.y.z` anywhere in the text will be replaced by the version number of the branch.  Ex. `look at file foo-x.y.z` >> `look at file foo-0.4.2`.
 + Adding `:pg_version:` to text displayed in an installation section (i.e. any page with a filename beginning `installation-`) will display the PostgreSQL version number.  This is primarily to be used for displayed filenames in install instructions that need to be modular based on the version.
 + Wrapping a link with `<tag type="download">[file link here](https://link-to-file.com)</tag>` will create a tag "bubble" wrapper around the link and append a 'download link' icon to the end of the link inline.
 + Designating functions
-    + Adding `<tag type="community">Community</tag>` next to a header (for example, in the api section) adds decorator text "community".
+    + Adding `<tag type="community">Community</tag>` next to a header (for example, in the api section) adds decorator text "Community".
     + Adding `<tag type="function">TSDB Function</tag>` next to a header (for example, in the api section) adds decorator text "TSDB Function".
 
 _Make sure to include the space after the formatting command!_
