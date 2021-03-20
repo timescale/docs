@@ -21,7 +21,7 @@ timescaledb.compress_segmentby = '<column_name> [, ...]'
 | `timescaledb.compress_orderby` | TEXT |Order used by compression, specified in the same way as the ORDER BY clause in a SELECT query. The default is the descending order of the hypertable's time column. |
 | `timescaledb.compress_segmentby` | TEXT |Column list on which to key the compressed segments. An identifier representing the source of the data such as `device_id` or `tags_id` is usually a good candidate. The default is no `segment by` columns. |
 
-#### Parameters
+### Parameters
 |Name|Type|Description|
 |---|---|---|
 | `table_name` | TEXT |Hypertable that will support compression |

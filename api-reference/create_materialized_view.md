@@ -27,7 +27,7 @@ the `FROM` clause must provide only one hypertable, i.e., no joins, CTEs, views 
 subqueries are supported. The `GROUP BY` clause must include a time bucket on 
 the hypertable's time column, and all aggregates must be parallelizable.
 
-#### Parameters
+### Parameters
 |Name|Type|Description|
 |---|---|---|
 | `<view_name>` | Name (optionally schema-qualified) of continuous aggregate view to be created.|

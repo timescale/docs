@@ -13,7 +13,7 @@ continuous aggregate view:
 ``` sql
 ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ... ] )
 ```
-#### Parameters
+### Parameters
 |Name|Type|Description|
 |---|---|---|
 | `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
