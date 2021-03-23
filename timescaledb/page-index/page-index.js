@@ -168,9 +168,11 @@ module.exports = [
           {
             title: "Install TimescaleDB",
             href: "install-timescaledb",
+            component: 'InstallationPage',
             children: [
                   {
-                    href: "timescale-cloud"
+                    href: "timescale-cloud",
+                    iconSrc: "//assets.iobeam.com/images/docs/timescale_cloud_logo.svg"
                   },
                   {
                     title: "Self hosted (including containers)",
@@ -182,9 +184,9 @@ module.exports = [
                     children: [
                      {
                         Title: "Docker",
-                        type: 'directory',
+                        type: 'redirect-to-child-page',
                         href: "docker",
-                        src: "//assets.iobeam.com/images/docs/moby.png",
+                        iconSrc: "//assets.iobeam.com/images/docs/moby.png",
                         children: [
                           {
                             Title: "Docker",
@@ -195,9 +197,9 @@ module.exports = [
                       },
                       {
                         Title: "Ubuntu",
-                        type: 'directory',
+                        type: 'redirect-to-child-page',
                         href: "ubuntu",
-                        src: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
+                        iconSrc: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
                         children: [
                           {
                             Title: "apt",
@@ -213,9 +215,9 @@ module.exports = [
                       },
                       {
                         Title: "Debian",
-                        type: 'directory',
+                        type: 'redirect-to-child-page',
                         href: "debian",
-                        src: "//assets.iobeam.com/images/docs/Debian_logo.svg",
+                        iconSrc: "//assets.iobeam.com/images/docs/Debian_logo.svg",
                         children: [
                           {
                             Title: "apt",
@@ -231,9 +233,9 @@ module.exports = [
                       },
                       {
                         Title: "RHEL/CentOS",
-                        type: 'directory',
+                        type: 'redirect-to-child-page',
                         href: "rhel-centos",
-                        src: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
+                        iconSrc: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
                         children: [
                           {
                             Title: "yum/dnf",
@@ -249,9 +251,9 @@ module.exports = [
                       },
                       {
                         Title: "Windows",
-                        type: 'directory',
+                        type: 'redirect-to-child-page',
                         href: "windows",
-                        src: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
+                        iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
                         children: [
                           {
                             Title: "Installer (.zip)",
@@ -267,9 +269,9 @@ module.exports = [
                       },
                       {
                         Title: "AMI",
-                        type: 'directory',
+                        type: 'redirect-to-child-page',
                         href: "ami",
-                        src: "//assets.iobeam.com/images/docs/aws_logo.svg",
+                        iconSrc: "//assets.iobeam.com/images/docs/aws_logo.svg",
                         children: [
                           {
                             Title: "Amazon AMI (Ubuntu)",
@@ -280,9 +282,9 @@ module.exports = [
                       },
                       {
                         Title: "MacOS",
-                        type: 'directory',
+                        type: 'redirect-to-child-page',
                         href: "macos",
-                        src: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
+                        iconSrc: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
                         children: [
                           {
                             Title: "Homebrew",
