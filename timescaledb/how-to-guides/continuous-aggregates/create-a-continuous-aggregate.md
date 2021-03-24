@@ -118,6 +118,6 @@ SELECT add_continuous_aggregate_policy('cagg_rides_view',
   schedule_interval => INTERVAL '30 minutes');
 ```
 
-[api-continuous-aggs]: /api-reference/{currentVersion}/continuous-aggregates/
+[api-continuous-aggs]: /api-reference/:currentVersion:/continuous-aggregates/
 [postgres-createview]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [refresh_continuous_aggregate]: /continuous-aggregates/refresh_continuous_aggregate/

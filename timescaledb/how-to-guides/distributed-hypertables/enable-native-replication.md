@@ -104,5 +104,5 @@ this data won't be replicated. In such situations, streaming
 replication is recommended.
 
 
-[create_distributed_hypertable]: /api-reference/{currentVersion}/distributed-hypertables/create_distributed_hypertable
-[set_replication_factor]:  /api-reference/{currentVersion}/distributed-hypertables/set_replication_factor
+[create_distributed_hypertable]: /api-reference/:currentVersion:/distributed-hypertables/create_distributed_hypertable
+[set_replication_factor]:  /api-reference/:currentVersion:/distributed-hypertables/set_replication_factor

@@ -103,5 +103,5 @@ postgres=# SELECT * FROM devices_summary ORDER BY bucket LIMIT 10;
 
 [fff-system]: https://en.wikipedia.org/wiki/FFF_system
 [pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html
-[api-set-integer-now-func]: /api-reference/{currentVersion}/hypertables-and-chunks/set_integer_now_func
+[api-set-integer-now-func]: /api-reference/:currentVersion:/hypertables-and-chunks/set_integer_now_func
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html

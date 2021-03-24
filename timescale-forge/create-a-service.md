@@ -123,7 +123,7 @@ Please see additional documentation on how to:
 [forge-signup]: https://forge.timescale.com
 [billing-info]: /forge/managing-billing-payments
 [slack-info]: https://slack-login.timescale.com
-[install-psql]: /timescaledb/{currentVersion}/getting-started/access-timescaledb/install-psql/
+[install-psql]: /timescaledb/:currentVersion:/getting-started/access-timescaledb/install-psql/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact

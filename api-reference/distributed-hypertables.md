@@ -11,4 +11,4 @@ specifically dealing with data nodes and a special API for executing SQL command
 on data nodes.
 
 
-[getting-started-multi-node]: /timescaledb/{currentVersion}/how-to-guides/multi-node-setup
+[getting-started-multi-node]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup
