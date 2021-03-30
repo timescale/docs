@@ -36,5 +36,5 @@ will automatically be routed to the correct data node.
 
 
 [getting-started-multi-node]: /how-to-guides/multi-node-setup/
-[create_distributed_hypertable]: /api-reference/{currentVersion}/distributed-hypertables/create_distributed_hypertable
-[create_hypertable]: /api-reference/{currentVersion}/hypertables-and-chunks/create_hypertable
+[create_distributed_hypertable]: /api-reference/:currentVersion:/distributed-hypertables/create_distributed_hypertable
+[create_hypertable]: /api-reference/:currentVersion:/hypertables-and-chunks/create_hypertable

@@ -967,7 +967,7 @@ we use invalidation techniques to track what data has changed, and then correct
 the materialized aggregate the next time that the automated process executes.
 
 For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
-[our docs overview](http://docs.timescale.com/timescaledb/{currentVersion}/overview/core-concepts/continuous-aggregates/),
+[our docs overview](http://docs.timescale.com/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
 and visit this [tutorial](http://docs.timescale.com/tutorials/continuous-aggs-tutorial).
 
 **Major Features**

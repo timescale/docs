@@ -166,4 +166,4 @@ SELECT add_job('downsample_compress','1d', config => '{"lag":"12 month"}');
 ```
 
 
-[api-move_chunk]: /api-reference/{currentVersion}/hypertables-and-chunks/move_chunks
+[api-move_chunk]: /api-reference/:currentVersion:/hypertables-and-chunks/move_chunks

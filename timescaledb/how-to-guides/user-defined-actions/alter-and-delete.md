@@ -28,5 +28,5 @@ SELECT delete_job(1000);
 ```
 
 
-[api-alter_job]: /api-reference/{currentVersion}/actions-and-automation/alter_job
-[api-delete_job]: /api-reference/{currentVersion}/actions-and-automation/delete_job
+[api-alter_job]: /api-reference/:currentVersion:/actions-and-automation/alter_job
+[api-delete_job]: /api-reference/:currentVersion:/actions-and-automation/delete_job

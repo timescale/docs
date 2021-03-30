@@ -174,5 +174,5 @@ Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tuto
 [install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /getting-started/installation-grafana
 [hello-timescale]: /tutorials/tutorial-hello-timescale
-[time-bucket-reference]: /api-reference/{currentVersion}/analytics/time_bucket
+[time-bucket-reference]: /api-reference/:currentVersion:/analytics/time_bucket
 [tutorial-grafana]: /tutorials/tutorial-grafana
