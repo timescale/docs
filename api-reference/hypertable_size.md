@@ -1,8 +1,9 @@
 ## hypertable_size()  
 
-Get total size of hypertable i.e. the sum of the size for the table itself, 
-any indexes on the table, and any toast tables. The size is reported in bytes. 
-This is equivalent to computing the sum of `total_bytes` column from the 
+Get the total disk space used by a hypertable, i.e. the sum of the
+size for the table itself (including chunks), any indexes on the
+table, and any toast tables. The size is reported in bytes.  This is
+equivalent to computing the sum of `total_bytes` column from the
 output of `hypertable_detailed_size` function.
 
 ### Required Arguments
@@ -13,8 +14,12 @@ output of `hypertable_detailed_size` function.
 
 ### Returns 
 |Name|Type|Description|
-|---|---|---
-|hypertable_size|BIGINT| Total disk space used by the specified table, including all indexes and TOAST data|
+|---|---|---|
+|hypertable_size| BIGINT | Total disk space used by the specified hypertable, including all indexes and TOAST data. |
+
+<highlight type="tip">
+`NULL` is returned if the function is executed on a non-hypertable relation.
+</highlight>
 
 ### Sample Usage 
 Get size information for a hypertable.
