@@ -11,28 +11,22 @@ module.exports = [
           {
             title: "2. Access your database",
             href: "access-timescaledb",
+            pageComponents: ['featured-cards'],
             children: [
-              {
-                href: "install-psql"
-              },
-              {
-                title: "Connect with IDEs",
-                href: "connect-with-ide",
-                type: 'directory',
-                children: [
-                  {
+                {
+                    href: "psql"
+                },
+                {
                     title: "pgAdmin",
                     href: "pgadmin"
-                  },
-                  {
+                },
+                {
                     title: "DBeaver",
                     href: "dbeaver"
-                  },
-                  {
+                },
+                {
                     href: "azure-data-studio"
-                  }
-                ]
-              }
+                }
             ]
           },
           {

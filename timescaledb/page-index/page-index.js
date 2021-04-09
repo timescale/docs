@@ -25,9 +25,6 @@ module.exports = [
             href: "telemetry"
           }
         ]
-      },
-      {
-        href: "integrations",
       }
     ]
   }

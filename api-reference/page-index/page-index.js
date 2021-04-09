@@ -12,7 +12,7 @@ module.exports = [
       {
         title: "Hypertables & Chunks",
         type: 'directory',
-        href: "hypertables-and-chunks",
+        href: "hypertables",
         children: [
           {
             title: "create_hypertable",
@@ -251,7 +251,7 @@ module.exports = [
       {
         title: "Actions and Automation",
         type: 'directory',
-        href: "actions-and-automation",
+        href: "actions",
         children: [
           {
             title: "add_job",
@@ -317,46 +317,46 @@ module.exports = [
         children: [
           {
             title: "timescaledb_information.chunks",
-            href: "timescaledb_information-chunks"
+            href: "chunks"
           },
           {
             title: "timescaledb_information.continuous_aggregates",
-            href: "timescaledb_information-continuous_aggregates"
+            href: "continuous_aggregates"
           },
           {
             title: "timescaledb_information.compression_settings",
-            href: "timescaledb_information-compression_settings"
+            href: "compression_settings"
           },
           {
             title: "timescaledb_information.data_nodes",
-            href: "timescaledb_information-data_nodes"
+            href: "data_nodes"
           },
           {
             title: "timescaledb_information.dimensions",
-            href: "timescaledb_information-dimensions"
+            href: "dimensions"
           },
           {
             title: "timescaledb_information.hypertables",
-            href: "timescaledb_information-hypertables"
+            href: "hypertables"
           },
           {
             title: "timescaledb_information.jobs",
-            href: "timescaledb_information-jobs"
+            href: "jobs"
           },
           {
             title: "timescaledb_information.job_stats",
-            href: "timescaledb_information-job_stats"
+            href: "job_stats"
           },
           {
             title: "timescaledb_information.license",
-            href: "timescaledb_information-license"
+            href: "license"
           }
         ]
       },
       {
         title: "Administration Functions",
         type: 'directory',
-        href: "administration-functions",
+        href: "administration",
         children: [
           {
             title: "timescaledb_pre_restore",

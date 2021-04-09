@@ -49,14 +49,6 @@ module.exports = [
               },
               {
                 href: "narrow-data-model"
-              },
-              {
-                title: "Relational + Time-series",
-                href: "relational-timeseries"
-              },
-              {
-                title: "Geospatial Compatible",
-                href: "geospatial"
               }
             ]
           },
