@@ -1,6 +1,6 @@
 # Quick Start: Node and TimescaleDB
 
-### Goal
+## Goal
 This quick start guide is designed to get the Node.js developer up 
 and running with TimescaleDB as their database. In this tutorial, 
 you’ll learn how to:
@@ -11,7 +11,7 @@ you’ll learn how to:
 * [Insert a batch of rows into your Timescale database](#insert_rows)
 * [Execute a query on your Timescale database](#execute_query)
 
-### Pre-requisites
+## Pre-requisites
 
 To complete this tutorial, you will need a cursory knowledge of the Structured Query 
 Language (SQL). The tutorial will walk you through each SQL command, but it will be 
@@ -23,13 +23,13 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 Obviously, you will need to [install Node][node-install] and the 
 [Node Package Manager (npm)][npm-install] as well.
 
-### Connect Node to TimescaleDB [](new-database)
+## Connect Node to TimescaleDB [](new-database)
 
 TimescaleDB is based on PostgreSQL and we can use common PostgreSQL tools to connect 
 your Node app to the database. In this example, we will use a common Node.js
 Object Relational Mapper (ORM) called [Sequelize][sequelize-info].
 
-#### Step 1: Create your Node app
+### Step 1: Create your Node app
 
 Let's initialize a new Node app. From your command line, type the following:
 
@@ -83,7 +83,7 @@ node index.js
 
 You should get a "Hello, World" greeting.
 
-#### Step 2: Configure the TimescaleDB database using Sequelize
+### Step 2: Configure the TimescaleDB database using Sequelize
 
 Locate your TimescaleDB credentials in order to connect to your TimescaleDB instance.
 
@@ -150,9 +150,9 @@ Executing (default): SELECT 1+1 AS result
 Connection has been established successfully.
 ```
 
-### Create a relational table [](create_table)
+## Create a relational table [](create_table)
 
-#### Step 1: Add TimescaleDB to your Node configuration
+### Step 1: Add TimescaleDB to your Node configuration
 
 Now that we have a successful connection to the `defaultdb` database, we 
 can build out our first database and model.
@@ -233,7 +233,7 @@ Using environment "development".
 Database node_test created.
 ```
 
-#### Step 2: Add the TimescaleDB extension to the database
+### Step 2: Add the TimescaleDB extension to the database
 
 TimescaleDB is delivered as a PostgreSQL extension. Some instances and versions
 of TimescaleDB already have the extension installed. Let's make sure the
@@ -292,7 +292,7 @@ command. You should get a result like this:
 (2 rows)
 ```
 
-#### Step 3: Create a table
+### Step 3: Create a table
 
 Now let's create a table and model called `page_loads` for our database 
 using the Sequelize command line tool:
@@ -328,7 +328,7 @@ Using environment "development".
 == 20200528195725-create-page-loads: migrated (0.443s)
 ```
 
-#### Step 4: Create a model for the table
+### Step 4: Create a model for the table
 
 With the `node_test` database created and a `page_loads` table configured
 with a proper schema, we are ready to create the `PageLoads` model in our
@@ -346,7 +346,7 @@ let PageLoads = sequelize.define('page_loads', {
 We will now be able to instantiate a `PageLoads` object and save it to the 
 database.
 
-### Generate hypertable [](create_hypertable)
+## Generate hypertable [](create_hypertable)
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables], 
 the abstraction of a single continuous table across all space and time 
@@ -412,7 +412,7 @@ Using environment "development".
 == 20200601202912-add_hypertable: migrated (0.426s)
 ```
 
-### Insert rows into TimescaleDB [](insert_rows)
+## Insert rows into TimescaleDB [](insert_rows)
 
 Now you have a working connection to your database, a table configured with 
 the proper schema, and a hypertable created to more efficiently query data 
@@ -444,7 +444,7 @@ app.get('/', async (req, res) => {
 })
 ```
 
-### Execute a query [](execute_query)
+## Execute a query [](execute_query)
 
 Each time the page is reloaded, we also want to display all information 
 currently in the table.
@@ -477,7 +477,7 @@ app.get('/', async (req, res) => {
 Now, when you reload the page, you should see all of the rows currently in the 
 `page_loads` table.
 
-### Next steps
+## Next steps
 
 Now that you’re able to connect, read, and write to a TimescaleDB instance from your 
 Node application, be sure to check out these advanced TimescaleDB tutorials:
