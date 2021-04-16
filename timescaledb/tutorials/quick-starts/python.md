@@ -379,7 +379,7 @@ tutorials:
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [hello-timescale-tutorial]: https://docs.timescale.com/latest/tutorials/tutorial-hello-timescale
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[create-hypertable-docs]: /api-reference/{currentVersion/hypertables-and-chunks/create_hypertable
+[create-hypertable-docs]: /api/{currentVersion/hypertables-and-chunks/create_hypertable
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [time-series-forecasting]: /tutorials/time-series-forecast/

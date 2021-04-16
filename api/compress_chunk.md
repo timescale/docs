@@ -8,7 +8,7 @@ suggest using the policy framework instead.
 
 <highlight type="tip">
 You can get a list of chunks belonging to a hypertable using the
-`show_chunks` [function](/api-reference/show_chunks).
+`show_chunks` [function](/api/show_chunks).
 </highlight>
 
 ### Required Arguments

@@ -880,7 +880,7 @@ Golang application, be sure to check out these advanced TimescaleDB tutorials:
 [pgx-driver-github]: https://github.com/jackc/pgx
 [libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [cloud-signup]: https://www.timescale.com/products
-[hypertable-docs]: /api-reference/:currentVersion:/hypertables-and-chunks/create_hypertable
+[hypertable-docs]: /api/:currentVersion:/hypertables-and-chunks/create_hypertable
 [parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
 [hello-timescale]: /tutorials/tutorial-hello-timescale
