@@ -29,10 +29,10 @@ and, failing that, please [contact us][contact-timescale].
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-creation.png" alt="Set up a Timescale Forge service"/>
 
 1. First, supply your service name (e.g., `acmecorp-test` or `acmecorp-dev`).
-1. Next, choose your CPU and memory configuration, from (0.5 CPU, 2GB RAM) to 
+1. Next, choose your CPU and memory configuration, from (0.25 CPU, 1GB RAM) to 
 (8 CPU, 32 GB RAM).
-1. Select your storage requirements, from 25 GB to 1 TB.  Note that with TimescaleDB 
-compression, this is typically equivalent to 400 GB to 16+ TB of uncompressed 
+1. Select your storage requirements, from 10 GB to 1 TB.  Note that with TimescaleDB 
+compression, this is typically equivalent to 170 GB to 67+ TB of uncompressed 
 storage (although compression rates can vary based on your data).
 1. Note the estimated cost of running your chosen configuration. Feel free to 
 [contact us][contact-timescale] if you would like to discuss pricing and 

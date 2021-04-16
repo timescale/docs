@@ -5,7 +5,7 @@ Users of TimescaleDB often have two common questions:
 1. How large should I configure my intervals for time partitioning?
 1. Should I use space partitioning, and how many space partitions should I use?
 
-### Time intervals:
+## Time intervals:
 Users can use the default time interval, which is 7 days starting in v0.11.0
 and 1 month prior to v0.11.0. Alternatively, users can explicitly configure time 
 intervals by setting `chunk_time_interval` when creating a hypertable. After the
@@ -56,7 +56,7 @@ PostGIS geospatial indexes).  During testing, you might check your
 total chunk sizes via the [`chunk_detailed_size`][chunk_detailed_size] function.
 </highlight>
 
-### Space partitions
+## Space partitions
 Space partitioning is optional but can make
 sense for certain types of data and is recommended when using
 distributed hypertables.

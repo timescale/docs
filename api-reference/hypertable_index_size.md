@@ -1,6 +1,8 @@
 ## hypertable_index_size()  
 
-Get size of an index on a hypertable. The size is reported in bytes.
+Get the disk space used by an index on a hypertable, including the
+disk space needed to provide the index on all chunks. The size is
+reported in bytes.
 
 ### Required Arguments
 
@@ -11,7 +13,11 @@ Get size of an index on a hypertable. The size is reported in bytes.
 ### Returns 
 |Column|Type|Description|
 |---|---|---|
-|hypertable_index_size|BIGINT| Returns disk space used by the index. |
+|hypertable_index_size|BIGINT| Returns the disk space used by the index |
+
+<highlight type="tip">
+NULL is returned if the function is executed on a non-hypertable relation.
+</highlight>
 
 ### Sample Usage 
 
@@ -19,7 +25,7 @@ Get size of a specific index on a hypertable.
 
 ```sql
 \d conditions_table
-                     Table "public.test_table"
+                     Table "public.conditions_table"
  Column |           Type           | Collation | Nullable | Default 
 --------+--------------------------+-----------+----------+---------
  time   | timestamp with time zone |           | not null | 

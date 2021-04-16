@@ -1,4 +1,4 @@
-## SELECT Commands [](select)
+# SELECT Commands
 
 Data can be queried from a hypertable using the standard `SELECT` SQL command
 ([PostgreSQL docs][postgres-select]), including with arbitrary `WHERE` clauses,

@@ -1,9 +1,8 @@
 # TimescaleDB Overview
 
-TimescaleDB is an open-source time-series database optimized for fast
-ingest and complex queries.  It speaks "full SQL" and is
-correspondingly easy to use like a traditional relational database,
-yet scales in ways previously reserved for NoSQL databases.
+TimescaleDB is an open-source relational database for time-series data.  It 
+speaks "full SQL" and is correspondingly easy to use like a traditional relational 
+database, yet scales in ways previously reserved for NoSQL databases.
 
 Compared to the trade-offs demanded by these two alternatives
 (relational vs. NoSQL), TimescaleDB offers the best of both

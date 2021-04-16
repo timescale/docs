@@ -79,7 +79,7 @@ endpoint for multiple services or a separate one for services you’d like to ke
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_3.png" alt="Select name of Prometheus endpoint to integrate with"/>
 
 To check if this was successful, navigate back to the Service Integrations section of your 
-managed service, and check if that “Active” flag appears, along with the name of the endpoint 
+managed service, and check if that "Active" flag appears, along with the name of the endpoint 
 you associated the service with.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_5.png" alt="Success! Active prometheus endpoint with name"/>

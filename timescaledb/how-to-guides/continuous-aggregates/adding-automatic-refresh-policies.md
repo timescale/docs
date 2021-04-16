@@ -1,4 +1,4 @@
-## Automatic refresh with a continuous aggregate policy
+# Adding Automatic Refresh Policies
 
 Continuous aggregate policies can be configured to support different
 use cases. For example, you might want to:

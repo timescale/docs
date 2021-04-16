@@ -85,7 +85,7 @@ Quit the server with CONTROL-C.
 ````
 
 If that works, then visit `http://127.0.0.1:8000/` from your Web browser.
-You should see a “Congratulations!” page, with a rocket taking off.
+You should see a "Congratulations!" page, with a rocket taking off.
 
 (If that didn’t work, then please take a look at the
 [Django documentation][django-first-app] for troubleshooting.)
@@ -183,8 +183,8 @@ instance.)*
 ```
 
 <highlight type="tip">
-Replace the job_name “django” with whatever you’d like as a prefix for
-your Django application metrics in Prometheus. For example, “webapp”, etc.)
+Replace the job_name "django" with whatever you’d like as a prefix for
+your Django application metrics in Prometheus. For example, "webapp", etc.)
 </highlight>
 
 #### Restart Prometheus

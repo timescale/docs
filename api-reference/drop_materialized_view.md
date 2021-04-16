@@ -11,7 +11,7 @@ derived.
 ``` sql
 DROP MATERIALIZED VIEW <view_name>;
 ```
-#### Parameters
+### Parameters
 |Name|Type|Description|
 |---|---|---|
 | `<view_name>` | Name (optionally schema-qualified) of continuous aggregate view to be created.|

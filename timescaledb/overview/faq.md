@@ -1,13 +1,13 @@
-# FAQ [](top)
+# FAQ
 
-### **What is TimescaleDB?** [](what)
+## What is TimescaleDB?
 TimescaleDB is the only open source time-series database that supports full SQL.
 Optimized for fast ingest and complex queries, TimescaleDB is easy to use like a
 traditional relational database, yet scales in ways previously reserved for NoSQL
 databases. In particular, this makes TimescaleDB an ideal candidate for
-operational analytics. TimescaleDB Open Source is distributed under the Apache 2.0 license. [[Top]](#top)
+operational analytics. TimescaleDB Open Source is distributed under the Apache 2.0 license. 
 
-### **Why build another time-series database?** [](why-build)
+## Why build another time-series database?
 Time-series data is cropping up in more and more places: monitoring and DevOps,
 sensor data and IoT, financial data, logistics data, app usage data, and more.
 Often this data is high in volume and complex in nature (e.g., multiple
@@ -16,9 +16,9 @@ time-series data demands both scale and efficient complex queries. Yet achieving
 both of these properties has remained elusive. Users have typically been faced
 with the trade-off between the horizontally scalability of NoSQL and the query
 power of relational databases. We needed something that offered both, so we
-built it. [[Top]](#top)
+built it. 
 
-### **Why should I use TimescaleDB?** [](why-use)
+## Why should I use TimescaleDB?
 As time becomes a more critical dimension along which data is measured,
 TimescaleDB enables developers and organizations to harness more of its power:
 analyzing the past, understanding the present, and predicting the future.
@@ -28,9 +28,9 @@ combination of scalability and a full SQL interface empowers a broad variety of
 people across an organization (e.g., developers, product managers, business
 analysts, etc.) to directly ask questions of the data. In other words, by
 supporting a query language already in wide use, TimescaleDB ensures that your
-questions are limited by your imagination, not the database. [[Top]](#top)
+questions are limited by your imagination, not the database. 
 
-### **What can I use TimescaleDB for?** [](what-for)
+## What can I use TimescaleDB for?
 TimescaleDB is ideal for time-series workloads that would benefit from a SQL interface.
 SQL carries a variety of benefits: a query language that most developers already know;
 rich set of functions and utilities; and a broad ecosystem of tools, connectors, and
@@ -44,9 +44,9 @@ Owing to these advantages, TimescaleDB is currently deployed across a variety of
 including manufacturing, energy, utilities, mining, oil and gas, finance, ad tech, smart spaces,
 and more. Use cases include complex monitoring and analytics; predicting the performance and
 behavior of applications, models, consumers and connected machines; powering operational
-analytical workflows and dashboards; for QA and performance testing. [[Top]](#top)
+analytical workflows and dashboards; for QA and performance testing. 
 
-### **Why should I choose Timescale Cloud?** [](why-cloud)
+## Why should I choose Timescale Cloud?
 If you want all the benefits of TimescaleDB without the hassle of installing,
 maintaining, and administering the database itself, then Timescale Cloud is the
 best choice for you.
@@ -55,9 +55,9 @@ Timescale Cloud manages all of the operational elements of your database so you 
 focus on building your applications and not making sure the infrastructure works. We 
 ensure you have a secure, high availability environment where we manage the infrastructure 
 all the way down to setting up replications, point-in-time recovery, read replicas, 
-backups, and more. [[Top]](#top)
+backups, and more. 
 
-### **Which cloud providers and regions are supported by Timescale Cloud?** [](which-cloud-regions)
+## Which cloud providers and regions are supported by Timescale Cloud?
 Timescale Cloud is available in the following Clouds and Regions:
 
 * **Amazon Web Services (AWS)**: N. Virginia (`us-east-1`), Ohio (`us-east-2`), 
@@ -71,18 +71,18 @@ Iowa, Oregon, São Paulo, Zürich, London, Frankfurt, Finland, Belgium, Netherla
 Montréal, Sydney, Taiwan, Mumbai, Hong Kong, Tokyo, Singapore
 [[Top]](#top)
 
-### **What is the difference between Timescale, TimescaleDB, and Timescale Cloud?** [](what-does-timescale-mean)
+## What is the difference between Timescale, TimescaleDB, and Timescale Cloud?
 **Timescale** is the company. Timescale builds a category-defining time-series database called **TimescaleDB**. 
-Timescale hosts and manages TimescaleDB on behalf of its customers via a product called **Timescale Cloud**. [[Top]](#top)
+Timescale hosts and manages TimescaleDB on behalf of its customers via a product called **Timescale Cloud**. 
 
-### **Do you really support "all of SQL"?** [](sql-support)
+## Do you really support "all of SQL"?
 Yes, all of SQL, including: secondary indexes, JOINs, window functions. In fact,
 to the outside world, TimescaleDB looks like a PostgreSQL database: You connect
 to the database as if it's PostgreSQL, and you can administer the database as if
 it's PostgreSQL. Any tools and libraries that connect with PostgreSQL will
-automatically work with TimescaleDB. [[Top]](#top)
+automatically work with TimescaleDB. 
 
-### **Why SQL?** [](why-sql)
+## Why SQL?
 SQL is the most widely-used query language in the world for interacting with a
 database and manipulating data. We wanted TimescaleDB to be easy to use and powerful.
 Because SQL is so widely-used, it allows an entire organization to access their data,
@@ -91,23 +91,23 @@ in their respective roles. It also allows for easy migration of data residing in
 PostgreSQL tables to TimescaleDB hypertables. Put another way: we wanted
 to ensure that your queries were only limited by your imagination, not by the query
 language. For a deeper dive into why we're positive on SQL, read this blog post:
-[Why SQL is beating NoSQL, and what this means for the future of data][why-sql] [[Top]](#top)
+[Why SQL is beating NoSQL, and what this means for the future of data][why-sql] 
 
-### **What SQL features are supported?** [](sql-features)
+## What SQL features are supported?
 We support all of SQL, including secondary indices, complex predicates, JOINs,
 window functions, CTEs, etc. Additionally, we extend SQL to introduce
 [new semantics that make time-series manipulation easier][new-queries]. Behind
 the scenes, we also optimize the PostgreSQL query planner to enable the database
 to properly reason about time-series data, which in some cases leads to over
-10,000x improvement in query latency. [[Top]](#top)
+10,000x improvement in query latency. 
 
-### **How do I write data?** [](write)
-Just via normal SQL, but here are some [insert examples][INSERT]. [[Top]](#top)
+## How do I write data?
+Just via normal SQL, but here are some [insert examples][INSERT]. 
 
-### **How do I read data?** [](read)
-Just via normal SQL, but here are some [query examples][SELECT]. [[Top]](#top)
+## How do I read data?
+Just via normal SQL, but here are some [query examples][SELECT]. 
 
-### **What are my compression options?** [](compression)
+## What are my compression options?
 Since v1.5,
 TimescaleDB has supported native compression that uses a hybrid row/columnar
 approach combined with type-specific compression algorithms (e.g., different
@@ -117,9 +117,9 @@ leading to significant cost savings (and other query performance improvements).
 Note that compression must be *explicitly turned on and configured* for a
 hypertable; compression is by default off.  For more details about how to use
 TimescaleDB ncompression, please see [our compression docs][compression-docs]
-or a longer technical deep-dive [on our blog ][compression-blog]. [[Top]](#top)
+or a longer technical deep-dive [on our blog ][compression-blog]. 
 
-### **How far can TimescaleDB scale?** [](scaling)
+## How far can TimescaleDB scale?
 We've first focused on scaling TimescaleDB up on a single node. In our internal
 benchmarks on standard cloud VMs we regularly test  TimescaleDB to 10+ billion
 rows, while sustaining insert rates of 100-200k rows / second (1-2 million metric
@@ -135,9 +135,9 @@ With that said, the principal design decisions implemented for scaling up are
 much the same for allowing TimescaleDB to scale out horizontally in a linear
 fashion across many servers. TimescaleDB is designed to combine the
 scalability of popular NoSQL databases, with the native query complexity
-supported by RDBMS systems. Read on for more details on clustering. [[Top]](#top)
+supported by RDBMS systems. Read on for more details on clustering. 
 
-### **How does TimescaleDB scale?** [](how-scaling)
+## How does TimescaleDB scale?
 TimescaleDB's architecture leverages two key properties of time-series data:
 
 * Time-series data is largely immutable. New data continually arrives, typically
@@ -154,7 +154,7 @@ a normal table in PostgreSQL does. For more information, see this blog post:
 [Time-series data: Why (and how) to use a relational database instead of NoSQL][rdbms > nosql].
 [[Top]](#top)
 
-### **Is there a clustered version and how can I try it?** [](clustered)
+## Is there a clustered version and how can I try it?
 We often find that there may be a few different things people are looking for when they ask
 about support for "clustering":
 * High availability: As a PostgreSQL extension, hot standbys of TimescaleDB can be set
@@ -177,15 +177,15 @@ applies to these read-only clusters.
 
 Full, scale-out clustering (i.e., for ingest rates > 300K row inserts / second)
 leverages the automated partitioning capabilities already available in
-single-node TimescaleDB. [[Top]](#top)
+single-node TimescaleDB. 
 
-### **What are hypertables and chunks?** [](hypertable-chunks)
-Our [documentation][docs-architecture] describes these design elements in more depth. [[Top]](#top)
+## What are hypertables and chunks?
+Our [documentation][docs-architecture] describes these design elements in more depth. 
 
-### **How should I configure chunking?** [](partitions-best-practice)
-See the [Best Practices][hypertable-best-practices] section of our documentation. [[Top]](#top)
+## How should I configure chunking?
+See the [Best Practices][hypertable-best-practices] section of our documentation. 
 
-### **How are hypertable chunks determined across the space dimension?** [](partitions)
+## How are hypertable chunks determined across the space dimension?
 All hypertable chunks are partitioned automatically across time, which is necessary for
 right-sizing the chunks such that the B-trees for a table's indexes can reside in memory
 during inserts to avoid thrashing that would otherwise occur while modifying arbitrary locations
@@ -195,9 +195,9 @@ customer id, or other unique id. Space partitions use hashing: Every distinct it
 is hashed to one of N buckets. The main purpose of space partitioning is to enable
 parallel I/O to the same time interval or to build smaller tables when regularly
 performing a range query for a single device/customer/ticker. For more
-details on space partitioning, see [Best Practices][hypertable-best-practices].  [[Top]](#top)
+details on space partitioning, see [Best Practices][hypertable-best-practices].  
 
-### **Why would I use TimescaleDB over vanilla PostgreSQL?** [](vs-postgresql)
+## Why would I use TimescaleDB over vanilla PostgreSQL?
 Read our TimescaleDB-PostgreSQL benchmarks:
 * [TimescaleDB vs. PostgreSQL for time-series data][PostgreSQL-benchmark]
 * [Problems with PostgreSQL 10 for time-series data][PostgreSQL-problems-time-series]
@@ -233,28 +233,28 @@ not included in vanilla PostgreSQL and entirely unique to TimescaleDB
 (e.g., [`time_bucket`][time_bucket],[`first`][first] and [`last`][last]), with more to come.
 [[Top]](#top)
 
-### **How compatible is TimescaleDB with PostgreSQL?** [](postgresql-compatibility)
+## How compatible is TimescaleDB with PostgreSQL?
 TimescaleDB is implemented as an extension to PostgreSQL that introduces
 transparent scalability and performance optimizations, as well as time-series
 specific features (e.g., arbitrary aggregations, data retention policies). TimescaleDB
 connects with any and all third party tools that communicate with standard PostgreSQL
 connectors. TimescaleDB supports the same extensions, tools and drivers that PostgreSQL
 supports. You can continue to run your existing PostgreSQL databases and work with your
-current visualization and reporting tools. [[Top]](#top)
+current visualization and reporting tools. 
 
-### **How does TimescaleDB handle geospatial data?** [](geo-spatial)
+## How does TimescaleDB handle geospatial data?
 As an extension of PostgreSQL, TimescaleDB works well with PostGIS. For example,
 [see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data. We are
 actively exploring the extent of TimescaleDB's geospatial capabilities (i.e., partitioning
 by location). If you have a use case with a geospatial component,
-please [contact us][contact] and we'd be happy to discuss. [[Top]](#top)
+please [contact us][contact] and we'd be happy to discuss. 
 
-### **Is TimescaleDB currently being used in production?** [](in-production)
+## Is TimescaleDB currently being used in production?
 Yes. TimescaleDB is currently deployed in production across a variety of industries
 including manufacturing, energy, utilities, mining, oil and gas, finance, ad tech,
-smart spaces, and more. [[Top]](#top)
+smart spaces, and more. 
 
-### **When is TimescaleDB a good choice?**  [](when-good)
+## When is TimescaleDB a good choice?**  [](when-good)
 TimescaleDB is a good choice:
 
 * If you, and more of your organization, want to make standard SQL queries on time-series data,
@@ -282,38 +282,38 @@ NoSQL system in order to scale to larger volumes of data.
 system due to scaling concerns or issues. We will provide support for the migration back.
 [[Top]](#top)
 
-### **What if I my use case is simple key-value reads?** [](key-value)
+## What if I my use case is simple key-value reads?
 For this scenario, in-memory or column-oriented databases are designed for
 key-value storage with fast lookup and a relational database may not be ideal.
 However, these systems clearly do not scale to large data volumes and cannot
 perform well for more complex queries (whereas relational databases
-like TimescaleDB and PostgreSQL are better suited). [[Top]](#top)
+like TimescaleDB and PostgreSQL are better suited). 
 
-### **What if I have very sparse or unstructured data?** [](unstructured-data)
+## What if I have very sparse or unstructured data?
 Good question. TimescaleDB leverages PostgreSQL support for JSON/JSONB formats
 and handles sparsity quite efficiently (bitmaps for NULL values). However,
 there are some best practices and suggestions that may apply to get optimal
 performance depending on your scenario. Please see discussion in these docs
-or [join our Slack group][join_slack]. [[Top]](#top)
+or [join our Slack group][join_slack]. 
 
-### **What is the TimescaleDB open-source license?** [](license)
-Apache 2.0. [[Top]](#top)
+## What is the TimescaleDB open-source license?
+Apache 2.0. 
 
-### **Is there a TimescaleDB community or group I can join?** [](community)
+## Is there a TimescaleDB community or group I can join?
 Yes!  We have a very active [online community in Slack][join_slack], and
-you can report any issues on our [GitHub][] page. [[Top]](#top)
+you can report any issues on our [GitHub][] page. 
 
-### **Can I get support or a commercial license?** [](license-commercial)
-Yes. Please [contact us][contact] for more information. [[Top]](#top)
+## Can I get support or a commercial license?
+Yes. Please [contact us][contact] for more information. 
 
-### **Where can I get TimescaleDB source code?** [](where)
-See [GitHub][]. [[Top]](#top)
+## Where can I get TimescaleDB source code?
+See [GitHub][]. 
 
-### **How do I install TimescaleDB?** [](install)
-See our [install documentation][install]. [[Top]](#top)
+## How do I install TimescaleDB?
+See our [install documentation][install]. 
 
-### **How do I update an existing installation?** [](update)
-See our [updating documentation][update]. [[Top]](#top)
+## How do I update an existing installation?
+See our [updating documentation][update]. 
 
 
 [api]: /api

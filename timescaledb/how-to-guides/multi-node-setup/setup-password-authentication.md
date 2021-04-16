@@ -1,4 +1,4 @@
-## Password authentication [](multi-node-auth-password)
+# Password authentication
 
 With password authentication, every user role that uses distributed
 hypertables needs an "internal" password for establishing connections
@@ -32,7 +32,7 @@ pairs
 5. Add data nodes to the access node
 6. Add any additional users
 
-### 1. Set the password encryption method for access node and data nodes
+## 1. Set the password encryption method for access node and data nodes
 First set the password encryption method to `scram-sha-256` within the PostgreSQL 
 configuration file `postgresql.conf` on each node. Add this line to the file:
 
@@ -43,7 +43,7 @@ password_encryption = 'scram-sha-256'		# md5 or scram-sha-256
 Note that any previously created user passwords will need to be recreated to 
 incorporate the new encryption.
 
-### 2. Enable password authentication on the data nodes
+## 2. Enable password authentication on the data nodes
 Password authentication is set by modifying the HBA file (by default `pg_hba.conf`
 in the data directory, can also be found via `SHOW hba_file` in psql). Add a
 line to `pg_hba.conf` to enable encrypted authentication between the access node and
@@ -55,7 +55,7 @@ the data node for all users:
 host    all       all   192.0.2.20   scram-sha-256 #where '192.0.2.20' is the access node IP
 ```
 
-### 3. Create passwords on the access node
+## 3. Create passwords on the access node
 
 The password file `passfile` stores passwords for each role that the
 access node connects with to data nodes. The file is by default
@@ -75,18 +75,18 @@ Then apply the correct permissions to the file:
 chmod 0600 passfile
 ```
 
-### 4. Reload server configuration
+## 4. Reload server configuration
 Reload the server configuration on each node for the changes to take effect:
 
 ```bash
 pg_ctl reload
 ```
 
-### 5. Add the data nodes to the access node
+## 5. Add the data nodes to the access node
 
 Once the nodes are properly configured, you can continue following the [multi-node setup][init_data_nodes].
 
-### 6. Setting up additional roles [](multi-node-auth-password-roles)
+## 6. Setting up additional roles [](multi-node-auth-password-roles)
 
 First, create the role on the access node if needed, and grant it
 usage to the foreign server objects for the data nodes:

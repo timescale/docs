@@ -1,5 +1,5 @@
 
-### Creating Procedures for Actions [](create)
+# Creating Procedures for Actions [](create)
 
 The signature for actions is `(job_id INT, config JSONB)`. It can either
 be implemented as [function][postgres-createfunction] or
@@ -7,7 +7,7 @@ be implemented as [function][postgres-createfunction] or
 The content of the config JSONB is completely up to the job and may
 also be NULL if no parameters are required.
 
-Template for a procedure.
+This is a generic template for a procedure that works with User Defined Actions.
 
 ```sql
 CREATE OR REPLACE PROCEDURE user_defined_action(job_id int, config jsonb) LANGUAGE PLPGSQL AS
@@ -18,7 +18,7 @@ END
 $$;
 ```
 
-### Registering Actions [](register)
+## Registering Actions [](register)
 
 In order to register your action for execution within TimescaleDB's
 job scheduler, you next need to [`add_job`][api-add_job] with the name of your action

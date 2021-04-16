@@ -45,7 +45,7 @@ For instructions on how to set up Outflux from source you can visit the [README]
 
 If you don’t already have an existing InfluxDB database, you can try Outflux by importing this example file with data written in the Influx Line Protocol found at https://timescaledata.blob.core.windows.net/datasets/outflux_taxi.txt
 
-You can use the Influx CLI client to load the data. The file will first create the “outflux_tutorial” database and then do 2741 inserts.
+You can use the Influx CLI client to load the data. The file will first create the "outflux_tutorial" database and then do 2741 inserts.
 
 ```
 $ influx -import -path=outflux_taxit.txt -database=outflux_tutorial

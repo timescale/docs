@@ -1,4 +1,5 @@
-### Dropping Data with Continuous Aggregates Enabled [](dropping-data)
+# Dropping Raw Data
+
 Note that if any still-refreshing (more recent than `start_offset`) part of the
 continuous aggregate is dropped via a [retention policy][api-add-retention] or
 direct [`drop_chunks`][api-drop-chunks] call, the aggregate will be updated to

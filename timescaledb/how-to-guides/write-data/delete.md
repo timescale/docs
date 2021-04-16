@@ -1,4 +1,4 @@
-## DELETE [](delete)
+# DELETE
 
 Data can be deleted from a hypertable using the standard `DELETE` SQL
 command ([PostgreSQL docs][postgres-delete]), which will propagate

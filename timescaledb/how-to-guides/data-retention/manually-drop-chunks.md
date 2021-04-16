@@ -1,4 +1,4 @@
-## Dropping chunks manually
+# Dropping chunks manually
 
 As an example, if you have a hypertable definition of `conditions`
 where you collect raw data into chunks of one day:

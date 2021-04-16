@@ -1,4 +1,4 @@
-## Certificate authentication [](multi-node-auth-certificate)
+# Certificate authentication
 This method is more complex to set up than password authentication, but 
 more secure and easier to automate.
 

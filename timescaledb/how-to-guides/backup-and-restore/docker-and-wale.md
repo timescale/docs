@@ -1,4 +1,4 @@
-## Continuous archiving and recovery with Docker & WAL-E [](docker-wale)
+# Continuous archiving and recovery with Docker & WAL-E
 
 When using TimescaleDB in a containerized environment, it is possible
 to do [continuous archiving][pg archiving] using a [WAL-E][wale
@@ -52,7 +52,7 @@ data:
 docker exec -it timescaledb psql -U postgres
 ```
 
-### Running the WAL-E sidecar
+## Running the WAL-E sidecar
 
 Our [WAL-E Docker image][wale image] runs a small Web endpoint that
 accepts WAL-E commands via a HTTP API. This allows PostgreSQL to
@@ -112,7 +112,7 @@ TimescaleDB on Kubernetes, there is built-in support for scheduling
 cron jobs that can invoke base backups via, e.g., the WAL-E
 container's HTTP API.
 
-### Recovery [](docker-wale-restore)
+## Recovery
 
 To recover the database instance from the backup archive, create a new
 TimescaleDB container:

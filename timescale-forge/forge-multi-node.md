@@ -42,7 +42,7 @@ one access node and two data nodes.
 
 There is currently no way to distinguish between the access node and data 
 nodes within the Timescale Forge console, **so we strongly recommend that you include 
-“AN" and "DN" in the names of each service, respectively (eg. "AN-mycluster", 
+"AN" and "DN" in the names of each service, respectively (eg. "AN-mycluster", 
 "DN1-mycluster", "DN2-mycluster", etc.)**. Services can only assume one role in a 
 cluster (access or data node), and only one Service can act as the access node.
 
@@ -59,7 +59,7 @@ access node.
 <highlight type="warning">
 Services created prior to January 2021 may be running TimescaleDB
 v1.7.4 or earlier.  We recommend creating a new Service when setting up
-multi-node, although some earlier Services may be upgradable to v2.0.
+multi-node, although some earlier Services may be upgradable to v2.x.
 </highlight>
 
 ### Step 2: Modify Access Node settings [](step2)

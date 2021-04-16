@@ -1,4 +1,4 @@
-## Downsample and Compress [](downsample-compress)
+# Downsample and Compress
 
 Action that downsamples and compresses chunks on hypertable `metrics`
 older than a certain age. The example query computes a simple `avg` over

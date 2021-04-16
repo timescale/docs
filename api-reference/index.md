@@ -1,8 +1,8 @@
 # TimescaleDB API Reference
 
-TimescaleDB is supercharged PostgreSQL for time-series data. We focus on making
+TimescaleDB is an open-source relational database for time-series data. We focus on making
 high volume time-series data fast and efficient on top of the solid foundation
-of the leading open-source relational database.
+of PostgreSQL.
 
 To manage the various aspects of TimescaleDB, you will need to become familiar
 with the special SQL functions and VIEWs that we provide, as documented within

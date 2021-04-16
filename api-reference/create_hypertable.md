@@ -1,9 +1,15 @@
 # create_hypertable() 
 
-Creates a TimescaleDB hypertable from a PostgreSQL table (replacing the
-latter), partitioned on time and with the option to partition
-on one or more other columns (i.e., space).
-All actions, such as `ALTER TABLE`, `SELECT`, etc.,
+Creates a TimescaleDB hypertable from a PostgreSQL table (replacing
+the latter), partitioned on time and with the option to partition on
+one or more other columns (i.e., space). The PostgreSQL table cannot
+be an already partitioned table (declarative partitioning or
+inheritance). In case of a non-empty table, it is possible to migrate
+the data during hypertable creation using the `migrate_data` option,
+although this might take a long time and has certain limitations when
+the table contains foreign key constraints (see below).
+
+After creation, all actions, such as `ALTER TABLE`, `SELECT`, etc.,
 still work on the resulting hypertable.
 
 #### Required Arguments

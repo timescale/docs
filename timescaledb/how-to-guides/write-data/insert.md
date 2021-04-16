@@ -1,4 +1,4 @@
-## INSERT [](insert)
+# INSERT
 
 Data can be inserted into a hypertable using the standard `INSERT` SQL command
 ([PostgreSQL docs][postgres-insert]).

@@ -1,4 +1,4 @@
-## Creating Triggers [](triggers)
+## Creating Triggers
 
 TimescaleDB supports the full range of PostgreSQL triggers, and creating,
 altering, or dropping triggers on the hypertable will similarly
@@ -40,3 +40,6 @@ erroneous is _also_ added to the `error_conditions` table.
 TimescaleDB supports the full gamut of
 triggers: `BEFORE INSERT`, `AFTER INSERT`, `BEFORE UPDATE`, `AFTER UPDATE`, `BEFORE DELETE`, `AFTER DELETE`.
 For additional information, see the [PostgreSQL docs][postgres-createtrigger].
+
+
+[postgres-createtrigger]: https://www.postgresql.org/docs/current/static/sql-createtrigger.html

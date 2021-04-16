@@ -1,4 +1,4 @@
-## Using `pg_dump`  and  `pg_restore` [](pg_dump-pg_restore)
+# Using `pg_dump`  and  `pg_restore` [](pg_dump-pg_restore)
 
 In this section, we cover how to backup and restore an entire
 database or individual hypertables using the native PostgreSQL
@@ -11,7 +11,7 @@ Upgrades between different versions of TimescaleDB can be done in place;
 </highlight>
 
 
-### Entire database
+## Entire database
 
 To backup a database named _tutorial_, run from the command line:
 
@@ -62,11 +62,11 @@ You can, however, explicitly *exclude* tables from this whole
 </highlight>
 
 
-### Individual hypertables
+## Individual hypertables
 
 Below is the procedure for performing a backup and restore of hypertable `conditions`.
 
-#### Backup
+### Backup
 
 Backup the hypertable schema:
 ```bash
@@ -80,7 +80,7 @@ psql -d old_db \
 -c "\COPY (SELECT * FROM conditions) TO data.csv DELIMITER ',' CSV"
 ```
 
-#### Restore
+### Restore
 Restore the schema:
 ```bash
 psql -d new_db < schema.sql

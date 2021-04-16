@@ -1,6 +1,4 @@
-## Creating a continuous aggregates
-
-
+# Creating a continuous aggregates
 
 Creating a refreshing [continuous aggregate][api-continuous-aggs] is a two-step
 process. First, one needs to create a continuous aggregate view of the data
@@ -119,3 +117,7 @@ SELECT add_continuous_aggregate_policy('cagg_rides_view',
   end_offset   => INTERVAL '1 hour',
   schedule_interval => INTERVAL '30 minutes');
 ```
+
+[api-continuous-aggs]: /api-reference/:currentVersion:/continuous-aggregates/
+[postgres-createview]: https://www.postgresql.org/docs/current/rules-materializedviews.html
+[refresh_continuous_aggregate]: /continuous-aggregates/refresh_continuous_aggregate/

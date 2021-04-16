@@ -74,7 +74,7 @@ In the above table, `series_id` is foreign key to the `series` table described b
 
 Conceptually, each row in the series table stores a set of key-value pairs. 
 
-In Prometheus such a series is represented as a one-level JSON string. For example: `{ “key1”:”value1”, “key2”:”value2” }`. But the strings representing keys and values are often long and repeating. So, to save space, we store a series as an array of integer “foreign keys” to a normalized labels table. 
+In Prometheus such a series is represented as a one-level JSON string. For example: `{ "key1":"value1", "key2":"value2" }`. But the strings representing keys and values are often long and repeating. So, to save space, we store a series as an array of integer "foreign keys" to a normalized labels table. 
 
 The definition of these two tables is shown below:
 

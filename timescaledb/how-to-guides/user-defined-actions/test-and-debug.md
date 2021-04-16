@@ -1,4 +1,4 @@
-### Testing and Debugging Jobs [](testing)
+# Testing and Debugging Jobs
 
 Any background worker job can be run in foreground when executed with [`run_job`][api-run_job]. 
 This can be useful to debug problems when combined with increased log level.
@@ -12,3 +12,7 @@ Set log level shown to client to `DEBUG1` and run the job with the job id 1000:
 SET client_min_messages TO DEBUG1;
 CALL run_job(1000);
 ```
+
+
+[api-run_job]: /api#run_job
+[postgres-call]: https://www.postgresql.org/docs/current/sql-call.html

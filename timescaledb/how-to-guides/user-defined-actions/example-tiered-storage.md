@@ -1,4 +1,4 @@
-## Tiered Storage [](tiered-storage)
+# Tiered Storage
 
 Action that moves chunks older than a certain time to a different tablespace.
 
@@ -49,3 +49,6 @@ a chunk, but it could alternatively be written in terms of TimescaleDB's
 index as input, but performs data re-ordering as part of the move (for faster
 subsequent queries) and requires lower lock levels, so the chunk remains available
 for reads during the move.
+
+
+[api-move_chunk]: /api-reference/:currentVersion:/hypertables/move_chunk

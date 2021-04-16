@@ -53,6 +53,7 @@ Especially because some API updates from TimescaleDB 1.x to 2.0 are breaking cha
 we recommend reviewing the [Changes in TimescaleDB 2.0][changes-in-timescaledb-2] 
 for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
 </highlight>
+
 ## Release Notes
 
 In this section, we will cover historical information on

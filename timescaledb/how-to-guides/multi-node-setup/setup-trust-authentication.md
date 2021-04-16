@@ -1,4 +1,4 @@
-### Trust authentication [](multi-node-auth-trust)
+# Trust authentication [](multi-node-auth-trust)
 
 This is the quickest path to getting a multi-node environment up and running,
 but should not be used for any sort of secure data.
@@ -9,7 +9,7 @@ nodes.  For production implementations, please use more secure
 methods of authentication.
 </highlight>
 
-#### 1. Edit authentication configuration file on data nodes
+## 1. Edit authentication configuration file on data nodes
 Client authentication is usually configured in the `pg_hba.conf` ([reference doc][postgresql-hba])
 file located in the data directory.  If the file is not located 
 there, connect to the instance with `psql` and execute the command:
@@ -26,18 +26,18 @@ access to the instance. Ex: for an access node ip address `192.0.2.20`:
 host    all       all   192.0.2.20   trust
 ```
 
-#### 2. Reload server configuration
+## 2. Reload server configuration
 Reload the server configuration on each data node for the changes to take effect:
 
 ```bash
 pg_ctl reload
 ```
 
-#### 3. Add the data nodes to the access node
+## 3. Add the data nodes to the access node
 
 Once the nodes are properly configured, you can continue following the [multi-node setup][init_data_nodes].
 
-#### 4. Setting up additional roles [](multi-node-auth-trust-roles)
+## 4. Setting up additional roles [](multi-node-auth-trust-roles)
 There are no additional configuration changes that need to be done for trust
 authentication, as connections from all users on the access node are trusted by
 the data nodes.  You can simply perform the following commands on the access node.

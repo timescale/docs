@@ -1,1 +1,1 @@
-Welcome to the TimescaleDB documentation!
+# Welcome to the TimescaleDB documentation!

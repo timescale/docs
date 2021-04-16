@@ -1,14 +1,35 @@
 # Timescale Forge
 
-Timescale Forge is a Database as a Service (DBaaS) offering that provides
-an easy way for you to store and analyze time-series.
-Powered by TimescaleDB, you can create database instances in the cloud
-and automate many of your most common operational tasks.
+The power and reliability of TimescaleDB and PostgreSQL with a fully-managed AWS 
+cloud-native experience that is easy to start and at lower cost.
 
-You can register for a Timescale Forge account on the
-[sign up][sign-up] page. Once you have a login, you can access
-the Timescale Forge [portal][portal].
+### Cloud-native, easy start, low cost
+Built and operated by the team behind TimescaleDB, Timescale Forge is the 
+innovative and cost-effective way to store and analyze your time-series data.
+ * Spin up your first instance in 30 seconds
+ * Decoupled storage and compute options for extreme flexibility
+ * Worry-free operations with automated upgrades and backup/recovery
+ * Plans start at $0.067/hour
 
+### Accelerated performance
+Ingest high velocity data and perform fast SQL analysis across massive, high-cardinality datasets.
+ * Write millions of data points per second
+ * 10-100x faster queries than PostgreSQL, InfluxDB, and MongoDB
+ * Advanced columnar compression for 94 - 97% compression savings
+ * Built-in query optimizations and parallelization
 
-[sign-up]: https://console.forge.timescale.com/signup
-[portal]: https://console.forge.timescale.com/
+### Postgres for time-series
+Purpose-built time-series analytical functions that build on PostgreSQL.
+ * Advanced time-series functions, including downsampling and interpolation
+ * Real-time continuous aggregations for fast, up-to-date answers
+ * Unlimited metadata, JOIN relational and time-series data
+ * Data retention policies for both raw and aggregate data
+
+### Get there without the hassle
+Build data-driven apps, services, and systems faster using the programming languages 
+and tools you already know, proven PostgreSQL ecosystem, and pre-built integrations 
+and extensions.
+ * Full SQL, no restrictions
+ * Entire toolset works - ORMs, connectors, JDBC, applications
+ * More than 75 popular PostgreSQL extensions including PostGIS, pre-installed
+ * Integrated support for Prometheus long-term storage 
