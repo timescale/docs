@@ -77,3 +77,11 @@ The expression above can be used with a multi-column index (e.g., adding `time
 DESC` as a leading column). Note, however, that to enable index-only scans, you
 need `data` as a column, not the full expression `((data->>'cpu')::double
 precision)`.
+
+
+
+[json-indexing]: https://www.postgresql.org/docs/current/static/datatype-json.html#JSON-INDEXING
+[json-operators]: https://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
+[multicolumn-index]: https://www.postgresql.org/docs/current/static/indexes-multicolumn.html
+[partial-index]: https://www.postgresql.org/docs/current/static/indexes-partial.html
+[expression-index]: https://www.postgresql.org/docs/current/static/indexes-expressional.html

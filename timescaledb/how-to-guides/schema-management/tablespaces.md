@@ -42,3 +42,10 @@ hash-partitioned tables.
 Hypertables that are only time-partitioned will add new
 partitions continuously, and will therefore have chunks assigned to
 tablespaces in a way similar to round-robin.
+
+
+
+[postgres-tablespaces]: https://www.postgresql.org/docs/current/static/manage-ag-tablespaces.html
+[attach_tablespace]: /api/#attach_tablespace
+[detach_tablespace]: /api/#detach_tablespace
+[show_tablespaces]: /api/#show_tablespaces

@@ -1,4 +1,4 @@
-## Automatically decompressing chunks for backfill
+# Backfill Historical Data on Compressed Chunks
 
 In the [TimescaleDB Extras][timescaledb-extras] github repository, we provide
 explicit functions for [backfilling batch data to compressed

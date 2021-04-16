@@ -1,4 +1,4 @@
-## Multi-node configuration
+# Multi-node configuration
 
 In addition to the [normal configuration for
 TimescaleDB][configuration], we recommend the following settings that

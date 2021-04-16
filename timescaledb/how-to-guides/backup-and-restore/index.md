@@ -1,4 +1,4 @@
-# Backup & Restore [](backup)
+# Backup & Restore
 
 Backing up TimescaleDB takes advantage of the reliable functionality already
 available through PostgreSQL.  There are several ways to accomplish this:
@@ -13,7 +13,7 @@ properly quiesce the environment before backing up, so that the backup point
 used across nodes does not have outstanding transactions.
 </highlight>
 
-## Performing Physical Backups [](physical-backups)
+## Performing Physical Backups
 
 For full instance physical backups (which are especially useful for starting up
 new [replicas][replication-tutorial]), [`pg_basebackup`][postgres-pg_basebackup]

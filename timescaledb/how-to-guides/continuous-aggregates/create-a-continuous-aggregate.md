@@ -1,4 +1,4 @@
-## Creating a continuous aggregates
+# Creating a continuous aggregates
 
 Creating a refreshing [continuous aggregate][api-continuous-aggs] is a two-step
 process. First, one needs to create a continuous aggregate view of the data

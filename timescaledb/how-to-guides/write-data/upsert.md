@@ -1,4 +1,4 @@
-## UPSERT Functionality [](upsert)
+# UPSERT Functionality
 
 TimescaleDB supports UPSERTs in the same manner as PostgreSQL
 via the optional `ON CONFLICT` clause ([PostgreSQL docs][postgres-upsert]).

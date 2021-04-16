@@ -45,7 +45,7 @@ CREATE EXTENSION IF NOT EXISTS timescaledb;
 <highlight type="tip">
 If you want to install a version that is not the most
 recent available on your system you can specify the version like so:
-`CREATE EXTENSION timescaledb VERSION '1.7.4';`
+`CREATE EXTENSION timescaledb VERSION '2.1.0';`
 </highlight>
 
 _That's it!_  Connecting to the new database is as simple as:
@@ -56,8 +56,9 @@ psql -U postgres -h localhost -d tutorial
 
 ---
 
-From here, you will create a TimescaleDB hypertable using one of the
-following options:
+Now that you have a new TimescaleDB database setup, start by inserting or
+creating data to learn more about the features and superpowers we add to time-series
+data:
 
 1. **[Start from scratch][start-scratch]**: You don't currently have
 any data, and just want to create an empty hypertable for inserting

@@ -22,3 +22,6 @@ One of the most common ways of getting information about various aspects
 of your database is through `psql`, the interactive terminal.  See the
 [PostgreSQL docs][psql-docs] for more information.
 </highlight>
+
+
+[psql-docs]: https://www.postgresql.org/docs/current/static/app-psql.html

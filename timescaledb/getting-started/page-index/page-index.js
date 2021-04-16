@@ -43,11 +43,11 @@ module.exports = [
           },
           {
             title: "6. Learn about Data Retention",
-            href: "learn-data-retention"
+            href: "data-retention"
           },
           {
             title: "7. Analyze your data",
-            href: "analyze-your-data"
+            href: "analyze-data"
           },
           {
             title: "8. Next steps!",

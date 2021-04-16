@@ -1,4 +1,4 @@
-## Adding Constraints [](constraints)
+# Adding Constraints
 
 Hypertables support all standard PostgreSQL constraint types, with the
 exception of foreign key constraints on other tables that reference
@@ -29,3 +29,7 @@ NULL` constraint to such columns if missing.
 
 For additional information on how to manage constraints, see the
 [PostgreSQL docs][postgres-createconstraint].
+
+
+
+[postgres-createconstraint]: https://www.postgresql.org/docs/current/static/ddl-constraints.html

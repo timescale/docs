@@ -217,11 +217,7 @@ module.exports = [
           {
             title: "DELETE",
             href: "delete"
-          },
-          {
-            href: "batching-for-better-performance"
           }
-
         ]
       },
       {
@@ -343,9 +339,6 @@ module.exports = [
         ]
       },
       {
-        href: "data-reordering"
-      },
-      {
         title: "Replication and HA",
         href: "replication-and-ha",
         children: [
@@ -353,9 +346,6 @@ module.exports = [
             href: "replication"
           }
         ]
-      },
-      {
-        href: "visualize-data"
       },
       {
         href: "backup-and-restore",
@@ -424,10 +414,7 @@ module.exports = [
       },
       {
         title: "Ingest data from other sources",
-        href: "ingest-from-other-sources"
-      },
-      {
-        href: "troubleshooting"
+        href: "ingest-data"
       }
     ]
   }

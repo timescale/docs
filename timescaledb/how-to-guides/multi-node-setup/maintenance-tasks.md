@@ -1,4 +1,4 @@
-## Maintenance tasks
+# Maintenance tasks
 
 It is highly recommended that the access node is configured to run a
 maintenance job that regularly "heals" any non-completed distributed

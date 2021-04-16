@@ -1,4 +1,4 @@
-## Native Replication [](native-replication)
+# Native Replication
 
 A distributed hypertable can be configured to write each chunk to
 multiple data nodes in order to replicate data at the chunk
