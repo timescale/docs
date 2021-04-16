@@ -100,8 +100,8 @@ The following APIs to create and configure hypertables have changed:
 Consistent with our desire to improve visibility into all aspects of TimescaleDB configuration, 
 the following views and functions about hypertable information have been updated or added:
 
-*   [`timescaledb_information.hypertables`](//api-reference/:currentVersion:/informational-views/timescaledb_information-hypertables): 
-    *   The view with basic information about hypertables has been renamed from the singular "hypertable".
+*   [`timescaledb_information.hypertables`](//api-reference/:currentVersion:/informational-views/timescale
+    *   The view with basic information about hypertables has been renamed from the singular “hypertable”.
     *   Some columns have new names for consistency with other views.
     *   Table size information has been removed and made available through new size functions discussed later.
     *   Additional columns have been added related to distributed hypertables.
