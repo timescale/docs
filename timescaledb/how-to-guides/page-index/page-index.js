@@ -22,7 +22,7 @@ module.exports = [
                 showNewsletterForm: true,
                 children: [
                  {
-                    Title: "Docker",
+                    title: "Docker",
                     type: 'redirect-to-child-page',
                     href: "docker",
                     iconSrc: "//assets.iobeam.com/images/docs/moby.png",
@@ -35,7 +35,7 @@ module.exports = [
                     ],
                   },
                   {
-                    Title: "Ubuntu",
+                    title: "Ubuntu",
                     type: 'redirect-to-child-page',
                     href: "ubuntu",
                     iconSrc: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
@@ -53,7 +53,7 @@ module.exports = [
                     ],
                   },
                   {
-                    Title: "Debian",
+                    title: "Debian",
                     type: 'redirect-to-child-page',
                     href: "debian",
                     iconSrc: "//assets.iobeam.com/images/docs/Debian_logo.svg",
@@ -71,7 +71,7 @@ module.exports = [
                     ],
                   },
                   {
-                    Title: "RHEL/CentOS",
+                    title: "RHEL/CentOS",
                     type: 'redirect-to-child-page',
                     href: "rhel-centos",
                     iconSrc: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
@@ -89,7 +89,7 @@ module.exports = [
                     ],
                   },
                   {
-                    Title: "Windows",
+                    title: "Windows",
                     type: 'redirect-to-child-page',
                     href: "windows",
                     iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
@@ -107,7 +107,7 @@ module.exports = [
                     ],
                   },
                   {
-                    Title: "AMI",
+                    title: "AMI",
                     type: 'redirect-to-child-page',
                     href: "ami",
                     iconSrc: "//assets.iobeam.com/images/docs/aws_logo.svg",
@@ -120,7 +120,7 @@ module.exports = [
                     ],
                   },
                   {
-                    Title: "MacOS",
+                    title: "MacOS",
                     type: 'redirect-to-child-page',
                     href: "macos",
                     iconSrc: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
@@ -339,6 +339,9 @@ module.exports = [
         ]
       },
       {
+        href: "data-tiering"
+      },
+      {
         title: "Replication and HA",
         href: "replication-and-ha",
         children: [
@@ -415,6 +418,14 @@ module.exports = [
       {
         title: "Ingest data from other sources",
         href: "ingest-data"
+      },
+      {
+        title: "Troubleshoot TimescaleDB",
+        href: "troubleshoot-timescaledb"
+      },
+      {
+        title: "Additional Tooling",
+        href: "tooling"
       }
     ]
   }

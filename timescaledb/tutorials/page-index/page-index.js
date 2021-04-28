@@ -85,6 +85,10 @@ module.exports = [
             href: "visualize-with-tableu"
           },
           {
+            title: "Simulate IoT Sensor Data",
+            href: "simulate-iot-sensor-data"
+          },
+          {
             href: "sample-datasets"
           }
         ]
