@@ -1,26 +1,8 @@
 module.exports = [
     {
-        title: "Tutorials and Quick Starts",
+        title: "Tutorials",
         href: "tutorials",
         children: [
-          {
-            title: "Quick Start Guides",
-            href: "quick-starts",
-            children: [
-              {
-                href: "node"
-              },
-              {
-                href: "python"
-              },
-              {
-                href: "ruby"
-              },
-              {
-                href: "golang"
-              }
-            ]
-          },
           {
             title: "Getting started with Promscale",
             href: "promscale",
