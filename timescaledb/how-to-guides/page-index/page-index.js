@@ -146,6 +146,15 @@ module.exports = [
 
       },
       {
+        title: "Connecting to TimescaleDB",
+        href: "connecting",
+          children: [
+              {
+                  href: "psql"
+              }
+          ]
+      },
+      {
         href: "hypertables",
         children: [
           {
@@ -414,6 +423,20 @@ module.exports = [
             href: "upgrade-postgresql"
           }
         ]
+      },
+      {
+        href: "administration",
+        children: [
+          {
+            href: "configuration"
+          },
+          {
+            href: "telemetry"
+          }
+        ]
+      },
+      {
+        href: "alerting"
       },
       {
         title: "Ingest data from other sources",

@@ -41,8 +41,8 @@ We wrote the PostgreSQL output plugin which also has the ability to send data to
 batching, processing, and aggregating the data collected prior to inserting that data into TimescaleDB.
 
 <highlight type="warning">
-The [pull request][pull-request] is open and currently under review by the Telegraf developers, waiting to be
-merged. To give users the opportunity to try this functionality, we built [downloadable binaries][downloadable-binaries] of
+The [pull request](https://github.com/influxdata/telegraf/pull/3428) is open and currently under review by the Telegraf developers, waiting to be
+merged. To give users the opportunity to try this functionality, we built [downloadable binaries](https://docs.timescale.com/tutorials/telegraf-output-plugin#telegraf-installation) of
 Telegraf with our plugin already included.
 </highlight>
 

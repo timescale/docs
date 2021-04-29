@@ -17,17 +17,6 @@ module.exports = [
       ...howtoPageIndex,
       ...tutorialPageIndex,
       ...quickStartPageIndex,
-      {
-        href: "administration",
-        children: [
-          {
-            href: "configuration"
-          },
-          {
-            href: "telemetry"
-          }
-        ]
-      }
     ]
   }
 ]

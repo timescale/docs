@@ -1,11 +1,9 @@
-# Tutorial: How to install psql on Mac, Ubuntu, Debian, Windows
+# Installing psql on Mac, Ubuntu, Debian, Windows
 
-## Introduction
 `psql` is the standard command line interface for interacting with a PostgreSQL 
 or TimescaleDB instance. Here we explain how to install `psql` on various platforms.
 
-## Before you start
-Before you start, you should confirm that you don’t already have `psql` installed. 
+**Before you start**, you should confirm that you don’t already have `psql` installed. 
 In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already 
 have `psql` installed.
 
@@ -13,7 +11,10 @@ have `psql` installed.
 psql --version
 ```
 
-## Install on macOS using Homebrew
+If your client doesn't have `psql` installed, find the appropriate section below
+for OS specific instructions on how to install it.
+
+## MacOS using Homebrew
 First, install the [Brew Package Manager][brew-package-manager]. Homebrew simplifies
 the installation of software on macOS.
 
@@ -32,7 +33,7 @@ so that you can reach it from any command on the macOS Terminal.
 brew link --force libpq ail
 ```
 
-## Install on Ubuntu 16.04,18.04 and Debian 9,10
+## Ubuntu 16.04,18.04,20.04 and Debian 9,10
 Install on Ubuntu and Debian using the `apt` package manager:
 
 ```bash
@@ -42,17 +43,11 @@ sudo apt-get install postgresql-client
 
 <highlight type="tip"> This only installs the `psql` client and not the PostgreSQL database.</highlight>
 
-## Install on Windows 10
+## Windows 10
 We recommend using the installer from [PostgreSQL.org][windows-installer].
 
-## Last step: Connect to your PostgreSQL server
-Let’s confirm that `psql` is installed:
-
-```bash
-psql --version
-```
-
-Now, in order to connect to your PostgreSQL server, you’ll need the following 
+## Connect to your PostgreSQL server
+In order to connect to your PostgreSQL server, you’ll need the following 
 connection parameters:
 - Hostname
 - Port

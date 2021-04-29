@@ -11,46 +11,37 @@ module.exports = [
           {
             title: "2. Access your database",
             href: "access-timescaledb",
-            pageComponents: ['featured-cards'],
-            children: [
-                {
-                    href: "psql"
-                },
-                {
-                    title: "pgAdmin",
-                    href: "pgadmin"
-                },
-                {
-                    title: "DBeaver",
-                    href: "dbeaver"
-                },
-                {
-                    href: "azure-data-studio"
-                }
-            ]
           },
           {
-            title: "3. Add time-series data",
+            title: "3. Create a hypertable",
+            href: "create-hypertable"
+          },
+          {
+            title: "4. Add time-series data",
             href: "add-data"
           },
           {
-            title: "4. Create a Continuous Aggregate",
+            title: "5. Query your data",
+            href: "query-data"
+          },
+          {
+            title: "6. Create a continuous aggregate",
             href: "create-cagg"
           },
           {
-            title: "5. Save space with Compression",
+            title: "7. Save space with Compression",
             href: "compress-data"
           },
           {
-            title: "6. Learn about Data Retention",
+            title: "8. Learn about Data Retention",
             href: "data-retention"
           },
           {
-            title: "7. Analyze your data",
+            title: "9. Join relational and time-series data",
             href: "analyze-data"
           },
           {
-            title: "8. Next steps!",
+            title: "10. Next steps!",
             href: "next-steps"
           }
         ]

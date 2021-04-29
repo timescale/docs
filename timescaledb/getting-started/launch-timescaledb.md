@@ -10,12 +10,12 @@ TimescaleDB free for 30 days, no credit card required. We're just excited
 that you are ready to dive into the world of time-series data with TimescaleDB!
 
 <highlight type="tip">
-If you would prefer to setup TimescaleDB in your own environment and following 
+If you would prefer to setup TimescaleDB in your own environment and follow 
 along with the rest of the _Getting Started_ tutorial, please see our documentation
-for [installing self-hosted TimescaleDB][install-timescaledb]
+for [installing self-hosted TimescaleDB](/how-to-guides/install-timescaledb/)
 </highlight>
 
-### Step 1: Create a Timescale Forge account [](step1-create-account)
+### Step 1: Create a Timescale Forge account
 
 Sign up for Timescale Forge by visiting [forge.timescale.com][forge-signup].
 
@@ -27,12 +27,12 @@ You will need to confirm your account by clicking the link you receive via
 email. If you do not receive this link, please first check your spam folder 
 and, failing that, please [contact us][contact-timescale].
 
-### Step 2: Create your first service [](step2-create-service)
+### Step 2: Create your first service
 
- After you complete account verification, you can visit the 
- [Timescale Forge console][forge-console] and login with your credentials.
+After you complete account verification, you can visit the 
+[Timescale Forge console][forge-console] and login with your credentials.
 
- To begin, click 'Create service'.
+To begin, click 'Create service'.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-creation.png" alt="Set up a Timescale Forge service"/>
 
@@ -81,3 +81,17 @@ a service altogether.
 
 
 [install-timescaledb]: /how-to-guides/install-timescaledb/
+[forge-signup]: https://forge.timescale.com
+[billing-info]: /forge/managing-billing-payments
+[slack-info]: https://slack-login.timescale.com
+[install-psql]: /timescaledb/:currentVersion:/getting-started/access-timescaledb/install-psql/
+[hello-timescale]: /tutorials/tutorial-hello-timescale
+[forge-console]: https://console.forge.timescale.com/login
+[contact-timescale]: https://www.timescale.com/contact
+[hypertable-info]: /how-to-guides/hypertables-and-chunks
+[time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
+[gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial
+[resize]: /scaling-a-service/
+[configuration]: /customize-configuration/
+[multi-node]: /multi-node-setup

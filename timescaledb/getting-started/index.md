@@ -3,12 +3,22 @@
 **Congratulations!!** You're ready to jump in and start using TimescaleDB. Smart
 move! 
 
-In this section of the TimescaleDB documentation, our goal is to get you into
-data as quickly as possible. Once you've had your first experience with all
-of the major features of TimescaleDB, there are a host of other more detailed
-tutorials to help you dig into more specific use cases and datasets.
+## What is TimescaleDB?
+Developers often refer to TimescaleDB as PostgreSQL with time-series superpowers. 
+Put another way, TimescaleDB is a relational database with native time-series
+optimizations to make ingesting, storing and analyzing time-series data at 
+petabyte scale fast and easy. It also supports all the standard PostgreSQL 
+database objects, like tables, indexes, triggers, and more. Moreover, a TimescaleDB 
+database is able to coexist with PostgreSQL database (and other TimescaleDB 
+databases) on a single server. 
 
-Remember, TimescaleDB is built on top of PostgreSQL, so any tools that can connect
-to and use PostgreSQL, can connect to TimescaleDB. 🎉
+TimescaleDB also supports the full SQL language and you can use TimescaleDB with 
+all the tools and connectors in the PostgreSQL ecosystem. If it works with 
+PostgreSQL, it works with Timescale!
 
-
+## Let’s get up and running
+This “Getting Started” section will give you a hands-on introduction to the 
+fundamentals of TimescaleDB. Using a real-world dataset, you’ll learn definitions 
+of key terms (like hypertables and chunks), mental models for working with 
+TimescaleDB, as well as TimescaleDB’s key features (like continuous aggregation, 
+compression and data retention) and when, why and how to use them.

@@ -22,6 +22,9 @@ find new insights in your time-series data. To dig in further, consider reading:
  about time-series forecasting? Setting up a monitoring solution using Prometheus
  and TimescaleDB? We have tutorials for all of this and more!
 
+## APIs grouped by related feature
+
+
 [getting-started]: /timescaledb/:currentVersion:/getting-started/
 [core-concepts]: /timescaledb/:currentVersion:/overview/core-concepts/
 [how-to-guides]: /timescaledb/:currentVersion:/how-to-guides/

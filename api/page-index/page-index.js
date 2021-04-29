@@ -10,7 +10,7 @@ module.exports = [
       {
         title: "Hypertables & Chunks",
         type: 'directory',
-        href: "hypertables",
+        href: "hypertable",
         children: [
           {
             title: "create_hypertable",
