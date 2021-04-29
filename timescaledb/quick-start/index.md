@@ -4,7 +4,7 @@ Here is a collection of quickstarts on your favorite language.
 
 <highlight type="warning">
 If you didn't find a quick start with your beloved language,
-feel free to [request][new-language-request].
+feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
 </highlight>
 
 
@@ -18,5 +18,4 @@ feel free to [request][new-language-request].
 [python-quickstart]: /quick-start/python
 [ruby-quickstart]: /quick-start/ruby
 [go-quickstart]: /quick-start/golang
-[new-language-request]: https://forms.gle/tBc3qBMKRosdHrGG9
 
