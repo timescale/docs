@@ -14,12 +14,12 @@ For example, here is a data retention policy which drops chunks consisting of da
 SELECT add_retention_policy('weather_metrics', INTERVAL '25 years');
 ```
 
+
 And just like with continuous aggregates and compression policies, we can see see information about retention policies and statistics about their jobs from the following informational views:
 
 ```sql
 -- Informational view for policy details
 SELECT * FROM timescaledb_information.jobs;
-
 -- Informational view for stats from run jobs
 SELECT * FROM timescaledb_information.job_stats;
 ```
@@ -45,17 +45,4 @@ We can also take this a step further, by applying data retention policies (or us
 
 For more details and best practices on data retention and automated data retention policies, see the [Data Retention docs.](https://docs.timescale.com/latest/using-timescaledb/data-retention)
 
-# 9. Join relational and time-series data
-
-An advantage of having time-series data and relational data (or metadata) in the same database is that you can ask questions which involve them both. TimescaleDB supports JOINs between Hypertables and relational tables, allowing you to write queries which JOIN time-series and relational data together.
-
-EXAMPLE:
-
-What relational data will we join with?
-
-Cities, locations, population data?
-
-Some other location specific dataset that can be loaded
-
-The ability to JOIN time-series and relational data enables you to simplify operations by keeping both types of data in the same database (vs maintaining two databases). It also enables you to correlate times-series and business data, enabling greater insight into your projects and business. 
 

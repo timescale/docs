@@ -18,6 +18,7 @@ GROUP BY city_name;
 And here’s how to find the total snowfall for each city in the past 5 years:
 
 ```sql
+--------------------------------
 -- Total snowfall per city
 -- in past 5 years
 --------------------------------
@@ -27,81 +28,91 @@ WHERE time > now() - INTERVAL '5 years'
 GROUP BY city_name;
 ```
 
+
 <highlight type="tip">
 Fun fact: TimescaleDB adds important enhancements to the PostgreSQL query planner that improve query reusability for INTERVAL predicates, something PostgreSQL does not have.
 </highlight>
 
 ### Advanced SQL functions for time-series data
 
-Timescale also has has many custom-built SQL functions to help you perform time-series analysis in fewer lines of code.
+Timescale has many custom-built SQL functions to help you perform time-series analysis in fewer lines of code.
 
 Examples of these functions include:
 
-* time_bucket() - used for analyzing data over arbitrary time intervals
-
-* first() - used for finding the earliest value based on a time within an aggregate group
-
-* last() - used for finding the latest value based on time within an aggregate group
-
-* time_bucket_gapfill() - used to analyze data over arbitrary time intervals and fill any gaps in the data
-
-* locf() - used to fill gaps in data by carrying the last observed value forward
-
-* interpolate() - used fill gaps by linearly interpolating the missing values between known 
-
-data points
+* [time_bucket()](https://docs.timescale.com/latest/api#time_bucket) - used for analyzing data over arbitrary time intervals
+* [first()](https://docs.timescale.com/latest/api#first) - used for finding the earliest value based on a time within an aggregate group
+* [last()](https://docs.timescale.com/latest/api#last-required-arguments) - used for finding the latest value based on time within an aggregate group
+* [time_bucket_gapfill()](https://docs.timescale.com/latest/api#time_bucket_gapfill) - used to analyze data over arbitrary time intervals and fill any gaps in the data
+* [locf()](https://docs.timescale.com/latest/api#locf) - used to fill gaps in data by carrying the last observed value forward
+* [interpolate()](https://docs.timescale.com/latest/api#interpolate) - used fill gaps by linearly interpolating the missing values between known data points
 
 Let’s take a closer look at time_bucket. 
 
 #### time_bucket()
 
-Here’s an example of how to use time_bucket to find the average temperature per 15 day period, for each city, in the past 6 months:
+Here’s an example of how to use [time_bucket](https://docs.timescale.com/latest/api#time_bucket) to find the average temperature per 15 day period, for each city, in the past 6 months:
 
 ```sql
+-----------------------------------
 -- time_bucket
 -- Average temp per 15 day period
 -- for past 6 months, per city
 -----------------------------------
-SELECT time_bucket('15 days', time) as "bucket",
-   city_name, avg(temp_c)
+SELECT time_bucket('15 days', time) as "bucket"
+   ,city_name, avg(temp_c)
    FROM weather_metrics
    WHERE time > now() - (6* INTERVAL '1 month')
    GROUP BY bucket, city_name
    ORDER BY bucket DESC;
 ```
 
-
-With time_bucket(), you can monitor, analyze and visualize time-series data in the time intervals that matter most for your use-case (e.g 10 seconds, 15 minutes, 6 hours - whatever your time period of interest happens to be). This is because time_bucket enables you to segment data into arbitrary time intervals. Such intervals are often required when analyzing time-series data, but can sometimes be unwieldy depending on the constraints of the database, query language or all in one tool that you use.
+With time_bucket, you can monitor, analyze and visualize time-series data in the time intervals that matter most for your use-case (e.g 10 seconds, 15 minutes, 6 hours - whatever your time period of interest happens to be). This is because time_bucket enables you to segment data into arbitrary time intervals. Such intervals are often required when analyzing time-series data, but can sometimes be unwieldy depending on the constraints of the database, query language or all in one tool that you use.
 
 For readers familiar with PostgreSQL, you can think of time_bucket as a more powerful version of the PostgreSQL date_trunc function. Time_bucket allows for arbitrary time intervals, rather than the standard day, minute, hour provided by date_trunc.
 
-<highlight type="warning">
-Note that time_bucket currently supports milliseconds, seconds, minutes, hours, days, years as units of time.
-</highlight>
+Time_bucket is just one of many TimescaleDB custom-built SQL functions to help you perform more insightful time-series analysis in fewer lines of code. Another powerful function for time-series analysis is time_bucket_gapfill.
 
-Time_bucket is just one of many TimescaleDB custom-built SQL functions to help you perform more insightful time-series analysis in fewer lines of code.
-
-**Using time_bucket_gapfill**
+#### time_bucket_gapfill()
 
 Another common problem in time-series analysis is dealing with imperfect datasets. Some time-series analyses or visualizations want to display records for each selected time period, even if no data was recorded during that period. This is commonly termed "gap filling", and may involve performing such operations as recording a "0" for any missing data, interpolating missing values, or carrying the last observed value forward until new data is recorded.
 
-Timescale procides time_bucket_gapfill(), locf(), interpolate() to help perform analysis on data with gaps:
+Timescale provides[ time_bucket_gapfill](https://docs.timescale.com/latest/api#time_bucket_gapfill), [locf](https://docs.timescale.com/latest/api#locf) and [interpolate](https://docs.timescale.com/latest/api#interpolate) to help perform analysis on data with gaps,
 
-In our sample dataset, we are missing data for early time periods -- 1980s. However, we might still want to perform an analysis or graphs a trend line. Here’s how to do that using time_bucket_gapfill():
+In our sample dataset, we have days where there is no rain or snow for a particular city. However, we might still want to perform an analysis or graph a trend line about rain or snow for a particular time period. 
 
-QUERY WITH TIME_BUCKET_GAPFILL -- Fill in gaps in old data (e.g 1980s)
+For example, here’s a query which calculates the total snowfall for each city in 30 day time periods for the past year:
 
-SELECT time_bucket_gapfill(‘15 days’, time) as "bucket", location,
+```sql
+-- non gapfill query
+SELECT time_bucket('30 days', time) as bucket,
+```
+   city_name, sum(snow_1h_mm) as sum
+   FROM weather_metrics
+   WHERE time > now() - INTERVAL '1 year' AND time < now()
+   GROUP BY bucket, city_name
+   ORDER BY bucket DESC;
+```
 
-interpolate(avg(temp)) as calc_temp,
+Notice that the results only include time_periods for when cities have snowfall, rather than the specific time period of our analysis, which is one year.
 
-FROM measurements
+To generate data for all the time buckets in our analysis period, we can use time_bucket_gapfill instead: 
 
-WHERE time > ‘1979’, time < ‘2000’
+```sql
+-----------------------------------------
+-- time_bucket_gapfill
+-- total snow fall per city
+-- in 30 day buckets for past 1 year
+-----------------------------------------
+SELECT time_bucket_gapfill('30 days', time) as bucket,
+   city_name, sum(snow_1h_mm) as sum
+   FROM weather_metrics
+   WHERE time > now() - INTERVAL '1 year' AND time < now()
+   GROUP BY bucket, city_name
+   ORDER BY bucket DESC;
+```
 
-GROUP BY bucket, location
+TimescaleDB SQL functions like time_bucket and time_bucket_gapfill are helpful for historical analysis of your data and creating visuals with specific time-periods.
 
-ORDER BY bucket
+Now that you’re equipped with the basics of time_bucket, let’s learn about Continuous Aggregates in the next section. (LINK TO NEXT SECTION)
 
-TimescaleDB SQL functions like time_bucket and time_bucket_gapfill are helpful for historical analysis of your data and creating visuals with specific time-periods. Functions like first() and last() are useful for real-time monitoring scenarios, where you want to answer questions about recent changes to a system’s state or to entire fleet of devices.
 

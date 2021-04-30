@@ -68,7 +68,10 @@ consumed by one or more clients. Kafka Connect can be distributed to provide
 fault tolerance to ensure the connectors are running and continually keeping
 up with changes in the database.
 
->:TIP: The PostgreSQL connector can also be used as a library without Kafka or
+<highlight type='tip'>
+> The PostgreSQL connector can also be used as a library without Kafka or
+</highlight>
+
 Kafka Connect, enabling applications and services to directly connect to
 TimescaleDB and obtain the ordered change events. This approach requires the
 application to record the progress of the connector so that upon restart,

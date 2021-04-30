@@ -18,9 +18,9 @@ For Postgres users who may be familiar with views and materialized views, here�
 
 Continuous aggregates speed up dashboards and visualizations, summarizing data sampled at high frequency, and querying downsampled data over long time periods.
 
->:TIP:
-
+<highlight type="tip">
 > To learn how real TimescaleDB users leverage continuous aggregates see
+</highlight>
 
 >[How FlightAware fuels flight prediction models for global travelers with TimescaleDB and Grafana](https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/)
 
@@ -39,6 +39,7 @@ Here’s the SQL query which defines the query of which we want to maintain the 
 ```sql
 -- Continuous aggs
 -- define view
+```
 CREATE MATERIALIZED VIEW weather_metrics_daily
 WITH (timescaledb.continuous)
 AS
@@ -73,15 +74,14 @@ Here’s some ideas for other aggregates to create:
 
 * 5 year aggregates for all metrics for certain cities.
 
-> :TIP:
-
+<highlight type="tip">
 If you ever need to inspect details about a continuous aggregate, such as its configuration or the query used to define it, you can use the following informational view:
+</highlight>
 
 ```sql
 -- See info about continuous aggregates
 SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
-
 
 ## Populating Continuous Aggregates
 
@@ -98,25 +98,27 @@ You can manually refresh a continuous aggregate by means of a "one-shot refresh"
 The example below refreshes the continuous aggregate `weather_metrics_daily` for the time period starting 1 January 2010 and ending 1 January 2021:
 
 ```sql
+-- manual refresh
+-- refresh data between 1 Jan 2010 and 2021
 CALL refresh_continuous_aggregate('weather_metrics_daily','2010-01-01', '2021-01-01');
 ```
-
 
 Querying our continuous aggregate for data older than 1 January 2009 shows that it is indeed populated with data from the above time frame, as the first row returned is for 1 January 2010:
 
 ```sql
+-- Show that manual refresh worked
+SELECT * from weather_metrics_daily
 WHERE bucket > '2009-01-01'
 ORDER BY bucket ASC;
 ```
-
 
 **Automation policies**
 
 An **automation policy **can also be used to refresh continuous aggregates according to a schedule.
 
-**> :TIP:**
-
+<highlight type="tip">
 **> A note on Automation Policies in TimescaleDB**
+</highlight>
 
 While many databases have ad-hoc capabilities for managing large amounts of time-series data, adapting these features to the rhythm of your data lifecycle often requires custom code and regular development time. (For example, you might want to downsample, compress and/or discard data at specific, regular time intervals). 
 
@@ -127,6 +129,8 @@ Automation policies for updating continuous aggregates is the first of many auto
 Let’s create a policy which will auto-update the continuous aggregate every two weeks:
 
 ```sql
+-- create policy
+-- refresh the last 6 months of data every 2 weeks
 SELECT add_continuous_aggregate_policy('weather_metrics_daily',
   start_offset => INTERVAL '6 months',
   end_offset => INTERVAL '1 hour',
@@ -155,10 +159,12 @@ The informational view below shows statistics about background jobs and automate
 SELECT * FROM timescaledb_information.job_stats;
 ```
 
-
 ## Querying Continuous Aggregates
 
-> :TIP: Continuous Aggregates are actually a special kind of hypertable, so you can query it, view and modify its chunks just like you would a regular hypertable. You can also add data retention policies and drop chunks on continuous aggregate hypertables. The only restrictions at this time is that you cannot apply compression or continuous aggregation to these hypertables.
+<highlight type="tip">
+> Continuous Aggregates are actually a special kind of hypertable, so you can query it, view and modify its chunks just like you would a regular hypertable. You can also add data retention policies and drop chunks on continuous aggregate hypertables. The only restrictions at this time is that you cannot apply compression or continuous aggregation to these hypertables.
+</highlight>
+
 
 When you query a continuous aggregate, the system reads and processes the much smaller materialized table, which has been refreshed at scheduled intervals. This makes querying continuous aggregates useful for speeding up dashboards, summarizing data sampled at high frequency, and querying downsampled data over long time periods. 
 
@@ -193,17 +199,17 @@ For example, consider the results of this query, which selects daily aggregates 
 ```sql
 -- Real-time aggregation
 SELECT * from weather_metrics_daily
+```
 WHERE bucket > now() - 2 * INTERVAL '1 year'
 ORDER BY bucket DESC;
 ```
-
 
 The first row returned has a time value newer than 1 January 2021, which is the end date for which we materialized data in our continuous aggregate (done via manual refresh earlier in this tutorial). Despite not materializing the latest data via manual refresh or our policy (since the policy created above hasn’t yet run), we still get the latest data thanks to real-time aggregation.
 
 This makes real-time aggregation an ideal fit for many near real-time, monitoring and analysis use-cases, especially for dashboarding or reporting that requires the most up to date numbers all the time. It is for this reason that we recommend keeping the setting on.
 
-> :TIP:
-
+<highlight type="tip">
 >  For more detailed information on continuous aggregates and real-time aggregation, see our [Continuous Aggregates docs](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates#react-docs).
+</highlight>
 
 
