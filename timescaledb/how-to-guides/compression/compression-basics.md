@@ -1,5 +1,33 @@
 # Compression Basics
 
+Our high-level approach to building columnar storage is to convert many wide rows 
+of data (say, 1000) into a single row of data. But now, each field (column) of 
+that new row stores an ordered set of data comprising the entire column of the 1000 rows.
+
+So, let’s consider a simplified example using a table that looks as follows:
+
+|time|device_id|cpu|disk_io|energy_consumption|
+|---|---|---|---|---|
+| 12:00:02 |1|88.2|20|0.8|
+| 12:00:02 |2|300.5|30| 0.9|
+| 12:00:01 |1|88.6|25|0.85|
+| 12:00:01 |2|299.1|40| 0.95|
+
+After converting this data to a single row, the data in “array” form:
+
+|time|device_id|cpu|disk_io|energy_consumption|
+|---|---|---|---|---|
+| [12:00:02, 12:00:02, 12:00:01, 12:00:1 ]| [1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[20, 30, 25, 40] |[0.8, 0.9, 0.85, 0.95]|
+
+<highlight type="tip">
+Most indexes set on the hypertable are removed/ignored when reading from compressed chunks!  TimescaleDB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters during compression.
+</highlight>
+
+## Quick Start Example
+
+So how do you actually enable compression on your data? Let's look at a quick 
+example.
+
 Given a table called `measurements` like:
 
 |time|device_id|cpu|disk_io|energy_consumption|
@@ -18,12 +46,17 @@ SELECT add_compression_policy('measurements', INTERVAL '7 days');
 ```
 
 Thats it! These two commands configure compression and
-tell the system to compress chunks older than 7 days. In the
-next two sections we will describe how we choose the
-period after which to compress and how to set the
-`compress_segmentby` option.
+tell the system to compress chunks older than 7 days.
 
-## Choosing a compression policy INTERVAL [](choosing-older-than)
+In the following sections we will dig deeper into the three settings that are
+most important to consider in order to realize the optimal compression ratio
+for your data and achieve improved query performance:
+
+* [choosing the period](#choosing-a-compression-policy-interval) after which to compress
+* [understanding and setting the `compress_segmentby`](#understanding-the-segmentby-option) option appropriately
+* [choosing an `compress_orderby` column](#understanding-the-orderby-option) to potentially enhance query efficiency
+
+## Choosing a compression policy INTERVAL
 
 You may be wondering why we compress data only after it ages (after 7 days in
 the example above) and not right away. There are two reasons: query
@@ -42,25 +75,27 @@ involve fewer columns. Such deep and narrow queries might, for example, want to 
 average disk usage over the last month. These type of queries greatly benefit
 from the compressed, columnar format.
 
-Our compression design thus allows you to get the best of both worlds: recent data
+Our compression design allows you to get the best of both worlds: recent data
 is ingested in an uncompressed, row format for efficient shallow and wide queries, and then
 automatically converted to a compressed, columnar format after it ages and
-is most often queried using deep and narrow queries. Thus one consideration
+is most often queried using deep and narrow queries. Therefore, one consideration
 for choosing the age at which to compress the data is when your query patterns
 change from shallow and wide to deep and narrow.
 
 The other thing to consider is that modifications to chunks that have been compressed
 are inefficient. In fact, the current version of compression disallows INSERTS, UPDATES,
 and DELETES on compressed chunks completely (although you can manually decompress
-the chunk to modify it). Thus you want to compress a chunk only after it is unlikely
-to be modified further. The amount of delay you should add to chunk compression to
-minimize the need to decompress chunks will be different
+the chunk to modify it). Because of this current limitation, you want to compress 
+a chunk only after it is unlikely to be modified further. The amount of delay 
+you should add to chunk compression to minimize the need to decompress chunks will be different
 for each use case, but remember to be mindful of out-of-order data.
 
 <highlight type="warning">
 The current release of TimescaleDB supports the ability to query data in
-compressed chunks. However, it does not support inserts or updates into compressed
-chunks. We also block modifying the schema of hypertables with compressed chunks.
+compressed chunks. However, it does not support inserts or updates of data into 
+compressed chunks.
+
+The ability to insert into compressed chunks is currently slated for TimescaleDB 2.3.
 </highlight>
 
 With regards to compression, a chunk can be in one of three states: active (uncompressed),
@@ -72,13 +107,48 @@ old enough according to the compression policy.
 
 ![compression timeline](https://assets.timescale.com/images/diagrams/compression_diagram.png)
 
+## Understanding the `segmentby` option
 
-## Choosing the right segmentby columns [](choosing-segmentby)
+Aside from determining how old data should be before the policy compresses
+chunks, setting the `segmentby` option to the best column(s) is an important 
+requirement that needs thoughtful consideration for the best performance.
+
+We can segment compressed rows by specific columns so that each compressed
+row corresponds to data about a single item, e.g., a specific `device_id`.
+The `segmentby` option forces the system to break up the compressed array so
+that each compressed row has a single value for each segmentby column. For
+example if we set `device_id` as a `segmentby` column, then the compressed
+version of our running example would look like:
+
+
+|time|device_id|cpu|disk_io|energy_consumption|
+|---|---|---|---|---|
+| [12:00:02, 12:00:01]| 1 |[88.2, 88.6]|[20, 25] |[0.8, 0.85]|
+| [12:00:02, 12:00:01]| 2 |[300.5, 299.1]|[30, 40] |[0.9, 0.95]|
+
+The above example shows that the `device_id` column is no longer an array,
+instead it defines the single value associated with all of the compressed data in the row.
+
+Because a single value is associated with a compressed row, no decompression
+is necessary to evaluate the value. Queries with WHERE clauses that filter by
+a `segmentby` column are much more efficient, as decompression can happen _after_
+filtering instead of before (avoiding the need to decompress
+filtered-out rows altogether). In fact, for even more efficient access,
+we build b-tree indexes over each `segmentby` column.
+
+`segmentby` columns are useful, but can be overused. If too many `segmentby` columns
+are specified, then the number of items in each compressed column becomes small
+and compression is not effective. Thus, we recommend that you make sure that
+each segment contains at least 100 rows per chunk. If this is not the case,
+then you can move some segmentby columns into the orderby option (as described in the
+next section).
+
+## Choosing the right `segmentby` columns
 
 The `segmentby` option determines the main key by which compressed data is accessed.
 In particular, queries that reference the `segmentby` columns in the WHERE clause are
 very efficient. Thus, it is important to pick the correct set of `segmentby` columns.
-We will give some intuitions below.
+Here are a few things to consider when choosing your `segmentby` columns.
 
 If your table has a primary key then all of the primary key columns other than "time" should
 go into the `segmentby` list. In the example above, one can easily imagine a primary
@@ -106,7 +176,7 @@ in each chunk. If your segments are too small, you can move some columns from th
 chunk intervals that are too short.
 </highlight>
 
-## Understanding the orderby option [](understanding-order-by)
+## Understanding the `orderby` option
 
 The `orderby` option determines the order of items inside the compressed array.
 By default, this option is set to the descending order of the hypertable's
