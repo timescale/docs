@@ -425,10 +425,23 @@ module.exports = [
         ]
       },
       {
-        href: "administration",
+        href: "configuration",
         children: [
           {
-            href: "configuration"
+            title: "Using timescaledb-tune",
+            href: "timescaledb-tune"
+          },
+          {
+            title: "Manual PostgreSQL Configuration",
+            href: "postgres-config"
+          },
+          {
+            title: "TimescaleDB Configuration",
+            href: "timescaledb-config"
+          },
+          {
+            title: "Docker Configuration",
+            href: "docker-config"
           },
           {
             href: "telemetry"

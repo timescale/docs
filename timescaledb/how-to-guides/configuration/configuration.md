@@ -12,7 +12,10 @@ You can determine the location of `postgresql.conf` by running
 `SHOW config_file;` from your PostgreSQL client (e.g., `psql`).
 </highlight>
 
-## Recommended: `timescaledb-tune` [](ts-tune)
+In addition, other TimescaleDB specific settings can be modified through the
+`postgresql.conf` file as discussed in our section about [TimescaleDB settings][ts-settings]
+
+## Using `timescaledb-tune`
 
 To streamline the configuration process, we've created a tool called
 [`timescaledb-tune`][tstune] that handles setting the most common parameters to
