@@ -75,6 +75,26 @@ Montréal, Sydney, Taiwan, Mumbai, Hong Kong, Tokyo, Singapore
 **Timescale** is the company. Timescale builds a category-defining time-series database called **TimescaleDB**. 
 Timescale hosts and manages TimescaleDB on behalf of its customers via a product called **Timescale Cloud**. 
 
+## What is the version of TimescaleDB offered by Microsoft Azure, Digital Ocean, or other cloud providers?
+TimescaleDB is a relational database for time-series, with some features 
+licensed under the Apache 2.0 License but many of the features you know 
+and love are licensed via the [Timescale License][timescale-license] (including 
+continuous aggregates, compression, data retention policies, actions, 
+multi-node, and more). The "Apache 2.0" version of TimescaleDB offered by 
+Microsoft, Digital Ocean, and others includes only the features in the 
+Apache license. The Timescale License prohibits cloud providers from 
+offering the "community version" of TimescaleDB-as-a-service.
+
+Today, you can deploy the community version of TimescaleDB on-premises 
+or in your own cloud account, running the software on bare VMs or using 
+our [open-source k8s helm charts][timescale-k8s]. TimescaleDB acquired in this 
+manner is totally free to use, and free to even modify for your own use 
+or for services or products you build on TimescaleDB.
+
+Or, if you prefer, [you can let us run TimescaleDB for you][timescale-signup], 
+fully managed on AWS, Azure, or GCP in 75+ regions and with access to our 
+[top-rated support team][timescale-support].
+
 ## Do you really support "all of SQL"?
 Yes, all of SQL, including: secondary indexes, JOINs, window functions. In fact,
 to the outside world, TimescaleDB looks like a PostgreSQL database: You connect

@@ -155,7 +155,7 @@ you will see that this will have good compression as well since
 ordering only matters within a segment and segmenting by device
 guarantees that each segment represents a series if only ordered by time.
 Thus, putting items in `orderby` and `segmentby` columns achieves similar
-results. This is why, if segmenting by a identifier causes segments to become too
+results. This is why, if segmenting by an identifier causes segments to become too
 small, we recommend moving the segmentby column into a prefix of the
 orderby list.
 
