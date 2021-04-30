@@ -85,7 +85,6 @@ For example, here’s a query which calculates the total snowfall for each city 
 ```sql
 -- non gapfill query
 SELECT time_bucket('30 days', time) as bucket,
-```
    city_name, sum(snow_1h_mm) as sum
    FROM weather_metrics
    WHERE time > now() - INTERVAL '1 year' AND time < now()
@@ -113,6 +112,4 @@ SELECT time_bucket_gapfill('30 days', time) as bucket,
 
 TimescaleDB SQL functions like time_bucket and time_bucket_gapfill are helpful for historical analysis of your data and creating visuals with specific time-periods.
 
-Now that you’re equipped with the basics of time_bucket, let’s learn about Continuous Aggregates in the next section. (LINK TO NEXT SECTION)
-
-
+Now that you’re equipped with the basics of time_bucket, let’s learn about Continuous Aggregates in the next section.

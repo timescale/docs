@@ -7,7 +7,7 @@ CREATE INDEX ... WITH (timescaledb.transaction_per_chunk, ...);
 This option extends [`CREATE INDEX`][postgres-createindex] with the
 ability to use a separate transaction for each chunk it creates an
 index on, instead of using a single transaction for the entire hypertable.
-This allows `INSERT`s, and other operations to to be performed concurrently
+This allows `INSERT`s, and other operations to be performed concurrently
 during most of the duration of the `CREATE INDEX` command.
 While the index is being created on an individual chunk, it functions as
 if a regular `CREATE INDEX` were called on that chunk, however other chunks are

@@ -27,3 +27,20 @@ be read as recommending any particular security measures for securing
 your system.  That said, here are two technical examples for how to 
 enable authentication, [password authentication](#multi-node-auth-password) and 
 [certificate authentication](#multi-node-auth-certificate).
+
+
+[init_data_nodes]: /getting-started/setup-multi-node-basic#init_data_nodes_on_access_node
+[auth-password]: https://www.postgresql.org/docs/current/auth-password.html
+[passfile]: https://www.postgresql.org/docs/current/libpq-pgpass.html
+[md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
+[distributed hypertables]: /using-timescaledb/distributed-hypertables
+[add_data_node]: /api#add_data_node
+[attach_data_node]: /api#attach_data_node
+[delete_data_node]: /api#delete_data_node
+[detach_data_node]: /api#detach_data_node
+[distributed_exec]: /api#distributed_exec
+[configuration]: /getting-started/configuring
+[install]: /how-to-guides/installation
+[setup]: /how-to-guides/install-timescaledb/post-install-setup/
+[postgresql-hba]: https://www.postgresql.org/docs/12/auth-pg-hba-conf.html
+[user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html

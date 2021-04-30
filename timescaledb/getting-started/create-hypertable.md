@@ -65,6 +65,4 @@ First we execute a `CREATE TABLE` statement to create a regular relational table
 For technically interested readers, the value of the Hypertable is how data is partitioned on disk. The index value is automatically augmented by the time dependency of the data to allow more focused use of memory and query planning resources. While in PostgreSQL (and other Relational Database Management Systems) you can build indexes on one or more values, the data must still be retrieved. Retrieval is in most cases, from portions of the physical layer (memory or disk), which doesn’t always result in effective use of memory and disk resources. By automatically partitioning on time, transparently, Hypertables improve the resource usages grouping data into smaller chunks based on time, so that queries and data-stores are much more efficient with time-series data.
 </highlight>
 
-Next, we’ll get ingest some sample data into TimescaleDB (LINK TO NEXT SECTION)
-
-
+Next, we’ll get ingest some sample data into TimescaleDB.
