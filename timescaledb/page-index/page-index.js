@@ -17,6 +17,10 @@ module.exports = [
       ...howtoPageIndex,
       ...tutorialPageIndex,
       ...quickStartPageIndex,
+      {
+        title: "Contribute to TimescaleDB",
+        href: "contribute-to-timescaledb"
+      }
     ]
   }
 ]

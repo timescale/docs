@@ -10,23 +10,28 @@ To start, you'll need to have the following:
 - Access to a superuser role (e.g. `postgres`) on all nodes
 - Multi-node [required configuration][configuration] applied
 
-## Node-to-node communication [](#node-communication)
+All nodes begin as standalone TimescaleDB instances, i.e., hosts with
+a running PostgreSQL server and a loaded TimescaleDB extension. This
+is assumed for "access node" and "data node" in the instructions. More
+detail on the architecture can be found in the [Core Concepts][] section.
 
-Once you have your instances set up, the next task is configuring your
-PostgreSQL instances to accept connections from the access node to the
-data nodes. The authentication mechanism used when accepting such
-connections might be different than the one used by external clients
-when connecting to the access node. The task also requires different
-steps depending on what authentication mechanism you want to use on
-your nodes. The simplest approach is to simply trust all incoming
-connections, and is discussed in [this
-section](#multi-node-auth-trust).
+TimescaleDB multi-node can be created as part of a self-managed deployment
+or (coming soon) as a managed cloud deployment. In order to set up a
+self-managed cluster, including how to configure the nodes for secure
+communication and creating users/roles across servers, please follow the 
+instructions in the following sections.
 
-Setting up a secure system is a complex task and this section should not 
-be read as recommending any particular security measures for securing 
-your system.  That said, here are two technical examples for how to 
-enable authentication, [password authentication](#multi-node-auth-password) and 
-[certificate authentication](#multi-node-auth-certificate).
+<highlight type="tip">
+The rest of this multi-node how-to **focuses primarily on setting up a TimescaleDB multi-node 
+in your own managed environment**. If you would like to give multi-node a try 
+without the management overhead, consider following our how-to, in order to 
+[setup and explore a multi-node cluster in Timescale Forge](/timescale-forge/latest/forge-multi-node/), 
+our fully managed database service. 
+
+[Sign-up for your free](https://forge.timescale.com/signup), 30-day trial and get
+started today!
+</highlight>
+
 
 
 [init_data_nodes]: /getting-started/setup-multi-node-basic#init_data_nodes_on_access_node
@@ -39,8 +44,9 @@ enable authentication, [password authentication](#multi-node-auth-password) and
 [delete_data_node]: /api#delete_data_node
 [detach_data_node]: /api#detach_data_node
 [distributed_exec]: /api#distributed_exec
-[configuration]: /getting-started/configuring
-[install]: /how-to-guides/installation
+[configuration]: /how-to-guides/multi-node-setup/required-configuration
+[install]: /how-to-guides/install-timescaledb
 [setup]: /how-to-guides/install-timescaledb/post-install-setup/
 [postgresql-hba]: https://www.postgresql.org/docs/12/auth-pg-hba-conf.html
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
+[Core Concepts]: /overview/core-concepts/

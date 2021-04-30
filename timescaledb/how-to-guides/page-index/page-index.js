@@ -249,13 +249,8 @@ module.exports = [
             href: "required-configuration"
           },
           {
-            href: "setup-trust-authentication"
-          },
-          {
-            href: "setup-password-authentication"
-          },
-          {
-            href: "setup-certificate-authentication"
+            title: "Enable Node Communication",
+            href: "node-communication"
           },
           {
             href: "maintenance-tasks"
