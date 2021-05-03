@@ -1,24 +1,13 @@
 # Tutorial: How to monitor a Django application with Prometheus
 
->:TOPLIST:
-> ### Contents
-> - [Introduction](#introduction)
-> - [Prerequisites](#prereqs)
-> - [Step 0 - Set up a basic Django application (optional)](#step0)
-> - [Step 1 - Export prometheus-style monitoring metrics from your
-Django application](#step1)
-> - [Step 2 - Point Prometheus to your Django application metrics endpoint](#step2)
-> - [Step 3 - Instrument additional aspects of your application (optional)](#step3)
-> - [Next Steps](#next-steps)
-
-### Introduction [](introduction)
+## Introduction
 Prometheus is an open-source systems monitoring and alerting toolkit that can be
 used to easily and cheaply monitor infrastructure and applications. In this
 tutorial we show how to monitor a Django application with Prometheus. (And even
 if you don’t have a Django application, we include an optional step to create
 one so that everyone can follow along.)
 
-### Prerequisites [](prereqs)
+## Prerequisites
 A machine with the following installed:
 
 - Python
@@ -32,16 +21,16 @@ syntax instead of the `pip [foo]` syntax. This is to ensure that pip installs
 new components for the version of Python that we are using.
 </highlight>
 
-### Step 0 - Set up a basic Django application (optional) [](step0)
+## Step 0 - Set up a basic Django application (optional) [](step0)
 *(Please skip this step if you already have a Django application.)*
 
-#### Install Django
+### Install Django
 ```bash
 python -m pip install Django
 ```
 *[More info on Django.][get-django]*
 
-#### Create a template project
+### Create a template project
 Navigate to the directory where you want to create the project,
 and run:
 ```bash
@@ -62,7 +51,7 @@ mysite/
         wsgi.py
 ```
 
-#### Verify that Django is working
+### Verify that Django is working
 Change to the outer `mysite` directory, and run:
 ```bash
 python manage.py runserver
@@ -90,17 +79,17 @@ You should see a "Congratulations!" page, with a rocket taking off.
 (If that didn’t work, then please take a look at the
 [Django documentation][django-first-app] for troubleshooting.)
 
-### Step 1 - Export prometheus-style monitoring metrics from your Django application [](step1)
+## Step 1 - Export prometheus-style monitoring metrics from your Django application
 
 We will use the [django-prometheus][get-django-prometheus] package for
 exporting prometheus-style monitoring metrics from our Django application.
 
-#### Install django-prometheus
+### Install django-prometheus
 ```bash
 python -m pip install django-prometheus
 ```
 
-#### Modify `settings.py` and `urls.py`
+### Modify `settings.py` and `urls.py`
 In `settings.py`, add:
 
 ```
@@ -132,7 +121,7 @@ urlpatterns = [
 ]
 ```
 
-#### Verify that metrics are being exported
+### Verify that metrics are being exported
 Restart the application and curl the `/metrics` endpoint:
 ```bash
 python manage.py runserver
@@ -167,12 +156,14 @@ python_info{implementation="CPython",major="3",minor="8",patchlevel="0",version=
 ...
 ```
 
-### Step 2 - Point Prometheus to your Django application metrics endpoint [](step2)
+## Step 2 - Point Prometheus to your Django application metrics endpoint [](step2)
 
-*(Note: This section assumes that you have a locally running Prometheus
-instance.)*
+**(Note: This section assumes that you have a locally running Prometheus
+instance.)**
 
-#### Update `prometheus.yml`. Under `scrape_configs:`, add:
+### Update `prometheus.yml`
+
+Under `scrape_configs:`, add:
 
 ```yaml
 - job_name: django
@@ -184,15 +175,17 @@ instance.)*
 
 <highlight type="tip">
 Replace the job_name "django" with whatever you’d like as a prefix for
-your Django application metrics in Prometheus. For example, "webapp", etc.)
+your Django application metrics in Prometheus. For example, "webapp", etc.
+
 </highlight>
 
-#### Restart Prometheus
+### Restart Prometheus
+
 ```bash
 ./prometheus --config.file=prometheus.yml
 ```
 
-#### Verify that Prometheus is scraping metrics from your Django application:
+### Verify that Prometheus is scraping metrics from your Django application:
 Once you are running Prometheus locally, visit the
 [Prometheus Expression Browser (running on localhost)][localhost-prom-browser]
 from your web browser.
@@ -211,7 +204,7 @@ more times and reload the Prometheus Expression Browser to confirm that it
 is working. Also feel free to explore the other Django metrics that
 Prometheus is collecting.
 
-### Step 3 - Instrument additional aspects of your application (optional) [](step3)
+## Step 3 - Instrument additional aspects of your application (optional) [](step3)
 [Django-prometheus][get-django-prometheus] is quite powerful, and allows
 you to easily instrument additional aspects of your application, including:
 
@@ -223,7 +216,7 @@ you to easily instrument additional aspects of your application, including:
 More information on how to do all of these is
 [here][get-django-prometheus-more]. 
 
-### Next steps [](#next-steps)
+## Next steps [](#next-steps)
 Congratulations! Now you are monitoring your Django application with Prometheus!
 
 Looking for something to do next? You can start building dashboards to

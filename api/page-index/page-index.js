@@ -61,14 +61,6 @@ module.exports = [
             href: "set_chunk_time_interval"
           },
           {
-            title: "set_number_partitions",
-            href: "set_number_partitions"
-          },
-          {
-            title: "set_replication_factor",
-            href: "set_replication_factor"
-          },
-          {
             title: "set_integer_now_func",
             href: "set_integer_now_func"
           },
@@ -128,40 +120,12 @@ module.exports = [
             href: "distributed_exec"
           },
           {
-            title: "drop_chunks",
-            href: "drop_chunks"
-          },
-          {
-            title: "reorder_chunk",
-            href: "reorder_chunk"
-          },
-          {
-            title: "add_reorder_policy",
-            href: "add_reorder_policy"
-          },
-          {
-            title: "remove_reorder_policy",
-            href: "remove_reorder_policy"
-          },
-          {
-            title: "set_chunk_time_interval",
-            href: "set_chunk_time_interval"
-          },
-          {
             title: "set_number_partitions",
             href: "set_number_partitions"
           },
           {
             title: "set_replication_factor",
             href: "set_replication_factor"
-          },
-          {
-            title: "set_integer_now_func",
-            href: "set_integer_now_func"
-          },
-          {
-            title: "create_index",
-            href: "create_index"
           }
         ]
       },
