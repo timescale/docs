@@ -37,11 +37,7 @@ module.exports = [
             href: "data-retention"
           },
           {
-            title: "9. Join relational and time-series data",
-            href: "analyze-data"
-          },
-          {
-            title: "10. Next steps!",
+            title: "9. Next steps!",
             href: "next-steps"
           }
         ]

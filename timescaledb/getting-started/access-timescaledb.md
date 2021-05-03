@@ -8,9 +8,6 @@ or TimescaleDB instance.
 Below, we'll verify that you have `psql` installed and show you how to connect
 to your TimescaleDB database.
 
-However, if you would like to connect with other SQL tools like pgAdmin or DBeaver,
-we provide details on [connecting to TimescaleDB] in our How-to Guides.
-
 ## Verify that `psql` is installed
 **Before you start**, let's confirm that you already have `psql` installed. 
 In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already 
@@ -26,7 +23,7 @@ psql --version
 
 <highlight type="tip">
 If your client doesn't have `psql` installed, follow the instructions provided
-in our How-to guides for [Installing `psql`][] and then return here.
+in our How-to guides for [Installing `psql`](/timescaledb/latest/how-to-guides/connecting/psql/) and then return here.
 </highlight>
 
 
@@ -58,3 +55,7 @@ in the placeholder above
 
 Now that you've connected to your Timescale Forge service, let's look at how to
 quickly add data so that you can quickly start to explore the power of TimescaleDB.
+
+
+[install-psql]: /how-to-guides/connecting/psql/
+[launch-timescaledb]: /getting-started/launch-timescaledb/
