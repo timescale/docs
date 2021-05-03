@@ -19,12 +19,11 @@ For Postgres users who may be familiar with views and materialized views, here�
 Continuous aggregates speed up dashboards and visualizations, summarizing data sampled at high frequency, and querying downsampled data over long time periods.
 
 <highlight type="tip">
-> To learn how real TimescaleDB users leverage continuous aggregates see
+To learn how real TimescaleDB users leverage continuous aggregates see
+
+* [How FlightAware fuels flight prediction models for global travelers with TimescaleDB and Grafana](https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/)
+* [How I power a (successful) crypto trading bot with TimescaleDB](https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/)
 </highlight>
-
->[How FlightAware fuels flight prediction models for global travelers with TimescaleDB and Grafana](https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/)
-
->[How I power a (successful) crypto trading bot with TimescaleDB](https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/)
 
 ## Creating Continuous Aggregates
 
@@ -39,7 +38,6 @@ Here’s the SQL query which defines the query of which we want to maintain the 
 ```sql
 -- Continuous aggs
 -- define view
-```
 CREATE MATERIALIZED VIEW weather_metrics_daily
 WITH (timescaledb.continuous)
 AS
@@ -69,9 +67,7 @@ You can create multiple continuous aggregates on the same hypertable, but for si
 Here’s some ideas for other aggregates to create:
 
 * 6 month aggregates for all metrics for a specific city.
-
 * 30 day aggregates for temperature and rainfall for all cities.
-
 * 5 year aggregates for all metrics for certain cities.
 
 <highlight type="tip">
@@ -199,9 +195,8 @@ For example, consider the results of this query, which selects daily aggregates 
 ```sql
 -- Real-time aggregation
 SELECT * from weather_metrics_daily
-```
-WHERE bucket > now() - 2 * INTERVAL '1 year'
-ORDER BY bucket DESC;
+  WHERE bucket > now() - 2 * INTERVAL '1 year'
+  ORDER BY bucket DESC;
 ```
 
 The first row returned has a time value newer than 1 January 2021, which is the end date for which we materialized data in our continuous aggregate (done via manual refresh earlier in this tutorial). Despite not materializing the latest data via manual refresh or our policy (since the policy created above hasn’t yet run), we still get the latest data thanks to real-time aggregation.
@@ -211,5 +206,4 @@ This makes real-time aggregation an ideal fit for many near real-time, monitorin
 <highlight type="tip">
 >  For more detailed information on continuous aggregates and real-time aggregation, see our [Continuous Aggregates docs](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates#react-docs).
 </highlight>
-
 

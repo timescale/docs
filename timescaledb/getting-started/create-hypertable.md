@@ -12,7 +12,7 @@ A **Hypertable** is an abstraction over all chunks which hold time-series data. 
 
 Hypertables and Chunks enable superior performance for shallow and wide queries common in real-time monitoring, as well as deep and narrow queries, common in time-series analysis.
 
-[https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg](https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg)
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg" alt="hypertable and chunks"/>
 
 You can also interact with chunks individually if needed, but they will be created automatically based on the `chunk_time` and `chunk_size` parameters you specify.
 
