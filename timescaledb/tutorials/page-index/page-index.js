@@ -80,7 +80,7 @@ module.exports = [
           },
           {
             title: "Monitor a Django application with Prometheus",
-            href: "howto-monitor-django-prometheus"
+            href: "monitor-django-with-prometheus"
           },
           {
             href: "sample-datasets"
