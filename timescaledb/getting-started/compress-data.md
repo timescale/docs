@@ -77,17 +77,13 @@ While we recommend using compression policies to automated compression data, the
 SELECT compress_chunk(i)
 FROM show_chunks('weather_metrics', older_than => INTERVAL ' 10 years');
 ```
-
-Now you can confirm and check the uncompressed chunks:
+We can see the size of the compressed chunks before and after applying compression by using the following query:
 
 ```sql
-SELECT pg_size_pretty(sum(total_bytes)) AS "Uncompressed Size",
-  pg_size_pretty(sum(after_compression_total_bytes))
-FROM chunks_detailed_size('weather_metrics') AS cds
-INNER JOIN chunk_compression_stats('weather_metrics') ccs 
-  ON cds.chunk_schema = ccs.chunk_schema 
-  AND cds.chunk_name = ccs.chunk_name
-WHERE ccs.compression_status='Uncompressed';
+-- See effect of compression
+SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
+  pg_size_pretty(after_compression_total_bytes) as "after compression"
+  FROM hypertable_compression_stats('weather_metrics');
 ```
 
 ## Benefits of Compression
