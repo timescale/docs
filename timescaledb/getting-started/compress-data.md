@@ -5,20 +5,13 @@ TimescaleDB comes with native compression capabilities which enable you to analy
 TimescaleDB uses best-in-class compression algorithms along with a novel method to create hybrid row/columnar storage. This gives up to 96% lossless compression rates and speeds up common queries on older data. Compressing data increases the amount of time that your data is "useful" (i.e in a database and not in a low-performance object store), without the corresponding increase in storage usage and bill.
 
 <highlight type="tip">
-
-> All postgresql data types can be used in compression.
+All postgresql data types can be used in compression.
 
 </highlight>
 
 At a high level, TimescaleDB's built-in job scheduler framework will asynchronously convert recent data from an uncompressed row-based form to a compressed columnar form across chunks of TimescaleDB hypertables.
 
 Let’s set up a compression policy on our hypertable to see how it works.
-
-<highlight type="tip">
-* For more information on how native compression in TimescaleDB works, as well as the compression algorithms involved, see this in depth blog post on the topic:  [Building columnar compression in a row-oriented database](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/).
-</highlight>
-
-* For an introduction to compression algorithms, see this blog post: [Time-series compression algorithms, explained](https://blog.timescale.com/blog/time-series-compression-algorithms-explained/)
 
 ## Create a Compression Policy
 
@@ -113,7 +106,12 @@ WHERE city_name LIKE 'New York'
 AND time < '2010-01-01';
 ```
 
+## Learn more about Compression
 
-For more information, see compression docs: [https://docs.timescale.com/latest/using-timescaledb/compression#react-docs](https://docs.timescale.com/latest/using-timescaledb/compression#react-docs)
+For more information on how native compression in TimescaleDB works, as well as the compression algorithms involved, see this in depth blog post on the topic:  [Building columnar compression in a row-oriented database](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/).
+
+For an introduction to compression algorithms, see this blog post: [Time-series compression algorithms, explained](https://blog.timescale.com/blog/time-series-compression-algorithms-explained/)
+
+For more information, see the [compression docs](/how-to-guides/compression)
 
 

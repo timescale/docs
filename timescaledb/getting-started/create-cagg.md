@@ -2,39 +2,52 @@
 
 ## What are Continuous Aggregates?
 
-**Aggregates** are summaries of raw data for a period of time. Some examples of aggregates are the average temperature per day, the maximum CPU utilization per 5 minutes, and the number of visitors on a website per day. 
+**Aggregates** are summaries of raw data for a period of time. Some examples of 
+aggregates are the average temperature per day, the maximum CPU utilization per 
+5 minutes, and the number of visitors on a website per day. 
 
-Calculating aggregates on time-series data can be computationally intensive given the large amounts of data which need to be processed in order to calculate and re-caclulate aggregates over a time period. Moreover, calculating aggregates while simultaneously ingesting data can cause a slowdown in ingest rate due to the computational resources being split between the two resource intensive processes. Continuous aggregates solve both these problems. 
+Calculating aggregates on time-series data can be computationally intensive given 
+the large amounts of data which need to be processed in order to calculate and 
+re-caclulate aggregates over a time period. Moreover, calculating aggregates 
+while simultaneously ingesting data can cause a slowdown in ingest rate due to 
+the computational resources being split between the two resource intensive 
+processes. Continuous aggregates solve both these problems. 
 
-**Continuous Aggregates** are automatically refreshed materialized views – so they massively speed up workloads that need to process large amounts of data. Unlike in other databases, your views are automatically refreshed in the background as new data is added, or as old data is modified according to a schedule. 
+**Continuous Aggregates** are automatically refreshed materialized views – so 
+they massively speed up workloads that need to process large amounts of data. 
+Unlike in other databases, your views are automatically refreshed in the background 
+as new data is added, or as old data is modified according to a schedule. 
 
-* Continuous Aggregates automatically and in the background pre-calculate and maintain the results from a specified query, and allow you to retrieve the results as you would any other data.
-* The views are automatically refreshed in the background as new data is added, or as old data is modified according to a schedule. 
+* Continuous Aggregates automatically and in the background pre-calculate and 
+maintain the results from a specified query, and allow you to retrieve the results 
+as you would any other data.
+* The views are automatically refreshed in the background as new data is added, 
+or as old data is modified according to a schedule. 
 
-For Postgres users who may be familiar with views and materialized views, here’s how continuous aggregates differe:
+For Postgres users who may be familiar with views and materialized views, here’s 
+how continuous aggregates differe:
 
 * Unlike a PostgreSQL view a continuous aggregate does not perform the computation when queried
-* Unlike a materialized view, it does not need to be refreshed manually, as it can be refreshed according to a schedule.
+* Unlike a materialized view, it does not need to be refreshed manually, as it 
+can be refreshed according to a schedule.
 
-Continuous aggregates speed up dashboards and visualizations, summarizing data sampled at high frequency, and querying downsampled data over long time periods.
-
-<highlight type="tip">
-To learn how real TimescaleDB users leverage continuous aggregates see
-
-* [How FlightAware fuels flight prediction models for global travelers with TimescaleDB and Grafana](https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/)
-* [How I power a (successful) crypto trading bot with TimescaleDB](https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/)
-
-</highlight>
+Continuous aggregates speed up dashboards and visualizations, summarizing data 
+sampled at high frequency, and querying downsampled data over long time periods.
 
 ## Creating Continuous Aggregates
 
-Now that you’re familiar with what Continuous Aggregates are, let’s create our first continuous aggregate. Creating a continuous aggregate is a two step process: first we define our view and second, we create a policies which will refresh the continuous aggregate according to a schedule.
+Now that you’re familiar with what Continuous Aggregates are, let’s create our 
+first continuous aggregate. Creating a continuous aggregate is a two step process: 
+first we define our view and second, we create a policies which will refresh the 
+continuous aggregate according to a schedule.
 
 We’ll use the example of creating a daily aggregation of all weather metrics.
 
-**Step 1: Define view**
+### Step 1: Define view
 
-Here’s the SQL query which defines the query of which we want to maintain the results. In this case, we calculate the daily average for all weather metrics, as well as the maximum and minimum for temperature.
+Here’s the SQL query which defines the query of which we want to maintain the 
+results. In this case, we calculate the daily average for all weather metrics, 
+as well as the maximum and minimum for temperature.
 
 ```sql
 -- Continuous aggs
@@ -80,19 +93,24 @@ If you ever need to inspect details about a continuous aggregate, such as its co
 SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
 
-## Populating Continuous Aggregates
+### Step 2: Populate the Continuous Aggregate
 
-**Step 2: Populate the Continuous Aggregate**
-
-Right now we’ve created the continuous aggregate but it has not materialized any data. There are two ways to populate a continuous aggregate: via manual refresh or an automation policy. These methods enable you to refresh materialized data in your continuous aggregates when its most convenient for you (e.g during low query load times on your database). 
+Right now we’ve created the continuous aggregate but it has not materialized any 
+data. There are two ways to populate a continuous aggregate: via manual refresh 
+or an automation policy. These methods enable you to refresh materialized data 
+in your continuous aggregates when its most convenient for you (e.g during low 
+query load times on your database). 
 
 Let’s take a look at how to do each one.
 
-**Manual refresh**
+#### Manual refresh
 
-You can manually refresh a continuous aggregate by means of a "one-shot refresh". This is useful for refreshing data for only a specific time-period in the past or if you want to materialize a lot of data at once on a once-off basis.
+You can manually refresh a continuous aggregate by means of a "one-shot refresh". 
+This is useful for refreshing data for only a specific time-period in the past 
+or if you want to materialize a lot of data at once on a once-off basis.
 
-The example below refreshes the continuous aggregate `weather_metrics_daily` for the time period starting 1 January 2010 and ending 1 January 2021:
+The example below refreshes the continuous aggregate `weather_metrics_daily` for 
+the time period starting 1 January 2010 and ending 1 January 2021:
 
 ```sql
 -- manual refresh
@@ -100,7 +118,9 @@ The example below refreshes the continuous aggregate `weather_metrics_daily` for
 CALL refresh_continuous_aggregate('weather_metrics_daily','2010-01-01', '2021-01-01');
 ```
 
-Querying our continuous aggregate for data older than 1 January 2009 shows that it is indeed populated with data from the above time frame, as the first row returned is for 1 January 2010:
+Querying our continuous aggregate for data older than 1 January 2009 shows that 
+it is indeed populated with data from the above time frame, as the first row 
+returned is for 1 January 2010:
 
 ```sql
 -- Show that manual refresh worked
@@ -109,19 +129,25 @@ WHERE bucket > '2009-01-01'
 ORDER BY bucket ASC;
 ```
 
-**Automation policies**
+#### Automation policies
 
-An **automation policy **can also be used to refresh continuous aggregates according to a schedule.
+An **automation policy** can also be used to refresh continuous aggregates according to a schedule.
 
-<highlight type="tip">
-A note on Automation Policies in TimescaleDB
-</highlight>
+While many databases have ad-hoc capabilities for managing large amounts of 
+time-series data, adapting these features to the rhythm of your data lifecycle 
+often requires custom code and regular development time. 
 
-While many databases have ad-hoc capabilities for managing large amounts of time-series data, adapting these features to the rhythm of your data lifecycle often requires custom code and regular development time. (For example, you might want to downsample, compress and/or discard data at specific, regular time intervals). 
+Enter TimescaleDB’s built-in background jobs capability, often referred to as 
+Automation Policies. 
 
-Enter TimescaleDB’s built-in background jobs capability, which enables you to run common jobs (like data aggregation, compression, and deleting old data) – and define custom jobs suited to your use case, according to whatever schedule works best for your database. This allows you to "set it and forget it" and spend time on feature development rather than database administration.
+Using automation policies for updating continuous aggregates is the first of many 
+automation policies you’ll encounter in TimescaleDB. TimescaleDB also has policies 
+to automate compression and data retention. You can also create custom policies and 
+run them according to a schedule with the User Defined Actions feature. Using this
+automation feature allows you to "set it and forget it" on administration tasks
+so that you can spend time on feature development.
 
-Automation policies for updating continuous aggregates is the first of many automation policies you’ll encounter in TimescaleDB. TimescaleDB also has policies to automate compression and data retention. You can also custom policies and run them according to a schedule with the User Defined Actions feature. You’ll see policies for compression and data retention later in this "Getting Started" section.
+You’ll see policies for compression and data retention later in this **Getting Started** section.
 
 Let’s create a policy which will auto-update the continuous aggregate every two weeks:
 
@@ -134,40 +160,39 @@ SELECT add_continuous_aggregate_policy('weather_metrics_daily',
   schedule_interval => INTERVAL '14 days');
 ```
 
-The policy above will run every 14 days (schedule_interval). When it runs, it will materialize data from between 6 months (start_offset) and 1 hour (end_offset) of the time it executes, according to the query which defined the continuous aggregate `weather_metrics_daily`.
+The policy above will run every 14 days (`schedule_interval`). When it runs, it 
+will materialize data from between 6 months (`start_offset`) and 1 hour (`end_offset`) 
+of the time it executes, according to the query which defined the continuous 
+aggregate `weather_metrics_daily`.
 
-Automation policies are useful for continuous aggregates which need to return data from recent time frames, as they help them stay up to date.
-
-**Continuous Aggregate Job details and stats**
-
-TimescaleDB provides handy informational views to understand the status and statistics of all jobs executed by your automation policies. These views can be used to view information and statistics of continuous aggregate refresh jobs, but also for jobs related to compression and data retention policies, as well as user-defined actions.
-
-The informational view below shows details about background jobs and automated policies scheduled to run on a schedule on your TimescaleDB database, such as their next start time, their configuration and the hypertable on which they are applied.
-
-```sql
--- Informational view for policy details
-SELECT * FROM timescaledb_information.jobs;
-```
-
-The informational view below shows statistics about background jobs and automated policies scheduled that have on a schedule on your TimescaleDB database, such as information about the last run, last successful finish and total runs, successes and failures. 
-
-```sql
--- Informational view for stats from run jobs
-SELECT * FROM timescaledb_information.job_stats;
-```
+Automation policies are useful for continuous aggregates which need to return 
+data from recent time frames, as they help them stay up to date.
 
 ## Querying Continuous Aggregates
 
 <highlight type="tip">
-Continuous Aggregates are actually a special kind of hypertable, so you can query it, view and modify its chunks just like you would a regular hypertable. You can also add data retention policies and drop chunks on continuous aggregate hypertables. The only restrictions at this time is that you cannot apply compression or continuous aggregation to these hypertables.
+Continuous Aggregates are actually a special kind of hypertable, so you can 
+query it, view and modify its chunks just like you would a regular hypertable. 
+You can also add data retention policies and drop chunks on continuous aggregate 
+hypertables. The only restrictions at this time is that you cannot apply 
+compression or continuous aggregation to these hypertables.
 </highlight>
 
 
-When you query a continuous aggregate, the system reads and processes the much smaller materialized table, which has been refreshed at scheduled intervals. This makes querying continuous aggregates useful for speeding up dashboards, summarizing data sampled at high frequency, and querying downsampled data over long time periods. 
+When you query a continuous aggregate, the system reads and processes the much 
+smaller materialized table, which has been refreshed at scheduled intervals. This 
+makes querying continuous aggregates useful for speeding up dashboards, summarizing 
+data sampled at high frequency, and querying downsampled data over long time periods. 
 
-Moreover, querying continuous aggregates does not slow down INSERT operations, since data is inserted into a different hypertable than the one underlying the continuous aggregate. 
+Moreover, querying continuous aggregates does not slow down INSERT operations, 
+since data is inserted into a different hypertable than the one underlying the 
+continuous aggregate. 
 
-Let’s examine an example of a query which would perform better on our continuous aggregate (`weather_metrics_daily`) than on our hypertable (`weather_metrics`). Here’s a query which looks at how temperatures in New York have changed over the past 6 years. It returns the returns the time as well as the daily maximum, minimum and average temperatures for New York City between 2015 and 2021:
+Let’s examine an example of a query which would perform better on our continuous 
+aggregate (`weather_metrics_daily`) than on our hypertable (`weather_metrics`). 
+Here’s a query which looks at how temperatures in New York have changed over the 
+past 6 years. It returns the returns the time as well as the daily maximum, minimum 
+and average temperatures for New York City between 2015 and 2021:
 
 ```sql
 -- Continuous Aggregate query example
@@ -179,19 +204,33 @@ AND city_name LIKE 'New York'
 ORDER BY bucket ASC;
 ```
 
-Such a query executes quickly as the data for the time period in question is already populated in the continuous aggregate and aggregated by day. Queries like this are used in historical analysis, often to plot graphs about how temperature changes over time.
+Such a query executes quickly as the data for the time period in question is 
+already populated in the continuous aggregate and aggregated by day. Queries like 
+this are used in historical analysis, often to plot graphs about how temperature 
+changes over time.
 
 ### Real time-aggregation
 
-By default, continuous aggregates support real-time aggregation, which combines aggregated data and raw data at query time for the most up to date results. (You can turn this off if desired, but the majority of developers want this behaviour by default).
+By default, continuous aggregates support real-time aggregation, which combines 
+aggregated data and raw data at query time for the most up to date results. (You 
+can turn this off if desired, but the majority of developers want this behaviour 
+by default).
 
-**Without real-time aggregation turned off,** continuous aggregates only return results for data in the time period they have materialized (refreshed). If you query continuous aggregates for data newer than the last materialized time, it will not return it or return stale results.
+**Without real-time aggregation turned off,** continuous aggregates only return r
+esults for data in the time period they have materialized (refreshed). If you query 
+continuous aggregates for data newer than the last materialized time, it will not 
+return it or return stale results.
 
-**With real-time aggregation turned on, **you always receive up-to-date results, as querying a continuous aggregate returns data that is already materialized combined with the newest raw data from the hypertable available at query time.
+**With real-time aggregation turned on, **you always receive up-to-date results, 
+as querying a continuous aggregate returns data that is already materialized 
+combined with the newest raw data from the hypertable available at query time.
 
-Real-time aggregation gives you the best of both worlds: the performance of continuous aggregates and the most up to date data for real time queries, without the performance degradation of querying and aggregating all raw data from scratch.
+Real-time aggregation gives you the best of both worlds: the performance of continuous 
+aggregates and the most up to date data for real time queries, without the 
+performance degradation of querying and aggregating all raw data from scratch.
 
-For example, consider the results of this query, which selects daily aggregates of all weather metrics for the past two years:
+For example, consider the results of this query, which selects daily aggregates 
+of all weather metrics for the past two years:
 
 ```sql
 -- Real-time aggregation
@@ -200,11 +239,24 @@ SELECT * from weather_metrics_daily
   ORDER BY bucket DESC;
 ```
 
-The first row returned has a time value newer than 1 January 2021, which is the end date for which we materialized data in our continuous aggregate (done via manual refresh earlier in this tutorial). Despite not materializing the latest data via manual refresh or our policy (since the policy created above hasn’t yet run), we still get the latest data thanks to real-time aggregation.
+The first row returned has a time value newer than 1 January 2021, which is the 
+end date for which we materialized data in our continuous aggregate (done via 
+manual refresh earlier in this tutorial). Despite not materializing the latest 
+data via manual refresh or our policy (since the policy created above hasn’t yet 
+run), we still get the latest data thanks to real-time aggregation.
 
-This makes real-time aggregation an ideal fit for many near real-time, monitoring and analysis use-cases, especially for dashboarding or reporting that requires the most up to date numbers all the time. It is for this reason that we recommend keeping the setting on.
+This makes real-time aggregation an ideal fit for many near real-time, monitoring 
+and analysis use-cases, especially for dashboarding or reporting that requires 
+the most up to date numbers all the time. It is for this reason that we recommend 
+keeping the setting on.
 
-<highlight type="tip">
-For more detailed information on continuous aggregates and real-time aggregation, see our [Continuous Aggregates docs](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates#react-docs).
-</highlight>
+
+## Learn more about Continuous Aggregates
+
+See how real TimescaleDB users leverage continuous aggregates in the blog posts
+[How FlightAware fuels flight prediction models for global travelers with TimescaleDB and Grafana](https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/) and 
+[How I power a (successful) crypto trading bot with TimescaleDB](https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/)
+
+Detailed information on continuous aggregates and real-time aggregation can be found
+in the [Continuous Aggregates docs](/how-to-guides/continuous-aggregates).
 
