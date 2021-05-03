@@ -155,7 +155,7 @@ With `rails dbconsole` you can test that the extension has been added by running
 command:
 
 ```bash
-echo "\dx" | be rails dbconsole
+echo "\dx" | rails dbconsole
 ```
 
 The output should be something like the following:
@@ -226,7 +226,7 @@ And we can view the structure of the `page_loads` table combining
 the `\d page_loads` command in the `rails dbconsole` output:
 
 ```bash
- echo "\d page_loads" | be rails dbconsole
+ echo "\d page_loads" | rails dbconsole
                           Table "public.page_loads"
    Column   |              Type              | Collation | Nullable | Default
 ------------+--------------------------------+-----------+----------+---------
