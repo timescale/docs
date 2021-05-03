@@ -6,7 +6,7 @@ get the benefit of a purpose-built time-series database, plus a classic relation
 database (PostgreSQL), all in one, with full SQL support.
 
 In this section of our documentation, we present all of the information you need
-to understand what TimescaleDB is, how it works, how to get started and how
+to understand what TimescaleDB is, how it works, how to get started, and how
 to successfully use and implement all of the powerful features for your next
 project.
 

@@ -10,10 +10,6 @@ module.exports = [
         component: 'InstallationPage',
         children: [
               {
-                href: "timescale-cloud",
-                iconSrc: "//assets.iobeam.com/images/docs/timescale_cloud_logo.svg"
-              },
-              {
                 title: "Self hosted (including containers)",
                 href: "self-hosted",
                 type: 'react-page',
