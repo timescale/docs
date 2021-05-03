@@ -71,6 +71,18 @@ module.exports = [
             href: "simulate-iot-sensor-data"
           },
           {
+            title: "Monitor Timescale Cloud with Prometheus",
+            href: "setting-up-timescale-cloud-endpoint-for-prometheus"
+          },
+          {
+            title: "Collecting metrics with Telegraf",
+            href: "telegraf-output-plugin"
+          },
+          {
+            title: "Monitor a Django application with Prometheus",
+            href: "howto-monitor-django-prometheus"
+          },
+          {
             href: "sample-datasets"
           }
         ]

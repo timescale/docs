@@ -333,7 +333,7 @@ To proceed, be sure you have a [working installation of TimescaleDB][install-tim
 
 Now all our hard work in Step 1 comes in handy! We will use the SQL script we created to
 setup our instance of TimescaleDB. If you don't want to enter the SQL script by yourself,
-you can always download [:DOWNLOAD_LINK: `schema.sql`][schema-creation].
+you can always download <tag type="download" >[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</tag>.
 
 Let's first login to our TimescaleDB instance. Locate your `host`, `port`, and `password`
 and then connect to the database:

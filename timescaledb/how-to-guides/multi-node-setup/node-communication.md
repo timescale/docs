@@ -306,9 +306,12 @@ ssl_key_file = 'server.key'
 This configuration is only required on data nodes, but it can also be applied to 
 the access node to enable certificate authentication for login.
 
->:TIP: `ssl_cert_file` and `ssl_key_file` are here set explicitly, but do not need 
+<highlight type="tip">
+`ssl_cert_file` and `ssl_key_file` are here set explicitly, but do not need 
 to be set for the default values (`server.crt` and `server.key`).  If the values 
 are different from the defaults, they _would_ need to be set explicitly.
+
+</highlight>
 
 Now configure the HBA file (default `pg_hba.conf`) on the data node to
 accept certificates for users.  Add a line to allow any user that uses
@@ -325,8 +328,11 @@ The access node does not have any user keys nor certificates, so it cannot yet l
 into the data node.  User key files and user certificates are stored in 
 `timescaledb/certs` in the data directory.
 
->:TIP: You can configure the location of the user certificates and
->keys outside of the data directory using `timescaledb.ssl_dir`.
+<highlight type="tip">
+You can configure the location of the user certificates and
+keys outside of the data directory using `timescaledb.ssl_dir`.
+
+</highlight>
 
 To generate a key and certificate file:
 

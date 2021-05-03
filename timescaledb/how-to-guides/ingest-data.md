@@ -68,7 +68,8 @@ consumed by one or more clients. Kafka Connect can be distributed to provide
 fault tolerance to ensure the connectors are running and continually keeping
 up with changes in the database.
 
->:TIP: The PostgreSQL connector can also be used as a library without Kafka or
+<highlight type="tip">
+The PostgreSQL connector can also be used as a library without Kafka or
 Kafka Connect, enabling applications and services to directly connect to
 TimescaleDB and obtain the ordered change events. This approach requires the
 application to record the progress of the connector so that upon restart,
@@ -76,6 +77,7 @@ the connect can continue where it left off. This approach may be useful for
 less critical use cases. However, for production use cases, it’s recommended
 that you use this connector with Kafka and Kafka Connect.
 
+</highlight>
 To start using the PostgreSQL connector, visit the [GitHub page][github-debezium].
 If you are interested in an alternative method to ingest data from Kafka to
 TimescaleDB, you can download the [StreamSets Data Collector][streamsets-data-collector]
