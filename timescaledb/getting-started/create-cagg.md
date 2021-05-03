@@ -23,6 +23,7 @@ To learn how real TimescaleDB users leverage continuous aggregates see
 
 * [How FlightAware fuels flight prediction models for global travelers with TimescaleDB and Grafana](https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/)
 * [How I power a (successful) crypto trading bot with TimescaleDB](https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/)
+
 </highlight>
 
 ## Creating Continuous Aggregates
@@ -113,7 +114,7 @@ ORDER BY bucket ASC;
 An **automation policy **can also be used to refresh continuous aggregates according to a schedule.
 
 <highlight type="tip">
-**> A note on Automation Policies in TimescaleDB**
+A note on Automation Policies in TimescaleDB
 </highlight>
 
 While many databases have ad-hoc capabilities for managing large amounts of time-series data, adapting these features to the rhythm of your data lifecycle often requires custom code and regular development time. (For example, you might want to downsample, compress and/or discard data at specific, regular time intervals). 
@@ -158,7 +159,7 @@ SELECT * FROM timescaledb_information.job_stats;
 ## Querying Continuous Aggregates
 
 <highlight type="tip">
-> Continuous Aggregates are actually a special kind of hypertable, so you can query it, view and modify its chunks just like you would a regular hypertable. You can also add data retention policies and drop chunks on continuous aggregate hypertables. The only restrictions at this time is that you cannot apply compression or continuous aggregation to these hypertables.
+Continuous Aggregates are actually a special kind of hypertable, so you can query it, view and modify its chunks just like you would a regular hypertable. You can also add data retention policies and drop chunks on continuous aggregate hypertables. The only restrictions at this time is that you cannot apply compression or continuous aggregation to these hypertables.
 </highlight>
 
 
@@ -204,6 +205,6 @@ The first row returned has a time value newer than 1 January 2021, which is the 
 This makes real-time aggregation an ideal fit for many near real-time, monitoring and analysis use-cases, especially for dashboarding or reporting that requires the most up to date numbers all the time. It is for this reason that we recommend keeping the setting on.
 
 <highlight type="tip">
->  For more detailed information on continuous aggregates and real-time aggregation, see our [Continuous Aggregates docs](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates#react-docs).
+For more detailed information on continuous aggregates and real-time aggregation, see our [Continuous Aggregates docs](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates#react-docs).
 </highlight>
 
