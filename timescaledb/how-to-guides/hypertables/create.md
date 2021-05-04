@@ -26,7 +26,7 @@ SELECT create_hypertable('conditions', 'time');
 If you need to *migrate* data from an existing table to a hypertable, make
 sure to set the `migrate_data` argument to `true` when calling the function.
 If you would like finer control over index formation and other aspects
-of your hypertable, [follow these migration instructions instead][migrate-from-postgresql].
+of your hypertable, [follow these migration instructions instead](/how-to-guides/migrate-existing-data).
 </highlight>
 
 <highlight type="warning">
@@ -46,4 +46,3 @@ monotonically increasing id would work.
 [create_hypertable]: /api/:currentVersion:/hypertables-and-chunks/create_hypertable
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [using-distributed-hypertables]: /how-to-guides/distributed-hypertables
-[migrate-from-postgresql]: /how-to-guides/migrate-existing-data
