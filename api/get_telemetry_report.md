@@ -8,7 +8,7 @@ and returns a NULL report.
 
 |Name|Type|Description|
 |---|---|
-| `always_display_report` | Set to true to always view the report, even if telemetry is disabled |
+| `always_display_report` | BOOLEAN | Set to true to always view the report, even if telemetry is disabled |
 
 ### Sample Usage 
 If telemetry is enabled, view the telemetry report.

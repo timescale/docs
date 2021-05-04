@@ -8,14 +8,14 @@ The `locf` function call cannot be nested inside other function calls.
 
 |Name|Type|Description|
 |---|---|---|
-| `value` | The value to carry forward (anyelement) |
+| `value` | ANY ELEMENT | The value to carry forward |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `prev` | The lookup expression for values before gapfill start (anyelement) |
-| `treat_null_as_missing` | Ignore NULL values in locf and only carry non-NULL values forward |
+| `prev` | EXPRESSION | The lookup expression for values before gapfill start |
+| `treat_null_as_missing` | BOOLEAN | Ignore NULL values in locf and only carry non-NULL values forward |
 
 Because the locf function relies on having values before each bucketed period
 to carry forward, it might not have enough data to fill in a value for the first

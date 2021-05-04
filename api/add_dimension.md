@@ -90,11 +90,11 @@ queries.
 
 |Column|Type|Description|
 |---|---|---|
-| `dimension_id` | ID of the dimension in the TimescaleDB internal catalog. |
-| `schema_name` | Schema name of the hypertable.|
-| `table_name` | Table name of the hypertable. |
-| `column_name` | Column name of the column to partition by. |
-| `created` | True if the dimension was added, false when `if_not_exists` is true and no dimension was added. |
+| `dimension_id` | INTEGER |ID of the dimension in the TimescaleDB internal catalog. |
+| `schema_name` | TEXT | Schema name of the hypertable.|
+| `table_name` | TEXT | Table name of the hypertable. |
+| `column_name` | TEXT | Column name of the column to partition by. |
+| `created` | BOOLEAN | True if the dimension was added, false when `if_not_exists` is true and no dimension was added. |
 
 When executing this function, either `number_partitions` or
 `chunk_time_interval` must be supplied, which will dictate if the

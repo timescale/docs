@@ -8,14 +8,14 @@ The `interpolate` function call cannot be nested inside other function calls.
 
 |Name|Type|Description|
 |---|---|---|
-| `value` | The value to interpolate (int2/int4/int8/float4/float8) |
+| `value` | ANY VALUES | The value to interpolate (int2/int4/int8/float4/float8) |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `prev` | The lookup expression for values before the gapfill time range (record) |
-| `next` | The lookup expression for values after the gapfill time range (record) |
+| `prev` | EXPRESSION | The lookup expression for values before the gapfill time range (record) |
+| `next` | EXPRESSION | The lookup expression for values after the gapfill time range (record) |
 
 Because the interpolation function relies on having values before and after
 each bucketed period to compute the interpolated value, it might not have

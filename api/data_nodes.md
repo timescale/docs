@@ -7,9 +7,9 @@ TimescaleDB in a multi-node setup.
 
 |Name|Type|Description|
 |---|---|---|
-| `node_name` | Data node name. |
-| `owner` | Oid of the user, who added the data node. |
-| `options` | Options used when creating the data node. |
+| `node_name` | TEXT | Data node name. |
+| `owner` | REGCLASS | Oid of the user, who added the data node. |
+| `options` | JSONB | Options used when creating the data node. |
 
 ### Sample Usage
 

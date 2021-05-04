@@ -40,10 +40,10 @@ still work on the resulting hypertable.
 
 |Column|Type|Description|
 |---|---|---|
-| `hypertable_id` | ID of the hypertable in TimescaleDB. |
-| `schema_name` | Schema name of the table converted to hypertable. |
-| `table_name` | Table name of the table converted to hypertable. |
-| `created` | TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created. |
+| `hypertable_id` | INTEGER | ID of the hypertable in TimescaleDB. |
+| `schema_name` | TEXT | Schema name of the table converted to hypertable. |
+| `table_name` | TEXT | Table name of the table converted to hypertable. |
+| `created` | BOOLEAN | TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created. |
 
 <highlight type="tip">
  If you use `SELECT * FROM create_hypertable(...)` you will get the return value formatted as a table with column headings.

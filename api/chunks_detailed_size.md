@@ -23,10 +23,10 @@ via the `timescaledb_information.chunks` view.
 |---|---|---|
 |chunk_schema| TEXT | Schema name of the chunk |
 |chunk_name| TEXT | Name of the chunk|
-|table_bytes|(BIGINT) Disk space used by the chunk table|
-|index_bytes|(BIGINT) Disk space used by indexes|
-|toast_bytes|(BIGINT) Disk space of toast tables|
-|total_bytes|(BIGINT) Total disk space used by the chunk, including all indexes and TOAST data|
+|table_bytes|BIGINT | Disk space used by the chunk table|
+|index_bytes|BIGINT | Disk space used by indexes|
+|toast_bytes|BIGINT | Disk space of toast tables|
+|total_bytes|BIGINT | Total disk space used by the chunk, including all indexes and TOAST data|
 |node_name| TEXT | Node for which size is reported, applicable only to distributed hypertables|
 
 <highlight type="tip">

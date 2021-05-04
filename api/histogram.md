@@ -17,10 +17,10 @@ starting with `min`, but values equal to the `max` are in the last bucket.
 
 |Name|Type|Description|
 |---|---|---|
-| `value` | A set of values to partition into a histogram |
-| `min` | The histogram’s lower bound used in bucketing (inclusive) |
-| `max` | The histogram’s upper bound used in bucketing (exclusive) |
-| `nbuckets` | The integer value for the number of histogram buckets (partitions) |
+| `value` | ANY VALUE | A set of values to partition into a histogram |
+| `min` | NUMERIC | The histogram’s lower bound used in bucketing (inclusive) |
+| `max` | NUMERIC | The histogram’s upper bound used in bucketing (exclusive) |
+| `nbuckets` | INTEGER | The integer value for the number of histogram buckets (partitions) |
 
 ### Sample Usage 
 
@@ -61,14 +61,14 @@ The `interpolate` function call cannot be nested inside other function calls.
 
 |Name|Type|Description|
 |---|---|---|
-| `value` | The value to interpolate (int2/int4/int8/float4/float8) |
+| `value` | INTEGER | The value to interpolate (int2/int4/int8/float4/float8) |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `prev` | The lookup expression for values before the gapfill time range (record) |
-| `next` | The lookup expression for values after the gapfill time range (record) |
+| `prev` | RECORD | The lookup expression for values before the gapfill time range  |
+| `next` | RECORD | The lookup expression for values after the gapfill time range  |
 
 Because the interpolation function relies on having values before and after
 each bucketed period to compute the interpolated value, it might not have

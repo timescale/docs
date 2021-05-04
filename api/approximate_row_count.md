@@ -9,7 +9,7 @@ The accuracy of approximate_row_count depends on the database having up-to-date 
 
 |Name|Type|Description|
 |---|---|---|
-| `relation` | Hypertable or regular PostgreSQL table to get row count for. |
+| `relation` | REGCLASS | Hypertable or regular PostgreSQL table to get row count for. |
 
 ### Sample Usage 
 

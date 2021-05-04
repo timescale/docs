@@ -14,8 +14,8 @@ Get metadata information about hypertables.
 | `compression_enabled` | BOOLEAN | Is compression enabled on the hypertable?|
 | `is_distributed` | BOOLEAN | Is the hypertable distributed?|
 | `replication_factor` | SMALLINT | Replication factor for a distributed hypertable|
-| `data_nodes` | (NAME Nodes on which hypertable is distributed|
-| `tablespaces` | (NAME Tablespaces attached to the hypertable |
+| `data_nodes` | TEXT | Nodes on which hypertable is distributed|
+| `tablespaces` | TEXT | Tablespaces attached to the hypertable |
 
 ### Sample Usage 
 

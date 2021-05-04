@@ -25,15 +25,15 @@ call (unless as a subquery where the outer query does the type cast).
 
 |Name|Type|Description|
 |---|---|---|
-| `bucket_width` | A PostgreSQL time interval for how long each bucket is (interval) |
-| `time` | The timestamp to bucket (timestamp/timestamptz/date)|
+| `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
+| `time` | TIMESTAMP | The timestamp to bucket |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `start` | The start of the gapfill period (timestamp/timestamptz/date)|
-| `finish` | The end of the gapfill period (timestamp/timestamptz/date)|
+| `start` | TIMESTAMP | The start of the gapfill period |
+| `finish` | TIMESTAMP | The end of the gapfill period |
 
 Note that explicitly provided `start` and `stop` or derived from WHERE clause values 
 need to be simple expressions. Such expressions should be evaluated to constants 
@@ -46,15 +46,15 @@ call to `now()`, but cannot reference to columns of a table.
 
 |Name|Type|Description|
 |---|---|---|
-| `bucket_width` | integer interval for how long each bucket is (int2/int4/int8) |
-| `time` | The timestamp to bucket (int2/int4/int8)|
+| `bucket_width` | INTEGER | integer interval for how long each bucket is |
+| `time` | INTEGER | The timestamp to bucket |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `start` | The start of the gapfill period (int2/int4/int8)|
-| `finish` | The end of the gapfill period (int2/int4/int8)|
+| `start` | INTEGER | The start of the gapfill period |
+| `finish` | INTEGER | The end of the gapfill period |
 
 Starting with version 1.3.0 `start` and `finish` are optional arguments and will
 be inferred from the WHERE clause if not supplied as arguments.

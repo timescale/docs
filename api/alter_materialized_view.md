@@ -20,7 +20,7 @@ ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ...
 
 ### Sample Usage 
 
-To disable [real-time aggregates][real-time-aggregates] for a
+To disable real-time aggregates for a
 continuous aggregate:
 
 ```sql
@@ -31,3 +31,4 @@ The only option that currently can be modified with `ALTER
 MATERIALIZED VIEW` is `materialized_only`. The other options
 `continuous` and `create_group_indexes` can only be set when creating
 the continuous aggregate.
+

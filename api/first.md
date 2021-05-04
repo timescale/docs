@@ -8,8 +8,8 @@ earliest temperature value based on time within an aggregate group.
 
 |Name|Type|Description|
 |---|---|---|
-| `value` | The value to return (anyelement) |
-| `time` | The timestamp to use for comparison (TIMESTAMP/TIMESTAMPTZ or integer type)  |
+| `value` | TEXT | The value to return |
+| `time` | TIMESTAMP or INTEGER | The timestamp to use for comparison |
 
 ### Sample Usage 
 

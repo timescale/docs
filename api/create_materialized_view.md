@@ -30,10 +30,10 @@ the hypertable's time column, and all aggregates must be parallelizable.
 ### Parameters
 |Name|Type|Description|
 |---|---|---|
-| `<view_name>` | Name (optionally schema-qualified) of continuous aggregate view to be created.|
-| `<column_name>`| Optional list of names to be used for columns of the view. If not given, the column names are deduced from the query.|
-| `WITH` clause | This clause specifies [options](#continuous_aggregate-create_view-with) for the continuous aggregate view.|
-| `<select_query>`| A `SELECT` query that uses the specified syntax. |
+| `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
+| `<column_name>`| TEXT | Optional list of names to be used for columns of the view. If not given, the column names are deduced from the query.|
+| `WITH` clause | TEXT | This clause specifies [options](#continuous_aggregate-create_view-with) for the continuous aggregate view.|
+| `<select_query>`| TEXT | A `SELECT` query that uses the specified syntax. |
 
 #### Required `WITH` clause options 
 

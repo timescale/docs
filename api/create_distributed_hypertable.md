@@ -8,34 +8,34 @@ when creating distributed hypertables.
 
 |Name|Type|Description|
 |---|---|---|
-| `relation` | Identifier of table to convert to hypertable. |
-| `time_column_name` | Name of the column containing time values as well as the primary column to partition by. |
+| `relation` | REGCLASS | Identifier of table to convert to hypertable. |
+| `time_column_name` | TEXT | Name of the column containing time values as well as the primary column to partition by. |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `partitioning_column` | Name of an additional column to partition by. |
-| `number_partitions` | Number of hash partitions to use for `partitioning_column`. Must be > 0. Default is the number of `data_nodes`. |
-| `associated_schema_name` | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
-| `associated_table_prefix` | Prefix for internal hypertable chunk names. Default is "_hyper". |
-| `chunk_time_interval` | Interval in event time that each chunk covers. Must be > 0. As of TimescaleDB v0.11.0, default is 7 days, unless adaptive chunking (DEPRECATED)  is enabled, in which case the interval starts at 1 day. For previous versions, default is 1 month. |
-| `create_default_indexes` | Boolean whether to create default indexes on time/partitioning columns. Default is TRUE. |
-| `if_not_exists` | Boolean whether to print warning if table already converted to hypertable or raise exception. Default is FALSE. |
-| `partitioning_func` | The function to use for calculating a value's partition.|
-| `migrate_data` | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table will generate an error without this option. Large tables may take significant time to migrate. Default is FALSE. |
-| `time_partitioning_func` | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
-| `replication_factor` | The number of data nodes to which the same data is written to. This is done by creating chunk copies on this amount of data nodes.  Must be >= 1; default is 1.  Read [the best practices](#create_distributed_hypertable-best-practices) before changing the default. |
-| `data_nodes` | The set of data nodes used for the distributed hypertable.  If not present, defaults to all data nodes known by the access node (the node on which the distributed hypertable is created). |
+| `partitioning_column` | TEXT | Name of an additional column to partition by. |
+| `number_partitions` | INTEGER | Number of hash partitions to use for `partitioning_column`. Must be > 0. Default is the number of `data_nodes`. |
+| `associated_schema_name` | TEXT | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
+| `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is "_hyper". |
+| `chunk_time_interval` | INTERVAL | Interval in event time that each chunk covers. Must be > 0. As of TimescaleDB v0.11.0, default is 7 days, unless adaptive chunking (DEPRECATED)  is enabled, in which case the interval starts at 1 day. For previous versions, default is 1 month. |
+| `create_default_indexes` | BOOLEAN | Boolean whether to create default indexes on time/partitioning columns. Default is TRUE. |
+| `if_not_exists` | BOOLEAN | Boolean whether to print warning if table already converted to hypertable or raise exception. Default is FALSE. |
+| `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|
+| `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table will generate an error without this option. Large tables may take significant time to migrate. Default is FALSE. |
+| `time_partitioning_func` | REGCLASS | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
+| `replication_factor` | INTEGER | The number of data nodes to which the same data is written to. This is done by creating chunk copies on this amount of data nodes.  Must be >= 1; default is 1.  Read [the best practices](#create_distributed_hypertable-best-practices) before changing the default. |
+| `data_nodes` | ARRAY | The set of data nodes used for the distributed hypertable.  If not present, defaults to all data nodes known by the access node (the node on which the distributed hypertable is created). |
 
 ### Returns
 
 |Column|Type|Description|
 |---|---|---|
-| `hypertable_id` | ID of the hypertable in TimescaleDB. |
-| `schema_name` | Schema name of the table converted to hypertable. |
-| `table_name` | Table name of the table converted to hypertable. |
-| `created` | TRUE if the hypertable was created, FALSE when `if_not_exists` is TRUE and no hypertable was created. |
+| `hypertable_id` | INTEGER | ID of the hypertable in TimescaleDB. |
+| `schema_name` | TEXT | Schema name of the table converted to hypertable. |
+| `table_name` | TEXT | Table name of the table converted to hypertable. |
+| `created` | BOOLEAN | TRUE if the hypertable was created, FALSE when `if_not_exists` is TRUE and no hypertable was created. |
 
 ### Sample Usage 
 

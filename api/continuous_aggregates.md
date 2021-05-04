@@ -14,7 +14,7 @@ Get metadata and settings information for continuous aggregates.
 |`materialized_only` | BOOLEAN | Return only materialized data when querying the continuous aggregate view. |
 |`materialization_hypertable_schema` | TEXT | Schema of the underlying materialization table|
 |`materialization_hypertable_name` | TEXT | Name of the underlying materialization table|
-|`view_definition` |(TEXT) `SELECT` query for continuous aggregate view|
+|`view_definition` | TEXT | `SELECT` query for continuous aggregate view|
 
 ### Sample Usage
 ```sql

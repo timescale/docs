@@ -23,15 +23,15 @@ or 1 hour.
 
 |Name|Type|Description|
 |---|---|---|
-| `bucket_width` | A PostgreSQL time interval for how long each bucket is (interval) |
-| `time` | The timestamp to bucket (timestamp/timestamptz/date)|
+| `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
+| `time` | TIMESTAMP | The timestamp to bucket |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `offset` | The time interval to offset all buckets by (interval) |
-| `origin` | Buckets are aligned relative to this timestamp (timestamp/timestamptz/date) |
+| `offset` | INTERVAL | The time interval to offset all buckets by  |
+| `origin` | TIMESTAMP | Buckets are aligned relative to this timestamp  |
 
 ### For Integer Time Inputs
 
@@ -39,14 +39,14 @@ or 1 hour.
 
 |Name|Type|Description|
 |---|---|---|
-| `bucket_width` | The bucket width (integer) |
-| `time` | The timestamp to bucket (integer) |
+| `bucket_width` | INTEGER | The bucket width |
+| `time` | INTEGER | The timestamp to bucket |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `offset` | The amount to offset all buckets by (integer) |
+| `offset` | INTEGER | The amount to offset all buckets by |
 
 
 ### Sample Usage 
