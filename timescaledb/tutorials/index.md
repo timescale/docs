@@ -36,8 +36,8 @@ and pick up some valuable `psql` tips and tricks along the way.
 [Grafana]: /tutorials/grafana
 [Telegraf Output Plugin]: /tutorials/telegraf-output-plugin
 [Data Sets]: /tutorials/other-sample-datasets
-[install-timescale]: /getting-started/installation
-[psql]: /getting-started/install-psql-tutorial
+[install-timescale]: /how-to-guides/install-timescaledb/
+[psql]: /how-to-guides/connecting/psql/
 [Crypto]: /tutorials/analyze-cryptocurrency-data
 [Tableau]: /tutorials/visualizing-time-series-data-in-tableau
 [prometheus-tsc-endpoint]: /tutorials/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus

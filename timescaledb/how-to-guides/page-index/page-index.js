@@ -17,7 +17,33 @@ module.exports = [
                 component: "InstallationPage",
                 showNewsletterForm: true,
                 children: [
-                 {
+                  {
+                    title: "Forge",
+                    type: 'redirect-to-child-page',
+                    href: "forge",
+                    iconSrc: "//assets.iobeam.com/images/docs/timescale_forge_logo.svg",
+                    children: [
+                      {
+                        Title: "Timescale Forge",
+                        type: 'non-menu-page',
+                        href: "installation-forge",
+                      },
+                    ],
+                  },
+                  {
+                    title: "Cloud",
+                    type: 'redirect-to-child-page',
+                    href: "forge",
+                    iconSrc: "//assets.iobeam.com/images/docs/timescale_cloud_logo.svg",
+                    children: [
+                      {
+                        Title: "Timescale Cloud",
+                        type: 'non-menu-page',
+                        href: "installation-cloud",
+                      },
+                    ],
+                  },                  
+                  {
                     title: "Docker",
                     type: 'redirect-to-child-page',
                     href: "docker",
