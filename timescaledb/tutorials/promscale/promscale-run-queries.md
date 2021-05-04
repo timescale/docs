@@ -273,7 +273,7 @@ Now that you're up and running with Promscale, here are more resources to help y
 * [Promscale Github][promscale-github]
 * [Promscale explainer videos][promscale-intro-video]
 * [The Observability Stack for Kubernetes][tobs-github]
-* [TimescaleDB: Getting Started][hello-timescale]
+* [TimescaleDB: Getting Started][getting-started]
 * [TimescaleDB Multinode][timescaledb-multinode-docs]
 * [Timescale Analytics project][timescale-analytics]
 
@@ -314,7 +314,7 @@ Now that you're up and running with Promscale, here are more resources to help y
 [grafana-docker]: https://grafana.com/docs/grafana/latest/installation/docker/#install-official-and-community-grafana-plugins
 [timescaledb-multinode-docs]:https://docs.timescale.com/latest/getting-started/setup-multi-node-basic
 [timescale-analytics]:https://github.com/timescale/timescale-analytics
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[getting-started]: /timescaledb/:currentProduct:/getting-started/
 [promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
 [promscale-benefits]: /tutorials/getting-started-with-promscale/promscale-benefits
 [promscale-how-it-works]: /tutorials/getting-started-with-promscale/promscale-how-it-works

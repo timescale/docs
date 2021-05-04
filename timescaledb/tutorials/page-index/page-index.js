@@ -22,6 +22,10 @@ module.exports = [
             ]
           },
           {
+            title: "Introduction to IoT",
+            href: "nyc-taxi-cab"
+          },
+          {
             title: "Getting started with Promscale",
             href: "promscale",
             children: [
