@@ -188,7 +188,7 @@ column or make sure that the index includes time as part of a "composite key".
 <highlight type="tip">
 Composite keys aren't supported natively by Rails, but if you need to keep 
 your `id` column around for some reason you can add support for them with 
-the [`composite_primary_keys` gem][composite-primary-key-gem].
+the [`composite_primary_keys` gem](https://github.com/composite-primary-keys/composite_primary_keys).
 </highlight>
 
 To satisfy this TimescaleDB requirement, we need to change the migration code to _not_ create a `PRIMARY KEY` using the `id` column when `create_table` is used. 
@@ -720,7 +720,6 @@ be sure to check out these advanced TimescaleDB tutorials:
 [hypertables]: /overview/core-concepts/
 [active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
 [rails-install]: https://guides.rubyonrails.org/getting_started.html
-[composite-primary-key-gem]: https://github.com/composite-primary-keys/composite_primary_keys
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
 [time_bucket]: https://docs.timescale.com/latest/api#time_bucket
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
