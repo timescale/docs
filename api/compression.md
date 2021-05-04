@@ -5,11 +5,11 @@ We highly recommend reading the [blog post][blog-compression] and
 for the first time.
 
 Setting up compression on TimescaleDB requires users to first [configure the
-hypertable for compression](#compression_alter-table) and then [set up a
-policy](#add_compression_policy) for when to compress chunks.
+hypertable for compression](/compression/alter_table_compression/) and then [set up a
+policy](/compression/add_compression_policy/) for when to compress chunks.
 
 Advanced usage of compression allows users to [compress chunks
-manually](#compress_chunk), instead of automatically as they age.
+manually](/compression/compress_chunk), instead of automatically as they age.
 
 ### Restrictions
 
@@ -20,5 +20,5 @@ decompress the chunk(s) first.
 
 Starting with TimescaleDB 2.1, users have the ability to modify the schema
 of hypertables that have compressed chunks.
-Specifically, [you can add columns to and rename existing columns of 
-such compressed hypertables](#compression-schema-changes).
+Specifically, you can add columns to and rename existing columns of 
+such compressed hypertables.

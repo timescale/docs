@@ -3,7 +3,7 @@
 Shows information and statistics about jobs run by the automation framework.
 This includes jobs set up for user defined actions and jobs run by policies 
 created to manage data retention, continuous aggregates, compression, and
-other automation policies.  (See [policies](#automation-policies)). 
+other automation policies.  (See [policies](/actions/)). 
 The statistics include information useful for administering jobs and determining
 whether they ought be rescheduled, such as: when and whether the background job
 used to implement the policy succeeded and when it is scheduled to run next.

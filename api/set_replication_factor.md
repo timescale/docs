@@ -24,7 +24,7 @@ An error will be given if:
 - `replication_factor` is bigger than the number of attached data nodes.
 
 If a bigger replication factor is desired, it is necessary to attach more data nodes
-by using [attach_data_node](#attach_data_node).
+by using [attach_data_node](/distributed-hypertables/attach_data_node).
 
 ### Sample Usage 
 

@@ -32,7 +32,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 |---|---|---|
 | `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 | `<column_name>`| TEXT | Optional list of names to be used for columns of the view. If not given, the column names are deduced from the query.|
-| `WITH` clause | TEXT | This clause specifies [options](#continuous_aggregate-create_view-with) for the continuous aggregate view.|
+| `WITH` clause | TEXT | This clause specifies [options](/continuous-aggregates/create_materialized_view/#parameters) for the continuous aggregate view.|
 | `<select_query>`| TEXT | A `SELECT` query that uses the specified syntax. |
 
 #### Required `WITH` clause options 
@@ -58,7 +58,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 #### Notes
 
 - The view will be automatically refreshed (as outlined under
-  [`refresh_continuous_aggregate`](#refresh_continuous_aggregate))
+  [`refresh_continuous_aggregate`](/continuous-aggregates/refresh_continuous_aggregate/))
   unless `WITH NO DATA` is given (`WITH DATA` is the default).
 - The `SELECT` query should be of the form specified in the syntax above, which is discussed in
   the following items.
@@ -68,9 +68,9 @@ the hypertable's time column, and all aggregates must be parallelizable.
 - The hypertable used in the `SELECT` may not have [row-level-security
   policies][postgres-rls] enabled.
 -  The `GROUP BY` clause must include a time_bucket expression. The
-   [`time_bucket`](#time_bucket) expression must use the time
+   [`time_bucket`](/analytics/time_bucket/) expression must use the time
    dimension column of the hypertable.
-- [`time_bucket_gapfill`](#time_bucket_gapfill) is not allowed in continuous
+- [`time_bucket_gapfill`](/analytics/time_bucket_gapfill/) is not allowed in continuous
   aggs, but may be run in a `SELECT` from the continuous aggregate view.
 - In general, aggregates which can be [parallelized by
   PostgreSQL][postgres-parallel-agg] are allowed in the view
@@ -88,8 +88,8 @@ the hypertable's time column, and all aggregates must be parallelizable.
 [postgres-security-barrier]:https://www.postgresql.org/docs/current/rules-privileges.html
 
 <highlight type="tip">
- You can find the [settings for continuous aggregates](#timescaledb_information-continuous_aggregate) and
-[statistics](#timescaledb_information-job_stats) in `timescaledb_information` views.
+ You can find the [settings for continuous aggregates](/informational-views/continuous_aggregates/) and
+[statistics](/informational-views/job_stats/) in `timescaledb_information` views.
 </highlight>
 
 ### Sample Usage 

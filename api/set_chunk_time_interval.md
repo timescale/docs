@@ -27,7 +27,7 @@ hypertable time column:
     integer (smallint, int, bigint) value and represent the underlying
     semantics of the hypertable's time column, e.g., given in
     milliseconds if the time column is expressed in milliseconds
-    (see `create_hypertable` [instructions](#create_hypertable)).
+    (see `create_hypertable` [instructions](/hypertable/create_hypertable)).
 
 ### Sample Usage 
 

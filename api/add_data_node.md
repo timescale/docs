@@ -4,7 +4,7 @@ Add a new data node on the access node to be used by distributed
 hypertables. The data node will automatically be used by distributed
 hypertables that are created after the data node has been added, while
 existing distributed hypertables require an additional
-[`attach_data_node`](#attach_data_node).
+[`attach_data_node`](/distributed-hypertables/attach_data_node).
 
 If the data node already exists, the command will abort with either an
 error or a notice depending on the value of `if_not_exists`.
@@ -28,7 +28,7 @@ the data node by:
    database.
 
 Note that user roles are not automatically created on the new data
-node during bootstrapping. The [`distributed_exec`](#distributed_exec)
+node during bootstrapping. The [`distributed_exec`](/distributed-hypertables/distributed_exec)
 procedure can be used to create additional roles on the data node
 after it is added.
 

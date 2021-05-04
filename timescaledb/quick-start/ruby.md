@@ -7,7 +7,7 @@ you’ll learn how to:
 
 * [Connect to TimescaleDB](#new_database)
 * [Create a relational table](#create_table)
-* [Generate a Hypertable](#create_hypertable) 
+* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable) 
 * [Insert a batch of rows into your Timescale database](#insert_rows)
 * [Execute a query on your Timescale database](#execute_query)
 

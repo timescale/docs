@@ -21,7 +21,7 @@ date or timestamp type. Note that a continuous aggregate using the
 `window_start` and `window_end` is specified in the local time zone,
 any time zone shift relative UTC needs to be accounted for when
 refreshing in order to align with bucket boundaries (for examples, see
-[Sample Usage](#refresh_continuous_aggregate-examples)).
+[Sample Usage](/continuous-aggregates/refresh_continuous_aggregate/-examples)).
 
 
 ### Required Arguments

@@ -1,5 +1,5 @@
 ## ALTER MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag> 
-`ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH` clause [options](#continuous_aggregate-create_view-with-optional) for the continuous aggregate view. 
+`ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH` clause [options](/continuous-aggregates/create_materialized_view/#parameters) for the continuous aggregate view. 
 `ALTER MATERIALIZED VIEW` statement also supports the following 
 [PostgreSQL clauses][postgres-alterview] on the 
 continuous aggregate view: 

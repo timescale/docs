@@ -336,7 +336,7 @@ See our [install documentation][install].
 See our [updating documentation][update]. 
 
 
-[api]: /api
+[api]: /api/:currentVersion:/
 [why-sql]: https://www.timescale.com/blog/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
 [new-queries]: /how-to-guides/query-data/advanced-analytic-queries/
 [INSERT]: /how-to-guides/write-data/insert/

@@ -1,7 +1,7 @@
 ## locf() <tag type="community">Community</tag> 
 
 The `locf` function (last observation carried forward) allows you to carry the last seen value in an aggregation group forward.
-It can only be used in an aggregation query with [time_bucket_gapfill](#time_bucket_gapfill).
+It can only be used in an aggregation query with [time_bucket_gapfill](/analytics/time_bucket_gapfill/).
 The `locf` function call cannot be nested inside other function calls.
 
 ### Required Arguments

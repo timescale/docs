@@ -6,7 +6,7 @@ index over all existing data nodes.
 
 The data node will be detached from all hypertables that are using
 it if permissions and data integrity requirements are satisfied. For
-more information, see [`detach_data_node`](#detach_data_node).
+more information, see [`detach_data_node`](/distributed-hypertables/detach_data_node).
 
 #### Errors
 

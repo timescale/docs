@@ -11,8 +11,8 @@ be run only on an empty hypertable.
 </highlight>
 
 **Space partitions**: Using space partitions is highly recommended
-for [distributed hypertables](#create_distributed_hypertable) to achieve
-efficient scale-out performance. For [regular hypertables](#create_hypertable)
+for [distributed hypertables](/distributed-hypertables/create_distributed_hypertable) to achieve
+efficient scale-out performance. For [regular hypertables](/hypertable/create_hypertable)
 that exist only on a single node, additional partitioning can be used
 for specialized use cases and not recommended for most users.
 
@@ -83,7 +83,7 @@ queries.
 |---|---|---|
 | `number_partitions` | INTEGER | Number of hash partitions to use on `column_name`. Must be > 0.|
 | `chunk_time_interval` | INTERVAL | Interval that each chunk covers. Must be > 0.|
-| `partitioning_func` | REGCLASS | The function to use for calculating a value's partition (see `create_hypertable` [instructions](#create_hypertable)).|
+| `partitioning_func` | REGCLASS | The function to use for calculating a value's partition (see `create_hypertable` [instructions](/hypertable/create_hypertable)).|
 | `if_not_exists` | BOOLEAN | Set to true to avoid throwing an error if a dimension for the column already exists. A notice is issued instead. Defaults to false. |
 
 ### Returns

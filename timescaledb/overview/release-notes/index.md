@@ -37,7 +37,7 @@ users to upgrade in testing environments to gain experience and provide feedback
 new and updated features.
 
 Especially because some API updates from TimescaleDB 1.x to 2.0 are breaking changes, 
-we recommend reviewing the [Changes in TimescaleDB 2.0][changes-in-timescaledb-2] 
+we recommend reviewing the [Changes in TimescaleDB 2.0](/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/)
 for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
 </highlight>
 
@@ -1231,3 +1231,5 @@ For more information on this release, read the [blog announcement](https://blog.
 [distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
 [distributed-hypertables-setup]: /how-to-guides/multi-node-setup/
 [changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
+[multinode-intro]: /overview/core-concepts/distributed-hypertables
+[multinode-setup]: /how-to-guides/multi-node-setup/

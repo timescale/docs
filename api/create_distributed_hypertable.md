@@ -1,7 +1,7 @@
 ## create_distributed_hypertable() 
 
 Creates a TimescaleDB hypertable distributed across a multinode
-environment.  Use this function in place of [`create_hypertable`](#create_hypertable)
+environment.  Use this function in place of [`create_hypertable`](/hypertable/create_hypertable)
 when creating distributed hypertables.
 
 ### Required Arguments
@@ -25,7 +25,7 @@ when creating distributed hypertables.
 | `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|
 | `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table will generate an error without this option. Large tables may take significant time to migrate. Default is FALSE. |
 | `time_partitioning_func` | REGCLASS | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
-| `replication_factor` | INTEGER | The number of data nodes to which the same data is written to. This is done by creating chunk copies on this amount of data nodes.  Must be >= 1; default is 1.  Read [the best practices](#create_distributed_hypertable-best-practices) before changing the default. |
+| `replication_factor` | INTEGER | The number of data nodes to which the same data is written to. This is done by creating chunk copies on this amount of data nodes.  Must be >= 1; default is 1.  Read [the best practices](/distributed-hypertables/create_distributed_hypertable-best-practices) before changing the default. |
 | `data_nodes` | ARRAY | The set of data nodes used for the distributed hypertable.  If not present, defaults to all data nodes known by the access node (the node on which the distributed hypertable is created). |
 
 ### Returns
@@ -56,7 +56,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
 
 #### Best Practices 
 
-**Space partitions:** As opposed to the normal [`create_hypertable` best practices](#create_hypertable-best-practices),
+**Space partitions:** As opposed to the normal [`create_hypertable` best practices](/hypertable/create_hypertable-best-practices),
 space partitions are highly recommended for distributed hypertables.
 Incoming data will be divided among data nodes based upon the space
 partition (the first one if multiple space partitions have been
@@ -64,7 +64,7 @@ defined).  If there is no space partition, all the data for each time
 slice will be written to a single data node.
 
 **Time intervals:** Follow the same guideline in setting the `chunk_time_interval`
-as with [`create_hypertable`](#create_hypertable-best-practices),
+as with [`create_hypertable`](/hypertable/create_hypertable-best-practices),
 bearing in mind that the calculation needs to be based on the memory
 capacity of the data nodes.  However, one additional thing to
 consider, assuming space partitioning is being used, is that the
