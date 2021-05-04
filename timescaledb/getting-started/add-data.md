@@ -36,15 +36,7 @@ For each city, we record the following metrics:
 
 ## Accessing the Dataset
 
-**Restore database backup**
-
-To get you started quickly, we provide a database dump for you to download and restore.
-
-To restore from our backup, follow these instructions: [TimescaleDB restore and backup](https://docs.timescale.com/latest/using-timescaledb/backup)
-
-**Insert from CSV file**
-
-We also provide a csv file with commands for inserting the data into your TimescaleDB instance.
+We provide a csv file with commands for inserting the data into your TimescaleDB instance.
 
 Download the CSV file (in ZIP format) below and insert it into your database from psql.
 

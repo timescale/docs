@@ -1,4 +1,4 @@
-## Installation (Timescale Forge) [](installation-timescale-forge)
+# Timescale Forge
 
 Timescale Forge is a time-series platform that provides
 a cloud-native experience for storing and analyzing time-series.

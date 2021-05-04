@@ -1,4 +1,4 @@
-## Installation (Timescale Cloud)
+# Timescale Cloud
 
 Timescale Cloud is a Database as a Service (DBaaS) offering that provides
 an easy way for you to store and analyze time-series.
