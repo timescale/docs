@@ -20,7 +20,7 @@ For our next release, we plan to add:
 - Partially mutable compressed chunks to support INSERTs into a compressed hypertable.
 - Various bug fixes.
 
-We are currently in the Generally Available (GA) version 2.2.1.
+The current GA (Generally Available) version is 2.2.1.
 
 One of the most significant changes in TimescaleDB 2.0 is support for
 horizontally scale-out TimescaleDB running across many nodes.
@@ -34,19 +34,17 @@ Currently, the latest Generally Available (GA) release is TimescaleDB 2.1.
 
 What's new in TimescaleDB 2.2.1:
 
-Skip Scan optimization on single node and multinode, which significantly 
-improves the performance of queries with DISTINCT ON. This 
-optimization is not yet available for queries on distributed 
-hypertables.
+Skip Scan optimization on single node and multinode. This feature offers significant 
+improvements in performance of `SELECT` queries with `DISTINCT ON`.
 
-This release also adds a function to create a distributed 
-restore point, which allows performing a consistent restore of a 
+This release also adds support for creating a distributed 
+restore point. This allows performing a consistent restore of a 
 multi-node cluster from a backup.
 
-The bug fixes in this release address issues with size and stats 
+The bug fixes in this release address issues in size and stats 
 functions, high memory usage in distributed inserts, slow distributed 
-ORDER BY queries, indexes involving INCLUDE, and single chunk query 
-planning.
+ORDER BY queries, indexes involving INCLUDE, single chunk query 
+planning, compression, and policies.
 
 **PostgreSQL 11 deprecation announcement**
 
@@ -54,8 +52,7 @@ Timescale is working hard on our next exciting features. To make that
 possible, we require functionality that is unfortunately absent on 
 PostgreSQL 11. For this reason, we will continue supporting PostgreSQL 
 11 until mid-June 2021. Sooner to that time, we will announce the 
-specific version of TimescaleDB in which PostgreSQL 11 support will 
-not be included going forward.
+specific version of TimescaleDB in which PostgreSQL 11 support will be removed.
 
 <highlight type="tip">
 TimescaleDB 2.2.1 is currently GA, we encourage
