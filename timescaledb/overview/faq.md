@@ -1,11 +1,31 @@
 # FAQ
 
 ## What is TimescaleDB?
-TimescaleDB is the only open source time-series database that supports full SQL.
+TimescaleDB is an open-source relational database for time-series. Developers
+often tell us that TimescaleDB is "PostgreSQL with super-powers." TimescaleDB
+is the only open source time-series database that supports full SQL.
 Optimized for fast ingest and complex queries, TimescaleDB is easy to use like a
 traditional relational database, yet scales in ways previously reserved for NoSQL
 databases. In particular, this makes TimescaleDB an ideal candidate for
-operational analytics. TimescaleDB Open Source is distributed under the Apache 2.0 license. 
+operational analytics.
+
+## Why is time-series data important?
+At Timescale, we are dedicated to serving developers worldwide, enabling 
+them to build exceptional data-driven products that measure everything that 
+matters: software applications, industrial equipment, financial markets, 
+blockchain activity, consumer behavior, machine learning models, climate 
+change, and more. Analyzing this data across the time dimension 
+("time-series data") enables developers to understand what is happening 
+right now, how that is changing, and why that is changing.
+
+This might be measuring the temperature and humidity of soil, to help 
+farmers combat climate change. Or measuring flight data to predict 
+landing and arrival times for airlines and travelers. Or tracking every 
+action that a user takes in an application, and the performance of the 
+infrastructure underlying that application, to help resolve support 
+issues and increase customer happiness. But these are just a few of 
+the thousands of different ways developers are using time-series data
+to measure everything that matters today.
 
 ## Why build another time-series database?
 Time-series data is cropping up in more and more places: monitoring and DevOps,
@@ -20,8 +40,9 @@ built it.
 
 ## Why should I use TimescaleDB?
 As time becomes a more critical dimension along which data is measured,
-TimescaleDB enables developers and organizations to harness more of its power:
-analyzing the past, understanding the present, and predicting the future.
+TimescaleDB enables developers and organizations to harness more of its power
+to measure everything that matters.
+
 Unifying time-series data and relational data at the query level removes data
 silos, and makes demos and prototypes easier to get off the ground. The
 combination of scalability and a full SQL interface empowers a broad variety of
@@ -46,12 +67,12 @@ and more. Use cases include complex monitoring and analytics; predicting the per
 behavior of applications, models, consumers and connected machines; powering operational
 analytical workflows and dashboards; for QA and performance testing. 
 
-## Why should I choose Timescale Cloud?
+## Why should I choose a managed Timescale offering?
 If you want all the benefits of TimescaleDB without the hassle of installing,
-maintaining, and administering the database itself, then Timescale Cloud is the
-best choice for you.
+maintaining, and administering the database itself, then let Timescale manage and
+operate TimescaleDB on your behalf.
 
-Timescale Cloud manages all of the operational elements of your database so you can 
+With cloud-based TimescaleDB, Timescale manages all of the operational elements of your database so you can 
 focus on building your applications and not making sure the infrastructure works. We 
 ensure you have a secure, high availability environment where we manage the infrastructure 
 all the way down to setting up replications, point-in-time recovery, read replicas, 
@@ -70,9 +91,40 @@ Sydney (`ap-southeast-2`), Tokyo (`ap-northeast-1`), Mumbai (`ap-south-1`), Seou
 Iowa, Oregon, São Paulo, Zürich, London, Frankfurt, Finland, Belgium, Netherlands, 
 Montréal, Sydney, Taiwan, Mumbai, Hong Kong, Tokyo, Singapore
 
-## What is the difference between Timescale, TimescaleDB, and Timescale Cloud?
-**Timescale** is the company. Timescale builds a category-defining time-series database called **TimescaleDB**. 
-Timescale hosts and manages TimescaleDB on behalf of its customers via a product called **Timescale Cloud**. 
+## What is the difference between Timescale, TimescaleDB, Timescale Forge, and Timescale Cloud?
+**Timescale** is the company.
+
+Timescale builds an open-source relational database for time-series called 
+**TimescaleDB**. 
+
+Timescale hosts and manages TimescaleDB on behalf of its customers via 
+hosted services called **Timescale Forge** and **Timescale Cloud**.
+
+Timescale Forge is a cloud-native TimescaleDB-as-a-service that is easy to 
+get started and powerful enough for the most demanding scenarios.
+
+Timescale Cloud is a managed TimescaleDB service hosted in 75+ regions in 
+AWS, Azure, or GCP.
+
+## What is the version of TimescaleDB offered by Microsoft Azure, Digital Ocean, or other cloud providers?
+TimescaleDB is a relational database for time-series, with some features 
+licensed under the Apache 2.0 License but many of the features you know and 
+love are licensed via the [Timescale License][timescale-license] (including 
+continuous aggregates, compression, data retention policies, actions, 
+multi-node, and more). The "Apache 2.0" version of TimescaleDB offered 
+by Microsoft, Digital Ocean, and others includes only the features in the 
+Apache license. The Timescale License prohibits cloud providers from offering 
+the "community version" of TimescaleDB-as-a-service.
+
+Today, you can deploy the community version of TimescaleDB on-premises or in 
+your own cloud account, running the software on bare VMs or using our 
+[open-source k8s helm charts][timescale-k8s]. TimescaleDB acquired in 
+this manner is totally free to use, and free to even modify for your 
+own use or for services or products you build on TimescaleDB.
+
+Or, if you prefer, [you can let us run TimescaleDB for you][timescale-signup], 
+fully managed on AWS, Azure, or GCP in 75+ regions and with access to 
+our [top-rated support team][timescale-support].
 
 ## What is the version of TimescaleDB offered by Microsoft Azure, Digital Ocean, or other cloud providers?
 TimescaleDB is a relational database for time-series, with some features 
@@ -139,22 +191,16 @@ TimescaleDB ncompression, please see [our compression docs][compression-docs]
 or a longer technical deep-dive [on our blog ][compression-blog]. 
 
 ## How far can TimescaleDB scale?
-We've first focused on scaling TimescaleDB up on a single node. In our internal
-benchmarks on standard cloud VMs we regularly test  TimescaleDB to 10+ billion
-rows, while sustaining insert rates of 100-200k rows / second (1-2 million metric
-inserts / second).
+In our internal benchmarks on standard cloud VMs, we regularly test 
+single-node TimescaleDB to 100s of terabytes of data, while sustaining 
+insert rates of 100-200k rows / second (1-2 million metric inserts / second). 
+Multi-node TimescaleDB can scale to 10+ million metric inserts / second, and 
+store petabytes of data. You can read more about 
+[insert and query benchmarks][benchmarks] for multi-node TimescaleDB.
 
-With more powerful hardware, users have scaled TimescaleDB to trillions of rows of data
-while sustaining 400k row inserts / second. In this case, customers took advantage of
-the fact that we allow users to elastically add disks (i.e., RAID), in order to scale
-up capacity on a single node. As disks are added, chunks are redistributed across them,
-in similar fashion to how they would be distributed across nodes.
-
-With that said, the principal design decisions implemented for scaling up are
-much the same for allowing TimescaleDB to scale out horizontally in a linear
-fashion across many servers. TimescaleDB is designed to combine the
-scalability of popular NoSQL databases, with the native query complexity
-supported by RDBMS systems. Read on for more details on clustering. 
+TimescaleDB is designed to combine the scalability of popular NoSQL databases, 
+with the native query complexity supported by RDBMS systems. Read on for more 
+details on clustering. 
 
 ## How does TimescaleDB scale?
 TimescaleDB's architecture leverages two key properties of time-series data:
@@ -172,31 +218,20 @@ they are exposed to a single table interface (a "hypertable") that functions exa
 a normal table in PostgreSQL does. For more information, see this blog post:
 [Time-series data: Why (and how) to use a relational database instead of NoSQL][rdbms > nosql].
 
-
 ## Is there a clustered version and how can I try it?
-We often find that there may be a few different things people are looking for when they ask
-about support for "clustering":
-* High availability: As a PostgreSQL extension, hot standbys of TimescaleDB can be set
-up using streaming replication. This is done just as one would do setting up read replicas
-with vanilla PostgreSQL (although we do not recommend using logical replication).
-* Scale the amount of available storage: TimescaleDB allows you to elastically add disks
-to scale-up the capacity on a single hypertable.
-* Increase insert rates: Depending on your use case, we have users inserting 100-400K
-row inserts / second on a single node.
-* Increase query throughput: Along with ensuring high availability, replicas can be
-queried in parallel with the master node to increase query throughput.
-* Query parallelization: Today TimescaleDB takes advantage of the enhanced
-parallelization support offered in PostgreSQL 10.
+To enable multi-node deployments, TimescaleDB 2.0 introduces the concept of a 
+[distributed hypertable][distributed-hypertable].
 
-To recap, we currently support read-only clustering via PostgreSQL streaming
-replication for high availability and for increasing query throughput. TimescaleDB's
-single node scalability (to trillions of rows), achieved by elastically
-adding disk space (especially simple using network attached disks in cloud environments),
-applies to these read-only clusters.
+A regular hypertable, one of our original innovations, is a virtual 
+table in TimescaleDB that automatically partitions data into many 
+sub-tables (“chunks”) on a single machine, continuously creating 
+new ones as necessary, yet provides the illusion of a single continuous 
+table across all time.
 
-Full, scale-out clustering (i.e., for ingest rates > 300K row inserts / second)
-leverages the automated partitioning capabilities already available in
-single-node TimescaleDB. 
+A distributed hypertable is a hypertable that automatically partitions 
+data into chunks across multiple machines, while still maintaining 
+the illusion (and user-experience) of a single continuous table across 
+all time.
 
 ## What are hypertables and chunks?
 Our [documentation][docs-architecture] describes these design elements in more depth. 
@@ -251,7 +286,6 @@ deleted that is older than a specified time period. For more information, see [D
 not included in vanilla PostgreSQL and entirely unique to TimescaleDB
 (e.g., [`time_bucket`][time_bucket],[`first`][first] and [`last`][last]), with more to come.
 
-
 ## How compatible is TimescaleDB with PostgreSQL?
 TimescaleDB is implemented as an extension to PostgreSQL that introduces
 transparent scalability and performance optimizations, as well as time-series
@@ -263,10 +297,7 @@ current visualization and reporting tools.
 
 ## How does TimescaleDB handle geospatial data?
 As an extension of PostgreSQL, TimescaleDB works well with PostGIS. For example,
-[see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data. We are
-actively exploring the extent of TimescaleDB's geospatial capabilities (i.e., partitioning
-by location). If you have a use case with a geospatial component,
-please [contact us][contact] and we'd be happy to discuss. 
+[see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data. 
 
 ## Is TimescaleDB currently being used in production?
 Yes. TimescaleDB is currently deployed in production across a variety of industries
@@ -340,6 +371,8 @@ See our [updating documentation][update].
 [INSERT]: /how-to-guides/write-data/insert/
 [SELECT]: /how-to-guides/query-data/select/
 [rdbms > nosql]: http://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
+[benchmarks]: https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
+[distributed-hypertable]: /timescaledb/:currentProduct:/how-to-guides/distributed-hypertables
 [docs-architecture]: /overview/core-concepts/hypertables-and-chunks/
 [hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
 [PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e
@@ -348,7 +381,7 @@ See our [updating documentation][update].
 [first]: /api/:currentVersion:/analytics/first/
 [last]: /api/:currentVersion:/analytics/last/
 [data-retention]: /how-to-guides/data-retention/
-[postgis]: /tutorials/tutorial-hello-nyc#tutorial-postgis
+[postgis]: /timescaledb/:currentProduct:/tutorials/nyc-taxi-cab
 [GitHub]: https://github.com/timescale/timescaledb/issues
 [contact]: https://www.timescale.com/contact
 [join_slack]: https://slack.timescale.com/
@@ -356,3 +389,7 @@ See our [updating documentation][update].
 [update]: /how-to-guides/update-timescaledb/
 [compression-docs]: /how-to-guides/compression/
 [compression-blog]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
+[timescale-license]: https://www.timescale.com/legal/licenses
+[timescale-k8s]: https://github.com/timescale/timescaledb-kubernetes
+[timescale-signup]: https://www.timescale.com/timescale-signup
+[timescale-support]: https://www.timescale.com/support
