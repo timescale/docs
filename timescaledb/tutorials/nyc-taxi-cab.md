@@ -79,7 +79,7 @@ This download contains two files:
 
 You can download the files from the below link:
 
-[:DOWNLOAD_LINK: `nyc_data.tar.gz`][nyc_data]
+<tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</tag>
 
 #### Get Connected to TimescaleDB
 
