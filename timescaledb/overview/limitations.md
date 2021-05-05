@@ -27,9 +27,6 @@ to distributed hypertables:
   created on an access node are scheduled and executed on this access node 
   without distributing the jobs to data nodes.
 - Continuous aggregates are not supported.
-- Compression policies are not supported. However, you can enable 
-  compression on the distributed hypertable and manually 
-  execute `compress_chunk`.
 - Reordering chunks is not supported.
 - Tablespaces cannot be attached to a distributed hypertable on the
   access node. It is still possible attach tablespaces on data nodes.
@@ -53,7 +50,7 @@ to distributed hypertables:
   registered with `set_integer_now_func`.
 
 Note that these limitations concern usage from the access node. Some
-currently unsupported features (like compression policy or
+currently unsupported features (like
 continuous aggregates) might still work on individual data nodes, but
 such usage is neither tested nor officially supported. Future versions
 of TimescaleDB might remove some of these limitations.
