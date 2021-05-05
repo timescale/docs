@@ -89,7 +89,6 @@ and get started with this [tutorial][tutorial-streamsets].
 [design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
 [promscale-github]: https://github.com/timescale/promscale
 [pull-request]: https://github.com/influxdata/telegraf/pull/8651
-[downloadable-binaries]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
 [promscale-sql]: https://github.com/timescale/promscale/blob/master/docs/sql_schema.md
 [timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
