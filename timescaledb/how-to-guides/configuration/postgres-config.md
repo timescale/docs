@@ -8,7 +8,7 @@ may need to adjust; those are covered below.
 ### Memory settings [](memory)
 
 <highlight type="tip">
-All of these settings are handled by [`timescaledb-tune`](/how-to-guides/configuration/timescaledb-tune).
+All of these settings are handled by [`timescaledb-tune`](/timescaledb/latest/how-to-guides/configuration/timescaledb-tune).
 </highlight>
 
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
@@ -22,7 +22,7 @@ PgTune may also be helpful.
 ### Worker settings [](workers)
 
 <highlight type="tip">
-All of these settings are handled by [`timescaledb-tune`](/how-to-guides/configuration/timescaledb-tune).
+All of these settings are handled by [`timescaledb-tune`](/timescaledb/latest/how-to-guides/configuration/timescaledb-tune).
 </highlight>
 
 PostgreSQL utilizes worker pools to provide the required workers needed to
@@ -97,7 +97,7 @@ This setting takes into account that the number of locks taken by a hypertable q
 is roughly equal to the
 number of chunks in the hypertable, or double that number if the query
 also uses an index. You can see how many chunks you currently have using the
-[`chunk_detailed_size`][chunk_detailed_size] command.
+[`chunks_detailed_size`][chunks_detailed_size] command.
  Also note that `max_locks_per_transaction` is not
 an exact setting; it only controls the *average* number of object
 locks allocated for each transaction. For more information, please
@@ -112,4 +112,4 @@ review the official PostgreSQL documentation on
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [docker]: /how-to-guides/install-timescaledb/docker/installation-docker
 [wale]: /how-to-guides/backup-and-restore/docker-and-wale/
-[chunk_detailed_size]: /api/:currentVersion:/hypertable/chunk_detailed_size
+[chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size

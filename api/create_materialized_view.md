@@ -88,8 +88,8 @@ the hypertable's time column, and all aggregates must be parallelizable.
 [postgres-security-barrier]:https://www.postgresql.org/docs/current/rules-privileges.html
 
 <highlight type="tip">
- You can find the [settings for continuous aggregates](/informational-views/continuous_aggregates/) and
-[statistics](/informational-views/job_stats/) in `timescaledb_information` views.
+ You can find the [settings for continuous aggregates](/api/latest/informational-views/continuous_aggregates/) and
+[statistics](/api/latest/informational-views/job_stats/) in `timescaledb_information` views.
 </highlight>
 
 ### Sample Usage 

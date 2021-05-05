@@ -23,7 +23,7 @@ PostgreSQL is supported with the extension version you want to install or update
  2.1+                | 11, 12, 13
 
 <highlight type="tip">
-If you need to upgrade PostgreSQL first, please see [our documentation](/how-to-guides/update-timescaledb/upgrade-postgresql/).
+If you need to upgrade PostgreSQL first, please see [our documentation](/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/).
 </highlight>
 
 ### Upgrade TimescaleDB

@@ -33,7 +33,7 @@ The basic schema uses a normalized design where the time-series data is stored i
 In particular, this schema decouples individual metrics, allowing for the collection of metrics with vastly different cardinalities and retention periods. At the same time, Promscale exposes simple, user-friendly views so that you do not have to understand this optimized schema (see 2.3 for more on views).
 
 <highlight type="tip">
-Promscale automatically creates and manages database tables. So, while understanding the schema can be beneficial (and interesting), it is not required to use Promscale. Skip to [Section 2.3](#promscale-views) for information how to interact with Promscale using SQL views and to [Section 4](/tutorials/promscale/promscale-run-queries) to learn using hands on examples.
+Promscale automatically creates and manages database tables. So, while understanding the schema can be beneficial (and interesting), it is not required to use Promscale. Skip to [Section 2.3](#promscale-views) for information how to interact with Promscale using SQL views and to [Section 4](/timescaledb/latest/tutorials/promscale/promscale-run-queries) to learn using hands on examples.
 </highlight>
 
 

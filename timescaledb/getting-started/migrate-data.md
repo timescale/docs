@@ -1,6 +1,6 @@
 # Migrating Data
 <highlight type="tip">
-First make sure that you have properly [installed](/how-to-guides/install-timescaledb/) **AND [setup](/how-to-guides/install-timescaledb/post-install-setup)** TimescaleDB 
+First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/) **AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup)** TimescaleDB 
 within your PostgreSQL instance.
 </highlight>
 

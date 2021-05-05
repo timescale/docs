@@ -32,12 +32,12 @@ and how they affect users of TimescaleDB 1.x . We’ve also included a bit of in
 about the impetus for these changes and our design decisions. For a more in-depth coverage
  of APIs, as well as a detailed description of new features included in 2.0, such as 
  distributed hypertables and the ability to run user-defined actions (custom background jobs),
-  please [review our updated documentation](/v2.0/main) 
+  please [review our updated documentation](/) 
   (navigate to specific features of interest).
 
 Once you have read through this guide and understand the impact that upgrading to the latest
  version may have on your existing application and infrastructure, please follow our 
- [upgrade to TimescaleDB 2.0](/v2.0/update-timescaledb/update-tsdb-2)
+ [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-tsdb-2)
   documentation. You will find straight-forward instructions and recommendations to ensure 
   everything is updated and works correctly.
 
