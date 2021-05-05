@@ -8,7 +8,19 @@ what's already available? Jump down below to review our
 Want to learn more? We welcome you to visit our
 [Github repo][github] or join our [Slack community][slack].
 
-## Current Plans [](current-plans)
+TimescaleDB is an open-source project with a vibrant community. 
+We are currently focusing on making our priorities known by that community; 
+we welcome you to visit our Github repo or join our [Slack community](https://slack.timescale.com).
+
+### What to expect from our next release
+
+For our next release, we plan to add:
+
+- Compression policies on distributed hypertables
+- Partially mutable compressed chunks to support INSERTs into a compressed hypertable.
+- Various bug fixes.
+
+We are currently in the Generally Available (GA) version 2.2.1.
 
 One of the most significant changes in TimescaleDB 2.0 is support for
 horizontally scale-out TimescaleDB running across many nodes.
@@ -20,19 +32,33 @@ setup your own multi-node TimescaleDB cluster.
 
 Currently, the latest Generally Available (GA) release is TimescaleDB 2.1.
 
-What's new in TimescaleDB 2.1:
+What's new in TimescaleDB 2.2.1:
 
-- [Support for PostgreSQL 13.2](https://github.com/timescale/timescaledb/issues/2779):
-PG13.2 offers various improvements in functionality, administration, and security,
-among others. Also, as a result of our own @svenklemm upstream report of
-CVE-2021-20229 on PostgreSQL, we have waited for the release of PG13.2
-(released Feb 11, 2021) to provide the safest experience to our users.
-- Support for [ALTER/RENAME columns for compressed hypertables](https://github.com/timescale/timescaledb-private/issues/849), 
-which simplifies the user journey if a user wants to change the schema and
-they have already compressed their hypertables. 
+Skip Scan optimization on single node and multinode, which significantly 
+improves the performance of queries with DISTINCT ON. This 
+optimization is not yet available for queries on distributed 
+hypertables.
+
+This release also adds a function to create a distributed 
+restore point, which allows performing a consistent restore of a 
+multi-node cluster from a backup.
+
+The bug fixes in this release address issues with size and stats 
+functions, high memory usage in distributed inserts, slow distributed 
+ORDER BY queries, indexes involving INCLUDE, and single chunk query 
+planning.
+
+**PostgreSQL 11 deprecation announcement**
+
+Timescale is working hard on our next exciting features. To make that 
+possible, we require functionality that is unfortunately absent on 
+PostgreSQL 11. For this reason, we will continue supporting PostgreSQL 
+11 until mid-June 2021. Sooner to that time, we will announce the 
+specific version of TimescaleDB in which PostgreSQL 11 support will 
+not be included going forward.
 
 <highlight type="tip">
-TimescaleDB 2.1 is currently GA, we encourage
+TimescaleDB 2.2.1 is currently GA, we encourage
 users to upgrade in testing environments to gain experience and provide feedback on 
 new and updated features.
 
@@ -77,6 +103,101 @@ PostgreSQL 11. For this reason, we will continue supporting PostgreSQL
 11 until mid-June 2021. Sooner to that time, we will announce the 
 specific version of TimescaleDB in which PostgreSQL 11 support will 
 not be included going forward.
+
+**Major Features**
+* #2843 Add distributed restore point functionality
+* #3000 SkipScan to speed up SELECT DISTINCT
+
+**Bugfixes**
+* #2989 Refactor and harden size and stats functions
+* #3058 Reduce memory usage for distributed inserts
+* #3067 Fix extremely slow multi-node order by queries
+* #3082 Fix chunk index column name mapping
+* #3083 Keep Append pathkeys in ChunkAppend
+
+**Thanks**
+* @BowenGG for reporting an issue with indexes with INCLUDE
+* @fvannee for reporting an issue with ChunkAppend pathkeys
+* @pedrokost and @RobAtticus for reporting an issue with size
+  functions on empty hypertables
+* @phemmer and @ryanbooz for reporting issues with slow
+  multi-node order by queries
+* @stephane-moreau for reporting an issue with high memory usage during
+  single-transaction inserts on a distributed hypertable.
+
+## 2.1.1 (2021-03-29)
+
+This maintenance release contains bugfixes since the 2.1.0 release. We
+deem it high priority for upgrading.
+
+The bug fixes in this release address issues with CREATE INDEX and 
+UPSERT for hypertables, custom jobs, and gapfill queries.
+
+This release marks TimescaleDB as a trusted extension in PG13, so that 
+superuser privileges are not required anymore to install the extension.
+
+**Minor features**
+* #2998 Mark timescaledb as trusted extension
+
+## 2.2.1 (2021-05-05)
+
+This maintenance release contains bugfixes since the 2.2.0 release. We
+deem it high priority for upgrading.
+
+This release extends Skip Scan to multinode by enabling the pushdown
+of `DISTINCT` to data nodes. It also fixes a number of bugs in the
+implementation of Skip Scan, in distributed hypertables, in creation
+of indexes, in compression, and in policies.
+
+**Features**
+* #3113 Pushdown "SELECT DISTINCT" in multi-node to allow use of Skip
+  Scan
+
+**Bugfixes**
+* #3101 Use commit date in `get_git_commit()`
+* #3102 Fix `REINDEX TABLE` for distributed hypertables
+* #3104 Fix use after free in `add_reorder_policy`
+* #3106 Fix use after free in `chunk_api_get_chunk_stats`
+* #3109 Copy recreated object permissions on update
+* #3111 Fix `CMAKE_BUILD_TYPE` check
+* #3112 Use `%u` to format Oid instead of `%d`
+* #3118 Fix use after free in cache
+* #3123 Fix crash while using `REINDEX TABLE CONCURRENTLY`
+* #3135 Fix SkipScan path generation in `DISTINCT` queries with expressions
+* #3146 Fix SkipScan for IndexPaths without pathkeys
+* #3147 Skip ChunkAppend if AppendPath has no children
+* #3148 Make `SELECT DISTINCT` handle non-var targetlists
+* #3151 Fix `fdw_relinfo_get` assertion failure on `DELETE`
+* #3155 Inherit `CFLAGS` from PostgreSQL
+* #3169 Fix incorrect type cast in compression policy
+* #3183 Fix segfault in calculate_chunk_interval 
+* #3185 Fix wrong datatype for integer based retention policy
+
+**Thanks**
+* @Dead2, @dv8472 and @einsibjarni for reporting an issue with multinode queries and views
+* @aelg for reporting an issue with policies on integer-based hypertables
+* @hperez75 for reporting an issue with Skip Scan
+* @nathanloisel for reporting an issue with compression on hypertables with integer-based timestamps
+* @xin-hedera for fixing an issue with compression on hypertables with integer-based timestamps
+
+## 2.2.0 (2021-04-13)
+
+This release adds major new features since the 2.1.1 release.
+We deem it moderate priority for upgrading.
+
+This release adds the Skip Scan optimization, which significantly 
+improves the performance of queries with DISTINCT ON. This 
+optimization is not yet available for queries on distributed 
+hypertables.
+
+This release also adds a function to create a distributed 
+restore point, which allows performing a consistent restore of a 
+multi-node cluster from a backup.
+
+The bug fixes in this release address issues with size and stats 
+functions, high memory usage in distributed inserts, slow distributed 
+ORDER BY queries, indexes involving INCLUDE, and single chunk query 
+planning.
 
 **Major Features**
 * #2843 Add distributed restore point functionality
