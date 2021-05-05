@@ -28,8 +28,9 @@ downsampling, data gap-filling, and interpolation. It is already natively suppor
 Grafana via the [Prometheus][prometheus-grafana] and PostgreSQL/TimescaleDB
 [postgres-grafana] data sources.
 
-Read more about Promscale and how we designed it to perform well in our [design
-doc][design-doc] or check out our [github project][promscale-github].
+Read more about Promscale and how we designed it to perform well in
+our [design doc][design-doc] or check out
+our [github project][promscale-github].
 
 ## PostgreSQL and TimescaleDB output plugin for Telegraf
 
@@ -41,8 +42,9 @@ We wrote the PostgreSQL output plugin which also has the ability to send data to
 batching, processing, and aggregating the data collected prior to inserting that data into TimescaleDB.
 
 <highlight type="warning">
-The [pull request][pull-request] is open and currently under review by the Telegraf developers, waiting to be
-merged. To give users the opportunity to try this functionality, we built [downloadable binaries][downloadable-binaries] of
+The [pull request][pull-request] is open and currently under review by the
+Telegraf developers, waiting to be merged. To give users the opportunity to try
+this functionality, we built [downloadable binaries][downloadable-binaries] of
 Telegraf with our plugin already included.
 </highlight>
 
@@ -57,7 +59,8 @@ To get started with the PostgreSQL and TimescaleDB output plugin, visit the [tut
 ## PostgreSQL's Kafka connector
 
 Another popular method of ingesting data into TimescaleDB is through the use of
-the [PostgreSQL connector with Kafka Connect][postgresql-connector-with-kafka-connect].
+the [PostgreSQL connector with Kafka Connect]
+[postgresql-connector-with-kafka-connect].
 The connector is designed to work with [Kafka Connect][kafka-connect] and to be
 deployed to a Kafka Connect runtime service. It’s purpose is to ingest change
 events from PostgreSQL databases (i.e. TimescaleDB).
@@ -78,13 +81,17 @@ that you use this connector with Kafka and Kafka Connect.
 
 To start using the PostgreSQL connector, visit the [GitHub page][github-debezium].
 If you are interested in an alternative method to ingest data from Kafka to
-TimescaleDB, you can download the [StreamSets Data Collector][streamsets-data-collector]
-and get started with this [tutorial][tutorial-streamsets].  
+TimescaleDB, you can download
+the [StreamSets Data Collector][streamsets-data-collector] and get started with
+this [tutorial][tutorial-streamsets].
 
 
 [writing-data]: /how-to-guides/writing-data
 [prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
 [postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/
+[design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
+[promscale-github]: https://github.com/timescale/promscale
+[pull-request]: https://github.com/influxdata/telegraf/pull/8651
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
 [promscale-sql]: https://github.com/timescale/promscale/blob/master/docs/sql_schema.md
 [timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
