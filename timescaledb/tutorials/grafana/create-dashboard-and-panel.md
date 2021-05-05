@@ -17,7 +17,7 @@ helpful if you've seen SQL before.
 * Next [setup Grafana][install-grafana].
 
 Once your installation of TimescaleDB and Grafana are complete, ingest the data found 
-in the [Hello, Timescale!][hello-timescale] tutorial and configure Grafana to connect
+in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
 to that database. Be sure to follow the full tutorial if you’re interested in background 
 on how to use TimescaleDB.
 
@@ -60,7 +60,7 @@ York City taxi cab datasource we connected to earlier:
 ### Visualize metrics stored in TimescaleDB
 
 Let’s start by creating a visualization that answers the question **How many rides took place on each day?**
-from the [Hello, Timescale!][hello-timescale] tutorial.
+from the [NYC Taxi Cab][nyc-taxi] tutorial.
 
 From the tutorial, you can see the standard SQL syntax for our query:
 
@@ -172,7 +172,7 @@ When we visualize this query, it will look like this:
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[install-grafana]: /getting-started/installation-grafana
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[install-grafana]: /tutorials/grafana/installation
+[nyc-taxi]: /tutorials/nyc-taxi-cab
 [time-bucket-reference]: /api/:currentVersion:/analytics/time_bucket
-[tutorial-grafana]: /tutorials/tutorial-grafana
+[tutorial-grafana]: /tutorials/grafana

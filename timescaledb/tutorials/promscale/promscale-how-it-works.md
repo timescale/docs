@@ -164,7 +164,7 @@ For examples of querying a specific metric view, see [Section 4: Querying Promsc
 [tobs-github]: https://github.com/timescale/tobs
 [promscale-baremetal-docs]: https://github.com/timescale/promscale/blob/master/docs/bare-metal-promscale-stack.md#deploying-promscale-on-bare-metal
 [Prometheus]: https://prometheus.io/
-[timescaledb vs]: /introduction/timescaledb-vs-postgres
+[timescaledb vs]: /overview/how-does-it-compare/timescaledb-vs-postgres/
 [prometheus storage docs]: https://prometheus.io/docs/prometheus/latest/storage/
 [prometheus lts]: https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage
 [prometheus-federation]: https://prometheus.io/docs/prometheus/latest/federation/
@@ -188,11 +188,11 @@ For examples of querying a specific metric view, see [Section 4: Querying Promsc
 [promlens-homepage]: https://promlens.com
 [multinode-blog]:https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
 [grafana-docker]: https://grafana.com/docs/grafana/latest/installation/docker/#install-official-and-community-grafana-plugins
-[timescaledb-multinode-docs]:https://docs.timescale.com/latest/getting-started/setup-multi-node-basic
+[timescaledb-multinode-docs]: /how-to-guides/multi-node-setup/
 [timescale-analytics]:https://github.com/timescale/timescale-analytics
-[hello-timescale]:https://docs.timescale.com/latest/tutorials/tutorial-hello-timescale
+[getting-started]: /getting-started/
 [promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
-[promscale-benefits]: /tutorials/promscale/promscale-benefits
-[promscale-how-it-works]: /tutorials/promscale/promscale-how-it-works
-[promscale-install]: /tutorials/promscale/promscale-install
-[promscale-run-queries]: /tutorials/promscale/promscale-run-queries
+[promscale-benefits]: /tutorials/promscale/promscale-benefits/
+[promscale-how-it-works]: /tutorials/promscale/promscale-how-it-works/
+[promscale-install]: /tutorials/promscale/promscale-install/
+[promscale-run-queries]: /tutorials/promscale/promscale-run-queries/

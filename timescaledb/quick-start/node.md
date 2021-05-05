@@ -492,7 +492,7 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 [setup-psql]: /how-to-guides/connecting/psql/
 [indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /tutorials/continuous-aggs-tutorial
+[continuous-aggregates]: /getting-started/create-cagg/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
 [hypertables]: /overview/core-concepts/

@@ -297,7 +297,7 @@ using Python and the `pgcopy` library!
 
 ### Step 1: Define your query in SQL
 First, define the SQL query you’d like to run on the database. The example below
-is a simple `SELECT` statement from our [Hello Timescale tutorial][hello-timescale-tutorial].
+is a simple `SELECT` statement from our [NYC Taxi cab tutorial][nyc-taxi].
 
 ```python
 query = "SELECT * FROM rates;"
@@ -377,9 +377,9 @@ tutorials:
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
-[hello-timescale-tutorial]: https://docs.timescale.com/latest/tutorials/tutorial-hello-timescale
+[nyc-taxi]: /tutorials/nyc-taxi-cab
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[create-hypertable-docs]: /api/{currentVersion/hypertables-and-chunks/create_hypertable
+[create-hypertable-docs]: /api/:currentVersion:/hypertables/create_hypertable
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [time-series-forecasting]: /tutorials/time-series-forecast/

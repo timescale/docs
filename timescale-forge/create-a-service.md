@@ -1,8 +1,8 @@
 # Exploring Timescale Forge
 
-Welcome to Timescale Forge! Timescale Forge combines the power and reliability 
-of TimescaleDB with a fully-managed, cloud-native experience that is easy to 
-start and less expensive to operate.
+Welcome to Timescale Forge! Timescale Forge is a cloud-native TimescaleDB 
+as a service that is easy to get started and powerful enough for the most 
+demanding scenarios
 
 This tutorial will walk you through setting up your Timescale Forge account and
 completing your first tutorial project.
@@ -43,7 +43,7 @@ configuration options best suited for your use case.
 Don't worry if too much about the size settings that you choose initially. With Timescale Forge,
 it's easy to modify both the compute (CPU/Memory) and storage associated with the service
 that you just created. As you get to know TimescaleDB and how your data processing needs vary,
-it's easy to [right-size your service with a few clicks](#forge-resize)!
+it's easy to [right-size your service with a few clicks](/timescale-forge/latest/scaling-a-service/)!
 </highlight>
 
 After you select 'Create service', you will see confirmation of your service account and
@@ -74,16 +74,7 @@ a service altogether.
 
 Congratulations! You are now up and running with Timescale Forge. In order to
 familiarize yourself with the features and capabilities of the product, we
-recommend that you complete the [Hello, Timescale!][hello-timescale] tutorial.
-
-To simplify operations with TimescaleDB, each Timescale Forge service comprises a
-single "database" per PostgreSQL terminology, and all Timescale Forge services
-come with TimescaleDB already installed. So skip the `CREATE DATABASE` step
-and the "adding the TimescaleDB extension" step of the tutorial and
-jump right to the "Define your data schema" section of the [Hello, Timescale!][hello-timescale]
-tutorial. Wherever the instructions indicate that you should use the `nyc_data`
-database, use `tsdb` instead. `tsdb` is the default database name for every
-Timescale Forge service. And if you need another database, it's just a click away.
+recommend that you complete the [Getting Started][getting-started] tutorial.
 
 ### Step 4: Learn more about TimescaleDB
 
@@ -123,14 +114,14 @@ Please see additional documentation on how to:
 [forge-signup]: https://forge.timescale.com
 [billing-info]: /forge/managing-billing-payments
 [slack-info]: https://slack-login.timescale.com
-[install-psql]: /timescaledb/:currentVersion:/getting-started/access-timescaledb/install-psql/
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[getting-started]: /timescaledb/:currentVersion:/getting-started/
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: /how-to-guides/hypertables-and-chunks
-[time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
-[gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
-[aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial
+[hypertable-info]: /timescaledb/:currentVersion:/how-to-guides/hypertables
+[time-bucket-info]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries#time-bucket
+[gap-filling-info]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[aggregates-info]: /timescaledb/:currentVersion:/getting-started/create-cagg/
 [resize]: /scaling-a-service/
 [configuration]: /customize-configuration/
-[multi-node]: /multi-node-setup
+[multi-node]: /forge-multi-node/

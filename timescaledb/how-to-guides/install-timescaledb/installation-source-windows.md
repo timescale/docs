@@ -20,7 +20,7 @@ Clone the repository from [GitHub][github-timescale]:
 ```bash
 git clone https://github.com/timescale/timescaledb.git
 cd timescaledb
-git checkout <release_tag>  # e.g., git checkout x.y.z
+git checkout <release_tag>  # e.g., git checkout 2.2.1
 ```
 
 If you are using Visual Studio 2017 with the CMake and Git components,

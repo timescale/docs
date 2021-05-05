@@ -4,8 +4,13 @@
 
 Start a TimescaleDB instance, pulling our Docker image from [Docker Hub][] if it has not been already installed:
 
+<highlight type="tip">
+The link below is for the latest version of TimescaleDB on PostgreSQL 12. To
+find other Docker tags you can use, please see the [Docker repository](https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated)
+</highlight>
+
 ```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:x.y.z-pg:pg_version:
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg12
 ```
 
 <highlight type="warning">
@@ -49,8 +54,13 @@ and includes [alpine Linux][] as its OS.
 While the above `run` command will pull the Docker image on demand,
 you can also -- and for upgrades, **need to** -- explicitly pull our image from [Docker Hub][]:
 
+<highlight type="tip">
+The link below is for the latest version of TimescaleDB on PostgreSQL 12. To
+find other Docker tags you can use, please see the [Docker repository](https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated)
+</highlight>
+
 ```bash
-docker pull timescale/timescaledb:x.y.z-pg:pg_version:
+docker pull timescale/timescaledb:latest-pg12
 ```
 
 When running a Docker image, if one prefers to store the data in a
@@ -71,10 +81,10 @@ docker volumes.
 ([More information on data volumes][docker-data-volumes])
 
 <highlight type="tip">
- Our standard binary releases are licensed under the Timescale License,
+Our standard binary releases are licensed under the Timescale License,
 which allows to use all our capabilities.
 If you want to use a version that contains _only_ Apache 2.0 licensed
-code, you should pull the tag `x.y.z-pg:pg_version:-oss`.
+code, you should pull the tag `latest-pg12-oss` as an example.
 </highlight>
 
 ## Prebuilt with PostGIS [](postgis-docker)
@@ -98,5 +108,5 @@ For more instructions on using PostGIS, [see our tutorial][tutorial-postgis].
 [official-image]: https://github.com/docker-library/postgres/
 [alpine Linux]: https://alpinelinux.org/
 [docker-data-volumes]: https://docs.docker.com/storage/volumes/
-[tutorial-postgis]: http://docs.timescale.com/tutorials/tutorial-hello-nyc#tutorial-postgis
+[tutorial-postgis]: /tutorials/nyc-taxi-cab
 

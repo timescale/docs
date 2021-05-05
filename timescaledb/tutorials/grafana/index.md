@@ -25,11 +25,10 @@ helpful if you've seen SQL before.
 * Next [setup Grafana][install-grafana].
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[install-grafana]: /getting-started/installation-grafana
-[hello-timescale]: /tutorials/tutorial-hello-timescale
-[tutorial-grafana-dashboards]: /tutorials/tutorial-grafana-dashboards
-[tutorial-grafana-geospatial]: /tutorials/tutorial-grafana-geospatial
-[tutorial-grafana-variables]: /tutorials/tutorial-grafana-variables
-[tutorial-grafana-missing-data]: /tutorials/tutorial-howto-visualize-missing-data-grafana
-[tutorial-grafana-alerts]: /tutorials/tutorial-grafana-alerts
+[install-grafana]: /tutorials/grafana/installation
+[tutorial-grafana-dashboards]: /tutorials/grafana/create-dashboard-and-panel/
+[tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards/
+[tutorial-grafana-variables]: /tutorials/grafana/grafana-variables/
+[tutorial-grafana-missing-data]: /tutorials/grafana/visualize-missing-data/
+[tutorial-grafana-alerts]: /tutorials/grafana/setup-alerts/
 [grafana-website]: https://www.grafana.com

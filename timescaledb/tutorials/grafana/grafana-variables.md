@@ -12,7 +12,7 @@ helpful if you've seen SQL before.
 * Next [setup Grafana][install-grafana].
 
 Once your installation of TimescaleDB and Grafana are complete, ingest the data found 
-in the [Hello, Timescale!][hello-timescale] tutorial and configure Grafana to connect
+in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
 to that database. Be sure to follow the full tutorial if you’re interested in background 
 on how to use TimescaleDB.
 
@@ -222,7 +222,7 @@ Your dashboard should look something like this:
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[install-grafana]: /getting-started/installation-grafana
-[hello-timescale]: /tutorials/tutorial-hello-timescale
-[tutorial-grafana]: /tutorials/tutorial-grafana
-[tutorial-grafana-geospatial]: /tutorials/tutorial-grafana-geospatial
+[install-grafana]: /tutorials/grafana/installation
+[nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
+[tutorial-grafana]: /tutorials/grafana
+[tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards/

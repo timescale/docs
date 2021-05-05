@@ -26,6 +26,10 @@ module.exports = [
             ]
           },
           {
+            title: "Introduction to IoT",
+            href: "nyc-taxi-cab"
+          },
+          {
             title: "Introduction to time-series forecasting",
             href: "time-series-forecast"
           },
