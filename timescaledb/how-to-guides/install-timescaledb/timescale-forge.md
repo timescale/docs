@@ -1,8 +1,9 @@
 # Exploring Timescale Forge
 
-Welcome to Timescale Forge! Timescale Forge combines the power and reliability 
-of TimescaleDB with a fully-managed, cloud-native experience that is easy to 
-start and less expensive to operate.
+Welcome to Timescale Forge! Timescale Forge is a cloud-native TimescaleDB 
+as a service that is easy to get started and powerful enough for the most 
+demanding scenarios. You can 
+[try Timescale Forge for free][forge-signup], no credit card required.
 
 This tutorial will walk you through setting up your Timescale Forge account and
 completing your first tutorial project.
@@ -75,13 +76,13 @@ a service altogether.
 
 Congratulations! You are now up and running with Timescale Forge. In order to
 familiarize yourself with the features and capabilities of the product, we
-recommend that you complete the [Hello, Timescale!][hello-timescale] tutorial.
+recommend that you complete the [Getting Started][getting-started] tutorial.
 
 To simplify operations with TimescaleDB, each Timescale Forge service comprises a
 single "database" per PostgreSQL terminology, and all Timescale Forge services
 come with TimescaleDB already installed. So skip the `CREATE DATABASE` step
 and the "adding the TimescaleDB extension" step of the tutorial and
-jump right to the "Define your data schema" section of the [Hello, Timescale!][hello-timescale]
+jump right to the "Define your data schema" section of the [Getting Started][getting-started]
 tutorial. Wherever the instructions indicate that you should use the `nyc_data`
 database, use `tsdb` instead. `tsdb` is the default database name for every
 Timescale Forge service. And if you need another database, it's just a click away.
@@ -124,11 +125,11 @@ Please see additional documentation on how to:
 [forge-signup]: https://forge.timescale.com
 [billing-info]: /forge/managing-billing-payments
 [slack-info]: https://slack-login.timescale.com
-[install-psql]: /getting-started/access-timescaledb/install-psql/
+[install-psql]: /how-to-guides/connecting/psql/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: /how-to-guides/hypertables-and-chunks
+[hypertable-info]: /how-to-guides/hypertables
 [time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
 [gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
 [aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial

@@ -1,0 +1,107 @@
+# TimescaleDB configuration and tuning
+
+Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of configuration
+settings that may be useful to your specific installation and performance needs. These can
+also be set within the `postgresql.conf` file or as command-line parameters
+when starting PostgreSQL.
+
+## Policies
+
+### `timescaledb.max_background_workers (int)`
+
+Max background worker processes allocated to TimescaleDB.  Set to at
+least 1 + number of databases in Postgres instance to use background
+workers. Default value is 8.
+
+## Distributed Hypertables 
+
+### `timescaledb.enable_2pc (bool)` [](enable_2pc)
+
+Enables two-phase commit for distributed hypertables. If disabled, it
+will use a one-phase commit instead, which is faster but can result in
+inconsistent data. It is by default enabled.
+
+### `timescaledb.enable_per_data_node_queries`
+
+If enabled, TimescaleDB will combine different chunks belonging to the
+same hypertable into a single query per data node. It is by default enabled.
+
+### `timescaledb.max_insert_batch_size (int)`
+
+When acting as a access node, TimescaleDB splits batches of inserted
+tuples across multiple data nodes. It will batch up to
+`max_insert_batch_size` tuples per data node before flushing. Setting
+this to 0 disables batching, reverting to tuple-by-tuple inserts. The
+default value is 1000.
+
+### `timescaledb.enable_connection_binary_data (bool)` 
+
+Enables binary format for data exchanged between nodes in the
+cluster. It is by default enabled.
+
+### `timescaledb.enable_client_ddl_on_data_nodes (bool)` 
+
+Enables DDL operations on data nodes by a client and do not restrict
+execution of DDL operations only by access node. It is by default disabled.
+
+### `timescaledb.enable_async_append (bool)` 
+
+Enables optimization that runs remote queries asynchronously across
+data nodes. It is by default enabled.
+
+### `timescaledb.enable_remote_explain (bool)` 
+
+Enable getting and showing `EXPLAIN` output from remote nodes. This
+will require sending the query to the data node, so it can be affected
+by the network connection and availability of data nodes. It is by default disabled.
+
+### `timescaledb.remote_data_fetcher (enum)` 
+
+Pick data fetcher type based on type of queries you plan to run, which
+can be either `rowbyrow` or `cursor`. The default is `rowbyrow`.
+
+### `timescaledb.ssl_dir (string)` 
+
+Specifies the path used to search user certificates and keys when
+connecting to data nodes using certificate authentication. Defaults to
+`timescaledb/certs` under the PostgreSQL data directory.
+
+### `timescaledb.passfile (string)` [
+
+Specifies the name of the file where passwords are stored and when
+connecting to data nodes using password authentication.
+
+## Administration 
+
+### `timescaledb.restoring (bool)` 
+
+Set TimescaleDB in restoring mode. It is by default disabled.
+
+### `timescaledb.license (string)` 
+
+TimescaleDB license type. Determines which features are enabled. The
+variable can be set to `timescale` or `apache`.  Defaults to `timescale`.
+
+### `timescaledb.telemetry_level (enum)` 
+
+Telemetry settings level. Level used to determine which telemetry to
+send. Can be set to `off` or `basic`. Defaults to `basic`.
+
+### `timescaledb.last_tuned (string)` 
+
+Records last time `timescaledb-tune` ran.
+
+### `timescaledb.last_tuned_version (string)` 
+
+Version of `timescaledb-tune` used to tune when it ran.
+
+
+
+[tstune]: https://github.com/timescale/timescaledb-tune
+[pgtune]: http://pgtune.leopard.in.ua/
+[async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
+[synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
+[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
+[docker]: /how-to-guides/install-timescaledb//docker/installation-docker
+[wale]: /how-to-guides/backup-and-restore/docker-and-wale/
+[chunk_detailed_size]: /api/:currentVersion:/hypertable/chunk_detailed_size

@@ -18,13 +18,6 @@ data analysis and make forecasts on your data.
 - **[Visualizing Missing Data with Grafana][tutorial-grafana-missing-data]**: Learn how to visualize and aggregate missing time-series data in Grafana.
 - **[Setting up Grafana alerts][tutorial-grafana-alerts]**: Configure Grafana to alert you in Slack, PagerDuty, and more.
 
-### Language quick-starts
-
-- **[Node and TimescaleDB][node-quickstart]**: A quick start guide for Node developers looking to use TimescaleDB.
-- **[Python and TimescaleDB][python-quickstart]**: A quick start guide for Python developers looking to use TimescaleDB.
-- **[Ruby on Rails and TimescaleDB][ruby-quickstart]**: A quick start guide for Ruby on Rails developers looking to use TimescaleDB.
-- **[Golang and TimescaleDB][go-quickstart]**: A quick start guide for Golang developers looking to use TimescaleDB.
-
 ### Additional resources
 
 - **[Sample data sets][Data Sets]**: And if you want to explore on your own
@@ -43,8 +36,8 @@ and pick up some valuable `psql` tips and tricks along the way.
 [Grafana]: /tutorials/grafana
 [Telegraf Output Plugin]: /tutorials/telegraf-output-plugin
 [Data Sets]: /tutorials/other-sample-datasets
-[install-timescale]: /getting-started/installation
-[psql]: /getting-started/install-psql-tutorial
+[install-timescale]: /how-to-guides/install-timescaledb/
+[psql]: /how-to-guides/connecting/psql/
 [Crypto]: /tutorials/analyze-cryptocurrency-data
 [Tableau]: /tutorials/visualizing-time-series-data-in-tableau
 [prometheus-tsc-endpoint]: /tutorials/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus
@@ -54,9 +47,5 @@ and pick up some valuable `psql` tips and tricks along the way.
 [tutorial-grafana-variables]: /tutorials/grafana/grafana-variables
 [tutorial-grafana-missing-data]: /tutorials/grafana/visualize-missing-data
 [tutorial-grafana-alerts]: /tutorials/grafana/setup-alerts
-[node-quickstart]: /tutorials/quick-starts/node
-[python-quickstart]: /tutorials/quick-starts/python
-[ruby-quickstart]: /tutorials/quick-starts/ruby
-[go-quickstart]: /tutorials/quick-starts/golang
 [simul-iot-data]: /tutorials/tutorial-howto-simulate-iot-sensor-data
 

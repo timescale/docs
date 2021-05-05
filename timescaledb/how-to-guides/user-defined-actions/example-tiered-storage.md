@@ -51,4 +51,4 @@ subsequent queries) and requires lower lock levels, so the chunk remains availab
 for reads during the move.
 
 
-[api-move_chunk]: /api-reference/:currentVersion:/hypertables/move_chunk
+[api-move_chunk]: /api/:currentVersion:/hypertable/move_chunk

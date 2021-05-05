@@ -1,7 +1,7 @@
 # Exploring Timescale Cloud
 
-Welcome to Timescale Cloud. Timescale Cloud is a Database as a Service (DBaaS) 
-offering that provides an easy way for you to analyze time-series. Powered 
+Welcome to Timescale Cloud. Timescale Cloud is a a managed TimescaleDB service 
+hosted in 75+ regions in AWS, Azure, or GCP. Powered 
 by [TimescaleDB][timescale-features], you can create database instances in the 
 cloud and automate many of your most common operational tasks. This allows you 
 to spend more time focusing on your time-series workloads and less time worrying 
@@ -51,7 +51,7 @@ Once you've selected your service options, click `Create Service`.
 
 It will take a few minutes for your service to provision in your cloud. Now is
 a good time to familiarize yourself with some of the [features of TimescaleDB][using-timescale]
-and our [getting started tutorial][hello-timescale].
+and our [getting started tutorial][getting-started].
 
 ### Step 3: Install psql
 
@@ -101,11 +101,11 @@ You should see something similar to the following output:
 | timescaledb | 1.6.0   | public     | Enables scalable inserts and complex queries |
 ```
 
-### Step 6: Hello, Timescale!
+### Step 6: Getting Started
 
 Congratulations! You are now up and running with Timescale Cloud. In order to
 familiarize yourself with the features and capabilities of the product, we
-recommend that you complete the [Hello, Timescale!][hello-timescale] tutorial.
+recommend that you complete the [Getting Started][getting-started] tutorial.
 
 ---
 
@@ -123,7 +123,7 @@ This tutorial will walk you through how to configure this capability.
 
 #### Before you start
 
-Be sure to follow the instructions to [setup Timescale Cloud][timescale-cloud-install] in order to
+Be sure to follow the instructions above in order to
 get signed up and create your first database instance.
 
 #### Step 1 - Navigate to your TimescaleDB instance
@@ -168,13 +168,12 @@ visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cidr-tool]: http://www.subnet-calculator.com/cidr.php
 [timescale-cloud-kb]: https://kb.timescale.cloud/en/collections/1600092-security
- 
 [timescale-cloud-portal]: http://portal.timescale.cloud
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-features]: https://www.timescale.com/products
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[using-timescale]: /using-timescaledb
-[hello-timescale]: /tutorials/tutorial-hello-timescale
-[install-psql]: /getting-started/install-psql-tutorial
+[using-timescale]: /timescaledb/:currentVersion:/overview/core-concepts
+[getting-started]: /timescaledb/:currentVersion:/getting-started/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
 

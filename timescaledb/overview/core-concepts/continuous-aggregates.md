@@ -137,4 +137,4 @@ provides great control and flexibility!
 
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [postgres-parallel-agg]:https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[api-alter-cagg]: /api-reference/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[api-alter-cagg]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/

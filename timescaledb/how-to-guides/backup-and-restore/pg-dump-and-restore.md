@@ -7,7 +7,7 @@ database or individual hypertables using the native PostgreSQL
 <highlight type="tip">
 Upgrades between different versions of TimescaleDB can be done in place;
  you don't need to backup/restore your data.
- Follow these [updating instructions][].
+ Follow these [updating instructions](/timescaledb/latest/how-to-guides/update-timescaledb/).
 </highlight>
 
 

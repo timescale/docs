@@ -19,5 +19,5 @@ raw data has subsequently been dropped.
 
 
 
-[api-drop-chunks]: /api-reference/:currentVersion:/hypertables-and-chunks/drop_chunks
+[api-drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [retention-aggregate]: /how-to-guides/data-retention-with-continuous-aggregates/

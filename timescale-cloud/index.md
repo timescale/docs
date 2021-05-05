@@ -1,7 +1,8 @@
 # Timescale Cloud
 
-The power and reliability of TimescaleDB and PostgreSQL, deployed in your choice 
-of cloud provider with greater control over where your data is stored.
+Timescale Cloud is a managed TimescaleDB service hosted in 75+ regions in AWS, 
+Azure, or GCP. You can [try Timescale Cloud for free][sign-up], no credit card 
+required.
 
 ### Hosted TimescaleDB
 Built and operated by the team behind TimescaleDB, Timescale Cloud provides a 
@@ -34,3 +35,4 @@ and extensions.
  * Connect applications securely with VPC Peering and IP whitelisting
  * SOC2, HIPAA, ISO27001, CCPA, and GDPR compliance
 
+[sign-up]: https://www.timescale.com/cloud-signup

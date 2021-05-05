@@ -17,10 +17,10 @@ a compatible release, please upgrade before updating TimescaleDB.
  --------------------|-------------------------------
  1.7                 | 9.6, 10, 11, 12
  2.0                 | 11, 12
- 2.1                 | 11, 12, 13
+ 2.1+                | 11, 12, 13
 
 <highlight type="tip">
-If you need to upgrade PostgreSQL first, please see [our documentation](/how-to-guides/update-timescaledb/upgrade-postgresql/).
+If you need to upgrade PostgreSQL first, please see [our documentation](/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/).
 </highlight>
 
 ### Notice of breaking changes from TimescaleDB 1.3+
@@ -51,7 +51,7 @@ PostgreSQL 12 and TimescaleDB 2.0 would be:
 1. Update TimescaleDB 1.7 to TimescaleDB 2.0 on PostgreSQL with the instructions below
 
 <highlight type="tip">
-Whenever possible, prefer the most recent supported version, PostgreSQL 12. Please see our [Upgrading PostgreSQL](/how-to-guides/update-timescaledb/upgrade-postgresql/) guide for help.
+Whenever possible, prefer the most recent supported version, PostgreSQL 12. Please see our [Upgrading PostgreSQL](/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/) guide for help.
 </highlight>
 
 #### Fix Continuous Aggregate Errors Before Upgrading
@@ -62,7 +62,7 @@ still incompatible with the `ignore_invalidation_older_than` setting will automa
 the upgrade and a notice provided.
 
 <highlight type="tip">
-Read more about changes to continuous aggregates and data retension policies [here](/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs).
+Read more about changes to continuous aggregates and data retension policies [here](/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs).
 </highlight>
 
 
@@ -85,7 +85,7 @@ Execute the following SQL to save current settings for Continuous Aggregates and
 
 **Continuous Aggregate Stats**
 ```SQL
-\COPY timescaledb_information.continuous_aggregates_stats TO ‘continuous_aggregates_stats.csv’ csv header
+\COPY timescaledb_information.continuous_aggregate_stats TO ‘continuous_aggregate_stats.csv’ csv header
 ```
 
 **Drop Chunk Policies**
@@ -197,7 +197,7 @@ total_failures         | 0
 
 
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-tsdb-1]: https://docs.timescale.com/v1.7/update-timescaledb/update-tsdb-1
+[update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
 [update-tsdb-2]: /hot-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/

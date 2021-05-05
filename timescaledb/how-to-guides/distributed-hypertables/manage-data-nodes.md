@@ -51,7 +51,7 @@ data nodes (see the next section on native replication).
 
 
 
-[add_data_node]: /api-reference/:currentVersion:/distributed-hypertables/add_data_node
-[attach_data_node]: /api-reference/:currentVersion:/distributed-hypertables/attach_data_node
-[delete_data_node]: /api-reference/:currentVersion:/distributed-hypertables/delete_data_node
-[detach_data_node]: /api-reference/:currentVersion:/distributed-hypertables/detach_data_node
+[add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node
+[attach_data_node]: /api/:currentVersion:/distributed-hypertables/attach_data_node
+[delete_data_node]: /api/:currentVersion:/distributed-hypertables/delete_data_node
+[detach_data_node]: /api/:currentVersion:/distributed-hypertables/detach_data_node

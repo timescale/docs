@@ -1,4 +1,4 @@
-const apiReferencePageIndex = require('../api-reference/page-index/page-index')
+const apiReferencePageIndex = require('../api/page-index/page-index')
 const timescaleDbPageIndex = require('../timescaledb/page-index/page-index')
 const timescaleForgePageIndex = require('../timescale-forge/page-index/page-index')
 const timescaleCloudPageIndex = require('../timescale-cloud/page-index/page-index')
