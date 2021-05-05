@@ -56,7 +56,7 @@ in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
 If you would like finer control over index formation and other aspects of your 
-hypertable, [follow these migration instructions instead][migrate-from-postgresql].
+hypertable, [follow these migration instructions instead](/timescaledb/latest/how-to-guides/migrate-data).
 
 When converting a normal SQL table to a hypertable, pay attention to how you handle 
 constraints. A hypertable can contain foreign keys to normal SQL table columns, 
@@ -68,7 +68,7 @@ to insert data into tables that are referenced in the foreign key constraints
 and into the converting table itself. The deadlock can be prevented by manually
 obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling 
 `create_hypertable` in the same transaction, see 
-[PostgreSQL documentation][postgres-lock] for the syntax.
+[PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-lock.html) for the syntax.
 </highlight>
 
 #### Units 
@@ -222,7 +222,7 @@ One caveat is that the total chunk size is actually dependent on
 both the underlying data size *and* any indexes, so some care might be
 taken if you make heavy use of expensive index types (e.g., some
 PostGIS geospatial indexes).  During testing, you might check your
-total chunk sizes via the [`chunks_detailed_size`](/hypertable/chunks_detailed_size)
+total chunk sizes via the [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size)
 function.
 </highlight>
 

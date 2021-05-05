@@ -2,7 +2,7 @@
 Get list of chunks associated with a hypertable.
 
 Function accepts the following required and optional arguments. These arguments 
-have the same semantics as the `drop_chunks` [function](/api/drop_chunks).
+have the same semantics as the `drop_chunks` [function](/hypertable/drop_chunks).
 
 ### Required Arguments
 

@@ -379,7 +379,7 @@ tutorials:
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [nyc-taxi]: /tutorials/nyc-taxi-cab
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[create-hypertable-docs]: /api/:currentVersion:/hypertables/create_hypertable
+[create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [time-series-forecasting]: /tutorials/time-series-forecast/

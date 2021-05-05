@@ -26,5 +26,5 @@ For deleting old data, such as in the second example
 
 [postgres-delete]: https://www.postgresql.org/docs/current/static/sql-delete.html
 [postgres-vacuum]: https://www.postgresql.org/docs/current/static/sql-vacuum.html
-[drop_chunks]: /api/:currentVersion:/hypertables-and-chunks/drop_chunks
+[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [data retention]: /how-to-guides/data-retention

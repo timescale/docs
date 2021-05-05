@@ -50,6 +50,6 @@ It's worth noting that [continuous aggregates][continuous-aggregates] are also v
 policies. 
 
 
-[drop-chunks]: /api/:currentVersion:/hypertables-and-chunks/drop_chunks/
+[drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/
 [add-retention-policy]: /api/:currentVersion:/data-retention/add_retention_policy/
 [continuous-aggregates]: /overview/core-concepts/continuous-aggregates/

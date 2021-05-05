@@ -54,4 +54,4 @@ Additional examples of passing in arguments at boot can be found in our
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [docker]: /how-to-guides/install-timescaledb//docker/installation-docker
 [wale]: /how-to-guides/backup-and-restore/docker-and-wale/
-[chunk_detailed_size]: /api/:currentVersion:/hypertables/chunk_detailed_size
+[chunk_detailed_size]: /api/:currentVersion:/hypertable/chunk_detailed_size

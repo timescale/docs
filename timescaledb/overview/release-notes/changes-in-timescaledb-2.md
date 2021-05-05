@@ -92,8 +92,8 @@ also have been updated to work for distributed hypertables.
 
 The following APIs to create and configure hypertables have changed:
 
-*   [`create_hypertable`](/api/:currentVersion:/hypertables-and-chunks/create_hypertable):  The `main_table` parameter has been renamed to `relation`, and additional parameters for distributed hypertables have been added.
-*   [`set_chunk_time_interval`](/api/:currentVersion:/hypertables-and-chunks/set_chunk_time_interval), [`set_number_of_partitions`](/api/:currentVersion:/hypertables-and-chunks/set_number_partitions), [`add_dimension`](/api/:currentVersion:/hypertables-and-chunks/add_dimension):  The `main_table` parameter has been renamed to `hypertable`.
+*   [`create_hypertable`](/api/:currentVersion:/hypertable/create_hypertable):  The `main_table` parameter has been renamed to `relation`, and additional parameters for distributed hypertables have been added.
+*   [`set_chunk_time_interval`](/api/:currentVersion:/hypertable/set_chunk_time_interval), [`set_number_of_partitions`](/api/:currentVersion:/hypertable/set_number_partitions), [`add_dimension`](/api/:currentVersion:/hypertable/add_dimension):  The `main_table` parameter has been renamed to `hypertable`.
 
 ### Viewing information about hypertables
 
@@ -113,7 +113,7 @@ number of space partitions used in a hypertable.
 *   [`timescaledb_information.chunks`](/api/:currentVersion:/informational-views/timescaledb_information-chunks):   A new view allows users 
 to see information about individual data chunks of all hypertables, including the tablespace or data node on which 
 each chunk is stored.
-*   [`show_chunks(relation)`](/api/:currentVersion:/hypertables-and-chunks/show_chunks):  The function now requires providing a 
+*   [`show_chunks(relation)`](/api/:currentVersion:/hypertable/show_chunks):  The function now requires providing a 
 hypertable or continuous aggregate identifier as the first argument, which is consistent with `drop_chunks(relation)`. 
 Previously, it was possible to view the chunks of all hypertables by eliding the hypertable argument. To view all 
 chunks in the database, we instead recommend using the new chunks view described above.
@@ -437,7 +437,7 @@ Other minor changes were made to various APIs for greater understandability and 
 ### Data Retention [](data-retention)
 
 #### Changes and Additions
-*   [`drop_chunks`](/api/:currentVersion:/hypertables-and-chunks/drop_chunks): This function now requires specifying a 
+*   [`drop_chunks`](/api/:currentVersion:/hypertable/drop_chunks): This function now requires specifying a 
 hypertable or continuous aggregate as the first argument, and does not allow dropping chunks across all hypertables 
 in a database.  Additionally, the arguments `cascade` and `cascade_to_materializations` were removed (and behave as 
 if the arguments were set to `false` in earlier versions). In TimescaleDB 2.0, we instead recommend creating a 

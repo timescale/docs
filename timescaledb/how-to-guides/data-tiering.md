@@ -134,7 +134,7 @@ Finally, with the introduction of user-exposed automation in TimescaleDB 2.0,
 you can use `move_chunk` within TimescaleDB's job scheduler framework.  Please see
 our [Actions documentation][actions] for more information.
 
-[api-move-chunk]: /api/:currentVersion:/hypertables/move_chunk
-[api-reorder-chunk]: /api/:currentVersion:/hypertables/reorder_chunk
+[api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
+[api-reorder-chunk]: /api/:currentVersion:/hypertable/reorder_chunk
 [tablespace]: https://www.postgresql.org/docs/10/sql-createtablespace.html
 [actions]: /how-to-guides/user-defined-actions/

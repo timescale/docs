@@ -8,7 +8,7 @@ reordered to avoid reordering chunks that are still being inserted into.
  Once a chunk has been reordered by the background worker it will not be
 reordered again. So if one were to insert significant amounts of data in to
 older chunks that have already been reordered, it might be necessary to manually
-re-run the [reorder_chunk](/hypertable/reorder_chunk) function on older chunks, or to drop
+re-run the [reorder_chunk](/api/latest/hypertable/reorder_chunk) function on older chunks, or to drop
 and re-create the policy if many older chunks have been affected.
 </highlight>
 

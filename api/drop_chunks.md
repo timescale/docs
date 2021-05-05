@@ -2,7 +2,7 @@
 
 Removes data chunks whose time range falls completely before (or
 after) a specified time.  Shows a list of the chunks that were
-dropped, in the same style as the `show_chunks` [function](/hypertables-and-chunks/show_chunks).
+dropped, in the same style as the `show_chunks` [function](/hypertable/show_chunks).
 
 Chunks are constrained by a start and end time and the start time is
 always before the end time.  A chunk is dropped if its end time is

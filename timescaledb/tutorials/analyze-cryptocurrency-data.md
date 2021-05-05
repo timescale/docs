@@ -637,7 +637,7 @@ Ready for even more learning? Here’s a few suggestions:
 [schema-creation]: https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql
 [dataset-creation]: https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py
 [dataset]: https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019
-[hypertable-docs]: /how-to-guides/hypertables-and-chunks
+[hypertable-docs]: /how-to-guides/hypertables
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
 [cryptocompare]: https://www.cryptocompare.com
 [cryptocompare-apikey]: https://min-api.cryptocompare.com

@@ -259,10 +259,10 @@ Now check out some common [hypertable commands][] for exploring your data.
 [different-db]: #different-db
 [import-data]: #import-data
 [outflux]: #outflux
-[create_hypertable]: /api/:currentVersion:/hypertables-and-chunks/create_hypertable
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
 [unique_indexes]: /how-to-guides/schema-management/indexing/#default-indexes
 [indexing]: /how-to-guides/schema-management/indexing/#indexing-data
 [csv-import]: #csv-import
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [outflux-tutorial]: /how-to-guides/migrate-data/migrate-influxdb/
-[hypertable commands]: /how-to-guides/hypertables-and-chunks/
+[hypertable commands]: /how-to-guides/hypertables/

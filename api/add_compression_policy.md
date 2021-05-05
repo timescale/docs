@@ -39,4 +39,4 @@ SELECT add_compression_policy('table_with_bigint_time', BIGINT '600000');
 
 
 [compression_alter-table]: /compression/alter_table_compression/
-[set_integer_now_func]: /hypertables-and-chunks/set_integer_now_func
+[set_integer_now_func]: /hypertable/set_integer_now_func
