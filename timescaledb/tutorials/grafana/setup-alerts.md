@@ -10,16 +10,7 @@ inform us when things go wrong and need our attention. This could be:
 
 In this tutorial, you'll learn how to setup Grafana to alert you when
 something goes wrong using many of the communication channels you already
-use:
-
-- [Prerequisites](#prereqs)
-- [Alerting principles](#alerting-principles)
-- [Introduction alerts in Grafana](#intro-grafana-alerts)
-- [Alert 1: Integrating TimescaleDB, Grafana, and Slack](#alert1). This type of integration uses web hooks to send alerts.
-- [Alert 2: Integrating TimescaleDB, Grafana, and PagerDuty](#alert2). This type of integration uses an API key and direct integration to send alerts.
-- [Alert 3: Integrating TimescaleDB, Grafana, and other notifications platforms](#alert3)
-- [Summary](#summary)
-
+use.
 
 ### Pre-requisites [](prereqs)
 

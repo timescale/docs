@@ -104,5 +104,5 @@ spatial partitioning is required* on a single node.
 
 
 
-[set_chunk_time_interval]: /api-reference/:currentVersion:/hypertables-and-chunks/set_chunk_time_interval
-[chunk_detailed_size]: /api-reference/:currentVersion:/hypertables-and-chunks/chunk_detailed_size
+[set_chunk_time_interval]: /api/:currentVersion:/hypertables-and-chunks/set_chunk_time_interval
+[chunk_detailed_size]: /api/:currentVersion:/hypertables-and-chunks/chunk_detailed_size

@@ -259,7 +259,7 @@ Now check out some common [hypertable commands][] for exploring your data.
 [different-db]: #different-db
 [import-data]: #import-data
 [outflux]: #outflux
-[create_hypertable]: /api-reference/:currentVersion:/hypertables-and-chunks/create_hypertable
+[create_hypertable]: /api/:currentVersion:/hypertables-and-chunks/create_hypertable
 [unique_indexes]: /how-to-guides/schema-management/indexing/#default-indexes
 [indexing]: /how-to-guides/schema-management/indexing/#indexing-data
 [csv-import]: #csv-import

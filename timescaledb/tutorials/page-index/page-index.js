@@ -1,26 +1,8 @@
 module.exports = [
     {
-        title: "Tutorials and Quick Starts",
+        title: "Tutorials",
         href: "tutorials",
         children: [
-          {
-            title: "Quick Start Guides",
-            href: "quick-starts",
-            children: [
-              {
-                href: "node"
-              },
-              {
-                href: "python"
-              },
-              {
-                href: "ruby"
-              },
-              {
-                href: "golang"
-              }
-            ]
-          },
           {
             title: "Getting started with Promscale",
             href: "promscale",
@@ -42,6 +24,10 @@ module.exports = [
                 href: "promscale-run-queries"
               }
             ]
+          },
+          {
+            title: "Introduction to IoT",
+            href: "nyc-taxi-cab"
           },
           {
             title: "Introduction to time-series forecasting",
@@ -83,6 +69,22 @@ module.exports = [
           {
             title: "Visualize data in Tableau",
             href: "visualize-with-tableu"
+          },
+          {
+            title: "Simulate IoT Sensor Data",
+            href: "simulate-iot-sensor-data"
+          },
+          {
+            title: "Monitor Timescale Cloud with Prometheus",
+            href: "setting-up-timescale-cloud-endpoint-for-prometheus"
+          },
+          {
+            title: "Collecting metrics with Telegraf",
+            href: "telegraf-output-plugin"
+          },
+          {
+            title: "Monitor a Django application with Prometheus",
+            href: "monitor-django-with-prometheus"
           },
           {
             href: "sample-datasets"

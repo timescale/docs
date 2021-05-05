@@ -35,6 +35,6 @@ distro, or a Docker image for your cluster deployment, we have you covered!
 [See a listing of current deployment][self-hosted] options for self-hosted installations.
 
 
-[timescale-forge]: /getting-started/launch-timescaledb/fully-managed-timescaledb/timescale-forge/
-[timescale-cloud]: /getting-started/launch-timescaledb/fully-managed-timescaledb/timescale-cloud/
-[self-hosted]: /getting-started/launch-timescaledb/self-hosted/
+[timescale-forge]: /how-to-guides/install-timescaledb/installation-forge/
+[timescale-cloud]: //how-to-guides/install-timescaledb/installation-cloud/
+[self-hosted]: /how-to-guides/install-timescaledb/self-hosted/

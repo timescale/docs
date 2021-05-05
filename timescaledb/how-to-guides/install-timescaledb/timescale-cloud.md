@@ -1,8 +1,10 @@
 # Exploring Timescale Cloud
 
-Welcome to Timescale Cloud. Timescale Cloud is a Database as a Service (DBaaS) 
-offering that provides an easy way for you to analyze time-series. Powered 
-by [TimescaleDB][timescale-features], you can create database instances in the 
+Welcome to Timescale Cloud. Timescale Cloud is a managed TimescaleDB service hosted 
+in 75+ regions in AWS, Azure, or GCP. You can [try Timescale Cloud for free][sign-up], 
+no credit card required.
+
+Powered by [TimescaleDB][timescale-features], you can create database instances in the 
 cloud and automate many of your most common operational tasks. This allows you 
 to spend more time focusing on your time-series workloads and less time worrying 
 about database management.
@@ -51,7 +53,7 @@ Once you've selected your service options, click `Create Service`.
 
 It will take a few minutes for your service to provision in your cloud. Now is
 a good time to familiarize yourself with some of the [features of TimescaleDB][using-timescale]
-and our [getting started tutorial][hello-timescale].
+and our [getting started tutorial][getting-started].
 
 ### Step 3: Install psql
 
@@ -105,7 +107,7 @@ You should see something similar to the following output:
 
 Congratulations! You are now up and running with Timescale Cloud. In order to
 familiarize yourself with the features and capabilities of the product, we
-recommend that you complete the [Hello, Timescale!][hello-timescale] tutorial.
+recommend that you complete the [Getting Started][getting-started] tutorial.
 
 ---
 
@@ -177,5 +179,5 @@ visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 [contact]: https://www.timescale.com/contact
 [using-timescale]: /overview/core-concepts/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
-[install-psql]: /getting-started/access-timescaledb/install-psql/
+[install-psql]: /how-to-guides/connecting/psql/
 

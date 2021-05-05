@@ -17,7 +17,7 @@ a compatible release, please upgrade before updating TimescaleDB.
  --------------------|-------------------------------
  1.7                 | 9.6, 10, 11, 12
  2.0                 | 11, 12
- 2.1                 | 11, 12, 13
+ 2.1+                | 11, 12, 13
 
 <highlight type="tip">
 If you need to upgrade PostgreSQL first, please see [our documentation](/how-to-guides/update-timescaledb/upgrade-postgresql/).
@@ -85,7 +85,7 @@ Execute the following SQL to save current settings for Continuous Aggregates and
 
 **Continuous Aggregate Stats**
 ```SQL
-\COPY timescaledb_information.continuous_aggregates_stats TO ‘continuous_aggregates_stats.csv’ csv header
+\COPY timescaledb_information.continuous_aggregate_stats TO ‘continuous_aggregate_stats.csv’ csv header
 ```
 
 **Drop Chunk Policies**
@@ -197,7 +197,7 @@ total_failures         | 0
 
 
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-tsdb-1]: https://docs.timescale.com/v1.7/update-timescaledb/update-tsdb-1
+[update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
 [update-tsdb-2]: /hot-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/

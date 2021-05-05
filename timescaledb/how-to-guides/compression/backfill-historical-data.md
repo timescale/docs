@@ -106,4 +106,4 @@ in future releases.
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
-[run-job]: /api-reference/:currentVersion:/actions-and-automation/run_job/
+[run-job]: /api/:currentVersion:/actions-and-automation/run_job/

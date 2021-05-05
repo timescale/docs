@@ -30,7 +30,7 @@ SELECT add_continuous_aggregate_policy('conditions_summary_daily',
 
 <highlight type="tip">
 If you have a lot of historical data to aggregate into the view, consider using
-the `WITH NO DATA` option as outlined in the [alternative approach](#with-no-data).
+the `WITH NO DATA` option.
 </highlight>
 
 A `time_bucket` on the time partitioning column of the hypertable is
@@ -84,7 +84,7 @@ currently support the `FILTER` clause (not to be confused with
 support for this in a future version.
 
 
-## Using `WITH NO DATA` when creating a Continuous Aggregate [](with-no-data)
+## Using `WITH NO DATA` when creating a Continuous Aggregate
 
 If you have a lot of historical data, we suggest creating the continuous aggregate
 using the `WITH NO DATA` parameter for the `CREATE MATERIALIZED VIEW` command. Doing
@@ -118,6 +118,6 @@ SELECT add_continuous_aggregate_policy('cagg_rides_view',
   schedule_interval => INTERVAL '30 minutes');
 ```
 
-[api-continuous-aggs]: /api-reference/:currentVersion:/continuous-aggregates/
+[api-continuous-aggs]: /api/:currentVersion:/continuous-aggregates/
 [postgres-createview]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [refresh_continuous_aggregate]: /continuous-aggregates/refresh_continuous_aggregate/
