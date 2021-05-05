@@ -1,18 +1,14 @@
-# TimescaleDB Release Notes & Plans
-
-Interested in what's coming down the pipeline? Read about our
-[current plans](#current-plans). Interested in learning more about
-what's already available? Jump down below to review our
-[release notes](#release-notes).
-
-Want to learn more? We welcome you to visit our
-[Github repo][github] or join our [Slack community][slack].
-
+# TimescaleDB Release Notes & Future Plans
+Interested in what's coming down the pipeline? Review our
+Future Plans section. Interested in learning more about
+what's already available? Jump down below to see what's
+been released.
+## Future Plans
 TimescaleDB is an open-source project with a vibrant community. 
 We are currently focusing on making our priorities known by that community; 
 we welcome you to visit our Github repo or join our [Slack community](https://slack.timescale.com).
 
-### What to expect from our next release
+## What to expect from our next release
 
 For our next release, we plan to add:
 
@@ -22,17 +18,20 @@ For our next release, we plan to add:
 
 The current GA (Generally Available) version is 2.2.1.
 
-One of the most significant changes in TimescaleDB 2.0 is support for
-horizontally scale-out TimescaleDB running across many nodes.
 You can read more about our architecture and design for distributed hypertables
-[here][multinode-intro], and follow [these instructions][multinode-setup] to
-setup your own multi-node TimescaleDB cluster.
+[here][distributed-hypertables].
 
-### Latest release
+If you have questions about distributed hypertables, join our #multinode channel on
+[community slack](https://slack.timescale.com/) for installation details and
+follow these [setup instructions][distributed-hypertables-setup].
 
-Currently, the latest Generally Available (GA) release is TimescaleDB 2.1.
+In addition to multi-node, we've also reassessed how some core
+functionality works, and, as a result, made APIs simpler and more consistent,
+while also empowering users with more control and flexibility to customize
+behaviors to suit your needs.  Some of these API updates are **breaking changes**.
 
-What's new in TimescaleDB 2.2.1:
+
+### What's new in TimescaleDB 2.2.1:
 
 Skip Scan optimization on single node and multinode. This feature offers significant 
 improvements in performance of `SELECT` queries with `DISTINCT ON`.
@@ -60,8 +59,7 @@ users to upgrade in testing environments to gain experience and provide feedback
 new and updated features.
 
 Especially because some API updates from TimescaleDB 1.x to 2.0 are breaking changes, 
-we recommend reviewing the [Changes in TimescaleDB 2.0](/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/) 
-for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
+we recommend reviewing the [Changes in TimescaleDB 2.0](/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/) for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
 </highlight>
 
 ## Release Notes
@@ -73,68 +71,7 @@ past releases and how you can learn more.
 `psql` with the `-X` flag to prevent any `.psqlrc` commands from
 accidentally triggering the load of a previous DB version.**
 
-## 2.2.0 (2021-04-13)
-
-This release adds major new features since the 2.1.1 release.
-We deem it moderate priority for upgrading.
-
-This release adds the Skip Scan optimization, which significantly 
-improves the performance of queries with DISTINCT ON. This 
-optimization is not yet available for queries on distributed 
-hypertables.
-
-This release also adds a function to create a distributed 
-restore point, which allows performing a consistent restore of a 
-multi-node cluster from a backup.
-
-The bug fixes in this release address issues with size and stats 
-functions, high memory usage in distributed inserts, slow distributed 
-ORDER BY queries, indexes involving INCLUDE, and single chunk query 
-planning.
-
-**PostgreSQL 11 deprecation announcement**
-
-Timescale is working hard on our next exciting features. To make that 
-possible, we require functionality that is unfortunately absent on 
-PostgreSQL 11. For this reason, we will continue supporting PostgreSQL 
-11 until mid-June 2021. Sooner to that time, we will announce the 
-specific version of TimescaleDB in which PostgreSQL 11 support will 
-not be included going forward.
-
-**Major Features**
-* #2843 Add distributed restore point functionality
-* #3000 SkipScan to speed up SELECT DISTINCT
-
-**Bugfixes**
-* #2989 Refactor and harden size and stats functions
-* #3058 Reduce memory usage for distributed inserts
-* #3067 Fix extremely slow multi-node order by queries
-* #3082 Fix chunk index column name mapping
-* #3083 Keep Append pathkeys in ChunkAppend
-
-**Thanks**
-* @BowenGG for reporting an issue with indexes with INCLUDE
-* @fvannee for reporting an issue with ChunkAppend pathkeys
-* @pedrokost and @RobAtticus for reporting an issue with size
-  functions on empty hypertables
-* @phemmer and @ryanbooz for reporting issues with slow
-  multi-node order by queries
-* @stephane-moreau for reporting an issue with high memory usage during
-  single-transaction inserts on a distributed hypertable.
-
-## 2.1.1 (2021-03-29)
-
-This maintenance release contains bugfixes since the 2.1.0 release. We
-deem it high priority for upgrading.
-
-The bug fixes in this release address issues with CREATE INDEX and 
-UPSERT for hypertables, custom jobs, and gapfill queries.
-
-This release marks TimescaleDB as a trusted extension in PG13, so that 
-superuser privileges are not required anymore to install the extension.
-
-**Minor features**
-* #2998 Mark timescaledb as trusted extension
+## Unreleased
 
 ## 2.2.1 (2021-05-05)
 
@@ -1349,5 +1286,3 @@ For more information on this release, read the [blog announcement](https://blog.
 [distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
 [distributed-hypertables-setup]: /how-to-guides/multi-node-setup/
 [changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
-[multinode-intro]: /overview/core-concepts/distributed-hypertables
-[multinode-setup]: /how-to-guides/multi-node-setup/
