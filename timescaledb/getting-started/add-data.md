@@ -46,7 +46,7 @@ After unzipping the file, use the following command (which assumes `weather_data
 
 ```sql
 -- copy data from weather_data.csv into weather_metrics
-\copy weather_metrics (time, timezone_shift, city_name, temp_c, feels_like_c, temp_min_c, temp_max_c, pressure_hpa, humidity_percent, wind_speed_ms, wind_deg, rain_1h_mm, rain_3h_mm, snow_1h_mm, snow_3h_mm, clouds_percent, weather_type_id) from './weather_data.csv' CSV HEADER;</td>
+\copy weather_metrics (time, timezone_shift, city_name, temp_c, feels_like_c, temp_min_c, temp_max_c, pressure_hpa, humidity_percent, wind_speed_ms, wind_deg, rain_1h_mm, rain_3h_mm, snow_1h_mm, snow_3h_mm, clouds_percent, weather_type_id) from './weather_data.csv' CSV HEADER;
 ```
 Now that you’re up and running with historical data inside TimescaleDB and a 
 method to ingest the latest data into your database, let’s start querying the data.
