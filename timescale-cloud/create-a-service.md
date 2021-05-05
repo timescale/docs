@@ -123,7 +123,7 @@ This tutorial will walk you through how to configure this capability.
 
 #### Before you start
 
-Be sure to follow the instructions to [setup Timescale Cloud][timescale-cloud-install] in order to
+Be sure to follow the instructions above in order to
 get signed up and create your first database instance.
 
 #### Step 1 - Navigate to your TimescaleDB instance
@@ -168,13 +168,12 @@ visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cidr-tool]: http://www.subnet-calculator.com/cidr.php
 [timescale-cloud-kb]: https://kb.timescale.cloud/en/collections/1600092-security
- 
 [timescale-cloud-portal]: http://portal.timescale.cloud
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-features]: https://www.timescale.com/products
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[using-timescale]: /using-timescaledb
-[getting-started]: /timescaledb/:currentProduct:/getting-started/
-[install-psql]: /getting-started/install-psql-tutorial
+[using-timescale]: /timescaledb/:currentVersion:/overview/core-concepts
+[getting-started]: /timescaledb/:currentVersion:/getting-started/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
 

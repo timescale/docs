@@ -6,7 +6,7 @@ In this tutorial, you will learn:
 1.	How to get started with TimescaleDB
 2.	How to use TimescaleDB to analyze and monitor data from IoT sensors
 
-Dataset: [:DOWNLOAD_LINK: `nyc_data.tar.gz`][nyc_data]
+Dataset: <tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</tag>
 Estimated time for completion: 25 minutes.
 
 ### Pre-requisites
@@ -809,15 +809,15 @@ Ready for more learning? Here’s a few suggestions:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-[install-timescale]: /getting-started/installation
-[setup-psql]: /getting-started/install-psql-tutorial
+[install-timescale]: /how-to-guides/install-timescaledb
+[setup-psql]: /how-to-guides/connecting/psql
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [nyc_data]: https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz
 [postgis]: http://postgis.net/documentation
-[time-series-forecasting]: /tutorials/tutorial-forecasting
-[continuous-aggregates]: /tutorials/continuous-aggs-tutorial
-[other-samples]: /tutorials/other-sample-datasets
-[migrate]: /getting-started/migrating-data
+[time-series-forecasting]: /tutorials/time-series-forecast/
+[continuous-aggregates]: /getting-started/create-cagg/
+[other-samples]: /tutorials/sample-datasets/
+[migrate]: /how-to-guides/migrate-data/
 [forge-signup]: https://console.forge.timescale.com/signup
-[hypertables]: /using-timescaledb/hypertables
+[hypertables]: /how-to-guides/hypertables
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

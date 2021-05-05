@@ -43,7 +43,7 @@ configuration options best suited for your use case.
 Don't worry if too much about the size settings that you choose initially. With Timescale Forge,
 it's easy to modify both the compute (CPU/Memory) and storage associated with the service
 that you just created. As you get to know TimescaleDB and how your data processing needs vary,
-it's easy to [right-size your service with a few clicks](#forge-resize)!
+it's easy to [right-size your service with a few clicks](/timescale-forge/latest/scaling-a-service/)!
 </highlight>
 
 After you select 'Create service', you will see confirmation of your service account and
@@ -114,14 +114,14 @@ Please see additional documentation on how to:
 [forge-signup]: https://forge.timescale.com
 [billing-info]: /forge/managing-billing-payments
 [slack-info]: https://slack-login.timescale.com
-[install-psql]: /timescaledb/:currentVersion:/getting-started/access-timescaledb/install-psql/
-[getting-started]: /timescaledb/:currentProduct:/getting-started/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[getting-started]: /timescaledb/:currentVersion:/getting-started/
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: /how-to-guides/hypertables-and-chunks
-[time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
-[gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
-[aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial
+[hypertable-info]: /timescaledb/:currentVersion:/how-to-guides/hypertables
+[time-bucket-info]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries#time-bucket
+[gap-filling-info]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[aggregates-info]: /timescaledb/:currentVersion:/getting-started/create-cagg/
 [resize]: /scaling-a-service/
 [configuration]: /customize-configuration/
-[multi-node]: /multi-node-setup
+[multi-node]: /forge-multi-node/

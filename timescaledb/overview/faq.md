@@ -69,7 +69,6 @@ Sydney (`ap-southeast-2`), Tokyo (`ap-northeast-1`), Mumbai (`ap-south-1`), Seou
 * **Google Cloud Platform (GCP)**: Northern Virginia, Los Angeles, South Carolina, 
 Iowa, Oregon, São Paulo, Zürich, London, Frankfurt, Finland, Belgium, Netherlands, 
 Montréal, Sydney, Taiwan, Mumbai, Hong Kong, Tokyo, Singapore
-[[Top]](#top)
 
 ## What is the difference between Timescale, TimescaleDB, and Timescale Cloud?
 **Timescale** is the company. Timescale builds a category-defining time-series database called **TimescaleDB**. 
@@ -172,7 +171,7 @@ into the database. Yet all this complexity is abstracted away from the user and
 they are exposed to a single table interface (a "hypertable") that functions exactly as
 a normal table in PostgreSQL does. For more information, see this blog post:
 [Time-series data: Why (and how) to use a relational database instead of NoSQL][rdbms > nosql].
-[[Top]](#top)
+
 
 ## Is there a clustered version and how can I try it?
 We often find that there may be a few different things people are looking for when they ask
@@ -251,7 +250,7 @@ deleted that is older than a specified time period. For more information, see [D
 * Extended time-oriented features: TimescaleDB includes time-series specific features
 not included in vanilla PostgreSQL and entirely unique to TimescaleDB
 (e.g., [`time_bucket`][time_bucket],[`first`][first] and [`last`][last]), with more to come.
-[[Top]](#top)
+
 
 ## How compatible is TimescaleDB with PostgreSQL?
 TimescaleDB is implemented as an extension to PostgreSQL that introduces
@@ -300,7 +299,6 @@ anything that speaks SQL (i.e., the entire PostgreSQL ecosystem).
 NoSQL system in order to scale to larger volumes of data.
 * If you already chose to abandon PostgreSQL or another relational database for a Hadoop/NoSQL
 system due to scaling concerns or issues. We will provide support for the migration back.
-[[Top]](#top)
 
 ## What if I my use case is simple key-value reads?
 For this scenario, in-memory or column-oriented databases are designed for

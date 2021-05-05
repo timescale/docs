@@ -222,7 +222,7 @@ Your dashboard should look something like this:
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[install-grafana]: /getting-started/installation-grafana
-[nyc-taxi]: /timescaledb/:currentProduct:/tutorials/nyc-taxi-cab
-[tutorial-grafana]: /tutorials/tutorial-grafana
-[tutorial-grafana-geospatial]: /tutorials/tutorial-grafana-geospatial
+[install-grafana]: /tutorials/grafana/installation
+[nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
+[tutorial-grafana]: /tutorials/grafana
+[tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards/

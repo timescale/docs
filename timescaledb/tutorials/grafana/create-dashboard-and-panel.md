@@ -172,7 +172,7 @@ When we visualize this query, it will look like this:
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[install-grafana]: /getting-started/installation-grafana
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[install-grafana]: /tutorials/grafana/installation
+[nyc-taxi]: /tutorials/nyc-taxi-cab
 [time-bucket-reference]: /api/:currentVersion:/analytics/time_bucket
-[tutorial-grafana]: /tutorials/tutorial-grafana
+[tutorial-grafana]: /tutorials/grafana
