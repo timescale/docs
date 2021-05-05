@@ -371,7 +371,7 @@ tutorials:
 
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[setup-psql]: /getting-started/access-timescaledb/install-psql/
+[setup-psql]: /how-to-guides/connecting/psql/
 [install]: /how-to-guides/install-timescaledb/
 [virtual-env]: https://opensource.com/article/19/6/virtual-environments-python-macos
 [psycopg2-docs]: https://pypi.org/project/psycopg2/

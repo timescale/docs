@@ -709,7 +709,7 @@ be sure to check out these advanced TimescaleDB tutorials:
 
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[setup-psql]: /getting-started/access-timescaledb/install-psql/
+[setup-psql]: /how-to-guides/connecting/psql/
 [install]: /how-to-guides/install-timescaledb/
 [indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [crypto-tutorial]: /tutorials/analyze-cryptocurrency-data

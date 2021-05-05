@@ -1,15 +1,5 @@
 # Tutorial: How to simulate a basic IoT sensor dataset on PostgreSQL or TimescaleDB
-
->:TOPLIST:
-> ### Contents
-> - [Introduction](#introduction)
-> - [Prerequisites](#prereqs)
-> - [Step 1 - Set up your tables](#step1)
-> - [Step 2 - Create the simulated IoT sensor data](#step2)
-> - [Step 3 - Run basic queries (optional)](#step3)
-> - [Next Steps](#next-steps)
-
-### Introduction [](introduction)
+## Introduction [](introduction)
 The Internet of Things (IoT) describes a trend where computing is 
 becoming ubiquitous and is embedded in more and more physical things. 
 For many of these things, the purpose of IoT is to collect sensor data 
@@ -27,7 +17,7 @@ basic IoT sensor dataset on PostgreSQL, or TimescaleDB.
 *Note: For creating a more advanced simulated IoT dataset, please
 try the Time-series Benchmarking Suite (TSBS) ([Github][github-tsbs]).*
 
-### Prerequisites [](prereqs)
+## Prerequisites [](prereqs)
 
 To complete this tutorial, you will need a cursory knowledge of the Structured Query 
 Language (SQL). The tutorial will walk you through each SQL command, but it will be 
@@ -37,7 +27,7 @@ To start, [install TimescaleDB][install-timescale]. Once your installation is co
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 
-### Step 1 - Set up your tables [](step1)
+## Step 1 - Set up your tables [](step1)
 First, connect to your database via `psql`.
 
 Second, create the "sensors" and "sensor_data" tables:
@@ -96,7 +86,7 @@ this:
 (4 rows)
 ```
 
-### Step 2 - Create the simulated IoT sensor data [](step2)
+## Step 2 - Create the simulated IoT sensor data [](step2)
 
 *Note: for the following sections we’ll share the results of our queries
 as an example, but since the tutorial generates random data every time
@@ -141,11 +131,11 @@ SAMPLE OUTPUT:
 Congrats! We've created a basic IoT sensor dataset. Now let's run some 
 queries.
 
-### Step 3 - Run basic queries (optional) [](step3)
+## Step 3 - Run basic queries (optional) [](step3)
 
 *Note: This section requires TimescaleDB*
 
-#### Average temperature, average cpu by 30 minute windows:
+### Average temperature, average cpu by 30 minute windows:
 ```sql
 SELECT 
   time_bucket('30 minutes', time) AS period, 
@@ -167,7 +157,7 @@ SAMPLE OUTPUT:
  ...
 ```
 
-#### Average & last temperature, average cpu by 30 minute windows:
+### Average & last temperature, average cpu by 30 minute windows:
 But what if we don’t just want the average temperature for each period,
 but also the last temperature? (For example if we wanted to understand
 the final temperature value at the end of the interval.)
@@ -194,7 +184,7 @@ SAMPLE OUTPUT:
 ...
 ```
 
-#### Using the sensor metadata
+### Using the sensor metadata
 Now let’s take advantage of some of the metadata we have stored in the
 `sensors` table:
 
@@ -224,7 +214,7 @@ SAMPLE OUTPUT:
 ...
 ```
 
-### Next steps [](next-steps)
+## Next steps [](next-steps)
 
 Congratulations! You now have a basic IoT sensor dataset you can
 use for testing in PostgreSQL or TimescaleDB.
@@ -245,8 +235,8 @@ documentation:
 
 [github-tsbs]: https://github.com/timescale/tsbs
 [install-timescale]: /how-to-guides/install-timescaledb/
-[get-psql]: /getting-started/access-timescaledb/install-psql/
-[docs-hypertable]: /how-to-guides/hypertables-and-chunks/
+[get-psql]: /how-to-guides/connecting/psql/
+[docs-hypertable]: /how-to-guides/hypertables/
 [docs-timebucket]: /api/:currentVersion:/analytics/time_bucket
 [docs-last]: /api/:currentVersion:/analytics/last
-[docs-timescaledb-intro]: /introduction
+[docs-timescaledb-intro]: /overview

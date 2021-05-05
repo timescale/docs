@@ -70,16 +70,5 @@ and learning about everything that TimescaleDB offers!
 
 [install-timescaledb]: /how-to-guides/install-timescaledb/
 [forge-signup]: https://forge.timescale.com
-[billing-info]: /forge/managing-billing-payments
-[slack-info]: https://slack-login.timescale.com
-[install-psql]: /timescaledb/:currentVersion:/getting-started/access-timescaledb/install-psql/
-[hello-timescale]: /tutorials/tutorial-hello-timescale
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: /how-to-guides/hypertables-and-chunks
-[time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
-[gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
-[aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial
-[resize]: /scaling-a-service/
-[configuration]: /customize-configuration/
-[multi-node]: /multi-node-setup

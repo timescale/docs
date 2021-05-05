@@ -177,5 +177,5 @@ visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 [contact]: https://www.timescale.com/contact
 [using-timescale]: /overview/core-concepts/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
-[install-psql]: /getting-started/access-timescaledb/install-psql/
+[install-psql]: /how-to-guides/connecting/psql/
 

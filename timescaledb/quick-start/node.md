@@ -489,7 +489,7 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[setup-psql]: /getting-started/access-timescaledb/install-psql/
+[setup-psql]: /how-to-guides/connecting/psql/
 [indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /tutorials/continuous-aggs-tutorial

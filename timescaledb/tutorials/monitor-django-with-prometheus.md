@@ -232,4 +232,4 @@ visualizations, like [Grafana][grafana].
 [localhost-metrics]: http://localhost:8000/metrics
 [localhost-prom-browser]: http://localhost:9090/graph
 [localhost-prom-example]: http://localhost:9090/graph?g0.range_input=1h&g0.stacked=1&g0.expr=django_http_requests_total_by_method_total&g0.tab=0
-[grafana]: /tutorials/tutorial-grafana
+[grafana]: /tutorials/grafana

@@ -39,6 +39,6 @@ your current upgrade path.
 
 
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-tsdb-1]: https://docs.timescale.com/v1.7/update-timescaledb/update-tsdb-1
+[update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
 [update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
 [update-docker]: /how-to-guides/update-timescaledb/updating-docker/
