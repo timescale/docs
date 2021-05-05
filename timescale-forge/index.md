@@ -1,7 +1,8 @@
 # Timescale Forge
 
-The power and reliability of TimescaleDB and PostgreSQL with a fully-managed AWS 
-cloud-native experience that is easy to start and at lower cost.
+Timescale Forge is a cloud-native TimescaleDB as a service that is easy to get 
+started and powerful enough for the most demanding scenarios. You can 
+[try Timescale Forge for free][sign-up], no credit card required.
 
 ### Cloud-native, easy start, low cost
 Built and operated by the team behind TimescaleDB, Timescale Forge is the 
@@ -33,3 +34,5 @@ and extensions.
  * Entire toolset works - ORMs, connectors, JDBC, applications
  * More than 75 popular PostgreSQL extensions including PostGIS, pre-installed
  * Integrated support for Prometheus long-term storage 
+
+ [sign-up]: https://console.forge.timescale.com/signup

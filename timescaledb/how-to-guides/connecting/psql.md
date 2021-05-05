@@ -134,4 +134,3 @@ Congrats! Now you have connected via `psql`.
 
 [brew-package-manager]: https://brew.sh/
 [windows-installer]: https://www.postgresql.org/download/windows/
-[hello-timescale]: /tutorials/tutorial-hello-timescale

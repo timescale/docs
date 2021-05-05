@@ -871,8 +871,8 @@ Congratulations, you’ve successfully executed a query on TimescaleDB using Go 
 Now that you’re able to connect, read, and write to a TimescaleDB instance from your 
 Golang application, be sure to check out these advanced TimescaleDB tutorials:
 
-* Refer to the [pgx documentation][pgx-docs] for more information about pgx
-* Get up and running with TimescaleDB with our [Hello Timescale tutorial][hello-timescale] which will teach you the basics of TimescaleDB using a real world IoT dataset.
+* Refer to the [pgx documentation][pgx-docs] for more information about pgx.
+* Get up and running with TimescaleDB with our [Getting Started][getting-started] tutorial.
 * Want fast inserts on CSV data? Check out [TimescaleDB parallel copy][parallel-copy-tool], our tool for fast inserts, written in Golang.
 
 [timescaledb-install]: /how-to-guides/install-timescaledb/
@@ -883,6 +883,6 @@ Golang application, be sure to check out these advanced TimescaleDB tutorials:
 [hypertable-docs]: /api/:currentVersion:/hypertables-and-chunks/create_hypertable
 [parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[getting-started]: /timescaledb/:currentProduct:/getting-started/
 
 

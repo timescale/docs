@@ -1,8 +1,8 @@
 # Exploring Timescale Forge
 
-Welcome to Timescale Forge! Timescale Forge combines the power and reliability 
-of TimescaleDB with a fully-managed, cloud-native experience that is easy to 
-start and less expensive to operate.
+Welcome to Timescale Forge! Timescale Forge is a cloud-native TimescaleDB 
+as a service that is easy to get started and powerful enough for the most 
+demanding scenarios
 
 This tutorial will walk you through setting up your Timescale Forge account and
 completing your first tutorial project.
@@ -74,16 +74,7 @@ a service altogether.
 
 Congratulations! You are now up and running with Timescale Forge. In order to
 familiarize yourself with the features and capabilities of the product, we
-recommend that you complete the [Hello, Timescale!][hello-timescale] tutorial.
-
-To simplify operations with TimescaleDB, each Timescale Forge service comprises a
-single "database" per PostgreSQL terminology, and all Timescale Forge services
-come with TimescaleDB already installed. So skip the `CREATE DATABASE` step
-and the "adding the TimescaleDB extension" step of the tutorial and
-jump right to the "Define your data schema" section of the [Hello, Timescale!][hello-timescale]
-tutorial. Wherever the instructions indicate that you should use the `nyc_data`
-database, use `tsdb` instead. `tsdb` is the default database name for every
-Timescale Forge service. And if you need another database, it's just a click away.
+recommend that you complete the [Getting Started][getting-started] tutorial.
 
 ### Step 4: Learn more about TimescaleDB
 
@@ -124,7 +115,7 @@ Please see additional documentation on how to:
 [billing-info]: /forge/managing-billing-payments
 [slack-info]: https://slack-login.timescale.com
 [install-psql]: /timescaledb/:currentVersion:/getting-started/access-timescaledb/install-psql/
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[getting-started]: /timescaledb/:currentProduct:/getting-started/
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
 [hypertable-info]: /how-to-guides/hypertables-and-chunks
