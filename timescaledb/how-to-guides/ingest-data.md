@@ -42,8 +42,9 @@ We wrote the PostgreSQL output plugin which also has the ability to send data to
 batching, processing, and aggregating the data collected prior to inserting that data into TimescaleDB.
 
 <highlight type="warning">
-The [pull request][pull-request] is open and currently under review by the Telegraf developers, waiting to be
-merged. To give users the opportunity to try this functionality, we built [downloadable binaries][downloadable-binaries] of
+The [pull request][pull-request] is open and currently under review by the
+Telegraf developers, waiting to be merged. To give users the opportunity to try
+this functionality, we built [downloadable binaries][downloadable-binaries] of
 Telegraf with our plugin already included.
 </highlight>
 
@@ -58,7 +59,8 @@ To get started with the PostgreSQL and TimescaleDB output plugin, visit the [tut
 ## PostgreSQL's Kafka connector
 
 Another popular method of ingesting data into TimescaleDB is through the use of
-the [PostgreSQL connector with Kafka Connect][postgresql-connector-with-kafka-connect].
+the [PostgreSQL connector with Kafka Connect]
+[postgresql-connector-with-kafka-connect].
 The connector is designed to work with [Kafka Connect][kafka-connect] and to be
 deployed to a Kafka Connect runtime service. It’s purpose is to ingest change
 events from PostgreSQL databases (i.e. TimescaleDB).
@@ -79,8 +81,9 @@ that you use this connector with Kafka and Kafka Connect.
 
 To start using the PostgreSQL connector, visit the [GitHub page][github-debezium].
 If you are interested in an alternative method to ingest data from Kafka to
-TimescaleDB, you can download the [StreamSets Data Collector][streamsets-data-collector]
-and get started with this [tutorial][tutorial-streamsets].
+TimescaleDB, you can download
+the [StreamSets Data Collector][streamsets-data-collector] and get started with
+this [tutorial][tutorial-streamsets].
 
 
 [writing-data]: /how-to-guides/writing-data
