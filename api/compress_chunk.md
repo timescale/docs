@@ -22,7 +22,7 @@ You can get a list of chunks belonging to a hypertable using the
 
 |Name|Type|Description|
 |---|---|---|
-| `if_not_compressed` | BOOLEAN | Setting to true will skip chunks that are already compressed, but will still succeed the operation. Defaults to false.|
+| `if_not_compressed` | BOOLEAN | Setting to true will skip chunks that are already compressed, but the operation will still succeed. Defaults to false.|
 
 ### Returns
 
