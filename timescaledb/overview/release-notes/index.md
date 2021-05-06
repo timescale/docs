@@ -1,43 +1,67 @@
-# TimescaleDB Release Notes & Plans
+# TimescaleDB Release Notes & Future Plans
 
-Interested in what's coming down the pipeline? Read about our
-[current plans](#current-plans). Interested in learning more about
-what's already available? Jump down below to review our
-[release notes](#release-notes).
+Interested in what's coming down the pipeline? Review our
+Future Plans section. Interested in learning more about
+what's already available? Jump down below to see what's
+been released.
 
-Want to learn more? We welcome you to visit our
-[Github repo][github] or join our [Slack community][slack].
+## Future Plans
 
-## Current Plans [](current-plans)
+TimescaleDB is an open-source project with a vibrant community. 
+We are currently focusing on making our priorities known by that community; 
+we welcome you to visit our Github repo or join our [Slack community](https://slack.timescale.com).
 
-One of the most significant changes in TimescaleDB 2.0 is support for
-horizontally scale-out TimescaleDB running across many nodes.
+### What to expect from our next release
+
+For our next release, we plan to add:
+
+- Compression policies on distributed hypertables
+- Partially mutable compressed chunks to support INSERTs into a compressed hypertable.
+- Various bug fixes.
+
+The current GA (Generally Available) version is 2.2.1.
+
 You can read more about our architecture and design for distributed hypertables
-[here][multinode-intro], and follow [these instructions][multinode-setup] to
-setup your own multi-node TimescaleDB cluster.
+[here][distributed-hypertables].
 
-### Latest release
+If you have questions about distributed hypertables, join our #multinode channel on
+[community slack](https://slack.timescale.com/) for installation details and
+follow these [setup instructions][distributed-hypertables-setup].
 
-Currently, the latest Generally Available (GA) release is TimescaleDB 2.1.
+In addition to multi-node, we've also reassessed how some core
+functionality works, and, as a result, made APIs simpler and more consistent,
+while also empowering users with more control and flexibility to customize
+behaviors to suit your needs.  Some of these API updates are **breaking changes**.
 
-What's new in TimescaleDB 2.1:
+### What's new in TimescaleDB 2.2.1:
 
-- [Support for PostgreSQL 13.2](https://github.com/timescale/timescaledb/issues/2779):
-PG13.2 offers various improvements in functionality, administration, and security,
-among others. Also, as a result of our own @svenklemm upstream report of
-CVE-2021-20229 on PostgreSQL, we have waited for the release of PG13.2
-(released Feb 11, 2021) to provide the safest experience to our users.
-- Support for [ALTER/RENAME columns for compressed hypertables](https://github.com/timescale/timescaledb-private/issues/849), 
-which simplifies the user journey if a user wants to change the schema and
-they have already compressed their hypertables. 
+Skip Scan optimization on single node and multinode. This feature offers significant 
+improvements in performance of `SELECT` queries with `DISTINCT ON`.
+
+This release also adds support for creating distributed 
+restore points. This allows performing consistent restores of 
+multi-node clusters from a backup.
+
+The bug fixes in this release address issues in size and stats 
+functions, high memory usage in distributed inserts, slow distributed 
+ORDER BY queries, indexes involving INCLUDE, single chunk query 
+planning, compression, and policies.
+
+**PostgreSQL 11 deprecation announcement**
+
+Timescale is working hard on our next exciting features. To make that 
+possible, we require functionality that is unfortunately absent on 
+PostgreSQL 11. For this reason, we will continue supporting PostgreSQL 
+11 until mid-June 2021. Sooner to that time, we will announce the 
+specific version of TimescaleDB in which PostgreSQL 11 support will be removed.
 
 <highlight type="tip">
-TimescaleDB 2.1 is currently GA, we encourage
+TimescaleDB 2.2.1 is currently GA, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on 
 new and updated features.
 
 Especially because some API updates from TimescaleDB 1.x to 2.0 are breaking changes, 
-we recommend reviewing the [Changes in TimescaleDB 2.0](/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/)
+we recommend reviewing the [Changes in TimescaleDB 2.0](/timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/) 
 for more information and links to installation instructions when upgrading from TimescaleDB 1.x.
 </highlight>
 
@@ -49,6 +73,49 @@ past releases and how you can learn more.
 **Please note: When updating your database, you should connect using
 `psql` with the `-X` flag to prevent any `.psqlrc` commands from
 accidentally triggering the load of a previous DB version.**
+
+## Unreleased
+
+## 2.2.1 (2021-05-05)
+
+This maintenance release contains bugfixes since the 2.2.0 release. We
+deem it high priority for upgrading.
+
+This release extends Skip Scan to multinode by enabling the pushdown
+of `DISTINCT` to data nodes. It also fixes a number of bugs in the
+implementation of Skip Scan, in distributed hypertables, in creation
+of indexes, in compression, and in policies.
+
+**Features**
+* #3113 Pushdown "SELECT DISTINCT" in multi-node to allow use of Skip
+  Scan
+
+**Bugfixes**
+* #3101 Use commit date in `get_git_commit()`
+* #3102 Fix `REINDEX TABLE` for distributed hypertables
+* #3104 Fix use after free in `add_reorder_policy`
+* #3106 Fix use after free in `chunk_api_get_chunk_stats`
+* #3109 Copy recreated object permissions on update
+* #3111 Fix `CMAKE_BUILD_TYPE` check
+* #3112 Use `%u` to format Oid instead of `%d`
+* #3118 Fix use after free in cache
+* #3123 Fix crash while using `REINDEX TABLE CONCURRENTLY`
+* #3135 Fix SkipScan path generation in `DISTINCT` queries with expressions
+* #3146 Fix SkipScan for IndexPaths without pathkeys
+* #3147 Skip ChunkAppend if AppendPath has no children
+* #3148 Make `SELECT DISTINCT` handle non-var targetlists
+* #3151 Fix `fdw_relinfo_get` assertion failure on `DELETE`
+* #3155 Inherit `CFLAGS` from PostgreSQL
+* #3169 Fix incorrect type cast in compression policy
+* #3183 Fix segfault in calculate_chunk_interval 
+* #3185 Fix wrong datatype for integer based retention policy
+
+**Thanks**
+* @Dead2, @dv8472 and @einsibjarni for reporting an issue with multinode queries and views
+* @aelg for reporting an issue with policies on integer-based hypertables
+* @hperez75 for reporting an issue with Skip Scan
+* @nathanloisel for reporting an issue with compression on hypertables with integer-based timestamps
+* @xin-hedera for fixing an issue with compression on hypertables with integer-based timestamps
 
 ## 2.2.0 (2021-04-13)
 
