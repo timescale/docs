@@ -38,9 +38,9 @@ behaviors to suit your needs.  Some of these API updates are **breaking changes*
 Skip Scan optimization on single node and multinode. This feature offers significant 
 improvements in performance of `SELECT` queries with `DISTINCT ON`.
 
-This release also adds support for creating a distributed 
-restore point. This allows performing a consistent restore of a 
-multi-node cluster from a backup.
+This release also adds support for creating distributed 
+restore points. This allows performing consistent restores of 
+multi-node clusters from a backup.
 
 The bug fixes in this release address issues in size and stats 
 functions, high memory usage in distributed inserts, slow distributed 
