@@ -63,7 +63,7 @@ as relevant.
 The database sends telemetry reports periodically in the background.
 In response to the telemetry report, the database will receive the most recent
 version of TimescaleDB available for installation. This version will be
-recorded in the user’s server logs, along with any applicable out-of-date
+recorded in the user's server logs, along with any applicable out-of-date
 version warnings. While you do not have to update immediately to the newest
 release, many users have reported that performance issues or bugs
 automatically resolve after updating their version of TimescaleDB.

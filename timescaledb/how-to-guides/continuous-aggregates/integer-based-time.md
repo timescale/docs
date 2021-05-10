@@ -1,4 +1,4 @@
-# Continuous Aggregates using Integer-Based Time 
+# Continuous aggregates using integer-based time 
 
 Usually, continuous aggregates are defined on a
 [date/time-type][postgres-date-time]
