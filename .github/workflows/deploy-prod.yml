@@ -1,0 +1,18 @@
+name: Deploy docs to prod
+
+on:
+  push:
+    branches:
+      - latest
+
+jobs:
+  trigger:
+    name: Docs prod deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: timescale/web-documentation
+          event-type: build-docs-content-prod
