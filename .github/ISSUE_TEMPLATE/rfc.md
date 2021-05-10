@@ -4,7 +4,6 @@ about: Request a change in content/appearance/functionality
 title: "[Docs RFC]"
 labels: ''
 assignees: ''
-
 ---
 
 # Describe change in content, appearance, or functionality
