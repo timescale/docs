@@ -5,9 +5,9 @@ can do.  There are some solutions to common errors below as well as ways to outp
 diagnostic information about your setup.  If you need more guidance, you can join
 the support [slack group][slack] or post an issue on the TimescaleDB [github][].
 
-## Common Errors
+## Common errors
 
-### Error updating TimescaleDB when using a third-party PostgreSQL admin tool.
+### Error updating TimescaleDB when using a third-party PostgreSQL admin tool
 
 The update command `ALTER EXTENSION timescaledb UPDATE` must be the first command
 executed upon connection to a database.  Some admin tools execute command before
