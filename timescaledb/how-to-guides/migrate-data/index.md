@@ -1,7 +1,7 @@
-# Migrating Data
+# Migrating data
 <highlight type="tip">
-First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/) 
-**AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB 
+First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/)
+**AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB
 within your PostgreSQL instance.
 </highlight>
 
@@ -20,7 +20,7 @@ a different database or a different PostgreSQL instance
 altogether, [follow these instructions][different-db].
 
 ### 2. Importing data from `.csv`
-If you have a dataset stored in a `.csv` file, you can import it into an empty 
+If you have a dataset stored in a `.csv` file, you can import it into an empty
 TimescaleDB hypertable. [follow these instructions][import-data]
 
 <highlight type="tip">
@@ -34,7 +34,7 @@ If you want to migrate data from InfluxDB, [follow these instructions][outflux]
 
 ---
 
-## Migrate from the Same PostgreSQL Database [](same-db)
+## Migrate from the same PostgreSQL database [](same-db)
 
 For this example we'll assume that you have a table named `old_table` that you
 want to migrate to a table named `new_table`.  The steps are:
@@ -44,11 +44,11 @@ as the old one, using `LIKE`.
 1. Convert the table to a hypertable and insert data from the old table.
 1. Add any additional indexes needed.
 
-### 1. Creating the New Empty Table
+### 1. Creating the new empty table
 
 There are two ways to go about this step: one more convenient, the other faster.
 
-#### Convenient Method
+#### Convenient method
 
 This method recreates `old_table` indexes on `new_table` when it is created so that
 when we convert it to a hypertable in the next step, we don't have to make them
@@ -59,7 +59,7 @@ update the indexes for each migrated row.
 CREATE TABLE new_table (LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES);
 ```
 
-#### Faster Method
+#### Faster method
 
 This method does not generate the indexes while making the table.  This makes the data
 transfer faster than the convenient method, but requires us to add the indexes as a
@@ -69,7 +69,7 @@ final step.
 CREATE TABLE new_table (LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS EXCLUDING INDEXES);
 ```
 
-### 2. Convert the New Table to a Hypertable
+### 2. Convert the new table to a hypertable
 
 We use the TimescaleDB function [`create_hypertable`][create_hypertable] to
 convert `new_table` to a hypertable, then simply `INSERT` data from the old table:
@@ -89,7 +89,7 @@ In this case, you would have to reconfigure your indexes
 and/or schema.
 </highlight>
 
-### 3. Add Additional Indexes
+### 3. Add additional indexes
 
 If you used the convenient method, whatever indexes were on `old_table` are now
 on `new_table` making this step optional. For the faster `CREATE TABLE` method
@@ -107,7 +107,7 @@ our [schema management][indexing] section.
 
 ---
 
-## Migrating from a Different PostgreSQL Database [](different-db)
+## Migrating from a different PostgreSQL database [](different-db)
 
 To migrate your database from PostgreSQL to TimescaleDB, you
 need `pg_dump` for exporting your schema and data.
@@ -123,7 +123,7 @@ For this example we'll assume you have a PostgreSQL instance with a database
 called `old_db` that contains a single table called `conditions` that you want to
 convert into a hypertable in a new database called `new_db`.
 
-### 1. Copying Schema & Setting up Hypertables
+### 1. Copying schema and setting up hypertables
 
 Copying over your database schema is easily done with `pg_dump`:
 ```bash
@@ -155,7 +155,7 @@ SELECT create_hypertable('conditions', 'time');
 
 Your new database is now ready for data.
 
-### 2. Backing up Data to CSV
+### 2. Backing up data to CSV
 
 To backup your data to CSV, we can run a `COPY`:
 
@@ -166,7 +166,7 @@ psql -d old_db -c "\COPY (SELECT * FROM conditions) TO old_db.csv DELIMITER ',' 
 
 Your data is now stored in a file called `old_db.csv`.
 
-### 3. Import Data into TimescaleDB
+### 3. Import data into TimescaleDB
 
 Follow the [instructions below][csv-import] to insert data into your hypertable.
 
@@ -179,7 +179,7 @@ If you have data stored in an external `.csv` file, you can import it into Times
 1. Create a new empty table with the same schema as the data file and convert the table to a hypertable.
 2.  Insert the data from the file.
 
-### 1. Creating the new Empty Table
+### 1. Creating the new empty table
 
 Creating the empty table requires foreknowledge of the schema of the data in the file, but is otherwise the same as creating any new hypertable.  Our example is a database named `new_db` and a data file named `old_db.csv`.
 
