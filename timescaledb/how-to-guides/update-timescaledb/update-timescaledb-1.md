@@ -4,14 +4,14 @@ Use these instructions to update TimescaleDB within the 1.x version.
 
 <highlight type="tip">
 TimescaleDB 2.0 is currently available as a release candidate and we encourage
-users to upgrade in testing environments to gain experience and provide feedback on 
+users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
-See [Changes in TimescaleDB 2.0][changes-in-2.0] for more information and links to installation 
+See [Changes in TimescaleDB 2.0][changes-in-2.0] for more information and links to installation
 instructions
 
 </highlight>
-### TimescaleDB Release Compatibility
+### TimescaleDB release compatibility
 
 TimescaleDB 1.x is currently supported by the following PostgreSQL releases.
 
@@ -41,9 +41,9 @@ ALTER EXTENSION timescaledb UPDATE;
 <highlight type="warning">
 When executing `ALTER EXTENSION`, you should connect using `psql`
 with the `-X` flag to prevent any `.psqlrc` commands from accidentally
-triggering the load of a previous TimescaleDB version on session startup. 
+triggering the load of a previous TimescaleDB version on session startup.
 It must also be the first command you execute in the session.
-</highlight> 
+</highlight>
 
 
 This will upgrade TimescaleDB to the latest installed version, even if you

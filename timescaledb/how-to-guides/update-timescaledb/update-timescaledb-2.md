@@ -8,9 +8,9 @@ These instructions are only for upgrading TimescaleDB 1.x to TimescaleDB 2.0
  release line (eg. 1.7.2 to 1.7.4), please see Update [TimescaleDB 1.x][update-tsdb-1].
 
 </highlight>
-### TimescaleDB Release Compatibility [](compatibility)
+### TimescaleDB release compatibility [](compatibility)
 
-TimescaleDB currently supports the following PostgreSQL releases. If you are not currently running 
+TimescaleDB currently supports the following PostgreSQL releases. If you are not currently running
 a compatible release, please upgrade before updating TimescaleDB.
 
  TimescaleDB Release |   Supported PostgreSQL Release
@@ -27,23 +27,23 @@ If you need to upgrade PostgreSQL first, please see [our documentation](/timesca
 TimescaleDB 2.0 supports **in-place updates** just like previous releases. During the update, scripts will automatically configure
 updated features to work as expected with TimescaleDB 2.0.
 
-Because this is our first major version release in two years, however, we’re providing additional guidance 
-to help you ensure the update completes successfully and everything is configured as expected (and optimized 
-for your workload). In particular, settings related to [Continuous Aggregates][caggs], [compression][compression], 
-and [data retention][retention] have been modified to provide greater configuration transparency and flexibility, 
+Because this is our first major version release in two years, however, we’re providing additional guidance
+to help you ensure the update completes successfully and everything is configured as expected (and optimized
+for your workload). In particular, settings related to [Continuous Aggregates][caggs], [compression][compression],
+and [data retention][retention] have been modified to provide greater configuration transparency and flexibility,
 therefore we highly recommend verifying that these settings were migrated correctly.
 
-**Before completing the upgrade**, we encourage you to read [Changes in TimescaleDB 2.0][changes-in-ts2] for a more 
-detailed look at the major changes in TimescaleDB 2.0 and how they impact the way your applications and scripts 
+**Before completing the upgrade**, we encourage you to read [Changes in TimescaleDB 2.0][changes-in-ts2] for a more
+detailed look at the major changes in TimescaleDB 2.0 and how they impact the way your applications and scripts
 interact with the API.
 
 ### Prerequisites [](prerequisites)
-#### PostgreSQL Compatibility
-**TimescaleDB 2.0 is not compatible with PostgreSQL 9.6 or 10**. If your current PostgreSQL installation is not 
-at least version 11, please upgrade PostgreSQL first. Depending on your current PostgreSQL version and installed 
+#### PostgreSQL compatibility
+**TimescaleDB 2.0 is not compatible with PostgreSQL 9.6 or 10**. If your current PostgreSQL installation is not
+at least version 11, please upgrade PostgreSQL first. Depending on your current PostgreSQL version and installed
 TimescaleDB release, you may have to perform multiple upgrades because of compatibility restrictions.
 
-For example, if you are currently running PostgreSQL 10 and TimescaleDB 1.5, the recommended upgrade path to 
+For example, if you are currently running PostgreSQL 10 and TimescaleDB 1.5, the recommended upgrade path to
 PostgreSQL 12 and TimescaleDB 2.0 would be:
 
 1. Update TimescaleDB 1.5 to TimescaleDB 1.7 on PostgreSQL 10
@@ -54,11 +54,11 @@ PostgreSQL 12 and TimescaleDB 2.0 would be:
 Whenever possible, prefer the most recent supported version, PostgreSQL 12. Please see our [Upgrading PostgreSQL](/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/) guide for help.
 </highlight>
 
-#### Fix Continuous Aggregate Errors Before Upgrading
-Before starting the upgrade to TimescaleDB 2.0, **we highly recommend checking the database log for errors 
-related to failed retention policies that were occurring in TimescaleDB 1.x** and then either remove them or 
-update them to be compatible with existing continuous aggregates. Any remaining retention policies that are 
-still incompatible with the `ignore_invalidation_older_than` setting will automatically be disabled during 
+#### Fix continuous aggregate errors before upgrading
+Before starting the upgrade to TimescaleDB 2.0, **we highly recommend checking the database log for errors
+related to failed retention policies that were occurring in TimescaleDB 1.x** and then either remove them or
+update them to be compatible with existing continuous aggregates. Any remaining retention policies that are
+still incompatible with the `ignore_invalidation_older_than` setting will automatically be disabled during
 the upgrade and a notice provided.
 
 <highlight type="tip">
@@ -68,7 +68,7 @@ Read more about changes to continuous aggregates and data retension policies [he
 
 ### Update TimescaleDB [](start-update)
 
-#### Step 1: Verify TimescaleDB 1.x Policy Settings (Optional)
+#### Step 1: Verify TimescaleDB 1.x policy settings (Optional)
 
 As discussed in the [Changes to TimescaleDB 2.0][changes-in-ts2] document, the APIs and setting names
 that configure various policies are changing. The update process below will automatically configure
@@ -97,7 +97,7 @@ Execute the following SQL to save current settings for Continuous Aggregates and
 \COPY timescaledb_information.reorder_policies TO ‘reorder_policies.csv’ csv header
 ```
 
-#### Step 2: Install and Update TimescaleDB Extension
+#### Step 2: Install and update TimescaleDB extension
 
 Software upgrades use PostgreSQL's `ALTER EXTENSION` support to update to the
 latest version. TimescaleDB supports having different extension
@@ -117,9 +117,9 @@ ALTER EXTENSION timescaledb UPDATE;
 <highlight type="warning">
 When executing `ALTER EXTENSION`, you should connect using `psql`
 with the `-X` flag to prevent any `.psqlrc` commands from accidentally
-triggering the load of a previous TimescaleDB version on session startup. 
+triggering the load of a previous TimescaleDB version on session startup.
 It must also be the first command you execute in the session.
-</highlight> 
+</highlight>
 
 This will upgrade TimescaleDB to the latest installed version, even if you
 are several versions behind.
@@ -135,7 +135,7 @@ After executing the command, the psql `\dx` command should show the latest versi
 (1 row)
 ```
 
-#### Step 3: Verify Updated Policy Settings and Jobs
+#### Step 3: Verify updated policy settings and jobs
 
 All settings and information previously accessed through separate `stats` informational views have now
 been centralized to a common `jobs` view for all types of policies. If you wish to verify that the settings
@@ -160,7 +160,7 @@ proc_schema       | _timescaledb_internal
 proc_name         | policy_refresh_continuous_aggregate
 owner             | postgres
 scheduled         | t
-config            | {"start_offset": "20 days", "end_offset": "10 
+config            | {"start_offset": "20 days", "end_offset": "10
 days", "mat_hypertable_id": 2}
 next_start        | 2020-10-02 12:38:07.014042-04
 hypertable_schema | _timescaledb_internal
@@ -169,11 +169,11 @@ hypertable_name   | _materialized_hypertable_2
 
 Verify the information for each policy type that was exported from TimescaleDB 1.x using the specific
 listing of `jobs` in this view. For continuous aggregates, take special note of the `config` information
-to verify that all settings were converted correctly given the notes in the 
+to verify that all settings were converted correctly given the notes in the
 [Updating existing continuous aggregates][changes-in-ts2-caggs] section of our migration document.
 
-Likewise, you can now verify that all jobs scheduled and running as expected with the new `timescaledb_information.job_stats` 
-view. Given the continuous aggregate `job` above, querying the new `job_stats` view might return information similar 
+Likewise, you can now verify that all jobs scheduled and running as expected with the new `timescaledb_information.job_stats`
+view. Given the continuous aggregate `job` above, querying the new `job_stats` view might return information similar
 to the following.
 
 ```SQL
