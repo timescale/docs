@@ -1,7 +1,7 @@
 # Replication
 
 TimescaleDB supports replication using PostgreSQL's built-in [streaming
-replication][postgres-streaming-replication-docs].  Using [logical
+replication][postgres-streaming-replication-docs]. Using [logical
 replication][postgres-logrep-docs] with TimescaleDB is *not recommended*, as it
 requires schema synchronization between the primary and replica nodes and
 replicating partition root tables, which are [not currently
