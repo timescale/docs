@@ -1,18 +1,11 @@
 # Replication
 
-PostgreSQL relies on replication for high availability, failover, and balancing
-read loads across multiple nodes. Replication ensures that data written to the
-primary PostgreSQL database is mirrored on one or more nodes. By virtue of
-having multiple nodes with an exact copy of the primary database available, the
-primary database can be replaced with a replica node in the event of a failure
-or outage on the primary server. Replica nodes can also be used as read only
-databases (sometimes called "read replicas"), allowing reads to be horizontally
-scaled by spreading the read query volume across multiple nodes.
-
-TimescaleDB supports replication using PostgreSQL's built-in [streaming replication][postgres-streaming-replication-docs].  Using
-[logical replication][postgres-logrep-docs] with TimescaleDB is *not recommended*, as it requires schema synchronization between the primary and
-replica nodes and replicating partition root tables, which are
-[not currently supported][postgres-partition-limitations].
+TimescaleDB supports replication using PostgreSQL's built-in [streaming
+replication][postgres-streaming-replication-docs].  Using [logical
+replication][postgres-logrep-docs] with TimescaleDB is *not recommended*, as it
+requires schema synchronization between the primary and replica nodes and
+replicating partition root tables, which are [not currently
+supported][postgres-partition-limitations].
 
 This tutorial will outline the basic configuration needed to set up streaming
 replication on one or more replicas, covering both synchronous and asynchronous
