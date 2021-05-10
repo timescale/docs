@@ -1,4 +1,4 @@
-# Hyptertable Best Practices
+# Hyptertable best practices
 
 Users of TimescaleDB often have two common questions:
 
@@ -7,7 +7,7 @@ Users of TimescaleDB often have two common questions:
 
 ## Time intervals:
 Users can use the default time interval, which is 7 days starting in v0.11.0
-and 1 month prior to v0.11.0. Alternatively, users can explicitly configure time 
+and 1 month prior to v0.11.0. Alternatively, users can explicitly configure time
 intervals by setting `chunk_time_interval` when creating a hypertable. After the
 hypertable has been created, the interval used for new chunks can be changed by
 calling [`set_chunk_time_interval`][set_chunk_time_interval].
@@ -32,7 +32,7 @@ metrics    |    604800000000
 ```
 
 <highlight type="tip">
-Make sure that you are planning for single chunks from _all_ active hypertables 
+Make sure that you are planning for single chunks from _all_ active hypertables
 fit into 25% of main memory, rather than 25% per hypertable.
 </highlight>
 
