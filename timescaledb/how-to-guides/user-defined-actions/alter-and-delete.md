@@ -1,4 +1,4 @@
-# Altering and Dropping Actions
+# Altering and dropping actions
 
 You can alter the config or scheduling parameters with [`alter_job`][api-alter_job].
 

@@ -1,6 +1,6 @@
-# Testing and Debugging Jobs
+# Testing and debugging jobs
 
-Any background worker job can be run in foreground when executed with [`run_job`][api-run_job]. 
+Any background worker job can be run in foreground when executed with [`run_job`][api-run_job].
 This can be useful to debug problems when combined with increased log level.
 
 Since `run_job` is implemented as stored procedure it cannot be executed
