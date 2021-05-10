@@ -13,7 +13,7 @@ Max background worker processes allocated to TimescaleDB.  Set to at
 least 1 + number of databases in Postgres instance to use background
 workers. Default value is 8.
 
-## Distributed Hypertables 
+## Distributed hypertables 
 
 ### `timescaledb.enable_2pc (bool)` [](enable_2pc)
 
@@ -34,33 +34,33 @@ tuples across multiple data nodes. It will batch up to
 this to 0 disables batching, reverting to tuple-by-tuple inserts. The
 default value is 1000.
 
-### `timescaledb.enable_connection_binary_data (bool)` 
+### `timescaledb.enable_connection_binary_data (bool)`
 
 Enables binary format for data exchanged between nodes in the
 cluster. It is by default enabled.
 
-### `timescaledb.enable_client_ddl_on_data_nodes (bool)` 
+### `timescaledb.enable_client_ddl_on_data_nodes (bool)`
 
 Enables DDL operations on data nodes by a client and do not restrict
 execution of DDL operations only by access node. It is by default disabled.
 
-### `timescaledb.enable_async_append (bool)` 
+### `timescaledb.enable_async_append (bool)`
 
 Enables optimization that runs remote queries asynchronously across
 data nodes. It is by default enabled.
 
-### `timescaledb.enable_remote_explain (bool)` 
+### `timescaledb.enable_remote_explain (bool)`
 
 Enable getting and showing `EXPLAIN` output from remote nodes. This
 will require sending the query to the data node, so it can be affected
 by the network connection and availability of data nodes. It is by default disabled.
 
-### `timescaledb.remote_data_fetcher (enum)` 
+### `timescaledb.remote_data_fetcher (enum)`
 
 Pick data fetcher type based on type of queries you plan to run, which
 can be either `rowbyrow` or `cursor`. The default is `rowbyrow`.
 
-### `timescaledb.ssl_dir (string)` 
+### `timescaledb.ssl_dir (string)`
 
 Specifies the path used to search user certificates and keys when
 connecting to data nodes using certificate authentication. Defaults to
@@ -71,27 +71,27 @@ connecting to data nodes using certificate authentication. Defaults to
 Specifies the name of the file where passwords are stored and when
 connecting to data nodes using password authentication.
 
-## Administration 
+## Administration
 
-### `timescaledb.restoring (bool)` 
+### `timescaledb.restoring (bool)`
 
 Set TimescaleDB in restoring mode. It is by default disabled.
 
-### `timescaledb.license (string)` 
+### `timescaledb.license (string)`
 
 TimescaleDB license type. Determines which features are enabled. The
 variable can be set to `timescale` or `apache`.  Defaults to `timescale`.
 
-### `timescaledb.telemetry_level (enum)` 
+### `timescaledb.telemetry_level (enum)`
 
 Telemetry settings level. Level used to determine which telemetry to
 send. Can be set to `off` or `basic`. Defaults to `basic`.
 
-### `timescaledb.last_tuned (string)` 
+### `timescaledb.last_tuned (string)`
 
 Records last time `timescaledb-tune` ran.
 
-### `timescaledb.last_tuned_version (string)` 
+### `timescaledb.last_tuned_version (string)`
 
 Version of `timescaledb-tune` used to tune when it ran.
 
