@@ -1,10 +1,10 @@
 # Exploring Timescale Cloud
 
-Welcome to Timescale Cloud. Timescale Cloud is a a managed TimescaleDB service 
-hosted in 75+ regions in AWS, Azure, or GCP. Powered 
-by [TimescaleDB][timescale-features], you can create database instances in the 
-cloud and automate many of your most common operational tasks. This allows you 
-to spend more time focusing on your time-series workloads and less time worrying 
+Welcome to Timescale Cloud. Timescale Cloud is a a managed TimescaleDB service
+hosted in 75+ regions in AWS, Azure, or GCP. Powered
+by [TimescaleDB][timescale-features], you can create database instances in the
+cloud and automate many of your most common operational tasks. This allows you
+to spend more time focusing on your time-series workloads and less time worrying
 about database management.
 
 Before we start, let's review a few core concepts and phrases:
@@ -25,7 +25,7 @@ check your spam folder.
 
 ### Step 2: Create your first service
 
-After you complete account verification, you can visit the [Timescale Cloud portal][timescale-cloud-portal] 
+After you complete account verification, you can visit the [Timescale Cloud portal][timescale-cloud-portal]
 and login with your credentials.
 
 You can create a new service by clicking on the `Create a new service` button.
@@ -61,7 +61,7 @@ utility for configuring and maintaining PostgreSQL. We recommend
 
 ### Step 4: Connect to your database using psql
 
-You will see a green `Running` label and a green dot under the "Nodes" column when 
+You will see a green `Running` label and a green dot under the "Nodes" column when
 your instance is ready for use.
 
 Once your instance is ready, navigate to the ‘Overview Tab’ of your Timescale
@@ -101,7 +101,7 @@ You should see something similar to the following output:
 | timescaledb | 1.6.0   | public     | Enables scalable inserts and complex queries |
 ```
 
-### Step 6: Getting Started
+### Step 6: Getting started
 
 Congratulations! You are now up and running with Timescale Cloud. In order to
 familiarize yourself with the features and capabilities of the product, we
@@ -109,7 +109,7 @@ recommend that you complete the [Getting Started][getting-started] tutorial.
 
 ---
 
-## Advanced Timescale Cloud Configuration
+## Advanced Timescale Cloud configuration
 
 ### Securing network access to Timescale Cloud
 
@@ -176,4 +176,3 @@ visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 [using-timescale]: /timescaledb/:currentVersion:/overview/core-concepts
 [getting-started]: /timescaledb/:currentVersion:/getting-started/
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
-
