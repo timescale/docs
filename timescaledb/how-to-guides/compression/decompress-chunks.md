@@ -1,4 +1,4 @@
-# Decompressing Chunks [](decompress-chunks)
+# Decompressing chunks [](decompress-chunks)
 
 In order to decompress individual chunks, you can run a `decompress_chunk`
 command in much the same way you can manually compress an individual chunk:
