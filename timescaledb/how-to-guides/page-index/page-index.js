@@ -23,7 +23,7 @@ module.exports = [
             options: { pg_version: ["12", "11"] },
             component: "InstallationPage",
             showNewsletterForm: true,
-            children: [    
+            children: [
               {
                 title: "Docker",
                 type: 'redirect-to-child-page',
@@ -245,14 +245,14 @@ module.exports = [
         ]
       },
       {
-        title: "Multi-node Setup",
+        title: "Multi-node setup",
         href: "multi-node-setup",
         children: [
           {
             href: "required-configuration"
           },
           {
-            title: "Enable Node Communication",
+            title: "Enable node communication",
             href: "node-communication"
           },
           {
@@ -317,7 +317,7 @@ module.exports = [
             href: "test-and-debug"
           },
           {
-            title: "Altering and Deleting",
+            title: "Altering and deleting",
             href: "alter-and-delete"
           },
           {
@@ -430,15 +430,15 @@ module.exports = [
             href: "timescaledb-tune"
           },
           {
-            title: "Manual PostgreSQL Configuration",
+            title: "Manual PostgreSQL configuration",
             href: "postgres-config"
           },
           {
-            title: "TimescaleDB Configuration",
+            title: "TimescaleDB configuration",
             href: "timescaledb-config"
           },
           {
-            title: "Docker Configuration",
+            title: "Docker configuration",
             href: "docker-config"
           },
           {
@@ -458,7 +458,7 @@ module.exports = [
         href: "troubleshoot-timescaledb"
       },
       {
-        title: "Additional Tooling",
+        title: "Additional tooling",
         href: "tooling"
       }
     ]
