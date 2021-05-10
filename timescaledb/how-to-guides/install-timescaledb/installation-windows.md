@@ -9,7 +9,7 @@
 - Make sure all relevant binaries are in your PATH: (use [pg_config][])
 - Installation must be performed from an account with admin privileges
 
-#### Build & Install
+#### Build and install
 
 1. Download the the [.zip file for your PostgreSQL version][windows-dl].
 1. Extract the zip file locally
@@ -23,7 +23,7 @@ Press ENTER/Return key to close...
 Go ahead and press ENTER to close the window
 
 #### Updating from TimescaleDB 1.x to 2.0
-Once the latest TimescaleDB 2.0 are installed, you can update the EXTENSION 
+Once the latest TimescaleDB 2.0 are installed, you can update the EXTENSION
 in your database as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 
 #### Configure your database

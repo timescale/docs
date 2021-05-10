@@ -9,7 +9,7 @@ This will install both TimescaleDB *and* PostgreSQL via `yum`
 
 - RHEL/CentOS 7 (or Fedora equivalent) or later
 
-#### Build & Install
+#### Build and install
 
 <highlight type="warning">
  If you have another PostgreSQL installation not
@@ -54,7 +54,7 @@ sudo yum install -y timescaledb-2-postgresql-:pg_version:
 ```
 
 #### Upgrading from TimescaleDB 1.x
-If you are upgrading from TimescaleDB 1.x, the EXTENSION must be updated 
+If you are upgrading from TimescaleDB 1.x, the EXTENSION must be updated
 in the database as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 
 #### Configure your database

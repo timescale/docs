@@ -9,7 +9,7 @@
   **or** Visual Studio 2015/2016 (with [CMake][] version 3.11+ and Git components)
 - Make sure all relevant binaries are in your PATH: `pg_config` and `cmake`
 
-#### Build & Install with Local PostgreSQL
+#### Build and install with local PostgreSQL
 <highlight type="tip">
 It is **highly recommended** that you checkout the latest
 tagged commit to build from (see the repo's [Releases][github-releases] page for that)

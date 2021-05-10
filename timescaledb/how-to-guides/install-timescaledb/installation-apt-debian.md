@@ -8,7 +8,7 @@ This will install TimescaleDB via `apt` on Debian distros.
 
 - Debian 9 (stretch) or 10 (buster)
 
-#### Build & Install
+#### Build and install
 
 <highlight type="warning">
 If you have another PostgreSQL installation not via `apt`,
