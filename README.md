@@ -256,5 +256,3 @@ There is a specific format for the API section which consists of:
     - One or two literal examples of the function being used to demonstrate argument syntax.
 
 See the API file to get an idea.
-
-testing CI
