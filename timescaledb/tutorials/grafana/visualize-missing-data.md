@@ -2,29 +2,29 @@
 
 ### Introduction [](introduction)
 Sometimes there are gaps in our time-series data: because systems
-are offline, or devices lose power, etc. This causes problems when you 
+are offline, or devices lose power, etc. This causes problems when you
 want to aggregate data across a large time window, for example,
 computing the average temperature over the past 6 hours by 30 minute
-time intervals or analyzing today’s CPU utilization by 15 minute
+time intervals or analyzing today's CPU utilization by 15 minute
 intervals. Gaps in data can also have other negative consequences,
 e.g., breaking applications downstream.
 
-In this tutorial, you’ll see how to use [Grafana][grafana-external]
+In this tutorial, you'll see how to use [Grafana][grafana-external]
 (an open-source visualization tool) and TimescaleDB for
 handling missing time-series data (using the TimescaleDB/PostgreSQL data
 source natively available in Grafana).
 
 ### Prerequisites [](prereqs)
-To complete this tutorial, you will need a cursory knowledge of the Structured Query 
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+To complete this tutorial, you will need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
 You will also need:
 
-* Time-series dataset with missing data (Note: in case you don’t have
+* Time-series dataset with missing data (Note: in case you don't have
 one handy, we include an optional step for creating one below.)
 
-* A working [installation of TimescaleDB][install-timescale]. Once your installation 
+* A working [installation of TimescaleDB][install-timescale]. Once your installation
 is complete, we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 * Grafana dashboard connected to your TimescaleDB instance ([setup
@@ -51,7 +51,7 @@ CREATE TABLE sensor_data (
 );
 ```
 
-To simulate missing data, let’s delete all data our sensors collected between 1 hour and 2 hours ago:
+To simulate missing data, let's delete all data our sensors collected between 1 hour and 2 hours ago:
 
 ```
 DELETE FROM sensor_data WHERE sensor_id = 1 and time > now() - INTERVAL '2 hour' and time < now() - INTERVAL '1 hour';
@@ -59,11 +59,11 @@ DELETE FROM sensor_data WHERE sensor_id = 1 and time > now() - INTERVAL '2 hour'
 
 ### Step 1 - Plot the dataset and confirm missing data [](step1)
 
-*(For this and the following steps, we’ll use the IoT dataset from Step
+*(For this and the following steps, we'll use the IoT dataset from Step
 0, but the steps are the same if you use your own - real or simulated -
 dataset).*
 
-To confirm we’re missing data values, let’s create a simple graph that
+To confirm we're missing data values, let's create a simple graph that
 calculates the average temperature readings from `sensor_1` over the past
 6 hours (using [`time_bucket`][docs-timebucket]).
 
@@ -73,7 +73,7 @@ SELECT
   AVG(temperature) AS sensor_1
 FROM sensor_data
 WHERE
-  $__timeFilter("time") AND 
+  $__timeFilter("time") AND
   sensor_id = 1
 GROUP BY time_bucket('5 minutes', time)
 ORDER BY 1
@@ -99,7 +99,7 @@ SELECT
   LOCF(AVG(temperature)) AS sensor_1
 FROM sensor_data
 WHERE
-  $__timeFilter("time") AND 
+  $__timeFilter("time") AND
   sensor_id = 1
 GROUP BY time_bucket_gapfill('5 minutes', "time")
 ORDER BY 1
@@ -114,9 +114,9 @@ have been.
 As you can see, the graph now plots data points at regular intervals for the times where we have missing data.
 
 ### Step 3 - Aggregate across a larger time window [](step3)
-Now, we return to our original problem: wanting to aggregate data across a large time window with missing data. 
+Now, we return to our original problem: wanting to aggregate data across a large time window with missing data.
 
-Here we use our interpolated data and compute the average temperature by 30 minute windows over the past 6 hours. 
+Here we use our interpolated data and compute the average temperature by 30 minute windows over the past 6 hours.
 
 ```sql
 SELECT
@@ -124,7 +124,7 @@ SELECT
   LOCF(AVG(temperature)) AS sensor_1
 FROM sensor_data
 WHERE
-  $__timeFilter("time") AND 
+  $__timeFilter("time") AND
   sensor_id = 1
 GROUP BY time_bucket_gapfill('30 minutes', "time")
 ORDER BY 1
@@ -132,7 +132,7 @@ ORDER BY 1
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-tutorial-missing-data-grafana/aggregate.png" alt="Grafana Screenshot: Aggregating across our interpolated data"/>
 
-Let’s compare this to what the aggregate would have looked like had we
+Let's compare this to what the aggregate would have looked like had we
 not interpolated the missing data, by adding a new series to the graph:
 
 ```sql
@@ -141,7 +141,7 @@ SELECT
   AVG(temperature) AS sensor_1
 FROM sensor_data
 WHERE
-  $__timeFilter("time") AND 
+  $__timeFilter("time") AND
   sensor_id = 1
 GROUP BY time_bucket('30 minutes', time)
 ORDER BY 1
@@ -162,7 +162,7 @@ period.
 
 This is just one way to use TimescaleDB with Grafana to solve data
 problems and ensure that your applications, systems, and operations
-don’t  suffer any negative consequences (e.g., downtime, misbehaving
+don't  suffer any negative consequences (e.g., downtime, misbehaving
 applications, or a degregraded customer experience). For more ways on
 how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).

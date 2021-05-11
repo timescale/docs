@@ -1,19 +1,19 @@
-# Using Grafana Variables
+# Using Grafana variables
 
 Grafana variables enable end-users of your dashboards to filter and customize visualizations.
 
-### Pre-requisites
+### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query 
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+To complete this tutorial, you will need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
 * Next [setup Grafana][install-grafana].
 
-Once your installation of TimescaleDB and Grafana are complete, ingest the data found 
+Once your installation of TimescaleDB and Grafana are complete, ingest the data found
 in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
-to that database. Be sure to follow the full tutorial if you’re interested in background 
+to that database. Be sure to follow the full tutorial if you're interested in background
 on how to use TimescaleDB.
 
 ### Creating a variable
@@ -45,8 +45,8 @@ option in the side-menu, and then click the 'Add variable' button.
 In this case, we use the 'Query' type, where our variable will be defined as the results
 of SQL query.
 
-Under the 'General' section, we’ll name our variable `payment_type` and give it a type of `Query`.
-Then, we’ll assign it the label of "Payment Type", which is how it will appear in a drop-down menu.
+Under the 'General' section, we'll name our variable `payment_type` and give it a type of `Query`.
+Then, we'll assign it the label of "Payment Type", which is how it will appear in a drop-down menu.
 
 We will select our data source and supply the query:
 
@@ -63,7 +63,7 @@ Click 'Add' to save your variable.
 
 #### Use the variable in a Grafana panel
 
-Let's edit the WorldMap panel we created in the 
+Let's edit the WorldMap panel we created in the
 [Grafana geo-spatial queries][tutorial-grafana-geospatial] tutorial. The first thing you'll
 notice is that now that we've defined a variable for this dashboard, there's now a drop-down
 for that variable in the upper left hand corner of the panel.
@@ -109,7 +109,7 @@ Let's first create a new graph panel that uses the `$payment_type` variable.
 This will be our query:
 
 ```sql
-SELECT 
+SELECT
   --1--
   time_bucket('5m', pickup_datetime) AS time,
   --2--
@@ -176,7 +176,7 @@ use a variable in any programming language.
 We've seen how you can use a Grafana variable in a query. You can also use a
 Grafana variable to build dynamic panels, where panels are created automatically
 based on the values selected for a variable. In our case, we've enabled people to
-select data based on the `payment_type` used for a taxi ride. We want to 
+select data based on the `payment_type` used for a taxi ride. We want to
 automatically create a graph panel for **each** of the payment types
 selected so that we can see those queries side-by-side.
 
@@ -184,7 +184,7 @@ Let's first create a new graph panel that uses the `$payment_type` variable.
 This will be our query:
 
 ```sql
-SELECT 
+SELECT
   --1--
   time_bucket('5m', pickup_datetime) AS time,
   --2--
