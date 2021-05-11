@@ -46,4 +46,4 @@ monotonically increasing id would work.
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [using-distributed-hypertables]: /how-to-guides/distributed-hypertables
-[migrate-data]/timescaledb/latest/how-to-guides/migrate-data
+[migrate-data] /timescaledb/latest/how-to-guides/migrate-data
