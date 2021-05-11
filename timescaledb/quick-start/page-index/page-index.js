@@ -1,6 +1,6 @@
 module.exports = [
     {
-      title: "Code Quick Starts",
+      title: "Code quick starts",
       href: "quick-start",
       children: [
         {

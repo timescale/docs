@@ -1,9 +1,9 @@
 # Quick Start: Go and TimescaleDB
 
 ## Goal
-This quick start guide is designed to get the Golang developer up 
-and running with TimescaleDB as their database. In this tutorial, 
-you’ll learn how to:
+This quick start guide is designed to get the Golang developer up
+and running with TimescaleDB as their database. In this tutorial,
+you'll learn how to:
 
 * [Connect to TimescaleDB](#new_database)
 * [Create a relational table](#create_table)
@@ -11,12 +11,12 @@ you’ll learn how to:
 * [Insert a batch of rows into your Timescale database](#insert_rows)
 * [Execute a query on your Timescale database](#execute_query)
 
-## Pre-requisites
+## Prerequisites
 To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
-To start, [install TimescaleDB][timescaledb-install]. Once your installation is complete, 
+To start, [install TimescaleDB][timescaledb-install]. Once your installation is complete,
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 You will also need:
@@ -25,24 +25,24 @@ You will also need:
 
 ## Connect to database [](new-database)
 
-Locate your TimescaleDB credentials in order to compose a connection string for 
+Locate your TimescaleDB credentials in order to compose a connection string for
 PGX to use in order to connect to your TimescaleDB instance.
 
-You’ll need the following credentials:
+You'll need the following credentials:
 * password
 * username
 * host URL
 * port number
 * database name
 
-Next, compose your connection string variable, as a [libpq connection string][libpq-docs], 
+Next, compose your connection string variable, as a [libpq connection string][libpq-docs],
 using the following format:
 
 ```go
 connStr := "postgres://username:password@host:port/dbname"
 ```
 
-If you’re using a hosted version of TimescaleDB, or generally require an SSL 
+If you're using a hosted version of TimescaleDB, or generally require an SSL
 connection, use this version instead:
 
 ```go
@@ -51,7 +51,7 @@ connStr := "postgres://username:password@host:port/dbname?sslmode=require"
 
 ### Creating a single connection to your database
 
-Here’s a hello world program that you can run to ensure you’re connected 
+Here's a hello world program that you can run to ensure you're connected
 to your database
 
 ```go
@@ -91,8 +91,8 @@ func main() {
 }
 ```
 
-If you’d like to specify your connection string as an environment variable, 
-you can use the following syntax to access it in place of the variable 
+If you'd like to specify your connection string as an environment variable,
+you can use the following syntax to access it in place of the variable
 `connStr` above:
 
 ```os.Getenv("DATABASE_CONNECTION_STRING")```
@@ -100,13 +100,13 @@ you can use the following syntax to access it in place of the variable
 
 ### Using a connection pool (for multiple connections)
 
-Connection pooling is useful to ensure you don’t waste resources and can 
-lead to faster queries on your database. 
+Connection pooling is useful to ensure you don't waste resources and can
+lead to faster queries on your database.
 
-To create a connection pool that can be used for concurrent connections to 
+To create a connection pool that can be used for concurrent connections to
 your database, use the `pgxpool.Connect()` function instead of `pgx.Connect()`
-as used in the example program below. Also note the import 
-of `github.com/jackc/pgx/v4/pgxpool`, rather than `pgx/v4` which was 
+as used in the example program below. Also note the import
+of `github.com/jackc/pgx/v4/pgxpool`, rather than `pgx/v4` which was
 used to create a single connection.
 
 ```go
@@ -121,7 +121,7 @@ import (
 )
 
 func main() {
-	
+
    ctx := context.Background()
    connStr := "yourConnectionStringHere"
    dbpool, err := pgxpool.Connect(ctx, connStr)
@@ -143,17 +143,17 @@ func main() {
 }
 ```
 
-Congratulations, you’ve successfully connected to TimescaleDB using Go!
+Congratulations, you've successfully connected to TimescaleDB using Go.
 
 ## Create a table [](create_table)
 
-Note: For the rest of this tutorial, we will use a connection pool, since 
+Note: For the rest of this tutorial, we will use a connection pool, since
 having concurrent connections is the most common use case.
 
 ### Step 1: Formulate your SQL statement
 
-First, compose a string which contains the SQL state that you would use 
-to create a relational table. In the example below, we create a table 
+First, compose a string which contains the SQL state that you would use
+to create a relational table. In the example below, we create a table
 called sensors, with columns id, type and location:
 
 ```go
@@ -163,8 +163,8 @@ queryCreateTable := `CREATE TABLE sensors (id SERIAL PRIMARY KEY, type VARCHAR(5
 
 ### Step 2: Execute the SQL statement and commit changes
 
-Next, we execute our CREATE TABLE statement by calling the `Exec()` function on 
-the dbpool object, using the arguments of the current context and our statement 
+Next, we execute our CREATE TABLE statement by calling the `Exec()` function on
+the dbpool object, using the arguments of the current context and our statement
 string, `queryCreateTable` formulated in step 1.
 
 ```go
@@ -206,27 +206,27 @@ func main() {
 }
 ```
 
-## Generate a Hypertable [](create_hypertable)
+## Generate a hypertable [](create_hypertable)
 
-In TimescaleDB, the primary point of interaction with your data is 
-a hypertable, the abstraction of a single continuous table across all 
+In TimescaleDB, the primary point of interaction with your data is
+a hypertable, the abstraction of a single continuous table across all
 space and time intervals, such that one can query it via standard SQL.
 
-Virtually all user interactions with TimescaleDB are with hypertables. 
-Creating tables and indexes, altering tables, inserting data, selecting 
+Virtually all user interactions with TimescaleDB are with hypertables.
+Creating tables and indexes, altering tables, inserting data, selecting
 data, etc. can (and should) all be executed on the hypertable.
 
-A hypertable is defined by a standard schema with column names and 
+A hypertable is defined by a standard schema with column names and
 types, with at least one column specifying a time value.
 
 ### Step 1: Formulate CREATE TABLE SQL Statements for hypertable
 
-First, we create a variable which houses our `CREATE TABLE SQL` statement 
+First, we create a variable which houses our `CREATE TABLE SQL` statement
 for our hypertable. Notice how the hypertable has the compulsory time column:
 
-Second, we formulate the SELECT statement to convert the table created 
-into a hypertable.Note that we must specify the table name which we 
-wish to convert to a hypertable and its time column name as the two 
+Second, we formulate the SELECT statement to convert the table created
+into a hypertable.Note that we must specify the table name which we
+wish to convert to a hypertable and its time column name as the two
 arguments, as mandated by the [create_hypertable docs][hypertable-docs]:
 
 ```go
@@ -243,10 +243,10 @@ queryCreateHypertable := `CREATE TABLE sensor_data (
 
 ### Step 2: Execute SQL statement using .Exec()
 
-Next, we execute our `CREATE TABLE` statement and `SELECT` statement which 
-converts the table created into a hypertable. We do this by calling 
-the `Exec()` function on the dbpool object, using the arguments of the 
-current context and our statement string `queryCreateHypertable` formulated 
+Next, we execute our `CREATE TABLE` statement and `SELECT` statement which
+converts the table created into a hypertable. We do this by calling
+the `Exec()` function on the dbpool object, using the arguments of the
+current context and our statement string `queryCreateHypertable` formulated
 in step 1 above.
 
 ```go
@@ -300,15 +300,15 @@ func main() {
 }
 ```
 
-Congratulations, you’ve successfully created a hypertable in your Timescale database using Go!
+Congratulations, you've successfully created a hypertable in your Timescale database using Go.
 
 ## Insert a row into your Timescale database [](insert_rows)
 
-Here’s a typical pattern you’d use to insert some data into a table. In the 
-example below, we insert the relational data from the two arrays, `sensorTypes` 
+Here's a typical pattern you'd use to insert some data into a table. In the
+example below, we insert the relational data from the two arrays, `sensorTypes`
 and `sensorLocations`, into the relational table named `sensors`.
 
-First, we open a connection pool to the database, then using prepared statements 
+First, we open a connection pool to the database, then using prepared statements
 formulate our `INSERT` SQL statement and then we execute that statement:
 
 ```go
@@ -369,12 +369,12 @@ but one at a time.
 
 ### Step 0: Generate sample time-series data to insert
 
-For simplicity's sake, we’ll use PostgreSQL to generate some sample time-series 
-data in order to insert into the `sensor_data` hypertable. To do this, we define 
-the SQL statement to generate the data, called `queryDataGeneration`. Then we 
-use the `.Query()` function to execute the statement and return our sample data. 
+For simplicity's sake, we'll use PostgreSQL to generate some sample time-series
+data in order to insert into the `sensor_data` hypertable. To do this, we define
+the SQL statement to generate the data, called `queryDataGeneration`. Then we
+use the `.Query()` function to execute the statement and return our sample data.
 
-Then we store the data returned by our query in `results`, a slice of structs, 
+Then we store the data returned by our query in `results`, a slice of structs,
 which we will then use as a source to insert data into our hypertable.
 
 ```go
@@ -458,7 +458,7 @@ We then execute that SQL statement for each sample we have in our results slice:
    fmt.Println("Successfully inserted samples into sensor_data hypertable\n")
 ```
 
-Here’s a sample `main.go` which generates sample data and inserts it into the 
+Here's a sample `main.go` which generates sample data and inserts it into the
 `sensor_data` hypertable:
 
 ```go
@@ -562,11 +562,11 @@ func main() {
 
 ## Batch insert data into TimescaleDB
 
-You’ll notice that the method above executes as many insert statements as there are samples 
-to be inserted. This can make ingestion of data slow. To speed up ingestion, we recommend 
-batch inserting data. 
+You'll notice that the method above executes as many insert statements as there are samples
+to be inserted. This can make ingestion of data slow. To speed up ingestion, we recommend
+batch inserting data.
 
-Here’s a sample pattern for how to do so, using the sample data generated in Step 0 
+Here's a sample pattern for how to do so, using the sample data generated in Step 0
 above. We will use the pgx `Batch` object
 
 ```go
@@ -651,7 +651,7 @@ func main() {
    `
 
    /********************************************/
-   /* Batch Insert into TimescaelDB            */
+   /* Batch Insert into TimescaleDB            */
    /********************************************/
    //create batch
    batch := &pgx.Batch{}
@@ -694,8 +694,8 @@ func main() {
 ```
 
 <highlight type="tip">
-If you are inserting data from a CSV file, we recommend the [timescale-parallel-copy tool](https://github.com/timescale/timescaledb-parallel-copy), 
-which is a command line program for parallelizing PostgreSQL's built-in `COPY` 
+If you are inserting data from a CSV file, we recommend the [timescale-parallel-copy tool](https://github.com/timescale/timescaledb-parallel-copy),
+which is a command line program for parallelizing PostgreSQL's built-in `COPY`
 functionality for bulk inserting data into TimescaleDB.
 </highlight>
 
@@ -703,10 +703,10 @@ functionality for bulk inserting data into TimescaleDB.
 
 ### Step 1: Define the SQL query
 
-First, define the SQL query you’d like to run on the database. The example 
-below contains a query which combines time-series and relational data. It 
-returns the average cpu values for every 5 minute interval for sensors 
-located on location `ceiling` and of type `a`. 
+First, define the SQL query you'd like to run on the database. The example
+below contains a query which combines time-series and relational data. It
+returns the average cpu values for every 5 minute interval for sensors
+located on location `ceiling` and of type `a`.
 
 ```go
    // Formulate query in SQL
@@ -726,8 +726,8 @@ Notice the use of placeholders for sensor location and type.
 
 ### Step 2: Execute the query
 
-Secondly, use the `.Query()` function to query your TimescaleDB database. 
-Here we execute the query string from step 1, ensuring to specify the 
+Secondly, use the `.Query()` function to query your TimescaleDB database.
+Here we execute the query string from step 1, ensuring to specify the
 relevant placeholders.
 
 ```go
@@ -743,17 +743,17 @@ relevant placeholders.
 
 ### Step 3: Access results returned by the query
 
-We can access the rows returned by `.Query()` by using the following pattern. 
-First we create a struct with fields representing the columns we expect to 
+We can access the rows returned by `.Query()` by using the following pattern.
+First we create a struct with fields representing the columns we expect to
 be returned.
 
-Then we use the `rows.Next()` function to iterate through the rows returned and 
-fill up `results` our array of structs. To do this we use the rows.Scan() function, 
+Then we use the `rows.Next()` function to iterate through the rows returned and
+fill up `results` our array of structs. To do this we use the rows.Scan() function,
 passing in pointers to the fields to which we want to scan the results.
 
-In the example below, we print out the results returned from our query, 
-but you might want to use those results for some other purpose. Once you’ve 
-acanned through all the rows returned you can then use the results array 
+In the example below, we print out the results returned from our query,
+but you might want to use those results for some other purpose. Once you've
+acanned through all the rows returned you can then use the results array
 for your desired purpose.
 
 ```go
@@ -787,7 +787,7 @@ for your desired purpose.
 
 ### Sample main.go for querying data in TimescaleDB
 
-Here’s a sample program which combines steps 1, 2 and 3 above, to run a query on 
+Here's a sample program which combines steps 1, 2 and 3 above, to run a query on
 a TimescaleDB database and access the results of that query.
 
 ```go
@@ -865,10 +865,10 @@ func main() {
 }
 ```
 
-Congratulations, you’ve successfully executed a query on TimescaleDB using Go and pgx!
+Congratulations, you've successfully executed a query on TimescaleDB using Go and pgx.
 
 ## Next steps
-Now that you’re able to connect, read, and write to a TimescaleDB instance from your 
+Now that you're able to connect, read, and write to a TimescaleDB instance from your
 Golang application, be sure to check out these advanced TimescaleDB tutorials:
 
 * Refer to the [pgx documentation][pgx-docs] for more information about pgx.
@@ -884,5 +884,3 @@ Golang application, be sure to check out these advanced TimescaleDB tutorials:
 [parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
 [getting-started]: /getting-started/
-
-
