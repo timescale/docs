@@ -9,19 +9,19 @@ In this tutorial, you will learn:
 Dataset: <tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</tag>
 Estimated time for completion: 25 minutes.
 
-### Pre-requisites
+### Prerequisites
 To complete this tutorial, you will need a cursory knowledge of the
 Structured Query Language (SQL). The tutorial will walk you through each
 SQL command, but it will be helpful if you've seen SQL before.ß
 
 ### Accessing Timescale
 There are multiple options for using Timescale to follow along with this tutorial. **All connection information
-and database naming** throughout this tutorial assumes you are connected to **Timescale Forge**, our hosted, 
-fully-managed database-as-a-service. [Sign up for a free, 30-day demo account][forge-signup], no credit-card 
+and database naming** throughout this tutorial assumes you are connected to **Timescale Forge**, our hosted,
+fully-managed database-as-a-service. [Sign up for a free, 30-day demo account][forge-signup], no credit-card
 required. Once you confirm the account and get logged in, proceed to the **Background** section below.
 
 If you would like to follow along with a local or on-prem install, you can follow the [install TimescaleDB][install-timescale]
-instructions. Once your installation is complete, you will need to create a tutorial database and 
+instructions. Once your installation is complete, you will need to create a tutorial database and
 install the **Timescale** extension.
 
 Using `psql` from the command line, create a database called `nyc_data` and install the extension:
@@ -39,7 +39,7 @@ You're all set to follow along locally!
 <img class="main-content__illustration" src="https://s3.amazonaws.com/docs.timescale.com/hello-timescale/NYC_taxis.png" alt="NYC Taxis"/>
 
 New York City is home to more than 8.3 million people. In this tutorial,
-we will analyze and monitor data from New York’s yellow cab taxis
+we will analyze and monitor data from New York's yellow cab taxis
 using TimescaleDB in order to identify ways to gain efficiency and
 reduce greenhouse gas emissions. The analysis we perform is similar to
 the kind of analysis data science organizations in many problem
@@ -49,25 +49,25 @@ In this tutorial, you will complete three missions:
 
 - **Mission 1: Gear up [5-15 minutes]** You will learn how to setup and connect to a *TimescaleDB* instance and load data from a CSV file in your local terminal using *psql*.
 - **Mission 2: Analysis [10 minutes]** You will learn how to analyze a time-series dataset using TimescaleDB and *PostgreSQL*.
-- **Mission 3: Monitoring [10 minutes]** You will learn how to use TimescaleDB to monitor IoT devices. You’ll also learn about using TimescaleDB in conjunction with other PostgreSQL extensions like *PostGIS*, for querying geospatial data.
+- **Mission 3: Monitoring [10 minutes]** You will learn how to use TimescaleDB to monitor IoT devices. You'll also learn about using TimescaleDB in conjunction with other PostgreSQL extensions like *PostGIS*, for querying geospatial data.
 
 ### Mission 1: Gear up
 
 For this tutorial, we will use yellow taxi cab data from the
 [New York City Taxi and Limousine Commission][NYCTLC]
 (NYC TLC). The NYC TLC is the agency responsible for licensing and
-regulating New York City’s Yellow taxi cabs and other for-hire
+regulating New York City's Yellow taxi cabs and other for-hire
 vehicles. These vehicles are famous for getting New Yorkers
 and tourists wherever they need to go across all five boroughs.
 
 The NYC TLC has over 200,000 licensee vehicles completing
-about 1 million trips each day – that’s a lot of trips! They've
+about 1 million trips each day – that's a lot of trips! They've
 made their taxi utilization data publicly available. And, because nearly all of this data
 is time-series data, proper analysis requires a purpose-built
 time-series database. We will use the unique functions
 of TimescaleDB to complete our missions in this tutorial.
 
-#### Download and Load Data
+#### Download and load data
 
 Let's start by downloading the dataset. In the interest of (downloading) time
 and space (on your machine), we'll only grab data for the month of January 2016, a dataset
@@ -81,9 +81,9 @@ You can download the files from the below link:
 
 <tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</tag>
 
-#### Get Connected to TimescaleDB
+#### Get connected to TimescaleDB
 
-To connect to the database, you’ll need to make sure the `psql`
+To connect to the database, you'll need to make sure the `psql`
 utility is installed on your command line. Follow the instructions for
 your platform in order to
 [setup the psql command-line utility][setup-psql].
@@ -111,7 +111,7 @@ psql (12.4)
 SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
 Type "help" for help.
 
-tsdb=> 
+tsdb=>
 ```
 
 To verify that TimescaleDB is installed, run the `\dx` command
@@ -143,7 +143,7 @@ They collect the following data about each ride:
 * Rate type (e.g, standard, airport, etc.)
 * Payment type (Cash, credit card, etc.)
 
-To efficiently store that data, we’re going to need three tables:
+To efficiently store that data, we're going to need three tables:
 1. A [hypertable][hypertables] called `rides`, which will store all of the above data for each ride taken.
 2. A regular Postgres table called `payment_types`, which maps the payment types to their English description.
 3. A regular Postgres table called `rates`, which maps the numeric rate codes to their English description.
@@ -242,9 +242,9 @@ in the `psql` command line. You should see the following:
 
 #### Load trip data into TimescaleDB
 
-Next, let’s upload the taxi cab data into your TimescaleDB instance.
+Next, let's upload the taxi cab data into your TimescaleDB instance.
 The data is in the file called `nyc_data_rides.csv` and we will load it
-into the `rides` hypertable. To do this, we’ll use the `psql` `\copy` command below.
+into the `rides` hypertable. To do this, we'll use the `psql` `\copy` command below.
 
 >:WARNING: The PostgreSQL `\COPY` command is single-threaded and doesn't support batching
 inserts into multiple transactions. With nearly 11 million rows of data this import can take
@@ -273,7 +273,7 @@ SELECT * FROM rides LIMIT 5;
 ```
 
 If you see something similar to the following result, congrats
-you’ve successfully completed Mission 1!
+you've successfully completed Mission 1!
 
 >:TIP: You can toggle expanded display on or off by using the `\x` flag on the `psql` command line. The output below is what you'd see when expanded display is on.
 
@@ -334,7 +334,7 @@ more expansive scenario, you will want to examine rides taken over several years
 
 The first question you will explore is simple: *How many rides took place on each day during January 2016?*
 
-Since TimescaleDB supports full SQL, all that’s required is a simple SQL query
+Since TimescaleDB supports full SQL, all that's required is a simple SQL query
 to count the number of rides and group/order them by the day they took place,
 as seen below:
 
@@ -407,7 +407,7 @@ AND pickup_datetime < '2016-01-08'
 GROUP BY day ORDER BY day;
 ```
 
->:TIP: Queries like the ones above execute up to 20x faster on large datasets with TimescaleDB vs. a vanilla PostgreSQL database, thanks to Timescale’s automatic time and space partitioning.
+>:TIP: Queries like the ones above execute up to 20x faster on large datasets with TimescaleDB vs. a vanilla PostgreSQL database, thanks to Timescale's automatic time and space partitioning.
 
 Your result should look like this:
 
@@ -440,7 +440,7 @@ GROUP BY rate_code
 ORDER BY rate_code;
 ```
 
-After running the query above, you’ll get the following output,
+After running the query above, you'll get the following output,
 which shows how many rides of each rate code took place:
 
 ```sql
@@ -456,7 +456,7 @@ which shows how many rides of each rate code took place:
 (7 rows)
 ```
 
-While that’s technically correct, you’d like to use something more human
+While that's technically correct, you'd like to use something more human
 readable. To do that, we can use the power of SQL joins, and combine
 these results with the contents of the `rates` table, like in the query below:
 
@@ -549,7 +549,7 @@ avg_passengers    | 1.7435501129473309
 ```
 
 Based on your analysis, you are able to identify:
-- There are 13x more rides to JFK than Newark. This often leads to heavy traffic on the roads to and from JFK, especially during peak times. They’ve decided to explore road improvements to those areas, as well as increasing public transport to and from the airport (e.g, buses, subway, trains, etc.)
+- There are 13x more rides to JFK than Newark. This often leads to heavy traffic on the roads to and from JFK, especially during peak times. They've decided to explore road improvements to those areas, as well as increasing public transport to and from the airport (e.g, buses, subway, trains, etc.)
 - Each airport ride has on average the same number of passengers per trip (~1.7 passengers per trip).
 - The trip distances are roughly the same 16-17 miles.
 - JFK is about 30% cheaper, most likely because of NJ tunnel and highway tolls.
@@ -557,7 +557,7 @@ Based on your analysis, you are able to identify:
 
 This data is useful not just for city planners, but also for airport travellers
 and tourism organizations like the NYC Tourism Bureau. For example, a tourism
-organization could recommend cost-conscious travelers who’d rather not fork out
+organization could recommend cost-conscious travelers who'd rather not fork out
 $84 for a ride to Newark to use public transport instead, like the NJ Transit
 train from Penn Station ($15.25 for an adult ticket). Similarly, they could
 recommend to those travelling to JFK airport, and who are weary of heavy traffic,
@@ -565,21 +565,21 @@ to take the subway and airtrain instead, for just $7.50.
 
 Moreover, you could also make recommendations for those flying out of
 New York City about which airport to choose. For example, from the data above,
-we can recommend those travellers who think they’d be in a rush and who don’t
+we can recommend those travellers who think they'd be in a rush and who don't
 mind paying a little extra to consider flying out of Newark over JFK.
 
-If you’ve made it this far, you’ve successfully completed Mission 2 and now
+If you've made it this far, you've successfully completed Mission 2 and now
 have a basic understanding of how to analyze time-series data using TimescaleDB!
 
 ### Mission 3: Monitoring
 
 We can also use the time-series data from taxi rides to monitor
-a ride’s current status.
+a ride's current status.
 
 >:WARNING: A more realistic setup would involve creating a data pipeline that streams sensor data directly from the cars into TimescaleDB. However, we will use the January 2016 data to illustrate the underlying principles that are applicable regardless of setup.
 
 #### How many rides took place every 5 minutes for the first day of 2016?
-It’s January 1st 2016. NYC riders have celebrated New Year’s Eve, and are using taxi
+It's January 1st 2016. NYC riders have celebrated New Year's Eve, and are using taxi
 cabs to travel to and from their first gathering of the new year.
 
 The first thing you might like to know is how many rides have recently taken
@@ -602,7 +602,7 @@ GROUP BY hours, five_mins;
 ```
 
 It may not be immediately clear why the above query returns rides segmented
-by 5 minute buckets, so let’s examine it more closely, using the sample time
+by 5 minute buckets, so let's examine it more closely, using the sample time
 of 08:49:00.
 
 In the above query, we first extract the hour that a ride took place in:
@@ -660,28 +660,28 @@ The result of your query should start something like this:
 
 ```
 
-#### How many rides on New Year’s morning originated from within 400m of Times Square, in 30 minute buckets? [](postgis)
+#### How many rides on New Year's morning originated from within 400m of Times Square, in 30 minute buckets? [](postgis)
 
-New York City is famous for its annual Ball Drop New Year’s Eve
+New York City is famous for its annual Ball Drop New Year's Eve
 celebration in Times Square. Thousands of people gather to bring in the
 new year together and then head home, to their favorite bar, or first
 gathering of the new year.
 
-This matters to your analysis because you’d like to understand taxi demand
+This matters to your analysis because you'd like to understand taxi demand
 in peak times, and there's no more peak time in New York than the Times Square area
 on the first day of the year.
 
 To answer this question, your first guess might be to use our friend `time_bucket`
 from the previous section to count rides initiated in 30 minute intervals. But
-there’s one piece of information we don’t have: how do we figure out
+there's one piece of information we don't have: how do we figure out
 which rides started *near Times Square*?
 
 This requires that we make use of the pickup latitude and longitude columns
-in our `rides` hypertable. To use the pickup location, we’ll need to get our
+in our `rides` hypertable. To use the pickup location, we'll need to get our
 hypertable ready for geospatial queries.
 
 The good news is that TimescaleDB is compatible with all other PostgreSQL
-extensions and, for geospatial data, we’ll use [PostGIS][postgis]. This allows us
+extensions and, for geospatial data, we'll use [PostGIS][postgis]. This allows us
 to slice data by time and location with the speed and scale of TimescaleDB!
 
 ```sql
@@ -703,7 +703,7 @@ You should see the PostGIS extension in your extension list, as noted below:
  (3 rows)
  ```
 
-Now, we need to alter our table to work with PostGIS. To start, we’ll add
+Now, we need to alter our table to work with PostGIS. To start, we'll add
 geometry columns for ride pick up and drop off locations:
 
 ```sql
@@ -712,7 +712,7 @@ ALTER TABLE rides ADD COLUMN pickup_geom geometry(POINT,2163);
 ALTER TABLE rides ADD COLUMN dropoff_geom geometry(POINT,2163);
 ```
 
-Next we’ll need to convert the latitude and longitude points into geometry coordinates
+Next we'll need to convert the latitude and longitude points into geometry coordinates
 so that it plays well with PostGIS:
 
 >:WARNING: This next query may take several minutes. Updating both columns in one UPDATE statement
@@ -727,7 +727,7 @@ UPDATE rides SET pickup_geom = ST_Transform(ST_SetSRID(ST_MakePoint(pickup_longi
 Lastly, we need one more piece of info: Times Square is located at (`lat`, `long`) (`40.7589`,`-73.9851`).
 
 Now, we have all the information to answer our original question:
-*How many rides on New Year’s morning originated within 400m of Times Square, in 30 minute buckets?*
+*How many rides on New Year's morning originated within 400m of Times Square, in 30 minute buckets?*
 
 ```sql
 -- How many taxis pick up rides within 400m of Times Square on New Years Day, grouped by 30 minute buckets.
@@ -787,7 +787,7 @@ As an aside, the data also shows you that rides then picked up in the mid-mornin
 hours, as people headed to breakfast and other New Years activities. New York is
 truly the city that never sleeps and Times Square is a good reflection of that!
 
-### Conclusions and Next Steps
+### Conclusions and next steps
 In this tutorial you learned how to get started with TimescaleDB.
 
 In **Mission 1**, you learned how to setup and connect to a TimescaleDB instance
@@ -803,7 +803,7 @@ how they make time-series analysis possible in fewer lines of code, as well
 as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
-Ready for more learning? Here’s a few suggestions:
+Ready for more learning? Here's a few suggestions:
 - [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 - [Continuous Aggregates][continuous-aggregates]
 - [Try Other Sample Datasets][other-samples]
