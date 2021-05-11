@@ -1,4 +1,4 @@
-# Distributed Hypertables
+# Distributed hypertables
 
 TimescaleDB supports distributing hypertables across multiple nodes
 (i.e., a cluster) by leveraging the same hypertable and chunk
@@ -11,7 +11,7 @@ the main difference being that distributed chunks are not stored locally. There
 are also some features of regular hypertables that distributed
 hypertables do not support (see section on [current limitations][distributed-hypertable-limitations]).
 
-## Distributed Databases and Nodes
+## Distributed databases and nodes
 
 A distributed hypertable exists in a *distributed database* that
 consists of multiple databases stored across one or more TimescaleDB
@@ -34,7 +34,7 @@ lead to inconsistent distributed hypertables.
 It is important to note that access nodes and data nodes both run TimescaleDB, and for all intents and
 purposes, act just like a single instance of TimescaleDB from an operational perspective.
 
-## Configuring Distributed Hypertables
+## Configuring distributed hypertables
 
 To ensure best performance, you should partition a distributed
 hypertable by both time and space. If you only partition data by
@@ -48,29 +48,29 @@ nodes based on the space partition so that multiple chunks are created
 for a given chunk time interval, and both reads and writes to that
 recent time interval will be load balanced across the cluster.
 
-By default, we automatically set the number of space partitions equal to the 
+By default, we automatically set the number of space partitions equal to the
 number of data nodes if a value is not specified. The system will also increase
-the number of space partitions, if necessary, when adding new data nodes. If 
+the number of space partitions, if necessary, when adding new data nodes. If
 setting manually, we recommend that the number of space partitions are
-equal or a multiple of the number of data nodes associated with the distributed 
-hypertable for optimal data distribution across data nodes. In case of multiple 
+equal or a multiple of the number of data nodes associated with the distributed
+hypertable for optimal data distribution across data nodes. In case of multiple
 space partitions, only the first space partition will be used to determine
 how chunks are distributed across servers.
 
 ## Scaling distributed hypertables
 
-As time-series data grows, a common use case is to add data nodes to expand the 
-storage and compute capacity of distributed hypertables. Thus, TimescaleDB can 
+As time-series data grows, a common use case is to add data nodes to expand the
+storage and compute capacity of distributed hypertables. Thus, TimescaleDB can
 be elastically scaled out by simply adding data nodes to a distributed database.
 
-As mentioned earlier, TimescaleDB can (and will) adjust the number of space 
-partitions as new data nodes are added. Although existing chunks will not have 
-their space partitions updated, the new settings will be applied to newly 
-created chunks. Because of this behavior, we do not need to move data between 
-data nodes when the cluster size is increased, and simply update how data is 
+As mentioned earlier, TimescaleDB can (and will) adjust the number of space
+partitions as new data nodes are added. Although existing chunks will not have
+their space partitions updated, the new settings will be applied to newly
+created chunks. Because of this behavior, we do not need to move data between
+data nodes when the cluster size is increased, and simply update how data is
 distributed for the next time interval. Writes for new incoming data will
-leverage the new partitioning settings, while the access node can still support 
-queries across all chunks (even those that were created using the old 
+leverage the new partitioning settings, while the access node can still support
+queries across all chunks (even those that were created using the old
 partitioning settings). Do note that although the number of space partitions
 can be changed, the column on which the data is partitioned can not be changed.
 
