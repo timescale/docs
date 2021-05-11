@@ -3,24 +3,25 @@
 Creating a hypertable is a two-step process.
 <!-- add steps format?-->
 1. Create a standard table ([PostgreSQL docs][postgres-createtable]).
-```sql
-CREATE TABLE conditions (
-    time        TIMESTAMPTZ       NOT NULL,
-    location    TEXT              NOT NULL,
-    temperature DOUBLE PRECISION  NULL
-);
-```
 
-1. Then, execute the TimescaleDB
+ ```sql
+ CREATE TABLE conditions (
+     time        TIMESTAMPTZ       NOT NULL,
+     location    TEXT              NOT NULL,
+     temperature DOUBLE PRECISION  NULL
+ );
+ ```
+
+1. Execute the TimescaleDB
 [`create_hypertable`][create_hypertable] command on this newly created
 table, or use
 [`create_distributed_hypertable`][create_distributed_hypertable] to
 create a [distributed hypertable][using-distributed-hypertables] that
 scales out across multiple data nodes.
 
-```sql
-SELECT create_hypertable('conditions', 'time');
-```
+ ```sql
+ SELECT create_hypertable('conditions', 'time');
+ ```
 
 <highlight type="tip">
 If you need to *migrate* data from an existing table to a hypertable, make
@@ -46,4 +47,4 @@ monotonically increasing id would work.
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [using-distributed-hypertables]: /how-to-guides/distributed-hypertables
-[migrate-data] /timescaledb/latest/how-to-guides/migrate-data
+[migrate-data]: /how-to-guides/migrate-data
