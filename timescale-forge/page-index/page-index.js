@@ -18,6 +18,10 @@ module.exports = [
       {
         title: "Create a Multi-node Cluster",
         href: "forge-multi-node"
+      },
+      {
+        title: "VPC Peering",
+        href: "vpc-peering"
       }
     ]
   }
