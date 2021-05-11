@@ -27,7 +27,7 @@ scales out across multiple data nodes.
 If you need to *migrate* data from an existing table to a hypertable, make
 sure to set the `migrate_data` argument to `true` when calling the function.
 If you would like finer control over index formation and other aspects
-of your hypertable, [follow these migration instructions instead][migrate-date].
+of your hypertable, [follow these migration instructions instead][migrate-data].
 </highlight>
 
 <highlight type="warning">
