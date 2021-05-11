@@ -184,7 +184,7 @@ chmod 0600 <DATA_DIRECTORY>/recovery.conf
 
 ### Replication and Recovery Settings
 
-Add settings for commmunicating with the primary server to `recovery.conf`. In
+Add settings for communicating with the primary server to `recovery.conf`. In
 streaming replication, the `application_name` in `primary_conninfo` should be
 the same as the name used in the primary's `synchronous_standby_names` settings.
 
