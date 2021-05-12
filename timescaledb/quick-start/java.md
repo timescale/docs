@@ -48,17 +48,19 @@ public class Main {
 From the command line in the current directory, try running the application with this command:
 
 ```bash
-$ java Main.java
+java Main.java
 ```
 
 You should see the `Hello, World!` line output to your console. 
 In case of an error, refer to the documentation and check if the JDK was installed correctly.
+You don't have to create directory structure `./com/timescale/java` similar to package path in source file.
+You should just create a single java file in empty folder and run `java Main.java` from it.
 
 ### Step 2: Import Postgres JDBC driver
 
 To work with the `PostgreSQL`, you need to import the appropriate `JDBC Driver`. 
 If you are using a dependency manager, include [PostgreSQL JDBC Driver as dependency][pg-jdbc-driver-dependency]. 
-In this case, download [jar artifact of JDBC Driver][pg-jdbc-driver-artefact] and place it next to the `Main.java` file.
+In this case, download [jar artifact of JDBC Driver][pg-jdbc-driver-artifact] and place it next to the `Main.java` file.
 
 Now you can import the `JDBC Driver` into the Java application and display a list of available drivers for the check:
 
@@ -78,7 +80,7 @@ public class Main {
 Use this command to run all the following examples:
 
 ```bash
-$ java -cp *.jar Main.java
+java -cp *.jar Main.java
 ```
 
 You should end up with something like `org.postgresql.Driver@7f77e91b`.
@@ -148,7 +150,7 @@ CREATE TABLE sensors (
     id SERIAL PRIMARY KEY,
     type TEXT NOT NULL,
     location TEXT NOT NULL
-)
+);
 ```
 
 ### Step 2: Execute the SQL statement and commit changes
@@ -206,7 +208,7 @@ can (and should) all be executed on the hypertable.
 A hypertable is defined by a standard schema with column names and types, 
 with at least one column specifying a time value.
 
-### Step 1: Formulate the CREATE TABLE SQL statement for your hypertable
+### Step 1: Create sensors data table
 
 First, we create `CREATE TABLE` SQL statement for our hypertable. 
 Notice how the hypertable has the compulsory time column:
@@ -215,23 +217,22 @@ Notice how the hypertable has the compulsory time column:
 CREATE TABLE sensor_data (
     time TIMESTAMPTZ NOT NULL,
     sensor_id INTEGER REFERENCES sensors (id),
-    temperature DOUBLE PRECISION,
-    cpu DOUBLE PRECISION
-)
+    value DOUBLE PRECISION
+);
 ```
 
-### Step 2: Formulate create hypertable SELECT statement for your hypertable
+### Step 2: Create hypertable for sensors data
 
-Next you can formulate the `SELECT` statement to convert the table we created in Step 1 into a hypertable.
+Next, you can formulate the `SELECT` statement to convert the table we created in Step 1 into a hypertable.
 Note that you must specify the table name to convert to a hypertable
 and its time column name as the two arguments, 
 as mandated by the [`create_hypertable` docs][timescaledb-hypertable-create-docs]:
 
 ```sql
-SELECT create_hypertable('sensor_data', 'time')
+SELECT create_hypertable('sensor_data', 'time');
 ```
 
-### Step 3: Execute statements from step 1 and step 2
+### Step 3: Execute previous steps from your Java code
 
 Now you can bring it all together by executing the statement from step 1,
 then executing the statement from step 2
@@ -243,6 +244,7 @@ package com.timescale.java;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
 
@@ -250,6 +252,7 @@ public class Main {
         final var connUrl = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
         try (var conn = DriverManager.getConnection(connUrl)) {
             createSchema(conn);
+            insertData(conn);
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -271,17 +274,16 @@ public class Main {
                     CREATE TABLE sensor_data (
                         time TIMESTAMPTZ NOT NULL,
                         sensor_id INTEGER REFERENCES sensors (id),
-                        temperature DOUBLE PRECISION,
-                        cpu DOUBLE PRECISION
+                        value DOUBLE PRECISION
                     )
                     """);
         }
 
-        try (var stmt = conn.prepareStatement("SELECT create_hypertable('sensor_data', 'time')")) {
-            stmt.execute();
+        try (var stmt = conn.createStatement()) {
+            stmt.execute("SELECT create_hypertable('sensor_data', 'time')");
         }
     }
-}
+}    
 ```
 
 Congratulations, you've successfully created a hypertable in your TimescaleDB database using Java.
@@ -298,10 +300,11 @@ and then execute that statement:
 
 ```java
 final List<Sensor> sensors = List.of(
-        new Sensor("a", "floor"),
-        new Sensor("a", "ceiling"),
-        new Sensor("b", "floor"),
-        new Sensor("b", "ceiling"));
+        new Sensor("temperature", "bedroom"),
+        new Sensor("temperature", "living room"),
+        new Sensor("temperature", "outside"),
+        new Sensor("humidity", "kitchen"),
+        new Sensor("humidity", "outside"));
 for (final var sensor : sensors) {
     try (var stmt = conn.prepareStatement("INSERT INTO sensors (type, location) VALUES (?, ?)")) {
         stmt.setString(1, sensor.type());
@@ -320,11 +323,10 @@ to insert into the `sensor_data` hypertable:
 final var sensorDataCount = 100;
 final var insertBatchSize = 10;
 try (var stmt = conn.prepareStatement("""
-        INSERT INTO sensor_data (time, sensor_id, temperature, cpu) 
+        INSERT INTO sensor_data (time, sensor_id, value)
         VALUES (
             generate_series(now() - INTERVAL '24 hours', now(), INTERVAL '5 minutes'),
-            floor(random() * (3) + 1)::INTEGER,
-            random() * 100,
+            floor(random() * 4 + 1)::INTEGER,
             random()
         )
         """)) {
@@ -376,8 +378,7 @@ public class Main {
                     CREATE TABLE sensor_data (
                         time TIMESTAMPTZ NOT NULL,
                         sensor_id INTEGER REFERENCES sensors (id),
-                        temperature DOUBLE PRECISION,
-                        cpu DOUBLE PRECISION
+                        value DOUBLE PRECISION
                     )
                     """);
         }
@@ -389,10 +390,11 @@ public class Main {
 
     private static void insertData(final Connection conn) throws SQLException {
         final List<Sensor> sensors = List.of(
-                new Sensor("a", "floor"),
-                new Sensor("a", "ceiling"),
-                new Sensor("b", "floor"),
-                new Sensor("b", "ceiling"));
+                new Sensor("temperature", "bedroom"),
+                new Sensor("temperature", "living room"),
+                new Sensor("temperature", "outside"),
+                new Sensor("humidity", "kitchen"),
+                new Sensor("humidity", "outside"));
         for (final var sensor : sensors) {
             try (var stmt = conn.prepareStatement("INSERT INTO sensors (type, location) VALUES (?, ?)")) {
                 stmt.setString(1, sensor.type());
@@ -404,11 +406,10 @@ public class Main {
         final var sensorDataCount = 100;
         final var insertBatchSize = 10;
         try (var stmt = conn.prepareStatement("""
-                INSERT INTO sensor_data (time, sensor_id, temperature, cpu)
+                INSERT INTO sensor_data (time, sensor_id, value)
                 VALUES (
                     generate_series(now() - INTERVAL '24 hours', now(), INTERVAL '5 minutes'),
-                    floor(random() * (3) + 1)::INTEGER,
-                    random() * 100,
+                    floor(random() * 4 + 1)::INTEGER,
                     random()
                 )
                 """)) {
@@ -440,15 +441,15 @@ Congratulations, you've successfully inserted data into TimescaleDB using Java.
 
 First, define the SQL query you'd like to run on the database.
 The example below contains a query which combines time-series and relational data.
-It returns the average CPU values for every 15 minute interval for sensors with specific type and location.
+It returns the average values for every 15 minute interval for sensors with specific type and location.
 
 ```sql
-SELECT time_bucket('15 minutes', time) AS bucket, avg(cpu)
+SELECT time_bucket('15 minutes', time) AS bucket, avg(value)
 FROM sensor_data
 JOIN sensors ON sensors.id = sensor_data.sensor_id
 WHERE sensors.type = ? AND sensors.location = ?
 GROUP BY bucket
-ORDER BY bucket DESC
+ORDER BY bucket DESC;
 ```
 
 Notice the use of placeholders for sensor type and location.
@@ -460,15 +461,15 @@ for all `a`-type sensors located on the `floor`:
 
 ```java
 try (var stmt = conn.prepareStatement("""
-        SELECT time_bucket('15 minutes', time) AS bucket, avg(cpu)
+        SELECT time_bucket('15 minutes', time) AS bucket, avg(value)
         FROM sensor_data
         JOIN sensors ON sensors.id = sensor_data.sensor_id
         WHERE sensors.type = ? AND sensors.location = ?
         GROUP BY bucket
         ORDER BY bucket DESC
         """)) {
-    stmt.setString(1, "a");
-    stmt.setString(2, "floor");
+    stmt.setString(1, "temperature");
+    stmt.setString(2, "living room");
 
     try (var rs = stmt.executeQuery()) {
         while (rs.next()) {
@@ -481,11 +482,11 @@ try (var stmt = conn.prepareStatement("""
 After executing the statement, you should see something like this in the console:
 
 ```text
-2021-05-10 15:30:00.0: 0,524470
-2021-05-10 15:15:00.0: 0,522033
-2021-05-10 15:00:00.0: 0,523121
-2021-05-10 14:45:00.0: 0,534409
-2021-05-10 14:30:00.0: 0,562217
+2021-05-12 23:30:00.0: 0,508649
+2021-05-12 23:15:00.0: 0,477852
+2021-05-12 23:00:00.0: 0,462298
+2021-05-12 22:45:00.0: 0,457006
+2021-05-12 22:30:00.0: 0,568744
 ...
 ```
 
@@ -528,8 +529,7 @@ public class Main {
                     CREATE TABLE sensor_data (
                         time TIMESTAMPTZ NOT NULL,
                         sensor_id INTEGER REFERENCES sensors (id),
-                        temperature DOUBLE PRECISION,
-                        cpu DOUBLE PRECISION
+                        value DOUBLE PRECISION
                     )
                     """);
         }
@@ -541,10 +541,11 @@ public class Main {
 
     private static void insertData(final Connection conn) throws SQLException {
         final List<Sensor> sensors = List.of(
-                new Sensor("a", "floor"),
-                new Sensor("a", "ceiling"),
-                new Sensor("b", "floor"),
-                new Sensor("b", "ceiling"));
+                new Sensor("temperature", "bedroom"),
+                new Sensor("temperature", "living room"),
+                new Sensor("temperature", "outside"),
+                new Sensor("humidity", "kitchen"),
+                new Sensor("humidity", "outside"));
         for (final var sensor : sensors) {
             try (var stmt = conn.prepareStatement("INSERT INTO sensors (type, location) VALUES (?, ?)")) {
                 stmt.setString(1, sensor.type());
@@ -556,11 +557,10 @@ public class Main {
         final var sensorDataCount = 100;
         final var insertBatchSize = 10;
         try (var stmt = conn.prepareStatement("""
-                INSERT INTO sensor_data (time, sensor_id, temperature, cpu)
+                INSERT INTO sensor_data (time, sensor_id, value)
                 VALUES (
                     generate_series(now() - INTERVAL '24 hours', now(), INTERVAL '5 minutes'),
-                    floor(random() * (3) + 1)::INTEGER,
-                    random() * 100,
+                    floor(random() * 4 + 1)::INTEGER,
                     random()
                 )
                 """)) {
@@ -576,15 +576,15 @@ public class Main {
 
     private static void executeQueries(final Connection conn) throws SQLException {
         try (var stmt = conn.prepareStatement("""
-                SELECT time_bucket('15 minutes', time) AS bucket, avg(cpu)
+                SELECT time_bucket('15 minutes', time) AS bucket, avg(value)
                 FROM sensor_data
                 JOIN sensors ON sensors.id = sensor_data.sensor_id
                 WHERE sensors.type = ? AND sensors.location = ?
                 GROUP BY bucket
                 ORDER BY bucket DESC
                 """)) {
-            stmt.setString(1, "a");
-            stmt.setString(2, "floor");
+            stmt.setString(1, "temperature");
+            stmt.setString(2, "living room");
 
             try (var rs = stmt.executeQuery()) {
                 while (rs.next()) {
@@ -599,7 +599,7 @@ public class Main {
 }
 ```
 
-Congratulations, you've successfully executed a query on TimescaleDB using Java and PostgreSQL JDBC.
+Congratulations 🎉, you've successfully executed a query on TimescaleDB using Java and PostgreSQL JDBC!
 
 ## Next steps
 
@@ -617,5 +617,5 @@ be sure to check out these advanced tutorials:
 [pg-jdbc-driver]: https://jdbc.postgresql.org
 [pg-jdbc-driver-docs]: https://jdbc.postgresql.org/documentation/head/index.html
 [pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/head/connect.html
-[pg-jdbc-driver-artefact]: https://jdbc.postgresql.org/download.html
+[pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download.html
 [pg-jdbc-driver-dependency]: https://mvnrepository.com/artifact/org.postgresql/postgresql
