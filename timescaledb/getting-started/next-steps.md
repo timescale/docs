@@ -38,7 +38,7 @@ time-series data effectively means you need to get your code connected and
 working as efficiently as possible. 
 
 See our [growing list of language Quick Starts][connect-with-code] to get you up and running with
-TimescaelDB, including best practices.
+TimescaleDB, including best practices.
 
 ## Examine other sample datasets
 
