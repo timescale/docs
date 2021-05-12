@@ -651,7 +651,7 @@ func main() {
    `
 
    /********************************************/
-   /* Batch Insert into TimescaelDB            */
+   /* Batch Insert into TimescaleDB            */
    /********************************************/
    //create batch
    batch := &pgx.Batch{}
