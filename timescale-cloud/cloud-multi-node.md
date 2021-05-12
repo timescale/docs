@@ -179,7 +179,7 @@ One major point to recognize about the SQL above is the declaration of a partiti
 column (`sensor_id`) for the distributed hypertable. This is intentional, and
 **recommended**, for distributed hypertable setups. Previously, with regular,
 single-node hypertables, there was often little benefit in specifying a partition
-key when creating the hypertable. With distributed hyptertables, however, adding
+key when creating the hypertable. With distributed hypertables, however, adding
 a partition key is essential to ensure that data is efficiently distributed across data nodes.
 Otherwise, all data for a specific time range will go to one chunk on one node, rather than
 being distributed across all available data nodes for the same time range.
