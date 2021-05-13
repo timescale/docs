@@ -1,4 +1,4 @@
-# Hyptertable Best Practices
+# Hypertable Best Practices
 
 Users of TimescaleDB often have two common questions:
 
