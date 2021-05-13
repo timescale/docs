@@ -46,7 +46,7 @@ In the Timescale Forge console, click `VPC` in the left navigation bar to go to 
 dashboard. You can add new VPCs here for your Timescale Forge services to attach to.
 The VPCs created here are peered with your own VPC as part of the setup process.
 
-<img class="main-content__illustration" src="vpc-dashboard.png" alt="Navigate to the VPC dashboard in the console"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/vpc-dashboard.png" alt="Navigate to the VPC dashboard in the console"/>
 
 Click `Create VPC`, type a name for your new VPC, and provide an IPv4 CIDR block
 (E.G., `10.0.0.0/16` or `192.168.0.0/24`). Make sure that the CIDR block you
@@ -54,7 +54,7 @@ choose for your VPC does not overlap with the cloud VPC you are using to create
 a peering connection. If the CIDR blocks overlap, the peering process will fail.
 You can always find the CIDR block of your AWS VPC from the AWS console.
 
-<img class="main-content__illustration" src="create-vpc.png" alt="Create a new Forge VPC"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-vpc.png" alt="Create a new Forge VPC"/>
 
 <highlight type="tip">
 VPC peering can be enabled for free during your Timescale Forge trial, but you will be
@@ -67,7 +67,7 @@ When you have created a Timescale Forge VPC, you are ready to create a peering c
 between your Forge VPC and your cloud VPC. To do this, expand the dropdown menu by clicking
 the `VPC Peering` column on your Forge VPC.
 
-<img class="main-content__illustration" src="create-peering-connection.png" alt="Expand the VPC Peering dropdown menu and enter info"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-peering-connection.png" alt="Expand the VPC Peering dropdown menu and enter info"/>
 
 From this menu, enter the AWS Account ID, AWS VPC ID, and AWS region of your
 cloud VPC for the new peering connection. When you have entered the correct
@@ -87,7 +87,7 @@ accept the request.
 Make note of the peering connection ID (starting with `pcx-`) as it is used in the next step.
 </highlight>
 
-<img class="main-content__illustration" src="aws-accept-peering-connection.png" alt="Accept peering connection in AWS console after verifying requestor account number"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-accept-peering-connection.png" alt="Accept peering connection in AWS console after verifying requestor account number"/>
 
 ### Network routing and security
 Once you have accepted the peering connection, the two VPCs will now be peered;
@@ -101,7 +101,7 @@ Within the AWS console, navigate to the
 dashboard. Select the route table corresponding to your VPC. From the detail menu, select
 the `Routes` tab and click the `Edit routes` button.
 
-<img class="main-content__illustration" src="aws-route-table-routes.png" alt="The AWS Route Tables dashboard with Routes tab expanded"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-route-table-routes.png" alt="The AWS Route Tables dashboard with Routes tab expanded"/>
 
 From this view, click `Add route`. In the `Destination` column of the new row,
 enter the CIDR block of the Timescale Forge VPC for which the peering connection
@@ -114,7 +114,7 @@ No other configuration is needed here, so click `Save routes`. This
 configuration allows network traffic to flow from your VPC, across the peering
 connection, and over to the Timescale Forge VPC where your Timescale services reside.
 
-<img class="main-content__illustration" src="aws-edit-routes.png" alt="Adding a new route table entry for our peering connection"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-edit-routes.png" alt="Adding a new route table entry for our peering connection"/>
 
 #### Security groups
 Within the AWS console, navigate to the
@@ -126,7 +126,7 @@ If you need to, you can use another security group which already exists in your 
 however, for simplicity we will assume the creation of a new security group.
 </highlight>
 
-<img class="main-content__illustration" src="aws-create-security-group.png" alt="The AWS Security Groups dashboard"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-create-security-group.png" alt="The AWS Security Groups dashboard"/>
 
 From the `Create security group` view, enter a name for your security group. Add whatever
 content you would like to the description field. For the `VPC` field, select the VPC
@@ -161,7 +161,7 @@ Click `Create Service`, and Timescale Forge will create your new service. Due to
 selecting a VPC during setup, your new service will be created with an attachment to
 your selected VPC.
 
-<img class="main-content__illustration" src="create-service-with-vpc.png" alt="Create new service with VPC attachment"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-service-with-vpc.png" alt="Create new service with VPC attachment"/>
 
 ## Migrating a service
 Timescale Forge services may be migrated between VPCs within a Forge project, and may also
@@ -191,12 +191,12 @@ this indicates that more time is needed for DNS propagation.
 When your service is attached to the public network, you have the option to select a VPC
 to migrate your service into.
 
-<img class="main-content__illustration" src="migrate-public-to-vpc.png" alt="Migrate from public network to VPC"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/migrate-public-to-vpc.png" alt="Migrate from public network to VPC"/>
 
 Once you have selected the VPC to migrate your service into, click `Attach VPC`.
 You will then be prompted to confirm the migration.
 
-<img class="main-content__illustration" src="migrate-public-to-vpc-confirm.png" alt="Confirm migration into VPC"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/migrate-public-to-vpc-confirm.png" alt="Confirm migration into VPC"/>
 
 After confirming the migration, your service will be attached to the VPC you selected.
 These operations are not immediate, and also involve DNS changes which may take a few
@@ -219,13 +219,13 @@ to connect to your Timescale Forge service.
 When your service is already attached to a VPC, you have the option to migrate
 it to another VPC within the same project.
 
-<img class="main-content__illustration" src="migrate-between-vpcs.png" alt="Migrate between VPCs"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/migrate-between-vpcs.png" alt="Migrate between VPCs"/>
 
 To migrate between VPCs, expand the `Migrate into another VPC` menu and select the VPC
 to migrate your service to. Then click `Migrate`. You will then be prompted to confirm
 the migration.
 
-<img class="main-content__illustration" src="migrate-between-vpcs-confirm.png" alt="Migrate between VPCs confirmation"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/migrate-between-vpcs-confirm.png" alt="Migrate between VPCs confirmation"/>
 
 After confirming the migration, your service will be detached from its previous VPC
 and attached to the new VPC you selected.
@@ -246,12 +246,12 @@ to connect to your Timescale Forge service.
 When your service is already attached to a VPC, you have the option to migrate
 it back to the public network.
 
-<img class="main-content__illustration" src="migrate-back-to-public.png" alt="Migrate back to public network"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/migrate-back-to-public.png" alt="Migrate back to public network"/>
 
 To migrate your service back to the public network, click `Migrate back to public network`.
 You will then be prompted to confirm the migration.
 
-<img class="main-content__illustration" src="migrate-back-to-public-confirm.png" alt="Migrate back to public network confirm"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/migrate-back-to-public-confirm.png" alt="Migrate back to public network confirm"/>
 
 After confirming the migration, your service will be detached from its previous VPC
 and made accessible over the public internet.
