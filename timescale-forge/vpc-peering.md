@@ -48,12 +48,11 @@ The VPCs created here are peered with your own VPC as part of the setup process.
 
 <img class="main-content__illustration" src="vpc-dashboard.png" alt="Navigate to the VPC dashboard in the console"/>
 
-Click `Create VPC`, type a name for your new VPC, and provide an IPv4 CIDR block.
-E.G., `10.0.0.0/16` or `192.168.0.0/24`.
-Make sure that the CIDR block you choose for your VPC does not overlap with the
-cloud VPC you are using to create a peering connection. If the CIDR blocks overlap,
-the peering process will fail. You can always find the CIDR block of your AWS VPC
-from the AWS console.
+Click `Create VPC`, type a name for your new VPC, and provide an IPv4 CIDR block
+(E.G., `10.0.0.0/16` or `192.168.0.0/24`). Make sure that the CIDR block you
+choose for your VPC does not overlap with the cloud VPC you are using to create
+a peering connection. If the CIDR blocks overlap, the peering process will fail.
+You can always find the CIDR block of your AWS VPC from the AWS console.
 
 <img class="main-content__illustration" src="create-vpc.png" alt="Create a new Forge VPC"/>
 
@@ -75,7 +74,7 @@ cloud VPC for the new peering connection. When you have entered the correct
 information, click `Add peering connection` to begin the peering process.
 
 This process is asynchronous, and results in a peering connection sent to your
-AWS account for you to accept. This is an important safety mechanism, never
+AWS account for you to accept. This is an important safety mechanism — never
 accept a peering connection from an unknown account. All Timescale Forge
 peering connections are sent from the AWS account `142548018081`.
 
@@ -91,10 +90,10 @@ Make note of the peering connection ID (starting with `pcx-`) as it is used in t
 <img class="main-content__illustration" src="aws-accept-peering-connection.png" alt="Accept peering connection in AWS console after verifying requestor account number"/>
 
 ### Network routing and security
-Once you have accepted the peering connection from the last step, the two VPCs will now
-be peered; however, in order to use this peering connection, you need to update your
-VPC's route table to include the CIDR block of your peered Timescale Forge VPC, and you
-also need to update your VPC's security groups.
+Once you have accepted the peering connection, the two VPCs will now be peered;
+however, in order to use this peering connection, you need to update your
+VPC's route table to include the CIDR block of your peered Timescale Forge VPC,
+and you also need to update your VPC's security groups.
 
 #### Route table
 Within the AWS console, navigate to the
@@ -177,17 +176,15 @@ from the public internet into a VPC, or vice-versa.
 </highlight>
 
 To migrate a Timescale Forge service between VPCs, or to migrate to/from the public network,
-navigate to the operations page of your service. First, navigating to the
-[Services Dashboard](https://console.forge.timescale.com/dashboard/services), select the
-service you wish to migrate, click the `Operations` tab in the service details view, and
-click the `VPC` tab within the `Operations` view. From this view, you have a few options
+navigate to the [Services Dashboard](https://console.forge.timescale.com/dashboard/services),
+select the service you wish to migrate, click the `Operations` tab in the service details view,
+and click the `VPC` tab within the `Operations` view. From this view, you have a few options
 depending on the state of your service.
 
 <highlight type="warning">
-DNS propagation can take time. After migrating your Timescale Forge service,
-please allow a few minutes for DNS propagation. If you receive DNS errors indicating
-that the DNS name could not be resolved, this indicates that more time is needed for
-DNS propagation.
+After migrating your Timescale Forge service, please allow a few minutes for DNS
+propagation. If you receive DNS errors indicating that the DNS name could not be resolved,
+this indicates that more time is needed for DNS propagation.
 </highlight>
 
 ### Migrate from public network to VPC
@@ -196,15 +193,14 @@ to migrate your service into.
 
 <img class="main-content__illustration" src="migrate-public-to-vpc.png" alt="Migrate from public network to VPC"/>
 
-Once you have selected the VPC to migrate your service into, click `Attach VPC`. When prompted
-for confirmation, type `MIGRATE` as instructed, then click `Migrate`.
+Once you have selected the VPC to migrate your service into, click `Attach VPC`.
+You will then be prompted to confirm the migration.
 
 <img class="main-content__illustration" src="migrate-public-to-vpc-confirm.png" alt="Confirm migration into VPC"/>
 
-Your service will now go through a series of asynchronous operations ultimately
-resulting in your service being attached to your selected VPC. These operations
-are not immediate, and also involve DNS changes which may take a few minutes to
-propagate.
+After confirming the migration, your service will be attached to the VPC you selected.
+These operations are not immediate, and also involve DNS changes which may take a few
+minutes to propagate.
 
 As mentioned on the confirmation modal, you will need to update your connection string
 in order to connect to your service after migration. The `Service URL` back on the
@@ -213,15 +209,15 @@ for connecting to your service.
 
 <highlight type="tip">
 When migrating your service into a VPC, ensure that your AWS VPC's security groups
-allow network access from your AWS VPC to the Forge VPC which your service has been
+allow network access from your AWS VPC to the Forge VPC which your service has
 migrated into. Security group configuration was previously covered as part of
 peering connection setup. Double-check to be sure, otherwise you will not be able
 to connect to your Timescale Forge service.
 </highlight>
 
 ### Migrate between VPCs
-When your service is already attached to a VPC, you have the option to migrate that
-service to another VPC within the same project.
+When your service is already attached to a VPC, you have the option to migrate
+it to another VPC within the same project.
 
 <img class="main-content__illustration" src="migrate-between-vpcs.png" alt="Migrate between VPCs"/>
 
@@ -231,26 +227,24 @@ the migration.
 
 <img class="main-content__illustration" src="migrate-between-vpcs-confirm.png" alt="Migrate between VPCs confirmation"/>
 
-Your service will now go through a series of asynchronous operations ultimately
-resulting in your service being detached from its previous VPC and attached to the
-new VPC which you selected.
+After confirming the migration, your service will be detached from its previous VPC
+and attached to the new VPC you selected.
 
 In the case of VPC to VPC migration, the `Service URL` connection string will not
 be updated, only the IP address which the DNS name is associated with will be updated.
-Though the connection string does not need to be updated, please provide a few minutes
-for the DNS record changes to propagate.
+Please provide a few minutes for the DNS record changes to propagate.
 
 <highlight type="tip">
 When migrating your service between VPCs, ensure that your AWS VPC's security groups
-allow network access from your AWS VPC to the Forge VPC which your service has been
+allow network access from your AWS VPC to the Forge VPC which your service has
 migrated into. Security group configuration was previously covered as part of
 peering connection setup. Double-check to be sure, otherwise you will not be able
 to connect to your Timescale Forge service.
 </highlight>
 
 ### Migrate back to public network
-When your service is already attached to a VPC, you have the option to migrate that
-service back to the public network.
+When your service is already attached to a VPC, you have the option to migrate
+it back to the public network.
 
 <img class="main-content__illustration" src="migrate-back-to-public.png" alt="Migrate back to public network"/>
 
@@ -259,9 +253,8 @@ You will then be prompted to confirm the migration.
 
 <img class="main-content__illustration" src="migrate-back-to-public-confirm.png" alt="Migrate back to public network confirm"/>
 
-Your service will now go through a series of asynchronous operations ultimately
-resulting in your service being detached from its previous VPC and made accessible
-over the public internet.
+After confirming the migration, your service will be detached from its previous VPC
+and made accessible over the public internet.
 
 As mentioned on the confirmation modal, you will need to update your connection string
 in order to connect to your service after migration. The `Service URL` back on the
