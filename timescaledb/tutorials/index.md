@@ -28,7 +28,7 @@ on PostgreSQL or TimescaleDB.
 Learn how to install `psql` on Mac, Ubuntu, Debian, Windows, 
 and pick up some valuable `psql` tips and tricks along the way.
 
-[Forecasting]: /tutorials/time-series-forecasting
+[Forecasting]: /tutorials/time-series-forecast
 [Replication]: /tutorials/replication
 [Clustering]: /tutorials/clustering
 [Continuous Aggregates]: /tutorials/continuous-aggs-tutorial
