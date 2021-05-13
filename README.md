@@ -133,7 +133,7 @@ the name of their source Markdown files. For instance, the content for **Hyperta
 & Chunks** is found in the Markdown file `hypertables-and-chunks.md`.
 
 
-## Formatting anbd content rules
+## Formatting and content rules
 
 ### Internal page links
 

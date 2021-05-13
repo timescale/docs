@@ -1,6 +1,6 @@
 # Security overview
 
-## Cloud provider sccounts
+## Cloud provider accounts
 The regular Timescale Cloud services are hosted under cloud provider accounts
 controlled by Timescale Cloud. These accounts are managed only by Timescale
 Cloud (eg Timescale and Aiven) operations personnel and customers cannot directly

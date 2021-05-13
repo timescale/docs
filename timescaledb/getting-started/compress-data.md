@@ -1,4 +1,4 @@
-# 7. Create a compression policy
+# 7. Compression policies
 
 TimescaleDB comes with native compression capabilities which enable you to analyze and query massive amounts of historical time-series data inside a database, while also saving on storage costs.
 
@@ -11,9 +11,9 @@ All postgresql data types can be used in compression.
 
 At a high level, TimescaleDB's built-in job scheduler framework will asynchronously convert recent data from an uncompressed row-based form to a compressed columnar form across chunks of TimescaleDB hypertables.
 
-Let's set up a compression policy on our hypertable to see how it works.
+Let's enable compression on our hypertable and then look at two ways of compressing data: with an automatic policy or manually.
 
-## Create a compression policy
+## Enable TimescaleDB compression on the hypertable
 
 Just like with Continuous Aggregates, there are two ways to compress data in TimescaleDB: manually, via a one-time command, or using a compression policy to automatically compress data according to a schedule.
 
