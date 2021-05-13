@@ -35,7 +35,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [Outflux]: /tutorials/outflux
 [Grafana]: /tutorials/grafana
 [Telegraf Output Plugin]: /tutorials/telegraf-output-plugin
-[Data Sets]: /tutorials/other-sample-datasets
+[Data Sets]: /tutorials/sample-datasets
 [install-timescale]: /how-to-guides/install-timescaledb/
 [psql]: /how-to-guides/connecting/psql/
 [Crypto]: /tutorials/analyze-cryptocurrency-data
@@ -43,9 +43,9 @@ and pick up some valuable `psql` tips and tricks along the way.
 [prometheus-tsc-endpoint]: /tutorials/tutorial-setting-up-timescale-cloud-endpoint-for-prometheus
 [monitor-django-prometheus]: /tutorials/tutorial-howto-monitor-django-prometheus
 [tutorial-grafana-dashboards]: /tutorials/grafana/create-dashboard-and-panel
-[tutorial-grafana-geospatial]: /tutorials/grafana/geospacial-dashboards
+[tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards
 [tutorial-grafana-variables]: /tutorials/grafana/grafana-variables
 [tutorial-grafana-missing-data]: /tutorials/grafana/visualize-missing-data
 [tutorial-grafana-alerts]: /tutorials/grafana/setup-alerts
-[simul-iot-data]: /tutorials/tutorial-howto-simulate-iot-sensor-data
+[simul-iot-data]: /tutorials/simulate-iot-sensor-data
 
