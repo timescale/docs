@@ -34,7 +34,7 @@ to add just one data node to a cluster, this will perform worse than a
 single-node TimescaleDB instance and is not recommended.
 </highlight>
 
-### Step 1: Create services for access and data node services [](step1-create-services)
+### Step 1: Create services for access and data nodes [](step1-create-services)
 
 First, you need to create new Services within your Forge account. As mentioned
 earlier, you should create _at least_ three Services to set up a multi-node cluster:
