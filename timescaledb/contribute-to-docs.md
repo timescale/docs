@@ -16,7 +16,9 @@ use the options at the bottom of the page to submit a pull request.
 
 To make larger changes to the documentation, follow the instructions in our [Contributors' Guide][contributors].
 
-For technical details about the repository, including understanding how the repository is organized, and the various markup and formattign conventions, see the [README][readme].
+For technical details about the repository, including understanding how the
+repository is organized, and the various markup and formatting conventions, see
+the [README][readme].
 
 Before we accept any contributions, Timescale contributors need to sign the
 Contributor License Agreement (CLA). By signing a CLA, we  can ensure that the
@@ -28,10 +30,14 @@ will be prompted to sign the CLA during the pull request process.
 
 When making style decisions, consult resources in this order:
 
-1. This guide: always check this guide first, it contains project-specific guidance, and in some cases differs from the other resources listed here.
-1. The [Google Developer Documentation Style Guide][google-style]: for most general style guidance, we rely on the style defined here.
-1. The Chicago Manual of Style: we use this guide for some formatting decisions that are not covered in other resources
-1. Merriam-Webster: Timescale documentation is written in US English, for spelling and definitions, consult the dictionary.
+1. This guide: always check this guide first, it contains project-specific
+guidance, and in some cases differs from the other resources listed here.
+1. The [Google Developer Documentation Style Guide][google-style]: for most
+general style guidance, we rely on the style defined here.
+1. The Chicago Manual of Style: we use this guide for some formatting decisions
+that are not covered in other resources
+1. Merriam-Webster: Timescale documentation is written in US English, for
+spelling and definitions, consult the dictionary.
 
 
 ## Language
@@ -40,8 +46,10 @@ We use standard US English, with an emphasis on plain (or classical) language, a
 
 ### Example: Three ways of writing one sentence
 
-* Natural English: In order to perform X installation process, please ensure that all of the following steps are done ...
-* Tech writer's English: To perform the X installation process, verify you have done the subsequent steps ...
+* Natural English: In order to perform X installation process, please ensure
+that all of the following steps are done ...
+* Tech writer's English: To perform the X installation process, verify you have
+done the subsequent steps ...
 * Plain English: To install X, do these steps ...
 
 Remember that the order of words is important in English. Put the most important
@@ -73,9 +81,25 @@ language clearer but, in some cases, they make language more complicated. In
 that case, ignore them.
 
 
+## Word usage guide
+
+TO BE DEVELOPED
+
+
+## Verbs
+
+* `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
+* `Press` a key or key combination on a keyboard
+* `Type` words or numbers using a keyboard
+* `Check` a checkbox
+* `Uncheck` a checkbox
+* `Select` an item in a menu
+* `Deselect` an item in a menu
+* `Navigate` to a page or location in a graphical user interface
+
 
 
 [github-docs]: https://github.com/timescale/docs
 [contributors]: https://github.com/timescale/docs/CONTRIBUTING.md
-[contributors]: https://github.com/timescale/docs/README.md
+[readme]: https://github.com/timescale/docs/README.md
 [google-style]: https://developers.google.com/style
