@@ -1,4 +1,5 @@
 # Import data into TimescaleDB from .csv
+
 <highlight type="tip">
 First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/)
 **AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB
@@ -8,7 +9,7 @@ within your PostgreSQL instance.
 If you have data stored in an external `.csv` file, you can import it into TimescaleDB:
 
 1. Create a new empty table with the same schema as the data file and convert the table to a hypertable.
-2.  Insert the data from the file.
+2. Insert the data from the file.
 
 ### 1. Creating the new Empty Table
 
@@ -79,8 +80,6 @@ With Outflux, users can pipe exported data directly into TimescaleDB.
 Outflux manages schema discovery, validation, and creation.
 
 For more information on how to get started, please follow [this tutorial][outflux-tutorial].
-
-
 Now check out some common [hypertable commands][] for exploring your data.
 
 

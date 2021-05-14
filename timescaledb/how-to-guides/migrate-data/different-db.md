@@ -1,4 +1,5 @@
-# Migrating from a Different PostgreSQL Database
+# Migrating from a different PostgreSQL database
+
 <highlight type="tip">
 First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/)
 **AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB
