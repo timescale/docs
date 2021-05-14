@@ -12,7 +12,7 @@ note the following limitations and when a change to these settings will result i
 within a few seconds. Other things to note about storage changes:
  * At the current time, storage can only be _increased_ in size.
  * Storage size changes can only be made once every six (6) hours.
- * Storage can be modified in various increments between 25GB and 4TB.
+ * Storage can be modified in various increments between 10GB and 10TB.
 
 **Compute**: Modifications to the compute size of your service (increases or 
 decreases) can be applied at any time, however, please note the following:
