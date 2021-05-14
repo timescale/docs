@@ -4,7 +4,7 @@
 
 #### Prerequisites
 
-- A standard **PostgreSQL :pg_version: 64-bit** installation
+- A standard **PostgreSQL 13 64-bit** installation
 - Visual Studio 2017 (with [CMake][] and Git components)
   **or** Visual Studio 2015/2016 (with [CMake][] version 3.11+ and Git components)
 - Make sure all relevant binaries are in your PATH: `pg_config` and `cmake`

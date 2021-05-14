@@ -38,7 +38,7 @@ sudo add-apt-repository ppa:timescale/timescaledb-ppa
 sudo apt-get update
 
 # Now install appropriate package for PG version
-sudo apt install timescaledb-2-postgresql-:pg_version:
+sudo apt install timescaledb-2-postgresql-13
 ```
 
 #### Upgrading from TimescaleDB 1.x
@@ -48,7 +48,7 @@ binaries. The feedback in your terminal should look similar to the following:
 
 ```bash
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 The following additional packages will be installed:
   timescaledb-2-loader-postgresql-12
