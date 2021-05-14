@@ -14,7 +14,8 @@ corrections  and submit pull requests on the GitHub website. Go to the file you
 want to  correct and click the 'pencil' icon to edit. Make the corrections, and
 use the options at the bottom of the page to submit a pull request.
 
-To make larger changes to the documentation, follow the instructions in our [Contributors' Guide][contributors].
+To make larger changes to the documentation, follow the instructions in
+our [Contributors' Guide][contributors].
 
 For technical details about the repository, including understanding how the
 repository is organized, and the various markup and formatting conventions, see
@@ -44,7 +45,7 @@ spelling and definitions, consult the dictionary.
 
 We use standard US English, with an emphasis on plain (or classical) language, and use the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
 
-### Example: Three ways of writing one sentence
+For example, here are three ways of writing one sentence:
 
 * Natural English: In order to perform X installation process, please ensure
 that all of the following steps are done ...
@@ -89,13 +90,13 @@ TO BE DEVELOPED
 ## Verbs
 
 * `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
-* `Press` a key or key combination on a keyboard
-* `Type` words or numbers using a keyboard
-* `Check` a checkbox
-* `Uncheck` a checkbox
-* `Select` an item in a menu
-* `Deselect` an item in a menu
-* `Navigate` to a page or location in a graphical user interface
+* `Press` a key or key combination on a keyboard.
+* `Type` words or numbers using a keyboard.
+* `Check` a checkbox.
+* `Uncheck` a checkbox.
+* `Select` an item in a menu.
+* `Deselect` an item in a menu.
+* `Navigate` to a page or location in a graphical user interface.
 
 
 
