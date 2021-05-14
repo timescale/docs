@@ -1,0 +1,81 @@
+# Contributing to Timescale documentation
+
+Timescale documentation is hosted in a [GitHub repository][github-docs]  and is
+open for contribution from all community members. If you  find errors or would
+like to add content to our docs, you can create a pull request using GitHub for
+review by our documentation team. This document contains everything you need to
+know about our writing style and standards, but don't worry too much if you
+aren't sure what to write. Our documentation team will help you craft the
+perfect words when you have a PR ready. We also have some automation on our
+repository to help you.
+
+If you want to make minor changes to docs, such as fixing a typo, you can make
+corrections  and submit pull requests on the GitHub website. Go to the file you
+want to  correct and click the 'pencil' icon to edit. Make the corrections, and
+use the options at the bottom of the page to submit a pull request.
+
+To make larger changes to the documentation, follow the instructions in our [Contributors' Guide][contributors].
+
+For technical details about the repository, including understanding how the repository is organized, and the various markup and formattign conventions, see the [README][readme].
+
+Before we accept any contributions, Timescale contributors need to sign the
+Contributor License Agreement (CLA). By signing a CLA, we  can ensure that the
+community is free and confident in its ability to use your contributions. You
+will be prompted to sign the CLA during the pull request process.
+
+
+## Resources
+
+When making style decisions, consult resources in this order:
+
+1. This guide: always check this guide first, it contains project-specific guidance, and in some cases differs from the other resources listed here.
+1. The [Google Developer Documentation Style Guide][google-style]: for most general style guidance, we rely on the style defined here.
+1. The Chicago Manual of Style: we use this guide for some formatting decisions that are not covered in other resources
+1. Merriam-Webster: Timescale documentation is written in US English, for spelling and definitions, consult the dictionary.
+
+
+## Language
+
+We use standard US English, with an emphasis on plain (or classical) language, and use the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
+
+### Example: Three ways of writing one sentence
+
+* Natural English: In order to perform X installation process, please ensure that all of the following steps are done ...
+* Tech writer's English: To perform the X installation process, verify you have done the subsequent steps ...
+* Plain English: To install X, do these steps ...
+
+Remember that the order of words is important in English. Put the most important
+part of a sentence first, this is usually the actor or the action. Use the
+second part of the sentence to give it a focus: what else should the reader
+notice?
+
+Readers are often in an agitated state by the time they get to our
+documentation. Stressed readers jump around in the text, skip words, steps, or
+paragraphs, and will quickly give up if things seem too complex. To mitigate
+this, use short sentences, plain language, and a minimum number of eye-catching
+details such as admonitions.
+
+Never assume that because you've explained something earlier in a document,
+readers will know it later in the document. You can use cross-references to help
+guide readers to further information if they need it.
+
+And remember: words mean things.
+
+
+## Grammar
+
+Grammar rules are tacit evolving conventions. They have no implicit value by
+themselves, they only gain value because everyone is doing it.
+
+There are no hard and fast rules about dangling participles, split infinitives,
+or ending sentences with prepositions. Obeying these rules can often make
+language clearer but, in some cases, they make language more complicated. In
+that case, ignore them.
+
+
+
+
+[github-docs]: https://github.com/timescale/docs
+[contributors]: https://github.com/timescale/docs/CONTRIBUTING.md
+[contributors]: https://github.com/timescale/docs/README.md
+[google-style]: https://developers.google.com/style
