@@ -183,20 +183,9 @@ branch early and often! Update your local copy from latest whenever you switch
 branches.
 </highlight>
 
+## Writing standards
 
-## Review Standards
-
-These standards make sure that our documentation is accurate, that PRs are not
-left to age, and that the source code remains clean.
-
-* If you are still working on a PR, covert it to draft in the GitHub web UI. You
-can also add ``[WIP]`` to the title of your PR. This allows people to review the
-PR, but notifies reviewers that you have not completed work. It also prevents
-the PR from being merged until you mark it as ready for review.
-* _Do not_ merge a PR until you have received an approval from at least one
-other person. For technical changes, you should have an approval from a
-subject matter expert, in addition to an approval from a docs team member.
-
+Timescale is in the process of creating comprehensive writing and style standards. For the current guidelines, see [contributing to documentation][docs-standards].
 
 ## The Timescale documentation team
 
@@ -204,3 +193,6 @@ subject matter expert, in addition to an approval from a docs team member.
 * Lana Brindley https://github.com/Loquacity
 * Hel Rabelo https://github.com/helrabelo
 * Ted Sczelecki https://github.com/tedsczelecki
+
+
+[docs-standards]: timescaledb/contribute-to-timescaledb
