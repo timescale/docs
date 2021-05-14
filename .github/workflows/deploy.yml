@@ -3,7 +3,7 @@ name: Deploy docs to dev
 on:
   push:
     branches:
-      - '*'
+      - '**'
       - '!latest'
 
 jobs:
