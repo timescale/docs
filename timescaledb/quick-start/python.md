@@ -383,6 +383,6 @@ tutorials:
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /tutorials/continuous-aggs-tutorial
+[continuous-aggregates]: /how-to-guides/continuous-aggregates/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
