@@ -1,30 +1,23 @@
 # Replication
 
-PostgreSQL relies on replication for high availability, failover, and balancing
-read loads across multiple nodes. Replication ensures that data written to the
-primary PostgreSQL database is mirrored on one or more nodes. By virtue of
-having multiple nodes with an exact copy of the primary database available, the
-primary database can be replaced with a replica node in the event of a failure
-or outage on the primary server. Replica nodes can also be used as read only
-databases (sometimes called "read replicas"), allowing reads to be horizontally
-scaled by spreading the read query volume across multiple nodes.
-
-TimescaleDB supports replication using PostgreSQL's built-in [streaming replication][postgres-streaming-replication-docs].  Using
-[logical replication][postgres-logrep-docs] with TimescaleDB is *not recommended*, as it requires schema synchronization between the primary and
-replica nodes and replicating partition root tables, which are
-[not currently supported][postgres-partition-limitations].
+TimescaleDB supports replication using PostgreSQL's built-in [streaming
+replication][postgres-streaming-replication-docs]. Using [logical
+replication][postgres-logrep-docs] with TimescaleDB is *not recommended*, as it
+requires schema synchronization between the primary and replica nodes and
+replicating partition root tables, which are [not currently
+supported][postgres-partition-limitations].
 
 This tutorial will outline the basic configuration needed to set up streaming
 replication on one or more replicas, covering both synchronous and asynchronous
 options. It assumes you have at least two separate instances of TimescaleDB
-running.  If you're using our [Docker Image][timescale-docker], we recommend
+running. If you're using our [Docker Image][timescale-docker], we recommend
 using a [PostgreSQL entrypoint script][docker-postgres-scripts] to run the
 configuration. For our sample Docker configuration and run scripts, check out
 our [Streaming Replication Docker Repository][timescale-streamrep-docker].
 
 <highlight type="tip">
 PostgreSQL achieves streaming replication by having replicas continuously
-stream the WAL from the primary database.  See the official
+stream the WAL from the primary database. See the official
 [replication documentation](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION) for details. For more
 information about how PostgreSQL implements Write-Ahead Logging,
 see their [WAL Documentation](https://www.postgresql.org/docs/current/static/wal-intro.html).
@@ -112,14 +105,14 @@ slots in the next step.
 ### Create replication slots
 
 After configuring `postgresql.conf` and restarting PostgreSQL, create a
-[replication slot][postgres-rslots-docs] for each replica.  Replication slots
+[replication slot][postgres-rslots-docs] for each replica. Replication slots
 ensure that the primary does not delete segments from the WAL until they have
 been received by the replicas. This is crucial for cases where a replica goes
 down for extended periods of time -- without verifying that a WAL segment has
 already been consumed by a replica, the primary may delete data needed for
 replication. To some extent, you can achieve this using
 [archiving][postgres-archive-docs], but replication slots provide the strongest
-protection of WAL data for streaming replication.  The name of the slot is
+protection of WAL data for streaming replication. The name of the slot is
 arbitrary -- we'll call the slot for this replica `replica_1_slot`.
 
 ```sql
@@ -140,8 +133,8 @@ host       replication     repuser         <REPLICATION_HOST_IP>/32     scram-sh
 <highlight type="tip">
 The above settings will restrict replication connections to traffic coming
 from `REPLICATION_HOST_IP` as the PostgreSQL user `repuser` with a valid
-password.  `REPLICATION_HOST_IP` will be able to initiate streaming replication
-from that machine without additional credentials.  You may want to
+password. `REPLICATION_HOST_IP` will be able to initiate streaming replication
+from that machine without additional credentials. You may want to
 change the `address` and `method` values to match your security and network
 settings. Read more about `pg_hba.conf` in the [official documentation](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html).
 </highlight>
@@ -149,14 +142,14 @@ settings. Read more about `pg_hba.conf` in the [official documentation](https://
 ## Configure the replica database
 
 Replicas work by streaming the primary server's WAL log and replaying its
-transactions in what PostgreSQL calls "recovery mode".  Before this can happen,
+transactions in what PostgreSQL calls "recovery mode". Before this can happen,
 the replica needs to be in a state where it can replay the log. This is achieved
 by restoring the replica from a base backup of the primary instance.
 
 ### Create a base backup on the replica
 
 Stop PostgreSQL. If the replica's PostgreSQL database already has data, you will
-need to remove it prior to running the backup.  This can be done by removing the
+need to remove it prior to running the backup. This can be done by removing the
 contents of the PostgreSQL data directory. To determine the location of the
 data directory, run `show data_directory;` in a `psql` shell.
 
@@ -179,7 +172,7 @@ authentication in an automated setup, you may need to make use of a
 </highlight>
 
 When the backup finishes, create a [recovery.conf][postgres-recovery-docs] file
-in your data directory, ensuring it has the proper permissions.  When
+in your data directory, ensuring it has the proper permissions. When
 PostgreSQL finds a `recovery.conf` file in its data directory, it knows to start
 up in recovery mode and begin streaming the WAL through the replication
 protocol.
@@ -272,7 +265,7 @@ transaction commits only wait for local flush to disk.
   for the replicas as well as the primary. In practice, the extra wait time
   incurred waiting for the replicas significantly decreases replication lag.
 * `remote_apply` - Requires confirmation that the WAL records have been
-  written to the WAL *and* applied to the databases on all replicas.  This
+  written to the WAL *and* applied to the databases on all replicas. This
   provides the strongest consistency of any of the `synchronous_commit`
   options. In this mode, replicas will always reflect the latest state of
   the primary, and the concept of replication lag (see [Replication
@@ -301,7 +294,7 @@ different formats:
   setting on the replicas.
 * `ANY num_sync (replica_name_1, replica_name_2)`  - This will wait for
   confirmation from `num_sync` replicas in the provided list, regardless of
-  their priority/position in the list.  This is essentially a quorum
+  their priority/position in the list. This is essentially a quorum
   function.
 
 <highlight type="warning">
@@ -321,7 +314,7 @@ replay the missed WAL transactions asynchronously.
 ## View replication diagnostics [](view-replication-diagnostics)
 
 PostgreSQL provides a valuable view for getting information about each replica
--- [pg_stat_replication][postgres-pg-stat-replication-docs].  Run `select * from
+-- [pg_stat_replication][postgres-pg-stat-replication-docs]. Run `select * from
 pg_stat_replication;` from the primary database to view this data. The output
 looks like this:
 
@@ -374,7 +367,7 @@ measures how far behind the primary the current state of the replica is. The
 transaction on the primary and the last reported database commit on the replica.
 Coupled with `write_lag` and `flush_lag`, this provides insight into how far
 behind the replica is. The `*_lsn` fields also come in handy, allowing you to
-compare WAL locations between the primary and the replicas.  Finally, the
+compare WAL locations between the primary and the replicas. Finally, the
 `state` field is useful for determining exactly what each replica is currently
 doing (available modes are `startup`, `catchup`, `streaming`, `backup`, and
 `stopping`).
@@ -384,7 +377,7 @@ doing (available modes are `startup`, `catchup`, `streaming`, `backup`, and
 PostgreSQL offers failover functionality (i.e., promoting the replica to the
 primary in the event of a failure on the primary) through [pg_ctl][pgctl-docs]
 or the `trigger_file`, but it does not provide out-of-the-box support for
-automatic failover.  Read more in the PostgreSQL [failover
+automatic failover. Read more in the PostgreSQL [failover
 documentation][failover-docs]). [patroni][patroni-github] offers a configurable
 high availability solution with automatic failover functionality.
 

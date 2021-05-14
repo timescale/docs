@@ -4,7 +4,7 @@
 
 #### Prerequisites
 
-- A standard **PostgreSQL :pg_version:** installation with development environment (header files) (see https://www.postgresql.org/download/ for the appropriate package)
+- A standard **PostgreSQL 13** installation with development environment (header files) (see https://www.postgresql.org/download/ for the appropriate package)
 - C compiler (e.g., gcc or clang)
 - [CMake][] version 3.11 or greater
 

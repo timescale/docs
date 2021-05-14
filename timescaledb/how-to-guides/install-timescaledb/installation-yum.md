@@ -50,7 +50,7 @@ sudo yum update -y
 if command -v dnf; then sudo dnf -qy module disable postgresql; fi
 
 # Now install appropriate package for PG version
-sudo yum install -y timescaledb-2-postgresql-:pg_version:
+sudo yum install -y timescaledb-2-postgresql-13
 ```
 
 #### Upgrading from TimescaleDB 1.x
@@ -76,7 +76,7 @@ To get started you'll need to restart PostgreSQL and add
 a `postgres` [superuser][createuser] (used in the rest of the docs). Please
 refer to your distribution for how to restart services, for example:
 ```
-sudo -u postgres service postgres-:pg_version: start
+sudo -u postgres service postgres-13 start
 ```
 
 [pgdg]: https://yum.postgresql.org/repopackages.php

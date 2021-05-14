@@ -114,6 +114,7 @@ or [contact us][contact-timescale] directly.
 Now, it's time to forge!
 
 ## Advanced configuration and multi-node setup
+
 Timescale Forge is a versatile hosting service that provides a growing list of
 advanced features for your PostgreSQL and time-series data workloads.
 

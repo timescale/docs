@@ -5,7 +5,7 @@
 #### Prerequisites
 
 - [Visual C++ Redistributable for Visual Studio 2015][c_plus] (included in VS 2015 and later)
-- A standard **PostgreSQL :pg_version: 64-bit** installation
+- A standard **PostgreSQL 13 64-bit** installation
 - Make sure all relevant binaries are in your PATH: (use [pg_config][])
 - Installation must be performed from an account with admin privileges
 
@@ -45,7 +45,7 @@ Our standard binary releases are licensed under the Timescale License,
 which allows to use all our capabilities.
 To build a version of this software that contains
 source code that is only licensed under Apache License 2.0, pass `-DAPACHE_ONLY=1`
-to `bootstrap`.   
+to `bootstrap`.
 </highlight>
 
 [c_plus]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
