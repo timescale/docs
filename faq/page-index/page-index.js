@@ -3,9 +3,9 @@ module.exports = [
         href: "Frequently asked questions",
         children: [
           {
-            title: "FAQ",
+            title: "FAQs",
             href: "faq"
           }
         ]
       }
-]
+    ]
