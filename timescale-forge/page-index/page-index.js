@@ -16,8 +16,22 @@ module.exports = [
         href: "customize-configuration",
       },
       {
-        title: "Create a Multi-node Cluster",
+        title: "Create a multi-node cluster",
         href: "forge-multi-node"
+      },
+      {
+        title: "VPC peering with AWS",
+        href: "vpc-peering-aws",
+        children: [
+          {
+            title: "Create and connect a VPC",
+            href: "create"
+          },
+          {
+            title: "Migrate a service between networks",
+            href: "migrate"
+          }
+        ]
       }
     ]
   }
