@@ -1,6 +1,6 @@
-# Best Practices
+# Best practices
 
-### Modifying the Materialization Hypertable
+### Modifying the materialization hypertable
 Advanced users may find the need to modify certain properties of the
 materialization hypertable (e.g. chunk size) or to create further indexes.
 To help with such, we can find the name of the materialization hypertable in the
@@ -11,7 +11,7 @@ hypertable. For instance, we may want to set the materialization hypertable's
 accomplished by running [`set_chunk_time_interval`][api-set-chunk-interval] on
 the materialization hypertable.
 
-### Creating Indexes on the Materialization Hypertable
+### Creating indexes on the materialization hypertable
 By default, the database will automatically create composite indexes on each
 column specified in the `GROUP BY` combined with the `time_bucket`
 column (i.e., in our example, because the continuous aggregate view
@@ -41,14 +41,14 @@ querying `timescaledb_information.continuous_aggregates`.
 </highlight>
 
 ### Choosing an appropriate bucket interval
-The materialisation of the continuous aggregates stores partials, which are then 
+The materialisation of the continuous aggregates stores partials, which are then
 used to calculate the final aggregations at query time.  This means that there is
 a base amount of overhead for any query, which becomes a greater factor for smaller
-intervals.  For smaller intervals, it can be more performant to run an aggregate 
+intervals.  For smaller intervals, it can be more performant to run an aggregate
 query on the raw data in the hypertable, so test both methods to determine what is
-best for your data set and desired bucket interval. 
+best for your data set and desired bucket interval.
 
-### Dealing with Timezones
+### Dealing with timezones
 Functions that depend on a local timezone setting inside a continuous aggregate
 are not supported. We cannot cast to a local time because the timezone setting
 will change from user to user. So attempting to create a continuous aggregate
@@ -93,4 +93,3 @@ SELECT min_time::timestamp FROM device_summary;
 
 [api-continuous-aggregates-info]: /api/:currentVersion:/informational-views/timescaledb_information-continuous_aggregates/
 [api-set-chunk-interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval
-

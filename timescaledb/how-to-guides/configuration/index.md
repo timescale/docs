@@ -1,4 +1,4 @@
-# Configuring of TimescaleDB
+# Configuring TimescaleDB
 
 TimescaleDB works with the default PostgreSQL server configuration settings.
 However, we find that these settings are typically too conservative and

@@ -186,7 +186,7 @@ Max background worker processes allocated to TimescaleDB.  Set to at
 least 1 + number of databases in Postgres instance to use background
 workers. Default value is 8.
 
-### Distributed Hypertables [](multinode)
+### Distributed hypertables [](multinode)
 
 #### `timescaledb.enable_2pc (bool)` [](enable_2pc)
 
@@ -306,7 +306,7 @@ docker restart timescaledb
     2GB
 ```
 
-#### Specify config parameters as boot options
+#### Specify configuration parameters as boot options
 
 Alternatively, one or more parameters can be passed in to the `docker run`
 command via a `-c` option, as in the following.

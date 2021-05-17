@@ -1,6 +1,6 @@
-# Backfill Historical Data on Compressed Chunks
+# Backfill historical data on compressed chunks
 
-In the [TimescaleDB Extras][timescaledb-extras] github repository, we provide
+In the [TimescaleDB extras][timescaledb-extras] GitHub repository, we provide
 explicit functions for [backfilling batch data to compressed
 chunks][timescaledb-extras-backfill], which is useful for inserting a *batch*
 of backfilled data (as opposed to individual row inserts). By "backfill", we
@@ -15,23 +15,23 @@ the same time before the `decompress_backfill` process.
 
 To use this procedure:
 
-- First, create a table with the same schema as the hypertable (in
-  this example, `cpu`) that we are backfilling into.
+1. Create a table with the same schema as the hypertable (in
+  this example, `cpu`) that we are backfilling into:
 
-```sql
-CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM cpu WITH NO DATA;
-```
+ ```sql
+ CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM cpu WITH NO DATA;
+ ```
 
-- Second, insert data into the backfill table.
+1. Insert data into the backfill table.
 
-- Third, use a supplied backfill procedure to perform the above steps: halt
+1. Use a supplied backfill procedure to perform the above steps: halt
   compression policy, identify those compressed chunks to which the backfilled
   data corresponds, decompress those chunks, insert data from the backfill
   table into the main hypertable, and then re-enable compression policy:
 
-```sql
-CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'cpu');`
-```
+ ```sql
+ CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'cpu');`
+ ```
 
 If using a temp table, the table is automatically dropped at the end of your
 database session.  If using a normal table, after you are done backfilling the
@@ -97,9 +97,9 @@ CALL run_job(<job_id>);
 
 One of the current limitations of TimescaleDB is that once chunks are converted
 into compressed column form, we do not currently allow further modifications
-of the data (e.g., inserts, updates, deletes) or the schema without manual decompression, 
+of the data (e.g., inserts, updates, deletes) or the schema without manual decompression,
 except as noted [above](#compression-schema-changes). In other words, chunks are
-immutable in compressed form. Attempts to modify the chunks' data will either 
+immutable in compressed form. Attempts to modify the chunks' data will either
 error or fail silently (as preferred by users). We plan to remove this limitation
 in future releases.
 

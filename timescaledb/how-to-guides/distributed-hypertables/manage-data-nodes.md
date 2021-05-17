@@ -1,4 +1,4 @@
-# Data Node Management
+# Data node management
 
 When a distributed hypertable is created, it will use all the
 available data nodes by default. It is possible, however, to use only

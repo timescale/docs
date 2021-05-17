@@ -1,4 +1,4 @@
-# Data Retention [](data-retention)
+# Data retention [](data-retention)
 
 An intrinsic part of time-series data is that new data is accumulated
 and old data is rarely, if ever, updated and the relevance of the data
@@ -39,15 +39,15 @@ include data older than this duration, and will _not_ delete any
 individual rows of data in chunks.
 
 
-## Automatic Data Retention Policies [](retention-policy)
+## Automatic data retention policies [](retention-policy)
 
-TimescaleDB also includes a background job scheduling framework for automating 
+TimescaleDB also includes a background job scheduling framework for automating
 data management tasks, such as enabling easy [data retention policies][add-retention-policy]. With
 policies, you can set data retention standards on each hypertable and allow
 TimescaleDB to drop data as necessary.
 
-It's worth noting that [continuous aggregates][continuous-aggregates] are also valid targets retention 
-policies. 
+It's worth noting that [continuous aggregates][continuous-aggregates] are also valid targets retention
+policies.
 
 
 [drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/

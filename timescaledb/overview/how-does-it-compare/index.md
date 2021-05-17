@@ -1,9 +1,9 @@
-# How does TimescaleDB Compare?
+# How does TimescaleDB compare?
 
-TimescaleDB is often compared to both plain, vanilla relational databases (ie. 
+TimescaleDB is often compared to both plain, vanilla relational databases (ie.
 PostgreSQL) and NoSQL variants like InfluxDB or MongoDB. While these technologies,
 particularly NoSQL, have been embraced by the data community at large, modern
 applications need a modern data architecture.
 
-See how we compare to both regular SQL and NoSQL databases, especially when 
+See how we compare to both regular SQL and NoSQL databases, especially when
 petabyte scale time-series data is key to your application's success!

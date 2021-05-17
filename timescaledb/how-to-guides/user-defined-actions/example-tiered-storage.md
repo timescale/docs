@@ -1,4 +1,4 @@
-# Tiered Storage
+# Tiered storage
 
 Action that moves chunks older than a certain time to a different tablespace.
 

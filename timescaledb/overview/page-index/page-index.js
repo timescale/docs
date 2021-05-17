@@ -10,7 +10,7 @@ module.exports = [
             href: "core-concepts",
             children : [
               {
-                title: "Hypertables & Chunks",
+                title: "Hypertables and chunks",
                 href: "hypertables-and-chunks"
               },
               {

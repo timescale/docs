@@ -9,7 +9,7 @@ This will install both TimescaleDB *and* PostgreSQL via `yum`
 
 - RHEL/CentOS 7 (or Fedora equivalent) or later
 
-#### Build & Install
+#### Build and install
 
 <highlight type="warning">
  If you have another PostgreSQL installation not

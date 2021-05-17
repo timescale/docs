@@ -45,7 +45,7 @@ See our [configuration][] section for details.
 <highlight type="tip">
 These AMIs are made for EBS attached volumes. This allows for snapshots, protection of
 data if the EC2 instance goes down, and dynamic IOPS configuration. You should choose an
-EC2 instance type that is optimized for EBS attached volumes. For information on 
+EC2 instance type that is optimized for EBS attached volumes. For information on
 choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page][].
 </highlight>
 

@@ -1,4 +1,4 @@
-## Alter a Hypertable [](alter)
+## Alter a hypertable [](alter)
 
 You can execute standard `ALTER TABLE` commands against the hypertable ([PostgreSQL docs][postgres-altertable]).
 
