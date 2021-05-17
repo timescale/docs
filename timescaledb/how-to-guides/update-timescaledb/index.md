@@ -6,12 +6,12 @@ you don't need to dump and restore your data, and versions are published with
 automated migration scripts that convert any internal state if necessary.
 
 <highlight type="warning">
-There is currently no automated way to downgrade to an earlier release of TimescaleDB without setting up 
+There is currently no automated way to downgrade to an earlier release of TimescaleDB without setting up
 a new instance of PostgreSQL with a previous release of TimescaleDB and then using `pg_restore`
 from a backup.
 </highlight>
 
-### TimescaleDB Release Compatibility [](compatibility)
+### TimescaleDB release compatibility [](compatibility)
 
 TimescaleDB currently has three major release versions listed below. Please ensure that your version of
 PostgreSQL is supported with the extension version you want to install or update.

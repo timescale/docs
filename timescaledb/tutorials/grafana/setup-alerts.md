@@ -1,21 +1,21 @@
 # Set up Grafana alerts
 
-Alerts are an important aspect of monitoring because they proactively 
+Alerts are an important aspect of monitoring because they proactively
 inform us when things go wrong and need our attention. This could be:
 
 - When something crashes
-- You’re consuming too many resources (e.g., memory, CPU) 
-- There’s an outage
+- You're consuming too many resources (e.g., memory, CPU)
+- There's an outage
 - Users report performance degradation, via support tickets
 
 In this tutorial, you'll learn how to setup Grafana to alert you when
 something goes wrong using many of the communication channels you already
 use.
 
-### Pre-requisites [](prereqs)
+### Prerequisites [](prereqs)
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query 
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+To complete this tutorial, you will need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
@@ -23,7 +23,7 @@ helpful if you've seen SQL before.
 
 Once your installation of TimescaleDB and Grafana are complete, follow the
 [Timescale and Prometheus tutorial][tutorial-prometheus] and configure Grafana to connect
-to that database. Be sure to follow the full tutorial if you’re interested in background 
+to that database. Be sure to follow the full tutorial if you're interested in background
 on how to use TimescaleDB.
 
 For this tutorial, you will need to first create various Grafana visualizations before
@@ -41,8 +41,8 @@ When setting up alerts for your system, consider the following:
 
 ### Introduction to alerts in Grafana [](intro-grafana-alerts)
 
-Beyond data visualization, Grafana also provides alerting functionality 
-to keep you notified of anomalies. By using Grafana, you don’t have the 
+Beyond data visualization, Grafana also provides alerting functionality
+to keep you notified of anomalies. By using Grafana, you don't have the
 overhead of learning how to use another piece of software. Nor do you
 have to integrate services on your back-end. You simply use your dashboard.
 
@@ -55,23 +55,23 @@ There are some downsides to using Grafana for alerts:
 
 Ultimately, for most cases, this will be okay because:
 
-- You’re mainly dealing with time-series data for alerts
+- You're mainly dealing with time-series data for alerts
 - You can usually turn any other visualization (e.g., a Gauge or a Single Stat) into a time-series graph
 
 #### Available data soruces for Grafana alerts
 
-Only certain data sources are supported for Grafana alerts: PostgreSQL, 
+Only certain data sources are supported for Grafana alerts: PostgreSQL,
 Prometheus, and Cloudwatch. TimescaleDB is, of course, based on PostgreSQL,
 and is a valid data source for Grafana alerts.
 
-There are two parts of alerting in Grafana: **Alert Rules** and 
+There are two parts of alerting in Grafana: **Alert Rules** and
 **Notification channels**.
 
-#### Alert Rules
+#### Alert rules
 
-Alert Rules are the most important part of Grafana alerts. Rules are 
-conditions that you define for when an alert gets triggered. Grafana 
-evaluates rules according to a scheduler and you will need to specify 
+Alert Rules are the most important part of Grafana alerts. Rules are
+conditions that you define for when an alert gets triggered. Grafana
+evaluates rules according to a scheduler and you will need to specify
 how often rules are evaluated.
 
 In plain language, examples of rules could be:
@@ -82,7 +82,7 @@ In plain language, examples of rules could be:
 
 #### Notification channels
 
-Notification channels are where alerts get sent once alert rules are triggered. 
+Notification channels are where alerts get sent once alert rules are triggered.
 If you have no notification channels, then your alerts will only show up on Grafana
 
 Examples of channels include tools your team may already use:
@@ -92,26 +92,26 @@ Examples of channels include tools your team may already use:
 - OpsGenie
 - PagerDuty
 
-Grafana provides integration with webhooks, email, and more than a 
+Grafana provides integration with webhooks, email, and more than a
 dozen external services.
 
-Whenever we create an alert, we assign it to a notification channel, 
-along with a message. In our tutorial, we’ll set up two common notification 
+Whenever we create an alert, we assign it to a notification channel,
+along with a message. In our tutorial, we'll set up two common notification
 channels: Slack and PagerDuty.
 
 #### Lifecycle of an alert
 
-You can think of alerts as objects that move through different states depending 
-on the rule associated with them. Possible states are: OK, PENDING, ALERTING, 
+You can think of alerts as objects that move through different states depending
+on the rule associated with them. Possible states are: OK, PENDING, ALERTING,
 NO DATA.
 
 ### Alert 1: Integrating TimescaleDB, Grafana, and Slack [](alert1)
 
-Our goal in this first alert is to proactively notify us in Slack when we 
+Our goal in this first alert is to proactively notify us in Slack when we
 have sustained high memory usage over time. We will connect Grafana to
 Slack using webhooks.
 
-#### Step 0: Set up your Grafana Visualization
+#### Step 0: Set up your Grafana visualization
 
 Create a new Graph visualization. In the query, connect to the data source
 you configured in the [Timescale and Prometheus tutorial][tutorial-prometheus]
@@ -136,7 +136,7 @@ Your graph should look like this:
 #### Step 1: Define the Grafana alert rule
 
 Click the 'Bell' icon on your visualization to navigate to the Alert section.
-We’ll define our alert so that we are notified when average memory consumption
+We'll define our alert so that we are notified when average memory consumption
 is greater than 90% for 5 consecutive minutes.
 
 Set the frequency for the rule to be evaluated at one minute. This means that the
@@ -167,7 +167,7 @@ Administrator to give you the webhoo URL to post to a channel. You can
 information.
 
 To configure a notification channel, go to the 'Bell' icon in your main
-dashboard. It will be on the far left of the screen. Click on the 'Notification 
+dashboard. It will be on the far left of the screen. Click on the 'Notification
 Channels' option. In the Notification Channels screen, click 'Add channel'.
 
 In the resulting form, set up the name of your Slack Channel. This will
@@ -175,10 +175,10 @@ show up in drop-downs throughout your Grafana instance, so choose
 something descriptive that other users of your Grafana instance will
 immediately identify with.
 
-Choose 'Slack' as the type and toggle 'Include image' and 'Send reminders' 
+Choose 'Slack' as the type and toggle 'Include image' and 'Send reminders'
 on. Enter the Webhook URL supplied by your Slack Admin and choose a
-Username that will be descriptive to users of your Slack instance. If you 
-want to @-mention someone or a group with your alert post in Slack, you can 
+Username that will be descriptive to users of your Slack instance. If you
+want to @-mention someone or a group with your alert post in Slack, you can
 do so in the 'Mention' field.
 
 Your configuration should look like this:
@@ -190,11 +190,11 @@ And, you should be able to send a test message to your Slack instance.
 #### Step 3: Connect your Grafana alert to Slack
 
 Now go back to your Graph Visualization and select the 'Alert' tab. In the
-'Notifications' section, click on the '+' icon next to 'Send to' and choose 
-the Slack notification channel you just created. Supply a message for your 
+'Notifications' section, click on the '+' icon next to 'Send to' and choose
+the Slack notification channel you just created. Supply a message for your
 Slack post as well.
 
-At this point, your alert is configured. If you'd like to test it, feel free 
+At this point, your alert is configured. If you'd like to test it, feel free
 to change the "90" value you entered for the 'Is Above' field and change it to
 something below the current threshold. It should trigger a notification like
 this within five minutes or so:
@@ -203,15 +203,15 @@ this within five minutes or so:
 
 ### Alert 2: Integrating TimescaleDB, Grafana, and PagerDuty [](alert2)
 
-PagerDuty is a popular choice for managing support and incident responses for 
+PagerDuty is a popular choice for managing support and incident responses for
 medium-large teams. Many of the steps in this section are similar to the steps
 in the Slack section. With PagerDuty, we will need to set up alerts using direct
 integration with the PagerDuty API.
 
 #### Step 0: Set up your Grafana visualization
 
-In this section, we will monitor our database in case we run out of disk space 
-unexpectedly. This is the kind of alert where you'd want to notify someone 
+In this section, we will monitor our database in case we run out of disk space
+unexpectedly. This is the kind of alert where you'd want to notify someone
 immediately.
 
 The query for our Graph visualization looks like this:
@@ -230,22 +230,22 @@ ORDER BY 1
 
 #### Step 1: Configure PagerDuty for Grafana alerts
 
-To connect PagerDuty to Grafana, you’ll need an [integration key][pagerduty-integration-key] 
-for the service that you’re monitoring. Note this is different from what PagerDuty
+To connect PagerDuty to Grafana, you'll need an [integration key][pagerduty-integration-key]
+for the service that you're monitoring. Note this is different from what PagerDuty
 refers to as the PagerDuty API key.
 
-Once again, go to your main dashboard and select the 'Bell' icon and select 
+Once again, go to your main dashboard and select the 'Bell' icon and select
 'Notification channels'. Add a channel, enter a descriptive name, and choose the
 'Pager Duty' type. Supply your integration key.
 
-#### Step 2: Define the Grafana Alert rule
+#### Step 2: Define the Grafana alert rule
 
 Creating a rule on disk usage is similar to the rule we created earlier about memory usage,
-except disk usage can only increase. Therefore, we do not need to supply a 'For' time period 
+except disk usage can only increase. Therefore, we do not need to supply a 'For' time period
 as we did with Slack. So, in this case, set up your alert to check 'Every' one minute for a
 period of zero minutes.
 
-In the 'When' clause, select `last()`, `query(A, 1m, now)`, and supply '80' for the 
+In the 'When' clause, select `last()`, `query(A, 1m, now)`, and supply '80' for the
 'Is Above' field.
 
 Select your PagerDuty channel in the 'Notifications' section and provide a descriptive message.

@@ -1,4 +1,4 @@
-# Create a Hypertable
+# Create a hypertable
 
 Creating a hypertable is a two-step process.
 <!-- add steps format?-->

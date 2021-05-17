@@ -4,7 +4,7 @@ Timescale Forge user, please use the documentation for [setting up multi-node
 on Forge][forge-multi-node] instead.
 </highlight>
 
-# Setting up TimescaleDB 2.0 Multi-node on Timescale Cloud
+# Setting up TimescaleDB 2.0 multi-node on Timescale Cloud
 
 TimescaleDB 2.0  [introduces a number of new features][changes-in-tsdb2]
 to supercharge time-series data even further. One of the most anticipated new features
@@ -31,7 +31,7 @@ to add just one data node to a cluster, this will perform worse than a
 single-node TimescaleDB instance and is not recommended.
 </highlight>
 
-### Step 1: Create Services for Access and Data node Services [](step1)
+### Step 1: Create services for access and data node services [](step1)
 
 First, you need to create new Services within your Cloud account. As mentioned
 earlier, you should create _at least_ three Services to set up a multi-node cluster:
@@ -58,7 +58,7 @@ To setup your first multi-node instance in Timescale Cloud, you will
 need to create new Services for the Access Node and Data Nodes.
 </highlight>
 
-### Step 2: Modify Access Node settings [](step2)
+### Step 2: Modify access node settings [](step2)
 
 The hard work of handling distributed queries in a multi-node cluster is handled
 by TimescaleDB for you. Some queries, however, will perform better in a distributed
@@ -73,7 +73,7 @@ To that end, we highly recommend the following settings be modified for the
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-adv-config.png" alt="Timescale Cloud advanced configuration"/>
 
-### Step 3: Add Data Nodes to the cluster [](step3)
+### Step 3: Add data nodes to the cluster [](step3)
 
 Once you've created your new Services, you'll enable communication between the
 access node and all data nodes. The currently supported method for securing
@@ -99,7 +99,7 @@ complete the mapping process outlined below to re-establish the connection betwe
 the access node and the affected data node. You can read about user mapping in
 the [PostgreSQL documentation][postgres-user-mapping].
 
-### Step 3a: Add each data node using the Host URI [](step3a)
+### Step 3a: Add each data node using the host URI [](step3a)
 
 For this step, you'll need to copy the **Host**, **Password** and **Port** details
 listed under the **Connection Information** section of the Service details to use
@@ -142,7 +142,7 @@ FDW options          | (host 'dn1-cloud-demo-support-50d0.a.timescaledb.io', por
 Description          |
 ```
 
-### Step 3b: Add a User Mapping for each data node [](step3b)
+### Step 3b: Add a user mapping for each data node [](step3b)
 
 Now we can create a `USER MAPPING` that will enable communication between the
 access node and data node.

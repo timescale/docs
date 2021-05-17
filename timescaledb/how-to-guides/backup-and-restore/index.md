@@ -1,4 +1,4 @@
-# Backup & Restore
+# Backup and restore
 
 Backing up TimescaleDB takes advantage of the reliable functionality already
 available through PostgreSQL.  There are several ways to accomplish this:
@@ -6,7 +6,7 @@ physical backups with `pg_basebackup` or another tool, or logical backups with
 `pg_dump` and `pg_restore`. Physical backups may also be used with Write-Ahead Log
 (WAL) archiving to achieve an ongoing backup.
 
-## Performing Physical Backups
+## Performing physical backups
 
 For full instance physical backups (which are especially useful for starting up
 new [replicas][replication-tutorial]), [`pg_basebackup`][postgres-pg_basebackup]

@@ -1,4 +1,4 @@
-# Continuous Aggregates
+# Continuous aggregates
 
 Aggregate queries which touch large swathes of time-series data can
 take a long time to compute because the system needs to scan large

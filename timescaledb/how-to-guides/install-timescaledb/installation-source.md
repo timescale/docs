@@ -1,4 +1,4 @@
-## From Source [](installation-source)
+## From source [](installation-source)
 
 **Note: TimescaleDB requires PostgreSQL 11, 12 or 13.**
 
@@ -8,7 +8,7 @@
 - C compiler (e.g., gcc or clang)
 - [CMake][] version 3.11 or greater
 
-#### Build & Install with Local PostgreSQL
+#### Build and install with local PostgreSQL
 <highlight type="tip">
 It is **highly recommended** that you checkout the latest
 tagged commit to build from (see the repo's [Releases][github-releases] page for that)

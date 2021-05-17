@@ -1,4 +1,4 @@
-# Generic Retention
+# Generic retention
 
 Create a generic data retention policy that applies to ALL hypertables, as opposed
 to just a single one as required by `add_retention_policy`.

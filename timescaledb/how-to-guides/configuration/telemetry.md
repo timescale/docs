@@ -1,4 +1,4 @@
-# Telemetry and Version Checking
+# Telemetry and version checking
 We enable anonymous usage sharing to help us better
 understand and assist TimescaleDB users, as well as provide automated version
 checks. We emphasize that privacy of our users is paramount, so we do not
@@ -27,8 +27,8 @@ the JSON that is sent to our servers about a specific deployment:
 	"build_os_name": "Linux",
 	"build_os_version": "4.9.125-linuxkit",
 	"data_volume": "65982148",
-	"db_metadata":{ 
-			"promscale_version": "0.1.0", 
+	"db_metadata":{
+			"promscale_version": "0.1.0",
 			"promscale_commit_hash": ""
     },
 	"num_hypertables": "3",
@@ -37,7 +37,7 @@ the JSON that is sent to our servers about a specific deployment:
 	"num_drop_chunks_policies": "2",
 	"related_extensions":{
 			"pg_prometheus": "false",
-			"PostGIS": "true", 
+			"PostGIS": "true",
 			"promscale": "true"
     }
 }
@@ -59,16 +59,16 @@ we only send an "edition" field, which could have a value of either "apache_only
 as relevant.
 
 
-## Version Checking
+## Version checking
 The database sends telemetry reports periodically in the background.
 In response to the telemetry report, the database will receive the most recent
 version of TimescaleDB available for installation. This version will be
-recorded in the user’s server logs, along with any applicable out-of-date
+recorded in the user's server logs, along with any applicable out-of-date
 version warnings. While you do not have to update immediately to the newest
 release, many users have reported that performance issues or bugs
 automatically resolve after updating their version of TimescaleDB.
 
-## Disabling Telemetry
+## Disabling telemetry
 Although we invite our community to help us keep improving our
 product, we do understand when users would like to disable telemetry. Note that
 disabling telemetry also disables the version checking functionality.

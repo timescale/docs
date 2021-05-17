@@ -18,8 +18,8 @@ of a running Service, some settings will require that a restart be performed,
 resulting in some brief downtime (usually about 30 seconds).
 </highlight>
 
-### Step 1: View Service operation details  [](service-details)
-To modify configuration parameters, first select the Service that 
+### Step 1: View service operation details  [](service-details)
+To modify configuration parameters, first select the Service that
 you want to modify. This will display the _service details_ which list tabs
 across the top: Overview, Operations, Metrics, Logs, and Settings.
 
@@ -29,7 +29,7 @@ Select **_Settings_**.
 
 ### Step 2: Modify basic parameters [](basic-parameters)
 Under the Settings tab, you can modify a limited set of the parameters that are
-most often modified in a TimescaleDB or PostgreSQL instance. To modify a 
+most often modified in a TimescaleDB or PostgreSQL instance. To modify a
 configured value, simply click into on the **_value_** that you would like to
 change. This will reveal an editable field to apply your change. Clicking anywhere
 outside of that field will save the value to be applied.
@@ -51,7 +51,7 @@ dialog will be displayed which lists the parameters that will be modified. Click
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-settings-confirm.png" alt="View Timescale Forge service configuration changes confirmation dialog"/>
 
 
-## Configuring Advanced Parameters [](advanced-parameters)
+## Configuring advanced parameters [](advanced-parameters)
 It is also possible to configure a wide variety of Service database parameters
 by flipping the **Show advanced parameters** toggle in the upper-right corner
 of the **Settings** tab.

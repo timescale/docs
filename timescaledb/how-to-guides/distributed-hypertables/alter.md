@@ -1,4 +1,4 @@
-# Alter a Distributed Hypertable [](alter)
+# Alter a distributed hypertable [](alter)
 
 You can execute standard `ALTER TABLE` commands against the hypertable ([PostgreSQL docs][postgres-altertable]).
 

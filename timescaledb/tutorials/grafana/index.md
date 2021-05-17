@@ -15,10 +15,10 @@ Follow these tutorials:
 - [Visualize missing data in Grafana][tutorial-grafana-missing-data] using TimescaleDB features.
 - [Setup Grafana alerts][tutorial-grafana-alerts] on time-series data using Slack, PagerDuty, and more.
 
-### Pre-requisites for Grafana tutorials
+### Prerequisites for Grafana tutorials
 
-To complete these tutorials, you will need a cursory knowledge of the Structured Query 
-Language (SQL). Each tutorial will walk you through each SQL command, but it will be 
+To complete these tutorials, you will need a cursory knowledge of the Structured Query
+Language (SQL). Each tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].

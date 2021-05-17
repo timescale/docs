@@ -1,4 +1,4 @@
-# Creating a continuous aggregates
+# Creating a continuous aggregate
 
 Creating a refreshing [continuous aggregate][api-continuous-aggs] is a two-step
 process. First, one needs to create a continuous aggregate view of the data
@@ -84,7 +84,7 @@ currently support the `FILTER` clause (not to be confused with
 support for this in a future version.
 
 
-## Using `WITH NO DATA` when creating a Continuous Aggregate
+## Using `WITH NO DATA` when creating a continuous aggregate
 
 If you have a lot of historical data, we suggest creating the continuous aggregate
 using the `WITH NO DATA` parameter for the `CREATE MATERIALIZED VIEW` command. Doing

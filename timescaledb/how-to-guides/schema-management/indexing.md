@@ -1,4 +1,4 @@
-# Indexing Data
+# Indexing data
 
 TimescaleDB supports the range of PostgreSQL index types, and creating, altering,
 or dropping an index on the hypertable ([PostgreSQL docs][postgres-createindex])
@@ -23,7 +23,7 @@ CREATE INDEX ON conditions (time DESC, humidity)
 this creates a more compact, and thus efficient, index.
 </highlight>
 
-## Best Practices
+## Best practices
 
 Our experience has shown that for time-series data, the most-useful index type
 varies depending on your data.
@@ -83,7 +83,7 @@ significant bit downwards, so it first matches on the first character,
 then second, etc., while in the above example they are conveniently shown
 as two separate tuples.
 
-Now, with a predicate like `WHERE location = 'garage' and time >= 1 and time < 4`, 
+Now, with a predicate like `WHERE location = 'garage' and time >= 1 and time < 4`,
 the top is much better to use: all readings from a given
 location are contiguous, so the first bit of the index precisely finds
 all metrics from "garage", and then we can use any additional time
@@ -107,7 +107,7 @@ That said, we find UNIQUE indexes in time-series data to be much less prevalent 
 in traditional relational data models.
 </highlight>
 
-## Default Indexes
+## Default indexes
 
 By default, TimescaleDB automatically creates a time index on your
 data when a hypertable is created.

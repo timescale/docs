@@ -1,4 +1,4 @@
-# Continuous Aggregates
+# Continuous aggregates
 
 Aggregate queries which touch large swathes of time-series data can
 take a long time to compute because the system needs to scan large
@@ -15,7 +15,7 @@ via a policy that runs in the background, and can cover the entire
 continuous aggregate or just a specific time range. In either case,
 the refresh only recomputes the aggregate buckets that have changed
 since the last refresh.
- 
+
 ## An introductory example [](quick-start)
 
 As a quick introductory example, let's create a hypertable
@@ -89,7 +89,7 @@ currently support the `FILTER` clause (not to be confused with
 `WHERE`) even though it is possible to parallelize but we might add
 support for this in a future version.
 
-## Real-Time Aggregation [](real-time-aggregates)
+## Real-time aggregation [](real-time-aggregates)
 
 A query on a continuous aggregate will, by default, use *real-time
 aggregation* (first introduced in TimescaleDB 1.7) to combine
@@ -117,20 +117,20 @@ in a version earlier than TimescaleDB 1.7, alter the view to set
 Continuous aggregates can be kept up-to-date through the last bucket width of
 time by using continuous aggregate policies. Policies allow you to keep a
 specified window of time within the continuous aggregate updated on a schedule.
-This provides the ability to do things like: 
+This provides the ability to do things like:
 
 - have the continuous aggregate and the hypertable be in sync, even
   when data is removed from the hypertable, or
 - keep the aggregate data in the continuous aggregate when removing
   source data from the hypertable.
 
-### Manually Refreshing continuous aggregate ranges [](refresh-cagg)
+### Manually refreshing continuous aggregate ranges [](refresh-cagg)
 
 It is also possible, starting with TimescaleDB 2.0, to manually refresh
-a specific window of time in a continuous aggregate using 
+a specific window of time in a continuous aggregate using
 `refresh_continuous_aggregate`. Using this TimescaleDB function gives users the
 ability to have the best of both worlds: automatic refresh of recent data and
-targeted updates to time ranges that may occur further in history through 
+targeted updates to time ranges that may occur further in history through
 a backfill process. Using both tools to keep continuous aggregates up-to-date
 provides great control and flexibility!
 

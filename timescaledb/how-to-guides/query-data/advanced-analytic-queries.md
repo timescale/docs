@@ -1,4 +1,4 @@
-# Advanced Analytic Queries
+# Advanced analytic queries
 
 TimescaleDB can be used for a variety of analytical queries, both through its
 native support for PostgreSQL's full range of SQL functionality, as well as
@@ -7,7 +7,7 @@ query optimization).
 
 The following list is just a sample of some of its analytical capabilities.
 
-## Median/Percentile
+## Median/percentile
 
 PostgreSQL has inherent methods for determining median values and percentiles
 namely the function [`percentile_cont`][percentile_cont].  An example query
@@ -19,7 +19,7 @@ SELECT percentile_cont(0.5)
   FROM conditions;
 ```
 
-## Cumulative Sum 
+## Cumulative sum
 
 One way to determine cumulative sum is using the SQL
 command `sum(sum(column)) OVER(ORDER BY group)`.  For example:
@@ -30,7 +30,7 @@ SELECT location, sum(sum(temperature)) OVER(ORDER BY location)
   GROUP BY location;
 ```
 
-## Moving Average
+## Moving average
 
 For a simple moving average, you can use the `OVER` windowing function over
 some number of rows, then compute an aggregation function over those rows. The
@@ -117,7 +117,7 @@ SELECT time, value FROM (
 WHERE diff IS NULL OR diff != 0;
 ```
 
-## Time Bucket <tag type="function">TSDB Function</tag>
+## Time bucket <tag type="function">TSDB Function</tag>
 
 TimescaleDB's [`time_bucket`][time_bucket] acts as a more powerful version of the PostgreSQL function [`date_trunc`][date_trunc].  It accepts arbitrary time intervals as well as optional offsets and returns the bucket start time.
 
@@ -128,7 +128,7 @@ SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
   ORDER BY five_min DESC LIMIT 12;
 ```
 
-## First, Last <tag type="function">TSDB Function</tag>
+## First, last <tag type="function">TSDB Function</tag>
 
 TimescaleDB defines functions for [`first`][first] and [`last`][last],
 which allow you to get the value of one column as ordered by another.
@@ -173,7 +173,7 @@ This query will output data in the following form:
  garage     | 10080 | {0,2679,957,2420,2150,1874,0}
 ```
 
-## Gap Filling <tag type="function">TSDB Function</tag> <tag type="community">Community</tag>
+## Gap filling <tag type="function">TSDB Function</tag> <tag type="community">Community</tag>
 
 Some time-series analyses or visualizations want to display records for
 each selected time period, even if no data was recorded during that
@@ -273,7 +273,7 @@ This query will output data of the form:
  2018-03-09 20:53:20+00 |  1037.78
 ```
 
-## Last Observation Carried Forward (locf) <tag type="function">TSDB Function</tag> <tag type="community">Community</tag>
+## Last observation carried forward (locf) <tag type="function">TSDB Function</tag> <tag type="community">Community</tag>
 
 If your data collections only records rows when the actual value changes,
 your visualizations might still need all data points to properly display
@@ -292,7 +292,7 @@ WHERE
 GROUP BY 5min, meter_id
 ```
 
-## Last Point
+## Last point
 
 A common query in many settings is to find the *last point* for each
 unique item in the database, e.g., the last recorded measurement from

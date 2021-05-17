@@ -1,9 +1,9 @@
 # Getting Started with Prometheus and TimescaleDB using Promscale
 
 ## Introduction
-[Prometheus][prometheus-webpage] is an open-source systems monitoring and alerting toolkit that can be used to easily and cost-effectively monitor infrastructure and applications. 
-Over the past few years, Prometheus has emerged as the monitoring solution for modern software systems. 
-The key to Prometheus’ success is its pull-based architecture and service discovery, which is able to seamlessly monitor modern, dynamic systems in which (micro-)services startup and shutdown frequently.
+[Prometheus][prometheus-webpage] is an open-source systems monitoring and alerting toolkit that can be used to easily and cost-effectively monitor infrastructure and applications.
+Over the past few years, Prometheus has emerged as the monitoring solution for modern software systems.
+The key to Prometheus' success is its pull-based architecture and service discovery, which is able to seamlessly monitor modern, dynamic systems in which (micro-)services startup and shutdown frequently.
 
 ### The Problem: Prometheus is not designed for analytics
 As organizations use Prometheus to collect data from more and more of their infrastructure, the benefits from mining this data also increase. Analytics becomes critical for auditing, reporting, capacity planning, prediction, root-cause analysis, and more. Prometheus's architectural philosophy is one of simplicity and extensibility. Accordingly, it does not itself provide durable, highly-available long-term storage or advanced analytics, but relies on other projects to implement this functionality.
@@ -11,7 +11,7 @@ As organizations use Prometheus to collect data from more and more of their infr
 There are existing ways to durably store Prometheus data, but while these options are useful for long-term storage, they only support the Prometheus data model and query model (limited to the PromQL query language). While these work extremely well for the simple, fast analyses found in dashboarding, alerting, and monitoring, they fall short for more sophisticated analysis capabilities, or for the ability to enrich their dataset with other sources needed for insight-generating cross-cutting analysis.
 
 ### Solution: Promscale scales and augments Prometheus for long-term storage and analytics
-[Promscale][promscale-github] is an open-source long-term store for Prometheus data, designed for analytics. It is a horizontally scalable and operationally mature platform for Prometheus data. Promscale offers the combined power of PromQL and SQL, enabling you to ask any question, create any dashboard, and achieve greater visibility into your systems. 
+[Promscale][promscale-github] is an open-source long-term store for Prometheus data, designed for analytics. It is a horizontally scalable and operationally mature platform for Prometheus data. Promscale offers the combined power of PromQL and SQL, enabling you to ask any question, create any dashboard, and achieve greater visibility into your systems.
 
 Promscale is built on top of TimescaleDB, the leading relational database for time-series. Promscale also supports native compression, handles high-cardinality, provides rock-solid reliability, and more. Furthermore, it offers other native time-series capabilities, such as data retention policies, continuous aggregate views, downsampling, data gap-filling, and interpolation. It is already natively supported by Grafana via the Prometheus and PostgreSQL/TimescaleDB data sources.
 

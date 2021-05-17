@@ -1,4 +1,4 @@
-# Adding Constraints
+# Adding constraints
 
 Hypertables support all standard PostgreSQL constraint types, with the
 exception of foreign key constraints on other tables that reference
