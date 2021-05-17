@@ -24,4 +24,4 @@ SET client_min_messages TO DEBUG1;
 CALL run_job(1000);
 ```
 
-Set log level shown to client to `DEBUG1` and run the job with the job id 1000.
+Set log level shown to client to `DEBUG1` and run the job with the job ID 1000.
