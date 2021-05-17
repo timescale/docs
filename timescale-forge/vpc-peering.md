@@ -1,4 +1,4 @@
-# VPC Peering in Timescale Forge
+# VPC Peering with AWS in Timescale Forge
 
 Timescale Forge allows you to create a private network peering connection between
 your cloud VPC and the Timescale Forge cloud infrastructure where your Timescale
