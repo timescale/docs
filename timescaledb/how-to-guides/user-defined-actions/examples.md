@@ -4,7 +4,7 @@ The following section provides a number of examples of user-defined actions
 that you can specify and subsequently schedule as part of TimescaleDB's
 automation framework.
 
-### Generic Retention [](generic-retention)
+### Generic retention [](generic-retention)
 
 Create a generic data retention policy that applies to ALL hypertables, as opposed
 to just a single one as required by `add_retention_policy`.
@@ -37,7 +37,7 @@ than 12 months.
 SELECT add_job('generic_retention','1d', config => '{"drop_after":"12 month"}');
 ```
 
-### Tiered Storage [](tiered-storage)
+### Tiered storage [](tiered-storage)
 
 Action that moves chunks older than a certain time to a different tablespace.
 
@@ -89,7 +89,7 @@ index as input, but performs data re-ordering as part of the move (for faster
 subsequent queries) and requires lower lock levels, so the chunk remains available
 for reads during the move.
 
-### Downsample and Compress [](downsample-compress)
+### Downsample and compress [](downsample-compress)
 
 Action that downsamples and compresses chunks on hypertable `metrics`
 older than a certain age. The example query computes a simple `avg` over

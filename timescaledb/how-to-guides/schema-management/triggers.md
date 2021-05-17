@@ -1,4 +1,4 @@
-## Creating Triggers
+## Creating triggers
 
 TimescaleDB supports the full range of PostgreSQL triggers, and creating,
 altering, or dropping triggers on the hypertable will similarly

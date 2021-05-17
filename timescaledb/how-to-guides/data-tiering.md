@@ -1,4 +1,4 @@
-# Data Tiering 
+# Data tiering
 
 TimescaleDB includes the ability to perform data tiering by moving chunks
 between PostgreSQL tablespaces. Tablespaces are locations on disk where
@@ -30,7 +30,7 @@ Using multiple tablespaces can also yield I/O performance benefits. With data
 tiering, you can isolate large scans of historical data away from the continual
 read/write workload against recent data (in the default tablespace).
 
-## Creating a Tablespace
+## Creating a tablespace
 
 The [`move_chunk`][api-move-chunk] function requires multiple tablespaces set up in PostgreSQL, so let's
 start with a quick review of how this works.

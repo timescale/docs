@@ -1,21 +1,21 @@
-# Use Grafana to Visualize Geospatial Data Stored in TimescaleDB
+# Use Grafana to visualize geospatial data stored in TimescaleDB
 
 Grafana includes a WorldMap visualization that will help you see geospatial data overlaid
 atop a map of the world. This can be helpful to understand how data changes based on
 its location.
 
-### Pre-requisites
+### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query 
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+To complete this tutorial, you will need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
 * Next [setup Grafana][install-grafana].
 
-Once your installation of TimescaleDB and Grafana are complete, ingest the data found 
+Once your installation of TimescaleDB and Grafana are complete, ingest the data found
 in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
-to that database. Be sure to follow the full tutorial if you’re interested in background 
+to that database. Be sure to follow the full tutorial if you're interested in background
 on how to use TimescaleDB.
 
 <highlight type="tip">
@@ -27,7 +27,7 @@ on how to use TimescaleDB.
 
 The NYC Taxi Cab data also contains the location of each ride pickup. In the
 [NYC Taxi Cab][nyc-taxi] tutorial, we examined rides that originated
-near Times Square. Let’s build on that query and
+near Times Square. Let's build on that query and
 **visualize rides whose distance traveled was greater than five miles in Manhattan**.
 
 We can do this in Grafana using the 'Worldmap Panel'. We will start by creating a
@@ -55,7 +55,7 @@ ORDER BY time
 LIMIT 500;
 ```
 
-Let’s dissect this query. First, we’re looking to plot rides with visual markers that
+Let's dissect this query. First, we're looking to plot rides with visual markers that
 denote the trip distance. Trips with longer distances will get different visual treatments
 on our map. We will use the `trip_distance` as the value for our plot. We will store
 this result in the `value` field.
@@ -71,18 +71,18 @@ Finally, in the `GROUP BY` clause, we supply the `trip_distance` and location va
 so that Grafana can plot data properly.
 
 <highlight type="warning">
- This query may take a while, depending on the speed of your Internet connection. This 
- is why we’re using the `LIMIT` statement for demonstration purposes.
+ This query may take a while, depending on the speed of your Internet connection. This
+ is why we're using the `LIMIT` statement for demonstration purposes.
 </highlight>
 
-### Configure the Worldmap Grafana panel
+### Configure the worldmap Grafana panel
 
-Now let’s configure our Worldmap visualization. Select the 'Visualization' tab in the far
-left of the Grafana user interface. You’ll see options for 'Map Visual Options', 'Map Data Options',
+Now let's configure our Worldmap visualization. Select the 'Visualization' tab in the far
+left of the Grafana user interface. You'll see options for 'Map Visual Options', 'Map Data Options',
 and more.
 
 First, make sure the 'Map Data Options' are set to 'table' and 'current'.  Then in
-the 'Field Mappings' section. We will set the 'Table Query Format' to be ‘Table’.
+the 'Field Mappings' section. We will set the 'Table Query Format' to be ‘Table'.
 We can map the 'Latitude Field' to our `latitude` variable, the 'Longitude Field' to
 our `longitude` variable, and the 'Metric' field to our `value` variable.
 

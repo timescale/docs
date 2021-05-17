@@ -1,4 +1,4 @@
-# Language quick-starts
+# Language quick starts
 
 Here is a collection of quickstarts on your favorite language.
 
@@ -20,4 +20,3 @@ feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
 [ruby-quickstart]: /quick-start/ruby
 [go-quickstart]: /quick-start/golang
 [java-quickstart]: /quick-start/java
-

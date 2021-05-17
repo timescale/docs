@@ -1,4 +1,4 @@
-# Creating a Distributed Hypertable
+# Creating a distributed hypertable
 
 Creating a distributed hypertable is very similar to creating a
 regular hypertable. The main difference is that you must use the

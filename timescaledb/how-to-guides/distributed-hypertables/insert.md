@@ -1,4 +1,4 @@
-# Inserting into a Distributed Hypertable
+# Inserting into a distributed hypertable
 
 Just like a regular hypertable, it is important to batch data when
 inserting into a distributed hypertable. Each insert statement is

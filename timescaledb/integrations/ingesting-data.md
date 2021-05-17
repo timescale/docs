@@ -37,13 +37,16 @@ Telegraf is an agent that collects, processes, aggregates, and writes metrics. S
 collection and the output of data, it is easily extendable. In fact, it already contains over 200 plugins for gathering and
 writing different types of data.
 
-We wrote the PostgreSQL output plugin which also has the ability to send data to a TimescaleDB hypertable. Telegraf handles
-batching, processing, and aggregating the data collected prior to inserting that data into TimescaleDB.
+We wrote the PostgreSQL output plugin which also has the ability to send data to
+a TimescaleDB hypertable. Telegraf handles batching, processing, and aggregating
+the data collected prior to inserting that data into TimescaleDB.
 
 <highlight type="warning">
- The [pull request](https://github.com/influxdata/telegraf/pull/3428) is open and currently under review by the Telegraf developers, waiting to be
-merged. To give users the opportunity to try this functionality, we built [downloadable binaries](https://docs.timescale.com/tutorials/telegraf-output-plugin#telegraf-installation) of
-Telegraf with our plugin already included.
+The [pull request](https://github.com/influxdata/telegraf/pull/3428) is open
+and currently under review by the Telegraf developers, waiting to be merged. To
+give users the opportunity to try this functionality, we built [downloadable
+binaries](https://docs.timescale.com/tutorials/telegraf-output-plugin#telegraf-installation)
+of Telegraf with our plugin already included.
 </highlight>
 
 The PostgreSQL plugin extends the ease of use users get from leveraging Telegraf by handling schema generation and

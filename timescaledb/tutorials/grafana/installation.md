@@ -1,6 +1,6 @@
 # Installing Grafana for use with TimescaleDB
 
-### Pre-requisites
+### Prerequisites
 
 You will need to [setup an instance of TimescaleDB][install-timescale].
 
@@ -11,14 +11,14 @@ you can setup your own instance of Grafana.
 
 #### Installing Grafana with Timescale Cloud
 
-If you’re using Timescale Cloud, you can setup a Grafana Metrics Dashboard
+If you're using Timescale Cloud, you can setup a Grafana Metrics Dashboard
 from the **Create Service** flow.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/create_service.png" alt="Create a new Grafana service"/>
 
 #### Installing your own managed instance of Grafana
 
-You can setup [Grafana][grafana-install] from the Grafana website. Once completed, 
+You can setup [Grafana][grafana-install] from the Grafana website. Once completed,
 follow the rest of the instructions below.
 
 ### Connecting Grafana to your TimescaleDB instance
@@ -35,10 +35,10 @@ In the configuration screen, supply the `Host`, `Database`, `User`, and `Passwor
 your TimescaleDB instance.
 
 <highlight type="tip">
- Don’t forget to add the port number after your host URI. For example, `hostname.timescaledb.io:19660`.
+ Don't forget to add the port number after your host URI. For example, `hostname.timescaledb.io:19660`.
 </highlight>
 
-### Enable TimescaleDB within Grafana 
+### Enable TimescaleDB within Grafana
 
 Since we will be connecting to a TimescaleDB instance for this
 tutorial, we will also want to check the option for 'TimescaleDB' in the

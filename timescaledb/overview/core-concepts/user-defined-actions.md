@@ -1,4 +1,4 @@
-# User-Defined Actions
+# User-defined actions
 
 User-defined actions allow you to run functions and procedures implemented in a
 language of your choice on a schedule within TimescaleDB. This allows
@@ -14,7 +14,7 @@ The following section provides a number of examples of user-defined actions
 that you can specify and subsequently schedule as part of TimescaleDB's
 automation framework.
 
-### Generic Retention [](generic-retention)
+### Generic retention [](generic-retention)
 
 Create a generic data retention policy that applies to ALL hypertables, as opposed
 to just a single one as required by `add_retention_policy`.
@@ -94,12 +94,12 @@ SELECT add_job('move_chunks','1d', config => '{"hypertable":"metrics","lag":"12 
 
 The above action uses the simpler `ALTER TABLE ... SET TABLESPACE` for moving
 a chunk, but it could alternatively be written in terms of TimescaleDB's
-[`move_chunk`][api-move_chunk].  The `move_chunk` function also requires an
+[`move_chunk`][api-move_chunk]. The `move_chunk` function also requires an
 index as input, but performs data re-ordering as part of the move (for faster
 subsequent queries) and requires lower lock levels, so the chunk remains available
 for reads during the move.
 
-### Downsample and Compress [](downsample-compress)
+### Downsample and compress [](downsample-compress)
 
 Action that downsamples and compresses chunks on hypertable `metrics`
 older than a certain age. The example query computes a simple `avg` over

@@ -1,6 +1,6 @@
 module.exports = [
     {
-        title: "Getting Started",
+        title: "Getting started",
         href: "getting-started",
         pageComponents: ['featured-cards'],
         children: [
@@ -29,15 +29,15 @@ module.exports = [
             href: "create-cagg"
           },
           {
-            title: "7. Save space with Compression",
+            title: "7. Save space with compression",
             href: "compress-data"
           },
           {
-            title: "8. Learn about Data Retention",
+            title: "8. Learn about data retention",
             href: "data-retention"
           },
           {
-            title: "9. Next steps!",
+            title: "9. Next steps",
             href: "next-steps"
           }
         ]

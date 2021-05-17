@@ -95,9 +95,9 @@ Read about TimescaleDB features in our documentation:
 - Run your first query using [time_bucket()][time-bucket-info].
 - Trying more advanced time-series functions, starting with [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
 
-### Step 5: Keep testing during your free trial and enter your billing information when you’re ready
+### Step 5: Keep testing during your free trial and enter your billing information when you're ready
 
-You’re now on your way to a great start with Timescale!
+You're now on your way to a great start with Timescale!
 
 You will have an unthrottled, 30-day free trial with Timescale Forge to
 continue to test your use case. Before the end of your trial, we encourage you
@@ -106,14 +106,15 @@ your trial period concludes.
 
 ### Summary
 
-We’re excited to play a small part in helping you build a best-in-class
+We're excited to play a small part in helping you build a best-in-class
 time-series application or monitoring tool. If you have any questions, please
 feel free to [join our community Slack group][slack-info]
 or [contact us][contact-timescale] directly.
 
 Now, it's time to forge!
 
-## Advanced configuration and Multi-node setup
+## Advanced configuration and multi-node setup
+
 Timescale Forge is a versatile hosting service that provides a growing list of
 advanced features for your PostgreSQL and time-series data workloads.
 

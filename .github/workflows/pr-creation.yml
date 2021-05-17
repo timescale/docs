@@ -19,4 +19,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
-            Link to build for this PR: <a href="http://docs-v3-dev.timescale.com.s3-website-us-east-1.amazonaws.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-v3-dev.timescale.com.s3-website-us-east-1.amazonaws.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>
+            Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>

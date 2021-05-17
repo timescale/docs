@@ -1,7 +1,7 @@
-# Tutorial: Analyze Cryptocurrency Market Data
+# Tutorial: Analyze cryptocurrency market data
 
-This tutorial is a step-by-step guide on how to analyze a time-series 
-cryptocurrency dataset using TimescaleDB. The instructions in this tutorial 
+This tutorial is a step-by-step guide on how to analyze a time-series
+cryptocurrency dataset using TimescaleDB. The instructions in this tutorial
 were used to create [this analysis of 4100+ cryptocurrencies][crypto-blog].
 
 This tutorial will cover the following four steps:
@@ -20,13 +20,13 @@ You can also download the resources for this tutorial:
 - Dataset creation script: <tag type="download" >[crypto_data_extraction.py](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</tag>
 - Dataset: <tag type="download" >[Crypto Currency Dataset September 2019](https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019)</tag> (note that this data is from September 2019. You will want to follow the steps in Section 2 of this tutorial if you require fresh data)
 
-### Pre-requisites
+### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query 
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+To complete this tutorial, you will need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
-To start, [install TimescaleDB][install-timescale]. Once your installation is complete, 
+To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 Finally, this tutorial leads directly into a second tutorial that covers
@@ -35,8 +35,8 @@ time-series data.
 
 ### Step 1: Design the database schema
 
-Now that our database is up and running we need some data to insert into it. 
-Before we get data for analysis, we first need to define what kind of data we 
+Now that our database is up and running we need some data to insert into it.
+Before we get data for analysis, we first need to define what kind of data we
 want to perform queries on.
 
 In our analysis, we have two main goals.
@@ -46,19 +46,19 @@ In our analysis, we have two main goals.
 
 Examples of questions we might want to ask are:
 
-- How has Bitcoin’s price in USD varied over time?
-- How has Ethereum’s price in ZAR varied over time?
-- How has Bitcoin’s trading volume in KRW increased or decreased over time?
+- How has Bitcoin's price in USD varied over time?
+- How has Ethereum's price in ZAR varied over time?
+- How has Bitcoin's trading volume in KRW increased or decreased over time?
 - Which crypto has highest trading volume in last two weeks?
 - Which day was Bitcoin most profitable?
 - Which are the most profitable new coins from the past 3 months?
 
 Understanding the questions required of the data informs our schema definition.
 
-Our requirements lead us to four tables, specifically, three TimescaleDB hypertables, 
+Our requirements lead us to four tables, specifically, three TimescaleDB hypertables,
 `btc_prices`, `crypto_prices`, and `eth_prices`, and one relational table, `currency_info`.
 
-The `btc_prices` and `eth_prices` hypertables contain data about Bitcoin prices in 
+The `btc_prices` and `eth_prices` hypertables contain data about Bitcoin prices in
 17 different fiat currencies since 2010. The Bitcoin table is below and the Ethereum
 table is very similar:
 
@@ -80,7 +80,7 @@ Lastly, we have the `currency_info` table, which maps the currency's code to its
 |`currency_code`|2-7 character abbreviation for currency. Used in other hypertables|
 |`currency`|English name of currency|
 
-Once we’ve established the schema for the tables in our database, we can formulate 
+Once we've established the schema for the tables in our database, we can formulate
 `create_table` SQL statements to actually create the tables we need:
 
 ```sql
@@ -136,18 +136,18 @@ SELECT create_hypertable('eth_prices', 'time');
 SELECT create_hypertable('crypto_prices', 'time');
 ```
 
-Note that we include three `create_hypertable` statements which are special TimescaleDB 
-statements. A hypertable is an abstraction of a single continuous table across 
-time intervals, such that one can query it via vanilla SQL. For more on hypertables, 
+Note that we include three `create_hypertable` statements which are special TimescaleDB
+statements. A hypertable is an abstraction of a single continuous table across
+time intervals, such that one can query it via vanilla SQL. For more on hypertables,
 see the [Timescale docs][hypertable-docs] and this [blog post][hypertable-blog].
 
 ### Step 2: Create a dataset to analyze
 
-Now that we’ve defined the data we want, it’s time to construct a dataset containing that 
-data. To do this, we’ll write a small Python script for extracting data from [CryptoCompare][cryptocompare] 
+Now that we've defined the data we want, it's time to construct a dataset containing that
+data. To do this, we'll write a small Python script for extracting data from [CryptoCompare][cryptocompare]
 into four CSV files (`coin_names.csv`, `crypto_prices.csv`, `btc_prices.csv`, and `eth_prices.csv`).
 
-In order to get data from CryptoCompare, you’ll need to [obtain an API key][cryptocompare-apikey]. 
+In order to get data from CryptoCompare, you'll need to [obtain an API key][cryptocompare-apikey].
 For this analysis, the free key should be plenty.
 
 The script consists of five parts:
@@ -188,9 +188,9 @@ cryptoDict = dict(data1)
 
 #write to CSV
 with open('coin_names.csv', mode = 'w') as test_file:
-   test_file_writer = csv.writer(test_file, 
-                                 delimiter = ',', 
-                                 quotechar = '"', 
+   test_file_writer = csv.writer(test_file,
+                                 delimiter = ',',
+                                 quotechar = '"',
                                  quoting=csv.QUOTE_MINIMAL)
    for coin in cryptoDict.values():
        name = coin['Name']
@@ -211,18 +211,18 @@ progress = 0
 num_cryptos = str(len(symbol_array))
 for symbol in symbol_array:
    # get data for that currency
-   URL = 'https://min-api.cryptocompare.com/data/histoday?fsym=' + 
+   URL = 'https://min-api.cryptocompare.com/data/histoday?fsym=' +
          symbol +
-         '&tsym=BTC&allData=true' + 
+         '&tsym=BTC&allData=true' +
          url_api_part
    res = requests.get(URL)
    res_json = res.json()
    data = res_json['Data']
    # write required fields into csv
    with open('crypto_prices.csv', mode = 'a') as test_file:
-       test_file_writer = csv.writer(test_file, 
-                                     delimiter = ',', 
-                                     quotechar = '"', 
+       test_file_writer = csv.writer(test_file,
+                                     delimiter = ',',
+                                     quotechar = '"',
                                      quoting=csv.QUOTE_MINIMAL)
        for day in data:
            rawts = day['time']
@@ -255,16 +255,16 @@ for fiat in fiatList:
    # get data for bitcoin price in that fiat
    URL = 'https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=' +
          fiat +
-         '&allData=true' + 
+         '&allData=true' +
          url_api_part
    res = requests.get(URL)
    res_json = res.json()
    data = res_json['Data']
    # write required fields into csv
    with open('btc_prices.csv', mode = 'a') as test_file:
-       test_file_writer = csv.writer(test_file, 
-                                     delimiter = ',', 
-                                     quotechar = '"', 
+       test_file_writer = csv.writer(test_file,
+                                     delimiter = ',',
+                                     quotechar = '"',
                                      quoting=csv.QUOTE_MINIMAL)
        for day in data:
            rawts = day['time']
@@ -289,18 +289,18 @@ print('Done getting price data for btc. See btc_prices.csv for result')
 progress3 = 0
 for fiat in fiatList:
    # get data for bitcoin price in that fiat
-   URL = 'https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=' + 
+   URL = 'https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=' +
          fiat +
-         '&allData=true' + 
+         '&allData=true' +
          url_api_part
    res = requests.get(URL)
    res_json = res.json()
    data = res_json['Data']
    # write required fields into csv
    with open('eth_prices.csv', mode = 'a') as test_file:
-       test_file_writer = csv.writer(test_file, 
-                                     delimiter = ',', 
-                                     quotechar = '"', 
+       test_file_writer = csv.writer(test_file,
+                                     delimiter = ',',
+                                     quotechar = '"',
                                      quoting=csv.QUOTE_MINIMAL)
        for day in data:
            rawts = day['time']
@@ -419,8 +419,8 @@ and see that our tables have been created properly:
 
 #### Ingest our data
 
-Now that we’ve created the tables with our desired schema, all that’s left is to insert the data 
-from the CSV files we’ve created into the tables.
+Now that we've created the tables with our desired schema, all that's left is to insert the data
+from the CSV files we've created into the tables.
 
 Make sure you are logged into TimescaleDB using `psql` so that you can run each of the
 following commands successively:
@@ -626,7 +626,7 @@ able to visualize it. Follow the companion tutorial to this piece and
 [learn how to use TimescaleDB and Tableau together][tableau-tutorial] to
 visualize your time-series data.
 
-Ready for even more learning? Here’s a few suggestions:
+Ready for even more learning? Here's a few suggestions:
 - [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 - [Continuous Aggregates][continuous-aggregates]
 - [Try Other Sample Datasets][other-samples]

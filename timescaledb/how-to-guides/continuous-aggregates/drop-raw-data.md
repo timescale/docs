@@ -1,4 +1,4 @@
-# Dropping Raw Data
+# Dropping raw data
 
 Note that if any still-refreshing (more recent than `start_offset`) part of the
 continuous aggregate is dropped via a [retention policy][api-add-retention] or

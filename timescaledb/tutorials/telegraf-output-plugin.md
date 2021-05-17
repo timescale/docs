@@ -1,4 +1,4 @@
-# Collecting Metrics with the PostgreSQL and TimescaleDB Output Plugin for Telegraf
+# Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
 
 Telegraf can collect metrics from a wide array of inputs and write them to a wide array of outputs.
 It is plugin-driven for both collection and output of data so it is easily extendable.
@@ -42,7 +42,7 @@ $ telegraf --version
 
 If the installation was successful it should print out `Telegraf 1.13.0-with-pg`.
 
-## Telegraf Configuration [](telegraf-configuration)
+## Telegraf configuration [](telegraf-configuration)
 
 When Telegraf is started, a config file needs to be specified.
 The config file contains the setup for the:
@@ -83,7 +83,7 @@ A line is outputted for each core of the CPU and the total. Values are presented
 When writing to STDOUT you can distinguish between *tags*, which are indexed fields (`cpu`, `host`) and value *fields* (`usage_quest`, `usage_user` ...) by a blank space (in our example the space after `host=local`).
 The distinction exists because different configuration options are available for the different fields.
 
-### Configuring the PostgreSQL Output Plugin
+### Configuring the PostgreSQL output plugin
 
 The `telegraf.conf` file we generated has a section (around line 80) headed with
 
@@ -199,7 +199,7 @@ The output should look like
  cpu3      | 4.26716970050303
 ```
 
-### Adding new Tags or Fields
+### Adding new tags or fields
 
 Your Telegraf configuration can change at any moment.
 An input plugin can be reconfigured to produce different data, or you may decide to index your data with different tags.
@@ -330,7 +330,7 @@ $ telegraf --config telegraf.conf
 
 And instead of having three text columns, one JSONB column is created.
 
-## Next Steps
+## Next steps
 
 Once you have started inserting data in TimescaleDB, you can begin to familiarize yourself with our [architecture][] and [API reference][api].
 
