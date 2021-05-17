@@ -1,4 +1,4 @@
-# Migrating a service
+# Migrating a service between networks
 
 Timescale Forge services may be migrated between VPCs within a Forge project, and may also
 be migrated to and from the public network. Typically, once you have attached your service
