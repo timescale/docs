@@ -170,7 +170,7 @@ NoSQL system in order to scale to larger volumes of data.
 * If you already chose to abandon PostgreSQL or another relational database for a Hadoop/NoSQL
 system due to scaling concerns or issues. We will provide support for the migration back.
 
-## What if I my use case is simple key-value reads?
+## What if my use case is simple key-value reads?
 For this scenario, in-memory or column-oriented databases are designed for
 key-value storage with fast lookup and a relational database may not be ideal.
 However, these systems clearly do not scale to large data volumes and cannot
