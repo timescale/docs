@@ -6,7 +6,7 @@ Since `run_job` is implemented as stored procedure it cannot be executed
 inside a SELECT query but has to be executed with [CALL](postgres-call).
 
 <highlight type="tip">
-Any background worker job can be run in foreground when executed with
+Any background worker job can be run in the foreground when executed with
 `run_job`. This can be useful to debug problems when combined with increased
 log level.
 </highlight>
@@ -25,4 +25,3 @@ CALL run_job(1000);
 ```
 
 Set log level shown to client to `DEBUG1` and run the job with the job id 1000.
-
