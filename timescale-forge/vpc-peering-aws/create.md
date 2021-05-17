@@ -12,7 +12,7 @@ The VPCs created here are peered with your own VPC as part of the setup process.
 
 Click `Create VPC`, type a name for your new VPC, and provide an IPv4 CIDR block
 (E.G., `10.0.0.0/16` or `192.168.0.0/24`). Make sure that the CIDR block you
-choose for your VPC does not overlap with the cloud VPC you are using to create
+choose for your Timescale Forge VPC does not overlap with the AWS VPC you are using to create
 a peering connection. If the CIDR blocks overlap, the peering process will fail.
 You can always find the CIDR block of your AWS VPC from the AWS console.
 
