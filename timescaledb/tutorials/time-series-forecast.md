@@ -1,10 +1,10 @@
-# Tutorial: Time-Series Forecasting
+# Tutorial: Time-series forecasting
 
-Time-series forecasting enables us to predict likely 
-future values for a dataset based on historical time-series 
-data. Time-series data collectively represents how a system, 
-process, or behavior changes over time. When we accumulate 
-millions of data points over a time period, we can build models 
+Time-series forecasting enables us to predict likely
+future values for a dataset based on historical time-series
+data. Time-series data collectively represents how a system,
+process, or behavior changes over time. When we accumulate
+millions of data points over a time period, we can build models
 to predict the next set of values likely to occur.
 
 Time-series predictions can be used to:
@@ -15,12 +15,12 @@ Time-series predictions can be used to:
 * Forecast the remaining lifespan of an IoT device
 * Forecast the number of taxi or ride share drivers necessary for a big holiday evening
 
-Time-series forecasting alone is a powerful tool. But time-series 
+Time-series forecasting alone is a powerful tool. But time-series
 data joined with business data can be a competitive advantage for
-any developer. TimescaleDB is PostgreSQL for time-series data and 
-as such, time-series data stored in TimescaleDB can be easily 
-joined with business data in another relational database in order 
-to develop an even more insightful forecast into how your data 
+any developer. TimescaleDB is PostgreSQL for time-series data and
+as such, time-series data stored in TimescaleDB can be easily
+joined with business data in another relational database in order
+to develop an even more insightful forecast into how your data
 (and business) will change over time.
 
 In this time-series forecasting example, we will demonstrate how to integrate
@@ -33,10 +33,10 @@ about all yellow cab trips in New York City in January 2016,
 including pickup and dropoff times, GPS coordinates, and total
 price of a trip. We seek to extract some interesting insights
 from this rich dataset, build a time-series forecasting model,
-as well as explore the use of various forecasting and machine 
+as well as explore the use of various forecasting and machine
 learning tools.
 
-### Setting Up
+### Setting up
 Prerequisites:
 
 1. [Installed TimescaleDB][install]
@@ -45,7 +45,7 @@ Prerequisites:
 1. [Installed R][install_r]
 1. [Installed Python][install_python]
 
-First, let’s create our schema and populate our tables. Download the file
+First, let's create our schema and populate our tables. Download the file
 [`forecast.sql`][forecast-sql] and execute the following command:
 
 ```bash
@@ -54,7 +54,7 @@ psql -U postgres -d nyc_data -h localhost -f forecast.sql
 
 The `forecast.sql` file contains SQL statements that create three
 TimescaleDB hypertables `rides_count`, `rides_length` and `rides_price`.
-Let’s look at how we create the `rides_count` table as an example.
+Let's look at how we create the `rides_count` table as an example.
 Here is a portion of the code taken from `forecast.sql`:
 
 ```sql
@@ -68,14 +68,14 @@ INSERT INTO rides_count
   SELECT time_bucket_gapfill('1 hour', pickup_datetime, '2016-01-01 00:00:00','2016-01-31 23:59:59') AS one_hour,
     COUNT(*) AS count
   FROM rides
-  WHERE ST_Distance(pickup_geom, ST_Transform(ST_SetSRID(ST_MakePoint(-74.0113,40.7075),4326),2163)) < 400 
+  WHERE ST_Distance(pickup_geom, ST_Transform(ST_SetSRID(ST_MakePoint(-74.0113,40.7075),4326),2163)) < 400
     AND pickup_datetime < '2016-02-01'
   GROUP BY one_hour
   ORDER BY one_hour;
 ```
 
 Notice that we have made the `rides_count` table a TimescaleDB hypertable.
-This allows us to take advantage of TimescaleDB’s faster insert and query
+This allows us to take advantage of TimescaleDB's faster insert and query
 performance with time-series data. Here, you can see how PostgreSQL aggregate
 functions such as `COUNT` and various PostGIS functions all work as usual
 with TimescaleDB. We are using PostGIS to select data points from the original
@@ -344,11 +344,11 @@ While these findings do not reveal anything completely unexpected,
 it is still valuable to have the analysis verify our expectations.
 It must be noted that the ARIMA model is not perfect and this is
 evident from the anomalous prediction made for January 25th.
-The ARIMA model created uses the previous week’s data to make
+The ARIMA model created uses the previous week's data to make
 predictions. January 18th 2016 was Martin Luther King day, and so
 the distribution of ride pickups throughout the day is slightly
 different from that of a standard Monday. Also, the holiday
-probably affected riders’ behavior on the surrounding days
+probably affected riders' behavior on the surrounding days
 too. The model does not pick up such anomalous data that arise
 from various holidays and this must be noted before reaching a
 conclusion. Simply taking out such anomalous data, by only using
@@ -498,12 +498,12 @@ the same steps in the previous seasonal ARIMA section. Unfortunately, MADlib doe
 find the orders of the ARIMA model.
 
 However with a larger dataset, you could take the approach of loading
-a subset of the data to calculate the model’s parameters in R and
+a subset of the data to calculate the model's parameters in R and
 then train the model using MADlib. You can use a combination of the
 options outlined in this tutorial to take advantage of the strengths
 and work around weaknesses of the different tools.
 
-Using the parameters ARIMA(2,1,3) found using R, we will use MADlib’s
+Using the parameters ARIMA(2,1,3) found using R, we will use MADlib's
 `arima_train` and `arima_forecast` functions.
 
 ```sql
@@ -596,9 +596,9 @@ future predictions. So with time-series data, the forecast is
 calculated from taking a weighted average of past values, with more
 recent data points having greater weight than previous points.
 Holt-Winters is considered to be simpler than ARIMA, but there is
-no clear answer as to which time-series prediction model is superior 
-in time-series forecasting. It is advised to create both models for 
-a particular dataset and compare the performance to find out which is 
+no clear answer as to which time-series prediction model is superior
+in time-series forecasting. It is advised to create both models for
+a particular dataset and compare the performance to find out which is
 more suitable.
 
 We will use Python to analyze how long it takes from the Financial
@@ -750,14 +750,14 @@ during weekends (January 23rd 24th, 30th, 31st).
 The initial reaction from the plotted graph is that the model
 does a relatively good job in capturing the overall trend, but at
 times has quite a large margin of error. This can be due to the
-inherent irregularity of Manhattan’s traffic situation with
+inherent irregularity of Manhattan's traffic situation with
 frequent roadblocks, accidents and unexpected weather conditions.
 Moreover, as it was the case with taxi pickup counts in our analysis
 with R using the seasonal ARIMA model, the Holt-Winters model was
 also thrown off by the anomalous data points on Martin Luther King
 day on the previous Monday.
 
-### Takeaways from Analysis
+### Takeaways from analysis
 We looked at different ways you can build statistical models to
 analyze time-series data and how you can leverage the full power
 of the PostgreSQL ecosystem with TimescaleDB. In this tutorial

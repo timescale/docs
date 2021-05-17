@@ -10,7 +10,7 @@ This will install TimescaleDB via `apt` on Ubuntu distros.
 Check [releases.ubuntu.com][ubuntu-releases] for list of
 non-obsolete releases.
 
-#### Build & Install
+#### Build and install
 
 <highlight type="warning">
  If you have another PostgreSQL installation not via `apt`,

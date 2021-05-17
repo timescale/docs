@@ -1,4 +1,4 @@
-# Data Retention with Continuous Aggregates
+# Data retention with continuous aggregates
 
 Extra care must be taken when using retention policies or `drop_chunks` calls on
 hypertables which have [continuous aggregates][continuous_aggregates] defined on

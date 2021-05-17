@@ -23,7 +23,7 @@ information about how PostgreSQL implements Write-Ahead Logging,
 see their [WAL Documentation](https://www.postgresql.org/docs/current/static/wal-intro.html).
 </highlight>
 
-## Configure the Primary Database
+## Configure the primary database
 
 Create a PostgreSQL user with a role that allows it to initialize streaming
 replication. This will be the user each replica uses to stream from the primary
@@ -43,7 +43,7 @@ by replacing the first line in the above SQL with `SET password_encryption = tru
 and changing the `AUTH_METHOD` in `pg_hba` to `md5`. (see [Configure Host Based Authentication](#configure-host-based-authentication))
 </highlight>
 
-### Configure Replication Parameters
+### Configure replication parameters
 
 There are several replication settings that must be added to `postgresql.conf`
 (if you're unsure of where PostgreSQL is reading `postgresql.conf` from, just
@@ -70,7 +70,7 @@ you intend to have.
   stream the WAL, we'll need to make sure that the primary is not just listening
   on the local loopback.
 
-### Sample Replication Configuration
+### Sample replication configuration
 
 The most common streaming replication use case is asynchronous replication with
 one or more replicas. We'll use that as that as our sample configuration.
@@ -80,7 +80,7 @@ query load is heavy enough to cause significant lag between the primary and
 replica nodes in asyncronous mode, you may want to consider one of the
 synchronous replication configurations.
 
-#### Asynchronous Replication with 1 Replica
+#### Asynchronous replication with one replica
 
 ```
 listen_addresses = '*'
@@ -102,7 +102,7 @@ For replication settings to apply, you must restart PostgreSQL, not just
 reload the configuration file. This needs to be done before creating replication
 slots in the next step.
 
-### Create Replication Slots
+### Create replication slots
 
 After configuring `postgresql.conf` and restarting PostgreSQL, create a
 [replication slot][postgres-rslots-docs] for each replica. Replication slots
@@ -119,7 +119,7 @@ arbitrary -- we'll call the slot for this replica `replica_1_slot`.
 SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');
 ```
 
-### Configure Host Based Authentication [](configure-host-based-authentication)
+### Configure host-based authentication [](configure-host-based-authentication)
 
 Configure the `pg_hba.conf` file (run `show hba_file;` in a `psql` shell if
 you're unsure of its location) to accept connections from the replication user
@@ -139,14 +139,14 @@ change the `address` and `method` values to match your security and network
 settings. Read more about `pg_hba.conf` in the [official documentation](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html).
 </highlight>
 
-## Configure the Replica Database
+## Configure the replica database
 
 Replicas work by streaming the primary server's WAL log and replaying its
 transactions in what PostgreSQL calls "recovery mode". Before this can happen,
 the replica needs to be in a state where it can replay the log. This is achieved
 by restoring the replica from a base backup of the primary instance.
 
-### Create a Base Backup on the Replica
+### Create a base backup on the replica
 
 Stop PostgreSQL. If the replica's PostgreSQL database already has data, you will
 need to remove it prior to running the backup. This can be done by removing the
@@ -182,7 +182,7 @@ touch <DATA_DIRECTORY>/recovery.conf
 chmod 0600 <DATA_DIRECTORY>/recovery.conf
 ```
 
-### Replication and Recovery Settings
+### Replication and recovery settings
 
 Add settings for communicating with the primary server to `recovery.conf`. In
 streaming replication, the `application_name` in `primary_conninfo` should be
@@ -231,7 +231,7 @@ and querying the replica to ensure they have been properly copied over.
 This is fully compatible with TimescaleDB's functionality, provided
 you [set up TimescaleDB][timescale-setup-docs] on the primary database.
 
-## Configure Replication Modes [](replication-modes)
+## Configure replication modes [](replication-modes)
 
 This walkthrough gets asynchronous streaming replication working, but
 in many cases stronger consistency between the primary and replicas is
@@ -311,7 +311,7 @@ transaction. Replicas that were out of service will be able to reconnect and
 replay the missed WAL transactions asynchronously.
 </highlight>
 
-## View Replication Diagnostics [](view-replication-diagnostics)
+## View replication diagnostics [](view-replication-diagnostics)
 
 PostgreSQL provides a valuable view for getting information about each replica
 -- [pg_stat_replication][postgres-pg-stat-replication-docs]. Run `select * from

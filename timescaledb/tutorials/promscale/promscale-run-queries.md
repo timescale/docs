@@ -1,16 +1,16 @@
 # 4. Running queries using Promscale
 
-Promscale offers the combined power of PromQL and SQL, enabling you to ask any 
-question, create any dashboard, and achieve greater visibility into the systems 
+Promscale offers the combined power of PromQL and SQL, enabling you to ask any
+question, create any dashboard, and achieve greater visibility into the systems
 you monitor.
 
-In the configuration used in [Section 3][promscale-install], Prometheus will scrape the Node Exporter every 10s and metrics will be stored in both Prometheus and TimescaleDB, via Promscale. 
+In the configuration used in [Section 3][promscale-install], Prometheus will scrape the Node Exporter every 10s and metrics will be stored in both Prometheus and TimescaleDB, via Promscale.
 
 This section will illustrate how to run simple and complex SQL queries against Promscale, as well as queries in PromQL.
 
-## 4.1 SQL Queries in Promscale [](sql-queries)
+## 4.1 SQL queries in Promscale [](sql-queries)
 
-You can query Promscale in SQL from your favorite favorite SQL tool or using psql: 
+You can query Promscale in SQL from your favorite favorite SQL tool or using psql:
 
 ```bash
 docker exec -it timescaledb psql postgres postgres
@@ -34,7 +34,7 @@ WHERE time > now() - INTERVAL '5 minutes';
 Here is a sample output for the query above (your output will differ):
 
 ``` bash
-            time            |    value    | series_id |      labels       | instance_id | job_id | quantile_id 
+            time            |    value    | series_id |      labels       | instance_id | job_id | quantile_id
 ----------------------------+-------------+-----------+-------------------+-------------+--------+-------------
  2021-01-27 18:43:42.389+00 |           0 |       495 | {208,43,51,212}   |          43 |     51 |         212
  2021-01-27 18:43:42.389+00 |           0 |       497 | {208,43,51,213}   |          43 |     51 |         213
@@ -45,25 +45,25 @@ Here is a sample output for the query above (your output will differ):
 
 Each row returned contains a number of different fields:
 * The most important fields are `time`, `value` and `labels`.
-* Each row has a `series_id` field, which uniquely identifies its measurements label set. This enables efficient aggregation by series. 
+* Each row has a `series_id` field, which uniquely identifies its measurements label set. This enables efficient aggregation by series.
 * Each row has a field named `labels`. This field contains an array of foreign key to label key-value pairs making up the label set.
 * While the `labels` array is the entire label set, there are also seperate fields for each label key in the label set, for easy access. These fields end with the suffix `_id` .
 
 ### 4.1.2 Querying values for label keys [](querying-value-label-key)
 
-As explained in the last bullet point above, each label key is expanded out into its own column storing foreign key identifiers to their value, which allows us to JOIN, aggregate and filter by label keys and values. 
+As explained in the last bullet point above, each label key is expanded out into its own column storing foreign key identifiers to their value, which allows us to JOIN, aggregate and filter by label keys and values.
 
 To get back the text represented by a label id, use the `val(field_id)` function. This opens up nifty possibilities such as aggregating across all series with a particular label key.
 
 For example, take this example, where we find the median value for the `go_gc_duration_seconds` metric, grouped by the job associated with it:
 
 ``` sql
-SELECT 
-    val(job_id) as job, 
+SELECT
+    val(job_id) as job,
     percentile_cont(0.5) within group (order by value) AS median
-FROM 
-    go_gc_duration_seconds 
-WHERE 
+FROM
+    go_gc_duration_seconds
+WHERE
     time > now() - INTERVAL '5 minutes'
 GROUP BY job_id;
 ```
@@ -78,16 +78,16 @@ Sample Output:
 
 ### 4.1.3 Querying label sets for a metric [](querying-label-set)
 
-As explained in [Section 2][promscale-how-it-works], the `labels` field in any metric row represents the full set of labels associated with the measurement and is represented as an array of identifiers. 
+As explained in [Section 2][promscale-how-it-works], the `labels` field in any metric row represents the full set of labels associated with the measurement and is represented as an array of identifiers.
 
 To return the entire labelset in JSON, we can apply the `jsonb()` function, as in the example below:
 
 ``` sql
-SELECT 
+SELECT
     time, value, jsonb(labels) as labels
-FROM 
+FROM
     go_gc_duration_seconds
-WHERE 
+WHERE
     time > now() - INTERVAL '5 minutes';
 ```
 
@@ -103,21 +103,21 @@ Sample Output:
  2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "1"}
  2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.5"}
 ```
-This query returns the label set for the metric `go_gc_duration` in JSON format. It can then be read or further interacted with. 
+This query returns the label set for the metric `go_gc_duration` in JSON format. It can then be read or further interacted with.
 
-### 4.1.4 Advanced Query: Percentiles aggregated over time and series [](querying-percentile)
+### 4.1.4 Advanced query: percentiles aggregated over time and series [](querying-percentile)
 
 The query below calculates the 99th percentile over both time and series (`app_id`) for the metric named `go_gc_duration_seconds`. This metric is a measurement for how long garbage collection is taking in Go applications:
 
 ``` sql
-SELECT 
+SELECT
     val(instance_id) as app,
     percentile_cont(0.99) within group(order by value) p99
-FROM 
+FROM
     go_gc_duration_seconds
-WHERE 
+WHERE
     value != 'NaN' AND val(quantile_id) = '1' AND instance_id > 0
-GROUP BY instance_id 
+GROUP BY instance_id
 ORDER BY p99 desc;
 ```
 
@@ -134,7 +134,7 @@ The query above is uniquely enabled by Promscale, as it aggregates over both tim
 The query above is just one example of the kind of analytics Promscale can help you perform on your Prometheus monitoring data.
 
 ### 4.1.5 Filtering by labels [](query-filter-by-labels)
-To simplify filtering by labels, we created operators corresponding to the selectors in PromQL. 
+To simplify filtering by labels, we created operators corresponding to the selectors in PromQL.
 
 Those operators are used in a `WHERE` clause of the form `labels ? (<label_key> <operator> <pattern>)`
 
@@ -149,11 +149,11 @@ These four matchers correspond to each of the four selectors in PromQL, though t
 For example, if you want only those metrics from the job with name `node-exporter`, you can filter by labels to include only those samples:
 
 ``` sql
-SELECT 
+SELECT
     time, value, jsonb(labels) as labels
-FROM 
+FROM
     go_gc_duration_seconds
-WHERE 
+WHERE
     labels ? ('job' == 'node-exporter')
     AND time > now() - INTERVAL '5 minutes';
 ```
@@ -167,12 +167,12 @@ Sample output:
  2021-01-28 02:01:38.032+00 |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}
 ```
 
-### 4.1.6 Querying Number of Datapoints in a Series [](query-datapoints-in-series)
-As shown in 4.1.1 above, each in a row metric's view  has a series_id uniquely identifying the measurement’s label set. This enables efficient aggregation by series. 
+### 4.1.6 Querying number of datapoints in a series [](query-datapoints-in-series)
+As shown in 4.1.1 above, each in a row metric's view  has a series_id uniquely identifying the measurement's label set. This enables efficient aggregation by series.
 
 You can easily retrieve the labels array from a series_id using the labels(series_id) function. As in this query that shows how many data points we have in each series:
 
-``` sql 
+``` sql
 SELECT jsonb(labels(series_id)) as labels, count(*)
 FROM go_gc_duration_seconds
 GROUP BY series_id;
@@ -196,33 +196,33 @@ Sample output:
 
 
 ### BONUS: Other complex queries [](query-bonus-complex)
-While the above examples are for metrics from Prometheus and node_exporter, a more complex example from [Dan Luu’s post: "A simple way to get more value from metrics"][an Luu's post on SQL query], shows how you can discover Kubernetes containers that are over-provisioned by finding those containers whose 99th percentile memory utilization is low:
+While the above examples are for metrics from Prometheus and node_exporter, a more complex example from [Dan Luu's post: "A simple way to get more value from metrics"][an Luu's post on SQL query], shows how you can discover Kubernetes containers that are over-provisioned by finding those containers whose 99th percentile memory utilization is low:
 
 ``` sql
 WITH memory_allowed as (
-  SELECT 
-    labels(series_id) as labels, 
-    value, 
-    min(time) start_time, 
-    max(time) as end_time 
+  SELECT
+    labels(series_id) as labels,
+    value,
+    min(time) start_time,
+    max(time) as end_time
   FROM container_spec_memory_limit_bytes total
   WHERE value != 0 and value != 'NaN'
   GROUP BY series_id, value
 )
-SELECT 
-  val(memory_used.container_id) container, 
-  percentile_cont(0.99) 
-    within group(order by memory_used.value/memory_allowed.value) 
-    AS percent_used_p99, 
+SELECT
+  val(memory_used.container_id) container,
+  percentile_cont(0.99)
+    within group(order by memory_used.value/memory_allowed.value)
+    AS percent_used_p99,
   max(memory_allowed.value) max_memory_allowed
-FROM container_memory_working_set_bytes AS memory_used 
+FROM container_memory_working_set_bytes AS memory_used
 INNER JOIN memory_allowed
-      ON (memory_used.time >= memory_allowed.start_time AND 
+      ON (memory_used.time >= memory_allowed.start_time AND
           memory_used.time <= memory_allowed.end_time AND
-          eq(memory_used.labels,memory_allowed.labels)) 
+          eq(memory_used.labels,memory_allowed.labels))
 WHERE memory_used.value != 'NaN'   
-GROUP BY container 
-ORDER BY percent_used_p99 ASC 
+GROUP BY container
+ORDER BY percent_used_p99 ASC
 LIMIT 100;
 ```
 
@@ -235,8 +235,8 @@ dumpster                             0.0135690307617187    268435456
 ```
 While the above example requires the installation of `cAdvisor`, it's just an example of the sorts of sophisticated analysis enabled by Promscale's support to query your data in SQL.
 
-## 4.2 PromQL Queries in Promscale [](query-promql)
-Promscale can also be used as a Prometheus data source for tools like [Grafana][grafana-homepage] and [PromLens][promlens-homepage]. 
+## 4.2 PromQL queries in Promscale [](query-promql)
+Promscale can also be used as a Prometheus data source for tools like [Grafana][grafana-homepage] and [PromLens][promlens-homepage].
 
 We'll demonstrate this by connecting Promscale as a Prometheus data source in [Grafana][grafana-homepage], a popular open-source visualization tool.
 
@@ -268,7 +268,7 @@ rate(go_memstats_alloc_bytes{instance="localhost:9090"}[5m])
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/getting-started-with-promscale-grafana-dashboard.png" alt="Sample output for PromQl query"/>
 
-## Next Steps [](next-steps)
+## Next steps [](next-steps)
 Now that you're up and running with Promscale, here are more resources to help you on your monitoring journey:
 * [Promscale Github][promscale-github]
 * [Promscale explainer videos][promscale-intro-video]

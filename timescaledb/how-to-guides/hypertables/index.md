@@ -1,4 +1,4 @@
-# Hypertable
+# Hypertables
 
 Hypertables in TimescaleDB are designed to be easy to manage and to behave
 predictably to users familiar with standard PostgreSQL tables. Along those lines,

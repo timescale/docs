@@ -1,4 +1,4 @@
-## Wide-table Model
+## Wide-table model
 
 TimescaleDB easily supports wide-table models. Queries across multiple metrics are
 easier in this model, since they do not require JOINs. Also, ingest is faster
@@ -23,7 +23,7 @@ ask more interesting or exploratory questions than before.
 Of course, this is not a new format: it's what one would commonly find within
 a relational database.
 
-## JOINs with Relational Data
+## JOINs with relational data
 
 TimescaleDB's data model also has another similarity with relational
 databases: it supports JOINs. Specifically, one can store additional

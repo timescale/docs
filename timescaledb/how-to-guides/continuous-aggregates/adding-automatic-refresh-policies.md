@@ -1,4 +1,4 @@
-# Adding Automatic Refresh Policies
+# Adding automatic refresh policies
 
 Continuous aggregate policies can be configured to support different
 use cases. For example, you might want to:
@@ -94,4 +94,3 @@ DROP MATERIALIZED VIEW conditions_summary_hourly;
 
 [sec-data-retention]: /hot-to-guides/data-retention
 [api-drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks
-

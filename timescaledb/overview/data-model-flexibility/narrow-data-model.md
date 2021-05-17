@@ -1,4 +1,4 @@
-## Narrow-table Model
+## Narrow-table model
 
 Most time-series databases would represent this data in the following way:
 - Represent each metric as a separate entity (e.g., represent `cpu_1m_avg`

@@ -33,18 +33,18 @@ what versions of the docs your changes will apply to and attach a label to the p
 that denotes the earliest version that your changes should apply to (`2.0`, `2.1`, etc.)
 The admin for the docs will use that as a guide when updating version branches.
 
-## Docs Review
+## Docs review
 
 Once a PR has been started for any branch, a GitHub action will attach a unique
 URL to preview your changes and allow others to more effectively review your
-updates. The URL will be added as a comment to your PR. 
+updates. The URL will be added as a comment to your PR.
 
 Any new commits to that PR will rebuild and be visible at the same URL.
 
-## Main Sections and Tree Navigation
+## Main sections and tree navigation
 
 Each major section that is incorporated into docs.timescale.com has a navigation
-hierarchy governed by the appropriate `page-index.js` file and underlying 
+hierarchy governed by the appropriate `page-index.js` file and underlying
 directory structure. Depending on the content you are adding or editing, you may
 have to modify the `page-index.js` file that exists for that specific sub-project.
 
@@ -57,10 +57,10 @@ instance, the **Overview** section is a parent to a number of other pages and
 folders. Therefore, there is a folder in the repo for `overview` with more Markdown
 files and folder inside as the hierarchy dictates.
 
-As a general rule, every folder must have an `index.md` file inside which will 
+As a general rule, every folder must have an `index.md` file inside which will
 have the content and layout for the "landing page" of that parent folder.
 
-### `page-index.js` Layout
+### `page-index.js` layout
 
 The format of this file is generally self explanatory, but the following
 rules should be understood to ensure you get the results you expect.
@@ -69,7 +69,7 @@ rules should be understood to ensure you get the results you expect.
 is used as both the name of the Markdown file (eg. `example-file.md`) to utilize for this URL and as
 the text in the tree (Camel Case and all hyphens replaced by spaces).
 
- - **title**: If the navigation tree text should be anything other than the `href` 
+ - **title**: If the navigation tree text should be anything other than the `href`
 as described above, add a `title` tag provide the exact text you would like to
 appear in the tree (and browser `Title` area).
 
@@ -82,14 +82,14 @@ either `['featured-cards']` or `['content-list']`
 of an on-disk folder with the same name as the parent.
 
  - **type**: In some special cases, a tree element may have a special `type` associated
-with it. This is rarely needed in day-to-day documentation updates, but when 
+with it. This is rarely needed in day-to-day documentation updates, but when
 specific functionality is required, it may be necessary to inquire about other page types. Currently `page` and `directory` the the two magjor supported types in documentation.
 
  - **excerpt**: For a few select nodes in a tree, the `excerpt` may be used to
- create navigation "cards" on high-level landing pages. It is only intended to 
+ create navigation "cards" on high-level landing pages. It is only intended to
  be used for the highest level pages at the current time.
 
-__Example__ 
+__Example__
 ```json
     href: "overview",
     pageComponents: ['featured-cards'],
@@ -128,12 +128,12 @@ others)
 for the children will be displayed as "cards" below any content because of the **pageComponents**
 setting
 
-- Two of the examples above display a  navigation and page title text that is different from 
+- Two of the examples above display a  navigation and page title text that is different from
 the name of their source Markdown files. For instance, the content for **Hypertables
 & Chunks** is found in the Markdown file `hypertables-and-chunks.md`.
 
 
-## Formatting & Content Rules
+## Formatting and content rules
 
 ### Internal page links
 
@@ -176,14 +176,14 @@ or this:
 
 Otherwise the code highlighter may be disrupted.
 
-**Syntax Highlighting**
+**Syntax highlighting**
 
 When using a code block, add the appropriate language identifier after the
 initial three backticks to provide the appropriate highlighting on the
 rendered documentation site.
 
 Programming language samples aside, most code blocks will usually be one of:
-`bash`, `sql`, `json`. 
+`bash`, `sql`, `json`.
 
 ### General formatting conventions
 
@@ -192,7 +192,7 @@ To maintain consistency, please follow these general rules.
  * Maintain text editor width for paragraphs at 80 characters. We ask you to do
 this to assist in reviewing documentation changes. When text is very wide, it
 is difficult to visually see where text has changed within a paragraph and keeping
-a narrow width on text assists in making PRs easier to review. **Most editors such 
+a narrow width on text assists in making PRs easier to review. **Most editors such
 as Visual Studio Code have settings to do this visually.**
  * Most links should be reference-style links where the link address is at the
 bottom of the page. The two exceptions are:
@@ -208,22 +208,22 @@ company.
  * Use single quotes when referring to the object of a user interface action.
 For example: Click 'Get started' to proceed with the tutorial.
 
-### Callout/Highlight Blocks
+### Callout and highlight blocks
 To create a callout around a paragraph of text, wrap it with the following custom
 React component tag. **Reminder**, any links within the callout text MUST have
-inline link styles. 
+inline link styles.
 
 The "type" can currently support a value of "tip" or "warning"
 
 ```html
 <highlight type="tip">
 Callout text goes here...
- 
+
 Example link style would [look like this](http://link_to_something.com/)
 </highlight>
 ```
 
-### Special Formatting helpers
+### Special formatting helpers
 There are some custom modifications to the markdown parser to allow for special
 formatting within the docs.
 

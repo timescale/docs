@@ -34,7 +34,7 @@ docker restart timescaledb
     2GB
 ```
 
-#### Specify config parameters as boot options
+#### Specify configuration parameters as boot options
 
 Alternatively, one or more parameters can be passed in to the `docker run`
 command via a `-c` option, as in the following.

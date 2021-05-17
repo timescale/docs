@@ -1,4 +1,4 @@
-# Migrating Data
+# Migrating data
 <highlight type="tip">
 First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/)
 **AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB
@@ -31,7 +31,6 @@ UNIQUE and PRIMARY constraints must include the partitioning key.
 
 ### 3. Migrating from InfluxDB
 If you want to migrate data from InfluxDB, [follow these instructions][outflux]
-
 
 [installed]: /how-to-guides/install-timescaledb/
 [setup]: /how-to-guides/install-timescaledb/post-install-setup/

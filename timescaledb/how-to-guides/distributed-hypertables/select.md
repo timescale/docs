@@ -1,4 +1,4 @@
-# Querying a Distributed Hypertable
+# Querying a distributed hypertable
 
 The query performance of a distribute hypertable depends heavily on
 the ability of the planner to _push down_ computations to data
@@ -57,7 +57,7 @@ unsupported, however. To see how the a query is pushed down to a data
 node, use `EXPLAIN VERBOSE` on the query and inspect the query plan
 and the remote SQL statement sent to each data node.
 
-## Limitations of Pushing Down Queries
+## Limitations of pushing down queries
 
 The query planner might not always be able to push down queries,
 however, or it can only push down parts of it:
@@ -100,4 +100,3 @@ the data nodes.
 [current_time]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-CURRENT
 [partitionwise_agg_guc]: https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE
 [random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE
-

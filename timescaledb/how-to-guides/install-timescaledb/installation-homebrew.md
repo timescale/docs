@@ -8,7 +8,7 @@ This will install both TimescaleDB *and* PostgreSQL via Homebrew.
 
 - [Homebrew][]
 
-#### Build & Install
+#### Build and install
 
 <highlight type="warning">
  If you have another PostgreSQL installation

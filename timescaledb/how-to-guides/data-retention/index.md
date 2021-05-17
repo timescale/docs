@@ -1,4 +1,4 @@
-# Data Retention 
+# Data retention 
 
 An intrinsic part of time-series data is that new data is accumulated
 and old data is rarely, if ever, updated and the relevance of the data

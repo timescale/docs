@@ -9,7 +9,7 @@
 - Make sure all relevant binaries are in your PATH: (use [pg_config][])
 - Installation must be performed from an account with admin privileges
 
-#### Build & Install
+#### Build and install
 
 1. Download the the [.zip file for your PostgreSQL version][windows-dl].
 1. Extract the zip file locally

@@ -6,7 +6,7 @@ and, in particular, distributed hypertables. This section documents
 the common limitations when using both regular and distributed
 hypertables.
 
-## Hypertable Limitations [](hypertable-limitations)
+## Hypertable limitations [](hypertable-limitations)
 
 - Foreign key constraints referencing a hypertable are not supported.
 - Time dimensions (columns) used for partitioning cannot have NULL
@@ -17,14 +17,14 @@ hypertables.
   not supported. This includes upserts (`INSERT ... ON CONFLICT
   UPDATE`).
 
-## Distributed Hypertable Limitations [](distributed-hypertable-limitations)
+## Distributed hypertable limitations [](distributed-hypertable-limitations)
 
 All the limitations of regular hypertables also apply to distributed
 hypertables. In addition, the following limitations apply specifically
 to distributed hypertables:
 
-- Distributed scheduling of background jobs is not supported. Background jobs 
-  created on an access node are scheduled and executed on this access node 
+- Distributed scheduling of background jobs is not supported. Background jobs
+  created on an access node are scheduled and executed on this access node
   without distributing the jobs to data nodes.
 - Continuous aggregates are not supported.
 - Reordering chunks is not supported.
@@ -40,11 +40,11 @@ to distributed hypertables:
   hypertable must be present on the access node and all data
   nodes. This applies also to referenced values.
 - Parallel-aware scans and appends are not supported.
-- A consistent restore point for backup/restore across nodes is not 
-  natively provided; care must be taken when restoring individual 
+- A consistent restore point for backup/restore across nodes is not
+  natively provided; care must be taken when restoring individual
   backups to access and data nodes.
 - Native replication limitations are described [here][native-replication].
-- User defined functions have to be manually installed on the data nodes 
+- User defined functions have to be manually installed on the data nodes
   so that the function definition is available on both access and data
   nodes. This is particularly relevant for functions that are
   registered with `set_integer_now_func`.

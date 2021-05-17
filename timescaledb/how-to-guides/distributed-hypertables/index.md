@@ -1,4 +1,4 @@
-# Distributed Hypertables
+# Distributed hypertables
 
 Distributed hypertables extend regular hypertables with the ability to
 store data chunks across multiple data nodes for better scale-out

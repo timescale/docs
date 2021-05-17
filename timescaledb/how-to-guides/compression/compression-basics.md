@@ -1,7 +1,7 @@
-# Compression Basics
+# Compression basics
 
-Our high-level approach to building columnar storage is to convert many wide rows 
-of data (say, 1000) into a single row of data. But now, each field (column) of 
+Our high-level approach to building columnar storage is to convert many wide rows
+of data (say, 1000) into a single row of data. But now, each field (column) of
 that new row stores an ordered set of data comprising the entire column of the 1000 rows.
 
 So, let’s consider a simplified example using a table that looks as follows:
@@ -23,9 +23,9 @@ After converting this data to a single row, the data in “array” form:
 Most indexes set on the hypertable are removed/ignored when reading from compressed chunks!  TimescaleDB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters during compression.
 </highlight>
 
-## Quick Start Example
+## Quick start example
 
-So how do you actually enable compression on your data? Let's look at a quick 
+So how do you actually enable compression on your data? Let's look at a quick
 example.
 
 Given a table called `measurements` like:
@@ -85,14 +85,14 @@ change from shallow and wide to deep and narrow.
 The other thing to consider is that modifications to chunks that have been compressed
 are inefficient. In fact, the current version of compression disallows INSERTS, UPDATES,
 and DELETES on compressed chunks completely (although you can manually decompress
-the chunk to modify it). Because of this current limitation, you want to compress 
-a chunk only after it is unlikely to be modified further. The amount of delay 
+the chunk to modify it). Because of this current limitation, you want to compress
+a chunk only after it is unlikely to be modified further. The amount of delay
 you should add to chunk compression to minimize the need to decompress chunks will be different
 for each use case, but remember to be mindful of out-of-order data.
 
 <highlight type="warning">
 The current release of TimescaleDB supports the ability to query data in
-compressed chunks. However, it does not support inserts or updates of data into 
+compressed chunks. However, it does not support inserts or updates of data into
 compressed chunks.
 
 The ability to insert into compressed chunks is currently slated for TimescaleDB 2.3.
@@ -110,7 +110,7 @@ old enough according to the compression policy.
 ## Understanding the `segmentby` option
 
 Aside from determining how old data should be before the policy compresses
-chunks, setting the `segmentby` option to the best column(s) is an important 
+chunks, setting the `segmentby` option to the best column(s) is an important
 requirement that needs thoughtful consideration for the best performance.
 
 We can segment compressed rows by specific columns so that each compressed
@@ -165,7 +165,7 @@ if we had a more EAV table like the following:
 | 8/22/2019 1:00 |1|cpu|88.6|
 | 8/22/2019 1:00 |1|device_io|0.6|
 
-Then the series would be defined by the pair of columns `device_id` and 
+Then the series would be defined by the pair of columns `device_id` and
 `metric_name`. Therefore, the `segmentby` option should be `device_id, metric_name`.
 
 <highlight type="tip">
