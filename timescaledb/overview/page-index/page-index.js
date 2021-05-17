@@ -78,10 +78,6 @@ module.exports = [
           {
             href: "limitations"
           },
-          {
-            title: "FAQ",
-            href: "faq"
-          }
         ]
       }
 ]
