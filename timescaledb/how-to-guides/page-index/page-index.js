@@ -400,6 +400,18 @@ module.exports = [
         href: "migrate-data",
         children: [
           {
+            title: "Migrate from the same database",
+            href: "same-db"
+          },
+          {
+            title: "Migrate from a different database",
+            href: "different-db"
+          },
+          {
+            title: "Import from CSV",
+            href: "import-csv"
+          },
+          {
             title: "Migrate InfluxDB data",
             href: "migrate-influxdb"
           }
