@@ -7,8 +7,7 @@ inside a SELECT query but has to be executed with [CALL](postgres-call).
 
 <highlight type="tip">
 Any background worker job can be run in the foreground when executed with
-`run_job`. This can be useful to debug problems when combined with increased
-log level.
+`run_job`. You can use this with an increased log level to help debug problems.
 </highlight>
 
 #### Required Arguments [](run_job-required-arguments)
