@@ -20,7 +20,7 @@ module.exports = [
         href: "forge-multi-node"
       },
       {
-        title: "VPC Peering with AWS",
+        title: "VPC peering with AWS",
         href: "vpc-peering-aws",
         children: [
           {
