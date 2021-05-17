@@ -37,8 +37,7 @@ information, click `Add peering connection` to begin the peering process.
 
 This process is asynchronous, and results in a peering connection sent to your
 AWS account for you to accept. This is an important safety mechanism — never
-accept a peering connection from an unknown account. All Timescale Forge
-peering connections are sent from the AWS account `142548018081`.
+accept a peering connection from an unknown account.
 
 Navigate to the AWS console's
 [Peering Connections](https://console.aws.amazon.com/vpc/home#PeeringConnections:)
