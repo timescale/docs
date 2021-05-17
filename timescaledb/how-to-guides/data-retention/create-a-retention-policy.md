@@ -1,4 +1,4 @@
-# Creating Automatic Data Retention Policies
+# Creating automatic data retention policies
 
 TimescaleDB includes a background job scheduling framework for automating data
 management tasks, such as enabling easy data retention policies.

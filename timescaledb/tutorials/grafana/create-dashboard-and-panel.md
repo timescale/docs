@@ -1,41 +1,41 @@
-# Creating a Grafana Dashboard and Panel
+# Creating a Grafana dashboard and panel
 
-Grafana is organized into ‘Dashboards’ and ‘Panels’. A dashboard represents a view
+Grafana is organized into ‘Dashboards' and ‘Panels'. A dashboard represents a view
 onto the performance of a system, and each dashboard consists of one or more panels,
 which represents information about a specific metric related to that system.
 
 In this tutorial, you'll build a simple dashboard, connect it to TimescaleDB, and visualize
 data.
 
-### Pre-requisites
+### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query 
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+To complete this tutorial, you will need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
 * Next [setup Grafana][install-grafana].
 
-Once your installation of TimescaleDB and Grafana are complete, ingest the data found 
+Once your installation of TimescaleDB and Grafana are complete, ingest the data found
 in the [NYC Taxi Cab][nyc-taxi] tutorial and configure Grafana to connect
-to that database. Be sure to follow the full tutorial if you’re interested in background 
+to that database. Be sure to follow the full tutorial if you're interested in background
 on how to use TimescaleDB.
 
 ### Build a new dashboard
 
 We will start by creating a new dashboard. In the far left of the Grafana user
-interface, you’ll see a '+' icon. If you hover over it, you’ll see a 'Create' menu,
+interface, you'll see a '+' icon. If you hover over it, you'll see a 'Create' menu,
 within which is a 'Dashboard' option. Select that 'Dashboard' option.
 
-After creating a new dashboard, you’ll see a 'New Panel' screen, with options
+After creating a new dashboard, you'll see a 'New Panel' screen, with options
 for 'Add Query' and 'Choose Visualization'. In the future, if you already have a
 dashboard with panels, you can click on the '+' icon at the **top** of the Grafana user
 interface, which will enable you to add a panel to an existing dashboard.
 
-To proceed with our tutorial, let’s add a new visualization by clicking on the 'Choose
+To proceed with our tutorial, let's add a new visualization by clicking on the 'Choose
 Visualization' option.
 
-At this point, you’ll have several options for different Grafana visualizations. We will
+At this point, you'll have several options for different Grafana visualizations. We will
 choose the first option, the 'Graph' visualization.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_visualizations.png" alt="Grafana visualizations to choose from"/>
@@ -59,7 +59,7 @@ York City taxi cab datasource we connected to earlier:
 
 ### Visualize metrics stored in TimescaleDB
 
-Let’s start by creating a visualization that answers the question **How many rides took place on each day?**
+Let's start by creating a visualization that answers the question **How many rides took place on each day?**
 from the [NYC Taxi Cab][nyc-taxi] tutorial.
 
 From the tutorial, you can see the standard SQL syntax for our query:
@@ -72,7 +72,7 @@ GROUP BY day
 ORDER BY day;
 ```
 
-We will need to alter this query to support Grafana’s unique query syntax.
+We will need to alter this query to support Grafana's unique query syntax.
 
 #### Modifying the SELECT statement
 
@@ -80,7 +80,7 @@ First, we will modify the `date_trunc` function to use the TimescaleDB `time_buc
 function. You can consult the TimescaleDB [API Reference on time_bucket][time-bucket-reference]
 for more information on how to use it properly.
 
-Let’s examine the `SELECT` portion of this query. First, we will bucket our results into
+Let's examine the `SELECT` portion of this query. First, we will bucket our results into
 one day groupings using the `time_bucket` function. If you set the 'Format' of a Grafana
 panel to be 'Time series', for use in Graph panel for example, then the query must return
 a column named `time` that returns either a SQL `datetime` or any numeric datatype
@@ -120,7 +120,7 @@ WHERE $__timeFilter(pickup_datetime)
 
 #### Referencing elements in our query
 
-Finally, we want to group our visualization by the time buckets we’ve selected,
+Finally, we want to group our visualization by the time buckets we've selected,
 and we want to order the results by the time buckets as well. So, our `GROUP BY`
 and `ORDER BY` statements will reference `time`.
 
@@ -143,7 +143,7 @@ When we visualize this query in Grafana, we see the following:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results.png" alt="Visualizing time-series data in Grafana"/>
 
 <highlight type="tip">
- Remember to set the time filter in the upper right corner of your Grafana dashboard. 
+ Remember to set the time filter in the upper right corner of your Grafana dashboard.
  If you're using the pre-built sample dataset for this example, you will want to set
  your time filter around January 1st, 2016.
 </highlight>

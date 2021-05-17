@@ -1,4 +1,4 @@
-# Manual Compression [](manual-compression)
+# Manual compression [](manual-compression)
 
 Although most users compress data using an automated compression
 policy that runs in the background and compresses chunks older than a certain age,

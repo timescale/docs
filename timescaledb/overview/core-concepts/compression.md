@@ -1,9 +1,9 @@
-# Native Compression
+# Native compression
 
-TimescaleDB supports the ability to natively compress data stored in hypertables. 
-Native compression does not require the use of any specific file system or external 
+TimescaleDB supports the ability to natively compress data stored in hypertables.
+Native compression does not require the use of any specific file system or external
 software. Compressing time-series data can significantly reduce the storage requirement
-of your data and, in many cases, speed up the responsiveness of queries on 
+of your data and, in many cases, speed up the responsiveness of queries on
 historical, compressed data.
 
 Compression is powered by TimescaleDB’s built-in job scheduler framework. We

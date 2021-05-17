@@ -1,4 +1,4 @@
-# Why Use TimescaleDB over Relational DBs?
+# Why Use TimescaleDB over relational databases?
 
 TimescaleDB offers three key benefits over vanilla PostgreSQL or other
 traditional RDBMSs for storing time-series data:
@@ -13,7 +13,7 @@ geospatial queries via PostGIS, `pg_dump` and `pg_restore`, any
 connector that speaks PostgreSQL &mdash; there is little reason **not** to
 use TimescaleDB for storing time-series data within a PostgreSQL node.
 
-## Much Higher Ingest Rates
+## Much higher ingest rates
 
 TimescaleDB achieves a much higher and more stable ingest rate than
 PostgreSQL for time-series data.  As described in our [architectural discussion][],
@@ -64,7 +64,7 @@ for spreading a single hypertable across multiple disks
 (through multiple tablespaces, which is not possible on a traditional
 PostgreSQL table).
 
-## Superior or Similar Query Performance
+## Superior or similar query performance
 
 On single-disk machines, many simple queries that just
 perform indexed lookups or table scans are similarly performant
@@ -139,7 +139,7 @@ many chunks).  This can translate to a few extra milliseconds of
 planning time, which can have a disproportional influence for very
 low-latency queries (< 10ms).
 
-## Time-oriented Features
+## Time-oriented features
 
 TimescaleDB also includes a number of time-oriented features that
 aren't found in traditional relational databases.  These include
@@ -147,7 +147,7 @@ special query optimizations (like the merge append above) that provide
 some of the huge performance improvements for time-oriented queries,
 as well as other time-oriented functions (some of which are listed below).
 
-#### Time-oriented Analytics
+#### Time-oriented analytics
 
 TimescaleDB includes *new* functions for time-oriented analytics,
 including some of the following:
@@ -201,7 +201,7 @@ SELECT time_bucket('1 day', time) AS day,
 For more information about TimescaleDB's current (and growing) list of
 time features, please [see our API][api].
 
-#### Time-oriented Data Management
+#### Time-oriented data management
 
 TimescaleDB also provides certain data management capabilities that
 are not readily available or performant in PostgreSQL.  For example, when dealing

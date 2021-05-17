@@ -1,14 +1,14 @@
-# TimescaleDB Overview
+# TimescaleDB overview
 
-TimescaleDB is an open-source relational database for time-series data.  It 
-speaks "full SQL" and is correspondingly easy to use like a traditional relational 
+TimescaleDB is an open-source relational database for time-series data.  It
+speaks "full SQL" and is correspondingly easy to use like a traditional relational
 database, yet scales in ways previously reserved for NoSQL databases.
 
 Compared to the trade-offs demanded by these two alternatives
 (relational vs. NoSQL), TimescaleDB offers the best of both
 worlds **for time-series data:**
 
-## Easy to Use
+## Easy to use
 
 - **Full SQL interface** for all SQL natively supported by
 PostgreSQL (including secondary indexes, non-time based aggregates,
@@ -38,15 +38,14 @@ ecosystem and tooling).
 
 The rest of this section describes the design and motivation around the TimescaleDB
 architecture, including why time-series data is different, and how we leverage
-its characteristics when building TimescaleDB. 
+its characteristics when building TimescaleDB.
 
-## Download the Guide
-If you want a quick visual intro to TimescaleDB, click on the image below to download the starter guide. 
+## Download the guide
+If you want a quick visual intro to TimescaleDB, click on the image below to download the starter guide.
 
 [<img class="main-content__illustration"
-src="https://assets.timescale.com/images/covers/TimescaleDB_Starter_Guide.svg" 
+src="https://assets.timescale.com/images/covers/TimescaleDB_Starter_Guide.svg"
 alt="starter guide"/>][starter-guide]
 
 
 [starter-guide]: https://assets.timescale.com/resources/TimescaleDB_Starter_Guide.pdf
-

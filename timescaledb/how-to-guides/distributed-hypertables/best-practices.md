@@ -1,4 +1,4 @@
-# Best Practices for Partitioning
+# Best practices for partitioning
 
 Like a regular hypertable, a distributed hypertable needs to be
 partitioned along a "time" dimension (e.g., a `timestamptz`

@@ -1,4 +1,4 @@
-# Querying Continuous Aggregates
+# Querying continuous aggregates
 
 To query data from a continuous aggregate, use a `SELECT` query on
 the continuous aggregate view. For instance, you can get the average,

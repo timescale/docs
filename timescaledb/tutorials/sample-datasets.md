@@ -1,4 +1,4 @@
-# Sample Datasets
+# Sample datasets
 
 We have created several sample datasets to help you get started using
 TimescaleDB. These datasets vary in database size, number of time
@@ -10,7 +10,7 @@ data to be copied into those tables. These files presume the database
 you are importing them to has already been [set up with the TimescaleDB extension][installation].
 
 
-**Device Ops**: These datasets are designed to represent metrics (e.g. CPU,
+**Device ops**: These datasets are designed to represent metrics (e.g. CPU,
 memory, network) collected from mobile devices. (Click on the name to
 download.)
 
@@ -75,7 +75,7 @@ The standard `COPY` command in PostgreSQL is single threaded.
 psql -U postgres -h localhost -d devices_small
 ```
 
-## In-depth: Device Ops Datasets [](in-depth-devices)
+## In-depth: Device ops datasets [](in-depth-devices)
 After importing one of these datasets (`devices_small`, `devices_med`, `devices_big`),
 you will find a plain PostgreSQL table called `device_info`
 and a hypertable called `readings`. The `device_info` table has (static)
@@ -119,7 +119,7 @@ Indexes:
   "readings_time_idx" btree ("time" DESC)
 ```
 
-#### Example Queries
+#### Example queries
 _Note: Uses dataset_ `devices_med`
 
 **10 most recent battery temperature readings for charging devices**
@@ -192,7 +192,7 @@ hour                   | min_battery_level | max_battery_level
 
 ---
 
-## In-depth: Weather Datasets [](in-depth-weather)
+## In-depth: Weather datasets [](in-depth-weather)
 After importing one of these datasets (`weather_small`, `weather_med`, `weather_big`),
 you will find a plain PostgreSQL table called `locations` and
 a hypertable called `conditions`. The `locations` table has metadata about
@@ -225,7 +225,7 @@ Indexes:
 "conditions_time_idx" btree ("time" DESC)
 ```
 
-#### Example Queries
+#### Example queries
 _Note: Uses dataset_ `weather_med`
 
 **Last 10 readings**

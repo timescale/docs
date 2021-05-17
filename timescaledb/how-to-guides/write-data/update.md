@@ -1,4 +1,4 @@
-## UPDATE Commands [](update)
+## UPDATE commands [](update)
 
 Updates in TimescaleDB work as expected in standard SQL ([PostgreSQL docs][postgres-update]).
 

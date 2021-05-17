@@ -1,31 +1,31 @@
 # Quick Start: Ruby and TimescaleDB
 
 ## Goal
-This quick start guide is designed to get the Rails developer up 
-and running with TimescaleDB as their database. In this tutorial, 
-you’ll learn how to:
+This quick start guide is designed to get the Rails developer up
+and running with TimescaleDB as their database. In this tutorial,
+you'll learn how to:
 
 * [Connect to TimescaleDB](#new_database)
 * [Create a relational table](#create_table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable) 
+* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
 * [Insert a batch of rows into your Timescale database](#insert_rows)
 * [Execute a query on your Timescale database](#execute_query)
 
-## Pre-requisites
+## Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query 
-Language (SQL). The tutorial will walk you through each SQL command, but it will be 
+To complete this tutorial, you will need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial will walk you through each SQL command, but it will be
 helpful if you've seen SQL before.
 
-To start, [install TimescaleDB][install-timescale]. Once your installation is complete, 
+To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
-Obviously, you will need to [install Rails][rails-install] as well.
+You will also need to [install Rails][rails-install].
 
 ## Connect Ruby to TimescaleDB [](new-database)
 
 ### Step 1: Create a new Rails application
-Let’s start by creating a new Rails application configured to use PostgreSQL as the 
+Let's start by creating a new Rails application configured to use PostgreSQL as the
 database. TimescaleDB is a PostgreSQL extension.
 
 ```bash
@@ -38,7 +38,7 @@ Rails will finish creating and bundling your application, installing all require
 
 Locate your TimescaleDB credentials in order to connect to your TimescaleDB instance.
 
-You’ll need the following credentials:
+You'll need the following credentials:
 
 * password
 * username
@@ -65,7 +65,7 @@ default: &default
 Experienced Rails developers will want to set and retrieve environment variables for the username and password of the database. For the purposes of this quick start, we will hard code the `host`, `port`, `username`, and `password`. This is *not* advised for code or databases of consequence.
 </highlight>
 
-Then configure the database name in the `development`, `test`, and `production` sections. Let’s call our 
+Then configure the database name in the `development`, `test`, and `production` sections. Let's call our
 database `my_app_db` like so:
 
 ```ruby
@@ -111,7 +111,7 @@ Now we can run the following `rake` command to create the database in TimescaleD
 rails db:create
 ```
 
-This will create the `my_app_db` database in your TimescaleDB instance and a `schema.rb` 
+This will create the `my_app_db` database in your TimescaleDB instance and a `schema.rb`
 file that represents the state of your TimescaleDB database.
 
 ## Create a relational table [](create_table)
@@ -125,9 +125,9 @@ start by creating a migration:
 rails generate migration add_timescale
 ```
 
-In your `db/migrate` project folder, you'll see a new migration file for 
-`[some sequence of numbers]_add_timescale.rb`. Replace the contents of that 
-file with the following to instruct the database to load the TimescaleDB 
+In your `db/migrate` project folder, you'll see a new migration file for
+`[some sequence of numbers]_add_timescale.rb`. Replace the contents of that
+file with the following to instruct the database to load the TimescaleDB
 extension to PostgreSQL:
 
 ```ruby
@@ -169,11 +169,11 @@ The output should be something like the following:
 (2 rows)
 ```
 
-### Step 3: Create a table 
+### Step 3: Create a table
 
-Suppose we wanted to create a table to store the user agent (browser) and time 
-whenever a visitor loads our page. You could easily extend this simple example 
-to store a host of additional web analytics of interest to you. We can generate 
+Suppose we wanted to create a table to store the user agent (browser) and time
+whenever a visitor loads our page. You could easily extend this simple example
+to store a host of additional web analytics of interest to you. We can generate
 a Rails scaffold to represent this information in a table:
 
 ```bash
@@ -181,17 +181,17 @@ rails generate scaffold PageLoads user_agent:string
 ```
 
 TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on your table
-include all partitioning columns, which in our case is the time column. A new Rails model will 
-include a `PRIMARY KEY` index for `id` by default, so we need to either remove the 
-column or make sure that the index includes time as part of a "composite key". 
+include all partitioning columns, which in our case is the time column. A new Rails model will
+include a `PRIMARY KEY` index for `id` by default, so we need to either remove the
+column or make sure that the index includes time as part of a "composite key".
 
 <highlight type="tip">
-Composite keys aren't supported natively by Rails, but if you need to keep 
-your `id` column around for some reason you can add support for them with 
+Composite keys aren't supported natively by Rails, but if you need to keep
+your `id` column around for some reason you can add support for them with
 the [`composite_primary_keys` gem](https://github.com/composite-primary-keys/composite_primary_keys).
 </highlight>
 
-To satisfy this TimescaleDB requirement, we need to change the migration code to _not_ create a `PRIMARY KEY` using the `id` column when `create_table` is used. 
+To satisfy this TimescaleDB requirement, we need to change the migration code to _not_ create a `PRIMARY KEY` using the `id` column when `create_table` is used.
 To do this we can change the migration implementation:
 
 
@@ -207,7 +207,7 @@ class CreatePageLoads < ActiveRecord::Migration[6.0]
 end
 ```
 
-Rails generates all the helper files and a database migration. We can then run 
+Rails generates all the helper files and a database migration. We can then run
 a `rails db:migrate` command again to create the table in our database.
 
 ```bash
@@ -222,7 +222,7 @@ rails runner 'p PageLoad.count'
 0
 ```
 
-And we can view the structure of the `page_loads` table combining 
+And we can view the structure of the `page_loads` table combining
 the `\d page_loads` command in the `rails dbconsole` output:
 
 ```bash
@@ -237,19 +237,19 @@ the `\d page_loads` command in the `rails dbconsole` output:
 
 ## Generate hypertable [](create_hypertable)
 
-In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables], 
-the abstraction of a single continuous table across all space and time 
+In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
+the abstraction of a single continuous table across all space and time
 intervals, such that one can query it via standard SQL.
 
-Virtually all user interactions with TimescaleDB are with hypertables. Creating tables 
-and indexes, altering tables, inserting data, selecting data, etc. can (and should) 
+Virtually all user interactions with TimescaleDB are with hypertables. Creating tables
+and indexes, altering tables, inserting data, selecting data, etc. can (and should)
 all be executed on the hypertable.
 
-A hypertable is defined by a standard schema with column names and types, with at 
+A hypertable is defined by a standard schema with column names and types, with at
 least one column specifying a time value.
 
 <highlight type="tip">
-The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/) 
+The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/)
 explains this in further detail.
 </highlight>
 
@@ -264,7 +264,7 @@ rails generate migration add_hypertable
 In your `db/migrate` project folder, you'll see a new migration file for
 `[some sequence of numbers]_add_hypertable`.
 
-Then we can write the migration to first remove the `id` column and then add 
+Then we can write the migration to first remove the `id` column and then add
 our hypertable like so:
 
 ```ruby
@@ -283,12 +283,12 @@ following:
 
 ```
                          Table "public.page_loads"
-   Column   |            Type             | Collation | Nullable | Default 
+   Column   |            Type             | Collation | Nullable | Default
 ------------+-----------------------------+-----------+----------+---------
- user_agent | character varying           |           |          | 
- time       | timestamp without time zone |           | not null | 
- created_at | timestamp without time zone |           | not null | 
- updated_at | timestamp without time zone |           | not null | 
+ user_agent | character varying           |           |          |
+ time       | timestamp without time zone |           | not null |
+ created_at | timestamp without time zone |           | not null |
+ updated_at | timestamp without time zone |           | not null |
 Indexes:
     "page_loads_time_idx" btree ("time" DESC)
 Triggers:
@@ -297,17 +297,17 @@ Triggers:
 
 ## Insert rows into TimescaleDB [](insert_rows)
 
-Let’s create a new view and controller so that we can insert a value into 
-the database and see our results. When our view displays, we will store 
+Let's create a new view and controller so that we can insert a value into
+the database and see our results. When our view displays, we will store
 the user agent and time into our database.
 
 ```bash
 rails generate controller static_pages home
 ```
 
-This will generate the view and controller files for a page called `/static_pages/home` 
-in our site. Let’s first add a line to the `static_pages_controller.rb` 
-file to retrieve the user agent of the site visitor’s browser:
+This will generate the view and controller files for a page called `/static_pages/home`
+in our site. Let's first add a line to the `static_pages_controller.rb`
+file to retrieve the user agent of the site visitor's browser:
 
 ```ruby
 class StaticPagesController < ApplicationController
@@ -317,7 +317,7 @@ class StaticPagesController < ApplicationController
 end
 ```
 
-Subsequently, in the `home.html.erb` file, we will print the `@agent` 
+Subsequently, in the `home.html.erb` file, we will print the `@agent`
 variable we just created:
 
 ```erb
@@ -334,12 +334,12 @@ Start your Rails server on the command line:
 rails s
 ```
 
-And, in your browser, visit `http://localhost:3000/static_pages/home`. You should 
+And, in your browser, visit `http://localhost:3000/static_pages/home`. You should
 see a printout of the user agent for your browser.
 
-Now that we’ve successfully obtained the user agent and passed it as a variable 
-to the view, we can create a `PageLoad` object, store the user agent information 
-and time, and save the object to our TimescaleDB database. In the `static_pages_controller.rb` 
+Now that we've successfully obtained the user agent and passed it as a variable
+to the view, we can create a `PageLoad` object, store the user agent information
+and time, and save the object to our TimescaleDB database. In the `static_pages_controller.rb`
 controller file, add the following:
 
 ```ruby
@@ -387,11 +387,11 @@ The output should look like this:
 
 ## Execute a query [](execute_query)
 
-So far, we’ve created a TimescaleDB table and inserted data into it. Now, let’s 
+So far, we've created a TimescaleDB table and inserted data into it. Now, let's
 retrieve data and display it.
 
-In our `static_pages_controller.rb` file let’s modify the `home` method 
-and [use Active Record to query][active-record-query] all items in 
+In our `static_pages_controller.rb` file let's modify the `home` method
+and [use Active Record to query][active-record-query] all items in
 the `page_load` database and store them in an array:
 
 ```ruby
@@ -402,14 +402,14 @@ class StaticPagesController < ApplicationController
 end
 ```
 
-And we can modify our `home.html.erb` view to iterate over the array and display 
+And we can modify our `home.html.erb` view to iterate over the array and display
 each item:
 
 ```ruby
 <h1>Static Pages requests: <%= PageLoad.count %> </h1>
 ```
 
-Now, each time we refresh our page, we can see that a record is being inserted 
+Now, each time we refresh our page, we can see that a record is being inserted
 into the `my_app_db` TimescaleDB database, and the counter is incremented on the page.
 
 ## Generating requests
@@ -699,7 +699,7 @@ PageLoad.last_week.statistics # => {...}
 As you can see in the console, every single query is being executed
 independent, which is suboptimal but covers different options.
 
-Now that you get some basics of the TimescaleDB instance from your Rails application, 
+Now that you get some basics of the TimescaleDB instance from your Rails application,
 be sure to check out these advanced TimescaleDB tutorials:
 
 - [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]

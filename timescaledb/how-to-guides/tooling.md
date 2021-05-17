@@ -1,6 +1,6 @@
 # Tooling
 
-We’ve created several open-source tools to help users make the most out of their experience with TimescaleDB.
+We've created several open-source tools to help users make the most out of their experience with TimescaleDB.
 
 ## `timescaledb-tune` [](ts-tune)
 

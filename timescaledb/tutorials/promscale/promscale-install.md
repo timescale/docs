@@ -1,8 +1,8 @@
-# 3. Up and Running: Install Prometheus, Promscale and TimescaleDB
+# 3. Up and running: Install Prometheus, Promscale, and TimescaleDB
 
 We recommend four methods to setup and install Promscale:
 1. [TOBS - The Observability Stack for Kubernetes ][tobs-github] (recommended for kubernetes deployments)
-2. Docker (instructions detailed below) 
+2. Docker (instructions detailed below)
 3. [Helm][promscale-helm-chart]
 4. [Bare Metal][promscale-baremetal-docs]
 
@@ -17,7 +17,7 @@ The easiest way to get started is by using Docker images. Make sure you have Doc
 The instructions below have 4 steps:
 1. [Install TimescaleDB](#install-timescaledb)
 2. [Install Promscale](#install-promscale)
-3. [Install node_exporter](#install-node-exporter) 
+3. [Install node_exporter](#install-node-exporter)
 4. [Install Prometheus](#install-prometheus)
 
 Alternatively, you can skip to the bonus section which contains a `docker-compose` file for four components above: [Skip to docker-compose file](#promscale-docker-compose)
@@ -35,7 +35,7 @@ docker network create --driver bridge promscale-timescaledb
 ```
 
 
-Secondly, let's install and spin up an instance of TimescaleDB in a docker container.  This is where Promscale will store all metrics data scraped from Prometheus targets. 
+Secondly, let's install and spin up an instance of TimescaleDB in a docker container.  This is where Promscale will store all metrics data scraped from Prometheus targets.
 
 We will use a docker image which has the`promscale` PostgreSQL extension already pre-installed:
 
@@ -55,7 +55,7 @@ For production deployments, you will want to fix the docker tag to a particular 
 
 ## 3.2: Install Promscale [](install-promscale)
 
-Since we have TimescaleDB up and running, let’s spin up a [Promscale instance][promscale-github], using the [Promscale docker image][promscale-docker-image] available on Docker Hub:
+Since we have TimescaleDB up and running, let's spin up a [Promscale instance][promscale-github], using the [Promscale docker image][promscale-docker-image] available on Docker Hub:
 
 ```bash
 docker run --name promscale -d -p 9201:9201 \
@@ -70,14 +70,14 @@ Furthermore, note that the value `<password>` should be replaced with the passwo
 
 <highlight type="warning">
 The setting `ssl-mode=allow` is for testing purposes only. For production deployments, we advise you to use `ssl-mode=require` for security purposes.
-</highlight> 
+</highlight>
 
 
 ## 3.3: Start collecting metrics using node_exporter [](install-node-exporter)
 
 `node_exporter` is a Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors. To learn more about it, refer to the [Node Exporter Github][].
 
-For the purposes of this tutorial, we need a service that will expose metrics to Prometheus. We will use the `node_exporter` for this purpose. 
+For the purposes of this tutorial, we need a service that will expose metrics to Prometheus. We will use the `node_exporter` for this purpose.
 
 Install the the `node_exporter` on your machine by running the docker command below:
 
@@ -92,9 +92,9 @@ Once the Node Exporter is running, you can verify that system metrics are being 
 
 ## 3.4: Install Prometheus [](install-prometheus)
 
-All that's left is to spin up Prometheus. 
+All that's left is to spin up Prometheus.
 
-First we need to ensure that our Prometheus configuration file `prometheus.yml` is pointing to Promscale and that we’ve properly set the scrape configuration target to point to our `node_exporter` instance, created in Step 3.3.
+First we need to ensure that our Prometheus configuration file `prometheus.yml` is pointing to Promscale and that we've properly set the scrape configuration target to point to our `node_exporter` instance, created in Step 3.3.
 
 Here is a basic `prometheus.yml` configuration file that we'll use for this tutorial. ([More information on Prometheus configuration][first steps])
 
@@ -128,23 +128,23 @@ docker run \
     prom/prometheus
 ```
 
-## BONUS: Docker Compose File [](promscale-docker-compose)
-To save time spinning up and running each docker container separately, here is a sample`docker-compose.yml` file that will spin up docker containers for TimescaleDB, Promscale, node_exporter and Prometheus using the configurations mentioned in Steps 1-4 above. 
+## BONUS: Docker compose file [](promscale-docker-compose)
+To save time spinning up and running each docker container separately, here is a sample`docker-compose.yml` file that will spin up docker containers for TimescaleDB, Promscale, node_exporter and Prometheus using the configurations mentioned in Steps 1-4 above.
 
 <highlight type="warning">
-Ensure you have the Prometheus configuration file `prometheus.yml` in the same directory as `docker-compose.yml` 
+Ensure you have the Prometheus configuration file `prometheus.yml` in the same directory as `docker-compose.yml`
 </highlight>
 
 **A sample `docker-compose.yml` file to spin up and connect TimescaleDB, Promscale, node_exporter and Prometheus:** is available in the [Promscale Github repo][promscale-docker-compose].
 
-To use the docker-compose file above method, follow these steps: 
+To use the docker-compose file above method, follow these steps:
 1. In `docker-compose.yml`, set `<PASSWORD>`, the password for superuser `postgres` in TimescaleDB, to a password of your choice.
 2. Run the command `docker-compose up` in the same directory as the `docker-compose.yml` file .
 3. That's it! TimescaleDB, Promscale, Prometheus, and node-exporter should now be up and running.
 
 
 
-## Next Step
+## Next step
 * [Step 4: Up and Running with Promscale][promscale-run-queries]: Now that you've installed Promscale, let's query Promscale in SQL and PromQL
 
 [prometheus-webpage]:https://prometheus.io
