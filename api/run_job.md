@@ -15,7 +15,7 @@ log level.
 
 |Name|Description|
 |---|---|
-|`job_id`| (INTEGER)  TimescaleDB background job id |
+|`job_id`| (INTEGER)  TimescaleDB background job ID |
 
 #### Sample Usage [](run_job-examples)
 
