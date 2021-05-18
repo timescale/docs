@@ -1,24 +1,26 @@
-## remove_retention_policy() <tag type="community">Community</tag> 
-Remove a policy to drop chunks of a particular hypertable.
+## run_job() <tag type="community">Community</tag> 
 
-### Required Arguments
+Run a previously registered job in the current session.
+This works for user-defined actions as well as policies.
+Since `run_job` is implemented as stored procedure it cannot be executed
+inside a SELECT query but has to be executed with [CALL](postgres-call).
 
-|Name|Type|Description|
-|---|---|---|
-| `relation` | REGCLASS | Name of the hypertable or continuous aggregate from which to remove the policy |
+<highlight type="tip">
+Any background worker job can be run in the foreground when executed with
+`run_job`. You can use this with an increased log level to help debug problems.
+</highlight>
 
-### Optional Arguments
+#### Required Arguments [](run_job-required-arguments)
 
-|Name|Type|Description|
-|---|---|---|
-| `if_exists` | BOOLEAN |  Set to true to avoid throwing an error if the policy does not exist. Defaults to false.|
+|Name|Description|
+|---|---|
+|`job_id`| (INTEGER)  TimescaleDB background job ID |
 
-
-### Sample Usage 
+#### Sample Usage [](run_job-examples)
 
 ```sql
-SELECT remove_retention_policy('conditions');
+SET client_min_messages TO DEBUG1;
+CALL run_job(1000);
 ```
 
-Removes the existing data retention policy for the `conditions` table.
-
+Set log level shown to client to `DEBUG1` and run the job with the job ID 1000.
