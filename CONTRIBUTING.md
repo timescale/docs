@@ -9,121 +9,122 @@ repository.
 
 
 ### Procedure: Contributing using a fork
-1. Make sure you have a [github](github.com) account, and that you're signed in.
-1. Navigate to the [Timescale Documentation
+1.  Make sure you have a [github](github.com) account, and that you're signed in.
+1.  Navigate to the [Timescale Documentation
 Repo](https://github.com/timescale/docs) click the `Fork` button in the
 top-right corner, and select the account you want to use.
-1. Wait for GitHub to create your fork and redirect you.
-1. Clone the repository to your local machine. To find this URL, click the green
-`Code` button and copy the HTTPS URL:
+1.  Wait for GitHub to create your fork and redirect you.
+1.  Clone the repository to your local machine. To find this URL, click the green
+    `Code` button and copy the HTTPS URL:
 
-  ```bash
-  git clone https://github.com/<username>/docs.git
-  ```
+    ```bash
+    git clone https://github.com/<username>/docs.git
+    ```
 
-1. Change into the directory that contains the repo, and check out the ``/latest`` branch:
+1.  Change into the directory that contains the repo, and check out the ``/latest`` branch:
 
- ```bash
- cd docs
- git checkout latest
- ```
+    ```bash
+    cd docs
+    git checkout latest
+    ```
 
-1. List the current remote branches:
+1.  List the current remote branches:
 
- ```bash
- git remote -v
- ```
+    ```bash
+    git remote -v
+    ```
 
- This command should list two remotes, both marked `origin`, like this:
+    This command should list two remotes, both marked `origin`, like this:
 
- ```bash
- origin  https://github.com/<username>/docs.git (fetch)
- origin  https://github.com/<username>/docs.git (push)
- ```
+    ```bash
+    origin  https://github.com/<username>/docs.git (fetch)
+    origin  https://github.com/<username>/docs.git (push)
+    ```
 
- The `origin` remotes are your own fork, and you can do whatever you want here without changing the upstream repository.
+    The `origin` remotes are your own fork, and you can do whatever you want here without changing the upstream repository.
 
-1. Add the docs repo as an upstream:
+1.  Add the docs repo as an upstream:
 
- ```bash
- git remote add upstream https://github.com/timescale/docs.git
- ```
+    ```bash
+    git remote add upstream https://github.com/timescale/docs.git
+    ```
 
-1. Check:
+1.  Check:
 
- ```bash
- git remote -v
- ```
+    ```bash
+    git remote -v
+    ```
 
- This command should now have the same two `origin` remotes as before, plus two more labelled `upstream`, like this:
+    This command should now have the same two `origin` remotes as before, plus two more labelled `upstream`, like this:
 
- ```bash
- origin  https://github.com/<username>/docs.git (fetch)
- origin  https://github.com/<username>/docs.git (push)
- upstream  https://github.com/timescale/docs.git (fetch)
- upstream  https://github.com/timescale/docs.git (push)
- ```
+    ```bash
+    origin  https://github.com/<username>/docs.git (fetch)
+    origin  https://github.com/<username>/docs.git (push)
+    upstream  https://github.com/timescale/docs.git (fetch)
+    upstream  https://github.com/timescale/docs.git (push)
+    ```
 
-1. Check out your fork's `latest` branch:
+1.  Check out your fork's `latest` branch:
 
- ```bash
- git checkout latest
- ```
+    ```bash
+    git checkout latest
+    ```
 
-1. Fetch the branches in the upstream repository:
+1.  Fetch the branches in the upstream repository:
 
- ```bash
- git fetch upstream
- ```
+    ```bash
+    git fetch upstream
+    ```
 
-1. Merge the changes from the upstream `latest` branch, into your fork's `latest` branch:
+1.  Merge the changes from the upstream `latest` branch, into your fork's
+    `latest` branch:
 
- ```bash
- git merge upstream/latest
- ```
+    ```bash
+    git merge upstream/latest
+    ```
 
-1. Create a new branch for the work you want to do. Make sure you give it an
-appropriate name, and include your username:
+1.  Create a new branch for the work you want to do. Make sure you give it an
+    appropriate name, and include your username:
 
- ```bash
- git checkout -b update-readme-username
- ```
+    ```bash
+    git checkout -b update-readme-username
+    ```
 
 
 ### Procedure: Committing changes and creating a pull request
-1. Make your changes.
-1. Add the updated files to your commit:
+1.  Make your changes.
+1.  Add the updated files to your commit:
 
- ```bash
- git add .
- ```
+    ```bash
+    git add .
+    ```
 
-1. Commit your changes:
+1.  Commit your changes:
 
- ```bash
- git commit -m "Commit message here"
- ```
+    ```bash
+    git commit -m "Commit message here"
+    ```
 
-1. Push your changes:
+1.  Push your changes:
 
- ```bash
- git push
- ```
+    ```bash
+    git push
+    ```
 
- If git prompts you to set an upstream in order to push, use this command:
+    If git prompts you to set an upstream in order to push, use this command:
 
- ```bash
- git push --set-upstream origin <branchname>
- ```
+    ```bash
+    git push --set-upstream origin <branchname>
+    ```
 
-1. Create a pull request (PR) by navigating to <https://github.com/timescale/docs>
-and clicking `Compare and Create Pull Request`. Write an informative commit
-message detailing your changes, choose reviewers, and save your PR. If you
-haven't yet finished the work you want to do, make sure you create a draft PR by
-selecting it from the drop down box in the GitHub web UI. This lets your
-reviewers know that you haven't finished work yet, while still being transparent
-about what you are working on, and making sure we all understand current
-progress.
+1.  Create a pull request (PR) by navigating to <https://github.com/timescale/docs>
+    and clicking `Compare and Create Pull Request`. Write an informative commit
+    message detailing your changes, choose reviewers, and save your PR. If you
+    haven't yet finished the work you want to do, make sure you create a draft PR by
+    selecting it from the drop down box in the GitHub web UI. This lets your
+    reviewers know that you haven't finished work yet, while still being transparent
+    about what you are working on, and making sure we all understand current
+    progress.
 
 
 <highlight type="tip">
@@ -141,38 +142,39 @@ this, you *will* end up with merge conflicts.
 
 
 ### Procedure: Second contribution
-1. Check out your fork's `latest` branch:
+1.  Check out your fork's `latest` branch:
 
- ```bash
- git checkout latest
- ```
+    ```bash
+    git checkout latest
+    ```
 
- You will get a message like this:
+    You will get a message like this:
 
- ```bash
- Switched to branch 'latest'
- Your branch is up to date with 'origin/latest'.
- ```
+    ```bash
+    Switched to branch 'latest'
+    Your branch is up to date with 'origin/latest'.
+    ```
 
- BEWARE! This is usually a lie!
+    BEWARE! This is usually a lie!
 
-1. Fetch the branches in the upstream repository:
+1.  Fetch the branches in the upstream repository:
 
- ```bash
- git fetch upstream
- ```
+    ```bash
+    git fetch upstream
+    ```
 
-1. Merge the changes from the upstream `latest` branch, into your fork's `latest` branch:
+1.  Merge the changes from the upstream `latest` branch, into your fork's
+    `latest` branch:
 
- ```bash
- git merge upstream/latest
- ```
+    ```bash
+    git merge upstream/latest
+    ```
 
-1. If you are continuing work you began earlier, check out the branch that
-contains your work. For new work, create a new branch. Doing this regularly as
-you are working will mean you keep your local copies up to date and avoid
-conflicts. You should do it at least every day before you begin work, and again
-whenever you switch branches.
+1.  If you are continuing work you began earlier, check out the branch that
+    contains your work. For new work, create a new branch. Doing this regularly as
+    you are working will mean you keep your local copies up to date and avoid
+    conflicts. You should do it at least every day before you begin work, and again
+    whenever you switch branches.
 
 <highlight type="warning">
 Never leave branches lying around on your local system. Create your PR as soon
@@ -185,10 +187,11 @@ branches.
 Timescale is in the process of creating comprehensive writing and style standards. For the current guidelines, see [contributing to documentation][docs-standards].
 
 ## The Timescale documentation team
-* Ryan Booz <https://github.com/ryanbooz>
-* Lana Brindley <https://github.com/Loquacity>
-* Hel Rabelo <https://github.com/helrabelo>
-* Ted Sczelecki <https://github.com/tedsczelecki>
+
+*   Ryan Booz <https://github.com/ryanbooz>
+*   Lana Brindley <https://github.com/Loquacity>
+*   Hel Rabelo <https://github.com/helrabelo>
+*   Ted Sczelecki <https://github.com/tedsczelecki>
 
 
 [docs-standards]: timescaledb/contribute-to-docs

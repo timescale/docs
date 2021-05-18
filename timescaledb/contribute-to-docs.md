@@ -1,5 +1,4 @@
 # Contributing to Timescale documentation
-
 Timescale documentation is hosted in a [GitHub repository][github-docs]  and is
 open for contribution from all community members. If you  find errors or would
 like to add content to our docs, you can create a pull request using GitHub for
@@ -28,30 +27,28 @@ will be prompted to sign the CLA during the pull request process.
 
 
 ## Resources
-
 When making style decisions, consult resources in this order:
 
-1. This guide: always check this guide first, it contains project-specific
+1.  This guide: always check this guide first, it contains project-specific
 guidance, and in some cases differs from the other resources listed here.
-1. The [Google Developer Documentation Style Guide][google-style]: for most
+1.  The [Google Developer Documentation Style Guide][google-style]: for most
 general style guidance, we rely on the style defined here.
-1. The Chicago Manual of Style: we use this guide for some formatting decisions
+1.  The Chicago Manual of Style: we use this guide for some formatting decisions
 that are not covered in other resources
-1. Merriam-Webster: Timescale documentation is written in US English, for
+1.  Merriam-Webster: Timescale documentation is written in US English, for
 spelling and definitions, consult the dictionary.
 
 
 ## Language
-
 We use standard US English, with an emphasis on plain (or classical) language, and use the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
 
 For example, here are three ways of writing one sentence:
 
-* Natural English: In order to perform X installation process, please ensure
+*   Natural English: In order to perform X installation process, please ensure
 that all of the following steps are done ...
-* Tech writer's English: To perform the X installation process, verify you have
+*   Tech writer's English: To perform the X installation process, verify you have
 done the subsequent steps ...
-* Plain English: To install X, do these steps ...
+*   Plain English: To install X, do these steps ...
 
 Remember that the order of words is important in English. Put the most important
 part of a sentence first, this is usually the actor or the action. Use the
@@ -72,7 +69,6 @@ And remember: words mean things.
 
 
 ## Grammar
-
 Grammar rules are tacit evolving conventions. They have no implicit value by
 themselves, they only gain value because everyone is doing it.
 
@@ -83,20 +79,19 @@ that case, ignore them.
 
 
 ## Word usage guide
-
 TO BE DEVELOPED
 
 
 ## Verbs
 
-* `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
-* `Press` a key or key combination on a keyboard.
-* `Type` words or numbers using a keyboard.
-* `Check` a checkbox.
-* `Uncheck` a checkbox.
-* `Select` an item in a menu.
-* `Deselect` an item in a menu.
-* `Navigate` to a page or location in a graphical user interface.
+*   `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
+*   `Press` a key or key combination on a keyboard.
+*   `Type` words or numbers using a keyboard.
+*   `Check` a checkbox.
+*   `Uncheck` a checkbox.
+*   `Select` an item in a menu.
+*   `Deselect` an item in a menu.
+*   `Navigate` to a page or location in a graphical user interface.
 
 
 
