@@ -611,7 +611,7 @@ be sure to check out these advanced tutorials:
 
 [timescaledb-install]: /how-to-guides/install-timescaledb/
 [timescaledb-getting-started]: /getting-started/
-[timescaledb-hypertable]: /overview/core-concepts/
+[timescaledb-hypertable]: /overview/core-concepts/hypertables-and-chunks/
 [timescaledb-hypertable-create-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [jdk]: https://openjdk.java.net
 [pg-jdbc-driver]: https://jdbc.postgresql.org
