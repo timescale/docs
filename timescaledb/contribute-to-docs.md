@@ -187,7 +187,7 @@ that case, feel free to ignore them.
 ### W [](#W)
 
 *Will*
-: Do not use. UIt usually indicates that you are writing in future tense.
+: Do not use. It usually indicates that you are writing in future tense.
 Always write in simple present tense.
 
 :+1: After installation, you see a message.
