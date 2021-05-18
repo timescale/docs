@@ -40,7 +40,7 @@ spelling and definitions, consult the dictionary.
 
 
 ## Language
-We use standard US English, with an emphasis on plain (or classical) language, and use the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
+We use standard US English, with an emphasis on plain (or classical) language, in simple present tense, using the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
 
 For example, here are three ways of writing one sentence:
 
@@ -65,8 +65,6 @@ Never assume that because you've explained something earlier in a document,
 readers will know it later in the document. You can use cross-references to help
 guide readers to further information if they need it.
 
-And remember: words mean things.
-
 
 ## Grammar
 Grammar rules are tacit evolving conventions. They have no implicit value by
@@ -75,11 +73,7 @@ themselves, they only gain value because everyone is doing it.
 There are no hard and fast rules about dangling participles, split infinitives,
 or ending sentences with prepositions. Obeying these rules can often make
 language clearer but, in some cases, they make language more complicated. In
-that case, ignore them.
-
-
-## Word usage guide
-TO BE DEVELOPED
+that case, feel free to ignore them.
 
 
 ## Verbs
@@ -87,11 +81,124 @@ TO BE DEVELOPED
 *   `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
 *   `Press` a key or key combination on a keyboard.
 *   `Type` words or numbers using a keyboard.
-*   `Check` a checkbox.
-*   `Uncheck` a checkbox.
-*   `Select` an item in a menu.
-*   `Deselect` an item in a menu.
+*   `Check` or `uncheck` a checkbox.
+*   `Select` or `deselect` an item in a menu.
 *   `Navigate` to a page or location in a graphical user interface.
+
+
+## Word usage
+
+### A [](#A)
+
+*Adverbs*
+: Do not use.
+
+:+1: Install TimescaleDB.
+
+:x: Simply install TimescaleDB.
+
+*And/Or*
+: Do not use. You can usually pick one. If you're not sure, pick "and".
+
+:+1: I like apples and/or oranges.
+
+:x: I like apples and oranges.
+
+### B [](#B)
+
+### C [](#C)
+
+*Contractions*
+: Absolutely fine to use, but try not to overdo it.
+
+### D [](#D)
+
+### E [](#E)
+
+### F [](#F)
+
+*File system*
+: Two words.
+
+### G [](#G)
+
+### H [](#H)
+
+### I [](#I)
+
+### J [](#J)
+
+### K [](#K)
+
+### L [](#L)
+
+*Latin abbreviations*
+: Do not use.
+
+:+1: For example
+
+:x: eg
+
+### M [](#M)
+
+### N [](#N)
+
+### O [](#O)
+
+### P [](#P)
+
+### Q [](#Q)
+
+### R [](#R)
+
+### S [](#S)
+
+### T [](#T)
+
+*Timescale*
+: The name of the company. Do not use camel case.
+
+:+1: Timescale is hosting a virtual event.
+
+:x: I have installed Timescale to manage my time-series data.
+
+:x: TimeScale
+
+*TimescaleDB*
+: The name of the product. Capitalize the initial letter, and the "DB" at the end.
+
+:+1: "I have installed TimescaleDB to manage my time-series data."
+
+:x: "TimescaleDB is hosting a virtual event."
+
+:x: "TimeScaleDB"
+
+### U [](#U)
+
+*Utilize*
+: Do not use. Use "use" instead.
+
+### V [](#V)
+
+*Via*
+: Avoid if possible. There is usually a more accurate English word, like
+"through", "with", or "using".
+
+### W [](#W)
+
+*Will*
+: Do not use. UIt usually indicates that you are writing in future tense.
+Always write in simple present tense.
+
+:+1: After installation, you see a message.
+
+:x: After installation, you will see a message.
+
+### X [](#X)
+
+### Y [](#Y)
+
+### Z [](#Z)
 
 
 
