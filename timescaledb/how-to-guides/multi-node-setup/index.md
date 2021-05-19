@@ -15,22 +15,18 @@ a running PostgreSQL server and a loaded TimescaleDB extension. This
 is assumed for "access node" and "data node" in the instructions. More
 detail on the architecture can be found in the [Core Concepts][] section.
 
-TimescaleDB multi-node can be created as part of a self-managed deployment
-or (coming soon) as a managed cloud deployment. In order to set up a
-self-managed cluster, including how to configure the nodes for secure
-communication and creating users/roles across servers, please follow the 
-instructions in the following sections.
+TimescaleDB multi-node can be created as part of a self-managed deployment or as
+a managed cloud deployment.
 
-<highlight type="tip">
-The rest of this multi-node how-to **focuses primarily on setting up a TimescaleDB multi-node 
-in your own managed environment**. If you would like to give multi-node a try 
-without the management overhead, consider following our how-to, in order to 
-[setup and explore a multi-node cluster in Timescale Forge](/timescale-forge/latest/forge-multi-node/), 
-our fully managed database service. 
+To set up a self-managed cluster, including configuring the nodes for secure
+communication and creating users and roles across servers, follow the
+instructions in this section.
 
-[Sign-up for your free](https://forge.timescale.com/signup), 30-day trial and get
-started today!
-</highlight>
+If you would like to give multi-node a try  without the management overhead, you
+can [setup and explore a multi-node cluster in Timescale
+Forge][multi_node_forge],  our fully managed database
+service. [Sign-up for your free](https://forge.timescale.com/signup), 30-day
+trial and get started today!
 
 
 
@@ -50,3 +46,4 @@ started today!
 [postgresql-hba]: https://www.postgresql.org/docs/12/auth-pg-hba-conf.html
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
 [Core Concepts]: /overview/core-concepts/
+[multi_node_forge]: /timescale-forge/latest/forge-multi-node/
