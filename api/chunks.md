@@ -24,7 +24,7 @@ If the chunk's primary dimension is of a time datatype, `range_start` and
 | `range_end` | TIMESTAMP WITH TIME ZONE | End of the range for the chunk's dimension |
 | `range_start_integer` | BIGINT | Start of the range for the chunk's dimension, if the dimension type is integer based |
 | `range_end_integer` | BIGINT | End of the range for the chunk's dimension, if the dimension type is integer based |
-| `is_compressed` | BOOLEAN | Is the data in the chunk compressed? NULL for distributed chunks. Use `chunk_compression_stats()` function to get compression status for distributed chunks.|
+| `is_compressed` | BOOLEAN | Is the data in the chunk compressed? <br/><br/> Note that for distributed hypertables, this is the cached compression status of the chunk on the access node. The cached status on the access node and data node will not be in sync in some scenarios: e.g. user compresses/decompresses the chunk on the data node instead of the access node, sets up compression policies directly on data nodes etc. <br/><br/> Use `chunk_compression_stats()` function to get real-time compression status for distributed chunks.|
 | `chunk_tablespace` | TEXT | Tablespace used by the chunk|
 | `data_nodes` | ARRAY | Nodes on which the chunk is replicated. This is applicable only to chunks for distributed hypertables |
 
