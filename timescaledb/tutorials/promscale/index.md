@@ -66,7 +66,7 @@ Let's get started with the first section, [Why use Promscale & TimescaleDB to st
 [timescale-analytics]:https://github.com/timescale/timescale-analytics
 [hello-timescale]:https://docs.timescale.com/latest/tutorials/tutorial-hello-timescale
 [promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
-[promscale-benefits]: /tutorials/getting-started-with-promscale/promscale-benefits
-[promscale-how-it-works]: /tutorials/getting-started-with-promscale/promscale-how-it-works
-[promscale-install]: /tutorials/getting-started-with-promscale/promscale-install
-[promscale-run-queries]: /tutorials/getting-started-with-promscale/promscale-run-queries
+[promscale-benefits]: /tutorials/promscale/promscale-benefits
+[promscale-how-it-works]: /tutorials/promscale/promscale-how-it-works
+[promscale-install]: /tutorials/promscale/promscale-install
+[promscale-run-queries]: /tutorials/promscale/promscale-run-queries
