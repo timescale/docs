@@ -20,5 +20,8 @@ decompress the chunk(s) first.
 
 Starting with TimescaleDB 2.1, users have the ability to modify the schema
 of hypertables that have compressed chunks.
-Specifically, you can add columns to and rename existing columns of 
+Specifically, you can add columns to and rename existing columns of
 such compressed hypertables.
+
+[blog-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
+[using-compression]: /how-to-guides/compression/index/
