@@ -2,7 +2,7 @@
 
 Welcome to Timescale Forge! Timescale Forge is a cloud-native TimescaleDB
 as a service that is easy to get started and powerful enough for the most
-demanding scenarios
+demanding scenarios.
 
 This tutorial will walk you through setting up your Timescale Forge account and
 completing your first tutorial project.
@@ -53,7 +53,7 @@ a safe place:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-confirmation.png" alt="View Timescale Forge service information"/>
 
 <highlight type="warning">
-If you forget your password in the future, you can reset your password from the *service dashboard*.
+If you forget your password, you can reset it from the `Operations` menu in the service dashboard.
 </highlight>
 
 It will take a couple minutes for your service to be provisioned. When your database is
