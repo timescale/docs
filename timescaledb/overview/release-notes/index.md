@@ -15,11 +15,11 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 
 For our next release, we plan to add:
 
-- Compression policies on distributed hypertables
-- Partially mutable compressed chunks to support INSERTs into a compressed hypertable.
+- Downgrading between Timescale DB 2.x versions.
+- High Availability: Adding nodes to a multinode cluster.
 - Various bug fixes.
 
-The current GA (Generally Available) version is 2.2.1.
+The current GA (Generally Available) version is 2.3.0
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -33,7 +33,7 @@ functionality works, and, as a result, made APIs simpler and more consistent,
 while also empowering users with more control and flexibility to customize
 behaviors to suit your needs.  Some of these API updates are **breaking changes**.
 
-### What's new in TimescaleDB 2.2.1:
+### What's new in TimescaleDB 2.3.0:
 
 Skip Scan optimization on single node and multinode. This feature offers significant
 improvements in performance of `SELECT` queries with `DISTINCT ON`.
@@ -49,14 +49,14 @@ planning, compression, and policies.
 
 **PostgreSQL 11 deprecation announcement**
 
-Timescale is working hard on our next exciting features. To make that
-possible, we require functionality that is unfortunately absent on
-PostgreSQL 11. For this reason, we will continue supporting PostgreSQL
-11 until mid-June 2021. Sooner to that time, we will announce the
-specific version of TimescaleDB in which PostgreSQL 11 support will be removed.
+Timescale is working hard on our next exciting features. 
+To make that possible, we require functionality that is unfortunately absent on
+PostgreSQL 11. 
+For this reason, Timescale DB 2.3 will be the last version supporting PostgreSQL 11. 
+From TimescaleDB 2.4 forward we will no longer support PostgreSQL 11.
 
 <highlight type="tip">
-TimescaleDB 2.2.1 is currently GA, and we encourage
+TimescaleDB 2.3 is currently GA, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -75,6 +75,9 @@ past releases and how you can learn more.
 accidentally triggering the load of a previous DB version.**
 
 ## Unreleased
+
+## 2.3.0 (2021-05-25)
+TBD
 
 ## 2.2.1 (2021-05-05)
 
