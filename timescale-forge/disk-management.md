@@ -52,7 +52,7 @@ You can only resize your services once every six hours.
 
 ### Procedure: Increasing service resources
 1.  In the Timescale Forge console, navigate to `Services` and click the service you want to adjust. Navigate to the `Operations` tab, and go to the `Resources` section.
-1.  Adjust the sliders for CPU and disk size as required. If you increase the disk size past a certain point, you will also need to increase the CPU size to handle the increased disk size.
+1.  Adjust the sliders for CPU and disk size as required. If you increase the disk size past a certain point, you may also need to increase the CPU size to handle the increased disk size.
 1.  Review the new sizes and costs in the panel on the right-hand side, and click `Restart and apply` when you are happy with the changes.
 1.  The resources take a few seconds to increase, and when the increase is complete, your database is immediately available on the new resources. If your database is in read-only mode, the read-only protection is automatically removed, and you can begin writing data immediately.
 
@@ -63,7 +63,7 @@ You can only resize your services once every six hours.
 If you need to perform actions on your database to reduce your data usage, you can turn off read-only mode. For example, you need read-write access if you want to compress data, delete rows or tables, or drop old data using data retention policies.
 
 <highlight type="warning">
-We highly recommend that you do not manually enable read-write mode on a database that is over 99% capacity. You should consider increasing the disk size before you do this. Alternatively, you can enable read-write access on individual session, while leaving the database in read-only mode.
+We highly recommend that you do not manually enable read-write mode on a database that is over 99% capacity. You should consider increasing the disk size before you do this. Alternatively, you can enable read-write access on an individual session, while leaving the database in read-only mode.
 </highlight>
 
 ### Procedure: Enabling read-write access on an individual session
@@ -86,4 +86,4 @@ We highly recommend that you do not manually enable read-write mode on a databas
     SELECT add_retention_policy('purchases', interval '90 days');
     ```
 
-As soon as the storage consumption drops below the threshold, the read-only protection is automatically removed, and can start writing data again.
+As soon as the storage consumption drops below the threshold, the read-only protection is automatically removed, and you can start writing data again.
