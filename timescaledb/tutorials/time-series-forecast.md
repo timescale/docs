@@ -769,14 +769,14 @@ wide variety of statistical models and machine learning algorithms
 that you can use to analyze and make predictions on time-series
 data in your TimescaleDB database.
 
-[hello_timescale]: /tutorials/tutorial-hello-timescale
+[hello_timescale]: /timescaledb/latest/getting-started/
 [install]: /how-to-guides/install-timescaledb/
-[tutorial-postgis]: /tutorials/tutorial-hello-nyc#tutorial-postgis
+[tutorial-postgis]: /tutorials/nyc-taxi-cab/#mission-monitoring
 [install_r]: https://www.r-project.org/
 [install_python]: https://www.python.org/downloads/
 [forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
 [NYCTLC]: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
-[gap_filling]: /how-to-guides/query-data/advanced-analytic-queries/#gap-filling
+[gap_filling]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries/#gap-filling
 [arima]: https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 [rpostgres]: https://cran.r-project.org/web/packages/RPostgres/index.html
 [r-xts]: https://cran.r-project.org/web/packages/xts/xts.pdf
