@@ -66,7 +66,7 @@ If you need to perform actions on your database to reduce your data usage, you c
 We highly recommend that you do not manually enable read-write mode on a database that is over 99% capacity. You should consider increasing the disk size before you do this. Alternatively, you can enable read-write access on individual session, while leaving the database in read-only mode.
 </highlight>
 
-### Procedure: Enable read-write access on an individual session
+### Procedure: Enabling read-write access on an individual session
 1.  Connect to your database using `psql` and turn off read-only protection for the current session:
     ```sql
     SET default_transaction_read_only TO off;
