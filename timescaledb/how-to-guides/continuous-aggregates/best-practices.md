@@ -91,5 +91,5 @@ SELECT min_time::timestamp FROM device_summary;
 
 
 
-[api-continuous-aggregates-info]: /api/:currentVersion:/informational-views/timescaledb_information-continuous_aggregates/
+[api-continuous-aggregates-info]: /api/:currentVersion:/informational-views/timescaledb_information.continuous_aggregates/
 [api-set-chunk-interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval
