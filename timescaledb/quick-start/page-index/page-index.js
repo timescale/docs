@@ -14,6 +14,9 @@ module.exports = [
         },
         {
           href: "golang"
+        },
+        {
+          href: "java"
         }
       ]
     }
