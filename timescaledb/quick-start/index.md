@@ -12,9 +12,11 @@ feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
 - **[Python and TimescaleDB][python-quickstart]**: A quick start guide for Python developers looking to use TimescaleDB.
 - **[Ruby on Rails and TimescaleDB][ruby-quickstart]**: A quick start guide for Ruby on Rails developers looking to use TimescaleDB.
 - **[Golang and TimescaleDB][go-quickstart]**: A quick start guide for Golang developers looking to use TimescaleDB.
+- **[Java and TimescaleDB][java-quickstart]**: A quick start guide for Java developers looking to use TimescaleDB.
 
 
 [node-quickstart]: /quick-start/node
 [python-quickstart]: /quick-start/python
 [ruby-quickstart]: /quick-start/ruby
 [go-quickstart]: /quick-start/golang
+[java-quickstart]: /quick-start/java

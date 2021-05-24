@@ -2,7 +2,7 @@
 
 Welcome to Timescale Forge! Timescale Forge is a cloud-native TimescaleDB
 as a service that is easy to get started and powerful enough for the most
-demanding scenarios
+demanding scenarios.
 
 This tutorial will walk you through setting up your Timescale Forge account and
 completing your first tutorial project.
@@ -30,7 +30,7 @@ and, failing that, please [contact us][contact-timescale].
 
 1. First, supply your service name (e.g., `acmecorp-test` or `acmecorp-dev`).
 1. Next, choose your CPU and memory configuration, from (0.25 CPU, 1GB RAM) to
-(8 CPU, 32 GB RAM).
+(32 CPU, 128 GB RAM).
 1. Select your storage requirements, from 10 GB to 1 TB.  Note that with TimescaleDB
 compression, this is typically equivalent to 170 GB to 67+ TB of uncompressed
 storage (although compression rates can vary based on your data).
@@ -53,7 +53,7 @@ a safe place:
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-confirmation.png" alt="View Timescale Forge service information"/>
 
 <highlight type="warning">
-If you forget your password in the future, you can reset your password from the *service dashboard*.
+If you forget your password, you can reset it from the `Operations` menu in the service dashboard.
 </highlight>
 
 It will take a couple minutes for your service to be provisioned. When your database is
