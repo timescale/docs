@@ -459,6 +459,10 @@ module.exports = [
         ]
       },
       {
+        title: "Promscale",
+        href: "promscale"
+      },
+      {
         href: "alerting"
       },
       {
