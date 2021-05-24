@@ -18,7 +18,7 @@ database services. You can check your health data by navigating to the `metrics`
 tab in your service dashboard. These metrics are also monitored by the Timescale
 operations team.
 
-*Insert screenshot here*
+<img class="main-content__illustration" src="https://assets.timescale.com/images/diagrams/forge_metrics.png" alt="Timescale Forge metrics dashboard"/>
 
 If your database exceeds a storage threshold of available resources, some
 automated actions are triggered, including notifications, and preventative
@@ -56,7 +56,7 @@ You can only resize your services once every six hours.
 1.  Review the new sizes and costs in the panel on the right-hand side, and click `Restart and apply` when you are happy with the changes.
 1.  The resources take a few seconds to increase, and when the increase is complete, your database is immediately available on the new resources. There is no downtime associated with this action. If your database is in read-only mode, the read-only protection is automatically removed, and you can begin writing data immediately.
 
-*Insert screenshot here*
+<img class="main-content__illustration" src="https://assets.timescale.com/images/diagrams/forge_resources.png" alt="Timescale Forge change resources"/>
 
 ## Storage recovery
 
