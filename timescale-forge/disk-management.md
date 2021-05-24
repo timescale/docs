@@ -54,7 +54,7 @@ You can only resize your services once every six hours.
 1.  In the Timescale Forge console, navigate to `Services` and click the service you want to adjust. Navigate to the `Operations` tab, and go to the `Resources` section.
 1.  Adjust the sliders for CPU and disk size as required. If you increase the disk size past a certain point, you may also need to increase the CPU size to handle the increased disk size.
 1.  Review the new sizes and costs in the panel on the right-hand side, and click `Restart and apply` when you are happy with the changes.
-1.  The resources take a few seconds to increase, and when the increase is complete, your database is immediately available on the new resources. If your database is in read-only mode, the read-only protection is automatically removed, and you can begin writing data immediately.
+1.  The resources take a few seconds to increase, and when the increase is complete, your database is immediately available on the new resources. There is no downtime associated with this action. If your database is in read-only mode, the read-only protection is automatically removed, and you can begin writing data immediately.
 
 *Insert screenshot here*
 
@@ -73,17 +73,17 @@ We highly recommend that you do not manually enable read-write mode on a databas
     ```
 1.  Turn on compression:
     ```sql
-    ALTER TABLE purchases SET (
+    ALTER TABLE <table_name> SET (
       timescaledb.compress,
-      timescaledb.compress_segmentby = 'sku'
+      timescaledb.compress_segmentby = '<type>'
     );
 
-    SELECT add_compression_policy('purchases', interval '1 day');
+    SELECT add_compression_policy('<table_name>', interval '1 day');
     ```
 1.  You can also create a data retention policy to only retain, for example, data
     for 90 days. This starts working immediately on old data:
     ```sql
-    SELECT add_retention_policy('purchases', interval '90 days');
+    SELECT add_retention_policy('<table_name>', interval '90 days');
     ```
 
 As soon as the storage consumption drops below the threshold, the read-only protection is automatically removed, and you can start writing data again.
