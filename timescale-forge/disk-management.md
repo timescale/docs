@@ -36,7 +36,7 @@ So that you aren't overwhelmed by automated message, the alerting thresholds use
 
 ## Automated overload protection
 
-If your database continues to increase in size past these thresholds, automated overload protection is activated when your disk becomes 99% full. When this happens, your database is put into read-only mode, and you receive a notification on email and in the Timescale Forge console.
+If your database continues to increase in size past these thresholds, automated overload protection is activated when your disk becomes 99% full. When this happens, your database is put into read-only mode, and you receive a notification on email and the Timescale Forge console shows the changed status.
 
 When this happens, you can still query your database, but you cannot add any new data to it. This is to ensure that your disk does not fill up to 100%, which could prevent you from recovering the database.
 
