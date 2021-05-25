@@ -19,7 +19,7 @@ For our next release, we plan to add:
 - High Availability: Adding nodes to a multinode cluster.
 - Various bug fixes.
 
-The current GA (Generally Available) version is 2.3.0
+The current GA (Generally Available) version is 2.3.0.
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
