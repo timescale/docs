@@ -98,12 +98,13 @@ CALL run_job(<job_id>);
 One of the current limitations of TimescaleDB is that once chunks are converted
 into compressed column form, we do not currently allow updates and deletes
 of the data or changes to the schema without manual
-decompression, except as noted [above](#compression-schema-changes). In other
+decompression, except as noted [above][compression-schema-changes]. In other
 words, chunks are partially immutable in compressed form. Attempts to modify
 the chunks' data in those cases will either error or fail silently (as
 preferred by users). We plan to remove this limitation in future releases.
 
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
+[compression-schema-changes]: /how-to-guides/compression/modify-a-schema/
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
 [run-job]: /api/:currentVersion:/actions-and-automation/run_job/
