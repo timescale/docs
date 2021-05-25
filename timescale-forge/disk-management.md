@@ -4,7 +4,7 @@ Timescale Forge contains several mechanisms for managing disk space on your
 services. There are four key tasks that Forge performs to handle disk space:
 
 1.  Detect if storage capacity begins to fill up
-1.  Notify you about the growth
+1.  Notify you about the growth of storage consumption
 1.  Automatically activate overload protections
 1.  Allow you to return your database to a normal state
 
@@ -34,7 +34,8 @@ notifications. These notifications occur at:
 *   95%
 
 So that you aren't overwhelmed by automated message, the alerting thresholds use
-low- and high-watermarks, and we limit the number of messages we send you.
+low- and high-watermarks, and we limit the frequency of messages we send you
+about a particular service.
 
 ## Automated overload protection
 
@@ -57,7 +58,8 @@ avoid the problem occurring again in the future.
 You can increase your storage size in the Timescale Forge console.
 
 <highlight type="warning">
-You can only resize your services once every six hours.
+You can only increase your service's storage once every six hours, and you cannot
+currently decrease your storage size once set. 
 </highlight>
 
 ### Procedure: Increasing service resources
@@ -65,15 +67,14 @@ You can only resize your services once every six hours.
 you want to adjust. Navigate to the `Operations` tab, and go to the `Resources`
 section.
 1.  Adjust the sliders for CPU and disk size as required. If you increase the
-disk size past a certain point, you may also need to increase the CPU size to
-handle the increased disk size.
+disk size past a certain point, we also recommend increasing the CPU size to
+handle the increased disk size (although not required).
 1.  Review the new sizes and costs in the panel on the right-hand side, and
 click `Restart and apply` when you are happy with the changes.
 1.  The resources take a few seconds to increase, and when the increase is
-complete, your database is immediately available on the new resources. There is
-no downtime associated with this action. If your database is in read-only mode,
-the read-only protection is automatically removed, and you can begin writing
-data immediately.
+complete, your database is immediately available on the new resources. If your
+database is in read-only mode, the read-only protection is automatically removed,
+and you can begin writing data immediately.
 
 <img class="main-content__illustration" src="https://assets.timescale.com/images/diagrams/forge_resources.png" alt="Timescale Forge change resources"/>
 
