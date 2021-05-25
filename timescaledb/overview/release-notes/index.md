@@ -52,8 +52,8 @@ planning, compression, and policies.
 Timescale is working hard on our next exciting features. 
 To make that possible, we require functionality 
 that is unfortunately absent on PostgreSQL 11. 
-For this reason, Timescale DB 2.3 will be the last version supporting PostgreSQL 11. 
-From TimescaleDB 2.4 forward we will no longer support PostgreSQL 11.
+For this reason, TimescaleDB 2.3 will be the final version that supports PostgreSQL 11.  
+TimescaleDB 2.4 will require PostgreSQL 12 or 13.
 
 <highlight type="tip">
 TimescaleDB 2.3 is currently GA, and we encourage
