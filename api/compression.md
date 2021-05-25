@@ -24,9 +24,9 @@ Compressed chunks have the following limitations:
 ### Restrictions
 
 In general, compressing a hypertable does impose some limitations on the types
-of data modifications that can occur on data inside a compressed chunk. The
-table below provides a brief outline of allowed modifications based on the
-version of TimescaleDB you are currently running.
+of data modifications that can occur on data inside a compressed chunk. 
+The table below provides a brief outline of allowed modifications 
+based on the version of TimescaleDB you are currently running.
 
 |TimscaleDB Version|Supported data modifications on compressed chunks|
 |---|---|
