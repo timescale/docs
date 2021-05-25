@@ -2,8 +2,9 @@
 name: Request for change
 about: Request a change in content/appearance/functionality
 title: "[Docs RFC]"
-labels: ''
+labels: documentation, enhancement
 assignees: ''
+
 ---
 
 # Describe change in content, appearance, or functionality
