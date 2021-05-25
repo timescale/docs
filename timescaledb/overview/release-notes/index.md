@@ -50,8 +50,8 @@ planning, compression, and policies.
 **PostgreSQL 11 deprecation announcement**
 
 Timescale is working hard on our next exciting features. 
-To make that possible, we require functionality that is unfortunately absent on
-PostgreSQL 11. 
+To make that possible, we require functionality 
+that is unfortunately absent on PostgreSQL 11. 
 For this reason, Timescale DB 2.3 will be the last version supporting PostgreSQL 11. 
 From TimescaleDB 2.4 forward we will no longer support PostgreSQL 11.
 
