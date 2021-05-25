@@ -31,7 +31,8 @@ follow these [setup instructions][distributed-hypertables-setup].
 In addition to multi-node, we've also reassessed how some core
 functionality works, and, as a result, made APIs simpler and more consistent,
 while also empowering users with more control and flexibility to customize
-behaviors to suit your needs.  Some of these API updates are **breaking changes**.
+behaviors to suit your needs.  
+Some of these API updates are **breaking changes**.
 
 ### What's new in TimescaleDB 2.3.0:
 
