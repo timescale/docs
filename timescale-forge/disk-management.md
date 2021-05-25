@@ -34,7 +34,7 @@ notifications. These notifications occur at:
 *   95%
 
 So that you aren't overwhelmed by automated message, the alerting thresholds use
-low- and high-watermarks, and only one message is sent per database per day.
+low- and high-watermarks, and we limit the number of messages we send you.
 
 ## Automated overload protection
 
@@ -48,7 +48,9 @@ data to it. This is to ensure that your disk does not fill up to 100%, which
 could prevent you from recovering the database.
 
 With your database in read-only mode, you need to decide if you are going to
-increase your storage capacity, or reduce the size of your database.
+increase your storage capacity, or reduce the size of your database. When you
+have done that, you can also add a retention policy, or turn on compression, to
+avoid the problem occurring again in the future.
 
 ## Online storage resizing
 
@@ -89,9 +91,15 @@ read-write access on an individual session, while leaving the database in
 read-only mode. </highlight>
 
 ### Procedure: Enabling read-write access on an individual session
-1.  Connect to your database using `psql` and turn off read-only protection for the current session:
+1.  Connect to your database using `psql` and turn off read-only protection
+    for the current session:
     ```sql
     SET default_transaction_read_only TO off;
+    ```
+1.  Create a data retention policy to only retain, for example, data for 90
+    days. This starts working immediately on old data:
+    ```sql
+    SELECT add_retention_policy('<table_name>', interval '90 days');
     ```
 1.  Turn on compression:
     ```sql
@@ -99,13 +107,7 @@ read-only mode. </highlight>
       timescaledb.compress,
       timescaledb.compress_segmentby = '<type>'
     );
-
     SELECT add_compression_policy('<table_name>', interval '1 day');
-    ```
-1.  You can also create a data retention policy to only retain, for example, data
-    for 90 days. This starts working immediately on old data:
-    ```sql
-    SELECT add_retention_policy('<table_name>', interval '90 days');
     ```
 
 As soon as the storage consumption drops below the threshold, the read-only
