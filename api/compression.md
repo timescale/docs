@@ -30,7 +30,7 @@ based on the version of TimescaleDB you are currently running.
 
 |TimscaleDB Version|Supported data modifications on compressed chunks|
 |---|---|
-| 1.5 - 2.0 | Data and schema modifications supported. |
+| 1.5 - 2.0 | Data and schema modifications are not supported. |
 | 2.1 - 2.2 | Schema may be modified on compressed hypertables. Data modification not supported. |
 | 2.3 | Schema modifications and basic insert of new data are allowed. Deleting, updating and some advanced insert statements are not supported. |
 
@@ -50,3 +50,8 @@ Altering data of compressed chunks still has some limitations:
     - You cannot use the `RETURNING` clause.
   - Triggers are not fully supported when inserting into compressed chunks:
     - You cannot use `AFTER INSERT` row-level triggers (`FOR EACH ROW`).
+
+
+
+[blog-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
+[using-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
