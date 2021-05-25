@@ -30,9 +30,9 @@ based on the version of TimescaleDB you are currently running.
 
 |TimscaleDB Version|Supported data modifications on compressed chunks|
 |---|---|
-| 1.6 - 2.0 | Data and schema modifications supported. |
+| 1.5 - 2.0 | Data and schema modifications supported. |
 | 2.1 - 2.2 | Schema may be modified on compressed hypertables. Data modification not supported. |
-| 2.3 | Schema modifications and basic insert of new data is allowed. Deleting, updating and some advanced insert statements are not supported |
+| 2.3 | Schema modifications and basic insert of new data are allowed. Deleting, updating and some advanced insert statements are not supported. |
 
 Starting with TimescaleDB 2.1, users have the ability to modify the schema
 of hypertables that have compressed chunks.
