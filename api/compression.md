@@ -39,8 +39,8 @@ of hypertables that have compressed chunks.
 Specifically, you can add columns to and rename existing columns of 
 such compressed hypertables.
 
-Starting with TimescaleDB 2.3, users have the ability to insert data into
-compressed chunks, and enable compression policies on distributed hypertables.
+Starting with TimescaleDB 2.3, users have the ability to insert data into compressed chunks 
+and to enable compression policies on distributed hypertables.
 
 Altering data of compressed chunks still has some limitations:
   - You cannot execute `UPDATE` or `DELETE` statements on compressed chunks.
