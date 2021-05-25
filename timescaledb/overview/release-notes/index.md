@@ -16,7 +16,7 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 For our next release, we plan to add:
 
 - Downgrading between Timescale DB 2.x versions.
-- High Availability: Adding nodes to a multinode cluster.
+- Elasticity: Move data when expanding or shrinking a multi-node cluster
 - Various bug fixes.
 
 The current GA (Generally Available) version is 2.3.0.
