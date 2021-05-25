@@ -95,6 +95,7 @@ accidentally triggering the load of a previous DB version.**
 **Thanks**
 * @yyjdelete for reporting a crash with decompress_chunk and identifying the bug in the code
 * @fabriziomello for documenting the prerequisites when compiling against PostgreSQL 13
+
 ## 2.2.1 (2021-05-05)
 
 This maintenance release contains bugfixes since the 2.2.0 release. We
