@@ -83,8 +83,8 @@ for choosing the age at which to compress the data is when your query patterns
 change from shallow and wide to deep and narrow.
 
 The other thing to consider is that modifications to chunks that have been compressed
-are inefficient. In fact, the current version of compression disallows UPDATES
-and DELETES on compressed chunks completely (although you can manually decompress
+are inefficient. In fact, the current version of compression does not support UPDATES
+and DELETES on compressed chunks (although you can manually decompress
 the chunk to modify it). Because of this current limitation, you want to compress
 a chunk only after it is unlikely to be modified further. The amount of delay
 you should add to chunk compression to minimize the need to decompress chunks will be different
