@@ -45,7 +45,7 @@ notification on email and the Timescale Forge console shows the changed status.
 
 When this happens, you can still query your database, but you cannot add any new
 data to it. This is to ensure that your disk does not fill up to 100%, which
-could prevent you from recovering the database.
+could prevent you from crashing due to an out of memory (OOM) error.
 
 With your database in read-only mode, you need to decide if you are going to
 increase your storage capacity, or reduce the size of your database. When you
