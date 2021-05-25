@@ -96,7 +96,7 @@ CALL run_job(<job_id>);
 ## Future Work [](future-work)
 
 One of the current limitations of TimescaleDB is that once chunks are converted
-into compressed column form, we do not currently allow updates and deletes
+into compressed column form, we do not allow updates and deletes
 of the data or changes to the schema without manual
 decompression, except as noted [above][compression-schema-changes]. In other
 words, chunks are partially immutable in compressed form. Attempts to modify

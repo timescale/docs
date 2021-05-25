@@ -23,10 +23,16 @@ Compressed chunks have the following limitations:
   
 ### Restrictions
 
-The current version does not fully support altering or modifying data in
-compressed chunks. The data can be queried without any modifications, however
-if you need to backfill or update data in a compressed chunk you will need to
-decompress the chunk(s) first.
+In general, compressing a hypertable does impose some limitations on the types
+of data modifications that can occur on data inside a compressed chunk. The
+table below provides a brief outline of allowed modifications based on the
+version of TimescaleDB you are currently running.
+
+|TimscaleDB Version|Supported data modifications on compressed chunks|
+|---|---|
+| 1.6 - 2.0 | Data and schema modifications supported. |
+| 2.1 - 2.2 | Schema may be modified on compressed hypertables. Data modification not supported. |
+| 2.3 | Schema modifications and basic insert of new data is allowed. Deleting, updating and some advanced insert statements are not supported |
 
 Starting with TimescaleDB 2.1, users have the ability to modify the schema
 of hypertables that have compressed chunks.
