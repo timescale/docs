@@ -2,12 +2,12 @@
 name: Bug report
 about: A problem found in the docs content
 title: "[Content Bug]"
-labels: ''
+labels: bug, documentation
 assignees: ''
+
 ---
 
 _Use this template for reporting bugs in the docs._
-_For bugs in the site, use https://github.com/timescale/web-documentation/issues/new instead_
 
 
 # Describe the bug
