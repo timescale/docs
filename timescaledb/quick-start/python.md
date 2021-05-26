@@ -188,14 +188,14 @@ First, we open a cursor with our connection to the database, then using prepared
 statements formulate our `INSERT` SQL statement and then we execute that statement,
 
 ```python
-sensors = [('a','floor'),('a', 'ceiling'), ('b','floor'), ('b', 'ceiling')]
+sensors = [('a', 'floor'), ('a', 'ceiling'), ('b', 'floor'), ('b', 'ceiling')]
 cur = conn.cursor()
 for sensor in sensors:
-try:
-              cur.execute("INSERT INTO sensors (type, location) VALUES (%s, %s);",
-           	   (sensor[0], sensor[1]))
-           except (Exception, psycopg2.Error) as error:
-           print(error.pgerror)
+  try:
+    cur.execute("INSERT INTO sensors (type, location) VALUES (%s, %s);",
+                (sensor[0], sensor[1]))
+  except (Exception, psycopg2.Error) as error:
+    print(error.pgerror)
 conn.commit()
 ```
 
@@ -204,14 +204,14 @@ separate the formulation of our SQL statement, `SQL`, with the data being passed
 with it into the prepared statement, `data`:
 
 ```python
-   SQL = "INSERT INTO sensors (type, location) VALUES (%s, %s);"
-   for sensor in sensors:
-       try:
-           data = (sensor[0], sensor[1])
-           cur.execute(SQL, data)
-       except (Exception, psycopg2.Error) as error:
-           print(error.pgerror)
-   conn.commit()
+SQL = "INSERT INTO sensors (type, location) VALUES (%s, %s);"
+for sensor in sensors:
+  try:
+    data = (sensor[0], sensor[1])
+    cur.execute(SQL, data)
+  except (Exception, psycopg2.Error) as error:
+    print(error.pgerror)
+conn.commit()
 ```
 
 Congratulations, you've successfully inserted data into TimescaleDB using Python.
