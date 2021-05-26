@@ -16,6 +16,10 @@ jobs:
         run: |
           echo "::set-output name=DEV_FOLDER::$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')"
         id: timescale
+      - name: Set variables
+        run: |
+          echo "::set-output name=FORK_DEV_FOLDER::$(echo ${github.event.pull_request.head.ref} | sed 's|/|-|')"
+        id: timescale
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
