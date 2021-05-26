@@ -5,11 +5,11 @@ This quick start guide is designed to get the Python developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert_rows)
-* [Execute a query on your Timescale database](#execute_query)
+* [Connect to TimescaleDB](#connect-python-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Create a hypertable](#create-hypertable)
+* [Insert a batch of rows into TimescaleDB](#insert-rows-into-timescaledb)
+* [Execute a query on TimescaleDB](#execute-a-query)
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ you'll learn how to:
 * `psycopg2` library, [which you can install with pip][psycopg2-docs]
 * Optionally, a [Python virtual environment][virtual-env]
 
-## Connect Python to TimescaleDB [](new_database)
+## Connect Python to TimescaleDB
 
 ### Step 1: Import psycopg2 library
 
@@ -111,11 +111,11 @@ query from Step 1 and committing the query we executed in order to make the chan
 Afterward, we close the cursor to clean up:
 
 ```python
-   cursor = conn.cursor()
-   #see definition in Step 1
-   cursor.execute(query_create_sensors_table)
-   conn.commit()
-   cursor.close()
+cursor = conn.cursor()
+# see definition in Step 1
+cursor.execute(query_create_sensors_table)
+conn.commit()
+cursor.close()
 ```
 
 Congratulations, you've successfully created a relational table in TimescaleDB using Python.
@@ -131,7 +131,7 @@ and indexes, altering tables, inserting data, selecting data, etc... can (and sh
 all be executed on the hypertable.
 
 A hypertable is defined by a standard schema with column names and types, with at
-least one column specifying a time value.
+least one column specifying a time value. [Read more about hypertables][hypertable-docs].
 
 
 ### Step 1: Formulate the CREATE TABLE SQL statement for your hypertable
@@ -140,8 +140,8 @@ First, we create a string variable which houses our `CREATE TABLE` SQL statement
 hypertable. Notice how the hypertable has the compulsory time column:
 
 ```python
-  #create sensor data hypertable
-   query_create_sensordata_table = """CREATE TABLE sensor_data (
+# create sensor data hypertable
+query_create_sensordata_table = """CREATE TABLE sensor_data (
                                            time TIMESTAMPTZ NOT NULL,
                                            sensor_id INTEGER,
                                            temperature DOUBLE PRECISION,
@@ -166,12 +166,12 @@ Now we bring it all together by opening a cursor with our connection, executing 
 statements from step 1 and step 2 and committing our changes and closing the cursor:
 
 ```python
-   cursor = conn.cursor()
-   cursor.execute(query_create_sensordata_table)   
-   cursor.execute(query_create_sensordata_hypertable)
-   #commit changes to the database to make changes persistent
-   conn.commit()
-   cursor.close()
+cursor = conn.cursor()
+cursor.execute(query_create_sensordata_table)
+cursor.execute(query_create_sensordata_hypertable)
+# commit changes to the database to make changes persistent
+conn.commit()
+cursor.close()
 ```
 
 Congratulations, you've successfully created a hypertable in your Timescale database using Python!
@@ -180,35 +180,36 @@ Congratulations, you've successfully created a hypertable in your Timescale data
 
 ### How to insert rows using Psycopg2
 
-Here's a typical pattern you'd use to insert some data into a table. In the
-example below, we insert the relational data in the array `sensors`, into the
+Here's a typical pattern you'd use to insert data into a table. In the
+example below, we insert a list of tuples (relational data) called `sensors`, into the
 relational table named `sensors`.
 
 First, we open a cursor with our connection to the database, then using prepared
-statements formulate our `INSERT` SQL statement and then we execute that statement,
+statements formulate our `INSERT` SQL statement and then execute that statement.
 
 ```python
 sensors = [('a', 'floor'), ('a', 'ceiling'), ('b', 'floor'), ('b', 'ceiling')]
-cur = conn.cursor()
+cursor = conn.cursor()
 for sensor in sensors:
   try:
-    cur.execute("INSERT INTO sensors (type, location) VALUES (%s, %s);",
+    cursor.execute("INSERT INTO sensors (type, location) VALUES (%s, %s);",
                 (sensor[0], sensor[1]))
   except (Exception, psycopg2.Error) as error:
     print(error.pgerror)
 conn.commit()
 ```
 
-A cleaner way to pass variables to the `cur.execute` function is below, where we
-separate the formulation of our SQL statement, `SQL`, with the data being passed
-with it into the prepared statement, `data`:
+A cleaner way to pass variables to the `cursor.execute` function is to separate the formulation of our SQL 
+statement, `SQL`, from the data being passed with it into the prepared statement, `data`:
 
 ```python
 SQL = "INSERT INTO sensors (type, location) VALUES (%s, %s);"
+sensors = [('a', 'floor'), ('a', 'ceiling'), ('b', 'floor'), ('b', 'ceiling')]
+cursor = conn.cursor()
 for sensor in sensors:
   try:
     data = (sensor[0], sensor[1])
-    cur.execute(SQL, data)
+    cursor.execute(SQL, data)
   except (Exception, psycopg2.Error) as error:
     print(error.pgerror)
 conn.commit()
@@ -220,72 +221,99 @@ Congratulations, you've successfully inserted data into TimescaleDB using Python
 
 While using `psycopg2` by itself may be sufficient for you to insert rows into your
 hypertable, if you need quicker performance, you can use
-[pgcopy][pg-copy-docs]. To do this, install `pgcopy` using `pip3` or the like and
+[pgcopy][pg-copy-docs]. To do this, install `pgcopy` [using pip][pgcopy-install] and
 then add this line to your list of `import` statements:
 
 ```python
 from pgcopy import CopyManager
 ```
 
-Here's some sample code which shows how to insert data into Timescale using `pgcopy`,
-using the example of sensor data from four sensors:
-
-```python
-#insert using pgcopy
-def fast_insert(conn):
-   cur = conn.cursor()
-
-   #for sensors with ids 1-4
-   for id in range(1,4,1):
-       data = (id, )
-       #create random data
-       simulate_query = """SELECT  generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
-       %s as sensor_id,
-       random()*100 AS temperature,
-       random() AS cpu
-       """
-       cur.execute(simulate_query, data)
-       values = cur.fetchall()
-
-       #define columns names of the table you're inserting into
-       cols = ('time', 'sensor_id', 'temperature', 'cpu')
-
-       #create copy manager with the target table and insert!
-       mgr = CopyManager(conn, 'sensor_data', cols)
-       mgr.copy(values)
-
-   #commit after all sensor data is inserted
-   #could also commit after each sensor insert is done
-   conn.commit()
-
-   #check if it worked
-   cur.execute("SELECT * FROM sensor_data LIMIT 5;")
-   print(cur.fetchall())
-   cur.close()
-```
-
-
 ### Step 1: Get data to insert into database
 First we generate random sensor data - you would replace this step with funneling
 in your real data from your data pipeline.
+
+```python
+# for sensors with ids 1-4
+for id in range(1, 4, 1):
+    data = (id,)
+    # create random data
+    simulate_query = """SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
+                               %s as sensor_id,
+                               random()*100 AS temperature,
+                               random() AS cpu
+                            """
+    cursor.execute(simulate_query, data)
+    values = cursor.fetchall()
+```
 
 ### Step 2: Define columns of table you're inserting data into
 Then we define the column names of the table we want to insert data into. In this
 case, we're using the `sensor_data` hypertable that we created in the
 "Generate a Hypertable" section above. This hypertable consists of the columns
 named `time`, `sensor_id`, `temperature` and `cpu`. We define these column names
-in a tuple of strings called `cols`.
+in a list of strings called `cols`.
+
+```python
+cols = ['time', 'sensor_id', 'temperature', 'cpu']
+```
 
 ### Step 3: Instantiate a CopyManager with your target table and column definition
 Lastly we create an instance of the `pgcopy` CopyManager, `mgr`, and pass our
-connection variable, hypertable name, and tuple of column names. Then we use
+connection variable, hypertable name, and list of column names. Then we use
 the `copy` function of the CopyManager to insert the data into the database
-performantly using `pgcopy` and then commit when we're done. There is also sample
-code to check if the insert worked.
+performantly using `pgcopy`.
+
+```python
+mgr = CopyManager(conn, 'sensor_data', cols)
+mgr.copy(values)
+```
+
+Finally, commit to persist changes:
+
+```python
+conn.commit()
+```
+
+Full sample code to insert data into TimescaleDB using `pgcopy`, using the example of sensor data from four sensors:
+
+```python
+# insert using pgcopy
+def fast_insert(conn):
+    cursor = conn.cursor()
+
+    # for sensors with ids 1-4
+    for id in range(1, 4, 1):
+        data = (id,)
+        # create random data
+        simulate_query = """SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
+                           %s as sensor_id,
+                           random()*100 AS temperature,
+                           random() AS cpu
+                        """
+        cursor.execute(simulate_query, data)
+        values = cursor.fetchall()
+
+        # column names of the table you're inserting into
+        cols = ['time', 'sensor_id', 'temperature', 'cpu']
+
+        # create copy manager with the target table and insert
+        mgr = CopyManager(conn, 'sensor_data', cols)
+        mgr.copy(values)
+
+    # commit after all sensor data is inserted
+    # could also commit after each sensor insert is done
+    conn.commit()
+```
+
+You can also check if the insertion worked:
+
+```python
+cursor.execute("SELECT * FROM sensor_data LIMIT 5;")
+print(cursor.fetchall())
+```
 
 Congratulations, you've successfully performantly inserted data into TimescaleDB
 using Python and the `pgcopy` library.
-
 
 ## Execute a query [](execute_query)
 
@@ -302,49 +330,56 @@ Next we'll open a cursor from our existing database connection, `conn`,
 and then execute the query we defined in Step 1:
 
 ```python
-cur = conn.cursor()
+cursor = conn.cursor()
 query = "SELECT * FROM rates;"
-cur.execute(query)
+cursor.execute(query)
 ```
 
 ### Step 3: Access results returned by query
 To access all the resulting rows returned by your query, we'll use
 one `pyscopg2`'s [results retrieval methods][results-retrieval-methods],
 such as `fetchall()` or `fetchmany()`. In the example below, we're simply
-printing the results of our query, row by row. Note the the result of `fetchall()`
+printing the results of our query, row by row. Note that the result of `fetchall()`
 is a list of tuples, so you can handle them accordingly:
 
 ```python
-cur = conn.cursor()
+cursor = conn.cursor()
 query = "SELECT * FROM rates;"
-cur.execute(query)
-for i in cur.fetchall():
-print(i)
-cur.close()
+cursor.execute(query)
+for row in cursor.fetchall():
+    print(row)
+cursor.close()
 ```
+
+If you want a list of dictionaries instead, you can define the cursor using [`DictCursor`][dictcursor-docs]:
+
+```python
+cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+```
+
+Using this cursor, `cursor.fetchall()` will return a list of dictionary-like objects.
 
 ### Executing queries using prepared statements
 For more complex queries than a simple `SELECT *`, we can use prepared statements
 to ensure our queries are executed safely against the database. We write our
-query using placeholders as shown in the sample code below. For more on how to
-properly use placeholders in psycopg2, see the [basic module usage document][psycopg2-docs-basics].
+query using placeholders as shown in the sample code below. For more information about properly using placeholders 
+in psycopg2, see the [basic module usage document][psycopg2-docs-basics].
 
 ```python
-   #query with placeholders
-   cur = conn.cursor()
+# query with placeholders
+cursor = conn.cursor()
+query = """
+           SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
+           FROM sensor_data
+           JOIN sensors ON sensors.id = sensor_data.sensor_id
+           WHERE sensors.location = %s AND sensors.type = %s
+           GROUP BY five_min
+           ORDER BY five_min DESC;
+           """
 
-   query = """
-   SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
-   FROM sensor_data
-   JOIN sensors ON sensors.id = sensor_data.sensor_id
-   WHERE sensors.location = %s AND sensors.type = %s
-   GROUP BY five_min
-   ORDER BY five_min DESC;
-   """
-
-   data = (location, sensor_type)
-   cur.execute(query, data)
-   results = cur.fetchall()
+data = (location, sensor_type)
+cursor.execute(query, data)
+results = cursor.fetchall()
 ```
 
 Congratulations, you've successfully executed a query on TimescaleDB using Python!
@@ -382,3 +417,6 @@ tutorials:
 [migrate]: /how-to-guides/migrate-data/
 [self-hosted-install]: http://localhost:8000/timescaledb/latest/how-to-guides/install-timescaledb/self-hosted/
 [cloud-install]: https://www.timescale.com/timescale-signup
+[pgcopy-install]: https://pypi.org/project/pgcopy/
+[dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
+[hypertable-docs]: /overview/core-concepts/hypertables-and-chunks/
