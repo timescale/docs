@@ -13,31 +13,23 @@ you'll learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
-helpful if you've seen SQL before.
-
-To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
-we can proceed to ingesting or creating sample data and finishing the tutorial.
-
-You will also need:
-
-* `psycopg2` library. See here for [installation instructions][psycopg2-docs]
-* An existing Python Virtual Environment. To set one up, follow this [tutorial][virtual-env]
+* At least cursory knowledge of Structured Query Language (SQL). The tutorial will walk you through each SQL command, 
+  but it will be helpful if you've seen SQL before
+* TimescaleDB installed, either in a [self-hosted environment][self-hosted-install] or [in the cloud][cloud-install]
+* `psycopg2` library, [which you can install with pip][psycopg2-docs]
+* Optionally, a [Python virtual environment][virtual-env]
 
 ## Connect Python to TimescaleDB [](new_database)
 
-### Step 1: Import needed libraries
-Add the following import statements to the top of your python script:
+### Step 1: Import psycopg2 library
 
 ```python
-#import psycopg2
+import psycopg2
 ```
 
 ### Step 2: Compose a connection string
 
-Locate your TimescaleDB credentials in order to compose a connection string for `psycopg2`
-to use in order to connect to your TimescaleDB instance.
+Locate your TimescaleDB credentials in order to compose a connection string for `psycopg2`.
 
 You'll need the following credentials:
 
@@ -47,7 +39,7 @@ You'll need the following credentials:
 * port
 * database name
 
-Next compose your connection string variable, as a [libpq connection string][pg-libpq-string],
+Compose your connection string variable as a [libpq connection string][pg-libpq-string],
 using the following format:
 
 ```python
@@ -72,28 +64,32 @@ CONNECTION = "dbname =tsdb user=tsdbadmin password=secret host=host.com port=543
 The above method of composing a connection string is for test or development purposes only, for production purposes be sure to make sensitive details like your password, hostname, and port number environment variables.
 </highlight>
 
-### Step 3: Connect to Timescale database using the Psycopg2 connect function
+### Step 3: Connect to TimescaleDB using the psycopg2 connect function
 
-We'll use the psycopg2 [connect function][psycopg2-connect] to create a new database session
+Use the psycopg2 [connect function][psycopg2-connect] to create a new database session and create 
+a new [cursor object][psycopg2-cursor] to interact with the database.
 
 In your `main` function, add the following lines:
 
 ```python
+CONNECTION = "postgres://username:password@host:port/dbname"
 def main():
-…
-	with psycopg2.connect(CONNECTION) as conn:
-		#Call the function that needs the database connection
-		func_1(conn)
+    with psycopg2.connect(CONNECTION) as conn:
+		cursor = conn.cursor()
+        # use the cursor to interact with your database
+        # cursor.execute("SELECT * FROM table")
 ```
 
-Alternatively, you can create a connection object as follows and the pass that object
+Alternatively, you can create a connection object and pass the object
 around as needed, like opening a cursor to perform database operations:
 
 ```python
-def main():
-conn = psycopg2.connect(CONNECTION)
-insert_data(conn)
-cur = conn.cursor()
+CONNECTION = "postgres://username:password@host:port/dbname"
+def main():  
+    conn = psycopg2.connect(CONNECTION)
+    cursor = conn.cursor()
+    # use the cursor to interact with your database
+    # cursor.execute("SELECT * FROM table")
 ```
 
 Congratulations, you've successfully connected to TimescaleDB using Python.
@@ -101,7 +97,7 @@ Congratulations, you've successfully connected to TimescaleDB using Python.
 ## Create a relational table [](create_table)
 
 ### Step 1: Formulate your SQL statement
-First, compose a string which contains the SQL state that you would use to create
+First, compose a string which contains the SQL statement that you would use to create
 a relational table. In the example below, we create a table called `sensors`, with
 columns `id`, `type` and `location`:
 
@@ -110,29 +106,28 @@ query_create_sensors_table = "CREATE TABLE sensors (id SERIAL PRIMARY KEY, type 
 ```
 
 ### Step 2: Execute the SQL statement and commit changes
-Next, we execute our `CREATE TABLE` statement by opening a cursor, executing the
-query from Step 1 and committing the query we executed in order to make changes we
-made to the database persistent. Afterward, we close the cursor we opened to clean
-up:
+Next, we execute the `CREATE TABLE` statement by opening a cursor, executing the
+query from Step 1 and committing the query we executed in order to make the changes persistent. 
+Afterward, we close the cursor to clean up:
 
 ```python
-   cur = conn.cursor()
+   cursor = conn.cursor()
    #see definition in Step 1
-   cur.execute(query_create_sensors_table)
+   cursor.execute(query_create_sensors_table)
    conn.commit()
-   cur.close()
+   cursor.close()
 ```
 
 Congratulations, you've successfully created a relational table in TimescaleDB using Python.
 
-## Generate hypertable [](create_hypertable)
+## Create hypertable [](create_hypertable)
 
-In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertable],
-the abstraction of a single continuous table across all space and time
-intervals, such that one can query it via standard SQL.
+In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertable].
+It provides an abstraction of a single continuous table across all space and time
+intervals. You can can query it via standard SQL.
 
 Virtually all user interactions with TimescaleDB are with hypertables. Creating tables
-and indexes, altering tables, inserting data, selecting data, etc. can (and should)
+and indexes, altering tables, inserting data, selecting data, etc... can (and should)
 all be executed on the hypertable.
 
 A hypertable is defined by a standard schema with column names and types, with at
@@ -141,7 +136,7 @@ least one column specifying a time value.
 
 ### Step 1: Formulate the CREATE TABLE SQL statement for your hypertable
 
-First, we create a variable which houses our `CREATE TABLE` SQL statement for our
+First, we create a string variable which houses our `CREATE TABLE` SQL statement for our
 hypertable. Notice how the hypertable has the compulsory time column:
 
 ```python
@@ -156,10 +151,10 @@ hypertable. Notice how the hypertable has the compulsory time column:
 ```
 
 ### Step 2: Formulate create hypertable SELECT statement for your hypertable
-Next we formulate the `SELECT` statement to convert the table we created in Step 1
-into a hypertable. Note that we must specify the table name which we wish to convert
-to a hypertable and its time column name as the two arguments, as mandated by the
-[`create_hypertable` docs][create-hypertable-docs]:
+
+Next we formulate a `SELECT` statement that converts the `sensor_data` table to a hypertable. Note that we must specify 
+the table name which we wish to convert to a hypertable and its time column name as the two arguments, as mandated by 
+the [`create_hypertable` docs][create-hypertable-docs]:
 
 ```python
 query_create_sensordata_hypertable = "SELECT create_hypertable('sensor_data', 'time');"
@@ -167,17 +162,16 @@ query_create_sensordata_hypertable = "SELECT create_hypertable('sensor_data', 't
 
 ### Step 3: Execute statements from Step 1 and Step 2 and commit changes
 
-Now we bring it all together by opening a cursor with our connection, executing our
-statement from step 1, then executing our statement from step 2 and committing our
-changes and closing the cursor:
+Now we bring it all together by opening a cursor with our connection, executing the
+statements from step 1 and step 2 and committing our changes and closing the cursor:
 
 ```python
-   cur = conn.cursor()
-   cur.execute(query_create_sensordata_table)   
-   cur.execute(query_create_sensordata_hypertable)
+   cursor = conn.cursor()
+   cursor.execute(query_create_sensordata_table)   
+   cursor.execute(query_create_sensordata_hypertable)
    #commit changes to the database to make changes persistent
    conn.commit()
-   cur.close()
+   cursor.close()
 ```
 
 Congratulations, you've successfully created a hypertable in your Timescale database using Python!
@@ -370,12 +364,12 @@ tutorials:
 - [Migrate your own Data][migrate]
 
 
-[install-timescale]: /how-to-guides/install-timescaledb/
 [setup-psql]: /how-to-guides/connecting/psql/
 [install]: /how-to-guides/install-timescaledb/
-[virtual-env]: https://opensource.com/article/19/6/virtual-environments-python-macos
+[virtual-env]: https://docs.python.org/3/library/venv.html
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
+[psycopg2-cursor]: https://www.psycopg.org/docs/connection.html?highlight=cursor#connection.cursor
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [nyc-taxi]: /tutorials/nyc-taxi-cab
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
@@ -386,3 +380,5 @@ tutorials:
 [continuous-aggregates]: /how-to-guides/continuous-aggregates/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
+[self-hosted-install]: http://localhost:8000/timescaledb/latest/how-to-guides/install-timescaledb/self-hosted/
+[cloud-install]: https://www.timescale.com/timescale-signup
