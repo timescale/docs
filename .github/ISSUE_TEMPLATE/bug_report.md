@@ -2,8 +2,9 @@
 name: Bug report
 about: A problem found in the docs content
 title: "[Content Bug]"
-labels: ''
+labels: bug, documentation
 assignees: ''
+
 ---
 
 _Use this template for reporting bugs in the docs._
