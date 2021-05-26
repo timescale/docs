@@ -16,6 +16,15 @@ jobs:
         run: |
           echo "::set-output name=DEV_FOLDER::$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')"
         id: timescale
+      - name: Set variables
+        run: |
+          echo "::set-output name=FORK_DEV_FOLDER::$(echo ${github.event.pull_request.head.ref} | sed 's|/|-|')"
+        id: timescale
+
+      - name: Print variables
+        run: |
+          echo "${{ steps.timescale.outputs.DEV_FOLDER }}"
+          echo "${{ steps.timescale.outputs.FORK_DEV_FOLDER }}"
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
@@ -23,4 +32,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content
-          client-payload: '{"branch": "${{ steps.timescale.outputs.BRANCH_NAME }}"}'
+          client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}"}'
