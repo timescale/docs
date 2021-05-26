@@ -15,13 +15,7 @@ jobs:
       - name: Set variables
         run: |
           echo "::set-output name=DEV_FOLDER::$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')"
-          echo "::set-output name=FORK_DEV_FOLDER::$(echo ${github.event.pull_request.head.ref} | sed 's|/|-|')"
         id: timescale
-
-      - name: Print variables
-        run: |
-          echo "${{ steps.timescale.outputs.DEV_FOLDER }}"
-          echo "${{ steps.timescale.outputs.FORK_DEV_FOLDER }}"
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
