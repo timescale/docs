@@ -771,12 +771,12 @@ data in your TimescaleDB database.
 
 [hello_timescale]: /tutorials/nyc-taxi-cab/
 [install]: /how-to-guides/install-timescaledb/
-[tutorial-postgis]: /tutorials/nyc-taxi-cab#tutorial-postgis
+[tutorial-postgis]: /tutorials/nyc-taxi-cab/#tutorial-postgis
 [install_r]: https://www.r-project.org/
 [install_python]: https://www.python.org/downloads/
 [forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
 [NYCTLC]: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
-[gap_filling]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[gap_filling]: /how-to-guides/query-data/advanced-analytic-queries/#gap-filling
 [arima]: https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 [rpostgres]: https://cran.r-project.org/web/packages/RPostgres/index.html
 [r-xts]: https://cran.r-project.org/web/packages/xts/xts.pdf
