@@ -20,10 +20,6 @@ module.exports = [
         title: "Contribute to TimescaleDB",
         href: "contribute-to-timescaledb"
       },
-      {
-        title: "Promscale",
-        href: "promscale"
-      }
     ]
   }
 ]
