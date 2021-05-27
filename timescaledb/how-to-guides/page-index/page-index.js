@@ -422,7 +422,11 @@ module.exports = [
         href: "update-timescaledb",
         children: [
           {
-            title: "Update TimescaleDB from 1.x to 2.x",
+            title: "Update TimescaleDB",
+            href: "update-timescaledb"
+          },
+          {
+            title: "Update from TimescaleDB 1.x to 2.x",
             href: "update-timescaledb-2"
           },
           {

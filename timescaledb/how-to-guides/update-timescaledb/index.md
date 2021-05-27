@@ -31,14 +31,14 @@ If you need to upgrade PostgreSQL first, please see [our documentation](/timesca
 To upgrade an existing TimescaleDB instance, follow the documentation below based on
 your current upgrade path.
 
-**TimescaleDB 2.0**: [Updating TimescaleDB from 1.x to 2.0-RC1+][update-tsdb-2]
+**Update within major versions (1.x or 2.x)**: [Updating TimescaleDB][update-timescaledb]
 
-**TimescaleDB 2.0 on Docker**: [Updating TimescaleDB on Docker from 1.7.4 to 2.0-RC1+][update-docker]
+**TimescaleDB from 1.x to 2.x**: [Updating TimescaleDB from 1.x to 2.x][update-tsdb-2]
 
-**TimescaleDB 1.x**: [Updating TimescaleDB 1.x to 1.7.4][update-tsdb-1]
+**TimescaleDB from 1.x to 2.x on Docker**: [Updating TimescaleDB on Docker from 1.x to 2.x][update-docker]
 
 
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
+[update-timescaledb]: /how-to-guides/update-timescaledb/update-timescaledb/
 [update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
 [update-docker]: /how-to-guides/update-timescaledb/updating-docker/
