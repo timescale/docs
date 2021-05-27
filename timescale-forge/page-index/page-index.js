@@ -7,12 +7,15 @@ module.exports = [
     excerpt: 'Timescale Forge is a fully managed TimescaleDB service that allows you to start querying data in less than a minute!',
     children: [
       {
+        title: "Create a service",
         href: "create-a-service",
       },
       {
+        title: "Scale a service",
         href: "scaling-a-service",
       },
       {
+        title: "Customize configuration",
         href: "customize-configuration",
       },
       {
@@ -32,6 +35,10 @@ module.exports = [
             href: "migrate"
           }
         ]
+      },
+      {
+        title: "Disk management",
+        href: "disk-management"
       }
     ]
   }
