@@ -4,8 +4,9 @@ Use these instructions to update TimescaleDB 1.x to TimescaleDB 2.0
 
 <highlight type="warning">
 These instructions are only for upgrading TimescaleDB 1.x to TimescaleDB 2.0
- If you need to upgrade your existing TimescaleDB 1.x to a newer version in the 1.x
- release line (eg. 1.7.2 to 1.7.4), please see Update [TimescaleDB 1.x][update-tsdb-1].
+ If you need to upgrade your existing TimescaleDB to a newer version in the 
+ release line (eg. 1.7.2->1.7.4 or 2.1->2.2), please see [Update TimescaleDB](/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb/)
+ for general update instructions.
 </highlight>
 
 ### TimescaleDB release compatibility [](compatibility)
@@ -24,8 +25,9 @@ If you need to upgrade PostgreSQL first, please see [our documentation](/timesca
 </highlight>
 
 ### Notice of breaking changes from TimescaleDB 1.3+
-TimescaleDB 2.0 supports **in-place updates** just like previous releases. During the update, scripts will automatically configure
-updated features to work as expected with TimescaleDB 2.0.
+TimescaleDB 2.0 supports **in-place updates** just like previous releases. During 
+the update, scripts will automatically configureupdated features to work as expected 
+with TimescaleDB 2.0.
 
 Because this is our first major version release in two years, however, we’re providing additional guidance
 to help you ensure the update completes successfully and everything is configured as expected (and optimized
@@ -198,7 +200,7 @@ total_failures         | 0
 
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
 [update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
-[update-tsdb-2]: /hot-to-guides/update-timescaledb/update-timescaledb-2/
+[update-timescaledb]: /how-to-guides/update-timescaledb/update-timescaledb/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/
 [Install]: /how-to-guides/install-timescaledb/

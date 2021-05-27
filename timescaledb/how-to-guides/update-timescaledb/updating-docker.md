@@ -83,7 +83,6 @@ latest version of TimescaleDB installed.
 
 
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
 [update-tsdb-2]: /hot-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/
