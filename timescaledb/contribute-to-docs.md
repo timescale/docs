@@ -25,10 +25,8 @@ Contributor License Agreement (CLA). By signing a CLA, we  can ensure that the
 community is free and confident in its ability to use your contributions. You
 will be prompted to sign the CLA during the pull request process.
 
-
 ## Resources
 When making style decisions, consult resources in this order:
-
 1.  This guide: always check this guide first, it contains project-specific
 guidance, and in some cases differs from the other resources listed here.
 1.  The [Google Developer Documentation Style Guide][google-style]: for most
@@ -38,12 +36,10 @@ that are not covered in other resources
 1.  Merriam-Webster: Timescale documentation is written in US English, for
 spelling and definitions, consult the dictionary.
 
-
 ## Language
 We use standard US English, with an emphasis on plain (or classical) language, in simple present tense, using the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
 
 For example, here are three ways of writing one sentence:
-
 *   Natural English: In order to perform X installation process, please ensure
 that all of the following steps are done ...
 *   Tech writer's English: To perform the X installation process, verify you have
@@ -65,7 +61,6 @@ Never assume that because you've explained something earlier in a document,
 readers will know it later in the document. You can use cross-references to help
 guide readers to further information if they need it.
 
-
 ## Grammar
 Grammar rules are tacit evolving conventions. They have no implicit value by
 themselves, they only gain value because everyone is doing it.
@@ -75,9 +70,7 @@ or ending sentences with prepositions. Obeying these rules can often make
 language clearer but, in some cases, they make language more complicated. In
 that case, feel free to ignore them.
 
-
 ## Verbs
-
 *   `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
 *   `Press` a key or key combination on a keyboard.
 *   `Type` words or numbers using a keyboard.
@@ -100,9 +93,9 @@ that case, feel free to ignore them.
 *And/Or*
 : Do not use. You can usually pick one. If you're not sure, pick "and".
 
-:+1: I like apples and/or oranges.
+:x: I like apples and/or oranges.
 
-:x: I like apples and oranges.
+:+1: I like apples and oranges.
 
 ### B [](#B)
 
@@ -199,8 +192,6 @@ Always write in simple present tense.
 ### Y [](#Y)
 
 ### Z [](#Z)
-
-
 
 [github-docs]: https://github.com/timescale/docs
 [contributors]: https://github.com/timescale/docs/CONTRIBUTING.md
