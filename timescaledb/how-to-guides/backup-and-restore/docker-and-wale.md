@@ -1,5 +1,5 @@
 # Ongoing physical backups with Docker & WAL-E
-When you using TimescaleDB in a containerized environment, you can use
+When you run TimescaleDB in a containerized environment, you can use
 [continuous archiving][pg archiving] with a [WAL-E][wale official] container.
 These containers are sometimes referred to as sidecars, because they run
 alongside the main container. We provide a [WAL-E sidecar image][wale image]
