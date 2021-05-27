@@ -230,8 +230,9 @@ from pgcopy import CopyManager
 ```
 
 ### Step 1: Get data to insert into database
-First we generate random sensor data - you would replace this step with funneling
-in your real data from your data pipeline.
+First we generate random sensor data using the `generate_series` function provided by PostgreSQL.
+In the example query below, you will insert a total of 480 rows of data (4 readings, every 5 minutes, for 24 hours).
+In your application, this would be the query that saves your time-series data into the hypertable.
 
 ```python
 # for sensors with ids 1-4
