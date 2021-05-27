@@ -321,32 +321,32 @@ using Python and the `pgcopy` library.
 
 ### Step 1: Define your query in SQL
 First, define the SQL query you'd like to run on the database. The example below
-is a simple `SELECT` statement from our [NYC Taxi cab tutorial][nyc-taxi].
+is a simple `SELECT` statement querying each row from the previously created `sensor_data` table.
 
 ```python
-query = "SELECT * FROM rates;"
+query = "SELECT * FROM sensor_data;"
 ```
 
 ### Step 2: Execute the query
-Next we'll open a cursor from our existing database connection, `conn`,
-and then execute the query we defined in Step 1:
+Next, open a cursor from our existing database connection, `conn`,
+and then execute the query you defined in Step 1:
 
 ```python
 cursor = conn.cursor()
-query = "SELECT * FROM rates;"
+query = "SELECT * FROM sensor_data;"
 cursor.execute(query)
 ```
 
-### Step 3: Access results returned by query
-To access all the resulting rows returned by your query, we'll use
-one `pyscopg2`'s [results retrieval methods][results-retrieval-methods],
+### Step 3: Access results returned by the query
+To access all resulting rows returned by your query, use
+one of `pyscopg2`'s [results retrieval methods][results-retrieval-methods],
 such as `fetchall()` or `fetchmany()`. In the example below, we're simply
 printing the results of our query, row by row. Note that the result of `fetchall()`
 is a list of tuples, so you can handle them accordingly:
 
 ```python
 cursor = conn.cursor()
-query = "SELECT * FROM rates;"
+query = "SELECT * FROM sensor_data;"
 cursor.execute(query)
 for row in cursor.fetchall():
     print(row)
