@@ -46,7 +46,7 @@ started TimescaleDB, you can log in and create tables and data.
     docker exec -it timescaledb psql -U postgres
     ```
 
-## Run the WAL-E sidecar
+## Perform the backup using the WAL-E sidecar
 The [WAL-E Docker image][wale image] runs a web endpoint that accepts WAL-E
 commands across an HTTP API. This allows PostgreSQL to communicate with the
 WAL-E sidecar over the internal network to trigger archiving. You can also use
@@ -62,7 +62,7 @@ information to WAL-E when you start it. In this example, the WAL-E image listens
 for commands on the `timescaledb-net` internal network at port 80, and writes
 backups to `~/backups` on the Docker host.
 
-### Running the WAL-E sidecar
+### Procedure: Performing the backup using the WAL-E sidecar
 1.  Start the WAL-E container with the required information about the container.
     In this example, the container is called `timescaledb-wale`:
     ```bash

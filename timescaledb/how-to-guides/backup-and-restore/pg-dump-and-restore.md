@@ -1,7 +1,8 @@
 # Logical backups with `pg_dump`  and  `pg_restore` [](pg_dump-pg_restore)
 
-You can ackup and restore an entire database or individual hypertables using the
-native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands.
+You can backup and restore an [entire database](#backup-entiredb)
+or [individual hypertables](#backup-hypertable) using the native PostgreSQL
+[`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands.
 
 <highlight type="tip">
 Upgrades between different versions of TimescaleDB can be done in place; you
@@ -9,7 +10,7 @@ don't need to backup and restore your data. See the [upgrading
 instructions](/timescaledb/latest/how-to-guides/update-timescaledb/).
 </highlight>
 
-## Back up your entire database
+## Back up your entire database [](backup-entiredb)
 You can perform a backup using the `pg_dump` command at the command prompt. For example, to backup a database named `exampledb`:
 
 ```bash
@@ -17,7 +18,9 @@ pg_dump -Fc -f exampledb.bak exampledb
 ```
 
 <highlight type="warning">
-Do not use the `pg_dump` command to backup individual hypertables. Dumps created using this method lack the necessary information to correctly restore the hypertable from backup.
+Do not use the `pg_dump` command to backup individual hypertables. Dumps created
+using this method lack the necessary information to correctly restore the
+hypertable from backup.
 </highlight>
 
 ## Restore your entire database from backup
@@ -45,15 +48,18 @@ more recent version installed. For example, if you create the backup using an
 older version of TimescaleDB, and when you restore it uses the current version,
 without giving you an opportunity to upgrade first.
 
-You can work around this problem when you are restoring from backup by making sure the new PostgreSQL instance has the same extension version as the original database before you perform the restore. After the data is restored, you can upgrade the version of TimescaleDB.
+You can work around this problem when you are restoring from backup by making
+sure the new PostgreSQL instance has the same extension version as the original
+database before you perform the restore. After the data is restored, you can
+upgrade the version of TimescaleDB.
 
-## Back up individual hypertables
+## Back up individual hypertables[](backup-hypertable)
 
 The `pg_dump` command provides flags that allow you to specify tables or schemas
 to back up. However, using these flags means that the dump lacks necessary
 information that TimescaleDB requires to understand the relationship between
 them. Even if you explicitly specify both the hypertable and all of its
-constituent cghunks, the dump would still not contain all the information it
+constituent chunks, the dump would still not contain all the information it
 needs to recreate the hypertable on restore.
 
 <highlight type="warning">
@@ -62,7 +68,9 @@ using this method lack the necessary information to correctly restore the
 hypertable from backup.
 </highlight>
 
-You can backup individual hypertables by backing up the entire database, and then excluding the tables you do not want to backup. You can also use this method to backup individual plain tables that are not hypertables.
+You can backup individual hypertables by backing up the entire database, and
+then excluding the tables you do not want to backup. You can also use this
+method to backup individual plain tables that are not hypertables.
 
 ### Procedure: Backing up individual hypertables
 1.  At the command prompt, back up the hypertable schema:
