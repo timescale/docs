@@ -16,3 +16,5 @@ Altering a table's schema is quite efficient provided that the default
  non-null value, TimescaleDB will need to fill in this value for all rows
  (of all chunks) belonging to this hypertable.
  </highlight>
+
+[postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
