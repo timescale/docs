@@ -263,7 +263,7 @@ cols = ['time', 'sensor_id', 'temperature', 'cpu']
 Lastly we create an instance of the `pgcopy` CopyManager, `mgr`, and pass our
 connection variable, hypertable name, and list of column names. Then we use
 the `copy` function of the CopyManager to insert the data into the database
-performantly using `pgcopy`.
+quickly using `pgcopy`.
 
 ```python
 mgr = CopyManager(conn, 'sensor_data', cols)
