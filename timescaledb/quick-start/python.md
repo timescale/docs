@@ -131,7 +131,7 @@ and indexes, altering tables, inserting data, selecting data, etc... can (and sh
 all be executed on the hypertable.
 
 A hypertable is defined by a standard schema with column names and types, with at
-least one column specifying a time value. [Read more about hypertables][hypertable-docs].
+least one column specifying a time value. Learn more about using hypertables in the [API documentation][hypertable-api].
 
 
 ### Step 1: Formulate the CREATE TABLE SQL statement for your hypertable
