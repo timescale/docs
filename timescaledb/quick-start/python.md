@@ -89,7 +89,8 @@ def main():
     conn = psycopg2.connect(CONNECTION)
     cursor = conn.cursor()
     # use the cursor to interact with your database
-    # cursor.execute("SELECT * FROM table")
+    cursor.execute("SELECT 'hello world'")
+    print(cursor.fetchone())
 ```
 
 Congratulations, you've successfully connected to TimescaleDB using Python.
