@@ -616,7 +616,7 @@ SELECT
 FROM
    daily_factor
 GROUP BY
-   TIME
+   time
 ```
 
 ### Next steps
