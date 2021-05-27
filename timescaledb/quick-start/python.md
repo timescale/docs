@@ -420,4 +420,5 @@ tutorials:
 [cloud-install]: https://www.timescale.com/timescale-signup
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[hypertable-docs]: /overview/core-concepts/hypertables-and-chunks/
+[hypertable]: /overview/core-concepts/hypertables-and-chunks/
+[hypertable-api]: /api/:currentVersion:/hypertable/
