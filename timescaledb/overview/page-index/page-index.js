@@ -78,6 +78,32 @@ module.exports = [
           {
             href: "limitations"
           },
+          {
+            title: "FAQs",
+            href: "faq",
+            children: [
+              {
+                title: "FAQs: Products",
+                href: "faq-products"
+              },
+              {
+                title: "FAQs: Time-series databases",
+                href: "faq-timeseries"
+              },
+              {
+                title: "FAQs: Using TimescaleDB",
+                href: "faq-using-timescaledb"
+              },
+              {
+                title: "FAQs: Postgres",
+                href: "faq-postgres"
+              },
+              {
+                title: "FAQs: Community",
+                href: "faq-community"
+              }
+            ]
+          },
         ]
       }
 ]
