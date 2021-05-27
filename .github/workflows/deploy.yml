@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Set variables
         run: |
-          echo "::set-output name=BRANCH_NAME::$(echo ${GITHUB_REF:11} | sed 's|/|-|')"
+          echo "::set-output name=DEV_FOLDER::$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')"
         id: timescale
 
       - name: Repository Dispatch
@@ -23,4 +23,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content
-          client-payload: '{"branch": "${{ steps.timescale.outputs.BRANCH_NAME }}"}'
+          client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}"}'
