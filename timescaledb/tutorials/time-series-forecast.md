@@ -769,7 +769,7 @@ wide variety of statistical models and machine learning algorithms
 that you can use to analyze and make predictions on time-series
 data in your TimescaleDB database.
 
-[hello_timescale]: /timescaledb/latest/getting-started/
+[hello_timescale]: /tutorials/nyc-taxi-cab/
 [install]: /how-to-guides/install-timescaledb/
 [tutorial-postgis]: /tutorials/nyc-taxi-cab/#mission-monitoring
 [install_r]: https://www.r-project.org/
