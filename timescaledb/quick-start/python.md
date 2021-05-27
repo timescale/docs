@@ -12,12 +12,12 @@ you'll learn how to:
 * [Execute a query on TimescaleDB](#execute-a-query)
 
 ## Prerequisites
-
-* At least cursory knowledge of Structured Query Language (SQL). The tutorial will walk you through each SQL command, 
-  but it will be helpful if you've seen SQL before
+Before you start, make sure you have:
+* At least some knowledge of SQL (structured query language). The tutorial will walk you through each SQL command, 
+  but it is helpful if you've seen SQL before.
 * TimescaleDB installed, either in a [self-hosted environment][self-hosted-install] or [in the cloud][cloud-install]
-* `psycopg2` library, [which you can install with pip][psycopg2-docs]
-* Optionally, a [Python virtual environment][virtual-env]
+* The `psycopg2` library installed, [which you can install with pip][psycopg2-docs].
+* Optionally, a [Python virtual environment][virtual-env].
 
 ## Connect Python to TimescaleDB
 
@@ -29,7 +29,7 @@ import psycopg2
 
 ### Step 2: Compose a connection string
 
-Locate your TimescaleDB credentials in order to compose a connection string for `psycopg2`.
+Locate your TimescaleDB credentials. You need them to compose a connection string for `psycopg2`.
 
 You'll need the following credentials:
 
@@ -127,7 +127,7 @@ It provides an abstraction of a single continuous table across all space and tim
 intervals. You can can query it via standard SQL.
 
 Virtually all user interactions with TimescaleDB are with hypertables. Creating tables
-and indexes, altering tables, inserting data, selecting data, etc... can (and should)
+and indexes, altering tables, inserting data, selecting data, and most other tasks  can and should
 all be executed on the hypertable.
 
 A hypertable is defined by a standard schema with column names and types, with at
@@ -136,7 +136,7 @@ least one column specifying a time value. Learn more about using hypertables in 
 
 ### Step 1: Formulate the CREATE TABLE SQL statement for your hypertable
 
-First, we create a string variable which houses our `CREATE TABLE` SQL statement for our
+First, create a string variable which houses the `CREATE TABLE` SQL statement for your
 hypertable. Notice how the hypertable has the compulsory time column:
 
 ```python
@@ -150,10 +150,10 @@ query_create_sensordata_table = """CREATE TABLE sensor_data (
                                            );"""
 ```
 
-### Step 2: Formulate create hypertable SELECT statement for your hypertable
+### Step 2: Formulate the SELECT statement to create your hypertable
 
-Next we formulate a `SELECT` statement that converts the `sensor_data` table to a hypertable. Note that we must specify 
-the table name which we wish to convert to a hypertable and its time column name as the two arguments, as mandated by 
+Next, formulate a `SELECT` statement that converts the `sensor_data` table to a hypertable. Note that you must specify 
+the table name which you wish to convert to a hypertable and its time column name as the two arguments, as mandated by 
 the [`create_hypertable` docs][create-hypertable-docs]:
 
 ```python
@@ -162,8 +162,8 @@ query_create_sensordata_hypertable = "SELECT create_hypertable('sensor_data', 't
 
 ### Step 3: Execute statements from Step 1 and Step 2 and commit changes
 
-Now we bring it all together by opening a cursor with our connection, executing the
-statements from step 1 and step 2 and committing our changes and closing the cursor:
+Now bring it all together by opening a cursor with our connection, executing the
+statements from step 1 and step 2 and committing your changes and closing the cursor:
 
 ```python
 cursor = conn.cursor()
@@ -181,7 +181,7 @@ Congratulations, you've successfully created a hypertable in your Timescale data
 ### How to insert rows using Psycopg2
 
 Here's a typical pattern you'd use to insert data into a table. In the
-example below, we insert a list of tuples (relational data) called `sensors`, into the
+example below, insert a list of tuples (relational data) called `sensors`, into the
 relational table named `sensors`.
 
 First, we open a cursor with our connection to the database, then using prepared
@@ -312,7 +312,7 @@ cursor.execute("SELECT * FROM sensor_data LIMIT 5;")
 print(cursor.fetchall())
 ```
 
-Congratulations, you've successfully performantly inserted data into TimescaleDB
+Congratulations, you've successfully inserted time-series data into TimescaleDB
 using Python and the `pgcopy` library.
 
 ## Execute a query [](execute_query)
