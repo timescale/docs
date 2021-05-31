@@ -35,6 +35,10 @@ module.exports = [
             href: "migrate"
           }
         ]
+      },
+      {
+        title: "Disk management",
+        href: "disk-management"
       }
     ]
   }
