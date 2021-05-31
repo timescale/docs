@@ -26,7 +26,7 @@ and, failing that, please [contact us][contact-timescale].
 
  To begin, click 'Create service'.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-creation.png" alt="Set up a Timescale Forge service"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/forge_create-db.png" alt="Set up a Timescale Forge service"/>
 
 1. First, supply your service name (e.g., `acmecorp-test` or `acmecorp-dev`).
 1. Next, choose your CPU and memory configuration, from (0.25 CPU, 1GB RAM) to
@@ -50,7 +50,7 @@ After you select 'Create service', you will see confirmation of your service acc
 password information. You should save the information in this confirmation screen in
 a safe place:
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-confirmation.png" alt="View Timescale Forge service information"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/forge_build-service.png" alt="View Timescale Forge service information"/>
 
 <highlight type="warning">
 If you forget your password, you can reset it from the `Operations` menu in the service dashboard.
@@ -60,7 +60,7 @@ It will take a couple minutes for your service to be provisioned. When your data
 ready for connection, you should see a green `Running` label above the service in the
 service dashboard.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-dashboard.png" alt="View all Timescale Forge services"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/forge_service-dash.png" alt="View all Timescale Forge services"/>
 
 Select any service to view *service details*. You can obtain connection,
 configuration, and utilization information. In addition, you can reset the
@@ -68,7 +68,7 @@ password for your service, power down or power up any service (which stops
 or starts your compute, although your storage persists), or delete
 a service altogether.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-details.png" alt="View Timescale Forge service information"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/forge_running-service.png" alt="View Timescale Forge service information"/>
 
 ### Step 3: Complete your first tutorial [](step3-tutorial)
 
