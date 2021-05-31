@@ -40,11 +40,13 @@ First, you need to create new Services within your Forge account. As mentioned
 earlier, you should create _at least_ three Services to set up a multi-node cluster:
 one access node and two data nodes.
 
-There is currently no way to distinguish between the access node and data
-nodes within the Timescale Forge console, **so we strongly recommend that you include
-"AN" and "DN" in the names of each service, respectively (eg. "AN-mycluster",
-"DN1-mycluster", "DN2-mycluster", etc.)**. Services can only assume one role in a
-cluster (access or data node), and only one Service can act as the access node.
+There is currently no way to distinguish between the access node and data nodes
+within the Timescale Forge console, so we strongly recommend that you include
+"an" and "dn" in the names of each service, respectively. For example, use
+"an-mycluster", "dn1-mycluster", and "dn2-mycluster". To prevent problems later
+on, always use all lowercase names for your new nodes. Services can only assume
+one role in a cluster (access or data node), and only one Service can act as the
+access node.
 
 For simplicity you can start with the same hardware configuration for all Services.
 On Timescale Forge, Service configuration can be modified later to better tune access

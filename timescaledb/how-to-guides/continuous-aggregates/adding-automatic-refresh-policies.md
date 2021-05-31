@@ -9,7 +9,7 @@ use cases. For example, you might want to:
   source data from the hypertable.
 
 These use cases are supported by different configuration to
-[`add_continuous_aggregate_policy`][add-continuous-aggregate-policy].
+[`add_continuous_aggregate_policy`][api-add-continuous-aggregate-policy].
 
 This function takes three arguments:
 
@@ -94,3 +94,4 @@ DROP MATERIALIZED VIEW conditions_summary_hourly;
 
 [sec-data-retention]: /hot-to-guides/data-retention
 [api-drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks
+[api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
