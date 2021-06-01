@@ -82,4 +82,4 @@ sudo -u postgres service postgres-13 start
 [pgdg]: https://yum.postgresql.org/repopackages.php
 [config]: /how-to-guides/configuration/
 [createuser]: https://www.postgresql.org/docs/current/sql-createrole.html
-[update-tsdb-2]: /update-timescaledb/update-timescaledb-2/
+[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
