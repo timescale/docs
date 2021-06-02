@@ -769,9 +769,9 @@ wide variety of statistical models and machine learning algorithms
 that you can use to analyze and make predictions on time-series
 data in your TimescaleDB database.
 
-[hello_timescale]: /tutorials/tutorial-hello-timescale
+[hello_timescale]: /tutorials/nyc-taxi-cab/
 [install]: /how-to-guides/install-timescaledb/
-[tutorial-postgis]: /tutorials/tutorial-hello-nyc#tutorial-postgis
+[tutorial-postgis]: /tutorials/nyc-taxi-cab/#mission-monitoring
 [install_r]: https://www.r-project.org/
 [install_python]: https://www.python.org/downloads/
 [forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
