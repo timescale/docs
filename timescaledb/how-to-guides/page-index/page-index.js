@@ -291,18 +291,23 @@ module.exports = [
         href: "compression",
         children: [
           {
-            href: "compression-basics"
+            title: "Compression",
+            href: "compression"
           },
           {
+            title: "Manually compress chunks",
             href: "manually-compress-chunks"
           },
           {
+            title: "Decompress chunks",
             href: "decompress-chunks"
           },
           {
+            title: "Backfill historical data",
             href: "backfill-historical-data"
           },
           {
+            title: "Modify a schema",
             href: "modify-a-schema"
           }
         ]

@@ -7,6 +7,10 @@ of backfilled data (as opposed to individual row inserts). By "backfill", we
 mean inserting data corresponding to a timestamp well in the past, which given
 its timestamp, already corresponds to a compressed chunk.
 
+<highlight type="warning"
+Compression alters data on your disk, so always back up before you start!
+</highlight>
+
 In the below example, we backfill data into a temporary table; such temporary
 tables are short-lived and only exist for the duration of the database
 session. Alternatively, if backfill is common, one might use a normal table for
@@ -96,10 +100,10 @@ CALL run_job(<job_id>);
 ## Future Work [](future-work)
 
 One of the current limitations of TimescaleDB is that once chunks are converted
-into compressed column form, we do not allow updates and deletes of the data 
-or changes to the schema without manual decompression, except as noted [above][compression-schema-changes]. 
-In other words, chunks are partially immutable in compressed form. 
-Attempts to modify the chunks' data in those cases will either error or fail silently (as preferred by users). 
+into compressed column form, we do not allow updates and deletes of the data
+or changes to the schema without manual decompression, except as noted [above][compression-schema-changes].
+In other words, chunks are partially immutable in compressed form.
+Attempts to modify the chunks' data in those cases will either error or fail silently (as preferred by users).
 We plan to remove this limitation in future releases.
 
 

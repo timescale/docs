@@ -6,6 +6,10 @@ some users want more control over when compression is scheduled or simply want t
 compress chunks manually.  Here we will show you how to compress particular chunks
 explicitly.
 
+<highlight type="warning"
+Compression alters data on your disk, so always back up before you start!
+</highlight>
+
 We start by getting a list of the chunks we want to compress. In this case our hypertable
 is named 'conditions', and we are looking for the chunks associated with this hypertable
 with data older than three days.
