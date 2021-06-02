@@ -85,4 +85,4 @@ sudo -u postgres service postgres-13 start
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
 [multi-node-basic]: /how-to-guides/install-timescaledb/post-install-setup/-multi-node-basic
-[update-tsdb-2]: /how-to-guides/update-timescaledb/
+[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
