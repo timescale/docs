@@ -13,16 +13,15 @@ setting up compression, and using it in your environment. We strongly recommend
 that you understand how compression works *before* you start enabling it on your
 hypertables.
 
-*   Learn about [compression][compression] to understand how it works before you begin using it.
-*   Do [manual compression][manual-compression] to manually compress specific chunks.
-*   Do [decompress chunks][decompress-chunks] to manually decompress specific chunks.
-*   Do [backfill historical data][backfill-historical] to insert a batch of data into a compressed chunk.
-*   Do [modify-schema][modify-schema] to modify the table definition for a hypertable with compressed chunks.
+*   [Learn about compression][compression] to understand how it works before you begin using it.
+*   [Manually compress][manual-compression] specific chunks.
+*   [Decompress chunks][decompress-chunks] to manually decompress specific chunks.
+*   [Backfill historical data][backfill-historical] to insert a batch of data into a compressed chunk.
+*   [Modify schema][modify-schema] to modify the table definition for a hypertable with compressed chunks.
 
 <highlight type="warning"
 Compression alters data on your disk, so always back up before you start!
 </highlight>
-
 
 [compression]: /how-to-guides/compression/compression
 [manual-compression]: /how-to-guides/compression/manually-compress-chunks
