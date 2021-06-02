@@ -4,15 +4,19 @@ You can backup and restore an [entire database](#backup-entiredb)
 or [individual hypertables](#backup-hypertable) using the native PostgreSQL
 [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands.
 
-<highlight type="tip">
 Upgrades between different versions of TimescaleDB can be done in place; you
 don't need to backup and restore your data. See the [upgrading
-instructions](/timescaledb/latest/how-to-guides/update-timescaledb/).
+instructions][timescaledb-upgrade].
+
+<highlight type="warning">
+If you are using this `pg_dump` backup method regularly, make sure you keep
+track of which versions of PostgreSQL and TimescaleDB you are running. For more
+information, see [troubleshooting version mismatches](#tshoot-version-mismatch).
 </highlight>
 
 ## Back up your entire database [](backup-entiredb)
-You can perform a backup using the `pg_dump` command at the command prompt. For example, to backup a database named `exampledb`:
-
+You can perform a backup using the `pg_dump` command at the command prompt. For
+example, to backup a database named `exampledb`:
 ```bash
 pg_dump -Fc -f exampledb.bak exampledb
 ```
@@ -40,21 +44,7 @@ When you need to restore data from a backup, you can use `psql` to create a new 
     SELECT timescaledb_post_restore();
     ```
 
-### Troubleshoot version mismatches
-
-The PostgreSQL `pg_dump` command does not allow you to specify which version of
-the extension to use when backing up. This can create problems if you have a
-more recent version installed. For example, if you create the backup using an
-older version of TimescaleDB, and when you restore it uses the current version,
-without giving you an opportunity to upgrade first.
-
-You can work around this problem when you are restoring from backup by making
-sure the new PostgreSQL instance has the same extension version as the original
-database before you perform the restore. After the data is restored, you can
-upgrade the version of TimescaleDB.
-
 ## Back up individual hypertables[](backup-hypertable)
-
 The `pg_dump` command provides flags that allow you to specify tables or schemas
 to back up. However, using these flags means that the dump lacks necessary
 information that TimescaleDB requires to understand the relationship between
@@ -107,6 +97,19 @@ can provide a good opportunity for you to re-organize your hypertables if
 you need to. For example, you can change the partitioning key, the number of
 partitions, or the chunk interval sizes.
 
+### Troubleshoot version mismatches [](tshoot-version-mismatch)
+The PostgreSQL `pg_dump` command does not allow you to specify which version of
+the extension to use when backing up. This can create problems if you have a
+more recent version installed. For example, if you create the backup using an
+older version of TimescaleDB, and when you restore it uses the current version,
+without giving you an opportunity to upgrade first.
+
+You can work around this problem when you are restoring from backup by making
+sure the new PostgreSQL instance has the same extension version as the original
+database before you perform the restore. After the data is restored, you can
+upgrade the version of TimescaleDB.
+
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
+[timescaledb-upgrade]: /how-to-guides/update-timescaledb/
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
