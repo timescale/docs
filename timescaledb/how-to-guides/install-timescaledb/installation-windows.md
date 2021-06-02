@@ -50,7 +50,7 @@ to `bootstrap`.
 
 [c_plus]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg_config]: https://www.postgresql.org/docs/10/static/app-pgconfig.html
-[windows-dl]:  https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.2.1-windows-amd64.zip
+[windows-dl]:  https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.2.1-windows-amd64.zip
 [config]: /administration/configuration/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
