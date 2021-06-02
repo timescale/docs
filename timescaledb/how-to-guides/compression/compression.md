@@ -1,107 +1,120 @@
 # Compression
+In TimescaleDB, when compression is enabled, it converts data stored in many
+rows into an array. This means that instead of using lots of rows to store the
+data, it stores the same data in a single row. Because a single row takes up
+less disk space than many rows, it decreases the amount of disk space required,
+and can also speed up some queries.
 
-Our high-level approach to building columnar storage is to convert many wide rows
-of data (say, 1000) into a single row of data. But now, each field (column) of
-that new row stores an ordered set of data comprising the entire column of the 1000 rows.
+As a simplified example, you might have a table that looks like this to start with:
 
-So, let’s consider a simplified example using a table that looks as follows:
+|time|device_id|cpu|energy_consumption|
+|---|---|---|---|
+|12:00:02|1|88.2|0.8|
+|12:00:02|2|300.5|0.9|
+|12:00:01|1|88.6|0.85|
+|12:00:01|2|299.1|0.95|
+
+When compression is applied, the data is converted to a single row containing an array, like this:
+
+|time|device_id|cpu|energy_consumption|
+|---|---|---|---|
+|[12:00:02, 12:00:02, 12:00:01, 12:00:1]|[1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[0.8, 0.9, 0.85, 0.95]|
+
+<highlight type="tip"> Most indexes set on the hypertable are removed or ignored
+when reading from compressed chunks! TimescaleDB creates and uses custom indexes
+to incorporate the `segmentby` and `orderby` parameters during compression.
+</highlight>
+
+This section explains how to enable native compression, and then goes into
+detail on the most important settings for compression, to help you get the
+best possible compression ratio:
+
+*   [Choosing the interval](#compression-interval) after which to compress.
+*   [Setting the `compress_segmentby`](#compression-segmentby) option appropriately.
+*   [Choosing a `compress_orderby` column](#compression-orderby) to potentially enhance query efficiency.
+
+## Enable compression [](compression-enable)
+You can enable compression on individual hypertables, by declaring which column
+you want to segment by. In this procedure, we are using this example table,
+called `example`, and we are going to segment it by the `device_id` column. We want every chunk that is more than seven days old to be automatically compressed.
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |---|---|---|---|---|
-| 12:00:02 |1|88.2|20|0.8|
-| 12:00:02 |2|300.5|30| 0.9|
-| 12:00:01 |1|88.6|25|0.85|
-| 12:00:01 |2|299.1|40| 0.95|
+|8/22/2019 0:00|1|88.2|20|0.8|
+|8/22/2019 0:05|2|300.5|30|0.9|
 
-After converting this data to a single row, the data in “array” form:
+### Procedure: Enabling compression
+1.  At the `pgsl` prompt, alter the table:
+    ```sql
+    ALTER TABLE example SET (
+      timescaledb.compress,
+      timescaledb.compress_segmentby = 'device_id'
+    );
+    ```
+2.  Add a compression policy to compress chunks that are older than seven days:
+    ```SQL
+    SELECT add_compression_policy('example', INTERVAL '7 days');
+    ```
 
-|time|device_id|cpu|disk_io|energy_consumption|
-|---|---|---|---|---|
-| [12:00:02, 12:00:02, 12:00:01, 12:00:1 ]| [1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[20, 30, 25, 40] |[0.8, 0.9, 0.85, 0.95]|
+## Compression policy intervals [](compression-interval)
+Data is usually compressed after an interval of time has elapsed, and not
+immediately. In the ["Enabling compression" procedure](#compression-enable), we
+used a seven day compression interval. Choosing a good compression interval can
+make your queries more efficient, and also allow you to handle data that is out
+of order.
+
+### Query efficiency
+From our research and experience we know that when data is newly ingested, the
+queries are more likely to be shallow in time, and wide in columns. Generally,
+they are debugging queries, or queries that cover the whole system, rather than
+specific, analytic queries. An example of the kind of query more likely for new
+data is "show me the current CPU usage, disk usage, energy consumption, and I/O
+for a particular server". When this is the case, the uncompressed data will have
+better query performance, so the native PostgreSQL row-based format is the best
+option.
+
+However, as your data ages, your queries are likely to change. They become more
+analytical, and involve fewer columns. An example of the kind of query run on
+older data is "calculate the average disk usage over the last month." This type
+of query runs much faster on compressed, columnar data.
+
+To take advantage of this and increase your query efficiency, you want to run
+queries on new data that is uncompressed, and on older data that is compressed.
+Setting the right compression policy interval means that recent data is ingested
+in an uncompressed, row format for efficient shallow and wide queries, and then
+automatically converted to a compressed, columnar format after it ages and is
+more likely to be queried using deep and narrow queries. Therefore, one
+consideration for choosing the age at which to compress the data is when your
+query patterns change from shallow and wide to deep and narrow.
+
+### Modified data
+Trying to change chunks that have already been compressed can be inefficient.
+You can always query data in compressed chunks, but the current version of
+compression does not support `UPDATE` or `DELETE` actions on compressed chunks.
+This limitation means you really only want to compress a chunk at a time when it
+is unlikely to be modified again. How much time this requires is highly
+dependent on your individual setup. Choose a compression interval that minimizes
+the need to decompress chunks, but keep in mind that you want to avoid storing
+data that is out of order.
 
 <highlight type="tip">
-Most indexes set on the hypertable are removed/ignored when reading from compressed chunks!  TimescaleDB creates and uses custom indexes to incorporate the `segmentby` and `orderby` parameters during compression.
+You can manually decompress a chunk to modify it if you need to. For more
+information on how to do that, see [decompressing chunks][decompress-chunks].
 </highlight>
 
-## Quick start example
+### Compression states
+A chunk can be in one of three states:
+*  `Active` uncompressed
+*  `Compression candidate` uncompressed
+*  `Compressed`
 
-So how do you actually enable compression on your data? Let's look at a quick
-example.
-
-Given a table called `measurements` like:
-
-|time|device_id|cpu|disk_io|energy_consumption|
-|---|---|---|---|---|
-| 8/22/2019 0:00 |1|88.2|20|0.8|
-| 8/22/2019 0:05 |2|300.5|30| 0.9|
-
-You can enable compression using the following commands
-```sql
-ALTER TABLE measurements SET (
-  timescaledb.compress,
-  timescaledb.compress_segmentby = 'device_id'
-);
-
-SELECT add_compression_policy('measurements', INTERVAL '7 days');
-```
-
-Thats it! These two commands configure compression and
-tell the system to compress chunks older than 7 days.
-
-In the following sections we will dig deeper into the three settings that are
-most important to consider in order to realize the optimal compression ratio
-for your data and achieve improved query performance:
-
-* [choosing the period](#choosing-a-compression-policy-interval) after which to compress
-* [understanding and setting the `compress_segmentby`](#understanding-the-segmentby-option) option appropriately
-* [choosing an `compress_orderby` column](#understanding-the-orderby-option) to potentially enhance query efficiency
-
-## Choosing a compression policy INTERVAL
-
-You may be wondering why we compress data only after it ages (after 7 days in
-the example above) and not right away. There are two reasons: query
-efficiency and the ability to handle out-of-order data.
-
-In terms of query efficiency, our experience has shown that when data is just
-ingested and thus refers to the recent time interval, we tend to query the
-data in a more shallow (in time) and wide (in columns) manner. These are
-often debugging or "whole system" queries. As an example,
-"show me current CPU usage, disk usage, energy consumption, and I/O for
-server 'X'". In this case the uncompressed, row based format that is native
-to PostgreSQL will give us the best query performance.
-
-As data begins to age, queries tend to become more analytical in nature and
-involve fewer columns. Such deep and narrow queries might, for example, want to calculate the
-average disk usage over the last month. These type of queries greatly benefit
-from the compressed, columnar format.
-
-Our compression design allows you to get the best of both worlds: recent data
-is ingested in an uncompressed, row format for efficient shallow and wide queries, and then
-automatically converted to a compressed, columnar format after it ages and
-is most often queried using deep and narrow queries. Therefore, one consideration
-for choosing the age at which to compress the data is when your query patterns
-change from shallow and wide to deep and narrow.
-
-The other thing to consider is that modifications to chunks that have been compressed
-are inefficient. In fact, the current version of compression does not support UPDATES
-and DELETES on compressed chunks (although you can manually decompress the chunk to modify it).
-Because of this current limitation, you want to compress a chunk only after it is unlikely to be modified further. The amount of delay you should add to chunk compression to minimize the need to decompress chunks
-will be different for each use case, but remember to be mindful of out-of-order data.
-
-<highlight type="warning">
-The current release of TimescaleDB supports the ability to query data in
-compressed chunks. However, it does not support updates of data into
-compressed chunks.
-</highlight>
-
-With regards to compression, a chunk can be in one of three states: active (uncompressed),
-compression candidate (uncompressed), compressed. Active chunks are those that are
-currently ingesting data. Due to the nature of the compression mechanism, they cannot
-effectively ingest data while compressed. As shown in the illustration below, as those
-chunks age, they become compression candidates that are compressed once they become
-old enough according to the compression policy.
+Active chunks are uncompressed and currently ingesting data. Due to the nature of the compression mechanism, they cannot effectively ingest data while compressed. As shown in this illustration, as active chunks age, they become compression candidates, and are eventually compressed when they become old enough according to the compression policy.
 
 ![compression timeline](https://assets.timescale.com/images/diagrams/compression_diagram.png)
+
+<!---
+Lana, you're up to here!
+-->
 
 ## Understanding the `segmentby` option
 
@@ -234,3 +247,6 @@ query executor can look at this special column that specifies the range of
 values (e.g., timestamps) in the compressed column – without first performing any
 decompression – in order to determine whether the row could possibly match a
 time predicate specified by a user’s SQL query.
+
+
+[decompress-chunks]: /how-to-guides/compression/decompress-chunks

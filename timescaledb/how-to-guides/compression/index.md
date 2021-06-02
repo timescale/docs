@@ -1,5 +1,4 @@
 # Compression
-
 Time-series data can be compressed to reduce the amount of storage required, and
 increase the speed of some queries. This is a cornerstone feature of
 TimescaleDB. When new data is added to your database, it is in the form of
