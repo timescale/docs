@@ -36,7 +36,9 @@ best possible compression ratio:
 ## Enable compression [](compression-enable)
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by. In this procedure, we are using this example table,
-called `example`, and we are going to segment it by the `device_id` column. We want every chunk that is more than seven days old to be automatically compressed.
+called `example`, and we are going to segment it by the `device_id` column. We
+want every chunk that is more than seven days old to be automatically
+compressed.
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |---|---|---|---|---|
@@ -102,90 +104,68 @@ You can manually decompress a chunk to modify it if you need to. For more
 information on how to do that, see [decompressing chunks][decompress-chunks].
 </highlight>
 
-### Compression states
+### Compression states over time
 A chunk can be in one of three states:
-*  `Active` uncompressed
-*  `Compression candidate` uncompressed
-*  `Compressed`
+*   `Active` and uncompressed
+*   `Compression candidate` and uncompressed
+*   `Compressed`
 
-Active chunks are uncompressed and currently ingesting data. Due to the nature of the compression mechanism, they cannot effectively ingest data while compressed. As shown in this illustration, as active chunks age, they become compression candidates, and are eventually compressed when they become old enough according to the compression policy.
+Active chunks are uncompressed and able to ingest data. Due to the nature of the
+compression mechanism, they cannot effectively ingest data while compressed. As
+shown in this illustration, as active chunks age, they become compression
+candidates, and are eventually compressed when they become old enough according
+to the compression policy.
 
 ![compression timeline](https://assets.timescale.com/images/diagrams/compression_diagram.png)
+
+## Segmenting by columns [](compression-segmentby)
+When you compress data, you need to select which column to segment by. Each row
+in a compressed table must contain data about a single item. The column that a
+table is segmented by contains only a single entry, while all other columns can
+have multiple arrayed entries. For example, in this compressed table, the first
+row contains all the values for device ID 1, and the second row contains all the
+values for device ID 2:
+
+|time|device_id|cpu|disk_io|energy_consumption|
+|---|---|---|---|---|
+|[12:00:02, 12:00:01]|1|[88.2, 88.6]|[20, 25]|[0.8, 0.85]|
+|[12:00:02, 12:00:01]|2|[300.5, 299.1]|[30, 40]|[0.9, 0.95]|
+
+Because a single value is associated with each compressed row, there is no need
+to decompress to evaluate the value in that column. This means that queries with
+`WHERE` clauses that filter by a `segmentby` column are much more efficient,
+because decompression can happen after filtering instead of before. This avoids
+the need to decompress filtered-out rows altogether.
+
+Because some queries are more efficient than others, it is important to pick the
+correct set of `segmentby` columns. If your table has a primary key all of the
+primary key columns, except for `time`, can go into the `segmentby` list. For
+example, if our example table uses a primary key on `(device_id, time)`, then
+the `segmentby` list is `device_id`.
+
+Another method is to determine a set of values that can be graphed over time.
+For example, in this EAV (entity-attribute-value) table, the series can be
+defined by `device_id` and `metric_name`. Therefore, the `segmentby` option
+should be `device_id, metric_name`:
+
+|time|device_id|metric_name|value|
+|---|---|---|---|
+|8/22/2019 0:00|1|cpu|88.2|
+|8/22/2019 0:00|1|device_io|0.5|
+|8/22/2019 1:00|1|cpu|88.6|
+|8/22/2019 1:00|1|device_io|0.6|
+
+The `segmentby` columns are useful, but can be overused. If you specify a lot of
+`segmentby` columns, the number of items in each compressed column is reduced,
+and compression is not as effective. A good guide is for each segment to contain
+at least 100 rows per chunk. To achieve this, you might also need to use  
+the [`compress_orderby` column](#compression-orderby).
 
 <!---
 Lana, you're up to here!
 -->
 
-## Understanding the `segmentby` option
-
-Aside from determining how old data should be before the policy compresses
-chunks, setting the `segmentby` option to the best column(s) is an important
-requirement that needs thoughtful consideration for the best performance.
-
-We can segment compressed rows by specific columns so that each compressed
-row corresponds to data about a single item, e.g., a specific `device_id`.
-The `segmentby` option forces the system to break up the compressed array so
-that each compressed row has a single value for each segmentby column. For
-example if we set `device_id` as a `segmentby` column, then the compressed
-version of our running example would look like:
-
-
-|time|device_id|cpu|disk_io|energy_consumption|
-|---|---|---|---|---|
-| [12:00:02, 12:00:01]| 1 |[88.2, 88.6]|[20, 25] |[0.8, 0.85]|
-| [12:00:02, 12:00:01]| 2 |[300.5, 299.1]|[30, 40] |[0.9, 0.95]|
-
-The above example shows that the `device_id` column is no longer an array,
-instead it defines the single value associated with all of the compressed data in the row.
-
-Because a single value is associated with a compressed row, no decompression
-is necessary to evaluate the value. Queries with WHERE clauses that filter by
-a `segmentby` column are much more efficient, as decompression can happen _after_
-filtering instead of before (avoiding the need to decompress
-filtered-out rows altogether). In fact, for even more efficient access,
-we build b-tree indexes over each `segmentby` column.
-
-`segmentby` columns are useful, but can be overused. If too many `segmentby` columns
-are specified, then the number of items in each compressed column becomes small
-and compression is not effective. Thus, we recommend that you make sure that
-each segment contains at least 100 rows per chunk. If this is not the case,
-then you can move some segmentby columns into the orderby option (as described in the
-next section).
-
-## Choosing the right `segmentby` columns
-
-The `segmentby` option determines the main key by which compressed data is accessed.
-In particular, queries that reference the `segmentby` columns in the WHERE clause are
-very efficient. Thus, it is important to pick the correct set of `segmentby` columns.
-Here are a few things to consider when choosing your `segmentby` columns.
-
-If your table has a primary key then all of the primary key columns other than "time" should
-go into the `segmentby` list. In the example above, one can easily imagine a primary
-key on (device_id, time), and therefore the `segmentby` list is `device_id`.
-
-Another way to think about this is that a concrete set of values for each `segmentby`
-column should define a "time-series" of values you can graph over time. For example,
-if we had a more EAV table like the following:
-
-|time|device_id|metric_name|value|
-|---|---|---|---|
-| 8/22/2019 0:00 |1|cpu|88.2|
-| 8/22/2019 0:00 |1|device_io|0.5|
-| 8/22/2019 1:00 |1|cpu|88.6|
-| 8/22/2019 1:00 |1|device_io|0.6|
-
-Then the series would be defined by the pair of columns `device_id` and
-`metric_name`. Therefore, the `segmentby` option should be `device_id, metric_name`.
-
-<highlight type="tip">
-If your data is not compressing well, it may be that you have too many
-`segmentby` columns defined. Each segment of data should contain at least 100 rows
-in each chunk. If your segments are too small, you can move some columns from the
-`segmentby` list to the `orderby` list (described below), or you might be using
-chunk intervals that are too short.
-</highlight>
-
-## Understanding the `orderby` option
+## Understanding the `orderby` option [](compression-orderby)
 
 The `orderby` option determines the order of items inside the compressed array.
 By default, this option is set to the descending order of the hypertable's
