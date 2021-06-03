@@ -107,11 +107,7 @@ You can use PostgreSQL extensions with Timescale Forge. These are the currently 
 |unaccent|Text search dictionary that removes accents|
 |uuid-ossp|Generate universally unique identifiers (UUIDs)|
 
-<highlight type="tip">
 If you run `pg_available_extensions` at the command prompt, the returned list of extensions is inaccurate. To see the allowed extensions, use this command instead:
-
 ```sql
-  SELECT pae.* FROM current_setting('extwlist.extensions') AS cs(e) CROSS JOIN regexp_split_to_table(e, ',') AS ext(allowed) JOIN pg_available_extensions AS pae ON (allowed=name) ORDER BY 1;
+SELECT pae.* FROM current_setting('extwlist.extensions') AS cs(e) CROSS JOIN regexp_split_to_table(e, ',') AS ext(allowed) JOIN pg_available_extensions AS pae ON (allowed=name) ORDER BY 1;
 ```
-
-</highlight>
