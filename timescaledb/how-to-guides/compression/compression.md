@@ -211,8 +211,8 @@ ordering as the compression, you can decompress incrementally and still return
 results in the same order. You can also avoid a `SORT`. Additionally, the system
 automatically creates additional columns to store the minimum and maximum value
 of any `orderby` column. This way, the query executor looks at this additional
-column that specifies the range of values (e.g., timestamps) in the compressed
-column, without first performing any decompression, in order to determine
-whether the row could possibly match a time predicate specified by the query.
+column that specifies the range of values in the compressed column, without
+first performing any decompression, in order to determine whether the row could
+possibly match a time predicate specified by the query.
 
 [decompress-chunks]: /how-to-guides/compression/decompress-chunks
