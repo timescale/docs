@@ -3,7 +3,7 @@ In most cases, an automated compression policy is sufficient. However, if you
 want more control over compression, you can also manually compress specific
 chunks.
 
-<highlight type="warning"
+<highlight type="warning">
 Compression alters data on your disk, so always back up before you start!
 </highlight>
 
@@ -18,7 +18,7 @@ than three days:
     ```sql
     SELECT show_chunks('example', older_than => INTERVAL '3 days');
     ```
-1.  This returns a liast of chunks. Take a note of the chunk names:
+1.  This returns a list of chunks. Take a note of the chunk names:
     ||show_chunks|
     |---|---|
     |1|_timescaledb_internal_hyper_1_2_chunk|
@@ -37,7 +37,7 @@ When you are happy with the list of chunks, you can use the chunk names to manua
     SELECT *
     FROM chunk_compression_stats('example');
     ```
-    The results show the chunks for the given hypertable, if they are compressed, and some other statistics:
+    The results show the chunks for the given hypertable, their compression status, and some other statistics:
     |chunk_schema|chunk_name|compression_status|before_compression_table_bytes|before_compression_index_bytes|before_compression_toast_bytes|before_compression_total_bytes|after_compression_table_bytes|after_compression_index_bytes|after_compression_toast_bytes|after_compression_total_bytes|node_name|
     |---|---|---|---|---|---|---|---|---|---|---|---|
     |_timescaledb_internal|_hyper_1_1_chunk|Compressed|8192 bytes|16 kB|8192 bytes|32 kB|8192 bytes|16 kB|8192 bytes|32 kB||

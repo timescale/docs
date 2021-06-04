@@ -1,23 +1,38 @@
-# Decompressing chunks [](decompress-chunks)
+# Decompression
+If you need backfill or update data in a compressed chunk, you should decompress
+the chunk first. Inserting data into a compressed chunk is more computationally
+expensive than inserting data into an uncompressed chunk, so decompressing the
+chunk is also a good idea if you need to backfill large amounts of data.
 
-In order to decompress individual chunks, you can run a `decompress_chunk`
-command in much the same way you can manually compress an individual chunk:
+<highlight type="tip">
+When you are planning your compression strategy, make sure you leave enough
+additional storage capacity for decompressing chunks if you need to.
+</highlight>
 
-``` sql
-SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
+These are the main steps for decompressing chunks in preparation for inserting or backfilling data:
+1.  Temporarily turn off any existing compression policy. This stops the policy trying to compress chunks that you are currently working on.
+1.  Decompress chunks.
+1.  Perform the insertion or backfill.
+1.  Re-enable the compression policy. This will re-compress the chunks you worked on.
+
+## Decompress chunks manually
+There are several methods for selecting chunks and decompressing them.
+
+### Decompress individual chunks
+To decompress a single chunk by name, run this command:
+```sql
+SELECT decompress_chunk('chunk_name');
 ```
 
-Similar to above, you can also decompress a set of chunks based on a
-time range by first looking up this set of chunks via `show_chunks`:
-
-``` sql
-SELECT decompress_chunk(i) from show_chunks('conditions', newer_than, older_than) i;
+### Decompress chunks by time
+To decompress a set of chunks based on a time range, you can use the output of `show_chunks` to decompress each one:
+```sql
+SELECT decompress_chunk(i) from show_chunks('table_name', newer_than, older_than) i;
 ```
 
-Or if you want to have more precise matching constraints, including that you
-are using space partitioning (e.g., based on `device_id`):
-
-``` sql
+### Decompress chunks on more precise constraints
+If you want to use more precise matching constraints, for example space partitioning, you can construct a command like this:
+```sql
 SELECT tableoid::regclass FROM metrics
   WHERE time = '2000-01-01' AND device_id = 1
   GROUP BY tableoid;
@@ -26,37 +41,3 @@ SELECT tableoid::regclass FROM metrics
 ------------------------------------------
  _timescaledb_internal._hyper_72_37_chunk
 ```
-
-Decompression might often be employed in the event that you need to backfill or
-update data that lives in a compressed chunk, as TimescaleDB only partially
-supports modifying (inserting into, not updating or deleting from) compressed
-chunks.
-
-Moreover, inserting into compressed chunks is more computationally expensive
-when compared to inserting data into an uncompressed chunk. You should consider
-decompressing the chunk before backfilling huge amounts of data.
-
-Next we walk you through the instructions for preparing your table for
-inserting or backfilling data.   The general approach has four steps:
-
-1. Temporarily turn off any compression policy (as otherwise that policy will attempt
-to re-compress the chunks that we are currently working on)
-
-1. Decompress chunks that will be effected by modifications or backfill
-
-1. Perform the modifications or backfill
-
-1. Re-enable compression policy (which will have the effect of recompressing
-any of our recently-decompressed chunks)
-
-In the next sections, we describe some automated helper functions we provide
-that perform all five steps in a more automatic fashion, and then also walk you
-through more manual instructions.
-
-
-## Storage considerations for decompressing chunks [](storage-for-decompression)
-
-Another factor to be mindful of when planning your compression strategy is the
-additional storage overhead needed to decompress chunks. This is key when you are
-provisioning storage for use with TimescaleDB. You want to ensure that you plan for
-enough storage headroom to decompress some chunks if needed.
