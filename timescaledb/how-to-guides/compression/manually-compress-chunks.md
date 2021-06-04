@@ -14,7 +14,7 @@ than three days.
 
 ### Procedure: Selecting chunks to compress
 1.  At the psql prompt, select all chunks in the table `example` that are older
-than three days:
+    than three days:
     ```sql
     SELECT show_chunks('example', older_than => INTERVAL '3 days');
     ```
@@ -23,7 +23,6 @@ than three days:
     |---|---|
     |1|_timescaledb_internal_hyper_1_2_chunk|
     |2|_timescaledb_internal_hyper_1_3_chunk|
-
 
 When you are happy with the list of chunks, you can use the chunk names to manually compress each one.
 
