@@ -1,15 +1,20 @@
 # Manual compression
-In most cases, an automated compression policy is sufficient. However, if you want more control over compression, you can also manually compress specific chunks.
+In most cases, an automated compression policy is sufficient. However, if you
+want more control over compression, you can also manually compress specific
+chunks.
 
 <highlight type="warning"
 Compression alters data on your disk, so always back up before you start!
 </highlight>
 
 ## Compress chunks manually
-Before you start, you need a list of chunks to compress. In this example, we are using a hypertable called `example`, and compressing these chunks that are older than three days:
+Before you start, you need a list of chunks to compress. In this example, we are
+using a hypertable called `example`, and compressing these chunks that are older
+than three days.
 
 ### Procedure: Selecting chunks to compress
-1.  At the psql prompt, select all chunks in the table `example` that are older than three days:
+1.  At the psql prompt, select all chunks in the table `example` that are older
+than three days:
     ```sql
     SELECT show_chunks('example', older_than => INTERVAL '3 days');
     ```
@@ -40,7 +45,9 @@ When you are happy with the list of chunks, you can use the chunk names to manua
 1.  Repeat for all chunks you want to compress.
 
 ## Manually compress chunks in a single command
-Alternatively, you can select the chunks and compress them in a single command by using the output of the `show_chunks` command to compress each one, like this:
+Alternatively, you can select the chunks and compress them in a single command
+by using the output of the `show_chunks` command to compress each one, like
+this:
 
 ```sql
 SELECT compress_chunk(i) from show_chunks('example', newer_than, older_than) i;
