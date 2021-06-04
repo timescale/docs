@@ -118,7 +118,7 @@ to the compression policy.
 
 ![compression timeline](https://assets.timescale.com/images/diagrams/compression_diagram.png)
 
-## Segmenting by columns [](compression-segmentby)
+## Segment by columns [](compression-segmentby)
 When you compress data, you need to select which column to segment by. Each row
 in a compressed table must contain data about a single item. The column that a
 table is segmented by contains only a single entry, while all other columns can
@@ -161,72 +161,58 @@ and compression is not as effective. A good guide is for each segment to contain
 at least 100 rows per chunk. To achieve this, you might also need to use  
 the [`compress_orderby` column](#compression-orderby).
 
-<!---
-Lana, you're up to here!
--->
+## Order entries [](compression-orderby)
+By default, the items inside a compressed array are arranged in descending order
+according to the hypertable's `time` column. In most cases, this works well,
+provided you have set the `segmentby` option appropriately. However, in some
+more complicated scenarios, you want to manually adjust the
+`commpression_orderby`setting as well. Changing this value can improve the
+compression ratio, as well as query performance.
 
-## Understanding the `orderby` option [](compression-orderby)
+Compression is most effective when adjacent data is close in magnitude or
+exhibits some sort of trend. Random data, or data that is out of order,
+compresses poorly. This means that it is important that the order of the input
+data causes it to follow a trend.
 
-The `orderby` option determines the order of items inside the compressed array.
-By default, this option is set to the descending order of the hypertable's
-time column. This is sufficient for most cases if the `segmentby` option is set appropriately,
-but can also be manually set to a different setting in advanced scenarios.
-
-The `orderby` effects both the compression ratio achieved and the query performance.
-
-Compression is most effective when adjacent data is close in magnitude or exhibits
-some sort of trend. In other words, random or out-of-order data will compress poorly.
-Thus, when compressing data it is important that the order of the input data
-causes it to follow a trend.
-
-Let's look again at what our running example looked like without any segmentby columns.
+In this example, we haven't set any `segmentby` columns, so the data is sorted
+by the `time` column. If you look at the `cpu` column, you can see that it might
+not be able to be compressed, because even though both devices are outputting a
+value that is a float, the measurements have different magnitudes, with device 1
+showing numbers around 88, and device 2 showing numbers around 300:  
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |---|---|---|---|---|
-| [12:00:02, 12:00:02, 12:00:01, 12:00:01 ]| [1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[20, 30, 25, 40] |[0.8, 0.9, 0.85, 0.95]|
+|[12:00:02, 12:00:02, 12:00:01, 12:00:01 ]|[1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[20, 30, 25, 40]|[0.8, 0.9, 0.85, 0.95]|
 
-Notice that the data is ordered by the `time` column. But, if we look at the
-`cpu` column, we can see that the compressor will not be able to efficiently
-compress it. Although both devices output a value that is a float, the
-measurements have different magnitudes. The float list [88.2, 300.5, 88.6,
-299.1] will compress poorly because values of the same magnitude are not
-adjacent. However,  we can order by `device_id, time DESC` by setting
-our table options as follows:
-
-``` sql
-ALTER TABLE  measurements
+To improve the performance of this data, you can order by `device_id, time DESC`
+instead, using these commands:
+```sql
+ALTER TABLE  example
   SET (timescaledb.compress,
        timescaledb.compress_orderby = 'device_id, time DESC');
 ```
 
-Using those settings, the compressed table will look as follows:
+Using those settings, the compressed table now shows each measurement in consecutive order, and the `cpu` values show a trend. This table will compress much better:
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |---|---|---|---|---|
-| [12:00:02, 12:00:01, 12:00:02, 12:00:01 ]| [1, 1, 2, 2]|[88.2, 88.6, 300.5, 299.1]|[20, 25, 30, 40] |[0.8, 0.85, 0.9, 0.95]|
+|[12:00:02, 12:00:01, 12:00:02, 12:00:01 ]|[1, 1, 2, 2]|[88.2, 88.6, 300.5, 299.1]|[20, 25, 30, 40]|[0.8, 0.85, 0.9, 0.95]|
 
-Now, each devices measurement is consecutive in the ordering and
-and thus the measurement values exhibit more of a trend. The cpu
-series [88.2, 88.6, 300.5, 299.1] will compress much better.
+Putting items in `orderby` and `segmentby` columns often achieves similar
+results. In this same example, if you set it to segment by the `device_id`
+column, it will have good compression, even without setting `orderby`. This is
+because ordering only matters within a segment, and segmenting by device means
+that each segment represents a series if it is ordered by time. So, if
+segmenting by an identifier causes segments to become too small, try moving the
+`segmentby` column into a prefix of the `orderby` list.
 
-If you look at the above example with `device_id` as a `segmentby`,
-you will see that this will have good compression as well since
-ordering only matters within a segment and segmenting by device
-guarantees that each segment represents a series if only ordered by time.
-Thus, putting items in `orderby` and `segmentby` columns achieves similar
-results. This is why, if segmenting by an identifier causes segments to become too
-small, we recommend moving the segmentby column into a prefix of the
-orderby list.
-
-We also use ordering to increase query performance. If a query uses the same
-(or similar) ordering as the compression, we know that we can decompress
-incrementally and still return results in the same order. We can also
-avoid a sort. In addition, the system automatically creates additional columns
-that store the minimum and maximum value of any `orderby` column. This way, the
-query executor can look at this special column that specifies the range of
-values (e.g., timestamps) in the compressed column – without first performing any
-decompression – in order to determine whether the row could possibly match a
-time predicate specified by a user’s SQL query.
-
+You can also use ordering to increase query performance. If a query uses similar
+ordering as the compression, you can decompress incrementally and still return
+results in the same order. You can also avoid a `SORT`. Additionally, the system
+automatically creates additional columns to store the minimum and maximum value
+of any `orderby` column. This way, the query executor looks at this additional
+column that specifies the range of values (e.g., timestamps) in the compressed
+column, without first performing any decompression, in order to determine
+whether the row could possibly match a time predicate specified by the query.
 
 [decompress-chunks]: /how-to-guides/compression/decompress-chunks
