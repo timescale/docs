@@ -20,9 +20,9 @@ than three days:
     ```
 1.  This returns a liast of chunks. Take a note of the chunk names:
     ||show_chunks|
-      |---|---|
-      |1|_timescaledb_internal_hyper_1_2_chunk|
-      |2|_timescaledb_internal_hyper_1_3_chunk|
+    |---|---|
+    |1|_timescaledb_internal_hyper_1_2_chunk|
+    |2|_timescaledb_internal_hyper_1_3_chunk|
 
 
 When you are happy with the list of chunks, you can use the chunk names to manually compress each one.
