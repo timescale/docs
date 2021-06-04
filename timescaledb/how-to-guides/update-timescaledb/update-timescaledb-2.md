@@ -5,23 +5,36 @@ Use these instructions to update TimescaleDB 1.x to TimescaleDB 2.0
 <highlight type="warning">
 These instructions are only for upgrading TimescaleDB 1.x to TimescaleDB 2.0
  To upgrade your existing TimescaleDB within the same major version
- (for example, from 1.7.2 to 1.7.4, from 2.1 to 2.2), see [Update TimescaleDB](/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb/)
- for general update instructions.
+ (for example, from 1.7.2 to 1.7.4, from 2.1 to 2.2), see [Update TimescaleDB](/timescaledb/latest/how-to-guides/update-timescaledb/)
+  for general update instructions.
 </highlight>
 
 ### TimescaleDB release compatibility [](compatibility)
 
-TimescaleDB currently supports the following PostgreSQL releases. If you are not currently running
-a compatible release, please upgrade before updating TimescaleDB.
+TimescaleDB currently supports the following PostgreSQL releases. If you are not
+currently running a compatible release, please upgrade before updating TimescaleDB.
 
  TimescaleDB Release |   Supported PostgreSQL Release
  --------------------|-------------------------------
  1.7                 | 9.6, 10, 11, 12
  2.0                 | 11, 12
- 2.1+                | 11, 12, 13
+ 2.1-2.3             | 11, 12, 13
+ 2.4+                | 12, 13
+
+If you need to upgrade PostgreSQL first, 
+see [our documentation][upgrade-pg].
 
 <highlight type="tip">
-If you need to upgrade PostgreSQL first, please see [our documentation](/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/).
+We always recommend that you update PostgreSQL and TimescaleDB as 
+separate actions to make sure that each process completes properly. 
+For example, if you are currently running PostgreSQL 10 and 
+TimescaleDB 1.7.5, and you want to upgrade to PostgreSQL 13 and
+TimescaleDB 2.2, upgrade in this order:
+
+1. Upgrade PostgreSQL 10 to PostgreSQL 12
+1. Update TimescaleDB 1.7.5 to TimescaleDB 2.2 on PostgreSQL 12
+1. Upgrade PostgreSQL 12 to PostgreSQL 13 with TimescaleDB 2.2 installed
+
 </highlight>
 
 ### Notice of breaking changes from TimescaleDB 1.3+
