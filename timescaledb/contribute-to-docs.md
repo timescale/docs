@@ -1,0 +1,199 @@
+# Contributing to Timescale documentation
+Timescale documentation is hosted in a [GitHub repository][github-docs]  and is
+open for contribution from all community members. If you  find errors or would
+like to add content to our docs, you can create a pull request using GitHub for
+review by our documentation team. This document contains everything you need to
+know about our writing style and standards, but don't worry too much if you
+aren't sure what to write. Our documentation team will help you craft the
+perfect words when you have a PR ready. We also have some automation on our
+repository to help you.
+
+If you want to make minor changes to docs, such as fixing a typo, you can make
+corrections  and submit pull requests on the GitHub website. Go to the file you
+want to  correct and click the 'pencil' icon to edit. Make the corrections, and
+use the options at the bottom of the page to submit a pull request.
+
+To make larger changes to the documentation, follow the instructions in
+our [Contributors' Guide][contributors].
+
+For technical details about the repository, including understanding how the
+repository is organized, and the various markup and formatting conventions, see
+the [README][readme].
+
+Before we accept any contributions, Timescale contributors need to sign the
+Contributor License Agreement (CLA). By signing a CLA, we  can ensure that the
+community is free and confident in its ability to use your contributions. You
+will be prompted to sign the CLA during the pull request process.
+
+## Resources
+When making style decisions, consult resources in this order:
+1.  This guide: always check this guide first, it contains project-specific
+guidance, and in some cases differs from the other resources listed here.
+1.  The [Google Developer Documentation Style Guide][google-style]: for most
+general style guidance, we rely on the style defined here.
+1.  The Chicago Manual of Style: we use this guide for some formatting decisions
+that are not covered in other resources
+1.  Merriam-Webster: Timescale documentation is written in US English, for
+spelling and definitions, consult the dictionary.
+
+## Language
+We use standard US English, with an emphasis on plain (or classical) language, in simple present tense, using the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
+
+For example, here are three ways of writing one sentence:
+*   Natural English: In order to perform X installation process, please ensure
+that all of the following steps are done ...
+*   Tech writer's English: To perform the X installation process, verify you have
+done the subsequent steps ...
+*   Plain English: To install X, do these steps ...
+
+Remember that the order of words is important in English. Put the most important
+part of a sentence first, this is usually the actor or the action. Use the
+second part of the sentence to give it a focus: what else should the reader
+notice?
+
+Readers are often in an agitated state by the time they get to our
+documentation. Stressed readers jump around in the text, skip words, steps, or
+paragraphs, and will quickly give up if things seem too complex. To mitigate
+this, use short sentences, plain language, and a minimum number of eye-catching
+details such as admonitions.
+
+Never assume that because you've explained something earlier in a document,
+readers will know it later in the document. You can use cross-references to help
+guide readers to further information if they need it.
+
+## Grammar
+Grammar rules are tacit evolving conventions. They have no implicit value by
+themselves, they only gain value because everyone is doing it.
+
+There are no hard and fast rules about dangling participles, split infinitives,
+or ending sentences with prepositions. Obeying these rules can often make
+language clearer but, in some cases, they make language more complicated. In
+that case, feel free to ignore them.
+
+## Verbs
+*   `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
+*   `Press` a key or key combination on a keyboard.
+*   `Type` words or numbers using a keyboard.
+*   `Check` or `uncheck` a checkbox.
+*   `Select` or `deselect` an item in a menu.
+*   `Navigate` to a page or location in a graphical user interface.
+
+
+## Word usage
+
+### A [](#A)
+
+*Adverbs*
+: Do not use.
+
+:+1: Install TimescaleDB.
+
+:x: Simply install TimescaleDB.
+
+*And/Or*
+: Do not use. You can usually pick one. If you're not sure, pick "and".
+
+:x: I like apples and/or oranges.
+
+:+1: I like apples and oranges.
+
+### B [](#B)
+
+### C [](#C)
+
+*Contractions*
+: Absolutely fine to use, but try not to overdo it.
+
+### D [](#D)
+
+### E [](#E)
+
+### F [](#F)
+
+*File system*
+: Two words.
+
+### G [](#G)
+
+### H [](#H)
+
+### I [](#I)
+
+### J [](#J)
+
+### K [](#K)
+
+### L [](#L)
+
+*Latin abbreviations*
+: Do not use.
+
+:+1: For example
+
+:x: eg
+
+### M [](#M)
+
+### N [](#N)
+
+### O [](#O)
+
+### P [](#P)
+
+### Q [](#Q)
+
+### R [](#R)
+
+### S [](#S)
+
+### T [](#T)
+
+*Timescale*
+: The name of the company. Do not use camel case.
+
+:+1: Timescale is hosting a virtual event.
+
+:x: I have installed Timescale to manage my time-series data.
+
+:x: TimeScale
+
+*TimescaleDB*
+: The name of the product. Capitalize the initial letter, and the "DB" at the end.
+
+:+1: "I have installed TimescaleDB to manage my time-series data."
+
+:x: "TimescaleDB is hosting a virtual event."
+
+:x: "TimeScaleDB"
+
+### U [](#U)
+
+*Utilize*
+: Do not use. Use "use" instead.
+
+### V [](#V)
+
+*Via*
+: Avoid if possible. There is usually a more accurate English word, like
+"through", "with", or "using".
+
+### W [](#W)
+
+*Will*
+: Do not use. It usually indicates that you are writing in future tense.
+Always write in simple present tense.
+
+:+1: After installation, you see a message.
+
+:x: After installation, you will see a message.
+
+### X [](#X)
+
+### Y [](#Y)
+
+### Z [](#Z)
+
+[github-docs]: https://github.com/timescale/docs
+[contributors]: https://github.com/timescale/docs/CONTRIBUTING.md
+[readme]: https://github.com/timescale/docs/README.md
+[google-style]: https://developers.google.com/style
