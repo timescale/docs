@@ -47,111 +47,78 @@ SELECT tableoid::regclass FROM metrics
 ```
 
 # Backfill historical data on compressed chunks
-When you backfill data, you are inserting data that has a timestamp in the past into a corresponding chunk that has already been compressed. If you need to insert a batch of backfilled data, the [TimescaleDB extras][timescaledb-extras] GitHub repository includes functions for [backfilling batch data to compressed chunks][timescaledb-extras-backfill]. By "backfill", we
-mean inserting data corresponding to a timestamp well in the past, which given
-its timestamp, already corresponds to a compressed chunk.
+When you backfill data, you are inserting data that has a timestamp in the past
+into a corresponding chunk that has already been compressed.
 
-<highlight type="warning"
-Compression alters data on your disk, so always back up before you start!
-</highlight>
+In this section, we explain how to backfill data into a temporary table.
+Temporary tables only exist for the duration of the database session, and then
+are automatically dropped, This is the simplest method for doing a large
+backfill operation.
 
-In the below example, we backfill data into a temporary table; such temporary
-tables are short-lived and only exist for the duration of the database
-session. Alternatively, if backfill is common, one might use a normal table for
-this instead, which would allow multiple writers to insert into the table at
-the same time before the `decompress_backfill` process.
+If you backfill regularly, you might prefer to use a regular table instead, so
+that multiple writers can insert into the table at the same time before the
+`decompress_backfill` process. In this case, after you are done backfilling the
+data, clean up by truncating your table in preparation for the next backfill, or
+drop it completely.
 
-To use this procedure:
+## Backfill with a supplied function
+If you need to insert a batch of backfilled data, the [TimescaleDB
+extras][timescaledb-extras] GitHub repository includes functions for
+[backfilling batch data to compressed chunks][timescaledb-extras-backfill].  In this procedure, we describe how to use the `decompress_backfill` function.
 
-1. Create a table with the same schema as the hypertable (in
-  this example, `cpu`) that we are backfilling into:
+### Procedure: Backfilling with a supplied function
+1.  At the psql prompt, create a temporary table with the same schema as the hypertable you want to backfill into. In this example, our table is called `example`, and the data column is `cpu_temp`:
+    ```sql
+    CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM example WITH NO DATA;
+    ```
+1.  Insert your data into the backfill table.
+1.  Use a supplied backfill function. This function halts the compression
+    policy, identifies the compressed chunks that the backfilled data
+    corresponds to, decompresses the chunks, inserts data from the backfill
+    table into the main hypertable, and then re-enables the compression policy:
+    ```sql
+    CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'example');
+    ```
 
- ```sql
- CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM cpu WITH NO DATA;
- ```
+## Backfill manually
+If you don't want to use a supplied function, you can perform the steps
+manually. In this procedure, we describe how to identify and turn off your
+compression policy, before manually decompressing chunks.
 
-1. Insert data into the backfill table.
-
-1. Use a supplied backfill procedure to perform the above steps: halt
-  compression policy, identify those compressed chunks to which the backfilled
-  data corresponds, decompress those chunks, insert data from the backfill
-  table into the main hypertable, and then re-enable compression policy:
-
- ```sql
- CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'cpu');`
- ```
-
-If using a temp table, the table is automatically dropped at the end of your
-database session.  If using a normal table, after you are done backfilling the
-data successfully, you will likely want to truncate your table in preparation
-for the next backfill (or drop it completely).
-
-## Manually decompressing chunks for backfill
-
-To perform these steps more manually, we first identify and turn off our
-compression policy, before manually decompressing chunks.  To accomplish this
-we first find the job_id of the policy using:
-
-```sql
-SELECT s.job_id
-FROM timescaledb_information.jobs j
-  INNER JOIN timescaledb_information.job_stats s ON j.job_id = s.job_id
-WHERE j.proc_name = 'policy_compression' AND s.hypertable_name = <target table>;
-```
-
-Next, pause the job with:
-
-``` sql
-SELECT alter_job(<job_id>, scheduled => false);
-```
-
-We have now paused the compress chunk policy from the hypertable which
-will leave us free to decompress the chunks we need to modify via backfill or
-update. To decompress the chunk(s) that we will be modifying, for each chunk:
-
-``` sql
-SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
-```
-
-Similar to above, you can also decompress a set of chunks based on a
-time range by first looking up this set of chunks via `show_chunks`:
-
-``` sql
-SELECT decompress_chunk(i) from show_chunks('conditions', newer_than, older_than) i;
-```
-
-<highlight type="tip">
-You need to run 'decompress_chunk' for each chunk that will be impacted
-by your INSERT or UPDATE statement in backfilling data. Once your needed chunks
-are decompressed you can proceed with your data backfill operations.
-</highlight>
-
-Once your backfill and update operations are complete we can simply re-enable
-our compression policy job:
-
-``` sql
-SELECT alter_job(<job_id>, scheduled => true);
-```
-
-This job will re-compress any chunks that were decompressed during your backfilling
-operation the next time it runs. To have it run immediately, you can expressly execute
-the command via [`run_job`][run-job]:
-
-``` sql
-CALL run_job(<job_id>);
-```
-
-## Future Work [](future-work)
-
-One of the current limitations of TimescaleDB is that once chunks are converted
-into compressed column form, we do not allow updates and deletes of the data
-or changes to the schema without manual decompression, except as noted [above][compression-schema-changes].
-In other words, chunks are partially immutable in compressed form.
-Attempts to modify the chunks' data in those cases will either error or fail silently (as preferred by users).
-We plan to remove this limitation in future releases.
+### Procedure: Backfilling manually
+1.  At the psql prompt, find the `job_id` of the policy:
+    ```sql
+    SELECT s.job_id
+    FROM timescaledb_information.jobs j
+      INNER JOIN timescaledb_information.job_stats s ON j.job_id = s.job_id
+      WHERE j.proc_name = 'policy_compression' AND s.hypertable_name = <target table>;
+    ```
+1.  Pause compression, to prevent the policy trying to compress chunks that you
+    are currently working on:
+    ``` sql
+    SELECT alter_job(<job_id>, scheduled => false);
+    ```
+1.  Decompress the chunks that you want to modify.
+    ``` sql
+    SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
+    ```
+    Repeat for each chunk. Alternatively, you can decompress a set of chunks
+    based on a time range using `show_chunks`:
+    ``` sql
+    SELECT decompress_chunk(i) from show_chunks('conditions', newer_than, older_than) i;
+    ```
+1.  When you have decompressed all the chunks you want to modify, perform the
+    `INSERT` or `UPDATE` commands to backfill the data.
+1.  Restart the compression policy job. The next time the job runs, it
+    recompresses any chunks that were decompressed.
+    ``` sql
+    SELECT alter_job(<job_id>, scheduled => true);
+    ```
+    Alternatively, to recompress chunks immediately, use the `run_job` command:
+    ``` sql
+    CALL run_job(<job_id>);
+    ```
 
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
-[compression-schema-changes]: /how-to-guides/compression/modify-a-schema/
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
-[run-job]: /api/:currentVersion:/actions-and-automation/run_job/
