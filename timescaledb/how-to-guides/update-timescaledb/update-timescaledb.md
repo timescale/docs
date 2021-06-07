@@ -1,49 +1,25 @@
-# Updating TimescaleDB versions [](update)
+# Updating major versions of TimescaleDB [](update)
 
-The instructions below all you to update TimescaleDB within the same major release
-version (for example, from TimescaleDB 2.1 to 2.2, or from 1.7 to 1.7.4). If you need 
-to upgrade between TimescaleDB 1.x and 2.x, see our [separate upgrade document][update-tsdb-2] 
+Use these instructions to update TimescaleDB within the same major release
+version (for example, from TimescaleDB 2.1 to 2.2, or from 1.7 to 1.7.4). If you need to upgrade between
+TimescaleDB 1.x and 2.x, see our [separate upgrade document][update-tsdb-2] 
 for detailed instructions.
 
-TimescaleDB supports **in-place updates only**: you don't need to dump and 
-restore your data, and versions are published with automated migration scripts 
-that convert any internal state if necessary.
+### TimescaleDB release compatibility
 
-<highlight type="warning">
-There is currently no automated way to downgrade to an earlier release of TimescaleDB without setting up
-a new instance of PostgreSQL with a previous release of TimescaleDB and then using `pg_restore`
-from a backup.
-</highlight>
-
-### TimescaleDB release compatibility [](compatibility)
-
-TimescaleDB currently supports the following PostgreSQL releases. If you are not
-currently running a compatible release, please upgrade before updating TimescaleDB.
+TimescaleDB currently supports the following PostgreSQL releases. If you are not currently running
+a compatible release, please upgrade before updating TimescaleDB.
 
  TimescaleDB Release |   Supported PostgreSQL Release
  --------------------|-------------------------------
  1.7                 | 9.6, 10, 11, 12
  2.0                 | 11, 12
- 2.1-2.3             | 11, 12, 13
- 2.4+                | 12, 13
+ 2.1+                | 11, 12, 13
 
-If you need to upgrade PostgreSQL first, 
-see [our documentation][upgrade-pg].
-
-<highlight type="tip">
-We always recommend that you update PostgreSQL and TimescaleDB as 
-separate actions to make sure that each process completes properly. 
-For example, if you are currently running PostgreSQL 10 and 
-TimescaleDB 1.7.5, and you want to upgrade to PostgreSQL 13 and
-TimescaleDB 2.2, upgrade in this order:
-
-1. Upgrade PostgreSQL 10 to PostgreSQL 12
-1. Update TimescaleDB 1.7.5 to TimescaleDB 2.2 on PostgreSQL 12
-1. Upgrade PostgreSQL 12 to PostgreSQL 13 with TimescaleDB 2.2 installed
-
-</highlight>
+If you need to upgrade PostgreSQL first, see [our documentation][upgrade-pg].
 
 ### Update TimescaleDB
+
 Software upgrades use PostgreSQL's `ALTER EXTENSION` support to update to the
 latest version. TimescaleDB supports having different extension
 versions on different databases within the same PostgreSQL instance. This
@@ -82,11 +58,10 @@ After executing the command, the psql `\dx` command should show the latest versi
 ```
 
 
-[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-timescaledb]: /how-to-guides/update-timescaledb/update-timescaledb/
-[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
-[update-docker]: /how-to-guides/update-timescaledb/updating-docker/
 [changes-in-2.0]: /overview/release-notes/changes-in-timescaledb-2/
+[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
+[update-tsdb-1]: https://legacy-docs.timescale.com/v1.7/update-timescaledb/update-tsdb-1
+[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/
 [Install]: /how-to-guides/install-timescaledb/
