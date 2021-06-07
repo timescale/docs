@@ -41,3 +41,11 @@ To get a list of all currently registered jobs you can query
 ```sql
 SELECT * FROM timescaledb_information.jobs;
 ```
+
+
+[postgres-createfunction]: https://www.postgresql.org/docs/current/sql-createfunction.html
+[postgres-createprocedure]: https://www.postgresql.org/docs/current/sql-createprocedure.html
+[api-add_job]: /api/:currentVersion:/actions/add_job
+[api-alter_job]: /api/:currentVersion:/actions/alter_job
+[api-run_job]: /api/:currentVersion:/actions/run_job
+[api-timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
