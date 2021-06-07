@@ -459,6 +459,17 @@ module.exports = [
         ]
       },
       {
+        href: "analytics",
+        children: [
+          {
+            href: "approximate_percentile"
+          },
+          {
+            href: "time-weighted-averages"
+          }
+        ]
+      },
+      {
         href: "alerting"
       },
       {
