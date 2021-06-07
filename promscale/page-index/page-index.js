@@ -7,8 +7,7 @@ module.exports = [
     excerpt: 'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
     children: [
       {
-        title: "Promscale",
-        href: "promscale",
+        href: "install-promscale",
       }
         ]
       }
