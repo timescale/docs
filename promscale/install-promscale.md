@@ -1,14 +1,4 @@
-# Promscale
-Promscale is an open source long-term store for Prometheus data designed for
-analytics. It is built on top of TimescaleDB, and is a horizontally scalable and
-operationally mature platform for Prometheus data that uses PromQL and SQL to
-allow you to ask any question, create any dashboard, and achieve greater
-visibility into your systems.
-
-For more information about Promscale, see our [blog post][promscale-blog], or
-check out the [demo][promscale-demo].
-
-## Install Promscale
+# Install Promscale
 There are several different methods for installing Promscale. This section
 describes installing from a pre-built Docker image. For alternative installation
 methods, see the [Promscale GitHub repository][promscale-github].
@@ -48,7 +38,6 @@ see the [Promscale Releases on GitHub][promscale-releases-github].
     ```
     In this example, we use `db-ssl-mode=allow`, which is suitable for testing
     purposes. For production environments, use `db-ssl-mode=require` instead.
-
 
 ## Docker maintenance tasks
 Docker installations need to run a maintenance procedure regularly. This
