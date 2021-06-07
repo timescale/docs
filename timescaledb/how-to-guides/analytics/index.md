@@ -1,6 +1,6 @@
 # Analytics
 Timescale Analytics is a PostgreSQL extension that provides a specialized set of
-functions for time-series analysis. Timescale Analytics allows you to execute
+functions for time-series analysis. Timescale Analytics allows you to perform
 critical time-series queries quickly, analyze the data, and extract meaningful
 information.
 
