@@ -100,17 +100,17 @@ The following APIs to create and configure hypertables have changed:
 Consistent with our desire to improve visibility into all aspects of TimescaleDB configuration,
 the following views and functions about hypertable information have been updated or added:
 
-*   [`timescaledb_information.hypertables`](/api/:currentVersion:/informational-views/timescale
+*   [`timescaledb_information.hypertables`](/api/:currentVersion:/informational-views/hypertables/
     *   The view with basic information about hypertables has been renamed from the singular “hypertable”.
     *   Some columns have new names for consistency with other views.
     *   Table size information has been removed and made available through new size functions discussed later.
     *   Additional columns have been added related to distributed hypertables.
     *   The view no longer shows internal hypertables for continuous aggregates and compression.
     *   For continuous aggregates, the internal materialized hypertable name is available in the `timescaledb_information.continuous_aggregates` view.
-*   [`timescaledb_information.dimensions`](/api/:currentVersion:/informational-views/timescaledb_information-dimensions):  A new view allows
+*   [`timescaledb_information.dimensions`](/api/:currentVersion:/informational-views/dimensions/):  A new view allows
 users to see partitioning information and settings for various dimensions, such as the chunk time interval or
 number of space partitions used in a hypertable.
-*   [`timescaledb_information.chunks`](/api/:currentVersion:/informational-views/timescaledb_information-chunks):   A new view allows users
+*   [`timescaledb_information.chunks`](/api/:currentVersion:/informational-views/chunks/):   A new view allows users
 to see information about individual data chunks of all hypertables, including the tablespace or data node on which
 each chunk is stored.
 *   [`show_chunks(relation)`](/api/:currentVersion:/hypertable/show_chunks):  The function now requires providing a
@@ -153,17 +153,17 @@ Size functions are also split into basic and detailed ones. The former class of 
 only a single aggregate value and can be easily applied in queries, while the detailed functions
 return multiple columns and (possibly) multiple rows of information.
 
-*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/informational-views/hypertable_detailed_size):  
+*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):  
 The function has been renamed from `hypertable_relation_size(hypertable)`.  Further, if the hypertable is distributed,
 it will return multiple rows, one per each of the hypertable's data nodes.
-*   [`hypertable_size(hypertable)`](/api/:currentVersion:/informational-views/hypertable_size):  Returns a single
+*   [`hypertable_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_size):  Returns a single
 value giving the aggregated hypertable size, including both tables (chunks) and indexes.
-*   [`chunks_detailed_size(hypertable)`](/api/:currentVersion:/informational-views/chunks_detailed_size):  Returns
+*   [`chunks_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/chunks_detailed_size):  Returns
 the size information about each of the chunks in a hypertable. On a distributed hypertable, this function
 returns one row per data node that holds a copy of the chunk.
-*   [`hypertable_index_size(index)`](/api/:currentVersion:/informational-views/hypertable_index_size): Returns the
+*   [`hypertable_index_size(index)`](/api/:currentVersion:/hypertable/hypertable_index_size): Returns the
 aggregate number of bytes corresponding to a hypertable index across all chunks.
-*   [`approximate_row_count(relation)`](/api/:currentVersion:/informational-views/approximate_row_count):  The function
+*   [`approximate_row_count(relation)`](/api/:currentVersion:/analytics/approximate_row_count/):  The function
 has been renamed from `hypertable_approximate_row_count`, but can now also be called on non-hypertables.
 
 In previous versions of TimescaleDB, you could get size information for all hypertables in the `hypertable` view.
@@ -398,12 +398,12 @@ dropped due to a data retention policy as discussed in the previous section.
 In TimescaleDB 2.0, views surrounding continuous aggregates (and other policies) have been simplified and generalized.
 
 #### Changes and additions
-*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/informational-views/timescaledb_information-continuous_aggregate):
+*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/informational-views/continuous_aggregate):
 now provides information related to the materialized view, which includes the view name and owner, the real
 time aggregation flag, the materialization and the view definition (the select statement defining the view).
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/timescaledb_information-jobs): displays information for
+*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs): displays information for
 all policies including continuous aggregates.  
-*   [`timescaledb_information.job_stats`](/api/:currentVersion:/informational-views/timescaledb_information-jobs_stats): displays job
+*   [`timescaledb_information.job_stats`](/api/:currentVersion:/informational-views/jobs_stats): displays job
 statistics related to all jobs.
 
 #### Removed
@@ -464,9 +464,9 @@ Creating (or removing) a compression policy now has explicit functions.
  returns statistics only for hypertables with compression enabled.
 *   [`chunk_compression_stats(hypertable)`](/api/:currentVersion:/compression/chunk_compression_stats):  The function returns
 information about currently compressed chunks.
-*   [`timescaledb_information.compression_settings`](/api/:currentVersion:/informational-views/timescaledb_information-compression_settings)
+*   [`timescaledb_information.compression_settings`](/api/:currentVersion:/informational-views/compression_settings)
 : This new view gives information about the compression settings on hypertables.
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/timescaledb_information-jobs): General information about
+*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs): General information about
 compression policies are now available in the main jobs view.
 
 #### Removed
@@ -489,8 +489,8 @@ or action-specific settings.
 *   [`run_job`](/api/:currentVersion:/actions/run_job): Manually executes a job immediately and in the foreground.
 *   [`delete_job`](/api/:currentVersion:/actions/delete_job): Removes the job from the scheduler.  This is equivalent to functions that remove policies for
 built-in actions (e.g., `remove_retention_policy`).
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/timescaledb_information-jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
-*   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/timescaledb_information-jobs-stats):  The view presents statistics of executing jobs for policies and actions.
+*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
+*   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/jobs_stats):  The view presents statistics of executing jobs for policies and actions.
 
 
 ## License information [](license-changes)
