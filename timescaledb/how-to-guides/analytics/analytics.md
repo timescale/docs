@@ -1,29 +1,23 @@
 # Analytics
-We're excited to announce Timescale Analytics, a new project focused on combining all of the capabilities SQL needs to perform time-series analytics into one Postgres extension. Learn about our plans, why we're announcing now, and ways to contribute your feedback and ideas.  
+Timescale Analytics is a PostreSQL extension containing a specialized set of
+functions that allow you to to analyze time-series data. You can use it to
+analyze anything you have stored as time-series data, including IoT devices, IT
+systems, marketing analytics, user behavior, financial metrics, and
+cryptocurrency. Timescale Analytics uses [Promscale][doc-promscale], an
+open-source analytics platform for Prometheus monitoring data.
 
-At Timescale, our mission is to enable every software developer to store, analyze, and build on top of their time-series data, so that they can measure what matters in their world: IoT devices, IT systems, marketing analytics, user behavior, financial metrics, and more. To this end, we’ve built a multi-node, petabyte-scale, time-series database; a multi-cloud, fully-managed service for time-series data; and integrations with various producers and consumers of time-series data, most recently with Promscale, an open-source analytics platform for Prometheus monitoring data.
+Timescale Analytics allows you to execute critical time-series queries quickly,
+analyze time-series data, and extract meaningful information. It aims to
+identify, build, and combine all of the functionality SQL needs to perform
+time-series analysis into a single extension.
 
-Today, we’re excited to announce the Timescale Analytics project, an initiative to make Postgres the best way to execute critical time-series queries quickly, analyze time-series data, and extract meaningful information. SQL is a powerful language (we're obviously big fans ourselves), and we believe that by adding a specialized set of functions for time-series analysis, we can make it even better.
-
-The Timescale Analytics project aims to identify, build, and combine all of the functionality SQL needs to perform time-series analysis into a single extension.
-
-In other words, the Timescale Analytics extension will be a "one stop shop" for time-series analytics in PostgreSQL, and we're looking for feedback from the community: what analytical functionality would you find most useful?
-
-We believe that it is important to develop our code in the open and are requiring radical transparency of ourselves: everything about this project, our priorities, intended features, trade-off discussions, and (tentative) roadmap, are available in our GitHub repository.
-
-It is our hope that working like this will make it easier for the community to interact with the project, and allow us to respond quickly to community needs.
-
-To this end, we’re announcing the project as early as possible, so we can get community feedback before we become too invested in a single direction. Over the next few weeks, we’ll be gathering thoughts on initial priorities and opening some sample PRs. Soon after that, we plan to create an initial version of the Timescale Analytics extension for you to experiment with.
-
-Here are some examples of analytics functions we are considering adding: monotonic counters, tools for graphing, statistical sketching, and pipelining.
-
-Monotonic Counters
-A monotonically increasing counter is a type of metric often used in time-series analysis. Logically, such a counter should only ever increase, but the value is often read from an ephemeral source that can get reset back to zero at any time (due to crashes or other similar phenomena). To analyze data from such a source, you need to account for these resets: whenever the counter appears to decrease, you assume a reset occurred, and thus, you add the value after the reset to the value immediately prior to the reset.
-
-Assume we have a counter that measures visitors to a website.  If we were running a new marketing campaign focused on driving people to a new page on our site, we could use the change in the counter to measure the success of the campaign. While this kind of analysis can be performed in stock SQL, it quickly becomes unwieldy.
-
-Using native SQL, such a query would look like:
-
+## Monotonic counters
+Monotonic counters are basic counters that only ever increase. For example,
+measuring the number of visitors to a website. If you want to know how many
+people are visiting your website over time, you can use the change in the
+monotonic counter to determine the success fo the campaighn. You can do this in
+native SQL with a query like this:
+```sql
 SELECT sum(counter_reset_val) + last(counter, ts) - first(counter, ts) as counter_delta
 FROM (
     SELECT *,
@@ -33,21 +27,28 @@ FROM (
         END as counter_reset_val
     FROM user_counter
 ) f;
-
-
-
-This is a relatively simple example, and more sophisticated queries are even more complicated.
-
-One of our first proposals for capabilities to include in Timescale Analytics would make this much simpler, allowing us to  write something like:
-
+```
+To perform the same query in Timescale Analytics:
+```sql
 SELECT delta(counter_agg(counter, ts)) as counter_delta FROM user_counter;
+```
+There are many examples like this: scenarios where it’s possible to write a
+query native SQL, but the resulting code is relatively complicated to write, and
+to understand.
 
+Additionally, monotonic counters should only ever increase, but the value is
+often read from an ephemeral source that can get reset to zero at any time, due
+to a disk problem or other catastrophic event. To analyze data effectively from
+this kind of source, you need to be able to account for resets. To do this,
+whenever the counter appears to decrease, it is assumed that a reset occurred,
+and the value read after the reset is added to the value immediately before the
+reset.
 
-There are many examples like this: scenarios where it’s possible to solve the problem in stock SQL, but the resulting code is not exactly easy to write, nor pretty to read.
+<!---
+Lana, you're up to here! 2021-06-08
+-->
 
-We believe we can solve that problem, and make writing analytical SQL as easy as any other modern language.
-
-Tools for Graphing
+## Tools for Graphing
 When graphing time-series data you often need to perform operations such as change-point analysis, downsampling, or smoothing. Right now, these are usually generated with a front-end service, such as Grafana, but this means the graphs you use are heavily tied to the renderer you’re using.
 
 Moving these functions to the database offers a number of advantages:
@@ -149,3 +150,5 @@ Look at some of the discussions we’re having right now and weigh in with your 
 Check out the features we’re thinking of adding, and weigh in on if they’re something you want, we’re missing something, or if there are any  issues or alternatives. We are releasing nightly Docker images of our builds.
 Explore our running feature requests, add a +1, and contribute your own.
 Most importantly: share your problems! Tell us the kinds of queries or analysis you wish were easier, the issues you run into, or the workarounds you’ve created to solve gaps. (Example datasets are especially helpful, as they concretize your problems and create a shared language in which to discuss them.)
+
+[doc-promscale]: /tutorials/promscale
