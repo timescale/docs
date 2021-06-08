@@ -347,9 +347,10 @@ module.exports = [
       },
       {
         title: "Data Tiering",
-        href: "data-tiering"
+        href: "data-tiering",
         children: [
           {
+            title: "Move data",
             href: "move-data"
           }
         ]
