@@ -353,7 +353,7 @@ module.exports = [
             href: "move-data"
           }
         ]
-      }
+      },
       {
         title: "Replication and HA",
         href: "replication-and-ha",
