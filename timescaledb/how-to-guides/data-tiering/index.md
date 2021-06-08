@@ -1,5 +1,4 @@
 # Data tiering
-
 TimescaleDB includes the ability to perform data tiering by moving chunks
 between PostgreSQL tablespaces. Tablespaces are locations on disk where
 PostgreSQL stores data files containing database objects, and each can be
@@ -10,13 +9,11 @@ tablespaces.
 
 For example, we can attach multiple tablespaces to a single hypertable; in the
 following example, we use two tablespaces:
-
-1. Tablespace `pg_default` is backed by faster, more expensive storage
-(SSDs) and is meant for recent chunks that are being actively written to and
-regularly queried.
-
-1. Tablespace `history` is backed by slower, less expensive storage
-(HDDs) and is meant for older chunks that are more rarely queried.
+1.  Tablespace `pg_default` is backed by faster, more expensive storage
+    (SSDs) and is meant for recent chunks that are being actively written to and
+    regularly queried.
+1.  Tablespace `history` is backed by slower, less expensive storage
+    (HDDs) and is meant for older chunks that are more rarely queried.
 
 Taking a "data tiering" approach, as data ages, its corresponding chunks are
 moved from `pg_default` to `history`. This provides users with the ability to
