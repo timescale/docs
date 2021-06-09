@@ -49,5 +49,5 @@ by using the output of the `show_chunks` command to compress each one, like
 this:
 
 ```sql
-SELECT compress_chunk(i) from show_chunks('example', newer_than, older_than) i;
+SELECT compress_chunk(i) from show_chunks('example', now() - interval '1 week', now() - interval '3 weeks') i;
 ```

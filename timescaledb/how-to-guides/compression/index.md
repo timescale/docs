@@ -18,7 +18,7 @@ hypertables.
 *   [Backfill historical data][backfill-historical] to insert a batch of data into a compressed chunk.
 *   [Modify schema][modify-schema] to modify the table definition for a hypertable with compressed chunks.
 
-<highlight type="warning"
+<highlight type="warning">
 Compression alters data on your disk, so always back up before you start!
 </highlight>
 
