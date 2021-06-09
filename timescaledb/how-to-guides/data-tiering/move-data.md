@@ -19,7 +19,7 @@ LOCATION '/mnt/history':
 Here we are creating a tablespace called `history` that will be
 owned by the default `postgres` user, using the storage mounted at `/mnt/history`.
 
-## Move Chunks :community_function: [](move_chunks)
+## Move Chunks [](move_chunks)
 Now that we have set up a new, empty tablespace, we can move individual chunks
 to there from the default tablespace.  The move chunks command also allows you
 to move indexes belonging to those chunks to the secondary tablespace (or
