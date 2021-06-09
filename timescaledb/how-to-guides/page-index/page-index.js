@@ -7,14 +7,44 @@ module.exports = [
       {
         title: "Install TimescaleDB",
         href: "install-timescaledb",
+        metaTags: [
+          {
+            name: "product",
+            content: "timescaledb"
+          },
+          {
+            name: "action",
+            content: "install"
+          }
+        ],
         children: [
           {
             title: "Timescale Forge",
-            href: "installation-forge"
+            href: "installation-forge",
+            metaTags: [
+              {
+                name: "product",
+                content: "forge"
+              },
+              {
+                name: "action",
+                content: "install"
+              }
+            ],
           },
           {
             title: "Timescale Cloud",
-            href: "installation-cloud"
+            href: "installation-cloud",
+            metaTags: [
+              {
+                name: "product",
+                content: "cloud"
+              },
+              {
+                name: "action",
+                content: "install"
+              }
+            ],
           },
           {
             title: "Self hosted (including containers)",
@@ -23,6 +53,16 @@ module.exports = [
             options: { pg_version: ["12", "11"] },
             component: "InstallationPage",
             showNewsletterForm: true,
+            metaTags: [
+              {
+                name: "product",
+                content: "timescaledb", "selfhosted"
+              },
+              {
+                name: "action",
+                content: "install"
+              }
+            ],
             children: [
               {
                 title: "Docker",
@@ -143,37 +183,140 @@ module.exports = [
             ],
           },
           {
-            href: "post-install-setup"
+            href: "post-install-setup",
+            metaTags: [
+              {
+                name: "product",
+                content: "timescaledb", "selfhosted"
+              },
+              {
+                name: "action",
+                content: "install", "connect", "configure"
+              }
+            ],
           }
         ]
-
       },
       {
         title: "Connecting to TimescaleDB",
         href: "connecting",
+        metaTags: [
+          {
+            name: "product",
+            content: "timescaledb"
+          },
+          {
+            name: "action",
+            content: "connect"
+          },
+          {
+            name: "feature",
+            content: "psql"
+          }
+        ],
           children: [
               {
-                  href: "psql"
+                  href: "psql",
+                  metaTags: [
+                    {
+                      name: "product",
+                      content: "timescaledb"
+                    },
+                    {
+                      name: "action",
+                      content: "install", "connect", "manage"
+                    },
+                    {
+                      name: "feature",
+                      content: "psql"
+                    }
+                  ],
               }
           ]
       },
       {
         href: "hypertables",
+        metaTags: [
+          {
+            name: "product",
+            content: "timescaledb"
+          },
+          {
+            name: "feature",
+            content: "hypertables"
+          }
+        ],
         children: [
           {
             title: "CREATE",
-            href: "create"
+            href: "create",
+            metaTags: [
+              {
+                name: "product",
+                content: "timescaledb"
+              },
+              {
+                name: "action",
+                content: "create", "migrate"
+              },
+              {
+                name: "feature",
+                content: "hypertables"
+              }
+            ],
           },
           {
             title: "ALTER",
-            href: "alter"
+            href: "alter",
+            metaTags: [
+              {
+                name: "product",
+                content: "timescaledb"
+              },
+              {
+                name: "action",
+                content: "edit"
+              },
+              {
+                name: "feature",
+                content: "hypertables"
+              }
+            ],
           },
           {
             title: "DROP",
-            href: "drop"
+            href: "drop",
+            metaTags: [
+              {
+                name: "product",
+                content: "timescaledb"
+              },
+              {
+                name: "action",
+                content: "delete"
+              },
+              {
+                name: "feature",
+                content: "hypertables"
+              }
+            ],
           },
           {
-            href: "best-practices"
+            href: "best-practices",
+            metaTags: [
+              {
+                name: "product",
+                content: "timescaledb"
+              },
+              {
+                name: "action",
+                content: "configure", "manage"
+              },
+              {
+                name: "feature",
+                content: "hypertables"
+              }
+            ],
           }
         ]
       },
