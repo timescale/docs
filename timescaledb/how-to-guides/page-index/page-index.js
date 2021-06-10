@@ -372,6 +372,10 @@ module.exports = [
           {
             title: "Docker & WAL-E",
             href: "docker-and-wale"
+          },
+          {
+            title: "Physical backups",
+            href: "physical"
           }
         ]
       },
