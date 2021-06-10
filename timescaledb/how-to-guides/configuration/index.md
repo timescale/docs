@@ -1,5 +1,8 @@
 # Configuration
-By default, TimescaleDB uses the default PostgreSQL server configuration settings. However, in some cases, these settings are not appropriate, esepcially if you have larger servers that use more hardware resources such as CPU, memory, and storage.
+By default, TimescaleDB uses the default PostgreSQL server configuration
+settings. However, in some cases, these settings are not appropriate, especially
+if you have larger servers that use more hardware resources such as CPU, memory,
+and storage.
 
 You can configure TimescaleDB in several ways:
 *   Manually edit the `postgresql.conf` [configuration file][postgresql-conf] .
@@ -9,4 +12,3 @@ You can configure TimescaleDB in several ways:
 [postgresql-conf]: /how-to-guides/configuration/postgres-config
 [tstune-conf]: /how-to-guides/configuration/timescaledb-tune
 [docker-conf]: /how-to-guides/configuration/docker-config
-[tstune]: https://github.com/timescale/timescaledb-tune
