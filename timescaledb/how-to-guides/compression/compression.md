@@ -1,9 +1,9 @@
 # Compression
-In TimescaleDB, when compression is enabled, it converts data stored in many
-rows into an array. This means that instead of using lots of rows to store the
-data, it stores the same data in a single row. Because a single row takes up
-less disk space than many rows, it decreases the amount of disk space required,
-and can also speed up some queries.
+When compression is enabled, TimescaleDB converts data stored in many rows into
+an array. This means that instead of using lots of rows to store the data, it
+stores the same data in a single row. Because a single row takes up less disk
+space than many rows, it decreases the amount of disk space required, and can
+also speed up some queries.
 
 As a simplified example, you might have a table that looks like this to start with:
 
