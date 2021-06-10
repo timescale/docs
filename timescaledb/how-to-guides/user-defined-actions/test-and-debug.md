@@ -14,5 +14,5 @@ CALL run_job(1000);
 ```
 
 
-[api-run_job]: /api#run_job
+[api-run_job]: /api/:currentVersion:/actions/run_job
 [postgres-call]: https://www.postgresql.org/docs/current/sql-call.html
