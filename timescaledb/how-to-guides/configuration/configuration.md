@@ -1,126 +1,72 @@
-# Configuring TimescaleDB
+# Configuration
+By default, TimescaleDB uses the default PostgreSQL server configuration
+settings. However, in some cases, these settings are not appropriate, especially
+if you have larger servers that use more hardware resources such as CPU, memory,
+and storage. This section explains some of the settings you are most likely to
+need to adjust.
 
-TimescaleDB works with the default PostgreSQL server configuration settings.
-However, we find that these settings are typically too conservative and
-can be limiting when using larger servers with more resources (CPU, memory,
-disk, etc). Adjusting these settings, either
-[automatically with our tool `timescaledb-tune`][tstune] or manually editing
-your machine's `postgresql.conf`, can improve performance.
+For most parameters, you can use our [tuning tool][tstune-conf] to adjust your
+configuration. For more advanced configuration settings, or to change parameters
+that aren't included in the `timescaledb-tune` tool, you
+can [manually adjust][postgresql-conf] the  `postgresql.conf` configuration
+file.
+
+## Memory settings [](memory)
+Settings:
+*   `shared_buffers`
+*   `effective_cache_size`
+*   `work_mem`
+*   `maintenance_work_mem`
+*   `max_connections`
+
+You can adjust each of these to match the machine's available memory. To make it
+easier, you can use the [PgTune][pgtune] site to work out what settings to use:
+enter your machine details, and select the `data warehouse` DB type to see the
+suggested parameters.  (suggested DB Type: Data warehouse).
 
 <highlight type="tip">
-You can determine the location of `postgresql.conf` by running
-`SHOW config_file;` from your PostgreSQL client (e.g., `psql`).
+You can adjust all of these settings with `timescaledb-tune`.
 </highlight>
 
-In addition, other TimescaleDB specific settings can be modified through the
-`postgresql.conf` file as discussed in our section about [TimescaleDB settings][ts-settings]
+## Worker settings [](workers)
+Settings:
+*   `timescaledb.max_background_workers`
+*   `max_parallel_workers`
+*   `max_worker_processes`
 
-## Using `timescaledb-tune`
+PostgreSQL uses worker pools to provide workers for live queries and background
+jobs. If you do not configure these settings, your queries and background jobs
+could run more slowly.
 
-To streamline the configuration process, we've created a tool called
-[`timescaledb-tune`][tstune] that handles setting the most common parameters to
-good values based on your system, accounting for memory, CPU, and PostgreSQL
-version. `timescaledb-tune` is packaged along with our binary releases as
-a dependency, so if you installed one of our binary releases (including
-Docker), you should have access to the tool. Alternatively, with a standard
-Go environment, you can also `go get` the repository to install it.
+TimescaleDB background workers are configured with
+`timescaledb.max_background_workers`. Each database needs a background worker
+allocated to schedule jobs. Additional workers run background jobs as required.
+This setting should be the sum of the total number of databases and the total
+number of concurrent background workers you want running at any one time. By default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 8. You can change this setting directly, use the `--max-bg-workers` flag, or adjust the `TS_TUNE_MAX_BG_WORKERS` [Docker environment variable][docker-conf].
 
-`timescaledb-tune` reads your system's `postgresql.conf` file and offers
-interactive suggestions for updating your settings:
-```
-Using postgresql.conf at this path:
-/usr/local/var/postgres/postgresql.conf
+TimescaleDB parallel workers are configured with `max_parallel_workers`. For
+larger queries, PostgreSQL automatically uses parallel workers if they are
+available. Increasing this setting can improve query performance for large
+queries that trigger the use of parallel workers. By default, this setting
+corresponds to the number of CPUs available. You can change this parameter
+directly, by adjusting the `--cpus` flag, or by using the `TS_TUNE_NUM_CPUS`
+[Docker environment variable][docker-conf].
 
-Is this correct? [(y)es/(n)o]: y
-Writing backup to:
-/var/folders/cr/zpgdkv194vz1g5smxl_5tggm0000gn/T/timescaledb_tune.backup201901071520
+The `max_worker_processes` setting defines the total pool of workers available
+to both background and parallel workers, as well a small number of built-in
+PostgreSQL workers. It should be at least the sum of
+`timescaledb.max_background_workers` and `max_parallel_workers`. When you adjust
+`timescaledb.max_background_workers` or `max_parallel_workers`, the
+`max_worker_processes` setting is automatically updated to the sum of those two
+parameters.
 
-shared_preload_libraries needs to be updated
-Current:
-#shared_preload_libraries = 'timescaledb'
-Recommended:
-shared_preload_libraries = 'timescaledb'
-Is this okay? [(y)es/(n)o]: y
-success: shared_preload_libraries will be updated
+<highlight type="tip">
+You can adjust all of these settings with `timescaledb-tune`.
+</highlight>
 
-Tune memory/parallelism/WAL and other settings? [(y)es/(n)o]: y
-Recommendations based on 8.00 GB of available memory and 4 CPUs for PostgreSQL 11
-
-Memory settings recommendations
-Current:
-shared_buffers = 128MB
-#effective_cache_size = 4GB
-#maintenance_work_mem = 64MB
-#work_mem = 4MB
-Recommended:
-shared_buffers = 2GB
-effective_cache_size = 6GB
-maintenance_work_mem = 1GB
-work_mem = 26214kB
-Is this okay? [(y)es/(s)kip/(q)uit]:
-```
-
-These changes are then written to your `postgresql.conf` and will take effect
-on the next (re)start. If you are starting on fresh instance and don't feel
-the need to approve each group of changes, you can also automatically accept
-and append the suggestions to the end of your `postgresql.conf` like so:
-```bash
-$ timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
-```
-
-## Postgres configuration and tuning [](postgres-config)
-
-If you prefer to tune the settings yourself, or are curious about the
-suggestions that `timescaledb-tune` comes up with, we elaborate on them
-here. Additionally, `timescaledb-tune` does not cover all settings you
-may need to adjust; those are covered below.
-
-### Memory settings [](memory)
-
-<highlight type="tip">All of these settings are handled by `timescaledb-tune`.</highlight>
-
-The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
-`maintenance_work_mem` need to be adjusted to match the machine's available
-memory.  We suggest getting the configuration values from the [PgTune][pgtune]
-website (suggested DB Type: Data warehouse). You should also adjust the
-`max_connections` setting to match the ones given by PgTune since there is a
-connection between `max_connections` and memory settings. Other settings from
-PgTune may also be helpful.
-
-### Worker settings [](workers)
-
-<highlight type="tip">All of these settings are handled by `timescaledb-tune`.</highlight>
-
-PostgreSQL utilizes worker pools to provide the required workers needed to
-support both live queries and background jobs. If you do not configure these
-settings, you may observe performance degradation on both queries and
-background jobs.
-
-TimescaleDB background workers are configured using the
-`timescaledb.max_background_workers` setting. You should configure this
-setting to the sum of your total number of databases and the
-total number of concurrent background workers you want running at any given
-point in time. You need a background worker allocated to each database to run
-a lightweight scheduler that schedules jobs. On top of that, any additional
-workers you allocate here will run background jobs when needed.
-
-For larger queries, PostgreSQL automatically uses parallel workers if
-they are available. To configure this use the `max_parallel_workers` setting.
-Increasing this setting will improve query performance for
-larger queries. Smaller queries may not trigger parallel workers. By default,
-this setting corresponds to the number of CPUs available. Use the `--cpus` flag
-or the `TS_TUNE_NUM_CPUS` docker environment variable to change it.
-
-Finally, you must configure `max_worker_processes` to be at least the sum of
-`timescaledb.max_background_workers` and `max_parallel_workers`.
-`max_worker_processes` is the total pool of workers available to both
-background and parallel workers (as well as a handful of built-in PostgreSQL
-workers).
-
-By default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 8.
-In order to change this setting, use the `--max-bg-workers` flag or the
-`TS_TUNE_MAX_BG_WORKERS` docker environment variable. The `max_worker_processes`
-setting will automatically be adjusted as well.
+<!---
+Lana, you're up to here! LKB 2021-06-10
+-->
 
 ### Disk-write settings [](disk-write)
 
@@ -318,7 +264,9 @@ docker run -i -t timescale/timescaledb:latest-pg10 postgres -cmax_wal_size=2GB
 Additional examples of passing in arguments at boot can be found in our
 [discussion about using WAL-E][wale] for incremental backup.
 
-[tstune]: https://github.com/timescale/timescaledb-tune
+[tstune-conf]: /how-to-guides/configuration/timescaledb-tune
+[postgresql-conf]: /how-to-guides/configuration/postgres-config
+[docker-conf]: /how-to-guides/configuration/docker-config
 [pgtune]: http://pgtune.leopard.in.ua/
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
 [synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
