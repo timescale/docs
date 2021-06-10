@@ -50,6 +50,9 @@ Altering data of compressed chunks still has some limitations:
     - You cannot use the `RETURNING` clause.
   - Triggers are not fully supported when inserting into compressed chunks:
     - You cannot use `AFTER INSERT` row-level triggers (`FOR EACH ROW`).
+  - Constraints are not fully supported when inserting into compressed chunks:
+    - Unique constraints (`UNIQUE`) are not supported.
+    - Primary Keys (`PRIMARY KEY`) are not supported.
 
 
 
