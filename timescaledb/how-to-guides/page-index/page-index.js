@@ -351,7 +351,14 @@ module.exports = [
         ]
       },
       {
-        href: "data-tiering"
+        title: "Data Tiering",
+        href: "data-tiering",
+        children: [
+          {
+            title: "Move data",
+            href: "move-data"
+          }
+        ]
       },
       {
         title: "Replication and HA",
