@@ -8,7 +8,7 @@ for time-series. In addition to multi-node capabilities, this release includes n
 features - and improvements to existing ones - focused on giving users more flexibility,
  control over their data and the ability to customize behavior to suit their needs.
 
-To facilitate many of the improvements in [TimescaleDB 2.0](https://github.com/timescale/timescaledb/releases/tag/2.0.0-rc3),
+To facilitate many of the improvements in [TimescaleDB 2.0](https://github.com/timescale/timescaledb/releases/2.0.0),
  several existing APIs and function definitions have been modified which may require updates to your existing code.
 
 Most notably, the following API and PostgreSQL compatibility changes may impact
@@ -17,7 +17,7 @@ this document covers each in detail to help you understand what - if any - actio
 you need to take.
 
 *   **Dropping support for PostgreSQL versions 9.6 and 10:** As mentioned in
-[our upgrade documentation](/v2.0/update-timescaledb), TimescaleDB 2.0
+[our upgrade documentation](/how-to-guides/update-timescaledb/), TimescaleDB 2.0
  no longer supports older PostgreSQL versions. You will need to be running PostgreSQL
   version 11 or 12 to upgrade your TimescaleDB installation to 2.0.
 *   **Continuous aggregates:** We have made major changes in the creation and management
@@ -32,7 +32,7 @@ and how they affect users of TimescaleDB 1.x . We've also included a bit of info
 about the impetus for these changes and our design decisions. For a more in-depth coverage
  of APIs, as well as a detailed description of new features included in 2.0, such as
  distributed hypertables and the ability to run user-defined actions (custom background jobs),
-  please [review our updated documentation](/)
+  please [review our updated documentation](/how-to-guides/)
   (navigate to specific features of interest).
 
 Once you have read through this guide and understand the impact that upgrading to the latest
@@ -100,17 +100,17 @@ The following APIs to create and configure hypertables have changed:
 Consistent with our desire to improve visibility into all aspects of TimescaleDB configuration,
 the following views and functions about hypertable information have been updated or added:
 
-*   [`timescaledb_information.hypertables`](/api/:currentVersion:/informational-views/timescale
+*   [`timescaledb_information.hypertables`](/api/:currentVersion:/informational-views/hypertables/)
     *   The view with basic information about hypertables has been renamed from the singular “hypertable”.
     *   Some columns have new names for consistency with other views.
     *   Table size information has been removed and made available through new size functions discussed later.
     *   Additional columns have been added related to distributed hypertables.
     *   The view no longer shows internal hypertables for continuous aggregates and compression.
     *   For continuous aggregates, the internal materialized hypertable name is available in the `timescaledb_information.continuous_aggregates` view.
-*   [`timescaledb_information.dimensions`](/api/:currentVersion:/informational-views/timescaledb_information-dimensions):  A new view allows
+*   [`timescaledb_information.dimensions`](/api/:currentVersion:/informational-views/dimensions/):  A new view allows
 users to see partitioning information and settings for various dimensions, such as the chunk time interval or
 number of space partitions used in a hypertable.
-*   [`timescaledb_information.chunks`](/api/:currentVersion:/informational-views/timescaledb_information-chunks):   A new view allows users
+*   [`timescaledb_information.chunks`](/api/:currentVersion:/informational-views/chunks/):   A new view allows users
 to see information about individual data chunks of all hypertables, including the tablespace or data node on which
 each chunk is stored.
 *   [`show_chunks(relation)`](/api/:currentVersion:/hypertable/show_chunks):  The function now requires providing a
@@ -153,17 +153,17 @@ Size functions are also split into basic and detailed ones. The former class of 
 only a single aggregate value and can be easily applied in queries, while the detailed functions
 return multiple columns and (possibly) multiple rows of information.
 
-*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/informational-views/hypertable_detailed_size):  
+*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):  
 The function has been renamed from `hypertable_relation_size(hypertable)`.  Further, if the hypertable is distributed,
 it will return multiple rows, one per each of the hypertable's data nodes.
-*   [`hypertable_size(hypertable)`](/api/:currentVersion:/informational-views/hypertable_size):  Returns a single
+*   [`hypertable_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_size):  Returns a single
 value giving the aggregated hypertable size, including both tables (chunks) and indexes.
-*   [`chunks_detailed_size(hypertable)`](/api/:currentVersion:/informational-views/chunks_detailed_size):  Returns
+*   [`chunks_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/chunks_detailed_size):  Returns
 the size information about each of the chunks in a hypertable. On a distributed hypertable, this function
 returns one row per data node that holds a copy of the chunk.
-*   [`hypertable_index_size(index)`](/api/:currentVersion:/informational-views/hypertable_index_size): Returns the
+*   [`hypertable_index_size(index)`](/api/:currentVersion:/hypertable/hypertable_index_size): Returns the
 aggregate number of bytes corresponding to a hypertable index across all chunks.
-*   [`approximate_row_count(relation)`](/api/:currentVersion:/informational-views/approximate_row_count):  The function
+*   [`approximate_row_count(relation)`](/api/:currentVersion:/analytics/approximate_row_count/):  The function
 has been renamed from `hypertable_approximate_row_count`, but can now also be called on non-hypertables.
 
 In previous versions of TimescaleDB, you could get size information for all hypertables in the `hypertable` view.
@@ -253,7 +253,7 @@ data that has actually changed.
 In this example, data backfilled more than 4 weeks ago is not rematerialized, nor does the continuous aggregate
 include data less than 2 hours old.  However, _querying the continuous aggregate view can still return aggregates
 about the latest data, and not just aggregated data more than 2 hours old, based on support for
-[real-time aggregation](https://docs.timescale.com/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/#real-time-aggregation),
+[real-time aggregation](/overview/core-concepts/continuous-aggregates/#real-time-aggregation),
 specified as before with the `timescaledb.materialized_only=false` parameter. Real-time aggregates are still the default
 setting unless otherwise specified.
 
@@ -398,16 +398,16 @@ dropped due to a data retention policy as discussed in the previous section.
 In TimescaleDB 2.0, views surrounding continuous aggregates (and other policies) have been simplified and generalized.
 
 #### Changes and additions
-*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/informational-views/timescaledb_information-continuous_aggregate):
+*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/informational-views/continuous_aggregate):
 now provides information related to the materialized view, which includes the view name and owner, the real
 time aggregation flag, the materialization and the view definition (the select statement defining the view).
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/timescaledb_information-jobs): displays information for
+*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs): displays information for
 all policies including continuous aggregates.  
-*   [`timescaledb_information.job_stats`](/api/:currentVersion:/informational-views/timescaledb_information-jobs_stats): displays job
+*   [`timescaledb_information.job_stats`](/api/:currentVersion:/informational-views/jobs_stats): displays job
 statistics related to all jobs.
 
 #### Removed
-* [`timescaledb_information.continuous_aggregate_stats`](/v1.7/api#timescaledb_information-continuous_aggregate_stats): Removed in favor of the `job_stats` view mentioned above.
+* [`timescaledb_information.continuous_aggregate_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-continuous_aggregate_stats): Removed in favor of the `job_stats` view mentioned above.
 
 ### Updating existing continuous aggregates [](updating-continuous-aggregates)
 
@@ -449,9 +449,9 @@ and `cascade_to_materializations` were removed (and behave as if the arguments w
 policies are now available in the main jobs view.
 
 #### Removed
-*   [`add_drop_chunks_policy`](/v1.7/api#add_drop_chunks_policy): removed in favor of the
+*   [`add_drop_chunks_policy`](https://legacy-docs.timescale.com/v1.7/api#add_drop_chunks_policy): removed in favor of the
 explicit functions above.
-*   [`timescaledb_information.drop_chunks_policies`](/v1.7/api#timescaledb_information-drop_chunks_policies):
+*   [`timescaledb_information.drop_chunks_policies`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-drop_chunks_policies):
  view has been removed in favor of the more general jobs view.
 
 
@@ -464,17 +464,17 @@ Creating (or removing) a compression policy now has explicit functions.
  returns statistics only for hypertables with compression enabled.
 *   [`chunk_compression_stats(hypertable)`](/api/:currentVersion:/compression/chunk_compression_stats):  The function returns
 information about currently compressed chunks.
-*   [`timescaledb_information.compression_settings`](/api/:currentVersion:/informational-views/timescaledb_information-compression_settings)
+*   [`timescaledb_information.compression_settings`](/api/:currentVersion:/informational-views/compression_settings)
 : This new view gives information about the compression settings on hypertables.
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/timescaledb_information-jobs): General information about
+*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs): General information about
 compression policies are now available in the main jobs view.
 
 #### Removed
-* [`add_compress_chunk_policy`](/v1.7/api#add_compress_chunks_policy): Removed in favor of the
+* [`add_compress_chunk_policy`](https://legacy-docs.timescale.com/v1.7/api#add_compress_chunks_policy): Removed in favor of the
 explicit functions above.
-* [`timescaledb_information.compressed_hypertable_stats`](/v1.7/api#timescaledb_information-compressed_hypertable_stats):
+* [`timescaledb_information.compressed_hypertable_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_hypertable_stats):
 Removed in favor of the new `hypertable_compression_stats(hypertable)` function linked above
-* [`timescaledb_information.compressed_chunk_stats`](/v1.7/api#timescaledb_information-compressed_chunk_stats):
+* [`timescaledb_information.compressed_chunk_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_chunk_stats):
 Removed in favor of the new `chunk_compression_stats(hypertable)` function linked above.
 
 ## Managing policies and other jobs [](jobs)
@@ -482,15 +482,15 @@ Removed in favor of the new `chunk_compression_stats(hypertable)` function linke
 TimescaleDB 2.0 introduces user-defined actions and creates a more unified jobs API. Now, jobs created by the
 TimescaleDB policies and for user-defined actions can be managed and viewed through a single API.
 
-*   [`add_job`](/api/:currentVersion:/actions-and-automation/add_job): Adds a new user-defined action to the job scheduling framework.
-*   [`alter_job`](/api/:currentVersion:/actions-and-automation/alter_job): Changes settings for existing jobs.  Renamed from `alter_job_schedule` in previous versions,  it
+*   [`add_job`](/api/:currentVersion:/actions/add_job): Adds a new user-defined action to the job scheduling framework.
+*   [`alter_job`](/api/:currentVersion:/actions/alter_job): Changes settings for existing jobs.  Renamed from `alter_job_schedule` in previous versions,  it
 introduces additional settings, including  `scheduled` to pause and resume jobs, and `config` to change policy
 or action-specific settings.
-*   [`run_job`](/api/:currentVersion:/actions-and-automation/run_job): Manually executes a job immediately and in the foreground.
-*   [`delete_job`](/api/:currentVersion:/actions-and-automation/delete_job): Removes the job from the scheduler.  This is equivalent to functions that remove policies for
+*   [`run_job`](/api/:currentVersion:/actions/run_job): Manually executes a job immediately and in the foreground.
+*   [`delete_job`](/api/:currentVersion:/actions/delete_job): Removes the job from the scheduler.  This is equivalent to functions that remove policies for
 built-in actions (e.g., `remove_retention_policy`).
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/timescaledb_information-jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
-*   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/timescaledb_information-jobs-stats):  The view presents statistics of executing jobs for policies and actions.
+*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
+*   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/jobs_stats):  The view presents statistics of executing jobs for policies and actions.
 
 
 ## License information [](license-changes)
@@ -501,10 +501,10 @@ features has been removed; all features are available either under the community
 open-source Apache-2 License. [This blog post](https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/)
 explains the changes. The following changes were made to license API:
 
-*   [`timescaledb_information.license`](/v1.7/api#timescaledb_information-license):  This view
+*   [`timescaledb_information.license`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-license):  This view
 has been removed, as it primarily provided information on the enterprise license key's expiration date, which is no
 longer applicable. The current license used by the extension can instead be viewed in the GUC below.
-*   `timescaledb.license`: This GUC value (which replaces the former [`timescaledb.license_key`](https://docs.timescale.com/v1.7/api#timescaledb_license-key) GUC)
+*   `timescaledb.license`: This GUC value (which replaces the former [`timescaledb.license_key`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_license-key) GUC)
 can take the value `timescale` or `apache`. It can be set only at startup (in the postgresql.conf configuration file
 or on the server command line), and allows limiting access to certain features by license. For example, setting the l
 icense to `apache` allows access to only Apache-2 licensed features.
