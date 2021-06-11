@@ -5,8 +5,8 @@ if you have larger servers that use more hardware resources such as CPU, memory,
 and storage.
 
 *   [Learn about configuration][config] to understand how it works before you begin using it.
-*   Manually edit the `postgresql.conf` [configuration file][postgresql-conf].
 *   Use the [TimescaleDB tune tool][tstune-conf].
+*   Manually edit the `postgresql.conf` [configuration file][postgresql-conf].
 *   If you run TimescaleDB in a Docker container, configure [using Docker][docker-conf].
 
 
