@@ -1,23 +1,10 @@
 # Backup and restore
 
-Backing up TimescaleDB takes advantage of the reliable functionality already
-available through PostgreSQL.  There are several ways to accomplish this:
-physical backups with `pg_basebackup` or another tool, or logical backups with
-`pg_dump` and `pg_restore`. Physical backups may also be used with Write-Ahead Log
-(WAL) archiving to achieve an ongoing backup.
+TimescaleDB takes advantage of the reliable backup and restore functionality provided by PostgreSQL. There are a few different mechanisms you can use to backup your TimescaleDB database:
+*   [Physical backups][physical-backups] with `pg_basebackup` or another tool.
+*   [Ongoing physical backups][ongoing-physical-backups] using write-ahead log (WAL) archiving.
+*   [Logical backups][logical-backups] with `pg_dump` and `pg_restore`.
 
-## Performing physical backups
-
-For full instance physical backups (which are especially useful for starting up
-new [replicas][replication-tutorial]), [`pg_basebackup`][postgres-pg_basebackup]
-works with all TimescaleDB installations. You can also use any of several
-external backup and restore managers such as [`pg_backrest`][pg-backrest],
-[`barman`][pg-barman], or [`wal-e`][wale official]. These allow you to take
-online, hot physical backups of your entire instance, and many offer incremental
-backups and other automation options.
-
-[replication-tutorial]: /how-to-guides/replication-and-ha/replication/
-[postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html
-[pg-backrest]: https://pgbackrest.org/
-[pg-barman]: https://www.pgbarman.org/
-[wale official]: https://github.com/wal-e/wal-e
+[physical-backups]: /how-to-guides/backup-and-restore/physical/
+[ongoing-physical-backups]: /how-to-guides/backup-and-restore/docker-and-wale/
+[logical-backups]: /how-to-guides/backup-and-restore/pg-dump-and-restore/

@@ -26,3 +26,5 @@ Delete the job with id 1000 from the automation framework with [`delete_job`][ap
 ```sql
 SELECT delete_job(1000);
 ```
+
+[api-alter-job]: /api/:currentVersion:/actions/alter_job

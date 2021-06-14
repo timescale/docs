@@ -1,25 +1,29 @@
 # Compression
+Time-series data can be compressed to reduce the amount of storage required, and
+increase the speed of some queries. This is a cornerstone feature of
+TimescaleDB. When new data is added to your database, it is in the form of
+uncompressed rows. TimescaleDB uses a built-in job scheduler to convert this
+data to the form of compressed columns. This occurs across chunks of TimescaleDB
+hypertables.
 
-Native compression of time-series data is a cornerstone feature of TimescaleDB,
-reducing the amount of storage needed for data while increasing the speed of 
-some types of queries.
+This section explains what native compression is, and goes through some of the
+benefits and limitations of compression. It also includes instructions for
+setting up compression, and using it in your environment. We strongly recommend
+that you understand how compression works *before* you start enabling it on your
+hypertables.
 
-This section will walk through the concepts and help you understand some of the
-benefits and limitations of native compression. We will also walk you through the
-basics of setting this up for use in your environment.
+*   [Learn about compression][compression] to understand how it works before you begin using it.
+*   [Manually compress][manual-compression] specific chunks.
+*   [Decompress chunks][decompress-chunks] to manually decompress specific chunks.
+*   [Backfill historical data][backfill-historical] to insert a batch of data into a compressed chunk.
+*   [Modify schema][modify-schema] to modify the table definition for a hypertable with compressed chunks.
 
-Prior to enabling compression on your hypertables, **we recommend that you take
-the time to read and understand the information in [Compression Basics]** to learn
-more about how compression works. 
-
-At a high level, TimescaleDB's built-in job scheduler framework will asynchronously 
-convert recent data from an uncompressed row-based form to a compressed columnar 
-form across chunks of TimescaleDB hypertables.
-
-<highlight type="tip">
-As with any type of data altering operation, we suggest backing up
-your important data prior to implementing compression.
+<highlight type="warning">
+Compression alters data on your disk, so always back up before you start!
 </highlight>
 
-
-[Compression Basics]: /how-to-guides/compression/compression-basics/
+[compression]: /how-to-guides/compression/compression
+[manual-compression]: /how-to-guides/compression/manually-compress-chunks
+[decompress-chunks]: /how-to-guides/compression/decompress-chunks
+[backfill-historical]: /how-to-guides/compression/backfill-historical-data
+[modify-schema]: /how-to-guides/compression/modify-a-schema
