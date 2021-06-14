@@ -1,16 +1,28 @@
-# Approximate percentile
-# Approximate Percentiles
-> [Why To Use Approximate Percentiles](#why-use)<br>
-> [API](#percentile-approx-api) <br>
-> [Advanced Usage: Algorithms and How to Choose](#advanced-usage)<br>
+# Approximate percentiles
+In general, percentiles are useful for understanding the distribution of data.
+The 50th percentile is the point at which half of your data is greater and half
+is lesser. The 10th percentile is the point at which 90% of the data is greater,
+and 10% is lesser. The 99th percentile is the point at which 1% is greater, and
+99% is lesser.
 
-###### A note on terminology: Technically, a percentile divides the group into 100 equally sized (by frequency) buckets, while a quantile would divide the group into an arbitrary number of buckets. We use percentile here with the recognition that while quantile is the technically more "correct" term for an arbitrary precision operation, percentile has become more commonly used to describe this type of function.
+The 50th percentile, or median, is often a more useful measure than the average,
+especially when your data contains outliers. Outliers can dramatically change
+the average, but do not effect the median as much.
 
-## Why to Use Approximate Percentiles <a id="why-use"></a>
+<highlight type="tip">
+Technically, a percentile divides a group into 100 equally sized pieces, while a
+quintile divides a group into an arbitrary number of pieces. Because we don't
+always use exactly 100 buckets, "quintile" is the more technically correct term
+in this case. However, we use the word "percentile" because it's a more common
+word for this type of function.
+</highlight>
 
-There are really two things to cover here:  1) [why use percentiles at all](#why-use-percent) and 2) [why use *approximate* percentiles rather than exact percentiles](#why-approximate).
+<!---
+Lana, you're up to here! --LKB 2021-06-14
+-->
 
-To better understand this, we'll use the common example of a server that's running APIs for a company and tracking the response times for the various APIs it's running. So, for our example, we have a table something like this:
+# Example dataset
+In this section, we use an example of a server tracking the response times for the various APIs it's running. So, for our example, we have a table something like this:
 
 ```SQL , non-transactional, ignore-output
 SET SESSION TIME ZONE 'UTC'; -- so we get consistent output
@@ -50,7 +62,7 @@ It's not the most representative of data sets, but it'll do and have some intere
 ---
 ### Why use percentiles? <a id="why-use-percent"></a>
 
-In general, percentiles are useful for understanding the distribution of your data, for instance the 50% percentile, aka median of the data can be a more useful measure than average when there are outliers that would dramatically impact the average, but have a much smaller impact on the median. The median or 50th percentile means that in an ordered list of your data half of the data will be greater and half less, the 10% percentile would mean that 10% would fall below and 90% above the value returned and the 99th percentile would mean that 1% is above the value returned, 99% below. Outliers have less of an impact because their magnitude doesn't affect their percentile, only their order in the set, so the skew introduced by uncommon very large or very small values is reduced or eliminated.
+
 
 Let's look at an example with our generated data set, and lets say we want to find the worst apis, in an hour segment, so that we can identify poor performance, we'll start by using the Postgres [percentile_disc]() function for our percentiles:
 

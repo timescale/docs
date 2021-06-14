@@ -81,7 +81,10 @@ This API also enables some powerful optimizations, such as incremental
 pipelines, single pass processing, and vectorization.
 
 ## Contribute to Timescale Analytics
-We want and need your feedback! What are the frustrating parts of analyzing time-series data? What takes far more code than you feel it should? What runs slowly, or only runs quickly after many rewrites? We want to solve community-wide problems and incorporate as much feedback as possible.
+We want and need your feedback! What are the frustrating parts of analyzing
+time-series data? What takes far more code than you feel it should? What runs
+slowly, or only runs quickly after many rewrites? We want to solve
+community-wide problems and incorporate as much feedback as possible.
 
 *   Join the [discussion][gh-discussions].
 *   Check out the [proposed features][gh-proposed].
