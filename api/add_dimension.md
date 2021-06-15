@@ -151,4 +151,4 @@ SELECT create_distributed_hypertable('conditions', 'time');
 SELECT add_dimension('conditions', 'location', number_partitions => 2);
 ```
 
-[distributed-hypertable-partitioning-best-practices]: /timescaledb/how-to-guides/hypertables/best-practices
+[distributed-hypertable-partitioning-best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/best-practices/
