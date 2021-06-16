@@ -1,5 +1,4 @@
 # Continuous aggregates
-
 Aggregate queries which touch large swathes of time-series data can
 take a long time to compute because the system needs to scan large
 amounts of data on every query execution. To make such queries faster,
@@ -16,4 +15,8 @@ continuous aggregate or just a specific time range. In either case,
 the refresh only recomputes the aggregate buckets that have changed
 since the last refresh.
 
+*   [Learn about continuous aggregates][about-caggs] to understand how it works before you begin using it.
+
+
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
+[about-caggs]: /how-to-guides/continuous-aggregates/about-continuous-aggregates
