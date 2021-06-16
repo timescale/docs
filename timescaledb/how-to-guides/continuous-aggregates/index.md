@@ -1,22 +1,27 @@
 # Continuous aggregates
-Aggregate queries which touch large swathes of time-series data can
-take a long time to compute because the system needs to scan large
-amounts of data on every query execution. To make such queries faster,
-a continuous aggregate allows materializing the computed aggregates,
-while also providing means to continuously, and with low overhead,
-keep them up-to-date as the underlying source data changes.
+Continuous aggregates are designed to make queries on very large datasets run
+faster. TimescaleDB continuous aggregates use
+PostgreSQL [materialized views][postgres-materialized-views] to continuously and
+incrementally refresh a query in the background, so that when you run the query,
+only the data that has changed needs to be computed, not the entire dataset.
 
-Continuous aggregates are somewhat similar to PostgreSQL's
-[materialized views][postgres-materialized-views], but, unlike a
-materialized view, a continuous aggregate can be continuously and
-incrementally refreshed. The refreshing can be done either manually or
-via a policy that runs in the background, and can cover the entire
-continuous aggregate or just a specific time range. In either case,
-the refresh only recomputes the aggregate buckets that have changed
-since the last refresh.
-
-*   [Learn about continuous aggregates][about-caggs] to understand how it works before you begin using it.
+*   [Learn about continuous aggregates][about-caggs] to understand how it works
+    before you begin using it.
+*   [Create a continuous aggregate][cagg-create].
+*   [Add automatic refresh policies][cagg-autorefresh] to an existing continuous aggregate.
+*   [Query a contiuous aggregate][cagg-query].
+*   [Manually refresh][cagg-manual-refresh] a specific range.
+*   [Use integer-based time][cagg-integer-time] in your continuous aggregates.
+*   [Drop raw data][cagg-drop-raw] from your continuouis aggregates.
+*   [Discover useful tips][cagg-best-practice] about continuous aggregates.
 
 
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [about-caggs]: /how-to-guides/continuous-aggregates/about-continuous-aggregates
+[cagg-create]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate
+[cagg-autorefresh]: /how-to-guides/continuous-aggregates/adding-automatic-refresh-policies
+[cagg-query]: /how-to-guides/continuous-aggregates/query-a-continuous-aggregate
+[cagg-manual-refresh]: /how-to-guides/continuous-aggregates/manually-refresh-specific-ranges
+[cagg-integer-time]: /how-to-guides/continuous-aggregates/integer-based-time
+[cagg-drop-raw]: /how-to-guides/continuous-aggregates/drop-raw-data
+[cagg-best-practice]: /how-to-guides/continuous-aggregates/best-practices
