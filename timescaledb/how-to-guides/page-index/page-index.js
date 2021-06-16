@@ -264,18 +264,23 @@ module.exports = [
         href: "continuous-aggregates",
         children: [
           {
+            title: "Create a continuous aggregate",
             href: "create-a-continuous-aggregate"
           },
           {
+            title: "Adding automatic refresh policies",
             href: "adding-automatic-refresh-policies"
           },
           {
+            title: "Query a continuous aggregate",
             href: "query-a-continuous-aggregate"
           },
           {
+            title: "Manually refresh specific ranges",
             href: "manually-refresh-specific-ranges"
           },
           {
+            title: "Best practices",
             href: "best-practices"
           },
           {
@@ -283,6 +288,7 @@ module.exports = [
             href: "integer-based-time"
           },
           {
+            title: "Drop raw data",
             href: "drop-raw-data"
           }
         ]
