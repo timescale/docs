@@ -15,7 +15,7 @@ time-series analysis into a single extension.
 Monotonic counters are basic counters that only ever increase. For example,
 measuring the number of visitors to a website. If you want to know how many
 people are visiting your website over time, you can use the change in the
-monotonic counter to determine the success fo the campaighn. You can do this in
+monotonic counter to determine the success of the campaign. You can do this in
 native SQL with a query like this:
 ```sql
 SELECT sum(counter_reset_val) + last(counter, ts) - first(counter, ts) as counter_delta
@@ -32,7 +32,7 @@ To perform the same query in Timescale Analytics:
 ```sql
 SELECT delta(counter_agg(counter, ts)) as counter_delta FROM user_counter;
 ```
-There are many examples like this: scenarios where it’s possible to write a
+There are many examples like this: scenarios where it's possible to write a
 query native SQL, but the resulting code is relatively complicated to write, and
 to understand.
 
@@ -45,7 +45,7 @@ and the value read after the reset is added to the value immediately before the
 reset.
 
 ## Tools for graphing
-When you graphing time-series data you need to perform operations such as
+When you are graphing time-series data you need to perform operations such as
 change-point analysis, downsampling, or smoothing. Usually, the easiest way to
 do this is with a front-end service such as Grafana. This means the graphs you
 use are heavily tied to the renderer you're using to create them.
