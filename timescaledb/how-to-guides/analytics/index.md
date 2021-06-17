@@ -11,7 +11,7 @@ information.
 
 For more information about Timescale Analytics, read our [blog post][analytics-blog].
 
-[analytics]: how-to-guides/analytics/analytics
+[analytics]: how-to-guides/analytics/about-analytics
 [analytics-approximate-percentile]: how-to-guides/analytics/approximate_percentile
 [analytics-time-weighted-averages]: how-to-guides/analytics/time-weighted-averages
 [analytics-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project/
