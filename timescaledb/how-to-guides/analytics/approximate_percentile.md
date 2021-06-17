@@ -7,7 +7,21 @@ and 10% is lesser. The 99th percentile is the point at which 1% is greater, and
 
 The 50th percentile, or median, is often a more useful measure than the average,
 especially when your data contains outliers. Outliers can dramatically change
-the average, but do not effect the median as much.
+the average, but do not effect the median as much. For example, if you have
+three rooms in your house and two of them are 40℉ (4℃) and one is 130℉ (54℃),
+the fact that the average room is 70℉ (21℃) doesn't matter much. However, the
+50th percentile temperature is 40℉ (4℃), and tells you that at least half your
+rooms are at refrigerator temperatures (also, you should probably get your
+heating checked!)
+
+Percentiles are sometimes used less frequently because they can use more CPU and
+memory to calculate than an average or another aggregate measure. This is
+because an exact computation of the percentile needs the full dataset as an
+ordered list. Timescale Analytics uses approximation algorithms to calculate a
+percentile without requiring all all of the data. By default, Timescale
+Analytics uses `uddsketch`, but you can also choose to use `tdigest`. See
+the [Analytics documentation][gh-analytics-algorithms] for more information
+about these algorithms.
 
 <highlight type="tip">
 Technically, a percentile divides a group into 100 equally sized pieces, while a
@@ -17,9 +31,11 @@ in this case. However, we use the word "percentile" because it's a more common
 word for this type of function.
 </highlight>
 
-<!---
-Lana, you're up to here! --LKB 2021-06-14
--->
+## Run an approximate percentage query
+In this procedure, we are using an example table that contains room temperature data for an office.
+
+### Procedure: Running an approximate percentage query
+1.  At the `psql` prompt,
 
 # Example dataset
 In this section, we use an example of a server tracking the response times for the various APIs it's running. So, for our example, we have a table something like this:
@@ -60,8 +76,6 @@ It's not the most representative of data sets, but it'll do and have some intere
 </details>
 
 ---
-### Why use percentiles? <a id="why-use-percent"></a>
-
 
 
 Let's look at an example with our generated data set, and lets say we want to find the worst apis, in an hour segment, so that we can identify poor performance, we'll start by using the Postgres [percentile_disc]() function for our percentiles:
@@ -620,16 +634,6 @@ FROM generate_series(0, 100) data;
 
 
 
-## Advanced Usage: Percentile Approximation Algorithms and How to Choose <a id="advanced-usage"></a>
-While the simple `percentile_agg` interface will be sufficient for many users, we do provide more specific APIs for advanced users who want more control of how their percentile approximation is computed and how much space the intermediate representation uses.  We currently provide implementations of the following percentile approximation algorithms:
 
-- [T-Digest](/docs/tdigest.md) – This algorithm buckets data more aggressively toward the center of the quantile range, giving it greater accuracy near the tails (i.e. 0.001 or 0.995).
-- [UddSketch](/docs/uddsketch.md) – This algorithm uses exponentially sized buckets to guarantee the approximation falls within a known error range, relative to the true discrete percentile.
 
-There are different tradeoffs that each algorithm makes, and different use cases where each will shine.  The doc pages above each link to the research papers fully detailing the algorithms if you want all the details.  However, at a higher level, here are some of the differences to consider when choosing an algorithm:
-1) First off, it's interesting to note that the formal definition for a percentile is actually impercise, and there are different methods for determining what the true percentile actually is.  In Postgres, given a target percentile 'p', `percentile_disc` will return the smallest element of a set such that 'p' percent of the set is less than that element, while `percentile_cont` will return an interpolated value between the two nearest matches for 'p'.  The difference here isn't usually that interesting in practice, but if it matters to your use case, then keep in mind that TDigest will approximate the continous percentile while UddSketch provides an estimate of the discrete value.
-2) It's also important to consider the types of percentiles you're most interested in.  In particular, TDigest is optimized to trade off more accurate estimates at the extremes with weaker estimates near the median.  If your work flow involves estimating 99th percentiles, this is probably a good trade off.  However if you're more concerned about getting highly accurate median estimates, UddSketch is probably a better fit.
-3) UddSketch has a stable bucketing function, so it will always return the same quantile estimate for the same underlying data, regardless of how it is ordered or reaggregated.  TDigest, on the other hand, builds up incremental buckets based on the average of nearby points, which will result in (usually subtle) differences in estimates based on the same data, unless the order and batching of the aggregation is strictly controlled (which can be difficult to do in Postgres).  Therefore, if having stable estimates is important to you, UddSketch will likely be required.
-4) Trying to calculate percise error bars for TDigest can be difficult, especially when merging multiple subdigests into a larger one (this can come about either through summary aggregation or just parallelization of the normal point aggregate).  If being able to tightly characterize your error is important, UddSketch will likely be the desired algorithm.
-5) That being said, the fact that UddSketch uses exponential bucketing to provide a guaranteed relative error can cause some wildly varying absolute errors if the data set covers a large range.  For instance if the data is evenly distributed over the range [1,100], estimates at the high end of the percentile range would have about 100 times the absolute error of those at the low end of the range.  This gets much more extreme if the data range is [0,100].  If having a stable absolute error is important to your use case, consider TDigest.
-6) While both implementation will likely get smaller and/or faster with future optimizations, in general UddSketch will end up with a smaller memory footprint than TDigest, and a correspondingly smaller disk footprint for any continuous aggregates.  This is one of the main reasons that the default `percentile_agg` uses UddSketch, and is a pretty good reason to prefer that algorithm if your use case doesn't clearly benefit from TDigest.  Regardless of the algorithm, the best way to improve the accuracy of your percentile estimates is to increase the number of buckets, and UddSketch gives you more leeway to do so.
+[gh-analytics-algorithms]: https://github.com/timescale/timescale-analytics/blob/main/docs/percentile_approximation.md#advanced-usage
