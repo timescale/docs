@@ -478,7 +478,7 @@ module.exports = [
         href: "analytics",
         children: [
           {
-            href: "analytics"
+            href: "about-analytics"
           },
           {
             href: "approximate_percentile"
