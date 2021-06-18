@@ -11,7 +11,10 @@ time_weight(
 ) RETURNS TimeWeightSummary
 ```
 
-Only two values for `method` are currently supported: `linear` and `LOCF`, and any capitalization is accepted. See [interpolation methods](https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#interpolation-methods-details) for more information.
+Only two values for `method` are currently supported: `linear` and `LOCF`, and
+any capitalization is accepted.
+See [interpolation methods](https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#interpolation-methods-details)
+for more information.
 
 An aggregate that produces a `TimeWeightSummary` from timestamps and associated values.
 
@@ -24,7 +27,8 @@ An aggregate that produces a `TimeWeightSummary` from timestamps and associated 
 |`value`|`DOUBLE PRECISION`|The value at each point to use for the time weighted average|
 
 
-Note that `ts` and `value` can be `null`, however the aggregate is not evaluated on `null` values and will return `null`, but it will not error on `null` inputs.
+Note that `ts` and `value` can be `null`, however the aggregate is not evaluated
+on `null` values and will return `null`, but it will not error on `null` inputs.
 
 ### Returns
 
@@ -57,7 +61,11 @@ rollup(
 ) RETURNS TimeWeightSummary
 ```
 
-An aggregate to compute a combined `TimeWeightSummary` from a series of non-overlapping `TimeWeightSummaries`. Non-disjoint `TimeWeightSummaries` will cause errors. See [Notes on Parallelism and Ordering](https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#notes-on-parallelism-and-ordering) for more information.
+An aggregate to compute a combined `TimeWeightSummary` from a series of
+non-overlapping `TimeWeightSummaries`. Non-disjoint `TimeWeightSummaries` will
+cause errors.
+See [Notes on Parallelism and Ordering](https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#notes-on-parallelism-and-ordering)
+for more information.
 
 ### Required arguments
 
