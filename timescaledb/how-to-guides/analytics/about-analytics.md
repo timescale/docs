@@ -40,6 +40,22 @@ stacked. Additionally, because this query syntax is used in all Timescale
 Analytics queries, when you are used to it, you can use it to construct more and
 more complicated queries.
 
+## Analytics features
+Timescale Analytics features are developed in the open. As features are developed they are categorized as experimental, beta, stable, or deprecated. This table uses these icons:
+
+* 🧪 Experimental: under active development, not supported. See the [Analytics repository][gh-docs] for more information and documentation.
+* 🆕 Beta: In testing, and preparing to be released, not supported. See the [Analytics repository][gh-docs] for more information and documentation.
+* ✅ Stable: Features that are fully ready for production, and supported. See the official documentation.
+* ❌ Deprecated: Previously stable features that have been replaced by newer features, or that have deprecated dependencies, limited support. See the official documentation.
+
+|Feature|Status|Notes|More information|
+|-------|------|-----|----------------|
+|ASAP smoothing|🧪|A data smoothing algorithm to generate human readable graphs|[https://github.com/timescale/timescale-analytics/blob/main/docs/asap.md][]|
+|Hyperloglog|🧪|An approximate COUNT DISTINCT based on hashing|[https://github.com/timescale/timescale-analytics/blob/main/docs/hyperloglog.md][]|
+|LTTB|🧪|A downsample method that preserves visual similarity.|[https://github.com/timescale/timescale-analytics/blob/main/docs/lttb.md][]|
+|Percentile Approximation|✅|A simple percentile approximation interface|[/how-to-guides/analytics/approximate_percentile]|
+|Time-weighted averages|✅|An aggregate that weights each value|[/how-to-guides/analytics/time-weighted-averages.md][]|
+
 ## Contribute to Timescale Analytics
 We want and need your feedback! What are the frustrating parts of analyzing
 time-series data? What takes far more code than you feel it should? What runs
@@ -51,6 +67,7 @@ community-wide problems and incorporate as much feedback as possible.
 *   Explore the current [feature requests][gh-requests].
 *   Add your own [feature request][gh-newissue].
 
+https://github.com/timescale/timescale-analytics/tree/main/docs
 [doc-promscale]: /tutorials/promscale
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
