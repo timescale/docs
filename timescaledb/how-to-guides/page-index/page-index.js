@@ -481,7 +481,7 @@ module.exports = [
             href: "about-analytics"
           },
           {
-            href: "approximate_percentile"
+            href: "approximate-percentile"
           },
           {
             href: "time-weighted-averages"
