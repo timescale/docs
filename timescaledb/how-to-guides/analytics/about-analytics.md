@@ -1,4 +1,4 @@
-# Analytics
+# About Timescale Analytics
 Timescale Analytics is a PostreSQL extension containing a specialized set of
 functions that allow you to to analyze time-series data. You can use it to
 analyze anything you have stored as time-series data, including IoT devices, IT

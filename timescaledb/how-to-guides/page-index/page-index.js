@@ -478,12 +478,15 @@ module.exports = [
         href: "analytics",
         children: [
           {
+            title: "About Timescale Analytics",
             href: "about-analytics"
           },
           {
+            title: "Approximate percentile",
             href: "approximate-percentile"
           },
           {
+            title: "Time-weighted averages",
             href: "time-weighted-averages"
           }
         ]
