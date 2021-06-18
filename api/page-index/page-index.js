@@ -269,6 +269,14 @@ module.exports = [
           {
             title: "time_bucket_gapfill",
             href: "time_bucket_gapfill"
+          },
+          {
+            title: "Approximate Percentile",
+            href: "percentile-agg"
+          },
+          {
+            title: "Time-weighted averages",
+            href: "time_weighted_averages"
           }
         ]
       },
