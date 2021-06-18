@@ -1,175 +1,58 @@
 # Time-weighted averages
-# Time Weighted Average
+Time weighted averages are used in cases where a time series is not evenly
+sampled. Time series data points are often evenly spaced, for example every 30
+seconds, or every hour. But sometimes data points are recorded irregularly, for
+example if a value has a large change, or changes quickly. Computing an average
+on data that is not evenly sampled is not always useful.
 
-> [Description](#time-weighted-average-description)<br>
-> [Example Usage](time-weighted-average-examples)<br>
-> [API](#time-weighted-average-api) <br>
-> [Notes on Parallelism and Ordering](#time-weight-ordering)<br>
-> [Interpolation Methods Details](#time-weight-methods)<br>
+For example, if you have a lot of ice cream in freezers, you need to make sure
+the ice cream stays within a 0-10℉ (-20 to -12℃) temperature range. The
+temperature in the freezer can vary if folks are opening and closing the door,
+but the ice cream will only have a problem if the temperature is out of range
+for a long time. You can set your sensors in the freezer to sample every five
+minutes while the temperature is in range, and every 30 seconds while the
+temperature is out of range. If the results are generally stable, but with some
+quick moving transients, an average of all the data points weights the transient
+values too highly. A time weighted average weights each value by the duration
+over which it occurred based on the points around it, producing much more
+accurate results.
+
+Timescale Analytics' time weighted average is implemented as an aggregate that
+weights each value using last observation carried forward (LOCF), or linear
+interpolation. The aggregate is not parallelizable, but it is supported with
+[continuous aggregation][caggs]. See the Analytics documentation for more
+information about [interpolation methods][gh-interpolation],
+and [parallelism and ordering][gh-parallelism].
 
 
-## Description <a id="time-weighted-average-description"></a>
+## Run a time-weighted average query
+In this procedure, we are using an example table called `freezer_temps` that contains data about internal freezer temperatures.
 
-Time weighted averages are commonly used in cases where a time series is not evenly sampled, so a traditional average will give misleading results. Consider a voltage sensor that sends readings once every 5 minutes or whenever the value changes by more than 1 V from the previous reading. If the results are generally stable, but with some quick moving transients, a simple average over all of the points will tend to over-weight the transients instead of the stable readings. A time weighted average weights each value by the duration over which it occured based on the points around it and produces correct results for unevenly spaced series.
-
-Timescale Analytics' time weighted average is implemented as an aggregate which weights each value either using a last observation carried forward (LOCF) approach or a linear interpolation approach ([see interpolation methods](#time-weight-methods)). While the aggregate is not parallelizable, it is supported with [continuous aggregation](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates).
-
-Additionally, [see the notes on parallelism and ordering](#time-weight-ordering) for a deeper dive into considerations for use with parallelism and some discussion of the internal data structures.
-
----
-## Example Usage <a id="time-weighted-average-examples"></a>
-For these examples we'll assume a table `foo` defined as follows, with a bit of example data:
-
-
-```SQL ,non-transactional
-SET TIME ZONE 'UTC';
- CREATE TABLE foo (
-    measure_id      BIGINT,
-    ts              TIMESTAMPTZ ,
-    val             DOUBLE PRECISION,
-    PRIMARY KEY (measure_id, ts)
-);
-INSERT INTO foo VALUES
-( 1, '2020-01-01 00:00:00+00', 10.0),
-( 1, '2020-01-01 00:01:00+00', 20.0),
-( 1, '2020-01-01 00:02:00+00',10.0),
-( 1, '2020-01-01 00:03:00+00', 20.0),
-( 1, '2020-01-01 00:04:00+00', 15.0),
-( 2, '2020-01-01 00:00:00+00', 10.0),
-( 2, '2020-01-01 00:01:00+00', 20.0),
-( 2, '2020-01-01 00:02:00+00',10.0),
-( 2, '2020-01-01 00:03:00+00', 20.0),
-( 2, '2020-01-01 00:04:00+00', 10.0),
-( 2, '2020-01-01 00:08:00+00', 10.0),
-( 2, '2020-01-01 00:10:00+00', 30.0),
-( 2, '2020-01-01 00:10:30+00',10.0),
-( 2, '2020-01-01 00:16:30+00', 35.0),
-( 2, '2020-01-01 00:30:00+00', 60.0);
-```
-```output
-INSERT 0 15
-```
-Where the measure_id defines a series of related points. A simple use would be to calculate the time weighted average over the whole set of points for each `measure_id`. We'll use the LOCF method for weighting:
-
-```SQL
-SELECT measure_id,
+### Procedure: Running a time-weighted average query
+1.  At the `psql`prompt, find the average and the time-weighted average of the data:
+    ```sql
+    SELECT freezer_id,
+      avg(temperature),
+	    average(time_weight('Linear', ts, temperature)) as time_weighted_average
+    FROM freezer_temps
+    GROUP BY freezer_id;
+    ```
+1.  To determine if the freezer has been out of temperature range for more than 15 minutes at a time, use a time-weighted average in a window function:
+    ```sql
+    SELECT *,
     average(
-        time_weight('LOCF', ts, val)
-    )
-FROM foo
-GROUP BY measure_id
-ORDER BY measure_id;
-```
-```output
- measure_id | average
-------------+---------
-          1 |      15
-          2 |   22.25
-```
-(And of course a where clause can be used to limit the time period we are averaging, the measures we're using etc.).
+	           time_weight('Linear', ts, temperature) OVER (PARTITION BY freezer_id ORDER BY ts RANGE  '15 minutes'::interval PRECEDING )
+	          ) as rolling_twa
+    FROM freezer_temps
+    ORDER BY freezer_id, ts;
+    ```
 
 
-We can also use the [`time_bucket` function](https://docs.timescale.com/latest/api#time_bucket) to produce a series averages in 15 minute buckets:
-```SQL
-SELECT measure_id,
-    time_bucket('5 min'::interval, ts) as bucket,
-    average(
-        time_weight('LOCF', ts, val)
-    )
-FROM foo
-GROUP BY measure_id, time_bucket('5 min'::interval, ts)
-ORDER BY measure_id, time_bucket('5 min'::interval, ts);
-```
-```output
- measure_id |         bucket         | average
-------------+------------------------+---------
-          1 | 2020-01-01 00:00:00+00 |      15
-          2 | 2020-01-01 00:00:00+00 |      15
-          2 | 2020-01-01 00:05:00+00 |
-          2 | 2020-01-01 00:10:00+00 |      30
-          2 | 2020-01-01 00:15:00+00 |
-          2 | 2020-01-01 00:30:00+00 |
-```
-Note that in this case, there are several `time_buckets` that have only a single value, these return `NULL` as the average as we cannot take a time weighted average with only a single point in a bucket and no information about points outside the bucket. In many cases we'll have significantly more data here, but for the example we wanted to keep our data set small.
 
 
-Of course this might be more useful if we make a continuous aggregate out of it. We'll first have to make it a hypertable partitioned on the ts column, with a relatively large chunk_time_interval because the data isn't too high rate:
-
-```SQL ,non-transactional,ignore-output
-SELECT create_hypertable('foo', 'ts', chunk_time_interval=> '15 days'::interval, migrate_data => true);
-```
-
-Now we can make our continuous aggregate:
-
-```SQL ,non-transactional, ignore-output
-CREATE MATERIALIZED VIEW foo_5
-WITH (timescaledb.continuous)
-AS SELECT measure_id,
-    time_bucket('5 min'::interval, ts) as bucket,
-    time_weight('LOCF', ts, val)
-FROM foo
-GROUP BY measure_id, time_bucket('5 min'::interval, ts);
-```
-
-
-Note that here, we just use the `time_weight` function. It's often better to do that and simply run the `average` function when selecting from the view like so:
-```SQL
-SELECT
-    measure_id,
-    bucket,
-    average(time_weight)
-FROM foo_5
-ORDER BY measure_id, bucket;
-```
-```output
- measure_id |         bucket         | average
-------------+------------------------+---------
-          1 | 2020-01-01 00:00:00+00 |      15
-          2 | 2020-01-01 00:00:00+00 |      15
-          2 | 2020-01-01 00:05:00+00 |
-          2 | 2020-01-01 00:10:00+00 |      30
-          2 | 2020-01-01 00:15:00+00 |
-          2 | 2020-01-01 00:30:00+00 |
-```
-And we get the same results as before. It also allows us to re-aggregate from the continuous aggregate into a larger bucket size quite simply:
-
-```SQL
-SELECT
-    measure_id,
-    time_bucket('1 day'::interval, bucket),
-    average(
-            rollup(time_weight)
-    )
-FROM foo_5
-GROUP BY measure_id, time_bucket('1 day'::interval, bucket)
-ORDER BY measure_id, time_bucket('1 day'::interval, bucket);
-```
-```output
- measure_id |      time_bucket       | average
-------------+------------------------+---------
-          1 | 2020-01-01 00:00:00+00 |      15
-          2 | 2020-01-01 00:00:00+00 |   22.25
-```
-
-We can also use this to speed up our initial calculation where we're only grouping by measure_id and producing a full average (assuming we have a fair number of points per 5 minute period, here it's not going to do much because of our limited example data, but you get the gist):
-
-```SQL
-SELECT
-    measure_id,
-    average(
-        rollup(time_weight)
-    )
-FROM foo_5
-GROUP BY measure_id
-ORDER BY measure_id;
-```
-```output
- measure_id | average
-------------+---------
-          1 |      15
-          2 |   22.25
-```
----
+<!---
+Move content below here to API docs. --LKB 2021-06-18
+-->
 
 ## Command List (A-Z) <a id="time-weighted-average-api"></a>
 > - [time_weight() (point form)](#time_weight_point)
@@ -298,90 +181,10 @@ FROM (
     GROUP BY id
 ) t
 ```
----
-## Notes on Parallelism and Ordering <a id="time-weight-ordering"></a>
 
-The time weighted average calculations we perform require a strict ordering of inputs and therefore the calculations are not parallelizable in the strict Postgres sense. This is because when Postgres does parallelism it hands out rows randomly, basically as it sees them to workers. However, if your parallelism can guarantee disjoint (in time) sets of rows, the algorithm can be parallelized, just so long as within some time range, all rows go to the same worker. This is the case for both [continuous aggregates](https://docs.timescale.com/latest/using-timescaledb/continuous-aggregates) and for [distributed hypertables](https://docs.timescale.com/latest/using-timescaledb/distributed-hypertables) (as long as the partitioning keys are in the group by, though the aggregate itself doesn't horribly make sense otherwise).
-
-We throw an error if there is an attempt to combine overlapping `TimeWeightSummaries`, for instance, in our example above, if you were to try to combine summaries across `measure_id`s it would error. This is because the interpolation techniques really only make sense within a given time series determined by a single `measure_id`. However, given that the time weighted average produced is a dimensionless quantity, a simple average of time weighted average should better represent the variation across devices, so the recommendation for things like baselines across many timeseries would be something like:
-
-```SQL ,ignore-output
-WITH t as (SELECT measure_id,
-        average(
-            time_weight('LOCF', ts, val)
-        ) as time_weighted_average
-    FROM foo
-    GROUP BY measure_id)
-SELECT avg(time_weighted_average) -- use the normal avg function to average our time weighted averages
-FROM t;
-```
-
-Internally, the first and last points seen as well as the calculated weighted sum are stored in each `TimeWeightSummary` and used to combine with a neighboring `TimeWeightSummary` when re-aggregation or the Postgres `combine function` is called. In general, the functions support [partial aggregation](https://www.postgresql.org/docs/current/xaggr.html#XAGGR-PARTIAL-AGGREGATES) and partitionwise aggregation in the multinode context, but are not parallelizable (in the Postgres sense, which requires them to accept potentially overlapping input).
-
-Because they require ordered sets, the aggregates build up a buffer of input data, sort it and then perform the proper aggregation steps. In cases where memory is proving to be too small to build up a buffer of points causing OOMs or other issues, a multi-level aggregate can be useful. Following our example from above:
-
-```SQL ,ignore-output
-WITH t as (SELECT measure_id,
-    time_bucket('1 day'::interval, ts),
-    time_weight('LOCF', ts, val)
-    FROM foo
-    GROUP BY measure_id, time_bucket('1 day'::interval, ts)
-    )
-SELECT measure_id,
-    average(
-        rollup(time_weight)
-    )
-FROM t
-GROUP BY measure_id;
-```
-
-
-Moving aggregate mode is not supported by `time_weight` and its use as a window function may be quite inefficient, but it is possible to do so as in:
-
-```SQL ,ignore-output
-
-SELECT measure_id,
-    average(
-        time_weight('LOCF', ts, val) OVER (PARTITION BY measure_id  ORDER BY ts RANGE '15 minutes'::interval PRECEDING)
-    )
-FROM foo;
-```
-Which will give you the 15 minute rolling time weighted average for each point.
-
----
-## Interpolation Methods Details <a id="time-weight-methods"></a>
-
-Discrete time values don't always allow for an obvious calculation of the time weighted average. In order to calculate a time weighted average we need to choose how to weight each value. The two methods we currently use are last observation carried forward (LOCF) and linear interpolation.
-
-In the LOCF approach, the value is treated as if it remains constant until the next value is seen. The LOCF approach is commonly used when the sensor or measurement device sends measurement only when there is a change in value.
-
-The linear interpolation approach treats the values between any two measurements as if they lie on the line connecting the two measurements. The linear interpolation approach is used to account for irregularly sampled data where the sensor doesn't provide any guarantees
-
-Essentially, internally, the time weighted average computes a numerical approximation of the integral of the theoretical full time curve based on the discrete sampled points provided. We call this the weighted sum.  For LOCF, the the weighted sum will be equivalent to the area under a stepped curve:
-```
-
-|                        (pt 4)
-|          (pt 2)          *
-|            *-------      |
-|            |       |     |
-|(pt 1)      |       *------
-|  *---------      (pt 3)  |
-|  |                       |
-|__|_______________________|______
-             time
-```
-The linear interpolation is similar, except here it is more of a sawtooth curve. (And the points are different due to the limitations of the slopes of lines one can "draw" using ASCII art).
-```
-|                      (pt 4)
-|                        *
-|           (pt 2)     / |
-|            *       /   |
-|          /   \   /     |
-|(pt 1)  /       *       |
-|      *      (pt 3)     |
-|      |                 |
-|______|_________________|____________
-             time
-```
 
 Here this ends up being equal to the rectangle with width equal to the duration between two points and height the midpoint between the two magnitudes. Once we have this weighted sum, we can divide by the total duration to get the time weighted average.
+
+[caggs]: /how-to-guides/continuous-aggregates
+[gh-interpolation]: https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#interpolation-methods-details
+[gh-parallelism]: https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#notes-on-parallelism-and-ordering
