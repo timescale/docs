@@ -1,4 +1,4 @@
-## add_dimension() 
+## add_dimension()
 
 Add an additional partitioning dimension to a TimescaleDB hypertable.
 The column selected as the dimension can either use interval
@@ -19,17 +19,17 @@ for specialized use cases and not recommended for most users.
 Space partitions use hashing: Every distinct item is hashed to one of
 *N* buckets.  Remember that we are already using (flexible) time
 intervals to manage chunk sizes; the main purpose of space
-partitioning is to enable parallelization across multiple 
+partitioning is to enable parallelization across multiple
 data nodes (in the case of distributed hypertables) or
 across multiple disks within the same time interval
 (in the case of single-node deployments).
 
-### Parallelizing queries across multiple data nodes 
+### Parallelizing queries across multiple data nodes
 
 In a distributed hypertable, space partitioning enables inserts to be
 parallelized across data nodes, even while the inserted rows share
 timestamps from the same time interval, and thus increases the ingest rate.
-Query performance also benefits by being able to parallelize queries 
+Query performance also benefits by being able to parallelize queries
 across nodes, particularly when full or partial aggregations can be
 "pushed down" to data nodes (e.g., as in the query
 `avg(temperature) FROM conditions GROUP BY hour, location`
@@ -37,7 +37,7 @@ when using `location` as a space partition). Please see our
 [best practices about partitioning in distributed hypertables][distributed-hypertable-partitioning-best-practices]
 for more information.
 
-### Parallelizing disk I/O on a single node 
+### Parallelizing disk I/O on a single node
 
 Parallel I/O can benefit in two scenarios: (a) two or more concurrent
 queries should be able to read from different disks in parallel, or
@@ -118,7 +118,7 @@ is the number of milliseconds since the UNIX epoch).
  to use at most one "space" dimension.
 </highlight>
 
-### Sample Usage 
+### Sample Usage
 
 First convert table `conditions` to hypertable with just time
 partitioning on column `time`, then add an additional partition key on `location` with four partitions:
@@ -137,10 +137,10 @@ SELECT add_dimension('conditions', 'device_id', number_partitions => 2);
 SELECT add_dimension('conditions', 'device_id', number_partitions => 2, if_not_exists => true);
 ```
 
-Now in a multi-node example for distributed hypertables with a cluster 
-of one access node and two data nodes, configure the access node for 
-access to the two data nodes. Then, convert table `conditions` to 
-a distributed hypertable with just time partitioning on column `time`, 
+Now in a multi-node example for distributed hypertables with a cluster
+of one access node and two data nodes, configure the access node for
+access to the two data nodes. Then, convert table `conditions` to
+a distributed hypertable with just time partitioning on column `time`,
 and finally add a space partitioning dimension on `location`
 with two partitions (as the number of the attached data nodes).
 
@@ -150,3 +150,5 @@ SELECT add_data_node('dn2', host => 'dn2.example.com');
 SELECT create_distributed_hypertable('conditions', 'time');
 SELECT add_dimension('conditions', 'location', number_partitions => 2);
 ```
+
+[distributed-hypertable-partitioning-best-practices]: https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/best-practices/
