@@ -38,7 +38,7 @@ connection type. Then enter your database  credentials.
 ### Step 2: Run a simple query in Tableau
 
 Let's use the built-in SQL editor in Tableau. To run a query, add custom SQL to your data source
-by dragging and dropping the “New Custom SQL” button (in the bottom left of the Tableau desktop 
+by dragging and dropping the “New Custom SQL” button (in the bottom left of the Tableau desktop
 user interface) to the place that says ‘Drag tables here'.
 
 A window will pop up, in which we can place a query. In this case, we will use the first
@@ -114,8 +114,8 @@ Ready for more learning? Here's a few suggestions:
 [get-tableau]: https://www.tableau.com/products/trial
 [crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
 [timescale-products]: https://www.timescale.com/products
-[install-timescale]: /getting-started/installation
-[time-series-forecasting]: /tutorials/tutorial-forecasting
-[continuous-aggregates]: /tutorials/continuous-aggs-tutorial
-[other-samples]: /tutorials/other-sample-datasets
-[migrate]: /getting-started/migrating-data
+[install-timescale]: /how-to-guides/install-timescaledb
+[time-series-forecasting]: /tutorials/time-series-forecast
+[continuous-aggregates]: /how-to-guides/continuous-aggregates
+[other-samples]: /tutorials/sample-datasets
+[migrate]: /how-to-guides/migrate-data
