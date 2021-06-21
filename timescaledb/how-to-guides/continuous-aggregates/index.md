@@ -9,7 +9,7 @@ only the data that has changed needs to be computed, not the entire dataset.
     before you begin using it.
 *   [Create a continuous aggregate][cagg-create].
 *   [Add automatic refresh policies][cagg-autorefresh] to an existing continuous aggregate.
-*   [Query a contiuous aggregate][cagg-query].
+*   [Query a continuous aggregate][cagg-query].
 *   [Manually refresh][cagg-manual-refresh] a specific range.
 *   [Use integer-based time][cagg-integer-time] in your continuous aggregates.
 *   [Drop raw data][cagg-drop-raw] from your continuouis aggregates.

@@ -1,90 +1,62 @@
 # Continuous aggregates
-One characteristic of time-series data workloads is that the dataset will grow very quickly. Without the proper data infrastructure, these large data volumes can cause slowdowns in primarily two areas: inserting the data into the database, and aggregating the data into summaries which are more useful to analyze.
+Time-series data usually grows very quickly. Large data volumes can become slow when aggregating the data into useful summaries. To make aggregating data faster, TimescaleDB uses continuous aggregates.
 
-The first we’ve discussed in detail in our blog posts about the underlying architecture of TimescaleDB: keeping storage and indexing data structures small, and minimizing memory usage, to support high ingest. As for the second, TimescaleDB 1.3 introduces new capabilities to make aggregation simple and easy.
+For example, if you have a table of temperature readings over time in a number of locations, and you want to find the average temperature in each location, you can calculate the average as a one-off, with a query like this:
 
-In particular, TimescaleDB 1.3 introduces automated continuous aggregates, which can massively speed up workloads that need to process large amounts of data. In this blog post, we will describe what continuous aggregates are, how they work, and how you can use them to speed up your workloads.
-
-(Special thanks to Gayathri Ayyappan and David Kohn for their work on this feature.)
-
-What are continuous aggregates?
-Say you have a table of temperature readings over time in a number of locations:
-
-      time        |      location     |   temperature   
-------------------+-------------------+-----------------
-2019/01/01 1:00am |      New York     |     68 F       
-2019/01/01 1:00am |      Stockholm    |     66 F
-2019/01/01 2:00am |      New York     |     70 F
-2019/01/01 2:00am |      Stockholm    |     60 F
-     ...          |         ...       |     ...
-2019/01/02 1:00am |      New York     |     72 F
-2019/01/02 1:00am |      Stockholm    |     66 F
-     ...          |         ...       |     ...
-
-
-And you want the average temperature read per-day in each location:
-
-      day         |      location     |  avg temperature   
-------------------+-------------------+-----------------
-2019/01/01        |      New York     |     73 F       
-2019/01/01        |      Stockholm    |     70 F
-2019/01/02        |      New York     |     72 F
-2019/01/02        |      Stockholm    |     69 F
-
-
-If you only need this average as a one-off, than you can simply calculate it with a query such as:
-
+```sql
 SELECT time_bucket(‘1 day’, time) as day,
        location,
        avg(temperature)
 FROM temperatures
 GROUP BY day, location;
+```
 
+If you want to run this query more than once, the database will need to scan the entire table and recalculate the average every time. In most cases, though, the data in the table will not have changed significantly, so there is no need to scan the entire dataset. Continuous aggregates automatically, and in the background, maintain the results from the query, and allow you to retrieve them in the same way as any other data.
 
-But if you’re going to want to find the average temperature repeatedly, this is wasteful. Every time you perform the SELECT, the database will need to scan the entire table and recalculate the average. But most of the data has not changed, and so re-scanning it is redundant. Alternatively, you could store the full results of the query in another table (or materialized view).  But this quickly becomes unwieldy, because updating this table efficiently is cumbersome and complex.
+Using the same temperature example, you can create the same query as a continuous aggregate view like this:
 
-Continuous aggregates solve this problem: they automatically, and in the background, maintain the results from the query, and allow you to retrieve them as you would any other data. A continuous aggregate looks just like a regular view.
-
-A continuous aggregate for the aforementioned query can be created as easily as:
-
+```sql
 CREATE VIEW daily_average WITH (timescaledb.continuous)
     AS SELECT time_bucket(‘1 day’, time) as Day,
               location,
               avg(temperature)
        FROM temperatures
        GROUP BY day, location;
+```
 
+Then, you can query the view whenever you need to, like this:
 
-And queried just like any other view:
-
+```sql
 SELECT * FROM daily_average;
+```
+
+Continuous aggregate views are refreshed automatically in the background as new data is added, or old data is modified. TimescaleDB tracks these changes to the dataset, and automatically updates the view in the background. This does not add any maintenance burden to your database, and does not slow down `INSERT` operations.
+
+You can use continuous aggregates with a large number of default aggregation functions, and any custom aggregation function that is parallelizable. You can also use more complex expressions on top of the aggregate functions, for example `max(temperature)-min(temperature)`.
 
 
-That’s it! Unlike a regular view, a continuous aggregate does not perform the average when queried, and unlike a materialized view, it does not need to be refreshed manually. The view will be refreshed automatically in the background as new data is added, or old data is modified. This latter capability is fairly unique to TimescaleDB, which properly tracks when previous data is updated, or delayed data points are backfilled in older time intervals; the continuous aggregate will be automatically recomputed on this older data.  Further, since this is automatic, it doesn’t add any maintenance burden to your database, and since it runs in the background, continuous aggregates do not slow down INSERT operations.
+## Components of a continuous aggregate
+Continuous aggregates consist of:
+*   Materialization hypertable to store the aggregated data in
+*   Materialization engine to aggregate data from the raw, underlying, table to the materialization hypertable
+*   Invalidation engine to determine when data needs to be re-materialized, due to changes in the data
+*   Query engine to access the aggregated data
 
-Continuous aggregates work out of the box with a large number of aggregation functions [1], can work with any custom aggregation function as long as it is parallelizable, and you can even use more complex expressions on top of those aggregate functions, e.g., something like max(temperature)-min(temperature).
+### Materialization hypertable
+Continuous aggregates take raw data from the original hypertable, aggregate it, and store the intermediate state in a materialization hypertable. When you query the continuous aggregate view, the state is returned to you as needed.
 
-Continuous aggregates sound great, but how do they work?
-At a very high level, a continuous aggregate consists of four parts:
+Using the same temperature example, the materialization table looks like this:
 
-A materialization hypertable: to store the aggregated data in.
-A materialization engine: to aggregate data from the raw, underlying, table to the materialization table.
-An invalidation engine: to determine when data needs to be re-materialized, due to INSERTs, UPDATEs, or DELETEs within the materialized data.
-A query engine: to access the aggregated data.
-Of course, all of these parts need to be performant, otherwise Continuous Aggregates wouldn’t be worth using. In this section, we describe these components, and how their design is used to ensure good performance. Due to the way in which they interact with each other, we will go through the components in order: materialization hypertable, query engine, invalidation engine, and materialization engine.
+|day|location|chunk|avg temperature partial|
+|-|-|-|-|
+|2021/01/01|New York|1|{3, 219}|
+|2021/01/01|Stockholm|1|{4, 280}|
+|2021/01/02|New York|2||
+|2021/01/02|Stockholm|2|{5, 345}|
 
-Materialization Table and Data Model
-A continuous aggregate takes raw data from the original hypertable, aggregates it, and stores intermediate state in a materialization hypertable. When you query the continuous aggregate view, the state is returned to you as needed.
-
-For our temperature case above, the materialization table would look something like:
-
-    day    |    location   |    chunk   |   avg temperature partial   
------------+---------------+------------+----------------------------
-2019/01/01 |   New York    |      1     |    {3, 219}       
-2019/01/01 |   Stockholm   |      1     |    {4, 280}
-2019/01/02 |   New York    |      2     |    {3, 216}
-2019/01/02 |   Stockholm   |      2     |    {5, 345}
-
+<!---
+Lana, you're up to here! --LKB 2021-06-21
+-->
 
 
 The data stored inside a materialization table consists of a column for each group-by clause in the query, a chunk column identifying the raw-data chunk this data came from, and a partial aggregate representation for each aggregate in the query. A partial is the intermediate form of an aggregation function, and it is what’s used internally to calculate the aggregate’s output. For instance, for avg the partial consists of a {count, sum} pair, representing the number of rows seen, and the sum of all their values.
