@@ -11,8 +11,8 @@ hypertable, or you could keep source data in the continuous aggregate even after
 it is removed from the hypertable.
 
 You can change the way your continuous aggregate is refreshed by adjusting the
-[add_continuous_aggregate_policy][api-add-continuous-aggregate-policy]. The
-policy takes three arguments:
+[add_continuous_aggregate_policy][api-add-continuous-aggregate-policy].
+The policy takes three arguments:
 *   `start_offset`: the start of the refresh window relative to when the policy runs
 *   `end_offset`: the end of the refresh window relative to when the policy runs
 *   `schedule_interval`: the refresh interval in minutes or hours
@@ -93,10 +93,16 @@ policies like data retention.
     ```sql
     CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
     ```
-Avoid refreshing time intervals that are likely to have a lot of writes. In general, this means you should never refresh the most recent time bucket. Because the of constant change in the underlying datya, they are unlikely to produce accurate aggregates. Additionally, refreshing this data slows down the ingest rate of the hypertable due to write amplification. If you want to include the latest bucket in your queries, use [real-time aggregation][real-time-aggregates].
+
+Avoid refreshing time intervals that are likely to have a lot of writes. In
+general, this means you should never refresh the most recent time bucket.
+Because the of constant change in the underlying datya, they are unlikely to
+produce accurate aggregates. Additionally, refreshing this data slows down the
+ingest rate of the hypertable due to write amplification. If you want to include
+the latest bucket in your queries,
+use [real-time aggregation][real-time-aggregates] instead.
 
 
 [real-time-aggregates]: /how-to-guides/real-time-aggregates
 [sec-data-retention]: /how-to-guides/data-retention
-[api-drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
