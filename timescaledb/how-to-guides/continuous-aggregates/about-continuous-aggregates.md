@@ -1,7 +1,11 @@
 # Continuous aggregates
-Time-series data usually grows very quickly. Large data volumes can become slow when aggregating the data into useful summaries. To make aggregating data faster, TimescaleDB uses continuous aggregates.
+Time-series data usually grows very quickly. Large data volumes can become slow
+when aggregating the data into useful summaries. To make aggregating data
+faster, TimescaleDB uses continuous aggregates.
 
-For example, if you have a table of temperature readings over time in a number of locations, and you want to find the average temperature in each location, you can calculate the average as a one-off, with a query like this:
+For example, if you have a table of temperature readings over time in a number
+of locations, and you want to find the average temperature in each location, you
+can calculate the average as a one-off, with a query like this:
 
 ```sql
 SELECT time_bucket(‘1 day’, time) as day,
@@ -11,9 +15,15 @@ FROM temperatures
 GROUP BY day, location;
 ```
 
-If you want to run this query more than once, the database will need to scan the entire table and recalculate the average every time. In most cases, though, the data in the table will not have changed significantly, so there is no need to scan the entire dataset. Continuous aggregates automatically, and in the background, maintain the results from the query, and allow you to retrieve them in the same way as any other data.
+If you want to run this query more than once, the database will need to scan the
+entire table and recalculate the average every time. In most cases, though, the
+data in the table will not have changed significantly, so there is no need to
+scan the entire dataset. Continuous aggregates automatically, and in the
+background, maintain the results from the query, and allow you to retrieve them
+in the same way as any other data.
 
-Using the same temperature example, you can create the same query as a continuous aggregate view like this:
+Using the same temperature example, you can create the same query as a
+continuous aggregate view like this:
 
 ```sql
 CREATE VIEW daily_average WITH (timescaledb.continuous)
@@ -30,20 +40,33 @@ Then, you can query the view whenever you need to, like this:
 SELECT * FROM daily_average;
 ```
 
-Continuous aggregate views are refreshed automatically in the background as new data is added, or old data is modified. TimescaleDB tracks these changes to the dataset, and automatically updates the view in the background. This does not add any maintenance burden to your database, and does not slow down `INSERT` operations.
+Continuous aggregate views are refreshed automatically in the background as new
+data is added, or old data is modified. TimescaleDB tracks these changes to the
+dataset, and automatically updates the view in the background. This does not add
+any maintenance burden to your database, and does not slow down `INSERT`
+operations.
 
-You can use continuous aggregates with a large number of default aggregation functions, and any custom aggregation function that is parallelizable. You can also use more complex expressions on top of the aggregate functions, for example `max(temperature)-min(temperature)`.
+You can use continuous aggregates with a large number of default aggregation
+functions, and any custom aggregation function that is parallelizable. You can
+also use more complex expressions on top of the aggregate functions, for example
+`max(temperature)-min(temperature)`.
 
+To test out continuous aggregates, follow
+the [continuous aggregate tutorial][tutorial-caggs].
 
 ## Components of a continuous aggregate
 Continuous aggregates consist of:
 *   Materialization hypertable to store the aggregated data in
-*   Materialization engine to aggregate data from the raw, underlying, table to the materialization hypertable
-*   Invalidation engine to determine when data needs to be re-materialized, due to changes in the data
+*   Materialization engine to aggregate data from the raw, underlying, table to
+    the materialization hypertable
+*   Invalidation engine to determine when data needs to be re-materialized, due
+    to changes in the data
 *   Query engine to access the aggregated data
 
 ### Materialization hypertable
-Continuous aggregates take raw data from the original hypertable, aggregate it, and store the intermediate state in a materialization hypertable. When you query the continuous aggregate view, the state is returned to you as needed.
+Continuous aggregates take raw data from the original hypertable, aggregate it,
+and store the intermediate state in a materialization hypertable. When you query
+the continuous aggregate view, the state is returned to you as needed.
 
 Using the same temperature example, the materialization table looks like this:
 
@@ -54,30 +77,58 @@ Using the same temperature example, the materialization table looks like this:
 |2021/01/02|New York|2||
 |2021/01/02|Stockholm|2|{5, 345}|
 
-The materialization table table is stored as a TimescaleDB hypertable, to take advantage of the scaling and query optimizations that hypertables offer. Materialization tables contain a a column for each group-by clause in the query, a `chunk` column identifying which chunk in the raw data this entry came from, and a `partial aggregate` column for each aggregate in the query.
+The materialization table table is stored as a TimescaleDB hypertable, to take
+advantage of the scaling and query optimizations that hypertables offer.
+Materialization tables contain a a column for each group-by clause in the query,
+a `chunk` column identifying which chunk in the raw data this entry came from,
+and a `partial aggregate` column for each aggregate in the query.
 
-The partial column is used internally to calculate the output. In this example, because the query looks for an average, the partial column contains the number of rows seen, and the sum of all their values. The most important thing to know about partials is that they can be combined to create new partials spanning all of the old partials' rows. This is important if you combine groups that span multiple chunks.
+The partial column is used internally to calculate the output. In this example,
+because the query looks for an average, the partial column contains the number
+of rows seen, and the sum of all their values. The most important thing to know
+about partials is that they can be combined to create new partials spanning all
+of the old partials' rows. This is important if you combine groups that span
+multiple chunks.
 
 ### Materialization engine
-When you query the continuous aggregate view, the materialization engine combines the aggregate partials into a single partial for each time range, and calculates the value that is returned. For example, to compute an average, each partial sum is added up to a total sum, and each partial count is added up to a total count, then the average is computed as the total sum divided by the total count.
+When you query the continuous aggregate view, the materialization engine
+combines the aggregate partials into a single partial for each time range, and
+calculates the value that is returned. For example, to compute an average, each
+partial sum is added up to a total sum, and each partial count is added up to a
+total count, then the average is computed as the total sum divided by the total
+count.
 
 ### Invalidation Engine
-Any change to the data in a hypertable could potentially invalidate some materialized rows. The invalidation engine checks to ensure that the system does not become swamped with invalidations.
+Any change to the data in a hypertable could potentially invalidate some
+materialized rows. The invalidation engine checks to ensure that the system does
+not become swamped with invalidations.
 
-Fortunately, time-series data means that nearly all INSERTs and UPDATEs have a recent timestamp, so the invalidation engine does not materialize all the data, but to a set point in time called the materialization threshold. This threshold is set so that the vast majority of INSERTs contain more recent timestamps. These data points have never been materialized by the continuous aggregate, so there is no additional work needed to notify the continuous aggregate that they have been added. When the materializer next runs, it is responsible for determining how much new data can be materialized without invalidating the continuous aggregate. It then materializes the more recent data and moves the materialization threshold forward in time. This ensures that the threshold lags behind the point-in-time where data changes are common, and that most INSERTs do not require any extra writes.
+Fortunately, time-series data means that nearly all INSERTs and UPDATEs have a
+recent timestamp, so the invalidation engine does not materialize all the data,
+but to a set point in time called the materialization threshold. This threshold
+is set so that the vast majority of INSERTs contain more recent timestamps.
+These data points have never been materialized by the continuous aggregate, so
+there is no additional work needed to notify the continuous aggregate that they
+have been added. When the materializer next runs, it is responsible for
+determining how much new data can be materialized without invalidating the
+continuous aggregate. It then materializes the more recent data and moves the
+materialization threshold forward in time. This ensures that the threshold lags
+behind the point-in-time where data changes are common, and that most INSERTs do
+not require any extra writes.
 
-When data older than the invalidation threshold is changed, the maximum and minimum timestamps of the changed rows is logged, and the values are used to determine which rows in the aggregation table need to be recalculated. This logging does cause some write load, but because the threshold lags behind the area of data that is currently changing, the writes are small and rare.
-
-<!---
-Lana, you're up to here! --LKB 2021-06-21
--->
+When data older than the invalidation threshold is changed, the maximum and
+minimum timestamps of the changed rows is logged, and the values are used to
+determine which rows in the aggregation table need to be recalculated. This
+logging does cause some write load, but because the threshold lags behind the
+area of data that is currently changing, the writes are small and rare.
 
 ### Materialization engine
-Materializing the continuous aggregate is a potentially long-running operation with two important goals: correctness and performance. In terms of correctness, we must ensure that all of our invalidations are logged when needed, and that our continuous aggregates will eventually reflect the latest data changes. On the other hand, materialization can take a long time, and data-modifying transactions must perform well even while the materialization is in progress.
+The materialization engine performs two transactions. The first transaction
+blocks all INSERTs, UPDATEs, and DELETEs, determines the time range to
+materialize, and updates the invalidation threshold. The second transaction
+unblocks other transactions, and materializes the aggregates. The first
+transaction is very quick, and most of the work happens during the second
+transaction, to ensure that the work does not interfere with other operations.
 
-We achieve this by having materialization use two transactions. In a quick first transaction, we block all INSERTs, UPDATEs, and DELETEs, determine the time period we will materialize, and update the invalidation threshold. In the second, other operations are unblocked as we perform the bulk of the work, materializing the aggregates. This ensures that the vast majority of the work does not interfere with other operations.
 
-Why do we block data modification in the first transaction? For our invalidations to work, any data-modifying transaction must either be included in the materialized aggregation or be logged for the next materialization. Blocking data-modifying operations in the first transaction provides a convenient barrier we can use to decide which transactions need to be logged. It divides the transactions into two groups, those that happened before the threshold was updated, and those happened after. Those transactions that came before the threshold update will be included in the materialization and thus never require any additional work, while those that occur after must log their invalidations, and seeing the new threshold inform these transactions that they need to do so.
-
-Using Continuous Aggregates
-To test out continuous aggregates, follow our tutorial which uses a sample dataset. Before starting the tutorial, make sure you’ve upgraded to (or installed) TimescaleDB version 1.3.
+[tutorial-caggs]: timescaledb/getting-started/create-cagg
