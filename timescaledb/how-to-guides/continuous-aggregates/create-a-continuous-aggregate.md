@@ -26,7 +26,7 @@ continuous aggregate view for daily weather data.
     FROM conditions
     GROUP BY device, bucket;
     ```
-1.  Create the policy to refresh the view every hour:
+1.  Create a policy to refresh the view every hour:
     ```sql
     SELECT add_continuous_aggregate_policy('conditions_summary_daily',
 	     start_offset => INTERVAL '1 month',
