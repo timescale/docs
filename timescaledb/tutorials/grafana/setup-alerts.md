@@ -280,7 +280,7 @@ and PagerDuty (API or Integration Key).
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
 [install-timescale]: /how-to-guides/install-timescaledb/
-[install-grafana]: /getting-started/installation-grafana
+[install-grafana]: /tutorials/grafana/installation
 [tutorial-prometheus]: /tutorials/tutorial-setup-timescale-prometheus
 [tutorial-grafana]: /tutorials/grafana
 [slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack
