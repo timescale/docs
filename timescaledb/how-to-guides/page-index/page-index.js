@@ -272,8 +272,8 @@ module.exports = [
             href: "create-a-continuous-aggregate"
           },
           {
-            title: "Adding automatic refresh policies",
-            href: "adding-automatic-refresh-policies"
+            title: "Refresh policies",
+            href: "refresh-policies"
           },
           {
             title: "Query a continuous aggregate",
