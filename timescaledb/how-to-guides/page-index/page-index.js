@@ -284,8 +284,8 @@ module.exports = [
             href: "manually-refresh-specific-ranges"
           },
           {
-            title: "Best practices",
-            href: "best-practices"
+            title: "Real-time aggregates",
+            href: "real-time-aggregates"
           },
           {
             title:"Using integer-based time",
@@ -294,6 +294,10 @@ module.exports = [
           {
             title: "Drop raw data",
             href: "drop-raw-data"
+          },
+          {
+            title: "Best practices",
+            href: "best-practices"
           }
         ]
       },
