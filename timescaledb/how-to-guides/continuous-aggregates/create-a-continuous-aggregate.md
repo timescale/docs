@@ -84,5 +84,31 @@ queries to run efficiently.
       schedule_interval => INTERVAL '30 minutes');
     ```
 
+## Query continuous aggregates
+When you have created a continuous aggregate and set a refresh policy, you can query the view with a `SELECT` query.
+
+### Procedure: Querying a continuous aggregate
+1.  At the `psql` prompt, query the continuous aggregate view called
+    `conditions_summary_hourly` for the average, minimum, and maximum
+    temperatures for the first quarter of 2021 recorded by device 5:
+    ```sql
+    SELECT *
+      FROM conditions_summary_hourly
+      WHERE device = 5
+      AND bucket >= '2020-01-01'
+      AND bucket < '2020-04-01';
+    ```
+1.  Alternatively, query the continuous aggregate view called
+    `conditions_summary_hourly` for the top 20 largest metric spreads in that
+    quarter:
+    ```sql
+    SELECT *
+      FROM conditions_summary_hourly
+      WHERE max - min > 1800
+      AND bucket >= '2020-01-01' AND bucket < '2020-04-01'
+      ORDER BY bucket DESC, device DESC LIMIT 20;
+    ```
+
+
 [api-time-bucket]: api/time_bucket
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION

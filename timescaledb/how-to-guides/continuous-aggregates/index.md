@@ -7,9 +7,8 @@ only the data that has changed needs to be computed, not the entire dataset.
 
 *   [Learn about continuous aggregates][about-caggs] to understand how it works
     before you begin using it.
-*   [Create a continuous aggregate][cagg-create].
+*   [Create a continuous aggregate][cagg-create] and query it.
 *   [Add refresh policies][cagg-autorefresh] to an existing continuous aggregate.
-*   [Query a continuous aggregate][cagg-query].
 *   [Use integer-based time][cagg-integer-time] in your continuous aggregates.
 *   [Drop raw data][cagg-drop-raw] from your continuous aggregates.
 *   [Use real-time aggregates][cagg-realtime]
