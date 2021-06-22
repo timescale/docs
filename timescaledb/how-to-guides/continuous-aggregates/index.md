@@ -19,7 +19,6 @@ only the data that has changed needs to be computed, not the entire dataset.
 [about-caggs]: /how-to-guides/continuous-aggregates/about-continuous-aggregates
 [cagg-create]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate
 [cagg-autorefresh]: /how-to-guides/continuous-aggregates/adding-automatic-refresh-policies
-[cagg-query]: /how-to-guides/continuous-aggregates/query-a-continuous-aggregate
 [cagg-integer-time]: /how-to-guides/continuous-aggregates/integer-based-time
 [cagg-drop-raw]: /how-to-guides/continuous-aggregates/drop-raw-data
 [cagg-realtime]: /how-to-guides/real-time-aggregates

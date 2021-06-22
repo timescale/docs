@@ -19,6 +19,18 @@ raw data has subsequently been dropped.
 
 
 
+A continuous aggregate may be dropped by using the `DROP MATERIALIZED
+VIEW` command. It does not affect the data in the hypertable from
+which the continuous aggregate is derived (`conditions` in the example
+above).
+
+```sql
+DROP MATERIALIZED VIEW conditions_summary_hourly;
+```
+
+
+
+
 [api-drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [data-retention-with-continuous-aggregates]: /how-to-guides/data-retention-with-continuous-aggregates/
 [api-add-retention-policy]: /api/:currentVersion:/data-retention/add_retention_policy
