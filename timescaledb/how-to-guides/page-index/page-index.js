@@ -264,6 +264,10 @@ module.exports = [
         href: "continuous-aggregates",
         children: [
           {
+            title: "About continuous aggregates",
+            href: "about-continuous-aggregates"
+          },
+          {
             title: "Create a continuous aggregate",
             href: "create-a-continuous-aggregate"
           },
