@@ -127,3 +127,4 @@ When you have created a continuous aggregate and set a refresh policy, you can q
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
+[api-continuous-aggregates-info]: /api/:currentVersion:/informational-views/continuous_aggregates/
