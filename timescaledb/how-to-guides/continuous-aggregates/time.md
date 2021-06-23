@@ -1,12 +1,53 @@
-# Integer-based time and continuous aggregates
-You can create your own custom aggregation scheme for tables that use an integer time
-column. Date and time is usually expressed as year/month/day and hours:minutes:seconds. Most TimescaleDB databases use a [date/time-type][postgres-date-time] column to express the date and time. However, in some cases, you might need to convert these common time and date formats to a format that uses an integer. The most common of these is Unix time, which is the number of seconds since the Unix epoch (1970-01-01), but other types of integer-based time formats are possible.
+# Time and continuous aggregates
+Functions that depend on a local timezone setting inside a continuous aggregate
+are not supported. You cannot adjust to a local time because the timezone setting
+changes from user to user.
 
-In these examples, we have a hypertable called `devices` that contains CPU and disk usage
-for devices. These devices measure time using microfortnights since epoch, under the humorous but impractical system of measurement called the [furlong-firkin-fortnight (FFF) system][fff-system].
+To manage this, you can use explicit timezones in the view definition.
+Alternatively, you can create your own custom aggregation scheme for tables that
+use an integer time column.
 
-## Create a table with a custom integer-based time column
-To create a hypertable that uses an integer-based column as time, you need to provide the chunk time interval. In this case, each chunk consists of a millifortnight, which is equivalent to 1000 microfortnights, or about twenty minutes.
+## Declare an explicit timezone
+The most common method of working with timezones is to declare an explicit timezone in the view query.
+
+### Procedure: Declaring an explicit timezone
+1.  At the `psql`prompt, create the view and declare the timezone:
+    ```sql
+    CREATE MATERIALIZED VIEW device_summary
+    WITH (timescaledb.continuous)
+    AS
+    SELECT
+      time_bucket('1 hour', observation_time) AS bucket,
+      min(observation_time AT TIME ZONE 'EST') AS min_time,
+      device_id,
+      avg(metric) AS metric_avg,
+      max(metric) - min(metric) AS metric_spread
+    FROM
+      device_readings
+    GROUP BY bucket, device_id;
+    ```
+1.  Alternatively, you can cast to a timestamp after the view using `SELECT`:
+    ```sql
+    SELECT min_time::timestamp FROM device_summary;
+    ```
+
+## Integer-based time
+Date and time is usually expressed as year-month-day and hours:minutes:seconds.
+Most TimescaleDB databases use a [date/time-type][postgres-date-time] column to
+express the date and time. However, in some cases, you might need to convert
+these common time and date formats to a format that uses an integer. The most
+common of these is Unix time, which is the number of seconds since the Unix
+epoch (1970-01-01), but other types of integer-based time formats are possible.
+
+In these examples, we have a hypertable called `devices` that contains CPU and
+disk usage for devices. These devices measure time using microfortnights since
+epoch, under the humorous but impractical system of measurement called the
+[furlong-firkin-fortnight (FFF) system][fff-system].
+
+To create a hypertable that uses an integer-based column as time, you need to
+provide the chunk time interval. In this case, each chunk consists of a
+millifortnight, which is equivalent to 1000 microfortnights, or about twenty
+minutes.
 
 ### Procedure: Creating a table with a custom integer-based time column
 1.  At the `psql` prompt, create a table and define the integer-based time column:
@@ -24,7 +65,6 @@ To create a hypertable that uses an integer-based column as time, you need to pr
       chunk_time_interval => 1000);
     ```
 
-## Create a continuous aggregate with integer-based time
 To define a continuous aggregate on a hypertable that uses integer-based time, you need to have a function to get the current time in the correct format, and set it for the hypertable. This is done using the [`set_integer_now_func`][api-set-integer-now-func]. It can be defined as a regular PostgreSQL function, but needs to be [`STABLE`][pg-func-stable], take no arguments, and return an integer value of the same type as the time column in the table. When you have set up the time-handling, you can create the continuous aggregate.
 
 ### Procedure: Creating a continuous aggregate with integer-based time

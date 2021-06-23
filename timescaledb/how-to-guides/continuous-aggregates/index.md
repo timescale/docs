@@ -9,7 +9,7 @@ only the data that has changed needs to be computed, not the entire dataset.
     before you begin using it.
 *   [Create a continuous aggregate][cagg-create] and query it.
 *   [Add refresh policies][cagg-autorefresh] to an existing continuous aggregate.
-*   [Use integer-based time][cagg-integer-time] in your continuous aggregates.
+*   [Manage time][cagg-time] in your continuous aggregates.
 *   [Drop data][cagg-drop] from your continuous aggregates.
 *   [Manage materialized hypertables][cagg-mat-hypertables.
 *   [Use real-time aggregates][cagg-realtime].
@@ -20,7 +20,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 [about-caggs]: /how-to-guides/continuous-aggregates/about-continuous-aggregates
 [cagg-create]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate
 [cagg-autorefresh]: /how-to-guides/continuous-aggregates/adding-automatic-refresh-policies
-[cagg-integer-time]: /how-to-guides/continuous-aggregates/integer-based-time
+[cagg-time]: /how-to-guides/continuous-aggregates/time
 [cagg-drop]: /how-to-guides/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
 [cagg-realtime]: /how-to-guides/real-time-aggregates

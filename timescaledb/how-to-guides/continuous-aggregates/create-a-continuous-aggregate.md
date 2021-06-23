@@ -4,13 +4,7 @@ view first, then enable a policy to keep the view refreshed. You can have more
 than one continuous aggregate on a single hypertable.
 
 Continuous aggregates require a `time_bucket` on the time partitioning column of
-the hypertable. The time bucket allows you to define a time interval, instead of
-having to use specific timestamps. For example, you can define a time bucket as
-five minutes, or one day. You can read more about the time bucket function in
-our [API Guide][api-time-bucket]. If you want to use
-[time_bucket_gapfill][api-time-bucket-gapfill], you need to run it in the
-`SELECT` statement on the continuous aggregate view, you can not run it in the
-continuous aggregate directly.
+the hypertable.
 
 By default, views are automatically refreshed. You can adjust this by setting
 the [WITH NO DATA](#using-the-with-no-data-option) option. Additionally, the
@@ -51,6 +45,26 @@ aggregates like `SUM` and `AVG`. However, aggregates using `ORDER BY` and
 `DISTINCT` cannot be used with continuous aggregates since they are not possible
 to parallelize by PostgreSQL. TimescaleDB does not currently support the
 `FILTER` clause.
+
+## Choosing an appropriate bucket interval
+Continuous aggregates require a `time_bucket` on the time partitioning column of
+the hypertable. The time bucket allows you to define a time interval, instead of
+having to use specific timestamps. For example, you can define a time bucket as
+five minutes, or one day.
+
+When the continuous aggregate is materialized, the materialization table stores
+partials, which are then used to calculate the result of the query. This means a
+certain amount of processing capacity is required for any query, and the amount
+required becomes greater as the interval gets smaller. Because of this, if you
+have very small intervals, it can be more efficient to run the aggregate query
+on the raw data in the hypertable. We recommend that you test both methods to
+determine what is best for your data set and desired bucket interval.
+
+You can read more about the time bucket function in
+our [API Guide][api-time-bucket]. If you want to use
+[time_bucket_gapfill][api-time-bucket-gapfill], you need to run it in the
+`SELECT` statement on the continuous aggregate view, you can not run it in the
+continuous aggregate directly.
 
 ## Using the WITH NO DATA option
 By default, when you create a view for the first time, it is populated with
