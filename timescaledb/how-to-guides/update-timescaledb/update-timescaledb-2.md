@@ -18,7 +18,7 @@ currently running a compatible release, please upgrade before updating Timescale
  --------------------|-------------------------------
  1.7                 | 9.6, 10, 11, 12
  2.0                 | 11, 12
- 2.1-2.3             | 12, 13
+ 2.1-2.3             | 11, 12, 13
  2.4+                | 12, 13
 
 If you need to upgrade PostgreSQL first,
