@@ -94,11 +94,9 @@ dependent on your individual setup. Choose a compression interval that minimizes
 the need to decompress chunks, but keep in mind that you want to avoid storing
 data that is out of order.
 
-<highlight type="tip">
 You can manually decompress a chunk to modify it if you need to. For more
 information on how to do that,
-see [decompressing chunks](/how-to-guides/compression/decompress-chunks).
-</highlight>
+see [decompressing chunks][decompress-chunks].
 
 ### Compression states over time
 A chunk can be in one of three states:
@@ -210,3 +208,6 @@ of any `orderby` column. This way, the query executor looks at this additional
 column that specifies the range of values in the compressed column, without
 first performing any decompression, in order to determine whether the row could
 possibly match a time predicate specified by the query.
+
+
+[decompress-chunks]: /how-to-guides/compression/decompress-chunks

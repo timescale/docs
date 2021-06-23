@@ -398,12 +398,12 @@ dropped due to a data retention policy as discussed in the previous section.
 In TimescaleDB 2.0, views surrounding continuous aggregates (and other policies) have been simplified and generalized.
 
 #### Changes and additions
-*   [`timescaledb_information.continuous_aggregates`](/api/latest/continuous_aggregates):
+*   [`timescaledb_information.continuous_aggregates`](https://docs.timescale.com/api/latest/continuous-aggregates/):
 now provides information related to the materialized view, which includes the view name and owner, the real
 time aggregation flag, the materialization and the view definition (the select statement defining the view).
-*   [`timescaledb_information.jobs`](/api/latest/informational-views/jobs): displays information for
+*   [`timescaledb_information.jobs`](https://docs.timescale.com/api/latest/informational-views/jobs/): displays information for
 all policies including continuous aggregates.  
-*   [`timescaledb_information.job_stats`](/api/latest/informational-views/job_stats): displays job
+*   [`timescaledb_information.job_stats`](https://docs.timescale.com/api/latest/informational-views/job_stats/): displays job
 statistics related to all jobs.
 
 #### Removed
