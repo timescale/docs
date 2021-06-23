@@ -10,7 +10,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Create a continuous aggregate][cagg-create] and query it.
 *   [Add refresh policies][cagg-autorefresh] to an existing continuous aggregate.
 *   [Use integer-based time][cagg-integer-time] in your continuous aggregates.
-*   [Drop data][cagg-drop-raw] from your continuous aggregates.
+*   [Drop data][cagg-drop] from your continuous aggregates.
 *   [Use real-time aggregates][cagg-realtime]
 *   [Discover useful tips][cagg-best-practice] about continuous aggregates.
 
@@ -20,6 +20,6 @@ only the data that has changed needs to be computed, not the entire dataset.
 [cagg-create]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate
 [cagg-autorefresh]: /how-to-guides/continuous-aggregates/adding-automatic-refresh-policies
 [cagg-integer-time]: /how-to-guides/continuous-aggregates/integer-based-time
-[cagg-drop-raw]: /how-to-guides/continuous-aggregates/drop-raw-data
+[cagg-drop]: /how-to-guides/continuous-aggregates/drop-data
 [cagg-realtime]: /how-to-guides/real-time-aggregates
 [cagg-best-practice]: /how-to-guides/continuous-aggregates/best-practices
