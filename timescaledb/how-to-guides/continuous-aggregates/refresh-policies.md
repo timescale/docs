@@ -75,6 +75,11 @@ If you need to manually refresh a continuous aggeregate, you can use the `refres
 underlying hypertable since the last refresh. Therefore, if only a few
 buckets need updating, the refresh runs quickly.
 
+If you have recently dropped data from a hypertable with a continuous aggregate,
+calling `refresh_continuous_aggregate` on a region containing dropped chunks
+recalculates the aggregate without the dropped data. See
+[drop data][cagg-drop-data] for more information.
+
 The `refresh` command takes three arguments:
 *   The name of the continuous aggregate view to refresh
 *   The timestamp of the beginning of the refresh window
@@ -106,3 +111,4 @@ use [real-time aggregation][real-time-aggregates] instead.
 [real-time-aggregates]: /how-to-guides/real-time-aggregates
 [sec-data-retention]: /how-to-guides/data-retention
 [api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
+[cagg-drop-data]: /how-to-guides/continuous-aggregates/drop-data
