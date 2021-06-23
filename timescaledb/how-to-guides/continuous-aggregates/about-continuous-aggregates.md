@@ -1,4 +1,4 @@
-# Continuous aggregates
+# About continuous aggregates
 Time-series data usually grows very quickly. Large data volumes can become slow
 when aggregating the data into useful summaries. To make aggregating data
 faster, TimescaleDB uses continuous aggregates. For example, if you have a table
@@ -79,7 +79,7 @@ Using the same temperature example, the materialization table looks like this:
 |2021/01/02|New York|2||
 |2021/01/02|Stockholm|2|{5, 345}|
 
-The materialization table table is stored as a TimescaleDB hypertable, to take
+The materialization table is stored as a TimescaleDB hypertable, to take
 advantage of the scaling and query optimizations that hypertables offer.
 Materialization tables contain a a column for each group-by clause in the query,
 a `chunk` column identifying which chunk in the raw data this entry came from,
@@ -91,6 +91,8 @@ of rows seen, and the sum of all their values. The most important thing to know
 about partials is that they can be combined to create new partials spanning all
 of the old partials' rows. This is important if you combine groups that span
 multiple chunks.
+
+For more information, see [materialization hypertables][cagg-mat-hypertables]. 
 
 ### Materialization engine
 When you query the continuous aggregate view, the materialization engine
@@ -135,3 +137,4 @@ transaction, to ensure that the work does not interfere with other operations.
 
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [tutorial-caggs]: timescaledb/getting-started/create-cagg
+[cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
