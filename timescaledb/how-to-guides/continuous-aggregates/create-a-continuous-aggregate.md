@@ -7,11 +7,22 @@ Continuous aggregates require a `time_bucket` on the time partitioning column of
 the hypertable. The time bucket allows you to define a time interval, instead of
 having to use specific timestamps. For example, you can define a time bucket as
 five minutes, or one day. You can read more about the time bucket function in
-our [API Guide][api-time-bucket].
+our [API Guide][api-time-bucket]. If you want to use
+[time_bucket_gapfill][api-time-bucket-gapfill], you need to run it in the
+`SELECT` statement on the continuous aggregate view, you can not run it in the
+continuous aggregate directly.
+
+By default, views are automatically refreshed. You can adjust this by setting
+the [WITH NO DATA](#using-the-with-no-data-option) option. Additionally, the
+view can not be a [security barrier view][postgres-security-barrier].
 
 ## Create a continuous aggregate
-In this  example, we are using a hypertable called `conditions`, and creating a
-continuous aggregate view for daily weather data.
+In this example, we are using a hypertable called `conditions`, and creating a
+continuous aggregate view for daily weather data. The `GROUP BY` clause must
+include a `time_bucket` expression which uses time dimension column of the
+hypertable. Additionally, all functions and their arguments included in
+`SELECT`, `GROUP BY`, and `HAVING` clauses must be
+[immutable][postgres-immutable].
 
 ### Procedure: Creating a continuous aggregate
 1.  At the `psql`prompt, create the materialized view:
@@ -85,7 +96,7 @@ queries to run efficiently.
     ```
 
 ## Query continuous aggregates
-When you have created a continuous aggregate and set a refresh policy, you can query the view with a `SELECT` query.
+When you have created a continuous aggregate and set a refresh policy, you can query the view with a `SELECT` query. You can only specify a single hypertable in the `FROM` clause. Including more hypertables, joins, tables, views, or subqueries in your `SELECT` query is not supported. Additionally, make sure that the hypertable you are querying does not have [row-level-security policies][postgres-rls] enabled.
 
 ### Procedure: Querying a continuous aggregate
 1.  At the `psql` prompt, query the continuous aggregate view called
@@ -111,4 +122,8 @@ When you have created a continuous aggregate and set a refresh policy, you can q
 
 
 [api-time-bucket]: api/time_bucket
+[api-time-bucket-gapfill]: api/time_bucket_gapfill
+[postgres-security-barrier]:https://www.postgresql.org/docs/current/rules-privileges.html
+[postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html

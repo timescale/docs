@@ -46,10 +46,13 @@ dataset, and automatically updates the view in the background. This does not add
 any maintenance burden to your database, and does not slow down `INSERT`
 operations.
 
-You can use continuous aggregates with a large number of default aggregation
-functions, and any custom aggregation function that is parallelizable. You can
-also use more complex expressions on top of the aggregate functions, for example
-`max(temperature)-min(temperature)`.
+Continuous aggregates are supported for most aggregate functions that can be
+[parallelized by PostgreSQL][postgres-parallel-agg], including the standard
+aggregates like `SUM` and `AVG`. However, aggregates using `ORDER BY` and
+`DISTINCT` cannot be used with continuous aggregates since they are not possible
+to parallelize by PostgreSQL. TimescaleDB does not currently support the
+`FILTER` clause. You can also use more complex expressions on top of the
+aggregate functions, for example `max(temperature)-min(temperature)`.
 
 To test out continuous aggregates, follow
 the [continuous aggregate tutorial][tutorial-caggs].
@@ -131,4 +134,5 @@ transaction is very quick, and most of the work happens during the second
 transaction, to ensure that the work does not interfere with other operations.
 
 
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [tutorial-caggs]: timescaledb/getting-started/create-cagg
