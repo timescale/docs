@@ -11,9 +11,9 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Add refresh policies][cagg-autorefresh] to an existing continuous aggregate.
 *   [Manage time][cagg-time] in your continuous aggregates.
 *   [Drop data][cagg-drop] from your continuous aggregates.
-*   [Manage materialized hypertables][cagg-mat-hypertables.
+*   [Manage materialized hypertables][cagg-mat-hypertables].
 *   [Use real-time aggregates][cagg-realtime].
-*   [Discover useful tips][cagg-best-practice] about continuous aggregates.
+*   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
 
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
@@ -24,4 +24,4 @@ only the data that has changed needs to be computed, not the entire dataset.
 [cagg-drop]: /how-to-guides/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
 [cagg-realtime]: /how-to-guides/real-time-aggregates
-[cagg-best-practice]: /how-to-guides/continuous-aggregates/best-practices
+[cagg-tshoot]: /how-to-guides/continuous-aggregates/troubleshooting
