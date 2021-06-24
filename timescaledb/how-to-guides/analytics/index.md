@@ -6,12 +6,14 @@ information.
 
 *   [Learn about Analytics][about-analytics] to understand how it works before you
     begin using it.
+*   Use [general analytic queries][analytics-general] to get started.
 *   Use the [approximate percentile][analytics-approximate-percentile] function.
 *   Use the [time-weighted average][analytics-time-weighted-averages] function.
 
 For more information about Timescale Analytics, read our [blog post][analytics-blog].
 
 [about-analytics]: how-to-guides/analytics/about-analytics
+[analytics-general]: how-to-guides/analytics/general-analytic-queries
 [analytics-approximate-percentile]: how-to-guides/analytics/approximate_percentile
 [analytics-time-weighted-averages]: how-to-guides/analytics/time-weighted-averages
 [analytics-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project/

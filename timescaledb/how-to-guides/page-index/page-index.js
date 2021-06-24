@@ -238,9 +238,6 @@ module.exports = [
           {
             title: "SELECT",
             href: "select"
-          },
-          {
-            href: "advanced-analytic-queries"
           }
         ]
       },
@@ -481,6 +478,10 @@ module.exports = [
             title: "About Timescale Analytics",
             href: "about-analytics"
           },
+          {
+            title: "General analytic queries",
+            href: "general-analytic-queries"
+          }
           {
             title: "Approximate percentile",
             href: "approximate-percentile"
