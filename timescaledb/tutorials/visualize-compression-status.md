@@ -46,7 +46,7 @@ As you can imagine, hypertables with data spanning massive time periods can have
 
 Here’s an example of what this visualization will look like:
 
-<img class="main-content__illustration" src="https://assets.timescale.com/images/misc/visualizing-compression/compression-preview.png" alt="Hypertables compression preview"/>
+<img class="main-content__illustration" src="https://assets.timescale.com/images/tutorials/visualizing-compression/compression-preview.png" alt="Hypertables compression preview"/>
 
 
 With this visualization, we can glean a few things at-a-glance:
@@ -237,7 +237,7 @@ We’re going to use two types of operations:
 
 Hasura has great flexibility to plug any resource and offer it as a query or a subscription. For this example, we’ll be mapping the *chunks_with_compression* view we created earlier as a GraphQL resource. It can be consumed as a query or subscription.
 
-![Tracking a SQL view on Hasura cloud](https://assets.timescale.com/images/misc/visualizing-compression/hasura-cloud-track-view.png)
+![Tracking a SQL view on Hasura cloud](https://assets.timescale.com/images/tutorials/visualizing-compression/hasura-cloud-track-view.png)
 
 We need to map those mutations to compress and decompress a chunk. To accomplish that, we need to take a look at how Hasura types work.
 
@@ -270,7 +270,7 @@ $$ LANGUAGE SQL VOLATILE;
 
 Note that the function adds an extra where clause to not compress what is already compressed.
 
-![Tracking compress chunk mutation on Hasura cloud](https://assets.timescale.com/images/misc/visualizing-compression/hasura-cloud-compress-chunk-mutation.png)
+![Tracking compress chunk mutation on Hasura cloud](https://assets.timescale.com/images/tutorials/visualizing-compression/hasura-cloud-compress-chunk-mutation.png)
 
 #### Decompress chunk mutation
 
