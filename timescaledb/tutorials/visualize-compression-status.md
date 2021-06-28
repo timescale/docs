@@ -317,7 +317,7 @@ We hope you find new ways to explore your data and make your decisions smarter a
 [timescale-signup]: https://www.timescale.com/timescale-signup
 [timescale-slack]: https://slack.timescale.com
 [timescale-install]: /timescaledb/latest/how-to-guides/install-timescaledb
-[repo-example]: https://github.com/jacobprall/compression-presentation-app
+[repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [hypertables]: /timescaledb/latest/how-to-guides/hypertables/
 [caggs]: /timescaledb/latest/how-to-guides/continuous-aggregates/
 [data retention]: /timescaledb/latest/how-to-guides/data-retention/
