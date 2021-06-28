@@ -150,7 +150,7 @@ From this function we can use the `total_bytes` when we know that the chunk is n
 
 Now that we know where to get all of the data we need to drive the visualization, it’s time to join it together in a view that can be queried using SQL (and eventually, our application).
 
-```
+```sql
 CREATE OR REPLACE VIEW chunks_with_compression AS
 SELECT DISTINCT ch.chunk_name,
                 ccs.chunk_schema,
