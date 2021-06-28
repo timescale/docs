@@ -71,6 +71,10 @@ module.exports = [
             href: "visualize-with-tableu"
           },
           {
+            title: "Visualize chunks compression status with React and GraphQL",
+            href: "visualize-compression-status"
+          },
+          {
             title: "Simulate IoT Sensor Data",
             href: "simulate-iot-sensor-data"
           },
