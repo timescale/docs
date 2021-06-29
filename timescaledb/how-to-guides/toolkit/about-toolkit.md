@@ -3,8 +3,7 @@ Timescale Toolkit is a PostreSQL extension containing a specialized set of
 functions that allow you to to analyze time-series data. You can use it to
 analyze anything you have stored as time-series data, including IoT devices, IT
 systems, marketing analytics, user behavior, financial metrics, and
-cryptocurrency. Timescale Toolkit uses [Promscale][doc-promscale], an
-open-source analytics platform, for Prometheus monitoring data.
+cryptocurrency.
 
 Timescale Toolkit allows you to perform critical time-series queries quickly,
 analyze time-series data, and extract meaningful information. It aims to
