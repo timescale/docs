@@ -71,8 +71,8 @@ module.exports = [
             href: "visualize-with-tableu"
           },
           {
-            title: "Visualize chunks compression status with React and GraphQL",
-            href: "visualize-compression-status"
+            title: "Building a custom TimescaleDB dashboard",
+            href: "building-a-custom-timescaledb-dashboard"
           },
           {
             title: "Simulate IoT Sensor Data",
