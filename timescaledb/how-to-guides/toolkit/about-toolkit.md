@@ -41,20 +41,12 @@ Toolkit queries, when you are used to it, you can use it to construct more and
 more complicated queries.
 
 ## Toolkit features
-Timescale Toolkit features are developed in the open. As features are developed they are categorized as experimental, beta, stable, or deprecated. This table uses these icons:
+Timescale Toolkit features are developed in the open. As features are developed they are categorized as experimental, beta, stable, or deprecated. The documentation on this page will focus on the stable features, but more information on our experimental features in development can be found in the [Toolkit repository][gh-docs].
 
-* 🧪 Experimental: under active development, not supported. See the [Toolkit repository][gh-docs] for more information and documentation.
-* 🆕 Beta: In testing, and preparing to be released, not supported. See the [Toolkit repository][gh-docs] for more information and documentation.
-* ✅ Stable: Features that are fully ready for production, and supported. See the official documentation.
-* ❌ Deprecated: Previously stable features that have been replaced by newer features, or that have deprecated dependencies, limited support. See the official documentation.
-
-|Feature|Status|Notes|More information|
-|-------|------|-----|----------------|
-|ASAP smoothing|🧪|A data smoothing algorithm to generate human readable graphs|[https://github.com/timescale/timescale-analytics/blob/main/docs/asap.md][]|
-|Hyperloglog|🧪|An approximate COUNT DISTINCT based on hashing|[https://github.com/timescale/timescale-analytics/blob/main/docs/hyperloglog.md][]|
-|LTTB|🧪|A downsample method that preserves visual similarity.|[https://github.com/timescale/timescale-analytics/blob/main/docs/lttb.md][]|
-|Percentile Approximation|✅|A simple percentile approximation interface|[/how-to-guides/toolkit/approximate_percentile]|
-|Time-weighted averages|✅|An aggregate that weights each value|[/how-to-guides/toolkit/time-weighted-averages.md][]|
+|Feature|Notes|More information|
+|-------|-----|----------------|
+|Percentile Approximation|Efficient approximation of percentiles|[Percentile Approximation documentation][approx-percentile]|
+|Time-weighted averages|Average that weights each value based on duration|[Time-weighted average documentation][time-weighted-avg]|
 
 ## Contribute to Timescale Toolkit
 We want and need your feedback! What are the frustrating parts of analyzing
@@ -67,7 +59,9 @@ community-wide problems and incorporate as much feedback as possible.
 *   Explore the current [feature requests][gh-requests].
 *   Add your own [feature request][gh-newissue].
 
-https://github.com/timescale/timescale-analytics/tree/main/docs
+[gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
+[approx-percentile]: /how-to-guides/toolkit/approximate_percentile.md
+[time-weighted-avg]: /how-to-guides/toolkit/time-weighted-averages.md
 [doc-promscale]: /tutorials/promscale
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
