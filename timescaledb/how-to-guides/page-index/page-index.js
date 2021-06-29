@@ -472,11 +472,11 @@ module.exports = [
         ]
       },
       {
-        href: "analytics",
+        href: "toolkit",
         children: [
           {
-            title: "About Timescale Analytics",
-            href: "about-analytics"
+            title: "About Timescale Toolkit",
+            href: "about-toolkit"
           },
           {
             title: "General analytic queries",

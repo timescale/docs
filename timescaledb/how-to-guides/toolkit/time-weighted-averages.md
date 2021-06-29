@@ -17,10 +17,10 @@ values too highly. A time weighted average weights each value by the duration
 over which it occurred based on the points around it, producing much more
 accurate results.
 
-Timescale Analytics' time weighted average is implemented as an aggregate that
+Timescale Toolkit' time weighted average is implemented as an aggregate that
 weights each value using last observation carried forward (LOCF), or linear
 interpolation. The aggregate is not parallelizable, but it is supported with
-[continuous aggregation][caggs]. See the Analytics documentation for more
+[continuous aggregation][caggs]. See the Toolkit documentation for more
 information about [interpolation methods][gh-interpolation],
 and [parallelism and ordering][gh-parallelism].
 
