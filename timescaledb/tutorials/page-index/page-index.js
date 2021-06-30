@@ -38,6 +38,20 @@ module.exports = [
             href: "analyze-cryptocurrency-data"
           },
           {
+            title: "Analyze intraday stock data",
+            href: "analyze-intraday-stocks",
+            children: [
+              {
+                title: "Design database schema",
+                href: "design-schema"
+              },
+              {
+                title: "Fetch and ingest stock data",
+                href: "fetch-and-ingest"
+              }
+            ]
+          },
+          {
             title: "Grafana",
             href: "grafana",
             children: [
