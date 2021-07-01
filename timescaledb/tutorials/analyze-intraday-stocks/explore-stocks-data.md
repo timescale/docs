@@ -74,7 +74,7 @@ fig = px.bar(df, x='symbol', y='volume', title="Most traded symbols in the last 
 fig.show()
 ```
 
-![most traded symbols](https://assets.timescale.com/images/tutorials/intraday-stock-analysis/most_traded_symbols.png)
+![most traded symbols](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/most_traded_symbols.png)
 
 ### 2. How did Apple's trading volume change over time?
 
