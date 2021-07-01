@@ -154,6 +154,14 @@ pip install pgcopy
 **Insert with pgcopy:**
 ```python
 from pgcopy import CopyManager
+import config
+
+# establish database connection
+conn = psycopg2.connect(database=config.DB_NAME, 
+                        host=config.DB_HOST, 
+                        user=config.DB_USER, 
+                        password=config.DB_PASS, 
+                        port=config.DB_PORT)
 
 # column names in the database (pgcopy needs it as a parameter)
 COLUMNS = ('time', 'symbol', 'price_open', 'price_close', 
