@@ -174,7 +174,7 @@ fig = px.line(df, x='time_frame', y='last_closing_price', color='symbol', title=
 fig.show()
 ```
 
-![faang prices](https://assets.timescale.com/images/tutorials/intraday-stock-analysis/faang_prices.png)
+![faang prices](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/faang_prices.png)
 
 ### 6. Weekly price changes of Apple, Facebook, Google?
 
@@ -203,7 +203,7 @@ figure = figure.update_layout(yaxis={'tickformat': '.2%'})
 figure.show()
 ```
 
-![weekly price changes](https://assets.timescale.com/images/tutorials/intraday-stock-analysis/weekly_price_changes.png)
+![weekly price changes](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/weekly_price_changes.png)
 
 
 ### 7. Distribution of daily price changes of Amazon and Zoom
@@ -233,7 +233,7 @@ figure = figure.update_layout(xaxis={'tickformat': '.2%'})
 figure.show()
 ```
 
-![distribution of price changes](https://assets.timescale.com/images/tutorials/intraday-stock-analysis/distribution_price_changes.png)
+![distribution of price changes](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/distribution_price_changes.png)
 
 
 ### 8. Apple 15-min candlestick chart
@@ -270,7 +270,7 @@ figure.show()
 Change `date` to see the candlesticks for another day.
 </highlight>
 
-![candlestick chart apple](https://assets.timescale.com/images/tutorials/intraday-stock-analysis/candlestick.png)
+![candlestick chart apple](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick.png)
 
 
 
