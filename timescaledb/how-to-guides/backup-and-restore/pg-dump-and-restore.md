@@ -1,17 +1,16 @@
-# Logical backups with `pg_dump`  and  `pg_restore` [](pg_dump-pg_restore)
-
-You can backup and restore an [entire database](#backup-entiredb)
-or [individual hypertables](#backup-hypertable) using the native PostgreSQL
-[`pg_dump`][pg_dump] and [`pg_restore`][pg_restore] commands.
+# Logical backups with pg_dump and pg_restore
+You can backup and restore an entire database or individual hypertables using
+the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
+commands.
 
 Upgrades between different versions of TimescaleDB can be done in place; you
-don't need to backup and restore your data. See the [upgrading
-instructions][timescaledb-upgrade].
+don't need to backup and restore your data. See
+the [upgrading instructions][timescaledb-upgrade].
 
 <highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
-information, see [troubleshooting version mismatches](#tshoot-version-mismatch).
+information, see "Troubleshooting version mismatches" in this section.
 </highlight>
 
 ## Back up your entire database [](backup-entiredb)
