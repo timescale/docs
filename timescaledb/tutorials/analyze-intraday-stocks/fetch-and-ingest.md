@@ -146,15 +146,22 @@ data row by row.
 
 ### Insert data fast with pgcopy
 
-**Install pgcopy:**
+**Install psycopg2**
+```bash
+pip install psycopg2
+```
+
+Psycopg2 is needed so you can connect to the database.
+
+**Install pgcopy**
 ```bash
 pip install pgcopy
 ```
 
-**Insert with pgcopy:**
+**Insert with pgcopy**
 ```python
 from pgcopy import CopyManager
-import config
+import config, psycopg2
 
 # establish database connection
 conn = psycopg2.connect(database=config.DB_NAME, 
