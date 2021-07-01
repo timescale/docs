@@ -48,6 +48,10 @@ module.exports = [
               {
                 title: "Fetch and ingest stock data",
                 href: "fetch-and-ingest"
+              },
+              {
+                title: "Explore stock market data",
+                href: "explore-stocks-data"
               }
             ]
           },
