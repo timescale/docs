@@ -1,0 +1,291 @@
+# 3. Explore stock market data
+
+Now that you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
+data.
+
+Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (e.g. 2-min or 15-min) fairly easily and use TimescaleDB aggregating functions. 
+
+Let's see how it's done!
+
+## Install Plotly and Pandas
+
+In order to get started with data exploration, you need to install a couple of tools first:
+
+* Pandas, to query and structure the data
+* Plotly, to create visualizations quickly
+
+**Install both**
+```bash
+pip install plotly pandas
+```
+
+Then, you will need to either open a new python file or use a Jupyter notebook where you can 
+start exploring the dataset.
+
+## Establish database connection
+
+Use the config file you created before and psycopg2 to create a database connection object.
+
+```python
+import config, psycopg2
+conn = psycopg2.connect(database=config.DB_NAME,
+                        host=config.DB_HOST,
+                        user=config.DB_USER,
+                        password=config.DB_PASS,
+                        port=config.DB_PORT)
+```
+
+In each data exploration script below, you will need to reference this connection object to be able to 
+query the database.
+
+## Generate stock market insights
+
+Let's start off analyzing trading volumes, then have a look at weekly price points, and finally, dig deep on 
+price changes.
+
+<highlight type="tip">
+Let these queries serve as inspiration to you, and feel free to change things up, like the analyzed *time frame*, the *symbol* or other parts of the query. Have fun!
+</highlight>
+
+1. Which symbols have the highest transaction volumes?
+2. How did Apple's trading volume change over time?
+3. How did Apple's stock price change over time?
+4. Which symbols had the highest weekly gains?
+5. Weekly FAANG prices over time?
+6. Weekly price changes of Apple, Facebook, Google?
+7. Distribution of daily price changes of Amazon and Zoom
+8.  Apple 15-min candlestick chart
+
+### 1. Which symbols have the highest transaction volumes?
+
+Let's generate a bar chart which shows the most traded symbols in the last 14 days.
+
+```python
+query = """
+    SELECT symbol, sum(trading_volume) AS volume
+    FROM stocks_intraday
+    WHERE (now() - date(time)) < INTERVAL '{time_frame}'
+    GROUP BY symbol
+    ORDER BY volume DESC
+    LIMIT 5
+""".format(time_frame="14 day")
+df = pd.read_sql(query, conn)
+fig = px.bar(df, x='symbol', y='volume', title="Most traded symbols in the last 14 days")
+fig.show()
+```
+
+![most traded symbols](most_traded_symbols.png)
+
+### 2. How did Apple's trading volume change over time?
+
+Now let's try a similar query focused on the daily trading volume of one symbol (e.g. 'AAPL'). 
+
+```python
+query = """
+    SELECT time_bucket('{time_frame}', time) AS time_frame, sum(trading_volume) AS volume
+    FROM stocks_intraday
+    WHERE symbol = '{symbol}'
+    GROUP BY time_frame
+    ORDER BY time_frame
+""".format(time_frame="1 day", symbol="AAPL")
+df = pd.read_sql(query, conn)
+fig = px.line(df, x='time_frame', y='volume', title="Apple's daily trading volume over time")
+fig.show()
+```
+
+![apple trading volume over time](apple_trading_volume.png)
+
+### 3. How did Apple's stock price change over time?
+
+This query returns the weekly stock price of Apple over time.
+
+```python
+query = """
+    SELECT time_bucket('{time_frame}', time) AS time_frame,
+    last(price_close, time) AS last_closing_price
+    FROM stocks_intraday
+    WHERE symbol = '{symbol}'
+    GROUP BY time_frame
+    ORDER BY time_frame
+""".format(time_frame="7 days", symbol="AAPL")
+df = pd.read_sql(query, conn)
+fig = px.line(df, x='time_frame', y='last_closing_price')
+fig.show()
+```
+
+![apple price over time](apple_price.png)
+
+
+### 4. Which symbols had the highest weekly gains?
+
+Now generate a table containing the symbols with the biggest weekly gains.
+
+```python
+query = """
+    SELECT symbol, time_frame, max((closing_price-opening_price)/closing_price*100) AS price_change_pct
+    FROM ( 
+        SELECT 
+        symbol, 
+        time_bucket('{time_frame}', time) AS time_frame, 
+        first(price_open, time) AS opening_price, 
+        last(price_close, time) AS closing_price
+        FROM stocks_intraday
+        GROUP BY time_frame, symbol
+    ) s
+    GROUP BY symbol, s.time_frame
+    ORDER BY price_change_pct {orderby}
+    LIMIT 5
+""".format(time_frame="7 days", orderby="DESC")
+df = pd.read_sql(query, conn)
+print(df)
+```
+
+|symbol |time_frame |price_change_pct |
+|-------|-----------|-----------------|
+|ZM     |2021-06-07 |24.586495        |
+|TSLA   |2021-01-04 |18.280314        |
+|BA     |2021-03-08 |17.745225        |
+|SNAP   |2021-02-01 |16.149649        |
+|TSLA   |2021-03-08 |15.842941        |
+
+`price_change_pct` shows the price change that happened between the start and end of the week.
+
+`time_frame` shows (the first day of) the week.
+
+<highlight type="tip">
+Change `orderby` to "ASC" to query the biggest losses.
+</highlight>
+
+
+### 5. Weekly FAANG prices over time?
+
+Let's see a line chart with the FAANG weekly stock prices.
+
+```python
+query = """
+    SELECT symbol, time_bucket('{time_frame}', time) AS time_frame, 
+    last(price_close, time) AS last_closing_price
+    FROM stocks_intraday
+    WHERE symbol in {symbols}
+    GROUP BY time_frame, symbol
+    ORDER BY time_frame
+""".format(time_frame="7 days", symbols="('AAPL', 'FB', 'AMZN', 'NFLX', 'GOOG')")
+df = pd.read_sql(query, conn)
+fig = px.line(df, x='time_frame', y='last_closing_price', color='symbol', title="FAANG prices over time")
+fig.show()
+```
+
+![faang prices](faang_prices.png)
+
+### 6. Weekly price changes of Apple, Facebook, Google?
+
+Analyzing the price points directly can be useful when looking at one specific symbol, but when you want to 
+compare different stocks, it might make more sense to look at price changes instead. Let's compare the price changes of Apple, Facebook, and Google.
+
+```python
+query = """
+   SELECT symbol, time_frame, max((closing_price-opening_price)/closing_price) AS price_change_pct
+    FROM ( 
+        SELECT 
+        symbol, 
+        time_bucket('{time_frame}}', time) AS time_frame, 
+        first(price_open, time) AS opening_price, 
+        last(price_close, time) AS closing_price
+        FROM stocks_intraday
+        WHERE symbol IN {symbols}
+        GROUP BY time_frame, symbol
+    ) s
+    GROUP BY symbol, s.time_frame
+    ORDER BY time_frame
+""".format(time_frame="7 days", symbols="('AAPL', 'FB', 'GOOG')")
+df = pd.read_sql(query, conn)
+figure = px.line(df, x="time_frame", y="price_change_pct", color="symbol", title="Apple, Facebook, Google weekly price changes")
+figure = figure.update_layout(yaxis={'tickformat': '.2%'})
+figure.show()
+```
+![weekly price changes](weekly_price_changes.png)
+
+
+
+### 7. Distribution of daily price changes of Amazon and Zoom
+
+Keep analyzing price changes, generate a scatter chart to see the distribution of daily price changes of Amazon 
+and Zoom.
+
+```python
+query = """
+   SELECT symbol, time_frame, max((closing_price-opening_price)/closing_price) AS price_change_pct
+    FROM ( 
+        SELECT 
+        symbol, 
+        time_bucket('{time_frame}', time) AS time_frame, 
+        first(price_open, time) AS opening_price, 
+        last(price_close, time) AS closing_price
+        FROM stocks_intraday
+        WHERE symbol IN {symbols}
+        GROUP BY time_frame, symbol
+    ) s
+    GROUP BY symbol, s.time_frame
+    ORDER BY time_frame
+""".format(time_frame="1 day", symbols="('ZM', 'AMZN')")
+df = pd.read_sql(query, conn)
+figure = px.scatter(df, x="price_change_pct", color="symbol", title="Distribution of daily price changes (Amazon, Zoom)")
+figure = figure.update_layout(xaxis={'tickformat': '.2%'})
+figure.show()
+```
+
+![distribution of price changes](distribution_price_changes.png)
+
+
+
+
+
+### 8. Apple 15-min candlestick chart
+
+Finally, this wouldn't be a tutorial about stocks if we wouldn't generate at least one candlestick chart.
+
+Let's see a 15-min candlestick chart for Apple.
+
+For candlestick charts, you need to import Plotly's `graph_object` module.
+
+```python
+import plotly.graph_objects as go
+query = """
+    SELECT time_bucket('{time_frame}', time) AS time_frame, 
+    FIRST(price_open, time) AS price_open, 
+    LAST(price_close, time) AS price_close,
+    MAX(price_high) AS price_high,
+    MIN(price_low) AS price_low
+    FROM stocks_intraday
+    WHERE symbol = '{symbol}' AND date(time) = date('{date}') 
+    GROUP BY time_frame
+""".format(time_frame="15 min", symbol="AAPL", date="2021-06-09")
+df = pd.read_sql(query, conn)
+figure = go.Figure(data=[go.Candlestick(x=df['time_frame'],
+                   open=df['price_open'],
+                   high=df['price_high'],
+                   low=df['price_low'],
+                   close=df['price_close'],)])
+figure.update_layout(title="15-min candlestick chart of Apple, 2021-06-09")
+figure.show()
+```
+
+<highlight type="tip">
+Change `date` to see the candlesticks for another day.
+</highlight>
+
+![candlestick chart apple](candlestick.png)
+
+
+
+
+todo:
+## Resources
+* Github link
+* Alpha Vantage API
+* Pandas docs, Plotly docs
+* Timescale free trial
+* crypto tutorial
+
+
+
