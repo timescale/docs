@@ -5,7 +5,7 @@ To design the database schema, you need to think about what kind of data it will
 As this tutorial is about analyzing intraday stock data, you will need to create a schema that can
 handle candlestick data. This is what a typical candlestick looks like:
 
-![candlestick](candlestick.svg)
+![candlestick]((https://assets.timescale.com/images/tutorials/intraday-stock-analysis/candlestick.svg)
 
 At least four data points are needed to create a candlestick chart: high, open, close, low.
 
