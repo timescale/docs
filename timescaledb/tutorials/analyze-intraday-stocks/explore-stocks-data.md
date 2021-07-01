@@ -93,7 +93,7 @@ fig = px.line(df, x='time_frame', y='volume', title="Apple's daily trading volum
 fig.show()
 ```
 
-![apple trading volume over time](https://assets.timescale.com/images/tutorials/intraday-stock-analysis/apple_trading_volume.png)
+![apple trading volume over time](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/apple_trading_volume.png)
 
 ### 3. How did Apple's stock price change over time?
 
@@ -113,7 +113,7 @@ fig = px.line(df, x='time_frame', y='last_closing_price')
 fig.show()
 ```
 
-![apple price over time](https://assets.timescale.com/images/tutorials/intraday-stock-analysis/apple_price.png)
+![apple price over time](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/apple_price.png)
 
 
 ### 4. Which symbols had the highest weekly gains?
