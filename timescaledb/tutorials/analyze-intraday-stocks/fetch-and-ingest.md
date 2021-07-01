@@ -1,10 +1,10 @@
 # 2. Fetch and insert intraday stock data
 
-In this step, you will create a 
+In this step, you will
 
-* configuration file (optional)
-* function that fetches stock data
-* function that inserts the data into TimescaleDB
+* create a configuration file (optional)
+* fetch stock data
+* insert the data into TimescaleDB
 
 ## Create a configuration file
 
@@ -79,7 +79,9 @@ Also, keep in mind that one request can only fetch data for one symbol.
 
 Here's an example API endpoint:
 
-```https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY_EXTENDED&symbol=IBM&interval=1min&slice=year1month1&apikey=your_apikey```
+```
+https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY_EXTENDED&symbol=IBM&interval=1min&slice=year1month1&apikey=your_apikey
+```
 
 Check out the [Alpha Vantage API](https://www.alphavantage.co/documentation/) docs for more information.
 

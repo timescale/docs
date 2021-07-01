@@ -7,8 +7,7 @@ We are going to follow a simple modular process:
 
 1. [Design database schema][design-schema]
 2. [Fetch and ingest stock data][fetch-ingest]
-3. Data exploration I: price points, volumes, candlesticks
-4. Data exploration II: price changes and distribution
+3. [Explore stock market data][explore]
 
 First, you will create a table that will be capable of storing 1-min candlestick data. 
 
@@ -44,3 +43,4 @@ source env/bin/activate
 [alpha-vantage-apikey]: https://www.alphavantage.co/support/#api-key
 [design-schema]: /tutorials/analyze-intraday-stocks/design-schema
 [fetch-ingest]: /tutorials/analyze-intraday-stocks/fetch-and-ingest
+[explore]: /tutorials/analyze-intraday-stocks/explore-stocks-data
