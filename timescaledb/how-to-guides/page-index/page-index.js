@@ -481,7 +481,7 @@ module.exports = [
           {
             title: "General analytic queries",
             href: "general-analytic-queries"
-          }
+          },
           {
             title: "Approximate percentile",
             href: "approximate-percentile"
