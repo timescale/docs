@@ -273,7 +273,7 @@ Note that the function adds an extra where clause to not compress what is alread
 
 #### Decompress chunk mutation
 
-We'll need a similar function for the decompression:
+You also need a similar function for decompression:
 
 ```sql
 CREATE OR REPLACE FUNCTION decompress_chunk_named(varchar) returns setof compressed_chunk AS $$
