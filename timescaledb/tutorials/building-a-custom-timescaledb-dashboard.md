@@ -229,8 +229,8 @@ We chose Hasura because of the flexibility to simply connect our TimescaleDB dat
 
 We’re going to use two types of operations:
 
-* Queries and subscriptions: watch a specific query and keep pulling data updates to the client. We’re going to "subscribe" to the chunks metadata’.
-* Mutation: convention for operations that are writing data. We’ll map the compression and decompression actions as mutations.
+* Queries and subscriptions: watch a specific query and keep pulling data updates to the client. In this example, you subscribe to the chunks' metadata.
+* Mutation: convention for operations that write data. In this example, you map the compression and decompression actions as mutations.
 
 ### Queries and subscriptions
 
