@@ -16,7 +16,7 @@ The easiest way to get a TimescaleDB instance is to [try for free][timescale-sig
 
 You can get the full code for this project from [this GitHub repo][repo-example].
 
-This project will work on any TimescaleDB instance, but if you’re interested in generating sample data to use, we recommend our tutorial on [Simulating IoT sensor data][iot-tutorial].
+This project works on any TimescaleDB instance, but if you’re interested in generating sample data to use, use our [Simulating IoT sensor data][iot-tutorial] tutorial.
 
 ## How TimescaleDB manages time-series data
 
