@@ -282,9 +282,10 @@ As a summary, the front-end:
 
 ## Summary
 
-TimescaleDB is a powerful relational database for time-series data. But TimescaleDB is also built on top of PostgreSQL, the fastest growing database in the world. As a result, you can not only leverage the full spectrum of tools and dashboards available for PostgreSQL, but you can also build your own custom tools and dashboards to connect to PostgreSQL.
+TimescaleDB is a powerful relational database for time-series data, bringing the full spectrum of tools and dashboards available for PostgreSQL.
 
-The easiest way to get a TimescaleDB instance is to [try for free][timescale-signup] using our hosted service. You can also [download TimescaleDB for free][timescale-install] and run locally or in your own cloud infrastructure.
+In this tutorial you learned how to collect hypertables metadata' from timescaledb
+internals. Expose it through GraphQL and fetch the data using a React client.
 
 You can get the full code for this project from [this GitHub repo][repo-example].
 
