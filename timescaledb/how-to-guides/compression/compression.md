@@ -27,11 +27,7 @@ to incorporate the `segmentby` and `orderby` parameters during compression.
 
 This section explains how to enable native compression, and then goes into
 detail on the most important settings for compression, to help you get the
-best possible compression ratio:
-
-*   [Choosing the interval](#compression-interval) after which to compress.
-*   [Setting the `compress_segmentby`](#compression-segmentby) option appropriately.
-*   [Choosing a `compress_orderby` column](#compression-orderby) to potentially enhance query efficiency.
+best possible compression ratio.
 
 ## Enable compression [](compression-enable)
 You can enable compression on individual hypertables, by declaring which column
@@ -60,10 +56,9 @@ compressed.
 
 ## Compression policy intervals [](compression-interval)
 Data is usually compressed after an interval of time has elapsed, and not
-immediately. In the ["Enabling compression" procedure](#compression-enable), we
-used a seven day compression interval. Choosing a good compression interval can
-make your queries more efficient, and also allow you to handle data that is out
-of order.
+immediately. In the "Enabling compression" procedure, we used a seven day
+compression interval. Choosing a good compression interval can make your queries
+more efficient, and also allow you to handle data that is out of order.
 
 ### Query efficiency
 From our research and experience we know that when data is newly ingested, the
@@ -99,10 +94,9 @@ dependent on your individual setup. Choose a compression interval that minimizes
 the need to decompress chunks, but keep in mind that you want to avoid storing
 data that is out of order.
 
-<highlight type="tip">
 You can manually decompress a chunk to modify it if you need to. For more
-information on how to do that, see [decompressing chunks][decompress-chunks].
-</highlight>
+information on how to do that,
+see [decompressing chunks][decompress-chunks].
 
 ### Compression states over time
 A chunk can be in one of three states:
@@ -159,7 +153,7 @@ The `segmentby` columns are useful, but can be overused. If you specify a lot of
 `segmentby` columns, the number of items in each compressed column is reduced,
 and compression is not as effective. A good guide is for each segment to contain
 at least 100 rows per chunk. To achieve this, you might also need to use  
-the [`compress_orderby` column](#compression-orderby).
+the `compress_orderby` column.
 
 ## Order entries [](compression-orderby)
 By default, the items inside a compressed array are arranged in descending order
@@ -214,5 +208,6 @@ of any `orderby` column. This way, the query executor looks at this additional
 column that specifies the range of values in the compressed column, without
 first performing any decompression, in order to determine whether the row could
 possibly match a time predicate specified by the query.
+
 
 [decompress-chunks]: /how-to-guides/compression/decompress-chunks
