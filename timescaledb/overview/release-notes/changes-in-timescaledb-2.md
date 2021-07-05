@@ -398,12 +398,12 @@ dropped due to a data retention policy as discussed in the previous section.
 In TimescaleDB 2.0, views surrounding continuous aggregates (and other policies) have been simplified and generalized.
 
 #### Changes and additions
-*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/informational-views/continuous_aggregate):
+*   [`timescaledb_information.continuous_aggregates`](https://docs.timescale.com/api/latest/continuous-aggregates/):
 now provides information related to the materialized view, which includes the view name and owner, the real
 time aggregation flag, the materialization and the view definition (the select statement defining the view).
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs): displays information for
+*   [`timescaledb_information.jobs`](https://docs.timescale.com/api/latest/informational-views/jobs/): displays information for
 all policies including continuous aggregates.  
-*   [`timescaledb_information.job_stats`](/api/:currentVersion:/informational-views/jobs_stats): displays job
+*   [`timescaledb_information.job_stats`](https://docs.timescale.com/api/latest/informational-views/job_stats/): displays job
 statistics related to all jobs.
 
 #### Removed
@@ -490,7 +490,7 @@ or action-specific settings.
 *   [`delete_job`](/api/:currentVersion:/actions/delete_job): Removes the job from the scheduler.  This is equivalent to functions that remove policies for
 built-in actions (e.g., `remove_retention_policy`).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
-*   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/jobs_stats):  The view presents statistics of executing jobs for policies and actions.
+*   [`timescaledb_information.jobs_stats`](/api/latest/informational-views/job_stats):  The view presents statistics of executing jobs for policies and actions.
 
 
 ## License information [](license-changes)
