@@ -2,7 +2,7 @@
 
 Databases don’t have to be black boxes. With a few simple steps, you can create your own custom visualizations and dashboards to monitor your TimescaleDB instance. TimescaleDB is PostgreSQL with superpowers and makes creating custom dashboards for your data easy. With TimescaleDB you have the full canvas of PostgreSQL monitoring capabilities to hook into. Of course, you can always use commercial tools to monitor TimescaleDB, just as you can with PostgreSQL. But custom dashboards give you the utmost flexibility. Fortunately, it’s not difficult to build these kinds of dashboards.
 
-In this tutorial, we will build a custom visualization that will demonstrate how many chunks a hypertable has, the state of the compression for each chunk, and the current total size of the database. We will build our front-end in React and connect to metrics about TimescaleDB using Hasura, a GraphQL service. In this tutorial, you’ll learn:
+This tutorial shows you how to build a custom visualization that shows how many chunks a hypertable has, the state of the compression for each chunk, and the current total size of the database. The front-end is built in React, and connects to metrics about TimescaleDB using Hasura, a GraphQL service. This tutorial includes:
 
 * Concepts within TimescaleDB that are easy to visualize
 * How to query TimescaleDB views and functions to get details about hypertables and chunks
