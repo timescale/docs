@@ -1,4 +1,4 @@
-# Building a custom TimescaleDB dashboard
+# Custom TimescaleDB dashboards
 
 To help you understand what is going on in your database, you can create your own custom visualizations and dashboards. TimescaleDB allows you to create custom dashboards for your data, using the full functionality of PostgreSQL monitoring. Of course, you can always use other commercial tools to monitor TimescaleDB, just as you can with PostgreSQL, but custom dashboards give you the most flexibility.
 
