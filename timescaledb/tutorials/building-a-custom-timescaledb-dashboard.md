@@ -1,6 +1,6 @@
 # Building a custom TimescaleDB dashboard
 
-Databases don’t have to be black boxes. With a few simple steps, you can create your own custom visualizations and dashboards to monitor your TimescaleDB instance. TimescaleDB is PostgreSQL with superpowers and makes creating custom dashboards for your data easy. With TimescaleDB you have the full canvas of PostgreSQL monitoring capabilities to hook into. Of course, you can always use commercial tools to monitor TimescaleDB, just as you can with PostgreSQL. But custom dashboards give you the utmost flexibility. Fortunately, it’s not difficult to build these kinds of dashboards.
+To help you understand what is going on in your database, you can create your own custom visualizations and dashboards. TimescaleDB allows you to create custom dashboards for your data, using the full functionality of PostgreSQL monitoring. Of course, you can always use other commercial tools to monitor TimescaleDB, just as you can with PostgreSQL, but custom dashboards give you the most flexibility.
 
 This tutorial shows you how to build a custom visualization that shows how many chunks a hypertable has, the state of the compression for each chunk, and the current total size of the database. The front-end is built in React, and connects to metrics about TimescaleDB using Hasura, a GraphQL service. This tutorial includes:
 
@@ -35,35 +35,34 @@ tsdb=> SELECT chunk_name, range_start, range_end FROM timescaledb_information.ch
 
 ## Visualizing tables and chunks
 
-As you can imagine, hypertables with data spanning massive time periods can have thousands of chunks, so visualizing them effectively was a key requirement for this simple project. To provide a visual perspective of the table, we decided that the image area would represent the total size of all table data before compression. The area of each circle (representing a chunk) would then take a proportional amount of space within the image. 
+Hypertables that have data spanning massive time periods can have thousands of chunks, so visualizing them effectively is important. To provide a visual perspective of the table, the image area represents the total size of all table data before compression. Each circle represents a chunk, and the area of each circle represents the size of the chunk on disk. 
 
-Here’s an example of what this visualization will look like:
+Here’s an example of what this visualization looks like:
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizing-compression/compression-preview.png" alt="Hypertables compression preview"/>
 
 With this visualization, you can see a few things at a glance:
 
-* How many chunks are part of this hypertable currently?
-* What is the compression state of each chunk?
-* How much space has been saved by enabling compression on some chunks?
+* How many chunks are currently part of this hypertable
+* The compression state of each chunk
+* How much space has been saved by enabling compression on some chunks
 
-This last question is interesting because using the uncompressed data size to represent the area of the image, we can quickly get a sense of how much space has been saved by observing the overall white space across the image. Smaller yellow chunks are compressed (and their size represents their portion of space within the larger table), while larger dark chunks are uncompressed and take more area on the image.
-
-We will also make the visualization interactive by enabling you to click on a chunk (one of the dots on the screen) and compress or uncompress it manually.
+By using the uncompressed data size to represent the area of the image, you can quickly get a sense of how much space has been saved by the overall white space across the image. Smaller yellow chunks are compressed and their size represents their portion of space within the larger table, while larger dark chunks are uncompressed and take up more space in the image.
+You can also make the visualization interactive, so that you can click on a chunk and compress or uncompress it manually.
 
 ## Create internal views in TimescaleDB to obtain metrics
 
-To make it easier to build our application, we had to create some new functions and views to do the following:
+To build the visualization application, we created some new functions and views to:
 
-* Extract information from chunks like name and time range.
-* Get extra details about what chunks are compressed or not.
-* Get compression stats and fetch what is the size after compression.
+* Extract information from chunks, such as name and time range
+* Get extra details about which chunks are compressed
+* Get compression statistics and fetch the chunk size after compression
 
 ### Extract information from chunks
 
-To address the first item, we can use the timescaledb_information.chunks view that the TimescaleDB extension already provides.
+To extract information from chunks, you can use the `timescaledb_information.chunks` view that the TimescaleDB extension provides.
 
-Here is a simple query to get the time-series range of each chunk:
+This query returns the time-series range of each chunk:
 
 ```sql
  SELECT hypertable_schema,
@@ -85,11 +84,11 @@ range_start       | 2021-04-29 00:00:00+00
 range_end         | 2021-05-06 00:00:00+00
 ```
 
-The chunk name that is returned with the dataset is unique and will be used in other queries to retrieve enhanced details about each chunk for visualization purposes. In this example, you can see that the chunk has a `range_start` and `range_end` that spans one week. As new data is inserted into this table, any data that has a timestamp between 2021-04-29 and 2021-05-06  will be stored on this specific chunk for the `conditions` table.
+The chunk name returned with the dataset is unique, and can be used in other queries to retrieve enhanced details about each chunk. In this example, the chunk has a `range_start` and `range_end` that spans one week. As new data is inserted into the table, any data that has a timestamp between 2021-04-29 and 2021-05-06  is stored on this specific chunk for the `conditions` table.
 
 ### Get details about compression status for a chunk
 
-Once we know the name and time range of each chunk, the second challenge is to get more detail about the compression status and how much disk we’re saving by compressing the data. We can get this additional information by querying the `chunk_compression_stats` function with the `conditions` hypertable:
+When you know the name and time range of each chunk, you need to get more detail about the compression status and how much disk is being saved by compressing the data. You can get this additional information by querying the `chunk_compression_stats` function with the `conditions` hypertable:
 
 ```sql
 tsdb=> SELECT * FROM chunks_detailed_size('conditions');
@@ -122,7 +121,7 @@ node_name                      |
 
 ### Get compression stats and size
 
-One detail you might notice is that when the chunk is uncompressed, it does not bring the size of the chunk. For the uncompressed data, we need to fall back to the `chunks_detailed_size` function, passing a specific hypertable name as a parameter:
+When the chunk is uncompressed, this query does not show the size of the chunk. To get the size of uncompressed chunks, use the `chunks_detailed_size` function, and pass the hypertable name as a parameter:
 
 ```sql
 tsdb=> SELECT * FROM chunks_detailed_size('conditions');
@@ -136,11 +135,11 @@ total_bytes  | 147456
 node_name    |
 ```
 
-From this function we can use the `total_bytes` when we know that the chunk is not compressed.
+You can use the `total_bytes` information in this function to see that the chunk is uncompressed.
 
 ### Building views for our TimescaleDB metrics
 
-Now that we know where to get all of the data we need to drive the visualization, it’s time to join it together in a view that can be queried using SQL (and eventually, our application).
+Now that you know how to gather all of the data you need to drive the visualization, it’s time to join it together in a view that can be queried using SQL (and eventually, our application).
 
 ```sql
 CREATE OR REPLACE VIEW chunks_with_compression AS
@@ -166,9 +165,9 @@ FROM (
     AND ch.chunk_name = cds.chunk_name;
 ```
 
-Using the name of a random chunk from the hypertable, we can query this view and see that we now get all of the information we need, including the time range of the chunk, it's size before compression, and the size after compression if applicable.
+To test, use the name of a random chunk from the hypertable to query this view and check that you get all of the information you need. You should see the time range of the chunk, the hypertable information, and its size before and after compression.
 
-Notice in this sample chunk from our test dataset that `before_compression_total_bytes` is 10 times bigger than `after_compression_total_bytes`. We save more than 90% of disk space with compression!
+In this example chunk, the `before_compression_total_bytes` is ten times bigger than `after_compression_total_bytes`. Compression saved more than 90% of disk space!
 
 ```sql
 SELECT * FROM  chunks_with_compression;
@@ -187,11 +186,11 @@ after_compression_total_bytes  | 8192
 
 ## Setting up your database
 
-In this project, we use data generated by our tutorial on [Simulating IoT sensor data][iot-tutorial]. This data will result in a simple schema and data that mimics a number of IoT sensors with information on time, device, and temperature.
+In this example, we are using data generated by our [Simulating IoT sensor data][iot-tutorial] tutorial. This data results in a simple schema and data that mimics a number of IoT sensors with information on time, device, and temperature.
 
-If you follow the tutorial, you will get a table named conditions, which stores the temperature of fake devices over time.
+By following the tutorial, you have a table named `conditions`, which stores the temperature of example devices over time.
 
-Here’s a set of commands to create the table and generate some sample data:
+Use these commands to create the table and generate some sample data:
 
 ```sql
 CREATE TABLE conditions (
@@ -212,13 +211,11 @@ INSERT INTO conditions
 ```
 
 
-## Connecting to our database and retrieving metrics
+## Connecting to the database and retrieving metrics
 
-One of the most trivial aspects of a backend application is to protect the database and expose only the information that is accessible to the authorized user. The Hasura GraphQL Engine solves this issue providing GraphQL APIs over new or existing PostgreSQL databases. Allowing you to create permission rules and dynamically expand your database resources.
+When you write a backend application, you need to protect the database and expose only the required information to an authorized user. The Hasura GraphQL Engine does this by providing GraphQL APIs over new or existing PostgreSQL databases. This allows you to create permission rules and dynamically expand your database resources.
 
-Now that we have a database example, we can jump into the [Hasura cloud][hasura-cloud] to connect the resources that we want to expose through the GraphQL.
-
-We chose Hasura because of the flexibility to simply connect our TimescaleDB database and quickly expose the tables, views, and functions we needed in a few clicks. We’re not going to dive into all the steps to set up a new data source on Hasura as the wizard will guide you there.
+When you have your sample database set up, you can use the [Hasura cloud][hasura-cloud] to connect the resources that we want to expose through GraphQL. Hasura is a good option because it connects to our TimescaleDB database and quickly exposes the tables, views, and functions you need. For more information about setting up a new data source on Hasura, check out their wizard.
 
 We’re going to use two types of operations:
 
@@ -227,17 +224,13 @@ We’re going to use two types of operations:
 
 ### Queries and subscriptions
 
-Hasura has great flexibility to plug any resource and offer it as a query or a subscription. For this example, we’ll be mapping the *chunks_with_compression* view we created earlier as a GraphQL resource. It can be consumed as a query or subscription.
+Hasura allows you to attach any resource and offer it as a query or a subscription. In this example, you map the `chunks_with_compression` view you created earlier as a GraphQL resource, so it can be consumed as a query or subscription. You can then map the changes, or mutations, as you compress and decompress a chunk. This image describes a SQL view is tracked on Hasura:
 
 ![Tracking a SQL view on Hasura cloud](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-track-view.png)
 
-We need to map those mutations to compress and decompress a chunk. To accomplish that, we need to take a look at how Hasura types work.
-
 ### Mutations
 
-Hasura can easily map custom types that come from table structures. To create the necessary mutations, our functions should also return types that inherit from table structures.
-
-To easily create a new structure of the table from a query, we can call the query with limit 0:
+Hasura can map custom types that come from table structures. To create the necessary mutations, functions need to return types that inherit from table structures. To create a new structure of the table from a query, call the query with limit 0:
 
 #### Compress chunk mutation
 
@@ -248,9 +241,7 @@ FROM   timescaledb_information.chunks c
 WHERE  NOT c.is_compressed limit 0;
 ```
 
-Hasura needs some function to be tracked as a mutation. In this case, let's create the function to just rewrap the default compress_chunk from the TimescaleDB extension.
-
-Now, we can return the "compressed_chunk" in our function that will compress the chunk:
+Hasura needs a function to be tracked as a mutation. Create a function to rewrap the default `compress_chunk` from the TimescaleDB extension, and return the "compressed_chunk" in a function that compresses the chunk:
 ```sql
 CREATE OR REPLACE FUNCTION compress_chunk_named(varchar) returns setof compressed_chunk AS $$
   SELECT compress_chunk((c.chunk_schema ||'.' ||$1)::regclass)
@@ -260,7 +251,7 @@ CREATE OR REPLACE FUNCTION compress_chunk_named(varchar) returns setof compresse
 $$ LANGUAGE SQL VOLATILE;
 ```
 
-Note that the function adds an extra where clause to not compress what is already compressed.
+Note that the function adds an extra `where` clause so that it does not compress a chunk that is already compressed.
 
 ![Tracking compress chunk mutation on Hasura cloud](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasura-cloud-compress-chunk-mutation.png)
 
