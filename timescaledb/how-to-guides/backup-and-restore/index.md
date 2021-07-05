@@ -1,6 +1,8 @@
 # Backup and restore
 
-TimescaleDB takes advantage of the reliable backup and restore functionality provided by PostgreSQL. There are a few different mechanisms you can use to backup your TimescaleDB database:
+TimescaleDB takes advantage of the reliable backup and restore functionality
+provided by PostgreSQL. There are a few different mechanisms you can use to
+backup your TimescaleDB database:
 *   The [timescaledb-backup][timescaledb-backup] tool.
 *   [Physical backups][physical-backups] with `pg_basebackup` or another tool.
 *   [Ongoing physical backups][ongoing-physical-backups] using write-ahead log (WAL) archiving.

@@ -1,52 +1,43 @@
 # The timescaledb-backup tool
+The `timescaledb-backup` tool is designed to help you manage backing up and
+restoring your TimescaleDB database. It resolves some of the common issues you
+might come across when using the standard PostgreSQL
+[dump and restore method][pg-dump-restore]. The `timescaledb-backup` tool uses
+`pg_dump` and `pg_restore` in the background, and additionally:
+*   Automatically tracks the installed version of TimescaleDB, and ensure that
+    the correct version is restored.  
+*   Runs all pre- and post-restore jobs at the correct times during the restore
+    process.
+*   Enables parallel restores by sequencing catalog and data restores during the
+    restore process.
 
-#timescaledb-backup
+## Install timescaledb-backup
+If you have installed the `timescaledb-tools` package, you already have the
+`timescaledb-backup` tool. If you want to install it separately, you can use `go
+get`, or download a binary from
+[our release page](//github.com/timescale/timescaledb-backup/releases).
 
-`timescaledb-backup` is a program for making dumping and restoring a
-[TimescaleDB](//github.com/timescale/timescaledb) database simpler, less error-prone,
-and more performant.  In particular, the current use of vanilla PostgreSQL tools
-[`pg_dump`](//www.postgresql.org/docs/current/app-pgdump.html) and
-[`pg_restore`](//www.postgresql.org/docs/current/app-pgrestore.html) has several
-limitations when applied to TimescaleDB:
-1. The PostgreSQL backup/restore tools do not support backup/restore _across_
-   versions of extensions.  So that if you take a backup from (say) TimescaleDB
-   v1.7.1, you need to restore to a database version that is _also_ running
-   TimescaleDB v1.7.1, and then manually upgrade TimescaleDB to a later version.
-1. The backup/restore tools do not _track_ which version of TimescaleDB is in the
-   backup, so a developer needs to maintain additional external information to
-   ensure the proper restore process.
-1. Users need to take manual steps to run pre- and post-restore hooks (database
-   functions) in TimescaleDB to ensure correct behavior.  Failure to execute these
-   hooks can prevent restores from functioning correctly.
-1. The restore process cannot easily perform parallel restoration for greater
-   speed/efficiency.
-
-Towards this end, `timescaledb-backup` overcomes many of these current
-limitations.  It continues to use `pg_dump` and `pg_restore`, but properly wraps
-them to:
-1. Track automatically the version of TimescaleDB internally in the information
-   dumped, to ensure that the proper version is always restored.
-1. Run all pre and post restore hooks at their proper times during a restore; and
-1. Enable parallel restore by properly sequencing catalog and data restores during
-   the restore process.
-
-## Installing `timescaledb-backup`
-
-You can install by running `go get`
-
+### Procedure: Installing timescaledb-backup
+1.  Ensure you have installed these packages on the machine that you want to backup:
+    *   `pg_dump`
+    *   `pg_dumpall`
+    *   `pg_restore`
+1.  Install `timescaledb-backup`:
 ```bash
 $ go get github.com/timescale/timescaledb-backup/
 ```
 
-Or by downloading a binary at [our release page](//github.com/timescale/timescaledb-backup/releases)
-It will also be distributed with a number of our tools in `timescaledb-tools`; yum, apt, Homebrew,etc.
+## Back up your database
 
-## Using `timescaledb-backup`
+<!---
+Lana, you're up to here! --LKB 2021-07-05
+-->
 
-### Requirements
-   - You will need binaries for `pg_dump`, `pg_dumpall`, and `pg_restore` installed where you are running
-   `timescaledb-backup`
-   - The target database needs the `.so` file of the dumped version so that we can restore to the correct version. It will also need the `.so` of your target version.
+<highlight type="tip">
+Make sure that the `.so` file of the database you are backing up is retained in the backup. It is required when you restore, so that the tool knows which version of PostgreSQL to use.
+</highlight>
+
+
 
 ### Using `ts-dump`
 First create a dump using the `ts-dump` command, for those used to using `pg_dump`, the
@@ -114,4 +105,7 @@ include.
    version that you will update to. For instance, if your dump is from TimescaleDB 1.6.2
    and the latest version is TimescaleDB 1.7.4, you need the .so from 1.6.2 available to
    restore to, and then it will update to 1.7.4 following the restore. Our default
-   packages include several older versions to enable updates. 
+   packages include several older versions to enable updates.
+
+
+[pg-dump-restore]: /how-to-guides/backup-and-restore/pg-dump-and-restore
