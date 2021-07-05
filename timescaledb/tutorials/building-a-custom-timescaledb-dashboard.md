@@ -20,15 +20,11 @@ This project works on any TimescaleDB instance, but if you’re interested in ge
 
 ## How TimescaleDB manages time-series data
 
-TimescaleDB is PostgreSQL with time-series superpowers. At the core of many features is an abstraction on a regular table called [hypertables][]. When you create a hypertable to store your time-series data, TimescaleDB automatically partitions the incoming data into smaller child tables we call *chunks*. These chunks represent data for a given time period, which makes it easier to query and manage over time. For example, if you wanted to query data from time X to time Y, instead of scanning your entire database, TimescaleDB would scan the specific chunks that contain data for the period between X and Y.  All of the interaction with the database still occurs on the hypertable itself, using full SQL. But TimescaleDB is magically working behind the scenes to partition the data and intelligently query large amounts of data using this high-performance architecture.
+TimescaleDB uses [hypertables][] to store time-series data. TimescaleDB automatically partitions data in hypertables into smaller child tables called chunks. The chunks represent data for a given time period, which makes it easier to query and manage over time. For example, if you wanted to query data from 10am to 11am, instead of scanning your entire database, TimescaleDB would scan the specific chunks that contain data for just that period. All the interaction with the database still occurs on the hypertable using SQL, but TimescaleDB partitions the data to make large queries more efficient. 
 
-Many features in TimescaleDB rely on chunks, including [continuous aggregates][caggs], [data retention][], native [compression][], and more. Native compression is particularly helpful with taming time-series data that can be relentless in quantity and speed, and difficult to store and query without a purpose-built time-series database. Using compression allows TimescaleDB to save as much as 94-97% of your disk space for the same amount of data, while often increasing the speed of your queries over time.
+Many features in TimescaleDB rely on chunks, including [continuous aggregates][caggs], [data retention][], and  native [compression][]. Native compression is particularly helpful with large time-series datasets. Time-series data can be relentless in quantity and speed, and difficult to store and query without a purpose-built time-series database. You can use TimescaleDB compression to save as much as 97% of your disk space for the same amount of data, and usually increase the speed of your queries over time. 
 
-Sometimes, however, knowing that a feature like native compression can achieve 97% compression doesn't mean as much until you can see the results firsthand, table-by-table, and chunk-by-chunk.
-
-To do this, TimescaleDB provides multiple views and functions that can be queried for information about the state of your hypertables and chunks. Although there is no combined view that provides exactly the data we'll need for our visualization, TimescaleDB provides the building blocks to craft a custom SQL query that will return the data we need to better visualize the current state of hypertable and chunk compression state.
-
-For example, the following query would return the name and what is the time series range that this chunk cover:
+Visualizing the state of your hypertables can help you gain a better understanding of how  compression works and possibly even how different types impact compression efficiently. Visualization can help you see the results of compression table by table, and chunk by chunk. To do this, TimescaleDB provides multiple views and functions that can be queried for information about the state of your hypertables and chunks. Although there is no combined view that provides exactly the data we need for our visualization, TimescaleDB provides the building blocks to craft a custom SQL query that returns the data needed to better visualize the current hypertable and chunk compression state. For example, this query returns the name and time series range that this chunk covers:
 
 ```sql
 tsdb=> SELECT chunk_name, range_start, range_end FROM timescaledb_information.chunks LIMIT 1;
@@ -36,9 +32,6 @@ tsdb=> SELECT chunk_name, range_start, range_end FROM timescaledb_information.ch
 ------------------+------------------------+------------------------
  _hyper_2_2_chunk | 2021-04-29 00:00:00+00 | 2021-05-06 00:00:00+00
 (1 row)
-```
-
-Visualizing the state of your hypertables can help you gain a better understanding of how  compression works and possibly even how different types impact compression efficiently. 
 
 ## Visualizing tables and chunks
 
