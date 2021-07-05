@@ -4,7 +4,7 @@ Databases don’t have to be black boxes. With a few simple steps, you can creat
 
 This tutorial shows you how to build a custom visualization that shows how many chunks a hypertable has, the state of the compression for each chunk, and the current total size of the database. The front-end is built in React, and connects to metrics about TimescaleDB using Hasura, a GraphQL service. This tutorial includes:
 
-* Concepts within TimescaleDB that are easy to visualize
+* Concepts within TimescaleDB that work well for visualization
 * How to query TimescaleDB views and functions to get details about hypertables and chunks
 * How to generate sample data
 * How Hasura can help to stream data through GraphQL subscriptions
