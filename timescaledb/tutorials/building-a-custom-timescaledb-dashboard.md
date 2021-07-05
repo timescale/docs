@@ -41,7 +41,7 @@ Here’s an example of what this visualization will look like:
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizing-compression/compression-preview.png" alt="Hypertables compression preview"/>
 
-With this visualization, we can glean a few things at-a-glance:
+With this visualization, you can see a few things at a glance:
 
 * How many chunks are part of this hypertable currently?
 * What is the compression state of each chunk?
