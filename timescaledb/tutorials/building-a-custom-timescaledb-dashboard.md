@@ -10,7 +10,7 @@ This tutorial shows you how to build a custom visualization that shows how many 
 * How Hasura can help to stream data through GraphQL subscriptions
 * How to build your React front-end to visualize the data
 
-The project was bootstrapped with React, connecting to a [Hasura][] GraphQL API to visualize [hypertable chunks][hypertables] of a [TimescaleDB][] instance. 
+The project uses React, connecting to a [Hasura][] GraphQL API to visualize [hypertable chunks][hypertables] of a [TimescaleDB][] instance. 
 
 The easiest way to get a TimescaleDB instance is to [try for free][timescale-signup] using our hosted service. You can also [download TimescaleDB for free][timescale-install] and run locally or in your own cloud infrastructure.
 
