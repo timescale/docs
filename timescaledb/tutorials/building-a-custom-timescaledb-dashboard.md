@@ -267,24 +267,18 @@ CREATE OR REPLACE FUNCTION decompress_chunk_named(varchar) returns setof compres
   AND    c.chunk_name = $1 limit 1
 $$ LANGUAGE SQL VOLATILE;
 ```
-Now, the next step is to jump into the Hasura cloud and connect the database as a new data source.
-
-In the data panel, after setting up the PostgreSQL URI of your database, you can track each function as a query or mutation in a single click. Here is an example of compress_chunk_named function:
-
-In our case, the subscription goes to the chunks_with_compression, and here is what it looks like:
-
-You should also track decompress_chunk_named and compress_chunk_named as GQL mutations with a single argument.
+The next step is to go to the Hasura cloud and connect the database as a new data source. In the data panel, set up the PostgreSQL URI of your database, and then you can track each function as a query or mutation. This is an example of the `compress_chunk_named` function. In our case, the subscription goes to the  `chunks_with_compression` function. You can also track `decompress_chunk_named` and `compress_chunk_named` as GQL mutations with a single argument.
 
 ## Build the front-end visualization
 
-You can consult [the GitHub repo][repo-example] for the full code of our front-end application. The front-end application will connect to the Hasura GraphQL layer we created earlier, which, in turn, connects to our TimescaleDB database to retrieve information about chunks and compression status. The front-end application will then render the "dots" for our visualization.
+For the full code of our front-end application, see our [GitHub repo][repo-example]. The front-end application connects to the Hasura GraphQL layer you created, then connects to the TimescaleDB database to retrieve information about chunks and compression status. The front-end application then renders the image for the visualization.
 
-As a summary, in the front-end, we will do the following:
+As a summary, the front-end:
 
-1. Subscribe to the API via GraphQL
-2. Create an SVG component
-3. Iterate over all the chunks and add circles in the previous component
-4. Style the circle and add events to interact with it
+1. Subscribes to the API with GraphQL
+2. Creates an SVG component
+3. Iterates over all the chunks, and adds circles in the previous component
+4. Styles the circle and adds events to interact with the image
 
 ## Summary
 
