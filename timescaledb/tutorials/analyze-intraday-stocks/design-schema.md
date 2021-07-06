@@ -5,9 +5,10 @@ When you design a database schema, you need to think about what kind of data it 
 This tutorial is about analyzing intraday stock data, so you need to create a schema that can
 handle candlestick data. This is what a typical candlestick looks like:
 
+At least four data points are needed to create a candlestick chart: high, open, close, low.
+
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
 
-At least four data points are needed to create a candlestick chart: high, open, close, low.
 
 You also need to have fields for the ticker symbol, time, and trading volume. The data fields we are using are:
 
