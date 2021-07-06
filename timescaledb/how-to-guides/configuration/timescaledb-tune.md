@@ -1,10 +1,11 @@
-## TimescaleDB tuning tool
+# TimescaleDB tuning tool
 To help make configuring TimescaleDB a little easier, we created a tool called
 [`timescaledb-tune`][tstune] that handles setting the most common parameters to
 good values based on your system. It accounts for memory, CPU, and PostgreSQL
-version. `timescaledb-tune` is packaged along with our binary releases as
-a dependency, so if you installed TimescaleDB from a binary release (including
-Docker), you should already have access to the tool. Alternatively, if you have Go installed, you can use the `go get` command to install it:
+version. `timescaledb-tune` is packaged along with our binary releases as a
+dependency, so if you installed TimescaleDB from a binary release (including
+Docker), you should already have access to the tool. Alternatively, you can use
+the `go get` command to install it:
 
 ```bash
 go get timescaledb_tune
@@ -12,7 +13,8 @@ go get timescaledb_tune
 
 The `timescaledb-tune` tool reads your system's `postgresql.conf` file and offers
 interactive suggestions for your settings. Here is an example of the tool running:
-```
+
+```bash
 Using postgresql.conf at this path:
 /usr/local/var/postgres/postgresql.conf
 
