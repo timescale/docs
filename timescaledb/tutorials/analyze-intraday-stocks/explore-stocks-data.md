@@ -272,13 +272,13 @@ Change `date` to see the candlesticks for another day.
 ![candlestick chart apple](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick.png)
 
 
-
-todo:
 ## Resources
-* Github link
-* Alpha Vantage API
-* Pandas docs, Plotly docs
-* Timescale free trial
-* crypto tutorial
+
+* [Intraday stocks analysis on Github](https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py)
+* [Alpha Vantage API docs](https://www.alphavantage.co/documentation/)
+* [Pandas docs](https://pandas.pydata.org/)
+* [Plotly docs](https://plotly.com/python/)
+* [Timescale free trial](https://www.timescale.com/timescale-signup)
+* [Analyze cryptocurrency data](/tutorials/analyze-cryptocurrency-data/)
 
 

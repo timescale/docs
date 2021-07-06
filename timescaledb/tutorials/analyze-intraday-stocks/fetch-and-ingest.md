@@ -35,11 +35,11 @@ In order to fetch intraday stock data, you will need to know which ticker symbol
 First, let's collect a list of symbols so that we can fetch their data later.
 In general, you have a few options to gather a list of ticker symbols dynamically:
 
-* Scrape it from a public website (example code here)
+* Scrape it from a public website ([example code here](https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py))
 * Use an API that has this functionality
 * Download it from an open repository
 
-To make things easier, you can download this CSV file to get started:
+To make things easier, download this CSV file to get started:
 
 * [Download top 100 US ticker symbols (based on market capitalization)]()
 
@@ -49,7 +49,7 @@ After downloading the CSV file into the project folder, read the symbols into a 
 
 ```python
 import csv
-with open('ticker_symbols.csv') as f:
+with open('symbols.csv') as f:
     reader = csv.reader(f)
     symbols = [row[0] for row in reader]
     print(symbols)
