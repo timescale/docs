@@ -6,14 +6,15 @@ with TimescaleDB.
 We are going to follow a simple modular process:
 
 1. [Design database schema][design-schema]
+   
+   You will create a table that will be capable of storing 1-min candlestick data.
 2. [Fetch and ingest stock data][fetch-ingest]
+   
+   You will learn how to fetch data from the Alpha Vantage API and insert it into the database in a fast manner. 
 3. [Explore stock market data][explore]
+   
+   After all the plumbing work is done, you will see several ways to explore stock price points, lows and highs, price changes over time, symbols with the most daily gains, candlestick charts, and more!
 
-First, you will create a table that will be capable of storing 1-min candlestick data. 
-
-Secondly, you will learn how to fetch data from the Alpha Vantage API and insert it into the database in a fast manner. 
-
-Finally, after all the plumbing work is done, you will see several ways to explore stock price points, lows and highs, price changes over time, symbols with the most daily gains, candlestick charts, and more!
 
 <highlight type="tip">
 Ideally, you start off with step 1 and implement each step in order to complete the full project. But you can
@@ -35,8 +36,6 @@ cd intraday-stock-analysis
 virtualenv env
 source env/bin/activate
 ```
-
-[Let's go to step 1, design database schema.][design-schema]
 
 
 [install-timescale]: /how-to-guides/install-timescaledb/
