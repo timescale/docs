@@ -32,6 +32,7 @@ tsdb=> SELECT chunk_name, range_start, range_end FROM timescaledb_information.ch
 ------------------+------------------------+------------------------
  _hyper_2_2_chunk | 2021-04-29 00:00:00+00 | 2021-05-06 00:00:00+00
 (1 row)
+```
 
 ## Visualizing tables and chunks
 
