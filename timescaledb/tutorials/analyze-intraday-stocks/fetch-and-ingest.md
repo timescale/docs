@@ -1,6 +1,6 @@
 # Fetch and insert intraday stock data
 
-In this step, you will
+In this step:
 
 * create a configuration file (optional)
 * fetch stock data
@@ -8,7 +8,7 @@ In this step, you will
 
 ## Create a configuration file
 
-This is an optional step, but it is highly recommended not to store your password or other sensitive information
+This is an optional step, but it is highly recommended that you do not store your password or other sensitive information
 directly in your code. Instead, create a configuration file, for example `config.py`, and include your 
 database connection details and Alpha Vantage API key in there:
 
@@ -22,7 +22,7 @@ DB_NAME = 'db'
 APIKEY = 'alpha_vantage_apikey'
 ```
 
-Later, whenever you need to reference any of the information from this config file, you just need to import it:
+Later, whenever you need to reference any of the information from this configuration file, you need to import it:
 ```python
 import config
 apikey = config.APIKEY
@@ -32,16 +32,14 @@ apikey = config.APIKEY
 ## Collect ticker symbols
 
 In order to fetch intraday stock data, you will need to know which ticker symbols you want to analyze.
-
-First, let's collect a list of symbols so later we can fetch their data!
-
+First, let's collect a list of symbols so that we can fetch their data later.
 In general, you have a few options to gather a list of ticker symbols dynamically:
 
-* Scrape it from a public website (example code here).
-* Use an API that has this functionality.
+* Scrape it from a public website (example code here)
+* Use an API that has this functionality
 * Download it from an open repository
 
-To keep things simple, just download this CSV file to get started:
+To make things easier, you can download this CSV file to get started:
 
 * [Download top 100 US ticker symbols (based on market capitalization)]()
 
@@ -63,19 +61,18 @@ Now you have a list of ticker symbols that you can use later to make requests to
 
 ## Fetching intraday stock data
 
-*It's not necessary to know how Alpha Vantage API works to complete this tutorial, so feel free to skip this section below, if you want.*
+*It's not necessary to know how Alpha Vantage API works to complete this tutorial, so feel free to skip this section, if you want.*
 
 ### About the API
 
-Alpha Vantage API provides 2-year historical intraday stock data in 1-min, 5-min, 15-min, or 30-min 
-intervals.
-
-Because the API outputs a lot of data in a CSV file (~2200 rows/symbol/day in case of 1-min interval), it
-slices up the dataset into one-month buckets. This means, for one request the most amount of data you can get for one symbol is one month.
-
-To fetch the maximum amount of historical intraday data (last 24 months), you need to slice up your requests by month (year1month1, year1month2, etc...).
-
-Also, keep in mind that one request can only fetch data for one symbol.
+Alpha Vantage API provides 2 year historical intraday stock data in 1, 5, 15, or 30 minute 
+intervals. The API outputs a lot of data in a CSV file (around 2200 rows per symbol per 
+day, for a 1 minute interval), so it slices the dataset into one month buckets. This means 
+that for one request for a single symbol, the most amount of data you can get is one month.
+ The maximum amount of historical intraday data is 24 months. To fetch the maximum 
+ amount, you need to slice up your requests by month. For example, `year1month1`, 
+ `year1month2`, and so on. Keep in mind that each request can only fetch data for one 
+ symbol at a time.
 
 Here's an example API endpoint:
 
@@ -87,10 +84,10 @@ Check out the [Alpha Vantage API](https://www.alphavantage.co/documentation/) do
 
 ### Create the function
 
-Let's create first a function that fetches data for one symbol and one month. The function will take these two values as parameters:
+Let's start by creating a function that fetches data for one symbol and one month. The function takes these two values as parameters:
 
 * symbol: the ticker symbol you want to fetch data for (e.g. "AMZN" for Amazon).
-* month: an integer value between 1-24 indicating which month you want to fetch data from
+* month: an integer value between 1-24 indicating which month you want to fetch data from.
 
 ```python
 import config
@@ -141,7 +138,7 @@ def fetch_stock_data(symbol, month):
 
 ## Insert data into TimescaleDB
 
-Now that the `fetch_stock_data` function is done and we can fetch the candlestick from the API, let's see how you can insert it into the database.
+When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 
 To make the ingestion faster, use [pgcopy](https://pgcopy.readthedocs.io/en/latest/) instead of inserting
 data row by row.
@@ -196,7 +193,7 @@ for symbol in symbols:
         mgr.copy(stock_data)
         conn.commit()
 ```
-This will start inserting data for each symbol, one month at a time.
+This starts inserting data for each symbol, one month at a time.
 
 ```
 time               |symbol|price_open|price_close|price_low|price_high|trading_volume|
@@ -220,7 +217,7 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 ```
 
 <highlight type="tip">
-Fetching and inserting intraday data can take a while, so if you want to see results quickly, limit the number of months to one and/or limit the number of symbols.
+Fetching and inserting intraday data can take a while, so if you want to see results quickly, reduce the number of months, or limit the number of symbols.
 </highlight>
 
 

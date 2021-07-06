@@ -3,7 +3,7 @@
 This tutorial is a step-by-step guide on how to collect, store, and analyze intraday stock data 
 with TimescaleDB.
 
-We are going to follow a simple modular process:
+This tutorial has a few main steps:
 
 1. [Design database schema][design-schema]
    

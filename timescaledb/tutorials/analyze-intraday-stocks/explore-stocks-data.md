@@ -1,15 +1,15 @@
 # Explore stock market data
 
-Now that you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
+When you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
 data.
 
-Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (e.g. 2-min or 15-min) fairly easily and use TimescaleDB aggregating functions. 
+Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (e.g. 2-min or 15-min) using TimescaleDB aggregate functions. 
 
 Let's see how it's done!
 
 ## Install Plotly and Pandas
 
-In order to get started with data exploration, you need to install a couple of tools first:
+To get started with data exploration, you need to install a couple of tools first:
 
 * Pandas, to query and structure the data
 * Plotly, to create visualizations quickly
@@ -19,12 +19,12 @@ In order to get started with data exploration, you need to install a couple of t
 pip install plotly pandas
 ```
 
-Then, you will need to either open a new python file or use a Jupyter notebook where you can 
+When you have those installed, you need to open a new Python file, or use a Jupyter notebook to 
 start exploring the dataset.
 
 ## Establish database connection
 
-Use the config file you created before and psycopg2 to create a database connection object.
+Use the configuration file you created earlier with `psycopg2` to create a database connection object:
 
 ```python
 import config, psycopg2
@@ -35,7 +35,7 @@ conn = psycopg2.connect(database=config.DB_NAME,
                         port=config.DB_PORT)
 ```
 
-In each data exploration script below, you will need to reference this connection object to be able to 
+In each data exploration script below, you need to reference this connection object to be able to 
 query the database.
 
 ## Generate stock market insights
@@ -58,13 +58,13 @@ Let these queries serve as inspiration to you, and feel free to change things up
 
 ### 1. Which symbols have the highest transaction volumes?
 
-Let's generate a bar chart which shows the most traded symbols in the last 14 days.
+Let's generate a bar chart that shows the most traded symbols in the last 14 days:
 
 ```python
 query = """
     SELECT symbol, sum(trading_volume) AS volume
     FROM stocks_intraday
-    WHERE (now() - date(time)) < INTERVAL '{time_frame}'
+    WHERE time < now() - INTERVAL '{time_frame}'
     GROUP BY symbol
     ORDER BY volume DESC
     LIMIT 5
@@ -97,7 +97,7 @@ fig.show()
 
 ### 3. How did Apple's stock price change over time?
 
-This query returns the weekly stock price of Apple over time.
+This query returns the weekly stock price of Apple over time:
 
 ```python
 query = """
@@ -118,7 +118,7 @@ fig.show()
 
 ### 4. Which symbols had the highest weekly gains?
 
-Now generate a table containing the symbols with the biggest weekly gains.
+Now generate a table containing the symbols with the biggest weekly gains:
 
 ```python
 query = """
@@ -158,7 +158,7 @@ Change `orderby` to "ASC" to query the biggest losses.
 
 ### 5. Weekly FAANG prices over time?
 
-Let's see a line chart with the FAANG weekly stock prices.
+Let's see a line chart with the FAANG weekly stock prices:
 
 ```python
 query = """
@@ -178,8 +178,9 @@ fig.show()
 
 ### 6. Weekly price changes of Apple, Facebook, Google?
 
-Analyzing the price points directly can be useful when looking at one specific symbol, but when you want to 
-compare different stocks, it might make more sense to look at price changes instead. Let's compare the price changes of Apple, Facebook, and Google.
+Analyzing the price points directly can be useful when you are looking at one specific symbol, but if you want to 
+compare different stocks, it might be better to look at price changes instead. Let's compare the 
+price changes of Apple, Facebook, and Google:
 
 ```python
 query = """
@@ -238,9 +239,7 @@ figure.show()
 
 ### 8. Apple 15-min candlestick chart
 
-Finally, this wouldn't be a tutorial about stocks if we wouldn't generate at least one candlestick chart.
-
-Let's see a 15-min candlestick chart for Apple.
+Finally, because this is a tutorial about stocks, let's generate a 15-min candlestick chart for Apple:
 
 For candlestick charts, you need to import Plotly's `graph_object` module.
 
@@ -281,6 +280,5 @@ todo:
 * Pandas docs, Plotly docs
 * Timescale free trial
 * crypto tutorial
-
 
 

@@ -1,15 +1,15 @@
 # 1. Design database schema
 
-To design the database schema, you need to think about what kind of data it will store.
+When you design a database schema, you need to think about what kind of data it stores.
 
-As this tutorial is about analyzing intraday stock data, you will need to create a schema that can
+This tutorial is about analyzing intraday stock data, so you need to create a schema that can
 handle candlestick data. This is what a typical candlestick looks like:
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
 
 At least four data points are needed to create a candlestick chart: high, open, close, low.
 
-Additionally, you will also need to have a field for the ticker symbol, time, and trading volume. The final data fields we will work with:
+You also need to have fields for the ticker symbol, time, and trading volume. The data fields we are using are:
 
 |Field          |Description                  |
 |---------------|-----------------------------|
@@ -22,7 +22,7 @@ Additionally, you will also need to have a field for the ticker symbol, time, an
 |trading_volume |trading volume in the minute |
 
 
-Based on this, you can create the table called `stocks_intraday`:
+Based on this, you can create a table called `stocks_intraday`:
 
 ```sql
 CREATE TABLE public.stocks_intraday (
@@ -36,11 +36,11 @@ CREATE TABLE public.stocks_intraday (
 );
 ```
 
-This will create a regular PostgreSQL table with all the columns needed to ingest candlestick data records.
+This creates a regular PostgreSQL table with all the columns needed to ingest candlestick data records.
 
 # Create hypertable
 
-In order to use TimescaleDB features, you will need to enable TimescaleDB and create a hypertable from `stocks_intraday` table.
+To use TimescaleDB features, you need to enable TimescaleDB, and create a hypertable from the `stocks_intraday` table.
 
 **Enable TimescaleDB extension:**
 ```sql
