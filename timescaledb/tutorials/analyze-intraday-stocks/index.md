@@ -16,11 +16,6 @@ This tutorial has a few main steps:
    After all the plumbing work is done, you will see several ways to explore stock price points, lows and highs, price changes over time, symbols with the most daily gains, candlestick charts, and more!
 
 
-<highlight type="tip">
-Ideally, you start off with step 1 and implement each step in order to complete the full project. But you can
-also start with step 3 and start exploring a sample dataset right away.
-</highlight>
-
 ## Prerequisites
 
 * Python 3
