@@ -1,4 +1,4 @@
-# 2. Fetch and insert intraday stock data
+# Fetch and insert intraday stock data
 
 In this step, you will
 

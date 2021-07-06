@@ -1,4 +1,4 @@
-# 3. Explore stock market data
+# Explore stock market data
 
 Now that you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
 data.
