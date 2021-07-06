@@ -21,9 +21,12 @@ This tutorial has a few main steps:
 * Python 3
 * TimescaleDB (see [installation options][install-timescale]) 
 * Alpha Vantage API key ([get one for free][alpha-vantage-apikey])
-* Virtualenv
+* Virtualenv (installation: `pip install virtualenv`)
 
 ## Get started: create a virtual environment
+
+It's recommended to create a new Python virtual environment to isolate the packages used 
+throughout this tutorial.
 
 ```bash
 mkdir intraday-stock-analysis
