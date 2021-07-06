@@ -176,11 +176,11 @@ COLUMNS = ('time', 'symbol', 'price_open', 'price_close',
 # iterate over the symbols list
 for symbol in symbols:
 
-    # specify a time frame (max 24 months)
-    time_frame = range(1, 2) # (last 1 months)
+    # specify a time range (max 24 months)
+    time_range = range(1, 2) # (last 1 months)
 
-    # iterate over the specified time frame
-    for month in time_frame:
+    # iterate over the specified time range
+    for month in time_range:
 
         # fetch stock data for the given symbol and month
         # using the function you created before
