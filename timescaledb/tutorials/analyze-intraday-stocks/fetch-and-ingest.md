@@ -223,8 +223,6 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 Fetching and inserting intraday data can take a while, so if you want to see results quickly, limit the number of months to one and/or limit the number of symbols.
 </highlight>
 
-Hurray, plumbing work is done, [now let's explore the dataset!][explore]
-
 
 
 [explore]: /tutorials/analyze-intraday-stocks/explore-stocks-data
