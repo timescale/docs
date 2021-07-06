@@ -17,7 +17,7 @@ For more information about the `timescaledb-backup` tool, check out the source c
 If you have installed the `timescaledb-tools` package, you already have the
 `timescaledb-backup` tool. If you want to install it separately, you can use `go
 get`, or download a binary from
-[our release page](//github.com/timescale/timescaledb-backup/releases).
+[our release page][gh-releases].
 
 ### Procedure: Installing timescaledb-backup
 1.  Ensure you have installed these packages on the machine that you want to
@@ -34,7 +34,7 @@ get`, or download a binary from
 You can perform a backup using the `ts-dump` command at the command prompt. For
 example, to backup a database named `exampledb`:
 ```bash
-ts-dump --db-URI postgresql://user@example.com/exampledb --dump-dir ./backups/exampledb/
+ts-dump --db-URI=postgresql://user@example.com/exampledb --dump-dir=˜/backups/exampledb/
 ```
 
 The two main parameters you need to specify are:
@@ -83,7 +83,7 @@ command prompt:
 1.  Restore the database named `exampledb` to the new location, from the
     directory where the backup is stored:
     ```bash
-    ts-restore --db-URI postgresql://user@example.com/newdb --dump-dir ./backups/exampledb/
+    ts-restore --db-URI=postgresql://user@example.com/newdb --dump-dir=˜/backups/exampledb/
     ```
 
 The two main parameters you need to specify are:
@@ -119,14 +119,18 @@ parameters when you use the `ts-restore` command:
 |`--do-update`|Update the TimescaleDB version to the latest default version immediately after restore.|True|Requires the `.so` files for the version you are restoring from and the version that you are updating to.|
 
 ## Using timescaledb-backup to upgrade
-In some instances, you can use the `timescaledb-backup` tool to upgrade your installed version. For example, if you are running a PostgreSQL 11 cluster on port 5432, and a PostgreSQL 12 cluster on port 5433, this command runs the dump on port 5432 in verbose mode with two workers:
+In some instances, you can use the `timescaledb-backup` tool to upgrade your
+installed version. For example, if you are running a PostgreSQL 11 cluster on
+port 5432, and a PostgreSQL 12 cluster on port 5433, this command runs the dump
+on port 5432 in verbose mode with two workers:
 ```bash  
-ts-dump --db-URI=postgresql://postgres:pwd1@localhost:5432/tsdb --dump-dir=~/dumps/dump1 --verbose --jobs=2
+ts-dump --db-URI=postgresql://postgres:pwd1@localhost:5432/tsdb --dump-dir=˜/dumps/dump1 --verbose --jobs=2
 ```
 You can then restore to port 5433:
 ```bash
-ts-restore --db-URI=postgresql://postgres:pwd1@localhost:5433/tsdb --dump-dir=~/dumps/dump1 --verbose --jobs=2
+ts-restore --db-URI=postgresql://postgres:pwd1@localhost:5433/tsdb --dump-dir=˜/dumps/dump1 --verbose --jobs=2
 ```
 
 [pg-dump-restore]: /how-to-guides/backup-and-restore/pg-dump-and-restore
 [gh-repo-backup]: https://github.com/timescale/timescaledb-backup
+[gh-releases]: https://github.com/timescale/timescaledb-backup/releases
