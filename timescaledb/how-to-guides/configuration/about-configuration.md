@@ -1,4 +1,4 @@
-# Configuration
+# About configuration in TimescaleDB
 By default, TimescaleDB uses the default PostgreSQL server configuration
 settings. However, in some cases, these settings are not appropriate, especially
 if you have larger servers that use more hardware resources such as CPU, memory,
