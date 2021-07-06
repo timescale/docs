@@ -54,7 +54,7 @@ The expected output:
 ## interpolate() <tag type="community">Community</tag> 
 
 The `interpolate` function does linear interpolation for missing values.
-It can only be used in an aggregation query with [time_bucket_gapfill](/analytics/time_bucket_gapfill/).
+It can only be used in an aggregation query with [time_bucket_gapfill](/hyperfunctions/time_bucket_gapfill/).
 The `interpolate` function call cannot be nested inside other function calls.
 
 ### Required Arguments

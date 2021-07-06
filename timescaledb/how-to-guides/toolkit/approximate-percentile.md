@@ -17,17 +17,17 @@ heating checked!)
 Percentiles are sometimes used less frequently because they can use more CPU and
 memory to calculate than an average or another aggregate measure. This is
 because an exact computation of the percentile needs the full dataset as an
-ordered list. Timescale Analytics uses approximation algorithms to calculate a
+ordered list. Timescale Toolkit uses approximation algorithms to calculate a
 percentile without requiring all of the data. This also makes them more
-compatible with continuous aggregates. By default, Timescale Analytics uses
+compatible with continuous aggregates. By default, Timescale Toolkit uses
 `uddsketch`, but you can also choose to use `tdigest`. See
-the [Analytics documentation][gh-analytics-algorithms] for more information
+the [Toolkit documentation][gh-analytics-algorithms] for more information
 about these algorithms.
 
 <highlight type="tip">
 Technically, a percentile divides a group into 100 equally sized pieces, while a
 quantile divides a group into an arbitrary number of pieces. Because we don't
-always use exactly 100 buckets, "quintile" is the more technically correct term
+always use exactly 100 buckets, "quantile" is the more technically correct term
 in this case. However, we use the word "percentile" because it's a more common
 word for this type of function.
 </highlight>

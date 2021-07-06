@@ -12,8 +12,8 @@ SELECT percentile_cont(0.5)
   WITHIN GROUP (ORDER BY temperature)
   FROM conditions;
 ```
-You can also use Timescale Analytics to find the
-[approximate percentile][analytics-approx-percentile].
+You can also use Timescale Toolkit to find the
+[approximate percentile][toolkit-approx-percentile].
 
 ## Cumulative sum
 Use `sum(sum(column)) OVER(ORDER BY group)` to find the cumulative sum.  For
@@ -335,10 +335,10 @@ performing a [loose index scan][loose-index-scan] over the `location`
 hypertable, although this will require more compute resources.
 
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[analytics-approx-percentile]: /how-to-guides/analytics/approximate-percentile
-[time_bucket]: /api/:currentVersion:/analytics/time_bucket
+[toolkit-approx-percentile]: /how-to-guides/toolkit/approximate-percentile
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [date_trunc]: https://www.postgresql.org/docs/current/static/functions-datetime.html#functions-datetime-trunc
-[first]: /api/:currentVersion:/analytics/first
-[last]: /api/:currentVersion:/analytics/last
-[histogram]: /api/:currentVersion:/analytics/histogram
+[first]: /api/:currentVersion:/hyperfunctions/first
+[last]: /api/:currentVersion:/hyperfunctions/last
+[histogram]: /api/:currentVersion:/hyperfunctions/histogram
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan

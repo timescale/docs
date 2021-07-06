@@ -234,9 +234,9 @@ module.exports = [
         ]
       },
       {
-        title: "Analytic Functions",
+        title: "Hyperfunctions",
         type: 'directory',
-        href: "analytics",
+        href: "hyperfunctions",
         children: [
           {
             title: "approximate_row_count",

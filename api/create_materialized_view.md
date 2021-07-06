@@ -68,9 +68,9 @@ the hypertable's time column, and all aggregates must be parallelizable.
 - The hypertable used in the `SELECT` may not have [row-level-security
   policies][postgres-rls] enabled.
 -  The `GROUP BY` clause must include a time_bucket expression. The
-   [`time_bucket`](/analytics/time_bucket/) expression must use the time
+   [`time_bucket`](/hyperfunctions/time_bucket/) expression must use the time
    dimension column of the hypertable.
-- [`time_bucket_gapfill`](/analytics/time_bucket_gapfill/) is not allowed in continuous
+- [`time_bucket_gapfill`](/hyperfunctions/time_bucket_gapfill/) is not allowed in continuous
   aggs, but may be run in a `SELECT` from the continuous aggregate view.
 - In general, aggregates which can be [parallelized by
   PostgreSQL][postgres-parallel-agg] are allowed in the view
