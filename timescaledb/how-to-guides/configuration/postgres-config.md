@@ -1,9 +1,10 @@
 # Manual PostgreSQL configuration and tuning
+If you prefer to tune settings yourself, or for settings not covered by `timescaledb-tune`, you can manually configure your installation using the PostgreSQL configuration file.
 
-If you prefer to tune the settings yourself, or are curious about the
-suggestions that `timescaledb-tune` comes up with, we elaborate on them
-here. Additionally, `timescaledb-tune` does not cover all settings you
-may need to adjust; those are covered below.
+## Editing the PostgreSQL configuration file
+In most installations, the PostgreSQL configuration file is located at `var/lib/
+
+
 
 ### Memory settings [](memory)
 

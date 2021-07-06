@@ -11,7 +11,7 @@ to adjust your configuration. For more advanced configuration settings, or to
 change settings that aren't included in the `timescaledb-tune` tool, you can
 [manually adjust][postgresql-conf] the  `postgresql.conf` configuration file.
 
-## Memory [](memory)
+## Memory
 Settings:
 *   `shared_buffers`
 *   `effective_cache_size`
@@ -28,7 +28,7 @@ suggested parameters.  (suggested DB Type: Data warehouse).
 You can adjust these settings with `timescaledb-tune`.
 </highlight>
 
-## Workers [](workers)
+## Workers
 Settings:
 *   `timescaledb.max_background_workers`
 *   `max_parallel_workers`
@@ -64,7 +64,7 @@ parameters.
 You can adjust these settings with `timescaledb-tune`.
 </highlight>
 
-## Disk writes [](disk-write)
+## Disk writes
 Settings:
 *   `synchronous_commit`
 
@@ -81,7 +81,7 @@ You can adjust these settings in the `postgresql.conf` configuration
 file.
 </highlight>
 
-## Transaction locks [](locks)
+## Transaction locks
 Settings:
 *   `max_locks_per_transaction`
 
