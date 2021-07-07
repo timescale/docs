@@ -285,8 +285,12 @@ module.exports = [
               {
                 title: "percentile_agg",
                 type: 'directory',
-                href: "percentile_agg",
+                href: "percentile-aggregates",
                 children: [
+                  {
+                    title: "percentile_agg",
+                    href: "percentile_agg"
+                  },
                   {
                     title: "rollup",
                     href: "rollup"
