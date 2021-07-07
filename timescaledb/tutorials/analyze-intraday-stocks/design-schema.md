@@ -1,4 +1,4 @@
-# 1. Design database schema
+# Design database schema
 
 When you design a database schema, you need to think about what kind of data it stores.
 
