@@ -12,7 +12,7 @@ Let's see how it's done!
 To get started with data exploration, you need to install a couple of tools first:
 
 * [Pandas][pandas-docs], to query and structure the data
-* [Plotly][[Plotly docs]], to create visualizations quickly
+* [Plotly][[Plotly docs], to create visualizations quickly
 
 **Install both**
 ```bash
