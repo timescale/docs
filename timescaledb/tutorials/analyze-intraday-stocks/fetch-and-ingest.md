@@ -141,7 +141,8 @@ def fetch_stock_data(symbol, month):
 When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 
 To make the ingestion faster, use [pgcopy][pgcopy-docs] instead of inserting
-data row by row.
+data row by row. TimescaleDB is packaged as an extension to PostgreSQL, meaning all the PostgreSQL tools you know and 
+love already work with TimescaleDB.
 
 ### Insert data fast with pgcopy
 

@@ -11,8 +11,8 @@ Let's see how it's done!
 
 To get started with data exploration, you need to install a couple of tools first:
 
-* Pandas, to query and structure the data
-* Plotly, to create visualizations quickly
+* [Pandas][pandas-docs], to query and structure the data
+* [Plotly][[Plotly docs]], to create visualizations quickly
 
 **Install both**
 ```bash
@@ -35,16 +35,17 @@ conn = psycopg2.connect(database=config.DB_NAME,
                         port=config.DB_PORT)
 ```
 
-In each data exploration script below, you need to reference this connection object to be able to 
+In each data exploration script, you need to reference this connection object to be able to 
 query the database.
 
 ## Generate stock market insights
 
 Let's start off analyzing trading volumes, then have a look at weekly price points, and finally, dig deep on 
-price changes.
+price changes. The results of the queries shown are visualized using Plotly.
 
 <highlight type="tip">
-Let these queries serve as inspiration to you, and feel free to change things up, like the analyzed *time frame*, the *symbol* or other parts of the query. Have fun!
+Let these queries serve as inspiration to you, and feel free to change things up, like the analyzed `bucket`, 
+the `symbol` or other parts of the query. Have fun!
 </highlight>
 
 1. Which symbols have the highest transaction volumes?
@@ -276,9 +277,11 @@ Change `date` to see the candlesticks for another day.
 
 * [Intraday stocks analysis on Github](https://github.com/timescale/examples/tree/master/analyze-intraday-stocks)
 * [Alpha Vantage API docs](https://www.alphavantage.co/documentation/)
-* [Pandas docs](https://pandas.pydata.org/)
-* [Plotly docs](https://plotly.com/python/)
+* [Pandas docs][pandas-docs]
+* [Plotly docs][plotly-docs]
 * [Timescale free trial](https://www.timescale.com/timescale-signup)
 * [Analyze cryptocurrency data](/tutorials/analyze-cryptocurrency-data/)
 
 
+[pandas-docs]: https://pandas.pydata.org
+[plotly-docs]: https://plotly.com/python/
