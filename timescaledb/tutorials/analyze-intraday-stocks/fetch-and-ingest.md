@@ -225,5 +225,5 @@ reduce the number of months, or limit the number of symbols.
 
 [explore]: /tutorials/analyze-intraday-stocks/explore-stocks-data
 [scraping-example]: https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py
-[symbols-csv]: (https://assets.timescale.com/docs/downloads/symbols.csv)
+[symbols-csv]: [https://assets.timescale.com/docs/downloads/symbols.csv]
 [pgcopy-docs]: [https://pgcopy.readthedocs.io/en/latest/]
