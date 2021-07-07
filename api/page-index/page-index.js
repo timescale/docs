@@ -255,28 +255,158 @@ module.exports = [
             href: "histogram"
           },
           {
-            title: "locf",
-            href: "locf"
-          },
-          {
-            title: "interpolate",
-            href: "interpolate"
-          },
-          {
             title: "time_bucket",
             href: "time_bucket"
+          }
+          {
+            title: "Gapfilling and Interpolation",
+            type: 'directory',
+            href: "gapfilling-interpolation",
+            children: [
+              {
+                title: "time_bucket_gapfill",
+                href: "time_bucket_gapfill"
+              },
+              {
+                title: "locf",
+                href: "locf"
+              },
+              {
+                title: "interpolate",
+                href: "interpolate"
+              }
+            ]
           },
           {
-            title: "time_bucket_gapfill",
-            href: "time_bucket_gapfill"
+            title: "Percentile Approximation",
+            type: 'directory',
+            href: "percentile-approximation",
+            children: [
+              {
+                title: "percentile_agg",
+                type: 'directory',
+                href: "percentile_agg",
+                children: [
+                  {
+                    title: "rollup",
+                    href: "rollup"
+                  },
+                  {
+                    title: "approx_percentile",
+                    href: "approx_percentile"
+                  },
+                  {
+                    title: "approx_percentile_rank",
+                    href: "approx_percentile_rank"
+                  },
+                  {
+                    title: "error",
+                    href: "error"
+                  },
+                  {
+                    title: "mean",
+                    href: "mean"
+                  },
+                  {
+                    title: "num_vals",
+                    href: "num_vals"
+                  }
+                ]
+              },
+              {
+                title: "uddsketch",
+                type: 'directory',
+                href: "uddsketch",
+                children: [
+                  {
+                    title: "uddsketch",
+                    href: "uddsketch"
+                  },
+                  {
+                    title: "rollup",
+                    href: "rollup"
+                  },
+                  {
+                    title: "approx_percentile",
+                    href: "approx_percentile"
+                  },
+                  {
+                    title: "approx_percentile_rank",
+                    href: "approx_percentile_rank"
+                  },
+                  {
+                    title: "error",
+                    href: "error"
+                  },
+                  {
+                    title: "mean",
+                    href: "mean"
+                  },
+                  {
+                    title: "num_vals",
+                    href: "num_vals"
+                  }
+                ]
+              },
+              {
+                title: "tdigest",
+                type: 'directory',
+                href: "tdigest",
+                children: [
+                  {
+                    title: "tdigest",
+                    href: "tdigest"
+                  },
+                  {
+                    title: "rollup",
+                    href: "rollup"
+                  },
+                  {
+                    title: "approx_percentile",
+                    href: "approx_percentile"
+                  },
+                  {
+                    title: "approx_percentile_rank",
+                    href: "approx_percentile_rank"
+                  },
+                  {
+                    title: "max_val",
+                    href: "max_val"
+                  },
+                  {
+                    title: "mean",
+                    href: "mean"
+                  },
+                  {
+                    title: "min_val",
+                    href: "min_val"
+                  },
+                  {
+                    title: "num_vals",
+                    href: "num_vals"
+                  }
+                ]
+              },
+            ],
           },
           {
-            title: "Approximate Percentile",
-            href: "percentile-agg"
-          },
-          {
-            title: "Time-weighted averages",
-            href: "time_weighted_averages"
+            title: "Time Weighted Averages",
+            type: 'directory',
+            href: "timeweighted-averages",
+            children: [
+              {
+                title: "time_weight",
+                href: "time_weight"
+              },
+              {
+                title: "rollup",
+                href: "rollup"
+              },
+              {
+                title: "average",
+                href: "average"
+              }
+            ]
           }
         ]
       },
