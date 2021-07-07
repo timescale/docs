@@ -5,7 +5,7 @@ The functions related to time-weighted averages.
 
 ```SQL
 time_weight(
-    method TEXT,
+    method TEXT**,
     ts TIMESTAMPTZ,
     value DOUBLE PRECISION
 ) RETURNS TimeWeightSummary
