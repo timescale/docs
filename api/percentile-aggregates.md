@@ -1,2 +1,2 @@
-# Percentile approximation
-The functions related to percentile approximation.
+# Percentile aggregates
+The functions related to percentile aggregates.
