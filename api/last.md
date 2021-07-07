@@ -1,4 +1,4 @@
-## last() 
+## last()
 
 The `last` aggregate allows you to get the value of one column
 as ordered by another. For example, `last(temperature, time)` will return the
@@ -8,10 +8,10 @@ latest temperature value based on time within an aggregate group.
 
 |Name|Type|Description|
 |---|---|---|
-| `value` | ANY ELEMENT | The value to return |
-| `time` | TIMESTAMP or INTEGER | The timestamp to use for comparison |
+|`value`|ANY ELEMENT|The value to return|
+|`time`|TIMESTAMP or INTEGER|The timestamp to use for comparison|
 
-### Sample Usage 
+### Sample Usage
 
 Get the temperature every 5 minutes for each device over the past day:
 ```sql
