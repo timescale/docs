@@ -472,27 +472,6 @@ module.exports = [
         ]
       },
       {
-        href: "toolkit",
-        children: [
-          {
-            title: "About Timescale Toolkit",
-            href: "about-toolkit"
-          },
-          {
-            title: "General analytic queries",
-            href: "general-analytic-queries"
-          },
-          {
-            title: "Approximate percentile",
-            href: "approximate-percentile"
-          },
-          {
-            title: "Time-weighted averages",
-            href: "time-weighted-averages"
-          }
-        ]
-      },
-      {
         href: "alerting"
       },
       {
