@@ -285,10 +285,12 @@ As a summary, the front-end:
 
 TimescaleDB is a powerful relational database for time-series data, bringing the full spectrum of tools and dashboards available for PostgreSQL.
 
-In this tutorial you learned how to collect hypertables metadata' from timescaledb
+In this tutorial you learned how to collect hypertables metadata from timescaledb
 internals. Expose it through GraphQL and fetch the data using a React client.
 
 You can get the full code for this project from [this GitHub repo][repo-example].
+
+This tutorial was originally created for HasuraCon 2021. [Watch the video][hasura-con-talk] of this tutorial.
 
 We hope you find new ways to explore your data and make your decisions smarter and data-driven. If you get any interesting results or have any questions about this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 
@@ -304,3 +306,4 @@ We hope you find new ways to explore your data and make your decisions smarter a
 [iot-tutorial]: /timescaledb/latest/tutorials/simulate-iot-sensor-data/
 [Hasura]: http://hasura.io/
 [hasura-cloud]: https://cloud.hasura.io/
+[hasura-con-talk]: https://hasura.io/events/hasura-con-2021/talks/visualizing-timescale-db-%20compression-status-in-real-time-with-hasura/
