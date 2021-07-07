@@ -274,7 +274,7 @@ Change `date` to see the candlesticks for another day.
 
 ## Resources
 
-* [Intraday stocks analysis on Github](https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py)
+* [Intraday stocks analysis on Github](https://github.com/timescale/examples/tree/master/analyze-intraday-stocks)
 * [Alpha Vantage API docs](https://www.alphavantage.co/documentation/)
 * [Pandas docs](https://pandas.pydata.org/)
 * [Plotly docs](https://plotly.com/python/)

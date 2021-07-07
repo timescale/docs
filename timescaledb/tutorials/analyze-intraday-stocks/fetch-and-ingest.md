@@ -35,13 +35,13 @@ In order to fetch intraday stock data, you will need to know which ticker symbol
 First, let's collect a list of symbols so that we can fetch their data later.
 In general, you have a few options to gather a list of ticker symbols dynamically:
 
-* Scrape it from a public website ([example code here](https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py))
+* Scrape it from a public website ([example code here][scraping-example])
 * Use an API that has this functionality
 * Download it from an open repository
 
 To make things easier, download this CSV file to get started:
 
-* [Download top 100 US ticker symbols (based on market capitalization)]()
+* [Download top 100 US ticker symbols (based on market capitalization)][symbols-csv]
 
 ## Read symbols from CSV file
 
@@ -140,7 +140,7 @@ def fetch_stock_data(symbol, month):
 
 When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 
-To make the ingestion faster, use [pgcopy](https://pgcopy.readthedocs.io/en/latest/) instead of inserting
+To make the ingestion faster, use [pgcopy][pgcopy-docs] instead of inserting
 data row by row.
 
 ### Insert data fast with pgcopy
@@ -217,9 +217,13 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 ```
 
 <highlight type="tip">
-Fetching and inserting intraday data can take a while, so if you want to see results quickly, reduce the number of months, or limit the number of symbols.
+Fetching and inserting intraday data can take a while, so if you want to see results quickly, 
+reduce the number of months, or limit the number of symbols.
 </highlight>
 
 
 
 [explore]: /tutorials/analyze-intraday-stocks/explore-stocks-data
+[scraping-example]: https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py
+[symbols-csv]: (https://assets.timescale.com/docs/downloads/symbols.csv)
+[pgcopy-docs](https://pgcopy.readthedocs.io/en/latest/)
