@@ -257,7 +257,7 @@ module.exports = [
           {
             title: "time_bucket",
             href: "time_bucket"
-          }
+          },
           {
             title: "Gapfilling and Interpolation",
             type: 'directory',
