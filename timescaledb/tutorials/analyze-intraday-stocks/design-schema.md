@@ -58,8 +58,3 @@ SELECT create_hypertable('stocks_intraday', 'time');
 ```
 
 At this point, you have an empty hypertable, ready to ingest time-series data.
-
-[Let's see how to fetch that data and insert it!][fetch-ingest]
-
-
-[fetch-ingest]: /tutorials/analyze-intraday-stocks/fetch-and-ingest
