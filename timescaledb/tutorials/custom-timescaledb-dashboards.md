@@ -285,7 +285,7 @@ As a summary, the front-end:
 
 TimescaleDB is a powerful relational database for time-series data, bringing the full spectrum of tools and dashboards available for PostgreSQL.
 
-In this tutorial you learned how to collect hypertables metadata from timescaledb
+In this tutorial you learned how to collect hypertables metadata from TimescaleDB
 internals. Expose it through GraphQL and fetch the data using a React client.
 
 You can get the full code for this project from [this GitHub repo][repo-example].
