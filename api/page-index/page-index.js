@@ -396,7 +396,7 @@ module.exports = [
           {
             title: "Time Weighted Averages",
             type: 'directory',
-            href: "timeweighted-averages",
+            href: "time-weighted-averages",
             children: [
               {
                 title: "time_weight",
