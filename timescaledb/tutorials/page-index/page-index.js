@@ -71,6 +71,10 @@ module.exports = [
             href: "visualize-with-tableu"
           },
           {
+            title: "Custom TimescaleDB dashboards",
+            href: "custom-timescaledb-dashboards"
+          },
+          {
             title: "Simulate IoT Sensor Data",
             href: "simulate-iot-sensor-data"
           },
