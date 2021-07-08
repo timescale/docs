@@ -39,20 +39,16 @@ system's `ubuntu` user and modifying the [pg_hba][].
 the PostgreSQL configuration (postgresql.conf) that comes with our AMI uses the default
 settings, which are not optimal for most systems. Our AMI is packaged with `timescaledb-tune`,
 which you can use to tune postgresql.conf based on the underlying system resources of your instance.
-See our [configuration][] section for details.
+See our [configuration](https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/) section for details.
 </highlight>
 
 <highlight type="tip">
 These AMIs are made for EBS attached volumes. This allows for snapshots, protection of
 data if the EC2 instance goes down, and dynamic IOPS configuration. You should choose an
 EC2 instance type that is optimized for EBS attached volumes. For information on
-choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page][].
+choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html).
 </highlight>
 
 [setup]: /how-to-guides/install-timescaledb/post-install-setup/
 [postgres instructions]: https://www.postgresql.org/docs/current/sql-createrole.html
 [pg_hba]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
-[configuration]: /administration/configuration/
-[instance configuration page]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-ec2-config.html
-[contact]: https://www.timescale.com/contact
-[slack]: https://slack.timescale.com/
