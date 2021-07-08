@@ -1,4 +1,4 @@
-# error
+## error()
 
 ```SQL
 error(sketch UddSketch) RETURNS DOUBLE PRECISION

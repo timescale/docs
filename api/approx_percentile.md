@@ -1,4 +1,4 @@
-# approx_percentile
+## approx_percentile()
 
 Get the approximate value at a percentile from a percentile estimate.
 

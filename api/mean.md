@@ -1,4 +1,4 @@
-# mean
+## mean()
 
 ```SQL
 mean(sketch UddSketch) RETURNS DOUBLE PRECISION

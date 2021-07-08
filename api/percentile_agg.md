@@ -1,7 +1,4 @@
-# Percentile aggregate functions
-The functions related to percentile aggregates.
-
-## percentile_agg
+## percentile_agg()
 
 ```sql
 percentile_agg(
