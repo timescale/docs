@@ -61,7 +61,9 @@ Now you have a list of ticker symbols that you can use later to make requests to
 
 ## Fetching intraday stock data
 
-*It's not necessary to know how Alpha Vantage API works to complete this tutorial, so feel free to skip this section, if you want.*
+<highlight type="tip">
+It's not necessary to know how Alpha Vantage API works to complete this tutorial, so feel free to skip this section, if you want.
+</highlight>
 
 ### About the API
 
@@ -86,8 +88,8 @@ Check out the [Alpha Vantage API](https://www.alphavantage.co/documentation/) do
 
 Let's start by creating a function that fetches data for one symbol and one month. The function takes these two values as parameters:
 
-* symbol: the ticker symbol you want to fetch data for (e.g. "AMZN" for Amazon).
-* month: an integer value between 1-24 indicating which month you want to fetch data from.
+* `symbol`: the ticker symbol you want to fetch data for (e.g. "AMZN" for Amazon).
+* `month`: an integer value between 1-24 indicating which month you want to fetch data from.
 
 ```python
 import config
