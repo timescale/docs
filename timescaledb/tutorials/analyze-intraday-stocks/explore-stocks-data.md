@@ -210,8 +210,8 @@ figure.show()
 
 ### 7. Distribution of daily price changes of Amazon and Zoom
 
-Keep analyzing price changes, generate a scatter chart to see the distribution of daily price changes of Amazon 
-and Zoom.
+Now let's generate a scatter chart to look at the distribution of daily price changes of Amazon and Zoom. Analyzing 
+this data enables you to better understand the volatility of individual stocks and how they compare to each other.
 
 ```python
 query = """
