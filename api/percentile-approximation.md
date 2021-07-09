@@ -31,7 +31,7 @@ which can be created using either
 Estimators may be combined or re-aggregated using the [rollup](/hyperfunctions/percentile-approximation/rollup-percentile/) function. 
 
 Once the estimator is created, the desired values can be obtained by using the aggregate result as 
-input to the following functions: <a id="percentile-accessors"></a>
+input to the following functions: [](#percentile-accessors)
 
  * [`approx_percentile()`](/hyperfunctions/percentile-approximation/approx_percentile)
  * [`approx_percentile_rank()`](/hyperfunctions/percentile-approximation/approx_percentile_rank)

@@ -283,8 +283,8 @@ module.exports = [
             href: "percentile-approximation",
             children: [
               {
-                    title: "percentile_agg",
-                    href: "percentile_agg"
+                title: "percentile_agg",
+                href: "percentile_agg"
               },
               {
                 title: "approx_percentile",
