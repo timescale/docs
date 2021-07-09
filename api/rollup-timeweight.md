@@ -7,7 +7,7 @@ rollup(
 ```
 
 An aggregate to compute a combined `TimeWeightSummary` from a series of
-non-overlapping `TimeWeightSummaries`. Non-disjoint `TimeWeightSummaries` will
+non-overlapping `TimeWeightSummaries`. Overlapping `TimeWeightSummaries` will
 cause errors.
 See [Notes on Parallelism and Ordering](/hyperfunctions/time_weighted_averages/time_weight/#parallelism-and-ordering)
 for more information.
@@ -16,7 +16,7 @@ for more information.
 
 |Name| Type |Description|
 |---|---|---|
-|`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a previous `time_weight` (point form) call, often from a continuous aggregate|
+|`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a previous [`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/) call, often from a continuous aggregate|
 
 ### Returns
 

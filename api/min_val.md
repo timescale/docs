@@ -4,7 +4,11 @@
 min_val(digest TDigest) RETURNS DOUBLE PRECISION
 ```
 
-Get the minimum value from a t-digest.
+Get the minimum value from a t-digest (does not work with `percentile_agg` or `uddsketch` based estimators).
+This is provided in order to save space
+when both a minimum and a percentile estimate are required as part of continuous aggregates. 
+You can simply compute a single percentile estimator and do not need to specify a separate 
+`min` aggregate, just extract the `min_val` from the percentile estimator.
 
 ### Required Arguments
 |Name|Type|Description|

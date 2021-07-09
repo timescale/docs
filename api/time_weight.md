@@ -2,24 +2,23 @@
 
 ```SQL
 time_weight(
-    method TEXT**,
+    method TEXT,
     ts TIMESTAMPTZ,
     value DOUBLE PRECISION
 ) RETURNS TimeWeightSummary
 ```
 
-Only two values for `method` are currently supported: `linear` and `LOCF`, and
-any capitalization is accepted.
-See [interpolation methods](#interpolation-methods-details)
-for more information.
-
 An aggregate that produces a `TimeWeightSummary` from timestamps and associated values.
+
+NB: Only two values for `method` are currently supported: `linear` and `LOCF`, and
+any capitalization is accepted. See [interpolation methods](#interpolation-methods-details)
+for more information.
 
 ### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
-|`method`|`TEXT`|The weighting method we should use, options are `linear` or `LOCF`, not case sensitive|
+|`method`|`TEXT`| The weighting method we should use, options are `linear` or `LOCF`, not case sensitive|
 |`ts`|`TIMESTAMPTZ`|The time at each point|
 |`value`|`DOUBLE PRECISION`|The value at each point to use for the time weighted average|
 
@@ -50,6 +49,10 @@ SELECT
 FROM t;
 ```
 
+## Advanced Usage Notes
+Most cases will work out of the box, but for power users, or those who want to 
+dive deeper, we've included a bit more context below.
+
 ### Interpolation methods details
 Discrete time values don't always allow for an obvious calculation of the time 
 weighted average. In order to calculate a time weighted average we need to choose 
@@ -76,10 +79,10 @@ case for both continuous aggregates and for distributed hypertables (as long as
 the partitioning keys are in the group by, though the aggregate itself doesn't 
 horribly make sense otherwise).
 
-We throw an error if there is an attempt to combine overlapping TimeWeightSummaries, 
+We throw an error if there is an attempt to combine overlapping `TimeWeightSummaries`, 
 for instance, in our example above, if you were to try to combine summaries across 
-measure_ids it would error. This is because the interpolation techniques really 
-only make sense within a given time series determined by a single measure_id. 
+`measure_ids` it would error. This is because the interpolation techniques really 
+only make sense within a given time series determined by a single `measure_id`. 
 However, given that the time weighted average produced is a dimensionless 
 quantity, a simple average of time weighted average should better represent the 
 variation across devices, so the recommendation for things like baselines across 
@@ -97,8 +100,8 @@ FROM t;
 ```
 
 Internally, the first and last points seen as well as the calculated weighted sum 
-are stored in each TimeWeightSummary and used to combine with a neighboring 
-TimeWeightSummary when re-aggregation or the Postgres combine function is called. 
+are stored in each `TimeWeightSummary` and used to combine with a neighboring 
+`TimeWeightSummary` when re-aggregation or the Postgres combine function is called. 
 In general, the functions support partial aggregation and partitionwise aggregation 
 in the multinode context, but are not parallelizable (in the Postgres sense, 
 which requires them to accept potentially overlapping input).

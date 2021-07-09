@@ -285,7 +285,7 @@ module.exports = [
               {
                 title: "Aggregation Methods",
                 type: 'directory',
-                href: "aggregation-methods",
+                href: "percentile-aggregation-methods",
                 children: [
                   {
                     title: "percentile_agg",
@@ -311,7 +311,7 @@ module.exports = [
               },
               {
                 title: "rollup",
-                href: "rollup-sketch"
+                href: "rollup-percentile"
               },
               {
                 title: "max_val",

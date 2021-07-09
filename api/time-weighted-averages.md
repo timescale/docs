@@ -13,7 +13,7 @@ weights each value either using a last observation carried forward (LOCF)
 approach or a linear interpolation approach.
 
 As with other Toolkit functions that support two-step aggregations, the 
-`time_weight()` function produces transitory output (`TimeWeightSummary`) which 
-is intended to be consumed by either the `average()` or `rollup()` functions. 
-Additionally, the output of `time_weight()` can be stored in a Continuous 
-Aggregate for processing later as part of two-step aggregation and processing.
+[`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/) function produces a summary output (`TimeWeightSummary`) which 
+is intended to be consumed by either the [`average`](/hyperfunctions/time-weighted-averages/average/) or [`rollup`](/hyperfunctions/time-weighted-averages/rollup-timeweight/) function
+Additionally, the output of [`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/)can be stored in a Continuous 
+Aggregate and re-aggregated or analyzed later. 

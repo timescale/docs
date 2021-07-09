@@ -17,17 +17,23 @@ report is an outlier and likely caused by extraordinary conditions.
 
 By using percentiles, outliers have less of an impact on the calculations because
 their magnitude doesn't affect their percentile, only their order in the set.
-Therefore, the skew that is introduced to calculations like `AVG()` by infrequent 
+Therefore, the skew that is introduced to calculations like `AVG()`  by infrequent 
 very large or very small values is reduced or eliminated.
 
+We provide percentile approximation functions because exact percentiles are not parallelizable, cannot be used with
+continuous aggregates and would be very inefficient when used with multinode TimescaleDB. Our percentile approximation 
+algorithm provide good estimates of percentiles while integrating much more fully with all these other TimescaleDB features.
+
 ## Using percentile approximation in TimescaleDB
-Percentiles in TimescaleDB are calculated in two steps. First, the value column
-must be converted into an aggregation using one of the [Aggregation Methods](/hyperfunctions/percentile-approximation/aggregation-methods/):
+Percentiles in TimescaleDB are calculated in two steps. First, we must create a percentile estimator 
+using one of the [Aggregation Methods](/hyperfunctions/percentile-approximation/aggregation-methods/) on the value column:
 [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/),
  [`uddsketch()`](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/), 
- or [`tdigest()`](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/). Once the aggregation is created, the desired
-values can be obtained by using the aggregate result as input to the following 
-functions:
+ or [`tdigest()`](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/). 
+Estimators may be combined or re-aggregated using the [rollup](/hyperfunctions/percentile-approximation/rollup-percentile/) function. 
+
+Once the estimator is created, the desired values can be obtained by using the aggregate result as 
+input to the following functions: <a id="percentile-accessors"></a>
 
  * [`approx_percentile()`](/hyperfunctions/percentile-approximation/approx_percentile)
  * [`approx_percentile_rank()`](/hyperfunctions/percentile-approximation/approx_percentile_rank)
