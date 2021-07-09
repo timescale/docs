@@ -10,7 +10,7 @@ This tutorial has a few main steps:
    You will create a table that will be capable of storing 1-min candlestick data.
 2. [Fetch and ingest stock data][fetch-ingest]
    
-   You will learn how to fetch data from the Alpha Vantage API and insert it into the database in a fast manner. 
+   You will learn how to fetch data from the Alpha Vantage API and ingest it into the database in a fast manner. 
 3. [Explore stock market data][explore]
    
    After all the plumbing work is done, you will see several ways to explore stock price points, lows and highs, price changes over time, symbols with the most daily gains, candlestick charts, and more!

@@ -1,10 +1,10 @@
-# Fetch and insert intraday stock data
+# Fetch and ingest intraday stock data
 
 In this step:
 
 * create a configuration file (optional)
 * fetch stock data
-* insert the data into TimescaleDB
+* ingest the data into TimescaleDB
 
 ## Create a configuration file
 
@@ -134,19 +134,19 @@ def fetch_stock_data(symbol, month):
                             'low': 'price_low',
                             'volume': 'trading_volume'})
 
-    # convert the dataframe into a list of tuples ready to be inserted into the database
+    # convert the dataframe into a list of tuples ready to be ingested
     return [row for row in df.itertuples(index=False, name=None)] 
 ```
 
-## Insert data into TimescaleDB
+## Ingest data into TimescaleDB
 
 When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 
-To make the ingestion faster, use [pgcopy][pgcopy-docs] instead of inserting
+To make the ingestion faster, use [pgcopy][pgcopy-docs] instead of ingesting
 data row by row. TimescaleDB is packaged as an extension to PostgreSQL, meaning all the PostgreSQL tools you know and 
 love already work with TimescaleDB.
 
-### Insert data fast with pgcopy
+### Ingest data fast with pgcopy
 
 To use pgcopy, you need to install `psycopg2` as well so you can connect to the database.
 
@@ -160,7 +160,7 @@ pip install psycopg2
 pip install pgcopy
 ```
 
-**Insert with pgcopy**
+**Ingest with pgcopy**
 ```python
 from pgcopy import CopyManager
 import config, psycopg2
@@ -196,7 +196,7 @@ for symbol in symbols:
         mgr.copy(stock_data)
         conn.commit()
 ```
-This starts inserting data for each symbol, one month at a time.
+This starts ingesting data for each symbol, one month at a time.
 
 ```
 time               |symbol|price_open|price_close|price_low|price_high|trading_volume|
@@ -220,7 +220,7 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 ```
 
 <highlight type="tip">
-Fetching and inserting intraday data can take a while, so if you want to see results quickly, 
+Fetching and ingesting intraday data can take a while, so if you want to see results quickly, 
 reduce the number of months, or limit the number of symbols.
 </highlight>
 
