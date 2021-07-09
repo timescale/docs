@@ -1,6 +1,6 @@
 # Percentile aggregation methods
 
-[`Approx_percentile()`](/hyperfunctions/percentile-approximation/approx_percentile/) and the other [value-add functions] (/hyperfunctions/percentile-approximation/#accessor-functions) used with percentiles need a 
+[`Approx_percentile()`](/hyperfunctions/percentile-approximation/approx_percentile/) and the other [value-add functions](/hyperfunctions/percentile-approximation/#accessor-functions) used with percentiles need a 
 percentile estimator as an input. The following three aggregation methods provide percentile estimators for further calculations:
 
 [`Percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg) is
