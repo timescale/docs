@@ -61,10 +61,6 @@ Now you have a list of ticker symbols that you can use later to make requests to
 
 ## Fetching intraday stock data
 
-<highlight type="tip">
-It's not necessary to know how Alpha Vantage API works to complete this tutorial, so feel free to skip this section, if you want.
-</highlight>
-
 ### About the API
 
 Alpha Vantage API provides 2 year historical intraday stock data in 1, 5, 15, or 30 minute 
