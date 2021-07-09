@@ -1,21 +1,5 @@
-# Percentile aggregation methods
-
-[`Approx_percentile()`](/hyperfunctions/percentile-approximation/approx_percentile/) and the other [value-add functions](/hyperfunctions/percentile-approximation/#accessor-functions) used with percentiles need a 
-percentile estimator as an input. The following three aggregation methods provide percentile estimators for further calculations:
-
-[`Percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg) is
-typically the best option for general, fast percentile 
-approximation calculations. This is the aggregate function we use in most examples 
-throughout the documentation, and we recommend that users start with this before trying the other algorithms. 
-However, we provide both 
-[`uddsketch()`](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/) and 
-[`tdigest()`](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/) if your use case
-requires more specific tuning ability that `percentile_agg()` doesn't provide. 
-
-## Advanced Usage 
-
-### Algorithms Basics
-While the simple `percentile_agg` interface will be sufficient for many users, we do provide more specific APIs for advanced users who want more control of how their percentile approximation is computed and how much space the intermediate representation uses.  We currently provide implementations of the following percentile approximation algorithms:
+# Advanced Percentile Aggregation
+While the simple [`Percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg) interface will be sufficient for many users, we do provide more specific APIs for advanced users who want more control of how their percentile approximation is computed and how much space the intermediate representation uses.  We currently provide implementations of the following percentile approximation algorithms:
 
 - [T-Digest](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/) – This algorithm buckets data more aggressively toward the center of the quantile range, giving it greater accuracy near the tails (i.e. 0.001 or 0.995).
 - [UddSketch](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/) – This algorithm uses exponentially sized buckets to guarantee the approximation falls within a known error range, relative to the true discrete percentile.

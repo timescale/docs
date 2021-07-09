@@ -283,23 +283,8 @@ module.exports = [
             href: "percentile-approximation",
             children: [
               {
-                title: "Aggregation Methods",
-                type: 'directory',
-                href: "percentile-aggregation-methods",
-                children: [
-                  {
                     title: "percentile_agg",
                     href: "percentile_agg"
-                  },
-                  {
-                    title: "uddsketch",
-                    href: "uddsketch"
-                  },
-                  {
-                    title: "tdigest",
-                    href: "tdigest"
-                  }        
-                ]
               },
               {
                 title: "approx_percentile",
@@ -332,6 +317,21 @@ module.exports = [
               {
                 title: "num_vals",
                 href: "num_vals"
+              },
+              {
+                title: "Advanced Aggregation Methods",
+                type: 'directory',
+                href: "percentile-aggregation-methods",
+                children: [
+                  {
+                    title: "uddsketch",
+                    href: "uddsketch"
+                  },
+                  {
+                    title: "tdigest",
+                    href: "tdigest"
+                  }        
+                ]
               },
             ]
           },
