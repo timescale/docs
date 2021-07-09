@@ -20,9 +20,11 @@ their magnitude doesn't affect their percentile, only their order in the set.
 Therefore, the skew that is introduced to calculations like `AVG()`  by infrequent 
 very large or very small values is reduced or eliminated.
 
-We provide percentile approximation functions because exact percentiles are not parallelizable, cannot be used with
-continuous aggregates and would be very inefficient when used with multinode TimescaleDB. Our percentile approximation 
-algorithm provide good estimates of percentiles while integrating much more fully with all these other TimescaleDB features.
+We provide percentile approximation functions because exact percentiles are not 
+parallelizable, cannot be used with continuous aggregates and would be very 
+inefficient when used with multi-node TimescaleDB. Our percentile approximation 
+algorithm provide good estimates of percentiles while integrating much more fully 
+with all these other TimescaleDB features.
 
 ## Using percentile approximation in TimescaleDB
 Percentiles in TimescaleDB are calculated in two steps. First, we must create a percentile estimator 

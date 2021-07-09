@@ -135,8 +135,8 @@ Aggregates in the next section.
 
 
 [`time_bucket()`]: /api/:currentVersion:/hyperfunctions/time_bucket
-[`time_bucket_gapfill()`]: /api/:currentVersion:/hyperfunctions/time_bucket_gapfill
+[`time_bucket_gapfill()`]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill
 [`last()`]: /api/:currentVersion:/hyperfunctions/last
 [`first()`]: /api/:currentVersion:/hyperfunctions/first
-[`locf()`]: /api/:currentVersion:/hyperfunctions/locf
-[`interpolate()`]: /api/:currentVersion:/hyperfunctions/interpolate
+[`locf()`]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/locf
+[`interpolate()`]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/interpolate
