@@ -437,7 +437,7 @@ app.get('/', async (req, res) => {
         });
 
         // send response
-        res.send('Inserted!);
+        res.send('Inserted!');
     } catch (e) {
         console.log('Error inserting data', e)
     }
