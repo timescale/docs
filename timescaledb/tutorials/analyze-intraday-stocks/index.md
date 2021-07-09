@@ -22,6 +22,7 @@ This tutorial has a few main steps:
 * TimescaleDB (see [installation options][install-timescale]) 
 * Alpha Vantage API key ([get one for free][alpha-vantage-apikey])
 * Virtualenv (installation: `pip install virtualenv`)
+* [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
 
 ## Get started: create a virtual environment
 
@@ -41,3 +42,4 @@ source env/bin/activate
 [design-schema]: /tutorials/analyze-intraday-stocks/design-schema
 [fetch-ingest]: /tutorials/analyze-intraday-stocks/fetch-and-ingest
 [explore]: /tutorials/analyze-intraday-stocks/explore-stocks-data
+[psql-install]: /how-to-guides/connecting/psql
