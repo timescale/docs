@@ -26,10 +26,8 @@ algorithm provide good estimates of percentiles while integrating much more full
 
 ## Using percentile approximation in TimescaleDB
 Percentiles in TimescaleDB are calculated in two steps. First, we must create a percentile estimator 
-using one of the [Aggregation Methods](/hyperfunctions/percentile-approximation/aggregation-methods/) on the value column:
-[`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/),
- [`uddsketch()`](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/), 
- or [`tdigest()`](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/). 
+which can be created using either  
+[`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/), or one of the [advanced aggregation methods](/hyperfunctions/percentile-approximation/aggregation-methods/) ([`uddsketch()`](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/), or [`tdigest()`](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/) ). 
 Estimators may be combined or re-aggregated using the [rollup](/hyperfunctions/percentile-approximation/rollup-percentile/) function. 
 
 Once the estimator is created, the desired values can be obtained by using the aggregate result as 
