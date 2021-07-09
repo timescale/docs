@@ -1,17 +1,16 @@
 # Percentile aggregation methods
 
-All functions that provide value when looking at percentiles first needs a 
-percentile aggregate dataset to work with. These three aggregation methods
-provide that dataset.
+[`Approx_percentile()`](/hyperfunctions/percentile-approximation/approx_percentile/) and the other [value-add functions] (/hyperfunctions/percentile-approximation/#accessor-functions) used with percentiles need a 
+percentile estimator as an input. The following three aggregation methods provide percentile estimators for further calculations:
 
-Of the three, [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg)
-(which returns a UddSketch) is typically the best option for general, fast percentile 
+[`Percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg) is
+typically the best option for general, fast percentile 
 approximation calculations. This is the aggregate function we use in most examples 
 throughout the documentation, and we recommend that users start with this before trying the other algorithms. 
 However, we provide both 
 [`uddsketch()`](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/) and 
 [`tdigest()`](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/) if your use case
-requires more specific tuning ability that `percentile_agg()` doesn't provide.
+requires more specific tuning ability that `percentile_agg()` doesn't provide. 
 
 ## Advanced Usage 
 
