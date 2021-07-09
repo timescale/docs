@@ -166,6 +166,11 @@ FROM (
     AND ch.chunk_name = cds.chunk_name;
 ```
 
+<highlight type="warning">
+Note the view is dependent on TimescaleDB internals and maybe will need to be
+dropped to upgrade the TimescaleDB extension and recreated after the upgrade.
+</highlight>
+
 To test, use the name of a random chunk from the hypertable to query this view and check that you get all of the information you need. You should see the time range of the chunk, the hypertable information, and its size before and after compression.
 
 In this example chunk, the `before_compression_total_bytes` is ten times bigger than `after_compression_total_bytes`. Compression saved more than 90% of disk space!
