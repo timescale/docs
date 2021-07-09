@@ -146,12 +146,12 @@ love already work with TimescaleDB.
 
 ### Insert data fast with pgcopy
 
+To use pgcopy, you need to install `psycopg2` as well so you can connect to the database.
+
 **Install psycopg2**
 ```bash
 pip install psycopg2
 ```
-
-Psycopg2 is needed so you can connect to the database.
 
 **Install pgcopy**
 ```bash
