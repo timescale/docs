@@ -9,15 +9,15 @@ See below for the image id corresponding to each region for the most recent Time
 
 Region | Image ID
 --- | ---
-us-east-1 (North Virginia) | ami-0313b4bfed0594a99
-us-east-2 (Ohio) | ami-0c5ddf9bfd0e62c37
-us-west-1 (North California) | ami-0e989ea8765644217
-us-west-2 (Oregon) | ami-0623161c84070eab1
-eu-central-1 (Germany) | ami-01a81696798f7f978
-eu-north-1 (Sweden) | ami-0311515c2f7729997
-eu-west-1 (Ireland) | ami-0e0485cba3f4886ba
-eu-west-2 (England) | ami-04cb5c2cf3fadd9dd
-eu-west-3 (France) | ami-04cb5c2cf3fadd9dd
+us-east-1 (North Virginia) | ami-08caf7e46604e1195
+us-east-2 (Ohio) | ami-063deccec7d552047
+us-west-1 (North California) | ami-02e3e3080de31f4fb
+us-west-2 (Oregon) | ami-0a8a1ee905dca7075
+eu-central-1 (Germany) | ami-01149ee2f1589f9e4
+eu-north-1 (Sweden) | ami-001b590df85e1b07d
+eu-west-1 (Ireland) | ami-03aeb656eaa7b3e88
+eu-west-2 (England) | ami-036001e38f1774a9a
+eu-west-3 (France) | ami-034a707417a64712f
 
 To launch the AMI, go to the `AMIs` section of your AWS EC2 Dashboard run the following steps:
 
@@ -39,20 +39,16 @@ system's `ubuntu` user and modifying the [pg_hba][].
 the PostgreSQL configuration (postgresql.conf) that comes with our AMI uses the default
 settings, which are not optimal for most systems. Our AMI is packaged with `timescaledb-tune`,
 which you can use to tune postgresql.conf based on the underlying system resources of your instance.
-See our [configuration][] section for details.
+See our [configuration](https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/) section for details.
 </highlight>
 
 <highlight type="tip">
 These AMIs are made for EBS attached volumes. This allows for snapshots, protection of
 data if the EC2 instance goes down, and dynamic IOPS configuration. You should choose an
 EC2 instance type that is optimized for EBS attached volumes. For information on
-choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page][].
+choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html).
 </highlight>
 
 [setup]: /how-to-guides/install-timescaledb/post-install-setup/
 [postgres instructions]: https://www.postgresql.org/docs/current/sql-createrole.html
 [pg_hba]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
-[configuration]: /administration/configuration/
-[instance configuration page]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-ec2-config.html
-[contact]: https://www.timescale.com/contact
-[slack]: https://slack.timescale.com/
