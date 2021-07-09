@@ -49,13 +49,13 @@ the `symbol` or other parts of the query. Have fun!
 </highlight>
 
 1. Which symbols have the highest transaction volumes?
-2. How did Apple's trading volume change over time?
-3. How did Apple's stock price change over time?
-4. Which symbols had the highest weekly gains?
-5. Weekly FAANG prices over time?
-6. Weekly price changes of Apple, Facebook, Google?
-7. Distribution of daily price changes of Amazon and Zoom
-8.  Apple 15-min candlestick chart
+1. How did Apple's trading volume change over time?
+1. How did Apple's stock price change over time?
+1. Which symbols had the highest weekly gains?
+1. Weekly FAANG prices over time?
+1. Weekly price changes of Apple, Facebook, Google?
+1. Distribution of daily price changes of Amazon and Zoom
+1.  Apple 15-min candlestick chart
 
 ### 1. Which symbols have the highest transaction volumes?
 
@@ -159,7 +159,7 @@ Change `orderby` to "ASC" to query the biggest losses.
 
 ### 5. Weekly FAANG prices over time?
 
-Let's see a line chart with the FAANG weekly stock prices:
+Let's see a line chart with the FAANG (Facebook, Apple, Amazon, Netflix, Google/Alphabet) weekly stock prices:
 
 ```python
 query = """
@@ -169,7 +169,7 @@ query = """
     WHERE symbol in {symbols}
     GROUP BY bucket, symbol
     ORDER BY bucket
-""".format(bucket="7 days", symbols="('AAPL', 'FB', 'AMZN', 'NFLX', 'GOOG')")
+""".format(bucket="7 days", symbols="('FB', 'AAPL',  'AMZN', 'NFLX', 'GOOG')")
 df = pd.read_sql(query, conn)
 fig = px.line(df, x='bucket', y='last_closing_price', color='symbol', title="FAANG prices over time")
 fig.show()
