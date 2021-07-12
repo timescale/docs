@@ -173,6 +173,6 @@ how to use TimescaleDB, check out our other [tutorials][tutorials]
 [tutorial-simulate-iot]: /tutorials/simulate-iot-sensor-data/
 [docs-hypertable]: /how-to-guides/hypertables/
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/time_bucket_gapfill
-[docs-LOCF]: /api/:currentVersion:/hyperfunctions/locf
+[docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill
+[docs-LOCF]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/locf
 [tutorials]: /tutorials

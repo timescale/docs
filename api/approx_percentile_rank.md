@@ -1,4 +1,4 @@
-# approx_percentile_rank
+## approx_percentile_rank()
 
 Estimate what percentile a given value would be located at in a UddSketch.
 

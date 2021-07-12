@@ -12,7 +12,7 @@ A function to compute a time weighted average from a `TimeWeightSummary`.
 
 |Name|Type|Description|
 |---|---|---|
-|`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a `time_weight` call|
+|`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/) call|
 
 ### Returns
 
@@ -35,7 +35,3 @@ FROM (
 ) t
 ```
 
-This ends up being equal to the rectangle with width equal to the duration
-between two points and height the midpoint between the two magnitudes. Once we
-have this weighted sum, we can divide by the total duration to get the time
-weighted average.

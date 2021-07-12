@@ -1,7 +1,4 @@
-# Percentile aggregate functions
-The functions related to percentile aggregates.
-
-## percentile_agg
+## percentile_agg()
 
 ```sql
 percentile_agg(
@@ -10,17 +7,14 @@ percentile_agg(
 ```
 
 This is the default percentile aggregation function. It uses the [UddSketch
-algorithm](https://github.com/timescale/timescale-analytics/blob/main/docs/uddsketch.md)
+algorithm](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/)
 with 200 buckets and an initial maximum error of 0.001. This is appropriate for
 most common use cases of percentile approximation. For more advanced use of
 percentile approximation algorithms,
-see [advanced usage](https://github.com/timescale/timescale-analytics/blob/main/docs/percentile_approximation.md#advanced-usage).
-This is the aggregation step
-of [two-step aggregates](https://github.com/timescale/timescale-analytics/blob/main/docs/two-step_aggregation.md),
-it is usually used with the [approx_percentile()](#approx_percentile) accessor
+see [advanced usage](/hyperfunctions/percentile-approximation/aggregation-methods/#advanced-usage).
+This creates a `Uddsketch` percentile estimator, it is usually used with the [approx_percentile()](/hyperfunctions/percentile-approximation/approx_percentile/) accessor
 function to extract an approximate percentile, however it is in a form that can
-be re-aggregated using the [summary form](#summary-form) of the function and any
-of the other [accessor functions](#accessor-functions).
+be re-aggregated using the [rollup](/hyperfunctions/percentile-approximation/rollup-percentile/) function and/or any of the  [accessor functions](/hyperfunctions/percentile-approximation/#accessor-functions).
 
 ### Required arguments
 
@@ -32,13 +26,13 @@ of the other [accessor functions](#accessor-functions).
 
 |Column|Type|Description|
 |---|---|---|
-|`percentile_agg`|`UddSketch`|A UddSketch object which may be passed to other percentile approximation APIs|
+|`percentile_agg`|`UddSketch`|A UddSketch percentile estimator object which may be passed to other percentile approximation APIs|
 
 The `percentile_agg` function uses the UddSketch algorithm, so it returns the
 UddSketch data structure for use in further calls.
 
 ### Sample usage
-Get the approximate first percentile using the `percentile_agg()` point form plus the [`approx_percentile`](#approx_percentile) accessor function.
+Get the approximate first percentile using the `percentile_agg()` plus the [`approx_percentile`](/hyperfunctions/percentile-approximation/approx_percentile/) accessor function.
 
 ```SQL
 SELECT
@@ -51,7 +45,7 @@ approx_percentile
              0.999
 ```
 
-They are often used to create continuous aggregates, after which you can use
+The `percentile_agg` function is often used to create continuous aggregates, after which you can use
 multiple accessors
 for [retrospective analysis](https://github.com/timescale/timescale-analytics/blob/main/docs/two-step_aggregation.md#retrospective-analysis-over-downsampled-data).
 

@@ -257,7 +257,7 @@ module.exports = [
           {
             title: "time_bucket",
             href: "time_bucket"
-          },
+          },  
           {
             title: "Gapfilling and Interpolation",
             type: 'directory',
@@ -284,114 +284,56 @@ module.exports = [
             children: [
               {
                 title: "percentile_agg",
-                type: 'directory',
-                href: "percentile-aggregates",
-                children: [
-                  {
-                    title: "percentile_agg",
-                    href: "percentile_agg"
-                  },
-                  {
-                    title: "rollup",
-                    href: "rollup"
-                  },
-                  {
-                    title: "approx_percentile",
-                    href: "approx_percentile"
-                  },
-                  {
-                    title: "approx_percentile_rank",
-                    href: "approx_percentile_rank"
-                  },
-                  {
-                    title: "error",
-                    href: "error"
-                  },
-                  {
-                    title: "mean",
-                    href: "mean"
-                  },
-                  {
-                    title: "num_vals",
-                    href: "num_vals"
-                  }
-                ]
+                href: "percentile_agg"
               },
               {
-                title: "uddsketch",
+                title: "approx_percentile",
+                href: "approx_percentile"
+              },
+              {
+                title: "approx_percentile_rank",
+                href: "approx_percentile_rank"
+              },
+              {
+                title: "rollup",
+                href: "rollup-percentile"
+              },
+              {
+                title: "max_val",
+                href: "max_val"
+              },
+              {
+                title: "mean",
+                href: "mean"
+              },
+              {
+                title: "error",
+                href: "error"
+              },
+              {
+                title: "min_val",
+                href: "min_val"
+              },
+              {
+                title: "num_vals",
+                href: "num_vals"
+              },
+              {
+                title: "Advanced Aggregation Methods",
                 type: 'directory',
-                href: "uddsketch",
+                href: "percentile-aggregation-methods",
                 children: [
                   {
                     title: "uddsketch",
                     href: "uddsketch"
                   },
                   {
-                    title: "rollup",
-                    href: "rollup"
-                  },
-                  {
-                    title: "approx_percentile",
-                    href: "approx_percentile"
-                  },
-                  {
-                    title: "approx_percentile_rank",
-                    href: "approx_percentile_rank"
-                  },
-                  {
-                    title: "error",
-                    href: "error"
-                  },
-                  {
-                    title: "mean",
-                    href: "mean"
-                  },
-                  {
-                    title: "num_vals",
-                    href: "num_vals"
-                  }
-                ]
-              },
-              {
-                title: "tdigest",
-                type: 'directory',
-                href: "tdigest",
-                children: [
-                  {
                     title: "tdigest",
                     href: "tdigest"
-                  },
-                  {
-                    title: "rollup",
-                    href: "rollup"
-                  },
-                  {
-                    title: "approx_percentile",
-                    href: "approx_percentile"
-                  },
-                  {
-                    title: "approx_percentile_rank",
-                    href: "approx_percentile_rank"
-                  },
-                  {
-                    title: "max_val",
-                    href: "max_val"
-                  },
-                  {
-                    title: "mean",
-                    href: "mean"
-                  },
-                  {
-                    title: "min_val",
-                    href: "min_val"
-                  },
-                  {
-                    title: "num_vals",
-                    href: "num_vals"
-                  }
+                  }        
                 ]
               },
-            ],
+            ]
           },
           {
             title: "Time Weighted Averages",
@@ -404,14 +346,14 @@ module.exports = [
               },
               {
                 title: "rollup",
-                href: "rollup"
+                href: "rollup-timeweight"
               },
               {
                 title: "average",
                 href: "average"
               }
             ]
-          }
+          },          
         ]
       },
       {

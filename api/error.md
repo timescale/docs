@@ -1,4 +1,4 @@
-# error
+## error()
 
 ```SQL
 error(sketch UddSketch) RETURNS DOUBLE PRECISION
@@ -6,14 +6,15 @@ error(sketch UddSketch) RETURNS DOUBLE PRECISION
 
 This returns the maximum relative error that a percentile estimate will have
 (relative to the correct value). This means the actual value will fall in the
-range defined by `approx_percentile(sketch) +/-
-approx_percentile(sketch)*error(sketch)`.
+range defined by `approx_percentile(sketch) +/- approx_percentile(sketch)*error(sketch)`. 
+
+This function can only be used on estimators produced by [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) or [`uddsketch()`](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/) calls. 
 
 ### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
-|`sketch`|`UddSketch`|The sketch to determine the error of, usually from a `percentile_agg` call|
+|`sketch`|`UddSketch`|The sketch to determine the error of, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) call|
 
 ### Returns
 
