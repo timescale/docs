@@ -40,7 +40,7 @@ This will construct and return a TDigest with the specified number of buckets ov
 |---|---|---|
 | `tdigest` | `TDigest` | A t-digest object which may be passed to other t-digest APIs. |
 
-### Sample Usages
+### Sample usage
 For this example, assume we have a table 'samples' with a column 'weights' holding `DOUBLE PRECISION` values.  The following will simply return a digest over that column
 
 ```SQL

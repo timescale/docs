@@ -5,7 +5,7 @@ the percentile approximation functions. This can be directly as part of a one-of
 SQL query, or as transient data stored in a Continuous Aggregate that is queried 
 later with these functions and using the UddSketch data as input.
 
-## Implementation Details
+## Implementation details
 
 [UddSketch](https://arxiv.org/pdf/2004.08604.pdf) is a specialization of the 
 [DDSketch](https://arxiv.org/pdf/1908.10693.pdf) data structure.  It follows the 
@@ -57,7 +57,7 @@ each step) as the number of buckets is exceeded, it is probably worth erring on
 the side of too small unless you have a good understanding of exactly what your 
 error should be.
 
-### Required Arguments
+### Required arguments
 |Name| Type |Description|
 |---|---|---|
 | `size` | `INTEGER` | Maximum number of buckets in the sketch.  Providing a larger value here will make it more likely that the aggregate will able to maintain the desired error, though will potentially increase the memory usage. |
@@ -72,7 +72,7 @@ error should be.
 | `uddsketch` | `UddSketch` | A UddSketch object which may be passed to other UddSketch APIs. |
 
 
-### Sample Usages
+### Sample usage
 For this example assume we have a table 'samples' with a column 'data' holding
 `DOUBLE PRECISION` values.  The following will simply return a sketch over that column
 

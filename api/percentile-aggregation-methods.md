@@ -1,4 +1,4 @@
-# Advanced Percentile Aggregation
+# Advanced percentile aggregation
 While the simple [`Percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg) 
 interface will be sufficient for many users, we do provide more specific APIs for 
 advanced users who want more control of how their percentile approximation is 
@@ -16,7 +16,7 @@ The `UddSketch` algorithm underlies the `percentile_agg()` interface, it offers
 tunability for the size and maximum error target of the sketch, while `percentile_agg` 
 uses preset defaults. 
 
-### Choosing the Right Algorithm for Your Use-Case
+### Choosing the right algorithm for your use case
 There are different tradeoffs that each algorithm makes, and different use cases 
 where each will shine.  The doc pages above each link to the research papers fully 
 detailing the algorithms if you want all the details.  However, at a higher level, 

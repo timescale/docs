@@ -49,7 +49,7 @@ SELECT
 FROM t;
 ```
 
-## Advanced Usage Notes
+## Advanced usage notes
 Most cases will work out of the box, but for power users, or those who want to 
 dive deeper, we've included a bit more context below.
 
@@ -68,7 +68,7 @@ as if they lie on the line connecting the two measurements. The linear
 interpolation approach is used to account for irregularly sampled data where the 
 sensor doesn't provide any guarantees.
 
-### Parallelism and Ordering
+### Parallelism and ordering
 The time weighted average calculations we perform require a strict ordering of 
 inputs and therefore the calculations are not parallelizable in the strict 
 Postgres sense. This is because when Postgres does parallelism it hands out rows 
