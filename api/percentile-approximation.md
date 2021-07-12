@@ -27,6 +27,12 @@ algorithm provide good estimates of percentiles while integrating much more full
 with all these other TimescaleDB features.
 
 ## Using percentile approximation in TimescaleDB
+
+<highlight type="tip">
+In order to use functions in the TimescaleDB Toolkit, ensure that
+the [extension is installed](/timescaledb/latest/how-to-guides/install-timescaledb-toolkit/) and available within your database.
+</highlight>
+
 Percentiles in TimescaleDB are calculated in two steps. First, we must create a percentile estimator 
 which can be created using either  
 [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/), or one of the [advanced aggregation methods](/hyperfunctions/percentile-approximation/aggregation-methods/) ([`uddsketch()`](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/), or [`tdigest()`](/hyperfunctions/percentile-approximation/aggregation-methods/tdigest/) ). 
