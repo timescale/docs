@@ -1,4 +1,4 @@
-# General analytic queries
+# Advanced analytic queries
 You can use TimescaleDB for a variety of analytical queries. Some of these
 queries are native PostgreSQL, and some are additional functions provided by
 TimescaleDB. This section contains the most common and useful analytic queries.

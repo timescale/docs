@@ -242,6 +242,10 @@ module.exports = [
           {
             title: "SELECT",
             href: "select"
+          },
+          {
+            title: "Advanced analytic queries",
+            href: "advanced-analytic-queries"
           }
         ]
       },
@@ -485,6 +489,7 @@ module.exports = [
           }
         ]
       },
+
       {
         href: "alerting"
       },
