@@ -95,7 +95,7 @@ module.exports = [
                 href: "faq-using-timescaledb"
               },
               {
-                title: "FAQs: Postgres",
+                title: "FAQs: PostgreSQL",
                 href: "faq-postgres"
               },
               {
