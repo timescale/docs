@@ -149,6 +149,10 @@ module.exports = [
 
       },
       {
+        title: "Install TimescaleDB Toolkit",
+        href: "install-timescaledb-toolkit"
+      },
+      {
         title: "Connecting to TimescaleDB",
         href: "connecting",
           children: [
