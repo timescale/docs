@@ -87,7 +87,7 @@ the [StreamSets Data Collector][streamsets-data-collector] and get started with
 this [tutorial][tutorial-streamsets].
 
 
-[writing-data]: /how-to-guides/writing-data
+[writing-data]: /how-to-guides/write-data/
 [prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
 [postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/
 [design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
