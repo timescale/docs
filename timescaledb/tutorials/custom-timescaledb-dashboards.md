@@ -167,8 +167,8 @@ FROM (
 ```
 
 <highlight type="warning">
-Note the view is dependent on TimescaleDB internals and maybe will need to be
-dropped to upgrade the TimescaleDB extension and recreated after the upgrade.
+The view is dependent on TimescaleDB internals. You might need to drop the view
+to upgrade the TimescaleDB extension, and recreate it after the upgrade.
 </highlight>
 
 To test, use the name of a random chunk from the hypertable to query this view and check that you get all of the information you need. You should see the time range of the chunk, the hypertable information, and its size before and after compression.
