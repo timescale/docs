@@ -9,11 +9,16 @@ Timescale builds an open-source relational database for time-series called
 Timescale hosts and manages TimescaleDB on behalf of its customers via
 hosted services called **Timescale Forge** and **Timescale Cloud**.
 
-Timescale Forge is a cloud-native TimescaleDB-as-a-service that is easy to
-get started and powerful enough for the most demanding scenarios.
+**Timescale Forge** is an easy-to-use, cloud-native relational database for 
+collecting and analyzing relentless streams of time-series data on AWS. 
+Featuring enhanced features to help you harness the potential of your 
+data and built on the rock-solid foundation of PostgreSQL and TimescaleDB, 
+Timescale Forge enables you to measure everything that matters.
 
-Timescale Cloud is a managed TimescaleDB service hosted in 75+ regions in
-AWS, Azure, or GCP.
+**Timescale Cloud** is a time-series database-as-a-service (DBaaS) for deployments 
+on GCP and Azure. Built on PostgreSQL, TimescaleDB is a rock-solid foundation 
+for your time-series data. Timescale Cloud enables multi-cloud deployments, 
+with the flexibility of 75+ regions.
 
 ## What is TimescaleDB?
 TimescaleDB is an open-source relational database for time-series. Developers
