@@ -149,6 +149,10 @@ module.exports = [
 
       },
       {
+        title: "Install TimescaleDB Toolkit",
+        href: "install-timescaledb-toolkit"
+      },
+      {
         title: "Connecting to TimescaleDB",
         href: "connecting",
           children: [
@@ -240,6 +244,7 @@ module.exports = [
             href: "select"
           },
           {
+            title: "Advanced analytic queries",
             href: "advanced-analytic-queries"
           }
         ]
@@ -484,6 +489,7 @@ module.exports = [
           }
         ]
       },
+
       {
         href: "alerting"
       },
