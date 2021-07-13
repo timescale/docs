@@ -10,7 +10,7 @@ This tutorial shows you how to build a custom visualization that shows how many 
 * How Hasura can help to stream data through GraphQL subscriptions
 * How to build your React front-end to visualize the data
 
-The project uses React, connecting to a [Hasura][] GraphQL API to visualize [hypertable chunks][hypertables] of a [TimescaleDB][] instance. 
+The project uses React, connecting to a [Hasura][] GraphQL API to visualize [hypertable chunks][hypertables] of a [TimescaleDB][] instance.
 
 The easiest way to get a TimescaleDB instance is to [try for free][timescale-signup] using our hosted service. You can also [download TimescaleDB for free][timescale-install] and run locally or in your own cloud infrastructure.
 
@@ -20,9 +20,9 @@ This project works on any TimescaleDB instance, but if you’re interested in ge
 
 ## How TimescaleDB manages time-series data
 
-TimescaleDB uses [hypertables][] to store time-series data. TimescaleDB automatically partitions data in hypertables into smaller child tables called chunks. The chunks represent data for a given time period, which makes it easier to query and manage over time. For example, if you wanted to query data from 10am to 11am, instead of scanning your entire database, TimescaleDB would scan the specific chunks that contain data for just that period. All the interaction with the database still occurs on the hypertable using SQL, but TimescaleDB partitions the data to make large queries more efficient. 
+TimescaleDB uses [hypertables][] to store time-series data. TimescaleDB automatically partitions data in hypertables into smaller child tables called chunks. The chunks represent data for a given time period, which makes it easier to query and manage over time. For example, if you wanted to query data from 10am to 11am, instead of scanning your entire database, TimescaleDB would scan the specific chunks that contain data for just that period. All the interaction with the database still occurs on the hypertable using SQL, but TimescaleDB partitions the data to make large queries more efficient.
 
-Many features in TimescaleDB rely on chunks, including [continuous aggregates][caggs], [data retention][], and  native [compression][]. Native compression is particularly helpful with large time-series datasets. Time-series data can be relentless in quantity and speed, and difficult to store and query without a purpose-built time-series database. You can use TimescaleDB compression to save as much as 97% of your disk space for the same amount of data, and usually increase the speed of your queries over time. 
+Many features in TimescaleDB rely on chunks, including [continuous aggregates][caggs], [data retention][], and  native [compression][]. Native compression is particularly helpful with large time-series datasets. Time-series data can be relentless in quantity and speed, and difficult to store and query without a purpose-built time-series database. You can use TimescaleDB compression to save as much as 97% of your disk space for the same amount of data, and usually increase the speed of your queries over time.
 
 Visualizing the state of your hypertables can help you gain a better understanding of how  compression works and possibly even how different types impact compression efficiently. Visualization can help you see the results of compression table by table, and chunk by chunk. To do this, TimescaleDB provides multiple views and functions that can be queried for information about the state of your hypertables and chunks. Although there is no combined view that provides exactly the data we need for our visualization, TimescaleDB provides the building blocks to craft a custom SQL query that returns the data needed to better visualize the current hypertable and chunk compression state. For example, this query returns the name and time series range that this chunk covers:
 
@@ -36,7 +36,7 @@ tsdb=> SELECT chunk_name, range_start, range_end FROM timescaledb_information.ch
 
 ## Visualizing tables and chunks
 
-Hypertables that have data spanning massive time periods can have thousands of chunks, so visualizing them effectively is important. To provide a visual perspective of the table, the image area represents the total size of all table data before compression. Each circle represents a chunk, and the area of each circle represents the size of the chunk on disk. 
+Hypertables that have data spanning massive time periods can have thousands of chunks, so visualizing them effectively is important. To provide a visual perspective of the table, the image area represents the total size of all table data before compression. Each circle represents a chunk, and the area of each circle represents the size of the chunk on disk.
 
 Here’s an example of what this visualization looks like:
 
@@ -302,13 +302,13 @@ We hope you find new ways to explore your data and make your decisions smarter a
 [TimescaleDB]: https://timescale.com/
 [timescale-signup]: https://www.timescale.com/timescale-signup
 [timescale-slack]: https://slack.timescale.com
-[timescale-install]: /timescaledb/latest/how-to-guides/install-timescaledb
+[timescale-install]: /how-to-guides/install-timescaledb
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
-[hypertables]: /timescaledb/latest/how-to-guides/hypertables/
-[caggs]: /timescaledb/latest/how-to-guides/continuous-aggregates/
-[data retention]: /timescaledb/latest/how-to-guides/data-retention/
-[compression]: /timescaledb/latest/how-to-guides/compression/compression-basics/
-[iot-tutorial]: /timescaledb/latest/tutorials/simulate-iot-sensor-data/
+[hypertables]: /how-to-guides/hypertables/
+[caggs]: /how-to-guides/continuous-aggregates/
+[data retention]: /how-to-guides/data-retention/
+[compression]: /how-to-guides/compression/compression-basics/
+[iot-tutorial]: /tutorials/simulate-iot-sensor-data/
 [Hasura]: http://hasura.io/
 [hasura-cloud]: https://cloud.hasura.io/
 [hasura-con-talk]: https://hasura.io/events/hasura-con-2021/talks/visualizing-timescale-db-%20compression-status-in-real-time-with-hasura/

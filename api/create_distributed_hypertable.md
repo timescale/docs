@@ -1,7 +1,7 @@
-## create_distributed_hypertable() 
+## create_distributed_hypertable()
 
 Creates a TimescaleDB hypertable distributed across a multinode
-environment.  Use this function in place of [`create_hypertable`](/hypertable/create_hypertable)
+environment.  Use this function in place of [`create_hypertable`][create-hypertable].
 when creating distributed hypertables.
 
 ### Required Arguments
@@ -37,7 +37,7 @@ when creating distributed hypertables.
 | `table_name` | TEXT | Table name of the table converted to hypertable. |
 | `created` | BOOLEAN | TRUE if the hypertable was created, FALSE when `if_not_exists` is TRUE and no hypertable was created. |
 
-### Sample Usage 
+### Sample Usage
 
 Create a table `conditions` which will be partitioned across data
 nodes by the 'location' column.  Note that the number of space
@@ -54,9 +54,10 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
     data_nodes => '{ "data_node_1", "data_node_2", "data_node_4", "data_node_7" }');
 ```
 
-#### Best Practices 
+#### Best Practices
 
-**Space partitions:** As opposed to the normal [`create_hypertable` best practices](/hypertable/create_hypertable-best-practices),
+**Space partitions:** As opposed to the normal
+[`create_hypertable` best practices][create-hypertable],
 space partitions are highly recommended for distributed hypertables.
 Incoming data will be divided among data nodes based upon the space
 partition (the first one if multiple space partitions have been
@@ -88,8 +89,10 @@ and rows written to that chunk will be inserted (as part of a two-phase
 commit protocol) to all three chunk copies.  For chunks replicated more
 than once, if a data node fails or is removed, no data will be lost, and writes
 can continue to succeed on the remaining chunk copies.  However, the chunks
-present on the lost data node will now be under-replicated.  Currently, it is 
+present on the lost data node will now be under-replicated.  Currently, it is
 not possible to restore under-replicated chunks, although this limitation will
 be removed in a future release. To avoid such inconsistency, we do not yet
 recommend using `replication_factor` > 1, and instead rely on physical
 replication of each data node if such fault-tolerance is required.
+
+[create-hypertable]: /api/latest/hypertable/create_hypertable/
