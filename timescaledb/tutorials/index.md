@@ -55,10 +55,10 @@ and pick up some valuable `psql` tips and tricks along the way.
 [psql]: /how-to-guides/connecting/psql/
 [Crypto]: /tutorials/analyze-cryptocurrency-data
 [Stocks]: /tutorials/analyze-intraday-stocks/
-[custom-dashboard]: /tutorials/custom-timescaledb-dashboards/
-[tableau]: /tutorials/visualizing-time-series-data-in-tableau
+[custom-dashboards]: /tutorials/custom-timescaledb-dashboards/
+[tableau]: /tutorials/visualize-with-tableau
 [prometheus-tsc-endpoint]: /tutorials/setting-up-timescale-cloud-endpoint-for-prometheus
-[monitor-django-prometheus]: /tutorials/howto-monitor-django-prometheus
+[monitor-django-prometheus]: /tutorials/monitor-django-prometheus
 [tutorial-grafana-dashboards]: /tutorials/grafana/create-dashboard-and-panel
 [tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards
 [tutorial-grafana-variables]: /tutorials/grafana/grafana-variables

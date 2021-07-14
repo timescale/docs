@@ -438,7 +438,7 @@ module.exports = [
         ]
       },
       {
-        title: "Migrate Existing Data",
+        title: "Migrate existing data",
         href: "migrate-data",
         children: [
           {
