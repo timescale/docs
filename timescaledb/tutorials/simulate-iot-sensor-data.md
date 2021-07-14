@@ -237,6 +237,6 @@ documentation:
 [install-timescale]: /how-to-guides/install-timescaledb/
 [get-psql]: /how-to-guides/connecting/psql/
 [docs-hypertable]: /how-to-guides/hypertables/
-[docs-timebucket]: /api/:currentVersion:/analytics/time_bucket
-[docs-last]: /api/:currentVersion:/analytics/last
+[docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[docs-last]: /api/:currentVersion:/hyperfunctions/last
 [docs-timescaledb-intro]: /overview

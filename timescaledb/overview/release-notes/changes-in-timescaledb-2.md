@@ -163,7 +163,7 @@ the size information about each of the chunks in a hypertable. On a distributed 
 returns one row per data node that holds a copy of the chunk.
 *   [`hypertable_index_size(index)`](/api/:currentVersion:/hypertable/hypertable_index_size): Returns the
 aggregate number of bytes corresponding to a hypertable index across all chunks.
-*   [`approximate_row_count(relation)`](/api/:currentVersion:/analytics/approximate_row_count/):  The function
+*   [`approximate_row_count(relation)`](/api/:currentVersion:/hyperfunctions/approximate_row_count/):  The function
 has been renamed from `hypertable_approximate_row_count`, but can now also be called on non-hypertables.
 
 In previous versions of TimescaleDB, you could get size information for all hypertables in the `hypertable` view.
