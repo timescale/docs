@@ -39,19 +39,6 @@ see the [Promscale Releases on GitHub][promscale-releases-github].
     In this example, we use `db-ssl-mode=allow`, which is suitable for testing
     purposes. For production environments, use `db-ssl-mode=require` instead.
 
-## Docker maintenance tasks
-Docker installations need to run a maintenance procedure regularly. This
-procedure performs necessary maintenance tasks like enforcing data retention
-policies. We recommend that you set up a cron job to run a job like this every
-thirty minutes:
-
-```bash
-docker exec \
-  --user postgres \
-  timescaledb \
-    psql \
-      -c "CALL execute_maintenance();"
-```
 
 ## Configure Prometheus for Promscale
 You need to tell Prometheus to use the remote storage connector. By setting
