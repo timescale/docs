@@ -1,4 +1,4 @@
-# Tutorial: How to set up a Prometheus endpoint for a Timescale Cloud database
+# How to set up a Prometheus endpoint for a Timescale Cloud database
 
 You can get more insights into the performance of your Timescale Cloud
 database by monitoring it using [Prometheus][get-prometheus], a popular
