@@ -174,5 +174,5 @@ Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tuto
 [install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /tutorials/grafana/installation
 [nyc-taxi]: /tutorials/nyc-taxi-cab
-[time-bucket-reference]: /api/:currentVersion:/analytics/time_bucket
+[time-bucket-reference]: /api/:currentVersion:/hyperfunctions/time_bucket
 [tutorial-grafana]: /tutorials/grafana
