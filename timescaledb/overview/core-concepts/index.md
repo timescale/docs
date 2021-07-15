@@ -39,7 +39,7 @@ advanced capabilities designed specifically for time-series data, including:
   automatically and continuously "chunked" into smaller intervals to improve
   performance and to unlock various data-management capabilities.  Data
   and indexes for the latest chunks naturally remain in memory,
-  insuring fast inserts and performant queries to recent data.
+  ensuring fast inserts and performant queries to recent data.
 
 - **Native columnar compression** with advanced datatype-specific compression,
   employing various best-in-class algorithms based on whether the data are
@@ -69,6 +69,3 @@ concepts of how TimescaleDB scales: its data abstractions of **hypertables**
 and **chunks** (and how these are stored and processed), and how TimescaleDB
 can be deployed as either a single-node, with physical replicas, or as a multi-
 node cluster to enable distributed hypertables.
-
-
-
