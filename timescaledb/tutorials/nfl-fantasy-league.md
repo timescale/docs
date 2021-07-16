@@ -116,7 +116,7 @@ CREATE TABLE tracking (
 
 ## Ingest data from CSV files
 
-We have 3 separate CSV files for game, player, and play tables. For the tracking table, you will need to
+We have three separate CSV files for game, player, and play tables. For the tracking table, you will need to
 import data from 17 CSV files (1 file for each week in the season).
 
 Let's use a Python script that utilizes psycopg2's `copy_expert` function to ingest the data:
@@ -125,12 +125,14 @@ Let's use a Python script that utilizes psycopg2's `copy_expert` function to ing
 import config
 import psycopg2
 
+# Connect to the database
 conn = psycopg2.connect(database=config.DB_NAME, 
                         host=config.HOST, 
                         user=config.USER, 
                         password=config.PASS, 
                         port=config.PORT)
 
+# Insert CSV file into given table
 def insert(csv_file, table_name):
     cur = conn.cursor()
     copy_sql = """
@@ -151,6 +153,7 @@ insert("data/plays.csv", "play")
 print("Inserting players.csv")
 insert("data/players.csv", "player")
 
+# iterate over each week's CSV file and insert
 for i in range(1, 18): 
     print("Inserting week{i}".format(str(i)))
     insert("data/week{i}.csv".format(i=i), "tracking")
