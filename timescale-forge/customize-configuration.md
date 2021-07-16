@@ -106,7 +106,7 @@ These are the currently supported extensions:
 |seg|data type for representing line segments or floating-point intervals|
 |tablefunc|Functions that manipulate whole tables, including crosstab|
 |tcn|Triggered change notifications|
-|timescale_analytics|Timescale analytics|
+|timescaledb_toolkit|TimescaleDB Toolkit|
 |timescaledb|Enables scalable inserts and complex queries for time-series data|
 |tsm_system_rows|TABLESAMPLE method which accepts number of rows as a limit|
 |tsm_system_time|TABLESAMPLE method which accepts time in milliseconds as a limit|
