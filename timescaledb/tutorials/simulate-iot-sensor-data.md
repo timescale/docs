@@ -1,4 +1,4 @@
-# Tutorial: How to simulate a basic IoT sensor dataset on PostgreSQL or TimescaleDB
+# How to simulate a basic IoT sensor dataset on PostgreSQL or TimescaleDB
 ## Introduction [](introduction)
 The Internet of Things (IoT) describes a trend where computing is
 becoming ubiquitous and is embedded in more and more physical things.

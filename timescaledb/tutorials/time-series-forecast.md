@@ -1,4 +1,4 @@
-# Tutorial: Time-series forecasting
+# Time-series forecasting
 
 Time-series forecasting enables us to predict likely
 future values for a dataset based on historical time-series
