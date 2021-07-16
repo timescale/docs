@@ -163,7 +163,7 @@ conn.close()
 
 ## Analyze NFL data
 
-Now that you have all the data ingested, let's see some ideas how you can analyze the data to help you perfect
+Now that you have all the data ingested, let's go over some ideas on how you can analyze the data to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
 To analyze the dataset you will need to install two libraries, if you haven't already: Pandas and Matplotlib.
