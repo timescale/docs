@@ -114,6 +114,14 @@ CREATE TABLE tracking (
 );
 ```
 
+Add indexes to the `tracking` table speed up queries:
+
+```sql
+CREATE INDEX idx_gameid ON tracking (gameid);
+CREATE INDEX idx_playerid ON tracking (player_id);
+CREATE INDEX idx_playid ON tracking (playid);
+```
+
 ## Ingest data from CSV files
 
 We have three separate CSV files for game, player, and play tables. For the tracking table, you will need to
@@ -125,14 +133,14 @@ Let's use a Python script that utilizes psycopg2's `copy_expert` function to ing
 import config
 import psycopg2
 
-# Connect to the database
+# connect to the database
 conn = psycopg2.connect(database=config.DB_NAME, 
                         host=config.HOST, 
                         user=config.USER, 
                         password=config.PASS, 
                         port=config.PORT)
 
-# Insert CSV file into given table
+# insert CSV file into given table
 def insert(csv_file, table_name):
     cur = conn.cursor()
     copy_sql = """
