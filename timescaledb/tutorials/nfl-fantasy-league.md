@@ -8,6 +8,7 @@ and start exploring it to discover interesting things about players that could h
 If you aren't an NFL fan, don't worry, you will still find this tutorial helpful as it's showcasing how to 
 get started with TimescaleDB and explore a real world dataset with SQL and Python.
 
+
 1. [Create tables][]
 2. [Ingest data from CSV files][] 
 3. [Analyze NFL data][]
@@ -19,14 +20,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 * [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
 * Pandas and Matplotlib (`pip install pandas matplotlib`)
 
-## About the dataset
-
-The dataset we're using in this tutorial is provided by the National Football League (NFL) as part of their yearly
-Big Data Bowl. Big Data Bowl is a contest for data professionals and students to explore american football data and 
-build interesting machine learning models.
-
-As this year's contest hasn't been published yet by the NFL, we're using last year's dataset that includes data about 
-all the passing plays of the 2018 season.
+## Download the dataset
 
 Download dataset here!
 
