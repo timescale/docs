@@ -2,8 +2,11 @@
 
 This tutorial is a step-by-step guide on how to ingest and analyze american football data with TimescaleDB.
 
-The dataset that we're using is provided be the National Football League (NFL) and contains data about 
-all the passing plays of the 2018 NFL season. We're ingesting this dataset and exploring it in fun ways. You will also see how this dataset and using TimescaleDB can improve your NFL fantasy league strategy. If you aren't an NFL fan, don't worry, you will still find this tutorial helpful as it's showcasing how to get started with TimescaleDB and explore a real world dataset with SQL and Python.
+The dataset that we're using is provided by the National Football League (NFL) and contains data about 
+all the passing plays of the 2018 NFL season. We're going to ingest this dataset with Python into TimescaleDB 
+and start exploring it to discover interesting things about players that could help you win your next fantasy season. 
+If you aren't an NFL fan, don't worry, you will still find this tutorial helpful as it's showcasing how to 
+get started with TimescaleDB and explore a real world dataset with SQL and Python.
 
 1. [Create tables][]
 2. [Ingest data from CSV files][] 
@@ -19,9 +22,11 @@ all the passing plays of the 2018 NFL season. We're ingesting this dataset and e
 ## About the dataset
 
 The dataset we're using in this tutorial is provided by the National Football League (NFL) as part of their yearly
-Big Data Bowl. Big Data Bowl is a contest for data professionals and students to explore american football data and build interesting machine learning models.
+Big Data Bowl. Big Data Bowl is a contest for data professionals and students to explore american football data and 
+build interesting machine learning models.
 
-As this year's contest hasn't been published yet by the NFL, we're using last year's dataset that includes data about all the passing plays of the 2018 season.
+As this year's contest hasn't been published yet by the NFL, we're using last year's dataset that includes data about 
+all the passing plays of the 2018 season.
 
 Download dataset here!
 
