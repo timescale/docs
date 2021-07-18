@@ -101,7 +101,6 @@ These are the currently supported extensions:
 |postgis_sfcgal|PostGIS SFCGAL functions|
 |postgis_tiger_geocoder|PostGIS tiger geocoder and reverse geocoder|
 |postgis_topology|PostGIS topology spatial types and functions|
-|postgres_fdw|Foreign-data wrapper for remote PostgreSQL servers|
 |promscale|Promscale support functions|
 |seg|data type for representing line segments or floating-point intervals|
 |tablefunc|Functions that manipulate whole tables, including crosstab|
