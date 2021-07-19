@@ -42,9 +42,9 @@ built it.
 [hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
 [PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e
 [PostgreSQL-problems-time-series]: https://www.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5
-[time_bucket]: /api/:currentVersion:/analytics/time_bucket/
-[first]: /api/:currentVersion:/analytics/first/
-[last]: /api/:currentVersion:/analytics/last/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[first]: /api/:currentVersion:/hyperfunctions/first/
+[last]: /api/:currentVersion:/hyperfunctions/last/
 [data-retention]: /how-to-guides/data-retention/
 [postgis]: /tutorials/nyc-taxi-cab
 [GitHub]: https://github.com/timescale/timescaledb/issues

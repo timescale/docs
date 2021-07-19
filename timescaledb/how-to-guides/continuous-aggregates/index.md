@@ -19,7 +19,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [about-caggs]: /how-to-guides/continuous-aggregates/about-continuous-aggregates
 [cagg-create]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate
-[cagg-autorefresh]: /how-to-guides/continuous-aggregates/adding-automatic-refresh-policies
+[cagg-autorefresh]: /how-to-guides/continuous-aggregates/refresh-policies
 [cagg-time]: /how-to-guides/continuous-aggregates/time
 [cagg-drop]: /how-to-guides/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
