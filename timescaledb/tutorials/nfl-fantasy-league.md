@@ -18,7 +18,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 * Python 3
 * TimescaleDB (see [installation options][install-timescale]) 
 * [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
-* Pandas, Matplotlib, and Numpy (`pip install pandas matplotlib numpy`)
+* Pandas and Matplotlib (`pip install pandas matplotlib`)
 
 ## Download the dataset
 
@@ -174,11 +174,11 @@ conn.close()
 Now that you have all the data ingested, let's go over some ideas on how you can analyze the data to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
-To analyze the dataset you need to install two libraries, if you haven't already: Pandas, Matplotlib, and Numpy.
+To analyze the dataset you need to install two libraries, if you haven't already: Pandas and Matplotlib.
 
-### Install pandas, matplotlib, and numpy
+### Install pandas and matplotlib
 ```bash
-pip install pandas matplotlib numpy
+pip install pandas matplotlib 
 ```
 
 1. Number of yards run in game for passing plays, by player and game 
