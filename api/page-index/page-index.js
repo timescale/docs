@@ -8,7 +8,7 @@ module.exports = [
     excerpt: 'The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension',
     children: [
       {
-        title: "Hypertables & Chunks",
+        title: "Hypertables & chunks",
         type: 'directory',
         href: "hypertable",
         children: [
@@ -91,7 +91,7 @@ module.exports = [
         ]
       },
       {
-        title: "Distributed Hypertables",
+        title: "Distributed hypertables",
         type: 'directory',
         href: "distributed-hypertables",
         children: [
@@ -165,7 +165,7 @@ module.exports = [
         ]
       },
       {
-        title: "Continuous Aggregates",
+        title: "Continuous aggregates",
         type: 'directory',
         href: "continuous-aggregates",
         children: [
@@ -196,7 +196,7 @@ module.exports = [
         ]
       },
       {
-        title: "Data Retention",
+        title: "Data retention",
         type: 'directory',
         href: "data-retention",
         children: [
@@ -211,7 +211,7 @@ module.exports = [
         ]
       },
       {
-        title: "Actions and Automation",
+        title: "Actions and automation",
         type: 'directory',
         href: "actions",
         children: [
@@ -259,7 +259,7 @@ module.exports = [
             href: "time_bucket"
           },  
           {
-            title: "Gapfilling and Interpolation",
+            title: "Gapfilling and interpolation",
             type: 'directory',
             href: "gapfilling-interpolation",
             children: [
@@ -278,7 +278,7 @@ module.exports = [
             ]
           },
           {
-            title: "Percentile Approximation",
+            title: "Percentile approximation",
             type: 'directory',
             href: "percentile-approximation",
             children: [
@@ -319,7 +319,7 @@ module.exports = [
                 href: "num_vals"
               },
               {
-                title: "Advanced Aggregation Methods",
+                title: "Advanced aggregation methods",
                 type: 'directory',
                 href: "percentile-aggregation-methods",
                 children: [
@@ -336,7 +336,7 @@ module.exports = [
             ]
           },
           {
-            title: "Time Weighted Averages",
+            title: "Time weighted averages",
             type: 'directory',
             href: "time-weighted-averages",
             children: [
@@ -357,7 +357,7 @@ module.exports = [
         ]
       },
       {
-        title: "Informational Views",
+        title: "Informational views",
         type: 'directory',
         href: "informational-views",
         children: [

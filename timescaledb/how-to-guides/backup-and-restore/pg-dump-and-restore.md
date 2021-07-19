@@ -27,7 +27,8 @@ hypertable from backup.
 </highlight>
 
 ## Restore your entire database from backup
-When you need to restore data from a backup, you can use `psql` to create a new database and restore the data.
+When you need to restore data from a backup, you can use `psql` to create a new
+database and restore the data.
 
 ### Procedure: Restoring an entire database from backup
 1.  In `pgsql`, create a new database to restore to, and connect to it:
