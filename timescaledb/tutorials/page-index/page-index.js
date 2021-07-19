@@ -4,6 +4,36 @@ module.exports = [
         href: "tutorials",
         children: [
           {
+            title: "Introduction to IoT",
+            href: "nyc-taxi-cab"
+          },
+          {
+            title: "Introduction to time-series forecasting",
+            href: "time-series-forecast"
+          },
+          {
+            title: "Analyze cryptocurrency data",
+            href: "analyze-cryptocurrency-data"
+          },
+          {
+            title: "Analyze intraday stock data",
+            href: "analyze-intraday-stocks",
+            children: [
+              {
+                title: "Design database schema",
+                href: "design-schema"
+              },
+              {
+                title: "Fetch and ingest stock data",
+                href: "fetch-and-ingest"
+              },
+              {
+                title: "Explore stock market data",
+                href: "explore-stocks-data"
+              }
+            ]
+          },
+          {
             title: "Getting started with Promscale",
             href: "promscale",
             children: [
@@ -26,16 +56,16 @@ module.exports = [
             ]
           },
           {
-            title: "Introduction to IoT",
-            href: "nyc-taxi-cab"
+            title: "Monitor Timescale Cloud with Prometheus",
+            href: "setting-up-timescale-cloud-endpoint-for-prometheus"
           },
           {
-            title: "Introduction to time-series forecasting",
-            href: "time-series-forecast"
+            title: "Monitor a Django application with Prometheus",
+            href: "monitor-django-with-prometheus"
           },
           {
-            title: "Analyzing cryptocurrency data",
-            href: "analyze-cryptocurrency-data"
+            title: "Collect metrics with Telegraf",
+            href: "telegraf-output-plugin"
           },
           {
             title: "Grafana",
@@ -77,18 +107,6 @@ module.exports = [
           {
             title: "Simulate IoT Sensor Data",
             href: "simulate-iot-sensor-data"
-          },
-          {
-            title: "Monitor Timescale Cloud with Prometheus",
-            href: "setting-up-timescale-cloud-endpoint-for-prometheus"
-          },
-          {
-            title: "Collecting metrics with Telegraf",
-            href: "telegraf-output-plugin"
-          },
-          {
-            title: "Monitor a Django application with Prometheus",
-            href: "monitor-django-with-prometheus"
           },
           {
             href: "sample-datasets"
