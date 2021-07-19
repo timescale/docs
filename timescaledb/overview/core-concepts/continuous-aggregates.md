@@ -20,7 +20,7 @@ since the last refresh.
 
 As a quick introductory example, let's create a hypertable
 `conditions` containing temperature data for devices and a continuous
-aggregate to compute the daily average, minimum, and maximum
+aggregate to compute the hourly average, minimum, and maximum
 temperature. Start off by creating the hypertable and populate it with
 some data:
 
@@ -69,7 +69,7 @@ In this case, the continuous aggregate will be refreshed every hour
 and refresh the last month's data.
 
 You can now run a normal `SELECT` on the continuous aggregate and it
-will give you the aggregated data, for example, to select the daily
+will give you the aggregated data, for example, to select the hourly
 averages for device 1 during the first three months:
 
 ```sql

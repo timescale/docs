@@ -1,4 +1,4 @@
-# Tutorial: Analyze cryptocurrency market data
+# Analyze cryptocurrency market data
 
 This tutorial is a step-by-step guide on how to analyze a time-series
 cryptocurrency dataset using TimescaleDB. The instructions in this tutorial
