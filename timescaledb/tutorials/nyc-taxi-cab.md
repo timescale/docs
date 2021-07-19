@@ -1,4 +1,4 @@
-# Tutorial: New York City Taxicabs
+# Introduction to IoT: New York City Taxicabs
 
 Use case: IoT Analysis and Monitoring
 
