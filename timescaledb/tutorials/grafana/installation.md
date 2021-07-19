@@ -1,27 +1,24 @@
 # Set up TimescaleDB and Grafana
+This tutorial uses Managed Service for TimescaleDB to set up your database, and
+to set up Grafana. You can [create a free account][mst-login] to try it out.
 
-Timescale Cloud services are managed from the Timescale Cloud web console. First login to the console with your email address and password and you will be automatically taken to the "Services" view that shows all the services of the currently selected project.
+## Create a new service
+You need to sign in to your Managed Service for TimescaleDB account to create a
+new service to run Grafana.
 
-Projects allow organizing groups of services under different topics and each project can for example have different billing settings. An empty project is created for you automatically when you sign-up and the free credits are attached to this project. You can create new projects by clicking the project name in the left side-bar and selecting "Create a new project". The same menu can also be used to switch between projects.
+### Procedure: Creating a new MST service for Grafana
+1.  [Log in to your MST account][mst-login]. By default, you start on the `Services` view, showing any services you currently have in your project.
+1.  Click `Create a new service`.
+1.  In the `Select your service` section, click `TimescaleDB Grafana - Metrics dashboard`:
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/mst-selectservice-grafana.png" alt="Select the Grafana service"/>
+1.  In the `Select your cloud service provider` and `Select your cloud service region` sections, choose the provider and region that you prefer, or accept the default values.
+1.  In the `Select your service plan` section, click `Dashboard-1`.
+1.  In the `Provide your service name` section, type a name for your new service. In this example, we've used `grafana-tutorial`.
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/mst-nameservice-grafana.png" alt="Name the Grafana service"/>
+1.  When you are happy with your selections, click `Create Service` to go back to the `Services` view while your service is created. The status indicator shows `REBUILDING` while the service is being created. It is ready for you to use when the indicator is green and shows `RUNNING`. This usually takes a couple of minutes, but different clouds can vary. You can click the service name in the list to see more information and make changes.
 
-To get started with Grafana, first click the "Create a new service" button.
 
 
-The dialog that opens allows you to specify the main service properties:
-
-Service name: A short name for the service used to distinguish it from other services. A random name is provided, but you can type in a more friendly name.
-
-Service type: Select "Grafana".
-
-Plan: How many servers and what kind of memory/CPU/disk resources will be allocated to run your service.
-
-Cloud: Which cloud and region to run the service on. Note that the pricing of the same service may differ between cloud providers and their regions.
-
-After making the selections, click the "Create" button and you will be taken back to the service list view and the newly created service is shown with an indicator that it is being created.
-
-Click the service name in the list and the "Overview" information page for the service opens. This view shows the connection parameters for your service, its current status and allows making changes to the service.
-
-The "Status" indicator will say "REBUILDING" while the service is being created for you. Once the service is up and running, the light will change to green and it will say "RUNNING". Note that while typically services start in a couple of minutes, the performance between clouds varies and it can take longer under some circumstances.
 
 
 On larger plan types you get more resources available on the Grafana server and the ability to have a certificate on the server that's signed by a CA, removing the need to specifically accept the certificate. This allows among other things creation of easily shareable Grafana links.
@@ -89,5 +86,6 @@ connection is working.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/save_and_test.png" alt="Test your Grafana database connection"/>
 
+[mst-login]: https://portal.timescale.cloud/login
 [install-timescale]: /how-to-guides/install-timescaledb/
 [grafana-install]: https://www.grafana.com
