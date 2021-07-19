@@ -68,7 +68,7 @@ While we recommend using compression policies to automated compression data, the
 -- Manual compression
 ---------------------------------------------------
 SELECT compress_chunk(i)
-FROM show_chunks('weather_metrics', older_than => INTERVAL ' 10 years');
+FROM show_chunks('weather_metrics', older_than => INTERVAL ' 10 years') i;
 ```
 We can see the size of the compressed chunks before and after applying compression by using the following query:
 

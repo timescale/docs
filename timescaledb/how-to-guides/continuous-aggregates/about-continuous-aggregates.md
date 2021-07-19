@@ -92,7 +92,7 @@ about partials is that they can be combined to create new partials spanning all
 of the old partials' rows. This is important if you combine groups that span
 multiple chunks.
 
-For more information, see [materialization hypertables][cagg-mat-hypertables]. 
+For more information, see [materialization hypertables][cagg-mat-hypertables].
 
 ### Materialization engine
 When you query the continuous aggregate view, the materialization engine
@@ -136,5 +136,5 @@ transaction, to ensure that the work does not interfere with other operations.
 
 
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[tutorial-caggs]: timescaledb/getting-started/create-cagg
+[tutorial-caggs]: /getting-started/create-cagg
 [cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
