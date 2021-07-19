@@ -174,19 +174,95 @@ conn.close()
 Now that you have all the data ingested, let's go over some ideas on how you can analyze the data to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
-To analyze the dataset you will need to install two libraries, if you haven't already: Pandas and Matplotlib.
+To analyze the dataset you need to install two libraries, if you haven't already: Pandas and Matplotlib.
 
 ### Install pandas and matplotlib
 ```bash
-pip install pandas matplotlib
+pip install pandas matplotlib 
 ```
 
 1. Number of yards run in game for passing plays, by player and game 
 1. Avg yards run for a player over a game
 1. Average and median yards run per game by type of player (not taking avg of individual)
 1. Num of snap plays by player where they were on the offense
-1. Number of plays vs points scored
-1. Average yards per game for top 3 players of each position
+1. [Number of plays vs points scored](number-of-players-vs-points-scored)
+1. [Average yards per game for top three players of each position](#average-yards-per-game-for-top-three-players-of-each-position)
+
+### **Number of plays vs points scored**
+
+Use this query to get data on the number of plays and final score for each game during the 2018 season. This data is separated by team so that we can compare the number of plays with a team's win or loss.
+
+```sql
+WITH play_count AS (
+-- Count distinct plays, join on the stadium and game tables for team names and game date
+SELECT gameid, COUNT(playdescription) AS plays, si.team_name, g.game_date 
+FROM play p 
+LEFT JOIN stadium_info si ON p.possessionteam = si.team_abbreviation 
+LEFT JOIN game g ON p.gameid = g.game_id 
+GROUP BY gameid, si.team_name, game_date
+), visiting_games AS (
+-- Join on scores to grab only the visting team's data
+SELECT gameid, plays, s.visitor_team AS team_name, s.visitor_score AS team_score FROM play_count p
+INNER JOIN scores s ON p.team_name LIKE '%' || s.visitor_team || '%' 
+AND p.game_date = s."date"
+), home_games AS (
+-- Join on scores to grab only the home team's data
+SELECT gameid, plays, s.home_team AS team_name , s.home_score AS team_score FROM play_count p
+INNER JOIN scores s ON p.team_name LIKE '%' || s.home_team || '%' 
+AND p.game_date = s."date"
+)
+-- union the two resulting tables together
+SELECT * FROM visiting_games
+UNION ALL
+SELECT * FROM home_games
+ORDER BY gameid ASC, team_score DESC
+```
+The image below is an example of a visualization that you could create with the data collected from this query. The scatterplot is grouped, showing the winning team's plays and scores as gold, and the losing team's plays and scores as brown. 
+
+<img class="main-content__illustration" src="" alt="Top Three Players by Position"/>
+
+The y-axis, or the number of plays for one team during a single game shows that more plays do not always imply a guaranteed win. In fact, the top three teams with the highest number of plays for a single game all appeared to have lost. There are many interesting facts which you could glean from this query, this scatterplot being just one possibility. 
+
+### **Average yards per game for top three players of each position**
+
+You can use this PostgreSQL query to extract the average yards run by an individual player over one game. This query will only include the top three highest player's average yard values per position type. The data is ordered by the average yards run across all players for each position. This becomes important later on. 
+
+Note: This query excludes some position types from the list due to such low average yard values, the excluded positions are Kicker, Punter, Nose Tackle, Long Snapper, and Defensive Tackle 
+
+```sql
+WITH total_yards AS (
+-- This table sums the yards a player runs over each game
+	SELECT t.player_id, SUM(t.dis) AS yards, t.gameid
+	FROM tracking t 
+	GROUP BY t.player_id, t.gameid
+), avg_yards AS (
+-- This table takes the average of the yards run by each player and calls out thier position
+	SELECT p.player_id, p.display_name, AVG(yards) AS avg_yards, p."position" 
+	FROM total_yards t
+	LEFT JOIN player p ON t.player_id = p.player_id 
+	GROUP BY p.player_id, p.display_name, p."position"
+), ranked_vals AS (
+-- This table ranks each player by the average yards they run per game 
+SELECT a.*, RANK() OVER (PARTITION BY a."position" ORDER BY avg_yards DESC) 
+FROM avg_yards AS a
+), ranked_positions AS (
+-- This table takes the average of the average yards run for each player so that we can order
+-- the positions by this average of averages
+SELECT v."position", AVG(v.avg_yards) AS avg_yards_positions
+FROM ranked_vals v
+GROUP BY v."position"
+)
+SELECT v.*, p.avg_yards_positions FROM ranked_vals v
+LEFT JOIN ranked_positions p ON v.position = p.position
+WHERE v.rank <= 3 AND v.position != 'null' AND v.position NOT IN ('K', 'P', 'NT', 'LS', 'DT')
+ORDER BY p.avg_yards_positions DESC, v.rank ASC
+```
+
+This is one possible visualization that you could create with this data:
+
+<img class="main-content__illustration" src="" alt="Top Three Players by Position"/>
+
+Notice that the average yards overall for Free Safety players is higher than that of Wide Receivers (this is because of how we ordered the data, noted above). However, individual Wide Receivers run more yards on average per game. Also, notice that Kyle Juszczyk runs far more on average than other Fullback players. 
 
 (todo include queries and viz)
 
