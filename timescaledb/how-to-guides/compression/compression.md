@@ -29,7 +29,7 @@ This section explains how to enable native compression, and then goes into
 detail on the most important settings for compression, to help you get the
 best possible compression ratio.
 
-## Enable compression [](compression-enable)
+## Enable compression
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by. In this procedure, we are using this example table,
 called `example`, and we are going to segment it by the `device_id` column. We
@@ -54,7 +54,7 @@ compressed.
     SELECT add_compression_policy('example', INTERVAL '7 days');
     ```
 
-## Compression policy intervals [](compression-interval)
+## Compression policy intervals
 Data is usually compressed after an interval of time has elapsed, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
 compression interval. Choosing a good compression interval can make your queries
@@ -112,7 +112,7 @@ to the compression policy.
 
 ![compression timeline](https://assets.timescale.com/images/diagrams/compression_diagram.png)
 
-## Segment by columns [](compression-segmentby)
+## Segment by columns
 When you compress data, you need to select which column to segment by. Each row
 in a compressed table must contain data about a single item. The column that a
 table is segmented by contains only a single entry, while all other columns can
@@ -155,7 +155,7 @@ and compression is not as effective. A good guide is for each segment to contain
 at least 100 rows per chunk. To achieve this, you might also need to use  
 the `compress_orderby` column.
 
-## Order entries [](compression-orderby)
+## Order entries
 By default, the items inside a compressed array are arranged in descending order
 according to the hypertable's `time` column. In most cases, this works well,
 provided you have set the `segmentby` option appropriately. However, in some
