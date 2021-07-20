@@ -30,37 +30,37 @@ You will need to create six tables:
 
 * game
   
-  Information about each game.
-
+  Information about each game, `game_id` is a primary key.
 * player
   
-  Player information.
+  Player information, `player_id` is a primary_key. 
 * play
   
-  Play information
+  Play information. To query a specific play, you need to use gameid and playid together.
 * tracking
   
-  Tracking information from each play.
-
+  Player tracking information from each play. This is going to be the biggest table (18M+ row) in the database.
+  Important fields are `x` and `y` as they indicate the physical positions of the players on the field.
 * scores
 
-  Team scores for each game. 
+  Final result of each game. This table can be joined with the tracking table using the `home_team_abb` and 
+  `visitor_team_abb` fields.
 * stadium_info
 
-  Stadium information for each team. 
+  Home stadium of each team and additional information like `surface`, `roof_type`, `location`.
 
 ```sql
 CREATE TABLE game (
     game_id INT PRIMARY KEY,
-    gameDate DATE,
-    gameTimeEastern TIME,
-    homeTeamAbbr TEXT,
-    visitorTeamAbbr TEXT,
+    game_date DATE,
+    gametime_et TIME,
+    home_team TEXT,
+    visitor_team TEXT,
     week INT
 );
 
 CREATE TABLE player (
-    player_id INT,
+    player_id INT PRIMARY KEY,
     height TEXT,
     weight INT,
     birthDate DATE,
@@ -115,8 +115,8 @@ CREATE TABLE tracking (
     position TEXT,
     frameId INT,
     team TEXT,
-    gameId INT,
-    playId INT,
+    gameid INT,
+    player_id INT,
     playDirection TEXT,
     route TEXT
 );
@@ -124,22 +124,22 @@ CREATE TABLE tracking (
 CREATE TABLE scores (
     scoreid INT PRIMARY KEY,
     date DATE,
-    visitor_team VARCHAR(150),
-    visitor_team_abb VARCHAR(3),
+    visitor_team TEXT,
+    visitor_team_abb TEXT,
     visitor_score INT,
-    home_team VARCHAR(150),
-    home_team_abb VARCHAR(3),
+    home_team TEXT,
+    home_team_abb TEXT,
     home_score INT
 );
 
 CREATE TABLE stadium_info(
     stadiumid INT PRIMARY KEY,
-    stadium_name VARCHAR(150),
-    location VARCHAR(150),
-    surface VARCHAR(150),
-    roof_type VARCHAR(150),
-    team_name VARCHAR(150),
-    team_abbreviation VARCHAR(3),
+    stadium_name TEXT,
+    location TEXT,
+    surface TEXT,
+    roof_type TEXT,
+    team_name TEXT,
+    team_abbreviation TEXT,
     time_zone TEXT
 )
 
