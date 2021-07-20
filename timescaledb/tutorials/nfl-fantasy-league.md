@@ -9,9 +9,9 @@ If you aren't an NFL fan, don't worry, you will still find this tutorial helpful
 get started with TimescaleDB and explore a real world dataset with SQL and Python.
 
 
-1. [Create tables][]
-2. [Ingest data from CSV files][] 
-3. [Analyze NFL data][]
+1. [Create tables](#create-tables)
+2. [Ingest data from CSV files](#ingest-data-from-csv-files) 
+3. [Analyze NFL data](#analyze-nfl-data)
    
 ## Prerequisites
 
@@ -26,11 +26,12 @@ Download dataset here!
 
 ## Create tables
 
-You will need to create four tables:
+You will need to create six tables:
 
 * game
   
   Information about each game.
+
 * player
   
   Player information.
@@ -40,6 +41,13 @@ You will need to create four tables:
 * tracking
   
   Tracking information from each play.
+
+* scores
+
+  Team scores for each game. 
+* stadium_info
+
+  Stadium information for each team. 
 
 ```sql
 CREATE TABLE game (
@@ -112,6 +120,29 @@ CREATE TABLE tracking (
     playDirection VARCHAR(5),
     route TEXT
 );
+
+CREATE TABLE scores (
+    scoreid INT PRIMARY KEY,
+    date DATE,
+    visitor_team VARCHAR(150),
+    visitor_team_abb VARCHAR(3),
+    visitor_score INT,
+    home_team VARCHAR(150),
+    home_team_abb VARCHAR(3),
+    home_score INT
+);
+
+CREATE TABLE stadium_info(
+    stadiumid INT PRIMARY KEY,
+    stadium_name VARCHAR(150),
+    location VARCHAR(150),
+    surface VARCHAR(150),
+    roof_type VARCHAR(150),
+    team_name VARCHAR(150),
+    team_abbreviation VARCHAR(3),
+    time_zone TEXT
+)
+
 ```
 
 Add indexes to the `tracking` table speed up queries:
@@ -171,22 +202,126 @@ conn.close()
 
 ## Analyze NFL data
 
-Now that you have all the data ingested, let's go over some ideas on how you can analyze the data to help you perfect
+Now that you have all the data ingested, let's go over some ideas on how you can analyze the data using PostgreSQL and TimescaleDB to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
-To analyze the dataset you need to install two libraries, if you haven't already: Pandas and Matplotlib.
+Some of the analysis below has some visualizations included to help you see your analysis in action. These visualizations wer created using the Matplotlib Python module, this being one of many great visualization tools. 
 
-### Install pandas and matplotlib
-```bash
-pip install pandas matplotlib 
+For optimized analysis, you will need to create the following continuous aggregate view. By using continuous aggregates, we significantly cut down on query run time (up to 30 times faster), thus making this analysis and other possible queries more easily accessible. This coninuous aggregate sums all the players movement in yards over one day and groups them by the players ID and game ID. 
+
+```sql
+CREATE MATERIALIZED VIEW player_yards_by_game
+WITH (timescaledb.continuous) AS
+SELECT t.player_id, t.gameid, 
+	time_bucket(INTERVAL '1 day', t."time") AS bucket,
+	SUM(t.dis) AS yards
+FROM tracking t 
+GROUP BY t.player_id, t.gameid, bucket;
 ```
 
-1. Number of yards run in game for passing plays, by player and game 
-1. Avg yards run for a player over a game
-1. Average and median yards run per game by type of player (not taking avg of individual)
-1. Num of snap plays by player where they were on the offense
-1. [Number of plays vs points scored](number-of-players-vs-points-scored)
+1. [Number of yards run in game for passing plays, by player and game](#number-of-yards-run-in-game-for-passing-plays-by-player-and-game)
+1. [Average yards run for a player over a game](#average-yards-run-for-a-player-over-a-game)
+1. [Average and median yards run per game by type of player (not taking avg of individual)](#average-and-median-yards-run-per-game-by-type-of-player-not-taking-avg-of-individual)
+1. [Number of snap plays by player where they were on the offense](#number-of-snap-plays-by-player-where-they-were-on-the-offense)
+1. [Number of plays vs points scored](#number-of-plays-vs-points-scored)
 1. [Average yards per game for top three players of each position](#average-yards-per-game-for-top-three-players-of-each-position)
+
+### **Number of yards run in game for passing plays, by player and game**
+
+To get this data, use the following query which pulls yard data from the continuous aggregate and then joins that on the player table to get player details. 
+
+```sql
+SELECT a.player_id, display_name, SUM(yards) AS yards, gameid 
+FROM player_yards_by_game a
+LEFT JOIN player p ON a.player_id = p.player_id 
+GROUP BY a.player_id, display_name, gameid 
+ORDER BY gameid ASC, display_name
+```
+Your data will look like this:
+
+|player_id| display_name        | yards           | gameid  |
+|-----| ------------- |:-------------:| -----:|
+|2555415| Austin Hooper     | 765.52 | 2018090600 |
+|2556445| Brian Poole    | 661.74     |   2018090600 |
+|2560854| Calvin Ridley | 822.3     |    2018090600 |
+
+This query can be the foundation of many other analysis questions. In the following queries, we will be returning to the query for further analysis. 
+
+### **Average yards run for a player over a game**
+
+This query uses one of timescale's percentile functions to find the mean yards run per game by a single player. 
+
+```sql
+WITH sum_yards AS (
+  SELECT a.player_id, display_name, SUM(yards) AS yards, gameid 
+  FROM player_yards_by_game a
+  LEFT JOIN player p ON a.player_id = p.player_id 
+  GROUP BY a.player_id, display_name, gameid 
+)
+SELECT player_id, display_name, mean(percentile_agg(yards)) as yards
+FROM sum_yards
+GROUP BY player_id, display_name
+ORDER BY yards DESC
+```
+After running this query you will notice the player_id and display_name are null for the first row. Can you guess what this row of data means? What could the average number of yards run mean for the top players listed?
+
+### **Average and median yards run per game by type of player (not taking avg of individual)**
+
+In this query you need to add poistion information to the sum_yards table. Once you add this column, you then can group the mean yards and median by position. For this query you will also utilize another one of timescale's ppercentile functions percentile_agg. For this query we are using this function with the 50th percentile in order to get the data's approximate median values. 
+
+```sql
+WITH sum_yards AS (
+  SELECT a.player_id, display_name, SUM(yards) AS yards, p.position, gameid 
+  FROM player_yards_by_game a
+  LEFT JOIN player p ON a.player_id = p.player_id 
+  GROUP BY a.player_id, display_name, p.position, gameid 
+)
+SELECT position, mean(percentile_agg(yards)) AS mean_yards, approx_percentile(0.5, percentile_agg(yards)) AS median_yards
+FROM sum_yards
+GROUP BY position
+ORDER BY mean_yards DESC
+```
+If you scroll to the bottom of your results you should see this:
+
+|position| mean_yards        | median_yards  |
+|-----| ------------- |:----------------:|
+|HB| 275.04279069767404    | 250.88667462709043 |
+|DE| 185.76162011173133   | 33.750683636185684 |
+|FB| 100.37912844036691 | 67.0876116670915 |
+|DT| 19.692499999999992  | 17.796475991050432 |
+
+Notice how the Defensive End (DE) position has such a large discrepency between the mean and median values. The median data implies that generally most DE players do not run very much during passing plays. However, the mean data shows that some of the DE players must be running a lot. Who could those players be?
+
+### **Number of snap plays by player where they were on the offense**
+
+For this next query, you will be counting the number of passing events a player was involved in while playing the offensive. You will notice how much slower this query runs than the ones above which use continous aggregates. The speed you see here is comprable to what you would get in the other queries without using continous aggregates. 
+
+```sql
+WITH snap_events AS (
+-- Create a table that filters the play events to show only snap plays
+-- and display the players team information
+	SELECT DISTINCT player_id, t.event, t.gameid, t.playid,
+		CASE 
+			WHEN t.team = 'away' THEN g.visitor_team 
+			WHEN t.team = 'home' THEN g.home_team 
+			ELSE NULL 
+			END AS team_name
+	FROM tracking t 
+	LEFT JOIN game g ON t.gameid = g.game_id 
+	WHERE t.event LIKE '%snap%'
+)
+-- Count these events and filter results to only display data when the player was
+-- on the offensive
+SELECT a.player_id, pl.display_name, COUNT(a.event) AS play_count, a.team_name
+FROM snap_events a
+LEFT JOIN play p ON a.gameid = p.gameid AND a.playid = p.playid 
+LEFT JOIN player pl ON a.player_id = pl.player_id 
+WHERE a.team_name = p.possessionteam 
+GROUP BY a.player_id, pl.display_name, a.team_name
+ORDER BY play_count DESC
+```
+
+Notice that the two highest passing play counts are for Ben Roethlisberger and JuJu Smith-Schuster, a Quarterback and Wide Reciever respectively for the Pittburgh Steelers. Could they be some of the top offensive choices for your league?
 
 ### **Number of plays vs points scored**
 
@@ -195,20 +330,19 @@ Use this query to get data on the number of plays and final score for each game 
 ```sql
 WITH play_count AS (
 -- Count distinct plays, join on the stadium and game tables for team names and game date
-SELECT gameid, COUNT(playdescription) AS plays, si.team_name, g.game_date 
+SELECT gameid, COUNT(playdescription) AS plays, p.possessionteam as team_name, g.game_date 
 FROM play p 
-LEFT JOIN stadium_info si ON p.possessionteam = si.team_abbreviation 
 LEFT JOIN game g ON p.gameid = g.game_id 
-GROUP BY gameid, si.team_name, game_date
+GROUP BY gameid, team_name, game_date
 ), visiting_games AS (
 -- Join on scores to grab only the visting team's data
-SELECT gameid, plays, s.visitor_team AS team_name, s.visitor_score AS team_score FROM play_count p
-INNER JOIN scores s ON p.team_name LIKE '%' || s.visitor_team || '%' 
+SELECT gameid, plays, s.visitor_team as team_name, s.visitor_score AS team_score FROM play_count p
+INNER JOIN scores s ON p.team_name = s.visitor_team_abb 
 AND p.game_date = s."date"
 ), home_games AS (
 -- Join on scores to grab only the home team's data
 SELECT gameid, plays, s.home_team AS team_name , s.home_score AS team_score FROM play_count p
-INNER JOIN scores s ON p.team_name LIKE '%' || s.home_team || '%' 
+INNER JOIN scores s ON p.team_name = s.home_team_abb 
 AND p.game_date = s."date"
 )
 -- union the two resulting tables together
@@ -232,8 +366,8 @@ Note: This query excludes some position types from the list due to such low aver
 ```sql
 WITH total_yards AS (
 -- This table sums the yards a player runs over each game
-	SELECT t.player_id, SUM(t.dis) AS yards, t.gameid
-	FROM tracking t 
+	SELECT t.player_id, SUM(yards) AS yards, t.gameid
+	FROM player_yards_by_game t
 	GROUP BY t.player_id, t.gameid
 ), avg_yards AS (
 -- This table takes the average of the yards run by each player and calls out thier position
