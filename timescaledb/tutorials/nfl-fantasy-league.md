@@ -18,11 +18,10 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 * Python 3
 * TimescaleDB (see [installation options][install-timescale]) 
 * [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
-* Pandas and Matplotlib (`pip install pandas matplotlib`)
 
 ## Download the dataset
 
-Download dataset here!
+[The dataset is available for download on Kaggle.][kaggle-download]
 
 ## Create tables
 
@@ -114,7 +113,7 @@ CREATE TABLE tracking (
 );
 ```
 
-Add indexes to the `tracking` table speed up queries:
+Add indexes to the `tracking` table to speed up queries:
 
 ```sql
 CREATE INDEX idx_gameid ON tracking (gameid);
@@ -271,4 +270,7 @@ Notice that the average yards overall for Free Safety players is higher than tha
 
 * Github project repository
 * NFL Big Data Bowl on Kaggle
-* 
+
+
+
+[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
