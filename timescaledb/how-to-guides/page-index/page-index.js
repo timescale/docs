@@ -201,7 +201,7 @@ module.exports = [
             ],
           },
           {
-            Title: "Post-install setup",
+            title: "Post-install setup",
             href: "post-install-setup",
             pageComponents: ['featured-cards'],
             tags: ['install', 'setup', 'selfhosted', 'timescaledb'],
@@ -212,111 +212,39 @@ module.exports = [
       },
       {
         title: "Install TimescaleDB Toolkit",
-        href: "install-timescaledb-toolkit"
+        href: "install-timescaledb-toolkit",
+        pageComponents: ['featured-cards'],
+        tags: ['toolkit', 'install', 'timescaledb'],
+        keywords: ['TimescaleDB', 'install', 'toolkit'],
+        excerpt: ['Install the TimescaleDB toolkit']
       },
       {
         title: "Connecting to TimescaleDB",
         href: "connecting",
-        metaTags: [
-          {
-            name: "product",
-            content: "timescaledb"
-          },
-          {
-            name: "action",
-            content: "connect"
-          },
-          {
-            name: "feature",
-            content: "psql"
-          }
-        ],
+        pageComponents: ['featured-cards'],
+        tags: ['toolkit', 'install', 'timescaledb'],
+        keywords: ['TimescaleDB', 'install', 'toolkit'],
+        excerpt: ['Install the TimescaleDB toolkit'],
           children: [
               {
                   href: "psql",
-                  metaTags: [
-                    {
-                      name: "product",
-                      content: "timescaledb"
-                    },
-                    {
-                      name: "action",
-                      content: "install", "connect", "manage"
-                    },
-                    {
-                      name: "feature",
-                      content: "psql"
-                    }
-                  ],
               }
           ]
       },
       {
         href: "hypertables",
-        metaTags: [
-          {
-            name: "product",
-            content: "timescaledb"
-          },
-          {
-            name: "feature",
-            content: "hypertables"
-          }
-        ],
         children: [
           {
             title: "CREATE",
             href: "create",
-            metaTags: [
-              {
-                name: "product",
-                content: "timescaledb"
-              },
-              {
-                name: "action",
-                content: "create", "migrate"
-              },
-              {
-                name: "feature",
-                content: "hypertables"
-              }
-            ],
           },
           {
             title: "ALTER",
             href: "alter",
-            metaTags: [
-              {
-                name: "product",
-                content: "timescaledb"
-              },
-              {
-                name: "action",
-                content: "edit"
-              },
-              {
-                name: "feature",
-                content: "hypertables"
-              }
-            ],
           },
           {
             title: "DROP",
             href: "drop",
-            metaTags: [
-              {
-                name: "product",
-                content: "timescaledb"
-              },
-              {
-                name: "action",
-                content: "delete"
-              },
-              {
-                name: "feature",
-                content: "hypertables"
-              }
-            ],
           },
           {
             href: "best-practices",
