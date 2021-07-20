@@ -15,17 +15,17 @@ module.exports = [
           {
             title: "Timescale Forge",
             href: "installation-forge",
-            pageComponents: ['featured-cards'],
             tags: ['tsc', 'install'],
             keywords: ['install', 'Timescale Cloud'],
             excerpt: ['Install Timescale Forge']
+          },
           {
             title: "Timescale Cloud",
             href: "installation-cloud",
-            pageComponents: ['featured-cards'],
             tags: ['mst', 'install'],
             keywords: ['install', 'Managed Service for TimescaleDB'],
             excerpt: ['Install Timescale Cloud']
+          },
           {
             title: "Self hosted (including containers)",
             href: "self-hosted",
@@ -33,7 +33,6 @@ module.exports = [
             options: { pg_version: ["12", "11"] },
             component: "InstallationPage",
             showNewsletterForm: true,
-            pageComponents: ['featured-cards'],
             tags: ['install', 'timescaledb'],
             keywords: ['TimescaleDB', 'install', 'self-hosted'],
             excerpt: ['Install self-hosted TimescaleDB'],
@@ -203,7 +202,6 @@ module.exports = [
           {
             title: "Post-install setup",
             href: "post-install-setup",
-            pageComponents: ['featured-cards'],
             tags: ['install', 'setup', 'selfhosted', 'timescaledb'],
             keywords: ['TimescaleDB', 'install', 'setup', 'self-hosted'],
             excerpt: ['Set up self-hosted TimescaleDB after installation']
@@ -213,7 +211,6 @@ module.exports = [
       {
         title: "Install TimescaleDB Toolkit",
         href: "install-timescaledb-toolkit",
-        pageComponents: ['featured-cards'],
         tags: ['toolkit', 'install', 'timescaledb'],
         keywords: ['TimescaleDB', 'install', 'toolkit'],
         excerpt: ['Install the TimescaleDB toolkit']
@@ -221,7 +218,6 @@ module.exports = [
       {
         title: "Connecting to TimescaleDB",
         href: "connecting",
-        pageComponents: ['featured-cards'],
         tags: ['toolkit', 'install', 'timescaledb'],
         keywords: ['TimescaleDB', 'install', 'toolkit'],
         excerpt: ['Install the TimescaleDB toolkit'],
