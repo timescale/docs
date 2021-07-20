@@ -542,7 +542,7 @@ draw_play(game_id=2018112900,
           movements=False)
 ```
 
-![pre snap players figure](player_movement_pre_snap.png)
+![pre snap players figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement_pre_snap.png)
 
 You can also visualize player movement during the play if you set `movements` to `True`:
 
@@ -553,7 +553,7 @@ draw_play(game_id=2018112900,
           away_label='displayname',
           movements=True)
 ```
-![pre snap players figure](player_movement.png)
+![player movement figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png)
 
 
 ## Resources
