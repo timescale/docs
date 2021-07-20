@@ -362,7 +362,7 @@ ORDER BY gameid ASC, team_score DESC
 ```
 The image below is an example of a visualization that you could create with the data collected from this query. The scatterplot is grouped, showing the winning team's plays and scores as gold, and the losing team's plays and scores as brown. 
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.iobeam.com/images/docs/images_for_nfl_tutorial/wins_vs_plays.png" alt="Wins vs Plays"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/nfl_tutorial/wins_vs_plays.png" alt="Wins vs Plays"/>
 
 The y-axis, or the number of plays for one team during a single game shows that more plays do not always imply a guaranteed win. In fact, the top three teams with the highest number of plays for a single game all appeared to have lost. There are many interesting facts which you could glean from this query, this scatterplot being just one possibility. 
 
@@ -403,7 +403,7 @@ ORDER BY p.avg_yards_positions DESC, v.rank ASC
 
 This is one possible visualization that you could create with this data:
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.iobeam.com/images/docs/images_for_nfl_tutorial/top_3_players.png" alt="Top Three Players by Position"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/nfl_tutorial/top_3_players.png" alt="Top Three Players by Position"/>
 
 Notice that the average yards overall for Free Safety players is higher than that of Wide Receivers (this is because of how we ordered the data, noted above). However, individual Wide Receivers run more yards on average per game. Also, notice that Kyle Juszczyk runs far more on average than other Fullback players. 
 
