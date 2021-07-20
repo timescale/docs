@@ -154,6 +154,15 @@ CREATE INDEX idx_playerid ON tracking (player_id);
 CREATE INDEX idx_playid ON tracking (playid);
 ```
 
+**Create hypertable from `tracking` table**
+```sql
+/*
+tracking: name of the table
+time: name of the timestamp column
+*/
+SELECT create_hypertable('tracking', 'time');
+```
+
 ## Ingest data from CSV files
 
 There are three separate CSV files for game, player, and play tables. For the tracking table, you need to
