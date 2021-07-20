@@ -109,7 +109,7 @@ module.exports = [
                     type: 'non-menu-page',
                     href: "installation-yum",
                     tags: ['install', 'rhel', 'centos', 'yum', 'timescaledb'],
-                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'RFHEL', 'CentOS'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'RgHEL', 'CentOS'],
                     excerpt: ['Install self-hosted TimescaleDB on Red Hat or CentOS using yum or dnf']
                   },
                   {
