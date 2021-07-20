@@ -7,45 +7,25 @@ module.exports = [
       {
         title: "Install TimescaleDB",
         href: "install-timescaledb",
-        metaTags: [
-          {
-            name: "product",
-            content: "timescaledb"
-          },
-          {
-            name: "action",
-            content: "install"
-          }
-        ],
+        pageComponents: ['featured-cards'],
+        tags: ['timescaledb', 'install'],
+        keywords: ['install', 'TimescaleDB'],
+        excerpt: ['Install TimescaleDB'],
         children: [
           {
             title: "Timescale Forge",
             href: "installation-forge",
-            metaTags: [
-              {
-                name: "product",
-                content: "forge"
-              },
-              {
-                name: "action",
-                content: "install"
-              }
-            ],
-          },
+            pageComponents: ['featured-cards'],
+            tags: ['tsc', 'install'],
+            keywords: ['install', 'Timescale Cloud'],
+            excerpt: ['Install Timescale Forge']
           {
             title: "Timescale Cloud",
             href: "installation-cloud",
-            metaTags: [
-              {
-                name: "product",
-                content: "cloud"
-              },
-              {
-                name: "action",
-                content: "install"
-              }
-            ],
-          },
+            pageComponents: ['featured-cards'],
+            tags: ['mst', 'install'],
+            keywords: ['install', 'Managed Service for TimescaleDB'],
+            excerpt: ['Install Timescale Cloud']
           {
             title: "Self hosted (including containers)",
             href: "self-hosted",
@@ -53,16 +33,10 @@ module.exports = [
             options: { pg_version: ["12", "11"] },
             component: "InstallationPage",
             showNewsletterForm: true,
-            metaTags: [
-              {
-                name: "product",
-                content: "timescaledb", "selfhosted"
-              },
-              {
-                name: "action",
-                content: "install"
-              }
-            ],
+            pageComponents: ['featured-cards'],
+            tags: ['install', 'timescaledb'],
+            keywords: ['TimescaleDB', 'install', 'self-hosted'],
+            excerpt: ['Install self-hosted TimescaleDB'],
             children: [
               {
                 title: "Docker",
@@ -74,6 +48,10 @@ module.exports = [
                     Title: "Docker",
                     type: 'non-menu-page',
                     href: "installation-docker",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'docker', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'Docker'],
+                    excerpt: ['Install self-hosted TimescaleDB with Docker']
                   },
                 ],
               },
@@ -87,6 +65,10 @@ module.exports = [
                     Title: "apt",
                     type: 'non-menu-page',
                     href: "installation-apt-ubuntu",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'ubuntu', 'apt', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'Ubuntu'],
+                    excerpt: ['Install self-hosted TimescaleDB on Ubuntu using apt']
                   },
                   {
                     Title: "Source",
@@ -105,11 +87,19 @@ module.exports = [
                     Title: "apt",
                     type: 'non-menu-page',
                     href: "installation-apt-debian",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'debian', 'apt', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'Debian'],
+                    excerpt: ['Install self-hosted TimescaleDB on Debian using apt']
                   },
                   {
                     Title: "Source",
                     type: 'non-menu-page',
                     href: "installation-source",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'debian', 'source', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'Debian'],
+                    excerpt: ['Install self-hosted TimescaleDB on Debian from source']
                   },
                 ],
               },
@@ -123,11 +113,19 @@ module.exports = [
                     Title: "yum/dnf",
                     type: 'non-menu-page',
                     href: "installation-yum",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'rhel', 'centos', 'yum', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'RFHEL', 'CentOS'],
+                    excerpt: ['Install self-hosted TimescaleDB on Red Hat or CentOS using yum or dnf']
                   },
                   {
                     Title: "Source",
                     type: 'non-menu-page',
                     href: "installation-source",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'rhel', 'centos', 'source', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'RHEL', 'CentOS'],
+                    excerpt: ['Install self-hosted TimescaleDB on Red Hat or CentOS from source']
                   },
                 ],
               },
@@ -141,11 +139,19 @@ module.exports = [
                     Title: "Installer (.zip)",
                     type: 'non-menu-page',
                     href: "installation-windows",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'mswin', 'exe', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'MS Windows',],
+                    excerpt: ['Install self-hosted TimescaleDB on Microsoft Windows using a zipped .exe file']
                   },
                   {
                     Title: "Source",
                     type: 'non-menu-page',
                     href: "installation-source-windows",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'mswin', 'exe', 'source', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'MS Windows'],
+                    excerpt: ['Install self-hosted TimescaleDB on Microsoft Windows from source']
                   },
                 ],
               },
@@ -159,6 +165,10 @@ module.exports = [
                     Title: "Amazon AMI (Ubuntu)",
                     type: 'non-menu-page',
                     href: "installation-ubuntu-ami",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'aws', 'ami', 'ubuntu', 'Timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'AWS', 'AMI', 'Ubuntu'],
+                    excerpt: ['Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI']
                   },
                 ],
               },
@@ -172,28 +182,31 @@ module.exports = [
                     Title: "Homebrew",
                     type: 'non-menu-page',
                     href: "installation-homebrew",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'macos', 'homebrew', 'timescaledb'],
+                    keywords: ['timescaledb', 'install', 'self-hosted', 'MacOS', 'homebrew'],
+                    excerpt: ['Install self-hosted TimescaleDB on MacOS using homebrew']
                   },
                   {
                     Title: "Source",
                     type: 'non-menu-page',
                     href: "installation-source",
+                    pageComponents: ['featured-cards'],
+                    tags: ['install', 'macos', 'source', 'timescaledb'],
+                    keywords: ['TimescaleDB', 'install', 'self-hosted', 'MacOS'],
+                    excerpt: ['Install self-hosted TimescaleDB on MacOS from source']
                   },
                 ],
               }
             ],
           },
           {
+            Title: "Post-install setup",
             href: "post-install-setup",
-            metaTags: [
-              {
-                name: "product",
-                content: "timescaledb", "selfhosted"
-              },
-              {
-                name: "action",
-                content: "install", "connect", "configure"
-              }
-            ],
+            pageComponents: ['featured-cards'],
+            tags: ['install', 'setup', 'selfhosted', 'timescaledb'],
+            keywords: ['TimescaleDB', 'install', 'setup', 'self-hosted'],
+            excerpt: ['Set up self-hosted TimescaleDB after installation']
           }
         ]
       },
