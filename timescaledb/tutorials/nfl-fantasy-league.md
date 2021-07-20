@@ -45,8 +45,8 @@ CREATE TABLE game (
     gameId INT PRIMARY KEY,
     gameDate DATE,
     gameTimeEastern TIME,
-    homeTeamAbbr VARCHAR(3),
-    visitorTeamAbbr VARCHAR(3),
+    homeTeamAbbr TEXT,
+    visitorTeamAbbr TEXT,
     week INT
 );
 
@@ -108,7 +108,7 @@ CREATE TABLE tracking (
     team TEXT,
     gameId INT,
     playId INT,
-    playDirection VARCHAR(5),
+    playDirection TEXT,
     route TEXT
 );
 ```
