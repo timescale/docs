@@ -205,9 +205,9 @@ conn.close()
 Now that you have all the data ingested, let's go over some ideas on how you can analyze the data using PostgreSQL and TimescaleDB to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
-Some of the analysis below has some visualizations included to help you see your analysis in action. These visualizations wer created using the Matplotlib Python module, this being one of many great visualization tools. 
+Some of this analysis includes visualizations to help you see the potential uses for this data. These are created using the Matplotlib Python module, which is one of many great visualization tools. 
 
-For optimized analysis, you will need to create the following continuous aggregate view. By using continuous aggregates, we significantly cut down on query run time (up to 30 times faster), thus making this analysis and other possible queries more easily accessible. This coninuous aggregate sums all the players movement in yards over one day and groups them by the players ID and game ID. 
+To optimize the analysis, you will need to create a continuous aggregate. Continuous aggregate's significantly cut down on query run time, running up to thirty times faster. This continuous aggregate sums all the players movement in yards over one day and groups them by the players ID and game ID. 
 
 ```sql
 CREATE MATERIALIZED VIEW player_yards_by_game
@@ -228,7 +228,7 @@ GROUP BY t.player_id, t.gameid, bucket;
 
 ### **Number of yards run in game for passing plays, by player and game**
 
-To get this data, use the following query which pulls yard data from the continuous aggregate and then joins that on the player table to get player details. 
+Use this query to get the yard data from the continuous aggregate. You can then join that on the player table to get player details.
 
 ```sql
 SELECT a.player_id, display_name, SUM(yards) AS yards, gameid 
@@ -237,19 +237,19 @@ LEFT JOIN player p ON a.player_id = p.player_id
 GROUP BY a.player_id, display_name, gameid 
 ORDER BY gameid ASC, display_name
 ```
-Your data will look like this:
+Your data should look like this:
 
-|player_id| display_name        | yards           | gameid  |
+|player_id| display_name | yards | gameid  |
 |-----| ------------- |:-------------:| -----:|
 |2555415| Austin Hooper     | 765.52 | 2018090600 |
 |2556445| Brian Poole    | 661.74     |   2018090600 |
 |2560854| Calvin Ridley | 822.3     |    2018090600 |
 
-This query can be the foundation of many other analysis questions. In the following queries, we will be returning to the query for further analysis. 
+This query can be the foundation of many other analysis questions. This section returns to the query for further analysis.  
 
 ### **Average yards run for a player over a game**
 
-This query uses one of timescale's percentile functions to find the mean yards run per game by a single player. 
+This query uses one of the TimescaleDB percentile functions to find the mean yards run per game by a single player. 
 
 ```sql
 WITH sum_yards AS (
@@ -263,19 +263,21 @@ FROM sum_yards
 GROUP BY player_id, display_name
 ORDER BY yards DESC
 ```
-After running this query you will notice the player_id and display_name are null for the first row. Can you guess what this row of data means? What could the average number of yards run mean for the top players listed?
+When you run this query you might notice that the `player_id` and `display_name` are null for the first row. This row represents the avereage yard data for the football. 
 
 ### **Average and median yards run per game by type of player (not taking avg of individual)**
 
-In this query you need to add poistion information to the sum_yards table. Once you add this column, you then can group the mean yards and median by position. For this query you will also utilize another one of timescale's ppercentile functions percentile_agg. For this query we are using this function with the 50th percentile in order to get the data's approximate median values. 
+  For this query, you will use another one of the TimescaleDB percentile functions called `percentile_agg`. You will set the `percentile_agg` function to find the 50th percentile which will return the approximate median.
 
 ```sql
 WITH sum_yards AS (
+--Add position to the table to allow for grouping by it later
   SELECT a.player_id, display_name, SUM(yards) AS yards, p.position, gameid 
   FROM player_yards_by_game a
   LEFT JOIN player p ON a.player_id = p.player_id 
   GROUP BY a.player_id, display_name, p.position, gameid 
 )
+--Find the mean and median for each position type
 SELECT position, mean(percentile_agg(yards)) AS mean_yards, approx_percentile(0.5, percentile_agg(yards)) AS median_yards
 FROM sum_yards
 GROUP BY position
@@ -294,7 +296,7 @@ Notice how the Defensive End (DE) position has such a large discrepency between 
 
 ### **Number of snap plays by player where they were on the offense**
 
-For this next query, you will be counting the number of passing events a player was involved in while playing the offensive. You will notice how much slower this query runs than the ones above which use continous aggregates. The speed you see here is comprable to what you would get in the other queries without using continous aggregates. 
+In this query, you are counting the number of passing events a player was involved in while playing the offensive. You will notice how much slower this query runs than the ones above which use continuous aggregates. The speed you see here is comparable to what you would get in the other queries without using continuous aggregates.
 
 ```sql
 WITH snap_events AS (
@@ -321,7 +323,7 @@ GROUP BY a.player_id, pl.display_name, a.team_name
 ORDER BY play_count DESC
 ```
 
-Notice that the two highest passing play counts are for Ben Roethlisberger and JuJu Smith-Schuster, a Quarterback and Wide Reciever respectively for the Pittburgh Steelers. Could they be some of the top offensive choices for your league?
+Notice that the two highest passing plays are for Ben Roethlisberger and JuJu Smith-Schuster, a Quarterback and Wide Receiver respectively for the Pittsburgh Steelers. These may be two great options to consider when drafting your fantasy football leauge. 
 
 ### **Number of plays vs points scored**
 
