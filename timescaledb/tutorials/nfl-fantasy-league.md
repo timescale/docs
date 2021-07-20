@@ -113,7 +113,7 @@ CREATE TABLE tracking (
 );
 ```
 
-Add indexes to the `tracking` table to speed up queries:
+Add indexes to the `tracking` table to improve query performance:
 
 ```sql
 CREATE INDEX idx_gameid ON tracking (gameid);
