@@ -12,7 +12,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 1. [Create tables](#create-tables)
 2. [Ingest data from CSV files](#ingest-data-from-csv-files) 
 3. [Analyze NFL data](#analyze-nfl-data)
-4. [Visualize pre-snap positions and player movement][]
+4. [Visualize pre-snap positions and player movement](#visualize-pre-snap-positions-and-player-movement)
    
 ## Prerequisites
 
@@ -29,24 +29,24 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 
 You will need to create six tables:
 
-* game
+* **game**
   
   Information about each game, `game_id` is a primary key.
-* player
+* **player**
   
   Player information, `player_id` is a primary_key. 
-* play
+* **play**
   
   Play information. To query a specific play, you need to use gameid and playid together.
-* tracking
+* **tracking**
   
   Player tracking information from each play. This is going to be the biggest table (18M+ row) in the database.
   Important fields are `x` and `y` as they indicate the physical positions of the players on the field.
-* scores
+* **scores**
 
   Final result of each game. This table can be joined with the tracking table using the `home_team_abb` and 
   `visitor_team_abb` fields.
-* stadium_info
+* **stadium_info**
 
   Home stadium of each team and additional information like `surface`, `roof_type`, `location`.
 
@@ -468,7 +468,7 @@ def generate_field():
     return fig, ax
 ```
 
-**Draw players' movement based on game_id and play_id**
+**Draw players' movement based on `game_id` and `play_id`**
 
 ```python
 conn = psycopg2.connect(database="db", 
@@ -570,6 +570,7 @@ draw_play(game_id=2018112900,
 * [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
 
-
+[install-timescale]: /how-to-guides/install-timescaledb/
+[psql-install]: /how-to-guides/connecting/psql
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
