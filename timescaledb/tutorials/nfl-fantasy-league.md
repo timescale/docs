@@ -1,6 +1,6 @@
 # Win your NFL fantasy league with TimescaleDB
 
-This tutorial is a step-by-step guide on how to ingest and analyze american football data with TimescaleDB.
+This tutorial is a step-by-step guide on how to ingest and analyze American football data with TimescaleDB.
 
 The dataset that we're using is provided by the National Football League (NFL) and contains data about 
 all the passing plays of the 2018 NFL season. We're going to ingest this dataset with Python into TimescaleDB 
@@ -26,7 +26,7 @@ Download dataset here!
 
 ## Create tables
 
-You will need to create four tables:
+You need to create four tables:
 
 * game
   
@@ -127,7 +127,7 @@ CREATE INDEX idx_playid ON tracking (playid);
 There are three separate CSV files for game, player, and play tables. For the tracking table, you need to
 import data from 17 CSV files (one file for each week of the season).
 
-Let's use a Python script that utilizes psycopg2's `copy_expert` function to ingest the data:
+You can use a Python script that uses psycopg2's `copy_expert` function to ingest the data:
 
 ```python
 import config
