@@ -174,12 +174,6 @@ conn.close()
 Now that you have all the data ingested, here are some ideas for analyzing the data to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
-To analyze the dataset you need to install two libraries, if you haven't already: Pandas and Matplotlib.
-
-### Install pandas and matplotlib
-```bash
-pip install pandas matplotlib 
-```
 
 1. Number of yards run in game for passing plays, by player and game 
 1. Average yards run for a player over a game
