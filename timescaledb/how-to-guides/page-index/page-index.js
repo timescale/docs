@@ -251,7 +251,7 @@ module.exports = [
               },
               {
                 name: "action",
-                content: "configure", "manage"
+                content: ["configure", "manage"]
               },
               {
                 name: "feature",
