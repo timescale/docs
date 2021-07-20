@@ -5,7 +5,7 @@ This tutorial is a step-by-step guide on how to ingest and analyze american foot
 The dataset that we're using is provided by the National Football League (NFL) and contains data about 
 all the passing plays of the 2018 NFL season. We're going to ingest this dataset with Python into TimescaleDB 
 and start exploring it to discover interesting things about players that could help you win your next fantasy season. 
-If you aren't an NFL fan, don't worry, you will still find this tutorial helpful as it's showcasing how to 
+If you aren't an NFL fan, this tutorial can still help you  
 get started with TimescaleDB and explore a real world dataset with SQL and Python.
 
 
@@ -124,8 +124,8 @@ CREATE INDEX idx_playid ON tracking (playid);
 
 ## Ingest data from CSV files
 
-We have three separate CSV files for game, player, and play tables. For the tracking table, you will need to
-import data from 17 CSV files (1 file for each week in the season).
+There are three separate CSV files for game, player, and play tables. For the tracking table, you need to
+import data from 17 CSV files (one file for each week of the season).
 
 Let's use a Python script that utilizes psycopg2's `copy_expert` function to ingest the data:
 
@@ -171,7 +171,7 @@ conn.close()
 
 ## Analyze NFL data
 
-Now that you have all the data ingested, let's go over some ideas on how you can analyze the data to help you perfect
+Now that you have all the data ingested, here are some ideas for analyzing the data to help you perfect
 your fantasy drafting strategy and win your fantasy season.
 
 To analyze the dataset you need to install two libraries, if you haven't already: Pandas and Matplotlib.
@@ -182,8 +182,8 @@ pip install pandas matplotlib
 ```
 
 1. Number of yards run in game for passing plays, by player and game 
-1. Avg yards run for a player over a game
-1. Average and median yards run per game by type of player (not taking avg of individual)
+1. Average yards run for a player over a game
+1. Average and median yards run per game by type of player (not taking the average of an individual)
 1. Num of snap plays by player where they were on the offense
 1. [Number of plays vs points scored](number-of-players-vs-points-scored)
 1. [Average yards per game for top three players of each position](#average-yards-per-game-for-top-three-players-of-each-position)
