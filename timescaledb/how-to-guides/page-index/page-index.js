@@ -44,10 +44,9 @@ module.exports = [
                 iconSrc: "//assets.iobeam.com/images/docs/moby.png",
                 children: [
                   {
-                    Title: "Docker",
+                    title: "Docker",
                     type: 'non-menu-page',
                     href: "installation-docker",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'docker', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'Docker'],
                     excerpt: ['Install self-hosted TimescaleDB with Docker']
@@ -61,16 +60,15 @@ module.exports = [
                 iconSrc: "//assets.iobeam.com/images/docs/cof_orange_hex.svg",
                 children: [
                   {
-                    Title: "apt",
+                    title: "apt",
                     type: 'non-menu-page',
                     href: "installation-apt-ubuntu",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'ubuntu', 'apt', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'Ubuntu'],
                     excerpt: ['Install self-hosted TimescaleDB on Ubuntu using apt']
                   },
                   {
-                    Title: "Source",
+                    title: "Source (Ubuntu)",
                     type: 'non-menu-page',
                     href: "installation-source",
                   },
@@ -83,19 +81,17 @@ module.exports = [
                 iconSrc: "//assets.iobeam.com/images/docs/Debian_logo.svg",
                 children: [
                   {
-                    Title: "apt",
+                    title: "apt (Debian)",
                     type: 'non-menu-page',
                     href: "installation-apt-debian",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'debian', 'apt', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'Debian'],
                     excerpt: ['Install self-hosted TimescaleDB on Debian using apt']
                   },
                   {
-                    Title: "Source",
+                    title: "Source (Debian)",
                     type: 'non-menu-page',
                     href: "installation-source",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'debian', 'source', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'Debian'],
                     excerpt: ['Install self-hosted TimescaleDB on Debian from source']
@@ -109,19 +105,17 @@ module.exports = [
                 iconSrc: "//assets.iobeam.com/images/docs/Centos_Red_Hat_logo.svg",
                 children: [
                   {
-                    Title: "yum/dnf",
+                    title: "yum/dnf",
                     type: 'non-menu-page',
                     href: "installation-yum",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'rhel', 'centos', 'yum', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'RFHEL', 'CentOS'],
                     excerpt: ['Install self-hosted TimescaleDB on Red Hat or CentOS using yum or dnf']
                   },
                   {
-                    Title: "Source",
+                    title: "Source (Red Hat or CentOS)",
                     type: 'non-menu-page',
                     href: "installation-source",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'rhel', 'centos', 'source', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'RHEL', 'CentOS'],
                     excerpt: ['Install self-hosted TimescaleDB on Red Hat or CentOS from source']
@@ -135,19 +129,17 @@ module.exports = [
                 iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
                 children: [
                   {
-                    Title: "Installer (.zip)",
+                    title: "Installer (.zip)",
                     type: 'non-menu-page',
                     href: "installation-windows",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'mswin', 'exe', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'MS Windows',],
                     excerpt: ['Install self-hosted TimescaleDB on Microsoft Windows using a zipped .exe file']
                   },
                   {
-                    Title: "Source",
+                    title: "Source (Windows)",
                     type: 'non-menu-page',
                     href: "installation-source-windows",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'mswin', 'exe', 'source', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'MS Windows'],
                     excerpt: ['Install self-hosted TimescaleDB on Microsoft Windows from source']
@@ -161,10 +153,9 @@ module.exports = [
                 iconSrc: "//assets.iobeam.com/images/docs/aws_logo.svg",
                 children: [
                   {
-                    Title: "Amazon AMI (Ubuntu)",
+                    title: "Amazon AMI (Ubuntu)",
                     type: 'non-menu-page',
                     href: "installation-ubuntu-ami",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'aws', 'ami', 'ubuntu', 'Timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'AWS', 'AMI', 'Ubuntu'],
                     excerpt: ['Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI']
@@ -178,19 +169,17 @@ module.exports = [
                 iconSrc: "//assets.iobeam.com/images/docs/Apple_logo_black.svg",
                 children: [
                   {
-                    Title: "Homebrew",
+                    title: "Homebrew",
                     type: 'non-menu-page',
                     href: "installation-homebrew",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'macos', 'homebrew', 'timescaledb'],
                     keywords: ['timescaledb', 'install', 'self-hosted', 'MacOS', 'homebrew'],
                     excerpt: ['Install self-hosted TimescaleDB on MacOS using homebrew']
                   },
                   {
-                    Title: "Source",
+                    title: "Source (MacOS)",
                     type: 'non-menu-page',
                     href: "installation-source",
-                    pageComponents: ['featured-cards'],
                     tags: ['install', 'macos', 'source', 'timescaledb'],
                     keywords: ['TimescaleDB', 'install', 'self-hosted', 'MacOS'],
                     excerpt: ['Install self-hosted TimescaleDB on MacOS from source']
