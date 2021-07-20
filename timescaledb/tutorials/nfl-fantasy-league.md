@@ -12,6 +12,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 1. [Create tables](#create-tables)
 2. [Ingest data from CSV files](#ingest-data-from-csv-files) 
 3. [Analyze NFL data](#analyze-nfl-data)
+4. [Visualize pre-snap positions and player movement][]
    
 ## Prerequisites
 
