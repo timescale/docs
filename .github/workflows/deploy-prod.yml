@@ -16,3 +16,6 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content-prod
+      - name: Webhook
+        run: |
+          curl ${{ secrets.WEBHOOK_URL }}
