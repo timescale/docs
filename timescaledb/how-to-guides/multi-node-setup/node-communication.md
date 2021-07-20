@@ -398,7 +398,7 @@ Once the nodes are properly configured, you can continue following the
 
 Allowing new roles to use the certificate to authenticate is simply a matter of
 adding them to the certificate role.  Aside from that, the process of adding new
-users should be the same as for [trust authentication](trust-authentication).
+users should be the same as for [trust authentication](#trust-authentication).
 
 First create the user on the access node if needed and grant it usage on the
 foreign server objects corresponding to the data nodes:

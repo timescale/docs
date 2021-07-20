@@ -307,7 +307,7 @@ We hope you find new ways to explore your data and make your decisions smarter a
 [hypertables]: /how-to-guides/hypertables/
 [caggs]: /how-to-guides/continuous-aggregates/
 [data retention]: /how-to-guides/data-retention/
-[compression]: /how-to-guides/compression/compression-basics/
+[compression]: /timescaledb/how-to-guides/compression/compression
 [iot-tutorial]: /tutorials/simulate-iot-sensor-data/
 [Hasura]: http://hasura.io/
 [hasura-cloud]: https://cloud.hasura.io/

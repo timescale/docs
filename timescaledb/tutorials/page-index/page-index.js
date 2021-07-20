@@ -98,7 +98,7 @@ module.exports = [
           },
           {
             title: "Visualize data in Tableau",
-            href: "visualize-with-tableu"
+            href: "visualize-with-tableau"
           },
           {
             title: "Custom TimescaleDB dashboards",
