@@ -524,23 +524,41 @@ def draw_play(game_id, play_id, home_label='position', away_label='position', mo
             df = away_team.query('player_id == {id}'.format(id=player_id))
             df.plot(x='x', y='y', ax=ax, linewidth=4, legend=False)
 
-    # Add title and show chart
-    plt.title('Game: {game} Play: {play}'.format(game=game_id, play=play_id))
+    # query play description and possession team and add them in the title
+    sql = """SELECT gameid, playid, playdescription, possessionteam FROM play 
+             WHERE gameid = {game} AND playid = {play}""".format(game=game_id, play=play_id)
+    play_info = pd.read_sql(sql, conn).to_dict('records') 
+    plt.title('Possession team: {team}\nPlay: {play}'.format(team=play_info[0]['possessionteam'], 
+                                                             play=play_info[0]['playdescription']))
+    # show chart
     plt.show()
-
-draw_play(game_id=2018123007, 
-          play_id=1874, 
-          home_label='position', 
-          away_label='position', 
-          movements=True)
 ```
 
+Then, you can run the `draw_play` function like this to visualize pre-snap player positions:
+
+```python
+draw_play(game_id=2018112900, 
+          play_id=2826,
+          movements=False)
+```
+
+![pre snap players figure](player_movement_pre_snap.png)
+
+You can also visualize player movement during the play if you set `movements` to `True`:
+
+```python
+draw_play(game_id=2018112900, 
+          play_id=2826, 
+          home_label='position',
+          away_label='displayname',
+          movements=True)
+```
+![pre snap players figure](player_movement.png)
 
 
 ## Resources
 
-* Github project repository
-* NFL Big Data Bowl on Kaggle
+* [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
 
 
