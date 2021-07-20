@@ -292,7 +292,7 @@ If you scroll to the bottom of your results you should see this:
 |FB| 100.37912844036691 | 67.0876116670915 |
 |DT| 19.692499999999992  | 17.796475991050432 |
 
-Notice how the Defensive End (DE) position has such a large discrepency between the mean and median values. The median data implies that generally most DE players do not run very much during passing plays. However, the mean data shows that some of the DE players must be running a lot. Who could those players be?
+Notice how the Defensive End (DE) position has a large discrepency between its mean and median values. The median data implies that most DE players do not run very much during passing plays. However, the mean data implies that some of the DE players must be running a significant amount. You may want to find out who these high performing defensive players are. 
 
 ### **Number of snap plays by player where they were on the offense**
 
