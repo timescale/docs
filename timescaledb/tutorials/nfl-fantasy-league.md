@@ -22,7 +22,8 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 
 ## Download the dataset
 
-[The dataset is available for download on Kaggle.][kaggle-download]
+* [The NFL dataset is available for download on Kaggle.][kaggle-download]
+* [Additional stadium and scores dataset (.zip) (source: wikipedia.com).][extra-download]
 
 ## Create tables
 
@@ -192,7 +193,13 @@ insert("data/plays.csv", "play")
 print("Inserting players.csv")
 insert("data/players.csv", "player")
 
-# iterate over each week's CSV file and insert
+print("Inserting stadium_info.csv")
+insert("data/stadium_info.csv", "stadium_info")
+
+print("Inserting scores.csv")
+insert("data/scores.csv", "scores")
+
+# iterate over each week's CSV file and insert them
 for i in range(1, 18): 
     print("Inserting week{i}".format(str(i)))
     insert("data/week{i}.csv".format(i=i), "tracking")
@@ -538,3 +545,4 @@ draw_play(game_id=2018123007,
 
 
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
+[extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
