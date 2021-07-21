@@ -39,7 +39,6 @@ When your service is built, you can log and set up your data services.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
 1.  Log in to Grafana with your service credentials.
 
-
 ## Connect Grafana to your TimescaleDB instance
 Now you have your Grafana service up and running, you can configure Grafana to
 connect to your TimescaleDB instance.
