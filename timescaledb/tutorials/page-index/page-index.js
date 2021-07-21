@@ -109,8 +109,22 @@ module.exports = [
           href: "monitor-django-with-prometheus"
         },
         {
-          title: "Win your NFL fantasy league with TimescaleDB",
-          href: "nfl-fantasy-league"
+          title: "Analyze NFL play data",
+          href: "nfl-analytics",
+          children: [
+            {
+              title: "Ingest and query data",
+              href: "ingest-and-query"
+            },
+            {
+              title: "Advanced analysis of play data",
+              href: "advanced-analysis"
+            },
+            {
+              title: "Visualize player movement with Python",
+              href: "play-visualization"
+            }
+          ]
         },
         {
           href: "sample-datasets"
