@@ -12,21 +12,21 @@ new service to run Grafana.
 1.  Click `Create a new service`.
 1.  In the `Select your service` section, click `TimescaleDB Grafana - Metrics
     dashboard`:
-    <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/mst-selectservice-grafana.png" alt="Select the Grafana service"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-selectservice-grafana.png" alt="Select the Grafana service"/>
 1.  In the `Select your cloud service provider` and `Select your cloud service
     region` sections, choose the provider and region that you prefer, or accept
     the default values.
 1.  In the `Select your service plan` section, click `Dashboard-1`.
 1.  In the `Provide your service name` section, type a name for your new
     service. In this example, we've used `grafana-tutorial`.
-    <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/mst-nameservice-grafana.png" alt="Name the Grafana service"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-nameservice-grafana.png" alt="Name the Grafana service"/>
 1.  When you are happy with your selections, click `Create Service` to go back  
     to the `Services` view while your service is created. The status indicator
     says `Rebuilding` while the service is created. It is ready for you to use
     when the indicator is green and says `Running`. This usually takes a couple
     of minutes, but different clouds can vary. You can click the service name in
     the list to see more information and make changes.
-    <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
 
 ## Log in to your MST Grafana service
 When your service is built, you can log and set up your data services.
@@ -36,7 +36,7 @@ When your service is built, you can log and set up your data services.
     Grafana service.
 1.  On the service details page, take a note of the user name and password for
     your service, and click the link in the `Service URI` field to open Grafana:
-    <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
 1.  Log in to Grafana with your service credentials.
 
 
@@ -47,7 +47,7 @@ connect to your TimescaleDB instance.
 ### Connecting Grafana to your TimescaleDB instance
 1.  In Grafana, click `Configuration → Data Sources` in the left menu bar.
 1.  Click `Add Data Source` and choose the `PostgreSQL` option in the SQL group:
-    <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/grafana-add-postgresql.png" alt="Adding PostgreSQL to Grafana"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/grafana-add-postgresql.png" alt="Adding PostgreSQL to Grafana"/>
 1.  On the data sources configuration page, complete these details:
     *   In the `Name` field, type a name for the data source. In this example,
         we used `tsdb-grafana-tutorial`.
@@ -58,10 +58,11 @@ connect to your TimescaleDB instance.
         example, we used `grafana-tutorial`.
     *   In the `User` field, type the user name for your Grafana service.
     *   In the `Password` field, type the password for your Grafana service.
-    <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/grafana-configure-postgresql.png" alt="Configure the PostgreSQL data source"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/grafana-configure-postgresql.png" alt="Configure the PostgreSQL data source"/>
 1.  In the `PostgreSQL details` section, in the `TimescaleDB` field, toggle the
-  switch on:
-  <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/grafana-configure-tsdb.png" alt="Configure PostgreSQL to use TimescaleDB"/>
-1.  Click `Save & Test`. You can confirm your data source is working by clicking `Back`, and checking that your service is listed correctly.
+    switch on:
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/grafana-configure-tsdb.png" alt="Configure PostgreSQL to use TimescaleDB"/>
+1.  Click `Save & Test`. You can confirm your data source is working by clicking
+    `Back`, and checking that your service is listed correctly.
 
 [mst-login]: https://portal.timescale.cloud/login
