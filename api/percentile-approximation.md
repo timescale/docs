@@ -33,10 +33,10 @@ In order to use functions in the TimescaleDB Toolkit, ensure that
 the [extension is installed](/timescaledb/latest/how-to-guides/install-timescaledb-toolkit/) and available within your database.
 </highlight>
 
-Percentiles in TimescaleDB are calculated in two steps. First, we must create a percentile estimator
-which can be created using either  
-[`percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg/), or one of the [advanced aggregation methods](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/) ([`uddsketch()`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/), or [`tdigest()`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/tdigest/) ).
-Estimators may be combined or re-aggregated using the [rollup](/latest/hyperfunctions/percentile-approximation/rollup-percentile/) function.
+Percentiles in TimescaleDB are calculated in two steps. First, we
+must create a percentile estimator which can be created using either
+[`percentile_agg()`][percentile_agg],
+or one of the [advanced aggregation methods][advanced_agg_methods] `uddsketch()` or `tdigest()`. Estimators can be combined or re-aggregated using the [rollupfunction][rollup].
 
 Once the estimator is created, the desired values can be obtained by using the aggregate result as
 input to the following functions: [](#percentile-accessors)
@@ -49,3 +49,7 @@ input to the following functions: [](#percentile-accessors)
 
 Additionally, the output of the aggregation methods can be stored as part of a
 continuous aggregate for re-aggregation using the above value functions.
+
+[percentile_agg]: /hyperfunctions/percentile-approximation/percentile_agg/
+[advanced_agg_methods]: /hyperfunctions/percentile-approximation/percentile-aggregation-methods/
+[rollup]: /latest/hyperfunctions/percentile-approximation/rollup-percentile/
