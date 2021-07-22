@@ -19,10 +19,17 @@ of how ingest time-series data into TimescaleDB (even when it doesn't _seem_ lik
 time-series data) and how you can use plain SQL to do powerful data analysis and 
 also visualize the data with Python.
 
+This tutorial has a few sections to help you on your journey:
 
 1. [Ingest and query data](/tutorials/nfl-analytics/ingest-and-query)
-1. [Analyze NFL data](/tutorials/nfl-analytics/advanced-analysis/)
-1. [Visualize pre-snap positions and player movement](/tutorials/nfl-analytics/play-visualization/)
+
+    Download the data, create tables in TimescaleDB and run your first query on NFL tracking data.
+2. [Analyze NFL data](/tutorials/nfl-analytics/advanced-analysis/)
+
+    Examine the data at a deeper level with more advanced queries, using features of TimescaleDB to make queries faster and effective. You'll also see examples of some visualizations you can create using the data.
+3. [Visualize pre-snap positions and player movement](/tutorials/nfl-analytics/play-visualization/)
+
+    For a little advanced fun, you'll see how to create images that plot the movement of every player on the field for any play using Python and MatPlotlib.
    
 ## Prerequisites
 
