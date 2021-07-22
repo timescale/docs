@@ -20,9 +20,9 @@ time-series data) and how you can use plain SQL to do powerful data analysis and
 also visualize the data with Python.
 
 
-1. [Ingest and query data](#create-tables)
-1. [Analyze NFL data](#analyze-nfl-data)
-1. [Visualize pre-snap positions and player movement](#visualize-pre-snap-positions-and-player-movement)
+1. [Ingest and query data](/tutorials/nfl-analytics/ingest-and-query)
+1. [Analyze NFL data](/tutorials/nfl-analytics/advanced-analysis/)
+1. [Visualize pre-snap positions and player movement](/tutorials/nfl-analytics/play-visualization/)
    
 ## Prerequisites
 
