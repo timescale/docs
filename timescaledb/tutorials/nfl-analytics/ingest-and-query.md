@@ -1,22 +1,23 @@
 ## Ingest data and run your first query
 
 The main dataset is provided by [Kaggle as multiple CSV files][kaggle-download]. 
-Additionally, we have gathered [other information about stadiums and the outcome 
-of each game][extra-download] to provide you with additional data to analyze.
+Additionally, we have gathered 
+[other information about stadiums and the outcome of each game][extra-download] 
+to provide you with additional data to analyze.
 
 The data is provided in multiple CSV files, each corresponding to a table in the database
 that contains the following information:
 
 * **game**
-  * Information about each game (home team, visitor team, week of play, etc.)
+  * Information about each game (home team, visitor team, week of play, and more)
   * `game_id` is a primary key
 
 * **player**
-  * Player information (display_name, college, position, etc.)
-  * `player_id` is a primary_key. 
+  * Player information (display_name, college, position, and more)
+  * `player_id` is a primary key. 
 
 * **play**
-  * Play information (game, play, quarter, down, pass result, etc). _Lots_ of good
+  * Play information (game, play, quarter, down, pass result). Lots of good
   overall play information to analyze.
   * To query a specific play, you need to use `gameid` and `playid` together, as some 
   `playid`'s are reused from game-to-game.
@@ -37,7 +38,7 @@ that contains the following information:
   * Home stadium of each team and additional information like `surface`, `roof_type`, `location`.
 
 
-Create the tables with the following SQL.
+Create the tables with this SQL:
 
 ```sql
 CREATE TABLE game (
@@ -207,16 +208,16 @@ conn.close()
 
 ## Run your first query
 
-Now that you have all the data ingested, let's run your first aggregation query 
-and examine the results. For most of the example queries that follow throughout 
-the tutorial, you'll need to aggregate data from the `tracking` table, which 
+Now that you have all the data ingested, you can run the first aggregation query 
+and examine the results. For most of the example queries in this tutorial,
+you'll need to aggregate data from the `tracking` table, which 
 contains multiple rows per player for each play (because the data is sampled 
 multiple times per second during each play)
 
 ### Number of yards run in game for passing plays, by player and game
 
 This query sums all yards for each player in every game. You can then 
-join that on the `player` table to get player details.
+join that on the `player` table to get player details:
 
 ```sql
 SELECT t.player_id, p.display_name, SUM(dis) AS yards, t.gameid 
@@ -237,16 +238,16 @@ Your data should look like this:
 |   2555383 | Jalen Mills                 |  856.1199999999916 | 2018090600|
 
 You might have noticed, however, that this data takes a long time to query because
-we have to aggregate every row in the `tracking` table in order to get the total
+we have to aggregate every row in the `tracking` table to get the total
 yards of each player, in each game. That's a lot of work for PostgreSQL to do
 when it needs to scan 20 million rows. On our small test machine this query 
 often takes 25-30 seconds to run.
 
 ## Faster queries with continuous aggregates
 Most of the data we were interested in are based on this aggregation of the 
-`tracking` data. We often needed to know how far a player traveled on each play
+`tracking` data. We wanted to know how far a player traveled on each play
 or throughout each game. Rather than asking TimescaleDB to query and aggregate
-that raw data every time, we created a [continuous aggregate][] out of this base query
+that raw data every time, we created a [continuous aggregate][cagg] out of this base query
 to significantly improve the speed of queries and analysis.
 
 ### Create continuous aggregate of player yards per game
@@ -261,7 +262,7 @@ FROM tracking t
 GROUP BY t.player_id, t.gameid, t.position, bucket;
 ```
 
-Once the continuous aggregate is created, modify the query to use this new 
+When you have created the continuous aggregate, modify the query to use the 
 materialized data and notice the response time is now significantly faster, under
 one second on our test machine.
 
@@ -273,11 +274,11 @@ GROUP BY pyg.player_id, p.display_name, pyg.gameid
 ORDER BY pyg.gameid ASC, yards DESC;
 ```
 
-We'll use this continuous aggregate in many of the queries that follow in the
+We'll use this continuous aggregate in most of the queries in the
 next section. Feel free to play with other variations of this materialized data
 as you try to answer even more questions with TimescaleDB.
 
 
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
-[continuous aggregate]: /how-to-guides/continuous-aggregates/
+[cagg]: /how-to-guides/continuous-aggregates/
