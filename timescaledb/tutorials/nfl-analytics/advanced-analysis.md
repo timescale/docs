@@ -1,16 +1,15 @@
 ## Analyze NFL data
 
-The data has been ingested, you've run a straight-forward aggregate query, and
-then you improved the performance of your analysis with continuos aggregates.
+So far in this tutorial, you have ingested the data and run an aggregate query. Then you 
+improved the performance of your analysis with continuous aggregates.
 
-Now, let's 
-go over some ideas on how you can further analyze the data using PostgreSQL and 
-TimescaleDB to help you understand more about player activity during the NFL
+Now, let's go over some ideas on analyzing the data using PostgreSQL and 
+TimescaleDB, to help you understand more about player activity during the NFL
 season.
 
 <highlight type="tip">
 Some of this analysis includes visualizations to help you see the potential uses 
-for this data. These are created using the [Matplotlib](https://matplotlib.org/)
+of this data. These are created using the [Matplotlib](https://matplotlib.org/)
 Python module, which is one of many great visualization tools. 
 </highlight>
 
@@ -38,8 +37,8 @@ are null for the first row. This row represents the average yard data for the fo
 ### Average and median yards run per game by type of player (not taking avg of individual)
 
 For this query, you will use another one of the TimescaleDB percentile functions 
-called `percentile_agg`. You will set the `percentile_agg` function to find the 
-50th percentile which will return the approximate median.
+called `percentile_agg`. You can use the `percentile_agg` function to find the 
+50th percentile which is the approximate median.
 
 ```sql
 WITH sum_yards AS (
@@ -75,7 +74,7 @@ to draft for a fantasy league!
 ### Number of snap plays by player where they were on the offense
 
 In this query, you are counting the number of passing events a player was 
-involved in while playing the offensive. You will notice how much slower this 
+involved in while playing the offensive. You might notice how much slower this 
 query runs than the ones above which use continuous aggregates. The speed you 
 see here is comparable to what you would get in the other queries without using 
 continuous aggregates.
@@ -146,15 +145,15 @@ plays and scores as gold, and the losing team's plays and scores as brown.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/nfl_tutorial/wins_vs_plays.png" alt="Wins vs Plays"/>
 
 The y-axis, or the number of plays for one team during a single game, shows that 
-more plays do not always imply a guaranteed win. In fact, the top three teams 
+more _passing_ plays do not always imply a guaranteed win. In fact, the top three teams 
 with the highest number of plays for a single game all appeared to have lost. There 
 are many interesting facts which you could glean from this query, this scatter plot 
-being just one possibility. 
+is just one possibility. 
 
 ### Average yards per game for top three players of each position
 
 You can use this PostgreSQL query to extract the average yards run by an individual 
-player over one game. This query will only include the top three highest player's 
+player over one game. This query only includes the top three highest player's 
 average yard values per position type. The data is ordered by the average yards 
 run across all players for each position. This becomes important later on. 
 
@@ -202,8 +201,7 @@ that Kyle Juszczyk runs far more on average than other Fullback players.
 
 ## It's only halftime!
 These example queries are just the beginning examples of the analysis you can 
-perform on any tie-series data with regular SQL and helpful features like continuous
+perform on any time-series data with regular SQL and helpful features like continuous
 aggregates. Consider joining in stadium data that we provided to see if teams
 tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
-
