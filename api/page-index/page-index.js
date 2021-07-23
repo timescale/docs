@@ -355,7 +355,7 @@ module.exports = [
             ]
           },          
         ]
-      },
+      }, 
       {
         title: "Informational views",
         type: 'directory',
@@ -421,7 +421,18 @@ module.exports = [
             href: "dump_meta_data"
           }
         ]
+      },
+      {
+        title: "Experimental",
+        type: 'directory',
+        href: "experimental",
+        children: [
+          {
+            title: "time_bucket_ng",
+            href: "time_bucket_ng"
+          }     
+        ]
       }
-],
+    ],
   }
 ]

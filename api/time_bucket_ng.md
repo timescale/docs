@@ -1,0 +1,84 @@
+## timescaledb_experimental.time_bucket_ng()
+
+`time_bucket_ng()` (**n**ew **g**eneration) is an experimental function
+similar to [`time_bucket()`][1], but it also works with years, month and 
+going to support timezones in the future.
+
+Here’s how to use `time_bucket_ng()` to create bucket data in 3 month 
+intervals: 
+
+```
+SELECT timescaledb_experimental.time_bucket_ng('3 month', date '2021-08-01');
+ time_bucket_ng
+----------------
+ 2021-07-01
+(1 row)
+```
+
+Here’s how to use `time_bucket_ng()` to bucket data in 1 year intervals:
+
+```
+SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
+ time_bucket_ng
+----------------
+ 2021-01-01
+(1 row)
+```
+
+Here’s how to use `time_bucket_ng()` when creating continuous aggregates.
+In this case, we track the temperature in Moscow over 7 day intervals: 
+
+```
+CREATE TABLE conditions(
+  day DATE NOT NULL,
+  city text NOT NULL,
+  temperature INT NOT NULL);
+
+SELECT create_hypertable(
+  'conditions', 'day',
+  chunk_time_interval => INTERVAL '1 day'
+);
+
+INSERT INTO conditions (day, city, temperature) VALUES
+  ('2021-06-14', 'Moscow', 26),
+  ('2021-06-15', 'Moscow', 22),
+  ('2021-06-16', 'Moscow', 24),
+  ('2021-06-17', 'Moscow', 24),
+  ('2021-06-18', 'Moscow', 27),
+  ('2021-06-19', 'Moscow', 28),
+  ('2021-06-20', 'Moscow', 30),
+  ('2021-06-21', 'Moscow', 31),
+  ('2021-06-22', 'Moscow', 34),
+  ('2021-06-23', 'Moscow', 34),
+  ('2021-06-24', 'Moscow', 34),
+  ('2021-06-25', 'Moscow', 32),
+  ('2021-06-26', 'Moscow', 32),
+  ('2021-06-27', 'Moscow', 31);
+
+CREATE MATERIALIZED VIEW conditions_summary_weekly
+WITH (timescaledb.continuous) AS
+SELECT city,
+       timescaledb_experimental.time_bucket_ng('7 days', day) AS bucket,
+       MIN(temperature),
+       MAX(temperature)
+FROM conditions
+GROUP BY city, bucket;
+
+SELECT to_char(bucket, 'YYYY-MM-DD'), city, min, max
+FROM conditions_summary_weekly
+ORDER BY bucket;
+
+  to_char   |  city  | min | max
+------------+--------+-----+-----
+ 2021-06-12 | Moscow |  22 |  27
+ 2021-06-19 | Moscow |  28 |  34
+ 2021-06-26 | Moscow |  31 |  32
+(3 rows)
+```
+
+See the [Continuous Aggregates][2] docs for the general information about
+continuous aggregates and how to use them.
+
+
+[1]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
+[2]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/continuous-aggregates/
