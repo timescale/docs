@@ -109,7 +109,7 @@ module.exports = [
           href: "monitor-django-with-prometheus"
         },
         {
-          title: "Analyze NFL play data",
+          title: "Analyze data using hyperfunctions",
           href: "nfl-analytics",
           children: [
             {
@@ -117,15 +117,15 @@ module.exports = [
               href: "ingest-and-query"
             },
             {
-              title: "Advanced analysis of play data",
+              title: "Using hyperfunctions",
               href: "advanced-analysis"
             },
             {
-              title: "Join time-series data with relational data",
+              title: "Join time-series and relational data",
               href: "join-with-relational"
             },
             {
-              title: "Visualize player movement with Python",
+              title: "Visualize time-series data",
               href: "play-visualization"
             }
           ]
