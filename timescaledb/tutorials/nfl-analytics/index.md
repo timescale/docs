@@ -1,7 +1,8 @@
-# Analyze NFL play-by-play data with TimescaleDB
+# Using TimescaleDB hyperfunctions
 
-This tutorial is a step-by-step guide on how to ingest and analyze American football 
-data with TimescaleDB.
+This tutorial is a step-by-step guide on how to use TimescaleDB hyperfunctions.
+It also takes advantage of a unique capability of TimescaleDB: the ability to
+join time-series data with relational data.
 
 The dataset that we're using is provided by the National Football League (NFL) 
 and contains player and tracking data for all the passing plays of the 2018 NFL 
@@ -16,18 +17,21 @@ week to week.
 
 Even if you aren't an NFL fan, this tutorial provides a great example
 of how to ingest time-series data into TimescaleDB (even when it doesn't _seem_ like
-time-series data), how you can use plain SQL to do powerful data analysis, and 
-also visualize the data with Python.
+time-series data), how you can use plain SQL and TimescaleDB hyperfunctions to do 
+powerful data analysis, and also visualize the data with Python.
 
 This tutorial has a few sections to help you on your journey:
 
 1. [Ingest and query data](/tutorials/nfl-analytics/ingest-and-query)
 
     Download the data, create tables in TimescaleDB, and run your first query on NFL tracking data.
-2. [Analyze NFL data](/tutorials/nfl-analytics/advanced-analysis/)
+2. [Analyze NFL data using hyperfunctions](/tutorials/nfl-analytics/advanced-analysis/)
 
     Examine the data at a deeper level with more advanced queries, using features of TimescaleDB to make queries faster and effective. You'll also see examples of some visualizations you can create using the data.
-3. [Visualize pre-snap positions and player movement](/tutorials/nfl-analytics/play-visualization/)
+3. [Join time-series data with relational data](/tutorials/nfl-analytics/join-with-relational)
+
+    Gain further insight into your time-series data by joining it with relational data.
+4. [Visualize time-series play-by-play data](/tutorials/nfl-analytics/play-visualization/)
 
     For a little extra fun, create images that plot the movement of every player on the field for any play using Python and MatPlotlib.
    

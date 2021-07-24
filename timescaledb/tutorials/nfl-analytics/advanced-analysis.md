@@ -1,4 +1,4 @@
-## Analyze NFL data
+## Advanced analysis using SQL and TimescaleDB hyperfunctions
 
 So far in this tutorial, you have ingested the data and run an aggregate query. Then you 
 improved the performance of your analysis with continuous aggregates.
@@ -15,8 +15,8 @@ Python module, which is one of many great visualization tools.
 
 ### Average yards run for a player over a game
 
-This query uses one of the percentile approximation hyperfunction to find the 
-mean yards run per game by a single player. 
+This query uses a percentile approximation [hyperfunction][timescaledb-hyperfunctions] 
+to find the mean yards run per game by a single player. 
 
 ```sql
 WITH sum_yards AS (
@@ -67,14 +67,12 @@ If you scroll to the bottom of your results you should see this:
 Notice how the Defensive End (DE) position has a large discrepancy between its 
 mean and median values. The median data implies that most DE players do not run 
 very much during passing plays. However, the mean data implies that some of the 
-DE players must be running a significant amount. You may want to find out who 
-these high performing defensive players are if you're trying to find players
-to draft for a fantasy league!
+DE players must be running a significant amount.
 
 ### Number of snap plays by player where they were on the offense
 
 In this query, you are counting the number of passing events a player was 
-involved in while playing the offensive. You might notice how much slower this 
+involved in while playing offense. You might notice how much slower this 
 query runs than the ones above which use continuous aggregates. The speed you 
 see here is comparable to what you would get in the other queries without using 
 continuous aggregates.
@@ -105,9 +103,8 @@ ORDER BY play_count DESC
 ```
 
 Notice that the two highest passing plays are for Ben Roethlisberger and JuJu 
-Smith-Schuster, a Quarterback and Wide Receiver respectively for the Pittsburgh 
-Steelers. These may be two great options to consider when drafting your fantasy 
-football league. 
+Smith-Schuster, a Quarterback and Wide Receiver, respectively, for the Pittsburgh 
+Steelers.
 
 ### Number of plays vs points scored
 
@@ -146,14 +143,15 @@ plays and scores as gold, and the losing team's plays and scores as brown.
 
 The y-axis, or the number of plays for one team during a single game, shows that 
 more _passing_ plays do not always imply a guaranteed win. In fact, the top three teams 
-with the highest number of plays for a single game all appeared to have lost. There 
-are many interesting facts which you could glean from this query, this scatter plot 
-is just one possibility. 
+with the highest number of plays for a single game all appeared to have lost. (In football,
+this makes logical sense, as teams that are behind late in the game tend to pass more.) 
+There are many interesting facts which you could glean from this type of query, this scatter 
+plot is just one possibility. 
 
 ### Average yards per game for top three players of each position
 
 You can use this PostgreSQL query to extract the average yards run by an individual 
-player over one game. This query only includes the top three highest player's 
+player over one game. This query only includes the top three highest players' 
 average yard values per position type. The data is ordered by the average yards 
 run across all players for each position. This becomes important later on. 
 
@@ -205,3 +203,5 @@ perform on any time-series data with regular SQL and helpful features like conti
 aggregates. Consider joining in stadium data that we provided to see if teams
 tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
+
+[timescaledb-hyperfunctions]: /api/latest/hyperfunctions/percentile-approximation/

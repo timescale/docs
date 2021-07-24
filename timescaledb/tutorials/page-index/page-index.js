@@ -121,6 +121,10 @@ module.exports = [
               href: "advanced-analysis"
             },
             {
+              title: "Join time-series data with relational data",
+              href: "join-with-relational"
+            },
+            {
               title: "Visualize player movement with Python",
               href: "play-visualization"
             }
