@@ -42,7 +42,7 @@ module.exports = [
                 href: "ingest-and-query"
               },
               {
-                title: "Using hyperfunctions",
+                title: "Using advanced SQL and hyperfunctions",
                 href: "advanced-analysis"
               },
               {

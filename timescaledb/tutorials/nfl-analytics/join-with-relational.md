@@ -18,3 +18,8 @@ players at each position when they are playing at Mile High Stadium.
 Players often say they "feel" faster on artifical turf. How much faster are they
 in reality?
 
+### We're going to overtime!
+
+Sometimes it's helpful to visualize time-series data in order to fully understand
+how a system is performing. The NFL dataset includes play-by-play data. It is possible 
+to visualize this information so that you can see how a play unfolds.
