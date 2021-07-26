@@ -1,4 +1,4 @@
-# Using TimescaleDB continuous aggregates and hyperfunctions 
+# Analyze data using TimescaleDB continuous aggregates and hyperfunctions 
 
 This tutorial is a step-by-step guide on how to use TimescaleDB for analyzing time-series data. We will show you how to utilize TimescaleDB's continuous aggregates and hyperfunctions for faster and more efficient queries. 
 We will also take advantage of a unique capability of TimescaleDB: the ability to
@@ -25,7 +25,7 @@ This tutorial has a few sections to help you on your journey:
 1. [Ingest and query data](/tutorials/nfl-analytics/ingest-and-query)
 
     Download the data, create tables in TimescaleDB, and run your first query on NFL tracking data.
-2. [Analyze NFL data using continuous aggregates and hyperfunctions](/tutorials/nfl-analytics/advanced-analysis/)
+2. [Analyze data using continuous aggregates and hyperfunctions](/tutorials/nfl-analytics/advanced-analysis/)
 
     Examine the data at a deeper level with more advanced queries, using features of TimescaleDB to make queries faster and effective. You'll also see examples of some visualizations you can create using the data.
 3. [Join time-series data with relational data](/tutorials/nfl-analytics/join-with-relational)
