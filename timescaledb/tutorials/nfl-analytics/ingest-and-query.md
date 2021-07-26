@@ -255,11 +255,12 @@ to significantly improve the speed of queries and analysis.
 ```sql
 CREATE MATERIALIZED VIEW player_yards_by_game
 WITH (timescaledb.continuous) AS
-SELECT t.player_id, t.gameid, t.position,
+SELECT t.player_id, t.gameid, t.position, t.team,
 	time_bucket(INTERVAL '1 day', t."time") AS bucket,
-	SUM(t.dis) AS yards
+	SUM(t.dis) AS yards,
+  AVG(t.a) AS acc
 FROM tracking t 
-GROUP BY t.player_id, t.gameid, t.position, bucket;
+GROUP BY t.player_id, t.gameid, t.position, t.team, bucket;
 ```
 
 When you have created the continuous aggregate, modify the query to use the 
