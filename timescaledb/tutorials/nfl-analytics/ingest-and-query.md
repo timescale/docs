@@ -255,7 +255,7 @@ to significantly improve the speed of queries and analysis.
 ```sql
 CREATE MATERIALIZED VIEW player_yards_by_game
 WITH (timescaledb.continuous) AS
-SELECT t.player_id, t.gameid, t.position
+SELECT t.player_id, t.gameid, t.position,
 	time_bucket(INTERVAL '1 day', t."time") AS bucket,
 	SUM(t.dis) AS yards
 FROM tracking t 
