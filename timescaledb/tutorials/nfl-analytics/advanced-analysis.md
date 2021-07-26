@@ -1,4 +1,4 @@
-## Advanced analysis using SQL and TimescaleDB hyperfunctions
+## Advanced analysis using SQL and TimescaleDB continuous aggregates and hyperfunctions
 
 So far in this tutorial, you have ingested the data and run an aggregate query. Then you 
 improved the performance of your analysis with continuous aggregates.
