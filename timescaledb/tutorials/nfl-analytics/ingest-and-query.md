@@ -123,7 +123,7 @@ CREATE TABLE scores (
     home_score INT
 );
 
-CREATE TABLE stadium_info(
+CREATE TABLE stadium_info (
     stadiumid INT PRIMARY KEY,
     stadium_name TEXT,
     location TEXT,

@@ -30,6 +30,15 @@ FROM sum_yards
 GROUP BY player_id, display_name
 ORDER BY yards DESC
 ```
+Your data should look like this:
+
+|player_id|display_name|yards|
+|--------|-----------|-------------|
+|NULL	    |NULL	        |2872.5647430830086|
+|2508061	|Antonio Brown	|1125.1706666666641|
+|2556214	|Tyreek Hill	|1007.1073333333323|
+|2543495	|Davante Adams	|971.6339999999967|
+|2543498	|Brandin Cooks	|969.3762499999964|
 
 When you run this query you might notice that the `player_id` and `display_name` 
 are null for the first row. This row represents the average yard data for the football. 
@@ -58,7 +67,7 @@ ORDER BY mean_yards DESC
 If you scroll to the bottom of your results you should see this:
 
 |position| mean_yards        | median_yards  |
-|-----| ------------- |:----------------:|
+|-----| ------------- |----------------|
 |HB| 275.04279069767404    | 250.88667462709043 |
 |DE| 185.76162011173133   | 33.750683636185684 |
 |FB| 100.37912844036691 | 67.0876116670915 |
@@ -105,6 +114,12 @@ ORDER BY play_count DESC
 Notice that the two highest passing plays are for Ben Roethlisberger and JuJu 
 Smith-Schuster, a Quarterback and Wide Receiver, respectively, for the Pittsburgh 
 Steelers.
+
+|player_id| display_name  | play_count  |team|
+|-----| ------------- |----------------|------|
+|2506109	|Ben Roethlisberger	    |725	|PIT
+|2558149	|JuJu Smith-Schuster	|691	|PIT
+|2533031	|Andrew Luck	        |683	|IND
 
 ### Number of plays vs points scored
 

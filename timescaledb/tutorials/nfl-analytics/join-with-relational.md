@@ -11,9 +11,9 @@ visit Denver's Mile-High stadium are at a disadvantage because unlike the home t
 (the Denver Broncos), they are not accustomed to playing in high altitude.
 
 Earlier we ingested stadium data. Now we can run a query to see the performance of
-players at each position when they are playing at Mile High Stadium.
+players when they are playing at Mile High Stadium.
 
-Use this query to compare the average acceleration and yards run of individual players when they are performing in stadiums outside of Denver versus when they are playing in Denver. The columns `avg_acc_den` and `avg_yards_den` represent the acceleration and yard statistics while in Denver.  
+Like many of the queries in our analysis section, for this example you will utilize the relational nature of this data. You will join the `tracking`, `player`, and `game` tables to compare the average acceleration and yards run of individual players when they are performing in stadiums outside of Denver versus when they are playing within Denver. The columns `avg_acc_den` and `avg_yards_den` represent the acceleration and yard statistics while in Denver.  
 
 ```sql
 WITH stat_vals AS (
@@ -51,15 +51,24 @@ SELECT * FROM avg_stats
 WHERE avg_acc IS NOT NULL AND avg_acc_den IS NOT NULL
 ORDER BY avg_acc DESC, avg_acc_den DESC
 ```
+You should see this:
 
-You can see that generally, it appears many players may have worse acceleration and average number of yards run per game while playing in Denver. 
+|player_id|display_name|avg_acc|avg_acc_den|avg_yards|avg_yards_den|games|games_den|
+|-------|----------------|-----|-----------|----------|----------|--------|--------|
+|2552597|Breshad Perriman|2.32|2.06|408.79|461.08|9|1|
+|2560988|Antonio Callaway|	2.27|	2.30	|778.91|741.06|15|1|
+|2556214|Tyreek Hill	|2.27	|2.19|	1007.31|1004.26	|14|1|
+|2558194|Josh Reynolds|	2.26]	|2.40]	|527.80]|529.16	|15|1|
+|2543498|Brandin Cooks|	2.26	|2.26	|975.61|	875.90	|15|1|
+
+You can see that generally, it appears many players may have worse acceleration and average number of yards run per game while playing in Denver. However, it is good to note that you only have one sample point showing Denver averages which effects statistical significance. 
 
 ### Grass vs. turf, the eternal (football) question
 
-Players often say they "feel" faster on artifical turf. How much faster are they
+Players often say they "feel" faster on artificial turf. How much faster are they
 in reality?
 
-Using this query you will extract the average acceleration that a player has while using turf verses grass. The column `avg_acc_turf` represents the players average acceleration while using artificial turf, and `avg_acc_grass` represents their average acceleration while on grass. 
+Using this query you will join the `tracking`, `stadium_info`, `game`, and `player` tables, to extract the average acceleration that a player has while using turf verses grass. The column `avg_acc_turf` represents the players average acceleration while using artificial turf, and `avg_acc_grass` represents their average acceleration while on grass. 
 
 ```sql
 WITH acceleration AS (
@@ -88,9 +97,19 @@ WHERE avg_acc_turf IS NOT NULL AND avg_acc_grass IS NOT NULL AND player_id IS NO
 ORDER BY avg_acc_turf DESC, avg_acc_grass DESC
 ```
 
+You should see this:
+
+|player_id|display_name|avg_acc_turf|avg_acc_grass|
+|--------|-----------|-------------|---------------|
+|2559066	|Gehrig Dieter	|3.25	|2.29|
+|2507948	|Frank Zombo	|2.93	|2.30|
+|2555173	|Eric Murray	|2.78	|1.86|
+|2552374	|Ameer Abdullah	|2.76	|2.48|
+|2552408	|Darren Waller	|2.69	|2.83|
+
 For many players, it appears that they are indeed faster on artificial turf. This 'feeling' of increased speed may in fact be grounded in reality. 
+
 ### We're going to overtime!
 
 Sometimes it's helpful to visualize time-series data in order to fully understand
-how a system is performing. The NFL dataset includes play-by-play data. It is possible 
-to visualize this information so that you can see how a play unfolds.
+how a system is performing. The NFL dataset includes play-by-play data. It is possible to visualize this information so that you can see how a play unfolds.
