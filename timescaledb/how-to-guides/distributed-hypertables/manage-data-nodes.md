@@ -50,8 +50,8 @@ data nodes (see the next section on native replication).
 
 ## Moving data between nodes
 
-When attaching a new data node to a distributed hypertable, it might
-desirable to move data to the new node in order to free up storage on
+When you attach a new data node to a distributed hypertable, you might
+prefer to move data to the new node to free up storage on the
 existing nodes and make queries use the added capacity. Data can be
 moved between nodes at the chunk level:
 
