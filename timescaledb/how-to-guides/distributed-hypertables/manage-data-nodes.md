@@ -62,8 +62,8 @@ CALL timescaledb_experimental.move_chunk('_timescaledb_internal._dist_hyper_1_1_
 
 <highlight type="warning"> 
 The ability to move chunks between data nodes is an experimental
-feature that is under active development. Use in production
-environments at your own risk.
+feature that is under active development. We recommend that you
+do not use this feature in a production environment.
 </highlight>
 
 The move operation involves several transactions and therefore cannot
