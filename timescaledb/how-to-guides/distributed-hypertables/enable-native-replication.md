@@ -89,7 +89,7 @@ has sufficient number of replicas:
 CALL timescaledb_experimental.copy_chunk('_timescaledb_internal._dist_hyper_1_1_chunk', 'data_node_3', 'data_node_2');
 ```
 
-The chunk copying happens over several transactions and cannot be
+The chunk is copied over several transactions and cannot be
 rolled back automatically. If the copy operation is aborted or
 terminated prematurely by the user, an operation ID for the aborted
 copy is logged. This operation ID can later be used to clean up
