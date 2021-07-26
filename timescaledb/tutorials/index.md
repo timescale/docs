@@ -12,6 +12,7 @@ data analysis and make forecasts on your data.
 - **[Analyze cryptocurrency data][Crypto]**: Use TimescaleDB to analyze historic cryptocurrency data. Learn how to build your own schema, ingest data, and analyze information in TimescaleDB.
 - **[Analyze intraday stock data][Stocks]**: One of the most common uses for time-series data is to collect intraday securities information. Learn how to collect stock data, store it in TimescaleDB, and perform the most common queries.
 - **[Build custom TimescaleDB dashboards][custom-dashboards]**: Learn how to obtain metrics data from TimescaleDB and visualize it using a basic React app.
+- **[Analyze NFL play-by-play data][nfl]**: Investigate more than 20 million rows of data from the 2018 NFL season that tracks the movement of all players on the field. For each play, gain insights into player performance and potential strategies to find better fantasy football draft picks.
 
 ### Observability scenarios
 
@@ -66,3 +67,4 @@ and pick up some valuable `psql` tips and tricks along the way.
 [tutorial-grafana-alerts]: /tutorials/grafana/setup-alerts
 [simul-iot-data]: /tutorials/simulate-iot-sensor-data
 [nyc-taxi]: /tutorials/nyc-taxi-cab/
+[nfl]: /tutorials/nfl-analytics/

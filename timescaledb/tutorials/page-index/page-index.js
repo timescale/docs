@@ -34,6 +34,28 @@ module.exports = [
             ]
           },
           {
+            title: "Analyze data using hyperfunctions",
+            href: "nfl-analytics",
+            children: [
+              {
+                title: "Ingest and query data",
+                href: "ingest-and-query"
+              },
+              {
+                title: "Analyze data using SQL and hyperfunctions",
+                href: "advanced-analysis"
+              },
+              {
+                title: "Join time-series and relational data",
+                href: "join-with-relational"
+              },
+              {
+                title: "Visualize time-series data",
+                href: "play-visualization"
+              }
+            ]
+          },
+          {
             title: "Getting started with Promscale",
             href: "promscale",
             children: [
