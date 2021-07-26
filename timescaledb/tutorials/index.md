@@ -40,7 +40,7 @@ with some sample data, we have some ready-made data sets for you to explore.
 - **[Simulate IoT Sensor Data][simul-iot-data]**: Simulate a basic IoT sensor dataset
 on PostgreSQL or TimescaleDB.
 - **[psql installation][psql]**: `psql` is a terminal-based front-end for PostgreSQL.
-Learn how to install `psql` on Mac, Ubuntu, Debian, Windows, 
+Learn how to install `psql` on Mac, Ubuntu, Debian, Windows,
 and pick up some valuable `psql` tips and tricks along the way.
 
 [Forecasting]: /tutorials/time-series-forecast
@@ -59,7 +59,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [custom-dashboards]: /tutorials/custom-timescaledb-dashboards/
 [tableau]: /tutorials/visualize-with-tableau
 [prometheus-tsc-endpoint]: /tutorials/setting-up-timescale-cloud-endpoint-for-prometheus
-[monitor-django-prometheus]: /tutorials/monitor-django-prometheus
+[monitor-django-prometheus]: /tutorials/monitor-django-with-prometheus
 [tutorial-grafana-dashboards]: /tutorials/grafana/create-dashboard-and-panel
 [tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards
 [tutorial-grafana-variables]: /tutorials/grafana/grafana-variables
