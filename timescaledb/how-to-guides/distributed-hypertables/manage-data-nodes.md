@@ -31,10 +31,10 @@ SELECT attach_data_node('node3', hypertable => 'conditions');
 
 When attaching a data node, the partitioning configuration of the
 distributed hypertable is also updated to account for the additional
-data node (i.e., the number of space partitions is automatically
+data node (the number of space partitions are automatically
 increased to match), unless the function parameter `repartition` is
 set to `FALSE`. The updated partitioning configuration ensures that
-the data node will be able to take on newly created chunks.
+the data node is able to take on newly created chunks.
 
 In a similar way, if you want to remove a data node from a distributed
 hypertable, you can use [`detach_data_node`][detach_data_node].
