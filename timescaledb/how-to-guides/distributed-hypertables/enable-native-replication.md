@@ -92,7 +92,7 @@ CALL timescaledb_experimental.copy_chunk('_timescaledb_internal._dist_hyper_1_1_
 The chunk copying happens over several transactions and cannot be
 rolled back automatically. If the copy operation is aborted or
 terminated prematurely by the user, an operation ID for the aborted
-copy will be logged. This operation ID can later be used to cleanup
+copy is logged. This operation ID can later be used to clean up
 any state left by the aborted operation:
 
 ```sql
