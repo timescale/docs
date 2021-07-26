@@ -29,7 +29,7 @@ SELECT add_data_node('node3', host => 'dn3.example.com');
 SELECT attach_data_node('node3', hypertable => 'conditions');
 ```
 
-When attaching a data node, the partitioning configuration of the
+When you attach a data node, the partitioning configuration of the
 distributed hypertable is also updated to account for the additional
 data node (the number of space partitions are automatically
 increased to match), unless the function parameter `repartition` is
