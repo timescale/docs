@@ -67,7 +67,7 @@ replicas, but queries and inserts should work as normal
 again. However, the multi-node cluster remains in a vulnerable state
 until all chunks that lack replicas are fully replicated again.
 
-To view the chunks that need to be replicated use the following query:
+To view the chunks that need to be replicated use this query:
 
 ```sql
 SELECT chunk_schema, chunk_name, replica_nodes, non_replica_nodes 
