@@ -19,9 +19,9 @@ WHERE hypertable_name = 'conditions';
  conditions      | {data_node_1,data_node_2,data_node_3}
 ```
 
-If additional data nodes are added to a database, the data nodes are
+If you add additional data nodes to a database, they are
 not automatically associated with existing distributed
-hypertables. Instead, you need to explicitly *attach* a data node
+hypertables. Instead, you need to explicitly attach a data node
 using [`attach_data_node`][attach_data_node]:
 
 ```sql
