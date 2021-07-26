@@ -15,7 +15,7 @@ Python module, which is one of many great visualization tools.
 
 ### Average yards run for a player over a game
 
-This query uses a percentile approximation [hyperfunction][timescaledb-hyperfunctions] 
+This query uses a percentile approximation [hyperfunction](/hyperfunctions/percentile-approximation/) 
 to find the mean yards run per game by a single player. 
 
 ```sql
