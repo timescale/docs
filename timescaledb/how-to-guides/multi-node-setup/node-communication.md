@@ -53,7 +53,6 @@ pg_ctl reload
 ```
 
 ### 3. Add the data nodes to the access node
-
 Once the nodes are properly configured, you can continue following the
 [multi-node setup][init_data_nodes].
 
@@ -399,7 +398,7 @@ Once the nodes are properly configured, you can continue following the
 
 Allowing new roles to use the certificate to authenticate is simply a matter of
 adding them to the certificate role.  Aside from that, the process of adding new
-users should be the same as for [trust authentication](trust-authentication).
+users should be the same as for [trust authentication](#trust-authentication).
 
 First create the user on the access node if needed and grant it usage on the
 foreign server objects corresponding to the data nodes:
@@ -431,7 +430,7 @@ docs:
 - [detach_data_node][]
 - [distributed_exec][]
 
-[init_data_nodes]: how-to-guides/distributed-hypertables/
+[init_data_nodes]: /how-to-guides/distributed-hypertables/
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
 [passfile]: https://www.postgresql.org/docs/current/libpq-pgpass.html
 [md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm

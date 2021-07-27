@@ -31,16 +31,14 @@ joins between a local table and a distributed hypertable requires
 fetching the raw data from data nodes and performing the join locally.
 
 <highlight type="warning">
-Distributed hypertables currently have some limitations
-when compared to non-distributed hypertables. Before creating a
+Distributed hypertables currently have some limitations when
+compared to non-distributed hypertables. Before creating a
 distributed hypertable for production workloads, please review our
-[limitations][distributed-hypertable-limitations] document to ensure
-that your use case will work as expected. You can also [contact
-us][contact] or join the #multinode channel in our [community Slack][slack].
+[limitations](/overview/limitations#distributed-hypertable-limitations) document
+to ensure that your use case will work as expected. You can also
+[contact us](https://www.timescale.com/contact) or join the #multinode channel in our [community Slack](https://slack.timescale.com/).
 </highlight>
 
 [getting-started-multi-node]: /how-to-guides/multi-node-setup/
 [using-hypertables]: /how-to-guides/hypertables/
 [distributed-hypertable-limitations]: /overview/limitations#distributed-hypertable-limitations
-[contact]: https://www.timescale.com/contact
-[slack]: https://slack.timescale.com/

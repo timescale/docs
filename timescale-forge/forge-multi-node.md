@@ -108,10 +108,10 @@ complete the mapping process outlined below to re-establish the connection betwe
 the access node and the affected data node. You can read about user mapping in
 the [PostgreSQL documentation][postgres-user-mapping].
 
-### Step 3a: Add each data node using the **Internal host** [](step3a)
+### Step 3a: Add each data node using the internal host [](step3a)
 
-For this step, you'll need to copy the **Internal host** listed under the
-**Multi-node Connection Info** heading of the Service details. For every Service,
+For this step, you'll need to copy the internal host listed under the
+`Multi-node Connection Info` heading of the Service details. For every Service,
 we display the primary, external connection information and the local connection
 information that is used when setting up Service-to-Service, multi-node
 connections. Copy this hostname to use in the `add_data_node` command below.

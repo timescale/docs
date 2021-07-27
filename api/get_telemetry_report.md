@@ -1,6 +1,6 @@
 ## get_telemetry_report() 
 
-If background [telemetry][] is enabled, returns the string sent to our servers.
+If background [telemetry] is enabled, returns the string sent to our servers.
 If telemetry is not enabled, outputs INFO message affirming telemetry is disabled
 and returns a NULL report.
 
@@ -19,3 +19,5 @@ If telemetry is disabled, view the telemetry report locally.
 ```sql
 SELECT get_telemetry_report(always_display_report := true);
 ```
+
+[telemetry]: /how-to-guides/configuration/telemetry/
