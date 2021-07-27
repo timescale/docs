@@ -51,7 +51,7 @@ confirmation screen in a safe place:
 If you forget your password, you can reset it from the `Operations` menu in the service dashboard.
 </highlight>
 
-It takea a couple minutes for your service to be provisioned. When your
+It takes a couple minutes for your service to be provisioned. When your
 database is ready for connection, a green `Running` label shows above
 the service in the service dashboard.
 
