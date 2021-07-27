@@ -19,7 +19,7 @@ For our next release, we plan to add:
 - Experimental schema: A way to get experimental functionalities early to our users
 - Various bug fixes.
 
-The current GA (Generally Available) version is 2.3.1.
+The current generally available (GA) version is 2.3.1.
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
