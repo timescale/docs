@@ -46,7 +46,7 @@ Several bugfixes addressed, please see the release notes below for more details.
 Timescale is working hard on our next exciting features. 
 To make that possible, we require functionality 
 that is available in Postgres 12 and above. 
-For this reason, TimescaleDB 2.3.1 will be the final version that supports PostgreSQL 11.  
+For this reason, TimescaleDB 2.3.1 is the final version that supports PostgreSQL 11.  
 TimescaleDB 2.4 will require PostgreSQL 12 or 13.
 
 <highlight type="tip">
