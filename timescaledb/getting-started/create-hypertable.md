@@ -10,7 +10,7 @@ Chunks and Hypertables are TimescaleDB's secret weapon that make storing and
 querying times-series data blazing fast at peta-byte scale.
 
 TimescaleDB automatically partitions time-series data into **chunks** (or sub-tables),
-based on time and and space (hash key, device ID, location or some distinct key).
+based on time and space (hash key, device ID, location or some distinct key).
 You can configure chunk size such that recent chunks fit memory for faster queries.
 
 A **hypertable** is an abstraction over all chunks which hold time-series data.
@@ -84,7 +84,7 @@ you can build indexes on one or more values, the data must still be retrieved.
 Retrieval is in most cases, from portions of the physical layer (memory or disk),
 which doesn't always result in effective use of memory and disk resources. By
 automatically partitioning on time, transparently, Hypertables improve the resource
-usages grouping data into smaller chunks based on time, so that queries and 
+usages grouping data into smaller chunks based on time, so that queries and
 data-stores are much more efficient with time-series data.
 </highlight>
 

@@ -335,7 +335,7 @@ performing a [loose index scan][loose-index-scan] over the `location`
 hypertable, although this will require more compute resources.
 
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[toolkit-approx-percentile]: /how-to-guides/toolkit/approximate-percentile
+[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [date_trunc]: https://www.postgresql.org/docs/current/static/functions-datetime.html#functions-datetime-trunc
 [first]: /api/:currentVersion:/hyperfunctions/first
