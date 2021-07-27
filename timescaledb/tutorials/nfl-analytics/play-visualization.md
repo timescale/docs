@@ -154,5 +154,5 @@ draw_play(game_id=2018112900,
 
 ### Conclusion
 
-We hope that through this tutorial you have been able to see how data that does not appear to be time-series initially, is in fact time-series data after all. With TimescaleDB, analyzing time-series data can be easy (and fun!) when you use [hyperfunctions](/hyperfunctions/) and [continuous aggregates](/continuous-aggregates/). We encourage you to try these functions in your own database and try experimenting with different kinds of analysis.
+We hope that through this tutorial you have been able to see how data that does not appear to be time-series initially, is in fact time-series data after all. With TimescaleDB, analyzing time-series data can be easy (and fun!) when you use [hyperfunctions](https://docs.timescale.com/api/latest/hyperfunctions/) and [continuous aggregates](https://docs.timescale.com/api/latest/continuous-aggregates/). We encourage you to try these functions in your own database and try experimenting with different kinds of analysis.
 
