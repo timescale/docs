@@ -37,7 +37,7 @@ Some of these API updates are **breaking changes**.
 ### What's new in TimescaleDB 2.3.1:
 
 This maintenance release adds support for downgrading Timescale DB 2.3.1 to 2.3.
-We intend to keep expanding this functionality as we release new versions to allow users to go down 1 version at a time.
+We intend to keep expanding this functionality as we release new versions to allow users to downgrade one version at a time.
 
 Several bugs fixed, see the release notes for more details.
 
