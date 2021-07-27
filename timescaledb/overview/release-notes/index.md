@@ -75,7 +75,7 @@ accidentally triggering the load of a previous DB version.**
 This maintenance release contains bug fixes since the 2.3.0 release. 
 We deem it moderate priority for upgrading.
 
-**Bugfixes**
+**Bug fixes**
 * #3279 Add some more randomness to chunk assignment
 * #3288 Fix failed update with parallel workers
 * #3300 Improve trigger handling on distributed hypertables
