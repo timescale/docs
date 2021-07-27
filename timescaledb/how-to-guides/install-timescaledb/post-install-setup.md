@@ -1,6 +1,6 @@
 # Setup
 
-Ok, you have [installed][] TimescaleDB, and now you are ready to work with some
+Ok, you have [installed] TimescaleDB, and now you are ready to work with some
 data.  The first thing to do is to create a new empty database or convert an
 existing PostgreSQL database to use TimescaleDB.
 
@@ -26,10 +26,10 @@ CREATE database tutorial;
 ```
 
 <highlight type="warning">
-Starting in v0.12.0, TimescaleDB enables [telemetry reporting][telemetry reporting].
+Starting in v0.12.0, TimescaleDB enables [telemetry reporting][telemetry-reporting].
 by default. You can opt-out by following the instructions detailed
-in our [telemetry documentation][telemetry documentation]. However, please do note that telemetry is
-anonymous, and by keeping it on, you help us [improve our product][improve our product].
+in our [telemetry documentation][telemetry-documentation]. However, please do note that telemetry is
+anonymous, and by keeping it on, you help us [improve our product][improve-our-product].
 </highlight>
 
 Lastly add TimescaleDB:
@@ -71,8 +71,8 @@ to a TimescaleDB hypertable.
 
 [installed]: /how-to-guides/install-timescaledb/
 [configure]: /how-to-guides/configuration/
-[telemetry reporting]: /api/latest/administration/get_telemetry_report/
-[telemetry documentation]: /how-to-guides/configuration/telemetry/
-[improve our product]: https://www.timescale.com/blog/why-introduced-telemetry-in-timescaledb-2ed11014d95d/
+[telemetry-reporting]: /api/latest/administration/get_telemetry_report/
+[telemetry-documentation]: /how-to-guides/configuration/telemetry/
+[improve-our-product]: https://www.timescale.com/blog/why-introduced-telemetry-in-timescaledb-2ed11014d95d/
 [start-scratch]: /how-to-guides/hypertables/create/
 [migrate-postgres]: /how-to-guides/migrate-data/
