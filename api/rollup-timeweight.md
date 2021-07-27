@@ -9,7 +9,7 @@ rollup(
 An aggregate to compute a combined `TimeWeightSummary` from a series of
 non-overlapping `TimeWeightSummaries`. Overlapping `TimeWeightSummaries` will
 cause errors.
-See [Notes on Parallelism and Ordering](/hyperfunctions/time_weighted_averages/time_weight/#parallelism-and-ordering)
+See [Notes on Parallelism and Ordering](/hyperfunctions/time-weighted-averages/time_weight/##advanced-usage-notes)
 for more information.
 
 ### Required arguments

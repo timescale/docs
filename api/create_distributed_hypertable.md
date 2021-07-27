@@ -95,4 +95,4 @@ be removed in a future release. To avoid such inconsistency, we do not yet
 recommend using `replication_factor` > 1, and instead rely on physical
 replication of each data node if such fault-tolerance is required.
 
-[create-hypertable]: /api/latest/hypertable/create_hypertable/
+[create-hypertable]: /hypertable/create_hypertable/
