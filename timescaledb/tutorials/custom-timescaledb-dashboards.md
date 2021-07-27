@@ -295,7 +295,9 @@ internals. Expose it through GraphQL and fetch the data using a React client.
 
 You can get the full code for this project from [this GitHub repo][repo-example].
 
-This tutorial was originally created for HasuraCon 2021. [Watch the video][hasura-con-talk] of this tutorial.
+This tutorial was originally created for HasuraCon 2021.
+
+[![Click here to watch the video](https://assets.timescale.com/docs/images/tutorials/visualizing-compression/hasuracon-talk-thumbnail.png)](https://hasura.io/events/hasura-con-2021/talks/visualizing-timescale-db-%20compression-status-in-real-time-with-hasura/ "Watch compression status in real time with Hasura")
 
 We hope you find new ways to explore your data and make your decisions smarter and data-driven. If you get any interesting results or have any questions about this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 
@@ -307,7 +309,7 @@ We hope you find new ways to explore your data and make your decisions smarter a
 [hypertables]: /how-to-guides/hypertables/
 [caggs]: /how-to-guides/continuous-aggregates/
 [data retention]: /how-to-guides/data-retention/
-[compression]: /how-to-guides/compression/compression-basics/
+[compression]: /timescaledb/how-to-guides/compression/compression
 [iot-tutorial]: /tutorials/simulate-iot-sensor-data/
 [Hasura]: http://hasura.io/
 [hasura-cloud]: https://cloud.hasura.io/

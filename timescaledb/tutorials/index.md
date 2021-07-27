@@ -12,6 +12,7 @@ data analysis and make forecasts on your data.
 - **[Analyze cryptocurrency data][Crypto]**: Use TimescaleDB to analyze historic cryptocurrency data. Learn how to build your own schema, ingest data, and analyze information in TimescaleDB.
 - **[Analyze intraday stock data][Stocks]**: One of the most common uses for time-series data is to collect intraday securities information. Learn how to collect stock data, store it in TimescaleDB, and perform the most common queries.
 - **[Build custom TimescaleDB dashboards][custom-dashboards]**: Learn how to obtain metrics data from TimescaleDB and visualize it using a basic React app.
+- **[Analyze NFL play-by-play data][nfl]**: Investigate more than 20 million rows of data from the 2018 NFL season that tracks the movement of all players on the field. For each play, gain insights into player performance and potential strategies to find better fantasy football draft picks.
 
 ### Observability scenarios
 
@@ -39,7 +40,7 @@ with some sample data, we have some ready-made data sets for you to explore.
 - **[Simulate IoT Sensor Data][simul-iot-data]**: Simulate a basic IoT sensor dataset
 on PostgreSQL or TimescaleDB.
 - **[psql installation][psql]**: `psql` is a terminal-based front-end for PostgreSQL.
-Learn how to install `psql` on Mac, Ubuntu, Debian, Windows, 
+Learn how to install `psql` on Mac, Ubuntu, Debian, Windows,
 and pick up some valuable `psql` tips and tricks along the way.
 
 [Forecasting]: /tutorials/time-series-forecast
@@ -58,7 +59,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [custom-dashboards]: /tutorials/custom-timescaledb-dashboards/
 [tableau]: /tutorials/visualize-with-tableau
 [prometheus-tsc-endpoint]: /tutorials/setting-up-timescale-cloud-endpoint-for-prometheus
-[monitor-django-prometheus]: /tutorials/monitor-django-prometheus
+[monitor-django-prometheus]: /tutorials/monitor-django-with-prometheus
 [tutorial-grafana-dashboards]: /tutorials/grafana/create-dashboard-and-panel
 [tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards
 [tutorial-grafana-variables]: /tutorials/grafana/grafana-variables
@@ -66,3 +67,4 @@ and pick up some valuable `psql` tips and tricks along the way.
 [tutorial-grafana-alerts]: /tutorials/grafana/setup-alerts
 [simul-iot-data]: /tutorials/simulate-iot-sensor-data
 [nyc-taxi]: /tutorials/nyc-taxi-cab/
+[nfl]: /tutorials/nfl-analytics/
