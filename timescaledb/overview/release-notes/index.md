@@ -16,7 +16,7 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 For our next release, we plan to add:
 
 - Elasticity: Move data when expanding or shrinking a multi-node cluster
-- Experimental Schema: A way to get experimental functionalities early to our users
+- Experimental schema: A way to get experimental functionalities early to our users
 - Various bug fixes.
 
 The current GA (Generally Available) version is 2.3.1.
