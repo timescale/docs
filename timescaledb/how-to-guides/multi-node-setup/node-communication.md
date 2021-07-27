@@ -7,12 +7,12 @@ connections might be different than the one used by external clients
 when connecting to the access node. The task also requires different
 steps depending on what authentication mechanism you want to use on
 your nodes. The simplest approach is to simply trust all incoming
-connections, and is discussed in [this
-section](#trust-authentication).
+connections, and is discussed in
+[this section](#trust-authentication).
 
 Going beyond the simple trust approach to create a secure system is a complex
 task and this section should not be read as recommending any particular security
-measures for securing your system.  That said, we also provide two additional
+measures for securing your system. That said, we also provide two additional
 examples for how to enable [password authentication](#password-authentication) or
 [certificate authentication](#certificate-authentication) for additional context.
 
@@ -28,9 +28,10 @@ methods of authentication.
 </highlight>
 
 ### 1. Edit authentication configuration file on data nodes
-Client authentication is usually configured in the `pg_hba.conf` ([reference doc][postgresql-hba])
-file located in the data directory.  If the file is not located
-there, connect to the instance with `psql` and execute the command:
+Client authentication is usually configured in the `pg_hba.conf`
+([reference doc][postgresql-hba]) file located in the data directory.  If the
+file is not located there, connect to the instance with `psql` and execute this
+command:
 
 ```sql
 SHOW hba_file;
@@ -52,8 +53,8 @@ pg_ctl reload
 ```
 
 ### 3. Add the data nodes to the access node
-
-Once the nodes are properly configured, you can continue following the [multi-node setup][init_data_nodes].
+Once the nodes are properly configured, you can continue following the
+[multi-node setup][init_data_nodes].
 
 ### 4. Setting up additional roles
 There are no additional configuration changes that need to be done for trust
@@ -168,9 +169,10 @@ pg_ctl reload
 
 ### 5. Add the data nodes to the access node
 
-Once the nodes are properly configured, you can continue following the [multi-node setup][init_data_nodes].
+Once the nodes are properly configured, you can continue following the
+[multi-node setup][init_data_nodes].
 
-### 6. Setting up additional roles [](multi-node-auth-password-roles)
+### 6. Setting up additional roles
 
 First, create the role on the access node if needed, and grant it
 usage to the foreign server objects for the data nodes:
@@ -204,7 +206,7 @@ node (created in step 3 above).
 ```
 
 ---
-## Certificate authentication [](multi-node-auth-certificate)
+## Certificate authentication
 This method is more complex to set up than password authentication, but
 more secure and easier to automate.
 
@@ -240,7 +242,8 @@ openssl genpkey -algorithm rsa -out auth.key
 ```
 
 Generate a self-signed root certificate for the CA:
-```
+
+```bash
 openssl req -new -key auth.key -days 3650 -out root.crt -x509
 
 You are about to be asked to enter information that will be incorporated
@@ -388,13 +391,14 @@ the data and access nodes have keys and the user has a certificate.
 
 ### 5. Add the data nodes to the access node
 
-Once the nodes are properly configured, you can continue following the [multi-node setup][init_data_nodes].
+Once the nodes are properly configured, you can continue following the
+[multi-node setup][init_data_nodes].
 
-### 6. Setting up additional roles [](multi-node-auth-certificate-roles)
+### 6. Setting up additional roles
 
 Allowing new roles to use the certificate to authenticate is simply a matter of
 adding them to the certificate role.  Aside from that, the process of adding new
-users should be the same as for [trust authentication](multi-node-auth-trust-roles).
+users should be the same as for [trust authentication](#trust-authentication).
 
 First create the user on the access node if needed and grant it usage on the
 foreign server objects corresponding to the data nodes:
@@ -415,7 +419,8 @@ CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
 ---
 
 ## Next steps
-To start working with the system, you can look at documentation for [distributed hypertables][].
+To start working with the system, you can look at documentation for
+[distributed hypertables][].
 
 All functions for modifying the node network are described in the API
 docs:
@@ -425,11 +430,11 @@ docs:
 - [detach_data_node][]
 - [distributed_exec][]
 
-[init_data_nodes]: how-to-guides/distributed-hypertables/
+[init_data_nodes]: /how-to-guides/distributed-hypertables/
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
 [passfile]: https://www.postgresql.org/docs/current/libpq-pgpass.html
 [md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
-[distributed hypertables]: /how-to-guides/distributed-hypertables
+[distributed hypertables]: /how-to-guides/distributed-hypertables/
 [add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node
 [attach_data_node]: /api/:currentVersion:/distributed-hypertables/attach_data_node
 [delete_data_node]: /api/:currentVersion:/distributed-hypertables/delete_data_node
