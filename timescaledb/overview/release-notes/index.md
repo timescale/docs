@@ -72,7 +72,7 @@ accidentally triggering the load of a previous DB version.**
 
  ## 2.3.1 (2021-07-05)
 
-This maintenance release contains bugfixes since the 2.3.0 release. 
+This maintenance release contains bug fixes since the 2.3.0 release. 
 We deem it moderate priority for upgrading.
 
 **Bugfixes**
