@@ -39,7 +39,7 @@ Some of these API updates are **breaking changes**.
 This maintenance release adds support for downgrading Timescale DB 2.3.1 to 2.3.
 We intend to keep expanding this functionality as we release new versions to allow users to go down 1 version at a time.
 
-Several bugfixes addressed, please see the release notes below for more details.
+Several bugs fixed, see the release notes for more details.
 
 **PostgreSQL 11 deprecation announcement**
 
