@@ -147,7 +147,7 @@ management. These includes:
 
 - **Data migration**.  Chunks can be individually migrated transactionally.
   This migration can be across tablespaces (disks) residing on a single
-  server, often as a form of data tiering; e.g., moving older data from a
+  server, often as a form of data tiering; e.g., moving older data from
   faster, more expensive disks to slower, cheaper storage. This migration
   can also occur across nodes in a distributed hypertable, e.g., in order to
   asynchronous rebalance a cluster after adding a server or to prepare for
@@ -155,3 +155,4 @@ management. These includes:
 
 
   [create-hypertable]: /how-to-guides/hypertables/create/
+  [distributed hypertables]: /overview/core-concepts/distributed-hypertables/

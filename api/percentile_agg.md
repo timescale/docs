@@ -11,7 +11,7 @@ algorithm](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketc
 with 200 buckets and an initial maximum error of 0.001. This is appropriate for
 most common use cases of percentile approximation. For more advanced use of
 percentile approximation algorithms,
-see [advanced usage](/hyperfunctions/percentile-approximation/aggregation-methods/#advanced-usage).
+see [advanced usage](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/).
 This creates a `Uddsketch` percentile estimator, it is usually used with the [approx_percentile()](/hyperfunctions/percentile-approximation/approx_percentile/) accessor
 function to extract an approximate percentile, however it is in a form that can
 be re-aggregated using the [rollup](/hyperfunctions/percentile-approximation/rollup-percentile/) function and/or any of the  [accessor functions](/hyperfunctions/percentile-approximation/#accessor-functions).
