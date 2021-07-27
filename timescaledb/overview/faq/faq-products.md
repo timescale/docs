@@ -9,11 +9,16 @@ Timescale builds an open-source relational database for time-series called
 Timescale hosts and manages TimescaleDB on behalf of its customers via
 hosted services called **Timescale Forge** and **Timescale Cloud**.
 
-Timescale Forge is a cloud-native TimescaleDB-as-a-service that is easy to
-get started and powerful enough for the most demanding scenarios.
+**Timescale Forge** is an easy-to-use, cloud-native relational database for 
+collecting and analyzing relentless streams of time-series data on AWS. 
+Featuring enhanced features to help you harness the potential of your 
+data and built on the rock-solid foundation of PostgreSQL and TimescaleDB, 
+Timescale Forge enables you to measure everything that matters.
 
-Timescale Cloud is a managed TimescaleDB service hosted in 75+ regions in
-AWS, Azure, or GCP.
+**Timescale Cloud** is a time-series database-as-a-service (DBaaS) for deployments 
+on GCP and Azure. Built on PostgreSQL, TimescaleDB is a rock-solid foundation 
+for your time-series data. Timescale Cloud enables multi-cloud deployments, 
+with the flexibility of 75+ regions.
 
 ## What is TimescaleDB?
 TimescaleDB is an open-source relational database for time-series. Developers
@@ -196,9 +201,9 @@ or [join our Slack group][join_slack].
 [hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
 [PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e
 [PostgreSQL-problems-time-series]: https://www.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5
-[time_bucket]: /api/:currentVersion:/analytics/time_bucket/
-[first]: /api/:currentVersion:/analytics/first/
-[last]: /api/:currentVersion:/analytics/last/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[first]: /api/:currentVersion:/hyperfunctions/first/
+[last]: /api/:currentVersion:/hyperfunctions/last/
 [data-retention]: /how-to-guides/data-retention/
 [postgis]: /tutorials/nyc-taxi-cab
 [GitHub]: https://github.com/timescale/timescaledb/issues

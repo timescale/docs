@@ -8,7 +8,7 @@ module.exports = [
     excerpt: 'The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension',
     children: [
       {
-        title: "Hypertables & Chunks",
+        title: "Hypertables & chunks",
         type: 'directory',
         href: "hypertable",
         children: [
@@ -91,7 +91,7 @@ module.exports = [
         ]
       },
       {
-        title: "Distributed Hypertables",
+        title: "Distributed hypertables",
         type: 'directory',
         href: "distributed-hypertables",
         children: [
@@ -165,7 +165,7 @@ module.exports = [
         ]
       },
       {
-        title: "Continuous Aggregates",
+        title: "Continuous aggregates",
         type: 'directory',
         href: "continuous-aggregates",
         children: [
@@ -196,7 +196,7 @@ module.exports = [
         ]
       },
       {
-        title: "Data Retention",
+        title: "Data retention",
         type: 'directory',
         href: "data-retention",
         children: [
@@ -211,7 +211,7 @@ module.exports = [
         ]
       },
       {
-        title: "Actions and Automation",
+        title: "Actions and automation",
         type: 'directory',
         href: "actions",
         children: [
@@ -234,9 +234,9 @@ module.exports = [
         ]
       },
       {
-        title: "Analytic Functions",
+        title: "Hyperfunctions",
         type: 'directory',
-        href: "analytics",
+        href: "hyperfunctions",
         children: [
           {
             title: "approximate_row_count",
@@ -255,25 +255,109 @@ module.exports = [
             href: "histogram"
           },
           {
-            title: "locf",
-            href: "locf"
-          },
-          {
-            title: "interpolate",
-            href: "interpolate"
-          },
-          {
             title: "time_bucket",
             href: "time_bucket"
+          },  
+          {
+            title: "Gapfilling and interpolation",
+            type: 'directory',
+            href: "gapfilling-interpolation",
+            children: [
+              {
+                title: "time_bucket_gapfill",
+                href: "time_bucket_gapfill"
+              },
+              {
+                title: "locf",
+                href: "locf"
+              },
+              {
+                title: "interpolate",
+                href: "interpolate"
+              }
+            ]
           },
           {
-            title: "time_bucket_gapfill",
-            href: "time_bucket_gapfill"
-          }
+            title: "Percentile approximation",
+            type: 'directory',
+            href: "percentile-approximation",
+            children: [
+              {
+                title: "percentile_agg",
+                href: "percentile_agg"
+              },
+              {
+                title: "approx_percentile",
+                href: "approx_percentile"
+              },
+              {
+                title: "approx_percentile_rank",
+                href: "approx_percentile_rank"
+              },
+              {
+                title: "rollup",
+                href: "rollup-percentile"
+              },
+              {
+                title: "max_val",
+                href: "max_val"
+              },
+              {
+                title: "mean",
+                href: "mean"
+              },
+              {
+                title: "error",
+                href: "error"
+              },
+              {
+                title: "min_val",
+                href: "min_val"
+              },
+              {
+                title: "num_vals",
+                href: "num_vals"
+              },
+              {
+                title: "Advanced aggregation methods",
+                type: 'directory',
+                href: "percentile-aggregation-methods",
+                children: [
+                  {
+                    title: "uddsketch",
+                    href: "uddsketch"
+                  },
+                  {
+                    title: "tdigest",
+                    href: "tdigest"
+                  }        
+                ]
+              },
+            ]
+          },
+          {
+            title: "Time weighted averages",
+            type: 'directory',
+            href: "time-weighted-averages",
+            children: [
+              {
+                title: "time_weight",
+                href: "time_weight"
+              },
+              {
+                title: "rollup",
+                href: "rollup-timeweight"
+              },
+              {
+                title: "average",
+                href: "average"
+              }
+            ]
+          },          
         ]
       },
       {
-        title: "Informational Views",
+        title: "Informational views",
         type: 'directory',
         href: "informational-views",
         children: [

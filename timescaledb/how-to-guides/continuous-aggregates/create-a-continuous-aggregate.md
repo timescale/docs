@@ -1,123 +1,143 @@
-# Creating a continuous aggregate
+# Create a continuous aggregate
+Creating a continuous aggregate is a two-step process. You need to create the
+view first, then enable a policy to keep the view refreshed. You can have more
+than one continuous aggregate on a single hypertable.
 
-Creating a refreshing [continuous aggregate][api-continuous-aggs] is a two-step
-process. First, one needs to create a continuous aggregate view of the data
-using [`CREATE MATERIALIZED VIEW`][postgres-createview] with the
-`timescaledb.continuous` option. Second, a continuous aggregate
-policy needs to be created to keep it refreshed.
+Continuous aggregates require a `time_bucket` on the time partitioning column of
+the hypertable.
 
-You can create several continuous aggregates for the same
-hypertable. For example, you could create another continuous aggregate
-view for daily data.
+By default, views are automatically refreshed. You can adjust this by setting
+the [WITH NO DATA](#using-the-with-no-data-option) option. Additionally, the
+view can not be a [security barrier view][postgres-security-barrier].
 
-```sql
-CREATE MATERIALIZED VIEW conditions_summary_daily
-WITH (timescaledb.continuous) AS
-SELECT device,
+## Create a continuous aggregate
+In this example, we are using a hypertable called `conditions`, and creating a
+continuous aggregate view for daily weather data. The `GROUP BY` clause must
+include a `time_bucket` expression which uses time dimension column of the
+hypertable. Additionally, all functions and their arguments included in
+`SELECT`, `GROUP BY`, and `HAVING` clauses must be
+[immutable][postgres-immutable].
+
+### Procedure: Creating a continuous aggregate
+1.  At the `psql`prompt, create the materialized view:
+    ```sql
+    CREATE MATERIALIZED VIEW conditions_summary_daily
+    WITH (timescaledb.continuous) AS
+    SELECT device,
        time_bucket(INTERVAL '1 day', time) AS bucket,
        AVG(temperature),
        MAX(temperature),
        MIN(temperature)
-FROM conditions
-GROUP BY device, bucket;
+    FROM conditions
+    GROUP BY device, bucket;
+    ```
+1.  Create a policy to refresh the view every hour:
+    ```sql
+    SELECT add_continuous_aggregate_policy('conditions_summary_daily',
+	     start_offset => INTERVAL '1 month',
+	     end_offset => INTERVAL '1 day',
+	     schedule_interval => INTERVAL '1 hour');
+    ```
 
--- Create the policy
-SELECT add_continuous_aggregate_policy('conditions_summary_daily',
-	start_offset => INTERVAL '1 month',
-	end_offset => INTERVAL '1 day',
-	schedule_interval => INTERVAL '1 hour');
-```
+Continuous aggregates are supported for most aggregate functions that can
+be [parallelized by PostgreSQL][postgres-parallel-agg], including the standard
+aggregates like `SUM` and `AVG`. However, aggregates using `ORDER BY` and
+`DISTINCT` cannot be used with continuous aggregates since they are not possible
+to parallelize by PostgreSQL. TimescaleDB does not currently support the
+`FILTER` clause.
 
-<highlight type="tip">
-If you have a lot of historical data to aggregate into the view, consider using
-the `WITH NO DATA` option.
-</highlight>
+## Choosing an appropriate bucket interval
+Continuous aggregates require a `time_bucket` on the time partitioning column of
+the hypertable. The time bucket allows you to define a time interval, instead of
+having to use specific timestamps. For example, you can define a time bucket as
+five minutes, or one day.
 
-A `time_bucket` on the time partitioning column of the hypertable is
-required in all continuous aggregate views. If you do not provide one,
-you will get an error.
+When the continuous aggregate is materialized, the materialization table stores
+partials, which are then used to calculate the result of the query. This means a
+certain amount of processing capacity is required for any query, and the amount
+required becomes greater as the interval gets smaller. Because of this, if you
+have very small intervals, it can be more efficient to run the aggregate query
+on the raw data in the hypertable. We recommend that you test both methods to
+determine what is best for your data set and desired bucket interval.
 
-When the view is created, it will (by default) be populated with data
-so that it contains the aggregates computed across the entire
-`conditions` hypertable.
+You can read more about the time bucket function in
+our [API Guide][api-time-bucket]. If you want to use
+[time_bucket_gapfill][api-time-bucket-gapfill], you need to run it in the
+`SELECT` statement on the continuous aggregate view, you can not run it in the
+continuous aggregate directly.
 
-It might, however, not always be desirable to populate the continuous
-aggregate when created. If the amount of data in `conditions` is large
-and new data is continuously being added, it is often more useful to
-control the order in which the data is refreshed by combining manual
-refresh with a policy. For example, one could use a policy to refresh
-only recent (and future) data while historical data is left to manual
-refreshes. In those cases, the `WITH NO DATA` option can be used to
-avoid aggregating all the data during creation.
+## Using the WITH NO DATA option
+By default, when you create a view for the first time, it is populated with
+data. This is so that the aggregates can be computed across the entire
+hypertable. If you don't want this to happen, for example if the table is very
+large, or if new data is being continuously added, you can control the order in
+which the data is refreshed. You can do this by adding a manual refresh with
+your continuous aggregate policy using the `WITH NO DATA` option.
 
-The [`refresh_continuous_aggregate`][refresh_continuous_aggregate]
-command is used for manual refreshing. For example, to refresh one
-month of data you could write:
+The `WITH NO DATA` option allows the continuous aggregate to be created
+instantly, so you don't have to wait for the data to be aggregated. Data begins
+to populate only when the policy begins to run. This means that only data newer
+than the `start_offset` time begins to populate the continuous aggregate. If you
+have historical data that is older than the `start_offset` interval, you need to
+manually refresh the history up to the current `start_offset` to allow real-time
+queries to run efficiently.
 
-```sql
-CALL refresh_continuous_aggregate('conditions_summary_hourly', '2020-05-01', '2020-06-01');
-```
+### Procedure: Creating a continuous aggregate with the WITH NO DATA option
+1.  At the `psql` prompt, create the view:
+    ```sql
+    CREATE MATERIALIZED VIEW cagg_rides_view
+    WITH (timescaledb.continuous) AS
+    SELECT vendor_id,
+    time_bucket('1h', pickup_datetime) AS day,
+      count(*) total_rides,
+      avg(fare_amount) avg_fare,
+      max(trip_distance) as max_trip_distance,
+      min(trip_distance) as min_trip_distance
+    FROM rides
+    GROUP BY vendor_id, time_bucket('1h', pickup_datetime)
+    WITH NO DATA;
+    ```
+1.  Manually refresh the view:
+    ```sql
+    CALL refresh_continuous_aggregate('cagg_rides_view', NULL, localtimestamp - INTERVAL '1 week');
+    ```
+1.  Add the policy:
+    ```sql
+    SELECT add_continuous_aggregate_policy('cagg_rides_view',
+      start_offset => INTERVAL '1 week',
+      end_offset   => INTERVAL '1 hour',
+      schedule_interval => INTERVAL '30 minutes');
+    ```
 
-Unlike a regular materialized view, the refresh command will only
-recompute the data within the window that has changed in the
-underlying hypertable since the last refresh. Therefore, if only a few
-buckets need updating, then the refresh is quick.
+## Query continuous aggregates
+When you have created a continuous aggregate and set a refresh policy, you can query the view with a `SELECT` query. You can only specify a single hypertable in the `FROM` clause. Including more hypertables, joins, tables, views, or subqueries in your `SELECT` query is not supported. Additionally, make sure that the hypertable you are querying does not have [row-level-security policies][postgres-rls] enabled.
 
-Note that the end range is exclusive and aligned to the buckets of the
-continuous aggregate, so this will refresh only the buckets that are
-fully in the date range `['2020-05-01', '2020-06-01')`, that is, up to
-but not including `2020-06-01`. While it is possible to use `NULL` to
-indicate an open-ended range, we do not in general recommend using
-it. Such a refresh might materialize a lot of data, have a negative
-affect on performance, and can affect other policies such as data
-retention. For more information, see the [Advanced
-Usage](#advanced-usage) section below.
+### Procedure: Querying a continuous aggregate
+1.  At the `psql` prompt, query the continuous aggregate view called
+    `conditions_summary_hourly` for the average, minimum, and maximum
+    temperatures for the first quarter of 2021 recorded by device 5:
+    ```sql
+    SELECT *
+      FROM conditions_summary_hourly
+      WHERE device = 5
+      AND bucket >= '2020-01-01'
+      AND bucket < '2020-04-01';
+    ```
+1.  Alternatively, query the continuous aggregate view called
+    `conditions_summary_hourly` for the top 20 largest metric spreads in that
+    quarter:
+    ```sql
+    SELECT *
+      FROM conditions_summary_hourly
+      WHERE max - min > 1800
+      AND bucket >= '2020-01-01' AND bucket < '2020-04-01'
+      ORDER BY bucket DESC, device DESC LIMIT 20;
+    ```
 
-Continuous aggregates are supported for most aggregate functions that
-can be [parallelized by PostgreSQL][postgres-parallel-agg], which
-includes the normal aggregates like `SUM` and `AVG`. However,
-aggregates using `ORDER BY` and `DISTINCT` cannot be used with
-continuous aggregates since they are not possible to parallelize by
-PostgreSQL. In addition, TimescaleDB continuous aggregates do not
-currently support the `FILTER` clause (not to be confused with
-`WHERE`) even though it is possible to parallelize but we might add
-support for this in a future version.
 
-
-## Using `WITH NO DATA` when creating a continuous aggregate
-
-If you have a lot of historical data, we suggest creating the continuous aggregate
-using the `WITH NO DATA` parameter for the `CREATE MATERIALIZED VIEW` command. Doing
-so will allow the continuous aggregate to be created instantly (you won't have to wait
-for the data to be aggregated on creation!). Data will then begin to populate as the
-continuous aggregate policy begins to run.
-
-**However**, only data newer than `start_offset` would begin to populate the continuous
-aggregate. If you have historical data that is older than the `start_offset` INTERVAL,
-you need to manually refresh history up to the current `start_offset` to allow
-real-time queries to run efficiently.
-
-```sql
-CREATE MATERIALIZED VIEW cagg_rides_view WITH
-  (timescaledb.continuous)
-AS
-SELECT vendor_id, time_bucket('1h', pickup_datetime) as day,
-  count(*) total_rides,
-  avg(fare_amount) avg_fare,
-  max(trip_distance) as max_trip_distance,
-  min(trip_distance) as min_trip_distance
-FROM rides
-GROUP BY vendor_id, time_bucket('1h', pickup_datetime)
-WITH NO DATA;
-
-CALL refresh_continuous_aggregate('cagg_rides_view', NULL, localtimestamp - INTERVAL '1 week');
-
-SELECT add_continuous_aggregate_policy('cagg_rides_view',
-  start_offset => INTERVAL '1 week',
-  end_offset   => INTERVAL '1 hour',
-  schedule_interval => INTERVAL '30 minutes');
-```
-
-[api-continuous-aggs]: /api/:currentVersion:/continuous-aggregates/
-[postgres-createview]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[refresh_continuous_aggregate]: /continuous-aggregates/refresh_continuous_aggregate/
+[api-time-bucket]: /api/latest/hyperfunctions/time_bucket/
+[api-time-bucket-gapfill]: /api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
+[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
+[postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html

@@ -149,6 +149,10 @@ module.exports = [
 
       },
       {
+        title: "Install TimescaleDB Toolkit",
+        href: "install-timescaledb-toolkit"
+      },
+      {
         title: "Connecting to TimescaleDB",
         href: "connecting",
           children: [
@@ -240,6 +244,7 @@ module.exports = [
             href: "select"
           },
           {
+            title: "Advanced analytic queries",
             href: "advanced-analytic-queries"
           }
         ]
@@ -264,26 +269,36 @@ module.exports = [
         href: "continuous-aggregates",
         children: [
           {
+            title: "About continuous aggregates",
+            href: "about-continuous-aggregates"
+          },
+          {
+            title: "Create a continuous aggregate",
             href: "create-a-continuous-aggregate"
           },
           {
-            href: "adding-automatic-refresh-policies"
+            title: "Refresh policies for continuous aggregates",
+            href: "refresh-policies"
           },
           {
-            href: "query-a-continuous-aggregate"
+            title:"Time in continuous aggregates",
+            href: "time"
           },
           {
-            href: "manually-refresh-specific-ranges"
+            title: "Drop data from continuous aggregates",
+            href: "drop-data"
           },
           {
-            href: "best-practices"
+            title: "Manage materialized hypertables",
+            href: "materialized-hypertables"
           },
           {
-            title:"Using integer-based time",
-            href: "integer-based-time"
+            title: "Real time aggregates",
+            href: "real-time-aggregates"
           },
           {
-            href: "drop-raw-data"
+            title: "Troubleshoot continuous aggregates",
+            href: "troubleshooting"
           }
         ]
       },
@@ -313,12 +328,15 @@ module.exports = [
         ]
       },
       {
+        title: "User-defined actions",
         href: "user-defined-actions",
         children: [
           {
+            title: "Create and register",
             href: "create-and-register"
           },
           {
+            title: "Test and debug",
             href: "test-and-debug"
           },
           {
@@ -326,12 +344,15 @@ module.exports = [
             href: "alter-and-delete"
           },
           {
+            title: "Example of generic retention",
             href: "example-generic-retention"
           },
           {
+            title: "Example of tiered storage",
             href: "example-tiered-storage"
           },
           {
+            title: "Example of downsample and compress",
             href: "example-downsample-and-compress"
           }
         ]
@@ -340,12 +361,15 @@ module.exports = [
         href: "data-retention",
         children: [
           {
+            title: "Create a retention policy",
             href: "create-a-retention-policy"
           },
           {
+            title: "Manually drop chunks",
             href: "manually-drop-chunks"
           },
           {
+            title: "Data retention with continuous aggregates",
             href: "data-retention-with-continuous-aggregates"
           }
         ]
@@ -370,8 +394,13 @@ module.exports = [
         ]
       },
       {
+        title: "Backup and restore",
         href: "backup-and-restore",
         children: [
+          {
+            title: "The timescaledb-backup tool",
+            href: "timescaledb-backup"
+          },
           {
             title: "Using pg_dump/pg_restore",
             href: "pg-dump-and-restore"
@@ -387,6 +416,7 @@ module.exports = [
         ]
       },
       {
+        title: "Schema management",
         href: "schema-management",
         children: [
           {
@@ -412,7 +442,7 @@ module.exports = [
         ]
       },
       {
-        title: "Migrate Existing Data",
+        title: "Migrate existing data",
         href: "migrate-data",
         children: [
           {
@@ -474,6 +504,7 @@ module.exports = [
           }
         ]
       },
+
       {
         href: "alerting"
       },

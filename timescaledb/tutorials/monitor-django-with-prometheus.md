@@ -1,4 +1,4 @@
-# Tutorial: How to monitor a Django application with Prometheus
+# How to monitor a Django application with Prometheus
 
 ## Introduction
 Prometheus is an open-source systems monitoring and alerting toolkit that can be

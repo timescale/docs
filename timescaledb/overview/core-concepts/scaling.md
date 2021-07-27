@@ -72,7 +72,7 @@ of the database.
 
 TimescaleDB 2.0 also supports horizontally scaling across many servers.
 Instead of a primary node (and each replica) which stores the full copy
-of the data, a *[distributed hypertables][distributed-hypertables]* can be spread across multiple
+of the data, a *[distributed hypertable][distributed-hypertables]* can be spread across multiple
 nodes, such that each node only stores a portion of the distributed
 hypertable (namely, a subset of the chunks). This allows TimescaleDB
 to scale storage, inserts, and queries beyond the capabilities of a single
