@@ -430,9 +430,9 @@ module.exports = [
           {
             title: "time_bucket_ng",
             href: "time_bucket_ng"
-          },     
+          }     
         ]
-      },
+      }
 ],
   }
 ]
