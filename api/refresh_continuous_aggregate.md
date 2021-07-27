@@ -1,4 +1,4 @@
-## refresh_continuous_aggregate() <tag type="community">Community</tag> 
+## refresh_continuous_aggregate() <tag type="community">Community</tag>
 
 Refresh all buckets of a continuous aggregate in the _refresh window_
 given by `window_start` and `window_end`.
@@ -20,8 +20,7 @@ date or timestamp type. Note that a continuous aggregate using the
 `TIMESTAMP WITH TIME ZONE` type aligns with the UTC time zone, so, if
 `window_start` and `window_end` is specified in the local time zone,
 any time zone shift relative UTC needs to be accounted for when
-refreshing in order to align with bucket boundaries (for examples, see
-[Sample Usage](/continuous-aggregates/refresh_continuous_aggregate/-examples)).
+refreshing in order to align with bucket boundaries.
 
 
 ### Required Arguments
@@ -32,7 +31,7 @@ refreshing in order to align with bucket boundaries (for examples, see
 | `window_start` | INTERVAL | Start of the window to refresh, has to be before `window_end`. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable. |
 | `window_end` | INTERVAL | End of the window to refresh, has to be after `window_start`. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable. |
 
-### Sample Usage 
+### Sample Usage
 
 Refresh the continuous aggregate `conditions` between `2020-01-01` and
 `2020-02-01` exclusive.
