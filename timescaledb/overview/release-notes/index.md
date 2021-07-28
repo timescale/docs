@@ -15,11 +15,11 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 
 For our next release, we plan to add:
 
-- Downgrading between Timescale DB 2.x versions.
 - Elasticity: Move data when expanding or shrinking a multi-node cluster
+- Experimental schema: A way to get experimental functionalities early to our users
 - Various bug fixes.
 
-The current GA (Generally Available) version is 2.3.0.
+The current generally available (GA) version is 2.3.1.
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -34,30 +34,23 @@ while also empowering users with more control and flexibility to customize
 behaviors to suit your needs.  
 Some of these API updates are **breaking changes**.
 
-### What's new in TimescaleDB 2.3.0:
+### What's new in TimescaleDB 2.3.1:
 
-Skip Scan optimization on single node and multinode. This feature offers significant
-improvements in performance of `SELECT` queries with `DISTINCT ON`.
+This maintenance release adds support for downgrading Timescale DB 2.3.1 to 2.3.
+We intend to keep expanding this functionality as we release new versions to allow users to downgrade one version at a time.
 
-This release also adds support for creating distributed
-restore points. This allows performing consistent restores of
-multi-node clusters from a backup.
-
-The bug fixes in this release address issues in size and stats
-functions, high memory usage in distributed inserts, slow distributed
-ORDER BY queries, indexes involving INCLUDE, single chunk query
-planning, compression, and policies.
+Several bugs fixed, see the release notes for more details.
 
 **PostgreSQL 11 deprecation announcement**
 
 Timescale is working hard on our next exciting features. 
 To make that possible, we require functionality 
 that is available in Postgres 12 and above. 
-For this reason, TimescaleDB 2.3 will be the final minor version that supports PostgreSQL 11.  
+For this reason, TimescaleDB 2.3.1 is the final version that supports PostgreSQL 11.  
 TimescaleDB 2.4 will require PostgreSQL 12 or 13.
 
 <highlight type="tip">
-TimescaleDB 2.3 is currently GA, and we encourage
+TimescaleDB 2.3.1 is currently GA, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -76,6 +69,33 @@ past releases and how you can learn more.
 accidentally triggering the load of a previous DB version.**
 
 ## Unreleased
+
+ ## 2.3.1 (2021-07-05)
+
+This maintenance release contains bug fixes since the 2.3.0 release. 
+We deem it moderate priority for upgrading.
+
+**Bug fixes**
+* #3279 Add some more randomness to chunk assignment
+* #3288 Fix failed update with parallel workers
+* #3300 Improve trigger handling on distributed hypertables
+* #3304 Remove paths that reference parent relids for compressed chunks
+* #3305 Fix pull_varnos miscomputation of relids set
+* #3310 Generate downgrade script
+* #3314 Fix heap buffer overflow in hypertable expansion
+* #3317 Fix heap buffer overflow in remote connection cache.
+* #3327 Make aggregates in caggs fully qualified
+* #3336 Fix pg_init_privs objsubid handling
+* #3345 Fix SkipScan distinct column identification
+* #3355 Fix heap buffer overflow when renaming compressed hypertable columns.
+* #3367 Improve DecompressChunk qual pushdown
+* #3377 Fix bad use of repalloc
+
+**Thanks**
+* @db-adrian for reporting an issue when accessing cagg view through postgres_fdw
+* @fncaldas and @pgwhalen for reporting an issue accessing caggs when public is not in search_path
+* @fvannee, @mglonnro and @ebreijo for reporting an issue with the upgrade script
+* @fvannee for reporting a performance regression with SkipScan
 
 ## 2.3.0 (2021-05-25)
 **Features**
