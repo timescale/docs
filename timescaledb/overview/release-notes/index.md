@@ -46,7 +46,7 @@ We’re committed to developing these experiments, giving the community a chance
 provide early feedback and influence the direction of TimescaleDB’s development.
  We’ll travel faster with your input! 
 	
-Please create your feedback as a GitHub issue (using the experimental-schema label), describe what you found, and tell us the steps or share the code snip to recreate it.
+Please create your feedback as a GitHub issue (using the experimental-schema label), describe what you found, and tell us the steps or share the code snippet to recreate it.
 
 Several bugs fixed, see the release notes for more details.
 
