@@ -5,6 +5,12 @@ similar to [`time_bucket()`][time_bucket], but works with years and
 months. It is expected that the feature will also support timezones
 in a future release.
 
+<highlight="warning">
+Experimental features could have bugs! They might not be backwards compatible,
+and could be removed in future releases. Use these features at your own risk, and
+do not use any experimental features in production.
+</highlight>
+
 Here’s how to use `time_bucket_ng()` to create bucket data in 3 month 
 intervals: 
 
