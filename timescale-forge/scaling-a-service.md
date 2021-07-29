@@ -1,53 +1,32 @@
-# Resizing compute and storage in Timescale Forge
+# Scaling compute and storage
+You can use the Timescale Forge console to change how much CPU and memory
+resources your service has available, as well as change the disk size for your
+service. You can adjust this manually, as required, or enable autoscaling.
 
-Timescale Forge allows you to resize compute (CPU/RAM) and storage independently
-at any time. This is extremely useful when users have a need to increase storage
-(for instance) but not compute. The Timescale Forge console makes this very easy
-to do for any service.
+When you change the disk size, the changes are applied with no downtime, and the
+new size generally becomes available within a few seconds. You can change the
+disk size once every six hours, and you can only increase the size, not decrease
+it. You can have a disk up to 10{nbsp}TB in size.
 
-Before you modify the compute or storage settings for a Forge Service, please
-note the following limitations and when a change to these settings will result in momentary downtime.
+You can change the CPU and memory allocation for your service at any time, with
+minimal downtime, usually less than thirty seconds. The new resources become
+available as soon as the service restarts. You can change the CPU and memory
+allocation up or down, as frequently as required.
 
-**Storage**: Storage changes are applied with no downtime, typically available
-within a few seconds. Other things to note about storage changes:
- * At the current time, storage can only be _increased_ in size.
- * Storage size changes can only be made once every six (6) hours.
- * Storage can be modified in various increments between 10GB and 10TB.
+## Change resource allocations manually
+You can change the CPU and memory allocation, and the available disk size, using
+the Timescale Forge console.
 
-**Compute**: Modifications to the compute size of your service (increases or
-decreases) can be applied at any time, however, please note the following:
- * **_There will be momentary downtime_** while the compute settings are applied.
- In most cases, this downtime will be less than 30 seconds.
- * Because there will be an interruption to your service, you should plan
- accordingly to have the settings applied at an appropriate service window.
+<highlight="warning">
+Changing your compute settings usually requires a short downtime. Make sure you
+plan for this before you begin!
+</highlight>
 
-## Step 1: View service operation details [](service-details)
-To modify the compute or storage of your Service, first select the Service that
-you want to modify. This will display the _service details_ which list four tabs
-across the top: Overview, Operations, Metrics, and Logs.
-
-Select **_Operations_**.
-
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-operations.png" alt="View Timescale Forge service operational information"/>
-
-## Step 2: Display the current service resources [](service-resources)
-Under the Operations tab, you can perform the same **Basic** operations as before
-(Reset password, Pause service, Delete service). There is now a second, advanced
-section on the left labeled **Resources**. Selecting this option displays the
-current resource settings for the Service.
+### Procedure: Changing resource allocations manually
+1.  In the Timescale Forge console, from the `Services` list, click the name of the service you want to modify.
+1.  In the `Service details` page, navigate to the `Operations` tab, and click `Resources`.
+1.  In the `Resize CPU / memory` field, select the new CPU and memory allocation.
+1.  In the `Increase disk size` field, adjust the slider to the new disk size.
+1.  Click `Apply` to save your changes. If you have changed the CPU and memory allocation, your service will go down briefly while the changes are applied.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-resources-4tb.png" alt="View Timescale Forge service resource information"/>
-
-## Step 3: Modify service resources [](modify-resources)
-Once you have navigated to the current Service resources, it's easy to modify
-either the compute (CPU/Memory) or disk size. As you modify either setting,
-notice that the current and new hourly charges are displayed in real-time
-so that it's easy to verify how these changes will impact your costs.
-
-As noted above, changes to disk size will not cause any downtime.  However,
-the platform currently only supports _increasing_ disk size (not decreasing it),
-and you can increase disk size once every six (6) hours.
-
-When you're satisfied with the changes, click **Apply** (storage resizes only) or **Apply and Restart** (when modifying compute resources).
-
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-restart-4tb.png" alt="View Timescale Forge service apply resize"/>
