@@ -33,7 +33,7 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 ```
 
 You can also use `time_bucket_ng()` with continuous aggregates.
-In this case, we track the temperature in Moscow over 7 day intervals: 
+This example tracks the temperature in Moscow over seven day intervals: 
 
 ```
 CREATE TABLE conditions(
