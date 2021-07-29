@@ -52,7 +52,6 @@ Several bugs fixed, see the release notes for more details.
 
 **PostgreSQL 11 deprecation announcement**
 
-PostgreSQL 11 deprecation announcement
 Timescale is working hard on our next exciting features. 
 To make that possible, we require functionality that is available in Postgres 12 and above. 
 For this reason, from TimescaleDB 2.4 onwards PostgreSQL 12 or 13 are required.
