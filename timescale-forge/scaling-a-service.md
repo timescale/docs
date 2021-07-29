@@ -14,7 +14,7 @@ minimal downtime, usually less than thirty seconds. The new resources become
 available as soon as the service restarts. You can change the CPU and memory
 allocation up or down, as frequently as required.
 
-<highlight="warning">
+<highlight type="warning">
 Changing your compute settings usually requires a short downtime. Make sure you
 plan for this before you begin!
 </highlight>
