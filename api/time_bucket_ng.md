@@ -22,7 +22,7 @@ SELECT timescaledb_experimental.time_bucket_ng('3 month', date '2021-08-01');
 (1 row)
 ```
 
-Here’s how to use `time_bucket_ng()` to bucket data in 1 year intervals:
+This example uses `time_bucket_ng()` to bucket data in one year intervals:
 
 ```
 SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
