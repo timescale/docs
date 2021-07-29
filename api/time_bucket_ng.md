@@ -83,8 +83,7 @@ ORDER BY bucket;
 (3 rows)
 ```
 
-See the [Continuous Aggregates][2] docs for the general information about
-continuous aggregates and how to use them.
+For more information, see the [continuous aggregates documentation][caggs].
 
 
 [1]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
