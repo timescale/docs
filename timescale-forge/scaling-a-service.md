@@ -7,7 +7,7 @@ service. You can adjust this manually as required, or for disk size you can use 
 When you change the disk size, the changes are applied with no downtime, and the
 new size generally becomes available within a few seconds. You can change the
 disk size once every six hours, and you can only increase the size, not decrease
-it. You can have a disk up to 10{nbsp}TB in size.
+it. You can have a disk up to 10&nbsp;TB in size.
 
 You can change the CPU and memory allocation for your service at any time, with
 minimal downtime, usually less than thirty seconds. The new resources become
@@ -28,7 +28,7 @@ plan for this before you begin!
     allocation.
 1.  In the `Increase disk size` field, adjust the slider to the new disk size.
 1.  Review the new allocations and costs in the comparison chart.
-1.  Click `Apply` to save your changes. If you have changed the CPU and memory
+1.  Click `Apply` to save your changes. If you have changed the CPU and memory 
     allocation, your service will go down briefly while the changes are applied.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-configure.png" alt="Configure resource allocations"/>
 
