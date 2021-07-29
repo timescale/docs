@@ -54,7 +54,7 @@ Several bugs fixed, see the release notes for more details.
 
 Timescale is working hard on our next exciting features. 
 To make that possible, we require functionality that is available in Postgres 12 and above. 
-For this reason, from TimescaleDB 2.4 onwards PostgreSQL 12 or 13 are required.
+For this reason, we are removing support for PostgreSQL 11 starting in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
 
 <highlight type="tip">
 TimescaleDB 2.4 is currently GA, and we encourage
