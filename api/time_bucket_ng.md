@@ -32,7 +32,7 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 (1 row)
 ```
 
-Here’s how to use `time_bucket_ng()` when creating continuous aggregates.
+You can also use `time_bucket_ng()` with continuous aggregates.
 In this case, we track the temperature in Moscow over 7 day intervals: 
 
 ```
