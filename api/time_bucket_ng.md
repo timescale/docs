@@ -87,4 +87,4 @@ For more information, see the [continuous aggregates documentation][caggs].
 
 
 [time_bucket]: hyperfunctions/time_bucket/
-[2]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/continuous-aggregates/
+[caggs]: timescaledb/latest/overview/core-concepts/continuous-aggregates/
