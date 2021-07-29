@@ -11,7 +11,7 @@ and could be removed in future releases. Use these features at your own risk, an
 do not use any experimental features in production.
 </highlight>
 
-Here’s how to use `time_bucket_ng()` to create bucket data in 3 month 
+In this example, `time_bucket_ng()` is used to create bucket data in three month 
 intervals: 
 
 ```
