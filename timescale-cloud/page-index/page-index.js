@@ -10,6 +10,10 @@ module.exports = [
         href: "create-a-service",
       },
       {
+        title: "Ingest data",
+        href: "ingest-data"
+      },
+      {
         title: "Create a multi-node cluster",
         href: "cloud-multi-node"
       },
