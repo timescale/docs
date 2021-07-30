@@ -7,7 +7,7 @@ There are serveral different ways of ingesting your data into Managed Service fo
 *   Insert data directly using the Kafka message queue,
 
 <highlight type="important">
-Before you begin, make sure you have [created your MST service][create-service], and can connect to it using `psql`.
+Before you begin, make sure you have [created your MST service](/create-a-service/), and can connect to it using `psql`.
 </highlight>
 
 ## Bulk upload from .csv file
