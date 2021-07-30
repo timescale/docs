@@ -70,5 +70,4 @@ import the data.
     ```
 
 
-[create-service]: /create-a-service/
 [github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
