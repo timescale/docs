@@ -1,4 +1,4 @@
-# Limitations [](limitations)
+# Limitations
 
 While TimescaleDB generally offers capabilities that go beyond what
 PostgreSQL offers, there are some limitations to using hypertables,
