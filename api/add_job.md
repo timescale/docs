@@ -41,4 +41,4 @@ SELECT add_job('user_defined_action','1h');
 Register the procedure `user_defined_action` to be run every hour.
 
 
-[using-actions]: /overview/core-concepts/user-defined-actions/
+[using-actions]: /timescaledb/latest/overview/core-concepts/user-defined-actions/
