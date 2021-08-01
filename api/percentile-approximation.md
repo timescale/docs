@@ -52,4 +52,4 @@ continuous aggregate for re-aggregation using the above value functions.
 
 [percentile_agg]: /hyperfunctions/percentile-approximation/percentile_agg/
 [advanced_agg_methods]: /hyperfunctions/percentile-approximation/percentile-aggregation-methods/
-[rollup]: /latest/hyperfunctions/percentile-approximation/rollup-percentile/
+[rollup]: /hyperfunctions/percentile-approximation/rollup-percentile/
