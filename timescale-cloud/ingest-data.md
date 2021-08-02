@@ -1,6 +1,6 @@
 # Ingest data
 There are serveral different ways of ingesting your data into Managed Service for TimescaleDB (MST). This section contains instructions to:
-*   [Bulk upload from a `.csv` file][#bulk-upload-from-csv-file]
+*   [Bulk upload from a `.csv` file](#bulk-upload-from-csv-file)
 *   Migrate data from an existing PostgreSQL database
 *   Migrate data from InfluxDB
 *   Insert data directly using a client driver, such as JDBC, Python, or Node.js
