@@ -46,7 +46,8 @@ We’re committed to developing these experiments, giving the community a chance
 provide early feedback and influence the direction of TimescaleDB’s development.
  We’ll travel faster with your input! 
 	
-Please create your feedback as a GitHub issue (using the experimental-schema label), describe what you found, and tell us the steps or share the code snippet to recreate it.
+Please create your feedback as a GitHub issue, and add the `experimental-schema` label.
+Describe what you found, and tell us the steps or share the code snippet to recreate it.
 
 Several bugs fixed, see the release notes for more details.
 
@@ -79,7 +80,7 @@ accidentally triggering the load of a previous DB version.**
 
 ## 2.4.0 (2021-07-30)
 
-**Experimental Features**
+**Experimental features**
 * #3293 Add timescaledb_experimental schema
 * #3302 Add block_new_chunks and allow_new_chunks API to experimental
 schema. Add chunk based refresh_continuous_aggregate.
@@ -87,7 +88,7 @@ schema. Add chunk based refresh_continuous_aggregate.
 * #3366 Allow use of experimental time_bucket_ng function in continuous aggregates
 * #3408 Support for seconds, minutes and hours in time_bucket_ng
 
-**Bugfixes**
+**Bug fixes**
 * #3401 Fix segfault for RelOptInfo without fdw_private
 * #3411 Verify compressed chunk validity for compressed path
 * #3416 Fix targetlist names for continuous aggregate views
