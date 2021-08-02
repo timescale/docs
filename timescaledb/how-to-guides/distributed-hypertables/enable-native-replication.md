@@ -62,7 +62,7 @@ Note that it is not possible to force the deletion of a data node if
 it would mean that a distributed hypertable would permanently lose
 data.
 
-Once the failed data has been removed, some data chunks will lack
+Once the failed data node has been removed, some data chunks will lack
 replicas, but queries and inserts should work as normal
 again. However, the multi-node cluster remains in a vulnerable state
 until all chunks that lack replicas are fully replicated again.
