@@ -3,10 +3,10 @@ An MST service is an instance that corresponds to a cloud service provider tier.
 You can access all your services from the `Services` tab within your projects.
 Before you begin, make sure you have [signed in to MST][sign-up] and created your account.
 
-## Create your first service
+## Create a service
 When you have your account set up, you can log in to the [MST portal][timescale-cloud-portal] and create your first service.
 
-### Procedure: Creating your first service
+### Procedure: Creating a service
 1.  [Log in to your MST account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click `Create a new service`.
@@ -64,23 +64,10 @@ Now you have your service up and running, you can try your
 [first tutorial][getting-started].
 
 
-
----
-
-
-
-
 [sign-up]: https://www.timescale.com/cloud-signup
 [mst-login]: https://portal.timescale.cloud/login
-[timescale-cloud-install]: /getting-started/installation/timescale-cloud/installation-timescale-cloud
-[cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[cidr-tool]: http://www.subnet-calculator.com/cidr.php
-[timescale-cloud-kb]: https://kb.timescale.cloud/en/collections/1600092-security
 [timescale-cloud-portal]: http://portal.timescale.cloud
-[sign-up]: https://www.timescale.com/cloud-signup
-[timescale-features]: https://www.timescale.com/products
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[using-timescale]: /timescaledb/latest/overview/core-concepts
 [getting-started]: /timescaledb/latest/getting-started/
 [install-psql]: /timescaledb/latest/how-to-guides/connecting/psql
