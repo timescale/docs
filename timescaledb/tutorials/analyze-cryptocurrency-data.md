@@ -383,19 +383,19 @@ DROP TABLE
 Time: 77.410 ms
 CREATE TABLE
 Time: 80.883 ms
-    create_hypertable    
+    create_hypertable
 -------------------------
  (1,public,btc_prices,t)
 (1 row)
 
 Time: 83.154 ms
-    create_hypertable    
+    create_hypertable
 -------------------------
  (2,public,eth_prices,t)
 (1 row)
 
 Time: 84.650 ms
-     create_hypertable      
+     create_hypertable
 ----------------------------
  (3,public,crypto_prices,t)
 (1 row)
@@ -408,7 +408,7 @@ and see that our tables have been created properly:
 
 ```sql
              List of relations
- Schema |     Name      | Type  |   Owner   
+ Schema |     Name      | Type  |   Owner
 --------+---------------+-------+-----------
  public | btc_prices    | table | tsdbadmin
  public | crypto_prices | table | tsdbadmin
@@ -599,7 +599,7 @@ SELECT
    closing_price,
    LEAD(closing_price) OVER (PARTITION BY currency_code ORDER BY TIME DESC) AS prev_day_closing_price
 FROM
-    crypto_prices  
+    crypto_prices
 )
 ,    daily_factor AS (
 SELECT
@@ -641,7 +641,7 @@ Ready for even more learning? Here's a few suggestions:
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
 [cryptocompare]: https://www.cryptocompare.com
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
-[tableau-tutorial]: /tutorials/visualize-with-tableu/
+[tableau-tutorial]: /tutorials/visualize-with-tableau/
 [time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /tutorials/continuous-aggs-tutorial
 [other-samples]: /tutorials/sample-datasets/
