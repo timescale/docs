@@ -1,19 +1,5 @@
-# Exploring Timescale Cloud
+# About services
 
-Welcome to Timescale Cloud. Timescale Cloud is a a managed TimescaleDB service
-hosted in 75+ regions in AWS, Azure, or GCP. Powered
-by [TimescaleDB][timescale-features], you can create database instances in the
-cloud and automate many of your most common operational tasks. This allows you
-to spend more time focusing on your time-series workloads and less time worrying
-about database management.
-
-Before we start, let's review a few core concepts and phrases:
-
-- **Account**: Your Timescale Cloud account. You can register for a Timescale Cloud account on the [Timescale Cloud signup][sign-up] page.
-- **Project**: An empty Project is created for you automatically when you sign-up. Projects organize groups of Services, and have different billing settings. You can use Projects as a way to organize Services in your account and provide access to those Services with other users.
-- **Service**: A Service is an instance that corresponds to a cloud service provider tier (e.g., AWS Timescale-Pro-512-IO-Optimized). You can access all your Services from the 'Services' tab for a given Project.
-- **Database**: Databases are created within a Service. You can view and create a Database within a Service by selecting one of your Services, and then selecting the 'Databases' tab.
-- **Service Plans**: A Service Plan defines the configuration and level of database management that will be performed for a given TimescaleDB deployment.
 
 ### Step 1: Sign up for Timescale Cloud
 
