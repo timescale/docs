@@ -92,28 +92,29 @@ also have been updated to work for distributed hypertables.
 
 The following APIs to create and configure hypertables have changed:
 
-*   [`create_hypertable`](/api/:currentVersion:/hypertable/create_hypertable):  The `main_table` parameter has been renamed to `relation`, and additional parameters for distributed hypertables have been added.
-*   [`set_chunk_time_interval`](/api/:currentVersion:/hypertable/set_chunk_time_interval), [`set_number_of_partitions`](/api/:currentVersion:/hypertable/set_number_partitions), [`add_dimension`](/api/:currentVersion:/hypertable/add_dimension):  The `main_table` parameter has been renamed to `hypertable`.
+*   [`create_hypertable`](/api/latest/hypertable/create_hypertable/):  The `main_table` parameter has been renamed to `relation`, and additional parameters for distributed hypertables have been added.
+*   [`set_chunk_time_interval`](/api/:currentVersion:/hypertable/set_chunk_time_interval), [`set_number_of_partitions`](/api/latest/distributed-hypertables/set_number_partitions), [`add_dimension`](/api/latest/hypertable/add_dimension):  The `main_table` parameter has been renamed to `hypertable`.
 
 ### Viewing information about hypertables
 
-Consistent with our desire to improve visibility into all aspects of TimescaleDB configuration,
-the following views and functions about hypertable information have been updated or added:
+Consistent with our desire to improve visibility into all aspects of TimescaleDB
+configuration, the following views and functions about hypertable information
+have been updated or added:
 
-*   [`timescaledb_information.hypertables`](/api/:currentVersion:/informational-views/hypertables/)
+*   [`timescaledb_information.hypertables`](/api/latest/informational-views/hypertables)
     *   The view with basic information about hypertables has been renamed from the singular “hypertable”.
     *   Some columns have new names for consistency with other views.
     *   Table size information has been removed and made available through new size functions discussed later.
     *   Additional columns have been added related to distributed hypertables.
     *   The view no longer shows internal hypertables for continuous aggregates and compression.
     *   For continuous aggregates, the internal materialized hypertable name is available in the `timescaledb_information.continuous_aggregates` view.
-*   [`timescaledb_information.dimensions`](/api/:currentVersion:/informational-views/dimensions/):  A new view allows
+*   [`timescaledb_information.dimensions`](/api/latest/informational-views/dimensions):  A new view allows
 users to see partitioning information and settings for various dimensions, such as the chunk time interval or
 number of space partitions used in a hypertable.
-*   [`timescaledb_information.chunks`](/api/:currentVersion:/informational-views/chunks/):   A new view allows users
+*   [`timescaledb_information.chunks`](/api/latest/informational-views/chunks):   A new view allows users
 to see information about individual data chunks of all hypertables, including the tablespace or data node on which
 each chunk is stored.
-*   [`show_chunks(relation)`](/api/:currentVersion:/hypertable/show_chunks):  The function now requires providing a
+*   [`show_chunks(relation)`](/api/latest/hypertable/show_chunks):  The function now requires providing a
 hypertable or continuous aggregate identifier as the first argument, which is consistent with `drop_chunks(relation)`.
 Previously, it was possible to view the chunks of all hypertables by eliding the hypertable argument. To view all
 chunks in the database, we instead recommend using the new chunks view described above.
