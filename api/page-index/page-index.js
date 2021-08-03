@@ -433,7 +433,11 @@ module.exports = [
           },
           {
             title: "copy_chunk",
-            href: "copy_chunk"
+            href: "copy_chunk_experimental"
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk_experimental"
           }
         ]
       }
