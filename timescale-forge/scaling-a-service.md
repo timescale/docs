@@ -43,7 +43,7 @@ the size, not decrease it. You can have a disk up to 10&nbsp;TB in size.
 ### Procedure: Configuring autoscaling for disk size
 1.  In the Timescale Forge console, from the `Services` list, click the name of
     the service you want to modify.
-1.  In the `Service details` page, navigate to the `Operations` tab, and click
+1.  In the `Service overview` page, navigate to the `Operations` tab, and click
     `Autoscaling`.
 1.  Toggle `Enable storage autoscaling` to turn autoscaling on or off.
 1.  In the `Storage autoscaling limit` field, adjust the slider to set the
