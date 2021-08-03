@@ -11,7 +11,7 @@ process. This comes at a cost of slightly higher disk usage during the
 operation. For a more detailed discussion of this capability, see the [Data
 Tiering][using-data-tiering] documentation.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -19,7 +19,7 @@ Tiering][using-data-tiering] documentation.
 |`destination_tablespace`|TEXT|Target tablespace for chunk being moved|
 |`index_destination_tablespace`|TEXT|Target tablespace for index associated with the chunk you are moving|
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -27,7 +27,7 @@ Tiering][using-data-tiering] documentation.
 |`verbose`|BOOLEAN|Setting to true will display messages about the progress of the move_chunk command. Defaults to false.|
 
 
-### Sample Usage
+### Sample usage
 
 ``` sql
 SELECT move_chunk(
