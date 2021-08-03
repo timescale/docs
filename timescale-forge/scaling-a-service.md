@@ -38,7 +38,7 @@ Disk size autoscaling is enabled by default on most services. When you consume
 the next size available, up to a configurable limit.
 
 Autoscaling can change the disk size once every six hours, and can only increase
-the size, not decrease it. You can have a disk up to 10{nbsp}TB in size.
+the size, not decrease it. You can have a disk up to 10&nbsp;TB in size.
 
 ### Procedure: Configuring autoscaling for disk size
 1.  In the Timescale Forge console, from the `Services` list, click the name of
