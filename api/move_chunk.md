@@ -1,4 +1,4 @@
-## move_chunk() <tag type="community">Community</tag> 
+## move_chunk() <tag type="community">Community</tag>
 
 TimescaleDB allows users to move data (and indexes) to alternative
 tablespaces. This allows the user the ability to move data to more cost
@@ -28,7 +28,7 @@ operation. For a more detailed discussion of this capability, please see the
 | `verbose` | BOOLEAN | Setting to true will display messages about the progress of the move_chunk command. Defaults to false.|
 
 
-### Sample Usage 
+### Sample Usage
 
 ``` sql
 SELECT move_chunk(
@@ -39,3 +39,7 @@ SELECT move_chunk(
   verbose => TRUE
 );
 ```
+
+[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
+[postgres-altertable]: https://www.postgresql.org/docs/13/sql-altertable.html
+[using-data-tiering]: timescaledb/how-to-guides/data-tiering/
