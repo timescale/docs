@@ -18,7 +18,7 @@ multi-node experience.
 Multi-node clusters consist of at least two or more TimescaleDB instances
 (called **Services** in Timescale Cloud). Each cluster has one access node
 (AN) and one or more data nodes (DN). As outlined in our
-[architecture blog posts][distributed-architechture], the access node is
+[architecture blog posts][distributed-architecture], the access node is
 intended to be the only TimescaleDB instance that you or your applications
 connect to once the cluster is set up. It becomes the "brains" and traffic
 controller of all distributed hypertable activity. In contrast, data nodes are
@@ -238,10 +238,10 @@ And as always, consider joining our vibrant community [Slack channel][slack] to
 ask questions and learn from Timescale staff and other community members.
 
 
-[maintenance-tasks]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
+[maintenance-tasks]: /timescaledb/latest/how-to-guides/multi-node-setup/
 [slack]: https://slack.timescale.com/
-[changes-in-tsdb2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2/
-[distributed-architechture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
+[changes-in-tsdb2]: /timescaledb/latest/overview/release-notes/changes-in-timescaledb-2/
+[distributed-architecture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
-[sample-data]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[sample-data]: /timescaledb/latest/tutorials/sample-datasets/
 [promscale]: https://github.com/timescale/promscale

@@ -398,7 +398,7 @@ this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 [hypertables]: /how-to-guides/hypertables/
 [caggs]: /how-to-guides/continuous-aggregates/
 [data retention]: /how-to-guides/data-retention/
-[compression]: /how-to-guides/compression/compression
+[compression]: timescaledb/how-to-guides/compression/
 [iot-tutorial]: /tutorials/simulate-iot-sensor-data/
 [Hasura]: http://hasura.io/
 [hasura-cloud]: https://cloud.hasura.io/

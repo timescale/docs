@@ -43,9 +43,9 @@ Several bugs fixed, see the release notes for more details.
 
 **PostgreSQL 11 deprecation announcement**
 
-Timescale is working hard on our next exciting features. 
-To make that possible, we require functionality 
-that is available in Postgres 12 and above. 
+Timescale is working hard on our next exciting features.
+To make that possible, we require functionality
+that is available in Postgres 12 and above.
 For this reason, TimescaleDB 2.3.1 is the final version that supports PostgreSQL 11.  
 TimescaleDB 2.4 will require PostgreSQL 12 or 13.
 
@@ -72,7 +72,7 @@ accidentally triggering the load of a previous DB version.**
 
  ## 2.3.1 (2021-07-05)
 
-This maintenance release contains bug fixes since the 2.3.0 release. 
+This maintenance release contains bug fixes since the 2.3.0 release.
 We deem it moderate priority for upgrading.
 
 **Bug fixes**
@@ -936,7 +936,7 @@ parallel query coordination to the ChunkAppend node.
 Previously ChunkAppend would rely on parallel coordination in the
 underlying scans for parallel plans.
 
-For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](https://docs.timescale.com/latest/tutorials/compression-tutorial),
+For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](timescaledb/getting-started/compress-data),
 and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
 **For this release only**, you will need to restart the database before running

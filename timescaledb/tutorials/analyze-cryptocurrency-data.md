@@ -634,15 +634,12 @@ Ready for even more learning? Here's a few suggestions:
 
 [install-timescale]: /how-to-guides/install-timescaledb/
 [crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
-[schema-creation]: https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql
-[dataset-creation]: https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py
-[dataset]: https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019
 [hypertable-docs]: /how-to-guides/hypertables
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
 [cryptocompare]: https://www.cryptocompare.com
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
 [tableau-tutorial]: /tutorials/visualize-with-tableau/
 [time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /tutorials/continuous-aggs-tutorial
+[continuous-aggregates]: /getting-started/create-cagg
 [other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrating-data
+[migrate]: /how-to-guides/migrating-data/
