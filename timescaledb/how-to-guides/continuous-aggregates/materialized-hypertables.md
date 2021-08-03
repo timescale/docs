@@ -1,6 +1,7 @@
 # Materialized hypertables
 Continuous aggregates take raw data from the original hypertable, aggregate it,
-and store the intermediate state in a materialization hypertable. You can modify this materialized hypertable in the same way as any other hypertable.
+and store the intermediate state in a materialization hypertable. You can modify
+this materialized hypertable in the same way as any other hypertable.
 
 ## Discover the name of a materialized hypertable
 To change a materialized hypertable, you need to discover the name of it. To do
@@ -8,10 +9,10 @@ this, use the
 [timescaledb_information.continuous_aggregates view][api-continuous-aggregates-info]).
 You can then use the name to modify it in the same way as any other hypertable.
 
-### Proceudre: Discovering the name of a materialized hypertable
+### Procedure: Discovering the name of a materialized hypertable
 1.  At the `psql`prompt, query `timescaledb_information.continuous_aggregates`:
     ```sql
-    SELECT view_name, materialization_hypertable
+    SELECT view_name, <materialization_hypertable_name>
         FROM timescaledb_information.continuous_aggregates;
     ```
 1.  Locate the name of the hypertable you want to adjust in the results of the
