@@ -32,7 +32,7 @@ several roles available for project members:
 ## Service users
 You can create user accounts for accessing your services.
 
-<highlight="important">
+<highlight type="important">
 Your service must be running before you can manage users.
 </highlight>
 
