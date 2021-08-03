@@ -360,7 +360,7 @@ A hypertable is defined by a standard schema with column names and types, with a
 least one column specifying a time value.
 
 <highlight type="tip">
-The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/indexing/) explains this in further detail.
+The TimescaleDB documentation on [schema management and indexing](timescaledb/how-to-guides/schema-management/indexing) explains this in further detail.
 </highlight>
 
 Let's create this migration to modify the `page_loads` table and create a
