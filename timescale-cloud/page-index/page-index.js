@@ -18,11 +18,15 @@ module.exports = [
       },
       {
         title: "VPC peering",
-        href: "vpc-peering",
+        href: "vpc-peering"
+      },
+      {
+        title: "Send metrics to Datadog",
+        href: "metrics-datadog"
       },
       {
         title: "Security",
-        href: "security",
+        href: "security"
       }
     ]
   }
