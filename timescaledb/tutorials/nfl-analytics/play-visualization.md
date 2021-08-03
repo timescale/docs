@@ -162,5 +162,5 @@ With TimescaleDB, analyzing time-series data can be easy (and fun!) when you use
 try these functions in your own database and try experimenting with different
 kinds of analysis.
 
-[api-hyperfunctions]: api/latest/hyperfunctions/
-[api-caggs]: api/latest/continuous-aggregates/
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
+[api-caggs]: /api/:currentVersion:/continuous-aggregates/

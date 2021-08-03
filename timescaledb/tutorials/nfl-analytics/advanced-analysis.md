@@ -218,4 +218,4 @@ aggregates. Consider joining in stadium data that we provided to see if teams
 tend to score or run less at Mile High Stadium. Does natural or artificial turf
 affect any teams consistently?
 
-[api-hyperfunctions]: api/latest/hyperfunctions/percentile-approximation/
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/percentile-approximation/

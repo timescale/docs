@@ -20,4 +20,4 @@ If telemetry is disabled, view the telemetry report locally.
 SELECT get_telemetry_report(always_display_report := true);
 ```
 
-[telemetry]: timescaledb/how-to-guides/configuration/telemetry
+[telemetry]: /timescaledb/:currentVersion:/how-to-guides/configuration/telemetry
