@@ -1,6 +1,6 @@
 ## timescaledb_experimental.time_bucket_ng()
 
-The `time_bucket_ng()` (new generation) experimental function is
+The `time_bucket_ng()` (next generation) experimental function is
 similar to [`time_bucket()`][time_bucket], but works with years and
 months. It is expected that the feature will also support timezones
 in a future release.
