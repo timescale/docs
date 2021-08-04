@@ -5,11 +5,11 @@ This quick start guide is designed to get the Rails developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert_rows)
-* [Execute a query on your Timescale database](#execute_query)
+* [Connect to TimescaleDB](#connect-ruby-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Generate a Hypertable](#generate-hypertable)
+* [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
+* [Execute a query on your Timescale database](#execute-a-query)
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 You will also need to [install Rails][rails-install].
 
-## Connect Ruby to TimescaleDB [](new-database)
+## Connect Ruby to TimescaleDB 
 
 ### Step 1: Create a new Rails application
 Let's start by creating a new Rails application configured to use PostgreSQL as the
@@ -114,7 +114,7 @@ rails db:create
 This will create the `my_app_db` database in your TimescaleDB instance and a `schema.rb`
 file that represents the state of your TimescaleDB database.
 
-## Create a relational table [](create_table)
+## Create a relational table 
 
 ### Step 1: Add TimescaleDB to your Rails migration
 
@@ -235,7 +235,7 @@ the `\d page_loads` command in the `rails dbconsole` output:
  updated_at | timestamp(6) without time zone |           | not null |
 ```
 
-## Generate hypertable [](create_hypertable)
+## Generate hypertable 
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
 the abstraction of a single continuous table across all space and time
@@ -249,7 +249,7 @@ A hypertable is defined by a standard schema with column names and types, with a
 least one column specifying a time value.
 
 <highlight type="tip">
-The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/)
+The TimescaleDB documentation on [schema management and indexing](https://docs.timescale.com/timescaledb/latest/how-to-guides/schema-management/)
 explains this in further detail.
 </highlight>
 
@@ -295,7 +295,7 @@ Triggers:
     ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE PROCEDURE _timescaledb_internal.insert_blocker()
 ```
 
-## Insert rows into TimescaleDB [](insert_rows)
+## Insert rows into TimescaleDB 
 
 Let's create a new view and controller so that we can insert a value into
 the database and see our results. When our view displays, we will store
@@ -385,7 +385,7 @@ The output should look like this:
 (4 rows)
 ```
 
-## Execute a query [](execute_query)
+## Execute a query 
 
 So far, we've created a TimescaleDB table and inserted data into it. Now, let's
 retrieve data and display it.

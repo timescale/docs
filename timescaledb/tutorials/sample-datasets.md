@@ -18,7 +18,7 @@ download.)
 1. <tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</tag> 5,000 devices recorded over 2,000 time intervals - 390MB
 1. <tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</tag> 3,000 devices recorded over 10,000 time intervals - 1.2GB
 
-For more details and example usage, see [In-depth: Device ops datasets](#in-depth-devices).
+For more details and example usage, see [In-depth: Device ops datasets](#in-depth-device-ops-datasets).
 
 **Weather**: These datasets are designed to represent temperature and
 humidity data from a variety of locations. (Click on the name to
@@ -28,7 +28,7 @@ download.)
 1. <tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</tag> 1,000 locations over 15,000 two-minute intervals - 115MB
 1. <tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</tag> 2,000 locations over 20,000 two-minute intervals - 305MB
 
-For more details and example usage, see [In-depth: Weather datasets](#in-depth-weather).
+For more details and example usage, see [In-depth: Weather datasets](#in-depth-weather-datasets).
 
 ## Importing
 <!-- Add steps format-->
@@ -67,7 +67,7 @@ The data is now ready for you to use.
 <highlight type="tip">
 The standard `COPY` command in PostgreSQL is single threaded.
  So to speed up importing the larger sample datasets, we recommend using
- our [parallel importer][] instead.
+ our [parallel importer](https://github.com/timescale/timescaledb-parallel-copy) instead.
 </highlight>
 
 ```bash
@@ -75,7 +75,7 @@ The standard `COPY` command in PostgreSQL is single threaded.
 psql -U postgres -h localhost -d devices_small
 ```
 
-## In-depth: Device ops datasets [](in-depth-devices)
+## In-depth: Device ops datasets 
 After importing one of these datasets (`devices_small`, `devices_med`, `devices_big`),
 you will find a plain PostgreSQL table called `device_info`
 and a hypertable called `readings`. The `device_info` table has (static)
@@ -192,7 +192,7 @@ hour                   | min_battery_level | max_battery_level
 
 ---
 
-## In-depth: Weather datasets [](in-depth-weather)
+## In-depth: Weather datasets 
 After importing one of these datasets (`weather_small`, `weather_med`, `weather_big`),
 you will find a plain PostgreSQL table called `locations` and
 a hypertable called `conditions`. The `locations` table has metadata about
@@ -321,4 +321,3 @@ hour                   | avg_temp | min_temp | max_temp
 [weather-medium]: https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz
 [weather-big]: https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz
 
-[parallel importer]: https://github.com/timescale/timescaledb-parallel-copy

@@ -5,11 +5,11 @@ This quick start guide is designed to get the Node.js developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert_rows)
-* [Execute a query on your Timescale database](#execute_query)
+* [Connect to TimescaleDB](#connect-node-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Generate a Hypertable](#generate-hypertable)
+* [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
+* [Execute a query on your Timescale database](#execute-a-query)
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 Obviously, you will need to [install Node][node-install] and the
 [Node Package Manager (npm)][npm-install] as well.
 
-## Connect Node to TimescaleDB [](new-database)
+## Connect Node to TimescaleDB 
 
 TimescaleDB is based on PostgreSQL and we can use common PostgreSQL tools to connect
 your Node app to the database. In this example, we will use a common Node.js
@@ -150,7 +150,7 @@ Executing (default): SELECT 1+1 AS result
 Connection has been established successfully.
 ```
 
-## Create a relational table [](create_table)
+## Create a relational table
 
 ### Step 1: Add TimescaleDB to your Node configuration
 
@@ -346,7 +346,7 @@ let PageLoads = sequelize.define('page_loads', {
 We will now be able to instantiate a `PageLoads` object and save it to the
 database.
 
-## Generate hypertable [](create_hypertable)
+## Generate hypertable 
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
 the abstraction of a single continuous table across all space and time
@@ -360,7 +360,7 @@ A hypertable is defined by a standard schema with column names and types, with a
 least one column specifying a time value.
 
 <highlight type="tip">
-The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/indexing/) explains this in further detail.
+The TimescaleDB documentation on [schema management and indexing](https://docs.timescale.com/timescaledb/latest/how-to-guides/schema-management/) explains this in further detail.
 </highlight>
 
 Let's create this migration to modify the `page_loads` table and create a
@@ -412,7 +412,7 @@ Using environment "development".
 == 20200601202912-add_hypertable: migrated (0.426s)
 ```
 
-## Insert rows into TimescaleDB [](insert_rows)
+## Insert rows into TimescaleDB 
 
 Now you have a working connection to your database, a table configured with
 the proper schema, and a hypertable created to more efficiently query data
@@ -444,7 +444,7 @@ app.get('/', async (req, res) => {
 })
 ```
 
-## Execute a query [](execute_query)
+## Execute a query 
 
 Each time the page is reloaded, we also want to display all information
 currently in the table.
@@ -490,7 +490,6 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 
 [install-timescale]: /how-to-guides/install-timescaledb/
 [setup-psql]: /how-to-guides/connecting/psql/
-[indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /getting-started/create-cagg/
 [other-samples]: /tutorials/sample-datasets/

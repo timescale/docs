@@ -5,11 +5,11 @@
 This quick start guide is designed to get Java developers up and running with TimescaleDB as their database.
 In this tutorial, you'll learn how to:
 
-* [Connect Java to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a hypertable](#generate_hypertable)
-* [Insert a batch of rows into TimescaleDB](#insert_rows)
-* [Execute queries on TimescaleDB](#execute_queries)
+* [Connect Java to TimescaleDB](#connect-java-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Generate a hypertable](#generate-a-hypertable)
+* [Insert a batch of rows into TimescaleDB](#insert-a-batch-of-rows-into-timescaledb)
+* [Execute queries on TimescaleDB](#execute-queries-on-timescaledb)
 
 ## Pre-requisites
 
@@ -24,7 +24,7 @@ and [PostgreSQL Java Database Connectivity (JDBC) Driver][pg-jdbc-driver] as wel
 All code is presented for Java 16 and above. 
 If you are working with older JDK versions, use legacy coding techniques.
 
-## Connect Java to TimescaleDB [](new-database)
+## Connect Java to TimescaleDB 
 
 ### Step 1: Create a new Java application
 
@@ -138,7 +138,7 @@ and you should see this output: `{ApplicationName=PostgreSQL JDBC Driver}`.
 
 Congratulations, you've successfully connected to TimescaleDB using Java.
 
-## Create a relational table [](create_table)
+## Create a relational table 
 
 ### Step 1: Formulate your SQL statement
 
@@ -195,7 +195,7 @@ public class Main {
 
 Congratulations, you've successfully created a relational table in TimescaleDB using Java.
 
-## Generate a hypertable [](generate_hypertable)
+## Generate a hypertable 
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][timescaledb-hypertable],
 the abstraction of a single continuous table across all space and time intervals, 
@@ -288,7 +288,7 @@ public class Main {
 
 Congratulations, you've successfully created a hypertable in your TimescaleDB database using Java.
 
-## Insert a batch of rows into TimescaleDB [](insert_rows)
+## Insert a batch of rows into TimescaleDB 
 
 Here's a typical pattern you could use to insert some data into a table.
 In the example below, insert the relational data from list of sensors,
@@ -435,7 +435,7 @@ which is a command line program for parallelizing PostgreSQL's built-in `COPY` f
 
 Congratulations, you've successfully inserted data into TimescaleDB using Java.
 
-## Execute queries on TimescaleDB [](execute_queries)
+## Execute queries on TimescaleDB 
 
 ### Step 1: Define the SQL query
 
