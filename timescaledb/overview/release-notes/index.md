@@ -103,7 +103,7 @@ schema. Add chunk based refresh_continuous_aggregate.
 
  ## 2.3.1 (2021-07-05)
 
-This maintenance release contains bug fixes since the 2.3.0 release. 
+This maintenance release contains bug fixes since the 2.3.0 release.
 We deem it moderate priority for upgrading.
 
 **Bug fixes**
@@ -967,7 +967,7 @@ parallel query coordination to the ChunkAppend node.
 Previously ChunkAppend would rely on parallel coordination in the
 underlying scans for parallel plans.
 
-For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](https://docs.timescale.com/latest/tutorials/compression-tutorial),
+For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](/timescaledb/:currentVersion:/getting-started/compress-data/),
 and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
 **For this release only**, you will need to restart the database before running
@@ -1165,7 +1165,7 @@ the materialized aggregate the next time that the automated process executes.
 
 For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
 [our docs overview](http://docs.timescale.com/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
-and visit this [tutorial](http://docs.timescale.com/tutorials/continuous-aggs-tutorial).
+and visit this [tutorial](/timescaledb/:currentVersion:/getting-started/create-cagg/).
 
 **Major features**
 * #1184 Add continuous aggregate functionality
