@@ -1,4 +1,4 @@
-# Updating TimescaleDB versions [](update)
+# Updating TimescaleDB versions 
 
 The instructions below all you to update TimescaleDB within the same major release
 version (for example, from TimescaleDB 2.1 to 2.2, or from 1.7 to 1.7.4). If you need
@@ -15,7 +15,7 @@ a new instance of PostgreSQL with a previous release of TimescaleDB and then usi
 from a backup.
 </highlight>
 
-### TimescaleDB release compatibility [](compatibility)
+### TimescaleDB release compatibility 
 
 TimescaleDB currently supports the following PostgreSQL releases. If you are not
 currently running a compatible release, please upgrade before updating TimescaleDB.

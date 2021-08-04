@@ -1,4 +1,4 @@
-# Data retention [](data-retention)
+# Data retention 
 
 An intrinsic part of time-series data is that new data is accumulated
 and old data is rarely, if ever, updated and the relevance of the data
@@ -39,7 +39,7 @@ include data older than this duration, and will _not_ delete any
 individual rows of data in chunks.
 
 
-## Automatic data retention policies [](retention-policy)
+## Automatic data retention policies 
 
 TimescaleDB also includes a background job scheduling framework for automating
 data management tasks, such as enabling easy [data retention policies][add-retention-policy]. With

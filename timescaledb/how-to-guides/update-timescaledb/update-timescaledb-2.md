@@ -1,4 +1,4 @@
-# Updating TimescaleDB to 2.0 [](update)
+# Updating TimescaleDB to 2.0 
 
 Use these instructions to update TimescaleDB 1.x to TimescaleDB 2.0
 
@@ -9,7 +9,7 @@ These instructions are only for upgrading TimescaleDB 1.x to TimescaleDB 2.0
   for general update instructions.
 </highlight>
 
-### TimescaleDB release compatibility [](compatibility)
+### TimescaleDB release compatibility 
 
 TimescaleDB currently supports the following PostgreSQL releases. If you are not
 currently running a compatible release, please upgrade before updating TimescaleDB.
@@ -52,7 +52,7 @@ therefore we highly recommend verifying that these settings were migrated correc
 detailed look at the major changes in TimescaleDB 2.0 and how they impact the way your applications and scripts
 interact with the API.
 
-### Prerequisites [](prerequisites)
+### Prerequisites 
 #### PostgreSQL compatibility
 **TimescaleDB 2.0 is not compatible with PostgreSQL 9.6 or 10**. If your current PostgreSQL installation is not
 at least version 11, please upgrade PostgreSQL first. Depending on your current PostgreSQL version and installed
@@ -81,7 +81,7 @@ Read more about changes to continuous aggregates and data retension policies [he
 </highlight>
 
 
-### Update TimescaleDB [](start-update)
+### Update TimescaleDB 
 
 #### Step 1: Verify TimescaleDB 1.x policy settings (Optional)
 

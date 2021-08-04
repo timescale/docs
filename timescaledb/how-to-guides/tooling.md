@@ -2,7 +2,7 @@
 
 We've created several open-source tools to help users make the most out of their experience with TimescaleDB.
 
-## `timescaledb-tune` [](ts-tune)
+## `timescaledb-tune` 
 
 [`timescaledb-tune`][tstune] is a command-line tool that helps you tune and configure your TimescaleDB/PostgreSQL instances to leverage your existing hardware for better performance. It accomplishes this by adjusting the settings to match your system's CPU, memory resources, and PostgreSQL version.
 
@@ -12,7 +12,7 @@ The tool will first analyze the existing `postgresql.conf` file to ensure that t
 
 For more information on how to get started with `timescaledb-tune`, visit the [GitHub repo][github-tstune].
 
-## `timescaledb-parallel-copy` [](ts-copy)
+## `timescaledb-parallel-copy` 
 
 [`timescaledb-parallel-copy`][tscopy] is a command-line program for parallelizing PostgreSQL's built-in COPY functionality for bulk inserting data into TimescaleDB. When getting started with TimescaleDB, we recommend this program as a good way to get better bulk insert performance.
 

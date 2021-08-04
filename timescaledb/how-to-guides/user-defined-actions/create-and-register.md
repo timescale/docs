@@ -1,4 +1,4 @@
-# Creating procedures for actions [](create)
+# Creating procedures for actions 
 
 The signature for actions is `(job_id INT, config JSONB)`. It can either
 be implemented as [function][postgres-createfunction] or
@@ -17,7 +17,7 @@ END
 $$;
 ```
 
-## Registering actions [](register)
+## Registering actions 
 
 In order to register your action for execution within TimescaleDB's
 job scheduler, you next need to [`add_job`][api-add_job] with the name of your action
