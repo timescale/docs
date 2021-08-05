@@ -660,7 +660,7 @@ The result of your query should start something like this:
 
 ```
 
-#### How many rides on New Year's morning originated from within 400m of Times Square, in 30 minute buckets? 
+#### How many rides on New Year's morning originated from within 400m of Times Square, in 30 minute buckets? [](postgis)
 
 New York City is famous for its annual Ball Drop New Year's Eve
 celebration in Times Square. Thousands of people gather to bring in the

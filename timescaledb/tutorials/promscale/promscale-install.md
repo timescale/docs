@@ -26,7 +26,7 @@ Alternatively, you can skip to the bonus section which contains a `docker-compos
 The instructions below are local testing purposes only and should not be used to set up a production environment.
 </highlight>
 
-## Install TimescaleDB 
+## Install TimescaleDB [](install-timescaledb)
 
 First, let's create a network specific to Promscale and TimescaleDB:
 
@@ -53,7 +53,7 @@ We set the `POSTGRES_PASSWORD` environment variable (using the `-e` flag) in the
 For production deployments, you will want to fix the docker tag to a particular version instead of `pg12-latest`
 </highlight>
 
-## Install Promscale 
+## Install Promscale [](install-promscale)
 
 Since we have TimescaleDB up and running, let's spin up a [Promscale instance][promscale-github], using the [Promscale docker image][promscale-docker-image] available on Docker Hub:
 
@@ -73,7 +73,7 @@ The setting `ssl-mode=allow` is for testing purposes only. For production deploy
 </highlight>
 
 
-## Start collecting metrics using node_exporter 
+## Start collecting metrics using node_exporter [](install-node-exporter)
 
 `node_exporter` is a Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors. To learn more about it, refer to the [Node Exporter Github][].
 
@@ -90,7 +90,7 @@ The command above creates a node exporter instanced named `node_exporter`, which
 
 Once the Node Exporter is running, you can verify that system metrics are being exported by visiting its `/metrics` endpoint at the following URL: `http://localhost:9100/metrics`. Prometheus will scrape this `/metrics` endpoint to get metrics.
 
-## Install Prometheus 
+## Install Prometheus [](install-prometheus)
 
 All that's left is to spin up Prometheus.
 
@@ -128,7 +128,7 @@ docker run \
     prom/prometheus
 ```
 
-## BONUS: Docker compose file 
+## BONUS: Docker compose file [](promscale-docker-compose)
 To save time spinning up and running each docker container separately, here is a sample`docker-compose.yml` file that will spin up docker containers for TimescaleDB, Promscale, node_exporter and Prometheus using the configurations mentioned in Steps 1-4 above.
 
 <highlight type="warning">

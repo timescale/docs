@@ -75,7 +75,7 @@ The standard `COPY` command in PostgreSQL is single threaded.
 psql -U postgres -h localhost -d devices_small
 ```
 
-## In-depth: Device ops datasets 
+## In-depth: Device ops datasets [](in-depth-devices)
 After importing one of these datasets (`devices_small`, `devices_med`, `devices_big`),
 you will find a plain PostgreSQL table called `device_info`
 and a hypertable called `readings`. The `device_info` table has (static)
@@ -192,7 +192,7 @@ hour                   | min_battery_level | max_battery_level
 
 ---
 
-## In-depth: Weather datasets 
+## In-depth: Weather datasets [](in-depth-weather)
 After importing one of these datasets (`weather_small`, `weather_med`, `weather_big`),
 you will find a plain PostgreSQL table called `locations` and
 a hypertable called `conditions`. The `locations` table has metadata about
@@ -320,4 +320,3 @@ hour                   | avg_temp | min_temp | max_temp
 [weather-small]: https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz
 [weather-medium]: https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz
 [weather-big]: https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz
-

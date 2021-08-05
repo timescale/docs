@@ -68,7 +68,7 @@ of the database.
 
 [//]: # ( Link to section on distributed hypertables?  Timescale Cloud? )
 
-## Multi-node TimescaleDB and distributed hypertables 
+## Multi-node TimescaleDB and distributed hypertables [](multi-node)
 
 TimescaleDB 2.0 also supports horizontally scaling across many servers.
 Instead of a primary node (and each replica) which stores the full copy

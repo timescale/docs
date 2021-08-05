@@ -148,7 +148,7 @@ Yes. TimescaleDB is currently deployed in production across a variety of industr
 including manufacturing, energy, utilities, mining, oil and gas, finance, ad tech,
 smart spaces, and more.
 
-## When is TimescaleDB a good choice?**  
+## When is TimescaleDB a good choice?**  [](when-good)
 TimescaleDB is a good choice:
 
 * If you, and more of your organization, want to make standard SQL queries on time-series data,
