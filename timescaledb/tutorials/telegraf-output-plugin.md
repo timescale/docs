@@ -10,7 +10,7 @@ We wrote the PostgreSQL output plugin which also has the ability to send data to
 
 This tutorial will run through a couple of examples on how to use the PostgreSQL/TimescaleDB output plugin for Telegraf.
 
-## Installation 
+## Installation [](telegraf-installation)
 
 ### Before we start
 
