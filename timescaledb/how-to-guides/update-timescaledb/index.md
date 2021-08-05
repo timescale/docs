@@ -15,7 +15,7 @@ a new instance of PostgreSQL with a previous release of TimescaleDB and then usi
 from a backup.
 </highlight>
 
-### TimescaleDB release compatibility 
+### TimescaleDB release compatibility [](compatibility)
 
 TimescaleDB currently supports the following PostgreSQL releases. If you are not
 currently running a compatible release, please upgrade before updating TimescaleDB.

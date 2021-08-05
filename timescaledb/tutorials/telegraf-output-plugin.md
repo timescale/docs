@@ -42,7 +42,7 @@ $ telegraf --version
 
 If the installation was successful it should print out `Telegraf 1.13.0-with-pg`.
 
-## Telegraf configuration  [](telegraf-configuration)
+## Telegraf configuration [](telegraf-configuration)
 
 When Telegraf is started, a config file needs to be specified.
 The config file contains the setup for the:
