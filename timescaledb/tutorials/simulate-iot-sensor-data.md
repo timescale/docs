@@ -131,7 +131,7 @@ SAMPLE OUTPUT:
 Congrats! We've created a basic IoT sensor dataset. Now let's run some
 queries.
 
-## Step 3 - Run basic queries (optional) 
+## Step 3 - Run basic queries (optional) [](step3)
 
 *Note: This section requires TimescaleDB*
 
