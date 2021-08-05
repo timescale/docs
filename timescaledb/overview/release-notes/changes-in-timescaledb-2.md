@@ -37,7 +37,7 @@ about the impetus for these changes and our design decisions. For a more in-dept
 
 Once you have read through this guide and understand the impact that upgrading to the latest
  version may have on your existing application and infrastructure, please follow our
- [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-tsdb-2)
+ [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/)
   documentation. You will find straight-forward instructions and recommendations to ensure
   everything is updated and works correctly.
 
