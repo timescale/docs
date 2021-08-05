@@ -2,7 +2,7 @@
 
 We've created several open-source tools to help users make the most out of their experience with TimescaleDB.
 
-## `timescaledb-tune` 
+## `timescaledb-tune` [](ts-tune)
 
 [`timescaledb-tune`][tstune] is a command-line tool that helps you tune and configure your TimescaleDB/PostgreSQL instances to leverage your existing hardware for better performance. It accomplishes this by adjusting the settings to match your system's CPU, memory resources, and PostgreSQL version.
 
