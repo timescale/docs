@@ -9,16 +9,8 @@ exist on other nodes that can take over the responsibility of serving them.
 |Name|Type|Description|
 |-|-|-|
 |`chunk`|REGCLASS|Name of chunk to be copied|
-|`destination_tablespace`|TEXT|Target tablespace for chunk being copied|
-|`index_destination_tablespace`|TEXT|Target tablespace for index associated with the chunk you are copying|
-
-### Optional arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`reorder_index`|REGCLASS|The name of the index (on either the hypertable or chunk) to order by|
-|`verbose`|BOOLEAN|Setting to true will display messages about the progress of the copy_chunk command. Defaults to false.|
-
+|`source_node`|NAME|Data node where the chunk currently resides|
+|`destination_node`|NAME|Data node where the chunk is to be copied|
 
 ### Sample usage
 

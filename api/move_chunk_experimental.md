@@ -1,45 +1,24 @@
 ## move_chunk() <tag type="community">Community</tag>
-
----- Placeholder: Changes TBD ----
-
-TimescaleDB allows you to move data and indexes to different tablespaces. This
-allows you to move data to more cost-effective storage as it ages.
-
-The `move_chunk` function acts like a combination of the
-[PostgreSQL CLUSTER command][postgres-cluster] and
-[PostgreSQL ALTER TABLE...SET TABLESPACE][postgres-altertable] commands. Unlike
-these PostgreSQL commands, however, the `move_chunk` function uses lower lock
-levels so that the chunk and hypertable are able to be read for most of the
-process. This comes at a cost of slightly higher disk usage during the
-operation. For a more detailed discussion of this capability, see the [Data
-Tiering][using-data-tiering] documentation.
+TimescaleDB allows you to move chunks to other data nodes. This can be used
+when new data nodes are added to a cluster and you want to rebalance the storage
+across more nodes. It is also helpful when a node needs to be removed from the 
+cluster, which can only happen once all chunks are replicated on other data
+nodes.
 
 ### Required arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`chunk`|REGCLASS|Name of chunk to be moved|
-|`destination_tablespace`|TEXT|Target tablespace for chunk being moved|
-|`index_destination_tablespace`|TEXT|Target tablespace for index associated with the chunk you are moving|
-
-### Optional arguments
-
-|Name|Type|Description|
-|-|-|-|
-|`reorder_index`|REGCLASS|The name of the index (on either the hypertable or chunk) to order by|
-|`verbose`|BOOLEAN|Setting to true will display messages about the progress of the move_chunk command. Defaults to false.|
+|`chunk`|REGCLASS|Name of chunk to be copied|
+|`source_node`|NAME|Data node where the chunk currently resides|
+|`destination_node`|NAME|Data node where the chunk is to be copied|
 
 
 ### Sample usage
 
 ``` sql
-SELECT move_chunk(
-  chunk => '_timescaledb_internal._hyper_1_4_chunk',
-  destination_tablespace => 'tablespace_2',
-  index_destination_tablespace => 'tablespace_3',
-  reorder_index => 'conditions_device_id_time_idx',
-  verbose => TRUE
-);
+CALL timescaledb_experimental.move_chunk(‘_timescaledb_internal._dist_hyper_1_1_chunk’, ‘data_node_2’, ‘data_node_3’);
+```
 ```
 
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
