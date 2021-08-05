@@ -37,7 +37,7 @@ about the impetus for these changes and our design decisions. For a more in-dept
 
 Once you have read through this guide and understand the impact that upgrading to the latest
  version may have on your existing application and infrastructure, please follow our
- [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-tsdb-2)
+ [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/)
   documentation. You will find straight-forward instructions and recommendations to ensure
   everything is updated and works correctly.
 
@@ -446,7 +446,7 @@ separate retention policy on each continuous aggregate.
 *   [`add_retention_policy`](/api/:currentVersion:/data-retention/add_retention_policy), [`remove_retention_policy`](/api/:currentVersion:/data-retention/remove_retention_policy):  
 Creating (or removing) a data retention policy now has explicit functions. Additionally, the arguments `cascade`
 and `cascade_to_materializations` were removed (and behave as if the arguments were set to `false` in earlier versions).
-*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/timescaledb_information-jobs/): General information about data retention
+*   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs/): General information about data retention
 policies are now available in the main jobs view.
 
 #### Removed
