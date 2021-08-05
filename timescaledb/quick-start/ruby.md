@@ -22,7 +22,7 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 You will also need to [install Rails][rails-install].
 
-## Connect Ruby to TimescaleDB 
+## Connect Ruby to TimescaleDB [](new-database)
 
 ### Step 1: Create a new Rails application
 Let's start by creating a new Rails application configured to use PostgreSQL as the
@@ -114,7 +114,7 @@ rails db:create
 This will create the `my_app_db` database in your TimescaleDB instance and a `schema.rb`
 file that represents the state of your TimescaleDB database.
 
-## Create a relational table 
+## Create a relational table [](create_table)
 
 ### Step 1: Add TimescaleDB to your Rails migration
 
@@ -235,7 +235,7 @@ the `\d page_loads` command in the `rails dbconsole` output:
  updated_at | timestamp(6) without time zone |           | not null |
 ```
 
-## Generate hypertable 
+## Generate hypertable [](create_hypertable)
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
 the abstraction of a single continuous table across all space and time
@@ -295,7 +295,7 @@ Triggers:
     ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE PROCEDURE _timescaledb_internal.insert_blocker()
 ```
 
-## Insert rows into TimescaleDB 
+## Insert rows into TimescaleDB [](insert_rows)
 
 Let's create a new view and controller so that we can insert a value into
 the database and see our results. When our view displays, we will store
@@ -385,7 +385,7 @@ The output should look like this:
 (4 rows)
 ```
 
-## Execute a query 
+## Execute a query [](execute_query)
 
 So far, we've created a TimescaleDB table and inserted data into it. Now, let's
 retrieve data and display it.

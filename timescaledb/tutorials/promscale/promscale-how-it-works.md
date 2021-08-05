@@ -1,6 +1,6 @@
 # How Promscale works
 
-## Promscale architecture 
+## Promscale architecture [](promscale-architecture)
 Unlike some other long-term data stores for Prometheus, the basic Promscale architecture consists of only three components: Prometheus, Promscale, and TimescaleDB.
 
 The diagram below explains the high level architecture of Promscale, including how it reads and writes to Prometheus, and how it can be queried by additional components, like PromLens, Grafana and any other SQL tool.
@@ -24,7 +24,7 @@ Promscale has a dependency on the [Promscale PostgreSQL extension][promscale-ext
 ### Deploying Promscale
 Promscale can be deployed in any environment running Prometheus, alongside any Prometheus instance. We provide Helm charts for easier deployments to Kubernetes environments (see [Up and running with Promscale][promscale-install] for more on installation and deployment).
 
-## Promscale schema 
+## Promscale schema [](promscale-schema)
 
 To achieve high ingestion, query performance and optimal storage we have designed a schema which takes care of writing the data in the most optimal format for storage and querying in TimescaleDB. Promscale translates data from the [Prometheus data model][Prometheus native format] into a relational schema that is optimized for TimescaleDB.
 

@@ -23,7 +23,7 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 Obviously, you will need to [install Node][node-install] and the
 [Node Package Manager (npm)][npm-install] as well.
 
-## Connect Node to TimescaleDB 
+## Connect Node to TimescaleDB [](new-database)
 
 TimescaleDB is based on PostgreSQL and we can use common PostgreSQL tools to connect
 your Node app to the database. In this example, we will use a common Node.js
@@ -150,7 +150,7 @@ Executing (default): SELECT 1+1 AS result
 Connection has been established successfully.
 ```
 
-## Create a relational table
+## Create a relational table [](create_table)
 
 ### Step 1: Add TimescaleDB to your Node configuration
 
@@ -346,7 +346,7 @@ let PageLoads = sequelize.define('page_loads', {
 We will now be able to instantiate a `PageLoads` object and save it to the
 database.
 
-## Generate hypertable 
+## Generate hypertable [](create_hypertable)
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
 the abstraction of a single continuous table across all space and time
@@ -412,7 +412,7 @@ Using environment "development".
 == 20200601202912-add_hypertable: migrated (0.426s)
 ```
 
-## Insert rows into TimescaleDB 
+## Insert rows into TimescaleDB [](insert_rows)
 
 Now you have a working connection to your database, a table configured with
 the proper schema, and a hypertable created to more efficiently query data
@@ -444,7 +444,7 @@ app.get('/', async (req, res) => {
 })
 ```
 
-## Execute a query 
+## Execute a query [](execute_query)
 
 Each time the page is reloaded, we also want to display all information
 currently in the table.

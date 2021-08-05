@@ -8,7 +8,7 @@ This section details five reasons to use Timescale and Promscale to store Promet
 4. [Per Metric Retention](#per-metric-retention)
 5. [Ability to push data from custom applications](#ability-to-push-data-from-custom-applications)
 
-## Long term data storage 
+## Long term data storage [](data-storage)
 
 In order to keep Prometheus simple and easy to operate, its creators intentionally left out many scaling features one would normally expect. Data in Prometheus is stored locally within the instance and is not replicated. Having both compute and data storage on one node may make it easier to operate, but also makes it harder to scale and ensure high availability.
 
@@ -27,7 +27,7 @@ TimescaleDB can also store other types of data (metrics from other systems, time
 
 Moreover, the recent release of [TimescaleDB 2.0][multinode-blog] introduces multi-node functionality, making it easier to scale horizontally and store data at petabyte scale.
 
-## Operational ease 
+## Operational ease [](operational-ease)
 
 Promscale operates as a single stateless service. This means that once you configure the `remote-write` & `remote-read` endpoints in your prometheus configuration file then all samples are forwarded to Promscale. Promscale then handles the ingestion of samples into TimescaleDB. Promscale exposes all Prometheus compatible APIs, allowing you to query your data using PromQL queries.
 
@@ -35,7 +35,7 @@ Moreover, the only way to scale Prometheus is by [federation][prometheus-federat
 
 Furthermore, with Promscale, it's simple to get a global view of all metrics data, using both PromQL and SQL queries.
 
-## Queries in SQL and PromQL 
+## Queries in SQL and PromQL [](queries)
 
 By allowing you to use SQL, in addition to PromQL, Promscale empowers you to ask complex analytical queries from your metrics data, and thus extract more meaningful insights.
 
@@ -47,7 +47,7 @@ TimescaleDB's full SQL support is of great help in these cases. It enables you t
 
 We detail examples of such SQL queries in [Run queries with PromQL and SQL][promscale-run-queries] of this tutorial.
 
-## Per metric retention 
+## Per metric retention [](per-metric)
 
 Promscale maintains isolation between metrics. This allows you to set retention periods, downsampling and compression settings on a per metric basis, giving you more control over your metrics data.
 
@@ -55,7 +55,7 @@ Per metric retention policies, downsampling, aggregation and compression helps y
 
 This isolation extends to query performance, wherein queries for one metric are not affected by the cardinality, query, or write load of other metrics. This provides better performance on smaller metrics and in general provides a level of safety within your metric storage system.
 
-## Ability to push data from custom applications 
+## Ability to push data from custom applications [](custom-apps)
 
 The Promscale write endpoints also accept data from your custom applications (i.e data outside of Prometheus) in JSON format.
 

@@ -17,7 +17,7 @@ basic IoT sensor dataset on PostgreSQL, or TimescaleDB.
 *Note: For creating a more advanced simulated IoT dataset, please
 try the Time-series Benchmarking Suite (TSBS) ([Github][github-tsbs]).*
 
-## Prerequisites 
+## Prerequisites [](prereqs)
 
 To complete this tutorial, you will need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial will walk you through each SQL command, but it will be
@@ -27,7 +27,7 @@ To start, [install TimescaleDB][install-timescale]. Once your installation is co
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 
-## Step 1 - Set up your tables 
+## Step 1 - Set up your tables [](step1)
 First, connect to your database via `psql`.
 
 Second, create the "sensors" and "sensor_data" tables:
@@ -86,7 +86,7 @@ this:
 (4 rows)
 ```
 
-## Step 2 - Create the simulated IoT sensor data 
+## Step 2 - Create the simulated IoT sensor data [](step2)
 
 *Note: for the following sections we'll share the results of our queries
 as an example, but since the tutorial generates random data every time
@@ -214,7 +214,7 @@ SAMPLE OUTPUT:
 ...
 ```
 
-## Next steps 
+## Next steps [](next-steps)
 
 Congratulations! You now have a basic IoT sensor dataset you can
 use for testing in PostgreSQL or TimescaleDB.

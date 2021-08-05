@@ -1,4 +1,4 @@
-# Updating TimescaleDB versions 
+# Updating TimescaleDB versions [](update)
 
 The instructions below all you to update TimescaleDB within the same major release
 version (for example, from TimescaleDB 2.1 to 2.2, or from 1.7 to 1.7.4). If you need

@@ -21,7 +21,7 @@ syntax instead of the `pip [foo]` syntax. This is to ensure that pip installs
 new components for the version of Python that we are using.
 </highlight>
 
-## Step 1 - Set up a basic Django application (optional) 
+## Step 1 - Set up a basic Django application (optional) [](step0)
 *(Please skip this step if you already have a Django application.)*
 
 ### Install Django
@@ -156,7 +156,7 @@ python_info{implementation="CPython",major="3",minor="8",patchlevel="0",version=
 ...
 ```
 
-## Step 3 - Point Prometheus to your Django application metrics endpoint 
+## Step 3 - Point Prometheus to your Django application metrics endpoint [](step2)
 
 **(Note: This section assumes that you have a locally running Prometheus
 instance.)**
@@ -204,7 +204,7 @@ more times and reload the Prometheus Expression Browser to confirm that it
 is working. Also feel free to explore the other Django metrics that
 Prometheus is collecting.
 
-## Step 4 - Instrument additional aspects of your application (optional) 
+## Step 4 - Instrument additional aspects of your application (optional) [](step3)
 [Django-prometheus][get-django-prometheus] is quite powerful, and allows
 you to easily instrument additional aspects of your application, including:
 
@@ -216,7 +216,7 @@ you to easily instrument additional aspects of your application, including:
 More information on how to do all of these is
 [here][get-django-prometheus-more].
 
-## Next steps 
+## Next steps [](#next-steps)
 Congratulations! Now you are monitoring your Django application with Prometheus!
 
 Looking for something to do next? You can start building dashboards to
