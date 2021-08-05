@@ -6,7 +6,7 @@ existing PostgreSQL database to use TimescaleDB.
 
 <highlight type="tip">
 If you are planning on doing any performance testing on TimescaleDB, we
-strongly recommend that you [configure][configure] TimescaleDB properly.
+strongly recommend that you [configure](/timescaledb/latest/how-to-guides/configuration/) TimescaleDB properly.
 </highlight>
 
 <img class="main-content__illustration" style="margin: 0 5% 0 10%;" src="https://assets.iobeam.com/images/docs/illustration-setup.svg" alt="setup illustration"/>
@@ -70,6 +70,5 @@ to a TimescaleDB hypertable.
 ---
 
 [installed]: /how-to-guides/install-timescaledb/
-[configure]: /how-to-guides/configuration/
 [start-scratch]: /how-to-guides/hypertables/create/
 [migrate-postgres]: /how-to-guides/migrate-data/
