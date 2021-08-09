@@ -1,6 +1,0 @@
-name: Broken link check
-on:
-  push:
-    branches:
-      - production-v3
-

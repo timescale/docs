@@ -2,11 +2,11 @@ name: Write deploy comment and check for broken links
 
 on:
   pull_request_target:
-    types: [ opened, reopened ]
+    types: [opened, reopened]
 
 jobs:
   trigger:
-    name: Write comment with docs url
+    name: Write comment with docs url and check for broken links
     runs-on: ubuntu-latest
     steps:
       - name: Set dev folder
@@ -20,19 +20,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
             Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>
-
-jobs:
-  broken_link_checker_job:
-    runs-on: ubuntu-latest
-    name: Check for broken links
-    steps:
-    - name: Check for broken links
-      id: link-report
-      uses: celinekurpershoek/link-checker@v1.0.1
-      with:
-        url: ${{ https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" }}
-        honorRobotExclusions: false
-        ignorePatterns: 'github,google'
-        recursiveLinks: false
-    - name: Get the result
-      run: echo "${{steps.link-report.outputs.result}}"
+      - name: broken link checker
+        uses: celinekurpershoek/link-checker@v1.0.1
+        id: link-report
+        with:
+          url: https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}
+          honorRobotExclusions: false
+          ignorePatterns: 'github,google'
+          recursiveLinks: false
+      - name: Get the results
+        run: echo "${{steps.link-report.outputs.result}}"
