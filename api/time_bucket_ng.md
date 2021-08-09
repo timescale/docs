@@ -86,5 +86,5 @@ ORDER BY bucket;
 For more information, see the [continuous aggregates documentation][caggs].
 
 
-[time_bucket]: hyperfunctions/time_bucket/
-[caggs]: timescaledb/latest/overview/core-concepts/continuous-aggregates/
+[time_bucket]: /hyperfunctions/time_bucket/
+[caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
