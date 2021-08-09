@@ -1,17 +1,16 @@
 ## Visualize pre-snap positions and player movement
-
 Interestingly, the NFL data set includes data on player movement within each
 football play. Visualizing the changes in your time-series data can often provide
 even more insight. In this section, we will use `pandas` and `matplotlib` to
 visually depict a play during the season.
 
-**Install pandas and matplotlib:**
+## Install pandas and matplotlib
 
 ```bash
 pip install pandas matplotlib
 ```
 
-**Draw football field**
+## Draw football field
 
 ```python
 def generate_field():
@@ -37,7 +36,7 @@ def generate_field():
         if x > 50:
             numb = 120-x
         plt.text(x, 5, str(numb - 10), horizontalalignment='center', fontsize=20, color='white')
-        plt.text(x-0.95, 53.3-5, str(numb-10), 
+        plt.text(x-0.95, 53.3-5, str(numb-10),
                  horizontalalignment='center', fontsize=20, color='white',rotation=180)
 
     # hash marks
@@ -46,36 +45,36 @@ def generate_field():
         ax.plot([x, x], [53.0, 52.5], color='white')
         ax.plot([x, x], [22.91, 23.57], color='white')
         ax.plot([x, x], [29.73, 30.39], color='white')
-        
+
     # set limits and hide axis
     plt.xlim(0, 120)
     plt.ylim(-5, 58.3)
     plt.axis('off')
-    
+
     return fig, ax
 ```
 
-**Draw players' movement based on `game_id` and `play_id`**
+## Draw players' movement based on `game_id` and `play_id`
 
 ```python
-conn = psycopg2.connect(database="db", 
-                        host="host", 
-                        user="user", 
-                        password="pass", 
+conn = psycopg2.connect(database="db",
+                        host="host",
+                        user="user",
+                        password="pass",
                         port="111")
 
 def draw_play(game_id, play_id, home_label='position', away_label='position', movements=False):
-    """Generates a chart to visualize player pre-snap positions and 
+    """Generates a chart to visualize player pre-snap positions and
       movements during the given play.
 
     Args:
         game_id (int)
         play_id (int)
-        home_label (str, optional): Default is 'position' but can be 'displayname' 
+        home_label (str, optional): Default is 'position' but can be 'displayname'
           or other column name available in the table.
-        away_label (str, optional): Default is 'position' but can be 'displayname' 
+        away_label (str, optional): Default is 'position' but can be 'displayname'
           or other column name available in the table.
-        movements (bool, optional): If False, only draws the pre-snap positions. 
+        movements (bool, optional): If False, only draws the pre-snap positions.
           If True, draws the movements as well.
     """
     # query all tracking data for the given play
@@ -93,12 +92,12 @@ def draw_play(game_id, play_id, home_label='position', away_label='position', mo
     # query pre_snap player positions
     home_pre_snap = home_team.query('event == "ball_snap"')
     away_pre_snap = away_team.query('event == "ball_snap"')
-    
+
     # visualize pre-snap positions with scatter plot
     home_pre_snap.plot.scatter(x='x', y='y', ax=ax, color='yellow', s=35, zorder=3)
     away_pre_snap.plot.scatter(x='x', y='y', ax=ax, color='blue', s=35, zorder=3)
-    
-    # annotate the figure with the players' position or name 
+
+    # annotate the figure with the players' position or name
     # (depending on the *label* parameter's value)
     home_positions = home_pre_snap[home_label].tolist()
     away_positions = away_pre_snap[away_label].tolist()
@@ -106,7 +105,7 @@ def draw_play(game_id, play_id, home_label='position', away_label='position', mo
         ax.annotate(pos, (home_pre_snap['x'].tolist()[i], home_pre_snap['y'].tolist()[i]))
     for i, pos in enumerate(away_positions):
         ax.annotate(pos, (away_pre_snap['x'].tolist()[i], away_pre_snap['y'].tolist()[i]))
-    
+
     if movements:
         # visualize player movements for home team
         home_players = home_team['player_id'].unique().tolist()
@@ -121,30 +120,32 @@ def draw_play(game_id, play_id, home_label='position', away_label='position', mo
             df.plot(x='x', y='y', ax=ax, linewidth=4, legend=False)
 
     # query play description and possession team and add them in the title
-    sql = """SELECT gameid, playid, playdescription, possessionteam FROM play 
+    sql = """SELECT gameid, playid, playdescription, possessionteam FROM play
              WHERE gameid = {game} AND playid = {play}""".format(game=game_id, play=play_id)
-    play_info = pd.read_sql(sql, conn).to_dict('records') 
-    plt.title('Possession team: {team}\nPlay: {play}'.format(team=play_info[0]['possessionteam'], 
-                                                             play=play_info[0]['playdescription']))
+    play_info = pd.read_sql(sql, conn).to_dict('records')
+    plt.title('Possession team: {team}\nPlay: {play}'.format(team=play_info[0]['possessionteam'],
+    play=play_info[0]['playdescription']))
     # show chart
     plt.show()
 ```
 
-Then, you can run the `draw_play` function like this to visualize pre-snap player positions:
+Then, you can run the `draw_play` function like this to visualize pre-snap
+player positions:
 
 ```python
-draw_play(game_id=2018112900, 
+draw_play(game_id=2018112900,
           play_id=2826,
           movements=False)
 ```
 
 ![pre snap players figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement_pre_snap.png)
 
-You can also visualize player movement during the play if you set `movements` to `True`:
+You can also visualize player movement during the play if you set `movements`
+to `True`:
 
 ```python
-draw_play(game_id=2018112900, 
-          play_id=2826, 
+draw_play(game_id=2018112900,
+          play_id=2826,
           home_label='position',
           away_label='displayname',
           movements=True)
@@ -152,6 +153,14 @@ draw_play(game_id=2018112900,
 ![player movement figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png)
 
 
-### Conclusion
+## Conclusion
+We hope that through this tutorial you have been able to see how data that does
+not appear to be time-series initially, is in fact time-series data after all.
+With TimescaleDB, analyzing time-series data can be easy (and fun!) when you use
+[hyperfunctions][api-hyperfunctions] and
+[continuous aggregates][api-caggs]. We encourage you to
+try these functions in your own database and try experimenting with different
+kinds of analysis.
 
-We hope that through this tutorial you have been able to see how data that does not appear to be time-series initially, is in fact time-series data after all. With TimescaleDB, analyzing time-series data can be easy (and fun!) when you use [hyperfunctions](/api/latest/hyperfunctions/) and [continuous aggregates](/api/latest/continuous-aggregates/). We encourage you to try these functions in your own database and try experimenting with different kinds of analysis.
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
+[api-caggs]: /api/:currentVersion:/continuous-aggregates/

@@ -51,5 +51,5 @@ time-series data and data analysis using TimescaleDB.
 
 [migrate-data]: /how-to-guides/migrate-data/
 [visualize-data]: /tutorials/grafana/
-[connect-with-code]: /tutorials/quick-starts/
+[connect-with-code]: /quick-start/
 [sample-data]: /tutorials/sample-datasets/

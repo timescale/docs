@@ -19,9 +19,9 @@ WHERE hypertable_name = 'conditions';
  conditions      | {data_node_1,data_node_2,data_node_3}
 ```
 
-If additional data nodes are added to a distributed database, the data
-nodes are not automatically associated with existing distributed
-hypertables. Instead, you need to explicitly *attach* a data node
+If you add additional data nodes to a database, they are
+not automatically associated with existing distributed
+hypertables. Instead, you need to explicitly attach a data node
 using [`attach_data_node`][attach_data_node]:
 
 ```sql
@@ -29,12 +29,12 @@ SELECT add_data_node('node3', host => 'dn3.example.com');
 SELECT attach_data_node('node3', hypertable => 'conditions');
 ```
 
-When attaching a data node, the partitioning configuration of the
+When you attach a data node, the partitioning configuration of the
 distributed hypertable is also updated to account for the additional
-data node (i.e., the number of space partitions is automatically increased to
-match), unless the function parameter `repartition` is set to
-`FALSE`. The updated partitioning configuration ensures that the data
-node will be able to take on newly created chunks.
+data node (the number of space partitions are automatically
+increased to match), unless the function parameter `repartition` is
+set to `FALSE`. The updated partitioning configuration ensures that
+the data node is able to take on newly created chunks.
 
 In a similar way, if you want to remove a data node from a distributed
 hypertable, you can use [`detach_data_node`][detach_data_node].
@@ -48,7 +48,32 @@ hypertable. To be able to detach a data node, ensure that either (1)
 all its data is deleted first, or (2) the data is replicated on other
 data nodes (see the next section on native replication).
 
+## Moving data between nodes
 
+When you attach a new data node to a distributed hypertable, you might
+prefer to move data to the new node to free up storage on the
+existing nodes and make queries use the added capacity. Data can be
+moved between nodes at the chunk level:
+
+```sql
+CALL timescaledb_experimental.move_chunk('_timescaledb_internal._dist_hyper_1_1_chunk', 'data_node_3', 'data_node_2');
+
+```
+
+<highlight type="warning"> 
+The ability to move chunks between data nodes is an experimental
+feature that is under active development. We recommend that you
+do not use this feature in a production environment.
+</highlight>
+
+The move operation involves several transactions and therefore cannot
+be rolled back automatically. If a move operation fails, the failure
+is logged with an operation ID that later can be used to cleanup any
+state left on the involved nodes.
+
+```sql
+CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
+```
 
 
 [add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node
