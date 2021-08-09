@@ -65,7 +65,7 @@ defined).  If there is no space partition, all the data for each time
 slice will be written to a single data node.
 
 **Time intervals:** Follow the same guideline in setting the `chunk_time_interval`
-as with [`create_hypertable`](/hypertable/create_hypertable-best-practices),
+as with [`create_hypertable`][create-hypertable],
 bearing in mind that the calculation needs to be based on the memory
 capacity of the data nodes.  However, one additional thing to
 consider, assuming space partitioning is being used, is that the
@@ -95,4 +95,4 @@ be removed in a future release. To avoid such inconsistency, we do not yet
 recommend using `replication_factor` > 1, and instead rely on physical
 replication of each data node if such fault-tolerance is required.
 
-[create-hypertable]: /hypertable/create_hypertable/
+[create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/best-practices
