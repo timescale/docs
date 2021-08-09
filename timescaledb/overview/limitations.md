@@ -1,4 +1,4 @@
-# Limitations [](limitations)
+# Limitations
 
 While TimescaleDB generally offers capabilities that go beyond what
 PostgreSQL offers, there are some limitations to using hypertables,
@@ -6,7 +6,7 @@ and, in particular, distributed hypertables. This section documents
 the common limitations when using both regular and distributed
 hypertables.
 
-## Hypertable limitations [](hypertable-limitations)
+## Hypertable limitations
 
 - Foreign key constraints referencing a hypertable are not supported.
 - Time dimensions (columns) used for partitioning cannot have NULL
@@ -17,7 +17,7 @@ hypertables.
   not supported. This includes upserts (`INSERT ... ON CONFLICT
   UPDATE`).
 
-## Distributed hypertable limitations [](distributed-hypertable-limitations)
+## Distributed hypertable limitations
 
 All the limitations of regular hypertables also apply to distributed
 hypertables. In addition, the following limitations apply specifically
