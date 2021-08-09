@@ -1,4 +1,4 @@
-name: Write deploy comment
+name: Write deploy comment and check for broken links
 
 on:
   pull_request_target:
@@ -20,3 +20,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
             Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>
+
+jobs:
+  broken_link_checker_job:
+    runs-on: ubuntu-latest
+    name: Check for broken links
+    steps:
+    - name: Check for broken links
+      id: link-report
+      uses: celinekurpershoek/link-checker@v1.0.1
+      with:
+        url: ${{ https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" }}
+        honorRobotExclusions: false
+        ignorePatterns: 'github,google'
+        recursiveLinks: false
+    - name: Get the result
+      run: echo "${{steps.link-report.outputs.result}}"
