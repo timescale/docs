@@ -1,7 +1,7 @@
 name: Links
 
 on:
-  trigger:
+  push:
     branches: latest
 
 jobs:
