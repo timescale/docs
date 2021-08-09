@@ -1,7 +1,7 @@
 name: Links
 
 on:
-  pull_request:
+  trigger:
     branches: latest
 
 jobs:
