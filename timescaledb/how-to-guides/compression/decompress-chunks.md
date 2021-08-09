@@ -4,6 +4,10 @@ the chunk first. Inserting data into a compressed chunk is more computationally
 expensive than inserting data into an uncompressed chunk, so decompressing the
 chunk is also a good idea if you need to backfill large amounts of data.
 
+If you are using TimescaleDB 4.2 or later, decompression is automated when you
+ingest older data. For earlier versions of TimescaleDB, you need to perform
+decompression manually.
+
 <highlight type="tip">
 When you are planning your compression strategy, make sure you leave enough
 additional storage capacity for decompressing chunks if you need to.
