@@ -20,7 +20,7 @@ jobs:
         uses: celinekurpershoek/link-checker@v1.0.1
         with:
           # Required:
-          url: 'https://docs-dev.tiemscale.com-${{ steps.timescale.outputs.DEV_FOLDER }}'
+          url: 'https://docs.timescale.com'
           # optional:
           honorRobotExclusions: false
           ignorePatterns: 'github,google'
