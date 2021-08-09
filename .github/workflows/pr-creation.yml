@@ -20,6 +20,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
             Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>
+
       - name: broken link checker
         uses: celinekurpershoek/link-checker@v1.0.1
         id: link-report
@@ -28,5 +29,6 @@ jobs:
           honorRobotExclusions: false
           ignorePatterns: 'github,google'
           recursiveLinks: false
+
       - name: Get the results
         run: echo "${{steps.link-report.outputs.result}}"
