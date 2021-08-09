@@ -1,6 +1,6 @@
 ## From Source (Windows) [](installation-source)
 
-**Note: TimescaleDB requires PostgreSQL 12 or 13.**
+**Note: TimescaleDB requires PostgreSQL 12.0 or 13.2, or later**
 
 #### Prerequisites
 
