@@ -2,7 +2,7 @@ name: Write deploy comment and check for broken links
 
 on:
   pull_request_target:
-    types: [opened, reopened]
+    types: [ opened, reopened ]
 
 jobs:
   trigger:
