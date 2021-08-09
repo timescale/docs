@@ -13,7 +13,7 @@ To create a [tablespace][] in Postgres:
 ```sql
 CREATE TABLESPACE history
 OWNER postgres
-LOCATION '/mnt/history':
+LOCATION '/mnt/history';
 ```
 
 Here we are creating a tablespace called `history` that will be
