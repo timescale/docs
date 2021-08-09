@@ -130,7 +130,7 @@ to properly reason about time-series data, which in some cases leads to over
 
 ## Is there a clustered version and how can I try it?
 To enable multi-node deployments, TimescaleDB 2.0 introduces the concept of a
-[distributed hypertable][distributed-hypertable].
+[distributed hypertable][distributed_hypertable].
 
 A regular hypertable, one of our original innovations, is a virtual
 table in TimescaleDB that automatically partitions data into many
@@ -196,7 +196,7 @@ or [join our Slack group][join_slack].
 [SELECT]: /how-to-guides/query-data/select/
 [rdbms > nosql]: http://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
 [benchmarks]: https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
-[distributed-hypertable]: /timescaledb/:currentProduct:/how-to-guides/distributed-hypertables
+[distributed-hypertable]: /how-to-guides/distributed-hypertables
 [docs-architecture]: /overview/core-concepts/hypertables-and-chunks/
 [hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
 [PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e

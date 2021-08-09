@@ -5,11 +5,11 @@ This quick start guide is designed to get the Rails developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert_rows)
-* [Execute a query on your Timescale database](#execute_query)
+* [Connect to TimescaleDB](#connect-ruby-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Generate a Hypertable](#generate-hypertable)
+* [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
+* [Execute a query on your Timescale database](#execute-a-query)
 
 ## Prerequisites
 
@@ -249,7 +249,7 @@ A hypertable is defined by a standard schema with column names and types, with a
 least one column specifying a time value.
 
 <highlight type="tip">
-The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/)
+The TimescaleDB documentation on [schema management and indexing](/timescaledb/latest/how-to-guides/schema-management/)
 explains this in further detail.
 </highlight>
 
@@ -714,7 +714,7 @@ be sure to check out these advanced TimescaleDB tutorials:
 [indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
 [time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /tutorials/continuous-aggs-tutorial
+[continuous-aggregates]: /how-to-guides/continuous-aggregates/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
 [hypertables]: /overview/core-concepts/

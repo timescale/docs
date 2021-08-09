@@ -53,7 +53,7 @@ INSERT INTO new_table SELECT * FROM old_table;
 
 <highlight type="warning">
 `create_hypertable` may fail if invalid UNIQUE or PRIMARY
-KEY indexes existed on the old table (see this [note][unique_indexes]).
+KEY indexes existed on the old table (see this [note](/timescaledb/latest/how-to-guides/schema-management/indexing/#default-indexes)).
 In this case, you would have to reconfigure your indexes
 and/or schema.
 </highlight>
@@ -80,6 +80,5 @@ Now check out some common [hypertable commands][] for exploring your data.
 [installed]: /how-to-guides/install-timescaledb/
 [setup]: /how-to-guides/install-timescaledb/post-install-setup/
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[unique_indexes]: /how-to-guides/schema-management/indexing/#default-indexes
 [indexing]: /how-to-guides/schema-management/indexing/#indexing-data
 [hypertable commands]: /how-to-guides/hypertables/

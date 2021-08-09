@@ -21,7 +21,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location');
 If there are no data nodes configured for the database, you
 will get an error when executing `create_distributed_hypertable` and
 the distributed hypertable will not be created. Please review the
-section on [setting up multi-node][getting-started-multi-node]
+section on [setting up multi-node](/timescaledb/latest/how-to-guides/multi-node-setup/)
 for information on how to add data nodes.
 </highlight>
 
@@ -35,6 +35,5 @@ You can now insert data into the distributed hypertable and the data
 will automatically be routed to the correct data node.
 
 
-[getting-started-multi-node]: /how-to-guides/multi-node-setup/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable

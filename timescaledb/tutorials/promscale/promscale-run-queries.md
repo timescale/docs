@@ -1,14 +1,14 @@
-# 4. Running queries using Promscale
+# Running queries using Promscale
 
 Promscale offers the combined power of PromQL and SQL, enabling you to ask any
 question, create any dashboard, and achieve greater visibility into the systems
 you monitor.
 
-In the configuration used in [Section 3][promscale-install], Prometheus will scrape the Node Exporter every 10s and metrics will be stored in both Prometheus and TimescaleDB, via Promscale.
+In the configuration used in [Installing Promscale][promscale-install], Prometheus will scrape the Node Exporter every 10s and metrics will be stored in both Prometheus and TimescaleDB, via Promscale.
 
 This section will illustrate how to run simple and complex SQL queries against Promscale, as well as queries in PromQL.
 
-## 4.1 SQL queries in Promscale [](sql-queries)
+## SQL queries in Promscale [](sql-queries)
 
 You can query Promscale in SQL from your favorite favorite SQL tool or using psql:
 
@@ -20,7 +20,7 @@ The above command first enters our timescaledb docker container (from Step 3.1 a
 
 Once inside, we can now run SQL queries and explore the metrics collected by Prometheus and Promscale
 
-### 4.1.1 Querying a metric [](querying-metric)
+### Querying a metric [](querying-metric)
 
 Queries on metrics are performed by querying the view named after the metric you're interested in.
 
@@ -49,7 +49,7 @@ Each row returned contains a number of different fields:
 * Each row has a field named `labels`. This field contains an array of foreign key to label key-value pairs making up the label set.
 * While the `labels` array is the entire label set, there are also seperate fields for each label key in the label set, for easy access. These fields end with the suffix `_id` .
 
-### 4.1.2 Querying values for label keys [](querying-value-label-key)
+### Querying values for label keys [](querying-value-label-key)
 
 As explained in the last bullet point above, each label key is expanded out into its own column storing foreign key identifiers to their value, which allows us to JOIN, aggregate and filter by label keys and values.
 
@@ -76,9 +76,9 @@ Sample Output:
  node-exporter | 0.0002631
 ```
 
-### 4.1.3 Querying label sets for a metric [](querying-label-set)
+### Querying label sets for a metric [](querying-label-set)
 
-As explained in [Section 2][promscale-how-it-works], the `labels` field in any metric row represents the full set of labels associated with the measurement and is represented as an array of identifiers.
+As explained in [How Promscale works][promscale-how-it-works], the `labels` field in any metric row represents the full set of labels associated with the measurement and is represented as an array of identifiers.
 
 To return the entire labelset in JSON, we can apply the `jsonb()` function, as in the example below:
 
@@ -105,7 +105,7 @@ Sample Output:
 ```
 This query returns the label set for the metric `go_gc_duration` in JSON format. It can then be read or further interacted with.
 
-### 4.1.4 Advanced query: percentiles aggregated over time and series [](querying-percentile)
+### Advanced query: percentiles aggregated over time and series [](querying-percentile)
 
 The query below calculates the 99th percentile over both time and series (`app_id`) for the metric named `go_gc_duration_seconds`. This metric is a measurement for how long garbage collection is taking in Go applications:
 
@@ -133,7 +133,7 @@ The query above is uniquely enabled by Promscale, as it aggregates over both tim
 
 The query above is just one example of the kind of analytics Promscale can help you perform on your Prometheus monitoring data.
 
-### 4.1.5 Filtering by labels [](query-filter-by-labels)
+### Filtering by labels [](query-filter-by-labels)
 To simplify filtering by labels, we created operators corresponding to the selectors in PromQL.
 
 Those operators are used in a `WHERE` clause of the form `labels ? (<label_key> <operator> <pattern>)`
@@ -167,7 +167,7 @@ Sample output:
  2021-01-28 02:01:38.032+00 |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}
 ```
 
-### 4.1.6 Querying number of datapoints in a series [](query-datapoints-in-series)
+### Querying number of datapoints in a series [](query-datapoints-in-series)
 As shown in 4.1.1 above, each in a row metric's view  has a series_id uniquely identifying the measurement's label set. This enables efficient aggregation by series.
 
 You can easily retrieve the labels array from a series_id using the labels(series_id) function. As in this query that shows how many data points we have in each series:
@@ -235,7 +235,7 @@ dumpster                             0.0135690307617187    268435456
 ```
 While the above example requires the installation of `cAdvisor`, it's just an example of the sorts of sophisticated analysis enabled by Promscale's support to query your data in SQL.
 
-## 4.2 PromQL queries in Promscale [](query-promql)
+## PromQL queries in Promscale [](query-promql)
 Promscale can also be used as a Prometheus data source for tools like [Grafana][grafana-homepage] and [PromLens][promlens-homepage].
 
 We'll demonstrate this by connecting Promscale as a Prometheus data source in [Grafana][grafana-homepage], a popular open-source visualization tool.

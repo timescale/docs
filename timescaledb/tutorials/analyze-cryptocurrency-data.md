@@ -635,4 +635,4 @@ Ready for even more learning? Here's a few suggestions:
 [time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /getting-started/create-cagg
 [other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrating-data/
+[migrate]: /how-to-guides/migrate-data/

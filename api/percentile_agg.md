@@ -7,7 +7,7 @@ percentile_agg(
 ```
 
 This is the default percentile aggregation function. It uses the [UddSketch
-algorithm](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/)
+algorithm](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/)
 with 200 buckets and an initial maximum error of 0.001. This is appropriate for
 most common use cases of percentile approximation. For more advanced use of
 percentile approximation algorithms,
