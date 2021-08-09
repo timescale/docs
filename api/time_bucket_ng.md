@@ -5,7 +5,7 @@ similar to [`time_bucket()`][time_bucket], but works with years and
 months. It is expected that the feature will also support timezones
 in a future release.
 
-<highlight="warning">
+<highlight type="warning">
 Experimental features could have bugs! They might not be backwards compatible,
 and could be removed in future releases. Use these features at your own risk, and
 do not use any experimental features in production.
@@ -86,5 +86,5 @@ ORDER BY bucket;
 For more information, see the [continuous aggregates documentation][caggs].
 
 
-[time_bucket]: hyperfunctions/time_bucket/
-[caggs]: timescaledb/latest/overview/core-concepts/continuous-aggregates/
+[time_bucket]: /hyperfunctions/time_bucket/
+[caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
