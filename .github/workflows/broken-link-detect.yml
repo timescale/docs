@@ -1,0 +1,28 @@
+name: Broken link check
+  on: [push, pull_request]
+    branches:
+      - latest
+
+jobs:
+  broken_link_checker_job:
+    name: Check for broken links
+    runs-on: ubuntu-latest
+    steps:
+      - name: set dev folder
+        run: |
+          echo "::set-output name=DEV_FOLDER::$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')"
+        id: timescale
+
+      - name: Check for broken links
+        id: link-report
+        uses: celinekurpershoek/link-checker@v1.0.1
+        with:
+          # Required:
+          url: 'https://docs-dev.tiemscale.com-${{ steps.timescale.outputs.DEV_FOLDER }}'
+          # optional:
+          honorRobotExclusions: false
+          ignorePatterns: 'github,google'
+          recursiveLinks: false # Check all URLs on all reachable pages (could take a while)
+
+      - name: Get the result
+        run: echo "${{steps.link-report.outputs.result}}"
