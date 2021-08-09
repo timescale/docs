@@ -17,7 +17,7 @@ You can simply compute a single percentile estimator and do not need to specify 
 
 |Name|Type|Description|
 |---|---|---|
-| `sketch` / `digest` | `UddSketch`/`tdigest` |  The sketch to extract the mean value from, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) call. |
+| `sketch` / `digest` | `UddSketch`/`tdigest` |  The sketch to extract the mean value from, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg/) call. |
 
 ### Returns
 
