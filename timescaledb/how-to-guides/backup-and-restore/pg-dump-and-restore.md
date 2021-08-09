@@ -44,7 +44,7 @@ database and restore the data.
     SELECT timescaledb_post_restore();
     ```
 
-## Back up individual hypertables[](backup-hypertable)
+## Back up individual hypertables [](backup-hypertable)
 The `pg_dump` command provides flags that allow you to specify tables or schemas
 to back up. However, using these flags means that the dump lacks necessary
 information that TimescaleDB requires to understand the relationship between

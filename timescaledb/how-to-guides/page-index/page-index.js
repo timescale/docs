@@ -266,9 +266,11 @@ module.exports = [
             href: "select"
           },
           {
+              title: "Manage data nodes",        
             href: "manage-data-nodes"
           },
           {
+            title: "Native replication",
             href: "enable-native-replication"
           },
           {
