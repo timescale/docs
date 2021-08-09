@@ -21,7 +21,7 @@ syntax instead of the `pip [foo]` syntax. This is to ensure that pip installs
 new components for the version of Python that we are using.
 </highlight>
 
-## Step 0 - Set up a basic Django application (optional) [](step0)
+## Step 1 - Set up a basic Django application (optional) [](step0)
 *(Please skip this step if you already have a Django application.)*
 
 ### Install Django
@@ -79,7 +79,7 @@ You should see a "Congratulations!" page, with a rocket taking off.
 (If that didn't work, then please take a look at the
 [Django documentation][django-first-app] for troubleshooting.)
 
-## Step 1 - Export prometheus-style monitoring metrics from your Django application
+## Step 2 - Export prometheus-style monitoring metrics from your Django application
 
 We will use the [django-prometheus][get-django-prometheus] package for
 exporting prometheus-style monitoring metrics from our Django application.
@@ -156,7 +156,7 @@ python_info{implementation="CPython",major="3",minor="8",patchlevel="0",version=
 ...
 ```
 
-## Step 2 - Point Prometheus to your Django application metrics endpoint [](step2)
+## Step 3 - Point Prometheus to your Django application metrics endpoint [](step2)
 
 **(Note: This section assumes that you have a locally running Prometheus
 instance.)**
@@ -204,7 +204,7 @@ more times and reload the Prometheus Expression Browser to confirm that it
 is working. Also feel free to explore the other Django metrics that
 Prometheus is collecting.
 
-## Step 3 - Instrument additional aspects of your application (optional) [](step3)
+## Step 4 - Instrument additional aspects of your application (optional) [](step3)
 [Django-prometheus][get-django-prometheus] is quite powerful, and allows
 you to easily instrument additional aspects of your application, including:
 
