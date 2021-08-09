@@ -1,4 +1,4 @@
-## get_telemetry_report() 
+## get_telemetry_report()
 
 If background [telemetry] is enabled, returns the string sent to our servers.
 If telemetry is not enabled, outputs INFO message affirming telemetry is disabled
@@ -10,7 +10,7 @@ and returns a NULL report.
 |---|---|
 | `always_display_report` | BOOLEAN | Set to true to always view the report, even if telemetry is disabled |
 
-### Sample Usage 
+### Sample Usage
 If telemetry is enabled, view the telemetry report.
 ```sql
 SELECT get_telemetry_report();
@@ -20,4 +20,4 @@ If telemetry is disabled, view the telemetry report locally.
 SELECT get_telemetry_report(always_display_report := true);
 ```
 
-[telemetry]: /how-to-guides/configuration/telemetry/
+[telemetry]: /timescaledb/:currentVersion:/how-to-guides/configuration/telemetry
