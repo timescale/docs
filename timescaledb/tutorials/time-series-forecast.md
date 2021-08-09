@@ -24,26 +24,23 @@ to develop an even more insightful forecast into how your data
 (and business) will change over time.
 
 In this time-series forecasting example, we will demonstrate how to integrate
-TimescaleDB with [R](#tutorial-r), [Apache MADlib](#tutorial-madlib),
-and [Python](#tutorial-python) to perform
-various time-series forecasting methods. We will be using
-New York City taxicab data that is also used in our
-[Hello Timescale Tutorial][hello_timescale]. The dataset contains information
-about all yellow cab trips in New York City in January 2016,
-including pickup and dropoff times, GPS coordinates, and total
-price of a trip. We seek to extract some interesting insights
-from this rich dataset, build a time-series forecasting model,
-as well as explore the use of various forecasting and machine
-learning tools.
+TimescaleDB with R, Apache MADlib, and Python to perform various time-series
+forecasting methods. We will be using New York City taxicab data that is also
+used in our [Hello Timescale Tutorial][hello_timescale]. The dataset contains
+information about all yellow cab trips in New York City in January 2016,
+including pickup and dropoff times, GPS coordinates, and total price of a trip.
+We seek to extract some interesting insights from this rich dataset, build a
+time-series forecasting model, as well as explore the use of various forecasting
+and machine learning tools.
 
 ### Setting up
 Prerequisites:
 
-1. [Installed TimescaleDB][install]
-1. Downloaded and loaded dataset from [Hello Timescale Tutorial][hello_timescale]
-1. [Installed and set up PostGIS in database][tutorial-postgis]
-1. [Installed R][install_r]
-1. [Installed Python][install_python]
+*   [Installed TimescaleDB][install]
+*   Downloaded and loaded dataset from [Hello Timescale Tutorial][hello_timescale]
+*   [Installed and set up PostGIS in database][tutorial-postgis]
+*   [Installed R][install_r]
+*   [Installed Python][install_python]
 
 First, let's create our schema and populate our tables. Download the file
 [`forecast.sql`][forecast-sql] and execute the following command:
@@ -107,7 +104,7 @@ are in your database.
 (7 rows)
 ```
 
-### Seasonal ARIMA with R [](tutorial-r)
+### Seasonal ARIMA with R
 The [ARIMA (Autoregressive Integrated Moving Average) model][arima] is a
 tool that is often used in time-series analysis to better understand a
 dataset and make predictions on future values. The ARIMA model can be
@@ -364,7 +361,7 @@ out of memory and start swapping). So, we will now look into
 an alternative method that allows us to move our computations
 to the database and improve this performance.
 
-### Non-Seasonal ARIMA with Apache MADlib [](tutorial-madlib)
+### Non-Seasonal ARIMA with Apache MADlib
 [MADlib][madlib] is an open-source library
 for in-database data analytics that provides a wide collection
 of popular machine learning methods and various supplementary
@@ -451,7 +448,7 @@ on our dataset.
 MADlib does not yet offer a method that automatically finds the best
 parameters of the ARIMA model. So, the non-seasonal orders of our
 ARIMA model is obtained by using R's `auto.arima` function in the same
-way we obtained them in the [previous section](#tutorial-r) with seasonal ARIMA.
+way we obtained them in the previous section with seasonal ARIMA.
 Here is the R code:
 
 ```r
@@ -588,7 +585,7 @@ seamlessly with other PostgreSQL extensions PostGIS and MADlib.
 This means that TimescaleDB users can easily take advantage of
 the vast PostgreSQL ecosystem.
 
-### Holt-Winters with Python [](tutorial-python)
+### Holt-Winters with Python
 The [Holt-Winters][holt-winters] model is another widely used tool in time-series
 analysis and forecasting. It can only be used for seasonal time-series data.
 The Holt-Winters model uses simple exponential smoothing to make

@@ -78,12 +78,12 @@ we leverage its characteristics when building TimescaleDB.
 If you prefer to learn by watching and want an intro to TimescaleDB, be
 sure to check out our [YouTube channel][youtube].
 
-[hyperfunctions]: /api/latest/hyperfunctions/
-[grafana]: /timescaledb/latest/tutorials/grafana/
-[continuous-aggregates]: /api/latest/continuous-aggregates/
-[multinode]: /api/latest/distributed-hypertables/
-[backups]: timescaledb/how-to-guides/backup-and-restore/
-[replication]: timescaledb/how-to-guides/replication-and-ha/
-[compression]: timescaledb/how-to-guides/compression/
-[data-retention]: timescaledb/how-to-guides/data-retention/
+[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
+[grafana]: /tutorials/grafana/
+[continuous-aggregates]: /api/:currentVersion:/continuous-aggregates/
+[multinode]: /api/:currentVersion:/distributed-hypertables/
+[backups]: /how-to-guides/backup-and-restore/
+[replication]: /how-to-guides/replication-and-ha/
+[compression]: /how-to-guides/compression/
+[data-retention]: /how-to-guides/data-retention/
 [youtube]: https://www.youtube.com/c/TimescaleDB/featured/
