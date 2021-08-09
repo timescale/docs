@@ -18,7 +18,7 @@ data nodes (if not already set, `150` is recommended).
   environment.
 * If the transaction isolation level is set to `READ COMMITTED` it is
   automatically upgraded to `REPEATABLE READ` whenever a distributed operation
-  takes place for consistency reasons.
+  takes place for consistency reasons. If the isolation level is `READ COMMITTED` or `SERIALIZABLE`, it is not changed.
 
 Each of the above settings parameters can be configured for the
 instance in `postgresql.conf`, typically located in the data
