@@ -46,4 +46,4 @@ trial and get started today!
 [postgresql-hba]: https://www.postgresql.org/docs/12/auth-pg-hba-conf.html
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
 [Core Concepts]: /overview/core-concepts/
-[multi_node_forge]: /timescale-forge/:currentVersion:/forge-multi-node/
+[multi_node_forge]: timescale-forge/:currentVersion:/forge-multi-node/ 
