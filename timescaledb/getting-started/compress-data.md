@@ -1,8 +1,11 @@
 # 7. Compression policies
+<SpeechOutput id="inside">
 
 TimescaleDB comes with native compression capabilities which enable you to analyze and query massive amounts of historical time-series data inside a database, while also saving on storage costs.
 
 TimescaleDB uses best-in-class compression algorithms along with a novel method to create hybrid row/columnar storage. This gives up to 96% lossless compression rates and speeds up common queries on older data. Compressing data increases the amount of time that your data is "useful" (i.e in a database and not in a low-performance object store), without the corresponding increase in storage usage and bill.
+
+</SpeechOutput>
 
 <highlight type="tip">
 All postgresql data types can be used in compression.
