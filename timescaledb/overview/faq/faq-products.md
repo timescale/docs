@@ -190,7 +190,7 @@ performance depending on your scenario. Please see discussion in these docs
 or [join our Slack group][join_slack].
 
 [why-sql]: https://www.timescale.com/blog/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
-[new-queries]: /how-to-guides/query-data/advanced-analytic-queries/
+[new-queries]: timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries
 [join_slack]: https://slack.timescale.com/
 [timescale-license]: https://www.timescale.com/legal/licenses
 [timescale-k8s]: https://github.com/timescale/timescaledb-kubernetes
