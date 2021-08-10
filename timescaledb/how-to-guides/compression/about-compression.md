@@ -1,4 +1,4 @@
-# Compression
+# About compression
 When compression is enabled, TimescaleDB converts data stored in many rows into
 an array. This means that instead of using lots of rows to store the data, it
 stores the same data in a single row. Because a single row takes up less disk
@@ -87,12 +87,12 @@ query patterns change from shallow and wide to deep and narrow.
 ### Modified data
 Trying to change chunks that have already been compressed can be inefficient.
 You can always query data in compressed chunks, but the current version of
-compression does not support `UPDATE` or `DELETE` actions on compressed chunks.
-This limitation means you really only want to compress a chunk at a time when it
-is unlikely to be modified again. How much time this requires is highly
-dependent on your individual setup. Choose a compression interval that minimizes
-the need to decompress chunks, but keep in mind that you want to avoid storing
-data that is out of order.
+compression does not support `DELETE` actions on compressed chunks. This
+limitation means you really only want to compress a chunk at a time when it is
+unlikely to be modified again. How much time this requires is highly dependent
+on your individual setup. Choose a compression interval that minimizes the need
+to decompress chunks, but keep in mind that you want to avoid storing data that
+is out of order.
 
 You can manually decompress a chunk to modify it if you need to. For more
 information on how to do that,
