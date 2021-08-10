@@ -22,7 +22,7 @@ hypertables.
 Compression alters data on your disk, so always back up before you start!
 </highlight>
 
-[compression]: /how-to-guides/compression/compression
+[compression]: /how-to-guides/compression/about-compression
 [manual-compression]: /how-to-guides/compression/manually-compress-chunks
 [decompress-chunks]: /how-to-guides/compression/decompress-chunks
 [backfill-historical]: /how-to-guides/compression/backfill-historical-data
