@@ -1,6 +1,6 @@
-# 2. How Promscale works
+# How Promscale works
 
-## 2.1 Promscale architecture [](promscale-architecture)
+## Promscale architecture [](promscale-architecture)
 Unlike some other long-term data stores for Prometheus, the basic Promscale architecture consists of only three components: Prometheus, Promscale, and TimescaleDB.
 
 The diagram below explains the high level architecture of Promscale, including how it reads and writes to Prometheus, and how it can be queried by additional components, like PromLens, Grafana and any other SQL tool.
@@ -22,9 +22,9 @@ As can be seen, this architecture has relatively few components, enabling simple
 Promscale has a dependency on the [Promscale PostgreSQL extension][promscale-extension], which contains support functions to improve the performance of Promscale. While Promscale is able to run without the additional extension installed, adding this extension will get better performance from Promscale.
 
 ### Deploying Promscale
-Promscale can be deployed in any environment running Prometheus, alongside any Prometheus instance. We provide Helm charts for easier deployments to Kubernetes environments (see [Section 3: Up and running with Promscale][promscale-install] for more on installation and deployment).
+Promscale can be deployed in any environment running Prometheus, alongside any Prometheus instance. We provide Helm charts for easier deployments to Kubernetes environments (see [Up and running with Promscale][promscale-install] for more on installation and deployment).
 
-## 2.2 Promscale schema [](promscale-schema)
+## Promscale schema [](promscale-schema)
 
 To achieve high ingestion, query performance and optimal storage we have designed a schema which takes care of writing the data in the most optimal format for storage and querying in TimescaleDB. Promscale translates data from the [Prometheus data model][Prometheus native format] into a relational schema that is optimized for TimescaleDB.
 
@@ -33,11 +33,11 @@ The basic schema uses a normalized design where the time-series data is stored i
 In particular, this schema decouples individual metrics, allowing for the collection of metrics with vastly different cardinalities and retention periods. At the same time, Promscale exposes simple, user-friendly views so that you do not have to understand this optimized schema (see 2.3 for more on views).
 
 <highlight type="tip">
-Promscale automatically creates and manages database tables. So, while understanding the schema can be beneficial (and interesting), it is not required to use Promscale. Skip to [Section 2.3](#promscale-views) for information how to interact with Promscale using SQL views and to [Section 4](/timescaledb/latest/tutorials/promscale/promscale-run-queries) to learn using hands on examples.
+Promscale automatically creates and manages database tables. So, while understanding the schema can be beneficial (and interesting), it is not required to use Promscale. Skip to [Promscale views](#promscale-views) for information how to interact with Promscale using SQL views and to [Run queries with PromQL and SQL](/timescaledb/latest/tutorials/promscale/promscale-run-queries/) to learn using hands on examples.
 </highlight>
 
 
-### 2.2.1 Metrics storage schema
+### 1. Metrics storage schema
 Each metric is stored in a separate hypertable.
 
 A hypertable is a TimescaleDB abstraction that represents a single logical SQL table that is automatically physically partitioned into chunks, which are physical tables that are stored in different files in the filesystem. Hypertables are partitioned into chunks by the value of certain columns. In this case, we will partition out tables by time (with a default chunk size of 8 hours).
@@ -70,7 +70,7 @@ series_id | BIGINT                   |
 
 In the above table, `series_id` is foreign key to the `series` table described below.
 
-### 2.2.2 Series storage schema
+### 2. Series storage schema
 
 Conceptually, each row in the series table stores a set of key-value pairs.
 
@@ -96,8 +96,7 @@ CREATE TABLE _prom_catalog.label (
 );
 ```
 
-## 2.3 Promscale views [](promscale-views)
-
+## Promscale views 
 The good news is that in order to use Promscale well, you do not need to understand the schema design. Users interact with Prometheus data in Promscale through views. These views are automatically created and are used to interact with metrics and labels.
 
 Each metric and label has its own view. You can see a list of all metrics by querying the view named `metric`. Similarly, you can see a list of all labels by querying the view named `label`. These views are found in the `prom_info` schema.
@@ -148,10 +147,10 @@ num_values        | 39
 
 Each label row contains information about a particular label, such as the label key, the label's value column name, the label's id column name, the list of all values taken by the label and the total number of values for that label.
 
-For examples of querying a specific metric view, see [Section 4: Querying Promscale in SQL and PromQL][promscale-run-queries].
+For examples of querying a specific metric view, see [Querying Promscale in SQL and PromQL][promscale-run-queries].
 
 ## Next step
-* [Up and Running with Promscale][promscale-install]: Now that you've got a better understanding of how Promscale works, let's get up and running by installing Promscale.
+* [Installing Promscale][promscale-install]: Now that you've got a better understanding of how Promscale works, let's get up and running by installing Promscale.
 
 
 [prometheus-webpage]:https://prometheus.io
