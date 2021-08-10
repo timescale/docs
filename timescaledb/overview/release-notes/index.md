@@ -41,11 +41,11 @@ hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, and seconds.
- 
-We’re committed to developing these experiments, giving the community a chance to 
+
+We’re committed to developing these experiments, giving the community a chance to
 provide early feedback and influence the direction of TimescaleDB’s development.
- We’ll travel faster with your input! 
-	
+ We’ll travel faster with your input!
+
 Please create your feedback as a GitHub issue, and add the `experimental-schema` label.
 Describe what you found, and tell us the steps or share the code snippet to recreate it.
 
@@ -53,8 +53,8 @@ Several bugs fixed, see the release notes for more details.
 
 **PostgreSQL 11 deprecation announcement**
 
-Timescale is working hard on our next exciting features. 
-To make that possible, we require functionality that is available in Postgres 12 and above. 
+Timescale is working hard on our next exciting features.
+To make that possible, we require functionality that is available in Postgres 12 and above.
 For this reason, we are removing support for PostgreSQL 11 starting in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
 
 <highlight type="tip">
@@ -1164,7 +1164,7 @@ we use invalidation techniques to track what data has changed, and then correct
 the materialized aggregate the next time that the automated process executes.
 
 For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
-[our docs overview](http://docs.timescale.com/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
+[our docs overview](http://docs.timescale.com/timescaledb/latest/overview/core-concepts/continuous-aggregates/),
 and visit this [tutorial](/timescaledb/:currentVersion:/getting-started/create-cagg/).
 
 **Major features**
