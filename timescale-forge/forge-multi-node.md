@@ -245,9 +245,9 @@ ask questions and learn from Timescale staff and other community members.
 [sign-up]: https://forge.timescale.com/signup
 [maintenance-tasks]: timescaledb/:currentVersion:/how-to-guides/multi-node-setup/maintenance-tasks/
 [slack]: https://slack.timescale.com/
-[changes-in-tsdb2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2/
+[changes-in-tsdb2]: timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2/
 [distributed-architechture]: https://blog.timescale.com/blog/building-a-distributed-time-series-database-on-postgresql/
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
-[sample-data]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[sample-data]: timescaledb/:currentVersion:/tutorials/sample-datasets/
 [promscale]: https://github.com/timescale/promscale
 [forge-configuration]: /customize-configuration
