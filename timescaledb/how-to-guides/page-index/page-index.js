@@ -222,31 +222,30 @@ module.exports = [
           {
             title: "CREATE",
             href: "create",
+            tags: ['hypertables', 'create', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Create hypertables']
           },
           {
             title: "ALTER",
             href: "alter",
+            tags: ['hypertables', 'edit', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Alter hypertables']
           },
           {
             title: "DROP",
             href: "drop",
+            tags: ['hypertables', 'delete', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Drop hypertables']
           },
           {
+            title: "Best practices",
             href: "best-practices",
-            metaTags: [
-              {
-                name: "product",
-                content: "timescaledb"
-              },
-              {
-                name: "action",
-                content: ["configure", "manage"]
-              },
-              {
-                name: "feature",
-                content: "hypertables"
-              }
-            ],
+            tags: ['hypertables', 'manage', 'configure', 'tshoot', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Best practices for managing hypertables']
           }
         ]
       },
@@ -255,34 +254,58 @@ module.exports = [
         children: [
           {
             title: "CREATE",
-            href: "create"
+            href: "create",
+            tags: ['hypertables', 'create', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: ['Create distributed hypertables']
           },
           {
             title: "INSERT",
-            href: "insert"
+            href: "insert",
+            tags: ['hypertables', 'ingest', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: ['Insert data into distributed hypertables']
           },
           {
             title: "SELECT",
-            href: "select"
+            href: "select",
+            tags: ['hypertables', 'select', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: ['Select data in distributed hypertables']
           },
           {
-              title: "Manage data nodes",
-            href: "manage-data-nodes"
+            title: "Manage data nodes",
+            href: "manage-data-nodes",
+            tags: ['hypertables', 'nodes', 'manage', 'configure', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: ['Manage data nodes in distributed hypertables']
           },
           {
             title: "Native replication",
-            href: "enable-native-replication"
+            href: "enable-native-replication",
+            tags: ['hypertables', 'nodes', 'replicate', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'replicate', 'nodes', 'distributed', 'TimescaleDB'],
+            excerpt: ['Replicate data to nodes in distributed hypertables']
           },
           {
             title: "ALTER",
-            href: "alter"
+            href: "alter",
+            tags: ['hypertables', 'edit', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: ['Alter distributed hypertables']
           },
           {
             title: "DROP",
-            href: "drop"
+            href: "drop",
+            tags: ['hypertables', 'delete', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: ['Drop distributed hypertables']
           },
           {
-            href: "best-practices"
+            href: "best-practices",
+            tags: ['hypertables', 'manage', 'configure', 'tshoot', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: ['Best practices for managing distributed hypertables']
           }
         ]
       },
@@ -291,19 +314,31 @@ module.exports = [
         children: [
           {
             title: "INSERT",
-            href: "insert"
+            href: "insert",
+            tags: ['hypertables', 'ingest', 'data', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Insert data into hypertables']
           },
           {
             title: "UPDATE",
-            href: "update"
+            href: "update",
+            tags: ['hypertables', 'update', 'data', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Update data in hypertables']
           },
           {
             title: "UPSERT",
-            href: "upsert"
+            href: "upsert",
+            tags: ['hypertables', 'update', 'data', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Upsert data into hypertables']
           },
           {
             title: "DELETE",
-            href: "delete"
+            href: "delete",
+            tags: ['hypertables', 'delete', 'data', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Delete data hypertables']
           }
         ]
       },
@@ -312,11 +347,17 @@ module.exports = [
         children: [
           {
             title: "SELECT",
-            href: "select"
+            href: "select",
+            tags: ['hypertables', 'select', 'data', 'timescaledb'],
+            keywords: ['hypertables', 'TimescaleDB'],
+            excerpt: ['Select data in hypertables']
           },
           {
             title: "Advanced analytic queries",
-            href: "advanced-analytic-queries"
+            href: "advanced-analytic-queries",
+            tags: ['hypertables', 'analytics', 'analyze', 'query', 'timescaledb'],
+            keywords: ['hypertables', 'hyperfunctions', 'TimescaleDB'],
+            excerpt: ['Use advanced analytics queries']
           }
         ]
       },
@@ -325,14 +366,25 @@ module.exports = [
         href: "multi-node-setup",
         children: [
           {
-            href: "required-configuration"
+            title: "Multi-node environments",
+            href: "required-configuration",
+            tags: ['multinode', 'distributed', 'nodes', 'timescaledb'],
+            keywords: ['multinode', 'TimescaleDB'],
+            excerpt: ['Set up a multi-node environment']
           },
           {
             title: "Enable node communication",
-            href: "node-communication"
+            href: "node-communication",
+            tags: ['multinode', 'distributed', 'nodes', 'enable', 'timescaledb'],
+            keywords: ['multinode', 'TimescaleDB'],
+            excerpt: ['Enable node communication in a multi-node environment']
           },
           {
-            href: "maintenance-tasks"
+            title: "Multi-node maintenancee tasks",
+            href: "maintenance-tasks",
+            tags: ['multinode', 'distributed', 'nodes', 'manage', 'timescaledb'],
+            keywords: ['multinode', 'TimescaleDB'],
+            excerpt: ['Maintain a multi-node environment']
           }
         ]
       },
