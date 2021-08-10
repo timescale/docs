@@ -103,13 +103,13 @@ For additional documentation on how to:
 
 [forge-signup]: https://forge.timescale.com
 [slack-info]: https://slack-login.timescale.com
-[getting-started]: /timescaledb/latest/getting-started/
+[getting-started]: timescaledb/latest/getting-started/
 [forge-console]: https://console.forge.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: /timescaledb/latest/how-to-guides/hypertables
-[time-bucket-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket
-[gap-filling-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#gap-filling
-[aggregates-info]: /timescaledb/latest/getting-started/create-cagg/
+[hypertable-info]: timescaledb/latest/how-to-guides/hypertables
+[time-bucket-info]: timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket
+[gap-filling-info]: timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[aggregates-info]: timescaledb/latest/getting-started/create-cagg/
 [resize]: /scaling-a-service/
 [configuration]: /customize-configuration/
 [multi-node]: /forge-multi-node/
