@@ -1,4 +1,4 @@
-# 3. Up and running: Install Prometheus, Promscale, and TimescaleDB
+# Up and running: Install Prometheus, Promscale, and TimescaleDB
 
 We recommend four methods to setup and install Promscale:
 1. [TOBS - The Observability Stack for Kubernetes ][tobs-github] (recommended for kubernetes deployments)
@@ -17,16 +17,16 @@ The easiest way to get started is by using Docker images. Make sure you have Doc
 The instructions below have 4 steps:
 1. [Install TimescaleDB](#install-timescaledb)
 2. [Install Promscale](#install-promscale)
-3. [Install node_exporter](#install-node-exporter)
+3. [Install node_exporter](#start-collecting-metrics-using-node-exporter)
 4. [Install Prometheus](#install-prometheus)
 
-Alternatively, you can skip to the bonus section which contains a `docker-compose` file for four components above: [Skip to docker-compose file](#promscale-docker-compose)
+Alternatively, you can skip to the bonus section which contains a `docker-compose` file for four components above: [Skip to docker-compose file](#bonus-docker-compose-file)
 
 <highlight type="warning">
 The instructions below are local testing purposes only and should not be used to set up a production environment.
 </highlight>
 
-## 3.1: Install TimescaleDB [](install-timescaledb)
+## Install TimescaleDB [](install-timescaledb)
 
 First, let's create a network specific to Promscale and TimescaleDB:
 
@@ -53,7 +53,7 @@ We set the `POSTGRES_PASSWORD` environment variable (using the `-e` flag) in the
 For production deployments, you will want to fix the docker tag to a particular version instead of `pg12-latest`
 </highlight>
 
-## 3.2: Install Promscale [](install-promscale)
+## Install Promscale [](install-promscale)
 
 Since we have TimescaleDB up and running, let's spin up a [Promscale instance][promscale-github], using the [Promscale docker image][promscale-docker-image] available on Docker Hub:
 
@@ -73,7 +73,7 @@ The setting `ssl-mode=allow` is for testing purposes only. For production deploy
 </highlight>
 
 
-## 3.3: Start collecting metrics using node_exporter [](install-node-exporter)
+## Start collecting metrics using node_exporter [](install-node-exporter)
 
 `node_exporter` is a Prometheus exporter for hardware and OS metrics exposed by *NIX kernels, written in Go with pluggable metric collectors. To learn more about it, refer to the [Node Exporter Github][].
 
@@ -90,7 +90,7 @@ The command above creates a node exporter instanced named `node_exporter`, which
 
 Once the Node Exporter is running, you can verify that system metrics are being exported by visiting its `/metrics` endpoint at the following URL: `http://localhost:9100/metrics`. Prometheus will scrape this `/metrics` endpoint to get metrics.
 
-## 3.4: Install Prometheus [](install-prometheus)
+## Install Prometheus [](install-prometheus)
 
 All that's left is to spin up Prometheus.
 
@@ -145,7 +145,7 @@ To use the docker-compose file above method, follow these steps:
 
 
 ## Next step
-* [Step 4: Up and Running with Promscale][promscale-run-queries]: Now that you've installed Promscale, let's query Promscale in SQL and PromQL
+* [Run queries with PromQL and SQL][promscale-run-queries]: Now that you've installed Promscale, let's query Promscale in SQL and PromQL
 
 [prometheus-webpage]:https://prometheus.io
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/

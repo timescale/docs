@@ -23,7 +23,7 @@ efficient.
 are more efficient in both storage overhead and lookup performance.
 
 <highlight type="tip">
-[](sparse_json) Often, people use JSON for sparse data as opposed
+Often, people use JSON for sparse data as opposed
 to user-defined data. We do not recommend this usage inside TimescaleDB for most
 datasets (unless the data is extremely sparse, e.g., more than 95% of fields for
 a row are empty). Instead, we suggest using NULLable fields and, if possible,
