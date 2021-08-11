@@ -33,4 +33,4 @@ trial and get started today!
 [install]: /how-to-guides/install-timescaledb
 [setup]: /how-to-guides/install-timescaledb/post-install-setup
 [Core Concepts]: /overview/core-concepts/
-[multi_node_forge]: timescale-forge/:currentVersion:/forge-multi-node
+[multi_node_forge]: /timescale-forge/:currentVersion:/forge-multi-node
