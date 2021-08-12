@@ -7,6 +7,7 @@ module.exports = [
             href: "what-is-time-series-data"
           },
           {
+            title: "Core concepts",
             href: "core-concepts",
             children : [
               {
@@ -14,25 +15,31 @@ module.exports = [
                 href: "hypertables-and-chunks"
               },
               {
+                title: "Scaling",
                 href: "scaling"
               },
               {
+                title: "Distributed hypertables",
                 href: "distributed-hypertables"
               },
               {
+                title: "Compression",
                 href: "compression"
               },
               {
+                title: "Continuous aggregates",
                 href: "continuous-aggregates"
               },
               {
+                title: "Data retention",
                 href: "data-retention"
               },
               {
+                title: "User-defined actions",
                 href: "user-defined-actions"
               },
               {
-                title: "Backup & Restore",
+                title: "Backup and restore",
                 href: "backup-restore"
               }
             ]
@@ -45,9 +52,11 @@ module.exports = [
             href: "data-model-flexibility",
             children: [
               {
+                title: "Wide data model",
                 href: "wide-data-model"
               },
               {
+                title: "Narrow data model",
                 href: "narrow-data-model"
               }
             ]
@@ -57,16 +66,17 @@ module.exports = [
             href: "how-does-it-compare",
             children: [
               {
-                title: "PostgreSQL",
+                title: "Comparison with PostgreSQL"
                 href: "timescaledb-vs-postgres"
               },
               {
-                title: "NoSQL",
+                title: "Comparison with NoSQL",
                 href: "timescaledb-vs-nosql"
               },
             ]
           },
           {
+            title: "Release notes",
             href: "release-notes",
             children: [
               {
@@ -76,6 +86,7 @@ module.exports = [
             ]
           },
           {
+            title: "Limitations",
             href: "limitations"
           },
           {
