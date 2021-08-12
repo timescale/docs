@@ -4,7 +4,11 @@ module.exports = [
         children: [
           {
             title: "What is time-series data?",
-            href: "what-is-time-series-data"
+            href: "what-is-time-series-data",
+            pageComponents: ['featured-cards'],
+            tags: ['data', 'timescaledb'],
+            keywords: ['TimescaleDB', 'data'],
+            excerpt: ['Understanding time-series data'],
           },
           {
             title: "Core concepts",
@@ -12,11 +16,17 @@ module.exports = [
             children : [
               {
                 title: "Hypertables and chunks",
-                href: "hypertables-and-chunks"
+                href: "hypertables-and-chunks",
+                tags: ['hypertables', 'chunks', 'timescaledb'],
+                keywords: ['hypertables', 'chunks', 'timescaledb'],
+                excerpt: ['Understanding hypertables and chunks']
               },
               {
                 title: "Scaling",
-                href: "scaling"
+                href: "scaling",
+                tags: ['hypertables', 'chunks', 'timescaledb'],
+                keywords: ['hypertables', 'chunks', 'timescaledb'],
+                excerpt: ['Understanding hypertables and chunks']
               },
               {
                 title: "Distributed hypertables",
