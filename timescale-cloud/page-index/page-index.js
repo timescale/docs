@@ -23,6 +23,10 @@ module.exports = [
       {
         title: "Security",
         href: "security",
+      },
+      {
+        title: "Troubleshooting",
+        href: "troubleshooting-mst",
       }
     ]
   }
