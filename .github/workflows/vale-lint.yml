@@ -19,7 +19,7 @@ jobs:
           https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
 
         # Optional
-        config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
+        # config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
       env:
         # Required
         GITHUB_TOKEN: ${{secrets.VALE_TOKEN}}
