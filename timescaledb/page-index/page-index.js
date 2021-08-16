@@ -15,14 +15,6 @@ module.exports = [
         name: 'description',
         content: 'This is the description for the timescaleDB page'
       },
-      {
-        name: 'title',
-        content: 'SOMEthing else'
-      },
-      {
-        name: 'FAKE META',
-        content: 'FAKE NEWS'
-      }
     ],
     children: [
       ...overviewPageIndex,

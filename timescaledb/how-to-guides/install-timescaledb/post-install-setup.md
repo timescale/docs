@@ -6,7 +6,7 @@ existing PostgreSQL database to use TimescaleDB.
 
 <highlight type="tip">
 If you are planning on doing any performance testing on TimescaleDB, we
-strongly recommend that you [configure][configure] TimescaleDB properly.
+strongly recommend that you [configure](/timescaledb/latest/how-to-guides/configuration/) TimescaleDB properly.
 </highlight>
 
 <img class="main-content__illustration" style="margin: 0 5% 0 10%;" src="https://assets.iobeam.com/images/docs/illustration-setup.svg" alt="setup illustration"/>
@@ -26,10 +26,10 @@ CREATE database tutorial;
 ```
 
 <highlight type="warning">
-Starting in v0.12.0, TimescaleDB enables [telemetry reporting][telemetry-reporting].
+Starting in v0.12.0, TimescaleDB enables [telemetry reporting](/api/latest/administration/get_telemetry_report/).
 by default. You can opt-out by following the instructions detailed
-in our [telemetry documentation][telemetry-documentation]. However, please do note that telemetry is
-anonymous, and by keeping it on, you help us [improve our product][improve-our-product].
+in our [telemetry documentation](/timescaledb/latest/how-to-guides/configuration/telemetry/). However, please do note that telemetry is
+anonymous, and by keeping it on, you help us [improve our product](https://www.timescale.com/blog/why-introduced-telemetry-in-timescaledb-2ed11014d95d/).
 </highlight>
 
 Lastly add TimescaleDB:
@@ -70,9 +70,5 @@ to a TimescaleDB hypertable.
 ---
 
 [installed]: /how-to-guides/install-timescaledb/
-[configure]: /how-to-guides/configuration/
-[telemetry-reporting]: /api/latest/administration/get_telemetry_report/
-[telemetry-documentation]: /how-to-guides/configuration/telemetry/
-[improve-our-product]: https://www.timescale.com/blog/why-introduced-telemetry-in-timescaledb-2ed11014d95d/
 [start-scratch]: /how-to-guides/hypertables/create/
 [migrate-postgres]: /how-to-guides/migrate-data/

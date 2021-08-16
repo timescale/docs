@@ -99,7 +99,7 @@ matching your predicate, but in each one, your query also grabs a
 distinct one.
 
 <highlight type="tip">
-[](unique_indexes) To define an index as UNIQUE or PRIMARY KEY, the time column and, if it
+To define an index as UNIQUE or PRIMARY KEY, the time column and, if it
 exists, the partitioning column **must** be part of the index.
 That is, using our running example, you can define a unique index on just the
 (time, location) fields, or to include additional columns (say, temperature).
@@ -127,4 +127,4 @@ CREATE INDEX ON conditions (location, time DESC);
 This default behavior can be overridden when executing the [`create_hypertable`][create_hypertable] command.
 
 
-[create_hypertable]: /api#create_hypertable
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
