@@ -135,8 +135,8 @@ When you have created a continuous aggregate and set a refresh policy, you can q
     ```
 
 
-[api-time-bucket]: /api/latest/hyperfunctions/time_bucket/
-[api-time-bucket-gapfill]: /api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
+[api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
 [postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
