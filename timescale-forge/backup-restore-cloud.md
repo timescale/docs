@@ -6,10 +6,11 @@ service.
 
 Timescale Cloud automatically creates one full backup every week. We also create
 incremental backups every day, which store any changes since the last full
-backup. The two most recent full backups are stored securely on our Timescale
-servers, along with the most recent incremental backups. This means that you
-always have a backup for the current and the previous week, and we can restore
-your backup to any point during that timeframe.  
+backup. The two most recent full backups are stored securely on an Amazon S3
+service, along with the most recent incremental backups, and a write-ahead log
+(WAL) of all the changes that have occurred. This means that you always have a
+backup for the current and the previous week, and we can restore your backup to
+any point during that timeframe.  
 
 When you delete an instance, we retain a backup of the instance for seven days.
 
