@@ -46,6 +46,6 @@ tablespaces in a way similar to round-robin.
 
 
 [postgres-tablespaces]: https://www.postgresql.org/docs/current/static/manage-ag-tablespaces.html
-[attach_tablespace]: https://docs.timescale.com/api/latest/hypertable/attach_tablespace/
-[detach_tablespace]: https://docs.timescale.com/api/latest/hypertable/detach_tablespace/
-[show_tablespaces]: /https://docs.timescale.com/api/latest/hypertable/show_tablespaces/
+[attach_tablespace]: /api/:currentVersion:/hypertable/attach_tablespace/
+[detach_tablespace]: /api/:currentVersion:/hypertable/detach_tablespace/
+[show_tablespaces]: /api/:currentVersion:/hypertable/show_tablespaces/

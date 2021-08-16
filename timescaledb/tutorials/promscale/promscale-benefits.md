@@ -1,14 +1,14 @@
-# 1. Why use Promscale & TimescaleDB to store Prometheus metrics [](why-promscale)
+# Why use Promscale & TimescaleDB to store Prometheus metrics [](why-promscale)
 
 This section details five reasons to use Timescale and Promscale to store Prometheus metrics:
 
-1. Long term data storage
-2. Operational ease
-3. Queries in SQL and PromQL
-4. Per Metric Retention
-5. Ability to push data from custom applications
+1. [Long term data storage](#long-term-data-storage)
+2. [Operational ease](#operational-ease)
+3. [Queries in SQL and PromQL](#queries-in-sql-and-promql)
+4. [Per Metric Retention](#per-metric-retention)
+5. [Ability to push data from custom applications](#ability-to-push-data-from-custom-applications)
 
-## 1.1 Long term data storage [](data-storage)
+## Long term data storage [](data-storage)
 
 In order to keep Prometheus simple and easy to operate, its creators intentionally left out many scaling features one would normally expect. Data in Prometheus is stored locally within the instance and is not replicated. Having both compute and data storage on one node may make it easier to operate, but also makes it harder to scale and ensure high availability.
 
@@ -27,7 +27,7 @@ TimescaleDB can also store other types of data (metrics from other systems, time
 
 Moreover, the recent release of [TimescaleDB 2.0][multinode-blog] introduces multi-node functionality, making it easier to scale horizontally and store data at petabyte scale.
 
-## 1.2 Operational ease [](operational-ease)
+## Operational ease [](operational-ease)
 
 Promscale operates as a single stateless service. This means that once you configure the `remote-write` & `remote-read` endpoints in your prometheus configuration file then all samples are forwarded to Promscale. Promscale then handles the ingestion of samples into TimescaleDB. Promscale exposes all Prometheus compatible APIs, allowing you to query your data using PromQL queries.
 
@@ -35,7 +35,7 @@ Moreover, the only way to scale Prometheus is by [federation][prometheus-federat
 
 Furthermore, with Promscale, it's simple to get a global view of all metrics data, using both PromQL and SQL queries.
 
-## 1.3 Queries in SQL and PromQL [](queries)
+## Queries in SQL and PromQL [](queries)
 
 By allowing you to use SQL, in addition to PromQL, Promscale empowers you to ask complex analytical queries from your metrics data, and thus extract more meaningful insights.
 
@@ -45,9 +45,9 @@ However, there may be times where you need greater query flexibility and express
 
 TimescaleDB's full SQL support is of great help in these cases. It enables you to apply the full breadth of SQL to your Prometheus data, joining your metrics data with any other data you might have, and run more powerful queries.
 
-We detail examples of such SQL queries in [Part 4][promscale-run-queries] of this tutorial.
+We detail examples of such SQL queries in [Run queries with PromQL and SQL][promscale-run-queries] of this tutorial.
 
-## 1.4 Per metric retention [](per-metric)
+## Per metric retention [](per-metric)
 
 Promscale maintains isolation between metrics. This allows you to set retention periods, downsampling and compression settings on a per metric basis, giving you more control over your metrics data.
 
@@ -55,7 +55,7 @@ Per metric retention policies, downsampling, aggregation and compression helps y
 
 This isolation extends to query performance, wherein queries for one metric are not affected by the cardinality, query, or write load of other metrics. This provides better performance on smaller metrics and in general provides a level of safety within your metric storage system.
 
-## 1.5 Ability to push data from custom applications [](custom-apps)
+## Ability to push data from custom applications [](custom-apps)
 
 The Promscale write endpoints also accept data from your custom applications (i.e data outside of Prometheus) in JSON format.
 
@@ -85,7 +85,7 @@ curl --header "Content-Type: application/json" \
 For more details on writing custom time-series data to Promscale can be found in this document: [Writing to Promscale][Writing TO Promscale]
 
 ## Next step
-* [How Promscale Works][promscale-how-it-works]: Now that you've learned about the benefits of Promscale, let's look at how Promscale works in more depth.
+* [How Promscale works][promscale-how-it-works]: Now that you've learned about the benefits of Promscale, let's look at how Promscale works in more depth.
 
 [prometheus-webpage]:https://prometheus.io
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/

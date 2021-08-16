@@ -197,7 +197,7 @@ module.exports = [
             href: "select"
           },
           {
-              title: "Manage data nodes",        
+              title: "Manage data nodes",
             href: "manage-data-nodes"
           },
           {
@@ -308,8 +308,8 @@ module.exports = [
         href: "compression",
         children: [
           {
-            title: "Compression",
-            href: "compression"
+            title: "About compression",
+            href: "about-compression"
           },
           {
             title: "Manually compress chunks",
