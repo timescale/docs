@@ -23,5 +23,5 @@ only the data that has changed needs to be computed, not the entire dataset.
 [cagg-time]: /how-to-guides/continuous-aggregates/time
 [cagg-drop]: /how-to-guides/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
-[cagg-realtime]: /how-to-guides/real-time-aggregates
+[cagg-realtime]: /how-to-guides/continuous-aggregates/real-time-aggregates/
 [cagg-tshoot]: /how-to-guides/continuous-aggregates/troubleshooting
