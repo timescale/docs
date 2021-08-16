@@ -39,6 +39,10 @@ module.exports = [
       {
         title: "Disk management",
         href: "disk-management"
+      },
+      {
+        title: "Backup and restore",
+        href: "backup-restore-cloud"
       }
     ]
   }
