@@ -5,11 +5,11 @@ This quick start guide is designed to get the Rails developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert_rows)
-* [Execute a query on your Timescale database](#execute_query)
+* [Connect to TimescaleDB](#connect-ruby-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Generate a Hypertable](#generate-hypertable)
+* [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
+* [Execute a query on your Timescale database](#execute-a-query)
 
 ## Prerequisites
 

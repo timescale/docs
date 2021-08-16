@@ -5,11 +5,11 @@
 This quick start guide is designed to get Java developers up and running with TimescaleDB as their database.
 In this tutorial, you'll learn how to:
 
-* [Connect Java to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a hypertable](#generate_hypertable)
-* [Insert a batch of rows into TimescaleDB](#insert_rows)
-* [Execute queries on TimescaleDB](#execute_queries)
+* [Connect Java to TimescaleDB](#connect-java-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Generate a hypertable](#generate-a-hypertable)
+* [Insert a batch of rows into TimescaleDB](#insert-a-batch-of-rows-into-timescaledb)
+* [Execute queries on TimescaleDB](#execute-queries-on-timescaledb)
 
 ## Pre-requisites
 
