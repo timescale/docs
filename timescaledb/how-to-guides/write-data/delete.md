@@ -17,14 +17,13 @@ by deleted or obsoleted rows ([PostgreSQL docs][postgres-vacuum]).
 <highlight type="tip">
 For deleting old data, such as in the second example
  above, we recommend using the TimescaleDB function
- [`drop_chunks`][drop_chunks] instead.  This feature is much more
+ [`drop_chunks`](/api/latest/hypertable/drop_chunks) instead.  This feature is much more
  performant: it deletes entire *chunks* of data (basically, removing
  files), rather than at the individual row level (necessitating
- vacuuming). See the section on [data retention][].
+ vacuuming). See the section on [data retention](/timescaledb/latest/how-to-guides/data-retention/).
 </highlight>
 
 
 [postgres-delete]: https://www.postgresql.org/docs/current/static/sql-delete.html
 [postgres-vacuum]: https://www.postgresql.org/docs/current/static/sql-vacuum.html
-[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
-[data retention]: /how-to-guides/data-retention
+
