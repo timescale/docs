@@ -13,7 +13,7 @@ and storage.
 *   Find out more about the [data that we collect][telemetry].
 
 
-[config]: /how-to-guides/configuration/configuration
+[config]: /how-to-guides/configuration/about-configuration
 [postgresql-conf]: /how-to-guides/configuration/postgres-config
 [tstune-conf]: /how-to-guides/configuration/timescaledb-tune
 [docker-conf]: /how-to-guides/configuration/docker-config
