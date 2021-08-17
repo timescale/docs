@@ -106,5 +106,5 @@ this [tutorial][tutorial-streamsets].
 [postgresql-connector-kafka]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [kafka-connect]: http://kafka.apache.org/documentation.html#connect
 [github-debezium]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
-[streamsets-data-collector]: https://streamsets.com/opensource
+[streamsets-data-collector]: https://streamsets.com/products/dataops-platform/data-collector-engine/
 [tutorial-streamsets]: https://streamsets.com/blog/ingesting-data-apache-kafka-timescaledb/
