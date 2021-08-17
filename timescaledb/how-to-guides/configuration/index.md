@@ -9,10 +9,12 @@ and storage.
 *   Use the [TimescaleDB tune tool][tstune-conf].
 *   Manually edit the `postgresql.conf` [configuration file][postgresql-conf].
 *   If you run TimescaleDB in a Docker container, configure
-    [using Docker][docker-conf].
+    [within Docker][docker-conf].
+*   Find out more about the [data that we collect][telemetry]
 
 
 [config]: /how-to-guides/configuration/configuration
 [postgresql-conf]: /how-to-guides/configuration/postgres-config
 [tstune-conf]: /how-to-guides/configuration/timescaledb-tune
 [docker-conf]: /how-to-guides/configuration/docker-config
+[telemetry]: /how-to-guides/configuration/telemetry
