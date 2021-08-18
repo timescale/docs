@@ -118,4 +118,4 @@ WITH (timescaledb.continuous) AS
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
 [postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
-[real-time-aggregates]: /how-to-guides/continuous-aggregates/real-time-aggregates/
+[real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
