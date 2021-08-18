@@ -12,7 +12,7 @@ Estimated time for completion: 25 minutes.
 ### Prerequisites
 To complete this tutorial, you will need a cursory knowledge of the
 Structured Query Language (SQL). The tutorial will walk you through each
-SQL command, but it will be helpful if you've seen SQL before.ß
+SQL command, but it will be helpful if you've seen SQL before.
 
 ### Accessing Timescale
 There are multiple options for using Timescale to follow along with this tutorial. **All connection information
@@ -97,7 +97,7 @@ by typing the command below into your terminal,
 ensuring that you replace the {curly brackets} with your real
 password, hostname, and port number.
 
->:TIP:Remember, this connection string assumes you are connecting to **Timescale Forge**. Change the user and database name as needed depending on how you're connecting.
+>:TIP: Remember, this connection string assumes you are connecting to **Timescale Forge**. Change the user and database name as needed depending on how you're connecting.
 
 ```bash
 psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/tsdb?sslmode=require"
