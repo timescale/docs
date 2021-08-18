@@ -220,15 +220,15 @@ This query sums all yards for each player in every game. You can then
 join that on the `player` table to get player details:
 
 ```sql
-SELECT t.player_id, p.display_name, SUM(dis) AS yards, t.gameid 
+SELECT t.player_id, p.displayname, SUM(dis) AS yards, t.gameid 
 FROM tracking t
 LEFT JOIN player p ON t.player_id = p.player_id 
-GROUP BY t.player_id, p.display_name, t.gameid 
+GROUP BY t.player_id, p.displayname, t.gameid 
 ORDER BY t.gameid ASC, yards DESC;
 ```
 Your data should look like this:
 
-|player_id |        display_name         |       yards        |   gameid   |
+|player_id |        displayname         |       yards        |   gameid   |
 |-----------|-----------------------------|--------------------|------------|
 |   2495454 | Julio Jones                 | 1030.6399999999971 | 2018090600|
 |   2507763 | Mike Wallace                |  940.0099999999989 | 2018090600|
@@ -268,10 +268,10 @@ materialized data and notice the response time is now significantly faster, unde
 one second on our test machine.
 
 ```sql
-SELECT pyg.player_id, p.display_name, SUM(yards) AS yards, pyg.gameid 
+SELECT pyg.player_id, p.displayname, SUM(yards) AS yards, pyg.gameid 
 FROM player_yards_by_game pyg
 LEFT JOIN player p ON pyg.player_id = p.player_id 
-GROUP BY pyg.player_id, p.display_name, pyg.gameid 
+GROUP BY pyg.player_id, p.displayname, pyg.gameid 
 ORDER BY pyg.gameid ASC, yards DESC;
 ```
 
