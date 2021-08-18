@@ -100,14 +100,14 @@ CREATE TABLE tracking (
     o DOUBLE PRECISION,
     dir DOUBLE PRECISION,
     event TEXT,
-    nflId INT,
+    player_id INT,
     displayName TEXT,
     jerseyNumber INT,
     position TEXT,
     frameId INT,
     team TEXT,
     gameid INT,
-    player_id INT,
+    playid INT,
     playDirection TEXT,
     route TEXT
 );
@@ -132,7 +132,7 @@ CREATE TABLE stadium_info (
     team_name TEXT,
     team_abbreviation TEXT,
     time_zone TEXT
-)
+);
 
 ```
 
@@ -200,9 +200,9 @@ insert("data/scores.csv", "scores")
 
 # iterate over each week's CSV file and insert them
 for i in range(1, 18): 
-    print("Inserting week{i}".format(str(i)))
-    insert("data/week{i}.csv".format(i=i), "tracking")
-
+    print(f'Inserting week{i}'.format(i = str(i)))
+    insert(f'data/week{i}.csv'.format(i=i), "tracking")
+    
 conn.close()
 ```
 
