@@ -1,16 +1,15 @@
 module.exports = [
   {
-    title: "Promscale",
+    title: 'Promscale',
     filePath: 'index.md',
-    href: "promscale",
+    href: 'promscale',
     name: 'Promscale',
-    excerpt: 'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
+    excerpt:
+      'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
     children: [
       {
-        href: "install-promscale",
-      }
-        ]
-      }
-    ]
-  }
-]
+        href: 'install-promscale',
+      },
+    ],
+  },
+];
