@@ -1,6 +1,5 @@
 # Ingest data
-There are several different ways of ingesting your data into Managed Service
-for TimescaleDB (MST). This section contains instructions to:
+There are several different ways of ingesting your data into Timescale Cloud. This section contains instructions to:
 *   Bulk upload [from a `.csv` file](#bulk-upload-from-csv-files)
 *   Migrate data [from an existing database][migrate-data]
 *   Migrate data [from InfluxDB][migrate-influxdb]
@@ -12,7 +11,7 @@ for TimescaleDB (MST). This section contains instructions to:
     such as Kafka
 
 <highlight type="note">
-Before you begin, make sure you have [created your MST
+Before you begin, make sure you have [created your Timescale Cloud
 service](/create-a-service/), and can connect to it using `psql`.
 </highlight>
 
