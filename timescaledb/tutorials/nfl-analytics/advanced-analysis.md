@@ -18,19 +18,19 @@ to find the mean yards run per game by a single player.
 
 ```sql
 WITH sum_yards AS (
-  SELECT a.player_id, display_name, SUM(yards) AS yards, gameid
+  SELECT a.player_id, displayname, SUM(yards) AS yards, gameid
   FROM player_yards_by_game a
   LEFT JOIN player p ON a.player_id = p.player_id
-  GROUP BY a.player_id, display_name, gameid
+  GROUP BY a.player_id, displayname, gameid
 )
-SELECT player_id, display_name, mean(percentile_agg(yards)) as yards
+SELECT player_id, displayname, mean(percentile_agg(yards)) as yards
 FROM sum_yards
-GROUP BY player_id, display_name
+GROUP BY player_id, displayname
 ORDER BY yards DESC
 ```
 Your data should look like this:
 
-|player_id|display_name|yards|
+|player_id|displayname|yards|
 |-|-|-|
 |NULL|NULL|2872.5647430830086|
 |2508061|Antonio Brown|1125.1706666666641|
@@ -38,7 +38,7 @@ Your data should look like this:
 |2543495|Davante Adams|971.6339999999967|
 |2543498|Brandin Cooks|969.3762499999964|
 
-When you run this query you might notice that the `player_id` and `display_name`
+When you run this query you might notice that the `player_id` and `displayname`
 are null for the first row. This row represents the average yard data for the
 football.
 
@@ -50,10 +50,10 @@ called `percentile_agg`. You can use the `percentile_agg` function to find the
 ```sql
 WITH sum_yards AS (
 --Add position to the table to allow for grouping by it later
-  SELECT a.player_id, display_name, SUM(yards) AS yards, p.position, gameid
+  SELECT a.player_id, displayname, SUM(yards) AS yards, p.position, gameid
   FROM player_yards_by_game a
   LEFT JOIN player p ON a.player_id = p.player_id
-  GROUP BY a.player_id, display_name, p.position, gameid
+  GROUP BY a.player_id, displayname, p.position, gameid
 )
 --Find the mean and median for each position type
 SELECT position, mean(percentile_agg(yards)) AS mean_yards, approx_percentile(0.5, percentile_agg(yards)) AS median_yards
@@ -99,12 +99,12 @@ WITH snap_events AS (
 )
 -- Count these events and filter results to only display data when the player was
 -- on the offensive
-SELECT a.player_id, pl.display_name, COUNT(a.event) AS play_count, a.team_name
+SELECT a.player_id, pl.displayname, COUNT(a.event) AS play_count, a.team_name
 FROM snap_events a
 LEFT JOIN play p ON a.gameid = p.gameid AND a.playid = p.playid
 LEFT JOIN player pl ON a.player_id = pl.player_id
 WHERE a.team_name = p.possessionteam
-GROUP BY a.player_id, pl.display_name, a.team_name
+GROUP BY a.player_id, pl.displayname, a.team_name
 ORDER BY play_count DESC
 ```
 
@@ -112,7 +112,7 @@ Notice that the two highest passing plays are for Ben Roethlisberger and JuJu
 Smith-Schuster, a Quarterback and Wide Receiver, respectively, for the
 Pittsburgh Steelers.
 
-|player_id|display_name|play_count|team|
+|player_id|displayname|play_count|team|
 |-|-|-|-|
 |2506109|Ben Roethlisberger|725|PIT|
 |2558149|JuJu Smith-Schuster|691|PIT|
@@ -181,10 +181,10 @@ WITH total_yards AS (
 	GROUP BY t.player_id, t.gameid
 ), avg_yards AS (
 -- This table takes the average of the yards run by each player and calls out thier position
-	SELECT p.player_id, p.display_name, AVG(yards) AS avg_yards, p."position"
+	SELECT p.player_id, p.displayname, AVG(yards) AS avg_yards, p."position"
 	FROM total_yards t
 	LEFT JOIN player p ON t.player_id = p.player_id
-	GROUP BY p.player_id, p.display_name, p."position"
+	GROUP BY p.player_id, p.displayname, p."position"
 ), ranked_vals AS (
     -- This table ranks each player by the average yards they run per game
     SELECT a.*, RANK() OVER (PARTITION BY a."position" ORDER BY avg_yards DESC)
