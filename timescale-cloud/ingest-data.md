@@ -87,66 +87,11 @@ Before you begin, make sure you have
 
 ## Insert data directly using a client driver
 You can use a client driver such as JDBC, Python, or Node.js, to insert data
-directly into your new database. You need to have the `psycopg2` library
-installed to use a client driver. You can install it from the command prompt:
-```bash
-pip install psycopg2
-```
-You can use `psycopg2` to connect to your database like this:
-```bash
-from psycopg2.extras
-import RealDictCursor
-import psycopg2
-url = <service_url>
-db_conn = psycopg2.connect(uri)
-c = db_conn.cursor(cursor_factory=RealDictCursor)
-c.execute("SELECT 1 = 1")
-result = c.fetchone()
-```
-
-<highlight type="important">
-Before you begin, make sure you have
-[prepared your new database](#procedure-preparing-your-new-database).
-</highlight>
-
-### Procedure: Inserting data with the JDBC driver
-1.  Use your package manager to install the latest PostgreSQL JDBC driver, and
-    any dependencies.
-1.  Log in to your MST dashboard, click the name of your service, locate
-    the `CA Certificate` information, and copy it to use later.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-cacert.png" alt="MST service details, locating the CA Certificate"/>
-1.  Import the data:
-    ```sql
-    package pg;
-
-    import java.sql.Connection;
-    import java.sql.DriverManager;
-    import java.util.Properties;
-
-    public final class Connect {
-      public static void main(String[] args) {
-        Properties props = new Properties();
-        props.put("jdbc.url", "jdbc:postgresql://pg-3b8d4ed6-myfirstcloudhub.aivencloud.com:20985/defaultdb");
-        props.put("user", "avnadmin");
-        props.put("password", "nr0dfnswz36xs9pi");
-        props.put("ssl", "true");
-        props.put("sslmode", "verify-ca");
-        props.put("sslrootcert", "/path/to/ca.pem");
-
-        try {
-          Connection c = DriverManager.getConnection(props.getProperty("jdbc.url"), props);
-          System.out.println("Success");
-          c.close();
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      }
-    }
-    ```
+directly into your new database.
 
 See the [PostgreSQL instructions][postgres-odbc] for using the ODBC driver.
 
-See the [Node Code Quick Start][node-code-qs] for using Node.js.
+See the [Code Quick Starts][code-qs] for using various languages, including Python and node.js.
 
 ## Insert data directly using a message queue
 If you have data stored in a message queue, you can import it into your
@@ -175,5 +120,5 @@ See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 [migrate-data]: /timescaledb/latest/how-to-guides/migrate-data/
 [migrate-influxdb]: /timescaledb/latest/how-to-guides/migrate-data/migrate-influxdb/
 [postgres-odbc]: https://odbc.postgresql.org/
-[node-code-qs]: /timescaledb/latest/quick-start/node/
+[code-qs]: /timescaledb/latest/quick-start/
 [gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
