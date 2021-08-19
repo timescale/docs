@@ -1,5 +1,5 @@
 # Timescale Cloud
-Managed services for TimescaleDB (MST) provides managed TimescaleDB services
+Timescale Cloud provides managed TimescaleDB services
 hosted in more than 75 regions using AWS, Azure, or GCP. You can use MST to
 create database instances, or services, in the cloud and automate most of your
 most common operational tasks. This allows you to spend more time focusing on
@@ -11,23 +11,19 @@ your time-series workloads and less time worrying about database management.
 *   Use [VPC peering][vpc-peering]
 *   Understand [security for MST][security]
 
-<highlight type="note">
-Managed service for TimescaleDB (MST) used to be called _Timescale Cloud_.
-</highlight>
-
-Some important MST terms:
-*   Account: Your MST account. You can register for an account on the
-    [MST signup][sign-up] page.
-*   Project: An empty project is created for you automatically when you sign up.
+Some important Timescale Cloud terms:
+*   **Account:** Your Timescale Cloud account. You can register for an account on the
+    [Timescale Cloud signup][sign-up] page.
+*   **Project:** An empty project is created for you automatically when you sign up.
     Projects help you organize your services and billing settings. You can also
     use projects to manage user access to your services.
-*   Service: A service is an instance that corresponds to a cloud service
+*   **Service:** A service is an instance that corresponds to a cloud service
     provider tier. You can access all your services from the `Services` tab
     within your projects.
-*   Database: Databases are created within a service. You can view and create a
+*   **Database:** Databases are created within a service. You can view and create a
     database within a service by selecting one of your services, and then
     navigating to the `Databases` tab.
-*   Service plans: A service plan defines the configuration and level of
+*   **Service plans:** A service plan defines the configuration and level of
     database management that is performed for a given TimescaleDB deployment.
 
 ## Hosted TimescaleDB
@@ -66,9 +62,9 @@ integrations and extensions.
 *   Connect applications securely with VPC Peering and IP whitelisting.
 *   SOC2, HIPAA, ISO27001, CCPA, and GDPR compliance.
 
-[create-a-service]: timescale-cloud/create-a-service
-[cloud-multi-node]: timescale-cloud/cloud-multi-node
-[viewing-service-logs]: timescale-cloud/viewing-service-logs
-[vpc-peering]: timescale-cloud/vpc-peering
-[security]: timescale-cloud/security
+[create-a-service]: /create-a-service
+[cloud-multi-node]: /cloud-multi-node
+[viewing-service-logs]: /viewing-service-logs
+[vpc-peering]: /vpc-peering
+[security]: /security
 [sign-up]: https://www.timescale.com/cloud-signup

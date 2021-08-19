@@ -1,13 +1,13 @@
 # About services
-An MST service is an instance that corresponds to a cloud service provider tier.
+A Timescale Cloud service is an instance that corresponds to a cloud service provider tier.
 You can access all your services from the `Services` tab within your projects.
-Before you begin, make sure you have [signed in to MST][sign-up] and created your account.
+Before you begin, make sure you have [signed up to Timescale Cloud][sign-up] and created your account.
 
 ## Create a service
-When you have your account set up, you can log in to the [MST portal][timescale-cloud-portal] and create your first service.
+When you have your account set up, you can log in to the [Timescale Cloud portal][timescale-cloud-portal] and create your first service.
 
 ### Procedure: Creating a service
-1.  [Log in to your MST account][mst-login]. By default, you start in the
+1.  [Log in to your Timescale Cloud account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click `Create a new service`.
 1.  In the `Select your service` section, click `TimescaleDB`:
@@ -43,7 +43,7 @@ utility. If you haven't already installed `psql`, you can follow
 [these instructions][install-psql].
 
 ### Procedure: Accessing your database
-1.  In the [MST account][mst-login] `Services` view, click the name of your new
+1.  In the [Timescale Cloud account][mst-login] `Services` view, click the name of your new
     Grafana service.
 1.  On the service details page, take a note of the service URI for your service.
 1.  Open a terminal, and use `psql` to connect to your service using the URI:
@@ -69,5 +69,5 @@ Now you have your service up and running, you can try your
 [timescale-cloud-portal]: http://portal.timescale.cloud
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[getting-started]: /timescaledb/latest/getting-started/
-[install-psql]: /timescaledb/latest/how-to-guides/connecting/psql
+[getting-started]: /timescaledb/:currentVersion:/getting-started/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
