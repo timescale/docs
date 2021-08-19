@@ -109,7 +109,7 @@ For additional documentation on how to:
 [hypertable-info]: /timescaledb/latest/how-to-guides/hypertables
 [time-bucket-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket
 [gap-filling-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#gap-filling
-[aggregates-info]: /timescaledb/latest/getting-started/create-cagg/
+[aggregates-info]: /timescaledb/latest/getting-started/create-cagg
 [resize]: /scaling-a-service/
 [configuration]: /customize-configuration/
 [multi-node]: /forge-multi-node/
