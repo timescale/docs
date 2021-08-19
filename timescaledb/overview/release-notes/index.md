@@ -91,7 +91,6 @@ accidentally triggering the load of a previous DB version.**
 
 **Thanks**
 * @brianbenns for reporting a segfault with continuous aggregates
-This release adds new experimental features since the 2.3.1 release.
 
 ## 2.4.0 (2021-07-30)
 
