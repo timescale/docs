@@ -126,6 +126,14 @@ module.exports = [
           {
             title: "set_replication_factor",
             href: "set_replication_factor"
+          },
+          {
+            title: "copy_chunk",
+            href: "copy_chunk_experimental"
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk_experimental"
           }
         ]
       },
@@ -274,6 +282,10 @@ module.exports = [
               {
                 title: "interpolate",
                 href: "interpolate"
+              },
+              {
+                title: "time_bucket_ng",
+                href: "time_bucket_ng"
               }
             ]
           },
@@ -422,25 +434,6 @@ module.exports = [
           }
         ]
       },
-      {
-        title: "Experimental",
-        type: 'directory',
-        href: "experimental",
-        children: [
-          {
-            title: "time_bucket_ng",
-            href: "time_bucket_ng"
-          },
-          {
-            title: "copy_chunk",
-            href: "copy_chunk_experimental"
-          },
-          {
-            title: "move_chunk",
-            href: "move_chunk_experimental"
-          }
-        ]
-      }
     ],
   }
 ]
