@@ -15,15 +15,15 @@ module.exports = [
           {
             title: "Timescale Forge",
             href: "installation-forge",
-            tags: ['tsc', 'install'],
-            keywords: ['install', 'Timescale Cloud'],
+            tags: ['tsf', 'install'],
+            keywords: ['install', 'Timescale Forge'],
             excerpt: ['Install Timescale Forge']
           },
           {
             title: "Timescale Cloud",
             href: "installation-cloud",
-            tags: ['mst', 'install'],
-            keywords: ['install', 'Managed Service for TimescaleDB'],
+            tags: ['tsc', 'install'],
+            keywords: ['install', 'Timescale Cloud'],
             excerpt: ['Install Timescale Cloud']
           },
           {
