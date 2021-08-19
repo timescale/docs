@@ -267,6 +267,10 @@ module.exports = [
             href: "time_bucket"
           },
           {
+            title: "time_bucket_ng",
+            href: "time_bucket_ng"
+          },
+          {
             title: "Gapfilling and interpolation",
             type: 'directory',
             href: "gapfilling-interpolation",
@@ -282,10 +286,6 @@ module.exports = [
               {
                 title: "interpolate",
                 href: "interpolate"
-              },
-              {
-                title: "time_bucket_ng",
-                href: "time_bucket_ng"
               }
             ]
           },
