@@ -1,8 +1,8 @@
 module.exports = [
   {
-    title: "Timescale Forge",
+    title: "Timescale Cloud",
     filePath: 'index.md',
-    href: "timescale-forge",
+    href: "cloud",
     name: 'Timescale Forge',
     excerpt: 'Timescale Forge is a fully managed TimescaleDB service that allows you to start querying data in less than a minute!',
     children: [
