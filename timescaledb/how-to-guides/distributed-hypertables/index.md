@@ -34,7 +34,7 @@ fetching the raw data from data nodes and performing the join locally.
 Distributed hypertables currently have some limitations when
 compared to non-distributed hypertables. Before creating a
 distributed hypertable for production workloads, please review our
-[limitations](/latest/overview/limitations/#distributed-hypertable-limitations)
+[limitations](/timescaledb/latest/overview/limitations/)
 document to ensure that your use case will work as expected. You can also
 [contact us](https://www.timescale.com/contact) or join the #multinode channel
 in our [community Slack](https://slack.timescale.com/).
