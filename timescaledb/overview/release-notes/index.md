@@ -85,7 +85,7 @@ accidentally triggering the load of a previous DB version.**
 **Bug fixes**
 * #3430 Fix havingqual processing for continuous aggregates
 * #3468 Disable tests by default if tools are not found
-* #3468 Fix crash while tracking alter table commands
+* #3462 Fix crash while tracking alter table commands
 * #3494 Improve error message when adding data nodes
 * #3489 Fix continuous agg bgw job failure for PG 12.8 and 13.4
 
