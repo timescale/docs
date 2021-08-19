@@ -86,6 +86,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 [postgres-parallel-agg]:https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]:https://www.postgresql.org/docs/current/ddl-rowsecurity.html
 [postgres-security-barrier]:https://www.postgresql.org/docs/current/rules-privileges.html
+[real-time-aggregates]: /how-to-guides/continuous-aggregates/real-time-aggregates/
 
 <highlight type="tip">
  You can find the [settings for continuous aggregates](/api/latest/informational-views/continuous_aggregates/) and

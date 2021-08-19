@@ -109,4 +109,4 @@ or run the following command in psql:
 ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=basic
 ```
 
-[get_telemetry_report]: /api/:currentVersion:/administration-functions/get_telemetry_report/
+[get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report 
