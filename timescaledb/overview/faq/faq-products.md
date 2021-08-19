@@ -9,15 +9,15 @@ Timescale builds an open-source relational database for time-series called
 Timescale hosts and manages TimescaleDB on behalf of its customers via
 hosted services called **Timescale Forge** and **Timescale Cloud**.
 
-**Timescale Forge** is an easy-to-use, cloud-native relational database for 
-collecting and analyzing relentless streams of time-series data on AWS. 
-Featuring enhanced features to help you harness the potential of your 
-data and built on the rock-solid foundation of PostgreSQL and TimescaleDB, 
+**Timescale Forge** is an easy-to-use, cloud-native relational database for
+collecting and analyzing relentless streams of time-series data on AWS.
+Featuring enhanced features to help you harness the potential of your
+data and built on the rock-solid foundation of PostgreSQL and TimescaleDB,
 Timescale Forge enables you to measure everything that matters.
 
-**Timescale Cloud** is a time-series database-as-a-service (DBaaS) for deployments 
-on GCP and Azure. Built on PostgreSQL, TimescaleDB is a rock-solid foundation 
-for your time-series data. Timescale Cloud enables multi-cloud deployments, 
+**Timescale Cloud** is a time-series database-as-a-service (DBaaS) for deployments
+on GCP and Azure. Built on PostgreSQL, TimescaleDB is a rock-solid foundation
+for your time-series data. Timescale Cloud enables multi-cloud deployments,
 with the flexibility of 75+ regions.
 
 ## What is TimescaleDB?
@@ -189,30 +189,9 @@ there are some best practices and suggestions that may apply to get optimal
 performance depending on your scenario. Please see discussion in these docs
 or [join our Slack group][join_slack].
 
-[api]: /api/:currentVersion:/
 [why-sql]: https://www.timescale.com/blog/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
-[new-queries]: /how-to-guides/query-data/advanced-analytic-queries/
-[INSERT]: /how-to-guides/write-data/insert/
-[SELECT]: /how-to-guides/query-data/select/
-[rdbms > nosql]: http://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
-[benchmarks]: https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
-[distributed-hypertable]: /how-to-guides/distributed-hypertables
-[docs-architecture]: /overview/core-concepts/hypertables-and-chunks/
-[hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
-[PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e
-[PostgreSQL-problems-time-series]: https://www.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[first]: /api/:currentVersion:/hyperfunctions/first/
-[last]: /api/:currentVersion:/hyperfunctions/last/
-[data-retention]: /how-to-guides/data-retention/
-[postgis]: /tutorials/nyc-taxi-cab
-[GitHub]: https://github.com/timescale/timescaledb/issues
-[contact]: https://www.timescale.com/contact
+[new-queries]: /how-to-guides/query-data/advanced-analytic-queries
 [join_slack]: https://slack.timescale.com/
-[install]: /how-to-guides/install-timescaledb/
-[update]: /how-to-guides/update-timescaledb/
-[compression-docs]: /how-to-guides/compression/
-[compression-blog]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
 [timescale-license]: https://www.timescale.com/legal/licenses
 [timescale-k8s]: https://github.com/timescale/timescaledb-kubernetes
 [timescale-signup]: https://www.timescale.com/timescale-signup
