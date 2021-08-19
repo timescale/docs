@@ -18,10 +18,10 @@ Like many of the queries in our analysis section, for this example you will util
 ```sql
 WITH stat_vals AS (
 -- This table collects the summed yard and avg acceleration data of a player during one game
-  SELECT a.player_id, display_name, SUM(yards) AS yards, AVG(acc) AS acc, team, gameid 
+  SELECT a.player_id, displayname, SUM(yards) AS yards, AVG(acc) AS acc, team, gameid 
   FROM player_yards_by_game a
   LEFT JOIN player p ON a.player_id = p.player_id 
-  GROUP BY a.player_id, display_name, gameid, team
+  GROUP BY a.player_id, displayname, gameid, team
 ), team_data AS (
 -- This table gets us the team information so that we can filter on teams
 	SELECT a.player_id, acc, yards, a.gameid,
@@ -36,7 +36,7 @@ WITH stat_vals AS (
 ), avg_stats AS (
 -- This table takes the avg acceleration and yards run for players when they are not in denver
 -- and then when they are in denver
-SELECT p.player_id, p.display_name, 
+SELECT p.player_id, p.displayname, 
 	AVG(acc) FILTER (WHERE team_name != 'DEN' AND home_team !='DEN') AS avg_acc, 
 	AVG(acc) FILTER (WHERE team_name != 'DEN' AND home_team = 'DEN') AS avg_acc_den,
 	AVG(yards) FILTER (WHERE team_name != 'DEN' AND home_team !='DEN') AS avg_yards, 
@@ -45,7 +45,7 @@ SELECT p.player_id, p.display_name,
 	COUNT(gameid) FILTER (WHERE team_name != 'DEN' AND home_team ='DEN') AS games_den
 FROM team_data t
 LEFT JOIN player p ON t.player_id = p.player_id 
-GROUP BY p.player_id, p.display_name
+GROUP BY p.player_id, p.displayname
 )
 SELECT * FROM avg_stats
 WHERE avg_acc IS NOT NULL AND avg_acc_den IS NOT NULL
@@ -53,7 +53,7 @@ ORDER BY avg_acc DESC, avg_acc_den DESC
 ```
 You should see this:
 
-|player_id|display_name|avg_acc|avg_acc_den|avg_yards|avg_yards_den|games|games_den|
+|player_id|displayname|avg_acc|avg_acc_den|avg_yards|avg_yards_den|games|games_den|
 |-------|----------------|-----|-----------|----------|----------|--------|--------|
 |2552597|Breshad Perriman|2.32|2.06|408.79|461.08|9|1|
 |2560988|Antonio Callaway|	2.27|	2.30	|778.91|741.06|15|1|
@@ -85,12 +85,12 @@ WITH acceleration AS (
 ), avg_stats AS (
 -- This table takes the avg acceleration and yards run for players when they are not in denver
 -- and then when they are in denver
-SELECT p.player_id, p.display_name, 
+SELECT p.player_id, p.displayname, 
 	AVG(acc) FILTER (WHERE surface LIKE '%Turf%') AS avg_acc_turf, 
 	AVG(acc) FILTER (WHERE surface NOT LIKE '%Turf%') AS avg_acc_grass
 FROM team_data t
 LEFT JOIN player p ON t.player_id = p.player_id 
-GROUP BY p.player_id, p.display_name
+GROUP BY p.player_id, p.displayname
 )
 SELECT * FROM avg_stats
 WHERE avg_acc_turf IS NOT NULL AND avg_acc_grass IS NOT NULL AND player_id IS NOT NULL
@@ -99,7 +99,7 @@ ORDER BY avg_acc_turf DESC, avg_acc_grass DESC
 
 You should see this:
 
-|player_id|display_name|avg_acc_turf|avg_acc_grass|
+|player_id|displayname|avg_acc_turf|avg_acc_grass|
 |--------|-----------|-------------|---------------|
 |2559066	|Gehrig Dieter	|3.25	|2.29|
 |2507948	|Frank Zombo	|2.93	|2.30|
