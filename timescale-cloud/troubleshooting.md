@@ -27,7 +27,7 @@ using [continuous aggregates][howto-caggs], or
 resources your database uses. If you still need help, reach out to our [support
 team][timescale-support] to have a conversation.
 
-[howto-compression]: timescaledb/how-to-guides/compression
-[howto-caggs]: timescaledb/how-to-guides/continuous-aggregates
-[howto-dataretention]: timescaledb/how-to-guides/data-retention
+[howto-compression]: /timescaledb/:currentVersion:/how-to-guides/compression
+[howto-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[howto-dataretention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
 [timescale-support]: https://www.timescale.com/support

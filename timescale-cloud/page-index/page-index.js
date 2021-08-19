@@ -26,7 +26,7 @@ module.exports = [
       },
       {
         title: "Troubleshooting",
-        href: "troubleshooting-mst",
+        href: "troubleshooting",
       }
     ]
   }
