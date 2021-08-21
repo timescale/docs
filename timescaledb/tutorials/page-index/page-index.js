@@ -5,15 +5,18 @@ module.exports = [
         children: [
           {
             title: "Introduction to IoT",
-            href: "nyc-taxi-cab"
+            href: "nyc-taxi-cab",
+            excerpt: "An introduction to IoT using NYC taxi data"
           },
           {
             title: "Introduction to time-series forecasting",
-            href: "time-series-forecast"
+            href: "time-series-forecast",
+            excerpt: "An introduction to time-series forecasting using NYC taxi data"
           },
           {
             title: "Analyze cryptocurrency data",
-            href: "analyze-cryptocurrency-data"
+            href: "analyze-cryptocurrency-data",
+            excerpt: "Use TimescaleDB to analyze cryptocurrency data"
           },
           {
             title: "Analyze intraday stock data",
