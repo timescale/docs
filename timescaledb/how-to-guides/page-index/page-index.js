@@ -380,7 +380,7 @@ module.exports = [
             excerpt: ['Enable node communication in a multi-node environment']
           },
           {
-            title: "Multi-node maintenancee tasks",
+            title: "Multi-node maintenance tasks",
             href: "maintenance-tasks",
             tags: ['multinode', 'distributed', 'nodes', 'manage', 'timescaledb'],
             keywords: ['multinode', 'TimescaleDB'],

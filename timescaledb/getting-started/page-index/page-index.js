@@ -6,19 +6,23 @@ module.exports = [
         children: [
           {
             title: "1. Launch your first instance",
-            href: "launch-timescaledb"
+            href: "launch-timescaledb",
+            excerpt: "Use Timescale Forge to launch your first TimescaleDB instance"
           },
           {
             title: "2. Access your database",
             href: "access-timescaledb",
+            excerpt: "Connect to your database using psql"
           },
           {
             title: "3. Create a hypertable",
-            href: "create-hypertable"
+            href: "create-hypertable",
+            excerpt: "Create a hypertable in TimescaleDB"
           },
           {
             title: "4. Add time-series data",
-            href: "add-data"
+            href: "add-data",
+            exceprt: ""
           },
           {
             title: "5. Query your data",
