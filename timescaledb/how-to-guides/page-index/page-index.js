@@ -209,7 +209,7 @@ module.exports = [
         href: "connecting",
         tags: ['toolkit', 'install', 'timescaledb'],
         keywords: ['TimescaleDB', 'install', 'toolkit'],
-        excerpt: 'Install the TimescaleDB toolkit',
+        excerpt: 'Connect to the TimescaleDB toolkit',
         children: [
             {
               href: "psql",
