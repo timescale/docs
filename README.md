@@ -142,6 +142,7 @@ the raw Markdown files that are being reviewed. Instead, the review link discuss
 above should be utilized for verifying all internal links.
 
 Links should be formatted according to their target.
+
 ### External links:
 
 Input as-is.
