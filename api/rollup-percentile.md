@@ -29,7 +29,7 @@ included in an aggregation.
 |---|---|---|
 |`rollup`|`UddSketch` / `tdigest`|A UddSketch or tdigest object which may be passed to further APIs|
 
-Because the `percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) function uses the [UddSketch algorithm](/hyperfunctions/percentile-approximation/aggregation-methods/uddsketch/), `rollup` returns the UddSketch data structure for use in further calls.
+Because the `percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) function uses the [UddSketch algorithm](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch), `rollup` returns the UddSketch data structure for use in further calls.
 
 When using the `percentile_agg` or `UddSketch` aggregates, the `rollup` function will not introduce additional error (compared to calculating the estimator directly), however, using `rollup` with `tdigest` may introduce additional error compared to calculating the estimator directly on the underlying data.
 
