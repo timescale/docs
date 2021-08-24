@@ -15,6 +15,10 @@ module.exports = [
         href: "ingest-data"
       },
       {
+        title: "User management",
+        href: "user-management"
+      },
+      {
         title: "Create a multi-node cluster",
         href: "cloud-multi-node"
       },
