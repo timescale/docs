@@ -3,20 +3,23 @@ There are several different methods for installing Promscale. This section
 describes installing from a pre-built Docker image. For alternative installation
 methods, see the [Promscale GitHub repository][promscale-github].
 
-If you have a Kubernetes cluster with Helm installed, you can use
-the observability suite for Kubernetes (tobs) to install a full metric
-collection and visualization solution including Prometheus, Grafana, Promscale,
-and a preview version of PromLens. To learn how to do this, watch
-our [demo video][tobs demo video].
+If you have a Kubernetes cluster with Helm installed, you can use the
+observability suite for Kubernetes (tobs) to install a full metric collection
+and visualization solution including Prometheus, Grafana, Promscale, and a
+preview version of PromLens. To learn how to do this, watch our
+[demo video][tobs-demo]. For more information about tobs, see the
+[tobs GitHub repository][tobs-gh].
 
 If you want to migrate data from Prometheus into Promscale, you can use
 [Prom-migrator][prom-migrator-blog], an open-source, universal Prometheus data
 migration tool that can move data from one remote-storage system to another.
 
+## Install Promscale from a Docker image
+You can install the Promscale Connector with a Docker image from
+[Docker Hub][promscale-docker-hub]. For more information about this image, see
+the [Promscale Releases on GitHub][promscale-releases-github].
+
 ### Procedure: Installing Promscale from a Docker image
-1.  Download the Docker image for the Promscale Connector
-from [Docker Hub][promscale-docker-hub]. For more information about this image,
-see the [Promscale Releases on GitHub][promscale-releases-github].
 1.  Create a network specific to Promscale-TimescaleDB:
     ```bash
     docker network create --driver bridge promscale-timescaledb
@@ -67,9 +70,8 @@ All environment variables are prefixed with `PROMSCALE`.
 For more information about configuring Promscale, see the [Promscale CLI documentation][promscale-cli-github], or use the `promscale -h` command.
 
 
-[promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
-[promscale-demo]: https://youtu.be/FWZju1De5lc
-[tobs demo video]: https://youtu.be/MSvBsXOI1ks
+[tobs-demo]: https://youtu.be/MSvBsXOI1ks
+[tobs-gh]: https://github.com/timescale/tobs
 [prom-migrator-blog]: https://blog.timescale.com/blog/introducing-prom-migrator-a-universal-open-source-prometheus-data-migration-tool/
 [promscale-github]: https://github.com/timescale/promscale
 [promscale-docker-hub]: https://hub.docker.com/r/timescale/promscale/
