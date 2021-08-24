@@ -31,11 +31,13 @@ while also empowering users with more control and flexibility to customize
 behaviors to suit your needs.  
 Some of these API updates are **breaking changes**.
 
-### What's new in TimescaleDB 2.4:
+### What's new in TimescaleDB 2.4.1:
 
-This release adds new experimental features since the 2.3.1 release.
+This release contains bug fixes since the 2.4.0 release. 
+We deem it high priority to upgrade since it is needed to support PostgreSQL 12.8 and 13.4.
 
-The experimental features in this release are:
+
+The experimental features in the 2.4.0 release were:
 * APIs for chunk manipulation across data nodes in a distributed
 hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
@@ -58,7 +60,7 @@ To make that possible, we require functionality that is available in Postgres 12
 For this reason, we are removing support for PostgreSQL 11 starting in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
 
 <highlight type="tip">
-TimescaleDB 2.4 is currently GA, and we encourage
+TimescaleDB 2.4.1 is currently GA, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -77,6 +79,18 @@ past releases and how you can learn more.
 accidentally triggering the load of a previous DB version.**
 
 ## Unreleased
+
+## 2.4.1 (2021-08-19)
+
+**Bug fixes**
+* #3430 Fix havingqual processing for continuous aggregates
+* #3468 Disable tests by default if tools are not found
+* #3462 Fix crash while tracking alter table commands
+* #3494 Improve error message when adding data nodes
+* #3489 Fix continuous agg bgw job failure for PG 12.8 and 13.4
+
+**Thanks**
+* @brianbenns for reporting a segfault with continuous aggregates
 
 ## 2.4.0 (2021-07-30)
 
