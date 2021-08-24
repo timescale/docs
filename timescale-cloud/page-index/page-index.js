@@ -7,7 +7,12 @@ module.exports = [
     excerpt: 'Timescale Cloud is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP',
     children: [
       {
-        href: "create-a-service",
+        title: "Create a service",
+        href: "create-a-service"
+      },
+      {
+        title: "Ingest data",
+        href: "ingest-data"
       },
       {
         title: "User management",
@@ -18,7 +23,12 @@ module.exports = [
         href: "cloud-multi-node"
       },
       {
-        href: "viewing-service-logs",
+        title: "Connection Pools",
+        href: "connection-pools"
+      },
+      {
+        title: "Viewing service logs",
+        href: "viewing-service-logs"
       },
       {
         title: "VPC peering",
