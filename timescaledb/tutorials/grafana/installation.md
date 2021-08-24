@@ -64,4 +64,4 @@ connect to your TimescaleDB instance.
 1.  Click `Save & Test`. You can confirm your data source is working by clicking
     `Back`, and checking that your service is listed correctly.
 
-[mst-login]: https://portal.timescale.cloud/login
+[mst-login]: https://portal.timescale.cloud
