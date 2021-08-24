@@ -1,6 +1,6 @@
 # Troubleshooting
 This section covers some common errors or problems you might run into while
-using your Managed Service for TimescaleDB (MST) account.
+using your Timescale Cloud account.
 
 ## Database is low on disk, memory, or CPU
 When your database reaches 90% of your allocated disk, memory, or CPU resources,
@@ -14,8 +14,8 @@ availability. Please either optimize your usage pattern or reduce the workload,
 and consider upgrading to a larger plan to avoid service outage.
 ```
 
-You can resolve this by logging in to your MST account and increasing your
-available resources. From the MST Dashboard, select the service that you want to
+You can resolve this by logging in to your Timescale Cloud account and increasing your
+available resources. From the Timescale Cloud Dashboard, select the service that you want to
 increase resources for. In the `Overview` tab, locate the `Service Plan`
 section, and click `Upgrade Plan`. Select the plan that suits your requirements,
 and click `Upgrade` to enable the additional resources.
