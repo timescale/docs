@@ -1,4 +1,4 @@
-## timescaledb_experimental.time_bucket_ng()
+## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
 
 The `time_bucket_ng()` (next generation) experimental function is
 similar to [`time_bucket()`][time_bucket], but works with years and
@@ -11,8 +11,8 @@ and could be removed in future releases. Use these features at your own risk, an
 do not use any experimental features in production.
 </highlight>
 
-In this example, `time_bucket_ng()` is used to create bucket data in three month 
-intervals: 
+In this example, `time_bucket_ng()` is used to create bucket data in three month
+intervals:
 
 ```
 SELECT timescaledb_experimental.time_bucket_ng('3 month', date '2021-08-01');
@@ -33,7 +33,7 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 ```
 
 You can also use `time_bucket_ng()` with continuous aggregates.
-This example tracks the temperature in Moscow over seven day intervals: 
+This example tracks the temperature in Moscow over seven day intervals:
 
 ```
 CREATE TABLE conditions(

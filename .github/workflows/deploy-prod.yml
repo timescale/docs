@@ -16,6 +16,6 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content-prod
-      - name: Update search index
-        run: |
-          curl https://responses.timescale.com/v1/update_search_index
+      # - name: Update search index
+      #   run: |
+      #     curl https://responses.timescale.com/v1/update_search_index

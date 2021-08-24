@@ -10,12 +10,6 @@ module.exports = [
     title: "TimescaleDB",
     href: "timescaledb",
     excerpt: 'All you need to know about TimescaleDB architecture, concepts, setup, how-to\'s, tutorials, and management',
-    metaTags: [
-      {
-        name: 'description',
-        content: 'This is the description for the timescaleDB page'
-      },
-    ],
     children: [
       ...overviewPageIndex,
       ...gettingStartedPageIndex,
