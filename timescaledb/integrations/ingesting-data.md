@@ -93,7 +93,7 @@ and get started with this [tutorial][tutorial-streamsets].
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
 [promscale-sql]: https://github.com/timescale/promscale/blob/master/docs/sql_schema.md
 [timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
-[wide-model]: https://docs.timescale.com/introduction/data-model
+[wide-model]: /timescaledb/:currentVersion:/overview/data-model-flexibility/
 [telegraf-tutorial]: /timescaledb/:currentVersion:/tutorials/telegraf-output-plugin/
 [postgresql-connector-with-kafka-connect]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [kafka-connect]: http://kafka.apache.org/documentation.html#connect
