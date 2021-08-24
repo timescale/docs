@@ -111,7 +111,7 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 
 [slack]: https://slack.timescale.com/
 [github]: https://github.com/timescale/timescaledb/issues
-[update-db]: /timescaledb/latest/how-to-guides/update-timescaledb/
+[update-db]: /how-to-guides/update-timescaledb/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
 [track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql

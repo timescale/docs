@@ -126,6 +126,14 @@ module.exports = [
           {
             title: "set_replication_factor",
             href: "set_replication_factor"
+          },
+          {
+            title: "copy_chunk",
+            href: "copy_chunk_experimental"
+          },
+          {
+            title: "move_chunk",
+            href: "move_chunk_experimental"
           }
         ]
       },
@@ -257,7 +265,11 @@ module.exports = [
           {
             title: "time_bucket",
             href: "time_bucket"
-          },  
+          },
+          {
+            title: "time_bucket_ng",
+            href: "time_bucket_ng"
+          },
           {
             title: "Gapfilling and interpolation",
             type: 'directory',
@@ -330,7 +342,7 @@ module.exports = [
                   {
                     title: "tdigest",
                     href: "tdigest"
-                  }        
+                  }
                 ]
               },
             ]
@@ -353,9 +365,9 @@ module.exports = [
                 href: "average"
               }
             ]
-          },          
+          },
         ]
-      }, 
+      },
       {
         title: "Informational views",
         type: 'directory',
@@ -422,17 +434,6 @@ module.exports = [
           }
         ]
       },
-      {
-        title: "Experimental",
-        type: 'directory',
-        href: "experimental",
-        children: [
-          {
-            title: "time_bucket_ng",
-            href: "time_bucket_ng"
-          }     
-        ]
-      }
     ],
   }
 ]

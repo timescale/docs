@@ -29,21 +29,8 @@ service. [Sign-up for your free](https://forge.timescale.com/signup), 30-day
 trial and get started today!
 
 
-
-[init_data_nodes]: /getting-started/setup-multi-node-basic#init_data_nodes_on_access_node
-[auth-password]: https://www.postgresql.org/docs/current/auth-password.html
-[passfile]: https://www.postgresql.org/docs/current/libpq-pgpass.html
-[md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
-[distributed hypertables]: /using-timescaledb/distributed-hypertables
-[add_data_node]: /api#add_data_node
-[attach_data_node]: /api#attach_data_node
-[delete_data_node]: /api#delete_data_node
-[detach_data_node]: /api#detach_data_node
-[distributed_exec]: /api#distributed_exec
 [configuration]: /how-to-guides/multi-node-setup/required-configuration
 [install]: /how-to-guides/install-timescaledb
-[setup]: /how-to-guides/install-timescaledb/post-install-setup/
-[postgresql-hba]: https://www.postgresql.org/docs/12/auth-pg-hba-conf.html
-[user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
+[setup]: /how-to-guides/install-timescaledb/post-install-setup
 [Core Concepts]: /overview/core-concepts/
-[multi_node_forge]: /timescale-forge/latest/forge-multi-node/
+[multi_node_forge]: /timescale-forge/:currentVersion:/forge-multi-node

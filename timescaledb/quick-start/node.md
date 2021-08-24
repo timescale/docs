@@ -5,11 +5,11 @@ This quick start guide is designed to get the Node.js developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert_rows)
-* [Execute a query on your Timescale database](#execute_query)
+* [Connect to TimescaleDB](#connect-node-to-timescaledb)
+* [Create a relational table](#create-a-relational-table)
+* [Generate a Hypertable](#generate-hypertable)
+* [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
+* [Execute a query on your Timescale database](#execute-a-query)
 
 ## Prerequisites
 
@@ -360,7 +360,7 @@ A hypertable is defined by a standard schema with column names and types, with a
 least one column specifying a time value.
 
 <highlight type="tip">
-The TimescaleDB documentation on [schema management and indexing](/how-to-guides/schema-management/indexing/) explains this in further detail.
+The TimescaleDB documentation on [schema management and indexing](/timescaledb/latest/how-to-guides/schema-management/indexing) explains this in further detail.
 </highlight>
 
 Let's create this migration to modify the `page_loads` table and create a
@@ -490,7 +490,6 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 
 [install-timescale]: /how-to-guides/install-timescaledb/
 [setup-psql]: /how-to-guides/connecting/psql/
-[indexing-api-guide]: /how-to-guides/schema-management/indexing/
 [time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /getting-started/create-cagg/
 [other-samples]: /tutorials/sample-datasets/

@@ -1,6 +1,6 @@
 ## From Source (Windows) [](installation-source)
 
-**Note: TimescaleDB requires PostgreSQL 12 or 13.**
+**Note: TimescaleDB requires PostgreSQL 12.0 or 13.2, or later**
 
 #### Prerequisites
 
@@ -12,7 +12,7 @@
 #### Build and install with local PostgreSQL
 <highlight type="tip">
 It is **highly recommended** that you checkout the latest
-tagged commit to build from (see the repo's [Releases][github-releases] page for that)
+tagged commit to build from (see the repo's [Releases](https://github.com/timescale/timescaledb/releases) page for that)
 </highlight>
 
 Clone the repository from [GitHub][github-timescale]:
@@ -84,6 +84,5 @@ to `bootstrap`.
 </highlight>
 
 [CMake]: https://cmake.org/
-[github-releases]: https://github.com/timescale/timescaledb/releases
 [github-timescale]: https://github.com/timescale/timescaledb
-[update-tsdb-2]: /update-timescaledb/update-tsdb-2
+[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/

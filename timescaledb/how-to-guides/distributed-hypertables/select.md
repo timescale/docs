@@ -46,7 +46,7 @@ The planner can consider two methods to push down aggregates:
 
 <highlight type="tip">
 The settings variable
-[`enable_partitionwise_aggregate`][partitionwise_agg_guc] must be set
+[`enable_partitionwise_aggregate`](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE) must be set
 to `on` on the access node to make sure that the planner considers
 pushing down computations to data nodes (the default is `off`).
 </highlight>
@@ -98,5 +98,4 @@ the data nodes.
 
 [volatility]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [current_time]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-CURRENT
-[partitionwise_agg_guc]: https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE
 [random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE

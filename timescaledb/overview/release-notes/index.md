@@ -15,11 +15,8 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 
 For our next release, we plan to add:
 
-- Elasticity: Move data when expanding or shrinking a multi-node cluster
-- Experimental schema: A way to get experimental functionalities early to our users
-- Various bug fixes.
-
-The current generally available (GA) version is 2.3.1.
+- Continuous aggregates for distributed hypertables
+- Continuous aggregates with compression
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -34,23 +31,36 @@ while also empowering users with more control and flexibility to customize
 behaviors to suit your needs.  
 Some of these API updates are **breaking changes**.
 
-### What's new in TimescaleDB 2.3.1:
+### What's new in TimescaleDB 2.4.1:
 
-This maintenance release adds support for downgrading Timescale DB 2.3.1 to 2.3.
-We intend to keep expanding this functionality as we release new versions to allow users to downgrade one version at a time.
+This release contains bug fixes since the 2.4.0 release. 
+We deem it high priority to upgrade since it is needed to support PostgreSQL 12.8 and 13.4.
+
+
+The experimental features in the 2.4.0 release were:
+* APIs for chunk manipulation across data nodes in a distributed
+hypertable setup. This includes the ability to add a data node and move
+chunks to the new data node for cluster rebalancing.
+* The `time_bucket_ng` function, a newer version of `time_bucket`. This function
+supports years, months, days, hours, minutes, and seconds.
+
+We’re committed to developing these experiments, giving the community a chance to
+provide early feedback and influence the direction of TimescaleDB’s development.
+ We’ll travel faster with your input!
+
+Please create your feedback as a GitHub issue, and add the `experimental-schema` label.
+Describe what you found, and tell us the steps or share the code snippet to recreate it.
 
 Several bugs fixed, see the release notes for more details.
 
 **PostgreSQL 11 deprecation announcement**
 
-Timescale is working hard on our next exciting features. 
-To make that possible, we require functionality 
-that is available in Postgres 12 and above. 
-For this reason, TimescaleDB 2.3.1 is the final version that supports PostgreSQL 11.  
-TimescaleDB 2.4 will require PostgreSQL 12 or 13.
+Timescale is working hard on our next exciting features.
+To make that possible, we require functionality that is available in Postgres 12 and above.
+For this reason, we are removing support for PostgreSQL 11 starting in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
 
 <highlight type="tip">
-TimescaleDB 2.3.1 is currently GA, and we encourage
+TimescaleDB 2.4.1 is currently GA, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -70,9 +80,44 @@ accidentally triggering the load of a previous DB version.**
 
 ## Unreleased
 
+## 2.4.1 (2021-08-19)
+
+**Bug fixes**
+* #3430 Fix havingqual processing for continuous aggregates
+* #3468 Disable tests by default if tools are not found
+* #3462 Fix crash while tracking alter table commands
+* #3494 Improve error message when adding data nodes
+* #3489 Fix continuous agg bgw job failure for PG 12.8 and 13.4
+
+**Thanks**
+* @brianbenns for reporting a segfault with continuous aggregates
+
+## 2.4.0 (2021-07-30)
+
+**Experimental features**
+* #3293 Add timescaledb_experimental schema
+* #3302 Add block_new_chunks and allow_new_chunks API to experimental
+schema. Add chunk based refresh_continuous_aggregate.
+* #3211 Introduce experimental time_bucket_ng function
+* #3366 Allow use of experimental time_bucket_ng function in continuous aggregates
+* #3408 Support for seconds, minutes and hours in time_bucket_ng
+
+**Bug fixes**
+* #3401 Fix segfault for RelOptInfo without fdw_private
+* #3411 Verify compressed chunk validity for compressed path
+* #3416 Fix targetlist names for continuous aggregate views
+* #3434 Remove extension check from relcache invalidation callback
+* #3440 Fix remote_tx_heal_data_node to work with only current database
+
+**Thanks**
+* @fvannee for reporting an issue with hypertable expansion in functions
+* @amalek215 for reporting an issue with cache invalidation during pg_class vacuum full
+* @hardikm10 for reporting an issue with inserting into compressed chunks
+* @dberardo-com and @iancmcc for reporting an issue with extension updates after renaming columns of continuous aggregates.
+
  ## 2.3.1 (2021-07-05)
 
-This maintenance release contains bug fixes since the 2.3.0 release. 
+This maintenance release contains bug fixes since the 2.3.0 release.
 We deem it moderate priority for upgrading.
 
 **Bug fixes**
@@ -936,7 +981,7 @@ parallel query coordination to the ChunkAppend node.
 Previously ChunkAppend would rely on parallel coordination in the
 underlying scans for parallel plans.
 
-For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](https://docs.timescale.com/latest/tutorials/compression-tutorial),
+For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](/timescaledb/:currentVersion:/getting-started/compress-data/),
 and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
 **For this release only**, you will need to restart the database before running
@@ -1133,8 +1178,8 @@ we use invalidation techniques to track what data has changed, and then correct
 the materialized aggregate the next time that the automated process executes.
 
 For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
-[our docs overview](http://docs.timescale.com/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
-and visit this [tutorial](http://docs.timescale.com/tutorials/continuous-aggs-tutorial).
+[our docs overview](/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
+and visit this [tutorial](/timescaledb/:currentVersion:/getting-started/create-cagg/).
 
 **Major features**
 * #1184 Add continuous aggregate functionality
