@@ -33,6 +33,10 @@ module.exports = [
       {
         title: "Security",
         href: "security",
+      },
+      {
+        title: "Maintenance",
+        href: "maintenance",
       }
     ]
   }
