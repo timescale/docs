@@ -7,8 +7,8 @@ module.exports = [
     excerpt: 'Timescale Cloud is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP',
     children: [
       {
-        title: "Create a service",
-        href: "create-a-service"
+        title: "Create services",
+        href: "create-a-service",
       },
       {
         title: "Ingest data",
