@@ -4,7 +4,7 @@ On Timescale Cloud, software updates are handled automatically by us, and you do
 Non-critical software updates are applied during a maintenance window that you can define to suit your workload. If we detect a security vulnerability that affects you, we might need to perform maintenance outside of the scheduled maintenance window.
 
 <highlight type="important">
-During a maintenance update, the DNS name remains the same, but the IP address
+After a maintenance update, the DNS name remains the same, but the IP address
 it points to changes.
 </highlight>
 
@@ -36,7 +36,7 @@ system during the upgrade.
 1.  Click `Save Changes`.
 
 ## Critical updates
-Critical upgrades and security fixes can be installed outside normal maintenance windows when necessary, and sometimes require have a short outage.
+Critical upgrades and security fixes can be installed outside normal maintenance windows when necessary, and sometimes require a short outage.
 
 Upgrades are performed as rolling upgrades where completely new server instances
 are built alongside the old ones. When the new instances are up and running they
