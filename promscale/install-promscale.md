@@ -16,7 +16,7 @@ migration tool that can move data from one remote-storage system to another.
 
 ## Install Promscale from a Docker image
 You can install the Promscale Connector with a Docker image from
-[Docker Hub][promscale-docker-hub]. For more information about this image, see
+[Docker Hub][promscale-docker-hub]. To see the latest available images, see
 the [Promscale Releases on GitHub][promscale-releases-github].
 
 ### Procedure: Installing Promscale from a Docker image
