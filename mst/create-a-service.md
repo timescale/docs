@@ -4,7 +4,7 @@ You can access all your services from the `Services` tab within your projects.
 Before you begin, make sure you have [signed up to Timescale Cloud][sign-up] and created your account.
 
 ## Create a service
-When you have your account set up, you can log in to the [Timescale Cloud portal][timescale-cloud-portal] and create your first service.
+When you have your account set up, you can log in to the [Timescale Cloud portal][timescale-mst-portal] and create your first service.
 
 ### Procedure: Creating a service
 1.  [Log in to your Timescale Cloud account][mst-login]. By default, you start in the
@@ -66,8 +66,8 @@ Now you have your service up and running, you can try your
 
 [sign-up]: https://www.timescale.com/cloud-signup
 [mst-login]: https://portal.timescale.cloud/login
-[timescale-cloud-portal]: http://portal.timescale.cloud
-[timescale-pricing]: https://www.timescale.com/products#cloud-pricing
+[timescale-mst-portal]: http://portal.timescale.cloud
+[timescale-pricing]: https://www.timescale.com/products
 [contact]: https://www.timescale.com/contact
 [getting-started]: /timescaledb/:currentVersion:/getting-started/
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql

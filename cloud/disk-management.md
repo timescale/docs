@@ -1,7 +1,7 @@
 # Disk management
 
-Timescale Forge contains several mechanisms for managing disk space on your
-services. There are four key tasks that Forge performs to handle disk space:
+Timescale Cloud contains several mechanisms for managing disk space on your
+services. There are four key tasks that Cloud performs to handle disk space:
 
 1.  Detect if storage capacity begins to fill up
 1.  Notify you about the growth of storage consumption
@@ -13,7 +13,7 @@ of them.
 
 ## Continuous storage monitoring
 
-Timescale Forge continuously monitors the health and resource consumption of all
+Timescale Cloud continuously monitors the health and resource consumption of all
 database services. You can check your health data by navigating to the `metrics`
 tab in your service dashboard. These metrics are also monitored by the Timescale
 operations team.
@@ -42,7 +42,7 @@ about a particular service.
 If your database continues to increase in size past these thresholds, automated
 overload protection is activated when your disk becomes 99% full. When this
 happens, your database is put into read-only mode, and you receive a
-notification on email and the Timescale Forge console shows the changed status.
+notification on email and the Timescale Cloud console shows the changed status.
 
 When this happens, you can still query your database, but you cannot add any new
 data to it. This is to ensure that your disk does not fill up to 100%, which
@@ -55,7 +55,7 @@ avoid the problem occurring again in the future.
 
 ## Online storage resizing
 
-You can increase your storage size in the Timescale Forge console.
+You can increase your storage size in the Timescale Cloud console.
 
 <highlight type="warning">
 You can only increase your service's storage once every six hours, and you cannot
@@ -63,7 +63,7 @@ currently decrease your storage size once set.
 </highlight>
 
 ### Procedure: Increasing service resources
-1.  In the Timescale Forge console, navigate to `Services` and click the service
+1.  In the Timescale Cloud console, navigate to `Services` and click the service
 you want to adjust. Navigate to the `Operations` tab, and go to the `Resources`
 section.
 1.  Adjust the sliders for CPU and disk size as required. If you increase the

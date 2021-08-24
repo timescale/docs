@@ -1,25 +1,25 @@
-# Setting up TimescaleDB 2.0 multi-node on Timescale Forge
+# Setting up TimescaleDB 2.0 multi-node on Timescale Cloud
 TimescaleDB 2.0 [introduces a number of new features][changes-in-tsdb2] to
 supercharge time-series data even further. One of the most anticipated new
 features is what we call **multi-node** - the ability to create a cluster of
 TimescaleDB instances to scale both reads and writes.
 
 In this How To, we’ll show you how to create a multi-node cluster in your
-Timescale Forge account using TimescaleDB 2.0.
+Timescale Cloud account using TimescaleDB 2.0.
 
-This document details a "do-it-yourself" (DIY) multi-node experience on Forge.
+This document details a "do-it-yourself" (DIY) multi-node experience on Cloud.
 In the future, we will offer a seamless point-and-click multi-node
-experience within the Timescale Forge console UI, but we wanted to provide a way
+experience within the Timescale Cloud console UI, but we wanted to provide a way
 for users to setup and test this feature before that interface is available.
 
 If you’re ready to set up a TimescaleDB multi-node cluster as part of your
-Timescale Forge account, continue on! If you want to follow along but don't
-yet have a Timescale Forge account, [sign-up today for a 100% free, 30-day
+Timescale Cloud account, continue on! If you want to follow along but don't
+yet have a Timescale Cloud account, [sign-up today for a 100% free, 30-day
 trial][sign-up]!
 
 ## Overview of multi-node setup
 Multi-node clusters consist of at least two or more TimescaleDB instances
-(called **Services** in Timescale Forge). Each cluster has one access node
+(called **Services** in Timescale Cloud). Each cluster has one access node
 (AN) and one or more data nodes (DN). As outlined in our
 [architecture blog posts][distributed-architechture], the access node is
 intended to be the only TimescaleDB instance that you or your applications
@@ -35,12 +35,12 @@ single-node TimescaleDB instance and is not recommended.
 </highlight>
 
 ### Create services for access and data nodes
-First, you need to create new Services within your Forge account. As mentioned
+First, you need to create new Services within your Cloud account. As mentioned
 earlier, you should create _at least_ three Services to set up a multi-node
 cluster: one access node and two data nodes.
 
 There is currently no way to distinguish between the access node and data nodes
-within the Timescale Forge console, so we strongly recommend that you include
+within the Timescale Cloud console, so we strongly recommend that you include
 "an" and "dn" in the names of each service, respectively. For example, use
 "an-mycluster", "dn1-mycluster", and "dn2-mycluster". To prevent problems later
 on, always use all lowercase names for your new nodes. Services can only assume
@@ -48,7 +48,7 @@ one role in a cluster (access or data node), and only one Service can act as the
 access node.
 
 For simplicity you can start with the same hardware configuration for all
-Services. On Timescale Forge, Service configuration can be modified later to
+Services. On Timescale Cloud, Service configuration can be modified later to
 better tune access and data node requirements.
 
 <highlight type="tip">
@@ -72,7 +72,7 @@ distributed planning process.
 
 To that end, we highly recommend these settings be modified for the **Access
 Node** only under the **Settings** tab, shown in the
-[Customize database configuration][forge-configuration] documentation.
+[Customize database configuration][cloud-configuration] documentation.
 
 *   `jit` = off
 *   `max_prepared_transactions` > 0 (150 is a recommended starting value)
@@ -84,13 +84,13 @@ access node and all data nodes. The currently supported method for securing
 communication between nodes is through **user mapping authentication**.
 
 This is also a manual process for now. As we continue to develop Timescale
-Forge and multi-node functionality, this process will be a much smoother user
-experience, completed directly from the Timescale Forge Console.
+Cloud and multi-node functionality, this process will be a much smoother user
+experience, completed directly from the Timescale Cloud Console.
 
 #### About user mapping authentication
 User mapping authentication allows users to continue connecting with the
 `tsdbadmin` PostgreSQL user for all data access and cluster management. It also
-allows you to continue making secure (SSL) connections to your Timescale Forge
+allows you to continue making secure (SSL) connections to your Timescale Cloud
 Access node.
 
 With user mapping authentication, you don’t need to manage any new users,
@@ -250,4 +250,4 @@ ask questions and learn from Timescale staff and other community members.
 [postgres-user-mapping]: https://www.postgresql.org/docs/current/view-pg-user-mappings.html
 [sample-data]: /timescaledb/:currentVersion:/tutorials/sample-datasets
 [promscale]: https://github.com/timescale/promscale
-[forge-configuration]: /customize-configuration
+[cloud-configuration]: /customize-configuration

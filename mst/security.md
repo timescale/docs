@@ -108,7 +108,7 @@ get signed up and create your first database instance.
 
 #### Step 1 - Navigate to your TimescaleDB instance
 
-Once you have a database instance setup in the [Timescale Cloud portal][timescale-cloud-portal],
+Once you have a database instance setup in the [Managed TimescaleDB portal][timescale-mst-portal],
 browse to this service and click on the 'Overview' tab. In the 'Connection Information'
 section, you will see the port number that is used for database connections. This is
 the port we will protect by managing inbound access.
@@ -142,6 +142,6 @@ Click 'Save Changes' and see this take effect immediately.
 Limiting IP address inbound access is just one option to improve the security of your Timescale
 Cloud database instance. There are many other types of security measures you should take into
 account when securing your data. To learn more about security options within Timescale Cloud,
-visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
+visit the [Managed TimescaleDB Knowledge Base][timescale-mst-kb].
 
 [cloud-security-eval]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjtm4bbn4rbAhUBDZoKHdBRDgkQFggpMAA&url=https%3A%2F%2Fwww.elfgroup.fi%2Fecc%2F1708-S6-71acd0046.pdf&usg=AOvVaw2wcBEPGeys6PL21W3G6wGW

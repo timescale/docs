@@ -7,7 +7,7 @@ module.exports = [
           {
             title: "1. Launch your first instance",
             href: "launch-timescaledb",
-            excerpt: "Use Timescale Forge to launch your first TimescaleDB instance"
+            excerpt: "Use Timescale Cloud to launch your first TimescaleDB instance"
           },
           {
             title: "2. Access your database",

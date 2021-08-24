@@ -1,33 +1,33 @@
-# Create and connect a Timescale Forge VPC with AWS
+# Create and connect a Timescale Cloud VPC with AWS
 
 ## Setup
-Before you begin, log in to the [Timescale Forge console](https://console.forge.timescale.com/).
+Before you begin, log in to the [Timescale Cloud console](https://console.forge.timescale.com/).
 
 ## Create a new VPC
-In the Timescale Forge console, click `VPC` in the left navigation bar to go to the VPC
-dashboard. You can add new VPCs here for your Timescale Forge services to attach to.
+In the Timescale Cloud console, click `VPC` in the left navigation bar to go to the VPC
+dashboard. You can add new VPCs here for your Timescale Cloud services to attach to.
 The VPCs created here are peered with your own VPC as part of the setup process.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/vpc-dashboard.png" alt="Navigate to the VPC dashboard in the console"/>
 
 Click `Create VPC`, type a name for your new VPC, and provide an IPv4 CIDR block
 (E.G., `10.0.0.0/16` or `192.168.0.0/24`). Make sure that the CIDR block you
-choose for your Timescale Forge VPC does not overlap with the AWS VPC you are using to create
+choose for your Timescale Cloud VPC does not overlap with the AWS VPC you are using to create
 a peering connection. If the CIDR blocks overlap, the peering process will fail.
 You can always find the CIDR block of your AWS VPC from the AWS console.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-vpc.png" alt="Create a new Forge VPC"/>
 
 <highlight type="tip">
-VPC peering can be enabled for free during your Timescale Forge trial, but you will be
+VPC peering can be enabled for free during your Timescale Cloud trial, but you will be
 required to enter a valid payment method in order to create a VPC (even though you
 will not yet be charged for it).
 </highlight>
 
 ## Create a peering connection
-When you have created a Timescale Forge VPC, you are ready to create a peering connection
-between your Forge VPC and your cloud VPC. To do this, click the `Add` text in
-the `VPC Peering` column for the Forge VPC that you would like to connect.
+When you have created a Timescale Cloud VPC, you are ready to create a peering connection
+between your Cloud VPC and your cloud VPC. To do this, click the `Add` text in
+the `VPC Peering` column for the Cloud VPC that you would like to connect.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-peering-connection.png" alt="Expand the VPC Peering dropdown menu and enter info"/>
 
@@ -41,7 +41,7 @@ accept a peering connection from an unknown account.
 
 Navigate to the AWS console's
 [Peering Connections](https://console.aws.amazon.com/vpc/home#PeeringConnections:)
-dashboard. Find the new peering connection request sent from Timescale Forge, and
+dashboard. Find the new peering connection request sent from Timescale Cloud, and
 accept the request.
 
 <highlight type="tip">
@@ -53,7 +53,7 @@ Make note of the peering connection ID (starting with `pcx-`) as it is used in t
 ## Network routing and security in AWS
 Once you have accepted the peering connection, the two VPCs will now be peered;
 however, in order to use this peering connection, you need to update your
-VPC's route table to include the CIDR block of your peered Timescale Forge VPC,
+VPC's route table to include the CIDR block of your peered Timescale Cloud VPC,
 and you also need to update your VPC's security groups.
 
 ### Route table
@@ -65,7 +65,7 @@ the `Routes` tab and click the `Edit routes` button.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-route-table-routes.png" alt="The AWS Route Tables dashboard with Routes tab expanded"/>
 
 From this view, click `Add route`. In the `Destination` column of the new row,
-enter the CIDR block of the Timescale Forge VPC for which the peering connection
+enter the CIDR block of the Timescale Cloud VPC for which the peering connection
 was configured in the previous few steps.
 
 In the `Target` column, enter the peering connection ID (starting with `pcx-`)
@@ -73,7 +73,7 @@ noted in the previous step where you created the peering connection.
 
 No other configuration is needed here, so click `Save routes`. This
 configuration allows network traffic to flow from your VPC, across the peering
-connection, and over to the Timescale Forge VPC where your TimescaleDB services reside.
+connection, and over to the Timescale Cloud VPC where your TimescaleDB services reside.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-edit-routes.png" alt="Adding a new route table entry for our peering connection"/>
 
@@ -91,14 +91,14 @@ however, for simplicity we will assume the creation of a new security group.
 
 From the `Create security group` view, enter a name for your security group. Add whatever
 content you would like to the description field. For the `VPC` field, select the VPC
-which has been peered with your Forge VPC.
+which has been peered with your Cloud VPC.
 
 No inbound rules are required, so leave the inbound rules section empty.
 
 In the outbound rules section, select `Custom TCP` for the rule type. The protocol
 should remain as TCP. The port range should be `5432`, which is the port which will
-be used to connect to your Timescale Forge services. The Destination should be set
-to `Custom` and the value should be the CIDR block of your Forge VPC.
+be used to connect to your Timescale Cloud services. The Destination should be set
+to `Custom` and the value should be the CIDR block of your Cloud VPC.
 
 <highlight type="tip">
 AWS may pre-populate the `Destination` column with the value `0.0.0.0/0`. Though this
@@ -106,11 +106,11 @@ value will certainly work, it is more "open" than needed, and should be deleted.
 </highlight>
 
 Finally, click `Create security group`. With this step, you will now be able to
-connect to any of your Timescale Forge services attached to your peered VPC. In the next
-section, you will learn how to create a Timescale Forge service with a VPC attachment.
+connect to any of your Timescale Cloud services attached to your peered VPC. In the next
+section, you will learn how to create a Timescale Cloud service with a VPC attachment.
 
 ## Create a service with VPC attachment
-In the Timescale Forge console, navigate to the
+In the Timescale Cloud console, navigate to the
 [Services Dashboard](https://console.forge.timescale.com/dashboard/services). Click
 `Create service` and select the compute and disk size which fits your needs.
 
@@ -118,7 +118,7 @@ Expand the dropdown menu under the `Select a VPC` step and select the VPC you cr
 previously. If you have multiple VPCs, select the VPC which you want your new service
 to be attached to.
 
-Click `Create Service`, and Timescale Forge will create your new service. Due to
+Click `Create Service`, and Timescale Cloud will create your new service. Due to
 selecting a VPC during setup, your new service will be created with an attachment to
 your selected VPC.
 

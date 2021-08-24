@@ -1,11 +1,11 @@
-# Timescale Forge
+# Timescale Cloud
 
-Timescale Forge is a cloud-native TimescaleDB as a service that is easy to get 
+Timescale Cloud is a cloud-native TimescaleDB as a service that is easy to get 
 started and powerful enough for the most demanding scenarios. You can 
-[try Timescale Forge for free][sign-up], no credit card required.
+[try Timescale Cloud for free][sign-up], no credit card required.
 
 ### Cloud-native, easy start, low cost
-Built and operated by the team behind TimescaleDB, Timescale Forge is the 
+Built and operated by the team behind TimescaleDB, Timescale Cloud is the 
 innovative and cost-effective way to store and analyze your time-series data.
  * Spin up your first instance in 30 seconds
  * Decoupled storage and compute options for extreme flexibility

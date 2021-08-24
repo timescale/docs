@@ -1,5 +1,5 @@
-# Customize database configuration in Timescale Forge
-Timescale Forge allows you to customize many TimescaleDB and PostgreSQL
+# Customize database configuration in Timescale Cloud
+Timescale Cloud allows you to customize many TimescaleDB and PostgreSQL
 configuration options for each Service individually. Most configuration values
 for a Service are initially set in accordance with best practices given the
 compute and storage settings of the Service. Any time you increase or decrease
@@ -8,12 +8,12 @@ of the new Service.
 
 There are times, however, when your specific workload may require tuning some
 of the many available TimescaleDB and PostgreSQL parameters. By providing the
-ability to tune various runtime settings, Timescale Forge provides the balance
+ability to tune various runtime settings, Timescale Cloud provides the balance
 and flexibility you need when running your workloads in our hosted environment.
 
 <highlight type="warning">
 Modifications of most parameters can be applied without restarting
-the Timescale Forge Service. However, as when modifying the compute resources
+the Timescale Cloud Service. However, as when modifying the compute resources
 of a running Service, some settings will require that a restart be performed,
 resulting in some brief downtime (usually about 30 seconds).
 </highlight>
@@ -65,7 +65,7 @@ and the `Apply changes` (or `Restart and apply changes`) button is available to
 click, prompting you to confirm any changes before the Service is modified.
 
 ## PostgreSQL extensions
-You can use PostgreSQL extensions with Timescale Forge. If you run
+You can use PostgreSQL extensions with Timescale Cloud. If you run
 `pg_available_extensions` at the command prompt, the returned list of extensions
 is inaccurate. To see the allowed extensions, use this command instead:
 ```sql

@@ -1,10 +1,10 @@
 # Resizing compute and storage in Timescale Forge
-Timescale Forge allows you to resize compute (CPU/RAM) and storage independently
+Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is extremely useful when users have a need to increase storage
-(for instance) but not compute. The Timescale Forge console makes this very easy
+(for instance) but not compute. The Timescale Cloud console makes this very easy
 to do for any service.
 
-Before you modify the compute or storage settings for a Forge Service, please
+Before you modify the compute or storage settings for a Cloud Service, please
 note the following limitations and when a change to these settings will result
 in momentary downtime.
 
