@@ -8,11 +8,12 @@ module.exports = [
             pageComponents: ['featured-cards'],
             tags: ['data', 'timescaledb'],
             keywords: ['TimescaleDB', 'data'],
-            excerpt: ['Understanding time-series data'],
+            excerpt: "Learn about time-series data"
           },
           {
             title: "Core concepts",
             href: "core-concepts",
+            excerpt: "Why use TimescaleDB?",
             children : [
               {
                 title: "Hypertables and chunks",
@@ -55,33 +56,40 @@ module.exports = [
             ]
           },
           {
-            href: "deployment-options"
+            href: "deployment-options",
+            excerpt: "Deployment options for TimescaleDB"
           },
           {
             title: "Data model flexibility",
             href: "data-model-flexibility",
+            excerpt: "Learn about TimescaleDB's flexible data models",
             children: [
               {
                 title: "Wide data model",
-                href: "wide-data-model"
+                href: "wide-data-model",
+                excerpt: "Learn about TimescaleDB's support of wide data models"
               },
               {
                 title: "Narrow data model",
-                href: "narrow-data-model"
+                href: "narrow-data-model",
+                excerpt: "Learn about TimescaleDB's support of narrow data models"
               }
             ]
           },
           {
             title: "How does it compare?",
             href: "how-does-it-compare",
+            excerpt: "How does TimescaleDB compare to other technologies?",
             children: [
               {
                 title: "Comparison with PostgreSQL"
-                href: "timescaledb-vs-postgres"
+                href: "timescaledb-vs-postgres",
+                excerpt: "Learn about the differences between TimescaleDB and PostgreSQL"
               },
               {
                 title: "Comparison with NoSQL",
-                href: "timescaledb-vs-nosql"
+                href: "timescaledb-vs-nosql",
+                excerpt: "Learn about the differences between TimescaleDB and NoSQL databases"
               },
             ]
           },
@@ -105,23 +113,28 @@ module.exports = [
             children: [
               {
                 title: "FAQs: Products",
-                href: "faq-products"
+                href: "faq-products",
+                excerpt: "Frequently asked product questions"
               },
               {
                 title: "FAQs: Time-series databases",
-                href: "faq-timeseries"
+                href: "faq-timeseries",
+                excerpt: "Frequently asked time-series questions"
               },
               {
                 title: "FAQs: Using TimescaleDB",
-                href: "faq-using-timescaledb"
+                href: "faq-using-timescaledb",
+                excerpt: "Frequently asked TimescaleDB questions"
               },
               {
                 title: "FAQs: PostgreSQL",
-                href: "faq-postgres"
+                href: "faq-postgres",
+                excerpt: "Frequently asked PostgreSQL questions"
               },
               {
                 title: "FAQs: Community",
-                href: "faq-community"
+                href: "faq-community",
+                excerpt: "Frequently asked community questions"
               }
             ]
           },
