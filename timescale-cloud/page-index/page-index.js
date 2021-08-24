@@ -11,11 +11,20 @@ module.exports = [
         href: "create-a-service",
       },
       {
+        title: "Ingest data",
+        href: "ingest-data"
+      },
+      {
         title: "Create a multi-node cluster",
         href: "cloud-multi-node"
       },
       {
-        href: "viewing-service-logs",
+        title: "Connection Pools",
+        href: "connection-pools"
+      },
+      {
+        title: "Viewing service logs",
+        href: "viewing-service-logs"
       },
       {
         title: "VPC peering",
