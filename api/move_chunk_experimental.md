@@ -1,9 +1,15 @@
-## move_chunk() <tag type="community">Community</tag>
+## move_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
 TimescaleDB allows you to move chunks to other data nodes. This can be used
 when new data nodes are added to a cluster and you want to rebalance the storage
-across more nodes. It is also helpful when a node needs to be removed from the 
+across more nodes. It is also helpful when a node needs to be removed from the
 cluster, which can only happen once all chunks are replicated on other data
 nodes.
+
+<highlight type="warning">
+Experimental features could have bugs! They might not be backwards compatible,
+and could be removed in future releases. Use these features at your own risk, and
+do not use any experimental features in production.
+</highlight>
 
 ### Required arguments
 

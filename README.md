@@ -141,12 +141,27 @@ None of the internal page links within these files will work on GitHub inside of
 the raw Markdown files that are being reviewed. Instead, the review link discussed
 above should be utilized for verifying all internal links.
 
-All external links should work.
+Links should be formatted according to their target.
+
+### External links:
+
+Input as-is.
+
+### Internal links pointing to urls outside the current page's product and/or version:
+
+The link used does not need to include https://docs.timescale.com/, but should contain 
+the appropriate product and version. 
+
+### Internal links pointing to urls within the same product and version:
+
+The link does not require the current product and version. If a product is used
+in the url, there must be an accompanying version.
 
 ### Anchor tags
 
 By default, any H2 or H3 heading ('##' and '###' respectively in Markdown) will
-have an anchor tag generated automatically.
+have an anchor tag generated automatically. You can set the anchor and table of 
+contents text by using `[custom_table_of_contents_label](custom_anchor_tag)`
 
 If you want to link to a specific part of the page elsewhere in your document, you
 need to use special anchor Markdown next to your anchor text; eg. `[](anchor_name)`.

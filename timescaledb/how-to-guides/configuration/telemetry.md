@@ -121,5 +121,5 @@ If you disable telemetry, the version checking functionality is also disabled.
 		This command enables telemetry for the specified system, database, or user.
 
 
-[get_telemetry_report]: /api/:currentVersion:/administration-functions/get_telemetry_report/
+[get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report 
 [postgres-config]: /how-to-guides/configuration/postgres-config
