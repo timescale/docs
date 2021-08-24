@@ -36,7 +36,8 @@ system during the upgrade.
 1.  Click `Save Changes`.
 
 ## Critical updates
-Critical upgrades and security fixes can be installed outside normal maintenance windows when necessary, and sometimes require a short outage.
+Critical upgrades and security fixes are installed outside normal maintenance windows when 
+necessary, and sometimes require a short outage.
 
 Upgrades are performed as rolling upgrades where completely new server instances
 are built alongside the old ones. When the new instances are up and running they
