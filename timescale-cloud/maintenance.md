@@ -1,7 +1,9 @@
 # Maintenance
 On Timescale Cloud, software updates are handled automatically by us, and you do not need to perform any actions.
 
-Non-critical software updates are applied during a maintenance window that you can define to suit your workload. If we detect a security vulnerability that affects you, we might need to perform maintenance outside of the scheduled maintenance window.
+Non-critical software updates are applied during a maintenance window that you can define to suit your workload. 
+If we detect a security vulnerability that affects you, we might need to perform maintenance outside of 
+the scheduled maintenance window.
 
 <highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
