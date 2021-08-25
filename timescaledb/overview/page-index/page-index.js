@@ -19,59 +19,86 @@ module.exports = [
                 title: "Hypertables and chunks",
                 href: "hypertables-and-chunks",
                 tags: ['hypertables', 'chunks', 'timescaledb'],
-                keywords: ['hypertables', 'chunks', 'timescaledb'],
-                excerpt: ['Understanding hypertables and chunks']
+                keywords: ['hypertables', 'chunks', 'TimescaleDB'],
+                excerpt: "Understanding hypertables and chunks"
               },
               {
                 title: "Scaling",
                 href: "scaling",
                 tags: ['hypertables', 'chunks', 'timescaledb'],
-                keywords: ['hypertables', 'chunks', 'timescaledb'],
-                excerpt: ['Understanding hypertables and chunks']
+                keywords: ['hypertables', 'chunks', 'TimescaleDB'],
+                excerpt: "Scaling hypertables"
               },
               {
                 title: "Distributed hypertables",
-                href: "distributed-hypertables"
+                href: "distributed-hypertables",
+                tags: ['hypertables', 'distributed', 'timescaledb'],
+                keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+                excerpt: "Using distributed hypertables"
               },
               {
                 title: "Compression",
-                href: "compression"
+                href: "compression",
+                tags: ['compression', 'hypertables', 'timescaledb'],
+                keywords: ['hypertables', 'compression', 'TimescaleDB'],
+                excerpt: "Using compression on hypertables"
               },
               {
                 title: "Continuous aggregates",
-                href: "continuous-aggregates"
+                href: "continuous-aggregates",
+                tags: ['caggs', 'query', 'hypertables', 'timescaledb'],
+                keywords: ['Continuous aggregates', 'queries', 'TimescaleDB'],
+                excerpt: "Using continuous aggregates"
               },
               {
                 title: "Data retention",
-                href: "data-retention"
+                href: "data-retention",
+                tags: ['data', 'configure', 'retention', 'hypertables', 'timescaledb'],
+                keywords: ['data retention', 'TimescaleDB'],
+                excerpt: "Configure data retention on hypertables"
               },
               {
                 title: "User-defined actions",
-                href: "user-defined-actions"
+                href: "user-defined-actions",
+                tags: ['action', 'configure', 'hypertables', 'timescaledb'],
+                keywords: ['actions', 'user-defined', 'TimescaleDB'],
+                excerpt: "Configure user-defined actions on hypertables"
               },
               {
                 title: "Backup and restore",
-                href: "backup-restore"
+                href: "backup-restore",
+                tags: ['backup', 'restore', 'hypertables', 'timescaledb'],
+                keywords: ['backup', 'restore', 'TimescaleDB'],
+                excerpt: "Configure backup and restore on hypertables"
               }
             ]
           },
           {
+            title: "Deployment options",
             href: "deployment-options",
-            excerpt: "Deployment options for TimescaleDB"
+            tags: ['install', 'timescaledb', 'tsc', 'mst', 'self-hosted'],
+            keywords: ['install', 'TimescaleDB', 'Timescale Forge', 'Timescale Cloud', 'self-hosted'],
+            excerpt: "Deployment options for TimescaleDB",
           },
           {
             title: "Data model flexibility",
             href: "data-model-flexibility",
+            tags: ['data', 'model', 'timescaledb'],
+            keywords: ['data model', 'TimescaleDB'],
             excerpt: "Learn about TimescaleDB's flexible data models",
             children: [
               {
                 title: "Wide data model",
                 href: "wide-data-model",
+                tags: ['data', 'model', 'timescaledb'],
+                keywords: ['data model', 'TimescaleDB'],
                 excerpt: "Learn about TimescaleDB's support of wide data models"
               },
               {
                 title: "Narrow data model",
                 href: "narrow-data-model",
+                tags: ['data', 'model', 'timescaledb'],
+                keywords: ['data model', 'TimescaleDB'],
                 excerpt: "Learn about TimescaleDB's support of narrow data models"
               }
             ]
@@ -79,16 +106,22 @@ module.exports = [
           {
             title: "How does it compare?",
             href: "how-does-it-compare",
+            tags: ['compare', 'timescaledb'],
+            keywords: ['compare', 'TimescaleDB'],
             excerpt: "How does TimescaleDB compare to other technologies?",
             children: [
               {
-                title: "Comparison with PostgreSQL"
+                title: "Comparison with PostgreSQL",
                 href: "timescaledb-vs-postgres",
+                tags: ['compare', 'timescaledb', 'postgresql'],
+                keywords: ['compare', 'TimescaleDB', 'PostgreSQL'],
                 excerpt: "Learn about the differences between TimescaleDB and PostgreSQL"
               },
               {
                 title: "Comparison with NoSQL",
                 href: "timescaledb-vs-nosql",
+                tags: ['compare', 'timescaledb', 'nosql'],
+                keywords: ['compare', 'TimescaleDB', 'nosql'],
                 excerpt: "Learn about the differences between TimescaleDB and NoSQL databases"
               },
             ]
@@ -96,16 +129,25 @@ module.exports = [
           {
             title: "Release notes",
             href: "release-notes",
+            tags: ['upgrade', 'timescaledb'],
+            keywords: ['release notes', 'TimescaleDB'],
+            excerpt: "Release notes for TimescaleDB",
             children: [
               {
                 title: "Changes in TimescaleDB 2.0",
-                href: "changes-in-timescaledb-2"
+                tags: ['upgrade', 'timescaledb', '2-x', '2-0'],
+                keywords: ['release notes', 'TimescaleDB', '2.0'],
+                href: "changes-in-timescaledb-2",
+                excerpt: "Release notes for TimescaleDB 2.0"
               }
             ]
           },
           {
             title: "Limitations",
-            href: "limitations"
+            href: "limitations",
+            tags: ['limitations', 'hypertables', 'timescaledb'],
+            keywords: ['limitations', 'hypertables', 'TimescaleDB'],
+            excerpt: "Product limitations of TimescaleDB"
           },
           {
             title: "FAQs",
