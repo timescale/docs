@@ -89,5 +89,59 @@ security issues by an independent professional cyber security vendor.
 
 The latest evaluation report can be found [here][cloud-security-eval].
 
+## Advanced Timescale Cloud configuration
+
+### Securing network access to Timescale Cloud
+
+One very critical piece of securing your database within Timescale Cloud is network protection.
+
+TimescaleDB provides the ability to configure, in a fine-grained manner, the
+set of source IP addresses and ranges, as well as connection ports, that can
+access your Timescale Cloud services.
+
+This tutorial will walk you through how to configure this capability.
+
+#### Before you start
+
+Be sure to follow the instructions above in order to
+get signed up and create your first database instance.
+
+#### Step 1 - Navigate to your TimescaleDB instance
+
+Once you have a database instance setup in the [Timescale Cloud portal][timescale-cloud-portal],
+browse to this service and click on the 'Overview' tab. In the 'Connection Information'
+section, you will see the port number that is used for database connections. This is
+the port we will protect by managing inbound access.
+
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/overview-tab.png" alt="Timescale Cloud Overview tab"/>
+
+#### Step 2 - Find the allowed IP addresses section
+
+Scroll down to find the 'Allowed IP Addresses' section. By default, this value is set to
+`0.0.0.0/0` which is actually wide-open.
+
+<highlight type="warning">
+This wide-open setting simplifies getting started since it will accept incoming traffic from all sources, but you will absolutely want to narrow this range.
+</highlight>
+
+If you are curious about how to interpret this [Classless Inter-Domain Routing][cidr-wiki] (CIDR) syntax,
+check out [this great online tool][cidr-tool] to help decipher CIDR.
+
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/allowed-ip.png" alt="Allowed IP addresses"/>
+
+#### Step 3 - Change the allowed IP addresses section
+
+Click 'Change' and adjust the CIDR value based on where your source traffic will come from.
+For example, entering a value of `192.168.1.15/32` will ONLY allow incoming traffic from a
+source IP of `192.168.1.15` and will deny all other traffic.
+
+#### Step 4 - Save your changes
+Click 'Save Changes' and see this take effect immediately.
+
+#### Conclusion
+Limiting IP address inbound access is just one option to improve the security of your Timescale
+Cloud database instance. There are many other types of security measures you should take into
+account when securing your data. To learn more about security options within Timescale Cloud,
+visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
 
 [cloud-security-eval]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjtm4bbn4rbAhUBDZoKHdBRDgkQFggpMAA&url=https%3A%2F%2Fwww.elfgroup.fi%2Fecc%2F1708-S6-71acd0046.pdf&usg=AOvVaw2wcBEPGeys6PL21W3G6wGW
