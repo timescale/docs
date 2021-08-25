@@ -46,3 +46,4 @@ monotonically increasing id would work.
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [using-distributed-hypertables]: /how-to-guides/distributed-hypertables
 [migrate-data]: /how-to-guides/migrate-data
+[postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
