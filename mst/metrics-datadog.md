@@ -1,24 +1,24 @@
 # Metrics and Datadog
 Datadog is a popular cloud-based monitoring service. You can send metrics to
 Datadog using a metrics collection agent for graphing, service dashboards,
-alerting, and logging. Timescale Cloud can send data
+alerting, and logging. Managed Service for TimescaleDB can send data
 directly to Datadog for monitoring. Datadog integrations are provided free of
-charge on Timescale Cloud.
+charge on Managed Service for TimescaleDB.
 
 You need to create a Datadog API key, and use the key to enable metrics for your
-Timescale Cloud service.
+Managed Service for TimescaleDB service.
 
 <highlight type="note">
-We do not currently support Datadog logging on Timescale Cloud.
+We do not currently support Datadog logging on Managed Service for TimescaleDB.
 </highlight>
 
 ## Create and upload a Datadog API key
-You can create an API key in your Datadog account, and upload it to your Timescale Cloud
+You can create an API key in your Datadog account, and upload it to your Managed Service for TimescaleDB
 account.
 
 <highlight type="important">
-Before you begin, you need to have signed up for both Datadog and Timescale Cloud, and be able
-to log in to your Datadog and Timescale Cloud dashboards. You also need a running Timescale Cloud
+Before you begin, you need to have signed up for both Datadog and Managed Service for TimescaleDB, and be able
+to log in to your Datadog and Managed Service for TimescaleDB dashboards. You also need a running Managed Service for TimescaleDB
 service.
 </highlight>
 
@@ -32,7 +32,7 @@ service.
     copy it to use later.
 
 ### Procedure: Uploading a Datadog API key to MST
-1.  [Log in to your Timescale Cloud][mst-login]. By default, you start in the
+1.  [Log in to your Managed Service for TimescaleDB][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Check that you are in the project that you want to connect to Datadog,
     and click `Service Integrations`.
@@ -49,7 +49,7 @@ service.
 When you have successfully added the endpoint, you can set up one of your services to send data to Datadog.
 
 ### Procedure: Activating Datadog integration for a service
-1.  In the Timescale Cloud `Services` view, click the name of the service that you want to
+1.  In the Managed Service for TimescaleDB `Services` view, click the name of the service that you want to
     connect to Datadog.
 1.  In the `Service integrations` section, click `Manage integrations`. Locate
     the Datadog integration, and click `Use integration`.

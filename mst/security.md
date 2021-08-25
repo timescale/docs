@@ -1,13 +1,13 @@
 # Security overview
 
 ## Cloud provider accounts
-The regular Timescale Cloud services are hosted under cloud provider accounts
-controlled by Timescale Cloud. These accounts are managed only by Timescale
+The regular managed TimescaleDB services are hosted under cloud provider accounts
+controlled by Managed Service for TimescaleDB. These accounts are managed only by Timescale
 Cloud (eg Timescale and Aiven) operations personnel and customers cannot directly
 access the cloud provider account resources.
 
 ## Virtual machines
-Each Timescale Cloud service consists of one or more virtual machines, which are
+Each Managed Service for TimescaleDB service consists of one or more virtual machines, which are
 automatically launched to the target cloud region chosen by the customer. In
 cloud regions that have multiple Availability Zones (or a similar mechanism),
 the virtual machines are distributed evenly across the zones in order to provide
@@ -22,7 +22,7 @@ Virtual machines are not reused and will be terminated and wiped upon service
 upgrade or termination.
 
 ## Data encryption
-Timescale Cloud at-rest data encryption covers both active service instances as
+Managed Service for TimescaleDB at-rest data encryption covers both active service instances as
 well as service backups in cloud object storage.
 
 Service instances and the underlying VMs use full volume encryption using LUKS
@@ -45,7 +45,7 @@ same region where the service virtual machines are located.
 Customer access to provided services is only provided over TLS encrypted connections.
 There is no option for using unencrypted plaintext connections.
 
-Communication between virtual machines within Timescale Cloud is secured with
+Communication between virtual machines within Managed Service for TimescaleDB is secured with
 either TLS or IPsec. There are no unencrypted plaintext connections.
 
 Virtual machines network interfaces are protected by a dynamically configured
@@ -63,41 +63,41 @@ The service providing virtual machines are still contained under Timescale Cloud
 provider accounts.
 
 ## Operator access
-Normally all the resources required for providing an Timescale Cloud service are
+Normally all the resources required for providing an Managed Service for TimescaleDB service are
 automatically created, maintained and terminated by the Timescale Cloud
-infrastructure and there is no manual Timescale Cloud operator intervention required.
+infrastructure and there is no manual Managed Service for TimescaleDB operator intervention required.
 
-However, the Timescale Cloud Operations Team has the capability to securely login
+However, the Managed Service for TimescaleDB Operations Team has the capability to securely login
 to the service Virtual Machines for troubleshooting purposes. These accesses are
 audit logged.
 
 No customer access to the virtual machine level is provided.
 
 ## Customer data privacy
-Customer data privacy is of utmost importance at Timescale Cloud and is covered
+Customer data privacy is of utmost importance at Managed Service for TimescaleDB and is covered
 by internal Security and Customer Privacy policies as well as the strict EU regulations.
 
-Timescale Cloud operators will never access the customer data, unless explicitly
+Managed Service for TimescaleDB operators will never access the customer data, unless explicitly
 requested by the customer in order to troubleshoot a technical issue.
 
-Timescale Cloud operations team has mandatory recurring training regarding the
+Managed Service for TimescaleDB operations team has mandatory recurring training regarding the
 applicable policies.
 
 Periodic Security Evaluation
-Timescale Cloud services are periodically assessed and penetration tested for any
+Managed Service for TimescaleDB services are periodically assessed and penetration tested for any
 security issues by an independent professional cyber security vendor.
 
 The latest evaluation report can be found [here][cloud-security-eval].
 
-## Advanced Timescale Cloud configuration
+## Advanced Managed Service for TimescaleDB configuration
 
 ### Securing network access to Timescale Cloud
 
-One very critical piece of securing your database within Timescale Cloud is network protection.
+One very critical piece of securing your database within Managed Service for TimescaleDB is network protection.
 
 TimescaleDB provides the ability to configure, in a fine-grained manner, the
 set of source IP addresses and ranges, as well as connection ports, that can
-access your Timescale Cloud services.
+access your Managed Service for TimescaleDB services.
 
 This tutorial will walk you through how to configure this capability.
 

@@ -71,7 +71,7 @@ Managed Service for TimescaleDB console.
 *   `pg.jit` = off
 *   `pg.max_prepared_transactions` > 0 (150 is a recommended starting value)
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-adv-config.png" alt="Timescale Cloud advanced configuration"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-adv-config.png" alt="Managed TimescaleDB advanced configuration"/>
 
 ### Add data nodes to the cluster
 Once you've created your new Services, you'll enable communication between the
