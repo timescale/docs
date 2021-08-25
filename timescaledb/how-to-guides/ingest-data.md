@@ -44,10 +44,11 @@ a TimescaleDB hypertable. Telegraf handles batching, processing, and aggregating
 the data collected prior to inserting that data into TimescaleDB.
 
 <highlight type="warning">
-The [pull request](https://github.com/influxdata/telegraf/pull/3428) is open
-and currently under review by the Telegraf developers, waiting to be merged.
-To give users the opportunity to try this functionality, we built
-[downloadable binaries](https://docs.timescale.com/tutorials/telegraf-output-plugin#telegraf-installation) of Telegraf with our plugin already included.
+The [pull request](https://github.com/influxdata/telegraf/pull/3428) is open and
+currently under review by the Telegraf developers, waiting to be merged. To give
+users the opportunity to try this functionality, we built
+[downloadable binaries](/timescaledb/latest/tutorials/telegraf-output-plugin/#setting-up-telegraf)
+of Telegraf with our plugin already included.
 </highlight>
 
 The PostgreSQL plugin extends the ease of use users get from leveraging Telegraf
@@ -102,7 +103,7 @@ this [tutorial][tutorial-streamsets].
 [promscale-sql]: https://github.com/timescale/promscale/blob/master/docs/sql_schema.md
 [timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
 [wide-model]: /overview/data-model-flexibility/wide-data-model/
-[telegraf-tutorial]: https://docs.timescale.com/tutorials/telegraf-output-plugin
+[telegraf-tutorial]: /timescaledb/:currentVersion:/tutorials/telegraf-output-plugin/
 [postgresql-connector-kafka]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [kafka-connect]: http://kafka.apache.org/documentation.html#connect
 [github-debezium]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
