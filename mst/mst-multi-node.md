@@ -1,22 +1,22 @@
 <highlight type="tip">
 Timescale currently offers two hosting options. If you are a
-Timescale Cloud user, please use the documentation for
+Managed Service for TimescaleDB user, please use the documentation for
 [setting up multi-node on Cloud](cloud/cloud-multi-node) instead.
 </highlight>
 
-# Setting up TimescaleDB 2.0 multi-node on Timescale Cloud
+# Setting up TimescaleDB 2.0 multi-node on Managed Service for TimescaleDB
 TimescaleDB 2.0 [introduces a number of new features][changes-in-tsdb2] to
 supercharge time-series data even further. One of the most anticipated new
 features is what we call **multi-node** - the ability to create a cluster of
 TimescaleDB instances to scale both reads and writes.
 
 In this How To, we’ll show you how to create a multi-node cluster in your
-Timescale Cloud account with TimescaleDB 2.0 as a "do-it-yourself" (DIY)
+Managed Service for TimescaleDB account with TimescaleDB 2.0 as a "do-it-yourself" (DIY)
 multi-node experience.
 
 ## Overview of multi-node setup
 Multi-node clusters consist of at least two or more TimescaleDB instances
-(called **Services** in Timescale Cloud). Each cluster has one access node
+(called **Services** in Managed Service for TimescaleDB). Each cluster has one access node
 (AN) and one or more data nodes (DN). As outlined in our
 [architecture blog posts][distributed-architecture], the access node is
 intended to be the only TimescaleDB instance that you or your applications
@@ -37,14 +37,14 @@ earlier, you should create _at least_ three Services to set up a multi-node
 cluster: one access node and two data nodes.
 
 There is currently no way to visually distinguish between the access node
-and data nodes within the Timescale Cloud console, **so we strongly recommend
+and data nodes within the Managed Service for TimescaleDB console, **so we strongly recommend
 that you include "AN" and "DN" in the names of each service, respectively (eg.
 "an-mycluster", "dn1-mycluster", "dn2-mycluster", etc.)**. Services can only
 assume one role in a cluster (access or data node), and only one Service can act
 as the access node.
 
 For simplicity you can start with the same hardware configuration for all
-Services. On Timescale Cloud, Service plans can be upgraded later to better tune
+Services. On Managed Service for TimescaleDB, Service plans can be upgraded later to better tune
 access and data node requirements.
 
 <highlight type="tip">
@@ -54,7 +54,7 @@ access node.
 </highlight>
 
 <highlight type="warning">
-To setup your first multi-node instance in Timescale Cloud, you will
+To setup your first multi-node instance in Managed Service for TimescaleDB, you will
 need to create new Services for the Access Node and Data Nodes.
 </highlight>
 
@@ -66,7 +66,7 @@ down some types of queries to the data nodes.
 
 To that end, we highly recommend the following settings be modified for the
 **Access Node** only using the **Advanced Configuration** section in the
-Timescale Cloud console.
+Managed Service for TimescaleDB console.
 
 *   `pg.jit` = off
 *   `pg.max_prepared_transactions` > 0 (150 is a recommended starting value)
@@ -83,7 +83,7 @@ This is a one-time, manual process that must be completed for each data node.
 #### About user mapping authentication
 User mapping authentication allows users to continue connecting with the
 `tsdbadmin` PostgreSQL user for all data access and cluster management. It also
-allows you to continue making secure (SSL) connections to your Timescale Cloud
+allows you to continue making secure (SSL) connections to your Managed Service for TimescaleDB
 Access node.
 
 With user mapping authentication, you don’t need to manage any new users,
@@ -102,10 +102,10 @@ For this step, you'll need to copy the `Host`, `Password`, and `Port` details
 listed under the `Connection Information` section of the Service details to use
 with the `add_data_node` command in the next section.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-connection-info.png" alt="Timescale Cloud multi-node connection information"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-connection-info.png" alt="Managed Service for TimescaleDB multi-node connection information"/>
 
 When you have the `password` and `host` for each data node Service, connect
-to the access node using the `tsdbadmin` user. On Timescale Cloud this
+to the access node using the `tsdbadmin` user. On Managed Service for TimescaleDB this
 is easily accomplished by copying the `Service URI` (after clicking
 `CLICK_TO:REVEAL_PASSWORD`). It should look something like the following, but
 with different ports, password and Service URI.
