@@ -1,4 +1,4 @@
-# Node-to-node communication
+# Multinode authentication
 
 Once you have your instances set up, the next task is configuring your
 PostgreSQL instances to accept connections from the access node to the

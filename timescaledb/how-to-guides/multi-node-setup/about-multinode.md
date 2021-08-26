@@ -1,21 +1,6 @@
-# Multi-node TimescaleDB environments
-<!----
-Check hyphenation for multi-node --LKB 2021-08-25
--->
+# About multinode
 If you have multiple instances of PostgreSQL running TimescaleDB 2.0 or greater,
 you can set them up to act as a TimescaleDB multi-node environment.
-
-To start, you'll need:
-- One PostgreSQL instance to act as an **access node**
-- One or more PostgreSQL instances to act as **data nodes**
-- TimescaleDB [installed][install] and [set up][setup] on all nodes
-- Access to a superuser role (e.g. `postgres`) on all nodes
-- Multi-node [required configuration][configuration] applied
-
-All nodes begin as standalone TimescaleDB instances, i.e., hosts with
-a running PostgreSQL server and a loaded TimescaleDB extension. This
-is assumed for "access node" and "data node" in the instructions. More
-detail on the architecture can be found in the [Core Concepts][] section.
 
 TimescaleDB multi-node can be created as part of a self-managed deployment or as
 a managed cloud deployment.
@@ -31,8 +16,4 @@ service. [Sign-up for your free](https://forge.timescale.com/signup), 30-day
 trial and get started today!
 
 
-[configuration]: /how-to-guides/multi-node-setup/required-configuration
-[install]: /how-to-guides/install-timescaledb
-[setup]: /how-to-guides/install-timescaledb/post-install-setup
-[Core Concepts]: /overview/core-concepts/
 [multi_node_forge]: /timescale-forge/:currentVersion:/forge-multi-node
