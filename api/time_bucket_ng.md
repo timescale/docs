@@ -32,16 +32,16 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 (1 row)
 ```
 
-To split time into buckets we use a start point in time called `origin`. The
+To split time into buckets we use a starting point in time called `origin`. The
 default origin is '2000-01-01'. `time_bucket_ng` can't work with timestamps
-before `origin`:
+earlier than `origin`:
 
 ```
 SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08');
 ERROR:  origin must be before the given date
 ```
 
-Going back in time from `origin` isn't possible in general case, espetially
+Going back in time from `origin` isn't possible in general case, especially
 when you consider time zones and DST. We could partially support it
 depending on the arguments, but it seems to be a bad user experience.
 
