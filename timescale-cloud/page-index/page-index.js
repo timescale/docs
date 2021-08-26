@@ -23,7 +23,7 @@ module.exports = [
         href: "cloud-multi-node"
       },
       {
-        title: "Connection Pools",
+        title: "Connection pools",
         href: "connection-pools"
       },
       {
