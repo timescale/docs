@@ -1,8 +1,8 @@
 ## Ingest data and run your first query
 
-The main dataset is provided by [Kaggle as multiple CSV files][kaggle-download]. 
-Additionally, we have gathered 
-[other information about stadiums and the outcome of each game][extra-download] 
+The main dataset is provided by [Kaggle as multiple CSV files][kaggle-download].
+Additionally, we have gathered
+[other information about stadiums and the outcome of each game][extra-download]
 to provide you with additional data to analyze.
 
 The data is provided in multiple CSV files, each corresponding to a table in the database
@@ -14,24 +14,24 @@ that contains the following information:
 
 * **player**
   * Player information (display_name, college, position, and more)
-  * `player_id` is a primary key. 
+  * `player_id` is a primary key.
 
 * **play**
   * Play information (game, play, quarter, down, pass result). Lots of good
   overall play information to analyze.
-  * To query a specific play, you need to use `gameid` and `playid` together, as some 
+  * To query a specific play, you need to use `gameid` and `playid` together, as some
   `playid`'s are reused from game-to-game.
 
 * **tracking**
   * Player tracking information from each play sampled multiple times a second.
   * Fields include acceleration, X/Y coordinates on the field, and others.
-  * `x` and `y` indicate the physical positions of the players on the field using 
+  * `x` and `y` indicate the physical positions of the players on the field using
   the coordinates outlined in the data description on the Kaggle website.
   * This is the largest table (18M+ row) in the database.
 
 * **scores**
   * Final result of each game.
-  * This table can be joined with the tracking table using the `home_team_abb` and 
+  * This table can be joined with the tracking table using the `home_team_abb` and
   `visitor_team_abb` fields.
 
 * **stadium_info**
@@ -165,10 +165,10 @@ import config
 import psycopg2
 
 # connect to the database
-conn = psycopg2.connect(database=config.DB_NAME, 
-                        host=config.HOST, 
-                        user=config.USER, 
-                        password=config.PASS, 
+conn = psycopg2.connect(database=config.DB_NAME,
+                        host=config.HOST,
+                        user=config.USER,
+                        password=config.PASS,
                         port=config.PORT)
 
 # insert CSV file into given table
@@ -199,31 +199,35 @@ print("Inserting scores.csv")
 insert("data/scores.csv", "scores")
 
 # iterate over each week's CSV file and insert them
-for i in range(1, 18): 
+for i in range(1, 18):
     print(f'Inserting week{i}'.format(i = str(i)))
     insert(f'data/week{i}.csv'.format(i=i), "tracking")
-    
+
 conn.close()
 ```
 
 ## Run your first query
 
-Now that you have all the data ingested, you can run the first aggregation query 
+Now that you have all the data ingested, you can run the first aggregation query
 and examine the results. For most of the example queries in this tutorial,
-you'll need to aggregate data from the `tracking` table, which 
-contains multiple rows per player for each play (because the data is sampled 
+you'll need to aggregate data from the `tracking` table, which
+contains multiple rows per player for each play (because the data is sampled
 multiple times per second during each play)
+
+<highlight type="important">
+These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [Timescale toolkit][toolkit] before you begin.
+</highlight>
 
 ### Number of yards run in game for passing plays, by player and game
 
-This query sums all yards for each player in every game. You can then 
+This query sums all yards for each player in every game. You can then
 join that on the `player` table to get player details:
 
 ```sql
-SELECT t.player_id, p.displayname, SUM(dis) AS yards, t.gameid 
+SELECT t.player_id, p.displayname, SUM(dis) AS yards, t.gameid
 FROM tracking t
-LEFT JOIN player p ON t.player_id = p.player_id 
-GROUP BY t.player_id, p.displayname, t.gameid 
+LEFT JOIN player p ON t.player_id = p.player_id
+GROUP BY t.player_id, p.displayname, t.gameid
 ORDER BY t.gameid ASC, yards DESC;
 ```
 Your data should look like this:
@@ -240,11 +244,11 @@ Your data should look like this:
 You might have noticed, however, that this data takes a long time to query because
 we have to aggregate every row in the `tracking` table to get the total
 yards of each player, in each game. That's a lot of work for PostgreSQL to do
-when it needs to scan 20 million rows. On our small test machine this query 
+when it needs to scan 20 million rows. On our small test machine this query
 often takes 25-30 seconds to run.
 
 ## Faster queries with continuous aggregates
-Most of the data we were interested in are based on this aggregation of the 
+Most of the data we were interested in are based on this aggregation of the
 `tracking` data. We wanted to know how far a player traveled on each play
 or throughout each game. Rather than asking TimescaleDB to query and aggregate
 that raw data every time, we created a [continuous aggregate][cagg] out of this base query
@@ -259,19 +263,19 @@ SELECT t.player_id, t.gameid, t.position, t.team,
 	time_bucket(INTERVAL '1 day', t."time") AS bucket,
 	SUM(t.dis) AS yards,
   AVG(t.a) AS acc
-FROM tracking t 
+FROM tracking t
 GROUP BY t.player_id, t.gameid, t.position, t.team, bucket;
 ```
 
-When you have created the continuous aggregate, modify the query to use the 
+When you have created the continuous aggregate, modify the query to use the
 materialized data and notice the response time is now significantly faster, under
 one second on our test machine.
 
 ```sql
-SELECT pyg.player_id, p.displayname, SUM(yards) AS yards, pyg.gameid 
+SELECT pyg.player_id, p.displayname, SUM(yards) AS yards, pyg.gameid
 FROM player_yards_by_game pyg
-LEFT JOIN player p ON pyg.player_id = p.player_id 
-GROUP BY pyg.player_id, p.displayname, pyg.gameid 
+LEFT JOIN player p ON pyg.player_id = p.player_id
+GROUP BY pyg.player_id, p.displayname, pyg.gameid
 ORDER BY pyg.gameid ASC, yards DESC;
 ```
 
@@ -283,3 +287,4 @@ as you try to answer even more questions with TimescaleDB.
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
 [cagg]: /how-to-guides/continuous-aggregates/
+[toolkit]: /how-to-guides/toolkit/

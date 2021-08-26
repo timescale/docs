@@ -1,23 +1,22 @@
-# Analyze data using TimescaleDB continuous aggregates and hyperfunctions 
-
-This tutorial is a step-by-step guide on how to use TimescaleDB for analyzing time-series data. We will show you how to utilize TimescaleDB's continuous aggregates and hyperfunctions for faster and more efficient queries. 
+# Analyze data using TimescaleDB continuous aggregates and hyperfunctions
+This tutorial is a step-by-step guide on how to use TimescaleDB for analyzing time-series data. We will show you how to utilize TimescaleDB's continuous aggregates and hyperfunctions for faster and more efficient queries.
 We will also take advantage of a unique capability of TimescaleDB: the ability to
 join time-series data with relational data.
 
-The dataset that we're using is provided by the National Football League (NFL) 
-and contains player and tracking data for all the passing plays of the 2018 NFL 
-season. We're going to ingest this dataset with Python into TimescaleDB and start 
-exploring it to uncover insights about players and teams. 
+The dataset that we're using is provided by the National Football League (NFL)
+and contains player and tracking data for all the passing plays of the 2018 NFL
+season. We're going to ingest this dataset with Python into TimescaleDB and start
+exploring it to uncover insights about players and teams.
 
 If you happen to be a NFL fantasy football player, using
 some of this analysis on past data could be helpful in selecting the most effective
 players for the upcoming year. And, as the NFL releases new data throughout the
-upcoming season, you can ingest that data to help you make better decisions from 
+upcoming season, you can ingest that data to help you make better decisions from
 week to week.
 
 Even if you aren't an NFL fan, this tutorial provides a great example
 of how to ingest time-series data into TimescaleDB (even when it doesn't _seem_ like
-time-series data), how you can use plain SQL and TimescaleDB hyperfunctions to do 
+time-series data), how you can use plain SQL and TimescaleDB hyperfunctions to do
 powerful data analysis, and also visualize the data with Python.
 
 This tutorial has a few sections to help you on your journey:
@@ -34,18 +33,18 @@ This tutorial has a few sections to help you on your journey:
 4. [Visualize time-series play-by-play data](/tutorials/nfl-analytics/play-visualization/)
 
     For a little extra fun, create images that plot the movement of every player on the field for any play using Python and MatPlotlib.
-   
+
 ## Prerequisites
 
 * Python 3
-* TimescaleDB (see [installation options][install-timescale]) 
+* TimescaleDB (see [installation options][install-timescale])
 * [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
+* The [Timescale toolkit][toolkit]
 
 ## Download the dataset
 
 * [The NFL dataset is available for download on Kaggle.][kaggle-download]
 * [Additional stadium and scores dataset (.zip) (source: wikipedia.com).][extra-download]
-
 
 ## Resources
 
@@ -54,5 +53,6 @@ This tutorial has a few sections to help you on your journey:
 
 [install-timescale]: /how-to-guides/install-timescaledb/
 [psql-install]: /how-to-guides/connecting/psql
+[toolkit]: /how-to-guides/toolkit/
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
