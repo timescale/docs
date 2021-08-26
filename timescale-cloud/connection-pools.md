@@ -1,4 +1,4 @@
-# Connection Pools
+# Connection pools
 When you connect to your database, you consume server resources. If you have a
 lot of connections to your database, you can consume a lot of server resources.
 One way to mitigate this is to use connection pooling, which allows you to have
@@ -86,7 +86,6 @@ connection pooling to.
 1.  Click `Create` to create the pool, and see the details of the new pool in
     the list. You can click `Info` next to the pool details to see more
     information, including the URI and port details.
-
 
 <highlight type="note">
 Pooled servers use a different port number than regular servers. This allows you
