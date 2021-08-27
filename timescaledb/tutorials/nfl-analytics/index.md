@@ -53,6 +53,6 @@ This tutorial has a few sections to help you on your journey:
 
 [install-timescale]: /how-to-guides/install-timescaledb/
 [psql-install]: /how-to-guides/connecting/psql
-[toolkit]: /how-to-guides/toolkit/
+[toolkit]: /how-to-guides/install-timescaledb-toolkit
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
