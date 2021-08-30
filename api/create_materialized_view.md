@@ -1,4 +1,4 @@
-## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag> 
+## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
 
 `CREATE MATERIALIZED VIEW` statement is used to create continuous aggregates.
 
@@ -23,8 +23,8 @@ GROUP BY time_bucket( <const_value>, <partition_col_of_hypertable> ),
 ```
 Note that continuous aggregates have some limitations of what types of
 queries they can support, described in more length below.  For example,
-the `FROM` clause must provide only one hypertable, i.e., no joins, CTEs, views or 
-subqueries are supported. The `GROUP BY` clause must include a time bucket on 
+the `FROM` clause must provide only one hypertable, i.e., no joins, CTEs, views or
+subqueries are supported. The `GROUP BY` clause must include a time bucket on
 the hypertable's time column, and all aggregates must be parallelizable.
 
 ### Parameters
@@ -35,7 +35,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 | `WITH` clause | TEXT | This clause specifies [options](/continuous-aggregates/create_materialized_view/#parameters) for the continuous aggregate view.|
 | `<select_query>`| TEXT | A `SELECT` query that uses the specified syntax. |
 
-#### Required `WITH` clause options 
+#### Required `WITH` clause options
 
 |**Name**|||
 |---|---|---|---|
@@ -43,7 +43,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 |**Description**|**Type**|**Default**|
 |If timescaledb.continuous is not specified, then this is a regular PostgresSQL materialized view. | `BOOLEAN` ||
 
-#### Optional `WITH` clause options 
+#### Optional `WITH` clause options
 
 |**Name**|||
 |---|---|---|---|
@@ -62,7 +62,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
   unless `WITH NO DATA` is given (`WITH DATA` is the default).
 - The `SELECT` query should be of the form specified in the syntax above, which is discussed in
   the following items.
-- Only a single hypertable can be specified in the `FROM` clause of the 
+- Only a single hypertable can be specified in the `FROM` clause of the
   `SELECT` query. This means that including more hypertables, joins, tables, views, subqueries
   is not supported.
 - The hypertable used in the `SELECT` may not have [row-level-security
@@ -82,18 +82,12 @@ the hypertable's time column, and all aggregates must be parallelizable.
 - The view is not allowed to be a [security barrier view][postgres-security-barrier].
 - Window functions cannot be used in conjunction with continuous aggregates.
 
-[postgres-immutable]:https://www.postgresql.org/docs/current/xfunc-volatility.html
-[postgres-parallel-agg]:https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[postgres-rls]:https://www.postgresql.org/docs/current/ddl-rowsecurity.html
-[postgres-security-barrier]:https://www.postgresql.org/docs/current/rules-privileges.html
-[real-time-aggregates]: /how-to-guides/continuous-aggregates/real-time-aggregates/
-
 <highlight type="tip">
  You can find the [settings for continuous aggregates](/api/latest/informational-views/continuous_aggregates/) and
 [statistics](/api/latest/informational-views/job_stats/) in `timescaledb_information` views.
 </highlight>
 
-### Sample Usage 
+### Sample Usage
 Create a continuous aggregate view.
 ```sql
 CREATE MATERIALIZED VIEW continuous_aggregate_view( timec, minl, sumt, sumh )
@@ -119,3 +113,9 @@ WITH (timescaledb.continuous) AS
     FROM conditions
     GROUP BY time_bucket('1h', timec);
 ```
+
+[postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
+[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
+[real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
