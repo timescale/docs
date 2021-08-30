@@ -1,7 +1,7 @@
 # Exploring Timescale Forge
 Welcome to Timescale Forge! Timescale Forge is a cloud-native TimescaleDB as a
 service that is easy to get started and powerful enough for the most demanding
-scenarios. This tutorial walka you through setting up your Timescale Forge
+scenarios. This tutorial walks you through setting up your Timescale Forge
 account and completing your first tutorial project.
 
 ### Create a Timescale Forge account
@@ -15,7 +15,7 @@ If you do not receive this link, check your spam folder first, then
 [contact us][contact-timescale].
 
 ### Create your first service
-When you have completes account verification, visit the
+When you have completed account verification, visit the
 [Timescale Forge console][forge-console] and login with your credentials.
 
 To begin, click `Create service`.
