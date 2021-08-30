@@ -13,7 +13,7 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@v1.0.8
         with:
-          args: --verbose --no-progress --exclude localhost 127.0.0.1:8000 link_to_something promscale currentVersion packagecloud.io download.postgresql.org cert.example.com  -- **/*.md **/*.html
+          args: --verbose --no-progress --exclude localhost 127.0.0.1:8000 https://portal.timescale.cloud/login promscale currentVersion packagecloud.io download.postgresql.org cert.example.com  -- **/*.md **/*.html
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
