@@ -32,9 +32,9 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 (1 row)
 ```
 
-To split time into buckets, use a starting point in time called `origin`. The
-default origin is `2000-01-01`. `time_bucket_ng` cannot use timestamps
-earlier than `origin`:
+To split time into buckets, `time_bucket_ng()` uses a starting point in time
+called `origin`. The default origin is `2000-01-01`. `time_bucket_ng` cannot use
+timestamps earlier than `origin`:
 
 ```
 SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08');
