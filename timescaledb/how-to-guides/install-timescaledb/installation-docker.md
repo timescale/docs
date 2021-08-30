@@ -87,26 +87,9 @@ If you want to use a version that contains _only_ Apache 2.0 licensed
 code, you should pull the tag `latest-pg12-oss` as an example.
 </highlight>
 
-## Prebuilt with PostGIS [](postgis-docker)
-
-We have also published a Docker image that comes prebuilt with
-PostGIS.  This image is published under the
-name `timescale/timescaledb-postgis` rather than `timescale/timescaledb`.
-To download and run this image, follow the same instructions as above,
-but use this image name instead.
-
-Then just add the extension from the `psql` command line:
-```bash
-CREATE EXTENSION postgis;
-```
-For more instructions on using PostGIS, [see our tutorial][tutorial-postgis].
-
-
-
 [Docker Hub]: https://hub.docker.com/r/timescale/timescaledb/
 [docker-vulnerability]: https://www.techrepublic.com/article/how-to-fix-the-docker-and-ufw-security-flaw
 [official-image]: https://github.com/docker-library/postgres/
 [alpine Linux]: https://alpinelinux.org/
 [docker-data-volumes]: https://docs.docker.com/storage/volumes/
-[tutorial-postgis]: /tutorials/nyc-taxi-cab
 
