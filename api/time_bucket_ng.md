@@ -32,7 +32,40 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 (1 row)
 ```
 
-You can also use `time_bucket_ng()` with continuous aggregates.
+To split time into buckets we use a starting point in time called `origin`. The
+default origin is '2000-01-01'. `time_bucket_ng` can't work with timestamps
+earlier than `origin`:
+
+```
+SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08');
+ERROR:  origin must be before the given date
+```
+
+Going back in time from `origin` isn't possible in general case, especially
+when you consider time zones and DST. We could partially support it
+depending on the arguments, but it seems to be a bad user experience.
+
+Note also that there is no reasonable way to split time in
+variable-sized buckets (e.g. months) from an arbitrary `origin`. For this
+reason the default `origin` is the first day of the month.
+
+To bypass named limitations it's possible to override the default `origin`:
+
+```
+-- working with timestamps before 2000-01-01
+SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08', origin => '1900-01-01');
+   time_bucket_ng
+---------------------
+ 1900-01-01 00:00:00
+
+-- unlike the default origin, which is Saturday, 2000-01-03 is Monday
+SELECT timescaledb_experimental.time_bucket_ng('1 week', timestamp '2021-08-26', origin => '2000-01-03');
+   time_bucket_ng
+---------------------
+ 2021-08-23 00:00:00
+```
+
+You can use `time_bucket_ng()` with continuous aggregates.
 This example tracks the temperature in Moscow over seven day intervals:
 
 ```
