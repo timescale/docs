@@ -13,7 +13,6 @@ you can set them up as a TimescaleDB multinode cluster.
 *   Set up [high availability][multinode-ha] (HA) for your cluster
 *   [Maintain][multinode-maintenance] your multi-node environment
 
-maintenance
 
 [about-multinode]: /how-to-guides/multi-node-setup/about-multinode
 [setup-selfhosted]: /how-to-guides/multi-node-setup/multinode-setup
