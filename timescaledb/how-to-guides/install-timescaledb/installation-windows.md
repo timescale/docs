@@ -50,8 +50,8 @@ to `bootstrap`.
 
 [c_plus]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg_config]: https://www.postgresql.org/docs/10/static/app-pgconfig.html
-[windows-dl-12]:  https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.3.0-windows-amd64.zip
-[windows-dl-13]:  https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.3.0-windows-amd64.zip
+[windows-dl-12]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.4.1-windows-amd64.zip
+[windows-dl-13]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.4.1-windows-amd64.zip
 [config]: /how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/

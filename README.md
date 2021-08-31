@@ -234,7 +234,7 @@ The "type" can currently support a value of "tip" or "warning"
 <highlight type="tip">
 Callout text goes here...
 
-Example link style would [look like this](http://link_to_something.com/)
+Example link style would [look like this](http://example.com/)
 </highlight>
 ```
 
