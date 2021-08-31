@@ -162,6 +162,21 @@ module.exports = [
         href: 'simulate-iot-sensor-data',
         excerpt: 'Simulate IoT Sensor Data with TimescaleDB',
       },
+      { title: 'TimescaleDB with AWS Lambda',
+        href: 'aws-lambda',
+        children: [
+          {
+            title: 'Create a data API for TimescaleDB',
+            href: 'create-data-api',
+            excerpt: 'Create a data API for TimescaleDB with AWS Lambda and API Gateway',
+          },
+          {
+            title: 'Pull data from 3rd party API and ingest',
+            href: '3rd-party-api-ingest',
+            excerpt: 'Pull and ingest 3rd party data into TimescaleDB with AWS Lambda',
+          }
+        ],
+      },
       {
         href: 'sample-datasets',
         excerpt: "Sample datasets for Tableau and TimescaleDB"
