@@ -13,6 +13,7 @@ larger than the 250MB limit of Lambda. With a Docker container, your package
 size can be up to 10GB which gives you much more flexibility regarding what 
 libraries and dependencies you can use. For more about AWS Lambda container support, see the 
 [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html).
+
 To complete this tutorial, you need to complete these procedures:
 1. Create ETL function
 1. Add requirements.txt
