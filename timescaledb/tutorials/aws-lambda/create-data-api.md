@@ -9,9 +9,12 @@ chose [`psycopg2`](https://www.psycopg.org/docs/).
 Because `psycopg2` is not part of the standard Python library, and it’s not included in AWS Lambda either, you need to 
 manually include this library in your deployment package so that it is available to use. We are going to use [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) for this purpose.
 
-What’s a Lambda Layer?
+**What’s a Lambda Layer?**
+
 A Lambda Layer is an archive containing additional code, such as libraries or dependencies. Layers help you use external 
 libraries in your function code that would not be available otherwise.
+
+
 
 Let’s add `psycopg2` as a Lambda Layer so the function will be able to use this library.
 
