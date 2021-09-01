@@ -1,6 +1,6 @@
 # TimescaleDB with AWS Lambda 
 
-In this section, you will see examples of working with AWS Lambda and TimescaleDB. 
+In this section, you will find tutorials for working with AWS Lambda and TimescaleDB. 
 
 * [Create a data API for TimescaleDB (AWS Lambda + API Gateway)](/tutorials/aws-lambda/create-data-api)
 * [Pull data from 3rd party API and ingest into TimescaleDB (AWS Lambda + Docker)](/tutorials/aws-lambda/3rd-party-api-ingest)

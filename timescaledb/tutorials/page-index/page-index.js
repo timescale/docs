@@ -164,6 +164,7 @@ module.exports = [
       },
       { title: 'TimescaleDB with AWS Lambda',
         href: 'aws-lambda',
+        excerpt: 'Tutorial for using TimescaleDB with AWS Lambda'
         children: [
           {
             title: 'Create a data API for TimescaleDB',

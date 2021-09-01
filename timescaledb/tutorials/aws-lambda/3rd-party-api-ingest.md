@@ -1,5 +1,5 @@
-# Pull data from 3rd party API and ingest into TimescaleDB (Docker)
-In this section, you will build a data pipeline which pulls data from a 3rd party finance API and loads it into TimescaleDB.
+# Pull data from third-party API and ingest into TimescaleDB (Docker)
+In this section, you build a data pipeline which pulls data from a third-party finance API and loads it into TimescaleDB.
 
 **Required libraries:**
 
@@ -8,11 +8,12 @@ In this section, you will build a data pipeline which pulls data from a 3rd part
 * psycopg2
 * pgcopy
 
-If you need to use multiple external libraries - like in this tutorial - your deployment package size can easily be 
-larger than the 250MB limit of Lambda. In this case, you might want to read about. With a Docker container, your 
-package size can be up to 10GB which gives you much more flexibility regarding what libraries and dependencies you 
-can use. You can read more about [AWS Lambda container support here.](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html)
-
+This tutorial requires multiple libraries. This can make your deployment package size 
+larger than the 250MB limit of Lambda. With a Docker container, your package
+size can be up to 10GB which gives you much more flexibility regarding what 
+libraries and dependencies you can use. For more about AWS Lambda container support, see the 
+[AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html).
+To complete this tutorial, you need to complete these procedures:
 1. Create ETL function
 1. Add requirements.txt
 1. Create the Dockerfile
@@ -20,7 +21,9 @@ can use. You can read more about [AWS Lambda container support here.](https://do
 1. Create Lambda function from the container
 
 ## Create ETL function
-As an example, here’s a function which pulls data from a finance API (Alpha Vantage) and inserts the data into TimescaleDB. The connection is made using the values from environment variables.
+This is an example function that pulls data from a finance API called Alpha Vantage, and 
+inserts the data into TimescaleDB. The connection is made using the values from 
+environment variables:
 ```python
 # function.py:
 import csv
@@ -97,9 +100,9 @@ def handler(event, context):
 ```
 
 ## Add requirements.txt
-
-Add a requirements text file to your project that includes all the libraries that you need installed. For example, 
-if you need pandas, requests, psycopg2 and pgcopy this is what your `requirements.txt` should look like:
+Add a text file to your project called `requirements.txt` that includes all the libraries that 
+you need installed. For example, if you need pandas, requests, psycopg2 and pgcopy 
+your `requirements.txt` looks like this:
 
 ```
 pandas
@@ -108,8 +111,10 @@ psycopg2-binary
 pgcopy
 ```
 
-Notice how we use `psycopg2-binary` not `psycopg2`. The binary version of the library contains all its dependencies so 
-you don’t need to install them separately.
+<highlight type="note">
+We use `psycopg2-binary` instead of `psycopg2` in the `requirements.txt` file. The binary version
+of the library contains all its dependencies, which means that you don’t need to install them separately.
+</highlight>
 
 ## Create the Dockerfile
 
@@ -129,28 +134,28 @@ CMD ["function.handler"]
 ```
 
 ## Upload the image to ECR
+To connect the container image to a Lambda function, you need to start by uploading 
+it to the AWS Elastic Container Registry (ECR).
 
-To connect the container image to a Lambda function, first you need to upload it to AWS Elastic Container Registry (ECR).
-
-Login to Docker CLI.
+Login to Docker CLI:
 ```bash
 aws ecr get-login-password --region us-east-1 \
 | docker login --username AWS \
 --password-stdin <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
 ```
 
-Build image.
+Build image:
 ```bash
 docker build -t lambda-image .
 ```
 
-Create repository in ECR.
+Create repository in ECR:
 ```bash
 aws ecr create-repository --repository-name lambda-image
 ```
 
-Tag your image to match your repository name, and deploy the image to Amazon ECR using the *docker push* command.
-
+Tag your image to match the repository name, and deploy the image to Amazon ECR 
+using the `docker push` command:
 ```bash
 docker tag lambda-image:latest <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/lambda-image:latest
 docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/lambda-image:latest        
@@ -158,14 +163,14 @@ docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/lambda-image:latest
 ```
 
 ## Create Lambda function from the container
-You can use the same lambda *create-function* as before, but now define the --package-type parameter as *Image* and 
-add the ECR Image URI as well with the --code flag.
+You can use the same Lambda `create-function` command as you used earlier, but this 
+time you need to define the `--package-type` parameter as `image`, and add the ECR 
+Image URI using the `--code` flag:
 
 ```bash
 aws lambda create-function --region us-east-1 \
 --function-name docker_function --package-type Image \
 --code ImageUri=<ECR Image URI> --role arn:aws:iam::818196790983:role/Lambda
-
 ```
 
 ## Schedule your Lambda function
@@ -179,8 +184,7 @@ aws events put-rule --name schedule-lambda --schedule-expression 'cron(0 9 * * ?
 
 If you encounter the `Parameter ScheduleExpression is not valid` error message, have a look at the [cron expression examples in the EventBridge docs](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions).
 
-Grant the necessary permissions for the Lambda function.
-
+Grant the necessary permissions for the Lambda function:
 ```bash
 aws lambda add-permission --function-name <FUNCTION_NAME> \
 --statement-id my-scheduled-event --action 'lambda:InvokeFunction' \
@@ -188,7 +192,7 @@ aws lambda add-permission --function-name <FUNCTION_NAME> \
 ```
 
 To add the function to the EventBridge rule, create a `targets.json` file containing a memorable, unique string, 
-and the ARN of the Lambda Function.
+and the ARN of the Lambda Function:
 ```json
 [
   {
@@ -203,7 +207,7 @@ Then use the `events put-target` command.
 aws events put-targets --rule schedule-lambda --targets file://targets.json
 ```
 
-To check if the rule is connected to the Lambda function, go to AWS console > Amazon EventBridge > Events > Rules, 
+To check if the rule is connected to the Lambda function, in the AWS console, navigate to Amazon EventBridge > Events > Rules, and
 select your rule and the Lambda function’s name should be under “Target(s)”.
 
 ![aws eventbridge lambda](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/targets.png)
