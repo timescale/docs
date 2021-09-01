@@ -2,7 +2,7 @@
 This tutorial covers how to create an API to fetch data from your TimescaleDB instance. We are using API Gateway to 
 trigger a Lambda function which fetches the requested data from TimescaleDB and returns it in JSON format.
 
-## Add psycopg2 library as a Lambda layer
+## Connect to TimescaleDB from Lambda
 To connect to the TimescaleDB instance, you need to use a database connector library. For this tutorial we 
 chose [`psycopg2`](https://www.psycopg.org/docs/).
 
@@ -13,8 +13,6 @@ manually include this library in your deployment package so that it is available
 
 A Lambda Layer is an archive containing additional code, such as libraries or dependencies. Layers help you use external 
 libraries in your function code that would not be available otherwise.
-
-
 
 Let’s add `psycopg2` as a Lambda Layer so the function will be able to use this library.
 
