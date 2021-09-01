@@ -202,7 +202,7 @@ and the ARN of the Lambda Function:
 ]
 ```
 
-Then use the `events put-target` command.
+When you have finished, use the `events put-target` command to add the target (the lambda function to be invoked) to the rule.
 ```bash
 aws events put-targets --rule schedule-lambda --targets file://targets.json
 ```
