@@ -208,7 +208,7 @@ aws events put-targets --rule schedule-lambda --targets file://targets.json
 ```
 
 To check if the rule is connected to the Lambda function, in the AWS console, navigate to Amazon EventBridge > Events > Rules, and
-select your rule and the Lambda function’s name should be under “Target(s)”.
+select your rule. The Lambda function’s name is listed under `Target(s)`.
 
 ![aws eventbridge lambda](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/targets.png)
 
