@@ -174,14 +174,14 @@ Lambda function output:
              \"min_price\": 131.131547781
            },
            {
-             \"bucket_day\": "2021-01-18 00:00:00",
+             \"bucket_day\": \"2021-01-18 00:00:00\",
              \"symbol\": \"AAPL\",
              \"avg_price\": 136.7006897398394,
              \"max_price\": 144.628477898,
              \"min_price\": 126.675666886
            },
            {
-             \"bucket_day\": "2021-05-24 00:00:00",
+             \"bucket_day\": \"2021-05-24 00:00:00\",
              \"symbol\": \"AAPL\",
              \"avg_price\": 125.4228325920157,
              \"max_price\": 128.32,
