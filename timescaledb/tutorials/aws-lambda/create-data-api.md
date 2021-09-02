@@ -167,25 +167,25 @@ Lambda function output:
   "statusCode": 200,
   "body": "[
            {
-             "bucket_day": "2021-02-01 00:00:00",
-             "symbol": "AAPL",
-             "avg_price": 135.32576933380264,
-             "max_price": 137.956910987,
-             "min_price": 131.131547781
+             \"bucket_day\": \"2021-02-01 00:00:00\",
+             \"symbol\": \"AAPL\",
+             \"avg_price\": 135.32576933380264,
+             \"max_price\": 137.956910987,
+             \"min_price\": 131.131547781
            },
            {
-             "bucket_day": "2021-01-18 00:00:00",
-             "symbol": "AAPL",
-             "avg_price": 136.7006897398394,
-             "max_price": 144.628477898,
-             "min_price": 126.675666886
+             \"bucket_day\": "2021-01-18 00:00:00",
+             \"symbol\": \"AAPL\",
+             \"avg_price\": 136.7006897398394,
+             \"max_price\": 144.628477898,
+             \"min_price\": 126.675666886
            },
            {
-             "bucket_day": "2021-05-24 00:00:00",
-             "symbol": "AAPL",
-             "avg_price": 125.4228325920157,
-             "max_price": 128.32,
-             "min_price": 123.21
+             \"bucket_day\": "2021-05-24 00:00:00",
+             \"symbol\": \"AAPL\",
+             \"avg_price\": 125.4228325920157,
+             \"max_price\": 128.32,
+             \"min_price\": 123.21
            },
            ...
            ]",
