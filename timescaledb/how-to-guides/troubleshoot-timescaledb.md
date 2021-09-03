@@ -80,7 +80,7 @@ by running `VACUUM ANALYZE <your-hypertable>;`. Then, we suggest running the
 following version of EXPLAIN:
 
 ```sql
-EXPLAIN (ANALYZE on, BUFFERS on) &lt;original query&gt;;
+EXPLAIN (ANALYZE on, BUFFERS on) <original query>;
 ```
 
 If you suspect that your performance issues are due to slow IOs from disk, you
