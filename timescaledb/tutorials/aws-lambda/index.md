@@ -21,7 +21,7 @@ If you do not have it installed, please follow the [instructions provided by AWS
 
 It’s also required that you complete the [Analyze intraday stock data tutorial](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-intraday-stocks/) first because it sets up the needed tables and data that is used in this tutorial.
 
-## Programming langauge
+## Programming language
 
 The code examples throughout the tutorial use Python as the programming language but you can use any other language 
 you prefer as long as it’s [supported by AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
