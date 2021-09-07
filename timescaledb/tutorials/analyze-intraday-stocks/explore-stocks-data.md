@@ -62,10 +62,12 @@ the `symbol` or other parts of the query. Have fun!
 Let's generate a bar chart that shows the most traded symbols in the last 14 days:
 
 ```python
+import plotly.express as px
+import pandas as pd
 query = """
     SELECT symbol, sum(trading_volume) AS volume
     FROM stocks_intraday
-    WHERE time < now() - INTERVAL '{bucket}'
+    WHERE time > now() - INTERVAL '{bucket}'
     GROUP BY symbol
     ORDER BY volume DESC
     LIMIT 5
@@ -82,6 +84,8 @@ fig.show()
 Now let's try a similar query focused on the daily trading volume of one symbol (e.g. 'AAPL'). 
 
 ```python
+import plotly.express as px
+import pandas as pd
 query = """
     SELECT time_bucket('{bucket}', time) AS bucket, sum(trading_volume) AS volume
     FROM stocks_intraday
@@ -101,6 +105,8 @@ fig.show()
 This query returns the weekly stock price of Apple over time:
 
 ```python
+import plotly.express as px
+import pandas as pd
 query = """
     SELECT time_bucket('{bucket}', time) AS bucket,
     last(price_close, time) AS last_closing_price
@@ -122,6 +128,8 @@ fig.show()
 Now generate a table containing the symbols with the biggest weekly gains:
 
 ```python
+import plotly.express as px
+import pandas as pd
 query = """
     SELECT symbol, bucket, max((closing_price-opening_price)/closing_price*100) AS price_change_pct
     FROM ( 
@@ -162,6 +170,8 @@ Change `orderby` to "ASC" to query the biggest losses.
 Let's see a line chart with the FAANG (Facebook, Apple, Amazon, Netflix, Google/Alphabet) weekly stock prices:
 
 ```python
+import plotly.express as px
+import pandas as pd
 query = """
     SELECT symbol, time_bucket('{bucket}', time) AS bucket, 
     last(price_close, time) AS last_closing_price
@@ -184,6 +194,8 @@ compare different stocks, it might be better to look at price changes instead. L
 price changes of Apple, Facebook, and Google:
 
 ```python
+import plotly.express as px
+import pandas as pd
 query = """
    SELECT symbol, bucket, max((closing_price-opening_price)/closing_price) AS price_change_pct
     FROM ( 
@@ -214,6 +226,8 @@ Now let's generate a scatter chart to look at the distribution of daily price ch
 this data enables you to better understand the volatility of individual stocks and how they compare to each other.
 
 ```python
+import plotly.express as px
+import pandas as pd
 query = """
    SELECT symbol, bucket, max((closing_price-opening_price)/closing_price) AS price_change_pct
     FROM ( 
@@ -245,6 +259,7 @@ Finally, because this is a tutorial about stocks, let's generate a 15-min candle
 For candlestick charts, you need to import Plotly's `graph_object` module.
 
 ```python
+import pandas as pd
 import plotly.graph_objects as go
 query = """
     SELECT time_bucket('{bucket}', time) AS bucket, 
