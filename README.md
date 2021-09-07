@@ -228,7 +228,7 @@ To create a callout around a paragraph of text, wrap it with the following custo
 React component tag. **Reminder**, any links within the callout text MUST have
 inline link styles.
 
-The "type" can currently support a value of "tip" or "warning"
+The "type" can currently support a value of "tip", "warning", or "note".
 
 ```html
 <highlight type="tip">
