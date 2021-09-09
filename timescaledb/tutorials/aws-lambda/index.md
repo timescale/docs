@@ -27,3 +27,12 @@ Make sure you have completed the [Analyze intraday stock data tutorial](https://
 ## Programming language
 The code examples in this tutorial use Python, but you can use any language
 [supported by AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
+
+## Resources
+For more information about the topics in this tutorial, check out these resources:
+
+*   [AWS CLI Version 2 References](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html)
+*   [Creating Lambda container images](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html)
+*   [Getting started with AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
+*   [Analyze historical intraday stock data](/tutorials/analyze-intraday-stocks)
+*   [Analyze cryptocurrency market data](/tutorials/analyze-cryptocurrency-data)
