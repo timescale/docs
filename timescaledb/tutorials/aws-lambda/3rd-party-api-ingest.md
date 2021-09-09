@@ -14,7 +14,7 @@ The libraries used in this tutorial:
 *   [`psycopg2`][psycopg2]
 *   [`pgcopy`][pgcopy]
 
-## Create ETL function
+## Create an ETL function
 Extract, transform, and load (ETL) functions are used to pull data from one
 database and ingest the data into another. In this tutorial, the ETL function
 pulls data from a finance API called Alpha Vantage, and inserts the data into
@@ -96,7 +96,7 @@ def handler(event, context):
            conn.commit()
 ```
 
-## Add requirements.txt
+## Add a requirements file
 When you have created the ETL function, you need to include the libraries you want to install. You can do this by creating a text file in your project called `requirements.txt` that lists the libraries. This is the `requirements.txt` file used in this tutorial:
 
 ```txt
@@ -132,7 +132,8 @@ When you have the requirements set up, you can create the Dockerfile for the pro
     ```
 
 ## Upload the image to ECR
-To connect the container image to a Lambda function, you need to upload it to the AWS Elastic Container Registry (ECR).
+To connect the container image to a Lambda function, you need to upload it to
+the AWS Elastic Container Registry (ECR).
 
 ### Procedure: Uploading the image to ECR
 1.  Log in to the Docker command line interface:
@@ -203,11 +204,15 @@ an EventBridge trigger. This creates a rule using a [`cron` expression][cron-exa
     ```
 
 <highlight type="important">
-If you get an error saying `Parameter ScheduleExpression is not valid`, you might have made a mistake in the cron expression. Check the [cron expression examples][cron-examples](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions) in the EventBridge documentation.
+If you get an error saying `Parameter ScheduleExpression is not valid`, you
+might have made a mistake in the cron expression. Check the
+[cron expression examples][cron-examples](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions) in the EventBridge
+documentation.
 </highlight>
 
-
-You can check if the rule is connected correctly to the Lambda function in the AWS console. Navigate to Amazon EventBridge → Events → Rules, and click the rule you created. The Lambda function's name is listed under `Target(s)`:
+You can check if the rule is connected correctly to the Lambda function in the
+AWS console. Navigate to Amazon EventBridge → Events → Rules, and click the rule
+you created. The Lambda function's name is listed under `Target(s)`:
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/targets.png" alt="Lamdba function target in AWS Console"/>
 
