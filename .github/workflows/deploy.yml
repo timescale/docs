@@ -9,6 +9,7 @@ on:
 
 jobs:
   trigger:
+    if: github.repository == 'timescale/docs'
     name: Docs dev deploy
     runs-on: ubuntu-latest
     steps:

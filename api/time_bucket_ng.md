@@ -1,9 +1,9 @@
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
-
-The `time_bucket_ng()` (next generation) experimental function is
-similar to [`time_bucket()`][time_bucket], but works with years and
-months. It is expected that the feature will also support timezones
-in a future release.
+The `time_bucket_ng()` (next generation) experimental function is an updated
+version of  the original [`time_bucket()`][time_bucket] function. While
+`time_bucket` works with small units of time, the `time_bucket_ng()` function
+uses years and months. The `time_bucket_ng()` function does not, at this stage,
+support timezones.
 
 <highlight type="warning">
 Experimental features could have bugs! They might not be backwards compatible,
@@ -32,8 +32,38 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 (1 row)
 ```
 
-You can also use `time_bucket_ng()` with continuous aggregates.
-This example tracks the temperature in Moscow over seven day intervals:
+To split time into buckets, `time_bucket_ng()` uses a starting point in time
+called `origin`. The default origin is `2000-01-01`. `time_bucket_ng` cannot use
+timestamps earlier than `origin`:
+
+```
+SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08');
+ERROR:  origin must be before the given date
+```
+
+Going back in time from `origin` isn't usually possible, especially when you
+consider timezones and daylight savings time (DST). Note also that there is no
+reasonable way to split time in variable-sized buckets (such as months) from an
+arbitrary `origin`, so `origin` defaults to the first day of the month.
+
+To bypass named limitations, you can override the default `origin`:
+
+```
+-- working with timestamps before 2000-01-01
+SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08', origin => '1900-01-01');
+   time_bucket_ng
+---------------------
+ 1900-01-01 00:00:00
+
+-- unlike the default origin, which is Saturday, 2000-01-03 is Monday
+SELECT timescaledb_experimental.time_bucket_ng('1 week', timestamp '2021-08-26', origin => '2000-01-03');
+   time_bucket_ng
+---------------------
+ 2021-08-23 00:00:00
+```
+
+You can use `time_bucket_ng()` with continuous aggregates. This example tracks
+the temperature in Moscow over seven day intervals:
 
 ```
 CREATE TABLE conditions(

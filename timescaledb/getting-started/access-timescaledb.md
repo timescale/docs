@@ -26,7 +26,6 @@ If your client doesn't have `psql` installed, follow the instructions provided
 in our How-to guides for [Installing `psql`](/timescaledb/latest/how-to-guides/connecting/psql/) and then return here.
 </highlight>
 
-
 ## Connect to your TimescaleDB server
 Now that we've confirmed that `psql` is installed, it's time to connect to your
 Timescale Cloud instance.
@@ -55,7 +54,6 @@ in the placeholder above
 
 Now that you've connected to your Timescale Cloud service, let's look at how to
 quickly add data so that you can quickly start to explore the power of TimescaleDB.
-
 
 [install-psql]: /how-to-guides/connecting/psql/
 [launch-timescaledb]: /getting-started/launch-timescaledb/
