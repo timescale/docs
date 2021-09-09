@@ -11,6 +11,27 @@ and could be removed in future releases. Use these features at your own risk, an
 do not use any experimental features in production.
 </highlight>
 
+Functionality | time_bucket() | time_bucket_ng()
+--------------|---------------|-----------------
+Buckets by seconds, minutes, hours, days and weeks | YES | YES
+Buckets by months and years | NO | YES
+Buckets by timezones | NO | (Coming soon)
+
+<highlight type="warning">
+The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
+completely compatible. There are two main differences.
+
+Firstly, `time_bucket_ng()` doesn't work with timestamps prior to `origin`,
+while `time_bucket()` does. The reasons of named limitations are explained 
+further in this article.
+
+Secondly, the default `origin` values differ. `time_bucket()` uses an origin
+date of 3 Jan 2000, because that date is a Monday. This works better with
+weekly buckets. `time_bucket_ng()` uses an origin date of 1 Jan 2000, because
+it is the first day of the month and the year. This works better with monthly
+or annual aggregates.
+</highlight>
+
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
 
