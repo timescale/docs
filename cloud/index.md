@@ -35,4 +35,4 @@ and extensions.
  * More than 75 popular PostgreSQL extensions including PostGIS, pre-installed
  * Integrated support for Prometheus long-term storage 
 
- [sign-up]: https://console.forge.timescale.com/signup
+ [sign-up]: https://console.cloud.timescale.com/signup

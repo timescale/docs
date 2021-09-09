@@ -818,6 +818,6 @@ Ready for more learning? Here's a few suggestions:
 [continuous-aggregates]: /getting-started/create-cagg/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
-[cloud-signup]: https://console.forge.timescale.com/signup
+[cloud-signup]: https://console.cloud.timescale.com/signup
 [hypertables]: /how-to-guides/hypertables
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

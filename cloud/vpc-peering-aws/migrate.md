@@ -12,7 +12,7 @@ from the public internet into a VPC, or vice-versa.
 </highlight>
 
 To migrate a Timescale Cloud service between VPCs, or to migrate to/from the public network,
-navigate to the [Services Dashboard](https://console.forge.timescale.com/dashboard/services),
+navigate to the [Services Dashboard](https://console.cloud.timescale.com/dashboard/services),
 select the service you wish to migrate, click the `Operations` tab in the service details view,
 and click the `VPC` tab within the `Operations` view. From this view, you have a few options
 depending on the state of your service.

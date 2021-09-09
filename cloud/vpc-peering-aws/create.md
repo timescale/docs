@@ -1,7 +1,7 @@
 # Create and connect a Timescale Cloud VPC with AWS
 
 ## Setup
-Before you begin, log in to the [Timescale Cloud console](https://console.forge.timescale.com/).
+Before you begin, log in to the [Timescale Cloud console](https://console.cloud.timescale.com/).
 
 ## Create a new VPC
 In the Timescale Cloud console, click `VPC` in the left navigation bar to go to the VPC
@@ -111,7 +111,7 @@ section, you will learn how to create a Timescale Cloud service with a VPC attac
 
 ## Create a service with VPC attachment
 In the Timescale Cloud console, navigate to the
-[Services Dashboard](https://console.forge.timescale.com/dashboard/services). Click
+[Services Dashboard](https://console.cloud.timescale.com/dashboard/services). Click
 `Create service` and select the compute and disk size which fits your needs.
 
 Expand the dropdown menu under the `Select a VPC` step and select the VPC you created

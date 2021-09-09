@@ -242,7 +242,7 @@ data.
 And as always, consider joining our vibrant community [Slack channel][slack] to
 ask questions and learn from Timescale staff and other community members.
 
-[sign-up]: https://forge.timescale.com/signup
+[sign-up]: https://console.cloud.timescale.com/signup
 [maintenance-tasks]: timescaledb/:currentVersion:/how-to-guides/multi-node-setup/maintenance-tasks/
 [slack]: https://slack.timescale.com/
 [changes-in-tsdb2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2

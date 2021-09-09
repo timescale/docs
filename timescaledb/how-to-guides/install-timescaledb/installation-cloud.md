@@ -18,7 +18,7 @@ Now that your database account is set up, it's time to
 
 ---
 
-[sign-up]: https://forge.timescale.com/signup
+[sign-up]: https://console.cloud.timescale.com/signup
 [timescale-features]: https://www.timescale.com/products
 [timescale-cloud-setup]: /cloud/:currentVersion:/create-a-service/
 [contact]: https://www.timescale.com/contact

@@ -25,7 +25,7 @@ instructions in this section.
 If you would like to give multi-node a try  without the management overhead, you
 can [setup and explore a multi-node cluster in Timescale
 Cloud][multi_node_cloud],  our fully managed database
-service. [Sign-up for your free](https://forge.timescale.com/signup), 30-day
+service. [Sign-up for your free](https://console.cloud.timescale.com/signup), 30-day
 trial and get started today!
 
 

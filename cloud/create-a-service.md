@@ -5,7 +5,7 @@ scenarios. This tutorial walka you through setting up your Timescale Cloud
 account and completing your first tutorial project.
 
 ### Create a Timescale Cloud account
-Sign up for Timescale Cloud by visiting [forge.timescale.com][cloud-signup].
+Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
 Provide your full name, email address, and a strong password to start:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-signup-page.png" alt="Sign up for Timescale Forge"/>
@@ -101,10 +101,10 @@ For additional documentation on how to:
 *   [Customize your database configuration][configuration] easily
 *   [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud
 
-[cloud-signup]: https://forge.timescale.com
+[cloud-signup]: https://console.cloud.timescale.com
 [slack-info]: https://slack-login.timescale.com
 [getting-started]: /timescaledb/latest/getting-started/
-[cloud-console]: https://console.forge.timescale.com/login
+[cloud-console]: https://console.cloud.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
 [hypertable-info]: /timescaledb/latest/how-to-guides/hypertables
 [time-bucket-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket

@@ -17,7 +17,7 @@ for [installing self-hosted TimescaleDB](/timescaledb/latest/how-to-guides/insta
 
 ### Step 1: Create a Timescale Cloud account
 
-Sign up for Timescale Cloud by visiting [forge.timescale.com][cloud-signup].
+Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
 
 Provide your full name, email address, and a strong password to start:
 
@@ -69,6 +69,6 @@ Now let's make sure you can connect to the database before we start adding data
 and learning about everything that TimescaleDB offers!
 
 [install-timescaledb]: /how-to-guides/install-timescaledb/
-[cloud-signup]: https://forge.timescale.com
-[cloud-console]: https://console.forge.timescale.com/login
+[cloud-signup]: https://cloud.timescale.com
+[cloud-console]: https://console.cloud.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact

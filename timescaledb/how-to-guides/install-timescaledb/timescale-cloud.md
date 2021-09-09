@@ -10,7 +10,7 @@ completing your first tutorial project.
 
 ### Step 1: Create a Timescale Cloud account [](step1-create-account)
 
-Sign up for Timescale Cloud by visiting [forge.timescale.com][cloud-signup].
+Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
 
 Provide your full name, email address, and a strong password to start:
 
@@ -123,12 +123,12 @@ Please see additional documentation on how to:
  * [Customize your database configuration][configuration] easily!
  * [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud!
 
-[cloud-signup]: https://forge.timescale.com
+[cloud-signup]: https://console.cloud.timescale.com
 [billing-info]: /cloud/managing-billing-payments
 [slack-info]: https://slack-login.timescale.com
 [install-psql]: /how-to-guides/connecting/psql/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
-[cloud-console]: https://console.forge.timescale.com/login
+[cloud-console]: https://console.cloud.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
 [hypertable-info]: /how-to-guides/hypertables
 [time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
