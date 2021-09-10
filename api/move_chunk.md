@@ -41,4 +41,4 @@ SELECT move_chunk(
 
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
 [postgres-altertable]: https://www.postgresql.org/docs/13/sql-altertable.html
-[using-data-tiering]: /timescaledb/:cuurentVersion:/how-to-guides/data-tiering/
+[using-data-tiering]: /timescaledb/:currentVersion:/how-to-guides/data-tiering/
