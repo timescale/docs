@@ -215,7 +215,7 @@ contains multiple rows per player for each play (because the data is sampled
 multiple times per second during each play)
 
 <highlight type="important">
-These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [Timescale toolkit](/how-to-guides/install-timescaledb-toolkit) before you begin.
+These queries are examples of hyperfunctions. To access hyperfunctions, you need to have installed the  [Timescale toolkit](https://docs.timescale.com/timescaledb/latest/how-to-guides/install-timescaledb-toolkit) before you begin.
 </highlight>
 
 ### Number of yards run in game for passing plays, by player and game
