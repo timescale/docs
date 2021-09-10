@@ -72,6 +72,7 @@ file to include our library in the parameter `shared_preload_libraries`.
 The easiest way to get started is to run `timescaledb-tune`, which is
 installed by default when using `apt`:
 ```bash
+sudo apt install timescaledb-tools
 sudo timescaledb-tune
 ```
 
