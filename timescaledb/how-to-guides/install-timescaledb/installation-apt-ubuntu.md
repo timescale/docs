@@ -21,10 +21,15 @@ of `apt`, we recommend installing from source.  Otherwise, please be
 sure to remove non-`apt` installations before using this method.
 </highlight>
 
-Add TimescaleDB's third party repository and install TimescaleDB,
-which will download any required dependencies from the PostgreSQL repository:
+Add the PostgreSQL third party repository to get the latest PostgreSQL packages:
 ```bash
-# Add our repository
+sudo apt install postgresql-common
+sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+```
+
+Add the TimescaleDB third party repository and install TimescaleDB. This command
+downloads any required dependencies from the PostgreSQL repository:
+```bash
 sudo sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list"
 wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg -o --dearmor > /usr/share/keyrings/timescale.keyring
 sudo apt-get update
