@@ -13,7 +13,7 @@ non-obsolete releases.
 #### Build and install
 
 <highlight type="warning">
- If you have another PostgreSQL installation not via `apt`,
+If you have another PostgreSQL installation not via `apt`,
 this will likely cause problems.
 
 If you wish to maintain your current version of PostgreSQL outside
@@ -25,7 +25,7 @@ Add TimescaleDB's third party repository and install TimescaleDB,
 which will download any required dependencies from the PostgreSQL repository:
 ```bash
 # Add our repository
-echo "deb [signed-by=/usr/share/keyrings/postgresql.keyring] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -c -s)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+sudo sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list"
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc |  gpg --dearmor > /usr/share/keyrings/postgresql.keyring
 sudo apt-get update
 
