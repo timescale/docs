@@ -21,31 +21,21 @@ of `apt`, we recommend installing from source.  Otherwise, please be
 sure to remove non-`apt` installations before using this method.
 </highlight>
 
-**If you don't already have PostgreSQL installed**, add PostgreSQL's third
-party repository to get the latest PostgreSQL packages (if you are using Ubuntu older than 19.04):
-```bash
-# `lsb_release -c -s` should return the correct codename of your OS
-echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -c -s)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
-```
-
 Add TimescaleDB's third party repository and install TimescaleDB,
-which will download any dependencies it needs from the PostgreSQL repo:
-<highlight type="tip">
-Users coming from previous versions that have installed the PPA,
-need to add the new Ubuntu package repository for the release of TimescaleDB 2.4.
-</highlight>
-
+which will download any required dependencies from the PostgreSQL repository:
 ```bash
 # Add our repository
-sudo sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list"
-wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
+echo "deb [signed-by=/usr/share/keyrings/postgresql.keyring] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -c -s)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc |  gpg --dearmor > /usr/share/keyrings/postgresql.keyring
 sudo apt-get update
 
 # Now install appropriate package for PG version
 sudo apt install timescaledb-2-postgresql-13
 ```
+<highlight type="tip">
+Users coming from previous versions that have installed the PPA need to add the
+new Ubuntu package repository for the release of TimescaleDB 2.4.
+</highlight>
 
 #### Upgrading from TimescaleDB 1.x
 If you are upgrading from TimescaleDB 1.x, the `apt` package will first
