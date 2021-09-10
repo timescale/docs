@@ -26,7 +26,7 @@ which will download any required dependencies from the PostgreSQL repository:
 ```bash
 # Add our repository
 sudo sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list"
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc |  sudo gpg --dearmor > /usr/share/keyrings/postgresql.keyring
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor > /usr/share/keyrings/postgresql.keyring
 sudo apt-get update
 
 # Now install appropriate package for PG version
