@@ -30,8 +30,8 @@ sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 Add the TimescaleDB third party repository and install TimescaleDB. This command
 downloads any required dependencies from the PostgreSQL repository:
 ```bash
-sudo sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list"
-wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg -o --dearmor > /usr/share/keyrings/timescale.keyring
+sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/timescale.keyring
 sudo apt-get update
 
 # Now install appropriate package for PG version
