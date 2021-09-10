@@ -113,7 +113,7 @@ module.exports = [
       {
         title: 'Grafana',
         href: 'grafana',
-        exceprt: 'Getting Started with Grafana and TimescaleDB',
+        excerpt: 'Getting Started with Grafana and TimescaleDB',
         children: [
           {
             href: 'installation',
@@ -162,7 +162,8 @@ module.exports = [
         href: 'simulate-iot-sensor-data',
         excerpt: 'Simulate IoT Sensor Data with TimescaleDB',
       },
-      { title: 'TimescaleDB with AWS Lambda',
+      {
+        title: 'TimescaleDB with AWS Lambda',
         href: 'aws-lambda',
         excerpt: 'Tutorial for using TimescaleDB with AWS Lambda',
         children: [
@@ -172,9 +173,9 @@ module.exports = [
             excerpt: 'Create a data API for TimescaleDB with AWS Lambda and API Gateway',
           },
           {
-            title: 'Pull data from 3rd party API and ingest',
+            title: 'Pull and ingest data from a third party API',
             href: '3rd-party-api-ingest',
-            excerpt: 'Pull and ingest 3rd party data into TimescaleDB with AWS Lambda',
+            excerpt: 'Pull and ingest data from a third party into TimescaleDB with AWS Lambda',
           }
         ],
       },
