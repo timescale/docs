@@ -5,7 +5,7 @@ We highly recommend reading the [blog post][blog-compression] and
 for the first time.
 
 Setting up compression on TimescaleDB requires users to first [configure the
-hypertable for compression](/compression/alter_table_compression/) and then [set up a
+hypertable for compression](api/:currentVersion:/compression/alter_table_compression/) and then [set up a
 policy](/compression/add_compression_policy/) for when to compress chunks.
 
 Advanced usage of compression allows users to [compress chunks
