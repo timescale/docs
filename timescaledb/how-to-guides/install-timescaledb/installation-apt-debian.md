@@ -30,7 +30,7 @@ downloads any required dependencies from the PostgreSQL repository:
 ```bash
 sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
 wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/timescale.keyring
-sudo apt-get update
+sudo apt update
 sudo apt install timescaledb-2-postgresql-13
 ```
 
