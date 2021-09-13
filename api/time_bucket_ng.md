@@ -1,9 +1,8 @@
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
 The `time_bucket_ng()` (next generation) experimental function is an updated
 version of  the original [`time_bucket()`][time_bucket] function. While
-`time_bucket` works with small units of time, the `time_bucket_ng()` function
-uses years and months. The `time_bucket_ng()` function does not, at this stage,
-support timezones.
+`time_bucket` works only with small units of time, the `time_bucket_ng()`
+supports years and months in addition to small units of time.
 
 <highlight type="warning">
 Experimental features could have bugs! They might not be backwards compatible,
@@ -15,7 +14,7 @@ Functionality | time_bucket() | time_bucket_ng()
 --------------|---------------|-----------------
 Buckets by seconds, minutes, hours, days and weeks | YES | YES
 Buckets by months and years | NO | YES
-Buckets by timezones | NO | (Coming soon)
+Timezones support | NO | YES
 
 <highlight type="warning">
 The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
@@ -30,6 +29,8 @@ weekly buckets. `time_bucket_ng()` uses an origin date of 1 Jan 2000, because
 it is the first day of the month and the year. This works better with monthly
 or annual aggregates.
 </highlight>
+
+### Sample Usage
 
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
@@ -80,6 +81,20 @@ SELECT timescaledb_experimental.time_bucket_ng('1 week', timestamp '2021-08-26',
    time_bucket_ng
 ---------------------
  2021-08-23 00:00:00
+```
+
+This example shows how `time_bucket_ng()` is used to bucket data
+by months in a specified timezone:
+
+```
+-- note that timestamptz is displayed differently depending on the session parameters
+SET TIME ZONE 'Europe/Moscow';
+SET
+
+SELECT timescaledb_experimental.time_bucket_ng('1 month', timestamptz '2001-02-03 12:34:56 MSK', timezone => 'Europe/Moscow');
+     time_bucket_ng
+------------------------
+ 2001-02-01 00:00:00+03
 ```
 
 You can use `time_bucket_ng()` with continuous aggregates. This example tracks
