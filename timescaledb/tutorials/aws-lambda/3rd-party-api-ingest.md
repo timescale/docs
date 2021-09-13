@@ -168,7 +168,7 @@ To create a Lambda function from your container, you can use the Lambda
 ```bash
 aws lambda create-function --region us-east-1 \
 --function-name docker_function --package-type Image \
---code ImageUri=<ECR Image URI> --role arn:aws:iam::818196790983:role/Lambda
+--code ImageUri=<ECR Image URI> --role <ARN_LAMBDA_ROLE>
 ```
 
 ## Schedule the Lambda function
@@ -193,7 +193,7 @@ an EventBridge trigger. This creates a rule using a [`cron` expression][cron-exa
     [
       {
         "Id": "docker_lambda_trigger",
-        "Arn": "<FUNCTION_ARN>"
+        "Arn": "<ARN_LAMBDA_FUNCTION>"
       }
     ]
     ```
