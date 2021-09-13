@@ -18,8 +18,8 @@ VPC peered network or on public internet.
 </highlight>
 
 ## Setting it up
-In order to set up a VPC peering for your Managed Service for TimescaleDB project please submit
-a request in the Managed Service for TimescaleDB VPC section.
+In order to set up a VPC peering for your Managed Service for TimescaleDB
+project please submit a request in the VPC section of the dashboard.
 
 When creating a new service, you can choose whether the service will be placed
 in a VPC or not: The list of cloud providers and regions contains options like

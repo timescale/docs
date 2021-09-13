@@ -1,8 +1,9 @@
 # Maintenance
-On your Managed Service for TimescaleDB, software updates are handled automatically by us, and you do not need to perform any actions.
+On Managed Service for TimescaleDB, software updates are handled automatically
+by us, and you do not need to perform any actions to keep up to date.
 
-Non-critical software updates are applied during a maintenance window that you can define to suit your workload. 
-If we detect a security vulnerability that affects you, we might need to perform maintenance outside of 
+Non-critical software updates are applied during a maintenance window that you can define to suit your workload.
+If we detect a security vulnerability that affects you, we might need to perform maintenance outside of
 the scheduled maintenance window.
 
 <highlight type="important">
@@ -28,7 +29,7 @@ your maintenance window occur during office hours, so that you can monitor your
 system during the upgrade.
 
 ### Procedure: Adjusting your maintenance window
-1.  [Log in to your Managed Service for TimescaleDB account][mst-login]. Click the name of the service that
+1.  [Log in to your account][mst-login]. Click the name of the service that
     you want to manage the maintenance window for.
 1.  In the `Maintenance window` section, click `Change`.
 1.  In the `Service Maintenance Window` dialog, select the day of the week and
@@ -38,7 +39,7 @@ system during the upgrade.
 1.  Click `Save Changes`.
 
 ## Critical updates
-Critical upgrades and security fixes are installed outside normal maintenance windows when 
+Critical upgrades and security fixes are installed outside normal maintenance windows when
 necessary, and sometimes require a short outage.
 
 Upgrades are performed as rolling upgrades where completely new server instances
