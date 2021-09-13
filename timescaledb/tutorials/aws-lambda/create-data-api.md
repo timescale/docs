@@ -43,9 +43,7 @@ workaround to this issue is to download the
   ```
 1.  At the AWS Lambda console, check to see if your `psycopg2` has been uploaded
     as a Lambda layer:
-    ```bash
     ![aws layers](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/layers.png)
-    ```
 
 ## Create a function to fetch and return data from the database
 When the layer is available to your Lambda function, you can create an API to
