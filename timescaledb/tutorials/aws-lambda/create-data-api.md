@@ -264,7 +264,7 @@ API gateway. In AWS terms, you are setting up a
     of `GET /ticker?symbol={symbol}`:
     ```bash
     aws apigateway put-method-response --region us-east-1 \
-    --rest-api-id <API_ID> --resource-id r9cakv \
+    --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
     --http-method GET --status-code 200
     ```
 1.  Connect the API Gateway to the Lambda function:
@@ -272,7 +272,7 @@ API gateway. In AWS terms, you are setting up a
     aws apigateway put-integration --region us-east-1 \
     --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
     --http-method GET --type AWS --integration-http-method POST \
-    --uri arn:aws:lambda:us-east-1:818196790983:function:simple_timescale/invocations \
+    --uri <ARN_LAMBDA_FUNCTION> \
     --request-templates file://path/to/integration-request-template.json
     ```
 1.  Pass the Lambda function output to the client as a `200 OK` response:
