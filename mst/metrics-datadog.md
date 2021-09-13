@@ -13,13 +13,14 @@ We do not currently support Datadog logging on Managed Service for TimescaleDB.
 </highlight>
 
 ## Create and upload a Datadog API key
-You can create an API key in your Datadog account, and upload it to your Managed Service for TimescaleDB
-account.
+You can create an API key in your Datadog account, and upload it to your Managed
+Service for TimescaleDB account.
 
 <highlight type="important">
-Before you begin, you need to have signed up for both Datadog and Managed Service for TimescaleDB, and be able
-to log in to your Datadog and Managed Service for TimescaleDB dashboards. You also need a running Managed Service for TimescaleDB
-service.
+Before you begin, you need to have signed up for both Datadog and Managed
+Service for TimescaleDB, and be able to log in to your Datadog and Managed
+Service for TimescaleDB dashboards. You also need a running Managed Service for
+TimescaleDB service.
 </highlight>
 
 ### Procedure: Creating a Datadog API key

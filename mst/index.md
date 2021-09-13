@@ -1,9 +1,10 @@
 # Managed Service for TimescaleDB
-Managed Service for TimescaleDB provides managed TimescaleDB services
-hosted in more than 75 regions using AWS, Azure, or GCP. You can use MST to
-create database instances, or services, in the cloud and automate most of your
-most common operational tasks. This allows you to spend more time focusing on
-your time-series workloads and less time worrying about database management.
+Managed Service for TimescaleDB provides a fully-managed TimescaleDB service
+hosted in more than 75 regions using AWS, Azure, or GCP. You can use this
+service to create database instances, or services, in the cloud and automate
+most of your most common operational tasks. This allows you to spend more time
+focusing on your time-series workloads and less time worrying about database
+management.
 
 *   Find out [about services][create-a-service]
 *   Create a [multi-node cluster][mst-multi-node]
@@ -11,8 +12,9 @@ your time-series workloads and less time worrying about database management.
 *   Use [VPC peering][vpc-peering]
 *   Understand [security for MST][security]
 
-Some important Managed Service for TimescaleDB terms:
-*   **Account:** Your Managed Service for TimescaleDB account. You can register for an account on the
+Some important terms:
+*   **Account:** Your Managed Service for TimescaleDB account. You can register
+    for an account on the
     [Managed Service for TimescaleDB signup][sign-up] page.
 *   **Project:** An empty project is created for you automatically when you sign up.
     Projects help you organize your services and billing settings. You can also
@@ -27,8 +29,8 @@ Some important Managed Service for TimescaleDB terms:
     database management that is performed for a given TimescaleDB deployment.
 
 ## Hosted TimescaleDB
-Built and operated by the team behind TimescaleDB, Managed Service for TimescaleDB provides a
-flexible relational time-series database.
+Built and operated by the TimescaleDB team, Managed Service for TimescaleDB
+provides a flexible relational time-series database:
 *   Select between more than 75 regions across AWS, GCP, or Azure
 *   Choose from more than 2000 possible configurations, from 1&nbsp;CPUs and
     20&nbsp;GB disk to 72&nbsp;CPUs and 10&nbsp;TB disk.

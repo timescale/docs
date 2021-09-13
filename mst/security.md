@@ -1,18 +1,18 @@
 # Security overview
 
 ## Cloud provider accounts
-The regular managed TimescaleDB services are hosted under cloud provider accounts
-controlled by Managed Service for TimescaleDB. These accounts are managed only by Timescale
-Cloud (eg Timescale and Aiven) operations personnel and customers cannot directly
-access the cloud provider account resources.
+The regular managed TimescaleDB services are hosted under cloud provider
+accounts controlled by Managed Service for TimescaleDB. These accounts are
+managed only by Timescale and Aiven operations personnel. Customers cannot
+directly access the cloud provider account resources.
 
 ## Virtual machines
-Each Managed Service for TimescaleDB service consists of one or more virtual machines, which are
-automatically launched to the target cloud region chosen by the customer. In
-cloud regions that have multiple Availability Zones (or a similar mechanism),
-the virtual machines are distributed evenly across the zones in order to provide
-best possible service in cases when an entire Availability Zone (may include one
-or more data centers) goes unavailable.
+Each Managed Service for TimescaleDB service consists of one or more virtual
+machines, which are automatically launched to the target cloud region chosen by
+the customer. In cloud regions that have multiple Availability Zones (or a
+similar mechanism), the virtual machines are distributed evenly across the zones
+in order to provide best possible service in cases when an entire Availability
+Zone (may include one or more data centers) goes unavailable.
 
 Service-providing virtual machines are dedicated for a single customer, i.e.
 there is no multi-tenancy on a VM basis, and the customer data never leaves the
@@ -22,8 +22,8 @@ Virtual machines are not reused and will be terminated and wiped upon service
 upgrade or termination.
 
 ## Data encryption
-Managed Service for TimescaleDB at-rest data encryption covers both active service instances as
-well as service backups in cloud object storage.
+Managed Service for TimescaleDB at-rest data encryption covers both active
+service instances as well as service backups in cloud object storage.
 
 Service instances and the underlying VMs use full volume encryption using LUKS
 with a randomly generated ephemeral key per each instance and each volume. The
@@ -45,8 +45,9 @@ same region where the service virtual machines are located.
 Customer access to provided services is only provided over TLS encrypted connections.
 There is no option for using unencrypted plaintext connections.
 
-Communication between virtual machines within Managed Service for TimescaleDB is secured with
-either TLS or IPsec. There are no unencrypted plaintext connections.
+Communication between virtual machines within Managed Service for TimescaleDB is
+secured with either TLS or IPsec. There are no unencrypted plaintext
+connections.
 
 Virtual machines network interfaces are protected by a dynamically configured
 iptables-based firewall that only allows connections from specific addresses both
@@ -63,28 +64,27 @@ The service providing virtual machines are still contained under Timescale Cloud
 provider accounts.
 
 ## Operator access
-Normally all the resources required for providing an Managed Service for TimescaleDB service are
-automatically created, maintained and terminated by the Timescale Cloud
-infrastructure and there is no manual Managed Service for TimescaleDB operator intervention required.
+Normally all the resources required for providing an Managed Service for
+TimescaleDB service are automatically created, maintained and terminated by the
+Timescale Cloud infrastructure and there is no manual operator intervention
+required.
 
-However, the Managed Service for TimescaleDB Operations Team has the capability to securely login
-to the service Virtual Machines for troubleshooting purposes. These accesses are
-audit logged.
+However, the Managed Service for TimescaleDB Operations Team has the capability
+to securely login to the service Virtual Machines for troubleshooting purposes.
+These accesses are audit logged.
 
 No customer access to the virtual machine level is provided.
 
 ## Customer data privacy
-Customer data privacy is of utmost importance at Managed Service for TimescaleDB and is covered
+Customer data privacy is of utmost importance at Timescale and is covered
 by internal Security and Customer Privacy policies as well as the strict EU regulations.
-
-Managed Service for TimescaleDB operators will never access the customer data, unless explicitly
+Timescale operators will never access the customer data, unless explicitly
 requested by the customer in order to troubleshoot a technical issue.
 
-Managed Service for TimescaleDB operations team has mandatory recurring training regarding the
+The Timescale operations team has mandatory recurring training regarding the
 applicable policies.
 
-Periodic Security Evaluation
-Managed Service for TimescaleDB services are periodically assessed and penetration tested for any
+TimescaleDB services are periodically assessed and penetration tested for any
 security issues by an independent professional cyber security vendor.
 
 The latest evaluation report can be found [here][cloud-security-eval].
@@ -108,10 +108,11 @@ get signed up and create your first database instance.
 
 #### Step 1 - Navigate to your TimescaleDB instance
 
-Once you have a database instance setup in the [Managed TimescaleDB portal][timescale-mst-portal],
-browse to this service and click on the 'Overview' tab. In the 'Connection Information'
-section, you will see the port number that is used for database connections. This is
-the port we will protect by managing inbound access.
+Once you have a database instance setup in the
+[Managed Service for TimescaleDB portal][timescale-mst-portal], browse to this
+service and click on the 'Overview' tab. In the 'Connection Information'
+section, you will see the port number that is used for database connections.
+This is the port we will protect by managing inbound access.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/overview-tab.png" alt="Timescale Cloud Overview tab"/>
 
