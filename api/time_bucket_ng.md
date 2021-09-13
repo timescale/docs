@@ -22,8 +22,7 @@ The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
 completely compatible. There are two main differences.
 
 Firstly, `time_bucket_ng()` doesn't work with timestamps prior to `origin`,
-while `time_bucket()` does. The reasons of named limitations are explained 
-further in this article.
+while `time_bucket()` does.
 
 Secondly, the default `origin` values differ. `time_bucket()` uses an origin
 date of 3 Jan 2000, because that date is a Monday. This works better with
