@@ -1,24 +1,24 @@
 # Migrating a service between networks
 
-Timescale Forge services may be migrated between VPCs within a Forge project, and may also
+Timescale Forge services may be migrated between VPCs within a Cloud project, and may also
 be migrated to and from the public network. Typically, once you have attached your service
 to a VPC, it should remain attached to ensure that your applications running in your AWS
 VPC will have continued connectivity to your service.
 
 <highlight type="warning">
-Timescale Forge uses a different DNS name for a Timescale service once it has been attached
+Timescale Cloud uses a different DNS name for a Timescale service once it has been attached
 to a VPC. This means that you will need to update your connection string if migrating a service
 from the public internet into a VPC, or vice-versa.
 </highlight>
 
-To migrate a Timescale Forge service between VPCs, or to migrate to/from the public network,
-navigate to the [Services Dashboard](https://console.forge.timescale.com/dashboard/services),
+To migrate a Timescale Cloud service between VPCs, or to migrate to/from the public network,
+navigate to the [Services Dashboard](https://console.cloud.timescale.com/dashboard/services),
 select the service you wish to migrate, click the `Operations` tab in the service details view,
 and click the `VPC` tab within the `Operations` view. From this view, you have a few options
 depending on the state of your service.
 
 <highlight type="warning">
-After migrating your Timescale Forge service, please allow a few minutes for DNS
+After migrating your Timescale Cloud service, please allow a few minutes for DNS
 propagation. If you receive DNS errors indicating that the DNS name could not be resolved,
 this indicates that more time is needed for DNS propagation.
 </highlight>
@@ -45,10 +45,10 @@ for connecting to your service.
 
 <highlight type="tip">
 When migrating your service into a VPC, ensure that your AWS VPC's security groups
-allow network access from your AWS VPC to the Forge VPC which your service has
+allow network access from your AWS VPC to the Cloud VPC which your service has
 migrated into. Security group configuration was previously covered as part of
 peering connection setup. Double-check to be sure, otherwise you will not be able
-to connect to your Timescale Forge service.
+to connect to your Timescale Cloud service.
 </highlight>
 
 ## Migrate between VPCs
@@ -72,10 +72,10 @@ be updated, only the IP address which the DNS name is associated with will be up
 
 <highlight type="tip">
 When migrating your service between VPCs, ensure that your AWS VPC's security groups
-allow network access from your AWS VPC to the Forge VPC which your service has
+allow network access from your AWS VPC to the Cloud VPC which your service has
 migrated into. Security group configuration was previously covered as part of
 peering connection setup. Double-check to be sure, otherwise you will not be able
-to connect to your Timescale Forge service.
+to connect to your Timescale Cloud service.
 </highlight>
 
 ### Migrate back to public network

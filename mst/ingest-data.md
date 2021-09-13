@@ -1,5 +1,6 @@
 # Ingest data
-There are several different ways of ingesting your data into Timescale Cloud. This section contains instructions to:
+There are several different ways of ingesting your data into Managed Service for
+TimescaleDB. This section contains instructions to:
 *   Bulk upload [from a `.csv` file](#bulk-upload-from-csv-files)
 *   Migrate data [from an existing database][migrate-data]
 *   Migrate data [from InfluxDB][migrate-influxdb]
@@ -11,8 +12,9 @@ There are several different ways of ingesting your data into Timescale Cloud. Th
     such as Kafka
 
 <highlight type="note">
-Before you begin, make sure you have [created your Timescale Cloud
-service](/create-a-service/), and can connect to it using `psql`.
+Before you begin, make sure you have
+[created your Managed Service for TimescaleDB service](/create-a-service/), and
+can connect to it using `psql`.
 </highlight>
 
 ## Procedure: Preparing your new database

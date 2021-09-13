@@ -1,10 +1,10 @@
 module.exports = [
   {
-    title: "Timescale Cloud",
+    title: "Managed Service for TimescaleDB",
     filePath: 'index.md',
-    href: "timescale-cloud",
-    name: 'Timescale Cloud',
-    excerpt: 'Timescale Cloud is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP',
+    href: "mst",
+    name: 'Managed Service for TimescaleDB',
+    excerpt: 'Managed Service for TimescaleDB is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP',
     children: [
       {
         title: "Create services",
@@ -20,7 +20,7 @@ module.exports = [
       },
       {
         title: "Create a multi-node cluster",
-        href: "cloud-multi-node"
+        href: "mst-multi-node"
       },
       {
         title: "Connection pools",

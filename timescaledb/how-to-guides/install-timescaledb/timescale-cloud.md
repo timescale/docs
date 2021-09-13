@@ -1,183 +1,139 @@
 # Exploring Timescale Cloud
 
-Welcome to Timescale Cloud. Timescale Cloud is a managed TimescaleDB service hosted 
-in 75+ regions in AWS, Azure, or GCP. You can [try Timescale Cloud for free][sign-up], 
-no credit card required.
+Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB
+as a service that is easy to get started and powerful enough for the most
+demanding scenarios. You can
+[try Timescale Cloud for free][cloud-signup], no credit card required.
 
-Powered by [TimescaleDB][timescale-features], you can create database instances in the 
-cloud and automate many of your most common operational tasks. This allows you 
-to spend more time focusing on your time-series workloads and less time worrying 
-about database management.
+This tutorial will walk you through setting up your Timescale Cloud account and
+completing your first tutorial project.
 
-Before we start, let's review a few core concepts and phrases:
+### Step 1: Create a Timescale Cloud account [](step1-create-account)
 
-- **Account**: Your Timescale Cloud account. You can register for a Timescale Cloud account on the [Timescale Cloud signup][sign-up] page.
-- **Project**: An empty Project is created for you automatically when you sign-up. Projects organize groups of Services, and have different billing settings. You can use Projects as a way to organize Services in your account and provide access to those Services with other users.
-- **Service**: A Service is an instance that corresponds to a cloud service provider tier (e.g., AWS Timescale-Pro-512-IO-Optimized). You can access all your Services from the 'Services' tab for a given Project.
-- **Database**: Databases are created within a Service. You can view and create a Database within a Service by selecting one of your Services, and then selecting the 'Databases' tab.
-- **Service Plans**: A Service Plan defines the configuration and level of database management that will be performed for a given TimescaleDB deployment.
+Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
 
-### Step 1: Sign up for Timescale Cloud
+Provide your full name, email address, and a strong password to start:
 
-Visit the [Timescale Cloud signup page][sign-up] and supply your name, email address, and password.
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-signup-page.png" alt="Sign up for Timescale Forge"/>
 
-Once you've submitted the information, verify your account by clicking on the link in the
-email you receive. If you don't receive this email shortly after submitting the form,
-check your spam folder.
+You will need to confirm your account by clicking the link you receive via
+email. If you do not receive this link, please first check your spam folder
+and, failing that, please [contact us][contact-timescale].
 
-### Step 2: Create your first service
+### Step 2: Create your first service [](step2-create-service)
 
-After you complete account verification, you can visit the [Timescale Cloud portal][timescale-cloud-portal] 
-and login with your credentials.
+ After you complete account verification, you can visit the
+ [Timescale Cloud console][cloud-console] and login with your credentials.
 
-You can create a new service by clicking on the `Create a new service` button.
+ To begin, click 'Create service'.
 
-In the resulting screen, you'll see several options that enable you to choose:
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-creation.png" alt="Set up a Timescale Forge service"/>
 
-- **Service type**. Today, we support TimescaleDB and Grafana services.
-- **Cloud provider**. We support Amazon Web Services, Google Cloud, or Microsoft Azure.
-- **Cloud region**. We support most cloud regions offered by each cloud provider.
-- **Service plan**. We support many common configurations of CPU, memory, storage, backup, and nodes. *If you're still a Timescale Cloud trial user*, we recommend using the `Dev` plan as it will be most cost effective during your evaluation period.
+1. First, supply your service name (e.g., `acmecorp-test` or `acmecorp-dev`).
+1. Next, choose your CPU and memory configuration, from (0.25 CPU, 1GB RAM) to
+(8 CPU, 32 GB RAM).
+1. Select your storage requirements, from 10 GB to 1 TB.  Note that with TimescaleDB
+compression, this is typically equivalent to 170 GB to 67+ TB of uncompressed
+storage (although compression rates can vary based on your data).
+1. Note the estimated cost of running your chosen configuration. Feel free to
+[contact us][contact-timescale] if you would like to discuss pricing and
+configuration options best suited for your use case.
+1. Click 'Create service' once your configuration is complete.
 
 <highlight type="tip">
-During your Timescale Cloud trial, you have up to $300 USD in credits to use.
-This will be sufficient to complete all our tutorials and run a few test projects.
+Don't worry if too much about the size settings that you choose initially. With
+Timescale Cloud, it's easy to modify both the compute (CPU/Memory) and storage
+associated with the service that you just created. As you get to know
+TimescaleDB and how your data processing needs vary, it's easy to
+[right-size your service with a few clicks](#cloud-resize)!
 </highlight>
 
-If you're interested in learning more about pricing of Timescale Cloud, visit the
-[Timescale Cloud pricing calculator][timescale-pricing]. Or, [contact us][contact]
-and we will be happy to walk you through the best Timescale Cloud configuration
-for your use cases.
+After you select 'Create service', you will see confirmation of your service account and
+password information. You should save the information in this confirmation screen in
+a safe place:
 
-Once you've selected your service options, click `Create Service`.
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-confirmation.png" alt="View Timescale Forge service information"/>
 
-It will take a few minutes for your service to provision in your cloud. Now is
-a good time to familiarize yourself with some of the [features of TimescaleDB][using-timescale]
-and our [getting started tutorial][getting-started].
+<highlight type="warning">
+ If you forget your password in the future, you can reset your password from the *service dashboard*.
+</highlight>
 
-### Step 3: Install psql
+It will take a couple minutes for your service to be provisioned. When your database is
+ready for connection, you should see a green `Running` label above the service in the
+service dashboard.
 
-Nearly all of our tutorials require some working knowledge of `psql`, the command-line
-utility for configuring and maintaining PostgreSQL. We recommend
-[installing psql][install-psql].
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-dashboard.png" alt="View all Timescale Forge services"/>
 
-### Step 4: Connect to your database using psql
+Select any service to view *service details*. You can obtain connection,
+configuration, and utilization information. In addition, you can reset the
+password for your service, power down or power up any service (which stops
+or starts your compute, although your storage persists), or delete
+a service altogether.
 
-You will see a green `Running` label and a green dot under the "Nodes" column when 
-your instance is ready for use.
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-details.png" alt="View Timescale Forge service information"/>
 
-Once your instance is ready, navigate to the ‘Overview Tab’ of your Timescale
-Cloud dashboard and locate your `host`, `port`, and `password`, as highlighted below.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/docs.timescale.com/hello-timescale/NYC_figure1_1.png" alt="NYC Taxis"/>
-
-Afterward, connect to your Timescale Cloud database from `psql`
-by typing the command below into your terminal,
-ensuring that you replace the {curly brackets} with your real
-password, hostname, and port number found in the overview tab.
-
-```bash
-psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/defaultdb?sslmode=require"
-```
-
-You should see the following connection message:
-
-```bash
-psql (12.2, server 11.6)
-SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-Type "help" for help.
-tsdbadmin@defaultdb=>
-```
-
-### Step 5: Verify that TimescaleDB is installed
-
-To verify that TimescaleDB is installed, run the `\dx` command
-to list all installed extensions to your PostgreSQL database.
-You should see something similar to the following output:
-
-```sql
-                  List of installed extensions
-| Name        | Version | Schema     | Description                                  |
-|-------------|---------|------------|----------------------------------------------|
-| plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language                 |
-| timescaledb | 1.6.0   | public     | Enables scalable inserts and complex queries |
-```
-
-### Step 6: Hello, Timescale!
+### Step 3: Complete your first tutorial [](step3-tutorial)
 
 Congratulations! You are now up and running with Timescale Cloud. In order to
 familiarize yourself with the features and capabilities of the product, we
 recommend that you complete the [Getting Started][getting-started] tutorial.
 
----
+To simplify operations with TimescaleDB, each Timescale Cloud service comprises a
+single "database" per PostgreSQL terminology, and all Timescale Cloud services
+come with TimescaleDB already installed. So skip the `CREATE DATABASE` step
+and the "adding the TimescaleDB extension" step of the tutorial and
+jump right to the "Define your data schema" section of the [Getting Started][getting-started]
+tutorial. Wherever the instructions indicate that you should use the `nyc_data`
+database, use `tsdb` instead. `tsdb` is the default database name for every
+Timescale Cloud service. And if you need another database, it's just a click away.
 
-## Advanced Timescale Cloud Configuration
+### Step 4: Learn more about TimescaleDB
 
-### Securing network access to Timescale Cloud
+Read about TimescaleDB features in our documentation:
 
-One very critical piece of securing your database within Timescale Cloud is network protection.
+- Create your first ”[hypertable][hypertable-info]”.
+- Run your first query using [time_bucket()][time-bucket-info].
+- Trying more advanced time-series functions, starting with [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
 
-TimescaleDB provides the ability to configure, in a fine-grained manner, the
-set of source IP addresses and ranges, as well as connection ports, that can
-access your Timescale Cloud services.
+### Step 5: Keep testing during your free trial and enter your billing information when you're ready
 
-This tutorial will walk you through how to configure this capability.
+You're now on your way to a great start with Timescale!
 
-#### Before you start
+You will have an unthrottled, 30-day free trial with Timescale Cloud to
+continue to test your use case. Before the end of your trial, we encourage you
+to add your credit card information. This will ensure a smooth transition after
+your trial period concludes.
 
-Be sure to follow the instructions to [setup Timescale Cloud][timescale-cloud-install] in order to
-get signed up and create your first database instance.
+### Summary
 
-#### Step 1 - Navigate to your TimescaleDB instance
+We're excited to play a small part in helping you build a best-in-class
+time-series application or monitoring tool. If you have any questions, please
+feel free to [join our community Slack group][slack-info]
+or [contact us][contact-timescale] directly.
 
-Once you have a database instance setup in the [Timescale Cloud portal][timescale-cloud-portal],
-browse to this service and click on the 'Overview' tab. In the 'Connection Information'
-section, you will see the port number that is used for database connections. This is
-the port we will protect by managing inbound access.
+Now, it's time to cloud!
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/overview-tab.png" alt="Timescale Cloud Overview tab"/>
+## Advanced configuration and multi-node setup
 
-#### Step 2 - Find the allowed IP addresses section
+Timescale Cloud is a versatile hosting service that provides a growing list of
+advanced features for your PostgreSQL and time-series data workloads.
 
-Scroll down to find the 'Allowed IP Addresses' section. By default, this value is set to
-`0.0.0.0/0` which is actually wide-open.
+Please see additional documentation on how to:
+ * [Resize compute and storage][resize] at any time!
+ * [Customize your database configuration][configuration] easily!
+ * [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud!
 
-<highlight type="warning">
- This wide-open setting simplifies getting started since it will accept incoming 
- traffic from all sources, but you will absolutely want to narrow this range.
-</highlight>
-
-If you are curious about how to interpret this [Classless Inter-Domain Routing][cidr-wiki] (CIDR) syntax,
-check out [this great online tool][cidr-tool] to help decipher CIDR.
-
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/allowed-ip.png" alt="Allowed IP addresses"/>
-
-#### Step 3 - Change the allowed IP addresses section
-
-Click 'Change' and adjust the CIDR value based on where your source traffic will come from.
-For example, entering a value of `192.168.1.15/32` will ONLY allow incoming traffic from a
-source IP of `192.168.1.15` and will deny all other traffic.
-
-#### Step 4 - Save your changes
-Click 'Save Changes' and see this take effect immediately.
-
-#### Conclusion
-Limiting IP address inbound access is just one option to improve the security of your Timescale
-Cloud database instance. There are many other types of security measures you should take into
-account when securing your data. To learn more about security options within Timescale Cloud,
-visit the [Timescale Cloud Knowledge Base][timescale-cloud-kb].
-
-
-[timescale-cloud-install]: /how-to-guides/install-timescaledb//timescale-cloud/installation-timescale-cloud
-[cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[cidr-tool]: http://www.subnet-calculator.com/cidr.php
-[timescale-cloud-kb]: https://kb.timescale.cloud/en/collections/1600092-security
-[timescale-cloud-portal]: http://portal.timescale.cloud
-[sign-up]: https://www.timescale.com/cloud-signup
-[timescale-features]: https://www.timescale.com/products
-[timescale-pricing]: https://www.timescale.com/products#cloud-pricing
-[contact]: https://www.timescale.com/contact
-[using-timescale]: /overview/core-concepts/
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[cloud-signup]: https://console.cloud.timescale.com
+[billing-info]: /cloud/managing-billing-payments
+[slack-info]: https://slack-login.timescale.com
 [install-psql]: /how-to-guides/connecting/psql/
-
+[hello-timescale]: /tutorials/tutorial-hello-timescale
+[cloud-console]: https://console.cloud.timescale.com/login
+[contact-timescale]: https://www.timescale.com/contact
+[hypertable-info]: /how-to-guides/hypertables
+[time-bucket-info]: /how-to-guides/query-data/advanced-analytic-queries#time-bucket
+[gap-filling-info]: /how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[aggregates-info]: https://docs.timescale.com/latest/tutorials/continuous-aggs-tutorial
+[resize]: /getting-started/exploring-cloud/cloud-resize
+[configuration]: /getting-started/exploring-cloud/cloud-configuration
+[multi-node]: /getting-started/exploring-cloud/cloud-multi-node

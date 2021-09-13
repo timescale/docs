@@ -132,11 +132,11 @@ module.exports = [
         ],
       },
       {
-        title: 'Monitor Timescale Cloud with Prometheus',
-        href: 'setting-up-timescale-cloud-endpoint-for-prometheus',
-        tags: ['prometheus', 'monitor', 'learn', 'timescaledb'],
+        title: 'Monitor Managed Service for TimescaleDB with Prometheus',
+        href: 'setting-up-timescale-mst-endpoint-for-prometheus',
+        excerpt: 'Monitor Managed Service for TimescaleDB with Prometheus',
         keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-        excerpt: 'Monitor Timescale Cloud with Prometheus',
+        excerpt: 'Monitor Timesc with Prometheus',
       },
       {
         title: 'Monitor a Django application with Prometheus',
@@ -251,6 +251,7 @@ module.exports = [
       {
         title: 'Sample datasets',
         href: 'sample-datasets',
+        excerpt: 'Sample datasets for Tableau and TimescaleDB',
         tags: ['data', 'learn', 'timescaledb'],
         keywords: ['tutorial', 'Tableau', 'TimescaleDB'],
         excerpt: "Sample datasets for Tableau and TimescaleDB"

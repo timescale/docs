@@ -1,6 +1,7 @@
 # User Management
-You can add new users, and manage existing users, in the Timescale Cloud console. New users can be added to an entire project, or a
-single service.
+You can add new users, and manage existing users, in the Managed Service for
+TimescaleDB console. New users can be added to an entire project, or a single
+service.
 
 ## Project members
 You can invite new users to join your project as project members. There are
@@ -14,7 +15,7 @@ several roles available for project members:
 |Read-only|❌|❌|❌|❌|✅|
 
 ### Procedure: Adding project members
-1.  [Log in to your Timescale Cloud account][mst-login]. By default, you start in the
+1.  [Log in to your account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Check that you are in the project that you want to change the members for,
     and click `Members`.
@@ -36,7 +37,7 @@ Your service must be running before you can manage users.
 </highlight>
 
 ### Procedure: Adding service users
-1.  [Log in to your Timescale Cloud account][mst-login]. By default, you start in the
+1.  [Log in to your account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click the name of the service that you want to add users to, and navigate
     to the `Users` tab.

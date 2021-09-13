@@ -1,10 +1,10 @@
 module.exports = [
   {
-    title: "Timescale Forge",
+    title: "Timescale Cloud",
     filePath: 'index.md',
-    href: "timescale-forge",
-    name: 'Timescale Forge',
-    excerpt: 'Timescale Forge is a fully managed TimescaleDB service that allows you to start querying data in less than a minute!',
+    href: "cloud",
+    name: 'Timescale Cloud',
+    excerpt: 'Timescale Cloud is a fully managed TimescaleDB service that allows you to start querying data in less than a minute!',
     children: [
       {
         title: "Create a service",
@@ -20,7 +20,7 @@ module.exports = [
       },
       {
         title: "Create a multi-node cluster",
-        href: "forge-multi-node"
+        href: "cloud-multi-node"
       },
       {
         title: "VPC peering with AWS",

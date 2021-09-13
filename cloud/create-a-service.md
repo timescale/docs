@@ -1,11 +1,11 @@
-# Exploring Timescale Forge
-Welcome to Timescale Forge! Timescale Forge is a cloud-native TimescaleDB as a
+# Exploring Timescale Cloud
+Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB as a
 service that is easy to get started and powerful enough for the most demanding
-scenarios. This tutorial walks you through setting up your Timescale Forge
+scenarios. This tutorial walka you through setting up your Timescale Cloud
 account and completing your first tutorial project.
 
-### Create a Timescale Forge account
-Sign up for Timescale Forge by visiting [forge.timescale.com][forge-signup].
+### Create a Timescale Cloud account
+Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
 Provide your full name, email address, and a strong password to start:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-signup-page.png" alt="Sign up for Timescale Forge"/>
@@ -15,8 +15,8 @@ If you do not receive this link, check your spam folder first, then
 [contact us][contact-timescale].
 
 ### Create your first service
-When you have completed account verification, visit the
-[Timescale Forge console][forge-console] and login with your credentials.
+When you have completes account verification, visit the
+[Timescale Cloud console][cloud-console] and login with your credentials.
 
 To begin, click `Create service`.
 
@@ -35,10 +35,10 @@ To begin, click `Create service`.
 
 <highlight type="tip">
 Don't worry if too much about the size settings that you choose initially.
-With Timescale Forge, it's easy to modify both the compute (CPU/Memory) and
+With Timescale Cloud, it's easy to modify both the compute (CPU/Memory) and
 storage associated with the service that you just created. As you get to know
 TimescaleDB and how your data processing needs vary, it's easy to [right-size
-your service with a few clicks](/timescale-forge/latest/scaling-a-service/)!
+your service with a few clicks](/cloud/latest/scaling-a-service/)!
 </highlight>
 
 After you select `Create service`, you will see confirmation of your service
@@ -66,7 +66,7 @@ a service altogether.
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/forge_running-service.png" alt="View Timescale Forge service information"/>
 
 ### Complete your first tutorial
-Congratulations! You are now up and running with Timescale Forge. To
+Congratulations! You are now up and running with Timescale Cloud. To
 familiarize yourself with the features and capabilities of the product, we
 recommend that you complete the [Getting Started][getting-started] tutorial.
 
@@ -81,7 +81,7 @@ Read about TimescaleDB features in our documentation:
 ### Keep testing during your free trial
 You’re now on your way to a great start with Timescale!
 
-You will have an unthrottled, 30-day free trial with Timescale Forge to
+You will have an unthrottled, 30-day free trial with Timescale Cloud to
 continue to test your use case. Before the end of your trial, we encourage you
 to add your credit card information. This will ensure a smooth transition after
 your trial period concludes.
@@ -93,18 +93,18 @@ feel free to [join our community Slack group][slack-info]
 or [contact us][contact-timescale] directly.
 
 ## Advanced configuration and multi-node setup
-Timescale Forge is a versatile hosting service that provides a growing list of
+Timescale Cloud is a versatile hosting service that provides a growing list of
 advanced features for your PostgreSQL and time-series data workloads.
 
 For additional documentation on how to:
 *   [Resize compute and storage][resize] at any time
 *   [Customize your database configuration][configuration] easily
-*   [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Forge
+*   [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud
 
-[forge-signup]: https://forge.timescale.com
+[cloud-signup]: https://console.cloud.timescale.com
 [slack-info]: https://slack-login.timescale.com
 [getting-started]: /timescaledb/latest/getting-started/
-[forge-console]: https://console.forge.timescale.com/login
+[cloud-console]: https://console.cloud.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
 [hypertable-info]: /timescaledb/latest/how-to-guides/hypertables
 [time-bucket-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket
@@ -112,4 +112,4 @@ For additional documentation on how to:
 [aggregates-info]: /timescaledb/latest/getting-started/create-cagg
 [resize]: /scaling-a-service/
 [configuration]: /customize-configuration/
-[multi-node]: /forge-multi-node/
+[multi-node]: /cloud-multi-node/

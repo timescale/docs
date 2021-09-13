@@ -13,18 +13,18 @@ module.exports = [
         excerpt: 'Install TimescaleDB',
         children: [
           {
-            title: "Timescale Forge",
-            href: "installation-forge",
-            tags: ['tsf', 'install'],
-            keywords: ['install', 'Timescale Forge'],
-            excerpt: 'Install Timescale Forge'
-          },
-          {
             title: "Timescale Cloud",
             href: "installation-cloud",
             tags: ['tsc', 'install'],
             keywords: ['install', 'Timescale Cloud'],
-            excerpt: 'Install Timescale Cloud',
+            excerpt: 'Install Timescale Cloud'
+          },
+          {
+            title: "Managed Service for TimescaleDB",
+            href: "installation-mst",
+            tags: ['mst', 'install'],
+            keywords: ['install', 'Managed Service for TimescaleDB'],
+            excerpt: 'Install a managed service for TimescaleDB',
           },
           {
             title: "Self hosted (including containers)",

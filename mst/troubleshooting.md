@@ -1,6 +1,6 @@
 # Troubleshooting
 This section covers some common errors or problems you might run into while
-using your Timescale Cloud account.
+using your Managed Service for TimescaleDB account.
 
 ## Database is low on disk, memory, or CPU
 When your database reaches 90% of your allocated disk, memory, or CPU resources,
@@ -8,17 +8,18 @@ an automated message is sent to the email address listed on your account. The
 email looks like this:
 
 ```txt
-Your Timescale Cloud service, in project "ExampleAccount", is running low on
+Your Managed Service for TimescaleDB service, in project "ExampleAccount", is running low on
 CPU. Running low on CPU affects performance and could affect service
 availability. Please either optimize your usage pattern or reduce the workload,
 and consider upgrading to a larger plan to avoid service outage.
 ```
 
-You can resolve this by logging in to your Timescale Cloud account and increasing your
-available resources. From the Timescale Cloud Dashboard, select the service that you want to
-increase resources for. In the `Overview` tab, locate the `Service Plan`
-section, and click `Upgrade Plan`. Select the plan that suits your requirements,
-and click `Upgrade` to enable the additional resources.
+You can resolve this by logging in to your Managed Service for TimescaleDB
+account and increasing your available resources. From the Managed Service for
+TimescaleDB Dashboard, select the service that you want to increase resources
+for. In the `Overview` tab, locate the `Service Plan` section, and click
+`Upgrade Plan`. Select the plan that suits your requirements, and click
+`Upgrade` to enable the additional resources.
 
 If you run out of resources regularly, you might need to consider using your
 resources more efficiently. Consider enabling [compression][howto-compression],
