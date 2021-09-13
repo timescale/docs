@@ -30,7 +30,7 @@ module.exports = [
         href: 'analyze-intraday-stocks',
         tags: ['finance', 'analyze', 'learn', 'timescaledb'],
         keywords: ['finance', 'tutorial', 'TimescaleDB'],
-        excerpy: 'Analyze intraday stock data with TimescaleDB',
+        excerpt: 'Analyze intraday stock data with TimescaleDB',
         children: [
           {
             title: 'Design database schema',
