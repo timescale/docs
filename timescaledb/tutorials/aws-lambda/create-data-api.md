@@ -109,13 +109,11 @@ Lambda using the `create-function` AWS command.
   ```bash
   aws lambda create-function --function-name simple_api_function \
   --runtime python3.8 --handler function.lambda_handler \
-  --role arn:aws:iam::818196790983:role/Lambda --zip-file fileb://function.zip
+  --role <ARN_LAMBDA_ROLE> --zip-file fileb://function.zip
   ```
 1.  You can check that the function has been uploaded correctly by using this
     command in the AWS console:
-    ```bash
     ![aws lambda uploaded](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/lambda_function.png)
-    ```
 1.  If you make changes to your function code, you need to zip the file again and use the
 `update-function-code` command to upload the changes:
   ```bash
