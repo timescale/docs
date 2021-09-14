@@ -4,13 +4,17 @@ not need to perform any actions.
 
 Non-critical software updates are applied during a maintenance window that you
 can define to suit your workload.  If we detect a security vulnerability that
-affects you, we might need to perform maintenance outside of  the scheduled
+affects you, we might need to perform maintenance outside of the scheduled
 maintenance window.
 
 <highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to changes.
 </highlight>
+
+Upgrades are performed as zero-downtime upgrades during maintenance windows.
+This means that there is no outage of your services during the upgrade. However,
+all connections and transactions in progress during the upgrade are reset.
 
 ## Non-critical maintenance updates
 Non-critical upgrades are made available before the upgrade is performed
@@ -43,16 +47,6 @@ system during the upgrade.
 
 ## Critical updates
 Critical upgrades and security fixes are installed outside normal maintenance
-windows when  necessary, and sometimes require a short outage.
-
-Upgrades are performed as rolling upgrades where completely new server instances
-are built alongside the old ones. When the new instances are up and running they
-are synchornized with the old servers, and a controlled automatic failover is
-performed to switch the service to the new upgraded servers. The old servers are
-retired automatically after the new servers have taken over. The controlled
-failover is a very quick and safe operation and it takes less than a minute to
-get clients connected again. In most cases, there is five to ten second outage
-during this process.
-
+windows when necessary, and sometimes require a short outage.
 
 [cloud-login]: https://console.forge.timescale.com/login
