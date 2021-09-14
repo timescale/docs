@@ -1,7 +1,7 @@
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
 The `time_bucket_ng()` (next generation) experimental function is an updated
 version of  the original [`time_bucket()`][time_bucket] function. While
-`time_bucket` works only with small units of time, the `time_bucket_ng()`
+`time_bucket` works only with small units of time,  `time_bucket_ng()` 
 supports years and months in addition to small units of time.
 
 <highlight type="warning">
