@@ -1,6 +1,5 @@
 # Multinode authentication
-
-Once you have your instances set up, the next task is configuring your
+When you have your instances set up, the next task is configuring your
 PostgreSQL instances to accept connections from the access node to the
 data nodes. The authentication mechanism used when accepting such
 connections might be different than the one used by external clients
@@ -17,7 +16,6 @@ examples for how to enable [password authentication](#password-authentication) o
 [certificate authentication](#certificate-authentication) for additional context.
 
 ## Trust authentication
-
 This is the quickest path to getting a multi-node environment up and running,
 but should not be used for any sort of secure data.
 
@@ -92,7 +90,6 @@ nodes.
 
 
 ## Password authentication
-
 With password authentication, every user role that uses distributed
 hypertables needs an "internal" password for establishing connections
 between the access node and the data nodes. Such a password is only
@@ -141,7 +138,6 @@ host    all       all   192.0.2.20   scram-sha-256 #where '192.0.2.20' is the ac
 ```
 
 ### 3. Create passwords on the access node
-
 The password file `passfile` stores passwords for each role that the
 access node connects with to data nodes. The file is by default
 located in the data directory ([PostgreSQL
@@ -168,12 +164,10 @@ pg_ctl reload
 ```
 
 ### 5. Add the data nodes to the access node
-
 Once the nodes are properly configured, you can continue following the
 [multi-node setup][init_data_nodes].
 
 ### 6. Setting up additional roles
-
 First, create the role on the access node if needed, and grant it
 usage to the foreign server objects for the data nodes:
 
@@ -263,7 +257,6 @@ Email Address []:
 ```
 
 ### 2. Generate keys and certificates for nodes
-
 Keys and certificates serve similar but distinct purposes for the data nodes and
 access node respectively.  For the data nodes, a signed certificate verifies the
 node to the access node.  For the access node a signed certificate is used to
@@ -326,7 +319,6 @@ hostssl   all       all         all       cert    clientcert=1
 ```
 
 ### 4. Set up user permissions
-
 The access node does not have any user keys nor certificates, so it cannot yet log
 into the data node.  User key files and user certificates are stored in
 `timescaledb/certs` in the data directory.
@@ -342,7 +334,6 @@ To generate a key and certificate file:
 1. Compute the base name for the files (using [md5sum][]), generate a subject
   identifier, and create names for the key and certificate files. Here, for user
   `postgres`:
-
   ```bash
   pguser=postgres #change value for a different user name
   base=`echo -n $pguser | md5sum | cut -c1-32`
@@ -350,38 +341,29 @@ To generate a key and certificate file:
   key_file="timescaledb/certs/$base.key"
   crt_file="timescaledb/certs/$base.crt"
   ```
-
   Most of the data is copied from the server certificate for the
   subject, but the common name (`CN`) needs to be set to the user
   name.
-
 2. Generate a new random user key.
-
   ```bash
   openssl genpkey -algorithm RSA -out "$key_file"
   ```
-
 3. Generate a certificate signing request. The CSR file is just
   temporary, so we can place it in directly in the data directory. It
   will be removed later.
-
   ```bash
   openssl req -new -sha256 -key $key_file -out "$base.csr" -subj "$subj"
   ```
-
 4. Sign the certificate signing request with the node key.
-
   ```bash
   openssl ca -batch -keyfile server.key -extensions v3_intermediate_ca \
 	   -days 3650 -notext -md sha256 -in "$base.csr" -out "$crt_file"
   rm $base.csr
   ```
-
 5. Append the node certificate to the user certificate. This is
   necessary to complete the certificate verification chain and make
   sure that all certificates are available on the data node, up to a
   trusted certificate (stored in `root.crt`).
-
   ```bash
   cat >>$crt_file <server.crt
   ```
@@ -390,12 +372,10 @@ The data node is now set up to accept certificate authentication, and
 the data and access nodes have keys and the user has a certificate.
 
 ### 5. Add the data nodes to the access node
-
 Once the nodes are properly configured, you can continue following the
 [multi-node setup][init_data_nodes].
 
 ### 6. Setting up additional roles
-
 Allowing new roles to use the certificate to authenticate is simply a matter of
 adding them to the certificate role.  Aside from that, the process of adding new
 users should be the same as for [trust authentication](#trust-authentication).
