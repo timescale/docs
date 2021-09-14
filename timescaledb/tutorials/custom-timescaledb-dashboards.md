@@ -139,7 +139,7 @@ compressing the data. You can get this additional information by querying the
 `chunk_compression_stats` function with the `conditions` hypertable:
 
 ```sql
-tsdb=> SELECT * FROM chunks_detailed_size('conditions');
+tsdb=> SELECT * FROM chunk_compression_stats('conditions');
 -[ RECORD 1 ]------------------+----------------------
 chunk_schema                   | _timescaledb_internal
 chunk_name                     | _hyper_6_913_chunk
