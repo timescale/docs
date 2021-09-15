@@ -26,7 +26,7 @@ module.exports = [
         href: 'contribute-to-docs',
       },
       {
-        title: 'TimescaleDB Licensing Comparison',
+        title: 'TimescaleDB License Comparison',
         href: 'timescaledb-license-comparison',
       },
     ],
