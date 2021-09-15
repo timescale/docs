@@ -2,21 +2,42 @@ module.exports = [
     {
       title: "Code quick starts",
       href: "quick-start",
+      pageComponents: ['featured-cards'],
       children: [
         {
-          href: "node"
+          title: 'Node.js',
+          href: "node",
+          tags: ['node', 'learn', 'timescaledb'],
+          keywords: ['Node.js', 'tutorial', 'TimescaleDB'],
+          excerpt: "Learn about using TimescaleDB with node.js"
         },
         {
-          href: "python"
+          title: "Python",
+          href: "python",
+          tags: ['python', 'learn', 'timescaledb'],
+          keywords: ['Python', 'tutorial', 'TimescaleDB'],
+          excerpt: "Learn about using TimescaleDB with Python"
         },
         {
-          href: "ruby"
+          title: "Ruby",
+          href: "ruby",
+          tags: ['ruby', 'learn', 'timescaledb'],
+          keywords: ['Ruby', 'tutorial', 'TimescaleDB'],
+          excerpt: "Learn about using TimescaleDB with Ruby"
         },
         {
-          href: "golang"
+          title: "Golang",
+          href: "golang",
+          tags: ['golang', 'learn', 'timescaledb'],
+          keywords: ['Golang', 'tutorial', 'TimescaleDB'],
+          excerpt: "Learn about using TimescaleDB with Golang"
         },
         {
-          href: "java"
+          title: "Java",
+          href: "java",
+          tags: ['java', 'learn', 'timescaledb'],
+          keywords: ['Java', 'tutorial', 'TimescaleDB'],
+          excerpt: "Learn about using TimescaleDB with Java"
         }
       ]
     }
