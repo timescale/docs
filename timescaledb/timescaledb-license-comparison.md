@@ -3,12 +3,12 @@
 ### TimescaleDB Open Source vs TimescaleDB Community
 
 There are two versions of TimescaleDB available:
-TimescaleDB Open Source it’s the version of TimescaleDB that is available under the
+
+### TimescaleDB Open Source (Apache 2.0)
+This is the version of TimescaleDB that is available under the
 [Apache 2.0 license](https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE).
 This is a classic open source license, meaning that it is completely unrestricted -
 anyone can take this code and offer it as-a-service, i.e. selling this product in the cloud.
-
-### TimescaleDB Open Source (Apache 2.0)
 
 - _Can I install TimescaleDB Open Source in my own premises and run it for free?_ Yes.
 - _Can I sell TimescaleDB Open Source as a service, even if I’m not the main contributor?_ Yes.
