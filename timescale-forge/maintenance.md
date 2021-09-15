@@ -1,5 +1,5 @@
 # Maintenance
-On Timescale Forge, software updates are handled automatically by us, and you do
+On Timescale Forge, minor software updates are handled automatically by us, and you do
 not need to perform any actions.
 
 Non-critical software updates are applied during a maintenance window that you
@@ -9,12 +9,13 @@ maintenance window.
 
 <highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
-it points to changes.
+it points to often changes.
 </highlight>
 
 Upgrades are performed as zero-downtime upgrades during maintenance windows.
 This means that there is no outage of your services during the upgrade. However,
-all connections and transactions in progress during the upgrade are reset.
+all connections and transactions in progress during the upgrade are reset. In most
+cases, the database connection is automatically restored after the reset.
 
 ## Non-critical maintenance updates
 Non-critical upgrades are made available before the upgrade is performed
