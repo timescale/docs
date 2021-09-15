@@ -43,9 +43,7 @@ workaround to this issue is to download the
   ```
 1.  At the AWS Lambda console, check to see if your `psycopg2` has been uploaded
     as a Lambda layer:
-    ```bash
     ![aws layers](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/layers.png)
-    ```
 
 ## Create a function to fetch and return data from the database
 When the layer is available to your Lambda function, you can create an API to
@@ -111,13 +109,11 @@ Lambda using the `create-function` AWS command.
   ```bash
   aws lambda create-function --function-name simple_api_function \
   --runtime python3.8 --handler function.lambda_handler \
-  --role arn:aws:iam::818196790983:role/Lambda --zip-file fileb://function.zip
+  --role <ARN_LAMBDA_ROLE> --zip-file fileb://function.zip
   ```
 1.  You can check that the function has been uploaded correctly by using this
     command in the AWS console:
-    ```bash
     ![aws lambda uploaded](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/lambda_function.png)
-    ```
 1.  If you make changes to your function code, you need to zip the file again and use the
 `update-function-code` command to upload the changes:
   ```bash
@@ -268,7 +264,7 @@ API gateway. In AWS terms, you are setting up a
     of `GET /ticker?symbol={symbol}`:
     ```bash
     aws apigateway put-method-response --region us-east-1 \
-    --rest-api-id <API_ID> --resource-id r9cakv \
+    --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
     --http-method GET --status-code 200
     ```
 1.  Connect the API Gateway to the Lambda function:
@@ -276,7 +272,7 @@ API gateway. In AWS terms, you are setting up a
     aws apigateway put-integration --region us-east-1 \
     --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
     --http-method GET --type AWS --integration-http-method POST \
-    --uri arn:aws:lambda:us-east-1:818196790983:function:simple_timescale/invocations \
+    --uri <ARN_LAMBDA_FUNCTION> \
     --request-templates file://path/to/integration-request-template.json
     ```
 1.  Pass the Lambda function output to the client as a `200 OK` response:
