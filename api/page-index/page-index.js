@@ -245,6 +245,7 @@ module.exports = [
         title: "Hyperfunctions",
         type: 'directory',
         href: "hyperfunctions",
+        newItem: "September 31, 2021",
         children: [
           {
             title: "approximate_row_count",
