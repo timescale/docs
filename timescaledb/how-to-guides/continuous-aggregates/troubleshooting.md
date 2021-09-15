@@ -20,7 +20,7 @@ policies and reevaluate the values that are dragging from past to present.
 You can set up an after insert rule for your hypertable or upsert to trigger
 something that can validate what needs to be refreshed as the data is merged.
 
-Let’s say you inserted ordered timeframes named A, B, D, and F, and you already
+Let's say you inserted ordered timeframes named A, B, D, and F, and you already
 have a continuous aggregation looking for this data. If you now insert E, you
 need to refresh E and F.  However, if you insert C we'll need to refresh C, D, E
 and F.
