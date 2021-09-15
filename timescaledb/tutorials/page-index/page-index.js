@@ -7,7 +7,11 @@ module.exports = [
         title: 'Introduction to IoT',
         href: 'nyc-taxi-cab',
         tags: ['iot', 'query', 'learn', 'tsc'],
+<<<<<<< HEAD
         keywords: ['IoT', 'tutorial', 'Timescale Cloud'],
+=======
+        keywords: ['IoT', 'tutorial', 'Timescale Forge'],
+>>>>>>> origin/latest
         excerpt: 'An introduction to IoT using NYC taxi data',
       },
       {
@@ -132,11 +136,11 @@ module.exports = [
         ],
       },
       {
-        title: 'Monitor Managed Service for TimescaleDB with Prometheus',
-        href: 'setting-up-timescale-mst-endpoint-for-prometheus',
-        excerpt: 'Monitor Managed Service for TimescaleDB with Prometheus',
+        title: 'Monitor Timescale Cloud with Prometheus',
+        href: 'setting-up-timescale-cloud-endpoint-for-prometheus',
+        tags: ['prometheus', 'monitor', 'learn', 'timescaledb'],
         keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-        excerpt: 'Monitor Timesc with Prometheus',
+        excerpt: 'Monitor Timescale Cloud with Prometheus',
       },
       {
         title: 'Monitor a Django application with Prometheus',
@@ -251,7 +255,6 @@ module.exports = [
       {
         title: 'Sample datasets',
         href: 'sample-datasets',
-        excerpt: 'Sample datasets for Tableau and TimescaleDB',
         tags: ['data', 'learn', 'timescaledb'],
         keywords: ['tutorial', 'Tableau', 'TimescaleDB'],
         excerpt: "Sample datasets for Tableau and TimescaleDB"
