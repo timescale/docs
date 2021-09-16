@@ -37,7 +37,7 @@ Npgsql does not support the shorter URI-based form of a PostgreSQL connection st
 
 ### Procedure: Connecting .NET to TimescaleDB
 
-Create a working directory for the tutorial application and initiate a new application project using the "console" template included with the .NET tooling.
+1. Create a working directory for the tutorial application and initiate a new application project using the "console" template included with the .NET tooling.
 
 ```bash
 mkdir dotnet-tutorial
@@ -45,12 +45,13 @@ cd dotnet-tutorial
 dotnet new console
 ```
 
-Add the `Npgsql` package to your project which will be used to connect to TimescaleDB.
+2. Add the `Npgsql` package to your project which will be used to connect to TimescaleDB.
 
 ```bash
 dotnet add package Npgsql
 ```
-Open the `Program.cs` file in your new project and replace the contents with the C# code below.
+
+3. Open the `Program.cs` file in your new project and replace the contents with the C# code below.
 
 ```csharp
 using System;
@@ -165,17 +166,20 @@ Enables scalable inserts and complex queries for time-series data
 ```
 
 If you don't see the extension at this point, please check our troubleshooting section.
+
 ## Create a relational table [](create-relational-table)
 With the application successfully connecting to TimescaleDB, it's time to create some relational data that your time-series data can reference when creating data and executing queries later in the Quick Start. 
 
 The new functionality to create the table and insert data will be added as a method to the `TimescaleHelper` class and called from the `Main` method of the program. 
 
 ### Procedure: Creating a relational table
-Add the following method at the bottom of the `TimescaleHelper` class, below the `CheckDatabaseConnection()` method.
+
+1. Add the following method at the bottom of the `TimescaleHelper` class, below the `CheckDatabaseConnection()` method.
 
 ```csharp
         //
-        // Step 2: Create a table for basic relational data and 
+        // Procedure - Creating a relational table:
+        // Create a table for basic relational data and 
         // populate it with a few fake sensors
         //
         public void CreateRelationalData() {
@@ -220,15 +224,15 @@ Add the following method at the bottom of the `TimescaleHelper` class, below the
         }
 ```
 
-Call this new method from the `Main` program **after** `ts.CheckDatabaseConnection();`
+2. Call this new method from the `Main` program **after** `ts.CheckDatabaseConnection();`
 
 ```csharp
-            // Step 2: Setup the database with relational data
+            // Procedure - Creating a relational table
             ts.CreateRelationalData();
 
 ```
 
-Save and run the application. You should see the following output.
+3. Save and run the application. You should see the following output.
 
 ```bash
 $ dotnet run
@@ -251,11 +255,12 @@ A hypertable is the core architecture that many other TimescaleDB features is bu
 
 ### Procedure: Creating a hypertable
 
-Add a new method to the bottom of the `TimescaleHelper` class that will create a new table and convert it to a hypertable
+1. Add a new method to the bottom of the `TimescaleHelper` class that will create a new table and convert it to a hypertable
 
 ```csharp
         //
-        // Step 3: Create a new table to store time-series data and create
+        // Procedure - Creating a hypertable:
+        // Create a new table to store time-series data and create
         // a new TimescaleDB hypertable using the new table. It will be
         // partitioned on the 'time' column
         public void CreateHypertable(){
@@ -289,16 +294,17 @@ Add a new method to the bottom of the `TimescaleHelper` class that will create a
         }
 ```
 
-Call this new method from the `Main` program **after** `ts.CreateRelationalData()`
+2. Call this new method from the `Main` program **after** `ts.CreateRelationalData()`
 
 ```csharp
-            // Step 3: Create a new table and make it a hypertable to store
+            // Procedure - Creating a hypertable
+            // Create a new table and make it a hypertable to store
             // time-series data that we will generate
              ts.CreateHypertable();
 
 ```
 
-Run the application again. It will drop and recreate the `sensors` table and then create a new hypertable called `sensor_data`.
+3. Run the application again. It will drop and recreate the `sensors` table and then create a new hypertable called `sensor_data`.
 
 ```bash
 $ dotnet run
@@ -323,13 +329,14 @@ Your application is now ready to insert time-series data into the newly created 
 
 Your Timescale database has all of the components necessary to start creating and inserting time-series data. In this Quick Start, we will use a built-in PostgreSQL function, `generate_series()`, to create a small set of row data with generated timestamps to mimic time-series data. For more information on how `generate_series()` works and ideas for creating more complex and diverse sample datasets, watch this [YouTube playlist](https://youtube.com/playlist?list=PLsceB9ac9MHQxwkSyi5LeqonMnMW8KiBZ) and our [corresponding Blog series](https://blog.timescale.com/blog/how-to-create-lots-of-sample-time-series-data-with-postgresql-generate_series/).
 
-Procedure: Inserting time-series data into TimescaleDB
+### Procedure: Inserting time-series data into TimescaleDB
 
-Add the following new method to the bottom of the `TimescaleHelper` class. This code will execute a SQL statement that uses `generate_series()` to insert 1 day of sample data into the `sensor_data` hypertable.
+1. Add the following new method to the bottom of the `TimescaleHelper` class. This code will execute a SQL statement that uses `generate_series()` to insert 1 day of sample data into the `sensor_data` hypertable.
 
 ```csharp
         //
-        // Step 4: With the hypertable in place, insert data using the PostgreSQL
+        // Procedure - Insert time-series data:
+        // With the hypertable in place, insert data using the PostgreSQL
         // supplied 'generate_series()' function, iterating over our small list
         // of sensors from Step 2.
         public void InsertData()
@@ -364,15 +371,16 @@ Add the following new method to the bottom of the `TimescaleHelper` class. This 
         }
 ```
 
-Call this method from the `Main` program **after** the `ts.CreateHypertable();` reference.
+2. Call this method from the `Main` program **after** the `ts.CreateHypertable();` reference.
 
 ```csharp
-            // Step 4: Insert time-series data using the built-in 
+            // Procedure - Insert time-series data
+            // Insert time-series data using the built-in 
             // PostgreSQL function generate_series()
             ts.InsertData();
 ```
 
-Save and run the program. If you have not commented out any method calls in the `Main` program, the application will again drop all tables, recreate them, and insert the new sample time-series data. Your output should look similar to this.
+3. Save and run the program. If you have not commented out any method calls in the `Main` program, the application will again drop all tables, recreate them, and insert the new sample time-series data. Your output should look similar to this.
 
 ```bash
 $ dotnet run
@@ -395,17 +403,20 @@ Number of rows inserted=1441
 ```
 
 Congratulations! You have successfully created and inserted time-series data into your hypertable. The last step to is to execute your first `time_bucket()` query against the hypertable data.
+
 ## Query TimescaleDB [](query-timescaledb)
 As a final step of this Quick Start, use the time_bucket function to analyze the average CPU reading in 5 minute buckets of time. This query returns all data for all sensors as currently written. However, this method could be refactored to receive inputs that further filter data using a WHERE clause.
+
 After executing the query, iterate the results using the `NpgsqlDataReader` and print the results to the console.
 
 ### Procedure: Querying TimescaleDB
 
-Create the final method at the bottom of the `TimescaleHelper` class for querying time-series data using the `time_bucket()` function provided by TimescaleDB.
+1. Create the final method at the bottom of the `TimescaleHelper` class for querying time-series data using the `time_bucket()` function provided by TimescaleDB.
 
 ```csharp
         //
-        // Step 5: With time-series data inserted, run a 'time_bucket()' query
+        // Procedure - Query TimescaleDB
+        // With time-series data inserted, run a 'time_bucket()' query
         // on the data in order to aggregate our 1-minute cpu data into buckets
         // of 5-minute averages.
         public void RunQueryExample(){
@@ -428,14 +439,15 @@ Create the final method at the bottom of the `TimescaleHelper` class for queryin
         }
 ```
 
-Call this method in the `Main` program directly after the `ts.InsertData();` reference.
+2. Call this method in the `Main` program directly after the `ts.InsertData();` reference.
 
 ```csharp
-            // Step 5: Query the data using the Timescale time_bucket() function
+            // Procedure - Query TimescaleDB
+            // Query the data using the Timescale time_bucket() function
             ts.RunQueryExample();
 ```
 
-Save and run the application again. As before, if you execute all of the methods in the `Main` program, your output should look similar to this. **Note**, the values of the output will be different than what is shown because we used the `random()` function to generate the values.
+3. Save and run the application again. As before, if you execute all of the methods in the `Main` program, your output should look similar to this. **Note**, the values of the output will be different than what is shown because we used the `random()` function to generate the values.
 
 ```bash
 $ dotnet run
