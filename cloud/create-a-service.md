@@ -15,7 +15,7 @@ If you do not receive this link, check your spam folder first, then
 [contact us][contact-timescale].
 
 ### Create your first service
-When you have completes account verification, visit the
+When you have completed account verification, visit the
 [Timescale Cloud console][cloud-console] and login with your credentials.
 
 To begin, click `Create service`.
