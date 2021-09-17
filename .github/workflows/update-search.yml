@@ -7,7 +7,7 @@ on:
 
 jobs:
   trigger:
-    name: Docs prod deploy
+    name: update search
     runs-on: ubuntu-latest
     steps:
       - name: Update search index
