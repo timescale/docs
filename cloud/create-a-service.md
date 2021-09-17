@@ -34,7 +34,7 @@ To begin, click `Create service`.
 1.  Click `Create service` when your configuration is complete.
 
 <highlight type="tip">
-Don't worry if too much about the size settings that you choose initially.
+Don't worry too much about the size settings that you choose initially.
 With Timescale Cloud, it's easy to modify both the compute (CPU/Memory) and
 storage associated with the service that you just created. As you get to know
 TimescaleDB and how your data processing needs vary, it's easy to [right-size
