@@ -7,6 +7,9 @@ on:
 
 jobs:
   trigger:
-    - name: Update search index
-      run: |
-        curl --silent https://responses.timescale.com/v1/update_search_index
+    name: Docs prod deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update search index
+        run: |
+          curl --silent https://responses.timescale.com/v1/update_search_index
