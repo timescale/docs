@@ -1,0 +1,12 @@
+name: update search
+
+on:
+  push:
+    branches:
+      - latest
+
+jobs:
+  trigger:
+      - name: Update search index
+        run: |
+          curl --silent https://responses.timescale.com/v1/update_search_index
