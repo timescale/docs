@@ -54,10 +54,9 @@ timezone and so the function can't be used with continuous aggregates.
 The function returns the bucket's start time. The return value type is the
 same as `ts`.
 
->>>>>>> latest
+
 ### Sample Usage
 
->>>>>>> origin/latest
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
 
