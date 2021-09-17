@@ -30,10 +30,6 @@ it is the first day of the month and the year. This works better with monthly
 or annual aggregates.
 </highlight>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
 ### Required Arguments
 
 |Name|Type|Description|
