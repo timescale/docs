@@ -4,7 +4,7 @@ supercharge time-series data even further. One of the most anticipated new
 features is what we call **multi-node** - the ability to create a cluster of
 TimescaleDB instances to scale both reads and writes.
 
-In this How To, we’ll show you how to create a multi-node cluster in your
+In this How To, we'll show you how to create a multi-node cluster in your
 Timescale Cloud account using TimescaleDB 2.0.
 
 This document details a "do-it-yourself" (DIY) multi-node experience on Cloud.
