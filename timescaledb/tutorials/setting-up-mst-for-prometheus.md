@@ -85,7 +85,7 @@ you associated the service with.
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_5.png" alt="Success! Active prometheus endpoint with name"/>
 
 Congratulations, you have successfully set up a Prometheus endpoint on your managed
-service on managed service for TimescaleDB!
+service on Managed Service for TimescaleDB!
 
 ## Next steps
 
