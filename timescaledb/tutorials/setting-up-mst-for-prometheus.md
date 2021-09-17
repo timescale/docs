@@ -35,7 +35,7 @@ this Managed Service for TimescaleDB endpoint a target for Prometheus to scrape.
 
 Here's a sample configuration file you can use when you setup your Prometheus
 installation, substituting the target port, IP address, username, and password
-for those of your managed service for TimescaleDB instance:
+for those of your Managed Service for TimescaleDB instance:
 
 ```yaml
 # prometheus.yml for monitoring a Timescale Cloud instance
