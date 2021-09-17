@@ -1,52 +1,45 @@
 # Quick Start: .NET and TimescaleDB
-
 This quick start guide is designed to get the .NET developer up and running with TimescaleDB as their database.
 
 In this Quick Start, you need to:
 
-* [Connect .NET to Timescale](#connect-to-timescaledb)
-* [Create a relational table](#create-relational-table)
-* [Create a hypertable](#create-hypertable)
-* [Insert time-series data into TimescaleDB](#insert-data)
-* [Query TimescaleDB](#query-timescaledb)
+1. [Connect .NET to Timescale](#connect-to-timescaledb)
+1. [Create a relational table](#create-relational-table)
+1. [Create a hypertable](#create-hypertable)
+1. [Insert time-series data into TimescaleDB](#insert-data)
+1. [Query TimescaleDB](#query-timescaledb)
 
-You will build the application one step at a time, adding new methods to the `TimescaleHelper` class which are called from the `Main` method of the application. Once completed, the application code will provide a brief template for further experimentation as you learn more about TimescaleDB and .NET with `Npgsql`.
+You build the application one step at a time, adding new methods to the `TimescaleHelper` class which are called from the `Main` method of the application. When you have finished, the application code provides a brief template for further experimentation as you learn more about TimescaleDB and .NET with `Npgsql`.
 
 ## Prerequisites
-
-Before completing this Quick Start, make sure you have: 
-At least some knowledge of SQL (structured query language). The tutorial will walk you through each SQL command, but it is helpful if you've seen SQL before.
-The latest compatible .NET runtime installed and accessible
-TimescaleDB installed, either in a self-hosted environment or in the cloud
-A PostgreSQL query tool like Psql or any other PostgreSQL client (e.g. DBeaver). Useful for exploring the final TimescaleDB database
+Before you begin this Quick Start, make sure you have: 
+* At least some knowledge of SQL (structured query language). The tutorial will walk you through each SQL command, but it is helpful if you've seen SQL before.
+* The latest compatible .NET runtime installed and accessible TimescaleDB installed, either in a self-hosted environment or in the cloud.
+* A PostgreSQL query tool like Psql or any other PostgreSQL client (for example, DBeaver). You need this to explore the final TimescaleDB database.
 
 ## Connect .NET to TimescaleDB [](connect-to-timescaledb)
+To connect a .NET application to TimescaleDB, you need to initiate the project using the `dotnet` CLI and install the `Npgsql` SDK for connecting to TimescaleDB. `Npgsql` is the officially supported PostgreSQL client library for .NET.
 
-To connect a .NET application to TimescaleDB, you'll need to initiate the project using the `dotnet` CLI and install the `Npgsql` SDK for connecting to TimescaleDB. `Npgsql` is the officially supported PostgreSQL client library for .NET.
-
-In order to complete this procedure, you will need to have your database connection information available, including:
+To complete this procedure, you need to have your database connection information available, including:
 * username
 * password
 * host URL
 * port
 * database name
 
-<highlight type="tip">
+<highlight type="important">
 Npgsql does not support the shorter URI-based form of a PostgreSQL connection string. Instead, the connection string must be in a supported key/value format as [described in their documentation](https://www.npgsql.org/doc/connection-string-parameters.html). Please see the documentation for additional parameters to enable features such as SSL.
 </highlight>
 
 ### Procedure: Connecting .NET to TimescaleDB
-
-1. Create a working directory for the tutorial application and initiate a new application project using the "console" template included with the .NET tooling.
-
+1. Create a working directory for the tutorial application and initiate a new application project using the "console" template included with the .NET tooling:
 ```bash
 mkdir dotnet-tutorial
 cd dotnet-tutorial
 dotnet new console
 ```
 
-2. Add the `Npgsql` package to your project which will be used to connect to TimescaleDB.
-
+1. Add the `Npgsql` package to your project which will be used to connect to TimescaleDB:
 ```bash
 dotnet add package Npgsql
 ```
@@ -154,7 +147,7 @@ namespace com.timescale.docs
 ```
 
 <highlight type="warning">
-The above method of composing a connection string is for test or development purposes only. For production applications be sure to make sensitive details like your password, hostname, and port number accessible in a secure way as supported by .NET.
+This method of composing a connection string is for test or development purposes only. For production applications be sure to make sensitive details like your password, hostname, and port number accessible in a secure way as supported by .NET.
 </highlight>
 
 4. Run `Program.cs` to verify that .NET can connect to your database and that the TimescaleDB extension is installed
@@ -165,17 +158,15 @@ TimescaleDB Default Version: 2.3.0
 Enables scalable inserts and complex queries for time-series data
 ```
 
-If you don't see the extension at this point, please check our troubleshooting section.
+If you don't see the extension, check our troubleshooting section.
 
 ## Create a relational table [](create-relational-table)
-With the application successfully connecting to TimescaleDB, it's time to create some relational data that your time-series data can reference when creating data and executing queries later in the Quick Start. 
+When the application can successfully connect to TimescaleDB, you can create some relational data that your time-series data can reference when creating data and executing queries. 
 
-The new functionality to create the table and insert data will be added as a method to the `TimescaleHelper` class and called from the `Main` method of the program. 
+The new functionality to create the table and insert data is added as a method to the `TimescaleHelper` class and called from the `Main` method of the program. 
 
 ### Procedure: Creating a relational table
-
-1. Add the following method at the bottom of the `TimescaleHelper` class, below the `CheckDatabaseConnection()` method.
-
+1. Add this method at the bottom of the `TimescaleHelper` class, below the `CheckDatabaseConnection()` method:
 ```csharp
         //
         // Procedure - Creating a relational table:
@@ -248,15 +239,12 @@ Number of rows inserted=1
 ```
 
 ## Create the hypertable [](create-hypertable)
+When the relational table is created and populated, you can create a hypertable, the core features of TimescaleDB that most functionality relies on. A hypertable is first created as a regular PostgreSQL table with a date or timestamp column, and then converted into a hypertable with the `create_hypertable()` API.
 
-Now that the relational table is created and populated, we can create a hypertable, the core features of TimescaleDB that most functionality relies on. A hypertable is first created as a regular PostgreSQL table with a date or timestamp column and then converted into a hypertable with the `create_hypertable()` API.
-
-A hypertable is the core architecture that many other TimescaleDB features is built upon (eg. [Compression](/how-to-guides/compression/), [Continuous Aggregates](/how-to-guides/continuous-aggregates/), and [Data Retention](/how-to-guides/data-retention/)). Learn more about hypertables and other key features of TimescaleDB in our [Core Concepts](/overview/core-concepts/) documentation.
+A hypertable is the core architecture that many other TimescaleDB features is built upon, such as [Compression](/how-to-guides/compression/), [Continuous Aggregates](/how-to-guides/continuous-aggregates/), and [Data Retention](/how-to-guides/data-retention/). Learn more about hypertables and other key features of TimescaleDB in our [Core Concepts](/overview/core-concepts/) documentation.
 
 ### Procedure: Creating a hypertable
-
-1. Add a new method to the bottom of the `TimescaleHelper` class that will create a new table and convert it to a hypertable
-
+1. Add a new method to the bottom of the `TimescaleHelper` class that will create a new table and convert it to a hypertable:
 ```csharp
         //
         // Procedure - Creating a hypertable:
@@ -326,13 +314,10 @@ Converted the sensor_data table into a TimescaleDB hypertable!
 Your application is now ready to insert time-series data into the newly created TimescaleDB hypertable!
 
 ## Insert time-series data into TimescaleDB [](insert-data)
-
-Your Timescale database has all of the components necessary to start creating and inserting time-series data. In this Quick Start, we will use a built-in PostgreSQL function, `generate_series()`, to create a small set of row data with generated timestamps to mimic time-series data. For more information on how `generate_series()` works and ideas for creating more complex and diverse sample datasets, watch this [YouTube playlist](https://youtube.com/playlist?list=PLsceB9ac9MHQxwkSyi5LeqonMnMW8KiBZ) and our [corresponding Blog series](https://blog.timescale.com/blog/how-to-create-lots-of-sample-time-series-data-with-postgresql-generate_series/).
+Your Timescale database has all of the components necessary to start creating and inserting time-series data. In this Quick Start, we use a built-in PostgreSQL function, `generate_series()`, to create a small set of row data with generated timestamps that mimics time-series data. For more information on how `generate_series()` works and ideas for creating more complex and diverse sample datasets, watch this [YouTube playlist](https://youtube.com/playlist?list=PLsceB9ac9MHQxwkSyi5LeqonMnMW8KiBZ) and our [corresponding Blog series](https://blog.timescale.com/blog/how-to-create-lots-of-sample-time-series-data-with-postgresql-generate_series/).
 
 ### Procedure: Inserting time-series data into TimescaleDB
-
-1. Add the following new method to the bottom of the `TimescaleHelper` class. This code will execute a SQL statement that uses `generate_series()` to insert 1 day of sample data into the `sensor_data` hypertable.
-
+1. Add this new method to the bottom of the `TimescaleHelper` class. This code executes a SQL statement that uses `generate_series()` to insert 1 day of sample data into the `sensor_data` hypertable:
 ```csharp
         //
         // Procedure - Insert time-series data:
@@ -405,14 +390,12 @@ Number of rows inserted=1441
 Congratulations! You have successfully created and inserted time-series data into your hypertable. The last step to is to execute your first `time_bucket()` query against the hypertable data.
 
 ## Query TimescaleDB [](query-timescaledb)
-As a final step of this Quick Start, use the time_bucket function to analyze the average CPU reading in 5 minute buckets of time. This query returns all data for all sensors as currently written. However, this method could be refactored to receive inputs that further filter data using a WHERE clause.
+The final step of this Quick Start is to use the `time_bucket` function to analyze the average CPU reading in five minute buckets. As written, this query returns all data for all sensors. However, you could adjust the query to receive inputs that further filter data using a WHERE clause.
 
 After executing the query, iterate the results using the `NpgsqlDataReader` and print the results to the console.
 
 ### Procedure: Querying TimescaleDB
-
-1. Create the final method at the bottom of the `TimescaleHelper` class for querying time-series data using the `time_bucket()` function provided by TimescaleDB.
-
+1. Create the final method at the bottom of the `TimescaleHelper` class for querying time-series data using the `time_bucket()` function provided by TimescaleDB:
 ```csharp
         //
         // Procedure - Query TimescaleDB
@@ -484,7 +467,6 @@ Number of rows inserted=1441
 Congratulations! You have successfully queried data from TimescaleDB usig the `Npgsql` SDK. For information on how to execute more complex queries or utilize advanced query functionality, please see the [Npgsql documentation](https://www.npgsql.org/doc/index.html).
 
 ## Next Steps
-
 Now that you're able to connect, read, and write to a TimescaleDB instance from your .NET application be sure to check out these advanced TimescaleDB tutorials:
 
 [Continuous Aggregates](/how-to-guides/continuous-aggregates/)
