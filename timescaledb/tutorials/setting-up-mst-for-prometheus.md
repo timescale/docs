@@ -11,7 +11,7 @@ This will expose metrics from the [node_exporter][node-exporter-metrics] as well
 as [pg_stats][pg-stats-metrics] metrics.
 
 ## Prerequisites
-In order to proceed with this tutorial, you will need a managed service for TimescaleDB database.
+To proceed with this tutorial, you need a Managed Service for TimescaleDB database.
 To create one, see these instructions for how to
 [get started with managed service for TimescaleDB][timescale-mst-get-started]
 
