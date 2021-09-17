@@ -31,7 +31,7 @@ We've named ours `endpoint_dev`.
 Furthermore, notice that you are given basic authentication information and a port number
 in order to access the service. This will be used when setting up your Prometheus
 installation, in the `prometheus.yml` configuration file. This will enable you to make
-this managed service for TimescaleDB endpoint a target for Prometheus to scrape.
+this Managed Service for TimescaleDB endpoint a target for Prometheus to scrape.
 
 Here's a sample configuration file you can use when you setup your Prometheus
 installation, substituting the target port, IP address, username, and password
