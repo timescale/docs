@@ -18,12 +18,12 @@ lifting, creating the deployment package and deploying your code to AWS Lambda.
 
 Create a new Lambda function called "lambda-cd"
 Navigate to the AWS Lambda console and create a new function:
-![create new function](https://docs.timescale.com/timescaledb/latest/tutorials/aws-lambda/create_new_function.png)
+![create new function](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/create_new_function.png)
 
 
 Add "lambda-cd" as your function name and choose your preferred runtime environment:
 
-![create lambda from scratch](https://docs.timescale.com/timescaledb/latest/tutorials/aws-lambda/from_scratch.png)
+![create lambda from scratch](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/from_scratch.png)
 
 
 After clicking "Create function", you have created a Lambda function called "lambda-cd". Remember the name of the function because later you'll need to reference this
@@ -188,6 +188,6 @@ git push
 
 After pushing the changes, you can navigate to the Github Actions page of your repository, to see the build run and succeed:
 
-![github action build](https://docs.timescale.com/timescaledb/latest/tutorials/aws-lambda/github_action_lambda.png)
+![github action build](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/github_action_lambda.png)
 
 With this step completed, you have a continuous deployment pipeline set up between Github and AWS Lambda.
