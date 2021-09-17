@@ -18,4 +18,4 @@ jobs:
           event-type: build-docs-content-prod
       - name: Update search index
         run: |
-          curl --silent --output /dev/null https://responses.timescale.com/v1/update_search_index
+          curl --silent https://responses.timescale.com/v1/update_search_index
