@@ -69,7 +69,7 @@ Now you have your service up and running, you can try your
 
 [sign-up]: https://www.timescale.com/cloud-signup
 [mst-login]: https://portal.timescale.cloud/login
-[timescale-mst-portal]: https://managed.console.timescale.com
+[timescale-mst-portal]: https://portal.managed.timescale.com
 [timescale-pricing]: https://www.timescale.com/products
 [contact]: https://www.timescale.com/contact
 [getting-started]: /timescaledb/:currentVersion:/getting-started/

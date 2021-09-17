@@ -52,4 +52,4 @@ get clients connected again. In most cases, there is five to ten second outage
 during this process.
 
 
-[mst-login]: https://managed.console.timescale.com
+[mst-login]: https://portal.managed.timescale.com
