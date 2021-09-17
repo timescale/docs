@@ -245,6 +245,13 @@ module.exports = [
             tags: ['lambda', 'data', 'ingest', 'learn', 'timescaledb'],
             keywords: ['AWS Lambda', 'tutorial', 'TimescaleDB'],
             excerpt: 'Pull and ingest data from a third party into TimescaleDB with AWS Lambda',
+          },
+          {
+            title: 'Continuous deployment with Github Actions',
+            href: 'continuous-deployment',
+            tags: ['lambda', 'cd', 'github', 'continuous deployment', 'timescaledb'],
+            keywords: ['AWS Lambda', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Create a continuous deployment between Github and AWS Lambda',
           }
         ],
       },
