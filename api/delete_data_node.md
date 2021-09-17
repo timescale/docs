@@ -1,6 +1,6 @@
 ## delete_data_node() 
 
-This function is executed on an access node in order to remove a data
+This function is executed on an access node to remove a data
 node from the local database. As part of the deletion, the data node
 will be detached from all hypertables that are using it if permissions
 and data integrity requirements are satisfied. For more information,
