@@ -1,25 +1,24 @@
-name: Markdown links error detector
+# name: Markdown links error detector
 
-on:
-  push:
-    branches: latest
+# on:
+#   push:
+#     branches: latest
 
-jobs:
-  linkChecker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+# jobs:
+#   linkChecker:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Link Checker
+#         uses: lycheeverse/lychee-action@v1.0.8
+#         with:
+#           args: --verbose --no-progress --exclude localhost --exclude 127.0.0.1:8000 --exclude portal.timescale.cloud --exclude promscale --exclude currentVersion --exclude packagecloud.io --exclude download.postgresql.org --exclude cert.example.com --exclude hlsu4rwrkl --exclude /api/:currentVersion:/compression/alter_table_compression/ -- **/*.md
+#         env:
+#           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Link Checker
-        uses: lycheeverse/lychee-action@v1.0.8
-        with:
-          args: --verbose --no-progress --exclude localhost --exclude 127.0.0.1:8000 --exclude portal.timescale.cloud --exclude promscale --exclude currentVersion --exclude packagecloud.io --exclude download.postgresql.org --exclude cert.example.com --exclude hlsu4rwrkl --exclude /api/:currentVersion:/compression/alter_table_compression/ -- **/*.md
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Create Issue From File
-        uses: peter-evans/create-issue-from-file@v3
-        with:
-          title: Link Checker Report
-          content-filepath: ./lychee/out.md
-          labels: report, automated issue
+#       - name: Create Issue From File
+#         uses: peter-evans/create-issue-from-file@v3
+#         with:
+#           title: Link Checker Report
+#           content-filepath: ./lychee/out.md
+#           labels: report, automated issue
