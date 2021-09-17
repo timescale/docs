@@ -13,7 +13,7 @@ as [pg_stats][pg-stats-metrics] metrics.
 ## Prerequisites
 To proceed with this tutorial, you need a Managed Service for TimescaleDB database.
 To create one, see these instructions for how to
-[get started with managed service for TimescaleDB][timescale-mst-get-started]
+[get started with Managed Service for TimescaleDB][timescale-mst-get-started]
 
 ## Step 1: Enable Prometheus service integration
 
