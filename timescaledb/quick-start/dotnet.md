@@ -44,9 +44,8 @@ dotnet new console
 dotnet add package Npgsql
 ```
 
-3. Open the `Program.cs` file in your new project and replace the contents with the C# code below.
-
-```csharp
+3. Open the `Program.cs` file in your new project and replace the contents with this C# code:
+```cs
 using System;
 using Npgsql;
 using System.Collections.Generic;
@@ -150,8 +149,7 @@ namespace com.timescale.docs
 This method of composing a connection string is for test or development purposes only. For production applications be sure to make sensitive details like your password, hostname, and port number accessible in a secure way as supported by .NET.
 </highlight>
 
-4. Run `Program.cs` to verify that .NET can connect to your database and that the TimescaleDB extension is installed
-
+4. Run `Program.cs` to verify that .NET can connect to your database and that the TimescaleDB extension is installed:
 ```bash
 dotnet run Program.cs
 TimescaleDB Default Version: 2.3.0
@@ -215,16 +213,14 @@ The new functionality to create the table and insert data is added as a method t
         }
 ```
 
-2. Call this new method from the `Main` program **after** `ts.CheckDatabaseConnection();`
-
+2. Call this new method from the `Main` program **after** `ts.CheckDatabaseConnection();`:
 ```csharp
             // Procedure - Creating a relational table
             ts.CreateRelationalData();
 
 ```
 
-3. Save and run the application. You should see the following output.
-
+3. Save and run the application. You should see output like this:
 ```bash
 $ dotnet run
 
@@ -282,8 +278,7 @@ A hypertable is the core architecture that many other TimescaleDB features is bu
         }
 ```
 
-2. Call this new method from the `Main` program **after** `ts.CreateRelationalData()`
-
+2. Call this new method from the `Main` program **after** `ts.CreateRelationalData()`:
 ```csharp
             // Procedure - Creating a hypertable
             // Create a new table and make it a hypertable to store
@@ -292,8 +287,7 @@ A hypertable is the core architecture that many other TimescaleDB features is bu
 
 ```
 
-3. Run the application again. It will drop and recreate the `sensors` table and then create a new hypertable called `sensor_data`.
-
+3. Run the application again. It drops and recreates the `sensors` table, and then creates a new hypertable called `sensor_data`:
 ```bash
 $ dotnet run
 
@@ -356,8 +350,7 @@ Your Timescale database has all of the components necessary to start creating an
         }
 ```
 
-2. Call this method from the `Main` program **after** the `ts.CreateHypertable();` reference.
-
+2. Call this method from the `Main` program **after** the `ts.CreateHypertable();` reference:
 ```csharp
             // Procedure - Insert time-series data
             // Insert time-series data using the built-in 
@@ -365,8 +358,7 @@ Your Timescale database has all of the components necessary to start creating an
             ts.InsertData();
 ```
 
-3. Save and run the program. If you have not commented out any method calls in the `Main` program, the application will again drop all tables, recreate them, and insert the new sample time-series data. Your output should look similar to this.
-
+3. Save and run the program. If you have not commented out any method calls in the `Main` program, the application drops all tables, recreates them, and inserts the new sample time-series data. Your output should look similar to this:
 ```bash
 $ dotnet run
 
@@ -422,16 +414,14 @@ After executing the query, iterate the results using the `NpgsqlDataReader` and 
         }
 ```
 
-2. Call this method in the `Main` program directly after the `ts.InsertData();` reference.
-
+2. Call this method in the `Main` program directly after the `ts.InsertData();` reference:
 ```csharp
             // Procedure - Query TimescaleDB
             // Query the data using the Timescale time_bucket() function
             ts.RunQueryExample();
 ```
 
-3. Save and run the application again. As before, if you execute all of the methods in the `Main` program, your output should look similar to this. **Note**, the values of the output will be different than what is shown because we used the `random()` function to generate the values.
-
+3. Save and run the application again. As before, if you execute all of the methods in the `Main` program, your output should look similar to this. The values of the output will be different because we used the `random()` function to generate them:
 ```bash
 $ dotnet run
 
