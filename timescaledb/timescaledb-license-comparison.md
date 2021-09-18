@@ -3,29 +3,36 @@
 ### TimescaleDB Apache 2 Edition vs TimescaleDB Community Edition
 
 There are two versions of TimescaleDB available:
-- TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available under the
+TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available under the
 [Apache 2.0 license](https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE).
 This is a classic open source license, meaning that it is completely unrestricted -
-anyone can take this code and offer it as-a-service..
+anyone can take this code and offer it as-a-service.
 
 ### TimescaleDB Apache 2 Edition
 
-- _Can I install TimescaleDB Apache 2 Edition in my own on-premises or cloud infrastructure and run it for free?_ Yes.
-- _Can I sell TimescaleDB Apache 2 Edition as a service, even if I’m not the main contributor?_ Yes.
-- _Can I modify the TimescaleDB Apache 2 Edition source code and run it for production use?_ Yes.
+- _Can I install TimescaleDB Apache 2 Edition in my own on-premises or cloud infrastructure and run it for free?_ <br/>
+Yes.
+- _Can I sell TimescaleDB Apache 2 Edition as a service, even if I’m not the main contributor?_ <br/>
+Yes.
+- _Can I modify the TimescaleDB Apache 2 Edition source code and run it for production use?_ <br/>
+Yes.
 
 TimescaleDB Apache 2 Edition is available at the following service providers: [Azure Database for PostgreSQL][azure-database], [Digital Ocean][digital-ocean], [Aiven for PostgreSQL][aiven].
 
 ### TimescaleDB Community Edition
 
-TimescaleDB Community Edition is the latest, most updated version of TimescaleDB, available under the [Timescale License (TSL)][timescale-license]. Read more about the Timescale License.
+TimescaleDB Community Edition is the latest, most updated version of TimescaleDB, available under the [Timescale License (TSL)][timescale-license]. [Read more about the Timescale License][license-blog].
 
 Many of the most recent features of TimescaleDB are only available in TimescaleDB Community Edition.
 
-- _Can I install TimescaleDB Community Edition in my own on-premises or cloud infrastructure and run it for free?_ Yes. TimescaleDB Community Edition is completely free if you manage your own service.
-- _Can I sell TimescaleDB Community Edition as a service, even if I’m not the main contributor?_ No.
-- _Can I modify the TimescaleDB Community Edition source code and run it for production use?_ Yes. Developers using TimescaleDB Community Edition have the “right to repair” and make modifications to the source code and run it in their own on-premises or cloud infrastructure. However, consistent with the previous question, users may not make modifications to the TimescaleDB Community Edition source code and offer it as a service.
-- _Is there a hosted version of TimescaleDB Community Edition?_ Yes. There are two options for users that want to run TimescaleDB Community Edition as a hosted service in the cloud: Timescale Cloud and Managed Service for TimescaleDB (MST). Timescale Cloud is a cloud-native platform for time-series, hosted in AWS. MST is a database-as-a-service offering for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
+- _Can I install TimescaleDB Community Edition in my own on-premises or cloud infrastructure and run it for free?_ <br/>
+Yes. TimescaleDB Community Edition is completely free if you manage your own service.
+- _Can I sell TimescaleDB Community Edition as a service, even if I’m not the main contributor?_ <br/>
+No.
+- _Can I modify the TimescaleDB Community Edition source code and run it for production use?_ <br/>
+Yes. Developers using TimescaleDB Community Edition have the “right to repair” and make modifications to the source code and run it in their own on-premises or cloud infrastructure. However, consistent with the previous question, users may not make modifications to the TimescaleDB Community Edition source code and offer it as a service.
+- _Is there a hosted version of TimescaleDB Community Edition?_ <br/>
+Yes. There are two options for users that want to run TimescaleDB Community Edition as a hosted service in the cloud: [Timescale Cloud][timescale-cloud] and [Managed Service for TimescaleDB (MST)][mst]. Timescale Cloud is a cloud-native platform for time-series, hosted in AWS. MST is a database-as-a-service offering for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 
 ### Feature comparison
 
@@ -481,3 +488,6 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
 [digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/resources/supported-extensions/
 [aiven]: https://aiven.io/postgresql
 [timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
+[timescale-cloud]: /cloud/latest
+[mst]: /mst/latest
+[license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
