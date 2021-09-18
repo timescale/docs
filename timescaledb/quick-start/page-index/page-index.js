@@ -38,6 +38,13 @@ module.exports = [
           tags: ['java', 'learn', 'timescaledb'],
           keywords: ['Java', 'tutorial', 'TimescaleDB'],
           excerpt: "Learn about using TimescaleDB with Java"
+        },
+        {
+          title: "C# .Net",
+          href: "dotnet",
+          tags: ['java', 'learn', 'timescaledb'],
+          keywords: ['dotnet', 'tutorial', 'TimescaleDB'],
+          excerpt: "Learn about using TimescaleDB with C# .Net"
         }
       ]
     }
