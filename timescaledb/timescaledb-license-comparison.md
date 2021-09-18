@@ -40,8 +40,8 @@ Yes. There are two options for users that want to run TimescaleDB Community Edit
 <table>
   <tr>
     <th>Features</th>
-    <th>TimescaleDB Open Source (Apache 2.0)</th>
-    <th>TimescaleDB Community (Timescale License)</th>
+    <th>TimescaleDB Apache 2 Edition</th>
+    <th>TimescaleDB Community Edition</th>
   </tr>
   <tr>
     <td><strong>Hypertables & Chunks</strong></td>
