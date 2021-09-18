@@ -1,29 +1,34 @@
 ## On TimescaleDB Licensing
 
-### TimescaleDB Open Source vs TimescaleDB Community
+### TimescaleDB Apache 2 Edition vs TimescaleDB Community Edition
 
 There are two versions of TimescaleDB available:
-
-### TimescaleDB Open Source (Apache 2.0)
-This is the version of TimescaleDB that is available under the
+- TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available under the
 [Apache 2.0 license](https://github.com/timescale/timescaledb/blob/master/LICENSE-APACHE).
 This is a classic open source license, meaning that it is completely unrestricted -
-anyone can take this code and offer it as-a-service, i.e. selling this product in the cloud.
+anyone can take this code and offer it as-a-service..
 
-- _Can I install TimescaleDB Open Source in my own premises and run it for free?_ Yes.
-- _Can I sell TimescaleDB Open Source as a service, even if I’m not the main contributor?_ Yes.
-  Actually, this is what the following vendors are doing: [Azure Database for PostgreSQL][azure-database], [Digital Ocean][digital-ocean], [Aiven for PostgreSQL][aiven].
+### TimescaleDB Apache 2 Edition
 
-### TimescaleDB Community (Timescale License, TSL)
+- _Can I install TimescaleDB Apache 2 Edition in my own on-premises or cloud infrastructure and run it for free?_ Yes.
+- _Can I sell TimescaleDB Apache 2 Edition as a service, even if I’m not the main contributor?_ Yes.
+- _Can I modify the TimescaleDB Apache 2 Edition source code and run it for production use?_ Yes.
 
-TimescaleDB Community is the latest, most updated version of TimescaleDB, available under the [Timescale License (TSL)][timescale-license].
-Many of the most recent features of TimescaleDB are only available in TimescaleDB Community.
+TimescaleDB Apache 2 Edition is available at the following service providers: [Azure Database for PostgreSQL][azure-database], [Digital Ocean][digital-ocean], [Aiven for PostgreSQL][aiven].
 
-- _Can I install TimescaleDB Community in my own premises and run it for free?_ Yes. TimescaleDB Community is completely free if you manage your own service.
-- _Can I sell TimescaleDB Community as a service, even if I’m not the main contributor?_ No.
-- _Is there a hosted version of TimescaleDB Community?_ Yes. There are two options for users that want to run TimescaleDB Community as a hosted service in the cloud: Timescale Cloud and Managed Service for TimescaleDB (MST). Timescale Cloud is a cloud-native platform for time-series, hosted in AWS. MST is a database-as-a-service offering for TimescaleDB. MST is offered in AWS, Azure and Google Cloud.
+### TimescaleDB Community Edition
+
+TimescaleDB Community Edition is the latest, most updated version of TimescaleDB, available under the [Timescale License (TSL)][timescale-license]. Read more about the Timescale License.
+
+Many of the most recent features of TimescaleDB are only available in TimescaleDB Community Edition.
+
+- _Can I install TimescaleDB Community Edition in my own on-premises or cloud infrastructure and run it for free?_ Yes. TimescaleDB Community Edition is completely free if you manage your own service.
+- _Can I sell TimescaleDB Community Edition as a service, even if I’m not the main contributor?_ No.
+- _Can I modify the TimescaleDB Community Edition source code and run it for production use?_ Yes. Developers using TimescaleDB Community Edition have the “right to repair” and make modifications to the source code and run it in their own on-premises or cloud infrastructure. However, consistent with the previous question, users may not make modifications to the TimescaleDB Community Edition source code and offer it as a service.
+- _Is there a hosted version of TimescaleDB Community Edition?_ Yes. There are two options for users that want to run TimescaleDB Community Edition as a hosted service in the cloud: Timescale Cloud and Managed Service for TimescaleDB (MST). Timescale Cloud is a cloud-native platform for time-series, hosted in AWS. MST is a database-as-a-service offering for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 
 ### Feature comparison
+
 
 <table>
   <tr>
@@ -469,6 +474,8 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
     <td>✅</td>
   </tr>
 </table>
+
+
 
 [azure-database]: https://azure.microsoft.com/en-us/services/postgresql/?&ef_id=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&gclid=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE#overview
 [digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/resources/supported-extensions/
