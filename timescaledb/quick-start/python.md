@@ -417,7 +417,7 @@ tutorials:
 [continuous-aggregates]: /how-to-guides/continuous-aggregates/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
-[self-hosted-install]: http://localhost:8000/timescaledb/latest/how-to-guides/install-timescaledb/self-hosted/
+[self-hosted-install]: http://docs.timescale.com/timescaledb/latest/how-to-guides/install-timescaledb/self-hosted/
 [cloud-install]: https://www.timescale.com/timescale-signup
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor

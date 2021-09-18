@@ -43,7 +43,7 @@ necessary, and sometimes require a short outage.
 
 Upgrades are performed as rolling upgrades where completely new server instances
 are built alongside the old ones. When the new instances are up and running they
-are synchornized with the old servers, and a controlled automatic failover is
+are synchronized with the old servers, and a controlled automatic failover is
 performed to switch the service to the new upgraded servers. The old servers are
 retired automatically after the new servers have taken over. The controlled
 failover is a very quick and safe operation and it takes less than a minute to
