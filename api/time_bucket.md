@@ -24,7 +24,7 @@ or 1 hour.
 |Name|Type|Description|
 |---|---|---|
 | `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
-| `time` | TIMESTAMP | The timestamp to bucket |
+| `ts` | TIMESTAMP | The timestamp to bucket |
 
 ### Optional Arguments
 
@@ -40,7 +40,7 @@ or 1 hour.
 |Name|Type|Description|
 |---|---|---|
 | `bucket_width` | INTEGER | The bucket width |
-| `time` | INTEGER | The timestamp to bucket |
+| `ts` | INTEGER | The timestamp to bucket |
 
 ### Optional Arguments
 
@@ -117,3 +117,4 @@ to the server's timezone setting.
  multi-day calls to time_bucket. The old behavior can be reproduced by passing
  2000-01-01 as the origin parameter to time_bucket.
 </highlight>
+

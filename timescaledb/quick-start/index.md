@@ -13,6 +13,7 @@ feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
 - **[Ruby on Rails and TimescaleDB][ruby-quickstart]**: A quick start guide for Ruby on Rails developers looking to use TimescaleDB.
 - **[Golang and TimescaleDB][go-quickstart]**: A quick start guide for Golang developers looking to use TimescaleDB.
 - **[Java and TimescaleDB][java-quickstart]**: A quick start guide for Java developers looking to use TimescaleDB.
+- **[C# .NET and TimescaleDB][dotnet-quickstart]**: A quick start guide for C# developers looking to use TimescaleDB.
 
 
 [node-quickstart]: /quick-start/node
@@ -20,3 +21,4 @@ feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
 [ruby-quickstart]: /quick-start/ruby
 [go-quickstart]: /quick-start/golang
 [java-quickstart]: /quick-start/java
+[dotnet-quickstart]: /quick-start/dotnet
