@@ -28,7 +28,7 @@ plan for this before you begin!
     allocation.
 1.  In the `Increase disk size` field, adjust the slider to the new disk size.
 1.  Review the new allocations and costs in the comparison chart.
-1.  Click `Apply` to save your changes. If you have changed the CPU and memory 
+1.  Click `Apply` to save your changes. If you have changed the CPU and memory
     allocation, your service will go down briefly while the changes are applied.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-configure.png" alt="Configure resource allocations"/>
 
@@ -53,3 +53,18 @@ the size, not decrease it. You can have a disk up to 10&nbsp;TB in size.
 1.  Click `Apply` to save your changes. The new disk size generally becomes
     available within a few seconds.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscale-configure.png" alt="Configure autoscaling disk size"/>
+
+## Memory limits
+If you run intensive queries on your Timescale Forge services, you might encounter out of memory (OOM) errors. This occurs if your query consumes more memory than is available. The error usually looks like this:
+
+```sql
+2021-09-09 18:15:08 UTC [560567]:TimescaleDB: DETAIL: Failed process was running: select * from pg_class a, pg_class b, pg_class c, pg_class d, pg_class e order by random();
+2021-09-09 18:15:08 UTC [560567]:TimescaleDB: LOG: server process (PID 2351983) was terminated by signal 9: Killed
+```
+
+When this happens, an `OOM killer` process shuts down PostgreSQL processes
+using `SIGKILL` commands, until the memory usage falls below the upper limit.
+To prevent service disruption caused by OOM errors, Timescale Forge attempts to
+shut down only the query that caused the problem. This means that the
+problematic query does not run, but that your PostgreSQL service continues to
+operate normally.
