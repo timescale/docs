@@ -404,10 +404,6 @@ module.exports = [
           {
             title: "timescaledb_information.job_stats",
             href: "job_stats"
-          },
-          {
-            title: "timescaledb_information.license",
-            href: "license"
           }
         ]
       },
@@ -431,6 +427,10 @@ module.exports = [
           {
             title: "dump_meta_data",
             href: "dump_meta_data"
+          },
+          {
+            title: "timescaledb.license",
+            href: "license"
           }
         ]
       },
