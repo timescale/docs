@@ -6,19 +6,21 @@ is detached from all hypertables that are using it, if permissions
 and data integrity requirements are satisfied. For more information,
 see [`detach_data_node`](/distributed-hypertables/detach_data_node).
 
-Note that deleting a data node is strictly a local operation; the data
-node itself will not be affected and the corresponding remote database
-on the data node will be left intact, including all its data. The
-operation is local as to ensure it can complete even if the remote
+Deleting a data node is strictly a local operation; the data
+node itself is not affected and the corresponding remote database
+on the data node is left intact, including all its data. The
+operation is local to ensure it can complete even if the remote
 data node is not responding and to avoid unintentional data loss on
 the data node.
 
-Also note that it is not possible to use
+<highlight type="note">
+It is not possible to use
 [`add_data_node`](/distributed-hypertables/add_data_node) to add the
 same data node again without first deleting the database on the data
 node or using another database. This is to prevent adding a data node
 that was previously part of the same or another distributed database
-but is no longer in sync.
+but is no longer synchronized.
+</highlight>
 
 #### Errors
 
