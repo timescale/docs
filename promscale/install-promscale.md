@@ -68,6 +68,7 @@ You can configure the Promscale Connector using flags at the command prompt, env
 All environment variables are prefixed with `PROMSCALE`.
 
 For more information about configuring Promscale, see the [Promscale CLI documentation][promscale-cli-github], or use the `promscale -h` command.
+For more documentation, see our [developer documentation][promscale-gh-docs].
 
 
 [tobs-demo]: https://youtu.be/MSvBsXOI1ks
@@ -78,3 +79,4 @@ For more information about configuring Promscale, see the [Promscale CLI documen
 [promscale-releases-github]: https://github.com/timescale/promscale/releases
 [promscale-config-github]: https://github.com/timescale/promscale/blob/master/docs/configuring_prometheus.md
 [promscale-cli-github]: https://github.com/timescale/promscale/blob/master/docs/cli.md
+[promscale-gh-docs]: https://github.com/timescale/promscale/tree/master/docs
