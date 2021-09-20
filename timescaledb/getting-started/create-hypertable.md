@@ -83,4 +83,4 @@ data-stores become more efficient.
 See the [Hypertable How To](/how-to-guides/hypertables) to learn more about
 hypertables and best practices for configuring chunks.
 
-Next, we'll get ingest some sample data into TimescaleDB.
+Next, ingest some sample data into TimescaleDB.
