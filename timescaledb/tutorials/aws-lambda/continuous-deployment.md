@@ -1,9 +1,7 @@
-# Lambda continuous deployment with Github Actions
-
+# Lambda continuous deployment with GitHub actions
 This tutorial builds a continuous deployment (CD) pipeline between Github and AWS Lambda using Github Actions.
 
-When using AWS Lambda, packaging and deploying your function and its dependencies can be a tedious job. What if you
-also want to use a source code management platform like Github to develop your code before pushing it to AWS Lambda?
+Packaging and deploying your function and its dependencies with AWS Lambda can sometimes be a tedious job. Especially if you also want to use a source code management platform like GitHub to develop your code before pushing it to AWS Lambda.
 
 Luckily, you can use Github actions to set up automatic deployment for AWS Lambda from a Github repository.
 You just need to push a commit to your main/master branch of your repository then let Github Actions do the heavy
@@ -11,7 +9,7 @@ lifting, creating the deployment package and deploying your code to AWS Lambda.
 
 ## Prerequisites
 * Git ([installation options here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
-* Github CLI tool ([installation options here](https://github.com/cli/cli#installation))
+* GitHub CLI tool ([installation options here](https://github.com/cli/cli#installation))
 * AWS account
 
 ## Create a new Lambda function in AWS console

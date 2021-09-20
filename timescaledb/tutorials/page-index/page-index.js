@@ -249,8 +249,8 @@ module.exports = [
           {
             title: 'Continuous deployment with Github Actions',
             href: 'continuous-deployment',
-            tags: ['lambda', 'cd', 'github', 'continuous deployment', 'timescaledb'],
-            keywords: ['AWS Lambda', 'tutorial', 'TimescaleDB'],
+            tags: ['lambda', 'cd', 'github', 'timescaledb'],
+            keywords: ['AWS Lambda', 'GitHub', 'tutorial', 'TimescaleDB'],
             excerpt: 'Create a continuous deployment between Github and AWS Lambda',
           }
         ],
