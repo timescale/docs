@@ -9,7 +9,7 @@ on hash key, device ID, location or some other distinct key. You can configure
 chunk size so that recent chunks fit memory for faster queries.
 
 A hypertable is an abstraction layer over chunks that hold time-series data.
-Hypertables allow you to query and access data from all the chunks as if it they
+Hypertables allow you to query and access data from all the chunks as if they
 were in a single table. This is because commands issued to the hypertable are
 applied to all of the chunks that belong to that hypertable.
 
