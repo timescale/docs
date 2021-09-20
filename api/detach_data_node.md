@@ -2,7 +2,7 @@
 
 Detach a data node from one hypertable or from all hypertables.
 
-Reasons for detaching a data node:
+Reasons for detaching a data node include:
 
 - A data node should no longer be used by a hypertable and needs to be
 removed from all hypertables that use it
