@@ -32,7 +32,7 @@ For example:
     reuse it.
 1.  Insert C, `DEF`, and refresh policies after C.
 
-This can you use a lot of resources to process, and if you have any important
+This can use a lot of resources to process, and if you have any important
 data in the past that also needs to be brought to the present.
 
 Consider an example where you have 300 columns on a single hypertable and use,
