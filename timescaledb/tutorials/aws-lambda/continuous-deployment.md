@@ -12,20 +12,12 @@ package, and deploy your code to AWS Lambda.
 * GitHub CLI tool ([installation options here](https://github.com/cli/cli#installation))
 * AWS account
 
-## Create a new Lambda function in AWS console
-
-Create a new Lambda function called "lambda-cd"
-Navigate to the AWS Lambda console and create a new function:
-![create new function](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/create_new_function.png)
-
-
-Add "lambda-cd" as your function name and choose your preferred runtime environment:
-
-![create lambda from scratch](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/from_scratch.png)
-
-
-After clicking "Create function", you have created a Lambda function called "lambda-cd". Remember the name of the function because later you'll need to reference this
-to configure the deployment file.
+## Procedure: Creating a new Lambda function in AWS console
+1.  Create a new Lambda function called `lambda-cd` by navigating to the AWS Lambda console and creating a new function:
+    ![create new function](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/create_new_function.png)
+1.  Add `lambda-cd` as your function name, choose your preferred runtime environment, and click `Create function`:
+    ![create lambda from scratch](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/from_scratch.png)
+    Take a note of the function name, you need it later to configure the deployment file.
 
 ## Create a new GitHub repository
 
