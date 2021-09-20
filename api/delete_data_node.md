@@ -2,7 +2,7 @@
 
 This function is executed on an access node to remove a data
 node from the local database. As part of the deletion, the data node
-will be detached from all hypertables that are using it if permissions
+is detached from all hypertables that are using it, if permissions
 and data integrity requirements are satisfied. For more information,
 see [`detach_data_node`](/distributed-hypertables/detach_data_node).
 
