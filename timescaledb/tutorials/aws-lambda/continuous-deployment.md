@@ -158,7 +158,7 @@ to auto-deploy to AWS Lambda.
     This configuration will make sure to deploy the code to Lambda when there's a new push to the master branch.
 
     As you can also see in the YAML file, the AWS credentials are accessed using the `${{ secrets.AWS_ACCESS_KEY_ID }}` syntax.
-1.  Make sure the use the same function name in this configuration file as what's the name of the Lambda function in
+    Make sure the use the same function name in this configuration file as what's the name of the Lambda function in
     the AWS console ("lambda-cd" in this example).
 
 ### Procedure: Testing the pipeline
