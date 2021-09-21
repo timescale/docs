@@ -80,6 +80,8 @@ At this point, you have a GitHub repository with just the Lambda function in it.
 
 ## Connect GitHub and AWS Lambda
 
+Let's connect the Github repository AWS Lambda using Github actions.
+
 ### Procedure: Adding your AWS credentials to the repository
 You need to add your AWS credentials to the repository so it will have permission to connect to Lambda. You can do this
 by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) using the GitHub CLI.
