@@ -1,79 +1,76 @@
 # Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
+Telegraf collects metrics from a wide array of inputs and write them to a wide
+array of outputs. It is plugin-driven for both collection and output of data so
+it is extendable. It is written in Go, which means that it is compiled
+and standalone binary that can be run on any system with no need for
+external dependencies, or package management tools required.
 
-Telegraf can collect metrics from a wide array of inputs and write them to a wide array of outputs.
-It is plugin-driven for both collection and output of data so it is easily extendable.
-It is written in Go, which means that it is compiled and standalone binary that can be executed on any system with no need for external dependencies, or package management tools required.
-
-Telegraf is an open-source tool. It contains over 200 plugins for gathering and writing different types of data written by people who work with that data.
-
-We wrote the PostgreSQL output plugin which also has the ability to send data to a TimescaleDB hypertable. The [pull request][pull-request] is open and currently under review by the Telegraf developers, waiting to be merged. To give developers the opportunity to try this functionality, we built downloadable binaries of Telegraf with our plugin already included.
-
-This tutorial will run through a couple of examples on how to use the PostgreSQL/TimescaleDB output plugin for Telegraf.
+Telegraf is an open-source tool. It contains over 200 plugins for gathering and
+writing different types of data written by people who work with that data. We
+have built downloadable binaries of Telegraf with our plugin included. This
+tutorial runs through a couple of examples on how to use the PostgreSQL and
+TimescaleDB output plugin for Telegraf.
 
 ## Installation [](telegraf-installation)
-
-### Before we start
-
-Before we start, you will need [TimescaleDB installed][getting-started] and a means to connect to it.
+Before you start, you need [TimescaleDB installed][getting-started] and a means to connect to it.
 
 ### Setting up Telegraf
+Telegraf is written in Go, and the current build process of the tool is
+configured to produce one standalone binary. Because of this all the code for
+the different plugins must be part of that binary. We have an unofficial build
+of Telegraf version 1.13.0 with our plugin added, that you can download from:
 
-Telegraf is written in Go, and the current build process of the tool is configured to produce one standalone binary. Because of this all the code for the different plugins must be part of that binary. We have an unofficial build of Telegraf version 1.13.0 with our plugin added. You can download from the following links:
-
-* Linux amd64: <tag type="download">[deb](https://telegrafreleases.blob.core.windows.net/linux/telegraf_1.13.0~with~pg-1_amd64.deb)</tag> <tag type="download">[rpm](https://telegrafreleases.blob.core.windows.net/linux/telegraf-1.13.0~with~pg-1.x86_64.rpm)</tag> <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/linux/telegraf)</tag>
-* Windows amd64: <tag type="download">[binary/exe](https://telegrafreleases.blob.core.windows.net/windows/telegraf.exe)</tag>
-* MacOS amd64: <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/macos/telegraf)</tag>
+*   Linux amd64: <tag type="download">[deb](https://telegrafreleases.blob.core.windows.net/linux/telegraf_1.13.0~with~pg-1_amd64.deb)</tag> <tag type="download">[rpm](https://telegrafreleases.blob.core.windows.net/linux/telegraf-1.13.0~with~pg-1.x86_64.rpm)</tag> <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/linux/telegraf)</tag>
+*   Windows amd64: <tag type="download">[binary/exe](https://telegrafreleases.blob.core.windows.net/windows/telegraf.exe)</tag>
+*   MacOS amd64: <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/macos/telegraf)</tag>
 
 We can also provide you with builds for:
 
-* Windows i386
-* Linux (i386, armhf, armel, arm64, static_amd64, s390x, mipsel)
-* FreeBSD (amd64, i386)
+*   Windows i386
+*   Linux (i386, armhf, armel, arm64, static_amd64, s390x, mipsel)
+*   FreeBSD (amd64, i386)
 
 if you contact us in our [community slack][public-slack]
 
-Once you download the binary and extract it to a suitable location (or install the packages) we can test out the build.
-You may have to make the file executable by running `chmod +x telegraf`.
-We can check the version of the installed Telegraf with
-
-```
+Once you download the binary and extract it to a suitable location (or install
+the packages) you can test out the build. You might need to make the file
+executable by running `chmod +x telegraf`. Check the version of the
+installed Telegraf using this command:
+```bash
 $ telegraf --version
 ```
 
-If the installation was successful it should print out `Telegraf 1.13.0-with-pg`.
+If the installation is successful, it shows `Telegraf 1.13.0-with-pg`.
 
 ## Telegraf configuration [](telegraf-configuration)
+When Telegraf is started, you need to specify a configuration file. The
+configuration file sets up:
+*   Telegraf agent
+  *   Collection interval
+  *   Jitter
+  *   Buffer and batch size and so on
+*   Global tags added to all collected metrics from all inputs
+*   Enabled outputs, processors, aggregators, inputs (and their respective configuration)
 
-When Telegraf is started, a config file needs to be specified.
-The config file contains the setup for the:
-* Telegraf agent
-  * Collection interval
-  * Jitter
-  * Buffer and batch size and so on
-* Global tags added to all collected metrics from all inputs
-* Enabled outputs, processors, aggregators, inputs (and their respective configuration)
-
-A sample config file with PostgreSQL included as a plugin can be generated by executing
-
-```
+A sample config file with PostgreSQL included as a plugin can be generated with
+this command:
+```bash
 $ telegraf --input-filter=cpu --output-filter=postgresql config > telegraf.conf
 ```
 
-The above command generates a config file that enables the CPU input plugin (which samples various metrics about CPU usage) and the PostgreSQL output plugin.  
-The config file also includes all available input, output, processor, and aggregator plugins, **but commented out**. So, it's easy to see how a plugin should be configured.
+This command generates a configuration file that enables a CPU input plugin that
+samples various metrics about CPU usage, and the PostgreSQL output plugin. The
+file also includes all available input, output, processor, and aggregator
+plugins, commented out, so you can enable them as required.
 
-### Testing out the config file
-
-To test our configuration, we can output a single collection to STDOUT. By running
-
-```
+### Testing out the configuration file
+To test your configuration, you can output a single collection to `STDOUT`, like this:
+```bash
 $ telegraf --config telegraf.conf --test
 ```
 
-we select the generated config file that enables only the CPU input plugin.
-And the output should look something like:
-
-```
+This command selects the generated configuration file that enables only the CPU input plugin. The output should look something like this:
+```bash
 > cpu,cpu=cpu0,host=local usage_guest=0,usage_idle=78.431372,usage_iowait=0,usage_irq=0,usage_softirq=0,usage_steal=0,usage_system=11.764705,usage_user=9.803921 1558613882000000000
 > cpu,cpu=cpu1,host=local usage_guest=0,usage_idle=92.156862,usage_iowait=0,usage_irq=0,usage_softirq=0,usage_steal=0,usage_system=3.921568,usage_user=3.921568 1558613882000000000
 > cpu,cpu=cpu-total,host=local usage_guest=0,usage_idle=87.623762,usage_iowait=0,usage_irq=0,usage_softirq=0,usage_steal=0,usage_system=6.435643,usage_user=5.940594 1558613882000000000
@@ -84,19 +81,16 @@ When writing to STDOUT you can distinguish between *tags*, which are indexed fie
 The distinction exists because different configuration options are available for the different fields.
 
 ### Configuring the PostgreSQL output plugin
-
-The `telegraf.conf` file we generated has a section (around line 80) headed with
-
-```
+The `telegraf.conf` file you generated has a section (around line 80) headed with
+```txt
 ################################################
 #                OUTPUT PLUGINS                #
 ################################################
 ```
 
-And below this header, the default configuration for the PostgreSQL output plugin is
-laid out.
-
-```
+Below this header, the default configuration for the PostgreSQL output plugin is
+shown. It looks like this:
+```txt
 [[outputs.postgresql]]
   ## specify address via a url matching:
   ##   postgres://[pqgotest[:password]]@localhost[/dbname]\
@@ -138,58 +132,61 @@ laid out.
   # fields_as_jsonb = false
 ```
 
-From the config we can notice several things:
-1. The top line enables the plugin, the plugin specific config is indented after this line
-2. There is currently only one parameter configured, `connection`. The others are commented out
-3. Possible parameters are commented out with a single `#`. (`tags_as_foreignkeys`, `table_template`, `schema`, `tags_as_jsonb`, `fields_as_jsonb`)
-4. Explanations of the parameters are commented out with a single `##`
+From the configuration, you can see a few important things:
+*   The top line enables the plugin, the plugin specific configuration is
+    indented after this line.
+*   There is currently only one parameter configured, `connection`. The others
+    are commented out.
+*   Possible parameters are commented out with a single `#`.
+    (`tags_as_foreignkeys`, `table_template`, `schema`, `tags_as_jsonb`,
+    `fields_as_jsonb`).
+*   Explanations of the parameters are commented out with `##`.
 
 The commented out parameters also show their default values.
 
-For the first example we'll set the connection parameter to a proper connection string to establish a connection to an instance of TimescaleDB or PostgreSQL.
+In the first example you'll set the connection parameter to a proper connection string to establish a connection to an instance of TimescaleDB or PostgreSQL.
 All the other parameters will have their default values.
 
 ### Creating hypertables
+The plugin allows you to configure several parameters. The `table_template`
+parameter defines the SQL to be run when a new measurement is recorded by
+Telegraf and the required table doesn't exist in the output database. By
+default, the `table_template` used is `CREATE TABLE IF NOT EXISTS
+{TABLE}({COLUMNS})` where `{TABLE}` and `{COLUMNS}` are placeholders for the
+name of the table and the column definitions.
 
-The plugin we developed allows the user to configure several parameters. The `table_template` parameter defines the SQL to be executed when a new measurement is recorded by Telegraf and the
-required table doesn't exist in the output database. By default the `table_template` used is `CREATE TABLE IF NOT EXISTS {TABLE}({COLUMNS})` where `{TABLE}` and `{COLUMNS}` are placeholders
-for the name of the table and the column definitions.
-
-Let's update `table_template` in the config for TimescaleDB:
-
-```
+You can update `table_template` in the configuration for TimescaleDB with this
+command:
+```sql
   table_template=`CREATE TABLE IF NOT EXISTS {TABLE}({COLUMNS}); SELECT create_hypertable({TABLELITERAL},'time',chunk_time_interval := INTERVAL '1 week',if_not_exists := true);`
 ```
 
-This way when a new table is created it is converted into a hypertable, with each chunk holding 1 week intervals. Nothing else is needed to use the plugin with TimescaleDB.
+This way when a new table is created it is converted into a hypertable, with
+each chunk holding 1 week intervals. Nothing else is needed to use the plugin
+with TimescaleDB.
 
 ## Running Telegraf
-
-When we run Telegraf we only need to specify the config file to be used. If we execute
-
-```
-$  telegraf --config telegraf.conf
+When you run Telegraf you only need to specify the configuration file to use. In this example, the output uses loaded inputs (`cpu`) and outputs (`postgresql`) along with global tags, and the intervals with which the agent will collect the data from the inputs, and flush to the outputs. You can stop Telegraf running after ~10-15 seconds:
+```bash
+telegraf --config telegraf.conf
 2019-05-23T13:48:09Z I! Starting Telegraf 1.13.0-with-pg
 2019-05-23T13:48:09Z I! Loaded inputs: cpu
 2019-05-23T13:48:09Z I! Loaded outputs: postgresql
 2019-05-23T13:48:09Z I! Tags enabled: host=local
 2019-05-23T13:48:09Z I! [agent] Config: Interval:10s, Quiet:false, Hostname:"local", Flush Interval:10s
 ```
-
-In the output you can notice the loaded inputs (`cpu`) and outputs (`postgresql`) along with the global tags and the intervals with which the agent will collect the data from the inputs, and flush to the outputs. We can stop the execution of Telegraf after ~10-15 seconds.
-
-Let us now connect to our PostgreSQL instance and inspect the data
-
-```
-$ psql -U postgres -h localhost
+Now you can connect to the PostgreSQL instance and inspect the data:
+```bash
+psql -U postgres -h localhost
 ```
 
-The cpu input plugin has one measurement, called cpu, and it's stored in a table of the same name (by default in the public schema).
-So with the SQL query `SELECT * FROM cpu`, depending on how long you left Telegraf running you will see the table populated with some values.
-We can find the average usage per cpu core with `SELECT cpu, avg(usage_user) FROM cpu GROUP BY cpu`.
-The output should look like
-
-```
+The CPU input plugin has one measurement, called `cpu`, and it's stored in a
+table of the same name (by default in the public schema). So with the SQL query
+`SELECT * FROM cpu`, depending on how long you left Telegraf running, you see
+the table populated with some values. You can find the average usage per CPU
+core with `SELECT cpu, avg(usage_user) FROM cpu GROUP BY cpu`. The output should
+look like this:
+```sql
     cpu    |       avg        
 -----------+------------------
  cpu-total | 8.46385703620795
@@ -200,29 +197,27 @@ The output should look like
 ```
 
 ### Adding new tags or fields
-
-Your Telegraf configuration can change at any moment.
-An input plugin can be reconfigured to produce different data, or you may decide to index your data with different tags.
-Our SQL plugin can dynamically update the created tables with new columns as they appear.
-The previous configuration we used had no global tags specified other than the `host` tag.
-We will now add a new global tag in the configuration.
-Open the file in any text editor and update the `[global_tags]` section (around line 18) with:
-
-```
+Your Telegraf configuration can change at any moment. An input plugin can be
+reconfigured to produce different data, or you might decide to index your data
+with different tags. The SQL plugin can dynamically update the created tables
+with new columns as they appear. The previous configuration used had no global
+tags specified other than the `host` tag. Now you can add a new global tag in
+the configuration by opening the file in any text editor and updating the
+`[global_tags]` section (around line 18) with:
+```txt
 [global_tags]
   location="New York"
 ```
 
-This way all metrics collected with the instance of Telegraf running with this config will be tagged with `location="New York"`.
-If we run Telegraf again, collecting the metrics in TimescaleDB
-
+This way all metrics collected with the instance of Telegraf running with this
+config will be tagged with `location="New York"`. If you run Telegraf again,
+collecting the metrics in TimescaleDB, using this command:
+```bash
+telegraf --config telegraf.conf
 ```
-$ telegraf --config telegraf.conf
-```
 
-And after a while we check on the `cpu` table in the database
-
-```
+After a while you can check on the `cpu` table in the database, like this:
+```sql
 psql> \dS cpu
 \dS cpu;
 Table "public.cpu"
@@ -242,34 +237,36 @@ Table "public.cpu"
  location         | text                     
  ```
 
- The `location` column was added and it contains "New York" for all rows.
+ You can see the `location` column is added and it contains `New York` for all
+ rows.
 
- ### Creating a separate metadata table for tags
-
- The plugin we developed allows the user to select to have the tag sets inserted in a separate
- table and then referenced via **foreign keys** in the measurement table.
- Having the tags in a separate table saves space for high cardinality tag sets, and allows certain queries to be written more efficiently.
- To enable this change, you need to uncomment the `tags_as_foreignkeys` parameter in the plugin config (around line  103 in `telegraf.conf`) and set it to true
-
- ```
- ## Store tags as foreign keys in the metrics table. Default is false.
- tags_as_foreignkeys = true
- ```
-
-To better visualize the result we'll drop the existing `cpu` table from our database.
-
+### Creating a separate metadata table for tags
+The plugin allows you to select the tag sets inserted in a separate table and
+then referenced using foreign keys in the measurement table. Having the tags in
+a separate table saves space for high cardinality tag sets, and allows certain
+queries to be written more efficiently. To enable this change, you need to
+uncomment the `tags_as_foreignkeys` parameter in the plugin config (around line
+103 in `telegraf.conf`) and set it to true:
+```txt
+## Store tags as foreign keys in the metrics table. Default is false.
+tags_as_foreignkeys = true
 ```
+
+To better visualize the result you can drop the existing `cpu` table from the
+database:
+```sql
 psql> DROP TABLE cpu;
 ```
 
-Now we'll fire Telegraf up again, this time with the config changed to write the tags in a separate table.
-```
-$ telegraf --config telegraf.conf
+Now you can start Telegraf again, this time with the configuration changed to
+write the tags in a separate table:
+```bash
+telegraf --config telegraf.conf
 ```
 
-We can turn it off after 20-30 seconds. If we check on the `cpu` table in the database:
-
-```
+You can turn it off after 20-30 seconds, and check on the `cpu` table in the
+database:
+```sql
 psql> \dS cpu
 \dS cpu
 Table "public.cpu"
@@ -285,10 +282,10 @@ Table "public.cpu"
  usage_user       | double precision         
  usage_idle       | double precision         
  usage_steal      | double precision         
+```
 
-```
-Notice that the `cpu`, `host` and `location` columns are not there, instead there's a `tag_id` column. The tag sets are stored in a separate table called `cpu_tag`:
-```
+Now the `cpu`, `host` and `location` columns are not there, instead there's a `tag_id` column. The tag sets are stored in a separate table called `cpu_tag`:
+```sql
  psql> SELECT * FROM cpu_tag;
  tag_id |  host |    cpu    |  location
 --------+-------+-----------+----------
@@ -297,29 +294,26 @@ Notice that the `cpu`, `host` and `location` columns are not there, instead ther
       3 | local | cpu1      | New York
 ```
 
- ### JSONB column for Tags and Fields
-
- Additionally the tags and fields can be stored as JSONB columns in the database. All you need to do is uncomment the `tags_as_jsonb` or `fields_as_jsonb` parameters in `telegraf.conf` (around line 120) and set them to true. In this example we'll store the fields as separate columns, but the tags as JSON.
-
- ```
- ## Use jsonb datatype for tags
- tags_as_jsonb = true
- ## Use jsonb datatype for fields
- fields_as_jsonb = false
- ```
-
-To better visualize the result we'll drop the existing `cpu_tag` table from our database.
+### JSONB column for Tags and Fields
+The tags and fields can be stored as JSONB columns in the database. You need to uncomment the `tags_as_jsonb` or `fields_as_jsonb` parameters in `telegraf.conf` (around line 120) and set them to `true`. In this example, the fields are stored as separate columns, but the tags are stored as JSON:
+```txt
+## Use jsonb datatype for tags
+tags_as_jsonb = true
+## Use jsonb datatype for fields
+fields_as_jsonb = false
 ```
+
+To better visualize the result, drop the existing `cpu_tag` table from the database:
+```sql
 psql> DROP TABLE cpu_tag;
 ```
 
-Fire up Telegraf again, and turn it off after 20-30 seconds. Then we check the `cpu_tag` table:
+Start Telegraf again, and turn it off after 20-30 seconds. Then check the `cpu_tag` table:
+```bash
+telegraf --config telegraf.conf
+```
 
-```
-$ telegraf --config telegraf.conf
-```
-
-```
+```sql
  psql> SELECT * FROM cpu_tag;
  tag_id |                                       tags                                        
 --------+-----------------------------------------------------------------------------------
@@ -328,11 +322,10 @@ $ telegraf --config telegraf.conf
       3 | {"cpu": "cpu1", "host": "local", "location": "New York"}
 ```
 
-And instead of having three text columns, one JSONB column is created.
+Instead of having three text columns, now you have one JSONB column.
 
 ## Next steps
-
-Once you have started inserting data in TimescaleDB, you can begin to familiarize yourself with our [architecture][] and [API reference][api].
+When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with our [architecture][] and [API reference][api].
 
 Additionally, we have several other [tutorials][] available for you to explore as you become accustomed to working with TimescaleDB.
 
@@ -340,11 +333,5 @@ Additionally, we have several other [tutorials][] available for you to explore a
 [getting-started]: /how-to-guides/install-timescaledb/
 [tutorials]: /tutorials
 [public-slack]: https://slack.timescale.com/
-[mac-build]: https://telegrafreleases.blob.core.windows.net/macos/telegraf
-[windows-build]: https://telegrafreleases.blob.core.windows.net/windows/telegraf.exe
-[deb-build]: https://telegrafreleases.blob.core.windows.net/linux/telegraf_1.13.0~with~pg-1_amd64.deb
-[rpm-build]: https://telegrafreleases.blob.core.windows.net/linux/telegraf-1.13.0~with~pg-1.x86_64.rpm
-[linux-bin-build]: https://telegrafreleases.blob.core.windows.net/linux/telegraf
-[pull-request]: https://github.com/influxdata/telegraf/pull/3428
 [architecture]: /overview/core-concepts
 [api]: /api/:currentVersion:/
