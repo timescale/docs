@@ -427,10 +427,6 @@ module.exports = [
           {
             title: "dump_meta_data",
             href: "dump_meta_data"
-          },
-          {
-            title: "timescaledb.license",
-            href: "license"
           }
         ]
       },
