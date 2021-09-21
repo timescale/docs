@@ -331,18 +331,18 @@ Yes. There are two options for users that want to run TimescaleDB Community Edit
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/">time_bucket_gapfill</a></td>
-    <td>✅</td>
     <td>❌</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/locf/">locf</a></td>
-    <td>✅</td>
     <td>❌</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/interpolate/">interpolate</a></td>
-    <td>✅</td>
     <td>❌</td>
+    <td>✅</td>
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/percentile_agg/#percentile-agg">percentile_agg</a></td>
