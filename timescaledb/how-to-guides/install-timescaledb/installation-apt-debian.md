@@ -19,25 +19,19 @@ of `apt`, we recommend installing from source.  Otherwise, please be
 sure to remove non-`apt` installations before using this method.
 </highlight>
 
-**If you don't already have PostgreSQL installed**, add PostgreSQL's third
-party repository to get the latest PostgreSQL packages:
+Add the PostgreSQL third party repository to get the latest PostgreSQL packages:
 ```bash
-# `lsb_release -c -s` should return the correct codename of your OS
-echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -c -s)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo apt-get update
+sudo apt install postgresql-common
+sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 ```
 
-Add TimescaleDB's third party repository and install TimescaleDB,
-which will download any dependencies it needs from the PostgreSQL repo:
+Add the TimescaleDB third party repository and install TimescaleDB. This command
+downloads any required dependencies from the PostgreSQL repository:
 ```bash
-# Add our repository
-sudo sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ `lsb_release -c -s` main' > /etc/apt/sources.list.d/timescaledb.list"
-wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
-sudo apt-get update
-
-# Now install appropriate package for PG version
-sudo apt-get install timescaledb-2-postgresql-13
+sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/timescale.keyring
+sudo apt update
+sudo apt install timescaledb-2-postgresql-13
 ```
 
 #### Upgrading from TimescaleDB 1.x
@@ -65,13 +59,13 @@ Once you confirm and install the newest binary package, perform the
 EXTENSION update as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 
 #### Configure your database
-
 There are a [variety of settings that can be configured][config] for your
 new database. At a minimum, you will need to update your `postgresql.conf`
 file to include our library in the parameter `shared_preload_libraries`.
 The easiest way to get started is to run `timescaledb-tune`, which is
 installed by default when using `apt`:
 ```bash
+sudo apt install timescaledb-tools
 sudo timescaledb-tune
 ```
 
