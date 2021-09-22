@@ -9,8 +9,8 @@ This returns the maximum relative error that a percentile estimate will have
 range defined by `approx_percentile(sketch) +/- approx_percentile(sketch)*error(sketch)`.
 
 This function can only be used on estimators produced by
-[`percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg) or
-[`uddsketch()`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch)
+[`percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg/) or
+[`uddsketch()`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/)
 calls.
 
 ### Required arguments
