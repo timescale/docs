@@ -176,7 +176,7 @@ If you want to run your Lambda function according to a schedule, you can set up
 an EventBridge trigger. This creates a rule using a [`cron` expression][cron-examples].
 
 
-### Procedure: Scheduling the Lambda function :
+### Procedure: Scheduling the Lambda function
 1.  Create the schedule. In this example, the function runs every day at 9am:
     ```bash
     aws events put-rule --name schedule-lambda --schedule-expression 'cron(0 9 * * ? *)'
