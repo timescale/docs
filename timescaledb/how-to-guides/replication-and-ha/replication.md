@@ -389,13 +389,8 @@ high availability solution with automatic failover functionality.
 [timescale-streamrep-docker]: https://github.com/timescale/streaming-replication-docker
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-archive-docs]: https://www.postgresql.org/docs/current/static/continuous-archiving.html
-[postgres-wal-docs]: https://www.postgresql.org/docs/current/static/wal-intro.html
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[postgres-scram-docs]: https://www.postgresql.org/docs/current/static/sasl-authentication.html#SASL-SCRAM-SHA-256
-[hba-docs]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
-[postgres-pgpass-docs]: https://www.postgresql.org/docs/current/static/libpq-pgpass.html
 [postgres-recovery-docs]: https://www.postgresql.org/docs/current/static/recovery-config.html
-[postgres-pgpass-docs]: https://www.postgresql.org/docs/current/static/libpq-pgpass.html
 [timescale-setup-docs]: /how-to-guides/install-timescaledb/post-install-setup/
 [postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/10/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
