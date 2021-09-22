@@ -61,12 +61,12 @@ this mode. This mode is best suited to specialized workloads that use sharding
 front-end proxies.
 
 ## Set up a connection pool
-You can set up a connection pool from the Managed Service for TimescaleDB (MST)
+You can set up a connection pool from the Timescale Cloud
 portal. Make sure you have already created a service that you want to add
 connection pooling to.
 
 ### Procedure: Setting up a connection pool
-1.  In the Managed Service for TimescaleDB (MST) portal, navigate to the
+1.  In the Timescale Cloud portal, navigate to the
     `Services` list, and click the name of the service you want to add connection pooling to.
 1.  In the `Service overview` page, navigate to the `Pools` tab. When you have
     created some pools, they are shown here.
