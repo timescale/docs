@@ -79,7 +79,7 @@ To get started you'll now need to restart PostgreSQL:
 sudo service postgresql restart
 ```
 
-[config]: /administration/configuration/
+[config]: /how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
 [multi-node-basic]: /how-to-guides/multi-node-setup/
