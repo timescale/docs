@@ -33,7 +33,7 @@ brew install timescaledb
 
 There are a [variety of settings that can be configured][config] for your
 new database. At a minimum, you will need to update your `postgresql.conf`
-file to include our library in the parameter `shared_preload_libraries`.
+file to include `shared_preload_libraries = 'timescaledb'`.
 The easiest way to get started is to run `timescaledb-tune`, which is
 installed as a dependency when you install via Homebrew:
 ```bash
