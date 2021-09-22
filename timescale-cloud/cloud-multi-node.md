@@ -1,7 +1,7 @@
 <highlight type="tip">
 Timescale currently offers two hosting options. If you are a
 Timescale Forge user, please use the documentation for
-[setting up multi-node on Forge](timescale-forge/forge-multi-node) instead.
+[setting up multi-node on Forge](timescale-forge/latest/forge-multi-node) instead.
 </highlight>
 
 # Setting up TimescaleDB 2.0 multi-node on Timescale Cloud
