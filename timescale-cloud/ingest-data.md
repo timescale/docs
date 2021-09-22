@@ -11,8 +11,8 @@ There are several different ways of ingesting your data into Timescale Cloud. Th
     such as Kafka
 
 <highlight type="note">
-Before you begin, make sure you have [created your Timescale Cloud
-service](/create-a-service/), and can connect to it using `psql`.
+Before you begin, make sure you have
+[created your Timescale Cloud service](/create-a-service/), and can connect to it using `psql`.
 </highlight>
 
 ## Procedure: Preparing your new database
