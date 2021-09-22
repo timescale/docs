@@ -1,27 +1,38 @@
-# TimescaleDB with AWS Lambda 
+# TimescaleDB with AWS Lambda
+This section contains tutorials for working with AWS Lambda and TimescaleDB.
 
-In this section, you will find tutorials for working with AWS Lambda and TimescaleDB. 
-
-* [Create a data API for TimescaleDB (AWS Lambda + API Gateway)](/tutorials/aws-lambda/create-data-api)
-* [Pull data from 3rd party API and ingest into TimescaleDB (AWS Lambda + Docker)](/tutorials/aws-lambda/3rd-party-api-ingest)
-
-In some cases you may need to use Lambda to run a Docker image when your dependencies grow beyond the supported size, 
-something we cover in the second tutorial.
+*   [Create a data API for TimescaleDB](/tutorials/aws-lambda/create-data-api)
+    using AWS Lambda and API Gateway.
+*   [Pull data from 3rd party API and ingest into TimescaleDB](/tutorials/aws-lambda/3rd-party-api-ingest)
+    using AWS Lambda and Docker. This is great if you have a lot of dependencies.
 
 ## Prerequisites
-To complete this tutorial, you will need an AWS account and AWS CLI.
+To complete this tutorial, you need an AWS account, and be able to access the
+AWS command-line interface (CLI).
 
-To check if you have AWS CLI installed, run the `aws --version` command:
+To check if you have AWS CLI installed, use this command at the command prompt.
+If it is installed, the command shows the version number, like this:
+
 ```bash
 aws --version
 aws-cli/2.2.18 Python/3.8.8 Linux/5.10.0-1044-oem exe/x86_64.ubuntu.20 prompt/off
 ```
 
-If you do not have it installed, please follow the [instructions provided by AWS here.](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+If you do not have it installed, follow [these instructions](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) from AWS.
 
-It’s also required that you complete the [Analyze intraday stock data tutorial](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-intraday-stocks/) first because it sets up the needed tables and data that is used in this tutorial.
+<highlight type="important">
+Make sure you have completed the [Analyze intraday stock data tutorial](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-intraday-stocks/). This tutorial needs the tables and data that you set up in that tutorial.
+</highlight>
 
-## Programming langauge
+## Programming language
+The code examples in this tutorial use Python, but you can use any language
+[supported by AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
 
-The code examples throughout the tutorial use Python as the programming language but you can use any other language 
-you prefer as long as it’s [supported by AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
+## Resources
+For more information about the topics in this tutorial, check out these resources:
+
+*   [AWS CLI Version 2 References](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html)
+*   [Creating Lambda container images](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html)
+*   [Getting started with AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html)
+*   [Analyze historical intraday stock data](/tutorials/analyze-intraday-stocks)
+*   [Analyze cryptocurrency market data](/tutorials/analyze-cryptocurrency-data)

@@ -1,15 +1,60 @@
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
-
-The `time_bucket_ng()` (next generation) experimental function is
-similar to [`time_bucket()`][time_bucket], but works with years and
-months. It is expected that the feature will also support timezones
-in a future release.
+The `time_bucket_ng()` (next generation) experimental function is an updated
+version of  the original [`time_bucket()`][time_bucket] function. While
+`time_bucket` works only with small units of time,  `time_bucket_ng()` 
+supports years and months in addition to small units of time.
 
 <highlight type="warning">
 Experimental features could have bugs! They might not be backwards compatible,
 and could be removed in future releases. Use these features at your own risk, and
 do not use any experimental features in production.
 </highlight>
+
+Functionality | time_bucket() | time_bucket_ng()
+--------------|---------------|-----------------
+Buckets by seconds, minutes, hours, days and weeks | YES | YES
+Buckets by months and years | NO | YES
+Timezones support | NO | YES
+
+<highlight type="warning">
+The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
+completely compatible. There are two main differences.
+
+Firstly, `time_bucket_ng()` doesn't work with timestamps prior to `origin`,
+while `time_bucket()` does.
+
+Secondly, the default `origin` values differ. `time_bucket()` uses an origin
+date of 3 Jan 2000, because that date is a Monday. This works better with
+weekly buckets. `time_bucket_ng()` uses an origin date of 1 Jan 2000, because
+it is the first day of the month and the year. This works better with monthly
+or annual aggregates.
+</highlight>
+
+### Required Arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
+| `ts` | DATE, TIMESTAMP or TIMESTAMPTZ | The timestamp to bucket |
+
+### Optional Arguments
+
+|Name|Type|Description|
+|---|---|---|
+| `origin` | Should be the same as `ts` | Buckets are aligned relative to this timestamp |
+| `timezone` | TEXT | The name of the timezone. The argument can be specified only if the type of `ts` is TIMESTAMPTZ |
+
+For backward compatibility with `time_bucket()` the `timezone` argument is
+optional. Note that if you call the TIMESTAMPTZ-version of the function
+without the `timezone` argument, the timezone defaults to the session's
+timezone and so the function can't be used with continuous aggregates.
+
+### Return value
+
+The function returns the bucket's start time. The return value type is the
+same as `ts`.
+
+### Sample Usage
 
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
@@ -32,24 +77,21 @@ SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
 (1 row)
 ```
 
-To split time into buckets we use a starting point in time called `origin`. The
-default origin is '2000-01-01'. `time_bucket_ng` can't work with timestamps
-earlier than `origin`:
+To split time into buckets, `time_bucket_ng()` uses a starting point in time
+called `origin`. The default origin is `2000-01-01`. `time_bucket_ng` cannot use
+timestamps earlier than `origin`:
 
 ```
 SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08');
 ERROR:  origin must be before the given date
 ```
 
-Going back in time from `origin` isn't possible in general case, especially
-when you consider time zones and DST. We could partially support it
-depending on the arguments, but it seems to be a bad user experience.
+Going back in time from `origin` isn't usually possible, especially when you
+consider timezones and daylight savings time (DST). Note also that there is no
+reasonable way to split time in variable-sized buckets (such as months) from an
+arbitrary `origin`, so `origin` defaults to the first day of the month.
 
-Note also that there is no reasonable way to split time in
-variable-sized buckets (e.g. months) from an arbitrary `origin`. For this
-reason the default `origin` is the first day of the month.
-
-To bypass named limitations it's possible to override the default `origin`:
+To bypass named limitations, you can override the default `origin`:
 
 ```
 -- working with timestamps before 2000-01-01
@@ -65,8 +107,22 @@ SELECT timescaledb_experimental.time_bucket_ng('1 week', timestamp '2021-08-26',
  2021-08-23 00:00:00
 ```
 
-You can use `time_bucket_ng()` with continuous aggregates.
-This example tracks the temperature in Moscow over seven day intervals:
+This example shows how `time_bucket_ng()` is used to bucket data
+by months in a specified timezone:
+
+```
+-- note that timestamptz is displayed differently depending on the session parameters
+SET TIME ZONE 'Europe/Moscow';
+SET
+
+SELECT timescaledb_experimental.time_bucket_ng('1 month', timestamptz '2001-02-03 12:34:56 MSK', timezone => 'Europe/Moscow');
+     time_bucket_ng
+------------------------
+ 2001-02-01 00:00:00+03
+```
+
+You can use `time_bucket_ng()` with continuous aggregates. This example tracks
+the temperature in Moscow over seven day intervals:
 
 ```
 CREATE TABLE conditions(

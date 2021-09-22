@@ -45,13 +45,16 @@ dataset, and automatically updates the view in the background. This does not add
 any maintenance burden to your database, and does not slow down `INSERT`
 operations.
 
+## Unsupported functions
 Continuous aggregates are supported for most aggregate functions that can be
 [parallelized by PostgreSQL][postgres-parallel-agg], including the standard
-aggregates like `SUM` and `AVG`. However, aggregates using `ORDER BY` and
-`DISTINCT` cannot be used with continuous aggregates since they are not possible
-to parallelize by PostgreSQL. TimescaleDB does not currently support the
-`FILTER` clause. You can also use more complex expressions on top of the
-aggregate functions, for example `max(temperature)-min(temperature)`.
+aggregates like `SUM` and `AVG`. You can also use more complex expressions on
+top of the aggregate functions, for example `max(temperature)-min(temperature)`.
+
+However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
+continuous aggregates since they are not possible to parallelize with
+PostgreSQL. TimescaleDB does not currently support `FILTER` or `JOIN` clauses,
+or window functions in continuous aggregates.
 
 To test out continuous aggregates, follow
 the [continuous aggregate tutorial][tutorial-caggs].

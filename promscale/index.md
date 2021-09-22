@@ -24,8 +24,10 @@ data from TimescaleDB. SQL queries can be directed to TimescaleDB directly.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-arch.png" alt="Promscale architecture diagram"/>
 
-For a detailed description of this architecture, see our [design
-document][design-doc].
+For a detailed description of this architecture, see our
+[design document][design-doc].
+
+For more documentation, see our [developer documentation][promscale-gh-docs].
 
 
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
@@ -33,3 +35,4 @@ document][design-doc].
 [slack]: https://slack.timescale.com/
 [promlabs]: https://promlabs.com/promql-compliance-test-results/2020-12-01/promscale
 [design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
+[promscale-gh-docs]: https://github.com/timescale/promscale/tree/master/docs
