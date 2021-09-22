@@ -1,5 +1,5 @@
 # Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
-Telegraf collects metrics from a wide array of inputs and write them to a wide
+Telegraf collects metrics from a wide array of inputs and writes them to a wide
 array of outputs. It is plugin-driven for both collection and output of data so
 it is extendable. It is written in Go, which means that it is compiled
 and standalone binary that can be run on any system with no need for
