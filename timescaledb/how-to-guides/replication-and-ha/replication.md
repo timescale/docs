@@ -382,7 +382,7 @@ documentation][failover-docs]). [patroni][patroni-github] offers a configurable
 high availability solution with automatic failover functionality.
 
 [postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION
-[postgres-partition-limitations]: https://www.postgresql.org/docs/10/static/logical-replication-restrictions.html
+[postgres-partition-limitations]: https://www.postgresql.org/docs/current/static/logical-replication-restrictions.html
 [postgres-logrep-docs]: https://www.postgresql.org/docs/current/static/logical-replication.html
 [timescale-docker]: https://github.com/timescale/timescaledb-docker
 [docker-postgres-scripts]: https://docs.docker.com/samples/library/postgres/#how-to-extend-this-image
