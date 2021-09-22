@@ -17,7 +17,7 @@ Before you begin, make sure you have
 
 ## Procedure: Preparing your new database
 1.  Use `psql` to connect to your service. You can retrieve the service URL,
-    port, and login credentials from the service overview in the MST dashboard:
+    port, and login credentials from the service overview in the Timescale Cloud dashboard:
     ```sql
     psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASE_NAME>
     ```

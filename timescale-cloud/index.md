@@ -1,6 +1,6 @@
 # Timescale Cloud
 Timescale Cloud provides managed TimescaleDB services
-hosted in more than 75 regions using AWS, Azure, or GCP. You can use MST to
+hosted in more than 75 regions using AWS, Azure, or GCP. You can use Timescale Cloud to
 create database instances, or services, in the cloud and automate most of your
 most common operational tasks. This allows you to spend more time focusing on
 your time-series workloads and less time worrying about database management.
@@ -9,7 +9,7 @@ your time-series workloads and less time worrying about database management.
 *   Create a [multi-node cluster][cloud-multi-node]
 *   View [service logs][viewing-service-logs]
 *   Use [VPC peering][vpc-peering]
-*   Understand [security for MST][security]
+*   Understand [security for Timescale Cloud][security]
 
 Some important Timescale Cloud terms:
 *   **Account:** Your Timescale Cloud account. You can register for an account on the
