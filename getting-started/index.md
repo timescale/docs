@@ -1,5 +1,11 @@
 # Getting started with TimescaleDB
 
+<!---
+This page would be reworded to explain the difference between tsdb/cloud/mst,
+and provide high level overview of install options & the GS tutorial. --LKB
+2021-09-22
+-->
+
 **Congratulations!!** You're ready to jump in and start using TimescaleDB. Smart
 move!
 
@@ -18,7 +24,7 @@ all the tools and connectors in the PostgreSQL ecosystem. If it works with
 PostgreSQL, it works with Timescale!
 
 ## Let's get up and running
-This Getting Started section will give you a hands-on introduction to the 
+This Getting Started section will give you a hands-on introduction to the
 fundamentals of TimescaleDB. Using a real-world dataset, you'll learn definitions
 of key terms (like hypertables and chunks), mental models for working with
 TimescaleDB, as well as TimescaleDB's key features (like continuous aggregation,
