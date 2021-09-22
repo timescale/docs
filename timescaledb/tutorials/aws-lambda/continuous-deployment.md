@@ -1,7 +1,9 @@
 # Lambda continuous deployment with GitHub actions
 This tutorial builds a continuous deployment (CD) pipeline between GitHub and AWS Lambda using GitHub actions.
 
-Packaging and deploying your function and its dependencies with AWS Lambda can sometimes be a tedious job. Especially if you also want to use a source code management platform like GitHub to develop your code before pushing it to AWS Lambda.
+Packaging and deploying your function and its dependencies with AWS Lambda can sometimes be a tedious job. 
+Especially if you also want to use a source code management platform like GitHub to develop your code before pushing 
+it to AWS Lambda.
 
 You can use GitHub actions to set up automatic deployment for AWS Lambda from a Github repository.
 You need to push a commit to the main or master branch of your repository, then let GitHub actions create the deployment 
@@ -76,15 +78,17 @@ Now you can create a new GitHub repository which contains the function code.
     git push -u origin master
     ```
 
-At this point, you have a GitHub repository with just the Lambda function in it. Now you can connect this repository to the AWS Lambda function.
+At this point, you have a GitHub repository with just the Lambda function in it. Now you can connect this repository 
+to the AWS Lambda function.
 
 ## Connect GitHub and AWS Lambda
 
 Let's connect the Github repository AWS Lambda using Github actions.
 
 ### Procedure: Adding your AWS credentials to the repository
-You need to add your AWS credentials to the repository so it will have permission to connect to Lambda. You can do this
-by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) using the GitHub CLI.
+You need to add your AWS credentials to the repository so it will have permission to connect to Lambda. 
+You can do this by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) 
+using the GitHub CLI.
 
 1.  Authenticate with GitHub:
     ```bash
@@ -159,8 +163,10 @@ to auto-deploy to AWS Lambda.
     ```
     This configuration will make sure to deploy the code to Lambda when there's a new push to the master branch.
 
-    As you can also see in the YAML file, the AWS credentials are accessed using the `${{ secrets.AWS_ACCESS_KEY_ID }}` syntax.
-    Make sure to use the name of the Lambda function (as displayed in the AWS console) for the `function_name` property in this configuration file. ("lambda-cd" in this example).
+    As you can also see in the YAML file, the AWS credentials are accessed using the `${{ secrets.AWS_ACCESS_KEY_ID }}` 
+syntax.
+    Make sure to use the name of the Lambda function (as displayed in the AWS console) for the `function_name` 
+property in this configuration file. ("lambda-cd" in this example).
 
 ### Procedure: Testing the pipeline
 You can test if the hook works by pushing the changes to GitHub.
