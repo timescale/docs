@@ -388,6 +388,10 @@ module.exports = [
                 title: 'distinct_count',
                 href: 'distinct_count',
               },
+              {
+                title: 'stderror',
+                href: 'stderror',
+              },
             ],
           },
         ],
