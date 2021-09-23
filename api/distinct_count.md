@@ -1,4 +1,4 @@
-# distinct_count() <tag type="experimental">Experimental</tag>
+# distinct_count()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 The `distinct_count` function gets the number of distinct values from a
 hyperloglog.
 

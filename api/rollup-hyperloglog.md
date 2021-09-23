@@ -1,4 +1,4 @@
-## rollup()
+## rollup()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 rollup(

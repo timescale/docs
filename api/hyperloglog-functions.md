@@ -1,4 +1,4 @@
-# hyperloglog() <tag type="experimental">Experimental</tag>
+# hyperloglog()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 TimescaleDB Toolkit provides an implementation of the hyperloglog estimator for
 `COUNT DISTINCT` approximations of any type that has a hash function.
 Timescale's hyperLogLog is implemented as an aggregate function in PostgreSQL.
