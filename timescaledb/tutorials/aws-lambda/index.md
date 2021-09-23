@@ -5,6 +5,8 @@ This section contains tutorials for working with AWS Lambda and TimescaleDB.
     using AWS Lambda and API Gateway.
 *   [Pull data from 3rd party API and ingest into TimescaleDB](/tutorials/aws-lambda/3rd-party-api-ingest)
     using AWS Lambda and Docker. This is great if you have a lot of dependencies.
+*   [Continuously deploy your Lambda function with GitHub Actions](/tutorials/aws-lambda/continuous-deployment)
+    using Github Actions.
 
 ## Prerequisites
 To complete this tutorial, you need an AWS account, and be able to access the
