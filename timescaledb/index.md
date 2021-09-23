@@ -1,23 +1,5 @@
 # Welcome to the TimescaleDB documentation!
-<terminal>
 
-```ruby
-class AddTimescale < ActiveRecord::Migration[5.2]
-  def change
-    enable_extension("timescaledb") unless extensions.include? "timescaledb"
-  end
-end
-```
-
-```python
-def start:
-  if this:
-    return
-
-```
-
-
-</terminal>
 TimescaleDB is a time-series database, built on top of PostgreSQL. More than that,
 however, it’s a relational database for time-series. Developers who use TimescaleDB
 get the benefit of a purpose-built time-series database, plus a classic relational
