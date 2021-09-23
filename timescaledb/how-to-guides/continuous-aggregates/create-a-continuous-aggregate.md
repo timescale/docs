@@ -113,7 +113,12 @@ queries to run efficiently.
     ```
 
 ## Query continuous aggregates
-When you have created a continuous aggregate and set a refresh policy, you can query the view with a `SELECT` query. You can only specify a single hypertable in the `FROM` clause. Including more hypertables, joins, tables, views, or subqueries in your `SELECT` query is not supported. Additionally, make sure that the hypertable you are querying does not have [row-level-security policies][postgres-rls] enabled.
+When you have created a continuous aggregate and set a refresh policy, you can
+query the view with a `SELECT` query. You can only specify a single hypertable
+in the `FROM` clause. Including more hypertables, joins, tables, views, or
+subqueries in your `SELECT` query is not supported. Additionally, make sure that
+the hypertable you are querying does not have [row-level-security
+policies][postgres-rls] enabled.
 
 ### Procedure: Querying a continuous aggregate
 1.  At the `psql` prompt, query the continuous aggregate view called
