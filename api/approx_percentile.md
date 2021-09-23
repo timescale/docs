@@ -1,4 +1,4 @@
-## approx_percentile()
+## approx_percentile()  <tag type="toolkit">Toolkit</tag>
 
 Get the approximate value at a percentile from a percentile estimate.
 
