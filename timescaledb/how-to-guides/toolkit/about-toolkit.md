@@ -40,12 +40,17 @@ Toolkit queries, when you are used to it, you can use it to construct more and
 more complicated queries.
 
 ## Toolkit features
-Timescale Toolkit features are developed in the open. As features are developed they are categorized as experimental, beta, stable, or deprecated. The documentation on this page will focus on the stable features, but more information on our experimental features in development can be found in the [Toolkit repository][gh-docs].
+Timescale Toolkit features are developed in the open. As features are developed
+they are categorized as experimental, beta, stable, or deprecated. The
+documentation on this page focusses on the stable features, but more
+information on our experimental features in development can be found in the
+[Toolkit repository][gh-docs].
 
 |Feature|Notes|More information|
 |-------|-----|----------------|
 |Percentile Approximation|Efficient approximation of percentiles|[Percentile Approximation documentation][approx-percentile]|
 |Time-weighted averages|Average that weights each value based on duration|[Time-weighted average documentation][time-weighted-avg]|
+|Hyperloglog|Approximates any type that has a hash function|[Hyperloglog documentation][hyperloglog]|
 
 ## Contribute to Timescale Toolkit
 We want and need your feedback! What are the frustrating parts of analyzing
@@ -59,9 +64,9 @@ community-wide problems and incorporate as much feedback as possible.
 *   Add your own [feature request][gh-newissue].
 
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
-[approx-percentile]: /how-to-guides/toolkit/approximate_percentile.md
-[time-weighted-avg]: /how-to-guides/toolkit/time-weighted-averages.md
-[doc-promscale]: /tutorials/promscale
+[approx-percentile]: /how-to-guides/toolkit/approximate_percentile
+[time-weighted-avg]: /how-to-guides/toolkit/time-weighted-averages
+[hyperloglog]: /how-to-guides/toolkit/hyperloglog
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
