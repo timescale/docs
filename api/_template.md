@@ -3,9 +3,13 @@
 
 <!---Any special notes about the API call-->
 
-<!--For more information about api_call(), see the [FIXME docs][link_ref]-->
+<!---For more information about api_call(), see the [FIXME docs][link_ref]-->
 
-<!---Admonitions-->
+<!---
+<highlight type="note"
+Use a highlight for any important information. Choose `note`, `important`, or `warning`.
+</highlight>
+-->
 
 ## Required Arguments
 
