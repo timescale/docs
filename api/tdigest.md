@@ -1,4 +1,4 @@
-## tdigest()
+## tdigest() <tag type="toolkit">Toolkit</tag>
 TimescaleDB Toolkit provides an implementation of the t-digest data structure 
 for quantile approximations. A t-digest is a space efficient aggregation which 
 provides increased resolution at the edges of the distribution. This allows for 
