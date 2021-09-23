@@ -1,8 +1,6 @@
 # hyperloglog() <tag type="experimental">Experimental</tag>
-The `hyperloglog` function constructs and returns a Hyperloglog with at least
+The `hyperloglog` function constructs and returns a hyperloglog with at least
 the specified number of buckets over the given values.
-
-<!---Any special notes about the API call-->
 
 For more information about hyperloglog(), see the
 [Toolkit documentation][toolkit-hyperloglog].

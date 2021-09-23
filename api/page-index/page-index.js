@@ -371,6 +371,25 @@ module.exports = [
               },
             ],
           },
+          {
+            title: 'Hyperloglog Functions',
+            type: 'directory',
+            href: 'hyperloglog-functions',
+            children: [
+              {
+                title: 'hyperloglog',
+                href: 'hyperloglog',
+              },
+              {
+                title: 'rollup',
+                href: 'rollup-hyperloglog',
+              },
+              {
+                title: 'distinct_count',
+                href: 'distinct_count',
+              },
+            ],
+          },
         ],
       },
       {
