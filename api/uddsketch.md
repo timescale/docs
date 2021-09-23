@@ -1,4 +1,4 @@
-## uddsketch()
+## uddsketch() <tag type="toolkit">Toolkit</tag>
 Timescale's UddSketch implementation is provided as an aggregate function in 
 PostgreSQL. The output is currently only suitable as input to the 
 the percentile approximation functions. This can be directly as part of a one-off 
