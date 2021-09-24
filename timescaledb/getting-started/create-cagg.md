@@ -216,12 +216,12 @@ aggregated data and raw data at query time for the most up to date results. (You
 can turn this off if desired, but the majority of developers want this behaviour
 by default).
 
-**Without real-time aggregation turned off,** continuous aggregates only return r
-esults for data in the time period they have materialized (refreshed). If you query
-continuous aggregates for data newer than the last materialized time, it will not
-return it or return stale results.
+**With real-time aggregation turned off**, continuous aggregates only return
+results for data in the time period they have materialized (refreshed). If you
+query continuous aggregates for data newer than the last materialized time, it
+will not return it or return stale results.
 
-**With real-time aggregation turned on, **you always receive up-to-date results,
+**With real-time aggregation turned on**, you always receive up-to-date results,
 as querying a continuous aggregate returns data that is already materialized
 combined with the newest raw data from the hypertable available at query time.
 

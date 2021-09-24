@@ -1,4 +1,4 @@
-## min_val()
+## min_val()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 min_val(digest TDigest) RETURNS DOUBLE PRECISION
