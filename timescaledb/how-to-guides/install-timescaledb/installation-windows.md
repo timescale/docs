@@ -30,7 +30,7 @@ in your database as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 
 There are a [variety of settings that can be configured][config] for your
 new database. At a minimum, you will need to update your `postgresql.conf`
-file to include our library in the parameter `shared_preload_libraries`.
+file to include `shared_preload_libraries = 'timescaledb'`.
 If you ran `timescaledb-tune` during the install, you are already done.
 If you did not, you can re-run the installer.
 
@@ -50,8 +50,8 @@ to `bootstrap`.
 
 [c_plus]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg_config]: https://www.postgresql.org/docs/10/static/app-pgconfig.html
-[windows-dl-12]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.4.1-windows-amd64.zip
-[windows-dl-13]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.4.1-windows-amd64.zip
+[windows-dl-12]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.4.2-windows-amd64.zip
+[windows-dl-13]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.4.2-windows-amd64.zip
 [config]: /how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/

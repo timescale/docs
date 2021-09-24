@@ -1,4 +1,4 @@
-## average()
+## average() <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 average(

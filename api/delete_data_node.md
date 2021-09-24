@@ -1,12 +1,26 @@
 ## delete_data_node() 
 
-This function will remove the data node locally. This will *not*
-affect the remote database in any way, it will just update the local
-index over all existing data nodes.
+This function is executed on an access node to remove a data
+node from the local database. As part of the deletion, the data node
+is detached from all hypertables that are using it, if permissions
+and data integrity requirements are satisfied. For more information,
+see [`detach_data_node`](/distributed-hypertables/detach_data_node).
 
-The data node will be detached from all hypertables that are using
-it if permissions and data integrity requirements are satisfied. For
-more information, see [`detach_data_node`](/distributed-hypertables/detach_data_node).
+Deleting a data node is strictly a local operation; the data
+node itself is not affected and the corresponding remote database
+on the data node is left intact, including all its data. The
+operation is local to ensure it can complete even if the remote
+data node is not responding and to avoid unintentional data loss on
+the data node.
+
+<highlight type="note">
+It is not possible to use
+[`add_data_node`](/distributed-hypertables/add_data_node) to add the
+same data node again without first deleting the database on the data
+node or using another database. This is to prevent adding a data node
+that was previously part of the same or another distributed database
+but is no longer synchronized.
+</highlight>
 
 #### Errors
 

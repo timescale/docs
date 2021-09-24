@@ -11,13 +11,13 @@ There are several different ways of ingesting your data into Timescale Cloud. Th
     such as Kafka
 
 <highlight type="note">
-Before you begin, make sure you have [created your Timescale Cloud
-service](/create-a-service/), and can connect to it using `psql`.
+Before you begin, make sure you have
+[created your Timescale Cloud service](/create-a-service/), and can connect to it using `psql`.
 </highlight>
 
 ## Procedure: Preparing your new database
 1.  Use `psql` to connect to your service. You can retrieve the service URL,
-    port, and login credentials from the service overview in the MST dashboard:
+    port, and login credentials from the service overview in the Timescale Cloud dashboard:
     ```sql
     psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASE_NAME>
     ```

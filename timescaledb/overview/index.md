@@ -1,25 +1,25 @@
 # TimescaleDB Overview
-
-TimescaleDB is an open-source relational database for time-series data.  It
-speaks "full SQL" and is correspondingly easy to use like a traditional relational
-database, yet scales in ways previously reserved for NoSQL databases.
+TimescaleDB is an open-source relational database for time-series data. It uses
+full SQL and is just as easy to use as a traditional relational database, yet
+scales in ways previously reserved for NoSQL databases.
 
 ## Supercharged PostgreSQL
+TimescaleDB uses the same PostgreSQL you know and love, with full SQL,
+rock‑solid reliability, and the largest ecosystem of developer and management
+tools.
 
-Rely on the same PostgreSQL you know and love, with full SQL,
-rock‑solid reliability, and the largest ecosystem of developer and management tools.
-
-* **Full SQL**, [powerful analytics][hyperfunctions], no restrictions
-* Leverage your **favorite PostgreSQL extensions**
-* **Your entire toolset works**: ORMs, connectors, JDBC, applications
-* **Connect Prometheus** for all your observability metrics
-* Visualize data using **[the dashboards you love][grafana]**
+*   **Full SQL**, [powerful analytics][hyperfunctions], no restrictions
+*   Leverage your **favorite PostgreSQL extensions**
+*   **Your entire toolset works**: ORMs, connectors, JDBC, applications
+*   **Connect Prometheus** for all your observability metrics
+*   Visualize data using **[the dashboards you love][grafana]**
 
 ## Accelerated performance
+Achieve 10-100x faster queries than PostgreSQL, InfluxDB, and MongoDB. Leverage
+query parallelization, continuous aggregates, and other performance
+optimizations.
 
-Achieve 10-100x faster queries than PostgreSQL, InfluxDB, and MongoDB. Leverage query parallelization, continuous aggregates, and other performance optimizations.
-
-*   **Achieve 10X faster inserts and ingest 1.5M+ more metrics per second** per
+*   **Achieve 10x faster inserts and ingest 1.5M+ more metrics per second** per
     server for high-cardinality workloads
 *   **Optimized time-series queries** and
     [advanced time-series analytics][hyperfunctions]
@@ -29,10 +29,11 @@ Achieve 10-100x faster queries than PostgreSQL, InfluxDB, and MongoDB. Leverage 
 *   **Query faster** over longer time horizons with downsampling
 
 ## Massive scale
-Write millions of data points per second. Store 100s of terabytes on a single
+Write millions of data points per second. Store hundreds of terabytes on a single
 node or petabytes across multiple nodes. Handle high‑cardinality data easily.
 
-*   **Store 100s of billions of rows** and 10s of TBs of data per server
+*   **Store hundreds of billions of rows** and hundreds of TBs of data per
+    server with compression, or tens of TBs uncompressed
 *   **Record billions of distinct time‑series**, collect everything you need
 *   **Best‑of‑breed datatype‑specific compression** for 16x storage capacity
 *   **[Create distributed hypertables][multinode]** across many TimescaleDB
@@ -40,12 +41,13 @@ node or petabytes across multiple nodes. Handle high‑cardinality data easily.
 *   **Parallelize scans and aggregation queries** across many nodes
 
 ## Relational and time-series, together
-Simplify your stack and store your relational data alongside time‑series data. Ask more complex queries, build more powerful applications faster.
+Simplify your stack and store your relational data alongside time‑series data.
+Ask more complex queries, and build more powerful applications faster.
 
 *   **Centralize storage** of time‑series, application, and sensor data
 *   **Correlate metrics** with business and system‑of‑record data
 *   **Unlimited metadata**, don’t worry about cardinality of labels
-*   **Perform JOINs to understand relations** with time‑series
+*   **Perform JOINs to understand relations** with time‑series data
 *   **Ensure clean, correct data** with foreign keys and constraints
 
 ## Worry-free operations
@@ -70,13 +72,13 @@ Spend less with compression savings from best‑in‑class algorithms, including
 *   **Transparent pricing**, always know what you’ll pay
 *   **Dynamically scale compute and storage** based on changing needs
 
-The rest of this section describes the design and motivation around the
-TimescaleDB architecture, including why time-series data is different, and how
-we leverage its characteristics when building TimescaleDB.
+This section describes the design and motivation around the TimescaleDB
+architecture, including why time-series data is different, and how we leverage
+its characteristics with TimescaleDB.
 
 ## Watch the videos
-If you prefer to learn by watching and want an intro to TimescaleDB, be
-sure to check out our [YouTube channel][youtube].
+If you prefer to learn by watching and want an intro to TimescaleDB, check out
+our [YouTube channel][youtube].
 
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/
 [grafana]: /tutorials/grafana/
