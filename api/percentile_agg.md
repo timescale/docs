@@ -1,4 +1,4 @@
-## percentile_agg()
+## percentile_agg()  <tag type="toolkit">Toolkit</tag>
 
 ```sql
 percentile_agg(

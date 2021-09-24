@@ -1,4 +1,4 @@
-# Resizing compute and storage in Timescale Forge
+# Resizing compute and storage in Timescale Cloud
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is extremely useful when users have a need to increase storage
 (for instance) but not compute. The Timescale Cloud console makes this very easy
@@ -51,7 +51,7 @@ When you're satisfied with the changes, click `Apply` (storage resizes only) or
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-restart-4tb.png" alt="View Timescale Forge service apply resize"/>
 # Compute resources and disk size
-You can use the Timescale Forge console to change how much CPU and memory
+You can use the Timescale Cloud console to change how much CPU and memory
 resources your service has available, as well as change the disk size for your
 service. You can adjust this manually as required, or for disk size you can use autoscaling.
 
@@ -72,7 +72,7 @@ plan for this before you begin!
 </highlight>
 
 ### Procedure: Changing resource allocations manually
-1.  In the Timescale Forge console, from the `Services` list, click the name of
+1.  In the Timescale Cloud console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service details` page, navigate to the `Operations` tab, and click
     `Resources`.
@@ -80,7 +80,7 @@ plan for this before you begin!
     allocation.
 1.  In the `Increase disk size` field, adjust the slider to the new disk size.
 1.  Review the new allocations and costs in the comparison chart.
-1.  Click `Apply` to save your changes. If you have changed the CPU and memory 
+1.  Click `Apply` to save your changes. If you have changed the CPU and memory
     allocation, your service will go down briefly while the changes are applied.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-configure.png" alt="Configure resource allocations"/>
 
@@ -89,11 +89,17 @@ Disk size autoscaling is enabled by default on most services. When you consume
 95% or more of your existing disk space, disk size is automatically increased to
 the next size available, up to a configurable limit.
 
-Autoscaling can change the disk size once every six hours, and can only increase
-the size, not decrease it. You can have a disk up to 10&nbsp;TB in size.
+Autoscaling can change the disk size once every six hours. When the increase is
+requested, the used space is optimized before the new limit is applied. As your
+disk size increases, this optimization process can take longer, and the six
+hours does not start running until the new size is applied, after the
+optimization is complete.
+
+Autoscaling can only increase disk size, not decrease it. You can have a disk up
+to 10&nbsp;TB in size.
 
 ### Procedure: Configuring autoscaling for disk size
-1.  In the Timescale Forge console, from the `Services` list, click the name of
+1.  In the Timescale Cloud console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service overview` page, navigate to the `Operations` tab, and click
     `Autoscaling`.

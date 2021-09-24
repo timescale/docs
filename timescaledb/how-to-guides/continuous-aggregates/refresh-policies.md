@@ -108,7 +108,7 @@ the latest bucket in your queries,
 use [real-time aggregation][real-time-aggregates] instead.
 
 
-[real-time-aggregates]: /how-to-guides/real-time-aggregates
+[real-time-aggregates]: /how-to-guides/continuous-aggregates/real-time-aggregates
 [sec-data-retention]: /how-to-guides/data-retention
 [api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
 [cagg-drop-data]: /how-to-guides/continuous-aggregates/drop-data
