@@ -1,4 +1,4 @@
-## error()
+## error()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 error(sketch UddSketch) RETURNS DOUBLE PRECISION
