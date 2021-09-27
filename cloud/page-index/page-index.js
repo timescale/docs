@@ -47,6 +47,10 @@ module.exports = [
       {
         title: "Backup and restore",
         href: "backup-restore-cloud"
+      },
+      {
+        title: "Terms of Service",
+        href: "terms-of-service"
       }
     ]
   }
