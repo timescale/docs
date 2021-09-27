@@ -1,4 +1,4 @@
-## num_vals()
+## num_vals()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 num_vals(sketch UddSketch) RETURNS DOUBLE PRECISION

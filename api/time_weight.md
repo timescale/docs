@@ -1,4 +1,4 @@
-## time_weight()
+## time_weight() <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 time_weight(

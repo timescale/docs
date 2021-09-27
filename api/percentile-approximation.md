@@ -1,4 +1,4 @@
-# Percentile approximation
+# Percentile approximation  <tag type="toolkit">Toolkit</tag>
 Examining time-series data through percentiles is useful for understanding the
 distribution of your time-series data. Specifically, they can help eliminate the
 inherent impact that outliers have on calculations such as average. For instance

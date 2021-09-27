@@ -1,4 +1,4 @@
-## max_val()
+## max_val()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 max_val(digest TDigest) RETURNS DOUBLE PRECISION
