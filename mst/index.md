@@ -64,7 +64,7 @@ integrations and extensions.
 *   Connect applications securely with VPC Peering and IP whitelisting.
 *   SOC2, HIPAA, ISO27001, CCPA, and GDPR compliance.
 
-Visit the [terms of service here][tos].
+For more information on Managed Service for TimescaleDB's terms of service, visit the [Timescale website][tos].
 
 [create-a-service]: /create-a-service
 [mst-multi-node]: /mst-multi-node

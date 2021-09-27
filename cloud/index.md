@@ -35,7 +35,7 @@ and extensions.
  * More than 75 popular PostgreSQL extensions including PostGIS, pre-installed
  * Integrated support for Prometheus long-term storage 
 
- Visit the [terms of service here][tos].
+For more information on Timescale Cloud's terms of service, visit the [Timescale website][tos].
 
  [sign-up]: https://console.cloud.timescale.com/signup
  [tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
