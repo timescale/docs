@@ -13,7 +13,7 @@ Max background worker processes allocated to TimescaleDB.  Set to at
 least 1 + number of databases in Postgres instance to use background
 workers. Default value is 8.
 
-## Distributed hypertables 
+## Distributed hypertables
 
 ### `timescaledb.enable_2pc (bool)` [](enable_2pc)
 
@@ -79,8 +79,10 @@ Set TimescaleDB in restoring mode. It is by default disabled.
 
 ### `timescaledb.license (string)`
 
-TimescaleDB license type. Determines which features are enabled. The
-variable can be set to `timescale` or `apache`.  Defaults to `timescale`.
+Change access to features based on the Timescale license in use. For example,
+setting `timescaledb.license` to `apache` limits TimescaleDB to features that
+are implemented under the Apache 2 license. The default value is `timescale`,
+which allows access to all features.
 
 ### `timescaledb.telemetry_level (enum)`
 

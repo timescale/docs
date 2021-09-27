@@ -31,7 +31,7 @@ service.
 1.  Hover your mouse over the purple bar in the `Key` field to see the key, and
     copy it to use later.
 
-### Procedure: Uploading a Datadog API key to MST
+### Procedure: Uploading a Datadog API key to Timescale Cloud
 1.  [Log in to your Timescale Cloud][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Check that you are in the project that you want to connect to Datadog,

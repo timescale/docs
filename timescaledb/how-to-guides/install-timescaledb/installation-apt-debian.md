@@ -61,7 +61,7 @@ EXTENSION update as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 #### Configure your database
 There are a [variety of settings that can be configured][config] for your
 new database. At a minimum, you will need to update your `postgresql.conf`
-file to include our library in the parameter `shared_preload_libraries`.
+file to include `shared_preload_libraries = 'timescaledb'`.
 The easiest way to get started is to run `timescaledb-tune`, which is
 installed by default when using `apt`:
 ```bash
@@ -79,7 +79,7 @@ To get started you'll now need to restart PostgreSQL:
 sudo service postgresql restart
 ```
 
-[config]: /administration/configuration/
+[config]: /how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
 [multi-node-basic]: /how-to-guides/multi-node-setup/
