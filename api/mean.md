@@ -1,4 +1,4 @@
-## mean()
+## mean()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 mean(sketch UddSketch) RETURNS DOUBLE PRECISION

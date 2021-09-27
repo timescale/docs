@@ -1,4 +1,4 @@
-## approx_percentile_rank()
+## approx_percentile_rank()  <tag type="toolkit">Toolkit</tag>
 
 Estimate what percentile a given value would be located at in a UddSketch.
 

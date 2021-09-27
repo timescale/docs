@@ -1,4 +1,4 @@
-# Time-weighted average functions
+# Time-weighted average functions <tag type="toolkit">Toolkit</tag>
 Time weighted averages are commonly used in cases where a time series is not 
 evenly sampled, so a traditional average will give misleading results. Consider 
 a voltage sensor that sends readings once every 5 minutes or whenever the value 

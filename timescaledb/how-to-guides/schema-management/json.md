@@ -20,7 +20,7 @@ efficient on table columns than inside of JSONB structures. Storage is also more
 efficient.
 
 2. We use the JSONB data type (that is, JSON stored in a binary format) and not the JSON data type. JSONB data types are
-are more efficient in both storage overhead and lookup performance.
+more efficient in both storage overhead and lookup performance.
 
 <highlight type="tip">
 Often, people use JSON for sparse data as opposed

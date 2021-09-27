@@ -88,6 +88,8 @@ specific functionality is required, it may be necessary to inquire about other p
  - **excerpt**: For a few select nodes in a tree, the `excerpt` may be used to
  create navigation "cards" on high-level landing pages. It is only intended to
  be used for the highest level pages at the current time.
+ 
+ - **"NEW" label**: To add a NEW label to content in the sidebar, include the key newLabel and the value of a date string when the NEW label is set to expire. Use the format "Month Day Year" or "YYYY-MM-DD".
 
 __Example__
 ```json
@@ -96,7 +98,8 @@ __Example__
     children: [
         {
         title: "What is time-series data?",
-        href: "what-is-time-series-data"
+        href: "what-is-time-series-data",
+        newLabel: "October 21 2022"
         },
         {
         href: "core-concepts",
