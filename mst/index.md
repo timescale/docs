@@ -64,9 +64,12 @@ integrations and extensions.
 *   Connect applications securely with VPC Peering and IP whitelisting.
 *   SOC2, HIPAA, ISO27001, CCPA, and GDPR compliance.
 
+Visit the [terms of service here][tos].
+
 [create-a-service]: /create-a-service
 [mst-multi-node]: /mst-multi-node
 [viewing-service-logs]: /viewing-service-logs
 [vpc-peering]: /vpc-peering
 [security]: /security
 [sign-up]: https://www.timescale.com/cloud-signup
+[tos]: https://www.timescale.com/legal/mst-terms-of-service
