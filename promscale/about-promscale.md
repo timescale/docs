@@ -26,7 +26,7 @@ the Promscale channel on the [TimescaleDB Community Slack][slack].
     write queries across more than one tenant using either PromQL or SQL.
 *   High-availability support: Promscale can be used with Prometheus and
     TimescaleDB HA deployments.
-*   Simplified architecture: Promscale architecture has just three components:
+*   Simplified architecture: Promscale architecture has three components:
     Prometheus, Promscale, and TimescaleDB.
 *   ACID compliance: Ensures consistency of your data.
 *   Horizontal scalability: Multinode support with TimescaleDB version 2.0
@@ -47,8 +47,14 @@ data from TimescaleDB. SQL queries can be directed to TimescaleDB directly.
 For a detailed description of this architecture, see our
 [design document][design-doc].
 
-For more documentation, see our [developer documentation][promscale-gh-docs].
+For more detailed information about how Promscale is made, see our
+[developer documentation][promscale-gh-docs].
 
+
+## Data Types
+<!---
+FIXME There are two main data types: metrics, and traces. --LKB 2021-09-27
+-->
 
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
 [promscale-demo]: https://youtu.be/FWZju1De5lc
