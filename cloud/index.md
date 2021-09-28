@@ -37,5 +37,6 @@ and extensions.
 
 For more information on Timescale Cloud's terms of service, visit the [Timescale website][tos].
 
+
  [sign-up]: https://console.cloud.timescale.com/signup
  [tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
