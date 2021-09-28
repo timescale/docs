@@ -98,7 +98,7 @@ See the [Code Quick Starts][code-qs] for using various languages, including Pyth
 ## Insert data directly using a message queue
 If you have data stored in a message queue, you can import it into your
 TimescaleDB database. This section provides instructions on using the Kafka
-Connect PostreSQL connector.
+Connect PostgreSQL connector.
 
 This connector deploys PostgreSQL change events from Kafka Connect to a runtime
 service. It monitors one or more schemas in a TimescaleDB server, and writes all
