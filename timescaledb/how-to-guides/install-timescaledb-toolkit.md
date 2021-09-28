@@ -24,7 +24,7 @@ are available under the [Timescale Community Edition license](ts-license).
 Functionality within the TimescaleDB Toolkit extension is separated into two categories: experimental and stable.
 
 <highlight type="warning">
-Experimental APIs are still under active development, may not handle edge cases, and their performance will vary. They are subject to change across releases, which will lead to the dropping of objects you've created using these experimental features. Experimental functions and features are found in the toolkit_experimental schema.
+Toolkit experimental APIs are still under active development, may not handle edge cases, and their performance will vary. They are subject to change across releases, which will lead to the dropping of objects you've created using these experimental features. Experimental functions and features are found in the toolkit_experimental schema.
 </highlight>
 
 <highlight type="important">
