@@ -40,5 +40,5 @@ For more on TimescaleDB Toolkit functions, explore the [API Reference documentat
 [timescale forge]: /timescale-forge/:currentVersion:/
 [timescale cloud]: /timescale-cloud/:currentVersion:/
 [install-source]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
-[ts-license]: /timescaledb/:currentVersion:/timescale-license-comparison/
+[ts-license]: https://www.timescale.com/legal/licenses
 
