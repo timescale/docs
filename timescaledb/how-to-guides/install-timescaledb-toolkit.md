@@ -1,4 +1,4 @@
-# Install TimescaleDB Toolkit
+# Installing TimescaleDB Toolkit
 
 In order to use functions from the TimescaleDB Toolkit, you'll need to install
 it. If you are using [Timescale Forge][] to host your database, the Toolkit is already
