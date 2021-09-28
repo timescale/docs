@@ -28,7 +28,7 @@ Functionality within the TimescaleDB Toolkit extension is separated into two cat
 </highlight>
 
 <highlight type="important">
-Toolkit functions not labeled otherwise are stable - in this state, functionality is correct and performant. Stable APIs are found in releases and won't break in future releases.
+Toolkit functions not labeled experimental are stable - in this state, functionality is correct and performant. Stable APIs are found in releases and won't break in future releases.
 </highlight>
 
 For more on TimescaleDB Toolkit functions, explore the [API Reference documentation on hyperfunctions](/api/:currentVersion:/hyperfunctions/).
