@@ -18,8 +18,8 @@ from source][install-source].
 
 ## What is TimescaleDB Toolkit?
 
-TimescaleDB Toolkit is an extension for TimescaleDB that gives users access to several unique "hyperfunctions" - SQL functions designed to make manipulation and analysis of time-series data in PostgreSQL simple and efficient. Hyperfunctions work on TimescaleDB hypertables, as well as regular PostgreSQL tables. All TimescaleDB Toolkit hyperfunctions
-are available under the Timescale Community Edition license.
+TimescaleDB Toolkit is an extension for TimescaleDB that gives users access to several unique "hyperfunctions" - SQL functions designed to make manipulation and analysis of time-series data in PostgreSQL simple and efficient. Hyperfunctions work on data in TimescaleDB hypertables, as well as data in regular PostgreSQL tables. All TimescaleDB Toolkit hyperfunctions
+are available under the [Timescale Community Edition license](ts-license).
 
 Functionality within the TimescaleDB Toolkit extension is separated into three categories: experimental, stable and deprecated.
 
@@ -40,3 +40,5 @@ For more on TimescaleDB Toolkit functions, explore the [API Reference documentat
 [timescale forge]: /timescale-forge/:currentVersion:/
 [timescale cloud]: /timescale-cloud/:currentVersion:/
 [install-source]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
+[ts-license]: /timescaledb/:currentVersion:/timescale-license-comparison/
+
