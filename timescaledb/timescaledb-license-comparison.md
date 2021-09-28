@@ -457,11 +457,6 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/informational-views/license/">timescaledb_information.license</a></td>
-    <td>✅</td>
-    <td>✅</td>
-  </tr>
-  <tr>
     <td><strong>Administration Functions</strong></td>
   </tr>
   <tr>
