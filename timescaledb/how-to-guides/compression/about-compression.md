@@ -160,7 +160,7 @@ By default, the items inside a compressed array are arranged in descending order
 according to the hypertable's `time` column. In most cases, this works well,
 provided you have set the `segmentby` option appropriately. However, in some
 more complicated scenarios, you want to manually adjust the
-`commpression_orderby`setting as well. Changing this value can improve the
+`compress_orderby`setting as well. Changing this value can improve the
 compression ratio, as well as query performance.
 
 Compression is most effective when adjacent data is close in magnitude or
