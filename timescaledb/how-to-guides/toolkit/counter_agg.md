@@ -1,17 +1,32 @@
 # Counter aggregates
-There are two types of metrics that can be recorded in a database: gauges, and counters. Gauges fluctuate up and down, like temperature or speed, while counters always increase, like the total number of visitors to a website.
+There are two types of metrics that can be recorded in a database: gauges, and
+counters. Gauges fluctuate up and down, like temperature or speed, while
+counters always increase, like the total number of visitors to a website.
 
-When you process counter data, it is usually assumed that if the value of the counter goes down, the counter has been reset. For example, if you wanted to count how many times a runner ran around a track, you would expect the values to continuously increase: 1, 2, 3, 4, and so on. If the counter reset to 0, you would expect that this was a new runner starting on their first lap, not the original runner going back to 1. This can become a problem if you want to continue counting from where you left off, rather than resetting to 0. A reset could occur if you have had a short server outage, or any number of other reasons. To get around this, you can analyze counter data by taking its change over a time period, which accounts for resets.
+When you process counter data, it is usually assumed that if the value of the
+counter goes down, the counter has been reset. For example, if you wanted to
+count how many times a runner ran around a track, you would expect the values to
+continuously increase: 1, 2, 3, 4, and so on. If the counter reset to 0, you
+would expect that this was a new runner starting on their first lap, not the
+original runner going back to 1. This can become a problem if you want to
+continue counting from where you left off, rather than resetting to 0. A reset
+could occur if you have had a short server outage, or any number of other
+reasons. To get around this, you can analyze counter data by looking at the
+change over time, which accounts for resets.
 
-Accounting for resets can be difficult to do in SQL, so Timescale has developed aggregate and accessor functions that handle calculations for counters in a more practical way.
+Accounting for resets can be difficult to do in SQL, so Timescale has developed
+aggregate and accessor functions that handle calculations for counters in a more
+practical way.
 
 <highlight type="note">
-Counter aggregates can be used in continuous aggregates, even though they are not parallelizable in PostgreSQL. For more information, see the section on
+Counter aggregates can be used in continuous aggregates, even though they are
+not parallelizable in PostgreSQL. For more information, see the section on
 [parallelism and ordering][#parallelism-and-ordering].
 </highlight>
 
 ## Run a counter aggregate query
-In this procedure, we are using an example table called `example` that contains counter data.
+In this procedure, we are using an example table called `example` that contains
+counter data.
 
 ### Procedure: Running a counter aggregate query
 1.  Create a table called `example`:
@@ -90,7 +105,7 @@ SELECT
 FROM example_15
 GROUP BY measure_id, time_bucket('1 day'::interval, bucket);
 There are several other accessor functions which we haven't described in the examples here, but are listed in the API section under the accessors.
-    ```
+
 
 ## Parallelism and ordering
 The counter reset calculations we perform require a strict ordering of inputs and therefore the calculations are not parallelizable in the strict Postgres sense. This is because when Postgres does parallelism it hands out rows randomly, basically as it sees them to workers. However, if your parallelism can guarantee disjoint (in time) sets of rows, the algorithm can be parallelized, just so long as within some time range, all rows go to the same worker. This is the case for both continuous aggregates and for distributed hypertables (as long as the partitioning keys are in the group by, though the aggregate itself doesn't horribly make sense otherwise).
