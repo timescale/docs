@@ -1,10 +1,10 @@
 # Installing TimescaleDB Toolkit
 
 In order to use functions from the TimescaleDB Toolkit, you'll need to install
-it. If you are using [Timescale Forge][] to host your database, the Toolkit is already
+it. If you are using [Timescale Cloud][cloud] to host your database, the Toolkit is already
 installed.
 
-On [Timescale Cloud][] you may need to run `CREATE EXTENSION timescaledb_toolkit;`
+On [Managed Service for TimescaleDB][mst] you may need to run `CREATE EXTENSION timescaledb_toolkit;`
 in each database that you need to use the functions with.
 
 If you already have it installed and are updating to the latest version, run
@@ -33,8 +33,8 @@ Toolkit functions not labeled experimental are stable - in this state, functiona
 
 For more on TimescaleDB Toolkit functions, explore the [API Reference documentation on hyperfunctions](/api/:currentVersion:/hyperfunctions/).
 
-[timescale forge]: /timescale-forge/:currentVersion:/
-[timescale cloud]: /timescale-cloud/:currentVersion:/
+[cloud]: /cloud/:currentVersion:/
+[mst]: /mst/:currentVersion:/
 [install-source]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
 [ts-license]: https://www.timescale.com/legal/licenses
 
