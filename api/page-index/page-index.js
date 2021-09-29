@@ -138,6 +138,10 @@ module.exports = [
             title: 'move_chunk',
             href: 'move_chunk_experimental',
           },
+          {
+            title: 'cleanup_copy_chunk_operation',
+            href: 'cleanup_copy_chunk_operation_experimental',
+          },
         ],
       },
       {
