@@ -1,11 +1,11 @@
 # Launch your first instance
 
-For this Getting Started tutorial we'll use Timescale Forge to get you up
-and running quickly. Timescale Forge combines the power and reliability
+For this Getting Started tutorial we'll use Timescale Cloud to get you up
+and running quickly. Timescale Cloud combines the power and reliability
 of TimescaleDB with a fully-managed, cloud-native experience that is easy to
 start and less expensive to operate.
 
-Creating a Timescale Forge account is fast and simple, allowing you to explore
+Creating a Timescale Cloud account is fast and simple, allowing you to explore
 TimescaleDB free for 30 days, no credit card required. We're just excited
 that you are ready to dive into the world of time-series data with TimescaleDB!
 
@@ -15,9 +15,9 @@ along with the rest of the _Getting Started_ tutorial, please see our documentat
 for [installing self-hosted TimescaleDB](/timescaledb/latest/how-to-guides/install-timescaledb/)
 </highlight>
 
-### Step 1: Create a Timescale Forge account
+### Step 1: Create a Timescale Cloud account
 
-Sign up for Timescale Forge by visiting [forge.timescale.com][forge-signup].
+Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
 
 Provide your full name, email address, and a strong password to start:
 
@@ -30,14 +30,14 @@ and, failing that, please [contact us][contact-timescale].
 ### Step 2: Create your first service
 
 After you complete account verification, you can visit the
-[Timescale Forge console][forge-console] and login with your credentials.
+[Timescale Cloud console][cloud-console] and login with your credentials.
 
 To begin, click 'Create service'.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-creation.png" alt="Set up a Timescale Forge service"/>
 
 For the purposes of this tutorial, **you can simply select the default name, compute
-and storage options**. But don't worry, if you want to do more with Timescale Forge
+and storage options**. But don't worry, if you want to do more with Timescale Cloud
 after you've completed everything, you can always resize your service or create
 a new one in a few clicks!
 
@@ -69,6 +69,6 @@ Now let's make sure you can connect to the database before we start adding data
 and learning about everything that TimescaleDB offers!
 
 [install-timescaledb]: /how-to-guides/install-timescaledb/
-[forge-signup]: https://forge.timescale.com
-[forge-console]: https://console.forge.timescale.com/login
+[cloud-signup]: https://cloud.timescale.com
+[cloud-console]: https://console.cloud.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact

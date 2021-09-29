@@ -1,6 +1,6 @@
 # Access your database
 
-Now that you have TimescaleDB setup and running in Timescale Forge, it's time
+Now that you have TimescaleDB setup and running in Timescale Cloud, it's time
 to connect to your database. While this can be accomplished with many tools, `psql`
 is the standard command line interface for interacting with a PostgreSQL 
 or TimescaleDB instance.
@@ -28,9 +28,9 @@ in our How-to guides for [Installing `psql`](/timescaledb/latest/how-to-guides/c
 
 ## Connect to your TimescaleDB server
 Now that we've confirmed that `psql` is installed, it's time to connect to your
-Timescale Forge instance.
+Timescale Cloud instance.
 
-In Timescale Forge, open the **Service Details** by clicking on the service
+In Timescale Cloud, open the **Service Details** by clicking on the service
 that you created in [Step 1][launch-timescaledb].
 
 Copy the **Service URL** from the information displayed. This service URL contains
@@ -44,7 +44,7 @@ psql postgres://[USERNAME]:[PASSWORD]@[HOSTNAME]:[PORT]/[DATABASENAME]?sslmode=r
 ```
 
 <highlight type="tip">
-Because the URL provided in the Timescale Forge interface does not supply the 
+Because the URL provided in the Timescale Cloud interface does not supply the 
 password, you will be prompted for the password in order to finish authenticating.
 
 If you want to save yourself time, you can add the password to the URL by adding
@@ -52,7 +52,7 @@ a colon and the password between the username and the hostname as shown
 in the placeholder above
 </highlight>
 
-Now that you've connected to your Timescale Forge service, let's look at how to
+Now that you've connected to your Timescale Cloud service, let's look at how to
 quickly add data so that you can quickly start to explore the power of TimescaleDB.
 
 [install-psql]: /how-to-guides/connecting/psql/

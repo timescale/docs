@@ -7,7 +7,7 @@ module.exports = [
         title: 'Introduction to IoT',
         href: 'nyc-taxi-cab',
         tags: ['iot', 'query', 'learn', 'tsc'],
-        keywords: ['IoT', 'tutorial', 'Timescale Forge'],
+        keywords: ['IoT', 'tutorial', 'Timescale Cloud'],
         excerpt: 'An introduction to IoT using NYC taxi data',
       },
       {
