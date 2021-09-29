@@ -300,7 +300,7 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/approximate_row_count/">approximate_row_count</a></td>
-    <td>❌</td>
+    <td>✅</td>
     <td>✅</td>
   </tr>
   <tr>
@@ -453,11 +453,6 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
   </tr>
   <tr>
     <td><a href="https://docs.timescale.com/api/latest/informational-views/job_stats/#available-columns">timescaledb_information.job_stats</a></td>
-    <td>✅</td>
-    <td>✅</td>
-  </tr>
-  <tr>
-    <td><a href="https://docs.timescale.com/api/latest/informational-views/license/">timescaledb_information.license</a></td>
     <td>✅</td>
     <td>✅</td>
   </tr>
