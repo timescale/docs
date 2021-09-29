@@ -40,7 +40,7 @@ the next size available, up to a configurable limit.
 Autoscaling can change the disk size once every six hours. When the increase is
 requested, the new limit is applied, and then the used space is optimized. The
 optimization process does not require downtime, and in most cases it happens
-very quickly. However, if you have a lot of existing data optimization can take
+very quickly. However, if you have a lot of existing data, optimization can take
 longer, and in some cases this could create a delay longer than six hours.
 
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
