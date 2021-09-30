@@ -133,7 +133,7 @@ module.exports = [
       },
       {
         title: 'Monitor Timescale Cloud with Prometheus',
-        href: 'setting-up-timescale-cloud-endpoint-for-prometheus',
+        href: 'monitor-mst-with-prometheus',
         tags: ['prometheus', 'monitor', 'learn', 'timescaledb'],
         keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
         excerpt: 'Monitor Timescale Cloud with Prometheus',
