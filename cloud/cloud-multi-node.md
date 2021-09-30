@@ -112,7 +112,7 @@ local connection information that is used when setting up Service-to-Service,
 multi-node connections. Copy this hostname to use in the `add_data_node` command
 below.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-internal-dns.png" alt="Timescale Forge multi-node connection information"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-multinode-info.png" alt="Timescale Cloud multi-node connection information"/>
 
 Once you have the **password** and **internal, Multi-node** hostname for each
 data node Service, connect to the access node using the `tsdbadmin` user.

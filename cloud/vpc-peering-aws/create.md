@@ -1,14 +1,15 @@
 # Create and connect a Timescale Cloud VPC with AWS
 
 ## Setup
-Before you begin, log in to the [Timescale Cloud console](https://console.cloud.timescale.com/).
+Before you begin, log in to the
+[Timescale Cloud console](https://console.cloud.timescale.com/).
 
 ## Create a new VPC
 In the Timescale Cloud console, click `VPC` in the left navigation bar to go to the VPC
 dashboard. You can add new VPCs here for your Timescale Cloud services to attach to.
 The VPCs created here are peered with your own VPC as part of the setup process.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/vpc-dashboard.png" alt="Navigate to the VPC dashboard in the console"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-novpc.png" alt="The Timescale Cloud VPC dashboard"/>
 
 Click `Create VPC`, type a name for your new VPC, and provide an IPv4 CIDR block
 (E.G., `10.0.0.0/16` or `192.168.0.0/24`). Make sure that the CIDR block you
@@ -16,7 +17,7 @@ choose for your Timescale Cloud VPC does not overlap with the AWS VPC you are us
 a peering connection. If the CIDR blocks overlap, the peering process will fail.
 You can always find the CIDR block of your AWS VPC from the AWS console.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-vpc.png" alt="Create a new Forge VPC"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
 <highlight type="tip">
 VPC peering can be enabled for free during your Timescale Cloud trial, but you will be
@@ -29,7 +30,7 @@ When you have created a Timescale Cloud VPC, you are ready to create a peering c
 between your Cloud VPC and your cloud VPC. To do this, click the `Add` text in
 the `VPC Peering` column for the Cloud VPC that you would like to connect.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-peering-connection.png" alt="Expand the VPC Peering dropdown menu and enter info"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-addpeering.png" alt="Expand the VPC Peering dropdown menu and enter info"/>
 
 In the form that is displayed, enter the AWS Account ID, AWS VPC ID, and AWS region of your
 cloud VPC for the new peering connection. When you have entered the correct
@@ -48,7 +49,7 @@ accept the request.
 Make note of the peering connection ID (starting with `pcx-`) as it is used in the next step.
 </highlight>
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-accept-peering-connection.png" alt="Accept peering connection in AWS console after verifying requestor account number"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws-vpc-peering.png" alt="Peering information in AWS"/>
 
 ## Network routing and security in AWS
 Once you have accepted the peering connection, the two VPCs will now be peered;
@@ -62,7 +63,7 @@ Within the AWS console, navigate to the
 dashboard. Select the route table corresponding to your VPC. From the detail menu, select
 the `Routes` tab and click the `Edit routes` button.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-route-table-routes.png" alt="The AWS Route Tables dashboard with Routes tab expanded"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws-vpc-routetable.png" alt="Route table on AWS"/>
 
 From this view, click `Add route`. In the `Destination` column of the new row,
 enter the CIDR block of the Timescale Cloud VPC for which the peering connection
@@ -75,7 +76,7 @@ No other configuration is needed here, so click `Save routes`. This
 configuration allows network traffic to flow from your VPC, across the peering
 connection, and over to the Timescale Cloud VPC where your TimescaleDB services reside.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-edit-routes.png" alt="Adding a new route table entry for our peering connection"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws-vpc-editroutes.png" alt="Edit routes on AWS"/>
 
 ### Security groups
 Within the AWS console, navigate to the
@@ -87,7 +88,7 @@ If you need to, you can use another security group which already exists in your 
 however, for simplicity we will assume the creation of a new security group.
 </highlight>
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/aws-create-security-group.png" alt="The AWS Security Groups dashboard"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws-vpc-securitygroup.png" alt="The AWS Security Groups dashboard"/>
 
 From the `Create security group` view, enter a name for your security group. Add whatever
 content you would like to the description field. For the `VPC` field, select the VPC
@@ -122,4 +123,4 @@ Click `Create Service`, and Timescale Cloud will create your new service. Due to
 selecting a VPC during setup, your new service will be created with an attachment to
 your selected VPC.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-forge/create-service-with-vpc.png" alt="Create new service with VPC attachment"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-select.png" alt="Create new service with VPC attachment"/>

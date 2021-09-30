@@ -46,6 +46,8 @@ system during the upgrade.
     same maintenance window settings for all of your Timescale Cloud services.
 1.  Click `Apply Changes`.
 
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale Cloud change maintenance window"/>
+
 ## Critical updates
 Critical upgrades and security fixes are installed outside normal maintenance
 windows when necessary, and sometimes require a short outage.
