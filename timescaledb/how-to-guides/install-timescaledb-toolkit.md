@@ -16,5 +16,5 @@ Toolkit first, follow the instructions provided at the GitHub repo to [install i
 from source][install-source].
 
 [Timescale Cloud]: /cloud/:currentVersion:/
-[MST]: /mst/:currentVersion:/
+[Managed TimescaleDB]: /mst/:currentVersion:/
 [install-source]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
