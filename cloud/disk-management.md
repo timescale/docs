@@ -18,7 +18,7 @@ database services. You can check your health data by navigating to the `metrics`
 tab in your service dashboard. These metrics are also monitored by the Timescale
 operations team.
 
-<img class="main-content__illustration" src="https://assets.timescale.com/images/diagrams/forge_metrics.png" alt="Timescale Forge metrics dashboard"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-disk-metrics.png" alt="Timescale Cloud metrics dashboard"/>
 
 If your database exceeds a storage threshold of available resources, some
 automated actions are triggered, including notifications, and preventative
@@ -59,7 +59,7 @@ You can increase your storage size in the Timescale Cloud console.
 
 <highlight type="warning">
 You can only increase your service's storage once every six hours, and you cannot
-currently decrease your storage size once set. 
+currently decrease your storage size once set.
 </highlight>
 
 ### Procedure: Increasing service resources
@@ -76,7 +76,7 @@ complete, your database is immediately available on the new resources. If your
 database is in read-only mode, the read-only protection is automatically removed,
 and you can begin writing data immediately.
 
-<img class="main-content__illustration" src="https://assets.timescale.com/images/diagrams/forge_resources.png" alt="Timescale Forge change resources"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed.png" alt="Timescale Cloud change resources"/>
 
 ## Storage recovery
 

@@ -23,7 +23,7 @@ To modify configuration parameters, first select the Service that you want to
 modify. This displays the `service details`, with these tabs across the top:
 Overview, Operations, Metrics, Logs, and Settings. Select `Settings`.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-settings-basic.png" alt="View Timescale Forge service operational information"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings.png" alt="View Timescale Cloud service settings"/>
 
 ### Modify basic parameters
 Under the Settings tab, you can modify a limited set of the parameters that
@@ -32,7 +32,7 @@ configured value, click the value that you would like to change. This reveals
 an editable field to apply your change. Clicking anywhere outside of that field
 will save the value to be applied.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-settings-modify.png" alt="View Timescale Forge service settings modification"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-change.png" alt="Change Timescale Cloud configuration parameters"/>
 
 ### Apply configuration changes
 When you have modified the configuration parameters that you would
@@ -40,25 +40,23 @@ like to change, click `Apply Changes`. For some changes, such as
 `timescaledb.max_background_workers` (pictured below), the Service needs to be
 restarted. In this case, the button reads `Restart and apply changes`.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-settings-apply.png" alt="View Timescale Forge service apply settings parameter changes"/>
-
 Regardless of whether the Service needs to be restarted or not, a confirmation
 dialog is displayed which lists the parameters that are being modified. Click
 `Confirm` to apply the changes (and restart if necessary).
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-settings-confirm.png" alt="View Timescale Forge service configuration changes confirmation dialog"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-confirm.png" alt="Confirm Timescale Cloud configuration changes"/>
 
 ## Configuring advanced parameters
 It is also possible to configure a wide variety of Service database parameters
 by toggling `Show advanced parameters` in the upper-right corner of the
 `Settings` tab.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-settings-advanced.png" alt="View Timescale Forge service configuration changes confirmation dialog"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-advanced.png" alt="View Timescale Cloud advanced configuration parameters"/>
 
 Once toggled, a scrollable (and searchable) list of configurable parameters is
 displayed.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-settings-advanced-search.png" alt="View Timescale Forge service configuration changes confirmation dialog"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-search.png" alt="Search Timescale Cloud configuration parameters"/>
 
 As with the basic database configuration parameters, any changes are highlighted
 and the `Apply changes` (or `Restart and apply changes`) button is available to
