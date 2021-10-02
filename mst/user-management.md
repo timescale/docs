@@ -50,4 +50,4 @@ Your service must be running before you can manage users.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.png" alt="Add a new MST service user"/>
 
 
-[mst-login]: https://portal.timescale.cloud/login
+[mst-login]: https://portal.managed.timescale.com

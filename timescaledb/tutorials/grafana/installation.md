@@ -1,13 +1,13 @@
 # Set up TimescaleDB and Grafana
-This tutorial uses Timescale Cloud to set up your database, and
+This tutorial uses Managed Service for TimescaleDB (MST) to set up your database, and
 to set up Grafana. You can [create a free account][mst-login] to try it out.
 
 ## Create a new service for Grafana
-You need to sign in to your Timescale Cloud account to create a
+You need to sign in to your MST account to create a
 new service to run Grafana.
 
 ### Procedure: Creating a new service for Grafana
-1.  [Log in to your Timescale Cloud account][mst-login]. By default, you start in the
+1.  [Log in to your Managed Service for TimescaleDB account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click `Create a new service`.
 1.  In the `Select your service` section, click `TimescaleDB Grafana - Metrics
@@ -28,11 +28,11 @@ new service to run Grafana.
     the list to see more information and make changes.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
 
-## Log in to your Timescale Cloud Grafana service
+## Log in to your MST Grafana service
 When your service is built, you can log and set up your data services.
 
-### Logging in to your Timescale Cloud Grafana service
-1.  In the [Timescale Cloud account][mst-login] `Services` view, click the name of your new
+### Logging in to your MST Grafana service
+1.  In the [MST account][mst-login] `Services` view, click the name of your new
     Grafana service.
 1.  On the service details page, take a note of the user name and password for
     your service, and click the link in the `Service URI` field to open Grafana:
@@ -64,4 +64,4 @@ connect to your TimescaleDB instance.
 1.  Click `Save & Test`. You can confirm your data source is working by clicking
     `Back`, and checking that your service is listed correctly.
 
-[mst-login]: https://portal.timescale.cloud
+[mst-login]: https://portal.managed.timescale.com
