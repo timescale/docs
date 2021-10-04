@@ -66,5 +66,5 @@ Datadog dashboard editor to configure your visualizations. See the
 
 
 [datadog-login]: https://app.datadoghq.com/
-[mst-login]: https://portal.timescale.cloud/login
+[mst-login]: https://portal.managed.timescale.com
 [datadog-dashboard-docs]: https://docs.datadoghq.com/dashboards/
