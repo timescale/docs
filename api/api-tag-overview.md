@@ -14,7 +14,7 @@ The experimental tag denotes that a function is a part of the TimescaleDB experi
 
 The toolkit tag marks functions that belong to the TimescaleDB Toolkit extension. The functionality provided by the Toolkit is availble under the Timescale Community Edition license. For installation instructions, [visit our install guide][toolkit-install].
 
-## Experimental (Timescale Toolkit) <tag type="experimental-toolkit">Experimental</tag>
+## Experimental (TimescaleDB Toolkit) <tag type="experimental-toolkit">Experimental</tag>
 
 The experimental tag, when used with the Toolkit tag, signfies that a function is still under active development. It may not handle corner cases or errors, and may have poor performance. Extion updates will drop database objects that depend on experimental features. This is particularly important for Timescale Cloud users, as the Toolkit extension is updated automatically. For more information, [read the TimescaleDB Toolkit docs][toolkit-docs].
 
