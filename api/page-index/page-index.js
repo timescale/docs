@@ -439,7 +439,7 @@ module.exports = [
       },
       {
         title: 'API Reference Tag Overview',
-        href: 'api-reference-tag-overview',
+        href: 'api-tag-overview',
         description: 'An overview of what different tags represent in the API section of Timescale Documentation.',
       }
     ],
