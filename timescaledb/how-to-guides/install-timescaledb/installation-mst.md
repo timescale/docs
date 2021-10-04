@@ -24,7 +24,7 @@ Now that your database account is setup, it's time to
 ---
 
 [sign-up]: https://www.timescale.com/cloud-signup
-[portal]: http://portal.timescale.cloud
+[portal]: https://portal.managed.timescale.com
 [timescale-features]: https://www.timescale.com/products
 [mst-setup]: /mst/:currentVersion:/create-a-service
 [intercom]: https://kb.timescale.cloud/

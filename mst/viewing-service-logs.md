@@ -17,6 +17,6 @@ output, in case programmatic access is needed.
 
 Service logs included on the normal service price are stored only for a few days. Unless you are using logs integration to another service, older logs are not accessible.
 
-[mst-portal]: https://portal.timescale.cloud/
+[mst-portal]: https://portal.managed.timescale.com
 [Command-line client]: https://github.com/aiven/aiven-client
 [REST API]: https://kb.timescale.cloud/en/articles/2949775-rest-api
