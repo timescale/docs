@@ -407,9 +407,9 @@ module.exports = [
             href: 'jobs',
           },
           {
-            title: "timescaledb_information.job_stats",
-            href: "job_stats"
-          }
+            title: 'timescaledb_information.job_stats',
+            href: 'job_stats',
+          },
         ],
       },
       {

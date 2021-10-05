@@ -7,7 +7,7 @@ module.exports = [
         title: 'Introduction to IoT',
         href: 'nyc-taxi-cab',
         tags: ['iot', 'query', 'learn', 'tsc'],
-        keywords: ['IoT', 'tutorial', 'Timescale Forge'],
+        keywords: ['IoT', 'tutorial', 'Timescale Cloud'],
         excerpt: 'An introduction to IoT using NYC taxi data',
       },
       {
@@ -132,11 +132,11 @@ module.exports = [
         ],
       },
       {
-        title: 'Monitor Timescale Cloud with Prometheus',
-        href: 'setting-up-timescale-cloud-endpoint-for-prometheus',
+        title: 'Monitor MST with Prometheus',
+        href: 'monitor-mst-with-prometheus',
         tags: ['prometheus', 'monitor', 'learn', 'timescaledb'],
         keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-        excerpt: 'Monitor Timescale Cloud with Prometheus',
+        excerpt: 'Monitor MST with Prometheus',
       },
       {
         title: 'Monitor a Django application with Prometheus',

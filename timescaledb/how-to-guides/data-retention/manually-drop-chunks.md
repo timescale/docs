@@ -41,3 +41,6 @@ the `conditions` hypertable will still have data stretching back 36 hours.
 
 For more information on the `drop_chunks` function and related
 parameters, please review the [API documentation][drop_chunks].
+
+
+[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks/
