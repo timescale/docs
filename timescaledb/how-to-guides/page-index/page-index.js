@@ -913,35 +913,35 @@ module.exports = [
           {
             title: 'Install TimescaleDB Toolkit',
             href: 'install-timescaledb-toolkit',
-            tags: ['toolkit', 'install', 'timescaledb'],
+            tags: ['toolkit', 'install', 'hyperfunctions', 'timescaledb'],
             keywords: ['TimescaleDB', 'install', 'toolkit'],
             excerpt: 'Install the TimescaleDB toolkit',
           },
           {
             title: 'Approximate percentile',
             href: 'approximate-percentile',
-            tags: ['hyperfunctions', 'toolkit', 'timescaledb'],
+            tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
             keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
             excerpt: 'Learn about the approximate percentile hyperfunction'
           },
           {
             title: 'Time-weighted averages',
             href: 'time-weighted-averages',
-            tags: ['hyperfunctions', 'toolkit', 'timescaledb'],
+            tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
             keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
             excerpt: 'Learn about the time-weighted averages hyperfunction'
           },
           {
             title: 'Hyperloglog',
             href: 'hyperloglog',
-            tags: ['hyperfunctions', 'toolkit', 'timescaledb'],
+            tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
             keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
             excerpt: 'Learn about the hyperloglog hyperfunction'
           },
           {
             title: 'counter aggregates',
             href: 'counter-agg',
-            tags: ['hyperfunctions', 'toolkit', 'timescaledb'],
+            tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
             keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
             excerpt: 'Learn about the counter aggregate hyperfunction'
           },
