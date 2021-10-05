@@ -939,7 +939,7 @@ module.exports = [
             excerpt: 'Learn about the hyperloglog hyperfunction'
           },
           {
-            title: 'counter aggregates',
+            title: 'Counter aggregates',
             href: 'counter-agg',
             tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
             keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
