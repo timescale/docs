@@ -32,6 +32,8 @@ in this case. However, we use the word "percentile" because it's a more common
 word for this type of function.
 </highlight>
 
+For more information about approximate percentiles, read our [blog post][approx-percentile-blog].
+
 ## Run an approximate percentage query
 In this procedure, we are using an example table called `response_times` that contains information about how long a server takes to respond to API calls.
 
@@ -66,3 +68,4 @@ In this procedure, we are using an example table called `response_times` that co
 
 
 [gh-analytics-algorithms]: https://github.com/timescale/timescale-analytics/blob/main/docs/percentile_approximation.md#advanced-usage
+[approx-percentile-blog]: https://blog.timescale.com/blog/how-percentile-approximation-works-and-why-its-more-useful-than-averages/
