@@ -7,9 +7,10 @@ const tutorialPageIndex = require('../tutorials/page-index/page-index')
 
 module.exports = [
   {
-    title: "TimescaleDB",
-    href: "timescaledb",
-    excerpt: 'All you need to know about TimescaleDB architecture, concepts, setup, how-to\'s, tutorials, and management',
+    title: 'TimescaleDB',
+    href: 'timescaledb',
+    excerpt:
+      "All you need to know about TimescaleDB architecture, concepts, setup, how-to's, tutorials, and management",
     children: [
       ...overviewPageIndex,
       ...gettingStartedPageIndex,
@@ -17,13 +18,17 @@ module.exports = [
       ...tutorialPageIndex,
       ...quickStartPageIndex,
       {
-        title: "Contribute to TimescaleDB",
-        href: "contribute-to-timescaledb"
+        title: 'Contribute to TimescaleDB',
+        href: 'contribute-to-timescaledb',
       },
       {
-        title: "Contribute to documentation",
-        href: "contribute-to-docs"
-      }
-    ]
-  }
-]
+        title: 'Contribute to documentation',
+        href: 'contribute-to-docs',
+      },
+      {
+        title: 'TimescaleDB License Comparison',
+        href: 'timescaledb-license-comparison',
+      },
+    ],
+  },
+];

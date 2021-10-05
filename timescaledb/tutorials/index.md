@@ -17,7 +17,7 @@ data analysis and make forecasts on your data.
 ### Observability scenarios
 
 - **[Getting started with Promscale][promscale]**: Promscale is the long‑term store for Prometheus data, designed for analytics
-- **[Setup a Prometheus endpoint for Timescale Cloud][prometheus-tsc-endpoint]**: Learn how to create a monitoring system to ingest and analyze Prometheus metrics from your Timescale Cloud instance.
+- **[Setup a Prometheus endpoint for managed TimescaleDB][prometheus-mst-endpoint]**: Learn how to create a monitoring system to ingest and analyze Prometheus metrics from your Timescale Cloud instance.
 - **[Monitor a Django application with Prometheus][monitor-django-prometheus]**: Use how to use Prometheus to monitor your Django application.
 
 ### Integrating with Grafana
@@ -58,7 +58,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [Stocks]: /tutorials/analyze-intraday-stocks/
 [custom-dashboards]: /tutorials/custom-timescaledb-dashboards/
 [tableau]: /tutorials/visualize-with-tableau
-[prometheus-tsc-endpoint]: /tutorials/setting-up-timescale-cloud-endpoint-for-prometheus
+[prometheus-mst-endpoint]: /tutorials/setting-up-mst-endpoint-for-prometheus
 [monitor-django-prometheus]: /tutorials/monitor-django-with-prometheus
 [tutorial-grafana-dashboards]: /tutorials/grafana/create-dashboard-and-panel
 [tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards
