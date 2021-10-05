@@ -1,22 +1,17 @@
-# API Reference Tag Overview
-
-Timescale Documentation utilizes a tagging system to describe functions in the API Reference section. These tags include "Community", "Experimental", "Toolkit", and "Experimental" (for TimescaleDB Toolkit functions). Below is more information on what each tag represents.
+# API Reference tag overview
+The Timescale API Reference uses tags to categorize functions. The tags are `Community`, `Experimental`, `Toolkit`, and `Experimental (Toolkit)`. This section explains each tag.
 
 ## Community <tag type="community">Community</tag>
-
-The community tag signifies that a TimescaleDB function is available under the Timescale Community Edition license, and not available under the Apache 2 Edition license. For more information, visit our [Timescale License comparison sheet][tsl-comparison].
+This tag indicates that the function is available under the Timescale Community Edition license, and are not available under the Apache 2 Edition license. For more information, visit our [Timescale License comparison sheet][tsl-comparison].
 
 ## Experimental (TimescaleDB Experimental Schema) <tag type="experimental">Experimental</tag>
+This tag indicates that the function is included in the TimescaleDB experimental schema. Do not use experimental functions in production. Experimental features could include bugs, and are likely to change in future versions. The experimental schema is is used by Timescale to develop new features more quickly. If experimental functions are successful, they can move out of the experimental schema and go into production use. For more information about the experimental schema, [read the Timescale blog post][experimental-blog].
 
-The experimental tag denotes that a function is a part of the TimescaleDB experimental schema. This schema is not to be used in production, may include bugs and is subject to change in future versions. The objective of the schema is to allow for faster development of new features. The ultimate goal is to move experimental features and functions out of the experimental schema when they reach full maturity for normal production usage. [More information can be found on the Timescale blog][experimental-blog].
-
-## Tookit <tag type="toolkit">Toolkit</tag>
-
-The toolkit tag marks functions that belong to the TimescaleDB Toolkit extension. The functionality provided by the Toolkit is availble under the Timescale Community Edition license. For installation instructions, [visit our install guide][toolkit-install].
+## Toolkit <tag type="toolkit">Toolkit</tag>
+This tag indicates that the function is included in the TimescaleDB Toolkit extension. Toolkit functions are available under the Timescale Community Edition license. For installation instructions, [see the installation guide][toolkit-install].
 
 ## Experimental (TimescaleDB Toolkit) <tag type="experimental-toolkit">Experimental</tag>
-
-The experimental tag, when used with the Toolkit tag, signfies that a function is still under active development. It may not handle corner cases or errors, and may have poor performance. Extion updates will drop database objects that depend on experimental features. This is particularly important for Timescale Cloud users, as the Toolkit extension is updated automatically. For more information, [read the TimescaleDB Toolkit docs][toolkit-docs].
+This tag is used with the Toolkit tag. It indicates a Toolkit function that is under active development. Do not use experimental toolkit functions in production. Experimental toolkit functions could include bugs, and are likely to change in future versions. These functions might not correctly handle unusual use cases or errors, and they could have poor performance. Updates to the TimescaleDB extension drop database objects that depend on experimental features like this function. If you use experimental toolkit functions on Timescale Cloud, this function is automatically dropped when the Toolkit extension is updated. For more information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 
 [tsl-comparison]: /timescaledb/:currentVersion/timescaledb-license-comparison/
 [toolkit-install]: /timescaledb/:currentVersion/how-to-guides/install-timescaledb-toolkit/
