@@ -2,7 +2,7 @@
 The Timescale API Reference uses tags to categorize functions. The tags are `Community`, `Experimental`, `Toolkit`, and `Experimental (Toolkit)`. This section explains each tag.
 
 ## Community <tag type="community">Community</tag>
-This tag indicates that the function is available under the Timescale Community Edition license, and are not available under the Apache 2 Edition license. For more information, visit our [Timescale License comparison sheet][tsl-comparison].
+This tag indicates that the function is available under the TimescaleDB Community license, and are not available under the Apache 2 license. For more information, visit our [TimescaleDB License comparison sheet][tsl-comparison].
 
 ## Experimental (TimescaleDB Experimental Schema) <tag type="experimental">Experimental</tag>
 This tag indicates that the function is included in the TimescaleDB experimental schema. Do not use experimental functions in production. Experimental features could include bugs, and are likely to change in future versions. The experimental schema is is used by Timescale to develop new features more quickly. If experimental functions are successful, they can move out of the experimental schema and go into production use. For more information about the experimental schema, [read the Timescale blog post][experimental-blog].
