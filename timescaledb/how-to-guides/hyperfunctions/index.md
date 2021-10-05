@@ -10,7 +10,6 @@ additional hyperfunctions, you need to install the
     before you begin using it.
 *   Install the [Toolkit extension][install-toolkit] to access more
     hyperfunctions.
-*   Use [general analytic queries][hyperfunctions-general] to get started.
 *   Use the [approximate percentile][hyperfunctions-approximate-percentile] function.
 *   Use the [time-weighted average][hyperfunctions-time-weighted-averages] function.
 *   Use the [hyperloglog][hyperfunctions-hyperloglog] function.
@@ -21,7 +20,6 @@ For more information about hyperfunctions, read our [blog post][hyperfunctions-b
 
 [about-hyperfunctions]: how-to-guides/hyperfunctions/about-hyperfunctions
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
-[hyperfunctions-general]: how-to-guides/hyperfunctions/general-analytic-queries
 [hyperfunctions-approximate-percentile]: how-to-guides/hyperfunctions/approximate_percentile
 [hyperfunctions-time-weighted-averages]: how-to-guides/hyperfunctions/time-weighted-averages
 [hyperfunctions-hyperloglog]: /how-to-guides/hyperfunctions/hyperloglog
