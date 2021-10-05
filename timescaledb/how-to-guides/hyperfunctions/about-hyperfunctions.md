@@ -1,14 +1,23 @@
-# About Timescale Toolkit
-Timescale Toolkit is a PostreSQL extension containing a specialized set of
-functions that allow you to to analyze time-series data. You can use it to
-analyze anything you have stored as time-series data, including IoT devices, IT
-systems, marketing analytics, user behavior, financial metrics, and
-cryptocurrency.
+# About Timescale hyperfunctions
+Timescale hyperfunctions are a specialized set of functions that allow you to to
+analyze time-series data. You can use hyperfunctions to analyze anything you
+have stored as time-series data, including IoT devices, IT systems, marketing
+analytics, user behavior, financial metrics, and cryptocurrency.
 
-Timescale Toolkit allows you to perform critical time-series queries quickly,
-analyze time-series data, and extract meaningful information. It aims to
+Hyperfunctions allows you to perform critical time-series queries quickly,
+analyze time-series data, and extract meaningful information. They aim to
 identify, build, and combine all of the functionality SQL needs to perform
 time-series analysis into a single extension.
+
+Some hyperfunctions are included in the default TimescaleDB product. For
+additional hyperfunctions, you need to install the
+[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+
+<!---
+Add table or list or something here. --LKB 2021-10-05
+
+Old content follows ...
+-->
 
 ## Tools for graphing
 Timescale Toolkit brings graphing functions to the database. This allows you
