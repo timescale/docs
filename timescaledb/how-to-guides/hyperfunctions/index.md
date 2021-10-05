@@ -16,6 +16,7 @@ additional hyperfunctions, you need to install the
 
 For more information about Timescale Toolkit, read our [blog post][toolkit-blog].
 
+
 [about-toolkit]: how-to-guides/toolkit/about-hyperfunctions
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
 [hyperfunctions-general]: how-to-guides/hyperfunctions/general-analytic-queries
