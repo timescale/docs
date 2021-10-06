@@ -1,4 +1,4 @@
-## rollup(`TimeWeightSummary`) <tag type="toolkit">Toolkit</tag>
+## rollup(TimeWeightSummary) <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 rollup(
