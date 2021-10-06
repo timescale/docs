@@ -280,9 +280,9 @@ module.exports = [
       {
         title: 'Connecting to TimescaleDB',
         href: 'connecting',
-        tags: ['toolkit', 'install', 'timescaledb'],
-        keywords: ['TimescaleDB', 'install', 'toolkit'],
-        excerpt: 'Connect to the TimescaleDB toolkit',
+        tags: ['psql', 'install', 'timescaledb'],
+        keywords: ['TimescaleDB', 'install', 'psql'],
+        excerpt: 'Connect to TimescaleDB with psql',
         children: [
           {
             href: 'psql',
@@ -912,7 +912,7 @@ module.exports = [
           },
           {
             title: 'Install TimescaleDB Toolkit',
-            href: 'install-timescaledb-toolkit',
+            href: 'install-toolkit',
             tags: ['toolkit', 'install', 'hyperfunctions', 'timescaledb'],
             keywords: ['TimescaleDB', 'install', 'toolkit'],
             excerpt: 'Install the TimescaleDB toolkit',
