@@ -1,4 +1,4 @@
-## attach_data_node() 
+## attach_data_node() <tag type="community">Community</tag>
 
 Attach a data node to a hypertable. The data node should have been
 previously created using [`add_data_node`](/distributed-hypertables/add_data_node).

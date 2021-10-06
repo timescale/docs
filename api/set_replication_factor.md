@@ -1,4 +1,4 @@
-## set_replication_factor() 
+## set_replication_factor() <tag type="community">Community</tag>
 Sets the replication factor of a distributed hypertable to the given value.
 Changing the replication factor does not affect the number of replicas for existing chunks.
 Chunks created after changing the replication factor will be replicated
