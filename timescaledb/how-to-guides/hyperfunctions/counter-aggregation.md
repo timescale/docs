@@ -1,14 +1,9 @@
 # Counter aggregation
-Phosfluorescently innovate covalent manufactured products before market
-positioning leadership. Intrinsicly underwhelm top-line human capital without
-maintainable process improvements. Compellingly extend web-enabled innovation
-before pandemic deliverables. Intrinsicly actualize fully tested human capital
-rather than holistic innovation. Monotonectally seize progressive methodologies
-and intermandated content.
+There are two primary types of metrics that can be recorded in a database:
+gauges, and counters. Gauges fluctuate up and down, like temperature or speed,
+while counters always increase, like the total number of miles travelled in a
+vehicle.
 
-Assertively productize resource sucking resources and bricks-and-clicks core
-competencies. Assertively pontificate installed base meta-services without
-extensive schemas. Continually build user-centric best practices rather than
-worldwide innovation. Intrinsicly conceptualize performance based e-business
-after economically sound growth strategies. Enthusiastically engage
-clicks-and-mortar solutions with optimal functionalities.
+Counter data usually resets to zero if there is an interruption. Counter
+aggregation functions are used to continue accumulating the data and ignoring
+any interruptions or resets.

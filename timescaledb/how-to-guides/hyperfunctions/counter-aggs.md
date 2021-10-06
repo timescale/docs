@@ -1,8 +1,4 @@
 # Counter aggregates
-There are two types of metrics that can be recorded in a database: gauges, and
-counters. Gauges fluctuate up and down, like temperature or speed, while
-counters always increase, like the total number of visitors to a website.
-
 When you process counter data, it is usually assumed that if the value of the
 counter goes down, the counter has been reset. For example, if you wanted to
 count how many times a runner ran around a track, you would expect the values to

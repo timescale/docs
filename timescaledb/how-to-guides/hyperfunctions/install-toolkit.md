@@ -1,20 +1,50 @@
-# Installing TimescaleDB Toolkit
+# Install TimescaleDB Toolkit
+Some hyperfunctions are included in the default TimescaleDB product. For
+additional hyperfunctions, you need to install the Timescale Toolkit PostgreSQL
+extension.
 
-In order to use functions from the TimescaleDB Toolkit, you'll need to install 
-it. If you are using [Timescale Cloud][] to host your database, the Toolkit is already
-installed. 
+If you are using [Timescale Cloud][], the Toolkit is already installed.
 
-On [Managed TimescaleDB][] you may need to run `CREATE EXTENSION timescaledb_toolkit;` 
-in each database that you need to use the functions with. 
+On [Managed TimescaleDB][], run this command on each database you want to use
+the Toolkit with:
+```sql
+CREATE EXTENSION timescaledb_toolkit;
+```
 
-If you already have it installed and are updating to the latest version, run 
-`ALTER EXTENSION timescaledb_toolkit UPDATE;`.
+You can update an installed version of the Toolkit using this command:
+```sql
+ALTER EXTENSION timescaledb_toolkit UPDATE;
+```
 
-## Self-hosted install
-If you are hosting your own TimescaleDB database and need to install the TimescaleDB
-Toolkit first, follow the instructions provided at the GitHub repo to [install it
-from source][install-source].
+## Install Toolkit on self-hosted TimescaleDB
+If you are hosting your own TimescaleDB database you install the Toolkit
+extension from the command prompt.
+
+### Procedure: Installing Toolkit on self-hosted TimescaleDB
+1.  The extension requires `rust`, `rustfmt`, `clang`, and `pgx` packages, as
+    well as the PostgreSQL headers for your installed version of PostgreSQL.
+    Install these using your native package manager. For instructions on how to
+    install Rust, see the [Rust installation instructions][rust-install].
+1.  Install the TimescaleDB `pgx` package using Cargo:
+    ```bash
+    cargo install --git https://github.com/JLockerman/pgx.git --branch timescale2 cargo-pgx && \
+    cargo pgx init --pg13 pg_config
+    ```
+1.  Clone the Toolkit repository, and change into the new directory:
+    ```bash
+    git clone https://github.com/timescale/timescaledb-toolkit && \
+    cd timescaledb-toolkit/extension
+    ```
+1.  Use Cargo to complete installation:
+    ```bash
+    cargo pgx install --release && \
+    cargo run --manifest-path ../tools/post-install/Cargo.toml -- pg_config
+    ```
+
+For more information about installing Toolkit from source, see our
+[developer documentation][toolkit-gh-docs] .
 
 [Timescale Cloud]: /cloud/:currentVersion:/
 [Managed TimescaleDB]: /mst/:currentVersion:/
-[install-source]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
+[rust-install]: https://www.rust-lang.org/tools/install
+[toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source
