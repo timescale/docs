@@ -937,11 +937,11 @@ module.exports = [
         excerpt: 'Additional tooling for managing TimescaleDB',
       },
       {
-        title: 'psql Basics',
+        title: 'Psql Basics',
         href: 'psql-basics',
         tags: ['psql', 'timescaledb'],
         keywords: ['psql', 'timescaledb'],
-        excerpt: 'A guide to the psql interface',
+        excerpt: 'A brief guide to the psql interface',
       },
     ],
   },
