@@ -19,6 +19,11 @@ adding an entry to the hyperloglog hash as new data is retrieved, rather than
 recalculating the result for the entire dataset every time it is needed. This
 makes it an ideal candidate for using with continuous aggregates.
 
+<!--- Add example here. --LKB 2021-10-07
+
+Old content follows ...
+-->
+
 ## Run a hyperloglog query
 In this procedure, we are using an example table called `response_times` that contains information about how long a server takes to respond to API calls.
 
