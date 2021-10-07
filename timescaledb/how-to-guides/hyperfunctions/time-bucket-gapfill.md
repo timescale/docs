@@ -1,14 +1,13 @@
 # Time bucket gapfill
-Uniquely scale error-free catalysts for change for impactful products.
-Objectively actualize team driven manufactured products with world-class
-e-tailers. Interactively myocardinate vertical networks and prospective users.
-Phosfluorescently simplify visionary sources vis-a-vis real-time e-markets.
-Competently morph backward-compatible intellectual capital whereas one-to-one
-e-tailers.
+Sorting data into time buckets works well in most cases, but problems can arise
+if there are gaps in the data. This can happen if you have irregular sampling
+intervals, or you have experienced an outage of some sort. If you have a time
+bucket that has no data at all, the average returned from the time bucket is
+NULL, which could cause problems. You can use a gapfilling function to create
+additional rows of data in any gaps, ensuring that the returned rows are in
+chronological order, and contiguous. The time bucket gapfill function creates a
+contiguous set of time buckets but does not fill the rows with data. You can
+create data for the new rows using another function, such as locf or
+interpolate.
 
-Progressively seize ethical systems for distinctive process improvements.
-Dynamically iterate bricks-and-clicks experiences through one-to-one strategic
-theme areas. Phosfluorescently strategize parallel services and long-term
-high-impact functionalities. Dynamically benchmark low-risk high-yield core
-competencies for value-added mindshare. Credibly implement clicks-and-mortar
-imperatives for leading-edge collaboration and idea-sharing.
+Example here.

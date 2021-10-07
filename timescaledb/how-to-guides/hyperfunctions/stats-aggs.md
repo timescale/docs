@@ -1,14 +1,38 @@
 # Statistical aggregation
-Globally engage customer directed products and high-quality value. Progressively
-administrate accurate bandwidth without enabled initiatives. Phosfluorescently
-aggregate worldwide bandwidth rather than real-time niche markets.
-Enthusiastically productize client-centered ideas through virtual information.
-Progressively productize top-line technologies before backward-compatible
-innovation.
+To make common statistical aggregates easier to work with in window functions
+and continuous aggregates, Timescale Toolkit provides common statistical
+aggregates in a slightly different form than otherwise available in PostgreSQL
+and TimescaleDB.
 
-Credibly develop market positioning catalysts for change through accurate
-scenarios. Intrinsicly whiteboard e-business total linkage through diverse
-products. Dynamically matrix premium ROI without standards compliant internal or
-"organic" sources. Professionally drive diverse collaboration and idea-sharing
-for progressive bandwidth. Assertively fashion premier internal or "organic"
-sources through orthogonal expertise.
+This uses a two-step aggregation process. The first step is an aggregation step,
+which creates a machine-readable dataset. The second step is an accessor, which
+creates a human-readable output for the display of the data.
+
+When you construct a query using this method, you need to start with an
+aggregation step, and then provide an accessor. For example, you can use
+`time_weight` as the aggregation function, and then `time_weighted_average` as
+the accessor:
+```sql
+SELECT average(time_weight('LOCF', value)) as time_weighted_average FROM <example>;
+```
+
+This section is broken up into statistical and regression functions:
+
+Statistical Functions
+*   `average`
+*   `sum`
+*   `num_vals`
+*   `stddev` (population and sample)
+*   `variance` (population and sample)
+*   `skewness`
+*   `kurtosis`
+
+Regression Functions
+*   `slope`
+*   `intercept`
+*   `x_intercept`
+*   `corr` (correlation coefficient)
+*   `covariance` (population and sample)
+*   `skewness`
+*   `kurtosis`
+*   `determination_coeff`
