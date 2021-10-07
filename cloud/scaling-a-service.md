@@ -37,14 +37,14 @@ current resource settings for the Service.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale Cloud service resource information"/>
 
 ## Modify service resources
-Once you have navigated to the current Service resources, it's easy to modify
-either the compute (CPU/Memory) or disk size. As you modify either setting,
-notice that the current and new hourly charges are displayed in real-time
-so that it's easy to verify how these changes will impact your costs.
+When you have navigated to the current Service resources, you can modify either
+the compute (CPU/Memory) or disk size. When you change these settings, the
+current and new hourly charges are displayed immediately so that you can verify
+how the changes impact your costs.
 
-As noted above, changes to disk size will not cause any downtime.  However,
-the platform currently only supports _increasing_ disk size (not decreasing it),
-and you can increase disk size once every six (6) hours.
+Changes to disk size do not cause any downtime.  However, the platform currently
+only supports _increasing_ disk size (not decreasing it), and you can increase
+disk size once every six hours.
 
 When you're satisfied with the changes, click `Apply` (storage resizes only) or
 `Apply and Restart` (when modifying compute resources).
@@ -60,7 +60,7 @@ service. You can adjust this manually as required, or for disk size you can use 
 When you change the disk size, the changes are applied with no downtime, and the
 new size generally becomes available within a few seconds. You can change the
 disk size once every six hours, and you can only increase the size, not decrease
-it. You can have a disk up to 10&nbsp;TB in size.
+it. You can have a disk up to 16&nbsp;TB in size.
 
 You can change the CPU and memory allocation for your service at any time, with
 minimal downtime, usually less than thirty seconds. The new resources become
