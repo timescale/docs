@@ -921,6 +921,7 @@ module.exports = [
           {
             title: 'Approximate count distincts',
             href: 'approx-count-distincts',
+            type: 'directory',
             children: [
               {
                 title: 'Hyperloglog',
@@ -934,6 +935,7 @@ module.exports = [
           {
             title: 'Statistical aggregates',
             href: 'stats-aggs',
+            type: 'directory',
             children: [
               {
                 title: 'Statistical functions',
@@ -954,6 +956,7 @@ module.exports = [
           {
             title: 'Gapfilling and interpolation',
             href: 'gapfilling-interpolation',
+            type: 'directory',
             children: [
               {
                 title: 'Time bucket gapfill',
@@ -974,6 +977,7 @@ module.exports = [
           {
             title: 'Percentile approximation',
             href: 'percentile-approx',
+            type: 'directory',
             children: [
               {
                 title: 'Approximate percentile',
@@ -987,6 +991,7 @@ module.exports = [
           {
             title: 'Counter aggregation',
             href: 'counter-aggregation',
+            type: 'directory',
             children: [
               {
                 title: 'Counter aggregates',
@@ -1000,6 +1005,7 @@ module.exports = [
           {
             title: 'Time-weighted averages',
             href: 'time-weighted-averages',
+            type: 'directory',
             children: [
               {
                 title: 'Time-weighted averages',
