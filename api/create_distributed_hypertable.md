@@ -1,4 +1,4 @@
-## create_distributed_hypertable()
+## create_distributed_hypertable()  <tag type="community">Community</tag>
 
 Creates a TimescaleDB hypertable distributed across a multinode
 environment.  Use this function in place of [`create_hypertable`][create-hypertable].
