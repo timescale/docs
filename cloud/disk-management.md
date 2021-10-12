@@ -62,7 +62,9 @@ You can only increase your service's storage once every six hours, and you canno
 currently decrease your storage size once set.
 </highlight>
 
-### Procedure: Increasing service resources
+<procedure>
+
+### Increasing service resources
 1.  In the Timescale Cloud console, navigate to `Services` and click the service
 you want to adjust. Navigate to the `Operations` tab, and go to the `Resources`
 section.
@@ -78,6 +80,8 @@ and you can begin writing data immediately.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed.png" alt="Timescale Cloud change resources"/>
 
+</procedure>
+
 ## Storage recovery
 
 If you need to perform actions on your database to reduce your data usage, you
@@ -91,7 +95,9 @@ increasing the disk size before you do this. Alternatively, you can enable
 read-write access on an individual session, while leaving the database in
 read-only mode. </highlight>
 
-### Procedure: Enabling read-write access on an individual session
+<procedure>
+
+### Enabling read-write access on an individual session
 1.  Connect to your database using `psql` and turn off read-only protection
     for the current session:
     ```sql
@@ -111,5 +117,6 @@ read-only mode. </highlight>
     SELECT add_compression_policy('<table_name>', interval '1 day');
     ```
 
+</procedure>
 As soon as the storage consumption drops below the threshold, the read-only
 protection is automatically removed, and you can start writing data again.
