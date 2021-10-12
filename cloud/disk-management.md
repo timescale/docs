@@ -64,7 +64,7 @@ currently decrease your storage size once set.
 
 <procedure>
 
-### Procedure: Increasing service resources
+### Increasing service resources
 1.  In the Timescale Cloud console, navigate to `Services` and click the service
 you want to adjust. Navigate to the `Operations` tab, and go to the `Resources`
 section.
@@ -97,7 +97,7 @@ read-only mode. </highlight>
 
 <procedure>
 
-### Procedure: Enabling read-write access on an individual session
+### Enabling read-write access on an individual session
 1.  Connect to your database using `psql` and turn off read-only protection
     for the current session:
     ```sql
