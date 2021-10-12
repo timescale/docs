@@ -95,11 +95,11 @@ module.exports = [
         ],
       },
       {
-        title: 'Getting started with Promscale',
+        title: 'Using Promscale and Prometheus',
         href: 'promscale',
         tags: ['promscale', 'prometheus', 'learn', 'timescaledb'],
         keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-        excerpt: 'Learn about Promscale with TimescaleDB',
+        excerpt: 'Learn about using Promscale and Prometheus with TimescaleDB',
         children: [
           {
             title: 'The Benefits of using Promscale',
@@ -132,11 +132,11 @@ module.exports = [
         ],
       },
       {
-        title: 'Monitor Timescale Cloud with Prometheus',
-        href: 'setting-up-timescale-cloud-endpoint-for-prometheus',
+        title: 'Monitor MST with Prometheus',
+        href: 'monitor-mst-with-prometheus',
         tags: ['prometheus', 'monitor', 'learn', 'timescaledb'],
         keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-        excerpt: 'Monitor Timescale Cloud with Prometheus',
+        excerpt: 'Monitor MST with Prometheus',
       },
       {
         title: 'Monitor a Django application with Prometheus',

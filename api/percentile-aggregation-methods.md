@@ -1,5 +1,5 @@
 # Advanced percentile aggregation <tag type="toolkit">Toolkit</tag>
-While the simple [`Percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg)
+While the simple [`Percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg)
 interface will be sufficient for many users, we do provide more specific APIs for
 advanced users who want more control of how their percentile approximation is
 computed and how much space the intermediate representation uses.  We currently

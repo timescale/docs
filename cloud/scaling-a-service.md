@@ -26,7 +26,7 @@ To modify the compute or storage of your Service, first select the Service that
 you want to modify. This displays the `service details`, which list four tabs
 across the top: Overview, Operations, Metrics, and Logs. Select `Operations`.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-operations.png" alt="View Timescale Forge service operational information"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-service-operations.png" alt="View Timescale Cloud service operational information"/>
 
 ## Display the current service resources
 Under the Operations tab, you can perform the same basic operations as before
@@ -34,22 +34,23 @@ Under the Operations tab, you can perform the same basic operations as before
 section on the left labeled `Resources`. Selecting this option displays the
 current resource settings for the Service.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-resources-4tb.png" alt="View Timescale Forge service resource information"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale Cloud service resource information"/>
 
 ## Modify service resources
-Once you have navigated to the current Service resources, it's easy to modify
-either the compute (CPU/Memory) or disk size. As you modify either setting,
-notice that the current and new hourly charges are displayed in real-time
-so that it's easy to verify how these changes will impact your costs.
+When you have navigated to the current Service resources, you can modify either
+the compute (CPU/Memory) or disk size. When you change these settings, the
+current and new hourly charges are displayed immediately so that you can verify
+how the changes impact your costs.
 
-As noted above, changes to disk size will not cause any downtime.  However,
-the platform currently only supports _increasing_ disk size (not decreasing it),
-and you can increase disk size once every six (6) hours.
+Changes to disk size do not cause any downtime.  However, the platform currently
+only supports _increasing_ disk size (not decreasing it), and you can increase
+disk size once every six hours.
 
 When you're satisfied with the changes, click `Apply` (storage resizes only) or
 `Apply and Restart` (when modifying compute resources).
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/forge_images/timescale-forge-service-restart-4tb.png" alt="View Timescale Forge service apply resize"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed.png" alt="View Timescale Cloud service apply resize"/>
+
 # Compute resources and disk size
 You can use the Timescale Cloud console to change how much CPU and memory
 resources your service has available, as well as change the disk size for your
@@ -59,7 +60,7 @@ service. You can adjust this manually as required, or for disk size you can use 
 When you change the disk size, the changes are applied with no downtime, and the
 new size generally becomes available within a few seconds. You can change the
 disk size once every six hours, and you can only increase the size, not decrease
-it. You can have a disk up to 10&nbsp;TB in size.
+it. You can have a disk up to 16&nbsp;TB in size.
 
 You can change the CPU and memory allocation for your service at any time, with
 minimal downtime, usually less than thirty seconds. The new resources become
@@ -82,7 +83,7 @@ plan for this before you begin!
 1.  Review the new allocations and costs in the comparison chart.
 1.  Click `Apply` to save your changes. If you have changed the CPU and memory
     allocation, your service will go down briefly while the changes are applied.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-configure.png" alt="Configure resource allocations"/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
 
 ## Configure autoscaling for disk size
 Disk size autoscaling is enabled by default on most services. When you consume
@@ -90,10 +91,11 @@ Disk size autoscaling is enabled by default on most services. When you consume
 the next size available, up to a configurable limit.
 
 Autoscaling can change the disk size once every six hours. When the increase is
-requested, the used space is optimized before the new limit is applied. As your
-disk size increases, this optimization process can take longer, and the six
-hours does not start running until the new size is applied, after the
-optimization is complete.
+requested, the new limit is applied, and then the used space is optimized. The
+optimization process does not require downtime, and in most cases it happens
+very quickly. However, if you have a lot of existing data, optimization can take
+longer, and in some cases this could create a delay longer than six hours.
+
 
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 10&nbsp;TB in size.
@@ -110,4 +112,4 @@ to 10&nbsp;TB in size.
 1.  Review the new allocations and costs in the comparison chart.
 1.  Click `Apply` to save your changes. The new disk size generally becomes
     available within a few seconds.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscale-configure.png" alt="Configure autoscaling disk size"/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscaling.png" alt="Configure autoscaling disk size"/>

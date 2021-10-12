@@ -168,11 +168,11 @@ account when securing your data. To learn more about security options within man
 visit the [managed service for TimescaleDB Knowledge Base][mst-kb].
 
 
-[mst-install]: /how-to-guides/install-timescaledb//mst/installation-mst
+[mst-install]: /how-to-guides/install-timescaledb/mst/installation-mst
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cidr-tool]: http://www.subnet-calculator.com/cidr.php
 [mst-kb]: https://kb.timescale.cloud/en/collections/1600092-security
-[mst-portal]: http://portal.timescale.cloud
+[mst-portal]: https://portal.managed.timescale.com
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-features]: https://www.timescale.com/products
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing

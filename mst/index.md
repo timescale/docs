@@ -71,5 +71,5 @@ For more information on Managed Service for TimescaleDB's terms of service, visi
 [viewing-service-logs]: /viewing-service-logs
 [vpc-peering]: /vpc-peering
 [security]: /security
-[sign-up]: https://www.timescale.com/cloud-signup
+[sign-up]: https://www.timescale.com/mst-signup
 [tos]: https://www.timescale.com/legal/mst-terms-of-service
