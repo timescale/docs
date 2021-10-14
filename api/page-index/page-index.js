@@ -417,7 +417,7 @@ module.exports = [
               },
               {
                 title: 'extrapolated_delta',
-                href: 'extrapolated_delta,
+                href: 'extrapolated_delta',
               },
               {
                 title: 'extrapolated_rate',
