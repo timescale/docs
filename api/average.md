@@ -8,6 +8,9 @@ average(
 
 A function to compute a time weighted average from a `TimeWeightSummary`.
 
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stas-agg].
+
 ### Required arguments
 
 |Name|Type|Description|
@@ -35,3 +38,5 @@ FROM (
 ) t
 ```
 
+
+[hyperfunctions-stas-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/

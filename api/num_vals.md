@@ -7,10 +7,14 @@ num_vals(sketch UddSketch) RETURNS DOUBLE PRECISION
 num_vals(digest tdigest) RETURNS DOUBLE PRECISION
 ```
 
-Get the number of values contained in a percentile estimate.
-This is provided in order to save space when both a count and a percentile estimate are required as part of continuous aggregates. 
-You can simply compute a single percentile estimator and do not need to specify a separate 
-`count` aggregate, just extract the `num_vals` from the percentile estimator.
+Get the number of values contained in a percentile estimate. This saves space
+when you need both a count and a percentile estimate as part of a continuous
+aggregate. You can compute a single percentile estimator and do not need to
+specify a separate  `count` aggregate, just extract the `num_vals` from the
+percentile estimator.
+
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stas-agg].
 
 ### Required arguments
 
@@ -35,3 +39,6 @@ FROM generate_series(0, 100) data;
 -----------
        101
 ```
+
+
+[hyperfunctions-stas-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
