@@ -13,8 +13,10 @@ aggregate. You can compute a single percentile estimator and do not need to
 specify a separate  `count` aggregate, just extract the `num_vals` from the
 percentile estimator.
 
-For more information about statistical aggregate functions, see the
-[hyperfunctions documentation][hyperfunctions-stas-agg].
+*   For more information about statistical aggregate functions, see the
+    [hyperfunctions documentation][hyperfunctions-stas-agg].
+*   For more information about percentile approximation functions, see the
+    [hyperfunctions documentation][hyperfunctions-percentile-approx].
 
 ### Required arguments
 
@@ -42,3 +44,4 @@ FROM generate_series(0, 100) data;
 
 
 [hyperfunctions-stas-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

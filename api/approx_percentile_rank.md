@@ -9,6 +9,9 @@ approx_percentile_rank(
 ) RETURNS UddSketch
 ```
 
+For more information about percentile approximation functions, see the
+[hyperfunctions documentation][hyperfunctions-percentile-approx].
+
 ### Required arguments
 
 |Name|Type|Description|
@@ -34,3 +37,6 @@ FROM generate_series(0, 100) data;
 ----------------------------
          0.9851485148514851
 ```
+
+
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

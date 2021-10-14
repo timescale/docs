@@ -17,6 +17,9 @@ This combines multiple outputs from the
 useful for re-aggregation in a continuous aggregate. For example, bucketing by a larger [`time_bucket()`][time_bucket], or re-grouping on other dimensions
 included in an aggregation.
 
+For more information about percentile approximation functions, see the
+[hyperfunctions documentation][hyperfunctions-percentile-approx].
+
 ### Required arguments
 
 |Name|Type|Description|
@@ -55,3 +58,4 @@ GROUP BY 1;
 [percentile_agg]: /hyperfunctions/percentile-approximation/percentile_agg/
 [advanced_agg_methods]: /hyperfunctions/percentile-approximation/percentile-aggregation-methods/
 [time_bucket]: /hyperfunctions/time_bucket/
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

@@ -10,8 +10,10 @@ range defined by `approx_percentile(sketch) +/- approx_percentile(sketch)*error(
 
 This function can only be used on estimators produced by
 [`percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg/) or
-[`uddsketch()`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/)
-calls.
+[`uddsketch()`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/) calls.
+
+For more information about percentile approximation functions, see the
+[hyperfunctions documentation][hyperfunctions-percentile-approx].
 
 ### Required arguments
 
@@ -36,3 +38,6 @@ FROM generate_series(0, 100) data;
 -------
  0.001
 ```
+
+
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

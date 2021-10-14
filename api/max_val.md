@@ -6,9 +6,12 @@ max_val(digest TDigest) RETURNS DOUBLE PRECISION
 
 Get the maximum value from a t-digest (does not work with `percentile_agg` or `uddsketch` based estimators).
 This is provided in order to save space
-when both a maximum and a percentile estimate are required as part of continuous aggregates. 
-You can simply compute a single percentile estimator and do not need to specify a separate 
+when both a maximum and a percentile estimate are required as part of continuous aggregates.
+You can simply compute a single percentile estimator and do not need to specify a separate
 `max` aggregate, just extract the `max_val` from the percentile estimator.
+
+For more information about percentile approximation functions, see the
+[hyperfunctions documentation][hyperfunctions-percentile-approx].
 
 ### Required Arguments
 |Name|Type|Description|
@@ -32,3 +35,5 @@ FROM generate_series(1, 100) data;
 ---------
      100
 ```
+
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

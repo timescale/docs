@@ -4,11 +4,14 @@
 min_val(digest TDigest) RETURNS DOUBLE PRECISION
 ```
 
-Get the minimum value from a t-digest (does not work with `percentile_agg` or `uddsketch` based estimators).
-This is provided in order to save space
-when both a minimum and a percentile estimate are required as part of continuous aggregates. 
-You can simply compute a single percentile estimator and do not need to specify a separate 
-`min` aggregate, just extract the `min_val` from the percentile estimator.
+Get the minimum value from a t-digest (does not work with `percentile_agg` or
+`uddsketch` based estimators). This saves space when you require both a minimum
+and a percentile estimate as part of a continuous aggregate. You can compute a
+single percentile estimator and do not need to specify a separate `min`
+aggregate, by extracting the `min_val` from the percentile estimator.
+
+For more information about percentile approximation functions, see the
+[hyperfunctions documentation][hyperfunctions-percentile-approx].
 
 ### Required Arguments
 |Name|Type|Description|
@@ -33,3 +36,6 @@ FROM generate_series(1, 100) data;
 -----------
          1
 ```
+
+
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

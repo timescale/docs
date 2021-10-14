@@ -9,9 +9,12 @@ mean(digest tdigest) RETURNS DOUBLE PRECISION
 
 Get the exact average of all the values in the percentile estimate. (Percentiles
 returned are estimates, the average is exact). This is provided in order to save space
-when both a mean and a percentile estimate are required as part of continuous aggregates. 
-You can simply compute a single percentile estimator and do not need to specify a separate 
+when both a mean and a percentile estimate are required as part of continuous aggregates.
+You can simply compute a single percentile estimator and do not need to specify a separate
 `avg` aggregate, just extract the mean from the percentile estimator.
+
+For more information about percentile approximation functions, see the
+[hyperfunctions documentation][hyperfunctions-percentile-approx].
 
 ### Required arguments
 
@@ -36,3 +39,6 @@ FROM generate_series(0, 100) data;
 ------
  50
 ```
+
+
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
