@@ -1,4 +1,4 @@
-## time_bucket_gapfill() <tag type="community">Community</tag> 
+## time_bucket_gapfill() <tag type="community">Community</tag>
 
 The `time_bucket_gapfill` function works similar to `time_bucket` but also activates gap
 filling for the interval between `start` and `finish`. It can only be used with an aggregation
@@ -21,6 +21,9 @@ subquery, as shown in the above examples.  You cannot, for example, do
 something like `round(time_bucket_gapfill(...))` or cast the result of the gapfill
 call (unless as a subquery where the outer query does the type cast).
 
+For more information about gapfilling and interpolation functions, see the
+[hyperfunctions documentation][hyperfunctions-gapfilling].
+
 ### Required Arguments
 
 |Name|Type|Description|
@@ -35,14 +38,14 @@ call (unless as a subquery where the outer query does the type cast).
 | `start` | TIMESTAMP | The start of the gapfill period |
 | `finish` | TIMESTAMP | The end of the gapfill period |
 
-Note that explicitly provided `start` and `stop` or derived from WHERE clause values 
-need to be simple expressions. Such expressions should be evaluated to constants 
-at the query planning. For example, simple expressions can contain constants or 
+Note that explicitly provided `start` and `stop` or derived from WHERE clause values
+need to be simple expressions. Such expressions should be evaluated to constants
+at the query planning. For example, simple expressions can contain constants or
 call to `now()`, but cannot reference to columns of a table.
 
 ### For Integer Time Inputs
 
-#### Required Arguments 
+#### Required Arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -59,7 +62,7 @@ call to `now()`, but cannot reference to columns of a table.
 Starting with version 1.3.0 `start` and `finish` are optional arguments and will
 be inferred from the WHERE clause if not supplied as arguments.
 
-### Sample Usage 
+### Sample Usage
 
 Get the metric value every day over the last 7 days:
 
@@ -132,3 +135,6 @@ ORDER BY day;
  2019-01-15 01:00:00+01 |         1 |   8.0 |         8.0
  2019-01-16 01:00:00+01 |         1 |   9.0 |         9.0
 ```
+
+
+[hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/

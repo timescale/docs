@@ -1,8 +1,11 @@
-## locf() <tag type="community">Community</tag> 
+## locf() <tag type="community">Community</tag>
 
 The `locf` function (last observation carried forward) allows you to carry the last seen value in an aggregation group forward.
 It can only be used in an aggregation query with [time_bucket_gapfill](/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
 The `locf` function call cannot be nested inside other function calls.
+
+For more information about gapfilling and interpolation functions, see the
+[hyperfunctions documentation][hyperfunctions-gapfilling].
 
 ### Required Arguments
 
@@ -28,7 +31,7 @@ values outside of the range specified by the time predicate.
 The `prev` expression will only be evaluated when no previous value is returned
 by the outer query (i.e., the first bucket in the queried time range is empty).
 
-### Sample Usage 
+### Sample Usage
 
 Get the average temperature every day for each device over the last 7 days carrying forward the last value for missing readings:
 ```sql
@@ -80,3 +83,5 @@ ORDER BY day;
  2019-01-16 01:00:00+01 |         1 |   9.0 |  9.0
 (7 row)
 ```
+
+[hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
