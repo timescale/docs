@@ -11,6 +11,9 @@ non-overlapping CounterSummaries. Non-disjoint CounterSummaries causes
 errors. See
 [Notes on Parallelism and Ordering](/hyperfunctions/time-weighted-averages/time_weight/##advanced-usage-notes) for more information.
 
+For more information about counter aggregation functions, see the
+[hyperfunctions documentation][hyperfunctions-counter-agg].
+
 ### Required arguments
 
 |Name| Type |Description|
@@ -44,3 +47,6 @@ SELECT
     delta(counter_summary) / (SELECT delta(full_cs) FROM q LIMIT 1)  as normalized -- get the fraction of the delta that happened each day compared to the full change of the counter
 FROM t;
 ```
+
+
+[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

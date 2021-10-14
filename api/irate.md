@@ -2,8 +2,8 @@
 The instantaneous rate of change of the counter at the left (earlier) and right
 (later) side of the time range.
 
-For more information about counter aggregation, see the
-[Hyperfunction documentation][howto-hyperfunctions]
+For more information about counter aggregation functions, see the
+[hyperfunctions documentation][hyperfunctions-counter-agg].
 
 ## irate_left()
 The instantaneous rate of change of the counter at the left (earlier) side of
@@ -89,4 +89,4 @@ FROM (
 ) t
 ```
 
-[howto-hyperfunctions]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
+[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

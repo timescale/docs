@@ -11,8 +11,8 @@ num_changes(
 ) RETURNS BIGINT
 ```
 
-For more information about counter aggregation, see the
-[Hyperfunction documentation][howto-hyperfunctions]
+For more information about counter aggregation functions, see the
+[hyperfunctions documentation][hyperfunctions-counter-agg].
 
 ## Required Arguments
 
@@ -44,4 +44,4 @@ FROM (
 ) t
 ```
 
-[howto-hyperfunctions]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
+[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
