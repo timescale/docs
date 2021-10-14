@@ -11,12 +11,12 @@ TimescaleDB is an open-source project with a vibrant community.
 We are currently focusing on making our priorities known by that community;
 we welcome you to visit our Github repo or join our [Slack community](https://slack.timescale.com).
 
-### What to expect from our next release
+### What to expect from our next releases
 
 For our next release, we plan to add:
 
-- Continuous aggregates for distributed hypertables
 - Continuous aggregates with compression
+- Multinode performance improvements
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -31,18 +31,24 @@ while also empowering users with more control and flexibility to customize
 behaviors to suit your needs.  
 Some of these API updates are **breaking changes**.
 
-### What's new in TimescaleDB 2.4.1:
+### What's new in TimescaleDB 2.5:
 
-This release contains bug fixes since the 2.4.0 release. 
-We deem it high priority to upgrade since it is needed to support PostgreSQL 12.8 and 13.4.
+- Continuous aggregates for Distributed Hypertables
+- Support for Postgres 14
+- Experimental: Suport for timezones in 'time_bucket_ng()', including the 'origin' argument 
 
 
-The experimental features in the 2.4.0 release were:
+You can read more about this release on our [blogpost](TODO).
+This release contains bug fixes since the 2.4.1 release. 
+We deem it high priority to upgrade since it includes a correction for 'compress_policy'.
+
+
+The experimental features in the 2.5 release are:
 * APIs for chunk manipulation across data nodes in a distributed
 hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
-supports years, months, days, hours, minutes, and seconds.
+supports years, months, days, hours, minutes, and seconds and timezones.
 
 We’re committed to developing these experiments, giving the community a chance to
 provide early feedback and influence the direction of TimescaleDB’s development.
@@ -57,10 +63,10 @@ Several bugs fixed, see the release notes for more details.
 
 Timescale is working hard on our next exciting features.
 To make that possible, we require functionality that is available in Postgres 12 and above.
-For this reason, we are removing support for PostgreSQL 11 starting in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
+For this reason, we removed support for PostgreSQL 11 starting in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
 
 <highlight type="tip">
-TimescaleDB 2.4.1 is currently GA, and we encourage
+TimescaleDB 2.5 is currently GA, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -79,6 +85,9 @@ past releases and how you can learn more.
 accidentally triggering the load of a previous DB version.**
 
 ## Unreleased
+
+## 2.5 (2021-10-21)
+TODO
 
 ## 2.4.1 (2021-08-19)
 
