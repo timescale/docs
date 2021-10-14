@@ -2,8 +2,8 @@
 The `hyperloglog` function constructs and returns a hyperloglog with at least
 the specified number of buckets over the given values.
 
-For more information about hyperloglog(), see the
-[Toolkit documentation][toolkit-hyperloglog].
+For more information about approximate count distinct functions, see the
+[hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
 <!---
 <highlight type="note"
@@ -46,4 +46,4 @@ CREATE VIEW digest AS SELECT toolkit_experimental.hyperloglog(64, data) FROM sam
 ```
 
 
-[toolkit-hyperloglog]: timescaledb/:currentVersion:/how-to-guides/toolkit/hyperloglog/
+[hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/

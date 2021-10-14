@@ -8,8 +8,8 @@ rollup(
 
 Returns a hyperloglog by aggregating over the union of the input elements.
 
-For more information about hyperloglog(), see the
-[Toolkit documentation][toolkit-hyperloglog].
+For more information about approximate count distinct functions, see the
+[hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
 ### Required arguments
 
@@ -37,3 +37,6 @@ FROM (
 -------
    152
 ```
+
+
+[hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/

@@ -2,8 +2,8 @@
 The `distinct_count` function gets the number of distinct values from a
 hyperloglog.
 
-For more information about hyperloglog(), see the
-[Toolkit documentation][toolkit-hyperloglog].
+For more information about approximate count distinct functions, see the
+[hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
 <!---
 <highlight type="note"
@@ -39,4 +39,4 @@ FROM generate_series(1, 100) data
 ```
 
 
-[toolkit-hyperloglog]: timescaledb/:currentVersion:/how-to-guides/toolkit/hyperloglog/
+[hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
