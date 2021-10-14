@@ -12,6 +12,9 @@ cause errors.
 See [Notes on Parallelism and Ordering](/hyperfunctions/time-weighted-averages/time_weight/##advanced-usage-notes)
 for more information.
 
+For more information about time-weighted average functions, see the
+[hyperfunctions documentation][hyperfunctions-time-weight-average].
+
 ### Required arguments
 
 |Name| Type |Description|
@@ -45,3 +48,6 @@ SELECT
     average(tw) / (SELECT average(full_tw) FROM q LIMIT 1)  as normalized -- get the normalized average
 FROM t;
 ```
+
+
+[hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
