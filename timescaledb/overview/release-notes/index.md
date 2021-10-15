@@ -48,7 +48,7 @@ The experimental features in the 2.5 release are:
 hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
-supports years, months, days, hours, minutes, and seconds and timezones.
+supports years, months, days, hours, minutes, seconds, and timezones.
 
 We’re committed to developing these experiments, giving the community a chance to
 provide early feedback and influence the direction of TimescaleDB’s development.
