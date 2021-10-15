@@ -2,7 +2,8 @@
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
 aggregates. By default, Timescale Toolkit uses `uddsketch`, but you can also
-choose to use `tdigest`. This section describes the different methods, and helps you to decide which one you should use.
+choose to use `tdigest`. This section describes the different methods, and helps
+you to decide which one you should use.
 
 The available aggregation methods are:
 *   `uddsketch`: This is the default algorithm. It uses exponentially sized
@@ -16,7 +17,7 @@ The available aggregation methods are:
 ## Choose the right algorithm
 Each algorithm has different features, which can make one better than another depending on your use case. Here are some of the differences to consider when choosing an algorithm:
 
-Before you beggin, it is important to understand that the formal definition for
+Before you begin, it is important to understand that the formal definition for
 a percentile is imprecise, and there are different methods for determining what
 the true percentile actually is. In PostgreSQL, given a target percentile `p`,
 [`percentile_disc`][pg-percentile] returns the smallest element of a set, so
@@ -64,7 +65,9 @@ accuracy of your percentile estimates is to increase the number of buckets, and
 `uddsketch` allows you to do this more easily. If your use case does not get a
 clear benefit from using `tdigest`, the default `uddsketch` is your best choice.
 
-For some more technical details and usage examples of the different algorithms, see the developer documentation for [uddsketch][gh-uddsketch] and [tdigest][gh-tdigest].
+For some more technical details and usage examples of the different algorithms,
+see the developer documentation for [uddsketch][gh-uddsketch] and
+[tdigest][gh-tdigest].
 
 [pg-percentile]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [`percentile_cont`](https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE)
