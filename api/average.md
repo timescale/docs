@@ -8,8 +8,10 @@ average(
 
 A function to compute a time weighted average from a `TimeWeightSummary`.
 
-For more information about time-weighted average functions, see the
-[hyperfunctions documentation][hyperfunctions-time-weight-average].
+*   For more information about time-weighted average functions, see the
+    [hyperfunctions documentation][hyperfunctions-time-weight-average].
+*   For more information about statistical aggregate functions, see the
+    [hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ### Required arguments
 
@@ -40,3 +42,4 @@ FROM (
 
 
 [hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
+[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
