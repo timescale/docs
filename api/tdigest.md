@@ -1,24 +1,26 @@
 ## tdigest() <tag type="toolkit">Toolkit</tag>
-TimescaleDB Toolkit provides an implementation of the t-digest data structure
-for quantile approximations. A t-digest is a space efficient aggregation which
+TimescaleDB Toolkit provides an implementation of the  `tdigest` data structure
+for quantile approximations. A  `tdigest` is a space efficient aggregation which
 provides increased resolution at the edges of the distribution. This allows for
 more accurate estimates of extreme quantiles than traditional methods.
 
-Timescale's t-digest is implemented as an aggregate function in PostgreSQL. They
-do not support moving-aggregate mode, and are not ordered-set aggregates. Presently
-they are restricted to float values, but the goal is to make them polymorphic.
-They are partializable and are good candidates for continuous aggregation.
+Timescale's  `tdigest` is implemented as an aggregate function in PostgreSQL. It
+does not support moving-aggregate mode, and are not ordered-set aggregates. They
+are currently restricted to float values. They are parallelizable and are good
+candidates for continuous aggregation.
 
-One additional thing to note about TDigests is that they are somewhat dependant
-on the order of inputs. The percentile approximations should be nearly equal for
-the same underlying data, especially at the extremes of the quantile range where
-the TDigest is inherently more accurate, they are unlikely to be identical if
-built in a different order. While this should have little effect on the accuracy
-of the estimates, it is worth noting that repeating the creation of the TDigest
-might have subtle differences if the call is being parallelized by Postgres.
+The `tdigest` function is somewhat dependent on the order of inputs. The
+percentile approximations should be nearly equal for the same underlying data,
+especially at the extremes of the quantile range where the  `tdigest` is
+inherently more accurate, they are unlikely to be identical if built in a
+different order. While this should have little effect on the accuracy of the
+estimates, it is worth noting that repeating the creation of the `tdigest` might
+have subtle differences if the call is being parallelized by PostgreSQL.
 
-For more information about percentile approximation functions, see the
-[hyperfunctions documentation][hyperfunctions-percentile-approx].
+*   For more information about percentile approximation functions, see the
+    [hyperfunctions documentation][hyperfunctions-percentile-approx].
+*   For some more technical details and usage examples of this algorithm,
+    see the [developer documentation][gh-tdigest].
 
 ## tdigest() usage
 
@@ -29,29 +31,28 @@ tdigest(
 ) RETURNS TDigest
 ```
 
-This will construct and return a TDigest with the specified number of buckets over the given values.
+This constructs and returns a `tdigest` with the specified number of buckets over the given values.
 
 ### Required Arguments
+
 |Name| Type |Description|
 |---|---|---|
-| `buckets` | `INTEGER` | Number of buckets in the digest.  Increasing this will provide more accurate quantile estimates, but will require more memory.|
-| `value` | `DOUBLE PRECISION` |  Column to aggregate.
+|`buckets`|`INTEGER`|Number of buckets in the digest. Increasing this provides more accurate quantile estimates, but requires more memory.|
+|`value`|`DOUBLE PRECISION`|Column to aggregate|
 
 ### Returns
 
 |Column|Type|Description|
 |---|---|---|
-| `tdigest` | `TDigest` | A t-digest object which may be passed to other t-digest APIs. |
+|||A  `tdigest` object which can be passed to other  `tdigest` APIs|
 
 ### Sample usage
-For this example, assume we have a table 'samples' with a column 'weights' holding `DOUBLE PRECISION` values.  The following will simply return a digest over that column
-
+For this example, assume we have a table `samples` with a column `weights` holding `DOUBLE PRECISION` values. This returns a digest over that column:
 ```SQL
 SELECT tdigest(100, data) FROM samples;
 ```
 
-It may be more useful to build a view from the aggregate that can later be passed to other tdigest functions.
-
+It could be more useful to build a view from the aggregate that can later be passed to other tdigest functions:
 ```SQL
 CREATE VIEW digest AS
     SELECT tdigest(100, data)
@@ -60,3 +61,4 @@ CREATE VIEW digest AS
 
 
 [hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/`uddsketch`.md
