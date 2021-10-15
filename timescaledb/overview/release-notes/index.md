@@ -35,7 +35,7 @@ Some of these API updates are **breaking changes**.
 
 - Continuous aggregates for distributed hypertables
 - Support for PostgreSQL 14
-- Experimental: Suport for timezones in 'time_bucket_ng()', including the 'origin' argument 
+- Experimental: Support for timezones in 'time_bucket_ng()', including the 'origin' argument 
 
 
 You can read more about this release on our [blogpost](TODO).
