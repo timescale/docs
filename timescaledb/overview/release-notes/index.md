@@ -34,7 +34,7 @@ Some of these API updates are **breaking changes**.
 ### What's new in TimescaleDB 2.5:
 
 - Continuous aggregates for distributed hypertables
-- Support for Postgres 14
+- Support for PostgreSQL 14
 - Experimental: Suport for timezones in 'time_bucket_ng()', including the 'origin' argument 
 
 
