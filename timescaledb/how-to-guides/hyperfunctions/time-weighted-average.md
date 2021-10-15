@@ -1,15 +1,14 @@
 # Time-weighted average
-Timescale Toolkit's time weighted average is implemented as an aggregate that
+Timescale's time weighted average is implemented as an aggregate that
 weights each value using last observation carried forward (LOCF), or linear
 interpolation. The aggregate is not parallelizable, but it is supported with
-[continuous aggregation][caggs]. See the Toolkit documentation for more
-information about [interpolation methods][gh-interpolation],
-and [parallelism and ordering][gh-parallelism].
+[continuous aggregation][caggs].
 
 ## Run a time-weighted average query
 In this procedure, we are using an example table called `freezer_temps` that contains data about internal freezer temperatures.
 
-### Procedure: Running a time-weighted average query
+<procedure>
+### Running a time-weighted average query
 1.  At the `psql`prompt, find the average and the time-weighted average of the data:
     ```sql
     SELECT freezer_id,
@@ -27,8 +26,10 @@ In this procedure, we are using an example table called `freezer_temps` that con
     FROM freezer_temps
     ORDER BY freezer_id, ts;
     ```
+</procedure>
 
+For more information about time-weighted average API calls, see the
+[hyperfunction API documentation][hyperfunctions-api-timeweight].
 
+[hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/
 [caggs]: /how-to-guides/continuous-aggregates
-[gh-interpolation]: https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#interpolation-methods-details
-[gh-parallelism]: https://github.com/timescale/timescale-analytics/blob/main/docs/time_weighted_average.md#notes-on-parallelism-and-ordering

@@ -935,23 +935,9 @@ module.exports = [
           {
             title: 'Statistical aggregates',
             href: 'stats-aggs',
-            type: 'directory',
-            children: [
-              {
-                title: 'Statistical functions',
-                href: 'stats-functions',
-                tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
-                keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
-                excerpt: 'Learn about the statistical aggregates hyperfunction'
-              },
-              {
-                title: 'Regression functions',
-                href: 'regression-functions',
-                tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
-                keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
-                excerpt: 'Learn about the statistical aggregates hyperfunction'
-              },
-            ],
+            tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
+            keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
+            excerpt: 'Learn about the statistical aggregates hyperfunction'
           },
           {
             title: 'Gapfilling and interpolation',
@@ -985,6 +971,13 @@ module.exports = [
                 tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
                 keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
                 excerpt: 'Learn about the approximate percentile hyperfunction'
+              },
+              {
+                title: 'Advanced aggregation methods',
+                href: 'advanced-agg',
+                tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
+                keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
+                excerpt: 'Learn about advanced aggregation methods for hyperfunctions'
               }
             ]
           },

@@ -14,15 +14,12 @@ the fact that the average room is 70℉ (21℃) doesn't matter much. However, th
 rooms are at refrigerator temperatures (also, you should probably get your
 heating checked!)
 
-Percentiles are sometimes used less frequently because they can use more CPU and
-memory to calculate than an average or another aggregate measure. This is
+Percentiles are sometimes used less frequently because calculating them requires more CPU and memory than an average or many other aggregate measures. This is
 because an exact computation of the percentile needs the full dataset as an
 ordered list. Timescale uses approximation algorithms to calculate a
 percentile without requiring all of the data. This also makes them more
 compatible with continuous aggregates. By default, Timescale Toolkit uses
-`uddsketch`, but you can also choose to use `tdigest`. See
-the [developer documentation][gh-analytics-algorithms] for more information
-about these algorithms.
+`uddsketch`, but you can also choose to use `tdigest`. For more information about these algorithms, see the [advanced aggregation methods][advanced-agg] documentation.
 
 <highlight type "note">
 Technically, a percentile divides a group into 100 equally sized pieces, while a
@@ -32,4 +29,9 @@ in this case. However, we use the word "percentile" because it's a more common
 word for this type of function.
 </highlight>
 
-For more information about approximate percentiles, read our [blog post][approx-percentile-blog].
+For more information about percentile approximation API calls, see the
+[hyperfunction API documentation][hyperfunctions-api-approx-percentile].
+
+
+[advanced-agg]: /how-to-guides/hyperfunctions/advanced-agg
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/

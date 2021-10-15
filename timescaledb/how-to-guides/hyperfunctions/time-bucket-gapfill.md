@@ -10,4 +10,8 @@ contiguous set of time buckets but does not fill the rows with data. You can
 create data for the new rows using another function, such as locf or
 interpolate.
 
-Example here.
+For more information about gapfilling and interpolation API calls, see the
+[hyperfunction API documentation][hyperfunctions-api-gapfilling].
+
+
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/

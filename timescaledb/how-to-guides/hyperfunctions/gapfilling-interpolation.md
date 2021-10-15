@@ -20,3 +20,9 @@ in your data. To avoid this problem, you can use last value carried forward
 You can also use linear interpolation to fill gaps in your data. This takes the
 last known value, and the next known value, and assumes there is a straight line
 between them.
+
+For more information about gapfilling and interpolation API calls, see the
+[hyperfunction API documentation][hyperfunctions-api-gapfilling].
+
+
+[hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/

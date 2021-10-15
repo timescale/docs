@@ -20,7 +20,8 @@ ALTER EXTENSION timescaledb_toolkit UPDATE;
 If you are hosting your own TimescaleDB database you install the Toolkit
 extension from the command prompt.
 
-### Procedure: Installing Toolkit on self-hosted TimescaleDB
+<procedure>
+### Installing Toolkit on self-hosted TimescaleDB
 1.  The extension requires `rust`, `rustfmt`, `clang`, and `pgx` packages, as
     well as the PostgreSQL headers for your installed version of PostgreSQL.
     Install these using your native package manager. For instructions on how to
@@ -40,6 +41,7 @@ extension from the command prompt.
     cargo pgx install --release && \
     cargo run --manifest-path ../tools/post-install/Cargo.toml -- pg_config
     ```
+</procedure>
 
 For more information about installing Toolkit from source, see our
 [developer documentation][toolkit-gh-docs] .

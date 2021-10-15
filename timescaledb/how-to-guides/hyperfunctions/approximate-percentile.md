@@ -2,14 +2,14 @@
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
 aggregates. By default, Timescale Toolkit uses `uddsketch`, but you can also
-choose to use `tdigest`. See the
-[developer documentation][gh-analytics-algorithms] for more information about these
-algorithms.
+choose to use `tdigest`. For more information about these algorithms, see the
+[advanced aggregation methods][advanced-agg] documentation.
 
 ## Run an approximate percentage query
 In this procedure, we are using an example table called `response_times` that contains information about how long a server takes to respond to API calls.
 
-### Procedure: Running an approximate percentage query
+<procedure>
+### Running an approximate percentage query
 1.  At the `psql` prompt, create a continuous aggregate that computes the daily aggregates:
     ```sql
     CREATE MATERIALIZED VIEW response_times_daily
@@ -37,7 +37,11 @@ In this procedure, we are using an example table called `response_times` that co
     WHERE ts > now()- '1 minute'::interval
     AND response_time_ms > (SELECT threshold FROM t);
     ```
+</procedure>
+
+For more information about percentile approximation API calls, see the
+[hyperfunction API documentation][hyperfunctions-api-approx-percentile].
 
 
-[gh-analytics-algorithms]: https://github.com/timescale/timescale-analytics/blob/main/docs/percentile_approximation.md#advanced-usage
-[approx-percentile-blog]: https://blog.timescale.com/blog/how-percentile-approximation-works-and-why-its-more-useful-than-averages/
+[advanced-agg]: /how-to-guides/hyperfunctions/advanced-agg
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/

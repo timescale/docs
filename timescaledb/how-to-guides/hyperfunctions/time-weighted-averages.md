@@ -16,3 +16,10 @@ quick moving transients, an average of all the data points weights the transient
 values too highly. A time weighted average weights each value by the duration
 over which it occurred based on the points around it, producing much more
 accurate results.
+
+
+For more information about time-weighted average API calls, see the
+[hyperfunction API documentation][hyperfunctions-api-timeweight].
+
+
+[hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/

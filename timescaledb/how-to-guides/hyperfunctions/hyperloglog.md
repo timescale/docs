@@ -19,39 +19,7 @@ adding an entry to the hyperloglog hash as new data is retrieved, rather than
 recalculating the result for the entire dataset every time it is needed. This
 makes it an ideal candidate for using with continuous aggregates.
 
-<!--- Add example here. --LKB 2021-10-07
+For more information about approximate count distinct API calls, see the [hyperfunction API documentation][hyperfunctions-api-approx-count-distincts].
 
-Old content follows ...
--->
 
-## Run a hyperloglog query
-In this procedure, we are using an example table called `response_times` that contains information about how long a server takes to respond to API calls.
-
-### Procedure: Running a hyperloglog query
-1.  At the `psql` prompt, create a continuous aggregate that computes the daily aggregates:
-    ```sql
-    CREATE MATERIALIZED VIEW response_times_daily
-    WITH (timescaledb.continuous)
-    AS SELECT
-      time_bucket('1 day'::interval, ts) as bucket,
-      percentile_agg(response_time_ms)
-    FROM response_times
-    GROUP BY 1;
-    ```
-1.  Re-aggregate the aggregate to get the last 30 days, and look for the 95th percentile:
-    ```sql
-    SELECT approx_percentile(0.95, percentile_agg(percentile_agg)) as threshold
-    FROM response_times_daily
-    WHERE bucket >= time_bucket('1 day'::interval, now() - '30 days'::interval);
-    ```
-1.  You can also create an alert:
-    ```sql
-    WITH t as (SELECT approx_percentile(0.95, percentile_agg(percentile_agg)) as threshold
-    FROM response_times_daily
-    WHERE bucket >= time_bucket('1 day'::interval, now() - '30 days'::interval))
-
-    SELECT count(*)
-    FROM response_times
-    WHERE ts > now()- '1 minute'::interval
-    AND response_time_ms > (SELECT threshold FROM t);
-    ```
+[hyperfunctions-api-approx-count-distincts]: /api/:currentVersion:/hyperfunctions/approx_count_distincts/

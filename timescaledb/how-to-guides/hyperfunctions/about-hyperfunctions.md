@@ -13,48 +13,70 @@ Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-<!---
-Add table or list or something here. --LKB 2021-10-05
+|Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
+|-|-|-|-|-|
+|Approximate count distincts|Hyperloglog|`hyperloglog`|❌|✅|
+|||`rollup`|❌|✅|
+|||`distinct_count`|❌|✅|
+|||`stderror`|❌|✅|
+|Statistical aggregates|Statistical functions|`average`|✅|❌|
+|||`sum`|✅|❌|
+|||`num_vals`|✅|❌|
+|||`stddev`|✅|❌|
+|||`variance`|✅|❌|
+|||`skewness`|✅|❌|
+|||`kurtosis`|✅|❌|
+||Regression functions|`slope`|✅|❌|
+|||`intercept`|✅|❌|
+|||`x_intercept`|✅|❌|
+|||`corr`|✅|❌|
+|||`covariance`|✅|❌|
+|||`skewness`|✅|❌|
+|||`kurtosis`|✅|❌|
+|||`determination_coeff`|✅|❌|
+|Gapfilling and interpolation|Time bucket gapfill|`time_bucket_gapfill`|❌|✅|
+||Last observation carried forward|`locf`|✅|❌|
+|||`interpolate`|✅|❌|
+|Percentile approximation|Approximate percentile|`percentile_agg`|❌|✅|
+|||`approx_percentile`|❌|✅|
+|||`approx_percentile_rank`|❌|✅|
+|||`rollup`|✅|❌|
+|||`max_val`|✅|❌|
+|||`mean`|✅|❌|
+|||`error`|✅|❌|
+|||`min_val`|✅|❌|
+|||`num_vals`|✅|❌|
+||Advanced aggregation methods|`uddsketch`|❌|✅|
+|||`tdigest`|❌|✅|
+|Counter aggregation|Counter aggregates|`counter_agg`|❌|✅|
+|||`rollup`|✅|❌|
+|||`corr`|✅|❌|
+|||`counter_zero_time`|✅|❌|
+|||`delta`|✅|❌|
+|||`extrapolated_delta`|✅|❌|
+|||`extrapolated_rate`|✅|❌|
+|||`idelta`|✅|❌|
+|||`intercept`|✅|❌|
+|||`irate`|✅|❌|
+|||`num_changes`|✅|❌|
+|||`num_elements`|✅|❌|
+|||`num_resets`|✅|❌|
+|||`rate`|✅|❌|
+|||`slope`|✅|❌|
+|||`time_delta`|✅|❌|
+|||`with_bounds`|❌|✅|
+|Time-weighted averages|Time-weighted averages|`time_weight`|❌|✅|
+|||`rollup`|❌|✅|
+|||`average`|❌|✅|
 
-Old content follows ...
--->
+For more information about each of the API calls listed in this table, see our [hyperfunction API documentation][api-hyperfunctions].
 
-## Tools for graphing
-Timescale Toolkit brings graphing functions to the database. This allows you
-to choose your graphing front-end based on how well it does graphing, not on how
-well it does data analytics. It also allows you to run queries that stay
-consistent across all front-end tools and consumers of your data. Additionally,
-by doing all the graphing work in the database, you need to send a much smaller
-number of data points over the network.
-
-## Simplifying queries
-SQL queries can get long, especially if you have multiple layers of aggregation
-and function-calls. There are many scenarios where it's possible to write a
-query in native SQL, but the resulting code is relatively complicated to write,
-and to understand. Timescale Toolkit can greatly simplify your queries by
-using a two-step calling convention.
-
-For example, a typical Timescale Toolkit query to get the time-weighted
-average of a set of values could look like this: ```sql SELECT
-average(time_weight('LOCF', value)) as time_weighted_average FROM foo; ```
-
-The first step in this query is to call the inner aggregate function, such as
-`time_weighted_average`. The second step is to call the accessor function, such
-as `average`.
-
-This makes it easier to construct your queries, because it distinguishes the
-parameters, and makes it clear which aggregates are being re-aggregated or
-stacked. Additionally, because this query syntax is used in all Timescale
-Toolkit queries, when you are used to it, you can use it to construct more and
-more complicated queries.
-
-## Toolkit features
-Timescale Toolkit features are developed in the open. As features are developed they are categorized as experimental, beta, stable, or deprecated. The documentation on this page will focus on the stable features, but more information on our experimental features in development can be found in the [Toolkit repository][gh-docs].
-
-|Feature|Notes|More information|
-|-------|-----|----------------|
-|Percentile Approximation|Efficient approximation of percentiles|[Percentile Approximation documentation][approx-percentile]|
-|Time-weighted averages|Average that weights each value based on duration|[Time-weighted average documentation][time-weighted-avg]|
+## Toolkit feature development
+Timescale Toolkit features are developed in the open. As features are developed
+they are categorized as experimental, beta, stable, or deprecated. This
+documentation covers the stable features, but more information on our
+experimental features in development can be found in the [Toolkit
+repository][gh-docs].
 
 ## Contribute to Timescale Toolkit
 We want and need your feedback! What are the frustrating parts of analyzing
@@ -67,10 +89,8 @@ community-wide problems and incorporate as much feedback as possible.
 *   Explore the current [feature requests][gh-requests].
 *   Add your own [feature request][gh-newissue].
 
+[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
-[approx-percentile]: /how-to-guides/toolkit/approximate_percentile.md
-[time-weighted-avg]: /how-to-guides/toolkit/time-weighted-averages.md
-[doc-promscale]: /tutorials/promscale
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
