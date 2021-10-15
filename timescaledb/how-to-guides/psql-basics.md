@@ -9,13 +9,13 @@ For an in-depth breakdown of all commands, visit [psql's documentation](https://
 
 ## Connections
 
-* Connect to a PostgreSQL/TimescaleDB server via psql (using parameter flags)
+* Connect to a PostgreSQL/TimescaleDB server via psql (using parameter flags):
 
 ```bash
 psql -h host_name -p port -U username -W -d database_name
 ```
 
-* Connect to a PostgreSQL/TimescaleDB server via psql (using a service URL)
+* Connect to a PostgreSQL/TimescaleDB server via psql (using a service URL):
 
 ```bash
 psql "your_service_URL"
@@ -65,12 +65,12 @@ Display PostgreSQL database roles
 \du
 ```
 
-Reset the password for a PostrgreSQL database user
+Reset the password for a PostgreSQL database user
 ```bash
 \password username
 ```
 
-## Indexes and Extensions
+## Indexes and extensions
 
 List all indexes from all tables
 
@@ -83,14 +83,14 @@ Show all extensions installed
 \dx
 ```
 
-## Import and Export CSV
-The following commands can be used to import csv files and export csv files from your PostgreSQL or TimescaleDB database.
+## Import and export CSV
+The commands in this section can be used to import and export CSV files from your PostgreSQL or TimescaleDB database.
 
 <terminal>
 
 <tab label="Import">
 
-```
+```sql
 \copy table_name FROM '/path/to/data.csv' DELIMITER ',' CSV HEADER
 ```
 
@@ -107,14 +107,16 @@ The following commands can be used to import csv files and export csv files from
 
 </terminal>
 
-## Backup and Restore
+## Backup and restore
 
-Note: the following commands utilize the pg_dump tool and pg_dumpall tools.
+<highlight type="note>
+The commands in this section use the `pg_dump` and `pg_dumpall` tools.
+</highlight>
 
 Create a backup for a specific database in plan-text SQL script file
    (with default backup options)
 
-```
+```sql
 pg_dump database_name > database_name.bak.sql
 ```
 
