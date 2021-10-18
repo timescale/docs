@@ -16,3 +16,4 @@ additional hyperfunctions, you need to install the
 |||[`average`](/hyperfunctions/time-weighted-averages/average/)|❌|✅|
 
 [hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
+[install-toolkit]: timescaledb/how-to-guides/:currentVersion:/hyperfunctions/install-toolkit

@@ -17,3 +17,4 @@ additional hyperfunctions, you need to install the
 
 
 [hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
+[install-toolkit]: timescaledb/how-to-guides/:currentVersion:/hyperfunctions/install-toolkit
