@@ -294,10 +294,10 @@ Binops   = Unaryops (Binop Unaryops)*
 UnaryOps = ('-' | 'not') UnaryOps | Term
 Term     = Variable | Time | Interval | Number | Function | '(' Expr ')'
 Function = FunctionName '(' (Binops ',')* ')'
-Variable = …
-Time     = …
-Interval = …
-Number   = …
+Variable = ? described above ?
+Time     = ? described above ?
+Interval = ? described above ?
+Number   = ? described above ?
 ```
 
 ##### `map()` #####
