@@ -1012,6 +1012,13 @@ module.exports = [
         ],
       },
       {
+        title: 'Function Pipelines',
+        href: 'function-pipelines',
+        tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
+        keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
+        excerpt: 'Learn about function pipelines',
+      },
+      {
         title: 'Alerting',
         href: 'alerting',
         tags: ['alert', 'configure', 'timescaledb'],
