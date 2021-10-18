@@ -17,9 +17,11 @@ values too highly. A time weighted average weights each value by the duration
 over which it occurred based on the points around it, producing much more
 accurate results.
 
+*   For more information about how time-weighted averages work, read our
+    [time-weighted averages blog][blog-timeweight].
+*   For more information about time-weighted average API calls, see the
+    [hyperfunction API documentation][hyperfunctions-api-timeweight].
 
-For more information about time-weighted average API calls, see the
-[hyperfunction API documentation][hyperfunctions-api-timeweight].
 
-
+[blog-timeweight]: https://blog.timescale.com/blog/what-time-weighted-averages-are-and-why-you-should-care/
 [hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/

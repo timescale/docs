@@ -1,4 +1,4 @@
-# Advanced aggregation methods
+# Percentile approximation advanced aggregation methods
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
 aggregates. By default, Timescale Toolkit uses `uddsketch`, but you can also
@@ -15,7 +15,9 @@ The available aggregation methods are:
     around 0.001 or 0.995.
 
 ## Choose the right algorithm
-Each algorithm has different features, which can make one better than another depending on your use case. Here are some of the differences to consider when choosing an algorithm:
+Each algorithm has different features, which can make one better than another
+depending on your use case. Here are some of the differences to consider when
+choosing an algorithm:
 
 Before you begin, it is important to understand that the formal definition for
 a percentile is imprecise, and there are different methods for determining what

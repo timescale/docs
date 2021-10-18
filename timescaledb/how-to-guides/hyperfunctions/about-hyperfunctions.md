@@ -4,7 +4,7 @@ analyze time-series data. You can use hyperfunctions to analyze anything you
 have stored as time-series data, including IoT devices, IT systems, marketing
 analytics, user behavior, financial metrics, and cryptocurrency.
 
-Hyperfunctions allows you to perform critical time-series queries quickly,
+Hyperfunctions allow you to perform critical time-series queries quickly,
 analyze time-series data, and extract meaningful information. They aim to
 identify, build, and combine all of the functionality SQL needs to perform
 time-series analysis into a single extension.
@@ -20,6 +20,9 @@ additional hyperfunctions, you need to install the
 |||`distinct_count`|❌|✅|
 |||`stderror`|❌|✅|
 |Statistical aggregates|Statistical functions|`average`|✅|❌|
+|||`stats_agg`|❌|✅|
+|||`rollup`|❌|✅|
+|||`rolling`|❌|✅|
 |||`sum`|✅|❌|
 |||`num_vals`|✅|❌|
 |||`stddev`|✅|❌|
@@ -40,7 +43,7 @@ additional hyperfunctions, you need to install the
 |Percentile approximation|Approximate percentile|`percentile_agg`|❌|✅|
 |||`approx_percentile`|❌|✅|
 |||`approx_percentile_rank`|❌|✅|
-|||`rollup`|✅|❌|
+|||`rollup`|❌|✅|
 |||`max_val`|✅|❌|
 |||`mean`|✅|❌|
 |||`error`|✅|❌|
@@ -49,7 +52,7 @@ additional hyperfunctions, you need to install the
 ||Advanced aggregation methods|`uddsketch`|❌|✅|
 |||`tdigest`|❌|✅|
 |Counter aggregation|Counter aggregates|`counter_agg`|❌|✅|
-|||`rollup`|✅|❌|
+|||`rollup`|❌|✅|
 |||`corr`|✅|❌|
 |||`counter_zero_time`|✅|❌|
 |||`delta`|✅|❌|

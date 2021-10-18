@@ -21,8 +21,11 @@ You can also use linear interpolation to fill gaps in your data. This takes the
 last known value, and the next known value, and assumes there is a straight line
 between them.
 
-For more information about gapfilling and interpolation API calls, see the
-[hyperfunction API documentation][hyperfunctions-api-gapfilling].
+*   For more information about how gapfilling works, read our
+    [gapfilling blog][blog-gapfilling].
+*   For more information about gapfilling and interpolation API calls, see the
+    [hyperfunction API documentation][hyperfunctions-api-gapfilling].
 
 
+[blog-gapfilling]: https://blog.timescale.com/blog/sql-functions-for-time-series-analysis/
 [hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/
