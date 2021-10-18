@@ -67,10 +67,10 @@ double precision floating point values, so the computed value will be the
 floating point representation of said integer. 
 
 ```SQL
-SELECT
+SELECT (
     toolkit_experimental.timevector(time, value)
-    	-> toolkit_experimental.abs()
-    	-> toolkit_experimental.unnest()
+    -> toolkit_experimental.abs()
+    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -79,13 +79,13 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-            ?column?            
---------------------------------
- ("2021-01-06 00:00:00+00",0)
- ("2021-01-01 00:00:00+00",25)
- ("2021-01-02 00:00:00+00",0.1)
- ("2021-01-04 00:00:00+00",10)
- ("2021-01-05 00:00:00+00",3.3)
+          time          | value 
+------------------------+-------
+ 2021-01-06 00:00:00+00 |     0
+ 2021-01-01 00:00:00+00 |    25
+ 2021-01-02 00:00:00+00 |   0.1
+ 2021-01-04 00:00:00+00 |    10
+ 2021-01-05 00:00:00+00 |   3.3
 (5 rows)
 ```
 
@@ -106,10 +106,10 @@ This means that `vector -> power(2)` will square all of the `values`,
 and `vector -> logn(3)` will give the log-base-3 of each `value`.
 
 ```SQL
-SELECT
+SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.power(2)
-    -> toolkit_experimental.unnest()
+    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -118,13 +118,13 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-                    ?column?                     
--------------------------------------------------
- ("2021-01-06 00:00:00+00",0)
- ("2021-01-01 00:00:00+00",625)
- ("2021-01-02 00:00:00+00",0.010000000000000002)
- ("2021-01-04 00:00:00+00",100)
- ("2021-01-05 00:00:00+00",10.889999999999999)
+          time          |        value         
+------------------------+----------------------
+ 2021-01-06 00:00:00+00 |                    0
+ 2021-01-01 00:00:00+00 |                  625
+ 2021-01-02 00:00:00+00 | 0.010000000000000002
+ 2021-01-04 00:00:00+00 |                  100
+ 2021-01-05 00:00:00+00 |   10.889999999999999
 (5 rows)
 ```
 
@@ -149,7 +149,7 @@ SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.sort()
     -> toolkit_experimental.delta()
-    -> toolkit_experimental.unnest() ).* 
+    -> toolkit_experimental.unnest()).* 
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -158,12 +158,12 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-             ?column?             
-----------------------------------
- ("2021-01-02 00:00:00+00",-24.9)
- ("2021-01-04 00:00:00+00",-10.1)
- ("2021-01-05 00:00:00+00",13.3)
- ("2021-01-06 00:00:00+00",-3.3)
+          time          | value 
+------------------------+-------
+ 2021-01-02 00:00:00+00 | -24.9
+ 2021-01-04 00:00:00+00 | -10.1
+ 2021-01-05 00:00:00+00 |  13.3
+ 2021-01-06 00:00:00+00 |  -3.3
 (4 rows)
 ```
 
@@ -185,11 +185,11 @@ must be sorted before calling fill_to().
 |Nearest|Fill with the matching value from the closer of the points preceding or following the hole|
 
 ```SQL
-SELECT
+SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.sort()
     -> toolkit_experimental.fill_to('1 day', 'LOCF')
-    -> toolkit_experimental.unnest()
+    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -198,14 +198,14 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-            ?column?            
---------------------------------
- ("2021-01-01 00:00:00+00",25)
- ("2021-01-02 00:00:00+00",0.1)
- ("2021-01-03 00:00:00+00",0.1)
- ("2021-01-04 00:00:00+00",-10)
- ("2021-01-05 00:00:00+00",3.3)
- ("2021-01-06 00:00:00+00",0)
+          time          | value 
+------------------------+-------
+ 2021-01-01 00:00:00+00 |    25
+ 2021-01-02 00:00:00+00 |   0.1
+ 2021-01-03 00:00:00+00 |   0.1
+ 2021-01-04 00:00:00+00 |   -10
+ 2021-01-05 00:00:00+00 |   3.3
+ 2021-01-06 00:00:00+00 |     0
 (6 rows)
 ```
 
@@ -221,10 +221,10 @@ Sorts the `timevector` by time (ascending). Is a no-op if the `timevector` is
 already sorted.
 
 ```SQL
-SELECT 
+SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.sort()
-    -> toolkit_experimental.unnest()
+    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -233,13 +233,13 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-            ?column?            
---------------------------------
- ("2021-01-01 00:00:00+00",25)
- ("2021-01-02 00:00:00+00",0.1)
- ("2021-01-04 00:00:00+00",-10)
- ("2021-01-05 00:00:00+00",3.3)
- ("2021-01-06 00:00:00+00",0)
+          time          | value 
+------------------------+-------
+ 2021-01-01 00:00:00+00 |    25
+ 2021-01-02 00:00:00+00 |   0.1
+ 2021-01-04 00:00:00+00 |   -10
+ 2021-01-05 00:00:00+00 |   3.3
+ 2021-01-06 00:00:00+00 |     0
 (5 rows)
 ```
 
@@ -308,10 +308,10 @@ point in the `timevector` is altered, or a `(TIMESTAMPTZ, DOUBLE PRECISION)` in
 which case both the times and values are changed.
 
 ```SQL
-SELECT
+SELECT (
    toolkit_experimental.timevector(time, value)
    -> toolkit_experimental.map($$ $value + 1 $$)
-   -> toolkit_experimental.unnest()
+   -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -320,20 +320,20 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-            ?column?            
---------------------------------
- ("2021-01-06 00:00:00+00",1)
- ("2021-01-01 00:00:00+00",26)
- ("2021-01-02 00:00:00+00",1.1)
- ("2021-01-04 00:00:00+00",-9)
- ("2021-01-05 00:00:00+00",4.3)
+          time          | value 
+------------------------+-------
+ 2021-01-06 00:00:00+00 |     1
+ 2021-01-01 00:00:00+00 |    26
+ 2021-01-02 00:00:00+00 |   1.1
+ 2021-01-04 00:00:00+00 |    -9
+ 2021-01-05 00:00:00+00 |   4.3
 (5 rows)
 ```
 ```SQL
-SELECT
+SELECT (
    toolkit_experimental.timevector(time, value)
    -> toolkit_experimental.map($$ ($time + '1day'i, $value * 2) $$)
-   -> toolkit_experimental.unnest()
+   -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -342,13 +342,13 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-            ?column?            
---------------------------------
- ("2021-01-07 00:00:00+00",0)
- ("2021-01-02 00:00:00+00",50)
- ("2021-01-03 00:00:00+00",0.2)
- ("2021-01-05 00:00:00+00",-20)
- ("2021-01-06 00:00:00+00",6.6)
+          time          | value 
+------------------------+-------
+ 2021-01-07 00:00:00+00 |     0
+ 2021-01-02 00:00:00+00 |    50
+ 2021-01-03 00:00:00+00 |   0.2
+ 2021-01-05 00:00:00+00 |   -20
+ 2021-01-06 00:00:00+00 |   6.6
 (5 rows)
 ```
 
@@ -359,10 +359,10 @@ return `true` for every point that should remain in the `timevector`timeseries,
 and `false` for every point that should be removed.
 
 ```SQL
-SELECT
+SELECT (
    toolkit_experimental.timevector(time, value)
    -> toolkit_experimental.filter($$ $time != '2021-01-01't AND $value > 0 $$)
-   -> toolkit_experimental.unnest()
+   -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -371,10 +371,10 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
      ) as v(time, value);
 ```
 ```
-            ?column?            
---------------------------------
- ("2021-01-02 00:00:00+00",0.1)
- ("2021-01-05 00:00:00+00",3.3)
+          time          | value 
+------------------------+-------
+ 2021-01-02 00:00:00+00 |   0.1
+ 2021-01-05 00:00:00+00 |   3.3
 (2 rows)
 ```
 #### Finalizers ####
