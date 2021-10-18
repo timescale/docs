@@ -105,17 +105,18 @@ WHERE ts >= now()-'1 day'::interval
 GROUP BY device_id;
 ```
 
-Function pipelines are completely SQL compliant, meaning that any tool that speaks SQL is able to support data analysis using function pipelines.
+Function pipelines are completely SQL compliant, meaning that any tool that
+speaks SQL is able to support data analysis using function pipelines.
 
-For more information about how function pipelines work, read our [blog post][blog-function-pipelines].
-
+For more information about how function pipelines work, read our
+[blog post][blog-function-pipelines].
 
 ## Toolkit feature development
 Timescale Toolkit features are developed in the open. As features are developed
 they are categorized as experimental, beta, stable, or deprecated. This
 documentation covers the stable features, but more information on our
-experimental features in development can be found in the [Toolkit
-repository][gh-docs].
+experimental features in development can be found in the
+[Toolkit repository][gh-docs].
 
 ## Contribute to Timescale Toolkit
 We want and need your feedback! What are the frustrating parts of analyzing

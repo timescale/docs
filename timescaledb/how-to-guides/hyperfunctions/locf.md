@@ -1,5 +1,5 @@
-# Last observation carried forward (locf)
-Last observation carried forward (locf) is a form of linear interpolation used
+# Last observation carried forward
+Last observation carried forward (LOCF) is a form of linear interpolation used
 to fill gaps in your data. It takes the last known value and uses it as a
 replacement for the missing data.
 

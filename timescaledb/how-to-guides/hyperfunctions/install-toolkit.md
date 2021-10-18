@@ -42,7 +42,7 @@ extension from the command prompt.
     cargo pgx install --release && \
     cargo run --manifest-path ../tools/post-install/Cargo.toml -- pg_config
     ```
-    
+
 </procedure>
 
 For more information about installing Toolkit from source, see our

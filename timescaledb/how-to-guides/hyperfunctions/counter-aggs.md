@@ -1,14 +1,13 @@
 # Counter aggregates
 When you process counter data, it is usually assumed that if the value of the
 counter goes down, the counter has been reset. For example, if you wanted to
-count how many times a runner ran around a track, you would expect the values to
-continuously increase: 1, 2, 3, 4, and so on. If the counter reset to 0, you
-would expect that this was a new runner starting on their first lap, not the
-original runner going back to 1. This can become a problem if you want to
-continue counting from where you left off, rather than resetting to 0. A reset
-could occur if you have had a short server outage, or any number of other
-reasons. To get around this, you can analyze counter data by looking at the
-change over time, which accounts for resets.
+count the total number of miles travelled in a vehicle, you would expect the
+values to continuously increase: 1, 2, 3, 4, and so on. If the counter reset to
+0, you would expect that this was a new trip, or an entirely new vehicle. This
+can become a problem if you want to continue counting from where you left off,
+rather than resetting to 0. A reset could occur if you have had a short server
+outage, or any number of other reasons. To get around this, you can analyze
+counter data by looking at the change over time, which accounts for resets.
 
 Accounting for resets can be difficult to do in SQL, so Timescale has developed
 aggregate and accessor functions that handle calculations for counters in a more
@@ -66,8 +65,8 @@ If your series is less regular, the deltas are affected by the number of samples
 in each fifteen minute period. You can improve this by using the
 `extrapolated_delta` function. To do this, you need to provide bounds that
 define where to extrapolate to. In this example, we use the `time_bucket_range`
-function, which works just like `time_bucket` but produces an open ended range
-[start, end] of all the times in the bucket. This example also uses a CTE to do
+function, which works in the same way as `time_bucket` but produces an open
+ended range of all the times in the bucket. This example also uses a CTE to do
 the counter aggregation, which makes it a little easier to understand what's
 going on in each part.
 
@@ -75,26 +74,26 @@ going on in each part.
 
 ### Running a counter aggregate query using an extrapolated delta function
 1.  Create a table called `example`:
-```sql
-CREATE TABLE example (
-    measure_id      BIGINT,
-    ts              TIMESTAMPTZ ,
-    val             DOUBLE PRECISION,
-    PRIMARY KEY (measure_id, ts)
-);
-```
+    ```sql
+    CREATE TABLE example (
+        measure_id      BIGINT,
+        ts              TIMESTAMPTZ ,
+        val             DOUBLE PRECISION,
+        PRIMARY KEY (measure_id, ts)
+    );
+    ```
 1.  Create a counter aggregate and the extrapolated delta function:
-```sql
-with t as (
-    SELECT measure_id,
-        time_bucket('15 min'::interval, ts) as bucket,
-        toolkit.counter_agg(ts, val, bounds => toolkit.time_bucket_range('15 min'::interval, ts))
-    FROM example
-    GROUP BY measure_id, time_bucket('15 min'::interval, ts))
-SELECT time_bucket,
-    toolkit.extrapolated_delta(counter_agg, method => 'prometheus')
-FROM t ;
-```
+    ```sql
+    with t as (
+        SELECT measure_id,
+            time_bucket('15 min'::interval, ts) as bucket,
+            toolkit.counter_agg(ts, val, bounds => toolkit.time_bucket_range('15 min'::interval, ts))
+        FROM example
+        GROUP BY measure_id, time_bucket('15 min'::interval, ts))
+    SELECT time_bucket,
+        toolkit.extrapolated_delta(counter_agg, method => 'prometheus')
+    FROM t ;
+    ```
 
 <highlight type="note">
 In this procedure, we used `prometheus` to do the extrapolation. Timescale's
@@ -113,31 +112,31 @@ out of it.
 
 ### Running a counter aggregate query with a continuous aggregate
 1.  Create a hypertable partitioned on the `ts` column:
-```sql
-SELECT create_hypertable('example', 'ts', chunk_time_interval=> '15 days'::interval, migrate_data => true);
-```
+    ```sql
+    SELECT create_hypertable('example', 'ts', chunk_time_interval=> '15 days'::interval, migrate_data => true);
+    ```
 1.  Create the continuous aggregate:
-```sql
-CREATE MATERIALIZED VIEW example_15
-WITH (timescaledb.continuous)
-AS SELECT measure_id,
-    time_bucket('15 min'::interval, ts) as bucket,
-    toolkit.counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
-FROM example
-GROUP BY measure_id, time_bucket('15 min'::interval, ts);
-```
+    ```sql
+    CREATE MATERIALIZED VIEW example_15
+    WITH (timescaledb.continuous)
+    AS SELECT measure_id,
+        time_bucket('15 min'::interval, ts) as bucket,
+        toolkit.counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
+    FROM example
+    GROUP BY measure_id, time_bucket('15 min'::interval, ts);
+    ```
 1.  You can also re-aggregate from the continuous aggregate into a larger
     bucket size:
-```sql
-SELECT
-    measure_id,
-    time_bucket('1 day'::interval, bucket),
-    toolkit.delta(
-        toolkit.rollup(counter_agg)
-    )
-FROM example_15
-GROUP BY measure_id, time_bucket('1 day'::interval, bucket);
-```
+    ```sql
+    SELECT
+        measure_id,
+        time_bucket('1 day'::interval, bucket),
+        toolkit.delta(
+            toolkit.rollup(counter_agg)
+        )
+    FROM example_15
+    GROUP BY measure_id, time_bucket('1 day'::interval, bucket);
+    ```
 
 </procedure>
 
@@ -146,8 +145,8 @@ The counter reset calculations require a strict ordering of inputs, which means
 they are not parallelizable in PostgreSQL. This is because PostgreSQL handles
 parallelism by issuing rows randomly to workers. However, if your parallelism
 can guarantee sets of rows that are disjointed in time, the algorithm can be
-parallelized, as long as it is within some time range, and all rows go to the
-same worker. This is the case for both continuous aggregates and for distributed
+parallelized, as long as it is within a time range, and all rows go to the same
+worker. This is the case for both continuous aggregates and for distributed
 hypertables, as long as the partitioning keys are in the `group by`, even though
 the aggregate itself doesn't really make sense otherwise.
 

@@ -1,17 +1,21 @@
 # Approximate percentiles
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
-aggregates. By default, Timescale Toolkit uses `uddsketch`, but you can also
-choose to use `tdigest`. For more information about these algorithms, see the
+aggregates.
+
+By default, Timescale Toolkit uses `uddsketch`, but you can also choose to use
+`tdigest`. For more information about these algorithms, see the
 [advanced aggregation methods][advanced-agg] documentation.
 
 ## Run an approximate percentage query
-In this procedure, we are using an example table called `response_times` that contains information about how long a server takes to respond to API calls.
+In this procedure, we use an example table called `response_times` that contains
+information about how long a server takes to respond to API calls.
 
 <procedure>
 
 ### Running an approximate percentage query
-1.  At the `psql` prompt, create a continuous aggregate that computes the daily aggregates:
+1.  At the `psql` prompt, create a continuous aggregate that computes the
+    daily aggregates:
     ```sql
     CREATE MATERIALIZED VIEW response_times_daily
     WITH (timescaledb.continuous)
@@ -21,7 +25,8 @@ In this procedure, we are using an example table called `response_times` that co
     FROM response_times
     GROUP BY 1;
     ```
-1.  Re-aggregate the aggregate to get the last 30 days, and look for the 95th percentile:
+1.  Re-aggregate the aggregate to get the last 30 days, and look for the 95th
+    percentile:
     ```sql
     SELECT approx_percentile(0.95, percentile_agg(percentile_agg)) as threshold
     FROM response_times_daily
@@ -38,7 +43,7 @@ In this procedure, we are using an example table called `response_times` that co
     WHERE ts > now()- '1 minute'::interval
     AND response_time_ms > (SELECT threshold FROM t);
     ```
-    
+
 </procedure>
 
 For more information about percentile approximation API calls, see the

@@ -22,8 +22,6 @@ additional hyperfunctions, you need to install the
 *   Use the [time-weighted average][hyperfunctions-time-weighted-averages]
     functions.
 
-
-
 For more information about hyperfunctions, read our [blog post][hyperfunctions-blog].
 
 
