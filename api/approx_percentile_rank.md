@@ -1,6 +1,5 @@
-## approx_percentile_rank()  <tag type="toolkit">Toolkit</tag>
-
-Estimate what percentile a given value would be located at in a UddSketch.
+# approx_percentile_rank()  <tag type="toolkit">Toolkit</tag>
+Estimate what percentile a given value would be located at in a `UddSketch`.
 
 ```SQL
 approx_percentile_rank(
@@ -9,20 +8,25 @@ approx_percentile_rank(
 ) RETURNS UddSketch
 ```
 
-### Required arguments
+*   For more information about percentile approximation algorithms, see
+    [advanced aggregation methods][advanced-agg].
+*   For more information about percentile approximation functions, see the
+    [hyperfunctions documentation][hyperfunctions-percentile-approx].
+
+## Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 |`value`|`DOUBLE PRECISION`|The value to estimate the percentile of|
-|`sketch`|`UddSketch`|The sketch to compute the percentile on.
+|`sketch`|`UddSketch`|The sketch to compute the percentile on|
 
-### Returns
+## Returns
 
 |Column|Type|Description|
 |---|---|---|
 |`approx_percentile_rank`|`DOUBLE PRECISION`|The estimated percentile associated with the provided value|
 
-### Sample usage
+## Sample usage
 
 ```SQL
 SELECT
@@ -34,3 +38,7 @@ FROM generate_series(0, 100) data;
 ----------------------------
          0.9851485148514851
 ```
+
+
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

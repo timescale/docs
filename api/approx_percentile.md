@@ -9,6 +9,9 @@ approx_percentile(
 ) RETURNS DOUBLE PRECISION
 ```
 
+For more information about percentile approximation functions, see the
+[hyperfunctions documentation][hyperfunctions-percentile-approx].
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -34,3 +37,6 @@ approx_percentile
 -------------------
              0.999
 ```
+
+
+[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

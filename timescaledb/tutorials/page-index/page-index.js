@@ -95,11 +95,11 @@ module.exports = [
         ],
       },
       {
-        title: 'Getting started with Promscale',
+        title: 'Using Promscale and Prometheus',
         href: 'promscale',
         tags: ['promscale', 'prometheus', 'learn', 'timescaledb'],
         keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-        excerpt: 'Learn about Promscale with TimescaleDB',
+        excerpt: 'Learn about using Promscale and Prometheus with TimescaleDB',
         children: [
           {
             title: 'The Benefits of using Promscale',
