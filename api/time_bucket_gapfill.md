@@ -1,71 +1,73 @@
-## time_bucket_gapfill() <tag type="community">Community</tag>
+# time_bucket_gapfill() <tag type="community">Community</tag>
+The `time_bucket_gapfill` function works similar to `time_bucket` but also
+activates gap filling for the interval between `start` and `finish`. It can only
+be used with an aggregation query. Values outside of `start` and `finish` pass
+through but no gap filling is done outside of the specified range.
 
-The `time_bucket_gapfill` function works similar to `time_bucket` but also activates gap
-filling for the interval between `start` and `finish`. It can only be used with an aggregation
-query. Values outside of `start` and `finish` will pass through but no gap filling will be
-done outside of the specified range.
-
-Starting with version 1.3.0, `start` and `finish` are optional arguments and will
-be inferred from the WHERE clause if not supplied as arguments.
-
-<highlight type="tip">
- We recommend using a WHERE clause whenever possible (instead of just
-`start` and `finish` arguments), as start and finish arguments will not filter
-input rows.  Thus without a WHERE clause, this will lead TimescaleDB's planner
-to select all data and not perform constraint exclusion to exclude chunks from
-further processing, which would be less performant.
+<highlight type="important">
+The `time_bucket_gapfill` function must be a top-level expression in a query or
+subquery, as shown in these examples. You cannot, for example, do something like
+`round(time_bucket_gapfill(...))` or cast the result of the gapfill call. The
+only exception is if you use it as a subquery, where the outer query does the
+type cast.
 </highlight>
-
-The `time_bucket_gapfill` must be a top-level expression in a query or
-subquery, as shown in the above examples.  You cannot, for example, do
-something like `round(time_bucket_gapfill(...))` or cast the result of the gapfill
-call (unless as a subquery where the outer query does the type cast).
 
 For more information about gapfilling and interpolation functions, see the
 [hyperfunctions documentation][hyperfunctions-gapfilling].
 
-### Required Arguments
+## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
-| `time` | TIMESTAMP | The timestamp to bucket |
+|-|-|-|
+|`bucket_width`|INTERVAL|A PostgreSQL time interval for how long each bucket is|
+|`time`|TIMESTAMP|The timestamp to bucket|
 
-### Optional Arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `start` | TIMESTAMP | The start of the gapfill period |
-| `finish` | TIMESTAMP | The end of the gapfill period |
-
-Note that explicitly provided `start` and `stop` or derived from WHERE clause values
-need to be simple expressions. Such expressions should be evaluated to constants
-at the query planning. For example, simple expressions can contain constants or
-call to `now()`, but cannot reference to columns of a table.
-
-### For Integer Time Inputs
-
-#### Required Arguments
+## Optional arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `bucket_width` | INTEGER | integer interval for how long each bucket is |
-| `time` | INTEGER | The timestamp to bucket |
+|-|-|-|
+|`start`|TIMESTAMP|The start of the gapfill period|
+|`finish`|TIMESTAMP|The end of the gapfill period|
 
-### Optional Arguments
+In TimescaleDB 1.3 and later, `start` and `finish` are optional arguments. If
+they are not supplied, the parameters are inferred from the `WHERE` clause. We
+recommend using a `WHERE` clause if possible, instead of `start` and `finish`
+arguments. This is because `start` and `finish` arguments do not filter input
+rows. If you do not provide a `WHERE` clause, TimescaleDB's planner selects all
+data, and does not perform constraint exclusion to exclude chunks from further
+processing, which is less performant.
+
+Values explicitly provided in `start` and `stop` arguments, or values derived
+from `WHERE` clause values, must be simple expressions. They should be evaluated
+to constants at query planning. For example, simple expressions can contain
+constants or call to `now()`, but cannot reference columns of a table.
+
+## For integer time inputs
+
+### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `start` | INTEGER | The start of the gapfill period |
-| `finish` | INTEGER | The end of the gapfill period |
+|-|-|-|
+|`bucket_width`|INTEGER|integer interval for how long each bucket is|
+|`time`|INTEGER|The timestamp to bucket|
 
-Starting with version 1.3.0 `start` and `finish` are optional arguments and will
-be inferred from the WHERE clause if not supplied as arguments.
+## Optional arguments
 
-### Sample Usage
+|Name|Type|Description|
+|-|-|-|
+|`start`|INTEGER|The start of the gapfill period|
+|`finish`|INTEGER|The end of the gapfill period|
 
-Get the metric value every day over the last 7 days:
+In TimescaleDB 1.3 and later, `start` and `finish` are optional arguments. If
+they are not supplied, the parameters are inferred from the `WHERE` clause. We
+recommend using a `WHERE` clause if possible, instead of `start` and `finish`
+arguments. This is because `start` and `finish` arguments do not filter input
+rows. If you do not provide a `WHERE` clause, TimescaleDB's planner selects all
+data, and does not perform constraint exclusion to exclude chunks from further
+processing, which is less performant.
 
+### Sample usage
+Get the metric value every day over the last seven days:
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time) AS day,
@@ -88,8 +90,8 @@ ORDER BY day;
 (7 row)
 ```
 
-Get the metric value every day over the last 7 days carrying forward the previous seen value if none is available in an interval:
-
+Get the metric value every day over the last seven days, carrying forward the
+previous seen value if none is available in an interval:
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time) AS day,
@@ -112,8 +114,8 @@ ORDER BY day;
  2019-01-16 01:00:00+01 |         1 |   9.0 |  9.0
 ```
 
-Get the metric value every day over the last 7 days interpolating missing values:
-
+Get the metric value every day over the last seven days, interpolating missing
+values:
 ```sql
 SELECT
   time_bucket_gapfill('5 minutes', time) AS day,

@@ -22,12 +22,6 @@ The `stderror` function returns an estimate of the relative standard error of th
 For more information about approximate count distinct functions, see the
 [hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
-<!---
-<highlight type="note"
-Use a highlight for any important information. Choose `note`, `important`, or `warning`.
-</highlight>
--->
-
 ## Required Arguments
 
 |Name|Type|Description|
@@ -46,7 +40,7 @@ Use a highlight for any important information. Choose `note`, `important`, or `w
 This examples retrieves the standard error from a hyperloglog called `hyperloglog`:
 
 ``` sql
-SELECT toolkit_experimental.stderror(toolkit_experimental.hyperloglog(64, data))
+SELECT toolkit.stderror(toolkit.hyperloglog(64, data))
 FROM generate_series(1, 100) data
 
  stderror

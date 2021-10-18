@@ -5,12 +5,6 @@ the specified number of buckets over the given values.
 For more information about approximate count distinct functions, see the
 [hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
-<!---
-<highlight type="note"
-Use a highlight for any important information. Choose `note`, `important`, or `warning`.
-</highlight>
--->
-
 ## Required Arguments
 
 |Name|Type|Description|
@@ -35,14 +29,14 @@ called `weights` that holds DOUBLE PRECISION values. This command returns a
 digest over that column:
 
 ``` sql
-SELECT toolkit_experimental.hyperloglog(64, weights) FROM samples;
+SELECT toolkit.hyperloglog(64, weights) FROM samples;
 ```
 
 Alternatively, you can build a view from the aggregate that you can pass to
 other `tdigest` functions:
 
 ``` sql
-CREATE VIEW digest AS SELECT toolkit_experimental.hyperloglog(64, data) FROM samples;
+CREATE VIEW digest AS SELECT toolkit.hyperloglog(64, data) FROM samples;
 ```
 
 
