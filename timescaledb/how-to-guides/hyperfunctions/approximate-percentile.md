@@ -9,6 +9,7 @@ choose to use `tdigest`. For more information about these algorithms, see the
 In this procedure, we are using an example table called `response_times` that contains information about how long a server takes to respond to API calls.
 
 <procedure>
+
 ### Running an approximate percentage query
 1.  At the `psql` prompt, create a continuous aggregate that computes the daily aggregates:
     ```sql
@@ -37,6 +38,7 @@ In this procedure, we are using an example table called `response_times` that co
     WHERE ts > now()- '1 minute'::interval
     AND response_time_ms > (SELECT threshold FROM t);
     ```
+    
 </procedure>
 
 For more information about percentile approximation API calls, see the

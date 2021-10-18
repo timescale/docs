@@ -8,6 +8,7 @@ interpolation. The aggregate is not parallelizable, but it is supported with
 In this procedure, we are using an example table called `freezer_temps` that contains data about internal freezer temperatures.
 
 <procedure>
+
 ### Running a time-weighted average query
 1.  At the `psql`prompt, find the average and the time-weighted average of the data:
     ```sql
@@ -26,6 +27,7 @@ In this procedure, we are using an example table called `freezer_temps` that con
     FROM freezer_temps
     ORDER BY freezer_id, ts;
     ```
+    
 </procedure>
 
 For more information about time-weighted average API calls, see the
