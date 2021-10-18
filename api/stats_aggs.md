@@ -7,16 +7,8 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Statistical aggregates|Statistical functions|`average`|✅|❌|
-|||`stats_agg`|❌|✅|
-|||`rollup`|❌|✅|
-|||`rolling`|❌|✅|
-|||`sum`|✅|❌|
-|||`num_vals`|✅|❌|
-|||`stddev`|✅|❌|
-|||`variance`|✅|❌|
-|||`skewness`|✅|❌|
-|||`kurtosis`|✅|❌|
+|Statistical aggregates|Statistical functions|[`average`](/hyperfunctions/stats_aggs/average/)|✅|❌|
+|||[`num_vals`](/hyperfunctions/stats_aggs/num_vals/)|✅|❌|
 
 Additionally, this table includes some other common statistical aggregate
 functions:

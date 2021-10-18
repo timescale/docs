@@ -11,9 +11,9 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Gapfilling and interpolation|Time bucket gapfill|`time_bucket_gapfill`|❌|✅|
-||Last observation carried forward|`locf`|✅|❌|
-|||`interpolate`|✅|❌|
+|Gapfilling and interpolation|Time bucket gapfill|[`time_bucket_gapfill`](/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/)|❌|✅|
+||Last observation carried forward|[`locf`](/hyperfunctions/gapfilling-interpolation/locf/)|✅|❌|
+|||[`interpolate`](/hyperfunctions/gapfilling-interpolation/interpolate/)|✅|❌|
 
 
 [hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/

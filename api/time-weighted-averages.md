@@ -11,8 +11,8 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Time-weighted averages|Time-weighted averages|`time_weight`|❌|✅|
-|||`rollup`|❌|✅|
-|||`average`|❌|✅|
+|Time-weighted averages|Time-weighted averages|[`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/)|❌|✅|
+|||[`rollup`](/hyperfunctions/time-weighted-averages/rollup-timeweight/)|❌|✅|
+|||[`average`](/hyperfunctions/time-weighted-averages/average/)|❌|✅|
 
 [hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/

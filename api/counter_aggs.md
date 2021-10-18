@@ -10,23 +10,23 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Counter aggregation|Counter aggregates|`counter_agg`|❌|✅|
-|||`rollup`|❌|✅|
-|||`corr`|✅|❌|
-|||`counter_zero_time`|✅|❌|
-|||`delta`|✅|❌|
-|||`extrapolated_delta`|✅|❌|
-|||`extrapolated_rate`|✅|❌|
-|||`idelta`|✅|❌|
-|||`intercept`|✅|❌|
-|||`irate`|✅|❌|
-|||`num_changes`|✅|❌|
-|||`num_elements`|✅|❌|
-|||`num_resets`|✅|❌|
-|||`rate`|✅|❌|
-|||`slope`|✅|❌|
-|||`time_delta`|✅|❌|
-|||`with_bounds`|❌|✅|
+|Counter aggregation|Counter aggregates|[`counter_agg`](/hyperfunctions/counter_aggs/counter_agg_point/)|❌|✅|
+|||[`rollup`](/hyperfunctions/counter_aggs/rollup-counter/)|❌|✅|
+|||[`corr`](/hyperfunctions/counter_aggs/corr/)|✅|❌|
+|||[`counter_zero_time`](/hyperfunctions/counter_aggs/counter_zero_time/)|✅|❌|
+|||[`delta`](/hyperfunctions/counter_aggs/delta/)|✅|❌|
+|||[`extrapolated_delta`](/hyperfunctions/counter_aggs/extrapolated_delta/)|✅|❌|
+|||[`extrapolated_rate`](/hyperfunctions/counter_aggs/extrapolated_rate/)|✅|❌|
+|||[`idelta`](/hyperfunctions/counter_aggs/idelta/)|✅|❌|
+|||[`intercept`](/hyperfunctions/counter_aggs/intercept/)|✅|❌|
+|||[`irate`](/hyperfunctions/counter_aggs/irate/)|✅|❌|
+|||[`num_changes`](/hyperfunctions/counter_aggs/num_changes/)|✅|❌|
+|||[`num_elements`](/hyperfunctions/counter_aggs/num_elements/)|✅|❌|
+|||[`num_resets`](/hyperfunctions/counter_aggs/num_resets/)|✅|❌|
+|||[`rate`](/hyperfunctions/counter_aggs/rate/)|✅|❌|
+|||[`slope`](/hyperfunctions/counter_aggs/slope/)|✅|❌|
+|||[`time_delta`](/hyperfunctions/counter_aggs/time_delta/)|✅|❌|
+|||[`with_bounds`](/hyperfunctions/counter_aggs/with_bounds/)|❌|✅|
 
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

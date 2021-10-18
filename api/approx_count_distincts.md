@@ -11,9 +11,9 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Approximate count distincts|Hyperloglog|`hyperloglog`|❌|✅|
-|||`rollup`|❌|✅|
-|||`distinct_count`|❌|✅|
-|||`stderror`|❌|✅|
+|Approximate count distincts|Hyperloglog|[`hyperloglog`](hyperfunctions/approx_count_distincts/hyperloglog/)|❌|✅|
+|||[`rollup`](hyperfunctions/approx_count_distincts/rollup-hyperloglog/)|❌|✅|
+|||[`distinct_count`](hyperfunctions/approx_count_distincts/distinct_count/)|❌|✅|
+|||[`stderror`](hyperfunctions/approx_count_distincts/stderror/)|❌|✅|
 
 [hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
