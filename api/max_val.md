@@ -1,29 +1,32 @@
-## max_val()  <tag type="toolkit">Toolkit</tag>
+# max_val()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 max_val(digest TDigest) RETURNS DOUBLE PRECISION
 ```
 
-Get the maximum value from a t-digest (does not work with `percentile_agg` or `uddsketch` based estimators).
-This is provided in order to save space
-when both a maximum and a percentile estimate are required as part of continuous aggregates.
-You can simply compute a single percentile estimator and do not need to specify a separate
-`max` aggregate, just extract the `max_val` from the percentile estimator.
+Get the maximum value from a `tdigest`. This does not work with `percentile_agg`
+or `uddsketch` based estimators. This is provided in order to save space when
+both a maximum and a percentile estimate are required as part of continuous
+aggregates. You can calculate a single percentile estimator by extracting the
+`max_val` from the percentile estimator, without needing to specify a separate
+`max` aggregate.
 
-For more information about percentile approximation functions, see the
-[hyperfunctions documentation][hyperfunctions-percentile-approx].
+*   For more information about percentile approximation algorithms, see
+    [advanced aggregation methods][advanced-agg].
+*   For more information about percentile approximation functions, see the
+    [hyperfunctions documentation][hyperfunctions-percentile-approx].
 
-### Required Arguments
+### Required arguments
 |Name|Type|Description|
-|---|---|---|
-| `digest` | `TDigest` | The digest to extract the max value from. |
+|-|-|-|
+|`digest`|`TDigest`|The digest to extract the max value from|
 
 ### Returns
 |Column|Type|Description|
-|---|---|---|
-| `max_val` | `DOUBLE PRECISION` | The maximum value entered into the t-digest. |
+|-|-|-|
+|`max_val`|`DOUBLE PRECISION`|The maximum value entered into the t-digest.|
 
-### Sample Usage
+### Sample usage
 
 ```SQL
 SELECT max_val(tdigest(100, data))
@@ -36,4 +39,6 @@ FROM generate_series(1, 100) data;
      100
 ```
 
+
+[advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
 [hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

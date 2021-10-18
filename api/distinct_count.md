@@ -5,13 +5,7 @@ hyperloglog.
 For more information about approximate count distinct functions, see the
 [hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
-<!---
-<highlight type="note"
-Use a highlight for any important information. Choose `note`, `important`, or `warning`.
-</highlight>
--->
-
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -23,9 +17,7 @@ Use a highlight for any important information. Choose `note`, `important`, or `w
 |-|-|-|
 |distinct_count|BIGINT|The number of distinct elements counted by the hyperloglog.|
 
-<!---Any special notes about the returns-->
-
-## Sample Usage
+## Sample usage
 This example retrieves the distinct values from a hyperloglog
 called `hyperloglog`:
 

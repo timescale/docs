@@ -1,6 +1,16 @@
-## tdigest() <tag type="toolkit">Toolkit</tag>
-TimescaleDB Toolkit provides an implementation of the  `tdigest` data structure
-for quantile approximations. A  `tdigest` is a space efficient aggregation which
+# tdigest() <tag type="toolkit">Toolkit</tag>
+```SQL
+tdigest(
+    buckets INTEGER,
+    value DOUBLE PRECISION
+) RETURNS TDigest
+```
+
+This constructs and returns a `tdigest` with the specified number of buckets
+over the given values.
+
+TimescaleDB provides an implementation of the  `tdigest` data structure
+for quantile approximations. A `tdigest` is a space efficient aggregation which
 provides increased resolution at the edges of the distribution. This allows for
 more accurate estimates of extreme quantiles than traditional methods.
 
@@ -22,37 +32,29 @@ have subtle differences if the call is being parallelized by PostgreSQL.
 *   For some more technical details and usage examples of this algorithm,
     see the [developer documentation][gh-tdigest].
 
-## tdigest() usage
 
-```SQL
-tdigest(
-    buckets INTEGER,
-    value DOUBLE PRECISION
-) RETURNS TDigest
-```
-
-This constructs and returns a `tdigest` with the specified number of buckets over the given values.
-
-### Required Arguments
+### Required arguments
 
 |Name| Type |Description|
-|---|---|---|
+|-|-|-|
 |`buckets`|`INTEGER`|Number of buckets in the digest. Increasing this provides more accurate quantile estimates, but requires more memory.|
 |`value`|`DOUBLE PRECISION`|Column to aggregate|
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
+|-|-|-|
 |||A  `tdigest` object which can be passed to other  `tdigest` APIs|
 
 ### Sample usage
-For this example, assume we have a table `samples` with a column `weights` holding `DOUBLE PRECISION` values. This returns a digest over that column:
+This example uses a table called `samples`, with a column called `weights`, that
+holds `DOUBLE PRECISION` values. This query returns a digest over that column:
 ```SQL
 SELECT tdigest(100, data) FROM samples;
 ```
 
-It could be more useful to build a view from the aggregate that can later be passed to other tdigest functions:
+This example builds a view from the aggregate that can be passed to other
+tdigest functions:
 ```SQL
 CREATE VIEW digest AS
     SELECT tdigest(100, data)

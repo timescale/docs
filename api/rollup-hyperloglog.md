@@ -1,4 +1,4 @@
-## rollup()  <tag type="toolkit">Toolkit</tag>
+# rollup()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 rollup(
@@ -11,20 +11,20 @@ Returns a hyperloglog by aggregating over the union of the input elements.
 For more information about approximate count distinct functions, see the
 [hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
-### Required arguments
+## Required arguments
 
 |Name| Type |Description|
-|---|---|---|
+|-|-|-|
 |`log`|`Hyperloglog`|Column of Hyperloglogs to be united.|
 
-### Returns
+## Returns
 
 |Column|Type|Description|
-|---|---|---|
+|-|-|-|
 |`hyperloglog`|`Hyperloglog`|A hyperloglog containing the count of the union of the input hyperloglogs.|
 
 
-### Sample usage
+## Sample usage
 
 ```SQL
 SELECT toolkit.distinct_count(toolkit.rollup(logs))

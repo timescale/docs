@@ -14,7 +14,7 @@ with_bounds(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -27,8 +27,7 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |counter_agg|CounterSummary|A CounterSummary object that can be passed to accessor functions or other objects in the counter aggregate API|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT
@@ -49,5 +48,6 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
+
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

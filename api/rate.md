@@ -1,7 +1,7 @@
 # rate() <tag type="toolkit" content="toolkit" />
 The rate of change of the counter over the observed time period. This is the raw
 or simple rate, equivalent to `delta(summary)` or `time_delta(summary)`. After
-accounting for resets, the last value is suvtracted from the first value and
+accounting for resets, the last value is subtracted from the first value and
 divided by the duration between the last observed time and the first observed
 time.
 
@@ -14,7 +14,7 @@ rate(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -26,8 +26,7 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |rate|DOUBLE PRECISION|The per second observed rate computed from the CounterSummary|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT
@@ -41,5 +40,6 @@ FROM (
     GROUP BY id
 ) t
 ```
+
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

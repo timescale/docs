@@ -1,4 +1,4 @@
-## rollup(CounterSummary) <tag type="toolkit">Toolkit</tag>
+# rollup(CounterSummary) <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 rollup(
@@ -6,28 +6,27 @@ rollup(
 ) RETURNS CounterSummary
 ```
 
-An aggregate to compute a combined CounterSummary from a series of
-non-overlapping CounterSummaries. Non-disjoint CounterSummaries causes
-errors. See
-[Notes on Parallelism and Ordering](/hyperfunctions/time-weighted-averages/time_weight/##advanced-usage-notes) for more information.
+An aggregate to compute a combined `CounterSummary` from a series of
+non-overlapping `CounterSummaries`. Non-disjointed `CounterSummaries` cause
+errors.
 
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-### Required arguments
+## Required arguments
 
 |Name| Type |Description|
-|---|---|---|
-|`cs`|CounterSummary|The input CounterSummary from a previous counter_agg (point form) call, often from a continuous aggregate|
+|-|-|-|
+|`cs`|CounterSummary|The input CounterSummary from a previous `counter_agg` (point form) call, often from a continuous aggregate|
 
-### Returns
+## Returns
 
 |Column|Type|Description|
-|---|---|---|
+|-|-|-|
 |`counter_agg`|CounterSummary|A CounterSummary object that can be passed to accessor functions or other objects in the counter aggregate API|
 
 
-### Sample usage
+## Sample usage
 
 ```SQL
 WITH t as (

@@ -17,7 +17,7 @@ extrapolated_rate(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -33,8 +33,7 @@ implemented extrapolation following the Prometheus extrapolation protocol.
 |-|-|-|
 |extrapolated_rate|DOUBLE PRECISION|The per-second rate of change of the counter computed from the CounterSummary extrapolated to the bounds specified there.|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT
@@ -54,6 +53,7 @@ FROM (
     FROM foo
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
-```
+``
+`
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

@@ -12,7 +12,7 @@ delta(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -24,8 +24,7 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |delta|DOUBLE PRECISION|The delta computed from the CounterSummary|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT

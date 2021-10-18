@@ -17,7 +17,7 @@ idelta_left(
 ) RETURNS DOUBLE PRECISION
 ```
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -29,8 +29,7 @@ idelta_left(
 |-|-|-|
 |idelta_left|DOUBLE PRECISION|The instantaneous delta computed from the left (earlier) side of the CounterSummary|
 
-### Sample Usage
-<!---Single sentence description of what this example does-->
+### Sample usage
 
 ```sql
 SELECT
@@ -59,7 +58,7 @@ idelta_right(
 ) RETURNS DOUBLE PRECISION
 ```
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -71,8 +70,7 @@ idelta_right(
 |-|-|-|
 |idelta_right|DOUBLE PRECISION|The instantaneous delta computed from the right (later) side of the CounterSummary|
 
-### Sample Usage
-<!---Single sentence description of what this example does-->
+### Sample usage
 
 ```sql
 SELECT
@@ -88,5 +86,6 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
+
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

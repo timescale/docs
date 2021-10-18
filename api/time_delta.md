@@ -11,7 +11,7 @@ time_delta(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -23,8 +23,7 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |time_delta|DOUBLE PRECISION|The total duration in seconds between the first and last observed times in the CounterSummary|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT
@@ -40,5 +39,6 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
+
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

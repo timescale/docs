@@ -1,10 +1,11 @@
 # counter_agg() <tag type="toolkit" content="toolkit" />
-An aggregate that produces a CounterSummary from timestamps and associated values.
+An aggregate that produces a CounterSummary from timestamps and associated
+values.
 
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -23,7 +24,7 @@ on NULL values. This means that if the aggregate receives a NULL value, it will
 return NULL, it will not return an error.
 </highlight>
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -42,7 +43,7 @@ extrapolation, but not for other accessor functions.
 
 <!---Any special notes about the returns-->
 
-## Sample Usage
+## Sample usage
 This example produces a CounterSummary from timestamps and associated values.
 
 ``` sql

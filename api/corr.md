@@ -1,6 +1,6 @@
 # corr() <tag type="toolkit" content="toolkit" />
 The correlation coefficient of the least squares fit line of the adjusted
-counter value. Given that the slope a line for any counter value must be
+counter value. Given that the slope of a line for any counter value must be
 non-negative, this must also always be non-negative and in the range from 0.0 to
 1.0. It measures how well the least squares fit the available data, where a
 value of 1.0 represents the strongest correlation between time and the counter
@@ -15,7 +15,7 @@ corr(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -27,8 +27,7 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |corr|DOUBLE PRECISION|The correlation coefficient computed from the least squares fit of the adjusted counter values input to the CounterSummary|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT
@@ -44,5 +43,6 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
+
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

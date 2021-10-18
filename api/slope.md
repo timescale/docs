@@ -15,7 +15,7 @@ slope(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -27,8 +27,7 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |slope|DOUBLE PRECISION|The per second rate of change computed by taking the slope of the least squares fit of the points input in the CounterSummary|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT
@@ -44,5 +43,6 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
+
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

@@ -11,7 +11,7 @@ counter_zero_time(
 For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -23,8 +23,7 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |counter_zero_time|TIMESTAMPTZ|The time at which the counter value is predicted to have been zero based onthe least squares fit of the points input to the CounterSummary|
 
-## Sample Usage
-<!---Single sentence description of what this example does-->
+## Sample usage
 
 ```sql
 SELECT

@@ -1,4 +1,4 @@
-## interpolate() <tag type="community">Community</tag>
+# interpolate() <tag type="community">Community</tag>
 The `interpolate` function does linear interpolation for missing values. It can
 only be used in an aggregation query with
 [time_bucket_gapfill](/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
@@ -7,13 +7,13 @@ The `interpolate` function call cannot be nested inside other function calls.
 For more information about gapfilling and interpolation functions, see the
 [hyperfunctions documentation][hyperfunctions-gapfilling].
 
-### Required arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
 |`value`|ANY VALUES|The value to interpolate (int2/int4/int8/float4/float8)|
 
-### Optional arguments
+## Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -35,7 +35,7 @@ be a time,value tuple. The data type of `time` needs to be the same as the time
 data type in the `time_bucket_gapfill` call. The data type of `value` needs to
 be the same as the `value` data type of the `interpolate` call.
 
-### Sample usage
+## Sample usage
 Get the temperature every day for each device over the last week, interpolating
 for missing readings:
 ```sql

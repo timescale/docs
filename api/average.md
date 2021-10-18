@@ -1,4 +1,4 @@
-## average() <tag type="toolkit">Toolkit</tag>
+# average() <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 average(
@@ -16,13 +16,13 @@ A function to compute a time weighted average from a `TimeWeightSummary`.
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
+|-|-|-|
 |`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/) call|
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
+|-|-|-|
 |`average`|`DOUBLE PRECISION`|The time weighted average computed from the `TimeWeightSummary`|
 
 ### Sample usage
