@@ -36,4 +36,4 @@ For more information about statistical aggregate functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-agg].
 
 [hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[install-toolkit]: timescaledb/how-to-guides/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

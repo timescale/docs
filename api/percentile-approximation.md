@@ -24,4 +24,4 @@ additional hyperfunctions, you need to install the
 
 
 [hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
-[install-toolkit]: timescaledb/how-to-guides/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

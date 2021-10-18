@@ -17,4 +17,4 @@ additional hyperfunctions, you need to install the
 |||[`stderror`](hyperfunctions/approx_count_distincts/stderror/)|❌|✅|
 
 [hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
-[install-toolkit]: timescaledb/how-to-guides/:currentVersion:/hyperfunctions/install-toolkit
+[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
