@@ -1,5 +1,25 @@
 # Statistical aggregates
-This section includes functions related to statistical aggregates. Additionally, this table includes some other common statistical aggregate functions:
+This section includes functions related to statistical aggregates.
+
+Some hyperfunctions are included in the default TimescaleDB product. For
+additional hyperfunctions, you need to install the
+[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+
+|Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
+|-|-|-|-|-|
+|Statistical aggregates|Statistical functions|`average`|✅|❌|
+|||`stats_agg`|❌|✅|
+|||`rollup`|❌|✅|
+|||`rolling`|❌|✅|
+|||`sum`|✅|❌|
+|||`num_vals`|✅|❌|
+|||`stddev`|✅|❌|
+|||`variance`|✅|❌|
+|||`skewness`|✅|❌|
+|||`kurtosis`|✅|❌|
+
+Additionally, this table includes some other common statistical aggregate
+functions:
 
 |Function|Description|Argument type|Return type|
 |-|-|-|-|

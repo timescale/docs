@@ -5,4 +5,14 @@ so a traditional average will give misleading results. For more information
 about time-weighted average functions, see the
 [hyperfunctions documentation][hyperfunctions-time-weight-average].
 
+Some hyperfunctions are included in the default TimescaleDB product. For
+additional hyperfunctions, you need to install the
+[Timescale Toolkit][install-toolkit] PostgreSQL extension.
+
+|Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
+|-|-|-|-|-|
+|Time-weighted averages|Time-weighted averages|`time_weight`|❌|✅|
+|||`rollup`|❌|✅|
+|||`average`|❌|✅|
+
 [hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
