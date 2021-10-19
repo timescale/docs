@@ -5,8 +5,8 @@ giving you faster data ingest, and more responsive and efficient queries.
 
 *   [Learn about multinode][about-multinode] to understand how it works before you begin using it.
 *   Set up [multinode][setup-selfhosted] in a self-hosted environment.
-*   Set up [multinode in Timescale Forge][setup-forge].
 *   Set up [multinode in Timescale Cloud][setup-cloud].
+*   Set up [multinode in Managed Service for TimescaleDB][setup-mst].
 *   Set up [authentication][multinode-auth] for your cluster
 *   [Configure][multinode-config] your cluster
 *   [Grow or shrink][multinode-grow-shrink] your cluster
@@ -17,8 +17,8 @@ giving you faster data ingest, and more responsive and efficient queries.
 
 [about-multinode]: /how-to-guides/multi-node-setup/about-multinode
 [setup-selfhosted]: /how-to-guides/multi-node-setup/multinode-setup
-[setup-forge]: timescale-forge/:currentVersion:/forge-multi-node
-[setup-cloud]: timescale-cloud/:currentVersion:/cloud-multi-node
+[setup-cloud]: /cloud/:currentVersion:/forge-multi-node/
+[setup-mst]: /mst/:currentVersion:/cloud-multi-node/
 [multinode-auth]: /how-to-guides/multi-node-setup/multinode-auth
 [multinode-config]: /how-to-guides/multi-node-setup/multinode-config
 [multinode-grow-shrink]: /how-to-guides/multi-node-setup/multinode-grow-shrink

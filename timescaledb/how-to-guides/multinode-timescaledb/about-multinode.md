@@ -12,5 +12,5 @@ configuring the nodes for secure communication and creating users and roles
 across servers.
 
 
-[multinode-cloud]: timescale-cloud/:currentVersion:/cloud-multi-node
-[multinode-mst]: timescale-mst/:currentVersion:/mst-multi-node
+[multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/
+[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
