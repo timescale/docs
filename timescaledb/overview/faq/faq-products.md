@@ -1,23 +1,23 @@
 # FAQs - About our products
 
-## What is the difference between Timescale, TimescaleDB, Timescale Forge, and Timescale Cloud?
+## What is the difference between Timescale, TimescaleDB, Timescale Cloud, and Managed Service for TimescaleDB?
 **Timescale** is the company.
 
 Timescale builds an open-source relational database for time-series called
 **TimescaleDB**.
 
 Timescale hosts and manages TimescaleDB on behalf of its customers via
-hosted services called **Timescale Forge** and **Timescale Cloud**.
+hosted services called **Timescale Cloud** and **Managed Service for TimescaleDB**.
 
-**Timescale Forge** is an easy-to-use, cloud-native relational database for
+**Timescale Cloud** is an easy-to-use, cloud-native relational database for
 collecting and analyzing relentless streams of time-series data on AWS.
 Featuring enhanced features to help you harness the potential of your
 data and built on the rock-solid foundation of PostgreSQL and TimescaleDB,
-Timescale Forge enables you to measure everything that matters.
+Timescale Cloud enables you to measure everything that matters.
 
-**Timescale Cloud** is a time-series database-as-a-service (DBaaS) for deployments
+**Managed Service for TimescaleDB** is a time-series database-as-a-service (DBaaS) for deployments
 on GCP and Azure. Built on PostgreSQL, TimescaleDB is a rock-solid foundation
-for your time-series data. Timescale Cloud enables multi-cloud deployments,
+for your time-series data. Managed Service for TimescaleDB enables multi-cloud deployments,
 with the flexibility of 75+ regions.
 
 ## What is TimescaleDB?
@@ -69,8 +69,8 @@ ensure you have a secure, high availability environment where we manage the infr
 all the way down to setting up replications, point-in-time recovery, read replicas,
 backups, and more.
 
-## Which cloud providers and regions are supported by Timescale Cloud?
-Timescale Cloud is available in the following Clouds and Regions:
+## Which cloud providers and regions are supported by Managed Service for TimescaleDB?
+Managed Service for TimescaleDB is available in the following Clouds and Regions:
 
 * **Amazon Web Services (AWS)**: N. Virginia (`us-east-1`), Ohio (`us-east-2`),
 N. California (`us-west-1`), Oregon (`us-west-2`), São Paulo (`sa-east-1`),
@@ -93,7 +93,7 @@ Apache license. The Timescale License prohibits cloud providers from offering
 the "community version" of TimescaleDB-as-a-service.
 
 Today, you can deploy the community version of TimescaleDB on-premises or in
-your own cloud account, running the software on bare VMs or using our
+your own managed service account, running the software on bare VMs or using our
 [open-source k8s helm charts][timescale-k8s]. TimescaleDB acquired in
 this manner is totally free to use, and free to even modify for your
 own use or for services or products you build on TimescaleDB.

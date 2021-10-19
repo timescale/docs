@@ -281,7 +281,7 @@ Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tuto
 
 [install-timescale]: /how-to-guides/install-timescaledb/
 [install-grafana]: /tutorials/grafana/installation
-[tutorial-prometheus]: /tutorials/setting-up-timescale-cloud-endpoint-for-prometheus/
+[tutorial-prometheus]: /tutorials/setting-up-timescale-mst-endpoint-for-prometheus/
 [tutorial-grafana]: /tutorials/grafana
 [slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack
 [pagerduty-integration-key]: https://support.pagerduty.com/docs/services-and-integrations

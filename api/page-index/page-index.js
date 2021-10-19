@@ -138,6 +138,10 @@ module.exports = [
             title: 'move_chunk',
             href: 'move_chunk_experimental',
           },
+          {
+            title: 'cleanup_copy_chunk_operation',
+            href: 'cleanup_copy_chunk_operation_experimental',
+          },
         ],
       },
       {
@@ -407,9 +411,9 @@ module.exports = [
             href: 'jobs',
           },
           {
-            title: "timescaledb_information.job_stats",
-            href: "job_stats"
-          }
+            title: 'timescaledb_information.job_stats',
+            href: 'job_stats',
+          },
         ],
       },
       {
@@ -437,6 +441,11 @@ module.exports = [
           },
         ],
       },
+      {
+        title: 'API Reference Tag Overview',
+        href: 'api-tag-overview',
+        description: 'An overview of what different tags represent in the API section of Timescale Documentation.',
+      }
     ],
   },
 ];
