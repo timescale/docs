@@ -133,7 +133,7 @@ community-wide problems and incorporate as much feedback as possible.
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
-[blog-function-pipelines]: https://blog.timescale.com/blog/FIXME
+[blog-function-pipelines]: http://tsdb.co/function-pipelines
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
