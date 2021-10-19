@@ -1,6 +1,7 @@
 # Multinode
-If you have multiple instances of PostgreSQL running TimescaleDB 2.0 or greater,
-you can set them up as a TimescaleDB multinode cluster.
+If you have a larger workload, you might need more than one TimescaleDB
+instance. TimescaleDB multinode allows you to run and manage multiple instances,
+giving you faster data ingest, and more responsive and efficient queries.
 
 *   [Learn about multinode][about-multinode] to understand how it works before you begin using it.
 *   Set up [multinode][setup-selfhosted] in a self-hosted environment.
