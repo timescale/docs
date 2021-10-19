@@ -488,6 +488,21 @@ module.exports = [
               },
             ],
           },
+          {
+            title: 'Downsample',
+            type: 'directory',
+            href: 'downsample',
+            children: [
+              {
+                title: 'asap',
+                href: 'asap',
+              },
+              {
+                title: 'lttb',
+                href: 'lttb',
+              },
+            ],
+          },
         ],
       },
       {
