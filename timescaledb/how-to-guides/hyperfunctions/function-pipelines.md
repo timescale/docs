@@ -26,7 +26,11 @@ GROUP BY device_id;
 You can express the same query with a function pipeline like this:
 ```sql
 SELECT device_id,
- timevector(ts, val) -> sort() -> delta() -> abs() -> sum() as volatility
+    toolkit_experimental.timevector(ts, val) 
+        -> toolkit_experimental.sort() 
+        -> toolkit_experimental.delta() 
+        -> toolkit_experimental.abs() 
+        -> toolkit_experimental.sum() as volatility
 FROM measurements
 WHERE ts >= now()-'1 day'::interval
 GROUP BY device_id;
@@ -57,7 +61,7 @@ within that dataset, which could look something like this:
 To construct a `timevector` from your data, we use a custom aggregate and pass in the columns to become the time,value pairs. It uses a `WHERE` clause to define the limits of the subset, and a `GROUP BY` clause to provide identifying information about the time-series. For example, to construct a `timevector` from a dataset that contains temperatures, the SQL looks like this:
 ```sql
 SELECT device_id,
-	timevector(ts, val)
+	toolkit_experimental.timevector(ts, val)
 FROM measurements
 WHERE ts >= now() - '1 day'::interval
 GROUP BY device_id;
@@ -72,8 +76,11 @@ operator. To put it more plainly, you can think of it as "do the next thing".
 A typical function pipeline could look something like this:
 ```sql
 SELECT device_id,
- 	timevector(ts, val) -> sort() -> delta() -> abs() -> sum()
-    	as volatility
+ 	toolkit_experimental.timevector(ts, val) 
+        -> toolkit_experimental.sort() 
+        -> toolkit_experimental.delta() 
+        -> toolkit_experimental.abs() 
+        -> toolkit_experimental.sum() as volatility
 FROM measurements
 WHERE ts >= now() - '1 day'::interval
 GROUP BY device_id;
