@@ -76,37 +76,9 @@ For more information about each of the API calls listed in this table, see our [
 
 ## Function pipelines
 Function pipelines are an experimental feature, designed to radically improve
-the developer ergonomics of analyzing data in PostgreSQL and SQL, by applying
-principles from functional programming and popular tools like Python’s Pandas,
-and PromQL.
-
-SQL is the best language for data analysis, but it is not perfect, and at times
-can get quite unwieldy. For example, this query gets data from the last day from
-the measurements table, sorts the data by the time column, calculates the delta
-between the values, takes the absolute value of the delta, and then takes the
-sum of the result of the previous steps:
-```SQL
-SELECT device id,
-sum(abs_delta) as volatility
-FROM (
-	SELECT device_id,
-abs(val - lag(val) OVER last_day) as abs_delta
-FROM measurements
-WHERE ts >= now()-'1 day'::interval) calc_delta
-GROUP BY device_id;
-```
-
-You can express the same query with a function pipeline like this:
-```SQL
-SELECT device_id,
- timevector(ts, val) -> sort() -> delta() -> abs() -> sum() as volatility
-FROM measurements
-WHERE ts >= now()-'1 day'::interval
-GROUP BY device_id;
-```
-
-Function pipelines are completely SQL compliant, meaning that any tool that
-speaks SQL is able to support data analysis using function pipelines.
+how you write queries to analyze data in PostgreSQL and SQL. They work by
+applying principles from functional programming and popular tools like Python
+Pandas, and PromQL.
 
 For more information about how function pipelines work, see the [function pipelines][function-pipelines] section.
 
