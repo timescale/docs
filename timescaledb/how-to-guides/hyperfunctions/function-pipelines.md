@@ -12,7 +12,7 @@ and do not use any experimental features in production.
 
 SQL is the best language for data analysis, but it is not perfect, and at times
 it can be difficult to construct the query you want. For example, this query gets data from the last day from the measurements table, sorts the data by the time column, calculates the delta between the values, takes the absolute value of the delta, and then takes the sum of the result of the previous steps:
-```SQL
+```sql
 SELECT device id,
 sum(abs_delta) as volatility
 FROM (
@@ -24,7 +24,7 @@ GROUP BY device_id;
 ```
 
 You can express the same query with a function pipeline like this:
-```SQL
+```sql
 SELECT device_id,
  timevector(ts, val) -> sort() -> delta() -> abs() -> sum() as volatility
 FROM measurements
@@ -144,7 +144,7 @@ FROM measurements
 ```
 
 ## Transform elements
-Transform elements take in a `timevector` and produce a `timevector`.
+Transform elements take a `timevector`, and produce a `timevector`.
 
 ### Vectorized math functions
 Vectorized math function elements modify each `value` inside the `timevector`
@@ -156,19 +156,19 @@ transformed by the mathematical function specified.
 Elements are always applied left to right, so the order of operations is not
 taken into account even in the presence of explicit parentheses. This means for
 a `timevector` row `('2020-01-01 00:00:00+00', 20.0)`, this pipeline works:
-```SQL
+```sql
 timevector('2021-01-01 UTC', 10) -> add(5) -> (mul(2) -> add(1))
 ```
 
 And this pipeline works in the same way:
-```SQL
+```sql
 timevector('2021-01-01 UTC', 10) -> add(5) -> mul(2) -> add(1)
 ```
 
 Both of these examples produce `('2020-01-01 00:00:00+00', 31.0)`.
 
 If multiple arithmetic operations are needed and precedence is important,
-consider using a [lambda](#lambda-elements) instead.
+consider using a [Lambda](#lambda-elements) instead.
 
 ### Unary mathematical functions
 Unary mathematical function elements apply the corresponding mathematical
@@ -183,7 +183,7 @@ ordering the same. The available elements are:
 |`floor()`|Computes the first integer less than or equal to each value|
 |`ln()`|Computes the natural logarithm of each value|
 |`log10()`|Computes the base 10 logarithm of each value|
-|`round()`|Computes the closest integer to each value |
+|`round()`|Computes the closest integer to each value|
 |`sign()`|Computes +/-1 for each positive/negative value|
 |`sqrt()`|Computes the square root for each value|
 |`trunc()`|Computes only the integer portion of each value|
@@ -191,7 +191,7 @@ ordering the same. The available elements are:
 Even if an element logically computes an integer, `timevectors` only deal with
 double precision floating point values, so the computed value is the
 floating point representation of the integer. For example:
-```SQL
+```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.abs()
@@ -233,7 +233,7 @@ the second argument of the function. The available elements are:
 
 These elements calculate `vector -> power(2)` by squaring all of the `values`,
 and `vector -> logn(3)` will give the log-base-3 of each `value`. For example:
-```SQL
+```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.power(2)
@@ -271,7 +271,7 @@ A `delta()` transform calculates the difference between consecutive `values` in
 the `timevector`. The first point in the `timevector` is omitted as there is no
 previous value and it cannot have a `delta()`. Data should be sorted using the
 `sort()` element before passing into `delta()`. For example:
-```SQL
+```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.sort()
@@ -315,7 +315,7 @@ available fill methods are:
 |Nearest|Fill with the matching value from the closer of the points preceding or following the hole|
 
 For example:
-```SQL
+```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.sort()
@@ -352,7 +352,7 @@ while maintaining visual acuity.
 #### Sort transform
 The `sort()` transform sorts the `timevector` by time, in ascending order. This
 transform is ignored if the `timevector` is already sorted. For example:
-```SQL
+```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.sort()
@@ -380,7 +380,7 @@ The output for this example:
 ### Lambda elements
 The Lambda element functions use the Toolkit's experimental Lambda syntax to transform
 a `timevector`. A Lambda is an expression that is applied to the elements of a `timevector`. It is written as a string, usually `$$`-quoted, containing the expression to run. For example:
-```SQL
+```sql
 $$
  let $is_relevant = $time > '2021-01-01't and $time < '2021-10-14't;
  let $is_significant = abs(round($value)) >= 0;
@@ -410,8 +410,8 @@ A Lambda expression can be constructed using these components:
     `TIMESTAMPTZ` input format.
 *   **Number literals** such as `42`, `0.0`, `-7`, or `1e2`.
 
-Lambdas follow a grammar that is roughly equivalent to the EBNF. For example:
-```EBNF
+Lambdas follow a grammar that is roughly equivalent to EBNF. For example:
+```ebnf
 Expr     = ('let' Variable '=' Tuple ';')* Tuple
 Tuple    = Binops (',' Binops)*
 Binops   = Unaryops (Binop Unaryops)*
@@ -424,16 +424,13 @@ Interval = ? described above ?
 Number   = ? described above ?
 ```
 
-<!---- Lana, you're up to here! --LKB 2021-10-19 -->
-
-##### `map()` #####
-
-`map()` maps a lambda over each element of the `timevector`. This lambda must
-either return either a `DOUBLE PRECISION` in which case only the values of each
-point in the `timevector` is altered, or a `(TIMESTAMPTZ, DOUBLE PRECISION)` in
-which case both the times and values are changed.
-
-```SQL
+#### Map Lambda
+The `map()` Lambda maps each element of the `timevector`. This Lambda must
+return either a `DOUBLE PRECISION`, where only the values of each point in the
+`timevector` is altered, or a `(TIMESTAMPTZ, DOUBLE PRECISION)`, where both the
+times and values are changed. An example of the `map()` Lambda with a
+`DOUBLE PRECISION` return:
+```sql
 SELECT (
    toolkit_experimental.timevector(time, value)
    -> toolkit_experimental.map($$ $value + 1 $$)
@@ -445,7 +442,9 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-05 UTC',   3.3 )
      ) as v(time, value);
 ```
-```
+
+The output for this example:
+```sql
           time          | value
 ------------------------+-------
  2021-01-06 00:00:00+00 |     1
@@ -455,7 +454,10 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
  2021-01-05 00:00:00+00 |   4.3
 (5 rows)
 ```
-```SQL
+
+An example of the `map()` Lambda with a `(TIMESTAMPTZ, DOUBLE PRECISION)`
+return:
+```sql
 SELECT (
    toolkit_experimental.timevector(time, value)
    -> toolkit_experimental.map($$ ($time + '1day'i, $value * 2) $$)
@@ -467,7 +469,9 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-05 UTC',   3.3 )
      ) as v(time, value);
 ```
-```
+
+The output for this example:
+```sql
           time          | value
 ------------------------+-------
  2021-01-07 00:00:00+00 |     0
@@ -478,13 +482,11 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 (5 rows)
 ```
 
-##### `filter()` #####
-
-`filter()` filters a `timevector` based on a lambda expression that should
-return `true` for every point that should remain in the `timevector`timeseries,
-and `false` for every point that should be removed.
-
-```SQL
+#### Filter Lambda
+The `filter()` Lambda filters a `timevector` based on a Lambda expression that
+returns `true` for every point that should stay in the `timevector` timeseries,
+and `false` for every point that should be removed. For example:
+```sql
 SELECT (
    toolkit_experimental.timevector(time, value)
    -> toolkit_experimental.filter($$ $time != '2021-01-01't AND $value > 0 $$)
@@ -496,33 +498,40 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-05 UTC',   3.3 )
      ) as v(time, value);
 ```
-```
+
+The output for this example:
+```sql
           time          | value
 ------------------------+-------
  2021-01-02 00:00:00+00 |   0.1
  2021-01-05 00:00:00+00 |   3.3
 (2 rows)
 ```
-#### Finalizers ####
 
-Finish off the timevector pipeline and output some value.
+## Finalizer elements
+Finalizer elements complete the function pipeline, and output a value or an
+aggregate.
 
-##### `timevector` output #####
-These pipeline elements are used at the end of function pipelines that return
-timevector`s in order to get them into a format more useful for use later.
+### Output element
+You can finalize a pipeline with a `timevector`  output element. These are used
+at the end of a pipeline to return a `timevector`. This can be useful if you
+need to use them in another pipeline later on. The two types of output are:
+*   `unnest()`, which returns a set of `(TimestampTZ, DOUBLE PRECISION)` pairs.
+*   `materialize()`, which forces the pipeline to materialize a `timevector`.
+    This blocks any optimizations that lazily materialize a `timevector`.
 
- - `unnest()` returns a set of `(TimestampTZ, DOUBLE PRECISION)` pairs
- - `materialize()` forces the pipeline to materialize a timevector. This will
-    block any optimizations that materialize a timevector lazily
-
-##### `timevector` aggregates #####
-
-`average()`, `counter_agg()`, `hyperloglog()`, `stats_agg()`, `sum()`, `num_vals()`
-
+### Aggregate output elements
 These elements take a `timevector` and run the corresponding aggregate over it
-to produce a result
+to produce a result.. The possible elements are:
+*   `average()`
+*   `counter_agg()`
+*   `hyperloglog()`
+*   `stats_agg()`
+*   `sum()`
+*   `num_vals()`
 
-```SQL
+An example of an aggregate output using `num_vals()`:
+```sql
 SELECT toolkit_experimental.timevector(time, value) -> toolkit_experimental.num_vals()
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
@@ -531,13 +540,18 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-05 UTC',   3.3 )
      ) as v(time, value);
 ```
-```
+
+The output for this example:
+```sql
  ?column?
 ----------
         5
 (1 row)
 ```
-```SQL
+
+An example of an aggregate output using `stats_agg()`:
+
+```sql
 SELECT
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.stats_agg()
@@ -549,68 +563,67 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-05 UTC',   3.3 )
      ) as v(time, value);
 ```
-```
+
+The output for this example:
+```sql
       ?column?      
 --------------------
  12.924666339987272
 (1 row)
 ```
 
-
-## Aggregate accessors and mutators ##
-
-These act like the normal function-based accessors for aggregates. You can use
-them to get a value from the aggregate part of a function pipeline like so:
-
-```SQL
+## Aggregate accessors and mutators
+Aggregate accessors and mutators work in function pipelines in the same way as
+they do in other aggregates. You can use them to get a value from the aggregate
+part of a function pipeline. For example:
+```sql
 SELECT device_id,
 timevector(ts, val) -> sort() -> delta() -> stats_agg() -> variance()
 FROM measurements
 ```
 
-But these don't just work on `timevector`s - they also work on a normally
-produced aggregate as well.
-
-When used instead of normal function accessors and mutators they can make the
-syntax more clear by getting rid of nested functions like:
-
-```SQL
+When you use them in a pipeline instead of standard function accessors and mutators, they can make the syntax clearer by getting rid of nested functions. For example, the nested syntax looks like this:
+```sql
 SELECT approx_percentile(0.5, percentile_agg(val))
 FROM measurements
 ```
 
-Instead, we can use the arrow accessor to convey the same thing:
-```SQL
+Using a function pipeline with the `->` operator instead looks like this:
+```sql
 SELECT percentile_agg(val) -> approx_percentile(0.5)
 FROM measurements
 ```
 
-### By aggregate family: ###
-#### Counter Aggregates ####
-Counter aggregates deal with resetting counters. Counters are a common type of
-metric in the application performance monitoring and metrics world. All values
-have resets accounted for. These elements must have a `CounterSummary` to their
-left when used in a pipeline, from a `counter_agg()` aggregate or pipeline element.
+### Counter aggregates
+Counter aggregates handle resetting counters. Counters are a common type of
+metric in application performance monitoring and metrics. All values have resets
+accounted for. These elements must have a `CounterSummary` to their left when
+used in a pipeline, from a `counter_agg()` aggregate or pipeline element. The
+available counter aggregate functions are:
 
 |Element|Description|
-|---|---|
-|`counter_zero_time()`|The time at which the counter value is predicted to have been zero based on the least squares fit of the points input to the `CounterSummary`(x intercept) |
-|`corr()`|The correlation coefficient of the least squares fit line of the adjusted counter value.|
+|-|-|
+|`counter_zero_time()`|The time at which the counter value is predicted to have been zero based on the least squares fit of the points input to the `CounterSummary`(x intercept)|
+|`corr()`|The correlation coefficient of the least squares fit line of the adjusted counter value|
 |`delta()`|Computes the last - first value of the counter|
-|`extapolated_delta(method)`| Computes the delta extrapolated using the provided method to bounds of range. Bounds must have been provided in the aggregate or a `with_bounds` call |
-|`idelta_left()` / `idelta_right()`|Computes the instantaneous difference between the second and first points (left) or last and next-to-last points (right) |
-|`intercept()`|The y-intercept of the least squares fit line of the adjusted counter value.|
-|`irate_left()` / `irate_right()`|Computes the instantaneous rate of change between the second and first points (left) or last and next-to-last points (right) |
-|`num_changes()`| Number of times the counter changed values.|
-|`num_elements()`| Number of items - any with the exact same time will have been counted only once.|
-|`num_changes()`| Number of times the counter reset.|
-|`slope()`|The slope of the least squares fit line of the adjusted counter value.|
-|`with_bounds(range)`|Applies bounds using the `range` (a `TSTZRANGE`) to the `CounterSummary` if they weren't provided in the aggregation step |
+|`extrapolated_delta(method)`|Computes the delta extrapolated using the provided method to bounds of range. Bounds must have been provided in the aggregate or a `with_bounds` call.|
+|`idelta_left()`/`idelta_right()`|Computes the instantaneous difference between the second and first points (left) or last and next-to-last points (right)|
+|`intercept()`|The y-intercept of the least squares fit line of the adjusted counter value|
+|`irate_left()`/`irate_right()`|Computes the instantaneous rate of change between the second and first points (left) or last and next-to-last points (right)|
+|`num_changes()`|Number of times the counter changed values|
+|`num_elements()`|Number of items - any with the exact same time will have been counted only once|
+|`num_changes()`|Number of times the counter reset|
+|`slope()`|The slope of the least squares fit line of the adjusted counter value|
+|`with_bounds(range)`|Applies bounds using the `range` (a `TSTZRANGE`) to the `CounterSummary` if they weren't provided in the aggregation step|
 
-#### Percentile Approximation ####
-These aggregate accessors deal with percentile approximation. For now accessors
-are only implemented them for `percentile_agg` and `uddsketch` based aggregates.
-We have not yet implemented the pipeline aggregate for this.
+### Percentile approximation
+Percentile approximation aggregate accessors are used to approximate
+percentiles. Currently, only accessors are implemented for `percentile_agg` and
+`uddsketch` based aggregates. We have not yet implemented the pipeline aggregate
+for percentile approximation.
+
+<!----
+Probably shouldn't list them if they're not supported. --LKB 2021-10-19
 
 |Element|Description|
 |---|---|
@@ -620,80 +633,81 @@ We have not yet implemented the pipeline aggregate for this.
 |`mean()`| The exact average of the input values.|
 |`num_vals()`| The number of input values|
 
-#### Statistical aggregates ####
-These aggregate accessors add support for common statistical aggregates (and
-were stabilized in our 1.3 release this week!). These allow you to compute and
-`rollup()` common statistical aggregates like `average`, `stddev` and more
-advanced ones like `skewness` as well as 2 dimensional aggregates like `slope`
-and `covariance`.  Because there are both 1D and 2D versions of these, the
-accessors can have multiple forms, for instance, `average()` calculates the
-average on a 1D aggregate while `average_y()` & `average_x()` do so on each
-dimension of a 2D aggregate.
+-->
+
+### Statistical aggregates
+Statistical aggregate accessors add support for common statistical aggregates.
+These allow you to compute and `rollup()` common statistical aggregates like
+`average` and `stddev`, more advanced aggregates like `skewness`, and
+two-dimensional aggregates like `slope` and `covariance`.  Because there are
+both single-dimensional and two-dimensional versions of these, the accessors can
+have multiple forms. For example, `average()` calculates the average on a
+single-dimension aggregate, while `average_y()` and `average_x()` calculate the
+average on each of two dimensions. The available statistical aggregates are:
 
 |Element|Description|
-|---|---|
-|`average() / average_y() / average_x()`|The average of the values. |
-|`corr()`|The correlation coefficient of the least squares fit line.|
-|`covariance(method)`|The covariance of the values using either `population` or `sample` method.|
-| `determination_coeff()`| The determination coefficient (aka R squared)  of the values.|
-|`kurtosis(method) / kurtosis_y(method) / kurtosis_x(method)`|The kurtosis (4th moment) of the values using either `population` or `sample` method.|
-|`intercept()`|The intercept of the least squares fit line.|
-|`num_vals()`|The number of values seen.|
-|`skewness(method) / skewness_y(method) / skewness_x(method)`|The skewness (3rd moment) of the values using either `population` or `sample` method.|
-|`slope()`|The slope of the least squares fit line.|
-|`stddev(method) / stddev_y(method) / stddev_x(method)`|The standard deviation of the values using either `population` or `sample` method.|
-| `sum()` | The sum of the values. |
-|`variance(method) / variance_y(method) / variance_x(method)`|The variance of the values using either `population` or `sample` method.|
-|`x_intercept()`|The x intercept of the least squares fit line.|
+|-|-|
+|`average()/average_y()/average_x()`|The average of the values|
+|`corr()`|The correlation coefficient of the least squares fit line|
+|`covariance(method)`|The covariance of the values using either `population` or `sample` method|
+| `determination_coeff()`|The determination coefficient (or R squared) of the values|
+|`kurtosis(method)/kurtosis_y(method)/kurtosis_x(method)`|The kurtosis (4th moment) of the values using either the `population` or `sample` method|
+|`intercept()`|The intercept of the least squares fit line|
+|`num_vals()`|The number of values seen|
+|`skewness(method)/skewness_y(method)/skewness_x(method)`|The skewness (3rd moment) of the values using either the `population` or `sample` method|
+|`slope()`|The slope of the least squares fit line|
+|`stddev(method)/stddev_y(method)/stddev_x(method)`|The standard deviation of the values using either the `population` or `sample` method|
+|`sum()`|The sum of the values|
+|`variance(method)/variance_y(method)/variance_x(method)`|The variance of the values using either the `population` or `sample` method|
+|`x_intercept()`|The x intercept of the least squares fit line|
 
-#### Time Weighted Averages ####
-The `average()` accessor may be called on the output of a `time_weight()` like so:
-
-```SQL
+### Time-weighted averages aggregates
+The `average()` accessor can be called on the output of a `time_weight()`. For
+example:
+```sql
 SELECT time_weight('Linear', ts, val) -> average()  FROM measurements;
 ```
 
-#### Approximate Count Distinct (Hyperloglog) ####
-
+### Approximate count distinct aggregates
 This is an approximation for distinct counts. The `distinct_count()` accessor
-may be called on the output of a `hyperloglog()` like so:
-
-```SQL
+can be called on the output of a `hyperloglog()`. For example:
+```sql
 SELECT hyperloglog(device_id) -> distinct_count() FROM measurements;
 ```
 
-## Alphabetical index of vector pipeline elements ##
+## All function pipeline elements
+This table lists all function pipeline elements in alphabetical order:
 
-| Element | Category| Output |
-|---|---|---|
-| `abs()` | Unary Mathematical | `timevector` pipeline |
-| `add(val DOUBLE PRECISION)` | Binary Mathematical | `timevector` pipeline |
-| `average()` | Aggregate Finalizer | DOUBLE PRECISION |
-| `cbrt()` | Unary Mathematical |  `timevector` pipeline |
-| `ceil()` | Unary Mathematical |  `timevector` pipeline |
-|`counter_agg()` | Aggregate Finalizer |  `CounterAgg` |
-| `delta()` | Compound | `timevector` pipeline |
-| `div` | Binary Mathematical | `timevector` pipeline |
-| `fill_to` | Compound | `timevector` pipeline |
-| `filter` | Lambda | `timevector` pipeline |
-| `floor` | Unary Mathematical | `timevector` pipeline |
-| `hyperloglog` | Aggregate Finalizer | HyperLogLog |
-| `ln` | Unary Mathematical | `timevector` pipeline |
-| `log10` | Unary Mathematical | `timevector` pipeline |
-| `logn` | Binary Mathematical | `timevector` pipeline |
-| `lttb` | Compound | `timevector` pipeline |
-| `map` | Lambda | `timevector` pipeline |
-| `materialize` | Output | `timevector` pipeline |
-| `mod` | Binary Mathematical | `timevector` pipeline |
-| `mul` | Binary Mathematical | `timevector` pipeline |
-| `num_vals` | Aggregate Finalizer | BIGINT |
-| `power` | Binary Mathematical | `timevector` pipeline |
-| `round` | Unary Mathematical | `timevector` pipeline |
-| `sign` | Unary Mathematical | `timevector` pipeline |
-| `sort` | Compound | `timevector` pipeline |
-| `sqrt` | Unary Mathematical | `timevector` pipeline |
-| `stats_agg` | Aggregate Finalizer | StatsSummary1D |
-| `sub` | Binary Mathematical | `timevector` pipeline |
-| `sum` | Aggregate Finalizer | `timevector` pipeline |
-| `trunc` | Unary Mathematical | `timevector` pipeline |
-| `unnest` | Output | `TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)` |
+|Element|Category|Output|
+|-|-|-|
+|`abs()`|Unary Mathematical|`timevector` pipeline|
+|`add(val DOUBLE PRECISION)`|Binary Mathematical|`timevector` pipeline|
+|`average()`|Aggregate Finalizer|DOUBLE PRECISION|
+|`cbrt()`|Unary Mathematical| `timevector` pipeline|
+|`ceil()`|Unary Mathematical| `timevector` pipeline|
+|counter_agg()`|Aggregate Finalizer| `CounterAgg`|
+|`delta()`|Compound|`timevector` pipeline|
+|`div`|Binary Mathematical|`timevector` pipeline|
+|`fill_to`|Compound|`timevector` pipeline|
+|`filter`|Lambda|`timevector` pipeline|
+|`floor`|Unary Mathematical|`timevector` pipeline|
+|`hyperloglog`|Aggregate Finalizer|HyperLogLog|
+|`ln`|Unary Mathematical|`timevector` pipeline|
+|`log10`|Unary Mathematical|`timevector` pipeline|
+|`logn`|Binary Mathematical|`timevector` pipeline|
+|`lttb`|Compound|`timevector` pipeline|
+|`map`|Lambda|`timevector` pipeline|
+|`materialize`|Output|`timevector` pipeline|
+|`mod`|Binary Mathematical|`timevector` pipeline|
+|`mul`|Binary Mathematical|`timevector` pipeline|
+|`num_vals`|Aggregate Finalizer|BIGINT|
+|`power`|Binary Mathematical|`timevector` pipeline|
+|`round`|Unary Mathematical|`timevector` pipeline|
+|`sign`|Unary Mathematical|`timevector` pipeline|
+|`sort`|Compound|`timevector` pipeline|
+|`sqrt`|Unary Mathematical|`timevector` pipeline|
+|`stats_agg`|Aggregate Finalizer|StatsSummary1D|
+|`sub`|Binary Mathematical|`timevector` pipeline|
+|`sum`|Aggregate Finalizer|`timevector` pipeline|
+|`trunc`|Unary Mathematical|`timevector` pipeline|
+|`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
