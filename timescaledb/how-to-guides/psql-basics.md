@@ -87,25 +87,15 @@ Show all extensions installed
 ## Import and export CSV
 The commands in this section can be used to import and export CSV files from your PostgreSQL or TimescaleDB database.
 
-<terminal>
-
-<tab label="Import">
-
+Import
 ```sql
 \copy table_name FROM '/path/to/data.csv' DELIMITER ',' CSV HEADER
 ```
 
-</tab>
-
-<tab label="Export">
-
+Export
 ```sql
 \copy (SELECT * FROM table_name) TO 'output_file.csv' WITH CSV HEADER
 ```
-
-</tab>
-
-</terminal>
 
 ## Backup and restore
 
