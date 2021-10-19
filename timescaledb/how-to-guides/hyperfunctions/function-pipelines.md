@@ -116,11 +116,11 @@ the simplest element to compose, because they produce the same type. For
 example:
 ```sql
 SELECT device_id,
-	timevector(ts, val)
-    	-> sort()
-        -> delta()
-        -> map($$ ($value^3 + $value^2 + $value * 2) $$)
-        -> lttb(100)
+	toolkit_experimental.timevector(ts, val)
+    	-> toolkit_experimental.sort()
+        -> toolkit_experimental.delta()
+        -> toolkit_experimental.map($$ ($value^3 + $value^2 + $value * 2) $$)
+        -> toolkit_experimental.lttb(100)
 FROM measurements
 ```
 
@@ -131,14 +131,20 @@ an output in a specified format. or they can produce an aggregate of the
 For example, a finalizer element that produces an output:
 ```sql
 SELECT device_id,
-	timevector(ts, val) -> sort() -> delta() -> unnest()
+	toolkit_experimental.timevector(ts, val) 
+    -> toolkit_experimental.sort()
+    -> toolkit_experimental.delta() 
+    -> toolkit_experimental.unnest()
 FROM measurements
 ```
 
 Or a finalizer element that produces an aggregate:
 ```sql
 SELECT device_id,
-	timevector(ts, val) -> sort() -> delta() -> time_weight()
+	toolkit_experimental.timevector(ts, val) 
+    -> toolkit_experimental.sort()
+    -> toolkit_experimental.delta() 
+    -> toolkit_experimental.time_weight()
 FROM measurements
 ```
 
@@ -146,7 +152,7 @@ The third type of pipeline elements are aggregate accessors and mutators. These
 work on a `timevector` in a pipeline, but they also work in regular aggregate
 queries. An example of using these in a pipeline:
 ```sql
-SELECT percentile_agg(val) -> approx_percentile(0.5)
+SELECT percentile_agg(val) -> toolkit_experimental.approx_percentile(0.5)
 FROM measurements
 ```
 
@@ -163,12 +169,12 @@ transformed by the mathematical function specified.
 Elements are always applied left to right, so the order of operations is not
 taken into account even in the presence of explicit parentheses. This means for
 a `timevector` row `('2020-01-01 00:00:00+00', 20.0)`, this pipeline works:
-```sql
-timevector('2021-01-01 UTC', 10) -> add(5) -> (mul(2) -> add(1))
+```
+ timevector('2021-01-01 UTC', 10) -> add(5) -> (mul(2) -> add(1))
 ```
 
 And this pipeline works in the same way:
-```sql
+```
 timevector('2021-01-01 UTC', 10) -> add(5) -> mul(2) -> add(1)
 ```
 
@@ -199,10 +205,11 @@ Even if an element logically computes an integer, `timevectors` only deal with
 double precision floating point values, so the computed value is the
 floating point representation of the integer. For example:
 ```sql
+-- NOTE: the (pipeline -> unnest()).* allows for time, value columns to be produced without a subselect
 SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.abs()
-    -> toolkit_experimental.unnest()).*
+    -> toolkit_experimental.unnest()).* 
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -627,10 +634,7 @@ available counter aggregate functions are:
 Percentile approximation aggregate accessors are used to approximate
 percentiles. Currently, only accessors are implemented for `percentile_agg` and
 `uddsketch` based aggregates. We have not yet implemented the pipeline aggregate
-for percentile approximation.
-
-<!----
-Probably shouldn't list them if they're not supported. --LKB 2021-10-19
+for percentile approximation with `tdigest`.
 
 |Element|Description|
 |---|---|
@@ -640,7 +644,7 @@ Probably shouldn't list them if they're not supported. --LKB 2021-10-19
 |`mean()`| The exact average of the input values.|
 |`num_vals()`| The number of input values|
 
--->
+
 
 ### Statistical aggregates
 Statistical aggregate accessors add support for common statistical aggregates.
