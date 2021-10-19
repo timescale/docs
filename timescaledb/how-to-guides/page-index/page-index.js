@@ -15,15 +15,15 @@ module.exports = [
           {
             title: 'Timescale Cloud',
             href: 'installation-cloud',
-            title: "Timescale Cloud",
-            href: "installation-cloud",
+            title: 'Timescale Cloud',
+            href: 'installation-cloud',
             tags: ['tsc', 'install'],
             keywords: ['install', 'Timescale Cloud'],
-            excerpt: 'Install Timescale Cloud'
+            excerpt: 'Install Timescale Cloud',
           },
           {
-            title: "Managed Service for TimescaleDB",
-            href: "installation-mst",
+            title: 'Managed Service for TimescaleDB',
+            href: 'installation-mst',
             tags: ['mst', 'install'],
             keywords: ['install', 'Managed Service for TimescaleDB'],
             excerpt: 'Install a managed service for TimescaleDB',
@@ -919,6 +919,13 @@ module.exports = [
             excerpt: 'Install the TimescaleDB toolkit',
           },
           {
+            title: 'Function pipelines',
+            href: 'function-pipelines',
+            tags: ['toolkit', 'hyperfunctions', 'query', 'timescaledb'],
+            keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
+            excerpt: 'Learn about function pipelines',
+          },
+          {
             title: 'Approximate count distincts',
             href: 'approx-count-distincts',
             type: 'directory',
@@ -1038,6 +1045,13 @@ module.exports = [
         tags: ['manage', 'timescaledb'],
         keywords: ['manage', 'timescaledb'],
         excerpt: 'Additional tooling for managing TimescaleDB',
+      },
+      {
+        title: 'Psql Basics',
+        href: 'psql-basics',
+        tags: ['psql', 'timescaledb'],
+        keywords: ['psql', 'timescaledb'],
+        excerpt: 'A brief guide to the psql interface',
       },
     ],
   },
