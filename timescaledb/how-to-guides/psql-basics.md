@@ -109,7 +109,7 @@ The commands in this section can be used to import and export CSV files from you
 
 ## Backup and restore
 
-<highlight type="note>
+<highlight type="note">
 The commands in this section use the `pg_dump` and `pg_dumpall` tools.
 </highlight>
 
