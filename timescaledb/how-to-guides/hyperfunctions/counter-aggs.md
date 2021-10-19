@@ -35,7 +35,10 @@ counter data.
       PRIMARY KEY (measure_id, ts)
   );
   ```
-1.  Create a counter aggregate and the delta accessor function. This gives you the change in the counter's value over the time period, accounting for any resets. This allows you to search for fifteen minute periods where the counter increased by a larger or smaller amount:
+1.  Create a counter aggregate and the delta accessor function. This gives you 
+the change in the counter's value over the time period, accounting for any resets. 
+This allows you to search for fifteen minute periods where the counter increased
+by a larger or smaller amount:
   ```sql
   SELECT measure_id,
       delta(
@@ -44,7 +47,8 @@ counter data.
   FROM example
   GROUP BY measure_id;
   ```
-1.  You can also use the `time_bucket` function to produce a series of deltas over fifteen minute increments:
+1.  You can also use the `time_bucket` function to produce a series of deltas 
+over fifteen minute increments:
   ```sql
   SELECT measure_id,
       time_bucket('15 min'::interval, ts) as bucket,
