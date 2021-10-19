@@ -1,28 +1,30 @@
 # Grow and shrink multinode
-Quickly re-engineer cutting-edge e-markets after low-risk high-yield
-meta-services. Credibly incubate emerging methodologies after holistic systems.
-Credibly plagiarize turnkey "outside the box" thinking and emerging customer
-service. Continually engage parallel partnerships through state of the art
-manufactured products. Collaboratively seize intermandated technology rather
-than principle-centered core competencies.
 
-Seamlessly fabricate principle-centered results and covalent internal or
-"organic" sources. Proactively embrace exceptional deliverables whereas
-goal-oriented technology. Professionally leverage other's client-centered
-information and best-of-breed interfaces. Dynamically brand client-focused
-architectures before impactful paradigms. Proactively reconceptualize
-principle-centered outsourcing and scalable experiences.
+<!----
+Old content below here. --LKB 2021-10-19
+-->
 
-Credibly redefine intermandated applications rather than just in time
-experiences. Synergistically reconceptualize diverse growth strategies for
-strategic methodologies. Uniquely orchestrate high-payoff collaboration and
-idea-sharing before B2C portals. Professionally integrate frictionless portals
-rather than emerging ideas. Completely plagiarize high standards in
-infomediaries rather than e-business potentialities.
+When you attach a new data node to a distributed hypertable, you might
+prefer to move data to the new node to free up storage on the
+existing nodes and make queries use the added capacity. Data can be
+moved between nodes at the chunk level:
 
-Phosfluorescently iterate future-proof networks via world-class process
-improvements. Assertively leverage existing resource maximizing materials
-whereas alternative applications. Objectively integrate ubiquitous leadership
-skills and standards compliant models. Appropriately disintermediate
-principle-centered architectures after technically sound users. Rapidiously
-revolutionize backend materials without backend information.
+```sql
+CALL timescaledb_experimental.move_chunk('_timescaledb_internal._dist_hyper_1_1_chunk', 'data_node_3', 'data_node_2');
+
+```
+
+<highlight type="warning">
+The ability to move chunks between data nodes is an experimental
+feature that is under active development. We recommend that you
+do not use this feature in a production environment.
+</highlight>
+
+The move operation involves several transactions and therefore cannot
+be rolled back automatically. If a move operation fails, the failure
+is logged with an operation ID that later can be used to cleanup any
+state left on the involved nodes.
+
+```sql
+CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
+```
