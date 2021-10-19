@@ -29,14 +29,14 @@ called `weights` that holds DOUBLE PRECISION values. This command returns a
 digest over that column:
 
 ``` sql
-SELECT toolkit.hyperloglog(64, weights) FROM samples;
+SELECT hyperloglog(64, weights) FROM samples;
 ```
 
 Alternatively, you can build a view from the aggregate that you can pass to
 other `tdigest` functions:
 
 ``` sql
-CREATE VIEW digest AS SELECT toolkit.hyperloglog(64, data) FROM samples;
+CREATE VIEW digest AS SELECT hyperloglog(64, data) FROM samples;
 ```
 
 

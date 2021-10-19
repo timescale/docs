@@ -41,8 +41,8 @@ CREATE TABLE example (
     counter increased by a larger or smaller amount:
 ```sql
 SELECT measure_id,
-    toolkit.delta(
-        toolkit.counter_agg(ts, val)
+    delta(
+        counter_agg(ts, val)
     )
 FROM example
 GROUP BY measure_id;
@@ -51,8 +51,8 @@ GROUP BY measure_id;
 ```sql
 SELECT measure_id,
     time_bucket('15 min'::interval, ts) as bucket,
-    toolkit.delta(
-        toolkit.counter_agg(ts, val)
+    delta(
+        counter_agg(ts, val)
     )
 FROM example
 GROUP BY measure_id, time_bucket('15 min'::interval, ts);
@@ -87,11 +87,11 @@ going on in each part.
     with t as (
         SELECT measure_id,
             time_bucket('15 min'::interval, ts) as bucket,
-            toolkit.counter_agg(ts, val, bounds => toolkit.time_bucket_range('15 min'::interval, ts))
+            counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
         FROM example
         GROUP BY measure_id, time_bucket('15 min'::interval, ts))
     SELECT time_bucket,
-        toolkit.extrapolated_delta(counter_agg, method => 'prometheus')
+        extrapolated_delta(counter_agg, method => 'prometheus')
     FROM t ;
     ```
 
@@ -121,7 +121,7 @@ out of it.
     WITH (timescaledb.continuous)
     AS SELECT measure_id,
         time_bucket('15 min'::interval, ts) as bucket,
-        toolkit.counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
+        counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
     FROM example
     GROUP BY measure_id, time_bucket('15 min'::interval, ts);
     ```
@@ -131,8 +131,8 @@ out of it.
     SELECT
         measure_id,
         time_bucket('1 day'::interval, bucket),
-        toolkit.delta(
-            toolkit.rollup(counter_agg)
+        delta(
+            rollup(counter_agg)
         )
     FROM example_15
     GROUP BY measure_id, time_bucket('1 day'::interval, bucket);
