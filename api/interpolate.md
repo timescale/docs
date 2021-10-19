@@ -1,40 +1,43 @@
-## interpolate() <tag type="community">Community</tag> 
-
-The `interpolate` function does linear interpolation for missing values.
-It can only be used in an aggregation query with [time_bucket_gapfill](/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
+# interpolate() <tag type="community">Community</tag>
+The `interpolate` function does linear interpolation for missing values. It can
+only be used in an aggregation query with
+[time_bucket_gapfill](/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
 The `interpolate` function call cannot be nested inside other function calls.
 
-### Required Arguments
+For more information about gapfilling and interpolation functions, see the
+[hyperfunctions documentation][hyperfunctions-gapfilling].
+
+## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `value` | ANY VALUES | The value to interpolate (int2/int4/int8/float4/float8) |
+|-|-|-|
+|`value`|ANY VALUES|The value to interpolate (int2/int4/int8/float4/float8)|
 
-### Optional Arguments
+## Optional arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `prev` | EXPRESSION | The lookup expression for values before the gapfill time range (record) |
-| `next` | EXPRESSION | The lookup expression for values after the gapfill time range (record) |
+|-|-|-|
+|`prev`|EXPRESSION|The lookup expression for values before the gapfill time range (record)|
+|`next`|EXPRESSION|The lookup expression for values after the gapfill time range (record)|
 
-Because the interpolation function relies on having values before and after
-each bucketed period to compute the interpolated value, it might not have
-enough data to calculate the interpolation for the first and last time bucket
-if those buckets do not otherwise contain valid values.
-For example, the interpolation would require looking before this first
-time bucket period, yet the query's outer time predicate WHERE time > ...
-normally restricts the function to only evaluate values within this time range.
-Thus, the `prev` and `next` expression tell the function how to look for
-values outside of the range specified by the time predicate.
-These expressions will only be evaluated when no suitable value is returned by the outer query
-(i.e., the first and/or last bucket in the queried time range is empty).
-The returned record for `prev` and `next` needs to be a time, value tuple.
-The datatype of time needs to be the same as the time datatype in the `time_bucket_gapfill` call.
-The datatype of value needs to be the same as the `value` datatype of the `interpolate` call.
+Because the `interpolation` function relies on having values before and after
+each time bucket to compute the interpolated value, it might not have enough
+data to calculate the interpolation for the first and last time bucket if those
+buckets do not contain valid values. For example, the interpolation requires
+looking before the first time bucket period, but the query's outer time
+predicate `WHERE time > ...` restricts the function to only evaluate values
+within this time range. You can use the `prev` and `next` expressions to tell
+the function how to look for values outside of the range specified by the time
+predicate. These expressions are only evaluated when no suitable value is
+returned by the outer query, such as when the first or last bucket in the
+queried time range is empty. The returned record for `prev` and `next` needs to
+be a time,value tuple. The data type of `time` needs to be the same as the time
+data type in the `time_bucket_gapfill` call. The data type of `value` needs to
+be the same as the `value` data type of the `interpolate` call.
 
-### Sample Usage 
-
-Get the temperature every day for each device over the last week interpolating for missing readings:
+## Sample usage
+Get the temperature every day for each device over the last week, interpolating
+for missing readings:
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time, now() - INTERVAL '1 week', now()) AS day,
@@ -58,7 +61,9 @@ ORDER BY day;
 (7 row)
 ```
 
-Get the average temperature every day for each device over the last 7 days interpolating for missing readings with lookup queries for values before and after the gapfill time range:
+Get the average temperature every day for each device over the last seven days,
+interpolating for missing readings, with lookup queries for values before and
+after the gapfill time range:
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time, now() - INTERVAL '1 week', now()) AS day,
@@ -84,3 +89,6 @@ ORDER BY day;
  2019-01-16 01:00:00+01 |         1 |   9.0 |         9.0
 (7 row)
 ```
+
+
+[hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
