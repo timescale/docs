@@ -20,8 +20,9 @@ function.
 
 <highlight type="note">
 Note that both `ts` and `value` can be NULL, but the aggregate is not evaluated
-on NULL values. This means that if the aggregate receives a NULL value, it will
-return NULL, it will not return an error.
+on NULL values. This means that if the aggregate receives only a NULL value, it will
+return NULL, it will not return an error. If non-NULL values are also received, the NULL 
+values will be ignored. Both `ts` and `value` must be non-NULL for the row to be included.
 </highlight>
 
 ### Optional arguments
@@ -44,7 +45,7 @@ extrapolation, but not for other accessor functions.
 <!---Any special notes about the returns-->
 
 ## Sample usage
-This example produces a CounterSummary from timestamps and associated values.
+This example produces a CounterSummary from timestamps and associated values and then computes the [`irate_right` accessor]((/hyperfunctions/counter_aggs/irate/) on it
 
 ``` sql
 WITH t as (

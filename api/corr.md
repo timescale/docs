@@ -1,6 +1,6 @@
 # corr() <tag type="toolkit" content="toolkit" />
 The correlation coefficient of the least squares fit line of the adjusted
-counter value. Given that the slope of a line for any counter value must be
+counter value and epoch value of the time column. Given that the slope of a line for any counter value must be
 non-negative, this must also always be non-negative and in the range from 0.0 to
 1.0. It measures how well the least squares fit the available data, where a
 value of 1.0 represents the strongest correlation between time and the counter
