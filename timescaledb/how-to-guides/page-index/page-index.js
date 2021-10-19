@@ -919,6 +919,13 @@ module.exports = [
             excerpt: 'Install the TimescaleDB toolkit',
           },
           {
+            title: 'Function pipelines',
+            href: 'function-pipelines',
+            tags: ['toolkit', 'hyperfunctions', 'query', 'timescaledb'],
+            keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
+            excerpt: 'Learn about function pipelines',
+          },
+          {
             title: 'Approximate count distincts',
             href: 'approx-count-distincts',
             type: 'directory',
@@ -1010,13 +1017,6 @@ module.exports = [
             ]
           },
         ],
-      },
-      {
-        title: 'Function Pipelines',
-        href: 'function-pipelines',
-        tags: ['hyperfunctions', 'toolkit', 'query', 'timescaledb'],
-        keywords: ['TimescaleDB', 'hyperfunctions', 'Toolkit'],
-        excerpt: 'Learn about function pipelines',
       },
       {
         title: 'Alerting',

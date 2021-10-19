@@ -10,6 +10,8 @@ additional hyperfunctions, you need to install the
     before you begin using it.
 *   Install the [Toolkit extension][install-toolkit] to access more
     hyperfunctions.
+*   Learn how to use [function pipelines][about-pipelines] to construct
+    hyperfunction queries.
 *   Use the [approximate count distinct][hyperfunctions-approx-count-distinct]
     functions.
 *   Use the [statistical aggregate][hyperfunctions-stats-agg]
@@ -27,6 +29,7 @@ For more information about hyperfunctions, read our [blog post][hyperfunctions-b
 
 [about-hyperfunctions]: how-to-guides/hyperfunctions/about-hyperfunctions
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
+[about-pipelines]: /how-to-guides/hyperfunctions/function-pipelines
 [hyperfunctions-approx-count-distinct]: /how-to-guides/hyperfunctions/approx-count-distincts
 [hyperfunctions-stats-agg]: /how-to-guides/hyperfunctions/stats-aggs
 [hyperfunctions-gapfilling]: /how-to-guides/hyperfunctions/gapfilling-interpolation
