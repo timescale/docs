@@ -75,9 +75,10 @@ additional hyperfunctions, you need to install the
 For more information about each of the API calls listed in this table, see our [hyperfunction API documentation][api-hyperfunctions].
 
 ## Function pipelines
-Function pipelines are designed to radically improve the developer ergonomics of
-analyzing data in PostgreSQL and SQL, by applying principles from functional
-programming and popular tools like Python’s Pandas, and PromQL.
+Function pipelines are an experimental feature, designed to radically improve
+the developer ergonomics of analyzing data in PostgreSQL and SQL, by applying
+principles from functional programming and popular tools like Python’s Pandas,
+and PromQL.
 
 SQL is the best language for data analysis, but it is not perfect, and at times
 can get quite unwieldy. For example, this query gets data from the last day from
