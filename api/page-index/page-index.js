@@ -280,6 +280,44 @@ module.exports = [
             href: 'time_bucket_ng',
           },
           {
+            title: 'Approximate count distincts',
+            type: 'directory',
+            href: 'approx_count_distincts',
+            children: [
+              {
+                title: 'hyperloglog',
+                href: 'hyperloglog',
+              },
+              {
+                title: 'rollup',
+                href: 'rollup-hyperloglog',
+              },
+              {
+                title: 'distinct_count',
+                href: 'distinct_count',
+              },
+              {
+                title: 'stderror',
+                href: 'stderror',
+              },
+            ],
+          },
+          {
+            title: 'Statistical aggregates',
+            type: 'directory',
+            href: 'stats_aggs',
+            children: [
+              {
+                title: 'average',
+                href: 'average',
+              },
+              {
+                title: 'num_vals',
+                href: 'num_vals',
+              }
+            ],
+          },
+          {
             title: 'Gapfilling and interpolation',
             type: 'directory',
             href: 'gapfilling-interpolation',
@@ -353,6 +391,81 @@ module.exports = [
                     href: 'tdigest',
                   },
                 ],
+              },
+            ],
+          },
+          {
+            title: 'Counter aggregation',
+            type: 'directory',
+            href: 'counter_aggs',
+            children: [
+              {
+                title: 'counter_agg (point form)',
+                href: 'counter_agg_point',
+              },
+              {
+                title: 'rollup',
+                href: 'rollup-counter',
+              },
+              {
+                title: 'corr',
+                href: 'corr',
+              },
+              {
+                title: 'counter_zero_time',
+                href: 'counter_zero_time',
+              },
+              {
+                title: 'delta',
+                href: 'delta',
+              },
+              {
+                title: 'extrapolated_delta',
+                href: 'extrapolated_delta',
+              },
+              {
+                title: 'extrapolated_rate',
+                href: 'extrapolated_rate',
+              },
+              {
+                title: 'idelta',
+                href: 'idelta',
+              },
+              {
+                title: 'intercept',
+                href: 'intercept',
+              },
+              {
+                title: 'irate',
+                href: 'irate',
+              },
+              {
+                title: 'num_changes',
+                href: 'num_changes',
+              },
+              {
+                title: 'num_elements',
+                href: 'num_elements',
+              },
+              {
+                title: 'num_resets',
+                href: 'num_resets',
+              },
+              {
+                title: 'rate',
+                href: 'rate',
+              },
+              {
+                title: 'slope',
+                href: 'slope',
+              },
+              {
+                title: 'time_delta',
+                href: 'time_delta',
+              },
+              {
+                title: 'with_bounds',
+                href: 'with_bounds',
               },
             ],
           },
