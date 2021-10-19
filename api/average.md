@@ -1,4 +1,4 @@
-## average() <tag type="toolkit">Toolkit</tag>
+# average() <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 average(
@@ -8,16 +8,21 @@ average(
 
 A function to compute a time weighted average from a `TimeWeightSummary`.
 
+*   For more information about time-weighted average functions, see the
+    [hyperfunctions documentation][hyperfunctions-time-weight-average].
+*   For more information about statistical aggregate functions, see the
+    [hyperfunctions documentation][hyperfunctions-stats-agg].
+
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
+|-|-|-|
 |`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/) call|
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
+|-|-|-|
 |`average`|`DOUBLE PRECISION`|The time weighted average computed from the `TimeWeightSummary`|
 
 ### Sample usage
@@ -35,3 +40,6 @@ FROM (
 ) t
 ```
 
+
+[hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
+[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
