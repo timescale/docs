@@ -1,4 +1,4 @@
-# Getting Started with Prometheus and TimescaleDB using Promscale
+# Using Promscale and Prometheus
 
 ## Introduction
 [Prometheus][prometheus-webpage] is an open-source systems monitoring and alerting toolkit that can be used to easily and cost-effectively monitor infrastructure and applications.
