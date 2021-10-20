@@ -40,7 +40,7 @@ For more information about approximate count distinct functions, see the
 This examples retrieves the standard error from a hyperloglog called `hyperloglog`:
 
 ``` sql
-SELECT toolkit.stderror(toolkit.hyperloglog(64, data))
+SELECT stderror(hyperloglog(64, data))
 FROM generate_series(1, 100) data
 
  stderror

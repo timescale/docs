@@ -22,7 +22,7 @@ This example retrieves the distinct values from a hyperloglog
 called `hyperloglog`:
 
 ``` sql
-SELECT toolkit.distinct_count(toolkit.hyperloglog(64, data))
+SELECT distinct_count(hyperloglog(64, data))
 FROM generate_series(1, 100) data
 
  distinct_count

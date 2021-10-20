@@ -27,36 +27,37 @@ counter data.
 
 ### Running a counter aggregate query using a delta function
 1.  Create a table called `example`:
-```sql
-CREATE TABLE example (
-    measure_id      BIGINT,
-    ts              TIMESTAMPTZ ,
-    val             DOUBLE PRECISION,
-    PRIMARY KEY (measure_id, ts)
-);
-```
-1.  Create a counter aggregate and the delta accessor function. This gives you
-    the change in the counter's value over the time period, accounting for any
-    resets. This allows you to search for fifteen minute periods where the
-    counter increased by a larger or smaller amount:
-```sql
-SELECT measure_id,
-    toolkit.delta(
-        toolkit.counter_agg(ts, val)
-    )
-FROM example
-GROUP BY measure_id;
-```
-1.  You can also use the `time_bucket` function to produce a series of deltas over fifteen minute increments:
-```sql
-SELECT measure_id,
-    time_bucket('15 min'::interval, ts) as bucket,
-    toolkit.delta(
-        toolkit.counter_agg(ts, val)
-    )
-FROM example
-GROUP BY measure_id, time_bucket('15 min'::interval, ts);
-```
+  ```sql
+  CREATE TABLE example (
+      measure_id      BIGINT,
+      ts              TIMESTAMPTZ ,
+      val             DOUBLE PRECISION,
+      PRIMARY KEY (measure_id, ts)
+  );
+  ```
+1.  Create a counter aggregate and the delta accessor function. This gives you 
+the change in the counter's value over the time period, accounting for any resets. 
+This allows you to search for fifteen minute periods where the counter increased
+by a larger or smaller amount:
+  ```sql
+  SELECT measure_id,
+      delta(
+          counter_agg(ts, val)
+      )
+  FROM example
+  GROUP BY measure_id;
+  ```
+1.  You can also use the `time_bucket` function to produce a series of deltas 
+over fifteen minute increments:
+  ```sql
+  SELECT measure_id,
+      time_bucket('15 min'::interval, ts) as bucket,
+      delta(
+          counter_agg(ts, val)
+      )
+  FROM example
+  GROUP BY measure_id, time_bucket('15 min'::interval, ts);
+  ```
 
 </procedure>
 
@@ -87,11 +88,11 @@ going on in each part.
     with t as (
         SELECT measure_id,
             time_bucket('15 min'::interval, ts) as bucket,
-            toolkit.counter_agg(ts, val, bounds => toolkit.time_bucket_range('15 min'::interval, ts))
+            counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
         FROM example
         GROUP BY measure_id, time_bucket('15 min'::interval, ts))
     SELECT time_bucket,
-        toolkit.extrapolated_delta(counter_agg, method => 'prometheus')
+        extrapolated_delta(counter_agg, method => 'prometheus')
     FROM t ;
     ```
 
@@ -121,7 +122,7 @@ out of it.
     WITH (timescaledb.continuous)
     AS SELECT measure_id,
         time_bucket('15 min'::interval, ts) as bucket,
-        toolkit.counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
+        counter_agg(ts, val, bounds => time_bucket_range('15 min'::interval, ts))
     FROM example
     GROUP BY measure_id, time_bucket('15 min'::interval, ts);
     ```
@@ -131,8 +132,8 @@ out of it.
     SELECT
         measure_id,
         time_bucket('1 day'::interval, bucket),
-        toolkit.delta(
-            toolkit.rollup(counter_agg)
+        delta(
+            rollup(counter_agg)
         )
     FROM example_15
     GROUP BY measure_id, time_bucket('1 day'::interval, bucket);

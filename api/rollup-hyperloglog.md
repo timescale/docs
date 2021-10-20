@@ -27,11 +27,11 @@ For more information about approximate count distinct functions, see the
 ## Sample usage
 
 ```SQL
-SELECT toolkit.distinct_count(toolkit.rollup(logs))
+SELECT distinct_count(rollup(logs))
 FROM (
-    (SELECT toolkit.hyperloglog(32, v::text) logs FROM generate_series(1, 100) v)
+    (SELECT hyperloglog(32, v::text) logs FROM generate_series(1, 100) v)
     UNION ALL
-    (SELECT toolkit.hyperloglog(32, v::text) FROM generate_series(50, 150) v)
+    (SELECT hyperloglog(32, v::text) FROM generate_series(50, 150) v)
 ) hll;
  count
 -------
