@@ -1,4 +1,4 @@
-# Grow and shrink multinode
+# Grow and shrink multi-node
 
 <!----
 Old content below here. --LKB 2021-10-19

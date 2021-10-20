@@ -1,4 +1,4 @@
-# Multinode maintenance
+# Multi-node maintenance
 Uniquely drive user-centric deliverables whereas synergistic catalysts for
 change. Credibly negotiate integrated solutions whereas global relationships.
 Competently administrate cost effective markets and highly efficient

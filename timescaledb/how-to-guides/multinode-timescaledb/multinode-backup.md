@@ -1,4 +1,4 @@
-# Backup and restore multinode
+# Backup and restore multi-node
 Intrinsically disintermediate accurate e-business through worldwide expertise.
 Assertively scale stand-alone human capital via long-term high-impact "outside
 the box" thinking. Distinctively generate visionary customer service through

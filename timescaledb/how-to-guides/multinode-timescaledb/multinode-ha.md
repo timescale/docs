@@ -1,5 +1,5 @@
-# High availability (HA) with multinode
-A multinode installation can be configured to write each chunk to multiple data
+# High availability (HA) with multi-node
+A multi-node installation can be configured to write each chunk to multiple data
 to natively replicate data at the chunk level. This protects against data node
 failures and provides an alternative to fully replicating each data node using
 streaming replication in order to provide high availability.
@@ -19,7 +19,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
 ```
 
 Alternatively, you can set the `replication_factor` setting on an existing
-hypertable in a multinode environment using the
+hypertable in a multi-node environment using the
 [`set_replication_factor`][set_replication_factor] call.
 
 When native replication is enabled, the replication happens whenever you ingest
@@ -36,10 +36,10 @@ WARNING:  distributed hypertable "conditions" is under-replicated
 ```
 
 If the data node cannot be recovered, native replication allows the node to be
-deleted from the multinode cluster without losing data.
+deleted from the multi-node cluster without losing data.
 
 <highlight type="important">
-You cannot force the deletion of a data node if it would mean that a multinode
+You cannot force the deletion of a data node if it would mean that a multi-node
 cluster permanently loses data.
 </highlight>
 

@@ -1,4 +1,4 @@
-# Multinode authentication
+# Multi-node authentication
 When you have your instances set up, the next task is configuring your
 PostgreSQL instances to accept connections from the access node to the
 data nodes. The authentication mechanism used when accepting such
@@ -110,7 +110,7 @@ secure and require one mapping per user and data node. Therefore, this
 section focuses on the password file approach.
 
 We recommend using SCRAM SHA-256 password authentication. For other
-password authentication methods, [see the PostgreSQL docs][auth-password].  
+password authentication methods, [see the PostgreSQL docs][auth-password].
 The method assumes the presence of a `postgres` user/password combination
 that exists on all nodes.
 
@@ -210,8 +210,8 @@ authentication uses three files:
 - A *root CA certificate*, which we assume to be named `root.crt`, which
   serves as the root of trust in the system. It is used to verify other
   certificates.
-- A node *certificate* that provides the node with a trusted identity in the  
-  system. The node certificate is signed by the CA.  
+- A node *certificate* that provides the node with a trusted identity in the
+  system. The node certificate is signed by the CA.
 - A private *key* that provides proof of ownership of the node certificate. In the
 case of the access node, this key is also used to sign user certificates. The key
 should be kept secure on the node instance where it is generated.

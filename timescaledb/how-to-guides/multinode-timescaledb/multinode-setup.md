@@ -1,4 +1,4 @@
-# Set up multinode
+# Set up multi-node
 To start, you'll need:
 - One PostgreSQL instance to act as an **access node**
 - One or more PostgreSQL instances to act as **data nodes**
