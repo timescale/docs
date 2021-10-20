@@ -84,6 +84,8 @@ ensure they are same on the access node and the data nodes.
 
 </procedure>
 
+<!-- Lana, you're up to here! --LKB 2021-10-20 -->
+
 ## Password authentication
 With password authentication, every user role that uses distributed
 hypertables needs an "internal" password for establishing connections
