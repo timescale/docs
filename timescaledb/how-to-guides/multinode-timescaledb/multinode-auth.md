@@ -1,93 +1,88 @@
 # Multi-node authentication
-When you have your instances set up, the next task is configuring your
-PostgreSQL instances to accept connections from the access node to the
-data nodes. The authentication mechanism used when accepting such
-connections might be different than the one used by external clients
-when connecting to the access node. The task also requires different
-steps depending on what authentication mechanism you want to use on
-your nodes. The simplest approach is to simply trust all incoming
-connections, and is discussed in
-[this section](#trust-authentication).
+When you have your instances set up, you need to configure them to accept
+connections from the access node to the data nodes. The authentication mechanism
+you choose for this can be different than the one used by external clients to
+connect to the access node.
 
-Going beyond the simple trust approach to create a secure system is a complex
-task and this section should not be read as recommending any particular security
-measures for securing your system. That said, we also provide two additional
-examples for how to enable [password authentication](#password-authentication) or
-[certificate authentication](#certificate-authentication) for additional context.
+How you set this up depends on which authentication mechanism you choose. The
+options are:
 
-## Trust authentication
-This is the quickest path to getting a multi-node environment up and running,
-but should not be used for any sort of secure data.
+*   Trust all incoming connections. This is the simplest approach, but also the
+    least secure. This is a good way to start if you are trying out multi-node,
+    but is not recommended for production clusters.
+*   Pasword authentication. Every user role requires an internal password for
+    establishing connections between the access node and the data nodes. This
+    method is easier to set up than certificate authentication, but provides
+    only a basic level of protection.
+*   Certificate authentication. Every user role requires a certificate from a
+    certificate authority to establish connections between the access node and
+    the data nodes. This method is more complex to set up than password
+    authentication, but more secure and easier to automate.
 
-<highlight type="warning">
-The "trust" authentication method allows insecure access to all
-nodes.  For production implementations, please use more secure
-methods of authentication.
+<highlight type="important">
+Going beyond the simple trust approach to create a secure system can be complex,
+but it is important to secure your database appropriately for your environment.
+We do not recommend any one security model, but encourage you to perform a risk
+assessment and implement the security model that best suits your environment.
 </highlight>
 
-### 1. Edit authentication configuration file on data nodes
-Client authentication is usually configured in the `pg_hba.conf`
-([reference doc][postgresql-hba]) file located in the data directory.  If the
-file is not located there, connect to the instance with `psql` and execute this
-command:
+## Trust authentication
+Trusting all incoming connections is the quickest way to get your multi-node
+environment up and running, but it is not a secure method of operation. Use this
+only for developing a proof of concept, do not use this method for production
+installations.
 
-```sql
-SHOW hba_file;
-```
+<highlight type="warning">
+The trust authentication method allows insecure access to all nodes. Do not use
+this method in production. It is not a secure method of operation.
+</highlight>
 
-To enable "trust" authentication, add a line to `pg_hba.conf` to allow
-access to the instance. Ex: for an access node ip address `192.0.2.20`:
+<procedure>
 
-```
-# TYPE  DATABASE  USER  ADDRESS      METHOD
-host    all       all   192.0.2.20   trust
-```
+### Trusting all incoming connections
+1.  Connect to the access node with `psql`, and locate the `pg_hba.conf` file:
+    ```sql
+    SHOW hba_file;
+    ```
+1.  Open the `pg_hba.conf` file in your preferred text editor, and add this
+    line. In this example, the access node is located at IP `192.0.2.20`:
+    ```txt
+    # TYPE  DATABASE  USER  ADDRESS      METHOD
+    host    all       all   192.0.2.20   trust
+    ```
+1.  At the command prompt, reload the server configuration:
+    ```bash
+    pg_ctl reload
+    ```
+1.  If you have not already done so, add the data nodes to the access node. For
+    instructions, see the [multi-node setup][multi-node-setup] section.
+1.  On the access node, create the trust role. In this example, we call
+    the role `testrole`:
+    ```sql
+    CREATE ROLE testrole;
+    ```
+    **OPTIONAL**: If external clients need to connect to the access node
+    as `testrole`, add the `LOGIN` option when you create the role. You can
+    also add the `PASSWORD` option if you want to require external clients to
+    enter a password.
+1.  Allow the trust role to access the foreign server objects for the data
+    nodes. Make sure you include all the data node names:
+    ```sql
+    GRANT USAGE ON FOREIGN SERVER <data node name>, <data node name>, ... TO testrole;
+    ```
+1.  On the access node, use the [`distributed_exec`][distributed_exec] command
+    to add the role to all the data nodes:
+    ```sql
+    CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
+    ```
 
-### 2. Reload server configuration
-Reload the server configuration on each data node for the changes to take effect:
+<highlight type="important">
+Make sure you create the role with the `LOGIN` privilege on the data nodes, even
+if you don't use this privilege on the access node. For all other privileges,
+ensure they are same on the access node and the data nodes.
+</highlight>
 
-```bash
-pg_ctl reload
-```
-
-### 3. Add the data nodes to the access node
-Once the nodes are properly configured, you can continue following the
-[multi-node setup][init_data_nodes].
-
-### 4. Setting up additional roles
-There are no additional configuration changes that need to be done for trust
-authentication, as connections from all users on the access node are trusted by
-the data nodes.  You can simply perform the following commands on the access node.
-
-First, create the role on the access node if not already present:
-```sql
-CREATE ROLE testrole;
-```
-
-If external clients need to connect to the access node as `testrole`
-it is also necessary to add the `LOGIN` option. And, optionally, the
-`PASSWORD` option if password authentication is used.
-
-Next, allow that role to access the foreign server objects for the data nodes. Run
-the following, making sure to include all data node names:
-```sql
-GRANT USAGE ON FOREIGN SERVER <data node name>, <data node name>, ... TO testrole;
-```
-
-Finally add the role to all of the data nodes. Use the
-[`distributed_exec`][distributed_exec] command to do this from the
-access node:
-
-```sql
-CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
-```
-
-It's important that the role be created with the `LOGIN` privilege on
-the data nodes, even if it doesn't have this privilege on the access
-node.  Aside from this, any other permissions the user has should be
-the same on the data node to ensure operations behave the same on all
-nodes.
-
+</procedure>
 
 ## Password authentication
 With password authentication, every user role that uses distributed
@@ -422,3 +417,4 @@ docs:
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [postgresql-hba]: https://www.postgresql.org/docs/12/auth-pg-hba-conf.html
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
+[multi-node-setup]: /how-to-guides/multinode-timescaledb/multinode-setup/
