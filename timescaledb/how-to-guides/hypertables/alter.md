@@ -3,7 +3,7 @@ You can run standard [`ALTER TABLE`][postgres-altertable] commands against both
 regular and distributed hypertables.
 
 ```sql
-ALTER TABLE [TABLE_NAME]
+ALTER TABLE TABLE_NAME
   ADD COLUMN humidity DOUBLE PRECISION NULL;
 ```
 

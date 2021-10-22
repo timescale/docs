@@ -23,7 +23,7 @@ across all time.
 To create a multi-node cluster, you need an access node that stores metadata
 for the distributed hypertable and performs query planning across the cluster,
 and any number of data nodes that store subsets of the distributed hypertable
-dataset and execute queries locally.
+dataset and run queries locally.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/multinode_arch.png" alt="Diagram showing how multi-node access and data nodes interact"/>
 

@@ -85,5 +85,4 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 </highlight>
 
 
-[create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
