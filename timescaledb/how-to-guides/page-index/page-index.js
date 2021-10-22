@@ -319,7 +319,7 @@ module.exports = [
             tags: ['hypertables', 'create', 'distributed', 'timescaledb'],
             keywords: ['hypertables', 'distributed', 'TimescaleDB'],
             excerpt: 'Learn about distributed hypertables',
-          }
+          },
           {
             title: 'Best practices',
             href: 'best-practices',
