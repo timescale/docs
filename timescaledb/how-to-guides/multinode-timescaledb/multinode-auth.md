@@ -164,7 +164,7 @@ your access node.
     ```sql
     CALL distributed_exec($$ CREATE ROLE testrole PASSWORD 'internalpass' LOGIN $$);
     ```
-1.  On the acces node, add the new role to the `passfile` you created earlier,
+1.  On the access node, add the new role to the `passfile` you created earlier,
     by adding this line:
     ```bash
     *:*:*:testrole:internalpass #assuming 'internalpass' is the password used to connect to data nodes
@@ -178,47 +178,36 @@ need to be re-created so that they use the new encryption method.
 </procedure>
 
 ## Certificate authentication
-This method is more complex to set up than password authentication, but
-more secure and easier to automate.
+This method is a bit more complex to set up than password authentication, but
+it is more secure, easier to automate, and can be customized to your security environment.
 
-To use certificates, each node involved in certificate
-authentication uses three files:
+To use certificates, the access node and each data node need three files:
+*   The root CA certificate, called `root.crt`. This certificate serves as the
+    root of trust in the system. It is used to verify the other certificates.
+*   A node certificate, called `server.crt`. This certificate provides the node
+    with a trusted identity in the system.
+*   A node certificate key, called `server.key`. This provides proof of
+    ownership of the node certificate. Make sure you keep this file private on
+    the node where it is generated.
 
-- A *root CA certificate*, which we assume to be named `root.crt`, which
-  serves as the root of trust in the system. It is used to verify other
-  certificates.
-- A node *certificate* that provides the node with a trusted identity in the
-  system. The node certificate is signed by the CA.
-- A private *key* that provides proof of ownership of the node certificate. In the
-case of the access node, this key is also used to sign user certificates. The key
-should be kept secure on the node instance where it is generated.
-
-The access node also needs a private key and certificate pair for each user (role)
-in the database that will be used to connect and execute queries on the data
-nodes. The access node can use its own node certificate to create and sign new
-user certificates, as described further below.
+You can purchase certificates from a commercial certificate authority (CA), or
+generate your own self-signed CA. This section shows you how to use your access
+node certificate to create and sign new user certificates for the data nodes.
 
 <procedure>
 
 ### Setting up certificate authentication
+1.  On the access node, at the command prompt, generate a private key called
+    `auth.key`:
+    ```bash
+    openssl genpkey -algorithm rsa -out auth.key
+    ```
+1.  Generate a self-signed root certificate for the certificat authority (CA):
+    ```bash
+    openssl req -new -key auth.key -days 3650 -out root.crt -x509
+    ```
 
-Set up a CA:
-A CA is necessary as a trusted third party to sign other certificates.  The _key_
-of the CA is used to sign Certificate Signing Requests (CSRs), and the
-_certificate_ of the CA is used as a root certificate for other parties.
-Creating a new CA is not necessary if there is already one available to be
-employed.  In that case skip to the next step.
-
-First, generate a private key called `auth.key`:
-
-```bash
-openssl genpkey -algorithm rsa -out auth.key
-```
-
-Generate a self-signed root certificate for the CA:
-
-```bash
-openssl req -new -key auth.key -days 3650 -out root.crt -x509
+<!--- Lana, you're up to here! --LKB 2021-10-22-->
 
 You are about to be asked to enter information that will be incorporated
 into your certificate request.
