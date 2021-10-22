@@ -6,7 +6,6 @@ connect to the access node.
 
 How you set this up depends on which authentication mechanism you choose. The
 options are:
-
 *   Trust all incoming connections. This is the simplest approach, but also the
     least secure. This is a good way to start if you are trying out multi-node,
     but is not recommended for production clusters.
@@ -26,7 +25,7 @@ We do not recommend any one security model, but encourage you to perform a risk
 assessment and implement the security model that best suits your environment.
 </highlight>
 
-## Trust authentication
+## Trust all incoming connections
 Trusting all incoming connections is the quickest way to get your multi-node
 environment up and running, but it is not a secure method of operation. Use this
 only for developing a proof of concept, do not use this method for production
@@ -110,6 +109,10 @@ We recommend using SCRAM SHA-256 password authentication. For other
 password authentication methods, [see the PostgreSQL docs][auth-password].
 The method assumes the presence of a `postgres` user/password combination
 that exists on all nodes.
+
+<procedure>
+
+### Setting up password authentication
 
 ### 1. Set the password encryption method for access node and data nodes
 First set the password encryption method to `scram-sha-256` within the PostgreSQL
@@ -196,7 +199,8 @@ node (created in step 3 above).
 *:*:*:testrole:internalpass #assuming 'internalpass' is the password used to connect to data nodes
 ```
 
----
+</procedure>
+
 ## Certificate authentication
 This method is more complex to set up than password authentication, but
 more secure and easier to automate.
@@ -218,8 +222,11 @@ in the database that will be used to connect and execute queries on the data
 nodes. The access node can use its own node certificate to create and sign new
 user certificates, as described further below.
 
-### 1. Set up a certificate authority
+<procedure>
 
+### Setting up certificate authentication
+
+Set up a CA:
 A CA is necessary as a trusted third party to sign other certificates.  The _key_
 of the CA is used to sign Certificate Signing Requests (CSRs), and the
 _certificate_ of the CA is used as a root certificate for other parties.
@@ -393,30 +400,13 @@ And finally add the role to all of the data nodes with [`distributed_exec`][dist
 CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
 ```
 
----
+</procedure>
 
-## Next steps
-To start working with the system, you can look at documentation for
-[distributed hypertables][].
-
-All functions for modifying the node network are described in the API
-docs:
-- [add_data_node][]
-- [attach_data_node][]
-- [delete_data_node][]
-- [detach_data_node][]
-- [distributed_exec][]
 
 [init_data_nodes]: /how-to-guides/distributed-hypertables/
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
 [passfile]: https://www.postgresql.org/docs/current/libpq-pgpass.html
 [md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
-[distributed hypertables]: /how-to-guides/distributed-hypertables/
-[add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node
-[attach_data_node]: /api/:currentVersion:/distributed-hypertables/attach_data_node
-[delete_data_node]: /api/:currentVersion:/distributed-hypertables/delete_data_node
-[detach_data_node]: /api/:currentVersion:/distributed-hypertables/detach_data_node
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
-[postgresql-hba]: https://www.postgresql.org/docs/12/auth-pg-hba-conf.html
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
 [multi-node-setup]: /how-to-guides/multinode-timescaledb/multinode-setup/

@@ -19,7 +19,7 @@ distributed hypertable is a hypertable that automatically partitions data into
 chunks across multiple machines, while still like a single continuous table
 across all time.
 
-## multi-node architecture
+## Multi-node architecture
 To create a multi-node cluster, you need an access node that stores metadata
 for the distributed hypertable and performs query planning across the cluster,
 and any number of data nodes that store subsets of the distributed hypertable
