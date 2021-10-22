@@ -4,9 +4,9 @@ connections from the access node to the data nodes. The authentication mechanism
 you choose for this can be different than the one used by external clients to
 connect to the access node.
 
-How you set this up depends on which authentication mechanism you choose. The
-options are:
-*   Trust all incoming connections. This is the simplest approach, but also the
+How you set up your multi-node cluster depends on which authentication mechanism
+you choose. The options are:
+*   Trust authentication. This is the simplest approach, but also the
     least secure. This is a good way to start if you are trying out multi-node,
     but is not recommended for production clusters.
 *   Pasword authentication. Every user role requires an internal password for
@@ -25,7 +25,7 @@ We do not recommend any one security model, but encourage you to perform a risk
 assessment and implement the security model that best suits your environment.
 </highlight>
 
-## Trust all incoming connections
+## Trust authentication
 Trusting all incoming connections is the quickest way to get your multi-node
 environment up and running, but it is not a secure method of operation. Use this
 only for developing a proof of concept, do not use this method for production
@@ -38,7 +38,7 @@ this method in production. It is not a secure method of operation.
 
 <procedure>
 
-### Trusting all incoming connections
+### Setting up trust authentication
 1.  Connect to the access node with `psql`, and locate the `pg_hba.conf` file:
     ```sql
     SHOW hba_file;
@@ -83,121 +83,97 @@ ensure they are same on the access node and the data nodes.
 
 </procedure>
 
-<!-- Lana, you're up to here! --LKB 2021-10-20 -->
-
 ## Password authentication
-With password authentication, every user role that uses distributed
-hypertables needs an "internal" password for establishing connections
-between the access node and the data nodes. Such a password is only
-used by the access node and it need not be the same password as used
-by the client connecting externally to the access node (in case the
-client also uses password authentication). In fact, unless the user
-needs to connect directly to data nodes, it never needs to use the
-internal password and it can be setup and configured by the database
-admin. Neither does the internal password have to change when the user
-changes its password used to connect to the access node.
+Password authentication requires every user role to know a password before it
+can establish a connection between the access node and the data nodes. This
+internal password is only used by the access node and it does not need to be
+the same password as the client uses to connect to the access node. External
+users do not need to share the internal password at all, it can be set up and
+administered by the database administrator.
 
-The access node needs to store the internal passwords somewhere so
-that it can retrieve the right password when connecting to a data
-node. It is recommended that internal passwords are stored in a local
-password file, but, alternatively, [user mappings][user-mapping] can
-be used as well. However, such in-database user mappings are less
-secure and require one mapping per user and data node. Therefore, this
-section focuses on the password file approach.
+The access node stores the internal password so that it can verify the correct
+password has been provided by a data node. We recommend that you store the
+password on the access node in a local password file, and this section shows you
+how to set this up. However, if it works better in your environment, you can use
+[user mappings][user-mapping] to store your passwords instead. This is slightly
+less secure than a local pasword file, because it requires one mapping for each
+data node in your cluster.
 
-We recommend using SCRAM SHA-256 password authentication. For other
-password authentication methods, [see the PostgreSQL docs][auth-password].
-The method assumes the presence of a `postgres` user/password combination
-that exists on all nodes.
+This section sets up your password authentication using SCRAM SHA-256 password
+authentication. For other password authentication methods, see the
+[PostgreSQL authentication documentation][auth-password].
+
+Before you start, check that you can use the `postgres` username to log in to
+your access node.
 
 <procedure>
 
 ### Setting up password authentication
+1.  On the access node, open the `postgresql.conf` configuration file, and add
+    or edit this line:
+    ```txt
+    password_encryption = 'scram-sha-256'		# md5 or scram-sha-256
+    ```
+1.  Repeat for each of the data nodes.
+1.  On each of the data nodes, at the `psql` prompt,  locate the `pg_hba.conf`
+    configuration file:
+    ```sql
+    SHOW hba_file
+    ```
+1.  On each of the data nodes, open the `pg_hba.conf` configuration file, and
+    add or edit this line to enable encrypted authentication to the access
+    node:
+    ```txt
+    # IPv4 local connections:
+    # TYPE  DATABASE  USER  ADDRESS      METHOD
+    host    all       all   192.0.2.20   scram-sha-256 #where '192.0.2.20' is the access node IP
+    ```
+1.  On the access node, open or create the password file at `data/passfile`.
+    This file stores the passwords for each role that the access node connects
+    to on the data nodes. If you need to change the location of the password
+    file, adjust the `timescaledb.passfile` setting in the `postgresql.conf`
+    configuration file.
+1.  On the access node, open the `passfile` file, and add a line like this for
+    each user, starting with the `postgres` user:
+    ```bash
+    *:*:*:postgres:xyzzy #assuming 'xyzzy' is the password for the 'postgres' user
+    ```
+1.  On the access node, at the command prompt, change the permissions of the
+    `passfile` file:
+    ```bash
+    chmod 0600 passfile
+    ```
+1.  On the access node, and on each of the data nodes, reload the server
+    configuration to pick up the changes:
+    ```bash
+    pg_ctl reload
+    ```
+1.  If you have not already done so, add the data nodes to the access node. For
+    instructions, see the [multi-node setup][multi-node-setup] section.
+1.  On the access node, at the `psql` prompt, create additional roles, and
+    grant them access to foreign server objects for the data nodes:
+    ```sql
+    CREATE ROLE testrole PASSWORD 'clientpass' LOGIN;
+    GRANT USAGE ON FOREIGN SERVER <data node name>, <data node name>, ... TO testrole;
+    ```
+    The `clientpass` password is used by external clients to connect to the access node as user `testrole`. If the access node is configured to accept other authentication methods, or the role is not a login role, then you might not need to do this step.
+1.  On the access node, add the new role to each of the data nodes with
+    [`distributed_exec`][distributed_exec]. Make sure you add the `PASSWORD`
+    parameter to specify a different password to use when connecting to the
+    data nodes with role `testrole`:
+    ```sql
+    CALL distributed_exec($$ CREATE ROLE testrole PASSWORD 'internalpass' LOGIN $$);
+    ```
+1.  On the acces node, add the new role to the `passfile` you created earlier,
+    by adding this line:
+    ```bash
+    *:*:*:testrole:internalpass #assuming 'internalpass' is the password used to connect to data nodes
+    ```
 
-### 1. Set the password encryption method for access node and data nodes
-First set the password encryption method to `scram-sha-256` within the PostgreSQL
-configuration file `postgresql.conf` on each node. Add this line to the file:
-
-```bash
-password_encryption = 'scram-sha-256'		# md5 or scram-sha-256
-```
-
-Note that any previously created user passwords will need to be recreated to
-incorporate the new encryption.
-
-### 2. Enable password authentication on the data nodes
-Password authentication is set by modifying the HBA file (by default `pg_hba.conf`
-in the data directory, can also be found via `SHOW hba_file` in psql). Add a
-line to `pg_hba.conf` to enable encrypted authentication between the access node and
-the data node for all users:
-
-```bash
-# IPv4 local connections:
-# TYPE  DATABASE  USER  ADDRESS      METHOD
-host    all       all   192.0.2.20   scram-sha-256 #where '192.0.2.20' is the access node IP
-```
-
-### 3. Create passwords on the access node
-The password file `passfile` stores passwords for each role that the
-access node connects with to data nodes. The file is by default
-located in the data directory ([PostgreSQL
-documentation][passfile]). The location of the passfile can be changed
-via the settings variable `timescaledb.passfile`.  If a file doesn't
-exist, create one with the new user information.  Add a line for each
-user, starting with the `postgres` user:
-
-```bash
-*:*:*:postgres:xyzzy #assuming 'xyzzy' is the password for the 'postgres' user
-```
-
-Then apply the correct permissions to the file:
-
-```
-chmod 0600 passfile
-```
-
-### 4. Reload server configuration
-Reload the server configuration on each node for the changes to take effect:
-
-```bash
-pg_ctl reload
-```
-
-### 5. Add the data nodes to the access node
-Once the nodes are properly configured, you can continue following the
-[multi-node setup][init_data_nodes].
-
-### 6. Setting up additional roles
-First, create the role on the access node if needed, and grant it
-usage to the foreign server objects for the data nodes:
-
-```sql
-CREATE ROLE testrole PASSWORD 'clientpass' LOGIN;
-GRANT USAGE ON FOREIGN SERVER <data node name>, <data node name>, ... TO testrole;
-```
-
-Note that `clientpass` is the password used by external clients to
-connect to the access node as user `testrole`. If the access node is
-configured to accept other authentication methods, or the role is not
-a login role, then the password and login options might not be needed
-when creating the role on the access node.
-
-Second, use [`distributed_exec`][distributed_exec] to add the role to
-all of the data nodes. In addition to `LOGIN`, make sure to provide
-the `PASSWORD` parameter to specify a different password to use when
-connecting to the data nodes with role `testrole`:
-
-
-```sql
-CALL distributed_exec($$ CREATE ROLE testrole PASSWORD 'internalpass' LOGIN $$);
-```
-
-Finally, the new role must be added to the `passfile` on the access
-node (created in step 3 above).
-
-```bash
-*:*:*:testrole:internalpass #assuming 'internalpass' is the password used to connect to data nodes
-```
+<highlight type="important">
+Any user passwords that you created before you set up password authentication
+need to be re-created so that they use the new encryption method.
+</highlight>
 
 </procedure>
 
