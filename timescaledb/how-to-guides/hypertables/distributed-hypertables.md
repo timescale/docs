@@ -1,63 +1,22 @@
 # Distributed hypertables
+Distributed hypertables are used in [multi-node][multinode] clusters. A
+distributed hypertable is a hypertable that automatically partitions data into
+chunks across multiple machines, while still like a single continuous table
+across all time. In most cases, distributed hypertables work the same way as
+regular hypertables, including inserting, querying, and altering them.
 
-Distributed hypertables extend regular hypertables with the ability to
-store data chunks across multiple data nodes for better scale-out
-performance. Prior to creating a distributed hypertable, however,
-TimescaleDB must be [set up for multi-node
-usage][getting-started-multi-node].
-
-In most cases, using a distributed hypertable is similar to using a
-regular hypertable, including inserting, querying, and altering
-it. Thus, for basic usage, please review the [documentation for regular
-hypertables][using-hypertables].
-
-For inserts and queries, however, a distributed hypertable has unique
-performance characteristics and there are also additional limitations
-due to its distributed nature. For instance, query performance is
-heavily dependent on the ability to *push down* work to data nodes,
-which in turn ties into how data is partitioned across the nodes. If
-it is not possible to push down computations, or the query does not
-involve many data nodes, the query performance of a distributed
-hypertable will likely be worse than that of a regular hypertable due
-to the additional network overhead.
-
-Note, also, that distributed hypertables can live alongside
-non-distributed tables and other objects; in fact, no objects are
-distributed by default. Interactions between distributed hypertables
-and non-distributed objects might not have the expected behavior. For
-instance, setting permissions on a distributed hypertable only works
-if the roles involved exist identically on all data nodes. Further,
-joins between a local table and a distributed hypertable requires
-fetching the raw data from data nodes and performing the join locally.
-
-<highlight type="warning">
-Distributed hypertables currently have some limitations when
-compared to non-distributed hypertables. Before creating a
-distributed hypertable for production workloads, please review our
-[limitations](/timescaledb/latest/overview/limitations/)
-document to ensure that your use case will work as expected. You can also
-[contact us](https://www.timescale.com/contact) or join the #multinode channel
-in our [community Slack](https://slack.timescale.com/).
+<highlight type="important">
+You must have set up your multi-node cluster before implementing a distributed
+hypertable. See [multi-node](/how-to-guides/multinode-timescaledb) for
+instructions on setting up your multi-node cluster, and creating a distributed
+hypertable.
 </highlight>
 
-# Alter a distributed hypertable [](alter)
+The primary difference between a regular hypertable and a distributed hypertable is that a distributed hypertable needs to push operations down to the various data nodes. This can slow down processing speeds in some cases, but reduces the risk of data loss.
 
-You can execute standard `ALTER TABLE` commands against the hypertable ([PostgreSQL docs][postgres-altertable]).
+You can run distributed hypertables in the same database as regular hypertables and other objects. However, some interactions between distributed hypertables
+and non-distributed objects might not work as expected. For example, when you set permissions on a distributed hypertable, they work only if the roles are identical on all the data nodes. Additionally, if you `JOIN` a local table and a distributed hypertable, you need to the raw data from data nodes and perform the `JOIN` locally.
 
-```sql
-ALTER TABLE conditions
-  ADD COLUMN humidity DOUBLE PRECISION NULL;
-```
-
-TimescaleDB will then automatically propagate these schema changes to
-the chunks that constitute this hypertable.
-
-<highlight type="warning">
-Altering a table's schema is quite efficient provided that the default
- value for any additional column is set to NULL.  If the default is set to a
- non-null value, TimescaleDB will need to fill in this value for all rows
- (of all chunks) belonging to this hypertable.
- </highlight>
 
  # Creating a distributed hypertable
 
@@ -489,6 +448,7 @@ Altering a table's schema is quite efficient provided that the default
    fashion.
 
 
+[multinode]: /how-to-guides/multinode-timescaledb/
 
    [sharding]: https://en.wikipedia.org/wiki/Shard_(database_architecture)
 
