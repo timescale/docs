@@ -29,7 +29,7 @@ are the only four accepted values for the `method` argument. The default is 'sam
 |---|---|---|
 |`summary`|`StatsSummary1D` / `StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
 
-## Optional Arguments
+### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|

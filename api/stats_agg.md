@@ -1,41 +1,43 @@
 # stats_agg() <tag type="toolkit" content="toolkit" />
 An aggregate that produces a StatsSummary from `DOUBLE PRECISION` values. 
 
-Statistical aggregates can be done on either a single variable, in which case
-only one-dimensional aggregates are calculated or two variables, in which case
-one-dimensional aggregates are calculated for each and linear regression is performed
-on both together. 
+Statistical aggregates can be done on either one or two variables. 
+For a single variable, only one-dimensional aggregates are calculated. 
+For two variables, one-dimensional aggregates are calculated for 
+each variable, and linear regression is performed on both together. 
 
 For more information about statistical aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## 1D Statistical Aggregates
-## Required arguments
+### Required arguments
 
 |Name|Type|Description|
 |-|-|-|
 |value|DOUBLE PRECISION|The variable to use for the statistical aggregate|
 
 The `value` argument is currently only accepted as a DOUBLE PRECISION number.
-If you store a valueas a different numeric type you can cast to DOUBLE PRECISION 
-on input to thefunction.
+If you store a value as a different numeric type you can cast to DOUBLE PRECISION 
+on input to the function.
 
 <highlight type="note">
-Note that `value` can be NULL, but the aggregate is not evaluated
-on NULL values. This means that if the aggregate receives only a NULL value, it will
-return NULL, it will not return an error. If non-NULL values are also received, the NULL 
-values will be ignored. 
+The `value` can be NULL, but the aggregate is not evaluated
+on NULL values. This means that if the aggregate receives only a NULL value, it 
+returns NULL, it does not return an error. If non-NULL values are also received, the NULL 
+values are ignored. 
 </highlight>
 
-
-## Returns
+### Returns
 
 |Column|Type|Description|
 |-|-|-|
 |`stats_agg`|`StatsSummary1D`|A one-dimensional StatsSummary object that can be passed to accessor functions or other objects in the stats aggregate API|
 
-## 2D Statistical Aggregates
-## Required arguments
+## 2D statistical aggregates
+When you perform a statistical aggregate on two variables, 
+one-dimensional aggregates are calculated for each variable, 
+and linear regression is performed on both together. 
+### Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -43,7 +45,7 @@ values will be ignored.
 |`X`|`DOUBLE PRECISION`|The independent variable to use for the statistical aggregate|
 
 The `Y` and `X`  arguments are currently only accepted as DOUBLE PRECISION numbers.
-If you store a valueas a different numeric type you can cast to DOUBLE PRECISION 
+If you store a value as a different numeric type you can cast to DOUBLE PRECISION 
 on input to the function.
 
 Note that the function is called with the dependent variable first (`stats_agg(Y, X)`)
@@ -53,20 +55,16 @@ first in [linear regression type functions][pg-stats-aggs] and we have followed 
 
 <highlight type="note">
 Note that `value` can be NULL, but the aggregate is not evaluated
-on NULL values. This means that if the aggregate receives only a NULL value, it will
-return NULL, it will not return an error. If non-NULL values are also received, the NULL 
-values will be ignored. Both `Y` and `X` must be non-NULL for the row to be included.
+on NULL values. This means that if the aggregate receives only a NULL value, it 
+returns NULL, it does not return an error. If non-NULL values are also received, the NULL 
+values are ignored. Both `Y` and `X` must be non-NULL for the row to be included.
 </highlight>
 
-
-## Returns
+### Returns
 
 |Column|Type|Description|
 |-|-|-|
 |`stats_agg`|`StatsSummary2D`|A two-dimensional StatsSummary object that can be passed to accessor functions or other objects in the stats aggregate API|
-
-
-<!---Any special notes about the returns-->
 
 ## Sample usage
 This example produces one and two dimensionsal StatsSummaries in the CTE (`WITH t as (...)` and then uses the `average` and `slope` accessors for each type to calculate the corresponding values from each function. 

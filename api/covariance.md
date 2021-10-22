@@ -20,7 +20,8 @@ are the only four accepted values for the `method` argument. The default is 'sam
 |Name|Type|Description|
 |-|-|-|
 |`summary`|`StatsSummary2D`|The input StatsSummary from a [`stats_agg` call][stats-agg]|
-## Optional Arguments
+
+### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|

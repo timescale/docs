@@ -25,7 +25,7 @@ aggregate. You do not need to specify a separate `count` aggregate.
 
 |Column|Type|Description|
 |---|---|---|
-|`num_vals`|`BIGINT`|The number of values in the percentile estimate|
+|`num_vals`|`BIGINT`|The number of values in the stats agg|
 
 ## Sample usage
 

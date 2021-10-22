@@ -7,16 +7,18 @@ additional hyperfunctions, you need to install the
 are in the [Timescale Toolkit][install-toolkit]. They provide a superset of functionality
 available with [PostgreSQL statistical aggregates][pg-stats-aggs].
 
-Note that statistical aggregates have 1D aggregates which are computed for a single variable
-and 2D or regression aggregates which are computed over two variables. All 1D aggregates are available
-for each of the 2D variables separately, this is denoted by `_y` or `_x` following the name. 
+Statistical aggregates have one-dimensional (1D) aggregates which are 
+computed for a single variable, and two-dimensional (2D) or regression 
+aggregates which are computed over two variables. All 1D aggregates are 
+available for each of the 2D variables separately, this is denoted by `_y` 
+or `_x` following the name. 
+
 For more information about statistical aggregate functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-aggs].
 
-
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Statsistical Aggregates|Statistical Aggregates|[`stats_agg`](/hyperfunctions/stats_aggs/stats_agg/)|❌|✅|
+|Statistical Aggregates|Statistical Aggregates|[`stats_agg`](/hyperfunctions/stats_aggs/stats_agg/)|❌|✅|
 |||[`rollup`](/hyperfunctions/stats_aggs/rollup-stats/)|❌|✅|
 |||[`rolling`](/hyperfunctions/stats_aggs/rolling-stats/)|❌|✅|
 |Statistical aggregation|Stats Agg 1D Accessors|[`average` / `average_y` / `average_x`](/hyperfunctions/stats_aggs/average-stats/)|✅|❌|

@@ -14,13 +14,13 @@ The slope of the least squares fit line computed from a two-dimensional statisti
 
 |Name|Type|Description|
 |-|-|-|
-|summary|StatsSummary2D|The input StatsSummary from a [`stats_agg` call][stats-agg]|
+|`summary`|`StatsSummary2D`|The input StatsSummary from a [`stats_agg` call][stats-agg]|
 
 ## Returns
 
 |Name|Type|Description|
 |-|-|-|
-|slope|DOUBLE PRECISION|The slope of the least squares fit line. |
+|`slope`|`DOUBLE PRECISION`|The slope of the least squares fit line. |
 
 ## Sample usage
 

@@ -45,7 +45,8 @@ extrapolation, but not for other accessor functions.
 <!---Any special notes about the returns-->
 
 ## Sample usage
-This example produces a CounterSummary from timestamps and associated values and then computes the [`irate_right` accessor]((/hyperfunctions/counter_aggs/irate/) on it
+This example produces a CounterSummary from timestamps and associated values,
+then computes the [`irate_right` accessor]((/hyperfunctions/counter_aggs/irate/):
 
 ``` sql
 WITH t as (
