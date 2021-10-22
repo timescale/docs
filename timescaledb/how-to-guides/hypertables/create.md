@@ -1,49 +1,77 @@
-# Create a hypertable
+# Create hypertables
+When you have createed your database, you're ready to create your first
+hypertable. Creating a hypertable is a two-step process; you need to create a
+standard PostgreSQL table, and then convert it into a TimescaleDB hypertable.
+The method for creating distributed hypertable on a multi-node cluster is
+similar.
 
-Creating a hypertable is a two-step process.
-<!-- add steps format?-->
-1. Create a standard table ([PostgreSQL docs][postgres-createtable]).
+## Create a hypertable
+To create a hypertable, you need to create a standard PostgreSQL table, and then
+convert it into a TimescaleDB hypertable.
 
- ```sql
- CREATE TABLE conditions (
-     time        TIMESTAMPTZ       NOT NULL,
-     location    TEXT              NOT NULL,
-     temperature DOUBLE PRECISION  NULL
- );
- ```
+<procedure>
 
-1. Execute the TimescaleDB
-[`create_hypertable`][create_hypertable] command on this newly created
-table, or use
-[`create_distributed_hypertable`][create_distributed_hypertable] to
-create a [distributed hypertable][using-distributed-hypertables] that
-scales out across multiple data nodes.
-
- ```sql
- SELECT create_hypertable('conditions', 'time');
- ```
-
-If you need to *migrate* data from an existing table to a hypertable, make
-sure to set the `migrate_data` argument to `true` when calling the function.
-If you would like finer control over index formation and other aspects
-of your hypertable, [follow these migration instructions instead][migrate-data].
-
-<highlight type="warning">
-The use of the `migrate_data` argument to convert a non-empty table can
-lock the table for a significant amount of time, depending on how much data is
-in the table.
-</highlight>
+### Creating a hypertable
+1.  Create a standard [PostgreSQL table][postgres-createtable]:
+    ```sql
+    CREATE TABLE TABLE_NAME (
+       time        TIMESTAMPTZ       NOT NULL,
+       location    TEXT              NOT NULL,
+       temperature DOUBLE PRECISION  NULL
+    );
+    ```
+1.  From the `psql` prompt on your new table, create the hypertable:
+     ```sql
+     SELECT create_hypertable('conditions', 'time');
+     ```
 
 <highlight type="tip">
 The 'time' column used in the `create_hypertable` function supports
 timestamp, date, or integer types, so you can use a parameter that is not
 explicitly time-based, as long as it can increment.  For example, a
-monotonically increasing id would work.
+monotonically increasing ID would work.
 </highlight>
 
+</procedure>
 
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
-[using-distributed-hypertables]: /how-to-guides/distributed-hypertables
+If you need to migrate data from an existing table to a hypertable, set the `migrate_data` argument to `true` when you call the `create_hypertable` function. For more information about migrating data in your hypertables, see the [migration section][migrate-data].
+
+## Create a distributed hypertable
+When you have set up your [multi-node environment][multi-node], you can create a
+distributed hypertable across your data nodes. In this example, we create a
+multi-dimensional distributed hypertable across all data nodes, partitioned
+along `time` and `location`. Using this partitioning configuration, each data
+node contains a specific subset of the data based on the value of `location`,
+allowing concurrent and parallel execution of a query across the data nodes.
+
+<highlight type="important">
+You must have set up your multi-node cluster before you create a distributed
+hypertable. If you have not configured multi-node, creating a distributed
+hypertable fails. For more information about setting up multi-node, see the
+[multi-node section][multi-node].
+</highlight>
+
+<procedure>
+
+### Creating a distributed hypertable
+1.  On the access node of your multi-node cluster, create a standard
+    [PostgreSQL table][postgres-createtable]:
+    ```sql
+    CREATE TABLE TABLE_NAME (
+      time        TIMESTAMPTZ       NOT NULL,
+      location    TEXT              NOT NULL,
+      temperature DOUBLE PRECISION  NULL,
+      humidity    DOUBLE PRECISION  NULL
+    );
+    ```
+1.  From the `psql` prompt on your new table, create the hypertable:
+     ```sql
+     SELECT create_distributed_hypertable('conditions', 'time', 'humidity');
+     ```
+
+</procedure>
+
+
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
+[multi-node]: /how-to-guides/multinode-timescaledb/
