@@ -394,64 +394,64 @@ module.exports = [
         ],
       },
       {
-        title: "Multinode",
+        title: "Multi-node",
         href: "multinode-timescaledb",
         children: [
           {
-            title: "About multinode",
+            title: "About multi-node",
             href: "about-multinode",
-            tags: ['multinode', 'distributed', 'nodes'],
-            keywords: ['multinode'],
-            excerpt: 'Learn about multinode environments'
+            tags: ['multi-node', 'distributed', 'nodes'],
+            keywords: ['multi-node'],
+            excerpt: 'Learn about multi-node environments'
           },
           {
-            title: "Multinode setup on TimescaleDB",
+            title: "Multi-node setup on TimescaleDB",
             href: "multinode-setup",
-            tags: ['multinode', 'setup', 'distributed', 'nodes', 'timescaledb'],
-            keywords: ['multinode', 'setup', 'TimescaleDB'],
-            excerpt: 'Set up multinode on self-hosted TimescaleDB'
+            tags: ['multi-node', 'setup', 'distributed', 'nodes', 'timescaledb'],
+            keywords: ['multi-node', 'setup', 'TimescaleDB'],
+            excerpt: 'Set up multi-node on self-hosted TimescaleDB'
           },
           {
-            title: "Multinode authentication",
+            title: "Multi-node authentication",
             href: "multinode-auth",
-            tags: ['multinode', 'authentication', 'setup', 'distributed', 'nodes'],
-            keywords: ['multinode', 'setup', 'authentication'],
-            excerpt: 'Set up multinode authentication'
+            tags: ['multi-node', 'authentication', 'setup', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'setup', 'authentication'],
+            excerpt: 'Set up multi-node authentication'
           },
           {
-            title: "Configure multinode",
+            title: "Configure multi-node",
             href: "multinode-config",
-            tags: ['multinode', 'configure', 'distributed', 'nodes'],
-            keywords: ['multinode', 'configure'],
-            excerpt: 'Configure a multinode environment'
+            tags: ['multi-node', 'configure', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'configure'],
+            excerpt: 'Configure a multi-node environment'
           },
           {
-            title: "Grow and shrink a multinode cluster",
+            title: "Grow and shrink a multi-node cluster",
             href: "multinode-grow-shrink",
-            tags: ['multinode', 'configure', 'manage', 'distributed', 'nodes'],
-            keywords: ['multinode', 'configure', 'manage'],
-            excerpt: 'Grow and shrink a multinode cluster'
+            tags: ['multi-node', 'configure', 'manage', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'configure', 'manage'],
+            excerpt: 'Grow and shrink a multi-node cluster'
           },
           {
-            title: "Backup and restore a multinode cluster",
+            title: "Backup and restore a multi-node cluster",
             href: "multinode-backup",
-            tags: ['multinode', 'backup', 'restore', 'distributed', 'nodes'],
-            keywords: ['multinode', 'backup', 'restore'],
-            excerpt: 'Backup and restore a multinode environment'
+            tags: ['multi-node', 'backup', 'restore', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'backup', 'restore'],
+            excerpt: 'Backup and restore a multi-node environment'
           },
           {
-            title: "High availability multinode",
+            title: "High availability multi-node",
             href: "multinode-ha",
-            tags: ['multinode', 'ha', 'distributed', 'nodes'],
-            keywords: ['multinode', 'HA'],
-            excerpt: 'Highly available multinode environments'
+            tags: ['multi-node', 'ha', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'HA'],
+            excerpt: 'Highly available multi-node environments'
           },
           {
-            title: "Multinode maintenance",
+            title: "Multi-node maintenance",
             href: "multinode-maintenance",
-            tags: ['multinode', 'maintain', 'distributed', 'nodes', 'manage'],
-            keywords: ['multinode', 'maintain'],
-            excerpt: 'Maintain a multinode environment'
+            tags: ['multi-node', 'maintain', 'distributed', 'nodes', 'manage'],
+            keywords: ['multi-node', 'maintain'],
+            excerpt: 'Maintain a multi-node environment'
           }
         ]
       },
