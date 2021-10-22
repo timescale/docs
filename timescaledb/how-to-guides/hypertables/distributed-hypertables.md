@@ -19,16 +19,6 @@ and non-distributed objects might not work as expected. For example, when you se
 
 
 
- # Dropping a distributed hypertable
-
- Dropping a distributed hypertable works just like the standard `DROP TABLE`
- command, where TimescaleDB will correspondingly delete all chunks belonging
- to the distributed hypertable.
-
- ```sql
- DROP TABLE conditions;
- ```
-
  # Inserting into a distributed hypertable
 
  Just like a regular hypertable, it is important to batch data when
