@@ -1,23 +1,32 @@
 # asap_smooth()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
-The [ASAP smoothing alogrithm](https://arxiv.org/pdf/1703.00983.pdf) is designed create human readable graphs which preserve the rough shape and larger trends of the input data while minimizing the local variance between points.  The `asap_smooth` hyperfunction provides an implementation of this algorithm which takes `(timestamptz, double precision)` data and returns an ASAP smoothed [`timevector`][hyperfunctions-timevectors].
+The [ASAP smoothing alogrithm][asap-algorithm] is designed to create 
+human-readable graphs that preserve the rough shape and larger trends 
+of the input data, while minimizing the local variance between points. 
+The `asap_smooth` hyperfunction provides an implementation of this 
+algorithm that takes `(timestamptz, double precision)` data and returns 
+an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 
-## Required Arguments
+## Required arguments
+
 |Name| Type |Description|
-|---|---|---|
-| `ts` | `TIMESTAMPTZ` | Column of timestamps corresponding to the values to aggregate |
-| `value` | `DOUBLE PRECISION` |  Column to aggregate. |
-| `resolution` | `INT` |  Approximate number of points to return.  Intended to represent the horizontal resolution in which the aggregate will be graphed
+|-|-|-|
+|`ts`|`TIMESTAMPTZ`|Column of timestamps corresponding to the values to aggregate|
+|`value`|`DOUBLE PRECISION`|Column to aggregate|
+|`resolution`|`INT`|Approximate number of points to return.  Intended to represent the horizontal resolution in which the aggregate is graphed.|
 
 ## Returns
 
 |Column|Type|Description|
-|---|---|---|
-| `normalizedtimevector` | `NormalizedTimevector` | A object representing a series of values occurring at set intervals from a starting time.  It can be unpacked via `unnest` |
+|-|-|-|
+|`normalizedtimevector`|`NormalizedTimevector`|An object representing a series of values occurring at set intervals from a starting time. It can be unpacked via `unnest`.|
 
-## Sample Usage
-For this examples assume we have a table 'metrics' with columns 'date' and 'reading' which contains some interesting measurment we've accumulated over a large interval.  The following example would take that data and give us a smoothed representation of approximately 10 points which would still show any anomolous readings:
-
-```SQL
+## Sample usage
+This example uses a table called `metrics`, with columns for `date` and 
+`reading` that contain measurements that have been accumulated over 
+a large interval of time.  This example takes that data and provides a 
+smoothed representation of approximately 10 points, but that still shows 
+any anomalous readings:
+```sql
 SET TIME ZONE 'UTC';
 CREATE TABLE metrics(date TIMESTAMPTZ, reading DOUBLE PRECISION);
 INSERT INTO metrics
@@ -28,12 +37,14 @@ SELECT
 
 ```
 
-```SQL
+```sql
 SELECT * FROM toolkit_experimental.unnest(
     (SELECT toolkit_experimental.asap_smooth(date, reading, 8)
      FROM metrics));
 ```
-```output
+
+The output for this query:
+```sql
           time          |        value
 ------------------------+---------------------
  2020-01-01 01:00:00+00 | 5.3664814565722665
@@ -47,4 +58,5 @@ SELECT * FROM toolkit_experimental.unnest(
 ```
 
 
+[asap-algorithm]: https://arxiv.org/pdf/1703.00983.pdf
 [hyperfunctions-timevectors]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors

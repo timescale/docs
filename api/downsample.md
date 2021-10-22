@@ -1,5 +1,5 @@
 # Downsample
-This section deals with functions used to downsample data.  Downsampling
+This section includes functions used to downsample data.  Downsampling
 is used to replace a set of values with a much smaller set that is highly
 representative of the original data.  This is particularly useful for
 graphing applications.
