@@ -19,7 +19,7 @@ For more information about counter aggregation functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|summary|CounterSummary|The input CounterSummary from a counter_agg call|
+|summary|CounterSummary|The input CounterSummary from a `counter_agg` call|
 
 ## Returns
 

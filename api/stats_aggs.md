@@ -5,7 +5,7 @@ Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension, all of these aggregates 
 are in the [Timescale Toolkit][install-toolkit]. They provide a superset of functionality
-available with [PostgreSQL statistical aggregates][pg-stats-aggs
+available with [PostgreSQL statistical aggregates][pg-stats-aggs].
 
 Note that statistical aggregates have 1D aggregates which are computed for a single variable
 and 2D or regression aggregates which are computed over two variables. All 1D aggregates are available

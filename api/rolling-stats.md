@@ -1,0 +1,66 @@
+# rolling()  <tag type="toolkit">Toolkit</tag>
+
+```SQL
+rolling(
+    ss StatsSummary1D
+) RETURNS StatsSummary1D
+```
+```SQL
+rolling(
+    ss StatsSummary2D
+) RETURNS StatsSummary2D
+```
+
+This combines multiple outputs from the [`stats_agg()` function][stats_agg] function, 
+it works with both one and two dimensional statistical aggregates. It is optimized
+for use in a [window function][postgres-window-functions] context for computing tumbling window
+statistical aggregates. 
+
+This is especially useful for computing tumbling window aggregates from a continuous aggregate. 
+It uses inverse transition and combine functions to do more efficient windowed aggregates, with the
+possibility that more floating point error can creep in in unusual scenarios. 
+
+It will also work for re-aggregation in a non-window context, but the [`rollup` function][rollup-func] 
+is more clear. The `rollup` function will also work for windowed aggregates, less efficiently but without
+the risk of extra floating point error. 
+
+*   For more information about statistical aggregation functions, see the
+    [hyperfunctions documentation][hyperfunctions-stats-aggs].
+
+## Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`stats_agg`|`StatsSummary1D` / `StatsSummary2D`|The already constructed data structure from a previous `stats_agg` call|
+
+## Returns
+
+|Column|Type|Description|
+|---|---|---|
+|`rolling`|`StatsSummary1D` / `StatsSummary2D`|A StatsSummary object which may be passed to further APIs|
+
+
+
+## Sample usage
+Create a tumbling window daily aggregate from an hourly continuous aggregate, then use accessors. 
+```SQL
+CREATE MATERIALIZED VIEW foo_hourly
+WITH (timescaledb.continuous)
+AS SELECT
+    time_bucket('1 h'::interval, ts) as bucket,
+    stats_agg(value) as stats
+FROM foo
+GROUP BY 1;
+
+SELECT
+    bucket,
+    average(rolling(stats) OVER (ORDER BY bucket RANGE '1 day' PRECEDING)),
+    stddev(rolling(stats) OVER (ORDER BY bucket RANGE '1 day' PRECEDING))
+FROM foo_hourly;
+```
+
+[stats_agg]: /hyperfunctions/stats_aggs/stats_agg/
+[hyperfunctions-stats-aggs]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[time_bucket]: /hyperfunctions/time_bucket/
+[postgres-window-functions]: TODO
+[rollup-func]: /hyperfunctions/stats_aggs/rollup-stats/
