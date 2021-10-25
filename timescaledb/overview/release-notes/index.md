@@ -77,14 +77,23 @@ for more information and links to installation instructions when upgrading from 
 
 ## Release notes
 
-In this section, we will cover historical information on
-past releases and how you can learn more.
+## 2.4.2 (2021-09-21)
 
-**Please note: When updating your database, you should connect using
-`psql` with the `-X` flag to prevent any `.psqlrc` commands from
-accidentally triggering the load of a previous DB version.**
+This release contains bug fixes since the 2.4.1 release.
+We deem it high priority to upgrade.
 
-## Unreleased
+**Bugfixes**
+* #3437 Rename on all continuous aggregate objects
+* #3469 Use signal-safe functions in signal handler
+* #3520 Modify compression job processing logic
+* #3527 Fix time_bucket_ng behaviour with origin argument
+* #3532 Fix bootstrap with regresschecks disabled
+* #3574 Fix failure on job execution by background worker
+* #3590 Call cleanup functions on backend exit
+
+**Thanks**
+* @jankatins for reporting a crash with background workers
+* @LutzWeischerFujitsu for reporting an issue with bootstrap
 
 ## 2.5 (2021-10-21)
 TODO

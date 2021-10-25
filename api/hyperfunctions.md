@@ -1,11 +1,15 @@
 # Hyperfunctions
+Timescale hyperfunctions are a specialized set of functions that allow you to to
+analyze time-series data. You can use hyperfunctions to analyze anything you
+have stored as time-series data, including IoT devices, IT systems, marketing
+analytics, user behavior, financial metrics, and cryptocurrency.
 
-TimescaleDB hyperfunctions are a series of SQL functions within TimescaleDB that 
-make it easier to manipulate and analyze time-series data in PostgreSQL with 
-fewer lines of code. You can use hyperfunctions to easily aggregate data into
-consistent buckets of time, calculate percentile approximations of data, compute 
-time-weighted averages, downsample and smooth data, and perform faster COUNT DISTINCT 
-queries using approximations. 
+Some hyperfunctions are included in the default TimescaleDB product. For
+additional hyperfunctions, you need to install the
+[Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-Hyperfunctions are “easy” to use: you call a hyperfunction using the same SQL 
-syntax you know and love.
+For more information, see the [hyperfunctions documentation][hyperfunctions-howto].
+
+
+[hyperfunctions-howto]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
+[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/

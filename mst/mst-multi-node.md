@@ -70,6 +70,7 @@ Managed Service for TimescaleDB console.
 
 *   `pg.jit` = off
 *   `pg.max_prepared_transactions` > 0 (150 is a recommended starting value)
+*   `enable_partitionwise_aggregate` should be set to `on` on the access node for good query performance. Otherwise, queries are not pushed down to the data nodes.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/cloud_images/timescale-cloud-adv-config.png" alt="Managed TimescaleDB advanced configuration"/>
 
