@@ -3,8 +3,8 @@ The Timescale API Reference uses tags to categorize functions. The tags are `Com
 `Experimental`, `Toolkit`, and `Experimental (Toolkit)`. This section explains each tag.
 
 ## Community <tag type="community">Community</tag>
-This tag indicates that the function is available under the TimescaleDB Community 
-license, and are not available under the Apache 2 license. For more information, 
+This tag indicates that the function is available under TimescaleDB Community 
+Edition, and are not available under the Apache 2 Edition. For more information, 
 visit our [TimescaleDB License comparison sheet][tsl-comparison].
 
 ## Experimental (TimescaleDB Experimental Schema) <tag type="experimental">Experimental</tag>
@@ -17,7 +17,7 @@ information about the experimental schema, [read the Timescale blog post][experi
 
 ## Toolkit <tag type="toolkit">Toolkit</tag>
 This tag indicates that the function is included in the TimescaleDB Toolkit extension. 
-Toolkit functions are available under the Timescale Community Edition license. 
+Toolkit functions are available under Timescale Community Edition. 
 For installation instructions, [see the installation guide][toolkit-install].
 
 ## Experimental (TimescaleDB Toolkit) <tag type="experimental-toolkit">Experimental</tag>
@@ -30,7 +30,7 @@ objects that depend on experimental features like this function. If you use expe
 toolkit functions on Timescale Cloud, this function is automatically dropped when the 
 Toolkit extension is updated. For more information, [see the TimescaleDB Toolkit docs][toolkit-docs].
 
-[tsl-comparison]: /timescaledb/:currentVersion/timescaledb-license-comparison/
-[toolkit-install]: /timescaledb/:currentVersion/how-to-guides/install-timescaledb-toolkit/
+[tsl-comparison]: /timescaledb/:currentVersion:/timescaledb-edition-comparison/
+[toolkit-install]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
 [toolkit-docs]: https://github.com/timescale/timescaledb-toolkit/tree/main/docs#a-note-on-tags-
 [experimental-blog]: https://blog.timescale.com/blog/move-fast-but-dont-break-things-introducing-the-experimental-schema-with-new-experimental-features-in-timescaledb-2-4/
