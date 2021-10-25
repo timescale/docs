@@ -6,7 +6,7 @@ covariance(
     method TEXT 
 ) RETURNS DOUBLE PRECISION
 ```
-The covariance of the least squares fit line computed from a two-dimensional statistical aggregate. 
+The covariance of the [least squares fit][least-squares] line computed from a two-dimensional statistical aggregate. 
 
 The `method` determines whether you calculate a 'population' or 'sample' covariance. 
 These values may be provided as their full names or may be abbreviated 'pop' or 'samp'. These
@@ -48,3 +48,4 @@ GROUP BY id, time_bucket('15 min'::interval, ts)
 
 [hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
+[least-squares]:https://en.wikipedia.org/wiki/Least_squares

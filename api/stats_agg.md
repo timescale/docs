@@ -10,6 +10,8 @@ For more information about statistical aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## 1D Statistical Aggregates
+When you perform a statistical aggregate on a single variable, a 
+one-dimensional aggregate is calculated.
 ### Required arguments
 
 |Name|Type|Description|

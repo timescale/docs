@@ -62,5 +62,5 @@ FROM foo_hourly;
 [stats_agg]: /hyperfunctions/stats_aggs/stats_agg/
 [hyperfunctions-stats-aggs]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [time_bucket]: /hyperfunctions/time_bucket/
-[postgres-window-functions]: TODO
+[postgres-window-functions]: https://www.postgresql.org/docs/current/tutorial-window.html
 [rollup-func]: /hyperfunctions/stats_aggs/rollup-stats/

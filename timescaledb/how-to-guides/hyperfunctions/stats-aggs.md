@@ -58,7 +58,7 @@ as performing separate one-dimensional aggregates would and
 additionally performs linear regression on the two variables. Accessors 
 for one-dimensional values append a `_y` or `_x` to the name. For 
 example:
-```SQL
+```sql
 SELECT 
     average_y(stats_agg(val2, val1)), -- equivalent to average(stats_agg(val2))
     stddev_x(stats_agg(val2, val1)), -- equivalent to stddev(stats_agg(val1))

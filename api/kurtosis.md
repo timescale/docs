@@ -56,4 +56,4 @@ FROM generate_series(0, 100) data;
 
 [hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
-[kurtosis]: TODO
+[kurtosis]: https://en.wikipedia.org/wiki/Kurtosis

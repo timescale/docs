@@ -5,7 +5,7 @@ slope(
     summary StatsSummary2D
 ) RETURNS DOUBLE PRECISION
 ```
-The slope of the least squares fit line computed from a two-dimensional statistical aggregate. 
+The slope of the [least squares fit][least-squares] line computed from a two-dimensional statistical aggregate. 
 
 *   For more information about statistical aggregate functions, see the
     [hyperfunctions documentation][hyperfunctions-stats-agg].
@@ -37,3 +37,4 @@ GROUP BY id, time_bucket('15 min'::interval, ts)
 
 [hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
+[least-squares]:https://en.wikipedia.org/wiki/Least_squares
