@@ -4,8 +4,8 @@ instance. TimescaleDB multi-node allows you to run and manage multiple instances
 giving you faster data ingest, and more responsive and efficient queries.
 
 You can use multi-node on a self-managed TimescaleDB instance, or you can use it
-on [Timescale Cloud][multi-node-cloud] or
-[Managed Service for TimescaleDB][multi-node-mst].
+on [Timescale Cloud][multinode-cloud] or
+[Managed Service for TimescaleDB][multinode-mst].
 
 ## Distributed hypertables
 Multi-node TimescaleDB allows you to run petabyte-scale workloads across
@@ -50,5 +50,5 @@ achieve much faster queries.
 
 
 [hypertables]: /how-to-guides/hypertables/
-[multi-node-cloud]: /cloud/:currentVersion:/cloud-multi-node/
-[multi-node-mst]: /mst/:currentVersion:/mst-multi-node/
+[multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/
+[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
