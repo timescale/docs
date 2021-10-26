@@ -1,4 +1,4 @@
-# stderror()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# stderror()  <tag type="toolkit">Toolkit</tag>
 The `stderror` function returns an estimate of the relative standard error of the hyperloglog, based on the hyperloglog error formula. Approximate results are:
 
 |precision|registers|error|bytes|

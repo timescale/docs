@@ -1,6 +1,4 @@
-## On TimescaleDB Licensing
-
-### TimescaleDB Apache 2 Edition vs TimescaleDB Community Edition
+## TimescaleDB Apache 2 vs TimescaleDB Community Editions
 
 There are two versions of TimescaleDB available:
 TimescaleDB Apache 2 Edition is the version of TimescaleDB that is available under the
