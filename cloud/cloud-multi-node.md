@@ -22,23 +22,23 @@ Before you begin, make sure you have [signed up][cloud-signup] for your Timescal
 <procedure>
 
 ### Setting up multi-node on Timescale Cloud
-1.  	[Log in to your Timescale Cloud account][cloud-login] and click
-			`Create Service`.
-1.  	Go to the `Without demo data` tab to create the cluster without a data
-			source. You can add your own data source later on. Click
-			`Advanced options` to configure your service as a multi-node cluster.
-1.  	In the `Create a service` page, select the `multi-node` service type.
-1.  	Choose your preferred region, or accept the default region of `us-east-1`.
-1.  	Accept the default for the data nodes, or click `change` to choose the
-			number of data nodes, and their compute and disk size.
-1.  	Accept the default for the access node, or click `change` to choose the
-			compute and disk size.
-1.  	Click `create service`. Take a note of the service information, you need
-			these details to connect to your multi-node cluster. The service takes a
-			few minutes to start up.
-1.  	When the service is ready, you can see the service in the Service Overview
-			page. Click on the name of your new multi-node service to see more
-			information, and to make changes.
+1.  [Log in to your Timescale Cloud account][cloud-login] and click
+		`Create Service`.
+1.  Go to the `Without demo data` tab to create the cluster without a data
+		source. You can add your own data source later on. Click
+		`Advanced options` to configure your service as a multi-node cluster.
+1.  In the `Create a service` page, select the `multi-node` service type.
+1.  Choose your preferred region, or accept the default region of `us-east-1`.
+1.  Accept the default for the data nodes, or click `change` to choose the
+		number of data nodes, and their compute and disk size.
+1.  Accept the default for the access node, or click `change` to choose the
+		compute and disk size.
+1.  Click `create service`. Take a note of the service information, you need
+		these details to connect to your multi-node cluster. The service takes a
+		few minutes to start up.
+1.  When the service is ready, you can see the service in the Service Overview
+		page. Click on the name of your new multi-node service to see more
+		information, and to make changes.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service-multinode.png" alt="Timescale Cloud running multi-node service"/>
 
