@@ -29,11 +29,11 @@ Before you begin, make sure you have [signed up][cloud-signup] for your Timescal
 		`Advanced options` to configure your service as a multi-node cluster.
 1.  In the `Create a service` page, select the `multi-node` service type.
 1.  Choose your preferred region, or accept the default region of `us-east-1`.
-1.  Accept the default for the data nodes, or click `change` to choose the
+1.  Accept the default for the data nodes, or click `Change` to choose the
 		number of data nodes, and their compute and disk size.
-1.  Accept the default for the access node, or click `change` to choose the
+1.  Accept the default for the access node, or click `Change` to choose the
 		compute and disk size.
-1.  Click `create service`. Take a note of the service information, you need
+1.  Click `Create service`. Take a note of the service information, you need
 		these details to connect to your multi-node cluster. The service takes a
 		few minutes to start up.
 1.  When the service is ready, you can see the service in the Service Overview
