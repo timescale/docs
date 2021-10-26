@@ -1,0 +1,46 @@
+# Analyze Non-fungible token (NFT) transactions
+
+In this tutorial, we provide a step-by-step guide to collecting, storing, and analyzing NFT ([non-fungible tokens](https://en.wikipedia.org/wiki/Non-fungible_token)) sales data from the largest NFT marketplace, [OpenSea](https://opensea.io). 
+
+NFTs, like much of the data related to blockchains and cryptocurrencies, can seem complicated at first if you’re 
+not already familiar with it, but in this tutorial we take you from zero to NFT hero and give you a foundation for analyzing NFT trends.
+
+In this tutorial, you will:
+
+* Design a schema for NFT transactions
+* Ingest time-series NFT data and additional relevant relational data
+* Query the dataset using PostgreSQL and TimescaleDB to unlock insights from the data
+
+## NFT Starter Kit
+
+This tutorial is part of the [Timescale NFT Starter Kit](https://github.com/timescale/wip-crypto-starter), designed 
+to get you up and running with analyzing NFT data, and give you the inspiration to build your own, more complex projects. 
+The NFT Starter Kit contains the following components: 
+
+* A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB.
+* A sample dataset (to get started quickly, should you wish to not ingest real-time data)
+* A schema for storing NFT sales, assets, collections and owners
+* A local TimescaleDB database, pre-loaded with sample NFT data
+* Pre-built dashboards and charts in [Apache Superset](https://superset.apache.org) and [Grafana](https://grafana.com) 
+for visualizing your data analysis
+* Queries to use as a starting point for your own analysis
+
+To get started, clone the NFT Starter Kit [Github repo](https://github.com/timescale/wip-crypto-starter) and follow 
+along with this tutorial.
+ 
+## Complete this tutorial and earn an NFT!
+
+Because we love NFTs as much as you do, we created a limited edition set of 20 NFT about our Timescale mascot, Eon! 
+The first 20 people to complete this tutorial will earn a limited edition NFT from the collection Eon’s 
+Photobooth (you can view them all live on OpenSea).
+
+Claiming your NFT is simple. All you need to do is complete the tutorial below, answer the questions in this form, 
+and we’ll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
+
+1. [NFT schema design and ingestion](/tutorials/analyze-nft-data/nft-schema-ingestion)
+1. [Analyzing NFT transactions](/tutorials/analyze-nft-data/analyzing-nft-transactions)
+
+## Prerequisites
+
+* TimescaleDB ([installation options](https://docs.timescale.com ))
+* Psql or any other PostgreSQL client (e.g., DBeaver, PgAdmin)

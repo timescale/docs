@@ -26,6 +26,30 @@ module.exports = [
         excerpt: 'Use TimescaleDB to analyze cryptocurrency data',
       },
       {
+        title: 'Analyze Non-fungible token (NFT) sales data',
+        href: 'analyze-nft-data',
+        tags: [''],
+        keywords: [''],
+        excerpt: 'Analyze NFT sales data with TimescaleDB',
+        children: [
+          {
+            title: 'NFT schema design and ingestion',
+            href: 'nft-schema-ingestion',
+            tags: [''],
+            keywords: [''],
+            excerpt: 'Design schema and ingest NFT data with TimescaleDB',
+          },
+          {
+            title: 'Analyzing NFT transactions',
+            href: 'analyzing-nft-transactions',
+            tags: [],
+            keywords: [],
+            excerpt:
+              'Analyze NFT data transactions with PostgreSQL and hyperfunctions in TimescaleDB',
+          }
+        ],
+      },
+      {
         title: 'Analyze intraday stock data',
         href: 'analyze-intraday-stocks',
         tags: ['finance', 'analyze', 'learn', 'timescaledb'],
