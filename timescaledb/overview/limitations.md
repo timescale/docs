@@ -26,7 +26,6 @@ to distributed hypertables:
 - Distributed scheduling of background jobs is not supported. Background jobs
   created on an access node are scheduled and executed on this access node
   without distributing the jobs to data nodes.
-- Continuous aggregates are not supported.
 - Reordering chunks is not supported.
 - Tablespaces cannot be attached to a distributed hypertable on the
   access node. It is still possible attach tablespaces on data nodes.
@@ -50,9 +49,8 @@ to distributed hypertables:
   registered with `set_integer_now_func`.
 
 Note that these limitations concern usage from the access node. Some
-currently unsupported features (like
-continuous aggregates) might still work on individual data nodes, but
-such usage is neither tested nor officially supported. Future versions
+currently unsupported features might still work on individual data nodes, 
+but such usage is neither tested nor officially supported. Future versions
 of TimescaleDB might remove some of these limitations.
 
 [native-replication]: /how-to-guides/distributed-hypertables/enable-native-replication/
