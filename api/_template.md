@@ -11,7 +11,7 @@ Use a highlight for any important information. Choose `note`, `important`, or `w
 </highlight>
 -->
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -19,7 +19,7 @@ Use a highlight for any important information. Choose `note`, `important`, or `w
 
 <!---Any special notes about the required arguments-->
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -35,7 +35,7 @@ Use a highlight for any important information. Choose `note`, `important`, or `w
 
 <!---Any special notes about the returns-->
 
-## Sample Usage
+## Sample usage
 <!---Single sentence description of what this example does-->
 
 ``` sql
