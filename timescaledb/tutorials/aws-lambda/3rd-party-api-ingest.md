@@ -205,8 +205,7 @@ an EventBridge trigger. This creates a rule using a [`cron` expression][cron-exa
 
 <highlight type="important">
 If you get an error saying `Parameter ScheduleExpression is not valid`, you
-might have made a mistake in the cron expression. Check the
-[cron expression examples][cron-examples]
+might have made a mistake in the cron expression. Check the [cron expression examples](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions) 
 documentation.
 </highlight>
 

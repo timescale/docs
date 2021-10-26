@@ -16,6 +16,10 @@ data nodes (if not already set, `150` is recommended).
   through the access node configuration if desired. This setting is disabled
   by default in PostgreSQL, but may be worth verifying in your specific
   environment.
+* Set the `wal_level` to `logical` or higher on data nodes to 
+  [move][move_chunk] or [copy][copy_chunk] chunks between
+  data nodes. If you are moving many chunks in parallel, consider 
+  increasing `max_wal_senders` and `max_replication_slots`.
 * For consistency, if the transaction isolation level is set to `READ COMMITTED` it is
   automatically upgraded to `REPEATABLE READ` whenever a distributed operation
   takes place. If the isolation level is `SERIALIZABLE`, it is not changed.
@@ -36,3 +40,5 @@ pg_ctl reload
 ```
 
 [configuration]: /how-to-guides/configuration
+[copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
+[move_chunk]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental
