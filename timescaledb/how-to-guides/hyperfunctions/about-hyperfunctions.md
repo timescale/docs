@@ -19,24 +19,24 @@ additional hyperfunctions, you need to install the
 |||`rollup`|❌|✅|
 |||`distinct_count`|❌|✅|
 |||`stderror`|❌|✅|
-|Statistical aggregates|Statistical functions|`average`|✅|❌|
+|Statistical aggregates|Statistical functions|`average`|❌|✅|
 |||`stats_agg`|❌|✅|
 |||`rollup`|❌|✅|
 |||`rolling`|❌|✅|
-|||`sum`|✅|❌|
-|||`num_vals`|✅|❌|
-|||`stddev`|✅|❌|
-|||`variance`|✅|❌|
-|||`skewness`|✅|❌|
-|||`kurtosis`|✅|❌|
-||Regression functions|`slope`|✅|❌|
-|||`intercept`|✅|❌|
-|||`x_intercept`|✅|❌|
-|||`corr`|✅|❌|
-|||`covariance`|✅|❌|
-|||`skewness`|✅|❌|
-|||`kurtosis`|✅|❌|
-|||`determination_coeff`|✅|❌|
+|||`sum`|❌|✅|
+|||`num_vals`|❌|✅|
+|||`stddev`|❌|✅|
+|||`variance`|❌|✅|
+|||`skewness`|❌|✅|
+|||`kurtosis`|❌|✅|
+||Regression functions|`slope`|❌|✅|
+|||`intercept`|❌|✅|
+|||`x_intercept`|❌|✅|
+|||`corr`|❌|✅|
+|||`covariance`|❌|✅|
+|||`skewness`|❌|✅|
+|||`kurtosis`|❌|✅|
+|||`determination_coeff`|❌|✅|
 |Gapfilling and interpolation|Time bucket gapfill|`time_bucket_gapfill`|❌|✅|
 ||Last observation carried forward|`locf`|✅|❌|
 |||`interpolate`|✅|❌|
@@ -53,20 +53,20 @@ additional hyperfunctions, you need to install the
 |||`tdigest`|❌|✅|
 |Counter aggregation|Counter aggregates|`counter_agg`|❌|✅|
 |||`rollup`|❌|✅|
-|||`corr`|✅|❌|
-|||`counter_zero_time`|✅|❌|
-|||`delta`|✅|❌|
-|||`extrapolated_delta`|✅|❌|
-|||`extrapolated_rate`|✅|❌|
-|||`idelta`|✅|❌|
-|||`intercept`|✅|❌|
-|||`irate`|✅|❌|
-|||`num_changes`|✅|❌|
-|||`num_elements`|✅|❌|
-|||`num_resets`|✅|❌|
-|||`rate`|✅|❌|
-|||`slope`|✅|❌|
-|||`time_delta`|✅|❌|
+|||`corr`|❌|✅|
+|||`counter_zero_time`|❌|✅|
+|||`delta`|❌|✅|
+|||`extrapolated_delta`|❌|✅|
+|||`extrapolated_rate`|❌|✅|
+|||`idelta`|❌|✅|
+|||`intercept`|❌|✅|
+|||`irate`|❌|✅|
+|||`num_changes`|❌|✅|
+|||`num_elements`|❌|✅|
+|||`num_resets`|❌|✅|
+|||`rate`|❌|✅|
+|||`slope`|❌|✅|
+|||`time_delta`|❌|✅|
 |||`with_bounds`|❌|✅|
 |Time-weighted averages|Time-weighted averages|`time_weight`|❌|✅|
 |||`rollup`|❌|✅|
@@ -76,11 +76,40 @@ For more information about each of the API calls listed in this table, see our [
 
 ## Function pipelines
 Function pipelines are an experimental feature, designed to radically improve
-how you write queries to analyze data in PostgreSQL and SQL. They work by
-applying principles from functional programming and popular tools like Python
-Pandas, and PromQL.
+the developer ergonomics of analyzing data in PostgreSQL and SQL, by applying
+principles from functional programming and popular tools like Python's Pandas,
+and PromQL.
 
-For more information about how function pipelines work, see the [function pipelines][function-pipelines] section.
+SQL is the best language for data analysis, but it is not perfect, and at times
+can get quite unwieldy. For example, this query gets data from the last day from
+the measurements table, sorts the data by the time column, calculates the delta
+between the values, takes the absolute value of the delta, and then takes the
+sum of the result of the previous steps:
+```SQL
+SELECT device id,
+sum(abs_delta) as volatility
+FROM (
+	SELECT device_id,
+abs(val - lag(val) OVER last_day) as abs_delta
+FROM measurements
+WHERE ts >= now()-'1 day'::interval) calc_delta
+GROUP BY device_id;
+```
+
+You can express the same query with a function pipeline like this:
+```SQL
+SELECT device_id,
+ timevector(ts, val) -> sort() -> delta() -> abs() -> sum() as volatility
+FROM measurements
+WHERE ts >= now()-'1 day'::interval
+GROUP BY device_id;
+```
+
+Function pipelines are completely SQL compliant, meaning that any tool that
+speaks SQL is able to support data analysis using function pipelines.
+
+For more information about how function pipelines work, read our
+[blog post][blog-function-pipelines].
 
 ## Toolkit feature development
 Timescale Toolkit features are developed in the open. As features are developed
@@ -104,7 +133,7 @@ community-wide problems and incorporate as much feedback as possible.
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
-[function-pipelines]: /how-to-guides/hyperfunctions/function-pipelines
+[blog-function-pipelines]: http://tsdb.co/function-pipelines
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
