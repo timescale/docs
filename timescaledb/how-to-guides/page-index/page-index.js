@@ -433,13 +433,6 @@ module.exports = [
             excerpt: 'Grow and shrink a multi-node cluster'
           },
           {
-            title: "Backup and restore a multi-node cluster",
-            href: "multinode-backup",
-            tags: ['multi-node', 'backup', 'restore', 'distributed', 'nodes'],
-            keywords: ['multi-node', 'backup', 'restore'],
-            excerpt: 'Backup and restore a multi-node environment'
-          },
-          {
             title: "High availability multi-node",
             href: "multinode-ha",
             tags: ['multi-node', 'ha', 'distributed', 'nodes'],

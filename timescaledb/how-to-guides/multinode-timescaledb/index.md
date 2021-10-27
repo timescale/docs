@@ -11,10 +11,10 @@ giving you faster data ingest, and more responsive and efficient queries.
 *   Set up [authentication][multi-node-auth] for your cluster
 *   [Configure][multi-node-config] your cluster
 *   [Grow or shrink][multi-node-grow-shrink] your cluster
-*   [Backup and restore][multi-node-backup] your cluster
 *   Set up [high availability][multi-node-ha] (HA) for your cluster
 *   [Maintain][multi-node-maintenance] your multi-node environment
 
+<!---*   [Backup and restore][multi-node-backup] your cluster -->
 
 [about-multi-node]: /how-to-guides/multi-node-setup/about-multinode
 [setup-selfhosted]: /how-to-guides/multi-node-setup/multinode-setup
