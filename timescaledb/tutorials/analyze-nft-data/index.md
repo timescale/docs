@@ -1,6 +1,7 @@
 # Analyze non-fungible token (NFT) transactions
 
-This tutorial is a step-by-step guide to collecting, storing, and analyzing NFT ([non-fungible tokens](https://en.wikipedia.org/wiki/Non-fungible_token)) sales data from the largest NFT marketplace, [OpenSea](https://opensea.io). 
+This tutorial is a step-by-step guide to collecting, storing, and analyzing NFT ([non-fungible tokens][nft-wiki]) 
+sales data from the largest NFT marketplace, [OpenSea][opensea]. 
 
 NFTs, like much of the data related to blockchains and cryptocurrencies, can seem complicated at first, but in this tutorial we take you from zero to NFT hero and give you a foundation for analyzing NFT trends.
 
@@ -11,17 +12,17 @@ This tutorial shows you how to:
 
 ## NFT Starter Kit
 
-This tutorial is part of the [Timescale NFT Starter Kit](https://github.com/timescale/wip-crypto-starter), designed 
+This tutorial is part of the [Timescale NFT Starter Kit][starter-kit], designed 
 to get you up and running with analyzing NFT data, and give you the inspiration to build your own, more complex projects. 
 The NFT Starter Kit contains: 
 * A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB
 * A sample dataset, to get started quickly, if you don't want to ingest real-time data
 * A schema for storing NFT sales, assets, collections, and owners
 * A local TimescaleDB database, pre-loaded with sample NFT data
-* Pre-built dashboards and charts in [Apache Superset](https://superset.apache.org) and [Grafana](https://grafana.com) for visualizing your data analysis
+* Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana] for visualizing your data analysis
 * Queries to use as a starting point for your own analysis
 
-To get started, clone the NFT Starter Kit [Github repo](https://github.com/timescale/wip-crypto-starter) and follow 
+To get started, clone the NFT Starter Kit [Github repo][starter-kit] and follow 
 along with this tutorial.
  
 ## Complete this tutorial and earn an NFT!
@@ -31,9 +32,19 @@ Because we love NFTs as much as you do, we created a limited edition set of 20 N
 To claim your NFT, complete this tutorial, answer the questions in the form, 
 and we'll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
 
-1. [NFT schema design and ingestion](/tutorials/analyze-nft-data/nft-schema-ingestion)
-1. [Analyzing NFT transactions](/tutorials/analyze-nft-data/analyzing-nft-transactions)
+1. [NFT schema design and ingestion][nft-schema]
+1. [Analyzing NFT transactions][nft-analyze]
 
 ## Prerequisites
-* TimescaleDB ([installation options](https://docs.timescale.com ))
+* TimescaleDB ([installation options][install-ts])
 * Psql or any other PostgreSQL client (for example DBeaver, or PgAdmin)
+
+
+[nft-wiki]: https://en.wikipedia.org/wiki/Non-fungible_token
+[opensea]: https://opensea.io
+[starter-kit]: https://github.com/timescale/nft-starter-kit
+[install-ts]: /how-to-guides/install-timescaledb/
+[nft-schema]: /tutorials/analyze-nft-data/nft-schema-ingestion
+[nft-analyze]: /tutorials/analyze-nft-data/analyzing-nft-transactions
+[superset]: https://superset.apache.org
+[grafana]: https://grafana.com
