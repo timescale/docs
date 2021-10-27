@@ -188,7 +188,7 @@ ORDER BY hour
 LIMIT 100;
 ```
 
-However, there are other factors that you also need to consider when
+There are other factors that you also need to consider when
 partitioning your distributed hypertables. For example, if a query can be run
 concurrently by many different client sessions, each filtering on a different
 location, then that would also spread the load evenly across the distributed
