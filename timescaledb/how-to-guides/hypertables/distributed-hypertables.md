@@ -6,7 +6,7 @@ across all time. In most cases, distributed hypertables work the same way as
 regular hypertables, including inserting, querying, and altering them.
 
 <highlight type="important">
-You must have set up your multi-node cluster before implementing a distributed
+You must set up your multi-node cluster before implementing a distributed
 hypertable. See [multi-node](/how-to-guides/multinode-timescaledb) for
 instructions on setting up your multi-node cluster, and creating a distributed
 hypertable.
