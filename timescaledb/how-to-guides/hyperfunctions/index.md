@@ -33,7 +33,7 @@ For more information about hyperfunctions, read our [blog post][hyperfunctions-b
 [hyperfunctions-approx-count-distinct]: /how-to-guides/hyperfunctions/approx-count-distincts
 [hyperfunctions-stats-agg]: /how-to-guides/hyperfunctions/stats-aggs
 [hyperfunctions-gapfilling]: /how-to-guides/hyperfunctions/gapfilling-interpolation
-[hyperfunctions-approximate-percentile]: how-to-guides/hyperfunctions/approximate_percentile
+[hyperfunctions-approximate-percentile]: how-to-guides/hyperfunctions/percentile-approx/approximate_percentile
 [hyperfunctions-time-weighted-averages]: how-to-guides/hyperfunctions/time-weighted-averages
-[hyperfunctions-counteragg]: /how-to-guides/hyperfunctions/counter_agg
+[hyperfunctions-counteragg]: /how-to-guides/hyperfunctions/counter-aggregation/counter_agg
 [hyperfunctions-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project/

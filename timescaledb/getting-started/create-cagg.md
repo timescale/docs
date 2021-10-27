@@ -191,7 +191,7 @@ continuous aggregate.
 Let's examine an example of a query which would perform better on our continuous
 aggregate (`weather_metrics_daily`) than on our hypertable (`weather_metrics`).
 Here's a query which looks at how temperatures in New York have changed over the
-past 6 years. It returns the returns the time as well as the daily maximum, minimum
+past 6 years. It returns the time as well as the daily maximum, minimum
 and average temperatures for New York City between 2015 and 2021:
 
 ```sql

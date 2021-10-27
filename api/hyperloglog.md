@@ -1,4 +1,4 @@
-# hyperloglog()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# hyperloglog()  <tag type="toolkit">Toolkit</tag>
 The `hyperloglog` function constructs and returns a hyperloglog with at least
 the specified number of buckets over the given values.
 
