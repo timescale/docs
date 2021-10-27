@@ -24,21 +24,21 @@ Relational tables (regular PostgreSQL tables):
 The `nft_sales` table contains information about successful sale transactions in time-series form. One row represents 
 one successful sale event on the OpenSea platform.
 
-| Data field       | Description                     |
-|------------------|---------------------------------|
-| id               | OpenSea ID (unique)             |
-| time             | Time of the sale                |
-| asset_id         | ID of the NFT, FK: assets(id)   |
-| collection_id    | ID of the collection this NFT belongs to, FK: collections(id))
-| auction_type     | Auction type ('dutch', 'english', 'min_price') |
-| contract_address | Address of the smart contract   |
-| quantity         | NFT quantity sold               |
-| payment_symbol   | Payment symbol (usually ETH, depends on the blockchain where the NFT is minted) |
-| total_price      | Total price paid for the NFT    |
-| seller_account   | Seller's account, FK: accounts(id) |
-| from_account     | Account used to transfer from, FK: accounts(id) |
-| to_account       | Account used to transfer to, FK: accounts(id) |
-| winner_account   | Buyer's account, FK: accounts(id) |
+| Data field | Description |
+|---|---|
+| id | OpenSea ID (unique) |
+| time | Time of the sale |
+| asset_id | ID of the NFT, FK: assets(id) |
+| collection_id | ID of the collection this NFT belongs to, FK: collections(id)) |
+| auction_type | Auction type ('dutch', 'english', 'min_price') |
+| contract_address | Address of the smart contract |
+| quantity | NFT quantity sold |
+| payment_symbol | Payment symbol (usually ETH, depends on the blockchain where the NFT is minted) |
+| total_price | Total price paid for the NFT |
+| seller_account | Seller's account, FK: accounts(id) |
+| from_account | Account used to transfer from, FK: accounts(id) |
+| to_account | Account used to transfer to, FK: accounts(id) |
+| winner_account | Buyer's account, FK: accounts(id) |
 
 * `id` field is a unique field provided by the OpenSea API.
 * `total_price` field is the price paid for the NFTs in ETH (or other cryptocurrency payment symbol available on OpenSea). 
@@ -50,15 +50,15 @@ one successful sale event on the OpenSea platform.
 The `assets` table contains information about the assets (NFTs) that are in the transactions. One row represents a 
 unique NFT asset on the OpenSea platform.
 
-| Data field       | Description                            |
-|------------------|----------------------------------------|
-| id               | OpenSea ID (PK)                        |
-| name             | Name of the NFT                        |
-| description      | Description of the NFT                 |
-| contract_date    | Creation date of the smart contract    |
-| url              | OpenSea URL of the NFT                 |
-| owner_id         | ID of the NFT owner account, FK: accounts(id) |
-| details          | Other extra data fields (JSONB)        |
+| Data field | Description |
+|---|---|
+| id | OpenSea ID (PK) |
+| name | Name of the NFT |
+| description | Description of the NFT |
+| contract_date | Creation date of the smart contract |
+| url | OpenSea URL of the NFT |
+| owner_id | ID of the NFT owner account, FK: accounts(id) |
+| details | Other extra data fields (JSONB) |
 
 * `name` field is the name of the NFT, and is not unique.
 * `id` field is the primary key, provided by the OpenSea API.
@@ -68,13 +68,13 @@ unique NFT asset on the OpenSea platform.
 ### The collections table
 The `collections` table holds information about the NFT collections. One row represents a unique NFT collection. 
 One collection includes multiple unique NFTs (that are in the `assets` table).
-| Data field       | Description               |
-|------------------|---------------------------------|
-| id               | Auto-increment (PK)             |
-| slug             | Slug of the collection (unique) |
-| name             | Name of the collection          |
-| url              | OpenSea url of the collection   |
-| details          | Other extra data fields (JSONB) |
+| Data field | Description |
+|---|---|
+| id | Auto-increment (PK) |
+| slug | Slug of the collection (unique) |
+| name | Name of the collection |
+| url | OpenSea url of the collection |
+| details | Other extra data fields (JSONB) |
 
 * `slug` field is a unique identifier of the collection. 
 
@@ -82,12 +82,12 @@ One collection includes multiple unique NFTs (that are in the `assets` table).
 The `accounts` table includes the accounts that have participated in at least one transaction from the nft_sales table. 
 One row represents one unique account on the OpenSea platform.
 
-| Data field       | Description               |
-|------------------|---------------------------------|
-| id               | Auto-increment (PK)             |
-| user_name        | OpenSea user name               |
-| address          | Account address, unique         |
-| details          | Other extra data fields (JSONB) |
+| Data field | Description |
+|---|---|
+| id | Auto-increment (PK) |
+| user_name | OpenSea user name |
+| address | Account address, unique |
+| details | Other extra data fields (JSONB) |
 
 * `address` is never NULL and it’s unique
 * `user_name` is NULL unless it’s been submitted on the OpenSea profile by the user
