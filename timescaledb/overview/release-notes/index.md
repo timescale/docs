@@ -38,7 +38,7 @@ Some of these API updates are **breaking changes**.
 - Experimental: Support for timezones in 'time_bucket_ng()', including the 'origin' argument 
 
 
-You can read more about this release on our [blogpost](TODO).
+You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
 This release contains bug fixes since the 2.4.2 release. 
 We deem it high priority to upgrade since it includes a correction for 'compress_policy'.
 
