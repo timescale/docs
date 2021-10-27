@@ -5,10 +5,11 @@ slope(
     summary StatsSummary2D
 ) RETURNS DOUBLE PRECISION
 ```
-The slope of the [least squares fit][least-squares] line computed from a two-dimensional statistical aggregate. 
+The slope of the [least squares fit][least-squares] line computed from
+a two-dimensional statistical aggregate. 
 
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
@@ -20,12 +21,11 @@ The slope of the [least squares fit][least-squares] line computed from a two-dim
 
 |Name|Type|Description|
 |-|-|-|
-|`slope`|`DOUBLE PRECISION`|The slope of the least squares fit line. |
+|`slope`|`DOUBLE PRECISION`|The slope of the least squares fit line.|
 
 ## Sample usage
 
 ```sql
-
 SELECT
     id,
     time_bucket('15 min'::interval, ts) AS bucket,

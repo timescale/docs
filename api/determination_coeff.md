@@ -5,10 +5,11 @@ determination_coeff(
     summary StatsSummary2D
 ) RETURNS DOUBLE PRECISION
 ```
-The coefficient of determination (aka R squared) of the least squares fit line computed from a two-dimensional statistical aggregate. 
+The coefficient of determination (or the R squared) of the least squares fit line 
+computed from a two-dimensional statistical aggregate. 
 
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
@@ -20,12 +21,11 @@ The coefficient of determination (aka R squared) of the least squares fit line c
 
 |Name|Type|Description|
 |-|-|-|
-|`determination_coeff`|`DOUBLE PRECISION`|The determination coefficient of the least squares fit line. |
+|`determination_coeff`|`DOUBLE PRECISION`|The determination coefficient of the least squares fit line.|
 
 ## Sample usage
 
 ```sql
-
 SELECT
     id,
     time_bucket('15 min'::interval, ts) AS bucket,

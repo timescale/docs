@@ -18,14 +18,14 @@ statistical aggregates.
 
 This is especially useful for computing tumbling window aggregates from a continuous aggregate. 
 It uses inverse transition and combine functions to do more efficient windowed aggregates, with the
-possibility that more floating point error can creep in in unusual scenarios. 
+possibility that more floating point errors can occur in unusual scenarios. 
 
-It will also work for re-aggregation in a non-window context, but the [`rollup` function][rollup-func] 
-is more clear. The `rollup` function will also work for windowed aggregates, less efficiently but without
+It also works for re-aggregation in a non-window context, but the [`rollup` function][rollup-func] 
+is more clear. The `rollup` function also work for windowed aggregates, less efficiently but without
 the risk of extra floating point error. 
 
-*   For more information about statistical aggregation functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-aggs].
+For more information about statistical aggregation functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-aggs].
 
 ## Required arguments
 
@@ -36,13 +36,11 @@ the risk of extra floating point error.
 ## Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`rolling`|`StatsSummary1D` / `StatsSummary2D`|A StatsSummary object which may be passed to further APIs|
-
-
+|-|-|-|
+|`rolling`|`StatsSummary1D`/`StatsSummary2D`|A StatsSummary object that can be passed to further APIs|
 
 ## Sample usage
-Create a tumbling window daily aggregate from an hourly continuous aggregate, then use accessors. 
+Create a tumbling window daily aggregate from an hourly continuous aggregate, then use accessors:
 ```SQL
 CREATE MATERIALIZED VIEW foo_hourly
 WITH (timescaledb.continuous)
@@ -58,6 +56,7 @@ SELECT
     stddev(rolling(stats) OVER (ORDER BY bucket RANGE '1 day' PRECEDING))
 FROM foo_hourly;
 ```
+
 
 [stats_agg]: /hyperfunctions/stats_aggs/stats_agg/
 [hyperfunctions-stats-aggs]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/

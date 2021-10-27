@@ -1,4 +1,4 @@
-# variance() / variance_y() / variance_x() <tag type="toolkit">Toolkit</tag>
+# variance(), variance_y(), and variance_x() <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 variance(summary StatsSummary1D, method TEXT) RETURNS BIGINT
@@ -14,32 +14,31 @@ Get the variance of the values contained in a statistical aggregate.
 In a two-dimensional [`stats_agg`][stats-agg] use the `_y`/ `_x` form to access the 
 `variance` of the dependent and independent variables. 
 
-The `method` determines whether you calculate a 'population' or 'sample' variance. 
-These values may be provided as their full names or may be abbreviated 'pop' or 'samp'. These
-are the only four accepted values for the `method` argument. The default is 'sample'.
+The `method` determines whether you calculate a population or sample variance. 
+These values can be provided as their full names, or you can abbreviate them to `pop` 
+or `samp`. These are the only four accepted values for the `method` argument. The 
+default is `sample`.
 
-
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
-
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-|`summary`|`StatsSummary1D` / `StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
+|-|-|-|
+|`summary`|`StatsSummary1D`/`StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
 
 ### Optional Arguments
 
 |Name|Type|Description|
-|---|---|---|
-|`method`| `TEXT`|The method for the calculation 'population' or 'sample' (default)|
+|-|-|-|
+|`method`|`TEXT`|The method for the calculation 'population' or 'sample' (default)|
 
 ## Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`variance` / `variance_y` / `variance_x` |`DOUBLE PRECISION`|The variance of the values in the statistical aggregate|
+|-|-|-|
+|`variance`/`variance_y`/`variance_x`|`DOUBLE PRECISION`|The variance of the values in the statistical aggregate|
 
 ## Sample usage
 

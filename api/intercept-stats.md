@@ -5,10 +5,12 @@ intercept(
     summary StatsSummary2D
 ) RETURNS DOUBLE PRECISION
 ```
-The y intercept of the [least squares fit][least-squares] line computed from a two-dimensional statistical aggregate. 
 
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
+The y intercept of the [least squares fit][least-squares] line computed 
+from a two-dimensional statistical aggregate. 
+
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
@@ -20,12 +22,11 @@ The y intercept of the [least squares fit][least-squares] line computed from a t
 
 |Name|Type|Description|
 |-|-|-|
-|`intercept`|`DOUBLE PRECISION`|The y intercept of the least squares fit line. |
+|`intercept`|`DOUBLE PRECISION`|The y intercept of the least squares fit line.|
 
 ## Sample usage
 
 ```sql
-
 SELECT
     id,
     time_bucket('15 min'::interval, ts) AS bucket,

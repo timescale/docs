@@ -5,10 +5,12 @@ x_intercept(
     summary StatsSummary2D
 ) RETURNS DOUBLE PRECISION
 ```
-The x intercept of the [least squares fit][least-squares] line computed from a two-dimensional statistical aggregate. 
 
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
+The x intercept of the [least squares fit][least-squares] line computed 
+from a two-dimensional statistical aggregate. 
+
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 

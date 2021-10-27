@@ -6,14 +6,15 @@ covariance(
     method TEXT 
 ) RETURNS DOUBLE PRECISION
 ```
-The covariance of the [least squares fit][least-squares] line computed from a two-dimensional statistical aggregate. 
+The covariance of the [least squares fit][least-squares] line 
+computed from a two-dimensional statistical aggregate. 
 
 The `method` determines whether you calculate a 'population' or 'sample' covariance. 
-These values may be provided as their full names or may be abbreviated 'pop' or 'samp'. These
-are the only four accepted values for the `method` argument. The default is 'sample'.
+These values can be provided as their full names, or you can abbreviate them as `pop` or `samp`. These
+are the only four accepted values for the `method` argument. The default is `sample`.
 
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
@@ -24,19 +25,18 @@ are the only four accepted values for the `method` argument. The default is 'sam
 ### Optional Arguments
 
 |Name|Type|Description|
-|---|---|---|
-|`method`| `TEXT`|The method for the calculation 'population' or 'sample' (default)|
+|-|-|-|
+|`method`|`TEXT`|The method for the calculation 'population' or 'sample' (default)|
 
 ## Returns
 
 |Name|Type|Description|
 |-|-|-|
-|`covariance`|`DOUBLE PRECISION`|The x intercept of the least squares fit line. |
+|`covariance`|`DOUBLE PRECISION`|The x intercept of the least squares fit line.|
 
 ## Sample usage
 
 ```sql
-
 SELECT
     id,
     time_bucket('15 min'::interval, ts) AS bucket,

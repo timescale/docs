@@ -18,28 +18,26 @@ The `method` determines whether you calculate a 'population' or 'sample' standar
 These values may be provided as their full names or may be abbreviated 'pop' or 'samp'. These
 are the only four accepted values for the `method` argument. The default is 'sample'.
 
-
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
-
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-|`summary`|`StatsSummary1D` / `StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
+|-|-|-|
+|`summary`|`StatsSummary1D`/`StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
 
 ### Optional Arguments
 
 |Name|Type|Description|
-|---|---|---|
-|`method`| `TEXT`|The method for the calculation 'population' or 'sample' (default)|
+|-|-|-|
+|`method`|`TEXT`|The method for the calculation 'population' or 'sample' (default)|
 
 ## Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`stddev` / `stddev_y` / `stddev_x` |`DOUBLE PRECISION`|The standard deviation of the values in the statistical aggregate|
+|-|-|-|
+|`stddev`/`stddev_y`/`stddev_x`|`DOUBLE PRECISION`|The standard deviation of the values in the statistical aggregate|
 
 ## Sample usage
 

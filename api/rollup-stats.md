@@ -17,28 +17,26 @@ This is especially useful for re-aggregation in a continuous aggregate.
 For example, bucketing by a larger[`time_bucket()`][time_bucket], 
 or re-grouping on other dimensions included in an aggregation.
 
-For use in [window function][postgres-window-functions] see the [`rolling`][rolling-stats] 
-(`rollup` will work in window function contexts, but `rolling` can be more efficent).
+For use in [window function][postgres-window-functions] see the [`rolling`][rolling-stats].
+`rollup` will work in window function contexts, but `rolling` can be more efficient.
 
-*   For more information about statistical aggregation functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-aggs].
+For more information about statistical aggregation functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-aggs].
 
 ## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`ss`|`StatsSummary1D` / `StatsSummary2D`|The already constructed data structure from a previous `stats_agg` call|
+|`ss`|`StatsSummary1D`/`StatsSummary2D`|The already constructed data structure from a previous `stats_agg` call|
 
 ## Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`rollup`|`StatsSummary1D` / `StatsSummary2D`|A StatsSummary object which may be passed to further APIs|
-
-
+|-|-|-|
+|`rollup`|`StatsSummary1D`/`StatsSummary2D`|A StatsSummary object which may be passed to further APIs|
 
 ## Sample usage
-Re-aggregate an hourly continuous aggregate into daily buckets, then use accessors. 
+Re-aggregate an hourly continuous aggregate into daily buckets, then use accessors:
 ```SQL
 CREATE MATERIALIZED VIEW foo_hourly
 WITH (timescaledb.continuous)
@@ -55,6 +53,7 @@ SELECT
 FROM foo_hourly
 GROUP BY 1;
 ```
+
 
 [stats_agg]: /hyperfunctions/stats_aggs/stats_agg/
 [hyperfunctions-stats-aggs]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/

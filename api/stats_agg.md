@@ -9,9 +9,10 @@ each variable, and linear regression is performed on both together.
 For more information about statistical aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-agg].
 
-## 1D Statistical Aggregates
+## 1D statistical aggregates
 When you perform a statistical aggregate on a single variable, a 
 one-dimensional aggregate is calculated.
+
 ### Required arguments
 
 |Name|Type|Description|
@@ -39,6 +40,7 @@ values are ignored.
 When you perform a statistical aggregate on two variables, 
 one-dimensional aggregates are calculated for each variable, 
 and linear regression is performed on both together. 
+
 ### Required arguments
 
 |Name|Type|Description|
@@ -50,10 +52,10 @@ The `Y` and `X`  arguments are currently only accepted as DOUBLE PRECISION numbe
 If you store a value as a different numeric type you can cast to DOUBLE PRECISION 
 on input to the function.
 
-Note that the function is called with the dependent variable first (`stats_agg(Y, X)`)
-this may feel unusual to some as the independent variable is often first in non-SQL contexts. 
-However, PostgreSQL and the SQL standard follow the convention of putting the dependent variable
-first in [linear regression type functions][pg-stats-aggs] and we have followed suit. 
+Note that the function is called with the dependent variable first (`stats_agg(Y, X)`), which
+could seem unusual because the independent variable is often first in non-SQL contexts. 
+However, we have followed PostgreSQL and the SQL standard, which put the dependent 
+variable first in [linear regression type functions][pg-stats-aggs]. 
 
 <highlight type="note">
 Note that `value` can be NULL, but the aggregate is not evaluated
@@ -69,8 +71,9 @@ values are ignored. Both `Y` and `X` must be non-NULL for the row to be included
 |`stats_agg`|`StatsSummary2D`|A two-dimensional StatsSummary object that can be passed to accessor functions or other objects in the stats aggregate API|
 
 ## Sample usage
-This example produces one and two dimensionsal StatsSummaries in the CTE (`WITH t as (...)` and then uses the `average` and `slope` accessors for each type to calculate the corresponding values from each function. 
-
+This example produces one and two dimensional `StatsSummaries` in the 
+CTE (`WITH t as (...)`, and then uses the `average` and `slope` accessors 
+for each type to calculate the corresponding values from each function: 
 ``` sql
 WITH t as (
     SELECT

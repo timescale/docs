@@ -11,20 +11,19 @@ Get the number of values contained in a statistical aggregate. This saves space
 when you need both a count and other statistical aggregates as part of a continuous
 aggregate. You do not need to specify a separate `count` aggregate.
 
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
-
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-|`summary`|`StatsSummary1D` / `StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
+|-|-|-|
+|`summary`|`StatsSummary1D`/`StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
 
 ## Returns
 
 |Column|Type|Description|
-|---|---|---|
+|-|-|-|
 |`num_vals`|`BIGINT`|The number of values in the stats agg|
 
 ## Sample usage

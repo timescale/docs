@@ -18,17 +18,13 @@ GROUP BY 1;
 
 This uses a two-step aggregation process. The first step is an aggregation step (`stats_agg(val)`),
 which creates a machine-readable form of the aggregate. The second step is an accessor.
-The available accessors are `average`, `stddev`, & `kurtosis`. The accessors
+The available accessors are `average`, `stddev`, and `kurtosis`. The accessors
 run final calculations and output the calculated value in a human-readable way. This makes it
 easier to construct your queries, because it distinguishes the parameters, and
 makes it clear which aggregates are being re-aggregated or rolled up.
 Additionally, because this query syntax is used in all Timescale Toolkit
 queries, when you are used to it, you can use it to construct more and more
 complicated queries.
-
-For some more technical details and usage examples of the two-step aggregation 
-method, see the [blog post on aggregates][blog-aggregates] or the 
-[developer documentation][gh-two-step-agg].
 
 A more complex example uses window functions to calculate tumbling window statistical aggregates. 
 The statistical aggregate is first calculated over each minute in the subquery 
@@ -48,13 +44,17 @@ FROM (SELECT
 WINDOW fifteen_min as (ORDER BY bucket ASC RANGE '15 minutes' PRECEDING);
 ```
 
+For some more technical details and usage examples of the two-step aggregation 
+method, see the [blog post on aggregates][blog-aggregates] or the 
+[developer documentation][gh-two-step-agg].
+
 # 1D and 2D linear regression with statistical aggregates
 The `stats_agg` aggregate is available in two forms, a one-dimensional 
 aggregate shown earlier in this section, and a two-dimensional aggregate. 
 The two-dimensional aggregate takes in two variables `(Y, X)`, which are 
 dependent and independent variables respectively. The two-dimensional 
 aggregate performs all the same calculations on each individual variable 
-as performing separate one-dimensional aggregates would and 
+as performing separate one-dimensional aggregates would, and 
 additionally performs linear regression on the two variables. Accessors 
 for one-dimensional values append a `_y` or `_x` to the name. For 
 example:

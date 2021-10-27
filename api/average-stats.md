@@ -1,4 +1,4 @@
-# average() / average_y() / average_x() <tag type="toolkit">Toolkit</tag>
+# average(), average_y(), and average_x() <tag type="toolkit">Toolkit</tag>
 
 ```SQL
 average(summary StatsSummary1D) RETURNS BIGINT
@@ -14,22 +14,20 @@ Get the average of the values contained in a statistical aggregate.
 In a two-dimensional [`stats_agg`][stats-agg] use the `_y`/ `_x` form to access the 
 average of the dependent and independent variables. 
 
-
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
-
+For more information about statistical aggregate functions, see the
+[hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-|`summary`|`StatsSummary1D` / `StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
+|-|-|-|
+|`summary`|`StatsSummary1D`/`StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
 
 ## Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`average` / `average_y` / `average_x` |`DOUBLE PRECISION`|The average of  the values in the statistical aggregate|
+|-|-|-|
+|`average`/`average_y`/`average_x`|`DOUBLE PRECISION`|The average of  the values in the statistical aggregate|
 
 ## Sample usage
 
