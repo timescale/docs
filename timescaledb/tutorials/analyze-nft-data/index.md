@@ -1,4 +1,4 @@
-# Analyze non-fungible token (NFT) transactions
+# Analyze Non-fungible token (NFT) sales data
 
 This tutorial is a step-by-step guide to collecting, storing, and analyzing NFT ([non-fungible tokens][nft-wiki]) 
 sales data from the largest NFT marketplace, [OpenSea][opensea]. 
