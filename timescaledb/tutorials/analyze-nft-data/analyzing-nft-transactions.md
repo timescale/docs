@@ -8,7 +8,7 @@ as their payment symbol, but you can modify the script to include more
 payment symbols in your analysis if you want to.
 
 All the queries in this section, plus some additional ones, are in our 
-[NFT Starter Kit on GitHub](https://github.com/timescale/nft-starter-kit) 
+[NFT Starter Kit on GitHub][nft-starter-kit]
 in the `queries.sql` file.
 
 We divide our analysis into two parts: simple queries and complex queries. But first we will create something to 
@@ -109,7 +109,7 @@ to analyze the time-period, asset, collection, or account that you are curious a
 
 Where possible, we include dashboard examples from Superset to serve as inspiration for creating your own 
 dashboard which monitors and analyzes NFT sales using free, open-source tools. You can find the code used to create each 
-graph in the [NFT Starter Kit Github repo](https://github.com/timescale/nft-starter-kit).
+graph in the [NFT Starter Kit Github repo][nft-starter-kit].
 
 ### Collections with the highest sales volume
 Which collections have the highest volume of sales? Answering this is a great starting point for finding collections 
@@ -176,7 +176,7 @@ Here's what this query would look like as a time-series chart in Apache Superset
 ![daily number of nft transactions](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-number-of-nft-transactions.jpg)
 
 As a reminder, charts like this are pre-built and ready for you to use and modify as part of the pre-built dashboards 
-in our [NFT Starter Kit](https://github.com/timescale/wip-crypto-starter).
+in our [NFT Starter Kit][nft-starter-kit].
 
 ### Comparison of daily NFT sales for different collections
 How do the daily sales of NFTs in one collection compare to that of another collection? This query compares the daily 
@@ -210,7 +210,7 @@ larger (such as 9 months), or smaller (such as 14 days) periods of time.
 ### Snoop Dogg's NFT activity (or individual account activity)
 How many NFTs did a particular person buy in a certain period of time? This sort of query is useful to monitor the 
 activity of popular NFT collectors, like American rapper Snoop Dogg 
-(or [Cozomo_de_Medici](https://opensea.io/Cozomo_de_Medici)) or African NFT evangelist [Daliso Ngoma](https://opensea.io/daliso? ) 
+(or [Cozomo_de_Medici][snoop-dogg-opensea]) or African NFT evangelist [Daliso Ngoma][daliso-opensea] 
 or even compare trading patterns of multiple collectors. Since NFT transactions are public on the Ethereum 
 blockchain and our database contains seller (`seller_account`) and buyer (`winner_account`) columns as well, you 
 can analyze the purchase activity of a specific account. 
@@ -352,7 +352,7 @@ bucket             |slug         |mean_price          |median_price         |
 ![daily mean median](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/daily-mean-median.jpg)
 
 Since calculating the mean and median are computationally expensive for large datasets, we use 
-the [`percentile_agg` hyperfunction](), a SQL function that is part of the Timescale Toolkit extension. It 
+the [`percentile_agg` hyperfunction][percentile-agg], a SQL function that is part of the Timescale Toolkit extension. It 
 accurately approximates both statistics, as shown in the definition of `mean_price` and `median_price` in the 
 continuous aggregate we created earlier in the tutorial:
 
@@ -427,7 +427,7 @@ bucket             |nft           |mean_price         |median_price        |
 
 This is a more complex query which uses PostgreSQL Common Table Expressions (CTE) to first create a sub-table of the 
 data from the past day, called `one_day`. Then you use the hyperfunction time_bucket to create 30-minute buckets of 
-our data and use the [percentile_agg hyperfunction](https://docs.timescale.com/timescaledb/latest/how-to-guides/hyperfunctions/percentile-approx/approximate-percentile/#running-an-approximate-percentage-query) to find the mean and median prices for each interval period. Finally, 
+our data and use the [percentile_agg hyperfunction][percentile-agg] to find the mean and median prices for each interval period. Finally, 
 you JOIN on the `assets` table to get the name of the specific NFT in order to return it along with the mean and 
 median price for each time interval.
 
@@ -460,11 +460,11 @@ bucket             |asset_id|open_price|close_price|low_price  |high_price|volum
 2021-02-26 01:00:00|18198072|       0.1|        0.1|        0.1|       0.1|   154|
 2021-02-26 01:00:00|18198081|      0.25|       0.25|       0.25|      0.25|   155|
 
-In this query, you used the TimescaleDB hyperfunctions [`first()`](/api/latest/hyperfunctions/first/) and 
-[`last()`](/api/latest/hyperfunctions/last/) to find the open and close prices respectively. These 
+In this query, you used the TimescaleDB hyperfunctions [`first()`][first-docs] and 
+[`last()`][last-docs] to find the open and close prices respectively. These 
 hyperfunctions allow you to find the value of one column as ordered by another, by performing a sequential scan 
 through their groups. In this case, you get the first and last values of the `total_price` column, as ordered by 
-the `time` column. [See the docs for more information.](/api/latest/hyperfunctions/first/)
+the `time` column. [See the docs for more information.][first-docs]
 
 If you want to run this query regularly, you can create a continuous aggregate for it, which greatly improves the 
 query performance. Moreover, you can remove the `LIMIT 5` and replace it with an additional WHERE clause filtering 
@@ -500,7 +500,6 @@ bucket             |nft           |url                                          
 This section contains information about what to do when you've completed the tutorial, and some links to more resources.
 
 ### Claim your limited edition NFT
-
 Because we love NFTs as much as you do, we created a limited edition set of 20 NFTs featuring our Timescale mascot, Eon! The first 20 people to complete this tutorial earn a limited edition NFT from the Eon's Photobooth collection. You can also view them all live on OpenSea.
 
 To claim your NFT, complete this tutorial, answer the questions in the form, 
@@ -508,7 +507,7 @@ and we'll send one of the limited-edition Eon NFTs to your ETH address (at no co
 
 ### Build on the NFT Starter Kit
 Congratulations! You’re now up and running with NFT data and TimescaleDB. Check out 
-our [NFT Starter Kit](https://github.com/timescale/wip-crypto-starter) to use as your starting point to 
+our [NFT Starter Kit][nft-starter-kit] to use as your starting point to 
 build your own, more complex NFT analysis projects.
 
 The Starter Kit contains:
@@ -516,16 +515,30 @@ The Starter Kit contains:
 * A sample dataset, to get started quickly, if you don't want to ingest real-time data
 * A schema for storing NFT sales, assets, collections, and owners
 * A local TimescaleDB database, pre-loaded with sample NFT data
-* Pre-built dashboards and charts in [Apache Superset](https://superset.apache.org) and [Grafana](https://grafana.com) 
+* Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana]
 for visualizing your data analysis
 * Queries to use as a starting point for your own analysis
  
 ### Learn more about how to use TimescaleDB to store and analyze crypto data
 Check out these resources for more about using TimescaleDB with crypto data:
-* [Analyze cryptocurrency market data](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-cryptocurrency-data/#prerequisites)
-* [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB](https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/)
-* [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone](https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/)
-* [How one TimescaleDB user built a successful crypto trading bot](https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/)
+* [Analyze cryptocurrency market data][analyze-cryptocurrency]
+* [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB][analyze-bitcoin]
+* [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone][messari]
+* [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
 
 
 [cont-agg]: /how-to-guides/continuous-aggregates
+[nft-starter-kit]: https://github.com/timescale/nft-starter-kit
+[snoop-dogg-opensea]: https://opensea.io/Cozomo_de_Medici
+[daliso-opensea]: https://opensea.io/daliso
+[superset]: https://superset.apache.org
+[grafana]: https://grafana.com
+
+[percentile-agg]: /hyperfunctions/percentile-approximation/percentile_agg/
+[first-docs]: /api/latest/hyperfunctions/first/
+[last-docs]: /api/latest/hyperfunctions/last/
+
+[analyze-cryptocurrency]: /tutorials/analyze-cryptocurrency-data/
+[analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
+[messari]: https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
+[trading-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
