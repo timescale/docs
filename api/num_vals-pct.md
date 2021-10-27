@@ -21,7 +21,7 @@ aggregate. You can compute a single percentile estimator by extracting the
 
 |Name|Type|Description|
 |---|---|---|
-|`sketch`/`digest`|`UddSketch` or `tdigest`|The percentile estimator to extract the number of values from, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) call|
+|`sketch`/`digest`|`UddSketch` or `tdigest`|The percentile estimator to extract the number of values from, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg/) call|
 
 ## Returns
 
