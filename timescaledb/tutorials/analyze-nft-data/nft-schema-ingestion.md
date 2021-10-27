@@ -156,8 +156,8 @@ CREATE INDEX idx_payment_symbol ON nft_sales (payment_symbol);
 ```
 
 ### Schema design
-`BIGINT`’s storage size is 8 bytes in PostgreSQL (as opposed to `INT`’s 4 bytes) which is needed to make sure it 
-doesn’t overflow.
+The `id` field in each table is `BIGINT` because its storage size is 8 bytes in PostgreSQL (as opposed to `INT`’s 4 bytes) 
+which is needed to make sure this value doesn’t overflow.
 
 For the `quantity` field we suggest using numeric or decimal (which works the same way in PostgreSQL) as the data 
 type, because in some edge cases we experience transactions where the quantity was too big even for BIGINT.
