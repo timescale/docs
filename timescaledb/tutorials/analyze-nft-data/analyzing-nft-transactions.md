@@ -470,15 +470,11 @@ If you want to run this query regularly, you can create a continuous aggregate f
 query performance. Moreover, you can remove the `LIMIT 5` and replace it with an additional WHERE clause filtering 
 for a specific time-period to make the query more useful.
 
-**Assets with the biggest intraday price change**
+### Assets with the biggest intraday price change
+Which assets had the biggest intraday sale price change? You can identify interesting behaviour such as an asset being bought and then sold again for a much higher (or lower) amount within the same day. This can help you 
+identify good flips of NFTs, or perhaps owners whose brand elevated the NFT price thanks to it being part of their collection. 
 
-Which assets had the biggest intraday sale price change? We often want to identify interesting behaviour such as an 
-asset being bought and then sold again for a much higher (or lower) amount within the same day. This can help us 
-identify good “flips” of NFTs or perhaps owners whose brand elevated the NFT price thanks to it being part of their 
-collection. 
-
-The query below finds the assets with the biggest intraday sale price change in the last 6 months:
-
+This query finds the assets with the biggest intraday sale price change in the last six months:
 ```sql
 /* Daily assets sorted by biggest intraday price change in the last 6 month*/
 SELECT time_bucket('1 day', time) AS bucket, a.name AS nft, a.url,
@@ -500,34 +496,32 @@ bucket             |nft           |url                                          
 2021-09-25 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      1.41|      1.475|               61.3|
 2021-09-26 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      1.48|      4.341|              43.05|
 
-## Resources and Next Steps
+## Resources and next steps
+This section contains information about what to do when you've completed the tutorial, and some links to more resources.
 
-**Claim your limited edition NFT **
+### Claim your limited edition NFT
 
-Because we love NFTs as much as you do, we created a limited edition set of 20 NFT about our Timescale mascot, Eon! 
-The first 20 people to complete this tutorial will earn a limited edition NFT from the collection Eon’s Photobooth 
-(you can view them all live on OpenSea).
+Because we love NFTs as much as you do, we created a limited edition set of 20 NFTs featuring our Timescale mascot, Eon! The first 20 people to complete this tutorial earn a limited edition NFT from the Eon's Photobooth collection. You can also view them all live on OpenSea.
 
-Claiming your NFT is simple. All you need to do is complete the tutorial below, answer the questions in this form, 
-and we’ll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
+To claim your NFT, complete this tutorial, answer the questions in the form, 
+and we'll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!)
 
-**Build on the NFT Starter Kit**
-
-Congratulations! You’re now up and running with NFT data and TimescaleDB! As a next step, check out 
-our [NFT Starter Kit](https://github.com/timescale/wip-crypto-starter), which you can use as a starting point to 
+### Build on the NFT Starter Kit
+Congratulations! You’re now up and running with NFT data and TimescaleDB. Check out 
+our [NFT Starter Kit](https://github.com/timescale/wip-crypto-starter) to use as your starting point to 
 build your own, more complex NFT analysis projects.
 
-As a reminder the Starter Kit contains the following components:
-* A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB.
-* A sample dataset (to get started quickly, should you wish to not ingest real-time data)
-* A schema for storing NFT sales, assets, collections and owners
+The Starter Kit contains:
+* A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB
+* A sample dataset, to get started quickly, if you don't want to ingest real-time data
+* A schema for storing NFT sales, assets, collections, and owners
 * A local TimescaleDB database, pre-loaded with sample NFT data
 * Pre-built dashboards and charts in [Apache Superset](https://superset.apache.org) and [Grafana](https://grafana.com) 
 for visualizing your data analysis
 * Queries to use as a starting point for your own analysis
  
-**Learn more about how to use TimescaleDB to store and analyze crypto data**:
-
+### Learn more about how to use TimescaleDB to store and analyze crypto data
+Check out these resources for more about using TimescaleDB with crypto data:
 * [Analyze cryptocurrency market data](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-cryptocurrency-data/#prerequisites)
 * [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB](https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/)
 * [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone](https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/)

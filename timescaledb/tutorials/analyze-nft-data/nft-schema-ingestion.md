@@ -1,23 +1,17 @@
 # NFT schema design and ingestion
-A properly designed database schema is essential to efficiently store and analyze data. In this tutorial, we work 
-with NFT time-series data that has multiple supporting relational tables. 
+A properly designed database schema is essential to efficiently store and analyze data. This tutorial uses NFT time-series data with multiple supporting relational tables. 
 
-To help you get familiar with NFT data, let’s consider some of the questions that could be answered with data:
-
+To help you get familiar with NFT data, here are some of the questions that could be answered with this dataset:
 * Which collections have the highest trading volume?
-* What’s the number of daily transactions of a given collection/asset?
+* What’s the number of daily transactions of a given collection or asset?
 * Which collections have the most trading volume in Ether (ETH)?
 * Which account made the most NFT trades?
 * How are the mean and median sale prices correlated?
 
-One theme which is consistent across all these questions is that most of the insights generated revolve around the 
-sale itself or the aggregation of sales. Hence, we need to create a schema which focuses on the *time-series* aspect of 
-the data. We also want to make sure that JOIN-ing supporting tables is easy, so you can make queries that touch 
-both the time-series and the relational tables. Thanks to TimescaleDB’s PostgreSQL foundation and full-SQL support, 
-we can easily combine time-series and relational tables during our analysis.
+One theme across all these questions is that most of the insights are about the sale itself, or the aggregation of sales. So you need to create a schema which focuses on the time-series aspect of the data. It's also important to make sure that you can JOIN supporting tables, so you can more easily make queries that touch both the time-series and the relational tables. TimescaleDB's PostgreSQL foundation and full-SQL support allows you to easily combine time-series and relational tables during your analysis.
 
 ## Tables and field descriptions
-
+You need these tables:
 TimescaleDB hypertable:
 * **nft_sales**: successful NFT transactions
 
@@ -26,8 +20,7 @@ Relational tables (regular PostgreSQL tables):
 * **collections**: NFT collections
 * **accounts**: NFT trading accounts/users
 
-
-### nft_sales
+### The nft_sales table
 
 | Data field       | Description                     |
 |------------------|---------------------------------|
