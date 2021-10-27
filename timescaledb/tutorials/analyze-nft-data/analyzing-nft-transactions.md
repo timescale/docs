@@ -1,41 +1,42 @@
 # Analyzing NFT transactions
-
-Now that you’ve successfully collected and ingested the data, it’s time to analyze it. For this analysis, we use data 
-collected via our ingestion script containing only successful sale transactions that happened between 
+When you have successfully collected and ingested the data, it's time to analyze it. For this analysis, we use data 
+collected with our ingestion script that contains only successful sale transactions that happened between 
 1 January 2021 to 12 October 2021 on the OpenSea marketplace, as reported by the OpenSea API. 
 
-For simplicity, this tutorial analyzes only those transactions that used ‘ETH’ as their payment symbol. (You’re welcome to modify 
-the script to include more payment symbols in your own analysis.)
+For simplicity, this tutorial analyzes only those transactions that used ‘ETH’ 
+as their payment symbol, but you can modify the script to include more 
+payment symbols in your analysis if you want to.
 
-All the queries below, plus some additional ones can be found in our [NFT Starter Kit on GitHub](https://github.com/timescale/nft-starter-kit) in the file `queries.sql`
+All the queries in this section, plus some additional ones, are in our 
+[NFT Starter Kit on GitHub](https://github.com/timescale/nft-starter-kit) 
+in the `queries.sql` file.
 
 We divide our analysis into two parts: simple queries and complex queries. But first we will create something to 
 speed up our queries: TimescaleDB continuous aggregates.
 
 <highlight type="note">
-All queries below only include data that's accessible from the OpenSea API.
+All queries in this section only include data that's accessible from the OpenSea API.
 </highlight>
 
 
-## Speeding up queries with Continuous Aggregates
+## Speeding up queries with continuous aggregates
 
-**TimescaleDB continuous aggregates** speed up workloads that need to process large amounts of data. They look like 
+TimescaleDB continuous aggregates speed up workloads that need to process large amounts of data. They look like 
 PostgreSQL materialized views, but have a built-in refresh policy that makes sure that the data is up to date as new 
 data comes in. Additionally, the refresh procedure is careful to only refresh data in the materialized view that 
 actually needs to be changed, thereby avoiding recomputation of data that did not change. This smart refresh 
 procedure massively improves the refresh performance of the materialized view and the refresh policy ensures that 
 the data is always up to date. 
 
-Continuous aggregates are often used to speed up dashboards and visualizations, summarizing data sampled at high frequency, 
+[Continuous aggregates][cont-agg] are often used to speed up dashboards and visualizations, summarizing data sampled at high frequency, 
 and querying downsampled data over long time periods.
 
-In our tutorial, we’ll create two continuous aggregates to speed up queries on assets and on collections:
+This tutorial creates two continuous aggregates to speed up queries on assets and on collections.
 
 ### Assets continuous aggregates
-
-Create new continuous aggregate called `assets_daily` that computes and stores the following information about all assets for 
+Create a new continuous aggregate called `assets_daily` that computes and stores the following information about all assets for 
 each day: `asset_id`, the collection it belongs to, `daily average price`, `median price`, `sale volume`, `ETH volume`, `open`, 
-`high`, `low` and `close` prices.
+`high`, `low` and `close` prices:
 
 ```sql
 /* Asset continuous aggregates */
@@ -68,9 +69,8 @@ SELECT add_continuous_aggregate_policy('assets_daily',
 ```
 
 ### Collections continuous aggregates
-
 Create another continuous aggregate called `collections_daily` that computes and stores the following information about all collections 
-for each day: `daily average price`, `median price`, `sale volume`,  `ETH volume`, `the most expensive nft`, `the highest price`.
+for each day, inclduing `daily average price`, `median price`, `sale volume`,  `ETH volume`, `the most expensive nft`, and `the highest price`:
 
 ```sql
 /* Collection continuous aggregates */
@@ -95,25 +95,25 @@ SELECT add_continuous_aggregate_policy('collections_daily',
     schedule_interval => INTERVAL '1 day');
 ```
 
-When asking questions where daily aggregations can help with the answer, we will query the continuous aggregate, 
-rather than the raw data in the `nft_sales` hypertable.
+When you are asking questions where daily aggregations can help with the answer, 
+you can query the continuous aggregate, rather than the raw data in the `nft_sales` 
+hypertable. This helps speed up the result.
 
 ## Simple queries
-
-We’ll start our analysis by asking simple questions about NFT sales that happened in 2021 and answering them using SQL queries. 
-These queries are meant to serve as a starting point for your own analysis. Feel free to modify each query to analyze 
-the time-period, asset, collection or account you are curious about!
+You can start your analysis by asking simple questions about NFT sales that 
+happened in 2021 and answering them using SQL queries. Use these queries 
+as a starting point for your own further analysis. You can modify each query 
+to analyze the time-period, asset, collection, or account that you are curious about!
 
 Where possible, we include dashboard examples from Superset to serve as inspiration for creating your own 
-dashboard which monitors and analyzes NFT sales using free, open-source tools! You can find the code used to create each 
+dashboard which monitors and analyzes NFT sales using free, open-source tools. You can find the code used to create each 
 graph in the [NFT Starter Kit Github repo](https://github.com/timescale/nft-starter-kit).
 
 ### Collections with the highest sales volume
-
 Which collections have the highest volume of sales? Answering this is a great starting point for finding collections 
 with assets that are frequently traded, which is important for buyers thinking about the resale value of their NFTs. If 
-you buy an NFT in one of the collections below, chances are you’ll be able to find a buyer. In the query below, we 
-order the collections by total volume of sales, but you could also order them by ETH volume instead.
+you buy an NFT in one of the collections below, there is a good chance you'll be able to find a buyer. In this query, you 
+order the collections by total volume of sales, but you could also order them by ETH volume instead:
 
 ```sql
 /* Collections with the highest volume? */
@@ -139,20 +139,18 @@ ORDER BY total_volume DESC;
 | 24px               | 24872        | 3203.9084810874024 |
 | pudgypenguins      | 24165        | 35949.81731415086  |
 
-For this query, we take advantage of the pre-calculated data about collections stored in the `collections_daily` 
-continuous aggregate. We also perform an `INNER JOIN` on both the collections and assets relational tables to find 
-the collection name in human readable form, represented by the `slug`.
+For this query, you take advantage of the pre-calculated data about collections stored in the `collections_daily` 
+continuous aggregate. You also perform an `INNER JOIN` on both the collections and assets relational tables to find the collection name in human readable form, represented by the `slug`.
 
-Querying from continuous aggregates is faster and allows us to write shorter, more readable queries. It 
-is a pattern we’ll use again in the queries below, so look out for it!
+Querying from continuous aggregates is faster and allows you to write shorter, more readable queries. It 
+is a pattern that you'll use again in this tutorial, so look out for it!
 
 ### Daily sales of a collection
+How many sales took place each day for a certain collection? This query looks at the daily volume of sales 
+for NFTs in the `cryptokitties` collection. This can help you find which days the NFT traders have been more active, 
+and help you spot patterns about which days of the week or month have higher or lower volume and why.  
 
-How many sales took place each day for a certain collection? In the query below, we look at the daily volume of sales 
-for NFTs in the `cryptokitties` collection. This can help us find which days the NFT traders have been more active, 
-and help us spot patterns about which days of the week or month have higher or lower volume and why. 
-
-Feel free to modify it to look at your favorite NFT collection, be it `cryptopunks`, `lazy-lions`, or `afrodroids-by-owo`.
+You can modify this query to look at your favorite NFT collection, such as `cryptopunks`, `lazy-lions`, or `afrodroids-by-owo`:
 
 ```sql
 SELECT bucket, slug, volume
@@ -549,3 +547,6 @@ for visualizing your data analysis
 * [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB](https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/)
 * [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone](https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/)
 * [How one TimescaleDB user built a successful crypto trading bot](https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/)
+
+
+[cont-agg]: /how-to-guides/continuous-aggregates
