@@ -1,8 +1,8 @@
 # High availability (HA) with multi-node
-A multi-node installation can be configured to write each chunk to multiple data nodes
-to natively replicate data at the chunk level. This protects against data node
-failures and provides an alternative to fully replicating each data node using
-streaming replication in order to provide high availability.
+A multi-node installation can be configured so that each chunk is written to
+multiple data nodes. This natively replicates data at the chunk level, and
+protects against data node failures. It also provides high availability using an
+alternative to fully replicating each data node using.
 
 The data nodes themselves require no additional setup to use native replication,
 but the access node relies on streaming replication by default, so it requires
