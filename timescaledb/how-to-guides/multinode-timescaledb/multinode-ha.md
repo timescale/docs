@@ -29,7 +29,9 @@ have newly ingested data replicated. When you query replicated data, the query
 planner only includes one replica of each chunk in the query plan.
 
 ## Handling node failures
-When a data node fails, you cannot complete queries and inserts that attempt to write to the failed node. This is to maintain data consistency until the data node becomes available again. For example:
+When a data node fails, you cannot complete queries and inserts that attempt to
+write to the failed node. This is to maintain data consistency until the data
+node becomes available again. For example:
 ```sql
 SELECT delete_data_node('data_node_2', force => true);
 WARNING:  distributed hypertable "conditions" is under-replicated

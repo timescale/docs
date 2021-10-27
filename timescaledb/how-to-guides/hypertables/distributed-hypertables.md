@@ -158,6 +158,50 @@ For more information about replication, high availability, and handling node
 failures in distributed hypertables, see the
 [multi-node HA section][multi-node-ha].
 
+## Partitioning distributed hypertables
+Like regular hypertable, distributed hypertables need to be partitioned along a
+`time` dimension, such as a `timestamptz` column. However, for best performance
+with most distributed workloads, we recommend multi-dimensional partitioning
+with an additional `space` dimension. This allows you to consistently partition
+the data over the data nodes, similar to traditional [sharding][sharding].
+
+If your dataset has a column called something like `customerID`, `deviceID`, or
+`location`, and that column is frequently used in the `GROUP BY` clause of your
+queries, then it is a good candidate column for space partitioning. For example,
+this query would work well on a distributed hypertable, because it runs on all
+the data nodes in parallel:
+```sql
+SELECT time_bucket('1 hour', time) AS hour, location, avg(temperature)
+FROM conditions
+GROUP BY hour, location
+ORDER BY hour, location
+LIMIT 100;
+```
+
+However, this query would not work as well, because it involves only a single data node:
+```sql
+SELECT time_bucket('1 hour', time) AS hour, avg(temperature)
+FROM conditions
+WHERE location = 'office_1'
+GROUP BY hour
+ORDER BY hour
+LIMIT 100;
+```
+
+However, there are other factors that you also need to consider when
+partitioning your distributed hypertables. For example, if a query can be run
+concurrently by many different client sessions, each filtering on a different
+location, then that would also spread the load evenly across the distributed
+hypertable.
+
+Inserts also benefit from space partitioning. The additional space dimension
+makes it more likely that a multi-row insert uniformly spreads across the data
+nodes, leading to increased insert performance. In contrast, with a single time
+dimension it is likely that in-order inserts write to only one data node and
+chunk at a time. In this case, chunks are created on the data nodes in
+round-robin fashion.
+
+
 
 [multi-node]: /how-to-guides/multinode-timescaledb/
 [multi-node-ha]: /how-to-guides/multinode-timescaledb/multinode-ha/
