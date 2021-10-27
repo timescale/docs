@@ -1,5 +1,5 @@
 # Create hypertables
-When you have createed your database, you're ready to create your first
+When you have created your database, you're ready to create your first
 hypertable. Creating a hypertable is a two-step process; you need to create a
 standard PostgreSQL table, and then convert it into a TimescaleDB hypertable.
 The method for creating distributed hypertable on a multi-node cluster is
