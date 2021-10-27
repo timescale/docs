@@ -21,6 +21,8 @@ Relational tables (regular PostgreSQL tables):
 * **accounts**: NFT trading accounts/users
 
 ### The nft_sales table
+The `nft_sales` table contains information about successful sale transactions in time-series form. One row represents 
+one successful sale event on the OpenSea platform.
 
 | Data field       | Description                     |
 |------------------|---------------------------------|
@@ -38,9 +40,15 @@ Relational tables (regular PostgreSQL tables):
 | to_account       | Account used to transfer to, FK: accounts(id) |
 | winner_account   | Buyer's account, FK: accounts(id) |
 
-The `nft_sales` table contains information about successful sale transactions in time-series form. One row represents one successful sale event on the OpenSea platform. The `id` field is a unique field provided by the OpenSea API. The `total_price` field is the price paid for the NFTs in ETH (or other cryptocurrency payment symbol available on OpenSea). The `quantity` field indicates how many NFTs were sold in the transaction (can be more than 1). The `auction_type` field is NULL by default, unless the transaction happened as part of an auction. The `asset_id` and `collection_id` fields can be used to JOIN the supporting relational tables.
+* `id` field is a unique field provided by the OpenSea API.
+* `total_price` field is the price paid for the NFTs in ETH (or other cryptocurrency payment symbol available on OpenSea). 
+* `quantity` field indicates how many NFTs were sold in the transaction (can be more than 1). 
+* `auction_type` field is NULL by default, unless the transaction happened as part of an auction.
+* `asset_id` and `collection_id` fields can be used to JOIN the supporting relational tables.
 
 ### The assets table
+The `assets` table contains information about the assets (NFTs) that are in the transactions. One row represents a 
+unique NFT asset on the OpenSea platform.
 
 | Data field       | Description                            |
 |------------------|----------------------------------------|
@@ -52,10 +60,14 @@ The `nft_sales` table contains information about successful sale transactions in
 | owner_id         | ID of the NFT owner account, FK: accounts(id) |
 | details          | Other extra data fields (JSONB)        |
 
-The `assets` table contains information about the assets (NFTs) that are in the transactions. One row represents a unique NFT asset on the OpenSea platform. The `name` field is the name of the NFT, and is not unique. The `id` field is the primary key, provided by the OpenSea API. One asset can be referenced from multiple transactions (traded multiple times).
+* `name` field is the name of the NFT, and is not unique.
+* `id` field is the primary key, provided by the OpenSea API.
+* One asset can be referenced from multiple transactions (traded multiple times).
+
 
 ### The collections table
-
+The `collections` table holds information about the NFT collections. One row represents a unique NFT collection. 
+One collection includes multiple unique NFTs (that are in the `assets` table).
 | Data field       | Description               |
 |------------------|---------------------------------|
 | id               | Auto-increment (PK)             |
@@ -64,11 +76,11 @@ The `assets` table contains information about the assets (NFTs) that are in the 
 | url              | OpenSea url of the collection   |
 | details          | Other extra data fields (JSONB) |
 
-The `collections` table holds information about the NFT collections. One row represents a unique NFT collection. 
-One collection includes multiple unique NFTs (that are in the `assets` table). The `slug` field is a unique identifier of the collection. 
-
+* `slug` field is a unique identifier of the collection. 
 
 ### The accounts table
+The `accounts` table includes the accounts that have participated in at least one transaction from the nft_sales table. 
+One row represents one unique account on the OpenSea platform.
 
 | Data field       | Description               |
 |------------------|---------------------------------|
@@ -77,13 +89,8 @@ One collection includes multiple unique NFTs (that are in the `assets` table). T
 | address          | Account address, unique         |
 | details          | Other extra data fields (JSONB) |
 
-The `accounts` table includes the accounts that have participated in at least one transaction from the nft_sales table.
-
-One row represents one unique account on the OpenSea platform
-
-`address` is never NULL and it’s unique
-
-`user_name` is NULL unless it’s been submitted on the OpenSea profile by the user
+* `address` is never NULL and it’s unique
+* `user_name` is NULL unless it’s been submitted on the OpenSea profile by the user
 
 ## Database schema
 The data types used in the schema for this tutorial have been determined based on our research and hands-on experience working with the OpenSea API and the data pulled from OpenSea. Start by running these SQL commands to create the schema. Alternatively, you can download and run the `schema.sql` file from our [NFT Starter Kit GitHub repository](https://github.com/timescale/nft-starter-kit).
