@@ -1,7 +1,7 @@
 # Distributed hypertables
 Distributed hypertables are used in [multi-node][multi-node] clusters. A
 distributed hypertable is a hypertable that automatically partitions data into
-chunks across multiple machines, while still like a single continuous table
+chunks across multiple machines, while still acting like a single continuous table
 across all time. In most cases, distributed hypertables work the same way as
 regular hypertables, including inserting, querying, and altering them.
 
@@ -22,7 +22,7 @@ and other objects. However, some interactions between distributed hypertables
 and non-distributed objects might not work as expected. For example, when you
 set permissions on a distributed hypertable, they work only if the roles are
 identical on all the data nodes. Additionally, if you `JOIN` a local table and a
-distributed hypertable, you need to the raw data from data nodes and perform the
+distributed hypertable, you need to fetch the raw data from data nodes and perform the
 `JOIN` locally.
 
 ## Inserting data into a distributed hypertable
