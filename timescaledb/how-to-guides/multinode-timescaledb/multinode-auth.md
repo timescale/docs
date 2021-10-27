@@ -194,183 +194,180 @@ You can purchase certificates from a commercial certificate authority (CA), or
 generate your own self-signed CA. This section shows you how to use your access
 node certificate to create and sign new user certificates for the data nodes.
 
+Keys and certificates serve different purposes on the data nodes and access
+node. For the access node, a signed certificate is used to verify user
+certificates for access. For the data nodes, a signed certificate authenticates
+the node to the access node.  
+
 <procedure>
 
-### Setting up certificate authentication
+### Generating a self-signed root certificate for the access node
 1.  On the access node, at the command prompt, generate a private key called
     `auth.key`:
     ```bash
     openssl genpkey -algorithm rsa -out auth.key
     ```
-1.  Generate a self-signed root certificate for the certificat authority (CA):
+1.  Generate a self-signed root certificate for the certificate authority (CA),
+    called `root.cert`:
     ```bash
     openssl req -new -key auth.key -days 3650 -out root.crt -x509
     ```
+1.  Complete the questions asked by the script to create your root certificate.
+    Type your responses in, press `enter` to accept the default value shown in
+    brackets, or type `.` to leave the field blank. For example:
+    ```txt
+    Country Name (2 letter code) [AU]:US
+    State or Province Name (full name) [Some-State]:New York
+    Locality Name (eg, city) []:New York
+    Organization Name (eg, company) [Internet Widgets Pty Ltd]:Example Company Pty Ltd
+    Organizational Unit Name (eg, section) []:
+    Common Name (e.g. server FQDN or YOUR name) []:http://cert.example.com/
+    Email Address []:
+    ```
 
-<!--- Lana, you're up to here! --LKB 2021-10-22-->
+</procedure>
 
-You are about to be asked to enter information that will be incorporated
-into your certificate request.
-What you are about to enter is what is called a Distinguished Name or a DN.
-There are quite a few fields but you can leave some blank
-For some fields there will be a default value,
-If you enter '.', the field will be left blank.
------
-Country Name (2 letter code) [AU]:US
-State or Province Name (full name) [Some-State]:New York
-Locality Name (eg, city) []:New York
-Organization Name (eg, company) [Internet Widgits Pty Ltd]:Example Company Pty Ltd
-Organizational Unit Name (eg, section) []:
-Common Name (e.g. server FQDN or YOUR name) []:http://cert.example.com/
-Email Address []:
-```
+When you have created the root certificate on the access node, you can generate
+certificates and keys for each of the data nodes. To do this, you need to create
+a certificate signing request (CSR) for each data node.
 
-### 2. Generate keys and certificates for nodes
-Keys and certificates serve similar but distinct purposes for the data nodes and
-access node respectively.  For the data nodes, a signed certificate verifies the
-node to the access node.  For the access node a signed certificate is used to
-sign user certificates for access.
+The default names for the key is `server.key`, and for the certificate is
+`server.crt`. They are stored in together, in the `data` directory on the data
+node instance.
 
-The default names for the node key and certificate are `server.key`
-and `server.crt` respectively and they are both placed in the data
-directory of the instance. To create a server certificate:
+The default name for the CSR is `server.csr` and you need to sign
+it using the root certificate you created on the access node.
 
-1. Generate a CSR, `server.csr` for the node and generate a new key,
-`server.key`. To generate both with one command:
+<procedure>
 
-  ```bash
-  openssl req -out server.csr -new -newkey rsa:2048 -nodes \
-  -keyout server.key
-  ```
+### Generating keys and certificates for data nodes
+1.  On the access node, generate a certificate signing request (CSR)
+    called `server.csr`, and create a new key called `server.key`:
+    ```bash
+    openssl req -out server.csr -new -newkey rsa:2048 -nodes \
+    -keyout server.key
+    ```
+1.  Sign the CSR using the root certificate CA you created earlier,
+    called `auth.key`:
+    ```bash
+    openssl ca -extensions v3_intermediate_ca -days 3650 -notext \
+    -md sha256 -in server.csr -out server.crt
+    ```
+1.  Move the `server.crt` and `server.key` files from the access node, on to
+    each data node, in the `data` directory. Depending on your network setup,
+    you might need to use portable media.
+1.  Copy the root certificate file `root.crt` from the access node, on to each
+    data node, in the `data` directory. Depending on your network setup, you
+    might need to use portable media.
 
-2. Sign the CSR using the previously generated CA key, `auth.key`:
+</procedure>
 
-  ```bash
-  openssl ca -extensions v3_intermediate_ca -days 3650 -notext \
-  -md sha256 -in server.csr -out server.crt
-  ```
+When you have created the certificates and keys, and moved all the files into the right places on the data nodes, you can configure the data nodes to use SSL authentication.
 
-3. Move the server files `server.crt` and `server.key` into the node's data
-  directory.
+<procedure>
 
-4. Copy the root certificate file `root.crt` from the certificate
-  authority into the node's data directory.
+### Configuring data nodes to use SSL authentication
+1.  On each data node, open the `postgresql.conf` configuration file and add or
+    edit the SSL settings to enable certificate authentication:
+    ```txt
+    ssl = on
+    ssl_ca_file = 'root.crt'
+    ssl_cert_file = 'server.crt'
+    ssl_key_file = 'server.key'
+    ```
+    **OPTIONAL:** If you want the access node to use certificate authentication for login, make these changes on the access node as well.
+1.  On each data node, open the `pg_hba.conf` configuration file, and add or
+    edit this line to allow any SSL user log in with client certificate
+    authentication:
+    ```txt
+    # TYPE    DATABASE  USER        ADDRESS   METHOD  OPTIONS
+    hostssl   all       all         all       cert    clientcert=1
+    ```
 
-### 3. Configure the node to use SSL authentication
-
-Configure the node to use SSL authentication by setting the `ssl` option to `on` and setting
-the `ssl_ca_file` value in the `postgresql.conf` configuration file:
-
-```
-ssl = on
-ssl_ca_file = 'root.crt'
-ssl_cert_file = 'server.crt'
-ssl_key_file = 'server.key'
-```
-
-This configuration is only required on data nodes, but it can also be applied to
-the access node to enable certificate authentication for login.
-
-<highlight type="tip">
-`ssl_cert_file` and `ssl_key_file` are here set explicitly, but do not need
-to be set for the default values (`server.crt` and `server.key`).  If the values
-are different from the defaults, they _would_ need to be set explicitly.
-
+<highlight type="note">
+If you are using the default names for your certificate and key, you do not need
+to explicitly set them. The configuration looks for `server.crt` and
+`server.key` by default. If you use different names for your certificate and
+key, make sure you specify the correct names in the `postgresql.conf`
+configuration file.
 </highlight>
 
-Now configure the HBA file (default `pg_hba.conf`) on the data node to
-accept certificates for users.  Add a line to allow any user that uses
-SSL to log in with client certificate authentication:
+</procedure>
 
-```
-# TYPE    DATABASE  USER        ADDRESS   METHOD  OPTIONS
-hostssl   all       all         all       cert    clientcert=1
-```
+When your data nodes are configured to use SSL certificate authentication, you
+need to create a signed certificate and key for your access node. This allows
+the access node to log in to the data nodes.
 
-### 4. Set up user permissions
-The access node does not have any user keys nor certificates, so it cannot yet log
-into the data node.  User key files and user certificates are stored in
-`timescaledb/certs` in the data directory.
+<procedure>
 
-<highlight type="tip">
-You can configure the location of the user certificates and
-keys outside of the data directory using `timescaledb.ssl_dir`.
+### Creating certificates and keys for the access node
+1.  On the access node, as the `postgres` user, compute a base name for the
+    certificate files using [md5sum][], generate a subject identifier, and
+    create names for the key and certificate files:
+    ```bash
+    pguser=postgres
+    base=`echo -n $pguser | md5sum | cut -c1-32`
+    subj="/C=US/ST=New York/L=New York/O=Timescale/OU=Engineering/CN=$pguser"
+    key_file="timescaledb/certs/$base.key"
+    crt_file="timescaledb/certs/$base.crt"
+    ```
+1.  Generate a new random user key:
+    ```bash
+    openssl genpkey -algorithm RSA -out "$key_file"
+    ```
+1.  Generate a certificate signing request (CSR). This file is temporary,  
+    stored in the `data` directory, and is deleted later on:
+    ```bash
+    openssl req -new -sha256 -key $key_file -out "$base.csr" -subj "$subj"
+    ```
+1.  Sign the CSR with the access node key:
+    ```bash
+    openssl ca -batch -keyfile server.key -extensions v3_intermediate_ca \
+  	   -days 3650 -notext -md sha256 -in "$base.csr" -out "$crt_file"
+    rm $base.csr
+    ```
+1.  Append the node certificate to the user certificate. This completes the
+    certificate verification chain and makes sure that all certificates are
+    available on the data node, up to the trusted certificate stored
+    in `root.crt`:
+    ```bash
+    cat >>$crt_file <server.crt
+    ```
 
+<highlight type="note">
+By default, the user key files and certificates are stored on the access node in
+the `data` directory, under `timescaledb/certs`. You can change this location
+using the `timescaledb.ssl_dir` configuration variable.
 </highlight>
 
-To generate a key and certificate file:
+</procedure>
 
-1. Compute the base name for the files (using [md5sum][]), generate a subject
-  identifier, and create names for the key and certificate files. Here, for user
-  `postgres`:
-  ```bash
-  pguser=postgres #change value for a different user name
-  base=`echo -n $pguser | md5sum | cut -c1-32`
-  subj="/C=US/ST=New York/L=New York/O=Timescale/OU=Engineering/CN=$pguser"
-  key_file="timescaledb/certs/$base.key"
-  crt_file="timescaledb/certs/$base.crt"
-  ```
-  Most of the data is copied from the server certificate for the
-  subject, but the common name (`CN`) needs to be set to the user
-  name.
-2. Generate a new random user key.
-  ```bash
-  openssl genpkey -algorithm RSA -out "$key_file"
-  ```
-3. Generate a certificate signing request. The CSR file is just
-  temporary, so we can place it in directly in the data directory. It
-  will be removed later.
-  ```bash
-  openssl req -new -sha256 -key $key_file -out "$base.csr" -subj "$subj"
-  ```
-4. Sign the certificate signing request with the node key.
-  ```bash
-  openssl ca -batch -keyfile server.key -extensions v3_intermediate_ca \
-	   -days 3650 -notext -md sha256 -in "$base.csr" -out "$crt_file"
-  rm $base.csr
-  ```
-5. Append the node certificate to the user certificate. This is
-  necessary to complete the certificate verification chain and make
-  sure that all certificates are available on the data node, up to a
-  trusted certificate (stored in `root.crt`).
-  ```bash
-  cat >>$crt_file <server.crt
-  ```
+Your data nodes are now set up to accept certificate authentication, the data
+and access nodes have keys, and the `postgres` user has a certificate. If you
+have not already done so, add the data nodes to the access node. For
+instructions, see the [multi-node setup][multi-node-setup] section. The final
+step is add additional user roles.
 
-The data node is now set up to accept certificate authentication, and
-the data and access nodes have keys and the user has a certificate.
+<procedure>
 
-### 5. Add the data nodes to the access node
-Once the nodes are properly configured, you can continue following the
-[multi-node setup][init_data_nodes].
-
-### 6. Setting up additional roles
-Allowing new roles to use the certificate to authenticate is simply a matter of
-adding them to the certificate role.  Aside from that, the process of adding new
-users should be the same as for [trust authentication](#trust-authentication).
-
-First create the user on the access node if needed and grant it usage on the
-foreign server objects corresponding to the data nodes:
-```sql
-CREATE ROLE testrole;
-GRANT USAGE ON FOREIGN SERVER <data node name>, <data node name>, ... TO testrole;
-```
-
-If external clients need to connect to the access node as `testrole`
-it is also necessary to add the `LOGIN` option. And, optionally, the
-`PASSWORD` option if password authentication is used.
-
-And finally add the role to all of the data nodes with [`distributed_exec`][distributed_exec]:
-```sql
-CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
-```
+### Setting up additional user roles
+1.  On the access node, at the `psql` prompt, create the new user and grant
+    permissions:
+    ```sql
+    CREATE ROLE testrole;
+    GRANT USAGE ON FOREIGN SERVER <data node name>, <data node name>, ... TO testrole;
+    ```
+    If you need external clients to connect to the access node as `testrole`, make sure you also add the `LOGIN` option. You can also enable password authentication by adding the `PASSWORD` option.
+1.  On the access node, use the [`distributed_exec`][distributed_exec] command
+    to add the role to all the data nodes:
+    ```sql
+    CALL distributed_exec($$ CREATE ROLE testrole LOGIN $$);
+    ```
 
 </procedure>
 
 
-[init_data_nodes]: /how-to-guides/distributed-hypertables/
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
-[passfile]: https://www.postgresql.org/docs/current/libpq-pgpass.html
 [md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
