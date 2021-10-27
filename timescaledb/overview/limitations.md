@@ -26,7 +26,7 @@ to distributed hypertables:
 - Distributed scheduling of background jobs is not supported. Background jobs
   created on an access node are scheduled and executed on this access node
   without distributing the jobs to data nodes.
-- Continuous aggregates are only supported in the Access Node.
+- Continuous aggregates are only supported on the access node.
 - Reordering chunks is not supported.
 - Tablespaces cannot be attached to a distributed hypertable on the
   access node. It is still possible attach tablespaces on data nodes.
