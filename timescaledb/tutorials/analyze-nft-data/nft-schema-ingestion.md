@@ -158,8 +158,9 @@ interesting or useful for future analysis. But we still wanted to keep all of th
 so we added a `details` JSONB column to each relational table. This column contains additional information about the 
 record. For example, it includes a `background_color` as a field for the assets.
 
-Note: In our sample dataset provided below, we chose not to include the JSONB data to keep the size of the 
-dataset easily managable.
+Note: In our sample dataset, we chose not to include the JSONB data to keep the size of the 
+dataset easily managable. If you want a dataset with the full JSON data included, you need to fetch the data directly 
+from the OpenSea API (see below for steps). 
 
 ## Ingest NFT data
 When you have your database and schema created, you can ingest some data to play with! You have two options to ingest NFT data for this tutorial. You can fetch data directly from the OpenSea API, or download sample data.
