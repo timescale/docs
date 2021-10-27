@@ -28,22 +28,22 @@ module.exports = [
       {
         title: 'Analyze Non-fungible token (NFT) sales data',
         href: 'analyze-nft-data',
-        tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb],
-        keywords: ['NFT', 'finance', tutorial', TimescaleDB'],
+        tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb'],
+        keywords: ['NFT', 'finance', 'tutorial', 'TimescaleDB'],
         excerpt: 'Analyze NFT sales data with TimescaleDB',
         children: [
           {
             title: 'NFT schema design and ingestion',
             href: 'nft-schema-ingestion',
-        tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb],
-        keywords: ['NFT', 'finance', tutorial', TimescaleDB'],
+        tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb'],
+        keywords: ['NFT', 'finance', 'tutorial', 'TimescaleDB'],
             excerpt: 'Design schema and ingest NFT data with TimescaleDB',
           },
           {
             title: 'Analyzing NFT transactions',
             href: 'analyzing-nft-transactions',
-        tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb],
-        keywords: ['NFT', 'finance', tutorial', TimescaleDB'],
+        tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb'],
+        keywords: ['NFT', 'finance', 'tutorial', 'TimescaleDB'],
             excerpt:
               'Analyze NFT data transactions with PostgreSQL and hyperfunctions in TimescaleDB',
           }
