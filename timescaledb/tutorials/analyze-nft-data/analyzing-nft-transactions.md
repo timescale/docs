@@ -499,11 +499,15 @@ bucket             |nft           |url                                          
 ## Resources and next steps
 This section contains information about what to do when you've completed the tutorial, and some links to more resources.
 
-### Claim your limited edition NFT
-Because we love NFTs as much as you do, we created a limited edition set of 20 NFTs featuring our Timescale mascot, Eon! The first 20 people to complete this tutorial earn a limited edition NFT from the Eon's Photobooth collection. You can also view them all live on OpenSea.
+### Claim your limited edition Time Travel Tigers NFT
+The first 20 people to complete this tutorial can earn a limited edition NFT from the 
+[Time Travel Tigers collection][eon-collection], for free! 
 
-To claim your NFT, complete this tutorial, answer the questions in the form, 
-and we'll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!)
+Now that you’ve completed the tutorial, all you need to do is answer the questions 
+in [this form][nft-form] (including the challenge question), and we’ll send one of the limited-edition Eon NFTs 
+to your ETH address (at no cost to you!).
+
+You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-collection].
 
 ### Build on the NFT Starter Kit
 Congratulations! You’re now up and running with NFT data and TimescaleDB. Check out 
@@ -542,3 +546,5 @@ Check out these resources for more about using TimescaleDB with crypto data:
 [analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
 [messari]: https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
 [trading-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
+[eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
+[nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link

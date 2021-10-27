@@ -35,6 +35,17 @@ and we'll send one of the limited-edition Eon NFTs to your ETH address (at no co
 1. [NFT schema design and ingestion][nft-schema]
 1. [Analyzing NFT transactions][nft-analyze]
 
+## Complete this tutorial. Earn an NFT!
+Because we love NFTs as much as you do, we created [Time Travel Tigers][eon-collection], a limited edition set of 20 
+NFT about our Timescale mascot, Eon! The first 20 people to complete this tutorial can earn a limited edition NFT from 
+the collection, for free! 
+
+Claiming your NFT is simple. All you need to do is complete the tutorial below, answer the questions in
+ [this form][nft-form], 
+and we’ll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
+
+You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-collection].
+
 ## Prerequisites
 * TimescaleDB ([installation options][install-ts])
 * Psql or any other PostgreSQL client (for example DBeaver, or PgAdmin)
@@ -48,3 +59,5 @@ and we'll send one of the limited-edition Eon NFTs to your ETH address (at no co
 [nft-analyze]: /tutorials/analyze-nft-data/analyzing-nft-transactions
 [superset]: https://superset.apache.org
 [grafana]: https://grafana.com
+[eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
+[nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
