@@ -41,7 +41,7 @@ FROM generate_series(0, 100) data;
 ```
 
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [uddsketch]: /hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/
 [percentile-agg]: /hyperfunctions/percentile-approximation/percentile_agg/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
