@@ -159,7 +159,7 @@ failures in distributed hypertables, see the
 [multi-node HA section][multi-node-ha].
 
 ## Partitioning distributed hypertables
-Like regular hypertable, distributed hypertables need to be partitioned along a
+Like regular hypertables, distributed hypertables need to be partitioned along a
 `time` dimension, such as a `timestamptz` column. However, for best performance
 with most distributed workloads, we recommend multi-dimensional partitioning
 with an additional `space` dimension. This allows you to consistently partition
