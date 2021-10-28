@@ -5,7 +5,7 @@ contains only successful sale transactions that happened between
 1 January 2021 to 12 October 2021 on the OpenSea marketplace, as reported by the 
 OpenSea API. 
 
-For simplicity, this tutorial analyzes only those transactions that used ‘ETH’ 
+For simplicity, this tutorial analyzes only those transactions that used `ETH` 
 as their payment symbol, but you can modify the script to include more 
 payment symbols in your analysis if you want to.
 
