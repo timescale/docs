@@ -138,6 +138,7 @@ We deem it high priority to upgrade.
 @phemmer for reporting the issues on multinode with aggregate queries and evaluation of now()
 @abolognino for reporting an issue with INSERTs into compressed hypertables that have cagg
 @tanglebones for reporting the ANALYZE crash with custom types on multinode
+
 ## 2.4.1 (2021-08-19)
 
 **Bug fixes**
