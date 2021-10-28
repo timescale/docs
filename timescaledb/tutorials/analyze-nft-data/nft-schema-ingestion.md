@@ -115,7 +115,7 @@ The data types used in the schema for this tutorial have been determined based
 on our research and hands-on experience working with the OpenSea API and the 
 data pulled from OpenSea. Start by running these SQL commands to create the schema. 
 Alternatively, you can download and run the `schema.sql` 
-file from our [NFT Starter Kit GitHub repository][nft-starter-kit].
+file from our [NFT Starter Kit GitHub repository][nft-schema].
 ```sql
 CREATE TABLE collections (
    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -213,24 +213,42 @@ key required!).
 
 ### Fetching data directly from the OpenSea API
 
-1.  Download the [ingestion script from Github][ingest-script].
-1.  Replace these parameters with the connection details for your TimescaleDB database:
-    ```python
-    DB_NAME="tsdb"
-    HOST="YOUR_HOST_URL"
-    USER="tsdbadmin"
-    PASS="YOUR_PASSWORD_HERE"
-    PORT="PORT_NUMBER"
+1.  Clone the nft-starter-kit repository on Github:
+    ```bash
+    git clone https://github.com/timescale/nft-starter-kit.git
+    cd nft-starter-kit
     ```
 1.  Create a new Python virtual environment and install the requirements:
     ```bash
     virtualenv env && source env/bin/activate
     pip install -r requirements.txt
     ```
+1.  Replace the parameters in the `config.py` file:
+    ```python
+    DB_NAME="tsdb"
+    HOST="YOUR_HOST_URL"
+    USER="tsdbadmin"
+    PASS="YOUR_PASSWORD_HERE"
+    PORT="PORT_NUMBER"
+    OPENSEA_START_DATE="2021-10-01T00:00:00" # example start date (UTC)
+    OPENSEA_END_DATE="2021-10-06T23:59:59" # example end date (UTC)
+    ```
 1.  Run the Python script:
     ```python
-    python ingest.py
+    python opensea_ingest.py
     ```
+    This will start ingesting data in batches, 300 rows at a time:
+    ```bash
+    Start ingesting data between 2021-10-01 00:00:00+00:00 and 2021-10-06 23:59:59+00:00
+    ---
+    Fetching transactions from OpenSea...
+    Data loaded into temp table!
+    Data ingested!
+    Data has been backfilled until this time: 2021-10-06 23:51:31.140126+00:00
+    ---
+    ```
+    You can stop the ingesting process anytime, otherwise the script will run until all 
+    the transactions have been ingested from the given time period.
 
 </procedure>
 
@@ -243,13 +261,17 @@ You can download and insert sample CSV files that contain NFT sales data from
 ### Downloading sample NFT data
 
 1.  Download sample [CSV files containing one week of sample data][sample-data].
+1.  Uncompress the ZIP file:
+    ```bash
+    unzip nft_sample.zip
+    ```
 1.  Connect to your database:
     ```bash
     psql -x "postgres://host:port/tsdb?sslmode=require"
     ```
     If you're using Timescale Cloud, the instructions under `How to Connect` provide a 
     customized command to run to connect directly to your database.
-1.  Uncompress the ZIP file, and import the CSV files in this order (it can take a few minutes in total):
+1.  Import the CSV files in this order (it can take a few minutes in total):
     ```bash
     \copy accounts FROM accounts.csv CSV HEADER;
     \copy collections FROM collections.csv CSV HEADER;
@@ -262,3 +284,4 @@ You can download and insert sample CSV files that contain NFT sales data from
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
 [ingest-script]: https://github.com/timescale/wip-crypto-starter/blob/main/ingest.py
 [sample-data]: https://assets.timescale.com/docs/downloads/nft_sample.zip
+[nft-schema]: https://github.com/timescale/nft-starter-kit/blob/master/schema.sql
