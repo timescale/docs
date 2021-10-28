@@ -20,7 +20,7 @@ This function can only be used on estimators produced by
 
 |Name|Type|Description|
 |-|-|-|
-|`sketch`|`UddSketch`|The sketch to determine the error of, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) call|
+|`sketch`|`UddSketch`|The sketch to determine the error of, usually from a [`percentile_agg()`](https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/percentile_agg/) call|
 
 ## Returns
 
