@@ -276,10 +276,10 @@ You can download and insert sample CSV files that contain NFT sales data from
     customized command to run to connect directly to your database.
 1.  Import the CSV files in this order (it can take a few minutes in total):
     ```bash
-    \copy accounts FROM accounts.csv CSV HEADER;
-    \copy collections FROM collections.csv CSV HEADER;
-    \copy assets FROM assets.csv CSV HEADER;
-    \copy nft_sales FROM nft_sales.csv CSV HEADER;
+    \copy accounts FROM 001_accounts.csv CSV HEADER;
+    \copy collections FROM 002_collections.csv CSV HEADER;
+    \copy assets FROM 003_assets.csv CSV HEADER;
+    \copy nft_sales FROM 004_nft_sales.csv CSV HEADER;
     ```  
 
 </procedure>
