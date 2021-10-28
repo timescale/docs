@@ -34,15 +34,19 @@ monotonically increasing ID would work.
 
 </procedure>
 
-If you need to migrate data from an existing table to a hypertable, set the `migrate_data` argument to `true` when you call the `create_hypertable` function. For more information about migrating data in your hypertables, see the [migration section][migrate-data].
+If you need to migrate data from an existing table to a hypertable, set the
+`migrate_data` argument to `true` when you call the `create_hypertable`
+function. For more information about migrating data in your hypertables, see the
+[migration section][migrate-data].
 
 ## Create a distributed hypertable
 When you have set up your [multi-node environment][multi-node], you can create a
 distributed hypertable across your data nodes. In this example, we create a
 multi-dimensional distributed hypertable across all data nodes, partitioned
-along `time` and `location`. Using this partitioning configuration, data is distributed
-as evenly as possible using across all attached data nodes based on a hash of the partitioning columns,
-allowing concurrent and parallel execution of a query across the data nodes.
+along `time` and `location`. Using this partitioning configuration, data is
+distributed as evenly as possible using across all attached data nodes based on
+a hash of the partitioning columns, allowing concurrent and parallel execution
+of a query across the data nodes.
 
 <highlight type="important">
 You must have set up your multi-node cluster before you create a distributed
