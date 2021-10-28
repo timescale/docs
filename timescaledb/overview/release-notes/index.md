@@ -13,7 +13,7 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 
 ### What to expect from our next releases
 
-For our next release, we plan to add:
+For our next releases, we plan to add:
 
 - Continuous aggregates with compression
 - Multi-node performance improvements
@@ -24,12 +24,6 @@ You can read more about our architecture and design for distributed hypertables
 If you have questions about distributed hypertables, join our #multinode channel on
 [community slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
-
-In addition to multi-node, we've also reassessed how some core
-functionality works, and, as a result, made APIs simpler and more consistent,
-while also empowering users with more control and flexibility to customize
-behaviors to suit your needs.  
-Some of these API updates are **breaking changes**.
 
 ### What's new in TimescaleDB 2.5:
 
@@ -46,11 +40,12 @@ This release also contains bug fixes since the 2.4.2 release.
 
 
 The experimental features in the 2.5 release are:
+* The `time_bucket_ng` function, a newer version of `time_bucket`. This function
+supports years, months, days, hours, minutes, seconds, and timezones.
 * APIs for chunk manipulation across data nodes in a distributed
 hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
-* The `time_bucket_ng` function, a newer version of `time_bucket`. This function
-supports years, months, days, hours, minutes, seconds, and timezones.
+
 
 We’re committed to developing these experiments, giving the community a chance to
 provide early feedback and influence the direction of TimescaleDB’s development.
@@ -65,7 +60,8 @@ Several bugs fixed, see the release notes for more details.
 
 Timescale is working hard on our next exciting features.
 To make that possible, we require functionality that is available in Postgres 12 and above.
-For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
+For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 release. 
+For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
 TimescaleDB 2.5 is now available, and we encourage
