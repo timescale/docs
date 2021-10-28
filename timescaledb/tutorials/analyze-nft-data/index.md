@@ -19,11 +19,11 @@ This tutorial is part of the [Timescale NFT Starter Kit][starter-kit], designed
 to get you up and running with analyzing NFT data, and give you the inspiration 
 to build your own, more complex projects. 
 The NFT Starter Kit contains: 
-* A data ingestion script, which collects real-time data from OpenSea and ingests 
+* Data ingestion script, which collects historical data from OpenSea and ingests 
 it into TimescaleDB
-* A sample dataset, to get started quickly, if you don't want to ingest real-time data
-* A schema for storing NFT sales, assets, collections, and owners
-* A local TimescaleDB database, pre-loaded with sample NFT data
+* Sample dataset, to get started quickly, if you don't want to wait too much time ingesting data
+* Schema for storing NFT sales, assets, collections, and accounts
+* Local TimescaleDB database, pre-loaded with sample NFT data
 * Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana] 
 for visualizing your data analysis
 * Queries to use as a starting point for your own analysis
