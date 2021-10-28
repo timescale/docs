@@ -25,16 +25,6 @@ The NFT Starter Kit contains:
 To get started, clone the NFT Starter Kit [Github repo][starter-kit] and follow 
 along with this tutorial.
  
-## Complete this tutorial and earn an NFT!
-
-Because we love NFTs as much as you do, we created a limited edition set of 20 NFTs featuring our Timescale mascot, Eon! The first 20 people to complete this tutorial will earn a limited edition NFT from the Eon's Photobooth collection. Or you can view them all live on OpenSea.
-
-To claim your NFT, complete this tutorial, answer the questions in the form, 
-and we'll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
-
-1. [NFT schema design and ingestion][nft-schema]
-1. [Analyzing NFT transactions][nft-analyze]
-
 ## Complete this tutorial. Earn an NFT!
 Because we love NFTs as much as you do, we created [Time Travel Tigers][eon-collection], a limited edition set of 20 
 NFT about our Timescale mascot, Eon! The first 20 people to complete this tutorial can earn a limited edition NFT from 
@@ -45,6 +35,9 @@ Claiming your NFT is simple. All you need to do is complete the tutorial below, 
 and we’ll send one of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
 
 You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-collection].
+
+1. [NFT schema design and ingestion][nft-schema]
+1. [Analyzing NFT transactions][nft-analyze]
 
 ## Prerequisites
 * TimescaleDB ([installation options][install-ts])
