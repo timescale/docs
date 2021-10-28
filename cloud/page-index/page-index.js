@@ -47,6 +47,10 @@ module.exports = [
       {
         title: "Backup and restore",
         href: "backup-restore-cloud"
+      },
+      {
+        title: "Account management",
+        href: "account-management"
       }
     ]
   }
