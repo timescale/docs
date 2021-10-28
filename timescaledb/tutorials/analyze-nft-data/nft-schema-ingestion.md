@@ -250,8 +250,8 @@ key required!).
     Data has been backfilled until this time: 2021-10-06 23:51:31.140126+00:00
     ---
     ```
-    You can stop the ingesting process anytime, otherwise the script will run until all 
-    the transactions have been ingested from the given time period.
+    You can stop the ingesting process anytime (Ctrl+C), otherwise the script 
+    will run until all the transactions have been ingested from the given time period.
 
 </procedure>
 
@@ -283,6 +283,11 @@ You can download and insert sample CSV files that contain NFT sales data from
     ```  
 
 </procedure>
+
+After ingesting NFT data, you can try running some queries on your database:
+```sql
+SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales 
+```
 
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
 [ingest-script]: https://github.com/timescale/wip-crypto-starter/blob/main/ingest.py
