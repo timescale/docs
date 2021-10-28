@@ -6,7 +6,8 @@ backup your self-hosted TimescaleDB database:
 *   Logical backups with the [timescaledb-backup][timescaledb-backup] tool, or
     with [pg_dump and pg_restore][logical-backups].
 *   [Physical backups][physical-backups] with `pg_basebackup` or another tool.
-*   [Ongoing physical backups][ongoing-physical-backups] using write-ahead log (WAL) archiving.
+*   [Ongoing physical backups][ongoing-physical-backups] using write-ahead log
+    (WAL) archiving.
 
 <highlight type="important">
 If you are using Timescale Cloud, you don't need to manually perform backups!
