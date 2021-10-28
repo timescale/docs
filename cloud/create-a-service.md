@@ -54,6 +54,13 @@ a service altogether.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service.png" alt="View Timescale Cloud service information"/>
 
+### Rename your service
+Your service is created with a name that is automatically generated. We
+recommend that you rename your service to something more meaningful. To do this,
+navigate to the `Service details` section for the service you want to rename,
+and click the pencil icon next to the name. Type the new name for your service,
+and click `Rename` to save the changes.
+
 ### Complete your first tutorial
 Congratulations! You are now up and running with Timescale Cloud. To
 familiarize yourself with the features and capabilities of the product, we
@@ -68,7 +75,7 @@ Read about TimescaleDB features in our documentation:
     [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
 
 ### Keep testing during your free trial
-You’re now on your way to a great start with Timescale!
+You're now on your way to a great start with Timescale!
 
 You will have an unthrottled, 30-day free trial with Timescale Cloud to
 continue to test your use case. Before the end of your trial, we encourage you
