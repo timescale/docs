@@ -290,6 +290,6 @@ SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales
 ```
 
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
-[ingest-script]: https://github.com/timescale/wip-crypto-starter/blob/main/ingest.py
+[ingest-script]: https://github.com/timescale/nft-starter-kit/blob/master/opensea_ingest.py
 [sample-data]: https://assets.timescale.com/docs/downloads/nft_sample.zip
 [nft-schema]: https://github.com/timescale/nft-starter-kit/blob/master/schema.sql
