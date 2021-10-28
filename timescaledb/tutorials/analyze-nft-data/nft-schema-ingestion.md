@@ -204,7 +204,7 @@ with! You have two options to ingest NFT data for this tutorial. You can fetch
 data directly from the OpenSea API, or download sample data.
 
 ### Fetch data directly from the OpenSea API
-To ingest data from the OpenSea API, you can use the `ingest.py` script included 
+To ingest data from the OpenSea API, you can use the `opensea_ingest.py` script included 
 in the starter kit repository on GitHub. The scripts connects to the OpenSea 
 API `/events` endpoint, and fetches data from the specified time period (no API 
 key required!).
