@@ -18,7 +18,7 @@ If you do not receive this link, check your spam folder first, then
 When you have completed account verification, visit the
 [Timescale Cloud console][cloud-console] and login with your credentials.
 
-To begin, click `Create service`.
+To begin, click `Create database`.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png" alt="Set up a Timescale Cloud service"/>
 
@@ -30,7 +30,7 @@ TimescaleDB and how your data processing needs vary, it's easy to
 [right-size your service with a few clicks](/cloud/latest/scaling-a-service/)!
 </highlight>
 
-After you select `Create service`, you will see confirmation of your service
+After you select `Create database`, you see confirmation of your service
 account and password information. You should save the information in this
 confirmation screen in a safe place:
 
