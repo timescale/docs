@@ -45,7 +45,7 @@ module.exports = [
         href: "maintenance"
       },
       {
-        title: "Timescale Cloud Explorer",
+        title: "Explorer",
         href: "explorer"
       },
       {
