@@ -45,8 +45,8 @@ module.exports = [
         href: "maintenance"
       },
       {
-        title: "Cloud Explorer",
-        href: "cloud-explorer"
+        title: "Timescale Cloud Explorer",
+        href: "explorer"
       },
       {
         title: "Backup and restore",
