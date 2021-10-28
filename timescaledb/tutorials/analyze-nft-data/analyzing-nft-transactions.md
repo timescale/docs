@@ -518,15 +518,24 @@ This query finds the assets with the biggest intraday sale price change in the
 last six months:
 ```sql
 /* Daily assets sorted by biggest intraday price change in the last 6 month*/
-SELECT time_bucket('1 day', time) AS bucket, a.name AS nft, a.url,
-FIRST(total_price, time) AS open_price, LAST(total_price, time) AS close_price,
-MAX(total_price)-MIN(total_price) AS intraday_max_change
-FROM nft_sales s
-INNER JOIN assets a ON a.id = s.asset_id
-WHERE payment_symbol = 'ETH' AND time > NOW() - INTERVAL '6 month'
-GROUP BY bucket, asset_id, a.name, a.url
-ORDER BY intraday_max_change DESC
-LIMIT 5;
+WITH top_assets AS (
+	SELECT time_bucket('1 day', time) AS bucket, asset_id,
+	FIRST(total_price, time) AS open_price, LAST(total_price, time) AS close_price,
+	MAX(total_price)-MIN(total_price) AS intraday_max_change
+	FROM nft_sales s
+	WHERE payment_symbol = 'ETH' AND time > NOW() - INTERVAL '6 month'
+	GROUP BY bucket, asset_id
+	ORDER BY intraday_max_change DESC
+	LIMIT 5
+)
+SELECT bucket, nft, url, 
+        open_price, close_price,
+	intraday_max_change
+FROM top_assets ta
+INNER JOIN LATERAL (
+	SELECT name AS nft, url FROM assets a 
+	WHERE a.id = ta.asset_id
+) assets ON TRUE;```
 ```
 
 bucket             |nft           |url                                                                           |open_price|close_price|intraday_max_change|
