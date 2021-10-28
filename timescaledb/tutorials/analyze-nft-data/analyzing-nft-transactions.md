@@ -154,7 +154,7 @@ ORDER BY total_volume DESC;
 
 For this query, you take advantage of the pre-calculated data about collections 
 stored in the `collections_daily` continuous aggregate. You also perform an 
-`INNER JOIN` on both the collections and assets relational tables to find the 
+`INNER JOIN` on the collections relational table to find the  
 collection name in human readable form, represented by the `slug`.
 
 Querying from continuous aggregates is faster and allows you to write shorter, 
