@@ -581,9 +581,9 @@ Check out these resources for more about using TimescaleDB with crypto data:
 [superset]: https://superset.apache.org
 [grafana]: https://grafana.com
 
-[percentile-agg]: /hyperfunctions/percentile-approximation/percentile_agg/
-[first-docs]: /api/latest/hyperfunctions/first/
-[last-docs]: /api/latest/hyperfunctions/last/
+[percentile-agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile_agg/
+[first-docs]: /api/:currentVersion:/hyperfunctions/first/
+[last-docs]: /api/:currentVersion:/hyperfunctions/last
 
 [analyze-cryptocurrency]: /tutorials/analyze-cryptocurrency-data/
 [analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
