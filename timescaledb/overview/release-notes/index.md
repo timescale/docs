@@ -39,7 +39,7 @@ Some of these API updates are **breaking changes**.
 
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
-This release contains bug fixes since the 2.4.2 release. 
+This release also contains bug fixes since the 2.4.2 release. 
 We deem it high priority to upgrade since it includes a correction for 'compress_policy'.
 
 
