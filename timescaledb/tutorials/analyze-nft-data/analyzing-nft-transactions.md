@@ -65,7 +65,6 @@ LAST(total_price, time) AS close_price
 FROM nft_sales
 WHERE payment_symbol = 'ETH'
 GROUP BY bucket, asset_id, collection_id
-HAVING COUNT(*) > 1;
 ```
 
 Add a refresh policy to update the continuous aggregate daily with the latest data, 
