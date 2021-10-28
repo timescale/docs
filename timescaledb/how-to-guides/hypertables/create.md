@@ -40,8 +40,8 @@ If you need to migrate data from an existing table to a hypertable, set the `mig
 When you have set up your [multi-node environment][multi-node], you can create a
 distributed hypertable across your data nodes. In this example, we create a
 multi-dimensional distributed hypertable across all data nodes, partitioned
-along `time` and `location`. Using this partitioning configuration, each data
-node contains a specific subset of the data based on the value of `location`,
+along `time` and `location`. Using this partitioning configuration, data is distributed
+as evenly as possible using across all attached data nodes based on a hash of the partitioning columns,
 allowing concurrent and parallel execution of a query across the data nodes.
 
 <highlight type="important">
