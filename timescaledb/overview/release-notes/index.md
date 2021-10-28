@@ -127,7 +127,8 @@ We deem it high priority to upgrade.
 #3728 Fix SkipScan with varchar column
 #3733 Fix ANALYZE crash with custom statistics for custom types
 #3747 Always reset expr context in DecompressChunk
-Thanks
+
+**Thanks**
 
 @binakot and @sebvett for reporting an issue with DISTINCT queries
 @hardikm10, @DavidPavlicek and @pafiti for reporting bugs on TRUNCATE
