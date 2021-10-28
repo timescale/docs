@@ -45,6 +45,10 @@ module.exports = [
         href: "maintenance"
       },
       {
+        title: "Cloud Explorer",
+        href: "cloud-explorer"
+      },
+      {
         title: "Backup and restore",
         href: "backup-restore-cloud"
       }
