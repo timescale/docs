@@ -1,5 +1,5 @@
 # intercept() <tag type="toolkit" content="toolkit" />
-The intercept of the [least squares fit][least-squares] line computed from the adjusted counter
+The intercept of the least squares fit line computed from the adjusted counter
 values and times input in the CounterSummary. This corresponds to the projected
 value at the PostgreSQL epoch (2000-01-01 00:00:00+00). This is useful for
 drawing the best fit line on a graph, using the slope and the intercept.
@@ -44,4 +44,3 @@ FROM (
 
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
-[least-squares]:https://en.wikipedia.org/wiki/Least_squares

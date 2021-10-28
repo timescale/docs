@@ -13,7 +13,7 @@ TimescaleDB. This section contains instructions to:
 
 <highlight type="note">
 Before you begin, make sure you have
-[created your Managed Service for TimescaleDB service](/mst/latest/create-a-service/), and
+[created your Managed Service for TimescaleDB service](/create-a-service/), and
 can connect to it using `psql`.
 </highlight>
 

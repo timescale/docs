@@ -1,7 +1,7 @@
 # num_vals()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL
-num_vals(StatsSummary1D) RETURNS DOUBLE PRECISION
+num_vals(sketch UddSketch) RETURNS DOUBLE PRECISION
 ```
 ```SQL
 num_vals(digest tdigest) RETURNS DOUBLE PRECISION
@@ -13,7 +13,8 @@ aggregate. You can compute a single percentile estimator by extracting the
 `num_vals` from the percentile estimator. You do not need to specify a separate
 `count` aggregate.
 
-
+*   For more information about statistical aggregate functions, see the
+    [hyperfunctions documentation][hyperfunctions-stats-agg].
 *   For more information about percentile approximation functions, see the
     [hyperfunctions documentation][hyperfunctions-percentile-approx].
 
@@ -21,7 +22,7 @@ aggregate. You can compute a single percentile estimator by extracting the
 
 |Name|Type|Description|
 |---|---|---|
-|`sketch`/`digest`|`UddSketch` or `tdigest`|The percentile estimator to extract the number of values from, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/percentile_agg/) call|
+|`sketch`/`digest`|`UddSketch` or `tdigest`|The percentile estimator to extract the number of values from, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) call|
 
 ## Returns
 

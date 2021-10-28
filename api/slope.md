@@ -1,13 +1,13 @@
-# corr() <tag type="toolkit" content="toolkit" />
-The correlation coefficient of the least squares fit line of the adjusted
-counter value and epoch value of the time column. Given that the slope of a line for any counter value must be
-non-negative, this must also always be non-negative and in the range from 0.0 to
-1.0. It measures how well the least squares fit the available data, where a
-value of 1.0 represents the strongest correlation between time and the counter
-increasing.
+# slope() <tag type="toolkit" content="toolkit" />
+The slope of the least squares fit line computed from the adjusted counter
+values and times input in the CounterSummary. Because the times are input as
+seconds, the slope provides a per-second rate of change estimate based on the
+least squares fit, which is often similar to the result of the rate calculation,
+but can more accurately reflect the usual behavior if there are infrequent,
+large changes in a counter.
 
 ```sql
-corr(
+slope(
     summary CounterSummary
 ) RETURNS DOUBLE PRECISION
 ```
@@ -25,7 +25,7 @@ For more information about counter aggregation functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|corr|DOUBLE PRECISION|The correlation coefficient computed from the least squares fit of the adjusted counter values input to the CounterSummary|
+|slope|DOUBLE PRECISION|The per second rate of change computed by taking the slope of the least squares fit of the points input in the CounterSummary|
 
 ## Sample usage
 
@@ -33,7 +33,7 @@ For more information about counter aggregation functions, see the
 SELECT
     id,
     bucket,
-    corr(summary)
+    slope(summary)
 FROM (
     SELECT
         id,

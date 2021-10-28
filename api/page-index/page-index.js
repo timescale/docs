@@ -308,69 +308,13 @@ module.exports = [
             href: 'stats_aggs',
             children: [
               {
-                title: 'stats_agg',
-                href: 'stats_agg',
-              }, 
-              {
-                title: 'rolling',
-                href: 'rolling-stats',
-              },
-              {
-                title: 'rollup',
-                href: 'rollup-stats',
-              },
-              {
-                title: 'average / average_y / average_x',
-                href: 'average-stats',
-              },
-              {
-                title: 'corr (correlation coefficient)',
-                href: 'corr-stats',
-              },
-              {
-                title: 'covariance',
-                href: 'covariance',
-              },
-              {
-                title: 'determination_coeff (R squared)',
-                href: 'determination_coeff',
-              },
-              {
-                title: 'intercept',
-                href: 'intercept-stats',
-              },
-              {
-                title: 'kurtosis / kurtosis_y / kurtosis_x',
-                href: 'kurtosis',
+                title: 'average',
+                href: 'average',
               },
               {
                 title: 'num_vals',
-                href: 'num_vals-stats',
-              },
-              {
-                title: 'skewness / skewness_y / skewness_x',
-                href: 'skewness',
-              },
-              {
-                title: 'stddev / stddev_y / stddev_x',
-                href: 'stddev',
-              },
-              {
-                title: 'slope',
-                href: 'slope-stats',
-              },
-              {
-                title: 'sum/ sum_y / sum_x',
-                href: 'sum-stats',
-              },
-              {
-                title: 'variance / variance_y / variance_x',
-                href: 'variance',
-              },
-              {
-                title: 'x_intercept',
-                href: 'x_intercept',
-              },
+                href: 'num_vals',
+              }
             ],
           },
           {
@@ -431,7 +375,7 @@ module.exports = [
               },
               {
                 title: 'num_vals',
-                href: 'num_vals-pct',
+                href: 'num_vals',
               },
               {
                 title: 'Advanced aggregation methods',
@@ -465,7 +409,7 @@ module.exports = [
               },
               {
                 title: 'corr',
-                href: 'corr-stats',
+                href: 'corr',
               },
               {
                 title: 'counter_zero_time',
@@ -489,7 +433,7 @@ module.exports = [
               },
               {
                 title: 'intercept',
-                href: 'intercept-counter',
+                href: 'intercept',
               },
               {
                 title: 'irate',
@@ -513,7 +457,7 @@ module.exports = [
               },
               {
                 title: 'slope',
-                href: 'slope-counter',
+                href: 'slope',
               },
               {
                 title: 'time_delta',
@@ -540,7 +484,7 @@ module.exports = [
               },
               {
                 title: 'average',
-                href: 'average-time-weight',
+                href: 'average',
               },
             ],
           },

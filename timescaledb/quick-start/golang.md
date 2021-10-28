@@ -394,7 +394,7 @@ which we will then use as a source to insert data into our hypertable.
        os.Exit(1)
    }
    defer rows.Close()
-   fmt.Println("Successfully generated sensor data")
+   fmt.Println("Successfully generated sensor data\n")
 
    //Store data generated in slice results
    type result struct {
@@ -455,7 +455,7 @@ We then execute that SQL statement for each sample we have in our results slice:
        }
        defer rows.Close()
    }
-   fmt.Println("Successfully inserted samples into sensor_data hypertable")
+   fmt.Println("Successfully inserted samples into sensor_data hypertable\n")
 ```
 
 Here's a sample `main.go` which generates sample data and inserts it into the
@@ -506,7 +506,7 @@ func main() {
        os.Exit(1)
    }
    defer rows.Close()
-   fmt.Println("Successfully generated sensor data")
+   fmt.Println("Successfully generated sensor data\n")
 
    //Store data generated in slice results
    type result struct {
@@ -556,7 +556,7 @@ func main() {
        }
        defer rows.Close()
    }
-   fmt.Println("Successfully inserted samples into sensor_data hypertable")
+   fmt.Println("Successfully inserted samples into sensor_data hypertable\n")
 }
 ```
 
@@ -611,7 +611,7 @@ func main() {
        os.Exit(1)
    }
    defer rows.Close()
-   fmt.Println("Successfully generated sensor data")
+   fmt.Println("Successfully generated sensor data\n")
 
    //Store data generated in slice results
    type result struct {
@@ -674,15 +674,15 @@ func main() {
            os.Exit(1)
        }
    }
-   fmt.Println("Successfully batch inserted data")
+   fmt.Println("Successfully batch inserted data n")
 
    //Compare length of results slice to size of table
-   fmt.Printf("size of results: %d\n", len(results))
+   fmt.Println("size of results: %d\n", len(results))
    //check size of table for number of rows inserted
    // result of last SELECT statement
    var rowsInserted int
    err = br.QueryRow().Scan(&rowsInserted)
-   fmt.Printf("size of table: %d\n", rowsInserted)
+   fmt.Println("size of table: %d\n", rowsInserted)
 
    err = br.Close()
    if err != nil {
