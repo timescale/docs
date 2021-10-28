@@ -11,7 +11,7 @@ payment symbols in your analysis if you want to.
 
 All the queries in this section, plus some additional ones, are in our 
 [NFT Starter Kit on GitHub][nft-starter-kit]
-in the `queries.sql` file.
+in the [`queries.sql` file][queries].
 
 We divide our analysis into two parts: simple queries and complex queries. But 
 first we will create something to speed up our queries: TimescaleDB continuous 
@@ -576,6 +576,7 @@ Check out these resources for more about using TimescaleDB with crypto data:
 
 [cont-agg]: /how-to-guides/continuous-aggregates
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
+[queries]: https://github.com/timescale/nft-starter-kit/blob/master/queries.sql
 [snoop-dogg-opensea]: https://opensea.io/Cozomo_de_Medici
 [daliso-opensea]: https://opensea.io/daliso
 [superset]: https://superset.apache.org
