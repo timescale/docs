@@ -16,7 +16,7 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 For our next release, we plan to add:
 
 - Continuous aggregates with compression
-- Multinode performance improvements
+- Multi-node performance improvements
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
