@@ -25,11 +25,11 @@ convert it into a TimescaleDB hypertable.
      SELECT create_hypertable('conditions', 'time');
      ```
 
-<highlight type="tip">
-The 'time' column used in the `create_hypertable` function supports
+<highlight type="note">
+The `time` column used in the `create_hypertable` function supports
 timestamp, date, or integer types, so you can use a parameter that is not
-explicitly time-based, as long as it can increment.  For example, a
-monotonically increasing ID would work.
+explicitly time-based, as long as it can increment. For example, a
+monotonically increasing ID works.
 </highlight>
 
 </procedure>
