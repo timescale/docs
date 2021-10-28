@@ -97,7 +97,7 @@ We deem it high priority to upgrade.
 * @jankatins for reporting a crash with background workers
 * @LutzWeischerFujitsu for reporting an issue with bootstrap
 
-2.5.0 (2021-10-28)
+## 2.5.0 (2021-10-28)
 
 **Features**
 
