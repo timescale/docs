@@ -25,6 +25,13 @@ identical on all the data nodes. Additionally, if you `JOIN` a local table and a
 distributed hypertable, you need to fetch the raw data from data nodes and
 perform the `JOIN` locally.
 
+<highlight type="important">
+In some cases, your processing speeds could be slower in a multi-node cluster,
+because distributed hypertables need to push operations down to the various data
+nodes. It is important that you understand multi-node architecture before you
+begin, and plan your database according to your specific environment.
+<highlight>
+
 ## Inserting data into a distributed hypertable
 Inserting data into a distributed hypertable works in much the same way as
 inserting data into a regular hypertable, except that distributeed hypertables
@@ -166,7 +173,8 @@ with most distributed workloads, we recommend multi-dimensional partitioning
 with an additional `space` dimension. This allows you to consistently partition
 the data over the data nodes, similar to traditional sharding.
 
-For more information about partitioning distributed hypertables, see the [about multi-node section][about-multinode].
+For more information about partitioning distributed hypertables, see the
+[about multi-node section][about-multinode].
 
 
 [multi-node]: /how-to-guides/multinode-timescaledb/
