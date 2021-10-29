@@ -2,12 +2,12 @@
 You can manage billing for your Timescale Cloud account by navigating to the
 `Billing` details section in your Cloud console. From here, you can see your
 monthly usage, past payments you have made, the estimated cost of your next
-bill, and your current payment method.
+invoice, and your current payment method.
 
 ## About Timescale Cloud billing
 Timescale Cloud invoices are issued on the first day of every month, and cover
 usage of your Timescale Cloud services for the entire calendar month. By
-default, your bill is sent to the email address you registered your account
+default, your invoice is sent to the email address you registered your account
 with. If you want to set a different billing email address, you can do so on the
 `Billing` details page, see instructions in this section.
 
@@ -21,11 +21,11 @@ You can see previously issued invoices on the `Billing` details page, in the
 section display an error asking you to review the payment method.
 
 When you open a new Timescale Cloud account, the first thirty days is free for
-you to use. During the trial, a bill is issued on the last day of the calendar
-month for the value of the services you have used, with a discount applied to
-bring the invoice total to $0.00. If the entirety of your consumption for the
-month was within the trial, you do not receive an emailed invoice, but the
-invoice is available to download in the `Past Payments` section.
+you to use. During the trial, an invoice is issued on the last day of the
+calendar month for the value of the services you have used, with a discount
+applied to bring the invoice total to $0.00. If the entirety of your consumption
+for the month was within the trial, you do not receive an emailed invoice, but
+the invoice is available to download in the `Past Payments` section.
 
 ## Add or change payment methods
 If you haven't yet added a payment method, you can add one in this section. You
@@ -48,18 +48,18 @@ can also update to a new credit card here.
 
 <highlight type="note">
 The first charge on your new credit card is for the period from the date you
-added the card, to the end of that calendar month. After that, all bills are for
-usage from the first of the month, to the last day of the month.
+added the card, to the end of that calendar month. After that, all invoices are
+for usage from the first of the month, to the last day of the month.
 </highlight>
 
 </procedure>
 
 ## Add or change your billing email address
-By default, your Timescale Cloud bills are sent to the email address that you
+By default, your Timescale Cloud invoices are sent to the email address that you
 used when you signed up. This is also the address that receives alerts about
-your Timescale Cloud services. If you want your bills to go to a different email
-address, for example the email address for your finance department, you can add
-it in the `Billing` details section.
+your Timescale Cloud services. If you want your invoices to go to a different
+email address, for example the email address for your finance department, you
+can add it in the `Billing` details section.
 
 <procedure>
 
@@ -67,10 +67,11 @@ it in the `Billing` details section.
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
 1.  Click `Add email`.
-1.  Type the email address that you want Timescale Cloud bills sent to, and
+1.  Type the email address that you want Timescale Cloud invoices sent to, and
     click `Add`. A confirmation email is sent to the email address you entered.
 1.  Follow the instructions in the confirmation email to confirm the email
-    address. Another email is sent to notify that the new email address is saved.
+    address. Another email is sent to notify that the new email address is
+    saved.
 
 </procedure>
 
