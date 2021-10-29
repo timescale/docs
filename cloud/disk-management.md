@@ -14,7 +14,7 @@ By default, Timescale Cloud services have autoscaling enabled. Autoscaling
 automatically increases your disk size, up to a maximum amount, as you fill the
 disk. For more information about autoscaling, including instructions for setting
 the maximum limit, or turning autoscaling off, see the
-[scaling a service][scaling-service] section.
+[scaling a service](cloud/:currentVersion:/scaling-a-service/) section.
 </highlight>
 
 ## Continuous storage monitoring
@@ -123,6 +123,3 @@ leaving the database in read-only mode.
 
 As soon as the storage consumption drops below the threshold, the read-only
 protection is automatically removed, and you can start writing data again.
-
-
-[scaling-service]: cloud/scaling-a-service/
