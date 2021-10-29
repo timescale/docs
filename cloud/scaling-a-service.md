@@ -96,7 +96,6 @@ optimization process does not require downtime, and in most cases it happens
 very quickly. However, if you have a lot of existing data, optimization can take
 longer, and in some cases this could create a delay longer than six hours.
 
-
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 10&nbsp;TB in size.
 
