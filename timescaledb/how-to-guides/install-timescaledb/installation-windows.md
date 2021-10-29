@@ -11,7 +11,7 @@
 
 #### Build and install
 
-1. Download the the .zip file for your PostgreSQL version - [12][windows-dl-12] or [13][windows-dl-13].
+1. Download the the .zip file for your PostgreSQL version - [12][windows-dl-12] or [13][windows-dl-13] or [14][windows-dl-14].
 1. Extract the zip file locally
 1. Run `setup.exe`, making sure that PostgreSQL is not currently running
 1. If successful, a `cmd.exe` window will pop open and you will see the following:
@@ -50,8 +50,9 @@ to `bootstrap`.
 
 [c_plus]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg_config]: https://www.postgresql.org/docs/10/static/app-pgconfig.html
-[windows-dl-12]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.4.2-windows-amd64.zip
-[windows-dl-13]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.4.2-windows-amd64.zip
+[windows-dl-12]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.5.0-windows-amd64.zip
+[windows-dl-13]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.5.0-windows-amd64.zip
+[windows-dl-14]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.0-windows-amd64.zip
 [config]: /how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
