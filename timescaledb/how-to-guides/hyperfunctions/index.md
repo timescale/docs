@@ -27,13 +27,13 @@ additional hyperfunctions, you need to install the
 For more information about hyperfunctions, read our [blog post][hyperfunctions-blog].
 
 
-[about-hyperfunctions]: how-to-guides/hyperfunctions/about-hyperfunctions
+[about-hyperfunctions]: /how-to-guides/hyperfunctions/about-hyperfunctions
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
 [about-pipelines]: /how-to-guides/hyperfunctions/function-pipelines
 [hyperfunctions-approx-count-distinct]: /how-to-guides/hyperfunctions/approx-count-distincts
-[hyperfunctions-stats-agg]: /how-to-guides/hyperfunctions/stats-aggs
+[hyperfunctions-stats-agg]: /how-to-guides/hyperfunctions/stats-aggs/
 [hyperfunctions-gapfilling]: /how-to-guides/hyperfunctions/gapfilling-interpolation
-[hyperfunctions-approximate-percentile]: how-to-guides/hyperfunctions/percentile-approx/approximate_percentile
-[hyperfunctions-time-weighted-averages]: how-to-guides/hyperfunctions/time-weighted-averages
-[hyperfunctions-counteragg]: /how-to-guides/hyperfunctions/counter-aggregation/counter_agg
+[hyperfunctions-approximate-percentile]: /how-to-guides/hyperfunctions/percentile-approx/approximate_percentile/
+[hyperfunctions-time-weighted-averages]: /how-to-guides/hyperfunctions/time-weighted-averages
+[hyperfunctions-counteragg]: /how-to-guides/hyperfunctions/counter-aggregation/counter_agg/
 [hyperfunctions-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project/
