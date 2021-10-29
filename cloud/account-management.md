@@ -4,6 +4,29 @@ You can manage billing for your Timescale Cloud account by navigating to the
 monthly usage, past payments you have made, the estimated cost of your next
 bill, and your current payment method.
 
+## About Timescale Cloud billing
+Timescale Cloud invoices are issued on the first day of every month, and cover
+usage of your Timescale Cloud services for the entire calendar month. By
+default, your bill is sent to the email address you registered your account
+with. If you want to set a different billing email address, you can do so on the
+`Billing` details page, see instructions in this section.
+
+The billing email you receive at the end of each calendar month includes a PDF
+copy of your invoice for your own records. The PDF includes information on the
+services you have used through the month, broken down into storage, compute, and
+VPC hourly consumption.
+
+You can see previously issued invoices on the `Billing` details page, in the
+`Past Payments` section. If a payment could not be processed, invoices in this
+section display an error asking you to review the payment method.
+
+When you open a new Timescale Cloud account, the first thirty days is free for
+you to use. During the trial, a bill is issued on the last day of the calendar
+month for the value of the services you have used, with a discount applied to
+bring the invoice total to $0.00. If the entirety of your consumption for the
+month was within the trial, you do not receive an emailed invoice, but the
+invoice is available to download in the `Past Payments` section.
+
 ## Add or change payment methods
 If you haven't yet added a payment method, you can add one in this section. You
 can also update to a new credit card here.
@@ -22,6 +45,12 @@ can also update to a new credit card here.
     the `Billing` page.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/add_credit_card.png" alt="Adding a payment method in Timescale Cloud"/>
+
+<highlight type="note">
+The first charge on your new credit card is for the period from the date you
+added the card, to the end of that calendar month. After that, all bills are for
+usage from the first of the month, to the last day of the month.
+</highlight>
 
 </procedure>
 
