@@ -32,8 +32,8 @@ hosted or self-hosted installation, you create a server that can act as an
 access node, then use that access node to create data nodes. Finally, you create
 the distributed hypertable in the same way as you create a regular hypertable.
 
-Data that is ingested into a distributed hypertables is spread across the data
-nodes according to the `hostname` key. The data is then further partitioned by
+Data that is ingested into a distributed hypertable is spread across the data
+nodes according to the space partition key. The data is then further partitioned by
 time on each data node.
 
 TimescaleDB multi-node currently supports capabilities that make it suited

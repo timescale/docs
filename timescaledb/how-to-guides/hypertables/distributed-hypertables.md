@@ -65,7 +65,7 @@ correct data node in a stream. `COPY` usually delivers better performance than
 CONFLICT` clause) that are used for [upserts][upserts].
 
 ## Querying a distributed hypertable
-The query performance of a distributes hypertable depends heavily on the ability
+The query performance of a distributed hypertable depends heavily on the ability
 of the access node to push computations down to the data nodes. Without a way to
 push down computations, the access node needs to fetch the raw data from each
 data node and then perform any necessary computations locally. Therefore,
@@ -77,7 +77,7 @@ needs to be transferred in the result set.
 
 <highlight type="important">
 To make sure that the access node can attempt to push down transactions to the
-data nodes, check that he settings variable
+data nodes, check that the settings variable
 [`enable_partitionwise_aggregate`](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE)
 is set to `on` on the access node. This setting is `off` by default.
 </highlight>
@@ -169,7 +169,7 @@ the data over the data nodes, similar to traditional [sharding][sharding].
 If your dataset has a column called something like `customerID`, `deviceID`, or
 `location`, and that column is frequently used in the `GROUP BY` clause of your
 queries, then it is a good candidate column for space partitioning. For example,
-this query would work well on a distributed hypertable, because it runs on all
+if we partition on `<time, location>`, then this query would work well on a distributed hypertable, because it runs on all
 the data nodes in parallel:
 ```sql
 SELECT time_bucket('1 hour', time) AS hour, location, avg(temperature)
