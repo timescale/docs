@@ -28,39 +28,38 @@ chunks across multiple machines, while still like a single continuous table
 across all time.
 
 ## Multi-node architecture
-To create a multi-node cluster, you need an access node that stores metadata
+Multi-node clusters consist of an access node that stores metadata
 for the distributed hypertable and performs query planning across the cluster,
 and any number of data nodes that store subsets of the distributed hypertable
 dataset and run queries locally.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/multinode_arch.png" alt="Diagram showing how multi-node access and data nodes interact"/>
+You create the nodes by assigning roles to them within TimescaleDB. If you are
+using Timescale Cloud to run your multi-node cluster, they are created by
+default when you choose to create a multi-node cluster. For more instructions,
+see the [multi-node on Timescale Cloud][multinode-cloud] section.
 
-You create these nodes by assigning roles to them within TimescaleDB. On your
-hosted or self-hosted installation, you create a server that can act as an
-access node, then use that access node to create data nodes. Finally, you create
-the distributed hypertable in the same way as you create a regular hypertable.
+On a self-hosted installation, you create a server that can act as an access
+node (AN), then use that access node to create data nodes (DN). Finally, you
+create the distributed hypertable in the same way as you create a regular
+hypertable.
 
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/multi-node-arch.png" alt="Diagram showing how multi-node access and data nodes interact"/>
+
+### Partitioning methods
 Data that is ingested into a distributed hypertable is spread across the data
-nodes according to the space partition key. The data is then further partitioned by
-time on each data node.
+nodes according to the partitioning method you have chosen. Queries that can be
+sent from the access node to multiple data nodes and processed simultaneously
+generally run faster than queries that run on a single data node, so it is
+important to think about what kind of data you have, and the type of queries you
+want to run.
 
-TimescaleDB multi-node currently supports capabilities that make it suited
-for large-volume time-series workloads. This includes `JOIN` optimizations,
-data rebalancing, distributed object management, improved elasticity, and
-high-availability. The experience and functionality is equivalent to single-node
-TimescaleDB, with support for automated compression policies, and TimescaleDB
-SkipScan.
-
-Distributed hypertables scale to ingest more than 10 million metrics per second,
-and can store petabytes of data. Distributed hypertables also take advantage
-of query parallelization, employing full/partial aggregates and push-downs, to
-achieve much faster queries.
-
-If your dataset has a column called something like `customerID`, `deviceID`, or
-`location`, and that column is frequently used in the `GROUP BY` clause of your
-queries, then it is a good candidate column for space partitioning. For example,
-if we partition on `<time, location>`, then this query would work well on a distributed hypertable, because it runs on all
-the data nodes in parallel:
+TimescaleDB multi-node currently supports capabilities that make it best suited
+for large-volume time-series workloads that are partitioned on `time`, and a
+space dimension such as `location`. If you usually run wide queries that
+aggregate data across many locations and devices, choose this partitioning
+method. For example, a query like this is faster on a database partitioned on
+`time,location`, because it spreads the work across all the data nodes in
+parallel:
 ```sql
 SELECT time_bucket('1 hour', time) AS hour, location, avg(temperature)
 FROM conditions
@@ -69,7 +68,18 @@ ORDER BY hour, location
 LIMIT 100;
 ```
 
-However, this query would not work as well, because it involves only a single data node:
+Partitioning on `time` and a space dimension such as `location`, is also best if
+you need faster insert performance. If you partition only on time, and your
+inserts are generally occuring in time order, then you are always writing to one
+data node at a time. Partitioning on `time` and `location` means your
+time-ordered inserts are spread across multiple data nodes, which can lead to
+better performance.
+
+If you mostly run deep time queries on a single location, you might see better
+performance by partitioning solely on the `time` dimension, or on a space
+dimension other than `location`. For example, a query like this is faster on a
+database partitioned on `time` only, because the data for a single location is
+spread across all the data nodes, rather than being on a single one:
 ```sql
 SELECT time_bucket('1 hour', time) AS hour, avg(temperature)
 FROM conditions
@@ -78,20 +88,6 @@ GROUP BY hour
 ORDER BY hour
 LIMIT 100;
 ```
-
-There are other factors that you also need to consider when
-partitioning your distributed hypertables. For example, if a query can be run
-concurrently by many different client sessions, each filtering on a different
-location, then that would also spread the load evenly across the distributed
-hypertable.
-
-Inserts also benefit from space partitioning. The additional space dimension
-makes it more likely that a multi-row insert uniformly spreads across the data
-nodes, leading to increased insert performance. In contrast, with a single time
-dimension it is likely that in-order inserts write to only one data node and
-chunk at a time. In this case, chunks are created on the data nodes in
-round-robin fashion.
-
 
 
 [hypertables]: /how-to-guides/hypertables/
