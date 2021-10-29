@@ -22,8 +22,8 @@ and other objects. However, some interactions between distributed hypertables
 and non-distributed objects might not work as expected. For example, when you
 set permissions on a distributed hypertable, they work only if the roles are
 identical on all the data nodes. Additionally, if you `JOIN` a local table and a
-distributed hypertable, you need to fetch the raw data from data nodes and perform the
-`JOIN` locally.
+distributed hypertable, you need to fetch the raw data from data nodes and
+perform the `JOIN` locally.
 
 ## Inserting data into a distributed hypertable
 Inserting data into a distributed hypertable works in much the same way as
@@ -82,7 +82,8 @@ data nodes, check that he settings variable
 is set to `on` on the access node. This setting is `off` by default.
 </highlight>
 
-There are two methods that the access node can use to push down aggregates: full, and partial.
+There are two methods that the access node can use to push down aggregates:
+full, and partial.
 
 In the full push down method, the aggregate offloads all the computation to data
 nodes and the access node only appends the individual results. To fully push
@@ -200,7 +201,6 @@ nodes, leading to increased insert performance. In contrast, with a single time
 dimension it is likely that in-order inserts write to only one data node and
 chunk at a time. In this case, chunks are created on the data nodes in
 round-robin fashion.
-
 
 
 [multi-node]: /how-to-guides/multinode-timescaledb/
