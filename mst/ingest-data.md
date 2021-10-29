@@ -17,7 +17,9 @@ Before you begin, make sure you have
 can connect to it using `psql`.
 </highlight>
 
-## Procedure: Preparing your new database
+<procedure>
+
+## Preparing your new database
 1.  Use `psql` to connect to your service. You can retrieve the service URL,
     port, and login credentials from the service overview in the Timescale Cloud dashboard:
     ```sql
@@ -50,6 +52,8 @@ can connect to it using `psql`.
     SELECT create_hypertable('conditions', 'time');
     ```
 
+</procedure>
+
 When you have successfully set up your new database, you can ingest data using
 one of these methods.
 
@@ -63,7 +67,9 @@ Before you begin, make sure you have
 [prepared your new database](#procedure-preparing-your-new-database).
 </highlight>
 
-### Procedure: Bulk uploading from a CSV file
+<procedure>
+
+### Bulk uploading from a CSV file
 1.  Insert data into the new hypertable using the `timescaledb-parallel-copy`
     tool. You should already have the tool installed, but you can install it
     manually from [our GitHub repository][github-parallel-copy] if you need to.
@@ -86,6 +92,8 @@ Before you begin, make sure you have
     ```sql
     psql '<service_url>/new_db?sslmode=require' -c "\copy conditions FROM <example.csv> WITH (FORMAT CSV, HEADER)"
     ```
+
+</procedure>
 
 ## Insert data directly using a client driver
 You can use a client driver such as JDBC, Python, or Node.js, to insert data
