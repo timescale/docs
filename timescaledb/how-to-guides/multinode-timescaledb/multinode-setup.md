@@ -20,6 +20,13 @@ about the multi-node architecture, see [about multi-node][about-multi-node].
 When you have installed TimescaleDB on the access node and as many data nodes as
 you require, you can set up multi-node and create a distributed hypertable.
 
+<highlight type="note">
+Before you begin, make sure you have considered what partitioning method you
+want to use for your multi-node cluster. For more information about multi-node
+and architecture, see the
+[About multi-node section](/how-to-guides/multinode-timescaledb/about-multinode/).
+<highlight>
+
 <procedure>
 
 ### Setting up multi-node on self-hosted TimescaleDB
@@ -33,21 +40,16 @@ you require, you can set up multi-node and create a distributed hypertable.
     SELECT add_data_node(dn2.example.com)
     SELECT add_data_node(dn3.example.com)
     ```
-1.  On the access node, create the distributed hypertable partitioned on time
-    and hostname. In this example, the distributed hypertable is called
-    `example`:
+1.  On the access node, create the distributed hypertable with your chosen
+    partitioning. In this example, the distributed hypertable is called
+    `example`, and it is partitioned on `time` and `location`:
     ```sql
-    SELECT create_distributed_hypertable('example', 'time', 'hostname');
+    SELECT create_distributed_hypertable('example', 'time', 'location');
     ```
 1.  Insert some data into the hypertable. For example:
     ```sql
     INSERT INTO example VALUES ('2020-12-14 13:45', 1, '1.2.3.4');
     ```
-
-<highlight type="note">
-The distributed hypertable spreads data across the data nodes according to the
-`hostname` key. The data is then further partitioned by time on each data node.
-</highlight>
 
 </procedure>
 

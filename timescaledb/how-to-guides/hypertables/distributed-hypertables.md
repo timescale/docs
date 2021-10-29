@@ -174,7 +174,7 @@ with an additional `space` dimension. This allows you to consistently partition
 the data over the data nodes, similar to traditional sharding.
 
 For more information about partitioning distributed hypertables, see the
-[about multi-node section][about-multinode].
+[About multi-node section][about-multinode].
 
 
 [multi-node]: /how-to-guides/multinode-timescaledb/
