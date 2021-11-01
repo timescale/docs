@@ -382,7 +382,7 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals/">num_vals</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-pct/">num_vals</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -407,7 +407,7 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/average/">average</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/average-time-weight/">average</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
