@@ -2,7 +2,7 @@
 Virtual Private Cloud (VPC) peering is a method of connecting separate
 Google Cloud private networks to each other. It makes it possible for the
 virtual machines in the different VPC's to talk to each other directly without
-going through the public internet.  VPC peering is limited to VPCs that share the same Cloud provider.
+going through the public internet. VPC peering is limited to VPCs that share the same Cloud provider.
 
 VPC peering setup is a per project and per region setting. This means that all
 services created and running utilize the same VPC peering connection. If needed,
@@ -12,7 +12,7 @@ you can have multiple projects that peer with different connections.
 Services are only accessible via your VPC's internal network, they are not
 accessible from the public internet.  TLS certificates for VPC peered services are
 signed by the Timescale project CA and cannot be validated against a public CA
-(Let's Encrypt).  You can choose service-by-service whether you want to run on VPC
+(Let's Encrypt). You can choose service-by-service whether you want to run on VPC
 peered network or on public internet.
 </highlight>
 
@@ -25,7 +25,7 @@ in a VPC or not: The list of cloud providers and regions contains options like
 "Belgium - Google Cloud: Belgium" and "Belgium - Google Cloud: Belgium - Project
 VPC". Here selecting the former would create the service to non-VPC environment
 while the latter would place the service within the VPC. The same functionality
-is available with the "Migrate" feature, allowing moving a service to / from a
+is available with the "Migrate" feature, allowing moving a service to and from a
 VPC.
 
 The IP Range should be chosen so that it doesn't overlap with any networks you
