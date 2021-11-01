@@ -65,7 +65,9 @@ You can set up a connection pool from the Managed Service for TimescaleDB
 portal. Make sure you have already created a service that you want to add
 connection pooling to.
 
-### Procedure: Setting up a connection pool
+<procedure>
+
+### Setting up a connection pool
 1.  In the MST portal, navigate to the
     `Services` list, and click the name of the service you want to add connection pooling to.
 1.  In the `Service overview` page, navigate to the `Pools` tab. When you have
@@ -86,6 +88,8 @@ connection pooling to.
 1.  Click `Create` to create the pool, and see the details of the new pool in
     the list. You can click `Info` next to the pool details to see more
     information, including the URI and port details.
+
+</procedure>
 
 <highlight type="note">
 Pooled servers use a different port number than regular servers. This allows you

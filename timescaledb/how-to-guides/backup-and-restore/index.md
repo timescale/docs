@@ -12,7 +12,7 @@ backup your self-hosted TimescaleDB database:
 <highlight type="important">
 If you are using Timescale Cloud, you don't need to manually perform backups!
 For more information, see the
-[Timescale Cloud backup and restore section](cloud/:currentversion:/backup-restore-cloud/).
+[Timescale Cloud backup and restore section](https://docs.timescale.com/cloud/latest/backup-restore-cloud/).
 </highlight>
 
 

@@ -26,14 +26,14 @@ For more information about statistical aggregate functions, see the
 |||[`num_vals`](/hyperfunctions/stats_aggs/num_vals-stats/)|❌|✅|
 |||[`skewness` / `skewness_y` / `skewness_x`](/hyperfunctions/stats_aggs/skewness/)|❌|✅|
 |||[`stddev` / `stddev_y` / `stddev_x`](/hyperfunctions/stats_aggs/stddev/)|❌|✅|
-|||[`sum` / `sum_y` / `sum_x`](/hyperfunctions/stats_aggs/sum/)|❌|✅|
+|||[`sum` / `sum_y` / `sum_x`](/hyperfunctions/stats_aggs/sum-stats/)|❌|✅|
 |||[`variance` / `variance_y` / `variance_x`](/hyperfunctions/stats_aggs/variance/)|❌|✅|
 |Statistical aggregation|Stats Agg 2D Accessors|[`corr`](/hyperfunctions/stats_aggs/corr-stats/)|❌|✅|
-|||[`covariance`](/hyperfunctions/stats_agg/covariance/)|❌|✅|
-|||[`determination_coeff`](/hyperfunctions/stats_agg/determination_coeff/)|❌|✅|
-|||[`intercept`](/hyperfunctions/stats_agg/intercept/)|❌|✅|
-|||[`slope`](/hyperfunctions/stats_agg/slope-stats/)|❌|✅|
-|||[`x_intercept`](/hyperfunctions/stats_agg/x_intercept/)|❌|✅|
+|||[`covariance`](/hyperfunctions/stats_aggs/covariance/)|❌|✅|
+|||[`determination_coeff`](/hyperfunctions/stats_aggs/determination_coeff/)|❌|✅|
+|||[`intercept`](/hyperfunctions/stats_aggs/intercept/)|❌|✅|
+|||[`slope`](/hyperfunctions/stats_aggs/slope-stats/)|❌|✅|
+|||[`x_intercept`](/hyperfunctions/stats_aggs/x_intercept/)|❌|✅|
 
 
 
