@@ -13,7 +13,7 @@ In some cases, your processing speeds could be slower in a multi-node cluster,
 because distributed hypertables need to push operations down to the various data
 nodes. It is important that you understand multi-node architecture before you
 begin, and plan your database according to your specific environment.
-<highlight>
+</highlight>
 
 For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
@@ -30,6 +30,7 @@ Timescale Cloud account.
 <procedure>
 
 ### Setting up multi-node on Timescale Cloud
+
 1.  [Log in to your Timescale Cloud account][cloud-login] and click
 		`Create Service`.
 1.  Go to the `Without demo data` tab to create the cluster without a data
@@ -54,7 +55,6 @@ Timescale Cloud account.
 
 For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
-
 
 [multinode-timescaledb]: timescaledb/how-to-guides/:currentVersion:/multinode-timescaledb
 [multinode-mst]: /mst/:currentVersion:/mst-multi-node/
