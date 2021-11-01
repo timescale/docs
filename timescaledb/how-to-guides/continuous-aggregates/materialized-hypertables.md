@@ -9,7 +9,9 @@ this, use the
 [timescaledb_information.continuous_aggregates view][api-continuous-aggregates-info]).
 You can then use the name to modify it in the same way as any other hypertable.
 
-### Procedure: Discovering the name of a materialized hypertable
+<procedure>
+
+### Discovering the name of a materialized hypertable
 1.  At the `psql`prompt, query `timescaledb_information.continuous_aggregates`:
     ```sql
     SELECT view_name, <materialization_hypertable_name>
@@ -25,6 +27,7 @@ You can then use the name to modify it in the same way as any other hypertable.
     (2 rows)
     ```
 
+</procedure>
 
 ## Create indexes on the materialized hypertable
 Materialized hypertables include composite indexes. By default, these indexes
