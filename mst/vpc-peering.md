@@ -1,6 +1,6 @@
 # VPC peering
 Virtual Private Cloud (VPC) peering is a method of connecting separate
-Google Cloud private networks to each other. It makes it possible for the
+Cloud private networks to each other. It makes it possible for the
 virtual machines in the different VPC's to talk to each other directly without
 going through the public internet. VPC peering is limited to VPCs that share the same Cloud provider.
 
