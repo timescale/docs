@@ -72,7 +72,9 @@ Changing your compute settings usually requires a short downtime. Make sure you
 plan for this before you begin!
 </highlight>
 
-### Procedure: Changing resource allocations manually
+<procedure>
+
+### Changing resource allocations manually
 1.  In the Timescale Cloud console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service details` page, navigate to the `Operations` tab, and click
@@ -84,6 +86,8 @@ plan for this before you begin!
 1.  Click `Apply` to save your changes. If you have changed the CPU and memory
     allocation, your service will go down briefly while the changes are applied.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
+
+</procedure>
 
 ## Configure autoscaling for disk size
 Disk size autoscaling is enabled by default on most services. When you consume
@@ -100,7 +104,9 @@ longer, and in some cases this could create a delay longer than six hours.
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 10&nbsp;TB in size.
 
-### Procedure: Configuring autoscaling for disk size
+<procedure>
+
+### Configuring autoscaling for disk size
 1.  In the Timescale Cloud console, from the `Services` list, click the name of
     the service you want to modify.
 1.  In the `Service overview` page, navigate to the `Operations` tab, and click
@@ -113,3 +119,5 @@ to 10&nbsp;TB in size.
 1.  Click `Apply` to save your changes. The new disk size generally becomes
     available within a few seconds.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscaling.png" alt="Configure autoscaling disk size"/>
+
+</procedure>

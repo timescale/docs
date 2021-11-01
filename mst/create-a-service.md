@@ -8,7 +8,9 @@ your projects. Before you begin, make sure you have
 When you have your account set up, you can log in to the Managed Service for
 TimescaleDB [portal][timescale-mst-portal] and create your first service.
 
-### Procedure: Creating a service
+<procedure>
+
+### Creating a service
 1.  [Log in to your account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click `Create a new service`.
@@ -29,6 +31,8 @@ TimescaleDB [portal][timescale-mst-portal] and create your first service.
     the list to see more information and make changes.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-timescaledb.png" alt="Building the service"/>
 
+</procedure>
+
 <highlight type="tip">
 During your Managed Service for TimescaleDB trial, you have up to US$300 in
 credits to use. This is enough credit to complete all our tutorials and run a
@@ -45,7 +49,9 @@ The best way to access your new database is using the `psql` command line
 utility. If you haven't already installed `psql`, you can follow
 [these instructions][install-psql].
 
-### Procedure: Accessing your database
+<procedure>
+
+### Accessing your database
 1.  In the [Managed Service for TimescaleDB account][mst-login] `Services` view,
     click the name of your new Grafana service.
 1.  On the service details page, take a note of the service URI for your service.
@@ -62,6 +68,8 @@ utility. If you haven't already installed `psql`, you can follow
     ```
 1.  You can verify that TimescaleDB is installed by running the `\dx` command
     at the `psql` prompt to see a list of all your PostgreSQL extensions.
+
+</procedure>
 
 Now you have your service up and running, you can try your
 [first tutorial][getting-started].

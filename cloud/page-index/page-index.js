@@ -19,7 +19,7 @@ module.exports = [
         href: "customize-configuration",
       },
       {
-        title: "Create a multi-node cluster",
+        title: "Multi-node on Timescale Cloud",
         href: "cloud-multi-node"
       },
       {
