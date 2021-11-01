@@ -30,7 +30,7 @@ In some cases, your processing speeds could be slower in a multi-node cluster,
 because distributed hypertables need to push operations down to the various data
 nodes. It is important that you understand multi-node architecture before you
 begin, and plan your database according to your specific environment.
-<highlight>
+</highlight>
 
 ## Inserting data into a distributed hypertable
 Inserting data into a distributed hypertable works in much the same way as

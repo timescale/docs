@@ -9,7 +9,7 @@ In some cases, your processing speeds could be slower in a multi-node cluster,
 because distributed hypertables need to push operations down to the various data
 nodes. It is important that you understand multi-node architecture before you
 begin, and plan your database according to your specific environment.
-<highlight>
+</highlight>
 
 You can use multi-node on a self-managed TimescaleDB instance, or you can use it
 on [Timescale Cloud][multinode-cloud] or

@@ -25,7 +25,7 @@ Before you begin, make sure you have considered what partitioning method you
 want to use for your multi-node cluster. For more information about multi-node
 and architecture, see the
 [About multi-node section](/how-to-guides/multinode-timescaledb/about-multinode/).
-<highlight>
+</highlight>
 
 <procedure>
 
@@ -55,7 +55,6 @@ and architecture, see the
 
 When you have set up your multi-node installation, you can configure your
 cluster. For more information, see the [configuration section][configuration].
-
 
 [configuration]: /how-to-guides/multinode-timescaledb/multinode-config/
 [install]: /how-to-guides/install-timescaledb
