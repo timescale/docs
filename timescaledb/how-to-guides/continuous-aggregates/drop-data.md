@@ -8,11 +8,15 @@ need in your continuous aggregate.
 You can drop a continuous aggregate view using the `DROP MATERIALIZED VIEW`
 command. This command does not drop the data from the underlying hypertable.
 
-### Procedure: Dropping a continuous aggregate view
+<procedure>
+
+### Dropping a continuous aggregate view
 1.  From the `psql`prompt, drop the view:
     ```sql
     DROP MATERIALIZED VIEW view_name;
     ```
+
+</procedure>
 
 ## Drop raw data from a hypertable
 If you drop data from a hypertable used in a continuous aggregate it can lead to

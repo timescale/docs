@@ -20,7 +20,9 @@ you can share them with the WAL-E sidecar. Both must reside in a Docker volume,
 by default a volume is created for `/var/lib/postgresql/data`. When you have
 started TimescaleDB, you can log in and create tables and data.
 
-### Procedure: Running the TimescaleDB container in Docker
+<procedure>
+
+### Running the TimescaleDB container in Docker
 1.  Create the docker container:
     ```bash
     docker network create timescaledb-net
@@ -46,6 +48,8 @@ started TimescaleDB, you can log in and create tables and data.
     docker exec -it timescaledb psql -U postgres
     ```
 
+</procedure>
+
 ## Perform the backup using the WAL-E sidecar
 The [WAL-E Docker image][wale image] runs a web endpoint that accepts WAL-E
 commands across an HTTP API. This allows PostgreSQL to communicate with the
@@ -62,7 +66,9 @@ information to WAL-E when you start it. In this example, the WAL-E image listens
 for commands on the `timescaledb-net` internal network at port 80, and writes
 backups to `~/backups` on the Docker host.
 
-### Procedure: Performing the backup using the WAL-E sidecar
+<procedure>
+
+### Performing the backup using the WAL-E sidecar
 1.  Start the WAL-E container with the required information about the container.
     In this example, the container is called `timescaledb-wale`:
     ```bash
@@ -91,6 +97,8 @@ backups to `~/backups` on the Docker host.
     curl http://localhost:8080/backup-push
     ```
 
+</procedure>
+
 You should do base backups at regular intervals, we recommend daily, to minimize
 the amount of WAL-E replay, and to make recoveries faster. To make new base
 backups, re-trigger a base backup as shown here, either manually or on a
@@ -102,7 +110,9 @@ HTTP API.
 To recover the database instance from the backup archive, create a new
 TimescaleDB container, and restore the database and configuration files from the base backup. Then you can relaunch the sidecar and the database.
 
-### Procedure: Restoring database files from backup
+<procedure>
+
+### Restoring database files from backup
 1.  Create the docker container:
     ```bash
     docker create \
@@ -151,14 +161,17 @@ TimescaleDB container, and restore the database and configuration files from the
     sh -c 'echo "restore_command='\''/usr/bin/wget wale/wal-fetch/%f -O -'\''" > /var/lib/postgresql/data/pg_data/recovery.conf'
     ```
 
+</procedure>
+
 When you have recovered the data and the configuration files, and have created a
 recovery configuration file, you can relaunch the sidecar. You might need to
 remove the old one first. When you relaunch the sidecar, it replays the last WAL
 segments that might be missing from the base backup. The you can relaunch the
 database, and check that recovery was successful.
 
+<procedure>
 
-### Procedure: Relaunch the recovered database
+### Relaunch the recovered database
 1.  Relaunch the WAL-E sidecar:
     ```bash
     docker run \
@@ -188,6 +201,7 @@ database, and check that recovery was successful.
     no more files can be found in the archive. See the PostgreSQL documentation
     on [continuous archiving][pg archiving] for more information.
 
+</procedure>
 
 [pg archiving]: https://www.postgresql.org/docs/current/continuous-archiving.html#BACKUP-PITR-RECOVERY
 [wale official]: https://github.com/wal-e/wal-e

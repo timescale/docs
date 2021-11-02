@@ -6,7 +6,9 @@ to set up Grafana. You can [create a free account][mst-login] to try it out.
 You need to sign in to your MST account to create a
 new service to run Grafana.
 
-### Procedure: Creating a new service for Grafana
+<procedure>
+
+### Creating a new service for Grafana
 1.  [Log in to your Managed Service for TimescaleDB account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click `Create a new service`.
@@ -27,6 +29,8 @@ new service to run Grafana.
     of minutes, but different clouds can vary. You can click the service name in
     the list to see more information and make changes.
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/mst-buildservice-grafana.png" alt="Building the Grafana service"/>
+
+</procedure>
 
 ## Log in to your MST Grafana service
 When your service is built, you can log and set up your data services.
