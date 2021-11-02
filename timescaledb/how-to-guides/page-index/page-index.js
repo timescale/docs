@@ -314,6 +314,13 @@ module.exports = [
             excerpt: 'Drop hypertables',
           },
           {
+            title: 'Distributed hypertables',
+            href: 'distributed-hypertables',
+            tags: ['hypertables', 'create', 'distributed', 'timescaledb'],
+            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
+            excerpt: 'Learn about distributed hypertables',
+          },
+          {
             title: 'Best practices',
             href: 'best-practices',
             tags: [
@@ -325,92 +332,6 @@ module.exports = [
             ],
             keywords: ['hypertables', 'TimescaleDB'],
             excerpt: 'Best practices for managing hypertables',
-          },
-        ],
-      },
-      {
-        href: 'distributed-hypertables',
-        children: [
-          {
-            title: 'CREATE',
-            href: 'create',
-            tags: ['hypertables', 'create', 'distributed', 'timescaledb'],
-            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
-            excerpt: 'Create distributed hypertables',
-          },
-          {
-            title: 'INSERT',
-            href: 'insert',
-            tags: ['hypertables', 'ingest', 'distributed', 'timescaledb'],
-            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
-            excerpt: 'Insert data into distributed hypertables',
-          },
-          {
-            title: 'SELECT',
-            href: 'select',
-            tags: ['hypertables', 'select', 'distributed', 'timescaledb'],
-            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
-            excerpt: 'Select data in distributed hypertables',
-          },
-          {
-            title: 'Manage data nodes',
-            href: 'manage-data-nodes',
-            tags: [
-              'hypertables',
-              'nodes',
-              'manage',
-              'configure',
-              'distributed',
-              'timescaledb',
-            ],
-            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
-            excerpt: 'Manage data nodes in distributed hypertables',
-          },
-          {
-            title: 'Native replication',
-            href: 'enable-native-replication',
-            tags: [
-              'hypertables',
-              'nodes',
-              'replicate',
-              'distributed',
-              'timescaledb',
-            ],
-            keywords: [
-              'hypertables',
-              'replicate',
-              'nodes',
-              'distributed',
-              'TimescaleDB',
-            ],
-            excerpt: 'Replicate data to nodes in distributed hypertables',
-          },
-          {
-            title: 'ALTER',
-            href: 'alter',
-            tags: ['hypertables', 'edit', 'distributed', 'timescaledb'],
-            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
-            excerpt: 'Alter distributed hypertables',
-          },
-          {
-            title: 'DROP',
-            href: 'drop',
-            tags: ['hypertables', 'delete', 'distributed', 'timescaledb'],
-            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
-            excerpt: 'Drop distributed hypertables',
-          },
-          {
-            href: 'best-practices',
-            tags: [
-              'hypertables',
-              'manage',
-              'configure',
-              'tshoot',
-              'distributed',
-              'timescaledb',
-            ],
-            keywords: ['hypertables', 'distributed', 'TimescaleDB'],
-            excerpt: 'Best practices for managing distributed hypertables',
           },
         ],
       },
@@ -473,43 +394,59 @@ module.exports = [
         ],
       },
       {
-        title: 'Multi-node setup',
-        href: 'multi-node-setup',
+        title: "Multi-node",
+        href: "multinode-timescaledb",
         children: [
           {
-            title: 'Multi-node environments',
-            href: 'required-configuration',
-            tags: ['multinode', 'distributed', 'nodes', 'timescaledb'],
-            keywords: ['multinode', 'TimescaleDB'],
-            excerpt: 'Set up a multi-node environment',
+            title: "About multi-node",
+            href: "about-multinode",
+            tags: ['multi-node', 'distributed', 'nodes'],
+            keywords: ['multi-node'],
+            excerpt: 'Learn about multi-node environments'
           },
           {
-            title: 'Enable node communication',
-            href: 'node-communication',
-            tags: [
-              'multinode',
-              'distributed',
-              'nodes',
-              'enable',
-              'timescaledb',
-            ],
-            keywords: ['multinode', 'TimescaleDB'],
-            excerpt: 'Enable node communication in a multi-node environment',
+            title: "Multi-node setup on TimescaleDB",
+            href: "multinode-setup",
+            tags: ['multi-node', 'setup', 'distributed', 'nodes', 'timescaledb'],
+            keywords: ['multi-node', 'setup', 'TimescaleDB'],
+            excerpt: 'Set up multi-node on self-hosted TimescaleDB'
           },
           {
-            title: 'Multi-node maintenance tasks',
-            href: 'maintenance-tasks',
-            tags: [
-              'multinode',
-              'distributed',
-              'nodes',
-              'manage',
-              'timescaledb',
-            ],
-            keywords: ['multinode', 'TimescaleDB'],
-            excerpt: 'Maintain a multi-node environment',
+            title: "Multi-node authentication",
+            href: "multinode-auth",
+            tags: ['multi-node', 'authentication', 'setup', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'setup', 'authentication'],
+            excerpt: 'Set up multi-node authentication'
           },
-        ],
+          {
+            title: "Configure multi-node",
+            href: "multinode-config",
+            tags: ['multi-node', 'configure', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'configure'],
+            excerpt: 'Configure a multi-node environment'
+          },
+          {
+            title: "Grow and shrink a multi-node cluster",
+            href: "multinode-grow-shrink",
+            tags: ['multi-node', 'configure', 'manage', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'configure', 'manage'],
+            excerpt: 'Grow and shrink a multi-node cluster'
+          },
+          {
+            title: "High availability multi-node",
+            href: "multinode-ha",
+            tags: ['multi-node', 'ha', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'HA'],
+            excerpt: 'Highly available multi-node environments'
+          },
+          {
+            title: "Multi-node maintenance",
+            href: "multinode-maintenance",
+            tags: ['multi-node', 'maintain', 'distributed', 'nodes', 'manage'],
+            keywords: ['multi-node', 'maintain'],
+            excerpt: 'Maintain a multi-node environment'
+          }
+        ]
       },
       {
         href: 'continuous-aggregates',

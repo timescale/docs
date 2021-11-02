@@ -23,7 +23,9 @@ Service for TimescaleDB dashboards. You also need a running Managed Service for
 TimescaleDB service.
 </highlight>
 
-### Procedure: Creating a Datadog API key
+<procedure>
+
+### Creating a Datadog API key
 1.  Log in to your [Datadog dashboard][datadog-login] and navigate to
     `Integrations → APIs`. Click `API Keys`.
 1.  In the `New API key` field, type a name for your new key. For example,
@@ -32,7 +34,11 @@ TimescaleDB service.
 1.  Hover your mouse over the purple bar in the `Key` field to see the key, and
     copy it to use later.
 
-### Procedure: Uploading a Datadog API key to MST
+</procedure>
+
+<procedure>
+
+### Uploading a Datadog API key to MST
 1.  [Log in to your Managed Service for TimescaleDB][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Check that you are in the project that you want to connect to Datadog,
@@ -46,10 +52,14 @@ TimescaleDB service.
 1.  Click `Add endpoint` to save the integration.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/add-datadog-integration.png" alt="Add Datadog endpoint"/>
 
+</procedure>
+
 ## Activate Datadog integration for a service
 When you have successfully added the endpoint, you can set up one of your services to send data to Datadog.
 
-### Procedure: Activating Datadog integration for a service
+<procedure>
+
+### Activating Datadog integration for a service
 1.  In the Managed Service for TimescaleDB `Services` view, click the name of the service that you want to
     connect to Datadog.
 1.  In the `Service integrations` section, click `Manage integrations`. Locate
@@ -58,6 +68,8 @@ When you have successfully added the endpoint, you can set up one of your servic
     earlier, and click `Enable`. If the connection is successful, the Datadog
     integration shows with a green `active` symbol.  
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/active-datadog-integration.png" alt="Successful Datadog integration"/>
+
+</procedure>
 
 ## Datadog dashboards
 When you have your Datadog integration set up successfully, you can use the

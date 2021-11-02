@@ -28,7 +28,9 @@ impact of a short service interruption. Alternatively, you might prefer to have
 your maintenance window occur during office hours, so that you can monitor your
 system during the upgrade.
 
-### Procedure: Adjusting your maintenance window
+<procedure>
+
+### Adjusting your maintenance window
 1.  [Log in to your account][mst-login]. Click the name of the service that
     you want to manage the maintenance window for.
 1.  In the `Maintenance window` section, click `Change`.
@@ -37,6 +39,8 @@ system during the upgrade.
     start. Maintenance windows can run for up to four hours.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-maintwindow.png" alt="Adjust maintenance window"/>
 1.  Click `Save Changes`.
+
+</procedure>
 
 ## Critical updates
 Critical upgrades and security fixes are installed outside normal maintenance windows when

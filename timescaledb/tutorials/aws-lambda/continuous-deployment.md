@@ -1,13 +1,16 @@
 # Lambda continuous deployment with GitHub actions
-This tutorial builds a continuous deployment (CD) pipeline between GitHub and AWS Lambda using GitHub actions.
+This tutorial builds a continuous deployment (CD) pipeline between GitHub and
+AWS Lambda using GitHub actions.
 
-Packaging and deploying your function and its dependencies with AWS Lambda can sometimes be a tedious job. 
-Especially if you also want to use a source code management platform like GitHub to develop your code before pushing 
-it to AWS Lambda.
+Packaging and deploying your function and its dependencies with AWS Lambda can
+sometimes be a tedious job.  Especially if you also want to use a source code
+management platform like GitHub to develop your code before pushing  it to AWS
+Lambda.
 
-You can use GitHub actions to set up automatic deployment for AWS Lambda from a Github repository.
-You need to push a commit to the main or master branch of your repository, then let GitHub actions create the deployment 
-package, and deploy your code to AWS Lambda.
+You can use GitHub actions to set up automatic deployment for AWS Lambda from a
+Github repository. You need to push a commit to the `main` or `master` branch of
+your repository, then let GitHub actions create the deployment  package, and
+deploy your code to AWS Lambda.
 
 ## Prerequisites
 * Git ([installation options here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
@@ -44,22 +47,22 @@ Now you can create a new GitHub repository which contains the function code.
     import psycopg2
     import psycopg2.extras
     import os
-    
+
     def lambda_handler(event, context):
         db_name = os.environ['DB_NAME']
         db_user = os.environ['DB_USER']
         db_host = os.environ['DB_HOST']
         db_port = os.environ['DB_PORT']
         db_pass = os.environ['DB_PASS']
-        
+
         conn = psycopg2.connect(user=db_user, database=db_name, host=db_host,
                                 password=db_pass, port=db_port)
-        
+
         sql = "SELECT * FROM stocks_intraday ORDER BY time DESC LIMIT 10"
         cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
         cursor.execute(sql)
         result = cursor.fetchall()
-        
+
         return {
             'statusCode': 200,
             'body': json.dumps(list_of_dicts, default=str),
@@ -73,12 +76,12 @@ Now you can create a new GitHub repository which contains the function code.
     git init
     git add function.py
     git commit -m "Initial commit: add Lambda function"
-    git branch -M master
+    git branch -M main
     git remote add origin <YOUR_GITHUB_PROJECT_URL.git>
-    git push -u origin master
+    git push -u origin main
     ```
 
-At this point, you have a GitHub repository with just the Lambda function in it. Now you can connect this repository 
+At this point, you have a GitHub repository with just the Lambda function in it. Now you can connect this repository
 to the AWS Lambda function.
 
 ## Connect GitHub and AWS Lambda
@@ -86,8 +89,8 @@ to the AWS Lambda function.
 Let's connect the Github repository AWS Lambda using Github actions.
 
 ### Procedure: Adding your AWS credentials to the repository
-You need to add your AWS credentials to the repository so it will have permission to connect to Lambda. 
-You can do this by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) 
+You need to add your AWS credentials to the repository so it will have permission to connect to Lambda.
+You can do this by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
 using the GitHub CLI.
 
 1.  Authenticate with GitHub:
@@ -96,26 +99,26 @@ using the GitHub CLI.
     ```
     This prompts you to choose which account you want to log into using either your password or GitHub
     authentication token.
-1.  Add AWS credentials as GitHub secrets. 
-    By using GitHub secrets, your credentials are encrypted and cannot be seen 
-    publicly. Use the `gh secret set` command to upload your AWS credentials one by one 
+1.  Add AWS credentials as GitHub secrets.
+    By using GitHub secrets, your credentials are encrypted and cannot be seen
+    publicly. Use the `gh secret set` command to upload your AWS credentials one by one
     (you'll be prompted to paste the values for each one):
-    
+
     AWS_ACCESS_KEY_ID:
     ```bash
     gh secret set AWS_ACCESS_KEY_ID
     ```
-    
+
     AWS_SECRET_ACCESS_KEY:
     ```bash
     gh secret set AWS_SECRET_ACCESS_KEY
     ```
-    
+
     AWS_REGION:
     ```bash
     gh secret set AWS_REGION
     ```
-    
+
 1.   To make sure your credentials have been uploaded correctly, you can list the available GitHub secrets:
     ```bash
     gh secret list
@@ -134,7 +137,7 @@ to auto-deploy to AWS Lambda.
     ```bash
     touch .github/workflows/main.yml
     ```
-    
+
 1.  Add this content to the file:
     ```yml
     name: deploy to lambda
@@ -143,9 +146,9 @@ to auto-deploy to AWS Lambda.
       # but only for the main branch
       push:
         branches:
-          - master
+          - main
     jobs:
-    
+
       deploy_source:
         name: deploy lambda from source
         runs-on: ubuntu-latest
@@ -161,11 +164,11 @@ to auto-deploy to AWS Lambda.
               function_name: lambda-cd
               source: function.py
     ```
-    This configuration will make sure to deploy the code to Lambda when there's a new push to the master branch.
+    This configuration will make sure to deploy the code to Lambda when there's a new push to the main branch.
 
-    As you can also see in the YAML file, the AWS credentials are accessed using the `${{ secrets.AWS_ACCESS_KEY_ID }}` 
+    As you can also see in the YAML file, the AWS credentials are accessed using the `${{ secrets.AWS_ACCESS_KEY_ID }}`
 syntax.
-    Make sure to use the name of the Lambda function (as displayed in the AWS console) for the `function_name` 
+    Make sure to use the name of the Lambda function (as displayed in the AWS console) for the `function_name`
 property in this configuration file. ("lambda-cd" in this example).
 
 ### Procedure: Testing the pipeline
