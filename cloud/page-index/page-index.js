@@ -45,6 +45,10 @@ module.exports = [
         href: "maintenance"
       },
       {
+        title: "Explorer",
+        href: "explorer"
+      },
+      {
         title: "Backup and restore",
         href: "backup-restore-cloud"
       }
