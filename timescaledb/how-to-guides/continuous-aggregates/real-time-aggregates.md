@@ -19,11 +19,11 @@ You can enable and disable real time aggregation by setting the
 ### Using real time aggregation
 1.  For an existing table, at the `psql` prompt, disable real time aggregation:
     ```sql
-    ALTER VIEW table_name set (timescaledb.materialized_only = true);
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = true);
     ```
 1.  Re-enable real time aggregation:
     ```sql
-    ALTER VIEW table_name set (timescaledb.materialized_only = false);
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = false);
     ```
 
 </procedure>
