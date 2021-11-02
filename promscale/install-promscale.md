@@ -19,7 +19,9 @@ You can install the Promscale Connector with a Docker image from
 [Docker Hub][promscale-docker-hub]. To see the latest available images, see
 the [Promscale Releases on GitHub][promscale-releases-github].
 
-### Procedure: Installing Promscale from a Docker image
+<procedure>
+
+### Installing Promscale from a Docker image
 1.  Create a network specific to Promscale-TimescaleDB:
     ```bash
     docker network create --driver bridge promscale-timescaledb
@@ -42,6 +44,7 @@ the [Promscale Releases on GitHub][promscale-releases-github].
     In this example, we use `db-ssl-mode=allow`, which is suitable for testing
     purposes. For production environments, use `db-ssl-mode=require` instead.
 
+</procedure>
 
 ## Configure Prometheus for Promscale
 You need to tell Prometheus to use the remote storage connector. By setting

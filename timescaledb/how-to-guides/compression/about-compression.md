@@ -41,7 +41,9 @@ compressed.
 |8/22/2019 0:00|1|88.2|20|0.8|
 |8/22/2019 0:05|2|300.5|30|0.9|
 
-### Procedure: Enabling compression
+<procedure>
+
+### Enabling compression
 1.  At the `pgsl` prompt, alter the table:
     ```sql
     ALTER TABLE example SET (
@@ -53,6 +55,8 @@ compressed.
     ```SQL
     SELECT add_compression_policy('example', INTERVAL '7 days');
     ```
+
+</procedure>
 
 ## Compression policy intervals
 Data is usually compressed after an interval of time has elapsed, and not
