@@ -16,13 +16,12 @@ giving you faster data ingest, and more responsive and efficient queries.
 
 <!---*   [Backup and restore][multi-node-backup] your cluster -->
 
-[about-multi-node]: /how-to-guides/multi-node-setup/about-multinode
-[setup-selfhosted]: /how-to-guides/multi-node-setup/multinode-setup
-[setup-cloud]: /cloud/:currentVersion:/forge-multi-node/
-[setup-mst]: /mst/:currentVersion:/cloud-multi-node/
-[multi-node-auth]: /how-to-guides/multi-node-setup/multinode-auth
-[multi-node-config]: /how-to-guides/multi-node-setup/multinode-config
-[multi-node-grow-shrink]: /how-to-guides/multi-node-setup/multinode-grow-shrink
-[multi-node-backup]: /how-to-guides/multi-node-setup/multinode-backup
-[multi-node-ha]: /how-to-guides/multi-node-setup/multinode-ha
-[multi-node-maintenance]: /how-to-guides/multi-node-setup/multinode-maintenance
+[about-multi-node]: /how-to-guides/multinode-timescaledb/about-multinode/
+[setup-selfhosted]: /how-to-guides/multinode-timescaledb/multinode-setup/
+[setup-cloud]: /cloud/:currentVersion:/cloud-multi-node/
+[setup-mst]: /mst/:currentVersion:/mst-multi-node/
+[multi-node-auth]: /how-to-guides/multinode-timescaledb/multinode-auth/
+[multi-node-config]: /how-to-guides/multinode-timescaledb/multinode-config/
+[multi-node-grow-shrink]: /how-to-guides/multinode-timescaledb/multinode-grow-shrink/
+[multi-node-ha]: /how-to-guides/multinode-timescaledb/multinode-ha/
+[multi-node-maintenance]: /how-to-guides/multinode-timescaledb/multinode-maintenance/
