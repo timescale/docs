@@ -27,7 +27,7 @@ brew install libpq
 ```
 
 Finally, create a symbolic link to `psql` (and other `libpq` tools) into `/usr/local/bin` on
-Intel or `/opt/homebrew/bin` on Apple Silicon chips so that you can reach it from any
+Intel, or `/opt/homebrew/bin` on Apple Silicon chips so that you can reach it from any
 command on the macOS Terminal.
 
 ```bash
