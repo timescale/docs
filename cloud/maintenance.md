@@ -34,7 +34,9 @@ impact of a short service interruption. Alternatively, you might prefer to have
 your maintenance window occur during office hours, so that you can monitor your
 system during the upgrade.
 
-### Procedure: Adjusting your maintenance window
+<procedure>
+
+### Adjusting your maintenance window
 1.  [Log in to your Timescale Cloud account][cloud-login]. Click the name of the
     service that you want to manage the maintenance window for.
 1.  In the `Operations` tab, navigate to the `Maintenance` section, and
@@ -45,9 +47,9 @@ system during the upgrade.
 1.  Check `Apply new maintenance window to all services` if you want to use the
     same maintenance window settings for all of your Timescale Cloud services.
 1.  Click `Apply Changes`.
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale Cloud change maintenance window"/>
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale Cloud change maintenance window"/>
-
+</procedure>
 ## Critical updates
 Critical upgrades and security fixes are installed outside normal maintenance
 windows when necessary, and sometimes require a short outage.
