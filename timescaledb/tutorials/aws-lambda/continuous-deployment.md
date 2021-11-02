@@ -17,14 +17,20 @@ deploy your code to AWS Lambda.
 * GitHub CLI tool ([installation options here](https://github.com/cli/cli#installation))
 * AWS account
 
-## Procedure: Creating a new Lambda function in AWS console
+<procedure>
+
+## Creating a new Lambda function in AWS console
 1.  Create a new Lambda function called `lambda-cd` by navigating to the AWS Lambda console and creating a new function:
     ![create new function](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/create_new_function.png)
 1.  Add `lambda-cd` as your function name, choose your preferred runtime environment, and click `Create function`:
     ![create lambda from scratch](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/from_scratch.png)
     Take a note of the function name, you need it later to configure the deployment file.
 
-## Procedure: Creating a new GitHub repository
+</procedure>
+
+<procedure>
+
+## Creating a new GitHub repository
 Now you can create a new GitHub repository which contains the function code.
 
 1.  Create a new GitHub [repository](https://github.com/new).
@@ -81,6 +87,8 @@ Now you can create a new GitHub repository which contains the function code.
     git push -u origin main
     ```
 
+</procedure>
+
 At this point, you have a GitHub repository with just the Lambda function in it. Now you can connect this repository
 to the AWS Lambda function.
 
@@ -88,7 +96,9 @@ to the AWS Lambda function.
 
 Let's connect the Github repository AWS Lambda using Github actions.
 
-### Procedure: Adding your AWS credentials to the repository
+<procedure>
+
+### Adding your AWS credentials to the repository
 You need to add your AWS credentials to the repository so it will have permission to connect to Lambda.
 You can do this by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
 using the GitHub CLI.
@@ -127,9 +137,13 @@ using the GitHub CLI.
     AWS_REGION             Updated 2021-09-13
     ```
 
+</procedure>
+
 Now you know that you have your AWS credentials available for the repository to use.
 
-### Procedure: Setting up GitHub actions
+<procedure>
+
+### Setting up GitHub actions
 You can now set up some automation based on the ["AWS Lambda Deploy" GitHub action](https://github.com/marketplace/actions/aws-lambda-deploy)
 to auto-deploy to AWS Lambda.
 
@@ -167,11 +181,16 @@ to auto-deploy to AWS Lambda.
     This configuration will make sure to deploy the code to Lambda when there's a new push to the main branch.
 
     As you can also see in the YAML file, the AWS credentials are accessed using the `${{ secrets.AWS_ACCESS_KEY_ID }}`
-syntax.
+    syntax.
     Make sure to use the name of the Lambda function (as displayed in the AWS console) for the `function_name`
-property in this configuration file. ("lambda-cd" in this example).
+    property in this configuration file. ("lambda-cd" in this example).
 
-### Procedure: Testing the pipeline
+</procedure>
+
+
+<procedure>
+
+### Testing the pipeline
 You can test if the hook works by pushing the changes to GitHub.
 
 1.  Push the changes to the repository:
@@ -184,5 +203,7 @@ You can test if the hook works by pushing the changes to GitHub.
     ```
 1.  Navigate to the GitHub actions page of your repository, to see the build run and succeed:
     ![github action build](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/github_action_lambda.png)
+
+</procedure>
 
 You now have a continuous deployment pipeline set up between GitHub and AWS Lambda.

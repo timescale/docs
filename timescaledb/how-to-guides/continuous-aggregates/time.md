@@ -10,7 +10,9 @@ use an integer time column.
 ## Declare an explicit timezone
 The most common method of working with timezones is to declare an explicit timezone in the view query.
 
-### Procedure: Declaring an explicit timezone
+<procedure>
+
+### Declaring an explicit timezone
 1.  At the `psql`prompt, create the view and declare the timezone:
     ```sql
     CREATE MATERIALIZED VIEW device_summary
@@ -31,6 +33,8 @@ The most common method of working with timezones is to declare an explicit timez
     SELECT min_time::timestamp FROM device_summary;
     ```
 
+</procedure>
+
 ## Integer-based time
 Date and time is usually expressed as year-month-day and hours:minutes:seconds.
 Most TimescaleDB databases use a [date/time-type][postgres-date-time] column to
@@ -49,7 +53,9 @@ provide the chunk time interval. In this case, each chunk consists of a
 millifortnight, which is equivalent to 1000 microfortnights, or about twenty
 minutes.
 
-### Procedure: Creating a table with a custom integer-based time column
+<procedure>
+
+### Creating a table with a custom integer-based time column
 1.  At the `psql` prompt, create a table and define the integer-based time column:
     ```sql
     CREATE TABLE devices(
@@ -65,9 +71,13 @@ minutes.
       chunk_time_interval => 1000);
     ```
 
+</procedure>
+
 To define a continuous aggregate on a hypertable that uses integer-based time, you need to have a function to get the current time in the correct format, and set it for the hypertable. This is done using the [`set_integer_now_func`][api-set-integer-now-func]. It can be defined as a regular PostgreSQL function, but needs to be [`STABLE`][pg-func-stable], take no arguments, and return an integer value of the same type as the time column in the table. When you have set up the time-handling, you can create the continuous aggregate.
 
-### Procedure: Creating a continuous aggregate with integer-based time
+<procedure>
+
+### Creating a continuous aggregate with integer-based time
 1.  At the `psql` prompt, set up a function to convert the time to the FFF system:
     ```sql
     CREATE FUNCTION current_microfortnight() RETURNS BIGINT
@@ -116,6 +126,7 @@ To define a continuous aggregate on a hypertable that uses integer-based time, y
     (10 rows)
     ```
 
+</procedure>
 
 [postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html
 [fff-system]: https://en.wikipedia.org/wiki/FFF_system
