@@ -26,7 +26,7 @@ module.exports = [
         excerpt: 'Use TimescaleDB to analyze cryptocurrency data',
       },
       {
-        title: 'Analyze Non-fungible token (NFT) sales data',
+        title: 'Analyze NFT sales data',
         href: 'analyze-nft-data',
         tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb'],
         keywords: ['NFT', 'finance', 'tutorial', 'TimescaleDB'],
