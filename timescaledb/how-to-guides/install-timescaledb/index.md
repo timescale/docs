@@ -13,17 +13,24 @@ to jump in.
 
 If you want to run TimescaleDB on your own server hardware, you can also do
 that! Follow the [installation instructions][self-hosted-install] in this
-section for your hardware, or you can install from source.
+section for your hardware, or install from source. You can also use a [pre-built container][self-hosted-container], or [cloud image][self-hosted-cloud] for self-hosted TimescaleDB.
 
 If you would prefer a managed cloud service for your TimescaleDB installation,
-head over to [Managed Service for TimescaleDB][mst-install].
+head over to [Managed Service for TimescaleDB][mst-install]. This option allows
+you more flexibility in choosing where your installation is hosted, from more
+than 75 regions on Amazon Web Services, Azure, or Google Cloud Platform.
 
 *   Start using the [Timescale Cloud][tsc-install] hosted service.
-*   Install [self-hosted TimescaleDB][self-hosted-install] on your own server
-    hardware.
+*   Install self-hosted TimescaleDB on [your own server hardware][self-hosted-install].
+*   Install self-hosted TimescaleDB [from source][self-hosted-source].
+*   Install self-hosted TimescaleDB [from a pre-built container][self-hosted-container].
+*   Install self-hosted TimescaleDB [from a pre-built cloud image][self-hosted-cloud].
 *   Start using [Managed Service for TimescaleDB][mst-install].
 
 
 [tsc-install]: /how-to-guides/install-timescaledb/installation-cloud/
 [self-hosted-install]: /how-to-guides/install-timescaledb/self-hosted/
+[self-hosted-source]: FIXME
+[self-hosted-container]: timescaledb/how-to-guides/install-timescaledb/installation-docker.md
+[self-hosted-cloud]: timescaledb/how-to-guides/install-timescaledb/installation-ubuntu-ami.md
 [mst-install]: /how-to-guides/install-timescaledb/managed-service-for-timescaledb/
