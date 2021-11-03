@@ -83,7 +83,7 @@ of an on-disk folder with the same name as the parent.
 
  - **type**: In some special cases, a tree element may have a special `type` associated
 with it. This is rarely needed in day-to-day documentation updates, but when
-specific functionality is required, it may be necessary to inquire about other page types. Currently `page` and `directory` the the two major supported types in documentation.
+specific functionality is required, it may be necessary to inquire about other page types. Currently `page` and `directory` the two major supported types in documentation.
 
  - **excerpt**: For a few select nodes in a tree, the `excerpt` may be used to
  create navigation "cards" on high-level landing pages. It is only intended to
