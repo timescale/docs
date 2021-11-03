@@ -31,7 +31,7 @@ For more information about statistical aggregate functions, see the
 |Statistical aggregation|Stats Agg 2D Accessors|[`corr`](/hyperfunctions/stats_aggs/corr-stats/)|❌|✅|
 |||[`covariance`](/hyperfunctions/stats_aggs/covariance/)|❌|✅|
 |||[`determination_coeff`](/hyperfunctions/stats_aggs/determination_coeff/)|❌|✅|
-|||[`intercept`](/hyperfunctions/stats_aggs/intercept/)|❌|✅|
+|||[`intercept`](/hyperfunctions/stats_aggs/intercept-stats/)|❌|✅|
 |||[`slope`](/hyperfunctions/stats_aggs/slope-stats/)|❌|✅|
 |||[`x_intercept`](/hyperfunctions/stats_aggs/x_intercept/)|❌|✅|
 
