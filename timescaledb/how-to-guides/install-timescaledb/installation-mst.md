@@ -1,7 +1,7 @@
 # Install Managed Service for TimescaleDB
-Managed service for TimescaleDB is a managed TimescaleDB service hosted  in more
+Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
 than 75 regions in AWS, Azure, or GCP. You can
-[try Managed Service for TimescaleDB for free][sign-up], no credit card required.
+[try Managed Service for TimescaleDB for free][mst-sign-up], no credit card required.
 
 Powered by [TimescaleDB][timescale-features], you can create database instances
 in the  cloud and automate many of your most common operational tasks. This
@@ -123,18 +123,13 @@ find out what you can do with it.
 If you want to work through some tutorials to help you get up and running with
 TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 
-If you're interested in learning more about pricing for Managed Service for
-TimescaleDB, visit the [managed service for TimescaleDB pricing
-calculator][timescale-pricing].
-
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
 
 [mst-portal]: https://portal.managed.timescale.com
 [sign-up]: https://www.timescale.com/timescale-signup
-[timescale-features]: https://www.timescale.com/products
-[timescale-pricing]: https://www.timescale.com/products#cloud-pricing
+[timescale-features]: https://www.timescale.com/products/#Features
 [contact]: https://www.timescale.com/contact
 [install-psql]: /how-to-guides/connecting/psql/
 [mst-docs]: mst/:currentVersion:/index/
