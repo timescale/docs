@@ -2,30 +2,33 @@
 You can manage billing for your Timescale Cloud account by navigating to the
 `Billing` details section in your Cloud console. From here, you can see your
 monthly usage, past payments you have made, the estimated cost of your next
-invoice, and your current payment method.
+payment confirmation, and your current payment method.
 
 ## About Timescale Cloud billing
-Timescale Cloud invoices are issued on the first day of every month, and cover
-usage of your Timescale Cloud services for the entire calendar month. By
-default, your invoice is sent to the email address you registered your account
-with. If you want to set a different billing email address, you can do so on the
-`Billing` details page, see instructions in this section.
+Timescale Cloud payment confirmations are issued on the first day of every
+month, and cover usage of your Timescale Cloud services for the entire calendar
+month. By default, your payment confirmation is sent to the email address you
+registered your account with. If you want to set a different billing email
+address, you can do so on the `Billing` details page, see instructions in this
+section.
 
 The billing email you receive at the end of each calendar month includes a PDF
-copy of your invoice for your own records. The PDF includes information on the
-services you have used through the month, broken down into storage, compute, and
-VPC hourly consumption.
+copy of your payment confirmation for your own records. The PDF includes
+information on the services you have used through the month, broken down into
+storage, compute, and VPC hourly consumption.
 
-You can see previously issued invoices on the `Billing` details page, in the
-`Past Payments` section. If a payment could not be processed, invoices in this
-section display an error asking you to review the payment method.
+You can see previously issued payment confirmations on the `Billing` details
+page, in the `Past Payments` section. If a payment could not be processed,
+payment confirmations in this section display an error asking you to review the
+payment method.
 
 When you open a new Timescale Cloud account, the first thirty days is free for
-you to use. During the trial, an invoice is issued on the last day of the
-calendar month for the value of the services you have used, with a discount
-applied to bring the invoice total to $0.00. If the entirety of your consumption
-for the month was within the trial, you do not receive an emailed invoice, but
-the invoice is available to download in the `Past Payments` section.
+you to use. During the trial, a payment confirmation is issued on the last day
+of the calendar month for the value of the services you have used, with a
+discount applied to bring the payment confirmation total to $0.00. If the
+entirety of your consumption for the month was within the trial, you do not
+receive an emailed payment confirmation, but the payment confirmation is
+available to download in the `Past Payments` section.
 
 ## Add or change payment methods
 If you haven't yet added a payment method, you can add one in this section. You
@@ -33,7 +36,7 @@ can also update to a new credit card here.
 
 <procedure>
 
-### Adding a payment method
+### Adding or changing a payment method
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
 1.  Click `Add a payment method`. If you already have a payment method saved,
@@ -48,30 +51,34 @@ can also update to a new credit card here.
 
 <highlight type="note">
 The first charge on your new credit card is for the period from the date you
-added the card, to the end of that calendar month. After that, all invoices are
-for usage from the first of the month, to the last day of the month.
+added the card, to the end of that calendar month. After that, all payment
+confirmations are for usage from the first of the month, to the last day of the
+month.
 </highlight>
 
 </procedure>
 
 ## Add or change your billing email address
-By default, your Timescale Cloud invoices are sent to the email address that you
-used when you signed up. This is also the address that receives alerts about
-your Timescale Cloud services. If you want your invoices to go to a different
-email address, for example the email address for your finance department, you
-can add it in the `Billing` details section.
+By default, your Timescale Cloud payment confirmations are sent to the email
+address that you used when you signed up. This is also the address that receives
+alerts about your Timescale Cloud services. If you want your payment
+confirmations to go to a different email address, for example the email address
+for your finance department, you can add it in the `Billing` details section.
 
 <procedure>
 
 ### Adding a billing email address
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
-1.  Click `Add email`.
-1.  Type the email address that you want Timescale Cloud invoices sent to, and
-    click `Add`. A confirmation email is sent to the email address you entered.
+1.  In the `Payment email` tab, click `Add New Email`.
+1.  Type the email address that you want Timescale Cloud payment confirmations
+    sent to, and click `Add email`. A confirmation email is sent to the email
+    address you entered.
 1.  Follow the instructions in the confirmation email to confirm the email
     address. Another email is sent to notify that the new email address is
     saved.
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-billing-email.png" alt="Adding a new billing email address in Timescale Cloud"/>
 
 </procedure>
 
