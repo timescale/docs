@@ -4,4 +4,4 @@ requiring all of the data. This also makes them more compatible with continuous
 aggregates. By default, Timescale Toolkit uses `uddsketch`, but you can also
 choose to use `tdigest`. For more information about the different algorithms, see the [hyperfunction documentation][hyperfunction-advanced-agg].
 
-[hyperfunction-advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/advanced-agg/
+[hyperfunction-advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
