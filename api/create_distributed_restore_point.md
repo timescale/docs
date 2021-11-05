@@ -26,7 +26,7 @@ privileges.
 |-|-|-|
 |`node_name`|NAME|Node name, or `NULL` for access node|
 |`node_type`|TEXT|Node type name: `access_node` or `data_node`|
-|`restore_point`|[PG_LSN][pg-lsn])|Restore point log sequence number|
+|`restore_point`|[PG_LSN][pg-lsn]|Restore point log sequence number|
 
 ### Errors
 
