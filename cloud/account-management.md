@@ -62,8 +62,13 @@ month.
 By default, your Timescale Cloud payment confirmations are sent to the email
 address that you used when you signed up. This is also the address that receives
 alerts about your Timescale Cloud services. If you want your payment
-confirmations to go to a different email address, for example the email address
+confirmations to also go to a different email address, for example the email address
 for your finance department, you can add it in the `Billing` details section.
+
+<highlight type="note">
+When you add a billing email address, payment confirmations are sent to both the
+email address you add, and the original email address that you signed up with.
+</highlight>
 
 <procedure>
 
@@ -73,7 +78,8 @@ for your finance department, you can add it in the `Billing` details section.
 1.  In the `Payment email` tab, click `Add New Email`.
 1.  Type the email address that you want Timescale Cloud payment confirmations
     sent to, and click `Add email`. A confirmation email is sent to the email
-    address you entered.
+    address you entered, as well as to the original email address that you
+    signed up with.
 1.  Follow the instructions in the confirmation email to confirm the email
     address. Another email is sent to notify that the new email address is
     saved.
