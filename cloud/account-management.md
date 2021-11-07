@@ -78,14 +78,13 @@ email address you add, and the original email address that you signed up with.
 1.  In the `Payment email` tab, click `Add New Email`.
 1.  Type the email address that you want Timescale Cloud payment confirmations
     sent to, and click `Add email`. A confirmation email is sent to the email
-    address you entered, as well as to the original email address that you
-    signed up with.
+    address you entered.
 1.  Follow the instructions in the confirmation email to confirm the email
-    address. Another email is sent to notify that the new email address is
-    saved.
+    address. Another email is sent to the address you signed up with to notify
+    that the new email address is saved.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-billing-email.png" alt="Adding a new billing email address in Timescale Cloud"/>
 
 </procedure>
 
-[cloud-login]: https://cloud.timescale.com
+[cloud-login]: https://console.cloud.timescale.com/
