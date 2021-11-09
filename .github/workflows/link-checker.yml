@@ -6,8 +6,9 @@ jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@latest
+    - uses: actions/checkout@master
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
         config-file: 'mlc_config.json'
+        base-branch: latest
       continue-on-error: true
