@@ -1,5 +1,5 @@
 ## Install self-hosted TimescaleDB on Debian-based systems
-You can host TimnescaleDB yourself, on your Debian or Ubuntu system. These
+You can host TimescaleDB yourself, on your Debian or Ubuntu system. These
 instructions use the `apt` package manager on these distributions:
 
 *   Debian 9 Stretch
@@ -35,14 +35,25 @@ using this method. [Install from source](FIXME) instead.
     sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
 1.  Add the TimescaleDB third party repository:
-    *   On Debian use this command:
-        ```bash
-        sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
-        ```
-    *   On Ubuntu use this command:
-        ```bash
-        sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
-        ```
+    <terminal>
+
+    <tab label='Debian'>
+
+    ```bash
+    sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+    ```
+
+    </tab>
+
+    <tab label="Ubuntu">
+
+    ```bash
+    sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+    ```
+
+    </tab>
+
+    </terminal>
 1.  Get the TimescaleDB GPG signing packages, and unpack them:
     ```bash
     wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/timescale.keyring
