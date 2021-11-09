@@ -12,7 +12,7 @@ jobs:
       uses: errata-ai/vale-action@v1.4.0
       with:
         config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
-        styles: |
-          https://github.com/errata-ai/Google/releases/latest/download/Google.zip
+        # styles: |
+        #   https://github.com/errata-ai/Google/releases/latest/download/Google.zip
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
