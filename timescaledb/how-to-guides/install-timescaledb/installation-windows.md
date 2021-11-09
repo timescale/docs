@@ -1,59 +1,43 @@
-## Windows ZIP Installer [](installation-windows)
+## Install self-hosted TimescaleDB on Windows systems
+You can host TimescaleDB yourself on your Microsoft Windows system.
+These instructions use a `zip` installer on these versions:
+*   Microsoft Windows 10
+*   Microsoft Windows 11
+*   Microsoft Windows Server 2019
 
-**Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
-
-#### Prerequisites
-
-- [Visual C++ Redistributable for Visual Studio 2015][c_plus] (included in VS 2015 and later)
-- A standard **PostgreSQL 12, 13, or 14 64-bit** installation
-- Make sure all relevant binaries are in your PATH: (use [pg_config][])
-- Installation must be performed from an account with admin privileges
-
-#### Build and install
-
-1. Download the the .zip file for your PostgreSQL version - [12][windows-dl-12] or [13][windows-dl-13] or [14][windows-dl-14].
-1. Extract the zip file locally
-1. Run `setup.exe`, making sure that PostgreSQL is not currently running
-1. If successful, a `cmd.exe` window will pop open and you will see the following:
-
-```bash
-TimescaleDB installation completed succesfully.
-Press ENTER/Return key to close...
-```
-Go ahead and press ENTER to close the window
-
-#### Updating from TimescaleDB 1.x to 2.0
-Once the latest TimescaleDB 2.0 are installed, you can update the EXTENSION
-in your database as discussed in [Updating Timescale to 2.0][update-tsdb-2].
-
-#### Configure your database
-
-There are a [variety of settings that can be configured][config] for your
-new database. At a minimum, you will need to update your `postgresql.conf`
-file to include `shared_preload_libraries = 'timescaledb'`.
-If you ran `timescaledb-tune` during the install, you are already done.
-If you did not, you can re-run the installer.
-
-This will ensure that our extension is properly added to the parameter
-`shared_preload_libraries` as well as offer suggestions for tuning memory,
-parallelism, and other settings.
-
-Then, restart the PostgreSQL instance.
-
-<highlight type="tip">
-Our standard binary releases are licensed under the Timescale License,
-which allows to use all our capabilities.
-To build a version of this software that contains
-source code that is only licensed under Apache License 2.0, pass `-DAPACHE_ONLY=1`
-to `bootstrap`.
+<highlight type="warning">
+If you have already installed PostgreSQL using a method other than the `zip`
+installer provided here, you could encounter errors following these
+instructions. It is safest to remove any existing PostgreSQL installations
+before you begin. If you want to keep your current PostgreSQL installation, do
+not install TimescaleDB using this method. [Install from source](FIXME) instead.
 </highlight>
 
-[c_plus]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
-[pg_config]: https://www.postgresql.org/docs/10/static/app-pgconfig.html
-[windows-dl-12]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_2.5.0-windows-amd64.zip
-[windows-dl-13]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_2.5.0-windows-amd64.zip
-[windows-dl-14]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.0-windows-amd64.zip
+<procedure>
+
+### Installing self-hosted TimescaleDB on Windows-based systems
+1.  Download and install the Visual C++ Redistributable for Visual Studio from
+    [https://www.microsoft.com/en-us/download/details.aspx?id=48145].
+1.  Download and install PostgreSQL from
+    [https://www.postgresql.org/download/windows/].
+1.  Download the TimescaleDB installation `.zip` file from
+    [https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.0-windows-amd64.zip].
+1.  Locate the downloaded file on your local file system, and extract the files.
+1.  In the Windows Search tool, search for `system environment variables`. In
+    the `System Properties` dialog, navigate to the `Advanced` tab, and
+    click `Environment Variables...`. Locate the `Path` variable and
+    click `Edit...`. In the `Edit environment variable` dialog, click `New` and
+    type the path to your PostgreSQL `pg_config` file. It should
+    be `C:\Program Files\PostreSQL\14\bin\`. Click `OK` to save your changes.
+1.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
+    select `Run as Administrator` to start the installer. 
+
+</procedure>
+
+When you have completed the installation, you need to configure your database so
+that you can use it. The easiest way to do this is to run the `timescaledb-tune`
+script, which is included with the `timescaledb-tools` package. For more
+information, see the [configuration][config] section.
+
+
 [config]: /how-to-guides/configuration/
-[contact]: https://www.timescale.com/contact
-[slack]: https://slack.timescale.com/
-[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
