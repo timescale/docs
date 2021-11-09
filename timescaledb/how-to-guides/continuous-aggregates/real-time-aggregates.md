@@ -14,15 +14,18 @@ see our [real time aggregate blog post][blog-rtaggs].
 You can enable and disable real time aggregation by setting the
 `materialized_only` parameter when you create or alter the view.
 
-### Procedure: Using real time aggregation
+<procedure>
+
+### Using real time aggregation
 1.  For an existing table, at the `psql` prompt, disable real time aggregation:
     ```sql
-    ALTER VIEW table_name set (timescaledb.materialized_only = true);
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = true);
     ```
 1.  Re-enable real time aggregation:
     ```sql
-    ALTER VIEW table_name set (timescaledb.materialized_only = false);
+    ALTER MATERIALIZED VIEW table_name set (timescaledb.materialized_only = false);
     ```
 
+</procedure>
 
 [blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/

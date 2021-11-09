@@ -18,7 +18,7 @@ additional hyperfunctions, you need to install the
 |||[`mean`](/hyperfunctions/percentile-approximation/mean/)|✅|❌|
 |||[`error`](/hyperfunctions/percentile-approximation/error/)|✅|❌|
 |||[`min_val`](/hyperfunctions/percentile-approximation/min_val/)|✅|❌|
-|||[`num_vals`](/hyperfunctions/percentile-approximation/num_vals/)|✅|❌|
+|||[`num_vals`](/hyperfunctions/percentile-approximation/num_vals-pct/)|✅|❌|
 ||Advanced aggregation methods|[`uddsketch`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/)|❌|✅|
 |||[`tdigest`](/hyperfunctions/percentile-approximation/percentile-aggregation-methods/tdigest/)|❌|✅|
 
