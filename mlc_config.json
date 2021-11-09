@@ -1,0 +1,13 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^/"
+        }
+    ],
+    "replacementPatterns": [
+        {
+            "pattern": ":currentVersion:",
+            "replacement": "latest"
+        }
+    ]
+}
