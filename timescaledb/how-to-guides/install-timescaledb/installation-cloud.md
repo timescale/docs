@@ -16,7 +16,7 @@ automated upgrades and backups.
     get started. A confirmation email is sent to the email address you provide.
 1.  Verify your email by clicking on the link in the email you received. Don't
     forget to check your spam folder in case the email ends up there.
-1.  Sign in to the [Timescale Cloud portal][mst-portal] with the
+1.  Sign in to the [Timescale Cloud portal][tsc-portal] with the
     password you set:
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-portal-noservices.png" alt="Timescale Cloud Portal"/>
 
