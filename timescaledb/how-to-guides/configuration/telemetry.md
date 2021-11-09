@@ -80,7 +80,9 @@ specific database, or for an entire instance.
 If you disable telemetry, the version checking functionality is also disabled.
 </highlight>
 
-### Procedure: Disabling telemetry
+<procedure>
+
+### Disabling telemetry
 1.  Open your PostgreSQL configuration file, and locate
 		the `timescaledb.telemetry_level` parameter. See our
 		[PostgreSQL configuration file][postgres-config] instructions for locating
@@ -100,7 +102,11 @@ If you disable telemetry, the version checking functionality is also disabled.
 	  ```
 	 	This command disables telemetry for the specified system, database, or user.
 
-### Procedure: Enabling telemetry
+</procedure>
+
+<procedure>
+
+### Enabling telemetry
 1. 	Open your PostgreSQL configuration file, and locate
 		the `timescaledb.telemetry_level` parameter. See our
 		[PostgreSQL configuration file][postgres-config] instructions for locating
@@ -120,6 +126,7 @@ If you disable telemetry, the version checking functionality is also disabled.
 		```
 		This command enables telemetry for the specified system, database, or user.
 
+</procedure>
 
 [get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report 
 [postgres-config]: /how-to-guides/configuration/postgres-config

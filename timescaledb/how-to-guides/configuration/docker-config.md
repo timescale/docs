@@ -10,7 +10,9 @@ PostgreSQL configuration file directly. The configuration file requires one
 parameter per line. Blank lines are ignored, and you can use a `#` symbol at the
 beginning of a line to denote a comment.
 
-### Procedure: Editing the PostgreSQL configuration file inside Docker
+<procedure>
+
+### Editing the PostgreSQL configuration file inside Docker
 1.  Start your Docker instance:
 ```bash
 docker start timescaledb
@@ -27,6 +29,8 @@ vi /var/lib/postgresql/data/postgresql.conf
 ```bash
 docker restart timescaledb
 ```
+
+</procedure>
 
 ## Setting parameters at the command prompt
 If you don't want to open the configuration file to make changes, you can also
