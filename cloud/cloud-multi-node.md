@@ -56,7 +56,7 @@ Timescale Cloud account.
 For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
 
-[multinode-timescaledb]: timescaledb/how-to-guides/:currentVersion:/multinode-timescaledb
+[multinode-timescaledb]: timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [multinode-mst]: /mst/:currentVersion:/mst-multi-node/
 [cloud-login]: https://cloud.timescale.com
 [cloud-signup]: https://www.timescale.com/timescale-signup

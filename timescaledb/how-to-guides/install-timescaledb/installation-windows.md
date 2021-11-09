@@ -1,11 +1,11 @@
 ## Windows ZIP Installer [](installation-windows)
 
-**Note: TimescaleDB requires PostgreSQL 12.0 or 13.2, or later**
+**Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
 
 #### Prerequisites
 
 - [Visual C++ Redistributable for Visual Studio 2015][c_plus] (included in VS 2015 and later)
-- A standard **PostgreSQL 12 or 13 64-bit** installation
+- A standard **PostgreSQL 12, 13, or 14 64-bit** installation
 - Make sure all relevant binaries are in your PATH: (use [pg_config][])
 - Installation must be performed from an account with admin privileges
 
