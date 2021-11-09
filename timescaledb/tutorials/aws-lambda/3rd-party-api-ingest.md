@@ -115,7 +115,9 @@ dependencies, so that you don’t need to install them separately.
 ## Create the Dockerfile
 When you have the requirements set up, you can create the Dockerfile for the project.
 
-### Procedure: Creating the Dockerfile
+<procedure>
+
+### Creating the Dockerfile
 1.  Use an AWS Lambda base image:
     ```docker
     FROM public.ecr.aws/lambda/python:3.8
@@ -131,11 +133,15 @@ When you have the requirements set up, you can create the Dockerfile for the pro
     CMD ["function.handler"]
     ```
 
+</procedure>
+
 ## Upload the image to ECR
 To connect the container image to a Lambda function, you need to upload it to
 the AWS Elastic Container Registry (ECR).
 
-### Procedure: Uploading the image to ECR
+<procedure>
+
+### Uploading the image to ECR
 1.  Log in to the Docker command line interface:
     ```bash
     aws ecr get-login-password --region us-east-1 \
@@ -160,6 +166,8 @@ the AWS Elastic Container Registry (ECR).
     docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/lambda-image:latest        
     ```
 
+</procedure>
+
 ## Create a Lambda function from the container
 To create a Lambda function from your container, you can use the Lambda
 `create-function` command. You need to define the `--package-type` parameter as
@@ -175,8 +183,9 @@ aws lambda create-function --region us-east-1 \
 If you want to run your Lambda function according to a schedule, you can set up
 an EventBridge trigger. This creates a rule using a [`cron` expression][cron-examples].
 
+<procedure>
 
-### Procedure: Scheduling the Lambda function
+### Scheduling the Lambda function
 1.  Create the schedule. In this example, the function runs every day at 9am:
     ```bash
     aws events put-rule --name schedule-lambda --schedule-expression 'cron(0 9 * * ? *)'
@@ -202,6 +211,8 @@ an EventBridge trigger. This creates a rule using a [`cron` expression][cron-exa
     ```bash
     aws events put-targets --rule schedule-lambda --targets file://targets.json
     ```
+
+</procedure>
 
 <highlight type="important">
 If you get an error saying `Parameter ScheduleExpression is not valid`, you
