@@ -25,7 +25,9 @@ the time buckets that see lots of writes will quickly have out-of-date
 aggregates. You get better performance by excluding the time buckets that are
 getting a lot of writes.
 
-### Procedure: Changing a refresh policy to use a NULL start_offset
+<procedure>
+
+### Changing a refresh policy to use a NULL start_offset
 1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
     that keeps the continuous aggregate up to date, and runs every hour:
     ```sql
@@ -34,6 +36,8 @@ getting a lot of writes.
 	     end_offset => INTERVAL '1 h',
 	     schedule_interval => INTERVAL '1 h');
     ```
+
+</procedure>
 
 The policy in this example ensures that all the data in the continuous aggregate
 is up to date with the hypertable except for anything written in the last hour.
@@ -50,7 +54,9 @@ you have a retention policy that removes data older than one month, set
 `start_offset` to one month or less. This will set your policy so that it does
 not refresh the dropped data.
 
-### Procedure: Changing a refresh policy to keep removed data
+<procedure>
+
+### Changing a refresh policy to keep removed data
 1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
     that keeps data removed from the hypertable in the continuous aggregate, and
     runs every hour:
@@ -60,6 +66,8 @@ not refresh the dropped data.
 	     end_offset => INTERVAL '1 h',
 	     schedule_interval => INTERVAL '1 h');
     ```
+
+</procedure>
 
 <highlight type="tip">
 It is important to consider your data retention policies when you're setting up
@@ -93,11 +101,15 @@ recommend using it, because you could inadvertently materialize a large amount
 of data, slow down your performance, and have unintended consequences on other
 policies like data retention.
 
-### Procedure: Manually refreshing a continuous aggregate
+<procedure>
+
+### Manually refreshing a continuous aggregate
 1.  To manually refresh a continuous aggregate, use the `refresh` command:
     ```sql
     CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
     ```
+
+</procedure>
 
 Avoid refreshing time intervals that are likely to have a lot of writes. In
 general, this means you should never refresh the most recent time bucket.

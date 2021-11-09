@@ -142,6 +142,10 @@ module.exports = [
             title: 'cleanup_copy_chunk_operation',
             href: 'cleanup_copy_chunk_operation_experimental',
           },
+          {
+            title: 'create_distributed_restore_point',
+            href: 'create_distributed_restore_point',
+          },
         ],
       },
       {
@@ -310,7 +314,7 @@ module.exports = [
               {
                 title: 'stats_agg',
                 href: 'stats_agg',
-              }, 
+              },
               {
                 title: 'rolling',
                 href: 'rolling-stats',

@@ -7,7 +7,7 @@ regular hypertables, including inserting, querying, and altering them.
 
 <highlight type="important">
 You must set up your multi-node cluster before implementing a distributed
-hypertable. See [multi-node](/how-to-guides/multinode-timescaledb) for
+hypertable. See [multi-node](timescaledb/latest/how-to-guides/multinode-timescaledb/) for
 instructions on setting up your multi-node cluster, and creating a distributed
 hypertable.
 </highlight>

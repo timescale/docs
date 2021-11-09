@@ -19,7 +19,9 @@ If you have installed the `timescaledb-tools` package, you already have the
 get`, or download a binary from
 [our release page][gh-releases].
 
-### Procedure: Installing timescaledb-backup
+<procedure>
+
+### Installing timescaledb-backup
 1.  Ensure you have installed these packages on the machine that you want to
     backup:
     *   `pg_dump`
@@ -29,6 +31,8 @@ get`, or download a binary from
     ```bash
     $ go get github.com/timescale/timescaledb-backup/
     ```
+
+</procedure>
 
 ## Back up your database
 You can perform a backup using the `ts-dump` command at the command prompt. For
@@ -77,7 +81,9 @@ parameters when you use the `ts-dump` command:
 You can restore your database from backup using the `ts-restore` command at the
 command prompt:
 
-### Procedure: Restoring your database from backup
+<procedure>
+
+### Restoring your database from backup
 1.  Create a new, empty, database in the location you want to restore to. In
     this example, the new database is called `newdb`.
 1.  Restore the database named `exampledb` to the new location, from the
@@ -85,6 +91,8 @@ command prompt:
     ```bash
     ts-restore --db-URI=postgresql://user@example.com/newdb --dump-dir=˜/backups/exampledb/
     ```
+
+</procedure>
 
 The two main parameters you need to specify are:
 *   `--db-URI`: the location of the new database that you want to restore to. It

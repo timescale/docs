@@ -30,7 +30,9 @@ hypertable from backup.
 When you need to restore data from a backup, you can use `psql` to create a new
 database and restore the data.
 
-### Procedure: Restoring an entire database from backup
+<procedure>
+
+### Restoring an entire database from backup
 1.  In `pgsql`, create a new database to restore to, and connect to it:
     ```sql
     CREATE DATABASE exampledb;
@@ -43,6 +45,8 @@ database and restore the data.
     \! pg_restore -Fc -d exampledb exampledb.bak
     SELECT timescaledb_post_restore();
     ```
+
+</procedure>
 
 ## Back up individual hypertables [](backup-hypertable)
 The `pg_dump` command provides flags that allow you to specify tables or schemas
@@ -62,7 +66,9 @@ You can backup individual hypertables by backing up the entire database, and
 then excluding the tables you do not want to backup. You can also use this
 method to backup individual plain tables that are not hypertables.
 
-### Procedure: Backing up individual hypertables
+<procedure>
+
+### Backing up individual hypertables
 1.  At the command prompt, back up the hypertable schema:
     ```bash
     pg_dump -s -d old_db --table conditions -N _timescaledb_internal | \
@@ -74,7 +80,11 @@ method to backup individual plain tables that are not hypertables.
     -c "\COPY (SELECT * FROM conditions) TO data.csv DELIMITER ',' CSV"
     ```
 
-### Procedure: Restoring individual hypertables from backup
+</procedure>
+
+<procedure>
+
+### Restoring individual hypertables from backup
 1.  At the command prompt, restore the schema:
     ```bash
     psql -d new_db < schema.sql
@@ -96,6 +106,8 @@ do not need to use the same parameters as existed in the old database. This
 can provide a good opportunity for you to re-organize your hypertables if
 you need to. For example, you can change the partitioning key, the number of
 partitions, or the chunk interval sizes.
+
+</procedure>
 
 ### Troubleshoot version mismatches [](tshoot-version-mismatch)
 The PostgreSQL `pg_dump` command does not allow you to specify which version of

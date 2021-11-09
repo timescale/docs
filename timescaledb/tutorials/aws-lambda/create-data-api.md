@@ -20,7 +20,9 @@ libraries, something that you can't do directly in a Lambda function or layer. A
 workaround to this issue is to download the
 [compiled version of the library][lambda-psycopg2] and use that as a Lambda Layer.
 
-### Procedure: Adding the psycopg2 library as a Lambda layer
+<procedure>
+
+### Adding the psycopg2 library as a Lambda layer
 1.  Download and unzip the compiled `psycopg2` library:
     ```bash
     wget https://github.com/jkehler/awslambda-psycopg2/archive/refs/heads/master.zip
@@ -45,12 +47,16 @@ workaround to this issue is to download the
     as a Lambda layer:
     ![aws layers](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/layers.png)
 
+</procedure>
+
 ## Create a function to fetch and return data from the database
 When the layer is available to your Lambda function, you can create an API to
 return data from the database. This section shows you how to create the Python
 function that returns data from the database and uploads it to AWS Lambda.
 
-### Procedure: Creating a function to fetch and return data from the database
+<procedure>
+
+### Creating a function to fetch and return data from the database
 1.  Create a new directory called `timescaledb_api`, to store the function
     code, and change into the new directory:
     ```bash
@@ -96,11 +102,15 @@ function that returns data from the database and uploads it to AWS Lambda.
       }
       ```
 
+</procedure>
+
 ## Upload the function in AWS Lambda
 When you have created the function, you can zip the Python file and upload it to
 Lambda using the `create-function` AWS command.
 
-## Procedure: Uploading the function to AWS Lanbda
+<procedure>
+
+## Uploading the function to AWS Lanbda
 1.  At the command prompt, zip the function directory:
   ```bash
   zip function.zip function.py
@@ -121,11 +131,15 @@ Lambda using the `create-function` AWS command.
   aws lambda update-function-code --function-name simple_api_function --zip-file fileb://function.zip
   ```
 
+</procedure>
+
 ## Add database configuration to AWS Lambda
 Before you can use the functions, you need to ensure it can connect to the database. In
 the Python code above, you specified retrieving values from environment variables, and you also need to specify these within the Lambda environment.
 
-### Procedure: Adding database configuration to AWS Lambda with environment variables
+<procedure>
+
+### Adding database configuration to AWS Lambda with environment variables
 1.  Create a JSON file that contains the variables required for the function:
     ```json
     {
@@ -153,10 +167,14 @@ the Python code above, you specified retrieving values from environment variable
           'DB_NAME': os.environ['DB_NAME']}
     ```
 
+</procedure>
+
 ## Test the database connection
 When your function code is uploaded along with the database connection details, you can check to see if it retrieves the data you expect it to.
 
-### Procedure: Testing the database connection
+<procedure>
+
+### Testing the database connection
 1.  Invoke the function. Make sure you include the name of the function, and
     provide a name for an output file. In this example, the output file is
     called `output.json`:
@@ -197,12 +215,16 @@ When your function code is uploaded along with the database connection details, 
     }
     ```
 
+</procedure>
+
 ## Create a new API gateway
 Now that you have confirmed that the Lambda function works, you can create the
 API gateway. In AWS terms, you are setting up a
 [custom Lambda integration][custom-lambda-integration].
 
-### Procedure: Creating a new API gateway
+<procedure>
+
+### Creating a new API gateway
 1.  Create the API. In this example, the new API is called `TestApiTimescale`.
     Take note of the `id` field in the response, you need to use this to make
     changes later on:
@@ -285,6 +307,8 @@ API gateway. In AWS terms, you are setting up a
     ```bash
     aws apigateway create-deployment --rest-api-id <API_ID> --stage-name test
     ```
+
+</procedure>
 
 ## Test the API
 You can test the API is working correctly by making a GET request to the

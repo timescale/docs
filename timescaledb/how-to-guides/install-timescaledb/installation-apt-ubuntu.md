@@ -2,7 +2,7 @@
 
 This will install TimescaleDB via `apt` on Ubuntu distros.
 
-**Note: TimescaleDB requires PostgreSQL 12 or 13.**
+**Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
 
 #### Prerequisites
 
