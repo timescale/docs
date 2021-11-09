@@ -20,17 +20,17 @@ not install TimescaleDB using this method. [Install from source](FIXME) instead.
     [https://www.microsoft.com/en-us/download/details.aspx?id=48145].
 1.  Download and install PostgreSQL from
     [https://www.postgresql.org/download/windows/].
-1.  Download the TimescaleDB installation `.zip` file from
-    [https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.0-windows-amd64.zip].
-1.  Locate the downloaded file on your local file system, and extract the files.
 1.  In the Windows Search tool, search for `system environment variables`. In
     the `System Properties` dialog, navigate to the `Advanced` tab, and
     click `Environment Variables...`. Locate the `Path` variable and
     click `Edit...`. In the `Edit environment variable` dialog, click `New` and
     type the path to your PostgreSQL `pg_config` file. It should
     be `C:\Program Files\PostreSQL\14\bin\`. Click `OK` to save your changes.
+1.  Download the TimescaleDB installation `.zip` file from
+    [https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.0-windows-amd64.zip].
+1.  Locate the downloaded file on your local file system, and extract the files.
 1.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
-    select `Run as Administrator` to start the installer. 
+    select `Run as Administrator` to start the installer.
 
 </procedure>
 
