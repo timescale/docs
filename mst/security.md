@@ -18,7 +18,7 @@ Service-providing virtual machines are dedicated for a single customer, i.e.
 there is no multi-tenancy on a VM basis, and the customer data never leaves the
 machine, except when uploaded to the offsite backup location.
 
-Virtual machines are not reused and will be terminated and wiped upon service
+Virtual machines are not reused and are terminated and wiped upon service
 upgrade or termination.
 
 ## Data encryption
@@ -27,7 +27,7 @@ service instances as well as service backups in cloud object storage.
 
 Service instances and the underlying VMs use full volume encryption using LUKS
 with a randomly generated ephemeral key per each instance and each volume. The
-key is never re-used and will be trashed at the destruction of the instance, so
+key is never re-used and are trashed at the destruction of the instance, so
 there's a natural key rotation with roll-forward upgrades. We use the LUKS default
 mode aes-xts-plain64:sha256 with a 512-bit key.
 
@@ -78,7 +78,7 @@ No customer access to the virtual machine level is provided.
 ## Customer data privacy
 Customer data privacy is of utmost importance at Timescale and is covered
 by internal Security and Customer Privacy policies as well as the strict EU regulations.
-Timescale operators will never access the customer data, unless explicitly
+Timescale operators never access customer data, unless explicitly
 requested by the customer in order to troubleshoot a technical issue.
 
 The Timescale operations team has mandatory recurring training regarding the
@@ -99,7 +99,7 @@ TimescaleDB provides the ability to configure, in a fine-grained manner, the
 set of source IP addresses and ranges, as well as connection ports, that can
 access your Managed Service for TimescaleDB services.
 
-This tutorial will walk you through how to configure this capability.
+This tutorial walks you through how to configure this capability.
 
 #### Before you start
 
@@ -111,8 +111,8 @@ get signed up and create your first database instance.
 Once you have a database instance setup in the
 [Managed Service for TimescaleDB portal][timescale-mst-portal], browse to this
 service and click on the 'Overview' tab. In the 'Connection Information'
-section, you will see the port number that is used for database connections.
-This is the port we will protect by managing inbound access.
+section, you can see the port number that is used for database connections.
+This is the port you need to protect by managing inbound access.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/overview-tab.png" alt="Timescale Cloud Overview tab"/>
 
@@ -122,7 +122,7 @@ Scroll down to find the 'Allowed IP Addresses' section. By default, this value i
 `0.0.0.0/0` which is actually wide-open.
 
 <highlight type="warning">
-This wide-open setting simplifies getting started since it will accept incoming traffic from all sources, but you will absolutely want to narrow this range.
+This wide-open setting simplifies getting started since it accepts incoming traffic from all sources, but you absolutely want to narrow this range.
 </highlight>
 
 If you are curious about how to interpret this [Classless Inter-Domain Routing][cidr-wiki] (CIDR) syntax,
@@ -132,9 +132,9 @@ check out [this great online tool][cidr-tool] to help decipher CIDR.
 
 #### Step 3 - Change the allowed IP addresses section
 
-Click 'Change' and adjust the CIDR value based on where your source traffic will come from.
-For example, entering a value of `192.168.1.15/32` will ONLY allow incoming traffic from a
-source IP of `192.168.1.15` and will deny all other traffic.
+Click 'Change' and adjust the CIDR value based on where your source traffic is coming from.
+For example, entering a value of `192.168.1.15/32` ONLY allows incoming traffic from a
+source IP of `192.168.1.15` and denies all other traffic.
 
 #### Step 4 - Save your changes
 Click 'Save Changes' and see this take effect immediately.
