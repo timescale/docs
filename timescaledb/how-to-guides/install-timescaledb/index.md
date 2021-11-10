@@ -13,7 +13,9 @@ to jump in.
 
 If you want to run TimescaleDB on your own server hardware, you can also do
 that! Follow the [installation instructions][self-hosted-install] in this
-section for your hardware, or install from source. You can also use a [pre-built container][self-hosted-container], or [cloud image][self-hosted-cloud] for self-hosted TimescaleDB.
+section for your hardware, or install from source. You can also use a
+[pre-built container][self-hosted-container], or
+[cloud image][self-hosted-cloud] for self-hosted TimescaleDB.
 
 If you would prefer a managed cloud service for your TimescaleDB installation,
 head over to [Managed Service for TimescaleDB][mst-install]. This option allows
