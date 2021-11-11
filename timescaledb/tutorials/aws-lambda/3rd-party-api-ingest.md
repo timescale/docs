@@ -60,7 +60,7 @@ def fetch_stock_data(symbol, month):
 
    Args:
        symbol (string): ticker symbol
-       month (int): month value as an integer 1-24 (for example month=4 will fetch data from the last 4 months)
+       month (int): month value as an integer 1-24 (for example month=4 fetches data from the last 4 months)
 
    Returns:
        list of tuples: intraday (candlestick) stock data
@@ -216,7 +216,7 @@ an EventBridge trigger. This creates a rule using a [`cron` expression][cron-exa
 
 <highlight type="important">
 If you get an error saying `Parameter ScheduleExpression is not valid`, you
-might have made a mistake in the cron expression. Check the [cron expression examples](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions) 
+might have made a mistake in the cron expression. Check the [cron expression examples](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions)
 documentation.
 </highlight>
 

@@ -1,7 +1,7 @@
 ## Visualize pre-snap positions and player movement
 Interestingly, the NFL data set includes data on player movement within each
 football play. Visualizing the changes in your time-series data can often provide
-even more insight. In this section, we will use `pandas` and `matplotlib` to
+even more insight. In this section, we use `pandas` and `matplotlib` to
 visually depict a play during the season.
 
 ## Install pandas and matplotlib
