@@ -38,23 +38,23 @@ purposes, act just like a single instance of TimescaleDB from an operational per
 
 To ensure best performance, you should partition a distributed
 hypertable by both time and space. If you only partition data by
-time, that chunk will have to fill up before the access node chooses
+time, that chunk has to fill up before the access node chooses
 another data node to store the next chunk, so during that
-chunk's time interval, all writes to the latest interval will be
+chunk's time interval, all writes to the latest interval is
 handled by a single data node, rather than load balanced across all
 available data nodes. On the other hand, if you specify a space
-partition, the access node will distribute chunks across multiple data
+partition, the access node distributes chunks across multiple data
 nodes based on the space partition so that multiple chunks are created
 for a given chunk time interval, and both reads and writes to that
-recent time interval will be load balanced across the cluster.
+recent time interval are load balanced across the cluster.
 
 By default, we automatically set the number of space partitions equal to the
-number of data nodes if a value is not specified. The system will also increase
+number of data nodes if a value is not specified. The system also increases
 the number of space partitions, if necessary, when adding new data nodes. If
 setting manually, we recommend that the number of space partitions are
 equal or a multiple of the number of data nodes associated with the distributed
 hypertable for optimal data distribution across data nodes. In case of multiple
-space partitions, only the first space partition will be used to determine
+space partitions, only the first space partition is used to determine
 how chunks are distributed across servers.
 
 ## Scaling distributed hypertables
@@ -63,12 +63,12 @@ As time-series data grows, a common use case is to add data nodes to expand the
 storage and compute capacity of distributed hypertables. Thus, TimescaleDB can
 be elastically scaled out by simply adding data nodes to a distributed database.
 
-As mentioned earlier, TimescaleDB can (and will) adjust the number of space
-partitions as new data nodes are added. Although existing chunks will not have
-their space partitions updated, the new settings will be applied to newly
+As mentioned earlier, TimescaleDB adjusts the number of space
+partitions as new data nodes are added. Although existing chunks do not have
+their space partitions updated, the new settings are applied to newly
 created chunks. Because of this behavior, we do not need to move data between
 data nodes when the cluster size is increased, and simply update how data is
-distributed for the next time interval. Writes for new incoming data will
+distributed for the next time interval. Writes for new incoming data 
 leverage the new partitioning settings, while the access node can still support
 queries across all chunks (even those that were created using the old
 partitioning settings). Do note that although the number of space partitions
