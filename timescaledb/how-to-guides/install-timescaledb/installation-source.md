@@ -13,6 +13,10 @@ Before you start, make sure you have installed:
     [CMake documentation][cmake-download].
 *   C language compiler for your operating system, such as `gcc` or `clang`.
 
+If you are installing from source on a Microsoft Windows system, you also need:
+*   Visual Studio 2015 or later, packaged with CMake version 3.11 or later, and
+    Git components.
+
 <procedure>
 
 ### Installing self-hosted TimescaleDB from source
@@ -30,20 +34,67 @@ Before you start, make sure you have installed:
     git checkout 2.5.0
     ```
 1.  Bootstrap the build system:
+    <terminal>
+
+    <tab label='Linux'>
+
     ```bash
     ./bootstrap
     ```
-1.  Change into the `build` directory and build the extension:
+
+    </tab>
+
+    <tab label="Windows">
+
+    ```powershell
+    bootstrap.bat
+    ```
+
+    </tab>
+
+    </terminal>
+1.  Build the extension:
+    <terminal>
+
+    <tab label='Linux'>
+
     ```bash
     cd build && make
     ```
-1.  Use `make` to install TimescaleDB:
+
+    </tab>
+
+    <tab label="Windows">
+
+    ```powershell
+    cmake --build ./build --config Release
+    ```
+
+    </tab>
+
+    </terminal>
+1.  Install TimescaleDB:
+    <terminal>
+
+    <tab label='Linux'>
+
     ```bash
     make install
     ```
 
-</procedure>
+    </tab>
 
+    <tab label="Windows">
+
+    ```powershell
+    cmake --build ./build --config Release --target install
+    ```
+
+    </tab>
+
+    </terminal>
+
+</procedure>
 
 ## Configure PostgreSQL after installing from source
 When you install TimescaleDB from source, you need to do some additional
@@ -83,7 +134,7 @@ to find out which PostgreSQL installation TimescaleDB is using.
 
     <tab label="Windows">
 
-    ```bash
+    ```powershell
     pg_ctl restart
     ```
 
