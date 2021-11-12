@@ -1,4 +1,4 @@
-## Install self-hosted TimescaleDB on Red Hat-based systems
+# Install self-hosted TimescaleDB on Red Hat-based systems
 You can host TimescaleDB yourself on your Red Hat, CentOS, or Fedora system.
 These instructions use the `dnf` package manager on these
 distributions:

@@ -1,4 +1,4 @@
-## Install self-hosted TimescaleDB from a pre-built container
+# Install self-hosted TimescaleDB from a pre-built container
 You can install a self-hosted TimescaleDB instance on any local system, from a
 pre-built container. This is the simplest method to install a self-hosted
 TimescaleDB instance, and it means you always have access to the latest version

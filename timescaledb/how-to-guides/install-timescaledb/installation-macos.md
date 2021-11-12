@@ -1,4 +1,4 @@
-## Install self-hosted TimescaleDB on macOS systems
+# Install self-hosted TimescaleDB on macOS systems
 You can host TimescaleDB yourself on your Apple macOS system.
 These instructions use a Homebrew installer on these versions:
 *   Apple macOS 10.15 Catalina
