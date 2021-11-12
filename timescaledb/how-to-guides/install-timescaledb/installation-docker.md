@@ -10,7 +10,10 @@ If you have already installed PostgreSQL using a method other than the pre-built
 container provided here, you could encounter errors following these
 instructions. It is safest to remove any existing PostgreSQL installations
 before you begin. If you want to keep your current PostgreSQL installation, do
-not install TimescaleDB using this method. [Install from source](FIXME) instead.
+not install TimescaleDB using this method.
+TimescaleDB using this method.
+[Install from source](/how-to-guides/install-timescaledb/installation-source/)
+instead.
 </highlight>
 
 <procedure>
