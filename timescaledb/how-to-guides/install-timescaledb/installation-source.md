@@ -1,72 +1,105 @@
-## From source [](installation-source)
+# Install self-hosted TimescaleDB from source
+You can host TimescaleDB yourself, on any system, by downloading the source code
+and compiling it. These instructions do not require the use of a package manager
+or installation tool.
 
-**Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
+Before you start, make sure you have installed:
 
-#### Prerequisites
+*   PostgreSQL 12 or later, with a development environment. For more information
+    about PostgreSQL installation, including downloads and instructions, see the
+    [PostgreSQL documentation][postgres-download].
+*   CMake version 3.11 or later. For more information about CMake installation,
+    including downloads and instructions, see the
+    [CMake documentation][cmake-download].
+*   C language compiler for your operating system, such as `gcc` or `clang`.
 
-- A standard **PostgreSQL 12, 13, or 14** installation with development environment (header files) (see https://www.postgresql.org/download/ for the appropriate package)
-- C compiler (e.g., gcc or clang)
-- [CMake][] version 3.11 or greater
+<procedure>
 
-#### Build and install with local PostgreSQL
-<highlight type="tip">
-It is **highly recommended** that you checkout the latest
-tagged commit to build from (see the repo's [Releases](https://github.com/timescale/timescaledb/releases) page for that)
+### Installing self-hosted TimescaleDB from source
+1.  At the command prompt, clone the Timescale GitHub repository:
+    ```bash
+    git clone https://github.com/timescale/timescaledb.git
+    ```
+1.  Change into the cloned directory:
+    ```bash
+    cd timescaledb
+    ```
+1.  Checkout the latest release. You can find the latest release tag on
+    our [Releases page][gh-releases]:
+    ```bash
+    git checkout 2.5.0
+    ```
+1.  Bootstrap the build system:
+    ```bash
+    ./bootstrap
+    ```
+1.  Change into the `build` directory and build the extension:
+    ```bash
+    cd build && make
+    ```
+1.  Use `make` to install TimescaleDB:
+    ```bash
+    make install
+    ```
+
+</procedure>
+
+
+## Configure PostgreSQL after installing from source
+When you install TimescaleDB from source, you need to do some additional
+PostgreSQL configuration to add the TimescaleDB library.
+
+<highlight type="important">
+If you have more than one version of PostgreSQL installed, TimescaleDB can only
+be associated with one of them. The TimescaleDB build scripts use `pg_config` to
+find out where PostgreSQL stores its extension files, so you can use `pg_config`
+to find out which PostgreSQL installation TimescaleDB is using.
 </highlight>
 
-Clone the repository from [GitHub][github-timescale]:
-```bash
-git clone https://github.com/timescale/timescaledb.git
-cd timescaledb
-git checkout <release_tag>  # e.g., git checkout 2.5.0
+<procedure>
 
-# Bootstrap the build system
-./bootstrap
+### Configuring PostgreSQL after installing from source
+1.  Locate the `postgresql.conf` configuration file:
+    ```bash
+    psql -d postgres -c "SHOW config_file;"
+    ```
+1.  Open the `postgresql.conf` file in your preferred text editor, and locate
+    the `shared_preload_libraries` parameter. Uncomment the line, and
+    add `timescaledb`:
+    ```bash
+    shared_preload_libraries = 'timescaledb'
+    ```
+    If you use other preloaded libraries, make sure they are comma separated.
+1.  Restart the PostgreSQL instance:
+    <terminal>
 
-# To build the extension
-cd build && make
+    <tab label='Linux'>
 
-# To install
-make install
-```
+    ```bash
+    service postgresql restart  
+    ```
 
-<highlight type="warning">
- Our build scripts use `pg_config` to find out where PostgreSQL
-stores its extension files. If you have two versions of PostgreSQL
-installed, use `pg_config` to find out which version TimescaleDB was
-installed with.
-</highlight>
+    </tab>
 
-#### Update `postgresql.conf`
+    <tab label="Windows">
 
-You will need to edit your `postgresql.conf` file to include
-the TimescaleDB library, and then restart PostgreSQL. First, locate your
-`postgresql.conf` file:
+    ```bash
+    pg_ctl restart
+    ```
 
-```bash
-psql -d postgres -c "SHOW config_file;"
-```
+    </tab>
 
-Then modify `postgresql.conf` to add the required library.  Note that
-the `shared_preload_libraries` line is commented out by default.
-Make sure to uncomment it when adding our library.
+    </terminal>
 
-```bash
-shared_preload_libraries = 'timescaledb'
-```
-<highlight type="tip">
-If you have other libraries you are preloading, they should be comma separated.
-</highlight>
+</procedure>
 
-Then, restart the PostgreSQL instance.
+When you have completed the installation, you need to configure your database so
+that you can use it. The easiest way to do this is to run the `timescaledb-tune`
+script, which is included with the `timescaledb-tools` package. For more
+information, see the [configuration][config] section.
 
-<highlight type="tip">
-Our standard binary releases are licensed under the Timescale License,
-which allows to use all our capabilities.
-To build a version of this software that contains
-source code that is only licensed under Apache License 2.0, pass `-DAPACHE_ONLY=1`
-to `bootstrap`.
-</highlight>
 
-[CMake]: https://cmake.org/
-[github-timescale]: https://github.com/timescale/timescaledb
+[postgres-download]: https://www.postgresql.org/download/
+[cmake-download]: https://cmake.org/download/
+[gh-releases]: https://github.com/timescale/timescaledb/releases
+[config]: /how-to-guides/configuration/
