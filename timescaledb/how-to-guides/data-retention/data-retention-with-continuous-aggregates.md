@@ -3,12 +3,15 @@
 Extra care must be taken when using retention policies or `drop_chunks` calls on
 hypertables which have [continuous aggregates][continuous_aggregates] defined on
 them. Similar to a refresh of a materialized view, a refresh on a continuous aggregate
-will update the aggregate to reflect changes in the underlying source data. This means
-that any chunks that are dropped in the region still being refreshed by the
+will update the aggregate to reflect changes in the underlying source data.
+
+<highlight type="warning">
+Note that any chunks that are dropped in the region still being refreshed by the
 continuous aggregate will cause the chunk data to disappear from the aggregate as
 well. If the intent is to keep the aggregate while dropping the underlying data,
 the interval being dropped should not overlap with the offsets for the continuous
-aggregate.
+aggregate. Learn more [here](#FAQ)
+</highlight>
 
 As an example, let's add a continuous aggregate to our `conditions` hypertable:
 ```sql
@@ -45,6 +48,13 @@ this to also drop the aggregate data after 600 days:
 SELECT add_retention_policy('conditions_summary_daily', INTERVAL '600 days');
 ```
 
+## Frequent Asked Questions  [](FAQ)
+
+1. If I have a hypertable with a retention policy of a week, but have the continuous
+aggregations retention policy being a month. Is that going to be OK?
+
+Answer: Yes. It means the raw data will be around for a week while continuous
+aggregates will be around for a month.
 
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
