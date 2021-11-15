@@ -89,7 +89,34 @@ ORDER BY hour
 LIMIT 100;
 ```
 
+### Transactions and Consistency Model [](consistency-model)
+Transactions that involve distributed hypertables are atomic, just
+like those involving regular hypertables. In other words, a
+distributed transaction that involves multiple data nodes is
+guaranteed to either succeed on all nodes or none of them. This
+guarantee is provided by the [two-phase commit protocol][2pc], which
+is used to implement distributed transactions in TimescaleDB.
+
+The read consistency of a distributed hypertable is a bit different
+from a regular hypertable, however. Since a distributed transaction is
+essentially a set of individual transactions across multiple nodes,
+each node might commit its local transaction at a slightly different
+time (due to network transmission delays, etc.). As a consequence, the
+access node cannot to guarantee a fully consistent snapshot of the
+data across all data nodes. For example, a distributed read
+transaction might start when another concurrent write transaction is
+in its commit phase and has committed on some data nodes but not
+others. The read transaction can therefore use a snapshot on one node
+that includes the other transaction's modifications, while the
+snapshot on another data nodes might not include them.
+
+To achieve stronger read consistency in a distributed transaction one
+needs to use consistent snapshots across all data nodes. However, this
+requires a lot of coordination and bookkeeping that affects
+performance negatively, and it is therefore not implemented for
+distributed hypertables.
 
 [hypertables]: /how-to-guides/hypertables/
 [multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/
 [multinode-mst]: /mst/:currentVersion:/mst-multi-node/
+[2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
