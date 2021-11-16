@@ -10,7 +10,7 @@ A single instance of PostgreSQL with TimescaleDB installed can often support
 the needs of very large datasets and application querying. In a regular PostgreSQL
 instance without TimescaleDB, a common problem with scaling database performance
 on a single machine is the significant cost/performance trade-off between memory
-and disk. Eventually, our entire dataset will not fit in memory, and you will need
+and disk. Eventually, the entire dataset does not fit in memory, and you need
 to write your data and indexes to disk.
 
 Once the data is sufficiently large that we can’t fit all pages of our indexes

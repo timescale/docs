@@ -14,8 +14,8 @@ use.
 
 ### Prerequisites [](prereqs)
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
@@ -26,7 +26,7 @@ Once your installation of TimescaleDB and Grafana are complete, follow the
 to that database. Be sure to follow the full tutorial if you're interested in background
 on how to use TimescaleDB.
 
-For this tutorial, you will need to first create various Grafana visualizations before
+For this tutorial, you need to first create various Grafana visualizations before
 setting up alerts. Use our [full set of Grafana tutorials][tutorial-grafana] to
 obtain the necessary background on Grafana. In this tutorial, we'll simply
 inform you of which Grafana visualization to create and the query to use.
@@ -53,7 +53,7 @@ There are some downsides to using Grafana for alerts:
 - You can only set up alerts on graph visualizations with time-series output
 - Thus, you can't use table output or anything else that is not time-series data
 
-Ultimately, for most cases, this will be okay because:
+Ultimately, for most cases, this is okay because:
 
 - You're mainly dealing with time-series data for alerts
 - You can usually turn any other visualization (e.g., a Gauge or a Single Stat) into a time-series graph
@@ -71,7 +71,7 @@ There are two parts of alerting in Grafana: **Alert Rules** and
 
 Alert Rules are the most important part of Grafana alerts. Rules are
 conditions that you define for when an alert gets triggered. Grafana
-evaluates rules according to a scheduler and you will need to specify
+evaluates rules according to a scheduler and you need to specify
 how often rules are evaluated.
 
 In plain language, examples of rules could be:
@@ -83,7 +83,7 @@ In plain language, examples of rules could be:
 #### Notification channels
 
 Notification channels are where alerts get sent once alert rules are triggered.
-If you have no notification channels, then your alerts will only show up on Grafana
+If you have no notification channels, then your alerts only show up on Grafana.
 
 Examples of channels include tools your team may already use:
 
@@ -108,7 +108,7 @@ NO DATA.
 ### Alert 1: Integrating TimescaleDB, Grafana, and Slack [](alert1)
 
 Our goal in this first alert is to proactively notify us in Slack when we
-have sustained high memory usage over time. We will connect Grafana to
+have sustained high memory usage over time. You can connect Grafana to
 Slack using webhooks.
 
 #### Step 0: Set up your Grafana visualization
@@ -140,14 +140,14 @@ We'll define our alert so that we are notified when average memory consumption
 is greater than 90% for 5 consecutive minutes.
 
 Set the frequency for the rule to be evaluated at one minute. This means that the
-graph will be polled every minute to determine whether or not an alert should
+graph is polled every minute to determine whether or not an alert should
 be sent.
 
 Then set the evaluation period for five minutes. This configures Grafana to look
 at the alert in five minute windows.
 
 You won't be able to change the 'When' portion of the query, but you can
-set the 'Is Above' threshold to 90. In other words, we will be alerted whenever
+set the 'Is Above' threshold to 90. In other words, you receive an alert whenever
 the memory used is above 90%.
 
 Use the defaults for the remainder of the configuration. Your configuration should
@@ -157,27 +157,27 @@ look like this:
 
 #### Step 2: Configure Slack for Grafana alerts
 
-In most cases, you will want to build a tiered alert system where less critical
+In most cases, you want to build a tiered alert system where less critical
 alerts go to less intrusive channels (such as Slack), while more critical
 alerts go to high attention channels (such as calling or texting someone).
 
-Let's start by configuring Slack. To setup Slack, you will need your Slack
+Let's start by configuring Slack. To setup Slack, you need your Slack
 Administrator to give you the webhoo URL to post to a channel. You can
 [follow these instructions][slack-webhook-instructions] to obtain this
 information.
 
 To configure a notification channel, go to the 'Bell' icon in your main
-dashboard. It will be on the far left of the screen. Click on the 'Notification
+dashboard. It is on the far left of the screen. Click on the 'Notification
 Channels' option. In the Notification Channels screen, click 'Add channel'.
 
-In the resulting form, set up the name of your Slack Channel. This will
-show up in drop-downs throughout your Grafana instance, so choose
-something descriptive that other users of your Grafana instance will
+In the resulting form, set up the name of your Slack Channel. This
+shows up in drop-downs throughout your Grafana instance, so choose
+something descriptive that other users of your Grafana instance can
 immediately identify with.
 
 Choose 'Slack' as the type and toggle 'Include image' and 'Send reminders'
 on. Enter the Webhook URL supplied by your Slack Admin and choose a
-Username that will be descriptive to users of your Slack instance. If you
+Username that is descriptive to users of your Slack instance. If you
 want to @-mention someone or a group with your alert post in Slack, you can
 do so in the 'Mention' field.
 
@@ -205,12 +205,12 @@ this within five minutes or so:
 
 PagerDuty is a popular choice for managing support and incident responses for
 medium-large teams. Many of the steps in this section are similar to the steps
-in the Slack section. With PagerDuty, we will need to set up alerts using direct
+in the Slack section. With PagerDuty, you need to set up alerts using direct
 integration with the PagerDuty API.
 
 #### Step 0: Set up your Grafana visualization
 
-In this section, we will monitor our database in case we run out of disk space
+In this section, you monitor the database in case you run out of disk space
 unexpectedly. This is the kind of alert where you'd want to notify someone
 immediately.
 

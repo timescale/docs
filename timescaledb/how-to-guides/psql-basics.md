@@ -2,7 +2,7 @@
 
 Psql is the terminal-based front end to PostgreSQL, and is the primary tool used
 to communicate with your TimescaleDB instances. Below is a refresher on some essential
-psql commands that you may come across in our documentation, and will find useful
+psql commands that you may come across in our documentation, and could find useful
 as you explore PostgreSQL and TimescaleDB.
 
 For an in-depth breakdown of all commands, visit [psql's documentation](https://www.postgresql.org/docs/13/app-psql.html).

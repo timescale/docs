@@ -4,7 +4,7 @@ underlying hypertable. Real time aggregates use the aggregated data and add the
 most recent raw data to it to provide accurate and up to date results, without
 needing to aggregate data as it is being written. In TimescaleDB 1.7 and later,
 real time aggregates are enabled by default. When you create a continuous
-aggregate view, queries to that view will include the most recent data, even if
+aggregate view, queries to that view include the most recent data, even if
 it has not yet been aggregated.
 
 For more detail on the comparison between continuous and real time aggregates,

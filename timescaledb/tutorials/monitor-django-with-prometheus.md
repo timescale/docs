@@ -16,7 +16,7 @@ A machine with the following installed:
 
 <highlight type="tip">
 Since machines commonly have multiple versions of Python
-installed, in this tutorial we will call pip using the `python -m pip [foo]`
+installed, in this tutorial we call `pip` using the `python -m pip [foo]`
 syntax instead of the `pip [foo]` syntax. This is to ensure that pip installs
 new components for the version of Python that we are using.
 </highlight>
@@ -37,7 +37,7 @@ and run:
 django-admin startproject mysite
 ```
 
-This will create a mysite directory in your current directory, that looks
+This creates a `mysite` directory in your current directory, that looks
 something like this ([more here][django-first-app]):
 
 ```
@@ -81,7 +81,7 @@ You should see a "Congratulations!" page, with a rocket taking off.
 
 ## Step 2 - Export prometheus-style monitoring metrics from your Django application
 
-We will use the [django-prometheus][get-django-prometheus] package for
+We use the [django-prometheus][get-django-prometheus] package for
 exporting prometheus-style monitoring metrics from our Django application.
 
 ### Install django-prometheus
