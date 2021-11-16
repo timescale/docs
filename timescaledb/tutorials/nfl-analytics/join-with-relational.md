@@ -1,7 +1,7 @@
 ## Join time-series data with relational data for deeper analysis
 
 TimescaleDB is packaged as a PostgreSQL extension. As such, TimescaleDB is
-PostgreSQL with super-powers. You can do anything in TimescaleDB that you can 
+PostgreSQL with super-powers. You can do anything in TimescaleDB that you can
 in PostgreSQL, including joining tables and combining data for further analysis.
 
 ### The Mile-High advantage
@@ -13,38 +13,43 @@ visit Denver's Mile-High stadium are at a disadvantage because unlike the home t
 Earlier we ingested stadium data. Now we can run a query to see the performance of
 players when they are playing at Mile High Stadium.
 
-Like many of the queries in our analysis section, for this example you will utilize the relational nature of this data. You will join the `tracking`, `player`, and `game` tables to compare the average acceleration and yards run of individual players when they are performing in stadiums outside of Denver versus when they are playing within Denver. The columns `avg_acc_den` and `avg_yards_den` represent the acceleration and yard statistics while in Denver.  
+Like many of the queries in our analysis section, for this example you use the
+relational nature of this data. You join the `tracking`, `player`, and `game`
+tables to compare the average acceleration and yards run of individual players
+when they are performing in stadiums outside of Denver versus when they are
+playing within Denver. The columns `avg_acc_den` and `avg_yards_den` represent
+the acceleration and yard statistics while in Denver.  
 
 ```sql
 WITH stat_vals AS (
 -- This table collects the summed yard and avg acceleration data of a player during one game
-  SELECT a.player_id, displayname, SUM(yards) AS yards, AVG(acc) AS acc, team, gameid 
+  SELECT a.player_id, displayname, SUM(yards) AS yards, AVG(acc) AS acc, team, gameid
   FROM player_yards_by_game a
-  LEFT JOIN player p ON a.player_id = p.player_id 
+  LEFT JOIN player p ON a.player_id = p.player_id
   GROUP BY a.player_id, displayname, gameid, team
 ), team_data AS (
 -- This table gets us the team information so that we can filter on teams
 	SELECT a.player_id, acc, yards, a.gameid,
-		CASE 
-			WHEN a.team = 'away' THEN g.visitor_team 
-			WHEN a.team = 'home' THEN g.home_team 
-			ELSE NULL 
+		CASE
+			WHEN a.team = 'away' THEN g.visitor_team
+			WHEN a.team = 'home' THEN g.home_team
+			ELSE NULL
 			END AS team_name,
 		g.home_team
 	FROM stat_vals a
-	LEFT JOIN game g ON a.gameid = g.game_id 
+	LEFT JOIN game g ON a.gameid = g.game_id
 ), avg_stats AS (
 -- This table takes the avg acceleration and yards run for players when they are not in denver
 -- and then when they are in denver
-SELECT p.player_id, p.displayname, 
-	AVG(acc) FILTER (WHERE team_name != 'DEN' AND home_team !='DEN') AS avg_acc, 
+SELECT p.player_id, p.displayname,
+	AVG(acc) FILTER (WHERE team_name != 'DEN' AND home_team !='DEN') AS avg_acc,
 	AVG(acc) FILTER (WHERE team_name != 'DEN' AND home_team = 'DEN') AS avg_acc_den,
-	AVG(yards) FILTER (WHERE team_name != 'DEN' AND home_team !='DEN') AS avg_yards, 
-	AVG(yards) FILTER (WHERE team_name != 'DEN' AND home_team = 'DEN') AS avg_yards_den, 
+	AVG(yards) FILTER (WHERE team_name != 'DEN' AND home_team !='DEN') AS avg_yards,
+	AVG(yards) FILTER (WHERE team_name != 'DEN' AND home_team = 'DEN') AS avg_yards_den,
 	COUNT(gameid) FILTER (WHERE team_name != 'DEN' AND home_team !='DEN') AS games,
 	COUNT(gameid) FILTER (WHERE team_name != 'DEN' AND home_team ='DEN') AS games_den
 FROM team_data t
-LEFT JOIN player p ON t.player_id = p.player_id 
+LEFT JOIN player p ON t.player_id = p.player_id
 GROUP BY p.player_id, p.displayname
 )
 SELECT * FROM avg_stats
@@ -61,14 +66,18 @@ You should see this:
 |2558194|Josh Reynolds|	2.26]	|2.40]	|527.80]|529.16	|15|1|
 |2543498|Brandin Cooks|	2.26	|2.26	|975.61|	875.90	|15|1|
 
-You can see that generally, it appears many players may have worse acceleration and average number of yards run per game while playing in Denver. However, it is good to note that you only have one sample point showing Denver averages which effects statistical significance. 
+You can see that generally, it appears many players may have worse acceleration and average number of yards run per game while playing in Denver. However, it is good to note that you only have one sample point showing Denver averages which effects statistical significance.
 
 ### Grass vs. turf, the eternal (football) question
 
 Players often say they "feel" faster on artificial turf. How much faster are they
 in reality?
 
-Using this query you will join the `tracking`, `stadium_info`, `game`, and `player` tables, to extract the average acceleration that a player has while using turf verses grass. The column `avg_acc_turf` represents the players average acceleration while using artificial turf, and `avg_acc_grass` represents their average acceleration while on grass. 
+Using this query you join the `tracking`, `stadium_info`, `game`, and `player`
+tables, to extract the average acceleration that a player has while using turf
+verses grass. The column `avg_acc_turf` represents the players average
+acceleration while using artificial turf, and `avg_acc_grass` represents their
+average acceleration while on grass.
 
 ```sql
 WITH acceleration AS (
@@ -78,18 +87,18 @@ WITH acceleration AS (
 	GROUP BY a.player_id, a.gameid, a.team
 ), team_data AS (
 -- This table gets us the surface information so that we can filter on turf type
-	SELECT a.player_id, acc, g.game_id,	si."location", si.surface 
+	SELECT a.player_id, acc, g.game_id,	si."location", si.surface
 	FROM acceleration a
-	LEFT JOIN game g ON a.gameid = g.game_id 
-	LEFT JOIN stadium_info si on g.home_team = si.team_abbreviation 
+	LEFT JOIN game g ON a.gameid = g.game_id
+	LEFT JOIN stadium_info si on g.home_team = si.team_abbreviation
 ), avg_stats AS (
 -- This table takes the avg acceleration and yards run for players when they are not in denver
 -- and then when they are in denver
-SELECT p.player_id, p.displayname, 
-	AVG(acc) FILTER (WHERE surface LIKE '%Turf%') AS avg_acc_turf, 
+SELECT p.player_id, p.displayname,
+	AVG(acc) FILTER (WHERE surface LIKE '%Turf%') AS avg_acc_turf,
 	AVG(acc) FILTER (WHERE surface NOT LIKE '%Turf%') AS avg_acc_grass
 FROM team_data t
-LEFT JOIN player p ON t.player_id = p.player_id 
+LEFT JOIN player p ON t.player_id = p.player_id
 GROUP BY p.player_id, p.displayname
 )
 SELECT * FROM avg_stats
@@ -107,7 +116,7 @@ You should see this:
 |2552374	|Ameer Abdullah	|2.76	|2.48|
 |2552408	|Darren Waller	|2.69	|2.83|
 
-For many players, it appears that they are indeed faster on artificial turf. This 'feeling' of increased speed may in fact be grounded in reality. 
+For many players, it appears that they are indeed faster on artificial turf. This 'feeling' of increased speed may in fact be grounded in reality.
 
 ### We're going to overtime!
 

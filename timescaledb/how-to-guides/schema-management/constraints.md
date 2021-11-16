@@ -3,7 +3,7 @@
 Hypertables support all standard PostgreSQL constraint types, with the
 exception of foreign key constraints on other tables that reference
 values in a hypertable. Creating, deleting, or altering constraints on
-hypertables will propagate to chunks, accounting also for any indexes
+hypertables propagates to chunks, accounting also for any indexes
 associated with the constraints. For instance, a table can be created
 as follows:
 
@@ -20,11 +20,11 @@ CREATE TABLE conditions (
 SELECT create_hypertable('conditions', 'time');
 ```
 
-This table will only allow positive device IDs, non-null temperature
-readings, and will guarantee unique time values for each device. It
+This table only allows positive device IDs, non-null temperature
+readings, and guarantees unique time values for each device. It
 also references values in another `locations` table via a foreign key
 constraint. Note that time columns used for partitioning do not allow
-`NULL` values by default. TimescaleDB will automatically add a `NOT
+`NULL` values by default. TimescaleDB automatically adds a `NOT
 NULL` constraint to such columns if missing.
 
 For additional information on how to manage constraints, see the

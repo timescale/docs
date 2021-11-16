@@ -146,7 +146,7 @@ the [`now()`][current_time] function to get the current transaction time. This
 function depends on the current timezone setting on each node.
 
 If the query includes a user-defined function (UDF) the access node assumes
-that the function does not exist on the data nodes and therefore will not push
+that the function does not exist on the data nodes and therefore does not push
 it down.
 
 TimescaleDB employs several optimizations to increase the likelihood of being

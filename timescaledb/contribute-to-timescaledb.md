@@ -9,7 +9,7 @@ GitHub.
 Timescale documentation is hosted in a [GitHub repository][github-docs]
 and is open for contribution from all community members. If you
 find errors or would like to add content to our docs, this tutorial
-will walk you through the process.
+walks you through the process.
 
 ### Making minor changes
 If you want to make only minor changes to docs, you can make corrections
@@ -19,7 +19,7 @@ an option to submit a pull request at the bottom of the page.
 
 ### Making larger contributions to docs
 In order to modify documentation, you should have a working knowledge
-of [git][install-git] and [Markdown][markdown-tutorial]. You will
+of [git][install-git] and [Markdown][markdown-tutorial]. You
 also need to create a GitHub account.
 
 Be sure to read the [Timescale docs contribution styleguide][timescale-docs-style].
@@ -30,7 +30,7 @@ you as you author your contribution.
 Before we accept any contributions, Timescale contributors need to
 sign the Contributor License Agreement (CLA). By signing a CLA, we
 can ensure that the community is free and confident in its
-ability to use your contributions. You will be prompted to sign the
+ability to use your contributions. You are prompted to sign the
 CLA during the pull request process.
 
 

@@ -51,7 +51,7 @@ a text string of the exact JSON that is sent to our servers.
 
 Additionally any content of the table `_timescaledb_catalog.metadata` which has
 `include_in_telemetry` set to `true` and the value of `timescaledb_telemetry.cloud`
-will be included in the telemetry report.
+is included in the telemetry report.
 
 Notably, telemetry reports a different set of values depending on the license
 that your TimescaleDB instance is running under. If you are using OSS or Community,
@@ -61,8 +61,8 @@ as relevant.
 
 ## Version checking
 The database sends telemetry reports periodically in the background.
-In response to the telemetry report, the database will receive the most recent
-version of TimescaleDB available for installation. This version will be
+In response to the telemetry report, the database receives the most recent
+version of TimescaleDB available for installation. This version is
 recorded in the user's server logs, along with any applicable out-of-date
 version warnings. While you do not have to update immediately to the newest
 release, many users have reported that performance issues or bugs
@@ -88,9 +88,9 @@ Alternatively, in a `psql` console, run:
 ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=off
 ```
 
-If `ALTER DATABASE` is run, then this will disable telemetry for the specified
+If `ALTER DATABASE` is run, then this disables telemetry for the specified
 database, but not for other databases in the instance. If `ALTER SYSTEM` is
-run, this will disable telemetry for the entire instance.
+run, this disables telemetry for the entire instance.
 Note that superuser privileges are necessary to run `ALTER SYSTEM`.
 
 After running the desired command, reload the new server configuration with `SELECT pg_reload_conf()` in order
@@ -109,4 +109,4 @@ or run the following command in psql:
 ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=basic
 ```
 
-[get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report 
+[get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report

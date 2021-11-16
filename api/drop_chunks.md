@@ -1,4 +1,4 @@
-## drop_chunks() 
+## drop_chunks()
 
 Removes data chunks whose time range falls completely before (or
 after) a specified time.  Shows a list of the chunks that were
@@ -26,12 +26,12 @@ specified one.
 |Name|Type|Description|
 |---|---|---|
 | `newer_than` | INTERVAL | Specification of cut-off point where any full chunks newer than this timestamp should be removed. |
-| `verbose` | BOOLEAN | Setting to true will display messages about the progress of the reorder command. Defaults to false.|
+| `verbose` | BOOLEAN | Setting to true displays messages about the progress of the reorder command. Defaults to false.|
 
 The `older_than` and `newer_than` parameters can be specified in two ways:
 
 - **interval type:** The cut-off point is computed as `now() -
-    older_than` and similarly `now() - newer_than`.  An error will be
+    older_than` and similarly `now() - newer_than`.  An error is
     returned if an INTERVAL is supplied and the time column is not one
     of a `TIMESTAMP`, `TIMESTAMPTZ`, or `DATE`.
 
@@ -48,12 +48,12 @@ in the future (i.e., erroneous entries), use a timestamp.
 </highlight>
 
 When both arguments are used, the function returns the intersection of the resulting two ranges. For example,
-specifying `newer_than => 4 months` and `older_than => 3 months` will drop all full chunks that are between 3 and
-4 months old. Similarly, specifying `newer_than => '2017-01-01'` and `older_than => '2017-02-01'` will drop
+specifying `newer_than => 4 months` and `older_than => 3 months` drops all full chunks that are between 3 and
+4 months old. Similarly, specifying `newer_than => '2017-01-01'` and `older_than => '2017-02-01'` drops
 all full chunks between '2017-01-01' and '2017-02-01'. Specifying parameters that do not result in an overlapping
-intersection between two ranges will result in an error.
+intersection between two ranges results in an error.
 
-### Sample Usage 
+### Sample Usage
 
 Drop all chunks from hypertable `conditions` older than 3 months:
 ```sql

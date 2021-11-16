@@ -43,7 +43,7 @@ are null for the first row. This row represents the average yard data for the
 football.
 
 ### Average and median yards run per game by type of player
-For this query, you will use another one of the TimescaleDB percentile functions
+For this query, you use another one of the TimescaleDB percentile functions
 called `percentile_agg`. You can use the `percentile_agg` function to find the
 50th percentile, which is the approximate median.
 

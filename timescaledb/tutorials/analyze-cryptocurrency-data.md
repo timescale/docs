@@ -23,8 +23,8 @@ You can also download the resources for this tutorial:
     September 2019. Follow the steps in Section 2 of this tutorial if you require fresh data)
 
 ## Prerequisites
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][install-timescale]. When your installation is

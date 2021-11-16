@@ -15,7 +15,7 @@ multiple example actions.
 
 |Name|Type|Description|
 |---|---|---|
-| `config` | JSONB | Job-specific configuration (this will be passed to the function when executed) |
+| `config` | JSONB | Job-specific configuration (this is passed to the function when executed) |
 | `initial_start` | TIMESTAMPTZ | Time of first execution of job |
 | `scheduled` | BOOLEAN | Set to `FALSE` to exclude this job from scheduling. Defaults to `TRUE`. |
 

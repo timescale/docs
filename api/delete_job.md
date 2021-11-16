@@ -1,9 +1,9 @@
-## delete_job() <tag type="community">Community</tag> 
+## delete_job() <tag type="community">Community</tag>
 
 Delete a job registered with the automation framework.
 This works for user-defined actions as well as policies.
 
-If the job is currently running, the process will be terminated.
+If the job is currently running, the process is terminated.
 
 ### Required Arguments
 
@@ -11,7 +11,7 @@ If the job is currently running, the process will be terminated.
 |---|---|---|
 |`job_id`| INTEGER |  TimescaleDB background job id |
 
-### Sample Usage 
+### Sample Usage
 
 ```sql
 SELECT delete_job(1000);

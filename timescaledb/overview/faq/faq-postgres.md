@@ -17,7 +17,7 @@ not scale well to the volume of data that most time-series applications produce,
 when running on a single server. In particular, vanilla PostgreSQL has poor write performance
 for moderate tables, and this problem only becomes worse over time as data volume grows
 linearly in time. These problems emerge when table indexes can no longer fit in memory,
-as each insert will translate to many disk fetches to swap in portions of the indexes'
+as each insert translates to many disk fetches to swap in portions of the indexes'
 B-Trees. TimescaleDB solves this through its heavy utilization of
 time-space partitioning, even when running _on a single machine_. So all writes
 to recent time intervals are only to tables that remain in memory, and updating any
