@@ -38,4 +38,4 @@ same timestamp, since it requires writing a timestamp for each metric. This ulti
 results in higher storage and ingest requirements. Further, queries that correlate different metrics
 are also more complex, since each additional metric you want to correlate requires another
 JOIN. If you typically query multiple metrics together, it is both faster and easier to store them
-in a wide table format, which we will cover in the following section.
+in a wide table format, which we cover in the following section.

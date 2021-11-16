@@ -8,7 +8,7 @@ UPDATE conditions SET temperature = 70.2, humidity = 50.0
 ```
 
 An update command can touch many rows at once, i.e., the following
-will modify all rows found in a 10-minute block of data.
+modifies all rows found in a 10-minute block of data.
 
 ```sql
 UPDATE conditions SET temperature = temperature + 0.1

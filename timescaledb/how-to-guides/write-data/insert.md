@@ -24,8 +24,8 @@ INSERT INTO conditions
 The rows that belong to a single batch INSERT command do **not** need
 to belong to the same chunk (by time interval or partitioning key).
 Upon receiving an `INSERT` command for multiple rows, the TimescaleDB
-engine will determine which rows (sub-batches) belong to which chunks,
-and will write them accordingly to each chunk in a single transaction.
+engine determines which rows (sub-batches) belong to which chunks,
+and writes them accordingly to each chunk in a single transaction.
 </highlight>
 
 You can also specify that `INSERT` returns some or all of the inserted

@@ -1,4 +1,4 @@
-## reorder_chunk() <tag type="community">Community</tag> 
+## reorder_chunk() <tag type="community">Community</tag>
 
 Reorder a single chunk's heap to follow the order of an index. This function
 acts similarly to the [PostgreSQL CLUSTER command][postgres-cluster] , however
@@ -28,14 +28,14 @@ using [add_reorder_policy](/hypertable/add_reorder_policy/) is often much more c
 |Name|Type|Description|
 |---|---|---|
 | `index` | REGCLASS | The name of the index (on either the hypertable or chunk) to order by.|
-| `verbose` | BOOLEAN | Setting to true will display messages about the progress of the reorder command. Defaults to false.|
+| `verbose` | BOOLEAN | Setting to true displays messages about the progress of the reorder command. Defaults to false.|
 
-### Returns 
+### Returns
 
 This function returns void.
 
 
-### Sample Usage 
+### Sample Usage
 
 ```sql
 SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', 'conditions_device_id_time_idx');

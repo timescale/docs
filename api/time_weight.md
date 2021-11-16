@@ -27,7 +27,7 @@ For more information about time-weighted average functions, see the
 
 
 Note that `ts` and `value` can be `null`, however the aggregate is not evaluated
-on `null` values and will return `null`, but it will not error on `null` inputs.
+on `null` values and returns `null`, but does not error on `null` inputs.
 
 ### Returns
 
@@ -53,7 +53,7 @@ FROM t;
 ```
 
 ## Advanced usage notes
-Most cases will work out of the box, but for power users, or those who want to
+Most cases work out of the box, but for power users, or those who want to
 dive deeper, we've included a bit more context below.
 
 ### Interpolation methods details

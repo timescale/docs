@@ -68,7 +68,7 @@ It must also be the first command you execute in the session.
 </highlight>
 
 
-This will upgrade TimescaleDB to the latest installed version, even if you
+This upgrades TimescaleDB to the latest installed version, even if you
 are several versions behind.
 
 After executing the command, the psql `\dx` command should show the latest version:

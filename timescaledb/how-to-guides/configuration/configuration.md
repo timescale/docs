@@ -60,7 +60,7 @@ work_mem = 26214kB
 Is this okay? [(y)es/(s)kip/(q)uit]:
 ```
 
-These changes are then written to your `postgresql.conf` and will take effect
+These changes are then written to your `postgresql.conf` and take effect
 on the next (re)start. If you are starting on fresh instance and don't feel
 the need to approve each group of changes, you can also automatically accept
 and append the suggestions to the end of your `postgresql.conf` like so:
@@ -102,11 +102,11 @@ setting to the sum of your total number of databases and the
 total number of concurrent background workers you want running at any given
 point in time. You need a background worker allocated to each database to run
 a lightweight scheduler that schedules jobs. On top of that, any additional
-workers you allocate here will run background jobs when needed.
+workers you allocate here run background jobs when needed.
 
 For larger queries, PostgreSQL automatically uses parallel workers if
 they are available. To configure this use the `max_parallel_workers` setting.
-Increasing this setting will improve query performance for
+Increasing this setting improves query performance for
 larger queries. Smaller queries may not trigger parallel workers. By default,
 this setting corresponds to the number of CPUs available. Use the `--cpus` flag
 or the `TS_TUNE_NUM_CPUS` docker environment variable to change it.
@@ -120,7 +120,7 @@ workers).
 By default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 8.
 In order to change this setting, use the `--max-bg-workers` flag or the
 `TS_TUNE_MAX_BG_WORKERS` docker environment variable. The `max_worker_processes`
-setting will automatically be adjusted as well.
+setting is automatically adjusted as well.
 
 ### Disk-write settings [](disk-write)
 
@@ -191,18 +191,18 @@ workers. Default value is 8.
 #### `timescaledb.enable_2pc (bool)` [](enable_2pc)
 
 Enables two-phase commit for distributed hypertables. If disabled, it
-will use a one-phase commit instead, which is faster but can result in
+uses a one-phase commit instead, which is faster but can result in
 inconsistent data. It is by default enabled.
 
 #### `timescaledb.enable_per_data_node_queries (bool)` [](enable_per_data_node_queries)
 
-If enabled, TimescaleDB will combine different chunks belonging to the
+If enabled, TimescaleDB combines different chunks belonging to the
 same hypertable into a single query per data node. It is by default enabled.
 
 #### `timescaledb.max_insert_batch_size (int)` [](max_insert_batch_size)
 
 When acting as a access node, TimescaleDB splits batches of inserted
-tuples across multiple data nodes. It will batch up to
+tuples across multiple data nodes. It batches up to
 `max_insert_batch_size` tuples per data node before flushing. Setting
 this to 0 disables batching, reverting to tuple-by-tuple inserts. The
 default value is 1000.
@@ -225,7 +225,7 @@ data nodes. It is by default enabled.
 #### `timescaledb.enable_remote_explain (bool)` [](enable_remote_explain)
 
 Enable getting and showing `EXPLAIN` output from remote nodes. This
-will require sending the query to the data node, so it can be affected
+requires sending the query to the data node, so it can be affected
 by the network connection and availability of data nodes. It is by default disabled.
 
 #### `timescaledb.remote_data_fetcher (enum)` [](remote_data_fetcher)

@@ -106,7 +106,7 @@ our [top-rated support team][timescale-support].
 Yes, all of SQL, including: secondary indexes, JOINs, window functions. In fact,
 to the outside world, TimescaleDB looks like a PostgreSQL database: You connect
 to the database as if it's PostgreSQL, and you can administer the database as if
-it's PostgreSQL. Any tools and libraries that connect with PostgreSQL will
+it's PostgreSQL. Any tools and libraries that connect with PostgreSQL
 automatically work with TimescaleDB.
 
 ## Why SQL?
@@ -173,7 +173,7 @@ anything that speaks SQL (i.e., the entire PostgreSQL ecosystem).
 * If you already use and like PostgreSQL, and don't want to have to "give it up" and move to a
 NoSQL system in order to scale to larger volumes of data.
 * If you already chose to abandon PostgreSQL or another relational database for a Hadoop/NoSQL
-system due to scaling concerns or issues. We will provide support for the migration back.
+system due to scaling concerns or issues. We provide support for the migration back.
 
 ## What if my use case is simple key-value reads?
 For this scenario, in-memory or column-oriented databases are designed for

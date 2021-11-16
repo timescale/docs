@@ -1,17 +1,17 @@
 ## add_data_node() <tag type="community">Community</tag>
 
 Add a new data node on the access node to be used by distributed
-hypertables. The data node will automatically be used by distributed
+hypertables. The data node is automatically used by distributed
 hypertables that are created after the data node has been added, while
 existing distributed hypertables require an additional
 [`attach_data_node`](/distributed-hypertables/attach_data_node).
 
-If the data node already exists, the command will abort with either an
+If the data node already exists, the command aborts with either an
 error or a notice depending on the value of `if_not_exists`.
 
 For security purposes, only superusers or users with necessary
 privileges can add data nodes (see below for details). When adding a
-data node, the access node will also try to connect to the data node
+data node, the access node also tries to connect to the data node
 and therefore needs a way to authenticate with it. TimescaleDB
 currently supports several different such authentication methods for
 flexibility (including trust, user mappings, password, and certificate
@@ -19,9 +19,9 @@ methods). Please refer to [Setting up Multi-Node
 TimescaleDB][multinode] for more information about node-to-node
 authentication.
 
-Unless `bootstrap` is false, the function will attempt to bootstrap
+Unless `bootstrap` is false, the function attempts to bootstrap
 the data node by:
-1. Creating the database given in `database` that will serve as the
+1. Creating the database given in `database` that serve as the
    new data node.
 2. Loading the TimescaleDB extension in the new database.
 3. Setting metadata to make the data node part of the distributed
@@ -43,13 +43,13 @@ after it is added.
 
 | Name                 | Description                                           |
 |----------------------|-------------------------------------------------------|
-| `database`           | Database name where remote hypertables will be created. The default is the current database name. |
+| `database`           | Database name where remote hypertables are created. The default is the current database name. |
 | `port`               | Port to use on the remote data node. The default is the PostgreSQL port used by the access node on which the function is executed. |
 | `if_not_exists`      | Do not fail if the data node already exists. The default is `FALSE`. |
 | `bootstrap`          | Bootstrap the remote data node. The default is `TRUE`. |
-| `password`           | Password for authenticating with the remote data node during bootstrapping or validation. A password only needs to be provided if the data node requires password authentication and a password for the user does not exist in a local password file on the access node. If password authentication is not used, the specified password will be ignored. |
+| `password`           | Password for authenticating with the remote data node during bootstrapping or validation. A password only needs to be provided if the data node requires password authentication and a password for the user does not exist in a local password file on the access node. If password authentication is not used, the specified password is ignored. |
 
-### Returns 
+### Returns
 
 | Column              | Description                                       |
 |---------------------|---------------------------------------------------|
@@ -63,7 +63,7 @@ after it is added.
 
 #### Errors
 
-An error will be given if:
+An error is given if:
 * The function is executed inside a transaction.
 * The function is executed in a database that is already a data node.
 * The data node already exists and `if_not_exists` is `FALSE`.
@@ -87,7 +87,7 @@ Note, however, that superuser privileges might still be necessary on
 the data node in order to bootstrap it, including creating the
 TimescaleDB extension on the data node unless it is already installed.
 
-### Sample Usage 
+### Sample Usage
 
 Let's assume that you have an existing hypertable `conditions` and
 want to use `time` as the time partitioning column and `location` as

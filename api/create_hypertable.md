@@ -1,4 +1,4 @@
-# create_hypertable() 
+# create_hypertable()
 
 Creates a TimescaleDB hypertable from a PostgreSQL table (replacing
 the latter), partitioned on time and with the option to partition on
@@ -31,12 +31,12 @@ still work on the resulting hypertable.
 | `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|
 | `associated_schema_name` | REGCLASS | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
 | `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is "_hyper". |
-| `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table will generate an error without this option. Large tables may take significant time to migrate. Defaults to FALSE. |
+| `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Defaults to FALSE. |
 | `time_partitioning_func` | REGCLASS | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
-| `replication_factor` | INTEGER | If set to 1 or greater, will create a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable) in place of `create_hypertable`. |
-| `data_nodes` | ARRAY | This is the set of data nodes that will be used for this table if it is distributed. This has no impact on non-distributed hypertables. If no data nodes are specified, a distributed hypertable will use all data nodes known by this instance. |
+| `replication_factor` | INTEGER | If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable) in place of `create_hypertable`. |
+| `data_nodes` | ARRAY | This is the set of data nodes that are used for this table if it is distributed. This has no impact on non-distributed hypertables. If no data nodes are specified, a distributed hypertable uses all data nodes known by this instance. |
 
-### Returns 
+### Returns
 
 |Column|Type|Description|
 |---|---|---|
@@ -46,32 +46,32 @@ still work on the resulting hypertable.
 | `created` | BOOLEAN | TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created. |
 
 <highlight type="tip">
- If you use `SELECT * FROM create_hypertable(...)` you will get the return value formatted as a table with column headings.
+ If you use `SELECT * FROM create_hypertable(...)` you get the return value formatted as a table with column headings.
 </highlight>
 
 <highlight type="warning">
 The use of the `migrate_data` argument to convert a non-empty table can
 lock the table for a significant amount of time, depending on how much data is
-in the table. It can also run into deadlock if foreign key constraints exist to 
+in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
-If you would like finer control over index formation and other aspects of your 
+If you would like finer control over index formation and other aspects of your
 hypertable, [follow these migration instructions instead](/timescaledb/latest/how-to-guides/migrate-data).
 
-When converting a normal SQL table to a hypertable, pay attention to how you handle 
-constraints. A hypertable can contain foreign keys to normal SQL table columns, 
-but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the 
+When converting a normal SQL table to a hypertable, pay attention to how you handle
+constraints. A hypertable can contain foreign keys to normal SQL table columns,
+but the reverse is not allowed. UNIQUE and PRIMARY constraints must include the
 partitioning key.
 
 The deadlock is likely to happen when concurrent transactions simultaneously try
-to insert data into tables that are referenced in the foreign key constraints 
+to insert data into tables that are referenced in the foreign key constraints
 and into the converting table itself. The deadlock can be prevented by manually
-obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling 
-`create_hypertable` in the same transaction, see 
+obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling
+`create_hypertable` in the same transaction, see
 [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-lock.html) for the syntax.
 </highlight>
 
-#### Units 
+#### Units
 
 The 'time' column supports the following data types:
 
@@ -81,13 +81,13 @@ The 'time' column supports the following data types:
 | DATE |
 | Integer (SMALLINT, INT, BIGINT) |
 
-<highlight type="tip"> The type flexibility of the 'time' column allows the use 
-of non-time-based values as the primary chunk partitioning column, as long as 
+<highlight type="tip"> The type flexibility of the 'time' column allows the use
+of non-time-based values as the primary chunk partitioning column, as long as
 those values can increment.
 </highlight>
 
-<highlight type="tip"> For incompatible data types (e.g. `jsonb`) you can 
-specify a function to the `time_partitioning_func` argument which can extract 
+<highlight type="tip"> For incompatible data types (e.g. `jsonb`) you can
+specify a function to the `time_partitioning_func` argument which can extract
 a compatible data type
 </highlight>
 
@@ -121,11 +121,11 @@ the dimension's key space, which is then divided across the partitions.
 <highlight type="tip">
  The time column in `create_hypertable` must be defined as `NOT
  NULL`.  If this is not already specified on table creation,
- `create_hypertable` will automatically add this constraint on the
+ `create_hypertable` automatically adds this constraint on the
  table when it is executed.
 </highlight>
 
-### Sample Usage 
+### Sample Usage
 
 Convert table `conditions` to hypertable with just time partitioning on column `time`:
 ```sql
@@ -183,7 +183,7 @@ SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_sta
 ```
 
 
-#### Best Practices 
+#### Best Practices
 
 One of the most common questions users of TimescaleDB have revolves around
 configuring `chunk_time_interval`.
@@ -194,14 +194,14 @@ manually-set intervals, users should specify a `chunk_time_interval`
 when creating their hypertable (the default value is 1 week). The
 interval used for new chunks can be changed by calling [`set_chunk_time_interval()`](/hypertable/set_chunk_time_interval).
 
-The key property of choosing the time interval is that the chunk (including indexes) 
+The key property of choosing the time interval is that the chunk (including indexes)
 belonging to the most recent interval (or chunks if using space
 partitions) fit into memory.  As such, we typically recommend setting
 the interval so that these chunk(s) comprise no more than 25% of main
 memory.
 
 <highlight type="tip">
-Make sure that you are planning for recent chunks from _all_ active hypertables 
+Make sure that you are planning for recent chunks from _all_ active hypertables
 to fit into 25% of main memory, rather than 25% per hypertable.
 </highlight>
 
@@ -227,8 +227,8 @@ function.
 </highlight>
 
 **Space partitions:** In most cases, it is advised for users not to use
-space partitions. However, if you create a distributed hypertable, it is 
-important to create space partitioning, see 
-[create_distributed_hypertable](/distributed-hypertables/create_distributed_hypertable). 
+space partitions. However, if you create a distributed hypertable, it is
+important to create space partitioning, see
+[create_distributed_hypertable](/distributed-hypertables/create_distributed_hypertable).
 The rare cases in which space partitions may be useful for non-distributed
 hypertables are described in the [add_dimension](/hypertable/add_dimension) section.

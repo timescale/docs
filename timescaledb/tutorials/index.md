@@ -1,5 +1,5 @@
 # Tutorials
-We've created a host of code-focused tutorials that will help you get
+We've created a host of code-focused tutorials that help you get
 started with *TimescaleDB*.
 
 Most of these tutorials require a working [installation of TimescaleDB][install-timescale].

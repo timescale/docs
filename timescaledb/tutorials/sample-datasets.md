@@ -77,7 +77,7 @@ psql -U postgres -h localhost -d devices_small
 
 ## In-depth: Device ops datasets [](in-depth-devices)
 After importing one of these datasets (`devices_small`, `devices_med`, `devices_big`),
-you will find a plain PostgreSQL table called `device_info`
+you have a plain PostgreSQL table called `device_info`
 and a hypertable called `readings`. The `device_info` table has (static)
 metadata about each device, such as the OS name and manufacturer.
 The `readings` hypertable tracks data sent from each device, e.g. CPU activity,
@@ -194,7 +194,7 @@ hour                   | min_battery_level | max_battery_level
 
 ## In-depth: Weather datasets [](in-depth-weather)
 After importing one of these datasets (`weather_small`, `weather_med`, `weather_big`),
-you will find a plain PostgreSQL table called `locations` and
+you notice a plain PostgreSQL table called `locations` and
 a hypertable called `conditions`. The `locations` table has metadata about
 each of the locations, such as its name and environmental type.
 The `conditions` hypertable tracks readings of temperature and humidity from

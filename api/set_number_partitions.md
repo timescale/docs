@@ -17,7 +17,7 @@ hypertable. The new partitioning only affects new chunks.
 | `dimension_name` | REGCLASS | The name of the space dimension to set the number of partitions for. |
 
 The `dimension_name` needs to be explicitly specified only if the
-hypertable has more than one space dimension. An error will be thrown
+hypertable has more than one space dimension. An error is thrown
 otherwise.
 
 ### Sample Usage
