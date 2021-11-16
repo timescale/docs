@@ -1,6 +1,6 @@
 ## yum Installation [](installation-yum)
 
-This will install both TimescaleDB *and* PostgreSQL via `yum`
+This installs both TimescaleDB *and* PostgreSQL via `yum`
 (or `dnf` on Fedora).
 
 **Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
@@ -13,7 +13,7 @@ This will install both TimescaleDB *and* PostgreSQL via `yum`
 
 <highlight type="warning">
  If you have another PostgreSQL installation not
-via `yum`, this will likely cause problems.
+via `yum`, this could cause problems.
 If you wish to maintain your current version of PostgreSQL outside of `yum`,
 we recommend installing from source.  Otherwise please be
 sure to remove non-`yum` installations before using this method.
@@ -28,7 +28,7 @@ sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(
 ```
 
 Add TimescaleDB's third party repository and install TimescaleDB,
-which will download any dependencies it needs from the PostgreSQL repo:
+which downloads any dependencies it needs from the PostgreSQL repo:
 ```bash
 # Add timescaledb repo
 sudo tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
@@ -60,7 +60,7 @@ in the database as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 #### Configure your database
 
 There are a [variety of settings that can be configured][config] for your
-new database. At a minimum, you will need to update your `postgresql.conf`
+new database. At a minimum, you need to update your `postgresql.conf`
 file to include `shared_preload_libraries = 'timescaledb'`.
 The easiest way to get started is to run `timescaledb-tune`, which is
 installed by default when using `yum`:
@@ -68,7 +68,7 @@ installed by default when using `yum`:
 sudo timescaledb-tune
 ```
 
-This will ensure that our extension is properly added to the parameter
+This ensures that our extension is properly added to the parameter
 `shared_preload_libraries` as well as offer suggestions for tuning memory,
 parallelism, and other settings.
 

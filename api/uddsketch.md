@@ -32,7 +32,7 @@ later with these functions and using the `UddSketch` data as input.
 ## Required arguments
 |Name| Type |Description|
 |-|-|-|
-|`size`|`INTEGER`|Maximum number of buckets in the sketch. Providing a larger value here will make it more likely that the aggregate will able to maintain the desired error, though will potentially increase the memory usage.|
+|`size`|`INTEGER`|Maximum number of buckets in the sketch. Providing a larger value here makes it more likely that the aggregate is able to maintain the desired error, but  potentially increases the memory usage.|
 |`max_error`|`DOUBLE PRECISION`|This is the starting maximum relative error of the sketch, as a multiple of the actual value. The true error may exceed this if too few buckets are provided for the data distribution.|
 |`value`|`DOUBLE PRECISION`|Column to aggregate|
 

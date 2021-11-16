@@ -7,7 +7,7 @@ requires schema synchronization between the primary and replica nodes and
 replicating partition root tables, which are [not currently
 supported][postgres-partition-limitations].
 
-This tutorial will outline the basic configuration needed to set up streaming
+This tutorial outline the basic configuration needed to set up streaming
 replication on one or more replicas, covering both synchronous and asynchronous
 options. It assumes you have at least two separate instances of TimescaleDB
 running. If you're using our [Docker Image][timescale-docker], we recommend
@@ -26,7 +26,7 @@ see their [WAL Documentation](https://www.postgresql.org/docs/current/static/wal
 ## Configure the primary database
 
 Create a PostgreSQL user with a role that allows it to initialize streaming
-replication. This will be the user each replica uses to stream from the primary
+replication. This is the user each replica uses to stream from the primary
 database. Run the command as the `postgres` user, or another user that is
 configured with superuser privileges on the database you're working with.
 
@@ -66,7 +66,7 @@ you intend to have.
   streaming replication.
 * `max_replication_slots` - The total number of replication slots the primary
   database can support. See below for more information about replication slots.
-* `listen_address` - Since remote replicas will be connecting to the primary to
+* `listen_address` - Since remote replicas are connecting to the primary to
   stream the WAL, we'll need to make sure that the primary is not just listening
   on the local loopback.
 
@@ -90,11 +90,11 @@ max_replication_slots = 1
 synchronous_commit = off
 ```
 
-In this example, the WAL will be streamed to the replica, but the primary server
-will not wait for confirmation that the WAL has been written to disk on either
+In this example, the WAL is streamed to the replica, but the primary server
+does not wait for confirmation that the WAL has been written to disk on either
 the primary or the replica. This is the most performant replication
 configuration, but it does carry the risk of a small amount of data loss in the
-event of a system crash. It also makes no guarantees that the replica will be
+event of a system crash. It also makes no guarantees that the replica is
 fully up to date with the primary, which could cause inconsistencies between
 read queries on the primary and the replica.
 
@@ -131,9 +131,9 @@ host       replication     repuser         <REPLICATION_HOST_IP>/32     scram-sh
 ```
 
 <highlight type="tip">
-The above settings will restrict replication connections to traffic coming
+The above settings restrict replication connections to traffic coming
 from `REPLICATION_HOST_IP` as the PostgreSQL user `repuser` with a valid
-password. `REPLICATION_HOST_IP` will be able to initiate streaming replication
+password. `REPLICATION_HOST_IP` can initiate streaming replication
 from that machine without additional credentials. You may want to
 change the `address` and `method` values to match your security and network
 settings. Read more about `pg_hba.conf` in the [official documentation](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html).
@@ -148,7 +148,7 @@ by restoring the replica from a base backup of the primary instance.
 
 ### Create a base backup on the replica
 
-Stop PostgreSQL. If the replica's PostgreSQL database already has data, you will
+Stop PostgreSQL. If the replica's PostgreSQL database already has data, you
 need to remove it prior to running the backup. This can be done by removing the
 contents of the PostgreSQL data directory. To determine the location of the
 data directory, run `show data_directory;` in a `psql` shell.
@@ -165,7 +165,7 @@ pg_basebackup -h <PRIMARY_IP> -D <DATA_DIRECTORY> -U repuser -vP -W
 ```
 
 <highlight type="warning">
-The -W flag will prompt you for a password on the command line. This may
+The -W flag prompts you for a password on the command line. This may
 cause problems for automated setups. If you are using password based
 authentication in an automated setup, you may need to make use of a
 [pgpass file](https://www.postgresql.org/docs/current/static/libpq-pgpass.html).
@@ -225,7 +225,7 @@ LOG:  database system is ready to accept read only connections
 LOG:  started streaming WAL from primary at 0/3000000 on timeline 1
 ```
 
-Any clients will be able to perform reads on the replica. Verify this
+Any clients can perform reads on the replica. Verify this
 by running inserts, updates, or other modifications to your data on the primary
 and querying the replica to ensure they have been properly copied over.
 This is fully compatible with TimescaleDB's functionality, provided
@@ -247,18 +247,18 @@ If `synchronous_standby_names` is empty, the settings `on`, `remote_apply`,
 transaction commits only wait for local flush to disk.
 </highlight>
 
-* `on` - Default value. The server will not return "success" until the WAL
+* `on` - Default value. The server does not return "success" until the WAL
   transaction has been written to disk on the primary and any replicas.
-* `off` - The server will return "success" when the WAL transaction has been
+* `off` - The server returns "success" when the WAL transaction has been
   sent to the operating system to write to the WAL on disk on the primary, but
-  will not wait for the operating system to actually write it. This can cause
+  does not wait for the operating system to actually write it. This can cause
   a small amount of data loss if the server crashes when some data has not been
-  written, but it will not result in data corruption. Turning
+  written, but it does not result in data corruption. Turning
   `synchronous_commit` off is a well known PostgreSQL optimization for
   workloads that can withstand some data loss in the event of a system
   crash.
 * `local` - Enforces `on` behavior only on the primary server.
-* `remote_write` - The database will return "success" to a client when the
+* `remote_write` - The database returns "success" to a client when the
   WAL record has been sent to the operating system for writing to the WAL on
   the replicas, but before confirmation that the record has actually been
   persisted to disk. This is basically asynchronous commit except it waits
@@ -267,7 +267,7 @@ transaction commits only wait for local flush to disk.
 * `remote_apply` - Requires confirmation that the WAL records have been
   written to the WAL *and* applied to the databases on all replicas. This
   provides the strongest consistency of any of the `synchronous_commit`
-  options. In this mode, replicas will always reflect the latest state of
+  options. In this mode, replicas always reflect the latest state of
   the primary, and the concept of replication lag (see [Replication
   Diagnostics](#view-replication-diagnostics)) is basically non-existent.
 
@@ -283,31 +283,31 @@ Remote Apply | X | X | X | X | X
 
 An important complementary setting to `synchronous_commit` is
 `synchronous_standby_names`. This setting lists the names of all replicas the
-primary database will support for synchronous replication, and configures *how*
-the primary database will wait for them. The setting supports several
+primary database supports for synchronous replication, and configures *how*
+the primary database waits for them. The setting supports several
 different formats:
 
-* `FIRST num_sync (replica_name_1, replica_name_2)` - This will wait for
+* `FIRST num_sync (replica_name_1, replica_name_2)` - This waits for
   confirmation from the first `num_sync` replicas before returning
   "success". The list of replica_names determines the relative priority of
   the replicas. Replica names are determined by the `application_name`
   setting on the replicas.
-* `ANY num_sync (replica_name_1, replica_name_2)`  - This will wait for
+* `ANY num_sync (replica_name_1, replica_name_2)`  - This waits for
   confirmation from `num_sync` replicas in the provided list, regardless of
   their priority/position in the list. This is essentially a quorum
   function.
 
 <highlight type="warning">
-Any synchronous replication mode will force the primary to wait until all
+Any synchronous replication mode forces the primary to wait until all
 required replicas have written the WAL or applied the database transaction,
 depending on the `synchronous_commit` level. This could cause the
 primary to hang indefinitely if a required replica crashes. When the replica
-reconnects, it will replay any of the WAL it needs to catch up. Only then will
+reconnects, it replays any of the WAL it needs to catch up. Only then does
 the primary be able to resume writes. To mitigate this, provision more than the
 amount of nodes required under the `synchronous_standby_names` setting and list
-them in the `FIRST` or `ANY` clauses. This will allow the primary to move
+them in the `FIRST` or `ANY` clauses. This allows the primary to move
 forward as long as a quorum of replicas have written the most recent WAL
-transaction. Replicas that were out of service will be able to reconnect and
+transaction. Replicas that were out of service is able to reconnect and
 replay the missed WAL transactions asynchronously.
 </highlight>
 

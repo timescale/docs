@@ -13,20 +13,20 @@ you'll learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
-Obviously, you will need to [install Node][node-install] and the
+Obviously, you need to [install Node][node-install] and the
 [Node Package Manager (npm)][npm-install] as well.
 
 ## Connect Node to TimescaleDB [](new-database)
 
 TimescaleDB is based on PostgreSQL and we can use common PostgreSQL tools to connect
-your Node app to the database. In this example, we will use a common Node.js
+your Node app to the database. This example uses a common Node.js
 Object Relational Mapper (ORM) called [Sequelize][sequelize-info].
 
 ### Step 1: Create your Node app
@@ -37,7 +37,7 @@ Let's initialize a new Node app. From your command line, type the following:
 npm init -y
 ```
 
-This will create a `package.json` file in your directory, which contains all
+This creates a `package.json` file in your directory, which contains all
 of the depenencies for your project:
 
 ```json
@@ -164,7 +164,7 @@ project. From the command line, type the following:
 npx sequelize init
 ```
 
-This will create a `config/config.json` file in your project. We will need to
+This creates a `config/config.json` file in your project. You need to
 modify it with the connection details we tested earlier. For the remainder of
 this application, we'll use a database called `node_test`. Here's a full example
 file. Again, note the `dialectOptions`.
@@ -245,8 +245,8 @@ To start, create a database migration by running the following command:
 npx sequelize migration:generate --name add_tsdb_extension
 ```
 
-You will see a file that has the name `add_tsdb_extension` appended to it in
-your `migrations` folder. Let's modify that file to look like this:
+There is a file that has the name `add_tsdb_extension` appended to it in
+your `migrations` folder. Modify that file to look like this:
 
 ```javascript
 'use strict';
@@ -343,7 +343,7 @@ let PageLoads = sequelize.define('page_loads', {
 });
 ```
 
-We will now be able to instantiate a `PageLoads` object and save it to the
+You can now instantiate a `PageLoads` object and save it to the
 database.
 
 ## Generate hypertable [](create_hypertable)
@@ -418,10 +418,10 @@ Now you have a working connection to your database, a table configured with
 the proper schema, and a hypertable created to more efficiently query data
 by time. Let's add data to the table.
 
-In the `index.js` file, we will modify the `/` route like so to first get the
+In the `index.js` file, modify the `/` route like so to first get the
 `user-agent` from the request object (`req`) and the current timestamp. Then,
-we will save call the `create` method on our model (`PageLoads`), supplying
-the user agent and timestamp parameters. The `create` call will execute
+call the `create` method on our model (`PageLoads`), supplying
+the user agent and timestamp parameters. The `create` call executes
 an `INSERT` on the database:
 
 ```javascript
@@ -449,7 +449,7 @@ app.get('/', async (req, res) => {
 Each time the page is reloaded, we also want to display all information
 currently in the table.
 
-To do this, we will once again modify the `/` route in our `index.js` file
+To do this, modify the `/` route in our `index.js` file
 to call the Sequelize `findAll` function and retrieve all data from the
 `page_loads` table via the `PageLoads` model, like so:
 

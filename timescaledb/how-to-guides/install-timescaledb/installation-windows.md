@@ -14,7 +14,7 @@
 1. Download the the .zip file for your PostgreSQL version - [12][windows-dl-12] or [13][windows-dl-13] or [14][windows-dl-14].
 1. Extract the zip file locally
 1. Run `setup.exe`, making sure that PostgreSQL is not currently running
-1. If successful, a `cmd.exe` window will pop open and you will see the following:
+1. If successful, a `cmd.exe` window pops open and you see the following:
 
 ```bash
 TimescaleDB installation completed succesfully.
@@ -29,12 +29,12 @@ in your database as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 #### Configure your database
 
 There are a [variety of settings that can be configured][config] for your
-new database. At a minimum, you will need to update your `postgresql.conf`
+new database. At a minimum, you need to update your `postgresql.conf`
 file to include `shared_preload_libraries = 'timescaledb'`.
 If you ran `timescaledb-tune` during the install, you are already done.
 If you did not, you can re-run the installer.
 
-This will ensure that our extension is properly added to the parameter
+This ensures that our extension is properly added to the parameter
 `shared_preload_libraries` as well as offer suggestions for tuning memory,
 parallelism, and other settings.
 

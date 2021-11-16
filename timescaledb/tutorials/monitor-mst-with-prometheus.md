@@ -2,16 +2,16 @@
 
 You can get more insights into the performance of your managed TimescaleDB
 database by monitoring it using [Prometheus][get-prometheus], a popular
-open-source metrics-based systems monitoring solution. This tutorial will
-take you through setting up a Prometheus endpoint for a database running
+open-source metrics-based systems monitoring solution. This tutorial
+takes you through setting up a Prometheus endpoint for a database running
 in a [managed service for TimescaleDB][timescale-mst]. To create a monitoring system to ingest and analyze
 Prometheus metrics from your managed TimescaleDB instance, you can use [Promscale][promscale]!
 
-This will expose metrics from the [node_exporter][node-exporter-metrics] as well
+This exposes metrics from the [node_exporter][node-exporter-metrics] as well
 as [pg_stats][pg-stats-metrics] metrics.
 
 ### Prerequisites
-In order to proceed with this tutorial, you will need a managed service for TimescaleDB database.
+In order to proceed with this tutorial, you need a managed service for TimescaleDB database.
 To create one, see these instructions for how to
 [get started with managed service for TimescaleDB][timescale-mst-get-started]
 
@@ -22,15 +22,15 @@ integrations, pictured below.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/docs.iobeam.com/images/Prometheus_service_integration_0.png" alt="Service Integrations Menu Option"/>
 
-This will present you with the option to add a Prometheus integration point.
+This presents you with the option to add a Prometheus integration point.
 Select the plus icon to add a new endpoint and give it a name of your choice.
 We've named ours `endpoint_dev`.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/docs.iobeam.com/images/Prometheus_service_integration_1.png" alt="Create a Prometheus endpoint on Timescale Cloud"/>
 
 Furthermore, notice that you are given basic authentication information and a port number
-in order to access the service. This will be used when setting up your Prometheus
-installation, in the `prometheus.yml` configuration file. This will enable you to make
+in order to access the service. This is used when setting up your Prometheus
+installation, in the `prometheus.yml` configuration file. This enables you to make
 this managed TimescaleDB endpoint a target for Prometheus to scrape.
 
 Here's a sample configuration file you can use when you setup your Prometheus

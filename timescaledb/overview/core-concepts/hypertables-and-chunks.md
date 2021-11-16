@@ -29,9 +29,9 @@ different days belong to different chunks.
 
 TimescaleDB creates these chunks automatically as rows are inserted into the
 database.  If the timestamp of a newly-inserted row belongs to a day not yet
-present in the database, TimescaleDB will create a new chunk corresponding to
-that day as part of the INSERT process. Otherwise, TimescaleDB will
-determine the existing chunk(s) to which the new row(s) belong, and
+present in the database, TimescaleDB creates a new chunk corresponding to
+that day as part of the INSERT process. Otherwise, TimescaleDB
+determines the existing chunk(s) to which the new row(s) belong, and
 insert the rows into the corresponding chunks.  The interval of a hypertable's
 partitioning can also be changed over time (e.g., to adapt to changing workload
 conditions, so in one example, a hypertable could initially create a new chunk
@@ -46,10 +46,10 @@ We sometimes refer to hypertables partitioned by both time and this additional
 dimension as "time and space" partitions.
 
 This time-and-space partitioning is primarily used for *[distributed hypertables]*.
-With such two-dimensional partitioning, each time interval will also be
+With such two-dimensional partitioning, each time interval is also
 partitioned across multiple nodes comprising the distributed hypertables.
 In such cases, for the same hour, information about some portion of the
-devices will be stored on each node.  This allows multi-node TimescaleDB
+devices are stored on each node.  This allows multi-node TimescaleDB
 to parallelize inserts and queries for data during that time interval.
 
 [//]: # (Comment: We should include an image that shows a chunk picture of a)
@@ -62,7 +62,7 @@ A chunk includes constraints that specify and enforce its partitioning ranges,
 e.g., that the time interval of the chunk covers
 ['2020-07-01 00:00:00+00', '2020-07-02 00:00:00+00'),
 and all rows included in the chunk must have a time value within that
-range. Any space partitions will be reflected as chunk constraints as well.
+range. Any space partitions are reflected as chunk constraints as well.
 As these ranges and partitions are non-overlapping, all chunks in a
 hypertable are disjoint in their partitioning dimensional space.
 

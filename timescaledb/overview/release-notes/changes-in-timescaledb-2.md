@@ -18,7 +18,7 @@ you need to take.
 
 *   **Dropping support for PostgreSQL versions 9.6 and 10:** As mentioned in
 [our upgrade documentation](/how-to-guides/update-timescaledb/), TimescaleDB 2.0
- no longer supports older PostgreSQL versions. You will need to be running PostgreSQL
+ no longer supports older PostgreSQL versions. You need to be running PostgreSQL
   version 11 or 12 to upgrade your TimescaleDB installation to 2.0.
 *   **Continuous aggregates:** We have made major changes in the creation and management
 of continuous aggregates to address user feedback.
@@ -38,7 +38,7 @@ about the impetus for these changes and our design decisions. For a more in-dept
 Once you have read through this guide and understand the impact that upgrading to the latest
  version may have on your existing application and infrastructure, please follow our
  [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/)
-  documentation. You will find straight-forward instructions and recommendations to ensure
+  documentation. You can find straight-forward instructions and recommendations to ensure
   everything is updated and works correctly.
 
 
@@ -156,7 +156,7 @@ return multiple columns and (possibly) multiple rows of information.
 
 *   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):  
 The function has been renamed from `hypertable_relation_size(hypertable)`.  Further, if the hypertable is distributed,
-it will return multiple rows, one per each of the hypertable's data nodes.
+it returns multiple rows, one per each of the hypertable's data nodes.
 *   [`hypertable_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_size):  Returns a single
 value giving the aggregated hypertable size, including both tables (chunks) and indexes.
 *   [`chunks_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/chunks_detailed_size):  Returns
@@ -228,7 +228,7 @@ In the example above, `CREATE MATERIALIZED VIEW `creates a continuous aggregate 
 associated with it.  Notice also that  `WITH NO DATA` is specified at the end. This prevents the view from
 materializing data at creation time, instead deferring the population of aggregated data until the policy runs
 as a background job or as part of a manual refresh. Therefore, we recommend that users create continuous aggregates
-using the `WITH NO DATA` option, especially if a significant amount of historical data will be materialized.
+using the `WITH NO DATA` option, especially if a significant amount of historical data can be materialized.
 
 Once the Continuous Aggregate is created, calling `add_continuous_aggregate_policy` creates a continuous
 aggregate policy, which automatically materializes or refreshes the data following the schedule and rules
@@ -246,9 +246,9 @@ The above example sets the refresh interval as between four weeks and two hours 
 respectively). Therefore, if any late data arrives with timestamps within the last four weeks and is backfilled
 into the source hypertable, then the continuous aggregate view is updated with this old data the next time the policy executes.
 
-This policy will, in the worst case, materialize the whole window every time it runs if data at least four weeks
+This policy can, in the worst case, materialize the whole window every time it runs if data at least four weeks
 old continues to arrive and be inserted into the source hypertables.  However, since a continuous aggregate tracks
-changes since the last refresh, it will in most cases materialize a subset of the window that corresponds to the
+changes since the last refresh, it can in most cases materialize a subset of the window that corresponds to the
 data that has actually changed.
 
 In this example, data backfilled more than 4 weeks ago is not rematerialized, nor does the continuous aggregate
@@ -286,7 +286,7 @@ then scheduled via `add_job`.
 Note that `refresh_continuous_aggregate` only recomputes the aggregated time buckets that completely fall
 inside the given refresh window and are in a region that has seen changes in the underlying hypertable.
 Thus, if no changes have occurred in the underlying source data (that is, no data has been backfilled to the
-region or no updates to existing data have been made), no materialization will be performed either over that
+region or no updates to existing data have been made), no materialization is performed either over that
 region. This behavior is similar to the continuous aggregate policy and ensures more efficient operation.
 
 
@@ -298,7 +298,7 @@ users should understand the interactions between data retention policy settings 
 Before starting the upgrade to TimescaleDB 2.0, **we highly recommend checking the database log for errors related
 to failed retention policies that were occurring in TimescaleDB 1.x** and then either removing them or updating them
 to be compatible with existing continuous aggregates. Any remaining retention policies that are still incompatible
-with the `ignore_invalidation_older_than` setting will automatically be disabled with a notice during the upgrade.
+with the `ignore_invalidation_older_than` setting is automatically disabled with a notice during the upgrade.
 
 As an example, if a data retention policy on a hypertable is set for `drop_after => '4 weeks'`, then the policy
 associated with a continuous aggregate on that same hypertable should have a `start_offset` less than or equal
@@ -317,12 +317,12 @@ be dropped by a retention policy, the retention policy would silently fail.  Mak
 required users to modify settings in either the retention policy or the continuous aggregate, and even then some
 data wasn't always materialized as expected.
 
-After upgrading to TimescaleDB 2.0, **retention policies will no longer fail due to incompatibilities with
+After upgrading to TimescaleDB 2.0, **retention policies no longer fail due to incompatibilities with
 continuous aggregates** and users have to ensure that retention and continuous aggregate policies have the
 desired interplay.
 
-Another change in 2.0 is that `drop_chunks` and the retention policy will no longer
-automatically refresh continuous aggregates to account for changes in original hypertable
+Another change in 2.0 is that `drop_chunks` and the retention policy no longer
+automatically refreshes continuous aggregates to account for changes in original hypertable
 after the last refresh. Previously, the goal was to ensure that all updates were processed
 prior to dropping chunks in the original hypertable. In practice, it often didn't work as intended.
 
@@ -384,7 +384,7 @@ one should simply use a refresh window that does not include that region of data
 always be refreshed at a later time, either manually or via a policy.
 
 To ensure that previously ignored backfill can be refreshed after the upgrade to TimescaleDB 2.0, the upgrade
-process will mark the region older than the `ignore_invalidation_older_than` threshold as "requiring refresh".
+process marks the region older than the `ignore_invalidation_older_than` threshold as "requiring refresh".
 This allows a manual refresh to bring a continuous aggregate up-to-date with the underlying source data. If
 the `ignore_invalidation_older_than` threshold was modified at some point to a longer interval, we recommend
 setting it back to the smaller interval prior to upgrading to ensure that all the backfill can be refreshed,
@@ -413,7 +413,7 @@ statistics related to all jobs.
 ### Updating existing continuous aggregates [](updating-continuous-aggregates)
 
 If you have existing continuous aggregates and you update your database to TimescaleDB 2.0, the update scripts
-will automatically reconfigure your continuous aggregates to use the new framework.
+automatically reconfigure your continuous aggregates to use the new framework.
 
 In particular, the update process should:
 
@@ -424,8 +424,8 @@ ather than `refresh_interval`).
 *   Automatically configure `end_offset` to have an offset from `now()` equivalent to  the old `refresh_lag` setting.
 *   Mark all the data older than the interval `ignore_invalidation_older_than` as out-of-date, so that it can be refreshed.
 *   Disable any retention policies that are failing due to being incompatible with the current setting of
-`ignore_invalidation_older_than` on a continuous aggregate (as described above). Disabled policies will remain post
-upgrade, but will not be scheduled to run (`scheduled=false `in` timescaledb_information.jobs`). If failing policies
+`ignore_invalidation_older_than` on a continuous aggregate (as described above). Disabled policies remain after
+upgrade, but are not scheduled to run (`scheduled=false `in` timescaledb_information.jobs`). If failing policies
 were to be migrated to 2.0 they would start to work again, but likely with unintended consequences. Therefore, any
 retention policies that are disabled post update should have their settings carefully reviewed before being enabled again.
 

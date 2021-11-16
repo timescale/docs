@@ -1,10 +1,10 @@
 # Installing psql on Mac, Ubuntu, Debian, Windows
 
-`psql` is the standard command line interface for interacting with a PostgreSQL 
+`psql` is the standard command line interface for interacting with a PostgreSQL
 or TimescaleDB instance. Here we explain how to install `psql` on various platforms.
 
-**Before you start**, you should confirm that you don’t already have `psql` installed. 
-In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already 
+**Before you start**, you should confirm that you don’t already have `psql` installed.
+In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already
 have `psql` installed.
 
 ```bash
@@ -48,7 +48,7 @@ sudo apt-get install postgresql-client
 We recommend using the installer from [PostgreSQL.org][windows-installer].
 
 ## Connect to your PostgreSQL server
-In order to connect to your PostgreSQL server, you’ll need the following 
+In order to connect to your PostgreSQL server, you’ll need the following
 connection parameters:
 - Hostname
 - Port
@@ -60,13 +60,13 @@ There are two ways to use these parameters to connect to your PostgreSQL databas
 
 ### Option 1: Supply parameters at the command line
 In this method, use parameter flags on the command line to supply the required
-information to connect to a PostgreSQL database: 
+information to connect to a PostgreSQL database:
 
 ```bash
 psql -h HOSTNAME -p PORT -U USERNAME -W -d DATABASENAME
 ```
 
-Once you run that command, the prompt will ask you for your password. (This is the purpose 
+Once you run that command, the prompt asks you for your password. (This is the purpose 
 of the `-W` flag.)
 
 ### Option 2: Use a service URI
@@ -119,15 +119,15 @@ SELECT rates.description, COUNT(vendor_id) AS num_trips,
  FROM rides
  JOIN rates ON rides.rate_code = rates.rate_code
  WHERE rides.rate_code IN (2,3) AND pickup_datetime < '2016-02-01'
- GROUP BY rates.description 
+ GROUP BY rates.description
  ORDER BY rates.description;
 ```
 
 It would be pretty common to make an error the first couple of times you attempt to
 write something that long in SQL. Instead of re-typing every line or character,
-you can launch a `vim` editor using the `\e` command. Your previous command can 
-then be edited, and once you save ("Escape-Colon-W-Q") your edits, the command will 
-appear in the buffer. You will be able to get back to it by pressing the up arrow
+you can launch a `vim` editor using the `\e` command. Your previous command can
+then be edited, and once you save ("Escape-Colon-W-Q") your edits, the command  
+appears in the buffer. You can get back to it by pressing the up arrow
 in your Terminal window.
 
 Congrats! Now you have connected via `psql`.
