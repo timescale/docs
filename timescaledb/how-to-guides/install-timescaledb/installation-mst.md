@@ -1,7 +1,8 @@
 # Install Managed Service for TimescaleDB
 Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
 than 75 regions in AWS, Azure, or GCP. You can
-[try Managed Service for TimescaleDB for free][mst-sign-up], no credit card required.
+[try Managed Service for TimescaleDB for free][mst-sign-up], no credit card
+required.
 
 Powered by [TimescaleDB][timescale-features], you can create database instances
 in the  cloud and automate many of your most common operational tasks. This
