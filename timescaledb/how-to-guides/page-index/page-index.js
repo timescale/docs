@@ -73,7 +73,7 @@ module.exports = [
               },
               {
                 title: 'MacOS',
-                href: 'installation-homebrew',
+                href: 'installation-macos',
                 tags: ['install', 'macos', 'homebrew', 'timescaledb'],
                 keywords: [
                   'timescaledb',
@@ -98,45 +98,45 @@ module.exports = [
                 excerpt:
                   'Install self-hosted TimescaleDB on any operating system from source',
               },
+            ],
+          },
+          {
+            title: 'Pre-built containers',
+            href: 'installation-docker',
+            tags: ['install', 'docker', 'timescaledb'],
+            keywords: [
+              'TimescaleDB',
+              'install',
+              'self-hosted',
+              'Docker',
+            ],
+            excerpt:
+              'Install self-hosted TimescaleDB with a pre-built Docker container',
             },
             {
-              title: 'Pre-built containers',
-              href: 'installation-docker',
-              tags: ['install', 'docker', 'timescaledb'],
+              title: 'Pre-built cloud images',
+              href: 'installation-cloud-image',
+              tags: ['install', 'aws', 'ami', 'ubuntu', 'Timescaledb'],
               keywords: [
                 'TimescaleDB',
                 'install',
                 'self-hosted',
-                'Docker',
+                'AWS',
+                'AMI',
+                'Ubuntu',
               ],
               excerpt:
-                'Install self-hosted TimescaleDB with a pre-built Docker container',
+                'Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI',
               },
               {
-                title: 'Pre-built cloud images',
-                href: 'installation-ami',
-                tags: ['install', 'aws', 'ami', 'ubuntu', 'Timescaledb'],
-                keywords: [
-                  'TimescaleDB',
-                  'install',
-                  'self-hosted',
-                  'AWS',
-                  'AMI',
-                  'Ubuntu',
-                ],
-                excerpt:
-                  'Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI',
-                },
-                {
-                  title: 'Managed Service for TimescaleDB',
-                  href: 'installation-mst',
-                  tags: ['mst', 'install'],
-                  keywords: ['install', 'Managed Service for TimescaleDB'],
-                  excerpt: 'Install a managed service for TimescaleDB',
-                },
-            ],
-          },
+                title: 'Managed Service for TimescaleDB',
+                href: 'installation-mst',
+                tags: ['mst', 'install'],
+                keywords: ['install', 'Managed Service for TimescaleDB'],
+                excerpt: 'Install a managed service for TimescaleDB',
+              },
         ],
+      },
       {
         title: 'Connecting to TimescaleDB',
         href: 'connecting',
