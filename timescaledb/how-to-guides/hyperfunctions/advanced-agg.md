@@ -37,7 +37,7 @@ percentiles, then choose `tdigest`. If you're more concerned about getting
 highly accurate median estimates, choose `uddsketch`.
 
 The algorithms differ in the way they estimate data. `uddsketch` has a stable
-bucketing function, so it will always return the same percentile estimate for
+bucketing function, so it always returns the same percentile estimate for
 the same underlying data, regardless of how it is ordered or re-aggregated. On
 the other hand,  `tdigest` builds up incremental buckets based on the average of
 nearby points, which can result in some subtle differences in estimates based on
@@ -57,7 +57,7 @@ absolute error of those at the low end of the range. This gets much more extreme
 if the data range is `[0,100]`. If having a stable absolute error is important to
 your use case, choose `tdigest`.
 
-While both algorithms will probably get smaller and faster with future
+While both algorithms are likely to get smaller and faster with future
 optimizations, `uddsketch` generally requires a smaller memory footprint than
 `tdigest`, and a correspondingly smaller disk footprint for any continuous
 aggregates. Regardless of the algorithm you choose, the best way to improve the

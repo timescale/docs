@@ -9,7 +9,7 @@ In this step:
 ## Create a configuration file
 
 This is an optional step, but it is highly recommended that you do not store your password or other sensitive information
-directly in your code. Instead, create a configuration file, for example `config.py`, and include your 
+directly in your code. Instead, create a configuration file, for example `config.py`, and include your
 database connection details and Alpha Vantage API key in there:
 
 ```python
@@ -31,7 +31,7 @@ apikey = config.APIKEY
 
 ## Collect ticker symbols
 
-In order to fetch intraday stock data, you will need to know which ticker symbols you want to analyze.
+In order to fetch intraday stock data, you need to know which ticker symbols you want to analyze.
 First, let's collect a list of symbols so that we can fetch their data later.
 In general, you have a few options to gather a list of ticker symbols dynamically:
 
@@ -63,13 +63,13 @@ Now you have a list of ticker symbols that you can use later to make requests to
 
 ### About the API
 
-Alpha Vantage API provides 2 year historical intraday stock data in 1, 5, 15, or 30 minute 
-intervals. The API outputs a lot of data in a CSV file (around 2200 rows per symbol per 
-day, for a 1 minute interval), so it slices the dataset into one month buckets. This means 
+Alpha Vantage API provides 2 year historical intraday stock data in 1, 5, 15, or 30 minute
+intervals. The API outputs a lot of data in a CSV file (around 2200 rows per symbol per
+day, for a 1 minute interval), so it slices the dataset into one month buckets. This means
 that for one request for a single symbol, the most amount of data you can get is one month.
- The maximum amount of historical intraday data is 24 months. To fetch the maximum 
- amount, you need to slice up your requests by month. For example, `year1month1`, 
- `year1month2`, and so on. Keep in mind that each request can only fetch data for one 
+ The maximum amount of historical intraday data is 24 months. To fetch the maximum
+ amount, you need to slice up your requests by month. For example, `year1month1`,
+ `year1month2`, and so on. Keep in mind that each request can only fetch data for one
  symbol at a time.
 
 Here's an example API endpoint:
@@ -110,7 +110,7 @@ def fetch_stock_data(symbol, month):
     CSV_URL = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY_EXTENDED&' \
               'symbol={symbol}&interval={interval}&slice={slice}&apikey={apikey}' \
               .format(symbol=symbol, slice=slice, interval=interval,apikey=apikey)
-    
+
     # read CSV file directly into a pandas dataframe
     df = pd.read_csv(CSV_URL)
 
@@ -123,15 +123,15 @@ def fetch_stock_data(symbol, month):
     df['time'] = pd.to_datetime(df['time'], format='%Y-%m-%d %H:%M:%S')
 
     # rename columns to match database schema
-    df = df.rename(columns={'time': 'time', 
-                            'open': 'price_open', 
-                            'close': 'price_close', 
+    df = df.rename(columns={'time': 'time',
+                            'open': 'price_open',
+                            'close': 'price_close',
                             'high': 'price_high',
                             'low': 'price_low',
                             'volume': 'trading_volume'})
 
     # convert the dataframe into a list of tuples ready to be ingested
-    return [row for row in df.itertuples(index=False, name=None)] 
+    return [row for row in df.itertuples(index=False, name=None)]
 ```
 
 ## Ingest data into TimescaleDB
@@ -139,7 +139,7 @@ def fetch_stock_data(symbol, month):
 When you have the `fetch_stock_data` function working, and you can fetch the candlestick from the API, you can insert it into the database.
 
 To make the ingestion faster, use [pgcopy][pgcopy-docs] instead of ingesting
-data row by row. TimescaleDB is packaged as an extension to PostgreSQL, meaning all the PostgreSQL tools you know and 
+data row by row. TimescaleDB is packaged as an extension to PostgreSQL, meaning all the PostgreSQL tools you know and
 love already work with TimescaleDB.
 
 ### Ingest data fast with pgcopy
@@ -162,14 +162,14 @@ from pgcopy import CopyManager
 import config, psycopg2
 
 # establish database connection
-conn = psycopg2.connect(database=config.DB_NAME, 
-                        host=config.DB_HOST, 
-                        user=config.DB_USER, 
-                        password=config.DB_PASS, 
+conn = psycopg2.connect(database=config.DB_NAME,
+                        host=config.DB_HOST,
+                        user=config.DB_USER,
+                        password=config.DB_PASS,
                         port=config.DB_PORT)
 
 # column names in the database (pgcopy needs it as a parameter)
-COLUMNS = ('time', 'symbol', 'price_open', 'price_close', 
+COLUMNS = ('time', 'symbol', 'price_open', 'price_close',
            'price_low', 'price_high', 'trading_volume')
 
 # iterate over the symbols list
@@ -216,7 +216,7 @@ time               |symbol|price_open|price_close|price_low|price_high|trading_v
 ```
 
 <highlight type="tip">
-Fetching and ingesting intraday data can take a while, so if you want to see results quickly, 
+Fetching and ingesting intraday data can take a while, so if you want to see results quickly,
 reduce the number of months, or limit the number of symbols.
 </highlight>
 

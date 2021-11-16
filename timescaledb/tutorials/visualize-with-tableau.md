@@ -4,7 +4,7 @@
 greater intelligence about your business. It is an ideal tool for visualizing
 data stored in [TimescaleDB][timescale-products].
 
-In this tutorial, we will cover:
+In this tutorial, we cover:
 
 - Setting up Tableau to work with TimescaleDB
 - Running queries on TimescaleDB from within Tableau
@@ -12,8 +12,8 @@ In this tutorial, we will cover:
 
 ### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
@@ -21,9 +21,9 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 Also, [get a copy or license of Tableau][get-tableau].
 
-You will also want to [complete the Cryptocurrency tutorial][crypto-tutorial], as it will
-setup and configure the data you need to complete the remainder of this
-tutorial. We will visualize many of the queries found at the end of the Cryptocurrency
+You also want to [complete the Cryptocurrency tutorial][crypto-tutorial], as it
+sets up and configures the data you need to complete the remainder of this
+tutorial. We visualize many of the queries found at the end of the Cryptocurrency
 tutorial.
 
 ### Step 1: Setup Tableau to connect to TimescaleDB
@@ -41,7 +41,7 @@ Let's use the built-in SQL editor in Tableau. To run a query, add custom SQL to 
 by dragging and dropping the “New Custom SQL” button (in the bottom left of the Tableau desktop
 user interface) to the place that says ‘Drag tables here'.
 
-A window will pop up, in which we can place a query. In this case, we will use the first
+A window pops up, in which we can place a query. In this case, use the first
 query from the [Cryptocurrency Tutorial][crypto-tutorial]:
 
 ```sql
@@ -72,7 +72,7 @@ To do this, create a new worksheet (or dashboard) and then select your desired d
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-tableau-tutorial/tableau-new-worksheet.png" alt="New worksheet in Tableau to examine time-series data"/>
 
 In the far left pane, you'll see a section Tableau calls 'Dimensions' and 'Measures'.
-Whenever you use Tableau, it will classify your fields as either dimensions or
+Whenever you use Tableau, it classifies your fields as either dimensions or
 measures. A measure is a field that is a dependent variable, meaning its value is a
 function of one or more dimensions. For example, the price of an item on a given day
 is a measure based on which day is in question. A dimension, therefore, is an

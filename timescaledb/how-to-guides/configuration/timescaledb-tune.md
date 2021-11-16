@@ -43,7 +43,7 @@ work_mem = 26214kB
 Is this okay? [(y)es/(s)kip/(q)uit]:
 ```
 
-These changes are then written to your `postgresql.conf` and will take effect
+These changes are then written to your `postgresql.conf` and take effect
 on the next (re)start. If you are starting on fresh instance and don't feel
 the need to approve each group of changes, you can also automatically accept
 and append the suggestions to the end of your `postgresql.conf` like so:

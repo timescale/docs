@@ -4,7 +4,7 @@ open for contribution from all community members. If you  find errors or would
 like to add content to our docs, you can create a pull request using GitHub for
 review by our documentation team. This document contains everything you need to
 know about our writing style and standards, but don't worry too much if you
-aren't sure what to write. Our documentation team will help you craft the
+aren't sure what to write. Our documentation team helps you craft the
 perfect words when you have a PR ready. We also have some automation on our
 repository to help you.
 
@@ -23,7 +23,7 @@ the [README][readme].
 Before we accept any contributions, Timescale contributors need to sign the
 Contributor License Agreement (CLA). By signing a CLA, we  can ensure that the
 community is free and confident in its ability to use your contributions. You
-will be prompted to sign the CLA during the pull request process.
+are prompted to sign the CLA during the pull request process.
 
 ## Resources
 When making style decisions, consult resources in this order:
@@ -53,12 +53,12 @@ notice?
 
 Readers are often in an agitated state by the time they get to our
 documentation. Stressed readers jump around in the text, skip words, steps, or
-paragraphs, and will quickly give up if things seem too complex. To mitigate
+paragraphs, and can quickly give up if things seem too complex. To mitigate
 this, use short sentences, plain language, and a minimum number of eye-catching
 details such as admonitions.
 
 Never assume that because you've explained something earlier in a document,
-readers will know it later in the document. You can use cross-references to help
+readers know it later in the document. You can use cross-references to help
 guide readers to further information if they need it.
 
 ## Grammar

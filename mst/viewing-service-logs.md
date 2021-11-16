@@ -11,7 +11,7 @@ TimescaleDB:
 recent events are available. Logs can be browsed back in time, but scrolling up
 several thousand lines is not very convenient.
  * [Command-line client][] supports programmatically downloading logs. avn service l
-ogs -S desc -f --project your-project-name your-service-name will show all stored logs.
+ogs -S desc -f --project your-project-name your-service-name shows all stored logs.
  * [REST API][] endpoint is available for fetching the same information two above methods
 output, in case programmatic access is needed.
 

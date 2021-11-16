@@ -35,7 +35,7 @@ To use this procedure:
 
 If using a temp table, the table is automatically dropped at the end of your
 database session.  If using a normal table, after you are done backfilling the
-data successfully, you will likely want to truncate your table in preparation
+data successfully, you want to truncate your table in preparation
 for the next backfill (or drop it completely).
 
 ## Manually decompressing chunks for backfill
@@ -58,8 +58,8 @@ SELECT alter_job(<job_id>, scheduled => false);
 ```
 
 We have now paused the compress chunk policy from the hypertable which
-will leave us free to decompress the chunks we need to modify via backfill or
-update. To decompress the chunk(s) that we will be modifying, for each chunk:
+leaves us free to decompress the chunks we need to modify via backfill or
+update. To decompress the chunk(s) that need to be modified, for each chunk:
 
 ``` sql
 SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
@@ -73,7 +73,7 @@ SELECT decompress_chunk(i) from show_chunks('conditions', newer_than, older_than
 ```
 
 <highlight type="tip">
-You need to run 'decompress_chunk' for each chunk that will be impacted
+You need to run 'decompress_chunk' for each chunk that is impacted
 by your INSERT or UPDATE statement in backfilling data. Once your needed chunks
 are decompressed you can proceed with your data backfill operations.
 </highlight>
@@ -85,7 +85,7 @@ our compression policy job:
 SELECT alter_job(<job_id>, scheduled => true);
 ```
 
-This job will re-compress any chunks that were decompressed during your backfilling
+This job re-compresses any chunks that were decompressed during your backfilling
 operation the next time it runs. To have it run immediately, you can expressly execute
 the command via [`run_job`][run-job]:
 
@@ -96,10 +96,10 @@ CALL run_job(<job_id>);
 ## Future Work [](future-work)
 
 One of the current limitations of TimescaleDB is that once chunks are converted
-into compressed column form, we do not allow updates and deletes of the data 
-or changes to the schema without manual decompression, except as noted [above][compression-schema-changes]. 
-In other words, chunks are partially immutable in compressed form. 
-Attempts to modify the chunks' data in those cases will either error or fail silently (as preferred by users). 
+into compressed column form, we do not allow updates and deletes of the data
+or changes to the schema without manual decompression, except as noted [above][compression-schema-changes].
+In other words, chunks are partially immutable in compressed form.
+Attempts to modify the chunks' data in those cases either errors or fails silently (as preferred by users). 
 We plan to remove this limitation in future releases.
 
 

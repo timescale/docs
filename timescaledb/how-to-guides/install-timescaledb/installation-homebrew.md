@@ -1,6 +1,6 @@
 ## Homebrew [](homebrew)
 
-This will install both TimescaleDB *and* PostgreSQL via Homebrew.
+This installs both TimescaleDB *and* PostgreSQL via Homebrew.
 
 **Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
 
@@ -12,7 +12,7 @@ This will install both TimescaleDB *and* PostgreSQL via Homebrew.
 
 <highlight type="warning">
  If you have another PostgreSQL installation
-(such as through Postgres.app), the following instructions will
+(such as through Postgres.app), the following instructions could
 cause problems. If you wish to maintain your current version of PostgreSQL
 outside of Homebrew we recommend installing from source.  Otherwise please be
 sure to remove non-Homebrew installations before using this method.
@@ -32,7 +32,7 @@ brew install timescaledb
 #### Configure your database
 
 There are a [variety of settings that can be configured][config] for your
-new database. At a minimum, you will need to update your `postgresql.conf`
+new database. At a minimum, you need to update your `postgresql.conf`
 file to include `shared_preload_libraries = 'timescaledb'`.
 The easiest way to get started is to run `timescaledb-tune`, which is
 installed as a dependency when you install via Homebrew:
@@ -40,7 +40,7 @@ installed as a dependency when you install via Homebrew:
 timescaledb-tune
 ```
 
-This will ensure that our extension is properly added to the parameter
+This ensures that our extension is properly added to the parameter
 `shared_preload_libraries` as well as offer suggestions for tuning memory,
 parallelism, and other settings.
 

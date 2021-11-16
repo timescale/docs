@@ -24,7 +24,7 @@ but is no longer synchronized.
 
 #### Errors
 
-An error will be generated if the data node cannot be detached from
+An error is generated if the data node cannot be detached from
 all attached hypertables.
 
 ### Required Arguments
@@ -41,11 +41,11 @@ all attached hypertables.
 | `force`       | BOOLEAN | Force removal of data nodes from hypertables unless that would result in data loss.  Defaults to false. |
 | `repartition` | BOOLEAN | Make the number of space partitions equal to the new number of data nodes (if such partitioning exists). This ensures that the remaining data nodes are used evenly. Defaults to true. |
 
-### Returns 
+### Returns
 
 A boolean indicating if the operation was successful or not.
 
-### Sample Usage 
+### Sample Usage
 
 To delete a data node named `dn1`:
 ```sql
