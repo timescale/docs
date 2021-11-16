@@ -77,3 +77,12 @@ dev=# select * FROM (select time_bucket_gapfill(4, time,-5,13), locf(avg(v)::int
                   -8 |
 (6 rows)
 ```
+
+## Compression policies
+
+
+If I have a hypertable with a retention policy of a week, but have the continuous
+aggregations retention policy being a month. Is that going to be OK?
+
+Yes. It means the raw data will be around for a week while continuous
+aggregates will be around for a month.
