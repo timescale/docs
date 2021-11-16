@@ -28,9 +28,9 @@ To launch the AMI, go to the `AMIs` section of your AWS EC2 Dashboard run the fo
 You can also use the image id to build an instance using Cloudformation, Terraform,
 the AWS CLI, or any other AWS deployment tool that supports building from public AMIs.
 
-TimescaleDB is installed on the AMI, but you will still need to follow the steps for
+TimescaleDB is installed on the AMI, but you still need to follow the steps for
 initializing a database with the TimescaleDB extension. See our [setup][] section for details.
-Depending on your user/permission needs, you will also need to set up a postgres superuser for your
+Depending on your user/permission needs, you also need to set up a postgres superuser for your
 database by following these [postgres instructions][]. Another possibility is using the operating
 system's `ubuntu` user and modifying the [pg_hba][].
 

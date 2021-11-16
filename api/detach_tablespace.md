@@ -1,11 +1,11 @@
-## detach_tablespace() 
+## detach_tablespace()
 
 Detach a tablespace from one or more hypertables. This _only_ means
-that _new_ chunks will not be placed on the detached tablespace. This
+that _new_ chunks are not placed on the detached tablespace. This
 is useful, for instance, when a tablespace is running low on disk
 space and one would like to prevent new chunks from being created in
 the tablespace. The detached tablespace itself and any existing chunks
-with data on it will remain unchanged and will continue to work as
+with data on it remains unchanged and continue to work as
 before, including being available for queries. Note that newly
 inserted data rows may still be inserted into an existing chunk on the
 detached tablespace since existing data is not cleared from a detached
@@ -19,7 +19,7 @@ again be considered for chunk placement.
 | `tablespace` | TEXT | Tablespace to detach.|
 
 When giving only the tablespace name as argument, the given tablespace
-will be detached from all hypertables that the current role has the
+is detached from all hypertables that the current role has the
 appropriate permissions for. Therefore, without proper permissions,
 the tablespace may still receive new chunks after this command
 is issued.
@@ -33,11 +33,11 @@ is issued.
 | `if_attached` | BOOLEAN | Set to true to avoid throwing an error if the tablespace is not attached to the given table. A notice is issued instead. Defaults to false. |
 
 
-When specifying a specific hypertable, the tablespace will only be
+When specifying a specific hypertable, the tablespace is only
 detached from the given hypertable and thus may remain attached to
 other hypertables.
 
-### Sample Usage 
+### Sample Usage
 
 Detach the tablespace `disk1` from the hypertable `conditions`:
 

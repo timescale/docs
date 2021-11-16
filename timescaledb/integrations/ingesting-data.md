@@ -65,7 +65,7 @@ The connector is designed to work with [Kafka Connect][kafka-connect] and to be
 deployed to a Kafka Connect runtime service. It’s purpose is to ingest change
 events from PostgreSQL databases (i.e. TimescaleDB).
 
-The deployed connector will monitor one or more schemas within a TimescaleDB
+The deployed connector monitors one or more schemas within a TimescaleDB
 server and write all change events to Kafka topics, which can be independently
 consumed by one or more clients. Kafka Connect can be distributed to provide
 fault tolerance to ensure the connectors are running and continually keeping

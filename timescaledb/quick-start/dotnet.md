@@ -12,8 +12,8 @@ In this Quick Start, you need to:
 You build the application one step at a time, adding new methods to the `TimescaleHelper` class which are called from the `Main` method of the application. When you have finished, the application code provides a brief template for further experimentation as you learn more about TimescaleDB and .NET with `Npgsql`.
 
 ## Prerequisites
-Before you begin this Quick Start, make sure you have: 
-* At least some knowledge of SQL (structured query language). The tutorial will walk you through each SQL command, but it is helpful if you've seen SQL before.
+Before you begin this Quick Start, make sure you have:
+* At least some knowledge of SQL (structured query language). The tutorial walks you through each SQL command, but it is helpful if you've seen SQL before.
 * The latest compatible [.NET runtime installed](https://dotnet.microsoft.com/download/dotnet-framework) and accessible
 * TimescaleDB installed, either in a [self-hosted environment](http://docs.timescale.com/timescaledb/latest/how-to-guides/install-timescaledb/self-hosted/) or in the [cloud](https://www.timescale.com/timescale-signup).
 * A PostgreSQL query tool like [psql](https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/psql/) or any other PostgreSQL client (for example, DBeaver). You need this to explore the final TimescaleDB database.
@@ -42,7 +42,7 @@ cd dotnet-tutorial
 dotnet new console
 ```
 
-1. Add the `Npgsql` package to your project which will be used to connect to TimescaleDB:
+1. Add the `Npgsql` package to your project which is used to connect to TimescaleDB:
 ```bash
 dotnet add package Npgsql
 ```
@@ -57,25 +57,25 @@ namespace com.timescale.docs
 {
     class Program
     {
-        // 
-        // This is the main method that will be called
+        //
+        // This is the main method that is called
         // by default when .NET builds this small application
         static void Main(string[] args)
         {
             // Create a new instance of our helper class. This class
-            // will contain all of the methods for interacting with
+            // contains all of the methods for interacting with
             // TimescaleDB for this tutorial
             TimescaleHelper ts = new TimescaleHelper();
 
-            // Procedure - Connecting .NET to TimescaleDB: 
-            // Verify that the program can connect 
+            // Procedure - Connecting .NET to TimescaleDB:
+            // Verify that the program can connect
             // to the database and that TimescaleDB is installed!
             ts.CheckDatabaseConnection();
 
         }
     }
 
-    // This class will contain all of the methods needed to complete the
+    // This class contains all of the methods needed to complete the
     // quick-start, providing a sample of each database operation in total
     // to refer to later.
     public class TimescaleHelper
@@ -89,9 +89,9 @@ namespace com.timescale.docs
 
         //
         // This is the constructor for our TimescaleHelper class
-        // 
+        //
         public TimescaleHelper(string host="localhost", string user="postgres",
-            string dbname="postgres", string password="password",string port="5432") 
+            string dbname="postgres", string password="password",string port="5432")
         {
             Host=host;
             User=user;
@@ -164,9 +164,9 @@ If you don't see the extension, check our troubleshooting section.
 </procedure>
 
 ## Create a relational table [](create-relational-table)
-When the application can successfully connect to TimescaleDB, you can create some relational data that your time-series data can reference when creating data and executing queries. 
+When the application can successfully connect to TimescaleDB, you can create some relational data that your time-series data can reference when creating data and executing queries.
 
-The new functionality to create the table and insert data is added as a method to the `TimescaleHelper` class and called from the `Main` method of the program. 
+The new functionality to create the table and insert data is added as a method to the `TimescaleHelper` class and called from the `Main` method of the program.
 
 <procedure>
 
@@ -175,7 +175,7 @@ The new functionality to create the table and insert data is added as a method t
 ```csharp
         //
         // Procedure - Creating a relational table:
-        // Create a table for basic relational data and 
+        // Create a table for basic relational data and
         // populate it with a few fake sensors
         //
         public void CreateRelationalData() {
@@ -203,7 +203,7 @@ The new functionality to create the table and insert data is added as a method t
                     new KeyValuePair<string, string>("b","ceiling")
                 };
 
-                // Iterate over the list to insert it into the newly 
+                // Iterate over the list to insert it into the newly
                 // created relational table using parameter substitution
                 foreach(KeyValuePair<string,string> kvp in sensors)
                 {
@@ -251,12 +251,12 @@ A hypertable is the core architecture that many other TimescaleDB features is bu
 <procedure>
 
 ### Creating a hypertable
-1. Add a new method to the bottom of the `TimescaleHelper` class that will create a new table and convert it to a hypertable:
+1. Add a new method to the bottom of the `TimescaleHelper` class that creates a new table and convert it to a hypertable:
 ```csharp
         //
         // Procedure - Creating a hypertable:
         // Create a new table to store time-series data and create
-        // a new TimescaleDB hypertable using the new table. It will be
+        // a new TimescaleDB hypertable using the new table. It is
         // partitioned on the 'time' column
         public void CreateHypertable(){
             //use one connection to use for all three commands below.
@@ -293,7 +293,7 @@ A hypertable is the core architecture that many other TimescaleDB features is bu
     ```csharp
                 // Procedure - Creating a hypertable
                 // Create a new table and make it a hypertable to store
-                // time-series data that we will generate
+                // the generated time-series data
                 ts.CreateHypertable();
 
     ```
@@ -337,7 +337,7 @@ Your Timescale database has all of the components necessary to start creating an
             {
                 using (var conn = getConnection())
                 {
-                    // This query will create one row of data every minute for each 
+                    // This query creates one row of data every minute for each
                     // sensor_id, for the last 24 hours ~= 1440 readings per sensor
                     var sql = @"INSERT INTO sensor_data
                                 SELECT generate_series(now() - interval '24 hour',
@@ -368,7 +368,7 @@ Your Timescale database has all of the components necessary to start creating an
 2. Call this method from the `Main` program **after** the `ts.CreateHypertable();` reference:
     ```csharp
                 // Procedure - Insert time-series data
-                // Insert time-series data using the built-in 
+                // Insert time-series data using the built-in
                 // PostgreSQL function generate_series()
                 ts.InsertData();
     ```
@@ -440,7 +440,7 @@ After executing the query, iterate the results using the `NpgsqlDataReader` and 
                 ts.RunQueryExample();
     ```
 
-3. Save and run the application again. As before, if you execute all of the methods in the `Main` program, your output should look similar to this. The values of the output will be different because we used the `random()` function to generate them:
+3. Save and run the application again. As before, if you execute all of the methods in the `Main` program, your output should look similar to this. The values of the output are different because we used the `random()` function to generate them:
     ```bash
     $ dotnet run
 
@@ -484,4 +484,3 @@ Now that you're able to connect, read, and write to a TimescaleDB instance from 
 [Continuous Aggregates](/how-to-guides/continuous-aggregates/)
 [Try Other Sample Datasets](/tutorials/sample-datasets/)
 [Migrate your own Data](/how-to-guides/migrate-data/)
-

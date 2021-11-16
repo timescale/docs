@@ -22,7 +22,7 @@ can no longer fit in memory.
 
 In particular, whenever a new row is inserted, the database needs to
 update the indexes (e.g., B-trees) for each of the table's indexed
-columns, which will involve swapping one or more pages in from disk.
+columns, which involves swapping one or more pages in from disk.
 Throwing more memory at the problem only delays the inevitable, and
 your throughput in the 10K-100K+ rows per second can crash to
 hundreds of rows per second once your time-series table is in the tens
@@ -71,7 +71,7 @@ perform indexed lookups or table scans are similarly performant
 between PostgreSQL and TimescaleDB.
 
 For example, on a 100M row table with indexed time, hostname, and cpu
-usage information, the following query will take less than 5ms for
+usage information, the following query takes less than 5ms for
 each database:
 
 ```sql
@@ -125,8 +125,8 @@ SELECT date_trunc('minute', time) AS minute, max(usage_user)
   LIMIT 5;
 ```
 
-We will be publishing more complete benchmarking comparisons between
-PostgreSQL and TimescaleDB soon, as well as the software to replicate
+We are always publishing more complete benchmarking comparisons between
+PostgreSQL and TimescaleDB, as well as the software to replicate
 our benchmarks.
 
 The high-level result from our query benchmarking is that
@@ -159,7 +159,7 @@ including some of the following:
 
 - **Last** and **first** aggregates: These functions allow you
     to get the value of one column as ordered by another.  For
-    example, `last(temperature, time)` will return the latest
+    example, `last(temperature, time)` returns the latest
     temperature value based on time within a group (e.g., an hour).
 
 These type of functions enable very natural time-oriented queries.
@@ -223,7 +223,7 @@ rather than at the row level, via its `drop_chunks` functionality.
 SELECT drop_chunks('conditions', INTERVAL '7 days');
 ```
 
-This will delete all chunks (files) from the hypertable 'conditions'
+This deletes all chunks (files) from the hypertable 'conditions'
 that only include data older than this duration, rather than deleting
 any individual rows of data in chunks.  This avoids fragmentation in
 the underlying database files, which in turn avoids the need for

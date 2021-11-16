@@ -39,7 +39,7 @@ installed with.
 
 #### Update `postgresql.conf`
 
-You will need to edit your `postgresql.conf` file to include
+You need to edit your `postgresql.conf` file to include
 the TimescaleDB library, and then restart PostgreSQL. First, locate your
 `postgresql.conf` file:
 

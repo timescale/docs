@@ -18,10 +18,10 @@ The policy takes three arguments:
 *   `schedule_interval`: the refresh interval in minutes or hours
 
 If you set the `start_offset` or `end_offset` to NULL, the range is open-ended
-and will extend to the beginning or end of time. However, we recommend that you
+and extends to the beginning or end of time. However, we recommend that you
 set the `end_offset` so that at least the most recent time bucket is excluded.
 For time-series data that mostly contains writes that occur in time stamp order,
-the time buckets that see lots of writes will quickly have out-of-date
+the time buckets that see lots of writes quickly have out-of-date
 aggregates. You get better performance by excluding the time buckets that are
 getting a lot of writes.
 
@@ -45,13 +45,13 @@ It also does not refresh the last time bucket of the continuous aggregate.
 Because it has an open-ended `start_offset` parameter, any data that is removed
 from the table, for example with a DELETE or with `drop_chunks`, is also removed
 from the continuous aggregate view. This means that the continuous aggregate
-will always reflect the data in the underlying hypertable.
+always reflects the data in the underlying hypertable.
 
 If you want to keep data in the continuous aggregate even if it is removed from
 the underlying hypertable, you can set the `start_offset` to match the [data
 retention policy][sec-data-retention] on the source hypertable. For example, if
 you have a retention policy that removes data older than one month, set
-`start_offset` to one month or less. This will set your policy so that it does
+`start_offset` to one month or less. This sets your policy so that it does
 not refresh the dropped data.
 
 <procedure>

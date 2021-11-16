@@ -10,7 +10,7 @@ All postgresql data types can be used in compression.
 
 </highlight>
 
-At a high level, TimescaleDB's built-in job scheduler framework will asynchronously convert recent data from an uncompressed row-based form to a compressed columnar form across chunks of TimescaleDB hypertables.
+At a high level, TimescaleDB's built-in job scheduler framework asynchronously converts recent data from an uncompressed row-based form to a compressed columnar form across chunks of TimescaleDB hypertables.
 
 Let's enable compression on our hypertable and then look at two ways of compressing data: with an automatic policy or manually.
 
@@ -43,7 +43,7 @@ We can also view the compression settings for our hypertables by using the `comp
 SELECT * FROM timescaledb_information.compression_settings;
 ```
 
-Now that compression is enabled, we need to schedule a policy to automatically compress data according to the settings defined above. We will set a policy to compress data older than 10 years by using the following query:
+Now that compression is enabled, we need to schedule a policy to automatically compress data according to the settings defined above. We set a policy to compress data older than 10 years by using the following query:
 
 ```sql
 -- Add compression policy
@@ -92,13 +92,13 @@ This is especially beneficial when backups and high-availability replicas are ta
 
 In addition to saving storage space and costs, compressing data might increase query performance on certain kinds of queries. Compressed data tends to be older data and older data tends to have different query patterns than recent data.
 
-**Newer data tends to be queried in a shallow and wide fashion**. In this case, shallow refers to the length of time and wide refers to the range of columns queried. These are often debugging or "whole system" queries. For example, "Show me all the metrics for all cities in the last 2 days." In this case the uncompressed, row based format that is native to PostgreSQL will give us the best query performance.
+**Newer data tends to be queried in a shallow and wide fashion**. In this case, shallow refers to the length of time and wide refers to the range of columns queried. These are often debugging or "whole system" queries. For example, "Show me all the metrics for all cities in the last 2 days." In this case the uncompressed, row based format that is native to PostgreSQL gives us the best query performance.
 
 **Older data tends to be queried in a deep and narrow fashion.** In this case, deep refers to the length of time and narrow refers to the range of columns queried. As data begins to age, queries tend to become more analytical in nature and involve fewer columns. For example, "Show me the average annual temperature for city A in the past 20 years". This type of queries greatly benefit from the compressed, columnar format.
 
 TimescaleDB's compression design allows you to get the best of both worlds: recent data is ingested in an uncompressed, row format for efficient shallow and wide queries, and then automatically converted to a compressed, columnar format after it ages and is most often queried using deep and narrow queries.
 
-Here's an example of a deep and narrow query on our compressed data. It calculates the average temperature for New York City for all years in the dataset before 2010. Data for these years will be compressed, since we compressed all data older than 10 years with either our policy or the manual compression method above.
+Here's an example of a deep and narrow query on our compressed data. It calculates the average temperature for New York City for all years in the dataset before 2010. Data for these years is compressed, since we compressed all data older than 10 years with either our policy or the manual compression method above.
 
 ```sql
 -- Deep and narrow query on compressed data

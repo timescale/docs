@@ -1,13 +1,13 @@
 # Use Grafana to visualize geospatial data stored in TimescaleDB
 
-Grafana includes a WorldMap visualization that will help you see geospatial data overlaid
+Grafana includes a WorldMap visualization that help you see geospatial data overlaid
 atop a map of the world. This can be helpful to understand how data changes based on
 its location.
 
 ### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
@@ -30,10 +30,10 @@ The NYC Taxi Cab data also contains the location of each ride pickup. In the
 near Times Square. Let's build on that query and
 **visualize rides whose distance traveled was greater than five miles in Manhattan**.
 
-We can do this in Grafana using the 'Worldmap Panel'. We will start by creating a
+We can do this in Grafana using the 'Worldmap Panel'. Start by creating a
 new panel, selecting 'New Visualization', and selecting the 'Worldmap Panel'.
 
-Once again, we will edit our query directly. In the Query screen, be sure
+Once again, you can edit the query directly. In the Query screen, be sure
 to select your NYC Taxicab Data as the data source. In the 'Format as' dropdown,
 select 'Table'. Click on 'Edit SQL' and enter the following query in the text window:
 
@@ -56,8 +56,8 @@ LIMIT 500;
 ```
 
 Let's dissect this query. First, we're looking to plot rides with visual markers that
-denote the trip distance. Trips with longer distances will get different visual treatments
-on our map. We will use the `trip_distance` as the value for our plot. We will store
+denote the trip distance. Trips with longer distances get different visual treatments
+on our map. Use the `trip_distance` as the value for our plot, and store
 this result in the `value` field.
 
 In the second and third lines of the `SELECT` statement, we are using the `pickup_longitude`
@@ -82,16 +82,15 @@ left of the Grafana user interface. You'll see options for 'Map Visual Options',
 and more.
 
 First, make sure the 'Map Data Options' are set to 'table' and 'current'.  Then in
-the 'Field Mappings' section. We will set the 'Table Query Format' to be ‘Table'.
+the 'Field Mappings' section. Set the 'Table Query Format' to be ‘Table'.
 We can map the 'Latitude Field' to our `latitude` variable, the 'Longitude Field' to
 our `longitude` variable, and the 'Metric' field to our `value` variable.
 
 In the 'Map Visual Options', set the 'Min Circle Size' to 1 and the 'Max Circle Size' to 5.
 
-In the 'Threshold Options' set the 'Thresholds' to '2,5,10'. This will auto configure a set
-of colors. Any plot whose `value` is below 2 will be a color, any `value` between 2 and 5 will
-be another color, any `value` between 5 and 10 will be a third color, and any `value` over 10
-will be a fourth color.
+In the 'Threshold Options' set the 'Thresholds' to '2,5,10'. This auto configures a set
+of colors. Any plot whose `value` is below 2 is a color, any `value` between 2 and 5 is another color, any `value` between 5 and 10 is a third color, and any `value` over 10
+is a fourth color.
 
 Your configuration should look like this:
 

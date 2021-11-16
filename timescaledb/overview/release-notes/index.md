@@ -29,15 +29,15 @@ follow these [setup instructions][distributed-hypertables-setup].
 
 - Continuous aggregates for distributed hypertables
 - Support for PostgreSQL 14
-- Experimental: Support for timezones in 'time_bucket_ng()', including the 'origin' argument 
+- Experimental: Support for timezones in 'time_bucket_ng()', including the 'origin' argument
 
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
-This release also contains bug fixes since the 2.4.2 release. 
+This release also contains bug fixes since the 2.4.2 release.
 
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
-<highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight> 
+<highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
 
 <!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
 
@@ -63,7 +63,7 @@ Several bugs fixed, see the release notes for more details.
 
 Timescale is working hard on our next exciting features.
 To make that possible, we require functionality that is available in Postgres 12 and above.
-For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 release. 
+For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 release.
 For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
@@ -284,10 +284,9 @@ planning.
 
 Timescale is working hard on our next exciting features. To make that
 possible, we require functionality that is unfortunately absent on
-PostgreSQL 11. For this reason, we will continue supporting PostgreSQL
-11 until mid-June 2021. Sooner to that time, we will announce the
-specific version of TimescaleDB in which PostgreSQL 11 support will
-not be included going forward.
+PostgreSQL 11. For this reason, we continue supporting PostgreSQL
+11 only until mid-June 2021. At some point before that time, we are going to
+announce in which version of TimescaleDB PostgreSQL 11 support is dropped.
 
 **Major features**
 * #2843 Add distributed restore point functionality
@@ -501,7 +500,7 @@ This release also adds:
 
 Some of the changes above (e.g., continuous aggregates, updated
 informational views) do introduce breaking changes to APIs and are not
-backwards compatible. While the update scripts in TimescaleDB 2.0 will
+backwards compatible. While the update scripts in TimescaleDB 2.0
 upgrade databases running TimescaleDB 1.x automatically, some of these
 API and feature changes may require changes to clients and/or upstream
 scripts that rely on the previous APIs.  Before upgrading, we recommend
@@ -855,10 +854,10 @@ This release adds the long-awaited support for PostgreSQL 12 to TimescaleDB.
 
 This release also adds a new default behavior when querying continuous
 aggregates that we call real-time aggregation. A query on a continuous
-aggregate will now combine materialized data with recent data that has
+aggregate now combines materialized data with recent data that has
 yet to be materialized.
 
-Note that only newly created continuous aggregates will have this real-time
+Note that only newly created continuous aggregates have this real-time
 query behavior, although it can be enabled on existing continuous aggregates
 with a configuration setting as follows:
 
@@ -869,7 +868,7 @@ Community version of TimescaleDB (from Enterprise), including data reordering
 and data retention policies.
 
 **Deprecation notice:**  Please note that with the release of Timescale 1.7, we are deprecating support for PostgreSQL 9.6.x and 10.x.
-The current plan is that the Timescale 2.0 release later this year will only support PostgreSQL major versions 11.x, 12.x, or newer.
+The current plan is that the Timescale 2.0 release later this year only supports PostgreSQL major versions 11.x, 12.x, or newer.
 
 **Major features**
 * #1807 Add support for PostgreSQL 12
@@ -904,7 +903,7 @@ for upgrading.
 In particular the fixes contained in this maintenance release address bugs in continuous aggregates, time_bucket_gapfill,
 partial index handling and drop_chunks.
 
-For this release only, you will need to restart the database after upgrade before restoring a backup.
+For this release only, you need to restart the database after upgrade before restoring a backup.
 
 **Minor features**
 * #1666 Support drop_chunks API for continuous aggregates
@@ -1042,7 +1041,7 @@ underlying scans for parallel plans.
 For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](/timescaledb/:currentVersion:/getting-started/compress-data/),
 and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
-**For this release only**, you will need to restart the database before running
+**For this release only**, you need to restart the database before running
 `ALTER EXTENSION`
 
 **Major features**
@@ -1223,10 +1222,10 @@ in the view.
 
 Continuous aggregates are somewhat similar to PostgreSQL materialized
 views, but unlike a materialized view, continuous
-aggregates do not need to be refreshed manually; the view will be refreshed
+aggregates do not need to be refreshed manually; the view is refreshed
 automatically in the background as new data is added, or old data is
 modified. Additionally, it does not need to re-calculate all of the data on
-every refresh. Only new and/or invalidated data will be calculated.  Since this
+every refresh. Only new and/or invalidated data is calculated.  Since this
 re-aggregation is automatic, it doesn’t add any maintenance burden to your
 database.
 
@@ -1321,7 +1320,7 @@ We are excited to be introducing new time-series analytical functions, advanced 
 
 This release adds code under a new license, LICENSE_TIMESCALE. This code can be found in `tsl`.
 
-**For this release only**, you will need to restart the database before running
+**For this release only**, you need to restart the database before running
 `ALTER EXTENSION`
 
 **Notable commits**

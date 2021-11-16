@@ -4,7 +4,7 @@
 error(sketch UddSketch) RETURNS DOUBLE PRECISION
 ```
 
-This returns the maximum relative error that a percentile estimate will have
+This returns the maximum relative error that a percentile estimate has
 relative to the correct value. This means the actual value falls in the range
 defined by `approx_percentile(sketch) +/- approx_percentile(sketch)*error(sketch)`.
 

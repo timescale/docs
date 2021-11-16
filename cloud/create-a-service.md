@@ -77,9 +77,9 @@ Read about TimescaleDB features in our documentation:
 ### Keep testing during your free trial
 You're now on your way to a great start with Timescale!
 
-You will have an unthrottled, 30-day free trial with Timescale Cloud to
+You have an unthrottled, 30-day free trial with Timescale Cloud to
 continue to test your use case. Before the end of your trial, we encourage you
-to add your credit card information. This will ensure a smooth transition after
+to add your credit card information. This ensures a smooth transition after
 your trial period concludes.
 
 ### Summary
