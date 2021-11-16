@@ -1,13 +1,13 @@
 ## set_replication_factor() <tag type="community">Community</tag>
 Sets the replication factor of a distributed hypertable to the given value.
 Changing the replication factor does not affect the number of replicas for existing chunks.
-Chunks created after changing the replication factor will be replicated
+Chunks created after changing the replication factor are replicated
 in accordance with new value of the replication factor. If the replication factor cannot be
 satisfied, since the amount of attached data nodes is less than new replication factor,
 the command aborts with an error.
 
 If existing chunks have less replicas than new value of the replication factor,
-the function will print a warning.
+the function prints a warning.
 
 ### Required Arguments
 
@@ -18,7 +18,7 @@ the function will print a warning.
 
 #### Errors
 
-An error will be given if:
+An error is given if:
 - `hypertable` is not a distributed hypertable.
 - `replication_factor` is less than `1`, which cannot be set on a distributed hypertable.
 - `replication_factor` is bigger than the number of attached data nodes.
@@ -26,7 +26,7 @@ An error will be given if:
 If a bigger replication factor is desired, it is necessary to attach more data nodes
 by using [attach_data_node](/distributed-hypertables/attach_data_node).
 
-### Sample Usage 
+### Sample Usage
 
 Update the replication factor for a distributed hypertable to `2`:
 ```sql

@@ -3,10 +3,10 @@
 Attach a data node to a hypertable. The data node should have been
 previously created using [`add_data_node`](/distributed-hypertables/add_data_node).
 
-When a distributed hypertable is created it will by default use all
+When a distributed hypertable is created, by default it uses all
 available data nodes for the hypertable, but if a data node is added
-*after* a hypertable is created, the data node will not automatically
-be used by existing distributed hypertables.
+*after* a hypertable is created, the data node is not automatically
+used by existing distributed hypertables.
 
 If you want a hypertable to use a data node that was created later,
 you must attach the data node to the hypertable using this
@@ -23,7 +23,7 @@ function.
 
 | Name              | Description                                   |
 |-------------------|-----------------------------------------------|
-| `if_not_attached` | Prevents error if the data node is already attached to the hypertable. A notice will be printed that the data node is attached. Defaults to `FALSE`. |
+| `if_not_attached` | Prevents error if the data node is already attached to the hypertable. A notice is printed that the data node is attached. Defaults to `FALSE`. |
 | `repartition`     | Change the partitioning configuration so that all the attached data nodes are used. Defaults to `TRUE`. |
 
 ### Returns
@@ -34,7 +34,7 @@ function.
 | `node_hypertable_id` | Hypertable id on the remote data node    |
 | `node_name`          | Name of the attached data node     |
 
-### Sample Usage 
+### Sample Usage
 
 Attach a data node `dn3` to a distributed hypertable `conditions`
 previously created with

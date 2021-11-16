@@ -14,7 +14,7 @@ and flexibility you need when running your workloads in our hosted environment.
 <highlight type="warning">
 Modifications of most parameters can be applied without restarting
 the Timescale Cloud Service. However, as when modifying the compute resources
-of a running Service, some settings will require that a restart be performed,
+of a running Service, some settings require a restart,
 resulting in some brief downtime (usually about 30 seconds).
 </highlight>
 
@@ -30,7 +30,7 @@ Under the Settings tab, you can modify a limited set of the parameters that
 are most often modified in a TimescaleDB or PostgreSQL instance. To modify a
 configured value, click the value that you would like to change. This reveals
 an editable field to apply your change. Clicking anywhere outside of that field
-will save the value to be applied.
+saves the value to be applied.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-change.png" alt="Change Timescale Cloud configuration parameters"/>
 

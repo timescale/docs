@@ -15,11 +15,11 @@ handling missing time-series data (using the TimescaleDB/PostgreSQL data
 source natively available in Grafana).
 
 ### Prerequisites [](prereqs)
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-You will also need:
+You also need:
 
 * Time-series dataset with missing data (Note: in case you don't have
 one handy, we include an optional step for creating one below.)

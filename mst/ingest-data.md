@@ -85,7 +85,7 @@ Before you begin, make sure you have
     ```
     We recommend that you set the number of workers lower than the number of
     available CPU cores on your client machine or server, to prevent the workers
-    having to compete for resources. This will help your ingest go faster.
+    having to compete for resources. This helps your ingest go faster.
 1.  *OPTIONAL:* If you don't want to use the `timescaledb-parallel-copy` tool,
     or if you have a very small dataset, you can use the PostgreSQL `COPY`
     command instead:

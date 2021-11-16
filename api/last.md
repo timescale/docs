@@ -1,7 +1,7 @@
 ## last()
 
 The `last` aggregate allows you to get the value of one column
-as ordered by another. For example, `last(temperature, time)` will return the
+as ordered by another. For example, `last(temperature, time)` returns the
 latest temperature value based on time within an aggregate group.
 
 ### Required Arguments
@@ -28,5 +28,5 @@ ORDER BY interval DESC;
  perform a sequential scan through their groups.  They are primarily used
  for ordered selection within a `GROUP BY` aggregate, and not as an
  alternative to an `ORDER BY time DESC LIMIT 1` clause to find the
- latest value (which will use indexes).
+ latest value (which uses indexes).
 </highlight>

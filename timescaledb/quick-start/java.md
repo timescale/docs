@@ -13,25 +13,25 @@ In this tutorial, you'll learn how to:
 
 ## Pre-requisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query Language (SQL). 
-The tutorial will walk you through each SQL command, but it will be helpful if you've seen SQL before.
+To complete this tutorial, you need a cursory knowledge of the Structured Query Language (SQL).
+The tutorial walks you through each SQL command, but it is helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][timescaledb-install]. Once your installation is complete,
 you can proceed to ingesting or creating sample data and finishing the tutorial.
 
-You will also need to install [Java Development Kit (JDK)][jdk] 
+You also need to install [Java Development Kit (JDK)][jdk] 
 and [PostgreSQL Java Database Connectivity (JDBC) Driver][pg-jdbc-driver] as well.
-All code is presented for Java 16 and above. 
+All code is presented for Java 16 and above.
 If you are working with older JDK versions, use legacy coding techniques.
 
 ## Connect Java to TimescaleDB [](new-database)
 
 ### Step 1: Create a new Java application
 
-For simplicity, we will use the application in a single file as an example. 
+For simplicity, this tutorial uses the application in a single file as an example.
 You can use any of your favorite build tools, including `gradle` and `maven`.
 
-Create a separate directory and navigate to it. 
+Create a separate directory and navigate to it.
 In it, create a text file with name and extension `Main.java` and the following content:
 
 ```java
@@ -51,15 +51,15 @@ From the command line in the current directory, try running the application with
 java Main.java
 ```
 
-You should see the `Hello, World!` line output to your console. 
+You should see the `Hello, World!` line output to your console.
 In case of an error, refer to the documentation and check if the JDK was installed correctly.
 You don't have to create directory structure `./com/timescale/java` similar to package path in source file.
 You should just create a single java file in empty folder and run `java Main.java` from it.
 
 ### Step 2: Import Postgres JDBC driver
 
-To work with the `PostgreSQL`, you need to import the appropriate `JDBC Driver`. 
-If you are using a dependency manager, include [PostgreSQL JDBC Driver as dependency][pg-jdbc-driver-dependency]. 
+To work with the `PostgreSQL`, you need to import the appropriate `JDBC Driver`.
+If you are using a dependency manager, include [PostgreSQL JDBC Driver as dependency][pg-jdbc-driver-dependency].
 In this case, download [jar artifact of JDBC Driver][pg-jdbc-driver-artifact] and place it next to the `Main.java` file.
 
 Now you can import the `JDBC Driver` into the Java application and display a list of available drivers for the check:
@@ -105,11 +105,11 @@ Next, compose your connection string variable using this format:
 var connUrl = "jdbc:postgresql://host:port/dbname?user=username&password=password";
 ```
 
-Full documentation on [the formation of the connection string][pg-jdbc-driver-conn-docs] 
+Full documentation on [the formation of the connection string][pg-jdbc-driver-conn-docs]
 can be found in the official documentation of the PostgreSQL JDBC Driver.
 
 <highlight type="warning">
-The above method of composing a connection string is for test or development purposes only, 
+The above method of composing a connection string is for test or development purposes only,
 for production purposes be sure to make sensitive details like your password, hostname, and port number environment variables.
 </highlight>
 
@@ -133,7 +133,7 @@ public class Main {
 }
 ```
 
-Run with the `java -cp *.jar Main.java` command 
+Run with the `java -cp *.jar Main.java` command
 and you should see this output: `{ApplicationName=PostgreSQL JDBC Driver}`.
 
 Congratulations, you've successfully connected to TimescaleDB using Java.
@@ -198,19 +198,19 @@ Congratulations, you've successfully created a relational table in TimescaleDB u
 ## Generate a hypertable [](generate_hypertable)
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][timescaledb-hypertable],
-the abstraction of a single continuous table across all space and time intervals, 
+the abstraction of a single continuous table across all space and time intervals,
 such that one can query it via standard SQL.
 
 Virtually all user interactions with TimescaleDB are with hypertables.
 Creating tables and indexes, altering tables, inserting data, and selecting data,
 can (and should) all be executed on the hypertable.
 
-A hypertable is defined by a standard schema with column names and types, 
+A hypertable is defined by a standard schema with column names and types,
 with at least one column specifying a time value.
 
 ### Step 1: Create sensors data table
 
-First, we create `CREATE TABLE` SQL statement for our hypertable. 
+First, we create `CREATE TABLE` SQL statement for our hypertable.
 Notice how the hypertable has the compulsory time column:
 
 ```sql
@@ -225,7 +225,7 @@ CREATE TABLE sensor_data (
 
 Next, you can formulate the `SELECT` statement to convert the table we created in Step 1 into a hypertable.
 Note that you must specify the table name to convert to a hypertable
-and its time column name as the two arguments, 
+and its time column name as the two arguments,
 as mandated by the [`create_hypertable` docs][timescaledb-hypertable-create-docs]:
 
 ```sql
@@ -316,7 +316,7 @@ for (final var sensor : sensors) {
 
 You can insert a batch of rows into TimescaleDB in a couple of different ways.
 Let's see what it looks like to insert a number of rows with batching mechanism.
-For simplicity's sake, we’ll use PostgreSQL to generate some sample time-series data in order 
+For simplicity's sake, we’ll use PostgreSQL to generate some sample time-series data in order
 to insert into the `sensor_data` hypertable:
 
 ```java
@@ -429,7 +429,7 @@ public class Main {
 ```
 
 <highlight type="tip">
-If you are inserting data from a CSV file, we recommend the [timescale-parallel-copy tool](https://github.com/timescale/timescaledb-parallel-copy), 
+If you are inserting data from a CSV file, we recommend the [timescale-parallel-copy tool](https://github.com/timescale/timescaledb-parallel-copy),
 which is a command line program for parallelizing PostgreSQL's built-in `COPY` functionality for bulk inserting data into TimescaleDB.
 </highlight>
 
@@ -456,7 +456,7 @@ Notice the use of placeholders for sensor type and location.
 
 ### Step 2: Execute the query
 
-Now you can execute the query with the prepared statement and read out the result set 
+Now you can execute the query with the prepared statement and read out the result set
 for all `a`-type sensors located on the `floor`:
 
 ```java
@@ -603,7 +603,7 @@ Congratulations 🎉, you've successfully executed a query on TimescaleDB using 
 
 ## Next steps
 
-Now that you're able to connect, read, and write to a TimescaleDB instance from your Java application, 
+Now that you're able to connect, read, and write to a TimescaleDB instance from your Java application,
 be sure to check out these advanced tutorials:
 
 * Get up and running with TimescaleDB with our [Getting Started][timescaledb-getting-started] tutorial.

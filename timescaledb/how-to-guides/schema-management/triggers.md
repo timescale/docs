@@ -1,8 +1,8 @@
 ## Creating triggers
 
 TimescaleDB supports the full range of PostgreSQL triggers, and creating,
-altering, or dropping triggers on the hypertable will similarly
-propagate these changes to all of a hypertable's constituent chunks.
+altering, or dropping triggers on the hypertable similarly
+propagates these changes to all of a hypertable's constituent chunks.
 
 In the following example, let's say you want to create a new
 table `error_conditions` with the same schema as `conditions`, but designed
@@ -11,7 +11,7 @@ signals a sensor error by sending a `temperature` or `humidity` having a
 value >= 1000.
 
 So, we'll take a two-step approach. First, let's create a function that
-will insert data deemed erroneous into this second table:
+inserts data deemed erroneous into this second table:
 
 ```sql
 CREATE OR REPLACE FUNCTION record_error()
@@ -25,7 +25,7 @@ BEGIN
 END;
 $record_error$ LANGUAGE plpgsql;
 ```
-Second, create a trigger that will call this function whenever a new row is
+Second, create a trigger that calls this function whenever a new row is
 inserted into the hypertable.
 
 ```sql

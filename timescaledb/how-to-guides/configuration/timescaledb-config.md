@@ -18,18 +18,18 @@ workers. Default value is 8.
 ### `timescaledb.enable_2pc (bool)` [](enable_2pc)
 
 Enables two-phase commit for distributed hypertables. If disabled, it
-will use a one-phase commit instead, which is faster but can result in
+uses a one-phase commit instead, which is faster but can result in
 inconsistent data. It is by default enabled.
 
 ### `timescaledb.enable_per_data_node_queries`
 
-If enabled, TimescaleDB will combine different chunks belonging to the
+If enabled, TimescaleDB combines different chunks belonging to the
 same hypertable into a single query per data node. It is by default enabled.
 
 ### `timescaledb.max_insert_batch_size (int)`
 
 When acting as a access node, TimescaleDB splits batches of inserted
-tuples across multiple data nodes. It will batch up to
+tuples across multiple data nodes. It batches up to
 `max_insert_batch_size` tuples per data node before flushing. Setting
 this to 0 disables batching, reverting to tuple-by-tuple inserts. The
 default value is 1000.
@@ -52,7 +52,7 @@ data nodes. It is by default enabled.
 ### `timescaledb.enable_remote_explain (bool)`
 
 Enable getting and showing `EXPLAIN` output from remote nodes. This
-will require sending the query to the data node, so it can be affected
+requires sending the query to the data node, so it can be affected
 by the network connection and availability of data nodes. It is by default disabled.
 
 ### `timescaledb.remote_data_fetcher (enum)`

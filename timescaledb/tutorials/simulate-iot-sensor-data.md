@@ -19,8 +19,8 @@ try the Time-series Benchmarking Suite (TSBS) ([Github][github-tsbs]).*
 
 ## Prerequisites [](prereqs)
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
@@ -90,7 +90,7 @@ this:
 
 *Note: for the following sections we'll share the results of our queries
 as an example, but since the tutorial generates random data every time
-it is run, your results will look different (but will be structured the
+it is run, your results look different (but is structured the
 same way).*
 
 First, generate a dataset for all of our four sensors and insert into

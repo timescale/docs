@@ -128,5 +128,5 @@ If you disable telemetry, the version checking functionality is also disabled.
 
 </procedure>
 
-[get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report 
+[get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report
 [postgres-config]: /how-to-guides/configuration/postgres-config

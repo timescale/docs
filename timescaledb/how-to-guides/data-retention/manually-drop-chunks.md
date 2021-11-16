@@ -29,15 +29,15 @@ For example:
 SELECT drop_chunks('conditions', INTERVAL '24 hours');
 ```
 
-This will drop all chunks from the hypertable `conditions` that _only_
-include data older than this duration, and will _not_ delete any
+This drops all chunks from the hypertable `conditions` that _only_
+include data older than this duration, and does _not_ delete any
 individual rows of data in chunks.
 
 For example, if one chunk has data more than 36 hours old, a second
 chunk has data between 12 and 36 hours old, and a third chunk has the
 most recent 12 hours of data, only the first chunk is dropped when
 executing `drop_chunks`. Thus, in this scenario,
-the `conditions` hypertable will still have data stretching back 36 hours.
+the `conditions` hypertable still has data stretching back 36 hours.
 
 For more information on the `drop_chunks` function and related
 parameters, please review the [API documentation][drop_chunks].

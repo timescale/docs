@@ -24,7 +24,7 @@ Tiering][using-data-tiering] documentation.
 |Name|Type|Description|
 |-|-|-|
 |`reorder_index`|REGCLASS|The name of the index (on either the hypertable or chunk) to order by|
-|`verbose`|BOOLEAN|Setting to true will display messages about the progress of the move_chunk command. Defaults to false.|
+|`verbose`|BOOLEAN|Setting to true displays messages about the progress of the move_chunk command. Defaults to false.|
 
 
 ### Sample usage

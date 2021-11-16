@@ -13,7 +13,7 @@ index is created automatically when marking column(s) as `PRIMARY KEY`
 or with a `UNIQUE` constraint.
 
 Following the examples given above, an `INSERT` with an identical
-timestamp and location as an existing row will succeed and create an
+timestamp and location as an existing row succeeds and create an
 additional row in the database.
 
 If, however, the `conditions` table had been created with a UNIQUE
@@ -30,8 +30,8 @@ CREATE TABLE conditions (
 );
 ```
 
-then the second attempt to insert to this same time will normally
-return an error.
+then the second attempt to insert to this same time normally
+returns an error.
 
 The above `UNIQUE` statement during table creation internally is similar to:
 
@@ -54,7 +54,7 @@ Indexes:
 
 Now, however, the `INSERT` command can specify that nothing be done on
 a conflict. This is particularly important when writing many rows as
-one batch, as otherwise the entire transaction will fail (as opposed
+one batch, as otherwise the entire transaction fails (as opposed
 to just skipping the row that conflicts).
 
 ```sql
@@ -90,7 +90,7 @@ If the schema were to have an additional column like `device` that is used
 TimescaleDB does not yet support using `ON CONFLICT ON CONSTRAINT` with
  a named key (e.g., `conditions_time_location_idx`), but much of this
  functionality can be captured by specifying the same columns as above with
- a unique index/constraint. This limitation will be removed in a future version.
+ a unique index/constraint. This limitation is expected to be removed in a future version.
 </highlight>
 
 

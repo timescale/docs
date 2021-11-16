@@ -4,9 +4,9 @@ Promscale offers the combined power of PromQL and SQL, enabling you to ask any
 question, create any dashboard, and achieve greater visibility into the systems
 you monitor.
 
-In the configuration used in [Installing Promscale][promscale-install], Prometheus will scrape the Node Exporter every 10s and metrics will be stored in both Prometheus and TimescaleDB, via Promscale.
+In the configuration used in [Installing Promscale][promscale-install], Prometheus scrapes the Node Exporter every 10s and metrics are stored in both Prometheus and TimescaleDB, via Promscale.
 
-This section will illustrate how to run simple and complex SQL queries against Promscale, as well as queries in PromQL.
+This section illustrates how to run simple and complex SQL queries against Promscale, as well as queries in PromQL.
 
 ## SQL queries in Promscale [](sql-queries)
 
@@ -24,14 +24,14 @@ Once inside, we can now run SQL queries and explore the metrics collected by Pro
 
 Queries on metrics are performed by querying the view named after the metric you're interested in.
 
-In the example below, we will query a metric named `go_dc_duration` for its samples in the past 5 minutes. This metric is a measurement for how long garbage collection is taking in Golang applications:
+In the example below, we query a metric named `go_dc_duration` for its samples in the past 5 minutes. This metric is a measurement for how long garbage collection is taking in Golang applications:
 
 ``` sql
 SELECT * from go_gc_duration_seconds
 WHERE time > now() - INTERVAL '5 minutes';
 ```
 
-Here is a sample output for the query above (your output will differ):
+Here is a sample output for the query above (your output might differ):
 
 ``` bash
             time            |    value    | series_id |      labels       | instance_id | job_id | quantile_id
@@ -259,7 +259,7 @@ To find the Promscale IP address, run the command `docker inspect promscale` (wh
 
 Alternatively, we can set the `URL` as `http://promscale:9201`, where `promscale` is the name of our container. This method works as we've created all of our containers in the same docker network (using the flag `-- network promscale-timescaledb` during our installs).
 
-After configuring Promscale as a datasource in Grafana, all that's left is to  create a sample panel using `Promscale` as the datasource.  The query powering the panel will be written in PromQL. The sample query below shows the average rate of change in the past 5 minutes for the metric `go_memstats_alloc_bytes`, which measures the Go's memory allocation on the heap from the kernel:
+After configuring Promscale as a datasource in Grafana, all that's left is to  create a sample panel using `Promscale` as the datasource.  The query powering the panel is written in PromQL. The sample query below shows the average rate of change in the past 5 minutes for the metric `go_memstats_alloc_bytes`, which measures the Go's memory allocation on the heap from the kernel:
 ```
 rate(go_memstats_alloc_bytes{instance="localhost:9090"}[5m])
 ```

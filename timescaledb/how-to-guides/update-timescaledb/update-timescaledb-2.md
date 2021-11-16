@@ -40,7 +40,7 @@ TimescaleDB 2.2, upgrade in this order:
 
 ### Notice of breaking changes from TimescaleDB 1.3+
 TimescaleDB 2.0 supports **in-place updates** just like previous releases. During
-the update, scripts will automatically configure updated features to work as expected
+the update, scripts automatically configure updated features to work as expected
 with TimescaleDB 2.0.
 
 Because this is our first major version release in two years, however, we’re providing additional guidance
@@ -74,7 +74,7 @@ Whenever possible, prefer the most recent supported version, PostgreSQL 12. Plea
 Before starting the upgrade to TimescaleDB 2.0, **we highly recommend checking the database log for errors
 related to failed retention policies that were occurring in TimescaleDB 1.x** and then either remove them or
 update them to be compatible with existing continuous aggregates. Any remaining retention policies that are
-still incompatible with the `ignore_invalidation_older_than` setting will automatically be disabled during
+still incompatible with the `ignore_invalidation_older_than` setting is automatically  disabled during
 the upgrade and a notice provided.
 
 <highlight type="tip">
@@ -87,7 +87,7 @@ Read more about changes to continuous aggregates and data retension policies [he
 #### Step 1: Verify TimescaleDB 1.x policy settings (Optional)
 
 As discussed in the [Changes to TimescaleDB 2.0][changes-in-ts2] document, the APIs and setting names
-that configure various policies are changing. The update process below will automatically configure
+that configure various policies are changing. The update process below automatically configures
 new policies using your current configurations in TimescaleDB 1.x.  If you would like to verify
 the policy settings after the update is complete, we suggest querying the informational views below
 and saving the output so that you can refer to it once the update is complete.
@@ -137,7 +137,7 @@ triggering the load of a previous TimescaleDB version on session startup.
 It must also be the first command you execute in the session.
 </highlight>
 
-This will upgrade TimescaleDB to the latest installed version, even if you
+This upgrades TimescaleDB to the latest installed version, even if you
 are several versions behind.
 
 After executing the command, the psql `\dx` command should show the latest version:
