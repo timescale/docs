@@ -157,6 +157,11 @@ Connection has been established successfully.
 Now that we have a successful connection to the `defaultdb` database, we
 can build out our first database and model.
 
+<highlight type="warning">
+You can skip the steps 1 and 2 if you're going to use TimescaleDB cloud. The
+service will create a database with the extension already enabled.
+</highlight>
+
 Let's initialize Sequelize and create the necessary configuration files for our
 project. From the command line, type the following:
 
@@ -237,7 +242,7 @@ Database node_test created.
 
 TimescaleDB is delivered as a PostgreSQL extension. Some instances and versions
 of TimescaleDB already have the extension installed. Let's make sure the
-extesion is installed if it's not.
+extension is installed if it's not.
 
 To start, create a database migration by running the following command:
 
@@ -310,6 +315,29 @@ New model was created at [some path here] .
 New migration was created at [some path here] .
 ```
 
+Now, edit the migration file to make sure it sets up a composite primary key:
+
+```javascript
+'use strict';
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('page_loads', {
+      userAgent: {
+        primaryKey: true,
+        type: Sequelize.STRING
+      },
+      time: {
+        primaryKey: true,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('page_loads');
+  }
+};
+```
+
 And finally, let's migrate our change and ensure that it is reflected in the
 database itself:
 
@@ -338,9 +366,9 @@ Above our `app.use` statement, add the following to `index.js`:
 
 ```javascript
 let PageLoads = sequelize.define('page_loads', {
-    userAgent: Sequelize.STRING,
-    time: Sequelize.DATE
-});
+    userAgent: {type: Sequelize.STRING, primaryKey: true },
+    time: {type: Sequelize.DATE, primaryKey: true }
+}, { timestamps: false });
 ```
 
 You can now instantiate a `PageLoads` object and save it to the
