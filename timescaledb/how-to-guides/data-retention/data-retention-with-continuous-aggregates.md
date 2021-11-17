@@ -8,7 +8,7 @@ that any chunks that are dropped in the region still being refreshed by the
 continuous aggregate causes the chunk data to disappear from the aggregate as
 well. If the intent is to keep the aggregate while dropping the underlying data,
 the interval being dropped should not overlap with the offsets for the continuous
-aggregate. Learn more [here][troubleshooting].
+aggregate. For more information, see the [troubleshooting section][troubleshooting].
 </highlight>
 
 As an example, let's add a continuous aggregate to our `conditions` hypertable:
