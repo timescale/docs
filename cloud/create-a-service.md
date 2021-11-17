@@ -3,7 +3,8 @@ Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB as a
 service that is easy to get started and powerful enough for the most demanding
 scenarios.
 
-For installation instructions, and help getting your first service up and running, see the [Cloud installation section][cloud-install].
+For installation instructions, and help getting your first service up and
+running, see the [Timescale Cloud installation section][cloud-install].
 
 ### Learn more about TimescaleDB
 Read about TimescaleDB features in our documentation:
