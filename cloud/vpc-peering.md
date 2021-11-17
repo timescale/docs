@@ -147,7 +147,39 @@ Cloud service with the VPC attachment.
 
 </procedure>
 
+## Migrating a VPC service between networks
+In most cases, when you have connected a service to a VPC, you need to keep it
+attached to ensure that your applications continue to run without interruption.
+However, you can migrate Timescale Cloud services between VPCs within a project,
+or migrate them to and from the public network, if you need to.
 
+<highlight type="warning">
+Timescale Cloud uses a different DNS name for a Timescale service once it has
+been attached to a VPC. This means that you need to update your connection
+string if you are migrating a service between the public internet and a VPC.
+</highlight>
+
+Before you begin, ensure you already have your VPC connection set up. 
+
+<procedure>
+
+### Migrating Timescale Cloud services to or between VPCs
+1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
+    the `Services` section. Click the name of the service you want to migrate.
+1.  In the `Operations` tab, navigate to the `VPC` section, and select the new
+    VPC to attach the service to. The migration can take a few minutes to
+    complete, and your services are not accessible during this time.
+
+<highlight type="important">
+Migrating your services to a VPC requires a change to the DNS settings for the
+service. If you receive a DNS error, allow some more time for DNS propagation to
+complete.
+</highlight>
+
+</procedure>
+
+
+[cloud-vpc]: cloud/vpc-peering/
 [cloud-login]: https://console.cloud.timescale.com/
 [timescale-support]: https://www.timescale.com/support
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
