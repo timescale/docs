@@ -49,4 +49,4 @@ SELECT add_retention_policy('conditions_summary_daily', INTERVAL '600 days');
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
 [continuous_aggregates]: /how-to-guides/continuous-aggregates
-[troubleshooting]: /how-to-guides/continuous-aggregates/troubleshooting.md
+[troubleshooting]: /how-to-guides/continuous-aggregates/troubleshooting/
