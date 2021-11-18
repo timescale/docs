@@ -418,8 +418,7 @@ automatically reconfigure your continuous aggregates to use the new framework.
 In particular, the update process should:
 
 *   Maintain the same view schema, name, owner, and view definition as before, as well as the setting for `materialized_only`.
-*   Schedule the refresh to run at the same interval as before (although the parameter is now named `schedule_interval` r
-ather than `refresh_interval`).
+*   Schedule the refresh to run at the same interval as before (although the parameter is now named `schedule_interval` rather than `refresh_interval`).
 *   Automatically configure `start_offset` to the same offset as specified by the old `ignore_invalidation_older_than` setting.
 *   Automatically configure `end_offset` to have an offset from `now()` equivalent to  the old `refresh_lag` setting.
 *   Mark all the data older than the interval `ignore_invalidation_older_than` as out-of-date, so that it can be refreshed.
