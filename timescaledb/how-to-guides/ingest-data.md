@@ -1,14 +1,14 @@
 # Ingesting data
-TimescaleDB can support standard SQL inserts. Read more about how to use SQL to
-write data into TimescaleDB in our [Writing Data][writing-data] section.
+TimescaleDB supports standard SQL inserts. For more information about how to use
+SQL to write data into TimescaleDB, see the [Writing Data][writing-data]
+section.
 
-Users often choose to leverage existing 3rd party tools to build data
-ingest pipelines that increase ingest rates by performing batch writes into
-TimescaleDB, as opposed to inserting data one row or metric at a time. At a
-high-level, TimescaleDB looks just like PostgreSQL, so any tool that can read
-and/or write to PostgreSQL also works with TimescaleDB.
+You can choose to leverage existing third party tools to build data ingest
+pipelines that increase ingest rates by performing batch writes, instead
+inserting data one row or metric at a time. Any tool that can read or write to
+PostgreSQL also works with TimescaleDB.
 
-Below, we discuss some popular frameworks and systems used in conjunction with
+This section covers some popular frameworks and systems used in conjunction with
 TimescaleDB.
 
 ## Prometheus
@@ -93,6 +93,17 @@ TimescaleDB, you can download the
 [StreamSets Data Collector][streamsets-data-collector] and get started with
 this [tutorial][tutorial-streamsets].
 
+## TimescaleDB parallel copy
+For bulk inserting historical data, you can use the TimescaleDb parallel copy
+tool, called `timescaledb-parallel-copy`. Install the tool from our repository
+with this command:
+```bash
+go get github.com/timescale/timescaledb-parallel-copy/cmd/timescaledb-parallel-copy
+```
+
+For more information about the parallel copy tool, see the
+[developer documentation][gh-parallel-copy].
+
 
 [writing-data]: /how-to-guides/write-data/
 [prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
@@ -109,3 +120,4 @@ this [tutorial][tutorial-streamsets].
 [github-debezium]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
 [streamsets-data-collector]: https://streamsets.com/products/dataops-platform/data-collector-engine/
 [tutorial-streamsets]: https://streamsets.com/blog/ingesting-data-apache-kafka-timescaledb/
+[gh-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
