@@ -7,7 +7,8 @@ you instructions for installing `psql`, as well as some other common tools.
 
 *   [Learn about connecting to your database][about-connecting] to understand how it works
     before you begin.
-*   Install and use [psql][connect-psql].
+*   Install [psql][connect-psql].
+*   [Learn about using psql][about-psql].
 *   Install and use [Azure Data Studio][connect-azure].
 *   Install and use [DBeaver][connect-dbeaver].
 *   Install and use [pgadmin][connect-pgadmin].
@@ -15,6 +16,7 @@ you instructions for installing `psql`, as well as some other common tools.
 
 
 [about-connecting]: /how-to-guides/connecting/about-connecting/
+[about-psql]: /how-to-guides/connecting/about-psql/
 [connect-psql]: /how-to-guides/connecting/psql/
 [connect-azure]: /how-to-guides/connecting/azure-data-studio/
 [connect-dbeaver]: /how-to-guides/connecting/dbeaver/
