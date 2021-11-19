@@ -1,136 +1,123 @@
-# Installing psql on Mac, Ubuntu, Debian, Windows
+# Install the psql connection tool
+The `psql` command line tool is widely used for interacting with a PostgreSQL or
+TimescaleDB instance, and it is availabnle for all operating systems. Most of
+the instructions we give you assume you are using `psql`.
 
-`psql` is the standard command line interface for interacting with a PostgreSQL
-or TimescaleDB instance. Here we explain how to install `psql` on various platforms.
+Before you start, check that you don't already have `psql` installed. It is
+sometimes installed by default, depending on your operating system and other
+packages you have installed over time:
 
-**Before you start**, you should confirm that you don’t already have `psql` installed.
-In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already
-have `psql` installed.
+<terminal>
+
+<tab label='Linux/macOS'>
 
 ```bash
 psql --version
 ```
 
-If your client doesn't have `psql` installed, find the appropriate section below
-for OS specific instructions on how to install it.
+</tab>
 
-## MacOS using Homebrew
-First, install the [Brew Package Manager][brew-package-manager]. Homebrew simplifies
-the installation of software on macOS.
+<tab label='Windows'>
 
-Second, update `brew`. From your command line, run the following commands:
-
-```bash
-brew doctor
-brew update
-brew install libpq
+```powershell
+wmic
+/output:C:\list.txt product get name, version
 ```
 
-Finally, create a symbolic link to `psql` (and other `libpq` tools) into `/usr/local/bin` on
-Intel, or `/opt/homebrew/bin` on Apple Silicon chips so that you can reach it from any
-command on the macOS Terminal.
+</tab>
 
-```bash
-brew link --force libpq ail
-```
+</terminal>
 
-## Ubuntu 16.04,18.04,20.04 and Debian 9,10
-Install on Ubuntu and Debian using the `apt` package manager:
+## Install psql on Apple macOS
+The `psql` tool is installed by default on macOS systems when you install
+PostgreSQL, and this is the most effective way to install the tool. These
+instructions use the Homebrew package management tool.
 
-```bash
-sudo apt-get update
-sudo apt-get install postgresql-client
-```
+<procedure>
 
-<highlight type="tip"> This only installs the `psql` client and not the PostgreSQL database.</highlight>
+### Installing PostgreSQL on Apple macOS
+1.  Install Homebrew, if you don't already have it:
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+    For more information about Homebrew, including installation instructions,
+    see the [Homebrew documentation][homebrew].
+1.  Make sure your Homebrew repository is up to date:
+    ```bash
+    brew doctor
+    brew update
+    ```
+1.  Install PostgreSQL:
+    ```bash
+    brew install postgres
+    ```
 
-## Windows 10
-We recommend using the installer from [PostgreSQL.org][windows-installer].
+</procedure>
 
-## Connect to your PostgreSQL server
-In order to connect to your PostgreSQL server, you’ll need the following
-connection parameters:
-- Hostname
-- Port
-- Username
-- Password
-- Database name
+If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own.
 
-There are two ways to use these parameters to connect to your PostgreSQL database.
+<procedure>
 
-### Option 1: Supply parameters at the command line
-In this method, use parameter flags on the command line to supply the required
-information to connect to a PostgreSQL database:
+### Installing psql on Apple macOS
+1.  Install Homebrew, if you don't already have it:
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+    For more information about Homebrew, including installation instructions,
+    see the [Homebrew documentation][homebrew].
+1.  Make sure your Homebrew repository is up to date:
+    ```bash
+    brew doctor
+    brew update
+    ```
+1.  Install `psql`:
+    ```bash
+    brew install libpq
+    ```
+1.  Update your path to include the `psql` tool.
+    ```bash
+    brew link --force libpq
+    ```
+    For your reference, on Intel chips, the symbolic link is added to
+    `/usr/local/bin`. On Apple Silicon, the symbolic link is added to
+    `/opt/homebrew/bin`.
 
-```bash
-psql -h HOSTNAME -p PORT -U USERNAME -W -d DATABASENAME
-```
+</procedure>
 
-Once you run that command, the prompt asks you for your password. (This is the purpose 
-of the `-W` flag.)
+## Install psql on Debian and Ubuntu
+You can use the `apt` package manager on Debian and Ubuntu systems to install
+the `psql` tool.
 
-### Option 2: Use a service URI
-The Service URI begins with `postgres://`.
+<procedure>
 
-```bash
-psql postgres://[USERNAME]:[PASSWORD]@[HOSTNAME]:[PORT]/[DATABASENAME]?sslmode=require
-```
+### Installing psql on Debian and Ubuntu
+1.  Make sure your `apt` repository is up to date:
+    ```bash
+    sudo apt-get update
+    ```
+1.  Install the `postgresql-client` package:
+    ```bash
+    sudo apt-get install postgresql-client
+    ```
 
-## Fun things to do with psql
+</procedure>
 
-### Common psql commands
-Here is a table of common commands you'll find yourself using a lot:
+## Install psql on Windows
+The `psql` tool is installed by default on Windows systems when you install
+PostgreSQL, and this is the most effective way to install the tool. These
+instructions use the interactive installer provided by PostgreSQL and
+EnterpriseDB.
 
-| Command       |      Actions                             |
-|---------------|------------------------------------------|
-|`\l`	          | List available databases                 |
-|`\c dbname`    | Connect to a new database                |
-|`\dt`	        | List available tables                    |
-|`\d tablename` | Describe the details of given table      |
-|`\dn`          | List all schemas in the current database |
-|`\df`          | List functions in the current database   |
-|`\h`           | Get help on syntax of SQL commands       |
-|`\?`           | Lists all `psql` slash commands          |
-|`\set`         | System variables list                    |
-|`\timing`      | Shows how long a query took to execute   |
-|`\x`           | Show expanded query results              |
-|`\q`           | Quit `psql`                              |
+<procedure>
 
-### Save results of a query to a comma-separated file
-You may often find yourself running SQL queries with lengthy results. You can save these
-results to a comma-separated file (CSV) using the `COPY` command:
+### Installing psql on Windows
+1.  Download and run the PostgreSQL installer from
+    [www.enterprisedb.com][windows-installer].
+1.  In the `Select Components` dialog, check `Command Line Tools`, along with
+    any other components you want to install, and click `Next`.
+1.  Complete the installation wizard to install the package.
 
-```sql
-\copy (SELECT * FROM ...) TO '/tmp/myoutput.csv' (format CSV);
-```
-
-You would then be able to open `/tmp/myoutput.csv` using any spreadsheet or similar
-program that reads CSV files.
-
-### Edit a SQL query in an editor
-Sometimes you may find yourself writing a lengthy query such as this one below:
-
-```sql
--- For each airport: num trips, avg trip duration, avg cost, avg tip, avg distance, min distance, max distance, avg number of passengers
-SELECT rates.description, COUNT(vendor_id) AS num_trips,
-   AVG(dropoff_datetime - pickup_datetime) AS avg_trip_duration, AVG(total_amount) AS avg_total,
-   AVG(tip_amount) AS avg_tip, MIN(trip_distance) AS min_distance, AVG (trip_distance) AS avg_distance, MAX(trip_distance) AS max_distance,
-   AVG(passenger_count) AS avg_passengers
- FROM rides
- JOIN rates ON rides.rate_code = rates.rate_code
- WHERE rides.rate_code IN (2,3) AND pickup_datetime < '2016-02-01'
- GROUP BY rates.description
- ORDER BY rates.description;
-```
-
-It would be pretty common to make an error the first couple of times you attempt to
-write something that long in SQL. Instead of re-typing every line or character,
-you can launch a `vim` editor using the `\e` command. Your previous command can
-then be edited, and once you save ("Escape-Colon-W-Q") your edits, the command  
-appears in the buffer. You can get back to it by pressing the up arrow
-in your Terminal window.
-
-Congrats! Now you have connected via `psql`.
+</procedure>
 
 
 [brew-package-manager]: https://brew.sh/
