@@ -99,7 +99,7 @@ Let's connect the Github repository AWS Lambda using Github actions.
 <procedure>
 
 ### Adding your AWS credentials to the repository
-You need to add your AWS credentials to the repository so it will have permission to connect to Lambda.
+You need to add your AWS credentials to the repository so it has permission to connect to Lambda.
 You can do this by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
 using the GitHub CLI.
 
@@ -178,7 +178,7 @@ to auto-deploy to AWS Lambda.
               function_name: lambda-cd
               source: function.py
     ```
-    This configuration will make sure to deploy the code to Lambda when there's a new push to the main branch.
+    This configuration deploys the code to Lambda when there's a new push to the main branch.
 
     As you can also see in the YAML file, the AWS credentials are accessed using the `${{ secrets.AWS_ACCESS_KEY_ID }}`
     syntax.

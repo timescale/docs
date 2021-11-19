@@ -110,7 +110,7 @@ this, you *will* end up with merge conflicts.
     ```bash
     git checkout latest
     ```
-    You will get a message like this:
+    You get a message like this:
     ```bash
     Switched to branch 'latest'
     Your branch is up to date with 'origin/latest'.
@@ -127,7 +127,7 @@ this, you *will* end up with merge conflicts.
     ```
 1.  If you are continuing work you began earlier, check out the branch that
     contains your work. For new work, create a new branch. Doing this regularly as
-    you are working will mean you keep your local copies up to date and avoid
+    you are working means you keep your local copies up to date and avoid
     conflicts. You should do it at least every day before you begin work, and again
     whenever you switch branches.
 

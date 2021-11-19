@@ -25,12 +25,12 @@ of the dimensions is used to determine the tablespace assigned to a
 particular hypertable chunk. If a hypertable has one or more hash-partitioned
 ("space") dimensions, then the first hash-partitioned dimension
 is used. Otherwise, the first time dimension is used. This assignment
-strategy ensures that hash-partitioned hypertables will have chunks
+strategy ensures that hash-partitioned hypertables have chunks
 colocated according to hash partition, as long as the list of
 tablespaces attached to the hypertable remains the same. Modulo
 calculation is used to pick a tablespace, so there can be more partitions
 than tablespaces (e.g., if there are two tablespaces, partition number
-three will use the first tablespace).
+three uses the first tablespace).
 
 <highlight type="tip">
 Note that attaching more tablespaces than there are partitions for the
@@ -39,8 +39,8 @@ or additional partitions are added. This is especially true for
 hash-partitioned tables.
 </highlight>
 
-Hypertables that are only time-partitioned will add new
-partitions continuously, and will therefore have chunks assigned to
+Hypertables that are only time-partitioned add new
+partitions continuously, and therefore have chunks assigned to
 tablespaces in a way similar to round-robin.
 
 

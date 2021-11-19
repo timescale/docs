@@ -2,7 +2,7 @@
 
 TimescaleDB supports the range of PostgreSQL index types, and creating, altering,
 or dropping an index on the hypertable ([PostgreSQL docs][postgres-createindex])
-will similarly be propagated to all its constituent chunks.
+is similarly propagated to all its constituent chunks.
 
 Data is indexed via the SQL `CREATE INDEX` command. For instance,
 ```sql
@@ -118,7 +118,7 @@ CREATE INDEX ON conditions (time DESC);
 
 Additionally, if the `create_hypertable` command specifies an optional
 "space partition" in addition to time (say, the `location` column),
-TimescaleDB will automatically create the following index:
+TimescaleDB automatically creates the following index:
 
 ```sql
 CREATE INDEX ON conditions (location, time DESC);

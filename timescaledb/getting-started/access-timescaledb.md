@@ -2,19 +2,19 @@
 
 Now that you have TimescaleDB setup and running in Timescale Cloud, it's time
 to connect to your database. While this can be accomplished with many tools, `psql`
-is the standard command line interface for interacting with a PostgreSQL 
+is the standard command line interface for interacting with a PostgreSQL
 or TimescaleDB instance.
 
 Below, we'll verify that you have `psql` installed and show you how to connect
 to your TimescaleDB database.
 
 ## Verify that `psql` is installed
-**Before you start**, let's confirm that you already have `psql` installed. 
-In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already 
+**Before you start**, let's confirm that you already have `psql` installed.
+In fact, if you’ve ever installed Postgres or TimescaleDB before, you likely already
 have `psql` installed.
 
 In a command line or terminal window, type the following command and press **Enter**.
-If `psql` is installed, it will return the version number. Otherwise, you will
+If `psql` is installed, it returns the version number. Otherwise, you
 receive an error.
 
 ```bash
@@ -44,8 +44,8 @@ psql postgres://[USERNAME]:[PASSWORD]@[HOSTNAME]:[PORT]/[DATABASENAME]?sslmode=r
 ```
 
 <highlight type="tip">
-Because the URL provided in the Timescale Cloud interface does not supply the 
-password, you will be prompted for the password in order to finish authenticating.
+Because the URL provided in the Timescale Cloud interface does not supply the
+password, you are prompted for the password in order to finish authenticating.
 
 If you want to save yourself time, you can add the password to the URL by adding
 a colon and the password between the username and the hostname as shown

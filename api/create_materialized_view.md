@@ -57,7 +57,7 @@ the hypertable's time column, and all aggregates must be parallelizable.
 
 #### Notes
 
-- The view will be automatically refreshed (as outlined under
+- The view is automatically refreshed (as outlined under
   [`refresh_continuous_aggregate`](/continuous-aggregates/refresh_continuous_aggregate/))
   unless `WITH NO DATA` is given (`WITH DATA` is the default).
 - The `SELECT` query should be of the form specified in the syntax above, which is discussed in

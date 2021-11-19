@@ -5,7 +5,7 @@ at any time. This is extremely useful when users have a need to increase storage
 to do for any service.
 
 Before you modify the compute or storage settings for a Cloud Service, please
-note the following limitations and when a change to these settings will result
+note the following limitations and when a change to these settings results
 in momentary downtime.
 
 **Storage**: Storage changes are applied with no downtime, typically available
@@ -18,7 +18,7 @@ within a few seconds. Other things to note about storage changes:
 decreases) can be applied at any time, however, please note the following:
 *   **_There is momentary downtime_** while the compute settings are applied.
     In most cases, this downtime is less than 30 seconds.
-*   Because there will be an interruption to your service, you should plan
+*   Because this requires an interruption to your service, you should plan
  accordingly to have the settings applied at an appropriate service window.
 
 ## View service operation details
@@ -84,7 +84,7 @@ plan for this before you begin!
 1.  In the `Increase disk size` field, adjust the slider to the new disk size.
 1.  Review the new allocations and costs in the comparison chart.
 1.  Click `Apply` to save your changes. If you have changed the CPU and memory
-    allocation, your service will go down briefly while the changes are applied.
+    allocation, your service goes down briefly while the changes are applied.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed-apply.png" alt="Configure resource allocations"/>
 
 </procedure>

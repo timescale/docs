@@ -25,7 +25,7 @@ as well as the schedule on which it is run.
 
 When registered, the action's `job_id` and `config` are stored in the
 TimescaleDB catalog. The `config` JSONB can be modified with [`alter_job`][api-alter_job].
-`job_id` and `config` will be passed as arguments when the procedure is
+`job_id` and `config` are passed as arguments when the procedure is
 executed as background process or when expressly called with [`run_job`][api-run_job].
 
 Register the created job with the automation framework. `add_job` returns the job_id

@@ -20,7 +20,7 @@ For an overview of Promscale, see this short introductory video: [Intro to Proms
 </highlight>
 
 ## Roadmap
-In this tutorial you will learn:
+In this tutorial you learn:
 1. [The benefits of using Promscale to store and analyze Prometheus metrics][promscale-benefits]
 2. [How Promscale works][promscale-how-it-works]
 3. [How to install Prometheus, Promscale and TimescaleDB][promscale-install]

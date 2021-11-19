@@ -15,7 +15,7 @@ or backfilling data:
     trying to compress chunks that you are currently working on.
 1.  Decompress chunks.
 1.  Perform the insertion or backfill.
-1.  Re-enable the compression policy. This will re-compress the chunks you worked on.
+1.  Re-enable the compression policy. This re-compresses the chunks you worked on.
 
 ## Decompress chunks manually
 There are several methods for selecting chunks and decompressing them.

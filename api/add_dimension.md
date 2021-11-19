@@ -99,8 +99,8 @@ queries.
 | `created` | BOOLEAN | True if the dimension was added, false when `if_not_exists` is true and no dimension was added. |
 
 When executing this function, either `number_partitions` or
-`chunk_time_interval` must be supplied, which will dictate if the
-dimension will use hash or interval partitioning.
+`chunk_time_interval` must be supplied, which dictates if the
+dimension uses hash or interval partitioning.
 
 The `chunk_time_interval` should be specified as follows:
 

@@ -11,7 +11,7 @@ need `pg_dump` for exporting your schema and data.
 
 Migration falls into three main steps:
 
-1. Copy over the database schema and choose which tables will become
+1. Copy over the database schema and choose which tables become
 hypertables (i.e., those that currently have time-series data).
 1. Backup data to comma-separated values (CSV).
 1. Import the data into TimescaleDB

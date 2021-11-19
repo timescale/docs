@@ -8,7 +8,7 @@ It's easy to use, configurable, and most importantly, it's fast.
 
 ### Before we start
 
-Before we start, you will need the following setup:
+Before we start, you need the following setup:
 * A running instance of InfluxDB at a known location and a means to connect to it
 * [TimescaleDB installed][getting-started] and a means to connect to it
 * And if you need to import some sample data, the [InfluxDB Command Line Interface][influx-cmd]
@@ -37,7 +37,7 @@ Available Commands:
                   with the discovered schema
 ```
 
-You will see the help output for Outflux, a brief explanation of what it can do, the usage, and available commands.
+You see the help output for Outflux, a brief explanation of what it can do, the usage, and available commands.
 
 For instructions on how to set up Outflux from source you can visit the [README][outflux-readme].
 
@@ -45,7 +45,7 @@ For instructions on how to set up Outflux from source you can visit the [README]
 
 If you don't already have an existing InfluxDB database, you can try Outflux by importing this example file with data written in the Influx Line Protocol found at https://timescaledata.blob.core.windows.net/datasets/outflux_taxi.txt
 
-You can use the Influx CLI client to load the data. The file will first create the "outflux_tutorial" database and then do 2741 inserts.
+You can use the Influx CLI client to load the data. The file first creates the "outflux_tutorial" database and then do 2741 inserts.
 
 ```
 $ influx -import -path=outflux_taxit.txt -database=outflux_tutorial
@@ -54,7 +54,7 @@ $ influx -import -path=outflux_taxit.txt -database=outflux_tutorial
 2019/03/27 11:39:11 Failed 0 inserts
 ```
 
-The data in the file is without a timestamp so the current time of the Influx server will be used at the time of insert.
+The data in the file is without a timestamp so the current time of the Influx server is used at the time of insert.
 All the data points belong to one measurement `taxi`. The points are tagged with location, rating, and vendor. Four fields are recorded: fare, mta_tax, tip, and tolls.
 The `influx` client assumes the server is available at `http://localhost:8086` by default.
 
@@ -65,7 +65,7 @@ One of Outflux's features is the ability to discover the schema of an InfluxDB m
 We can now create a TimescaleDB hypertable ready to receive the demo data we inserted into the InfluxDB instance. If you followed the tutorial and inserted the data from the example, there should be a `taxi` measurement in the `outflux_tutorial` database in the InfluxDB instance.
 
 The `schema-transfer` command of Outflux can work with 4 schema strategies:
-* `ValidateOnly`: checks if the TimescaleDB extension is installed, a specified database has a hypertable with the proper columns, and if it's partitioned properly, but will not perform modifications
+* `ValidateOnly`: checks if the TimescaleDB extension is installed, a specified database has a hypertable with the proper columns, and if it's partitioned properly, but does not perform modifications
 * `CreateIfMissing`: runs all checks that `ValidateOnly` does and creates and properly partitions any missing hypertables
 * `DropAndCreate`: drops any existing table with the same name as the measurement, and creates a new hypertable and partitions it properly
 * `DropCascadeAndCreate`: performs the same action as DropAndCreate with the additional strength of executing a cascade table drop if there is an existing table with the same name as the measurement
@@ -81,7 +81,7 @@ $ outflux schema-transfer outflux_tutorial taxi \
 ```
 
 The `schema-transfer` command is executed by specifying the database (`outflux_tutorial`) and then the measurements (`taxi`).
-If no measurements are specified, all measurements in a database will be transferred.
+If no measurements are specified, all measurements in a database are transferred.
 The location of the InfluxDB server is specified with the `--input-server` flag.
 The target database and other connection options are specified with the `--output-conn` flag.
 Here we're using the `postgres` user and database to connect to our server.
@@ -132,9 +132,9 @@ $ outflux migrate outflux_tutorial taxi \
  --schema-strategy=DropAndCreate
 ```
 
-Here we're using the DropAndCreate strategy that will drop any previous table named `cpu` and create it before piping the data.
+Here we're using the DropAndCreate strategy that drops any previous table named `cpu` and create it before piping the data.
 The migrate command supports several flags that offer the user flexibility in the selection of data to be migrated.
-One of them is the `--limit` flag that will only export the first N rows from the InfluxDB database ordered by time.
+One of them is the `--limit` flag that only exports the first N rows from the InfluxDB database ordered by time.
 The output of the migrate command with a N=10 limit should look like this:
 
 ```

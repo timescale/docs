@@ -1,22 +1,22 @@
-## timescaledb_information.dimensions 
+## timescaledb_information.dimensions
 
-Get metadata about the dimensions of hypertables, returning one row of metadata 
-for each dimension of a hypertable.  For a time-and-space-partitioned 
-hypertable, for example, two rows of metadata will be returned for the 
+Get metadata about the dimensions of hypertables, returning one row of metadata
+for each dimension of a hypertable.  For a time-and-space-partitioned
+hypertable, for example, two rows of metadata are returned for the 
 hypertable.
 
-A time-based dimension column has either an integer datatype 
-(bigint, integer, smallint) or a time related datatype 
+A time-based dimension column has either an integer datatype
+(bigint, integer, smallint) or a time related datatype
 (timestamptz, timestamp, date).
 The `time_interval` column is defined for hypertables that use time datatypes.
 Alternatively, for hypertables that use integer datatypes,
  the `integer_interval` and `integer_now_func` columns are defined.
 
-For space based dimensions, metadata is returned that specifies their number 
-of `num_partitions`. The `time_interval` and `integer_interval` columns are 
+For space based dimensions, metadata is returned that specifies their number
+of `num_partitions`. The `time_interval` and `integer_interval` columns are
 not applicable for space based dimensions.
- 
-### Available Columns 
+
+### Available Columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -31,7 +31,7 @@ not applicable for space based dimensions.
 | `integer_now_func` | TEXT | integer_now function for primary dimension if the column type is integer based datatype|
 | `num_partitions` | SMALLINT | Number of partitions for the dimension |
 
-### Sample Usage 
+### Sample Usage
 
 Get information about the dimensions of hypertables.
 
@@ -51,9 +51,9 @@ column_name       | time
 column_type       | timestamp with time zone
 dimension_type    | Time
 time_interval     | 7 days
-integer_interval  | 
-integer_now_func  | 
-num_partitions    | 
+integer_interval  |
+integer_now_func  |
+num_partitions    |
 -[ RECORD 2 ]-----+-------------------------
 hypertable_schema | public
 hypertable_name   | dist_table
@@ -61,9 +61,9 @@ dimension_number  | 2
 column_name       | device
 column_type       | integer
 dimension_type    | Space
-time_interval     | 
-integer_interval  | 
-integer_now_func  | 
+time_interval     |
+integer_interval  |
+integer_now_func  |
 num_partitions    | 2
 ```
 
@@ -83,9 +83,9 @@ column_name       | a_col
 column_type       | date
 dimension_type    | Time
 time_interval     | 7 days
-integer_interval  | 
-integer_now_func  | 
-num_partitions    | 
+integer_interval  |
+integer_now_func  |
+num_partitions    |
 -[ RECORD 2 ]-----+----------------------------
 hypertable_schema | public
 hypertable_name   | hyper_2dim
@@ -94,7 +94,7 @@ column_name       | b_col
 column_type       | timestamp without time zone
 dimension_type    | Time
 time_interval     | 7 days
-integer_interval  | 
-integer_now_func  | 
-num_partitions    | 
+integer_interval  |
+integer_now_func  |
+num_partitions    |
 ```

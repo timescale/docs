@@ -43,7 +43,7 @@ since it allows for more powerful queries:
 CREATE INDEX idxgin ON metrics USING GIN (data);
 ```
 
-Please note that this index will only optimize queries for which the WHERE clause
+Please note that this index only optimizes queries for which the WHERE clause
 uses the `?`, `?&`, `?|`, or `@>` operator (for a description of these operators
 see [this table][json-operators] in the PostgreSQL docs). So you should make
 sure to structure your queries appropriately.

@@ -145,7 +145,7 @@ From the configuration, you can see a few important things:
 The commented out parameters also show their default values.
 
 In the first example you'll set the connection parameter to a proper connection string to establish a connection to an instance of TimescaleDB or PostgreSQL.
-All the other parameters will have their default values.
+All the other parameters have their default values.
 
 ### Creating hypertables
 The plugin allows you to configure several parameters. The `table_template`
@@ -166,7 +166,7 @@ each chunk holding 1 week intervals. Nothing else is needed to use the plugin
 with TimescaleDB.
 
 ## Running Telegraf
-When you run Telegraf you only need to specify the configuration file to use. In this example, the output uses loaded inputs (`cpu`) and outputs (`postgresql`) along with global tags, and the intervals with which the agent will collect the data from the inputs, and flush to the outputs. You can stop Telegraf running after ~10-15 seconds:
+When you run Telegraf you only need to specify the configuration file to use. In this example, the output uses loaded inputs (`cpu`) and outputs (`postgresql`) along with global tags, and the intervals with which the agent collects the data from the inputs, and flush to the outputs. You can stop Telegraf running after ~10-15 seconds:
 ```bash
 telegraf --config telegraf.conf
 2019-05-23T13:48:09Z I! Starting Telegraf 1.13.0-with-pg
@@ -210,7 +210,7 @@ the configuration by opening the file in any text editor and updating the
 ```
 
 This way all metrics collected with the instance of Telegraf running with this
-config will be tagged with `location="New York"`. If you run Telegraf again,
+config is tagged with `location="New York"`. If you run Telegraf again,
 collecting the metrics in TimescaleDB, using this command:
 ```bash
 telegraf --config telegraf.conf

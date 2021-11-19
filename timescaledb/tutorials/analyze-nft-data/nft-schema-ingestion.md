@@ -1,9 +1,9 @@
 # NFT schema design and ingestion
-A properly designed database schema is essential to efficiently store and 
-analyze data. This tutorial uses NFT time-series data with multiple supporting 
-relational tables. 
+A properly designed database schema is essential to efficiently store and
+analyze data. This tutorial uses NFT time-series data with multiple supporting
+relational tables.
 
-To help you get familiar with NFT data, here are some of the questions that 
+To help you get familiar with NFT data, here are some of the questions that
 could be answered with this dataset:
 * Which collections have the highest trading volume?
 * What’s the number of daily transactions of a given collection or asset?
@@ -11,12 +11,12 @@ could be answered with this dataset:
 * Which account made the most NFT trades?
 * How are the mean and median sale prices correlated?
 
-One theme across all these questions is that most of the insights are about the 
-sale itself, or the aggregation of sales. So you need to create a schema which 
-focuses on the time-series aspect of the data. It's also important to make sure 
-that you can JOIN supporting tables, so you can more easily make queries that 
-touch both the time-series and the relational tables. TimescaleDB's PostgreSQL 
-foundation and full-SQL support allows you to easily combine time-series and 
+One theme across all these questions is that most of the insights are about the
+sale itself, or the aggregation of sales. So you need to create a schema which
+focuses on the time-series aspect of the data. It's also important to make sure
+that you can JOIN supporting tables, so you can more easily make queries that
+touch both the time-series and the relational tables. TimescaleDB's PostgreSQL
+foundation and full-SQL support allows you to easily combine time-series and
 relational tables during your analysis.
 
 ## Tables and field descriptions
@@ -31,18 +31,18 @@ Relational tables (regular PostgreSQL tables):
 * **accounts**: NFT trading accounts/users
 
 ### The nft_sales table
-The `nft_sales` table contains information about successful sale transactions 
-in time-series form. One row represents one successful sale event on the 
+The `nft_sales` table contains information about successful sale transactions
+in time-series form. One row represents one successful sale event on the
 OpenSea platform.
 
 * `id` field is a unique field provided by the OpenSea API.
-* `total_price` field is the price paid for the NFTs in ETH (or other 
-cryptocurrency payment symbol available on OpenSea). 
-* `quantity` field indicates how many NFTs were sold in the transaction 
-(can be more than 1). 
-* `auction_type` field is NULL by default, unless the transaction happened 
+* `total_price` field is the price paid for the NFTs in ETH (or other
+cryptocurrency payment symbol available on OpenSea).
+* `quantity` field indicates how many NFTs were sold in the transaction
+(can be more than 1).
+* `auction_type` field is NULL by default, unless the transaction happened
 as part of an auction.
-* `asset_id` and `collection_id` fields can be used to JOIN the supporting 
+* `asset_id` and `collection_id` fields can be used to JOIN the supporting
 relational tables.
 
 | Data field | Description |
@@ -62,7 +62,7 @@ relational tables.
 | winner_account | Buyer's account, FK: accounts(id) |
 
 ### The assets table
-The `assets` table contains information about the assets (NFTs) that are in the 
+The `assets` table contains information about the assets (NFTs) that are in the
 transactions. One row represents a unique NFT asset on the OpenSea platform.
 
 * `name` field is the name of the NFT, and is not unique.
@@ -80,11 +80,11 @@ transactions. One row represents a unique NFT asset on the OpenSea platform.
 | details | Other extra data fields (JSONB) |
 
 ### The collections table
-The `collections` table holds information about the NFT collections. One row 
-represents a unique NFT collection. 
+The `collections` table holds information about the NFT collections. One row
+represents a unique NFT collection.
 One collection includes multiple unique NFTs (that are in the `assets` table).
 
-* `slug` field is a unique identifier of the collection. 
+* `slug` field is a unique identifier of the collection.
 
 | Data field | Description |
 |---|---|
@@ -96,8 +96,8 @@ One collection includes multiple unique NFTs (that are in the `assets` table).
 
 
 ### The accounts table
-The `accounts` table includes the accounts that have participated in at least 
-one transaction from the nft_sales table. 
+The `accounts` table includes the accounts that have participated in at least
+one transaction from the nft_sales table.
 One row represents one unique account on the OpenSea platform.
 
 * `address` is never NULL and it’s unique
@@ -111,10 +111,10 @@ One row represents one unique account on the OpenSea platform.
 | details | Other extra data fields (JSONB) |
 
 ## Database schema
-The data types used in the schema for this tutorial have been determined based 
-on our research and hands-on experience working with the OpenSea API and the 
-data pulled from OpenSea. Start by running these SQL commands to create the schema. 
-Alternatively, you can download and run the `schema.sql` 
+The data types used in the schema for this tutorial have been determined based
+on our research and hands-on experience working with the OpenSea API and the
+data pulled from OpenSea. Start by running these SQL commands to create the schema.
+Alternatively, you can download and run the `schema.sql`
 file from our [NFT Starter Kit GitHub repository][nft-schema].
 ```sql
 CREATE TABLE collections (
@@ -170,46 +170,46 @@ CREATE INDEX idx_payment_symbol ON nft_sales (payment_symbol);
 ```
 
 ### Schema design
-The `id` field in each table is `BIGINT` because its storage size is 8 bytes in 
-PostgreSQL (as opposed to `INT`’s 4 bytes) which is needed to make sure this 
+The `id` field in each table is `BIGINT` because its storage size is 8 bytes in
+PostgreSQL (as opposed to `INT`’s 4 bytes) which is needed to make sure this
 value doesn’t overflow.
 
-For the `quantity` field we suggest using numeric or decimal (which works the 
-same way in PostgreSQL) as the data type, because in some edge cases we 
+For the `quantity` field we suggest using numeric or decimal (which works the
+same way in PostgreSQL) as the data type, because in some edge cases we
 experience transactions where the quantity was too big even for BIGINT.
 
-`total_price` needs to be `double precision` because NFT prices often include 
-many decimals, especially in the case of Ether (ETH) and similar cryptocurrencies 
+`total_price` needs to be `double precision` because NFT prices often include
+many decimals, especially in the case of Ether (ETH) and similar cryptocurrencies
 which are, functionally, infinitely divisible.
 
-We created an `ENUM` for `auction_type` as this value can only be 'dutch', 
-'english', or 'min_price', representing the different types of auctions used 
+We created an `ENUM` for `auction_type` as this value can only be 'dutch',
+'english', or 'min_price', representing the different types of auctions used
 to sell an NFT.
 
-We decided to not store all the data fields that are available from the 
-OpenSea API, only those that we deem interesting or useful for future analysis. 
-But we still wanted to keep all of the unused data fields somewhere close, 
-so we added a `details` JSONB column to each relational table. This column 
-contains additional information about the record. For example, it includes a 
+We decided to not store all the data fields that are available from the
+OpenSea API, only those that we deem interesting or useful for future analysis.
+But we still wanted to keep all of the unused data fields somewhere close,
+so we added a `details` JSONB column to each relational table. This column
+contains additional information about the record. For example, it includes a
 `background_color` as a field for the assets.
 
-Note: In our sample dataset, we chose not to include the JSONB data to keep the 
-size of the dataset easily managable. If you want a dataset with the full JSON 
-data included, you need to fetch the data directly from the OpenSea API 
-(see below for steps). 
+Note: In our sample dataset, we chose not to include the JSONB data to keep the
+size of the dataset easily managable. If you want a dataset with the full JSON
+data included, you need to fetch the data directly from the OpenSea API
+(see below for steps).
 
 ## Ingest NFT data
-When you have your database and schema created, you can ingest some data to play 
-with! You have two options to ingest NFT data for this tutorial: 
+When you have your database and schema created, you can ingest some data to play
+with! You have two options to ingest NFT data for this tutorial:
 
 * Fetch data directly from the OpenSea API
 * Download sample data and import it
 
 
 ### Fetch data directly from the OpenSea API
-To ingest data from the OpenSea API, you can use the `opensea_ingest.py` script included 
-in the starter kit repository on GitHub. The script connects to the OpenSea 
-API `/events` endpoint, and fetches data from the specified time period (no API 
+To ingest data from the OpenSea API, you can use the `opensea_ingest.py` script included
+in the starter kit repository on GitHub. The script connects to the OpenSea
+API `/events` endpoint, and fetches data from the specified time period (no API
 key required!).
 
 <procedure>
@@ -240,7 +240,7 @@ key required!).
     ```python
     python opensea_ingest.py
     ```
-    This will start ingesting data in batches, 300 rows at a time:
+    This starts ingesting data in batches, 300 rows at a time:
     ```bash
     Start ingesting data between 2021-10-01 00:00:00+00:00 and 2021-10-06 23:59:59+00:00
     ---
@@ -250,13 +250,13 @@ key required!).
     Data has been backfilled until this time: 2021-10-06 23:51:31.140126+00:00
     ---
     ```
-    You can stop the ingesting process anytime (Ctrl+C), otherwise the script 
-    will run until all the transactions have been ingested from the given time period.
+    You can stop the ingesting process anytime (Ctrl+C), otherwise the script
+    runs until all the transactions have been ingested from the given time period.
 
 </procedure>
 
 ### Download sample NFT data
-You can download and insert sample CSV files that contain NFT sales data from 
+You can download and insert sample CSV files that contain NFT sales data from
 1 October 2021 to 7 October 2021.
 
 <procedure>
@@ -272,7 +272,7 @@ You can download and insert sample CSV files that contain NFT sales data from
     ```bash
     psql -x "postgres://host:port/tsdb?sslmode=require"
     ```
-    If you're using Timescale Cloud, the instructions under `How to Connect` provide a 
+    If you're using Timescale Cloud, the instructions under `How to Connect` provide a
     customized command to run to connect directly to your database.
 1.  Import the CSV files in this order (it can take a few minutes in total):
     ```bash
@@ -286,7 +286,7 @@ You can download and insert sample CSV files that contain NFT sales data from
 
 After ingesting NFT data, you can try running some queries on your database:
 ```sql
-SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales 
+SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales
 ```
 
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
