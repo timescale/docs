@@ -90,11 +90,11 @@ LIMIT 100;
 ```
 
 ### Transactions and consistency model
-Transactions that involve distributed hypertables are atomic, just
-like those involving regular hypertables. In other words, a
-distributed transaction that involves multiple data nodes is
-guaranteed to either succeed on all nodes or none of them. This
-guarantee is provided by the [two-phase commit protocol][2pc], which
+Transactions that occur on distributed hypertables are atomic, just
+like those on regular hypertables. This means that a distributed 
+transaction that involves multiple data nodes is guaranteed to 
+either succeed on all nodes or on none of them. This guarantee
+is provided by the [two-phase commit protocol][2pc], which
 is used to implement distributed transactions in TimescaleDB.
 
 The read consistency of a distributed hypertable is a bit different
