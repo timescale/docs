@@ -1,55 +1,131 @@
-# High availability (HA) with multi-node
-A multi-node installation can be configured so that each chunk is written to
-multiple data nodes. This natively replicates data at the chunk level, and
-protects against data node failures. It also provides high availability using an
-alternative to fully replicating each data node using.
+# High availability with multi-node
+A multi-node installation of TimescaleDB can be made highly available
+by setting up one or more standbys for each node in the cluster, or by 
+natively replicating data at the chunk level.
 
-The data nodes themselves require no additional setup to use native replication,
-but the access node relies on streaming replication by default, so it requires
-some configuration to make it highly available.
+Using standby nodes relies on streaming replication and you set it up
+in a similar way to [configuring single-node HA][single-ha], although the
+configuration needs to be applied to each node independently.
 
-When data is written to a chunk, it uses the `replication_factor` setting to
-determine how many nodes it replicates the data to. By default, this is set to
-`1`, so there is no native replication. You can increase this number when you
-create the hypertable. For example, to replicate the data across a total of
-three data nodes:
+To replicate data at the chunk level, you can use the built-in 
+capabilities of multi-node TimescaleDB to avoid having to
+replicate entire data nodes. The access node still relies on a
+streaming replication standby, but the data nodes need no additional
+configuration. Instead, the existing pool of data nodes share
+responsibility to host chunk replicas and handle node failures.
+
+There are advantages and disadvantages to each approach. 
+Setting up standbys for each node in the cluster ensures that 
+standbys are identical at the instance level, and this is a tried
+and tested method to provide high availability. However, it also
+requires more setting up and maintenance for the mirror cluster.
+
+Native replication typically requires less resources, nodes, and
+configuration, and takes advantage of built-in capabilities, such as
+adding and removing data nodes, and different replication factors on
+each distributed hypertable. However, only chunks are replicated on
+the data nodes.
+
+The rest of this section discusses native replication. To set up
+standbys for each node, follow the instructions for [single node
+HA][single-ha].
+
+## Native replication
+Native replication is a set of capabilities and APIs that allow you to
+build a highly available multi-node TimescaleDB installation. At the
+core of native replication is the ability to write copies of a chunk
+to multiple data nodes in order to have alternative _chunk replicas_
+in case of a data node failure. If one data node fails, its chunks
+should be available on at least one other data node. If a data node is
+permanently lost, a new data node can be added to the cluster, and
+lost chunk replicas can be re-replicated from other data nodes to
+reach the number of desired chunk replicas.
+
+<highlight type="warning"> 
+Native replication in TimescaleDB is under development and 
+currently lacks functionality for a complete high-availability
+solution. Some functionality described in this section is still
+experimental. For production environments, we recommend setting up
+standbys for each node in a multi-node cluster.
+</highlight>
+
+### Automation
+Similar to how high-availability configurations for single-node
+PostgreSQL uses a system like Patroni for automatically handling
+fail-over, native replication requires an external entity to
+orchestrate fail-over, chunk re-replication, and data node
+management. This orchestration is _not_ provided by default in
+TimescaleDB and therefore needs to be implemented separately. The
+sections below describe how to enable native replication and the steps
+involved to implement high availability in case of node failures.
+
+### Configuring native replication
+The first step to enable native replication is to configure a standby
+for the access node. This process is identical to setting up a [single
+node standby][single-ha].
+
+The next step is to enable native replication on a distributed
+hypertable. Native replication is governed by the
+`replication_factor`, which determines how many data nodes a chunk is
+replicated to. This setting is configured separately for each
+hypertable, which means the same database can have some distributed
+hypertables that are replicated and others that are not.
+
+By default, the replication factor is set to `1`, so there is no
+native replication. You can increase this number when you create the
+hypertable. For example, to replicate the data across a total of three
+data nodes:
 ```sql
 SELECT create_distributed_hypertable('conditions', 'time', 'location',
 	replication_factor => 3);
 ```
 
-Alternatively, you can set the `replication_factor` setting on an existing
-hypertable in a multi-node environment using the
-[`set_replication_factor`][set_replication_factor] call.
+Alternatively, you can use the
+[`set_replication_factor`][set_replication_factor] call to change the
+replication factor on an existing distributed hypertable. Note,
+however, that only new chunks will be replicated according to the
+updated replication factor. Existing chunks need to be re-replicated
+by copying those chunks to new data nodes (see the [node
+failures section](#node-failures) below).
 
-When native replication is enabled, the replication happens whenever you ingest
-data into the table. On each `INSERT` call, each row of the data is written to
-multiple data nodes. This means that you don't need to do any extra steps to
-have newly ingested data replicated. When you query replicated data, the query
-planner only includes one replica of each chunk in the query plan.
+When native replication is enabled, the replication happens whenever
+you write data to the table. On every `INSERT` and `COPY` call, each
+row of the data is written to multiple data nodes. This means that you
+don't need to do any extra steps to have newly ingested data
+replicated. When you query replicated data, the query planner only
+includes one replica of each chunk in the query plan.
 
-## Handling node failures
-When a data node fails, you cannot complete queries and inserts that attempt to
-write to the failed node. This is to maintain data consistency until the data
-node becomes available again. For example:
+### Node failures
+When a data node fails, inserts that attempt to write to the failed
+node will result in an error. This is to preserve data consistency in
+case the data node becomes available again. If writes would be allowed
+while a data node is not available, its chunks would diverge from
+other replicas in the cluster. If waiting for the data node to come
+back is not an option, either because it takes to long or the node is
+permanently failed, one can delete it instead. To be able to delete a
+data node, all of its chunks must have at least one replica on other
+data nodes. For example:
+
 ```sql
 SELECT delete_data_node('data_node_2', force => true);
 WARNING:  distributed hypertable "conditions" is under-replicated
 ```
 
-If the data node cannot be recovered, native replication allows the node to be
-deleted from the multi-node cluster without losing data.
+Use the `force` option when you delete the data node if the deletion
+means that the cluster no longer achieves the desired replication
+factor. This would be the normal case unless the data node has no
+chunks or the distributed hypertable has more chunk replicas than the
+configured replication factor.
 
 <highlight type="important">
 You cannot force the deletion of a data node if it would mean that a multi-node
 cluster permanently loses data.
 </highlight>
 
-When you have successfully removed a failed data node, some data chunks lack
-replicas, but queries and inserts work as normal again. However, the cluster
-stays in a vulnerable state until all chunks that lack replicas are fully
-replicated again. This happens only when the failed data node is replaced, and
-the data successfully replicated.
+When you have successfully removed a failed data node, some data
+chunks might lack replicas, but queries and inserts work as normal
+again. However, the cluster stays in a vulnerable state until all
+chunks are fully replicated again.
 
 When you have restored a failed data node, you can see the chunks that need to
 be replicated with this query:
@@ -94,3 +170,4 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 
 
 [set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
+[single-ha]: /how-to-guides/replication-and-ha/
