@@ -89,7 +89,7 @@ ORDER BY hour
 LIMIT 100;
 ```
 
-### Transactions and Consistency Model [](consistency-model)
+### Transactions and consistency model
 Transactions that involve distributed hypertables are atomic, just
 like those involving regular hypertables. In other words, a
 distributed transaction that involves multiple data nodes is
