@@ -956,6 +956,33 @@ module.exports = [
         ],
       },
       {
+        title: 'The observability stack for Kubernetes (tobs)',
+        href: 'tobs',
+        children: [
+          {
+            title: 'About tobs',
+            href: 'about-tobs',
+            tags: ['tobs', 'k8s', 'monitor', 'learn', 'timescaledb'],
+            keywords: ['tobs', 'Kubernetes', 'timescaleDB'],
+            excerpt: 'Learn about the observability stack for Kubernetes (tobs)',
+          },
+          {
+            title: 'Install tobs',
+            href: 'install-tobs',
+            tags: ['tobs', 'install', 'k8s', 'monitor', 'timescaledb'],
+            keywords: ['tobs', 'Kubernetes', 'install', 'timescaleDB'],
+            excerpt: 'Install the observability stack for Kubernetes (tobs)',
+          },
+          {
+            title: 'Use tobs',
+            href: 'install-tobs',
+            tags: ['tobs', 'monitor', 'k8s', 'timescaledb'],
+            keywords: ['tobs', 'Kubernetes', 'timescaleDB'],
+            excerpt: 'Install the observability stack for Kubernetes (tobs)',
+          },
+        ],
+      },
+      {
         title: 'Alerting',
         href: 'alerting',
         tags: ['alert', 'configure', 'timescaledb'],
