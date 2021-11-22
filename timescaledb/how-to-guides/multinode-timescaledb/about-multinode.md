@@ -110,11 +110,11 @@ others. The read transaction can therefore use a snapshot on one node
 that includes the other transaction's modifications, while the
 snapshot on another data node might not include them.
 
-To achieve stronger read consistency in a distributed transaction one
-needs to use consistent snapshots across all data nodes. However, this
-requires a lot of coordination and bookkeeping that affects
-performance negatively, and it is therefore not implemented for
-distributed hypertables.
+If you need stronger read consistency in a distributed transaction, then you
+can use consistent snapshots across all data nodes. However, this
+requires a lot of coordination and management, which can negatively effect
+performance, and it is therefore not implemented by default for distributed 
+hypertables.
 
 [hypertables]: /how-to-guides/hypertables/
 [multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/
