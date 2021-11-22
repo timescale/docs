@@ -54,9 +54,10 @@ frequently:
 |`\x`|Show expanded query results|
 |`\?`|List all `psql` slash commands|
 
-
-For more information about `psql` commands, see the
-[psql documentation][psql-docs].
+*   For a more comprehensive list of `psql` commands, see the
+    [Timescale psql cheat sheet][psql-cheat-sheet].
+*   For more information about all `psql` commands, see the
+    [psql documentation][psql-docs].
 
 ### Save query results to a file
 When you run queries in `psql`, the results are shown in the console be default.
@@ -68,11 +69,11 @@ the `COPY` command. For example:
 ```
 
 This command sends the results of the query to a new file called `output.csv` in
-teh `/tmp/` directory. You can open the file using any spreadsheet program.
+the `/tmp/` directory. You can open the file using any spreadsheet program.
 
 ### Edit queries in a text editor
 Sometimes, queries can get very long, and you might make a mistake when you try
-rtyping it the first time around. If you have made a mistake in a long qwuery,
+typing it the first time around. If you have made a mistake in a long query,
 instead of retyping it, you can use a built-in text editor, which is based on
 `Vim`. Launch the query editor with the `\e` command. Your previous query is
 loaded into the editor. When you have made your changes, press `Esc`, then type
@@ -81,4 +82,5 @@ edited query by pressing `↑`, and press `Enter` to run it.
 
 
 [about-connecting]: /how-to-guides/connecting/about-connecting/
+[psql-cheat-sheet]: https://postgrescheatsheet.com/
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
