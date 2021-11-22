@@ -141,20 +141,17 @@ transaction, to ensure that the work does not interfere with other operations.
 If you are using Timescale in a multi-node environment, there are some
 additional considerations for continuous aggregates.
 
-When you create a continuous aggregate within a multi-node environment, you must
-create the continuous aggregate on the access node. While it is possible to
-create a continuous aggregate on data nodes, it does not work as expected, and
-could cause problems within your multi-node environment.
+When you create a continuous aggregate within a multi-node environment, the continuous aggregate should be created on the access node. While it is possible to
+create a continuous aggregate on data nodes, it will interfere with the continuous aggregates on the access node and will cause problems with the continuous aggregates on the access node.
 
 When you refresh a continuous aggregate on an access node, it computes a single
-window to update the time buckets. This could slow down your query, especially
-if your data nodes are remote.
+window to update the time buckets. This could slow down your query if the actual number of rows that were updated is small, but widely spread apart. This is aggravated if the network latency is high if, for example, you have remote data nodes.
 
 Invalidation logs are on kept on the data nodes, which is designed to limit the
 amount of data that needs to be transferred. However, some statements send
 invalidations directly to the log. For example, they might drop a chunk or
 truncate a hypertable. This action could slow down performance, in comparison to
-a local update. Additionally, ff don't need to do a lot of refreshes, the
+a local update. Additionally, if you don't need to do a lot of refreshes, the
 invalidation logs could get very large, and it could cause performance issues.
 Make sure you are maintaining your invalidation log size to avoid this.
 
