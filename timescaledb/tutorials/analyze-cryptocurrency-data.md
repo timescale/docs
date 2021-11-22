@@ -202,6 +202,8 @@ with open('coin_names.csv', mode = 'w') as test_file:
                                  quotechar = '"',
                                  quoting=csv.QUOTE_MINIMAL)
    for coin in cryptoDict.values():
+     if day.get('time') == None:
+       continue # skip this item
        name = coin['Name']
        symbol = coin['Symbol']
        symbol_array.append(symbol)
