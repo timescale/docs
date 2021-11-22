@@ -378,7 +378,8 @@ query = """
            GROUP BY five_min
            ORDER BY five_min DESC;
            """
-
+location = "floor"
+sensor_type = "a"
 data = (location, sensor_type)
 cursor.execute(query, data)
 results = cursor.fetchall()
