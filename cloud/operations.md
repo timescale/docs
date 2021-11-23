@@ -13,18 +13,24 @@ When you a fork a service, you create an exact copy of the service, including
 the underlying database. This allows you to create a copy that you can use for
 testing purposes, or to prepare for a major version upgrade.
 
+<highlight type="important">
+You can fork services that have a status of `Running` or `Paused`. You cannot
+fork services while they have a status of `In progress`. Wait for the service to
+complete the transition before you start forking.
+</highlight>
+
 <procedure>
 
 ### Forking a service
-1.  In the Timescale Cloud console, from the `Services` list, click the name of
-    the service you want to fork, and navigate to the `Operations` tab.
-1.  In the `General Operations` section, click `Fork service`.
-1.  In the `Fork service` dialog, click `Fork service` to fork the service. The
-    forked service takes a few minutes to start.
+1.  In the Timescale Cloud console, from the `Services` list, ensure the service you want to form has a status of `Running` or `Paused`, then click the name of
+    the service you want to fork.
+1.  Navigate to the `Operations` tab.
+1.  In the `General` section, click `Fork service`. In the dialog, confirm by
+    clicking `Fork service`. The forked service takes a few minutes to start.
 1.  The forked service shows in the `Services` dashboard with a label stating
     which service it has been forked from.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-FIXME.png" alt="Fork a Timescale Cloud service"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png" alt="Fork a Timescale Cloud service"/>
 
 </procedure>
 
