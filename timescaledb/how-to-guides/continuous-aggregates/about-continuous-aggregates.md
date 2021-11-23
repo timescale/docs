@@ -143,9 +143,8 @@ additional considerations for continuous aggregates.
 
 When you create a continuous aggregate within a multi-node environment, the
 continuous aggregate should be created on the access node. While it is possible
-to create a continuous aggregate on data nodes, it will interfere with the
-continuous aggregates on the access node and will cause problems with the
-continuous aggregates on the access node.
+to create a continuous aggregate on data nodes, it interferes with the
+continuous aggregates on the access node and can cause problems.
 
 When you refresh a continuous aggregate on an access node, it computes a single
 window to update the time buckets. This could slow down your query if the actual
@@ -155,11 +154,11 @@ nodes.
 
 Invalidation logs are on kept on the data nodes, which is designed to limit the
 amount of data that needs to be transferred. However, some statements send
-invalidations directly to the log. For example, they might drop a chunk or
+invalidations directly to the log, for example, when dropping a chunk or
 truncate a hypertable. This action could slow down performance, in comparison to
-a local update. Additionally, if you don't need to do a lot of refreshes, the
-invalidation logs could get very large, and it could cause performance issues.
-Make sure you are maintaining your invalidation log size to avoid this.
+a local update. Additionally, if you have infrequent refreshes but a lot of changes to the hypertable, the
+invalidation logs could get very large, which could cause performance issues.
+Make sure you are maintaining your invalidation log size to avoid this, for example, by refreshing the continuous aggregate frequently.
 
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
