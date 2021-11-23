@@ -7,10 +7,10 @@ A continuous aggregate materializes aggregates in time buckets (e.g.,
 min, max, average over 1 day worth of data), as determined by the
 `time_bucket` interval specified when the continuous aggregate was
 created. Therefore, when refreshing the continuous aggregate, only
-buckets that completely fit within the refresh window will be
+buckets that completely fit within the refresh window are
 refreshed. In other words, it is not possible to compute the aggregate
-over, for example, half a bucket. Therefore, any buckets that do no
-fit within the given refresh window will be excluded.
+over, for example, half a bucket. Therefore, any buckets that do not
+fit within the given refresh window are excluded.
 
 The function expects the window parameter values to have a time type
 that is compatible with the continuous aggregate's time bucket

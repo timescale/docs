@@ -1,12 +1,12 @@
 # Exploring Managed Service for TimescaleDB
 
-Welcome to managed service for TimescaleDB. Managed service for TimescaleDB is a managed TimescaleDB service hosted 
-in 75+ regions in AWS, Azure, or GCP. You can [try managed service for TimescaleDB for free][sign-up], 
+Welcome to managed service for TimescaleDB. Managed service for TimescaleDB is a managed TimescaleDB service hosted
+in 75+ regions in AWS, Azure, or GCP. You can [try managed service for TimescaleDB for free][sign-up],
 no credit card required.
 
-Powered by [TimescaleDB][timescale-features], you can create database instances in the 
-cloud and automate many of your most common operational tasks. This allows you 
-to spend more time focusing on your time-series workloads and less time worrying 
+Powered by [TimescaleDB][timescale-features], you can create database instances in the
+cloud and automate many of your most common operational tasks. This allows you
+to spend more time focusing on your time-series workloads and less time worrying
 about database management.
 
 Before we start, let's review a few core concepts and phrases:
@@ -15,7 +15,7 @@ Before we start, let's review a few core concepts and phrases:
 - **Project**: An empty Project is created for you automatically when you sign-up. Projects organize groups of Services, and have different billing settings. You can use Projects as a way to organize Services in your account and provide access to those Services with other users.
 - **Service**: A Service is an instance that corresponds to a cloud service provider tier (e.g., AWS Timescale-Pro-512-IO-Optimized). You can access all your Services from the 'Services' tab for a given Project.
 - **Database**: Databases are created within a Service. You can view and create a Database within a Service by selecting one of your Services, and then selecting the 'Databases' tab.
-- **Service Plans**: A Service Plan defines the configuration and level of database management that will be performed for a given TimescaleDB deployment.
+- **Service Plans**: A Service Plan defines the configuration and level of database management that are performed for a given TimescaleDB deployment.
 
 ### Step 1: Sign up for managed service for TimescaleDB
 
@@ -27,7 +27,7 @@ check your spam folder.
 
 ### Step 2: Create your first service
 
-After you complete account verification, you can visit the [managed service for TimescaleDB portal][mst-portal] 
+After you complete account verification, you can visit the [managed service for TimescaleDB portal][mst-portal]
 and login with your credentials.
 
 You can create a new service by clicking on the `Create a new service` button.
@@ -37,21 +37,21 @@ In the resulting screen, you'll see several options that enable you to choose:
 - **Service type**. Today, we support TimescaleDB and Grafana services.
 - **Cloud provider**. We support Amazon Web Services, Google Cloud, or Microsoft Azure.
 - **Cloud region**. We support most cloud regions offered by each cloud provider.
-- **Service plan**. We support many common configurations of CPU, memory, storage, backup, and nodes. *If you're still a managed service for TimescaleDB trial user*, we recommend using the `Dev` plan as it will be most cost effective during your evaluation period.
+- **Service plan**. We support many common configurations of CPU, memory, storage, backup, and nodes. *If you're still a managed service for TimescaleDB trial user*, we recommend using the `Dev` plan as it is most cost effective during your evaluation period.
 
 <highlight type="tip">
 During your managed service for TimescaleDB trial, you have up to $300 USD in credits to use.
-This will be sufficient to complete all our tutorials and run a few test projects.
+This is sufficient to complete all our tutorials and run a few test projects.
 </highlight>
 
 If you're interested in learning more about pricing of managed service for TimescaleDB, visit the
 [managed service for TimescaleDB pricing calculator][timescale-pricing]. Or, [contact us][contact]
-and we will be happy to walk you through the best managed service for TimescaleDB configuration
+and we are happy to walk you through the best managed service for TimescaleDB configuration
 for your use cases.
 
 Once you've selected your service options, click `Create Service`.
 
-It will take a few minutes for your service to provision in your cloud. Now is
+It takes a few minutes for your service to provision in your cloud. Now is
 a good time to familiarize yourself with some of the [features of TimescaleDB][using-timescale]
 and our [getting started tutorial][getting-started].
 
@@ -63,7 +63,7 @@ utility for configuring and maintaining PostgreSQL. We recommend
 
 ### Step 4: Connect to your database using psql
 
-You will see a green `Running` label and a green dot under the "Nodes" column when 
+You can see a green `Running` label and a green dot under the "Nodes" column when
 your instance is ready for use.
 
 Once your instance is ready, navigate to the ‘Overview Tab’ of your Timescale
@@ -121,7 +121,7 @@ TimescaleDB provides the ability to configure, in a fine-grained manner, the
 set of source IP addresses and ranges, as well as connection ports, that can
 access your managed service for TimescaleDB services.
 
-This tutorial will walk you through how to configure this capability.
+This tutorial walks you through how to configure this capability.
 
 #### Before you start
 
@@ -132,8 +132,8 @@ get signed up and create your first database instance.
 
 Once you have a database instance setup in the [managed service for TimescaleDB portal][mst-portal],
 browse to this service and click on the 'Overview' tab. In the 'Connection Information'
-section, you will see the port number that is used for database connections. This is
-the port we will protect by managing inbound access.
+section, you can see the port number that is used for database connections. This is
+the port we are protecting by managing inbound access.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/overview-tab.png" alt="Timescale Cloud Overview tab"/>
 
@@ -143,8 +143,8 @@ Scroll down to find the 'Allowed IP Addresses' section. By default, this value i
 `0.0.0.0/0` which is actually wide-open.
 
 <highlight type="warning">
- This wide-open setting simplifies getting started since it will accept incoming 
- traffic from all sources, but you will absolutely want to narrow this range.
+ This wide-open setting simplifies getting started since it accepts incoming
+ traffic from all sources, but you absolutely want to narrow this range.
 </highlight>
 
 If you are curious about how to interpret this [Classless Inter-Domain Routing][cidr-wiki] (CIDR) syntax,
@@ -154,9 +154,9 @@ check out [this great online tool][cidr-tool] to help decipher CIDR.
 
 #### Step 3 - Change the allowed IP addresses section
 
-Click 'Change' and adjust the CIDR value based on where your source traffic will come from.
-For example, entering a value of `192.168.1.15/32` will ONLY allow incoming traffic from a
-source IP of `192.168.1.15` and will deny all other traffic.
+Click 'Change' and adjust the CIDR value based on where your source traffic comes from.
+For example, entering a value of `192.168.1.15/32` ONLY allows incoming traffic from a
+source IP of `192.168.1.15` and denies all other traffic.
 
 #### Step 4 - Save your changes
 Click 'Save Changes' and see this take effect immediately.
@@ -180,4 +180,3 @@ visit the [managed service for TimescaleDB Knowledge Base][mst-kb].
 [using-timescale]: /overview/core-concepts/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
 [install-psql]: /how-to-guides/connecting/psql/
-

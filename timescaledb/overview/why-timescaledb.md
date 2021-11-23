@@ -3,7 +3,7 @@
 Is TimescaleDB the right choice for your legacy application or next great startup
 idea?
 
-As you will read in the next section, Core Concepts, TimescaleDB has been built
+In the next section, Core Concepts, TimescaleDB has been built
 and designed from the ground up to bring the power of relational details to the
 massive scale of time-series data. By building on the strong foundation of PostgreSQL
 and utilizing the extension ecosystem, TimescaleDB can help you bring meaning to

@@ -13,14 +13,14 @@ you'll learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
-You will also need to [install Rails][rails-install].
+You also need to [install Rails][rails-install].
 
 ## Connect Ruby to TimescaleDB [](new-database)
 
@@ -32,7 +32,7 @@ database. TimescaleDB is a PostgreSQL extension.
 rails new my_app -d=postgresql
 ```
 
-Rails will finish creating and bundling your application, installing all required Gems in the process.
+Rails finishes creating and bundling your application, installing all required Gems in the process.
 
 ### Step 2: Configure the TimescaleDB database
 
@@ -62,7 +62,7 @@ default: &default
 ```
 
 <highlight type="warning">
-Experienced Rails developers will want to set and retrieve environment variables for the username and password of the database. For the purposes of this quick start, we will hard code the `host`, `port`, `username`, and `password`. This is *not* advised for code or databases of consequence.
+Experienced Rails developers might want to set and retrieve environment variables for the username and password of the database. For the purposes of this quick start, we hard code the `host`, `port`, `username`, and `password`. This is *not* advised for code or databases of consequence.
 </highlight>
 
 Then configure the database name in the `development`, `test`, and `production` sections. Let's call our
@@ -111,15 +111,15 @@ Now we can run the following `rake` command to create the database in TimescaleD
 rails db:create
 ```
 
-This will create the `my_app_db` database in your TimescaleDB instance and a `schema.rb`
+This creates the `my_app_db` database in your TimescaleDB instance and a `schema.rb`
 file that represents the state of your TimescaleDB database.
 
 ## Create a relational table [](create_table)
 
 ### Step 1: Add TimescaleDB to your Rails migration
 
-First, let's setup our database to include the TimescaleDB extension. We will
-start by creating a migration:
+First, let's setup our database to include the TimescaleDB extension.
+Start by creating a migration:
 
 ```bash
 rails generate migration add_timescale
@@ -148,7 +148,7 @@ rails db:migrate
 ```
 
 <highlight type="warning">
-In order for the command to work, you will need to make sure there is a database named `postgres` in your TimescaleDB deployment. This database is sometimes not present by default.
+In order for the command to work, you need to make sure there is a database named `postgres` in your TimescaleDB deployment. This database is sometimes not present by default.
 </highlight>
 
 With `rails dbconsole` you can test that the extension has been added by running the `\dx`
@@ -181,8 +181,8 @@ rails generate scaffold PageLoads user_agent:string
 ```
 
 TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on your table
-include all partitioning columns, which in our case is the time column. A new Rails model will
-include a `PRIMARY KEY` index for `id` by default, so we need to either remove the
+include all partitioning columns, which in our case is the time column. A new Rails model
+includes a `PRIMARY KEY` index for `id` by default, so we need to either remove the
 column or make sure that the index includes time as part of a "composite key".
 
 <highlight type="tip">
@@ -276,7 +276,7 @@ class AddHypertable < ActiveRecord::Migration[5.2]
 end
 ```
 
-When we run `rails db:migrate` we will generate the hypertable.
+Run `rails db:migrate` to generate the hypertable.
 
 We can confirm this in `psql` by running the `\d page_loads` command and seeing the
 following:
@@ -297,15 +297,15 @@ Triggers:
 
 ## Insert rows into TimescaleDB [](insert_rows)
 
-Let's create a new view and controller so that we can insert a value into
-the database and see our results. When our view displays, we will store
-the user agent and time into our database.
+Create a new view and controller so that we can insert a value into
+the database and see our results. When the view displays, you can store
+the user agent and time into the database.
 
 ```bash
 rails generate controller static_pages home
 ```
 
-This will generate the view and controller files for a page called `/static_pages/home`
+This generates the view and controller files for a page called `/static_pages/home`
 in our site. Let's first add a line to the `static_pages_controller.rb`
 file to retrieve the user agent of the site visitor's browser:
 
@@ -317,8 +317,8 @@ class StaticPagesController < ApplicationController
 end
 ```
 
-Subsequently, in the `home.html.erb` file, we will print the `@agent`
-variable we just created:
+Subsequently, in the `home.html.erb` file, print the `@agent`
+variable you just created:
 
 ```erb
 <h1>StaticPages#home</h1>
@@ -426,7 +426,7 @@ ab -n 50000 -c 10 http://localhost:3000/static_pages/home
 
 Now, you can grab a tea and relax while it creates thousands of records in
 your first hypertable. You'll be able to count how many 'empty requests' your
-Rails will support.
+Rails supports.
 
 
 ## Counting requests per minute

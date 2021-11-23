@@ -65,11 +65,11 @@ SELECT add_continuous_aggregate_policy('conditions_summary_hourly',
 	schedule_interval => INTERVAL '1 h');
 ```
 
-In this case, the continuous aggregate will be refreshed every hour
+In this case, the continuous aggregate is refreshed every hour
 and refresh the last month's data.
 
 You can now run a normal `SELECT` on the continuous aggregate and it
-will give you the aggregated data, for example, to select the hourly
+gives you the aggregated data, for example, to select the hourly
 averages for device 1 during the first three months:
 
 ```sql
@@ -91,7 +91,7 @@ support for this in a future version.
 
 ## Real-time aggregation [](real-time-aggregates)
 
-A query on a continuous aggregate will, by default, use *real-time
+A query on a continuous aggregate, by default, uses *real-time
 aggregation* (first introduced in TimescaleDB 1.7) to combine
 materialized aggregates with recent data from the source
 hypertable. By combining raw and materialized data in this way,

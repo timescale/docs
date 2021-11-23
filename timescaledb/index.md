@@ -21,7 +21,7 @@ current version of TimescaleDB that you should be aware of.
 
 ### Getting started
 
-The **[Getting started tutorial][getting-started]** will lead you through your first experience with
+The **[Getting started tutorial][getting-started]** leads you through your first experience with
 TimescaleDB by setting up hypertables, importing data, running queries, and
 exploring the key features that make TimescaleDB a pleasure to use.
 

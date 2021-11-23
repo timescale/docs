@@ -54,8 +54,8 @@ SELECT drop_chunks('weather_metrics', INTERVAL '25 years');
 ```
 
 
-This will drop all chunks from the hypertable conditions *that only include data
-older than the specified duration* of 25 years, and will *not* delete any individual rows of data in chunks.
+This drops all chunks from the hypertable conditions *that only include data
+older than the specified duration* of 25 years, and does *not* delete any individual rows of data in chunks.
 
 ## Downsampling
 
@@ -64,7 +64,7 @@ downsampling on our data. We can downsample high fidelity raw data into summarie
 via continuous aggregation and then discard the underlying raw observations from
 our hypertable, while retaining our aggregated version of the data.
 
-We can also take this a step further, by applying data retention policies (or 
+We can also take this a step further, by applying data retention policies (or
 using drop_chunks) on continuous aggregates themselves, since they are a special
 kind of hypertable. The only restrictions at this time is that you cannot apply
 compression or continuous aggregation to these hypertables.

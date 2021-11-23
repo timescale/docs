@@ -4,8 +4,8 @@ Grafana variables enable end-users of your dashboards to filter and customize vi
 
 ### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
@@ -17,7 +17,7 @@ to that database. Be sure to follow the full tutorial if you're interested in ba
 on how to use TimescaleDB.
 
 ### Creating a variable
-Our goal here will be to create a variable which controls the type of ride displayed in the
+Our goal here is to create a variable which controls the type of ride displayed in the
 visual, based on the payment type used for the ride.
 
 There are several types of payments, which we can see in the `payment_types` table:
@@ -42,19 +42,19 @@ in our queries.
 To create a new variable, go to your Grafana dashboard settings, navigate to the 'Variable'
 option in the side-menu, and then click the 'Add variable' button.
 
-In this case, we use the 'Query' type, where our variable will be defined as the results
+In this case, we use the 'Query' type, where your variable is defined as the results
 of SQL query.
 
 Under the 'General' section, we'll name our variable `payment_type` and give it a type of `Query`.
-Then, we'll assign it the label of "Payment Type", which is how it will appear in a drop-down menu.
+Then, we'll assign it the label of "Payment Type", which is how it appears in a drop-down menu.
 
-We will select our data source and supply the query:
+Select your data source and supply the query:
 
 ```sql
 SELECT payment_type FROM payment_types;
 ```
 
-Turn on 'Multi-value' and 'Include All option'. This will enable users of your dashboard to
+Turn on 'Multi-value' and 'Include All option'. This enables users of your dashboard to
 select more than one payment type. Our configuration should look like this:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_define_variable.png" alt="Using a variable to filter the results in a Grafana visualization"/>
@@ -69,7 +69,7 @@ notice is that now that we've defined a variable for this dashboard, there's now
 for that variable in the upper left hand corner of the panel.
 
 We can use this variable to filter the results of our query using the `WHERE` clause in SQL.
-We will check and see if `rides.payment_type` is in the array of the variable, which we've
+Check and see if `rides.payment_type` is in the array of the variable, which we've
 named `$payment_type`.
 
 Let's modify our earlier query like so:
@@ -106,7 +106,7 @@ automatically create a graph panel for **each** of the payment types
 selected so that we can see those queries side-by-side.
 
 Let's first create a new graph panel that uses the `$payment_type` variable.
-This will be our query:
+This is your query:
 
 ```sql
 SELECT
@@ -132,7 +132,7 @@ change the 'Title' to the following:
 
 In the 'Repeating' section, select the variable you want to generate dynamic
 panels based on. In this case, `payment_type`. You can have your dynamic panels
-generate vertically or horizontally. In our case we will opt for repeating
+generate vertically or horizontally. In this case, opt for repeating
 panels, 2 per row, horizontally:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_create_dynamic_panels.png" alt="Create a dynamic panel in Grafana"/>
@@ -181,7 +181,7 @@ automatically create a graph panel for **each** of the payment types
 selected so that we can see those queries side-by-side.
 
 Let's first create a new graph panel that uses the `$payment_type` variable.
-This will be our query:
+This is your query:
 
 ```sql
 SELECT
@@ -207,7 +207,7 @@ change the 'Title' to the following:
 
 In the 'Repeating' section, select the variable you want to generate dynamic
 panels based on. In this case, `payment_type`. You can have your dynamic panels
-generate vertically or horizontally. In our case we will opt for repeating
+generate vertically or horizontally. In this case, opt for repeating
 panels, 2 per row, horizontally:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_create_dynamic_panels.png" alt="Create a dynamic panel in Grafana"/>

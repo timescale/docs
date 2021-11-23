@@ -1,6 +1,6 @@
 # Analyze data using TimescaleDB continuous aggregates and hyperfunctions
-This tutorial is a step-by-step guide on how to use TimescaleDB for analyzing time-series data. We will show you how to utilize TimescaleDB's continuous aggregates and hyperfunctions for faster and more efficient queries.
-We will also take advantage of a unique capability of TimescaleDB: the ability to
+This tutorial is a step-by-step guide on how to use TimescaleDB for analyzing time-series data. We show you how to utilize TimescaleDB's continuous aggregates and hyperfunctions for faster and more efficient queries.
+We also take advantage of a unique capability of TimescaleDB: the ability to
 join time-series data with relational data.
 
 The dataset that we're using is provided by the National Football League (NFL)
