@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: "Install",
+    title: "Install TimescaleDB",
     href: "install",
     pageComponents: ["featured-cards"],
     tags: ["timescaledb", "install"],
