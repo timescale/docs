@@ -1,4 +1,12 @@
 # Install Promscale
+
+## Integrating into your existing stack
+
+
+
+
+## Promscale installation
+
 There are several different methods for installing Promscale. This section
 describes installing from a pre-built Docker image. For alternative installation
 methods, see the [Promscale GitHub repository][promscale-github].
@@ -73,7 +81,6 @@ All environment variables are prefixed with `PROMSCALE`.
 For more information about configuring Promscale, see the [Promscale CLI documentation][promscale-cli-github], or use the `promscale -h` command.
 For more documentation, see our [developer documentation][promscale-gh-docs].
 
-
 [tobs-demo]: https://youtu.be/MSvBsXOI1ks
 [tobs-gh]: https://github.com/timescale/tobs
 [prom-migrator-blog]: https://blog.timescale.com/blog/introducing-prom-migrator-a-universal-open-source-prometheus-data-migration-tool/
@@ -83,3 +90,6 @@ For more documentation, see our [developer documentation][promscale-gh-docs].
 [promscale-config-github]: https://github.com/timescale/promscale/blob/master/docs/configuring_prometheus.md
 [promscale-cli-github]: https://github.com/timescale/promscale/blob/master/docs/cli.md
 [promscale-gh-docs]: https://github.com/timescale/promscale/tree/master/docs
+[promscale-gh-releases]: https://github.com/timescale/promscale/releases
+[prometheus-installation]: https://prometheus.io/docs/prometheus/latest/installation/
+[prom-migrator-readme]: (https://github.com/timescale/promscale/tree/master/cmd/prom-migrator#prom-migrator)

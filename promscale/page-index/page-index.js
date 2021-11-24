@@ -1,3 +1,6 @@
+const tutorialPageIndex = require('../tutorials/page-index/page-index')
+const installPageIndex = require('../installation/page-index/page-index')
+
 module.exports = [
   {
     title: 'Promscale',
@@ -8,6 +11,8 @@ module.exports = [
     excerpt:
       'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
     children: [
+      ...installPageIndex,
+      ...tutorialPageIndex,
       {
         title: 'About Promscale',
         href: 'about-promscale',
