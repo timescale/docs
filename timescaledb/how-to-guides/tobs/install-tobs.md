@@ -1,46 +1,59 @@
 # Install the observability stack for Kunernetes (tobs)
-Installing the CLI tool
-To download and install tobs, run the following in your terminal, then follow the on-screen instructions.
+The observability stack (tobs) is a command-line tool for managing a Kubernetes
+cluster.
 
+Before you begin, you should already have installed and set up your Kubernetes
+cluster.
+
+## Install the packages
+You can install tobs at the command prompt, using the `curl` command:
+
+```bash
 curl --proto '=https' --tlsv1.2 -sSLf  https://tsdb.co/install-tobs-sh |sh
-Alternatively, you can download the CLI directly via our releases page
+```
 
-Getting started with the CLI tool is a two-step process: First you install the CLI tool locally, then you use the CLI tool to install the tobs stack into your Kubernetes cluster.
+Alternatively, you can download the packages directly from our
+[repository][download-tobs] to install from source. Make sure you have the `go`
+programing language installed before you begin. When you have downloaded the
+packages, change into the `cli` directory, and run this command to install:
+```bash
+build -o tobs
+```
 
-Using the tobs CLI tool to deploy the stack into your Kubernetes cluster
-After setting up tobs run the following to install the tobs helm charts into your Kubernetes cluster
+Make sure you move the `tobs` binary from its current directory to your `/bin`
+directory, or add it to your PATH.
 
+## Configure tobs for your Kubernetes cluster
+When you have the tobs package downloaded and installed on your local system,
+you can use the `tobs` command  to deploy the stack into your Kubernetes
+cluster, and deploy the tobs Helm charts:
+```bash
 tobs install
-This will deploy all of the tobs components into your cluster and provide instructions as to next steps.
+```
 
-Tracing support
-From 0.7.0 release tobs supports installation of tracing components. To install tracing components use
+This command runs a script that deploys all of the tobs component into your
+cluster. Follow the prompts to complete set up.
 
+## Install tracing support
+In tobs version 0.7.0 and later, tracing components are included in the stack.
+These are provided by the [Promscale][promscale] tool. To install the tracking
+components, use this command:
+```bash
 tobs install --tracing
-For more details on tracing support visit Promscale tracing docs.
+```
 
-Using the tobs CLI tool
-The CLI tool (usage guide) provides the most seamless experience for interacting with tobs.
+For more information about Promscale tracing, see the
+[Promscale developer documentation][promscale-developer-docs].
 
-Configuring the stack
-All configuration for all components happens through the helm values.yml file. You can view the self-documenting default values.yaml in the repo. We also have additional documentation about individual configuration settings in our Helm chart docs.
+## Compatibility
+If you are having trouble with tobs, check that you are using a compatible
+version of tobs and Kubernetes:
 
-To modify the settings, first create a values.yaml file:
+|Tobs version|Kubernetes version|
+|-|-|
+|0.7.0|1.19 to 1.21|
 
-tobs helm show-values > values.yaml
-Then modify the values.yaml file using your favorite editor. Finally, deploy with the new settings using:
 
-tobs install -f values.yaml
-🛠Alternative deployment methods
-Using the Helm charts without the CLI tool
-Users sometimes want to use our Helm charts as sub-charts for other project or integrate them into their infrastructure without using our CLI tool. This is a supported use-case and instructions on using the Helm charts can be found here.
-
-Compatibility matrix
-Tobs vs. Kubernetes
-Tobs	Kubernetes
-0.7.0	v1.19 to v1.21
-
-Building from source
-Dependencies: Go
-
-To build from source, run go build -o tobs from inside the cli folder. Then, move the tobs binary from the current directory to your /bin folder.
+[download-tobs]: https://github.com/timescale/tobs/releases/latest
+[promscale]: promscale/
+[promscale-developer-docs]: https://github.com/timescale/promscale/blob/master/docs/tracing/
