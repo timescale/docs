@@ -1,102 +1,155 @@
-# Use the observability stack for Kubernetes (tobs)
-Getting started by viewing your metrics in Grafana
-To see your Grafana dashboards after installation run
+# Helm charts for the observability stack for Kubernetes (tobs)
+Creating Secrets
+By default, timescaledb helm chart doesn't create its own secrets. So please follow these instructions to create timescaledb-secrets. If you use tobs CLI this is taken care for you.
 
-tobs grafana get-password
-tobs grafana port-forward
-Then, point your browser to http://127.0.0.1:8080/ and login with the admin username.
+You can also let the timescaledb-single helm chart create the secrets for you without running the above mentioned instruction by adding the configuration below to timescaledb-single in values.yaml Note: This isn't recommended by timescaledb-single helm chart.
 
-Usage guide
-The usage guide provides a good high-level overview of what tobs CLI can do.
+timescaledb-single:
+  unsafe: true
+Installing the helm chart
+The following command will install Kube-Prometheus, TimescaleDB, and Promscale into your Kubernetes cluster:
 
-Commands
-The following are the commands possible with the CLI.
+helm repo add timescale https://charts.timescale.com/
+helm repo update
+helm install <release_name> timescale/tobs
+Uninstall
+To uninstall a release you can run:
 
-Base Commands
-Command	Description	Flags
-tobs install	Alias for tobs helm install.	--filename, -f : file to load configuration from
---chart-reference, -c : helm chart reference (default "timescale/tobs")
---external-timescaledb-uri, -e: external database URI, TimescaleDB installation will be skipped & Promscale connects to the provided database
---enable-prometheus-ha : option to enable prometheus and promscale high-availability, by default scales to 3 replicas
---enable-timescaledb-backup, -b : option to enable TimescaleDB S3 backup
---only-secrets : option to create only TimescaleDB secrets
---skip-wait : option to do not wait for pods to get into running state (useful for faster tobs installation)
---timescaledb-tls-cert : option to provide your own tls certificate for TimescaleDB
---timescaledb-tls-key : option to provide your own tls key for TimescaleDB
---version : option to provide tobs helm chart version, if not provided will install the latest tobs chart available
---tracing : option to enable tracing components
-tobs uninstall	Alias for tobs helm unintall.	--delete-data: option to delete persistent volume claims
-tobs port-forward	Port-forwards TimescaleDB, Grafana, and Prometheus to localhost.	--timescaledb, -t : port for TimescaleDB
---grafana, -g : port for Grafana
---prometheus, -p : port for Prometheus
---promscale, -c : port for Promscale
---promlens, -l : port for Promlens
-tobs version	Shows the version of tobs CLI and latest helm chart	--deployed-chart, -d : option to show the deployed helm chart version alongside tobs CLI version
-Helm Commands
-Documentation about Helm configuration can be found in the Helm chart directory.
+helm uninstall <release_name>
+TimescaleDB secrets
+TimescaleDB secret's created with the deployment aren't deleted. These secrets need to be manually deleted:
 
-Command	Description	Flags
-tobs helm show-values	Prints the YAML configuration of the Helm chart for The Observability Stack.	--filename, -f : file to load configuration from
---chart-reference, -c : helm chart reference (default "timescale/tobs")
-TimescaleDB Commands
-Command	Description	Flags
-tobs timescaledb connect	Connects to the Timescale database with the provided user.	--dbname, -d : database name to connect to, defaults to dbname from the helm release
---master, -m : directly execute session on master node
-tobs timescaledb port-forward	Port-forwards TimescaleDB to localhost.	--port, -p : port to listen from
-TimescaleDB superuser Commands
+RELEASE=<release_name>
+kubectl delete $(kubectl get secrets -l app=$RELEASE-timescaledb -o name)
+Kube-Prometheus secret
+One of the Kube-Prometheus secrets created with the deployment isn't deleted. This secret needs to be manually deleted:
 
-Command	Description	Flags
-tobs timescaledb superuser get-password	Gets the password of superuser in the Timescale database.	None
-tobs timescaledb superuser change-password	Changes the password of superuser in the Timescale database.	None
-tobs timescaledb superuser connect	Connects to the TimescaleDB database using super-user	--master, -m : directly execute session on master node
-Grafana Commands
-Command	Description	Flags
-tobs grafana port-forward	Port-forwards the Grafana server to localhost.	--port, -p : port to listen from
-tobs grafana get-password	Gets the admin password for Grafana.	None
-tobs grafana change-password	Changes the admin password for Grafana.	None
-Prometheus Commands
-Command	Description	Flags
-tobs prometheus port-forward	Port-forwards the Prometheus server to localhost.	--port, -p : port to listen from
-Jaeger Commands
-Jaeger cmds are only supported if tracing is enabled in tobs installation
+kubectl delete secret <release_name>-kube-prometheus-admission
+TimescaleDB PVCs and Backup
+Removing the deployment does not remove the Persistent Volume Claims (pvc) belonging to the release. For a full cleanup run:
 
-Command	Description	Flags
-tobs jaeger port-forward	Port-forwards the jaeger query to localhost.	--port, -p : port to listen from
-Metrics Commands
-Command	Description	Flags
-tobs metrics retention get	Gets the data retention period of a specific metric.	None
-tobs metrics retention set-default	Sets the default data retention period to the specified number of days.	None
-tobs metrics retention set	Sets the data retention period of a specific metric to the specified number of days.	None
-tobs metrics retention reset	Resets the data retention period of a specific metric to the default value.	None
-tobs metrics chunk-interval get	Gets the chunk interval of a specific metric.	None
-tobs metrics chunk-interval set-default	Sets the default chunk interval to the specified duration.	None
-tobs metrics chunk-interval set	Sets the chunk interval of a specific metric to the specified duration.	None
-tobs metrics chunk-interval reset	Resets chunk interval of a specific metric to the default value.	None
-Volume Commands
-The volume operation is available for TimescaleDB & Prometheus PVC's.
+RELEASE=<release_name>
+kubectl delete $(kubectl get pvc -l release=$RELEASE -o name)
+If you had TimescaleDB backups enabled please check the guide for cleaning them at the TimescaleDB Helm Chart repo
 
-Note: To expand PVC's in Kubernetes cluster make sure you have configured storageClass with allowVolumeExpansion: true to allow PVC expansion.
+Prometheus PVCs
+Removing the deployment does not remove the Persistent Volume Claims (pvc) of Prometheus belonging to the release. For a full cleanup run:
 
-Command	Description	Flags
-tobs volume get	Displays Persistent Volume Claims sizes.	--timescaleDB-storage, s, --timescaleDB-wal, w, prometheus-storage, -p
-tobs volume expand	Expands the Persistent Volume Claims for provided resources to specified sizes. The expansion size is allowed in Ki, Mi & Gi units. example: 150Gi.	--timescaleDB-storage, s, --timescaleDB-wal, w, prometheus-storage, -p, --restart-pods, -r to restart pods bound to PVC after PVC expansion.
-Upgrade Command
-The upgrade cmd helps to upgrade the existing tobs deployment. You can upgrade the tobs to latest helm chart provided the helm chart is released to timescale helm repository. You can also upgrade your existing tobs deployment to latest values.yaml configuration. This internally uses the helm upgrade utility.
+RELEASE=<release_name>
+kubectl delete $(kubectl get pvc -l operator.prometheus.io/name=$RELEASE-kube-prometheus-prometheus -o name)
+Configuring Helm Chart
+To get a fully-documented configuration file for tobs, please run:
 
-Command	Description	Flags
-tobs upgrade	Upgrades the tobs deployment if new helm chart is available. Also, upgrades tobs if updated values.yaml is provided.	--filename, -f : file to load configuration from
---chart-reference, -c : helm chart reference (default "timescale/tobs")
---reuse-values : native helm upgrade flag to use existing values from release
---reset-values : native helm flag to reset values to default helm chart values
---confirm, -y : approve upgrade action
---same-chart : option to upgrade the helm release with latest values.yaml but the chart remains the same.
---skip-crds : option to skip creating CRDs on upgrade
-Global Flags
-The following are global flags that can be used with any of the above commands:
+helm show values timescale/tobs > my_values.yml
+You can then edit my_values.yml and deploy the release with the following command:
 
-Flag	Description
---name	Helm release name
---namespace, -n	Kubernetes namespace
---config	Tobs config file (default is $HOME/.tobs.yaml)
-Advanced configuration
-Documentation about Helm configuration can be found in the Helm chart directory. Custom values.yml files can be used with the tobs helm install -f values.yml command.
+helm upgrade --install <release_name> --values my_values.yml timescale/tobs
+The properties described in the tables below are only those that this chart overrides for each of the sub-charts it depends on. You can additionally change any of the configurable properties of each sub-chart.
+
+The chart has the following properties in the values.yaml file:
+
+TimescaleDB
+Parameter	Description	Default
+timescaledb-single.enabled	If false TimescaleDB will not be created	true
+timescaledb-single.image.tag	Docker image tag to use for TimescaleDB	pg12-ts2.1-latest
+timescaledb-single.loadBalancer.enabled	Create a LB for the DB instead of a ClusterIP	false
+timescaledb-single.replicaCount	Number of pods for DB, set to 3 for HA	1
+timescaledb-single.backup.enabled	TimescaleDB backup option by default set to false	false
+Additional configuration for TimescaleDB
+By default, the tobs Helm chart sets up a single-instance of TimescaleDB; if you are interested in a replicated setup for high-availability with automated backups, please see this github repo for additional instructions.
+
+You can set up the credentials, nodeSelector, volume sizes (default volumes created are 1GB for WAL and 2GB for storage).
+
+Configuring an external TimescaleDB
+To configure tobs to connect with an external TimescaleDB you need to modify a few fields in the default values.yaml while performing the installation
+
+Below is the helm command to disable the TimescaleDB installation and set external db uri details:
+
+helm install <release-name> timescale/tobs \
+--set timescaledb-single.enabled=false,timescaledbExternal.enabled=true,timescaledbExternal.db_uri=<timescaledb-uri>, \
+promscale.connection.uri.secretTemplate=<release-name>-timescaledb-uri
+External TimescaleDB related values
+Parameter	Description	Default
+timescaledbExternal.enabled	Enable external TimescaleDB	false
+timescaledbExternal.db_uri	Enable external TimescaleDB URI	``
+Promscale
+Parameter	Description	Default
+promscale.enabled	If false Promscale will not be started	true
+promscale.image	Docker image to use for the Promscale	timescale/promscale:0.6.0
+promscale.connection.dbName	Database to store the metrics in	postgres
+promscale.connection.user	User used for connection to db	postgres
+promscale.connection.dbURI.secretTemplate	The template for generating the name of a secret object which will hold the db URI	``
+promscale.connection.password.secretTemplate	Name (templated) of secret object containing the connection password. Key must be value of PATRONI_SUPERUSER_PASSWORD as this is used in TimescaleDB helm chart as reference to user postgres.	"{{ .Release.Name }}-credentials"
+promscale.connection.host.nameTemplate	Host name (templated) of the database instance. Defaults to service created in timescaledb-single	"{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local"
+promscale.service.loadBalancer.enabled	Create a LB for the Promscale instead of a Cluster IP	false
+promscale.resources.requests.memory	Amount of memory for the Promscale pod	2Gi
+promscale.resources.requests.cpu	Number of vCPUs for the Promscale pod	1
+Additional configuration for Promscale
+The Promscale is configured to connect to the TimescaleDB instance deployed with this chart. But it can be configured to connect to any TimescaleDB host, and expose whichever port you like. For more details about how to configure the Promscale please see the Helm chart directory of the Promscale repo.
+
+Kube-Prometheus
+Prometheus
+Parameter	Description	Default
+kube-prometheus-stack.enabled	If false, none of the Kube-Prometheus resources will be created	true
+kube-prometheus-stack.alertManager.enabled	Enable AlertManager	true
+kube-prometheus-stack.alertManager.config	AlertManager config, By default the alert manager config is from Kube-Prometheus	``
+kube-prometheus-stack.fullnameOverride	If false, none of the Kube-Prometheus resources will be created	true
+kube-prometheus-stack.prometheus.prometheusSpec.scrapeInterval	Prometheus scrape interval	1m
+kube-prometheus-stack.prometheus.prometheusSpec.scrapeTimeout	Prometheus scrape timeout	10s
+kube-prometheus-stack.prometheus.prometheusSpec.evaluationInterval	Prometheus evaluation interval	1m
+kube-prometheus-stack.prometheus.prometheusSpec.retention	Prometheus data retention	1d
+kube-prometheus-stack.prometheus.prometheusSpec.remoteRead	Prometheus remote read config	url: http://{{ .Release.Name }}-promscale-connector.{{ .Release.Namespace }}.svc.cluster.local:9201/read and readRecent: true
+kube-prometheus-stack.prometheus.prometheusSpec.remoteWrite	Prometheus remote write config	url: http://{{ .Release.Name }}-promscale-connector.{{ .Release.Namespace }}.svc.cluster.local:9201/write
+kube-prometheus-stack.prometheus.prometheusSpec.storageSpec.volumeClaimTemplate.spec.resources.requests.storage	Prometheus persistent volume storage	8Gi
+kube-prometheus-stack.prometheus.prometheusSpec.additionalScrapeConfigs	Prometheus additional scrape config, By default additional scrape config is set scrape all pods, services and endpoint with prometheus annotations
+Additional configuration for Prometheus
+The Kube-Prometheus Community chart is used as a dependency for deploying Prometheus. We specify Promscale as a remote_write and remote_read endpoint in the values.yaml that is still compatible and respects all the configuration properties for the kube-prometheus chart, so no functionality is lost.
+
+The Promscale connection is set using the values in kube-prometheus-stack.prometheus.prometheusSpec.remoteWrite. This doesn't change the way the kube-prometheus-stack.prometheus.prometheusSpec.remoteWrite configuration is handled. The configuration is separate so we can use templating and set the endpoint properly when deploying Promscale and Prometheus in the same release. If you specify more endpoints in prometheus.server.remoteWrite (or remoteRead) They will be added additionally.
+
+For all the properties that can be configured and more details on how to set up the Prometheus deployment see the Kube Prometheus Community Chart Repo.
+
+For more information about the remote_write configuration that can be set with kube-prometheus-stack.prometheus.prometheusSpec. visit the Prometheus Remote Write Tuning guide.
+
+Grafana
+Parameter	Description	Default
+kube-prometheus-stack.grafana.enabled	If false, Grafana will not be created	true
+kube-prometheus-stack.grafana.sidecar.datasources.enabled	If false, no data sources will be provisioned	true
+kube-prometheus-stack.grafana.sidecar.dashboards.enabled	If false, no dashboards will be provisioned by default	true
+kube-prometheus-stack.grafana.sidecar.dashboards.files	Files with dashboard definitions (in JSON) to be provisioned	['dashboards/k8s-cluster.json','dashboards/k8s-hardware.json']
+kube-prometheus-stack.grafana.prometheus.datasource.enabled	If false, a Prometheus data source will not be provisioned	true
+kube-prometheus-stack.grafana.prometheus.datasource.url	Template parsed to the url of the Prometheus API. Defaults to Prometheus deployed with this chart	http://{{ .Release.Name }}-prometheus-service.{{ .Release.Namespace }}.svc.cluster.local
+kube-prometheus-stack.grafana.timescale.database.enabled	If false, TimescaleDB will not be configured as a database, default sqllite will be used	true
+kube-prometheus-stack.grafana.timescale.database.host	Hostname (templated) of database, defaults to db deployed with this chart	"{{ .Release.Name }}.{{ .Release.Namespace}}.svc.cluster.local
+kube-prometheus-stack.grafana.timescale.database.user	User to connect to the db with (will be created )	grafanadb
+kube-prometheus-stack.grafana.timescale.database.pass	Password for the user	grafanadb
+kube-prometheus-stack.grafana.timescale.database.dbName	Database where to store the data	postgres
+kube-prometheus-stack.grafana.timescale.database.schema	Schema to use (will be created)	grafanadb
+kube-prometheus-stack.grafana.timescale.database.sslMode	SSL mode for connection	require
+kube-prometheus-stack.grafana.timescale.datasource.host	Hostname (templated) of database, defaults to host deployed with this chart	"{{ .Release.Name }}.{{ .Release.Namespace}}.svc.cluster.local
+kube-prometheus-stack.grafana.timescale.datasource.enabled	If false a TimescaleDB data source will not be provisioned	true
+kube-prometheus-stack.grafana.timescale.datasource.user	User to connect with	grafana
+kube-prometheus-stack.grafana.timescale.datasource.pass	Pass for user	grafana
+kube-prometheus-stack.grafana.timescale.datasource.dbName	Database storing the metrics (Should be same with promscale.connection.dbName)	postgres
+kube-prometheus-stack.grafana.timescale.datasource.sslMode	SSL mode for connection	require
+kube-prometheus-stack.grafana.timescale.adminUser	Admin user to create the users and schemas with	postgres
+kube-prometheus-stack.grafana.timescale.adminPassSecret	Name (templated) of secret containing password for admin user	"{{ .Release.Name }}-credentials"
+kube-prometheus-stack.grafana.adminPassword	Grafana admin password, By default generates a random password	``
+TimescaleDB user for the Grafana Database
+This chart is configured to deploy Grafana so that it uses a TimescaleDB/PostgreSQL instance for it's database. This is controlled with the kube-prometheus-stack.grafana.timescale.database.enabled value. If enabled it will run a Job that creates a user (as specified with kube-prometheus-stack.grafana.timescale.database.user) and a separate schema (kube-prometheus-stack.grafana.timescale.database.schema). This user is created as the owner of the schema, and will not have access to any other schemas/tables in the specified database (kube-prometheus-stack.grafana.timescale.database.dbName). In order for the user and schema to be created, the kube-prometheus-stack.grafana.timescale.adminUser must be set to a db user with the ability to do so (e.g. postgres), and kube-prometheus-stack.grafana.timescale.adminPassSecret must be the name of a secret that contains the password for this user.
+
+TimescaleDB user for a provisioned Data Source in Grafana
+The chart is configured to provision a TimescaleDB data source. This is controlled with the grafana.timescale.datasource.enabled If enabled it will run a Job that creates a user (as specified with kube-prometheus-stack.grafana.timescale.datasource.user) and grant read-only access to the promscale schemas. In order for the user and schema to be created, the kube-prometheus-stack.grafana.timescale.adminUser must be set to a db user with the ability to do so (e.g. postgres), and kube-prometheus-stack.grafana.timescale.adminPassSecret must be the name of a secret that contains the password for this user.
+
+Additional configuration for Grafana
+The Kube-Prometheus Community chart is used as a dependency for deploying Grafana. We specify a Secret that sets up the Prometheus Server and TimescaleDB as provisioned data sources (if they are enabled).
+
+To get the initial password for the admin user after deployment execute
+
+kubectl get secret --namespace <namespace> <release_name>-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
+By default Grafana is accessible on port 80 through the <release_name>-grafana service. You can use port-forwarding to access it in your browser locally with
+
+kubectl port-forward svc/<release_name>-grafana 8080:80
+And then navigate to http://localhost:8080.
+
+For all the properties that can be configured and more details on how to set up the Grafana deployment see the Grafana Community Chart Repo

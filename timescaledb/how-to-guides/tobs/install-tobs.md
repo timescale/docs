@@ -39,3 +39,8 @@ Compatibility matrix
 Tobs vs. Kubernetes
 Tobs	Kubernetes
 0.7.0	v1.19 to v1.21
+
+Building from source
+Dependencies: Go
+
+To build from source, run go build -o tobs from inside the cli folder. Then, move the tobs binary from the current directory to your /bin folder.

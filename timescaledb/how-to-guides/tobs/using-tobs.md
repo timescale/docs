@@ -100,3 +100,8 @@ Flag	Description
 --config	Tobs config file (default is $HOME/.tobs.yaml)
 Advanced configuration
 Documentation about Helm configuration can be found in the Helm chart directory. Custom values.yml files can be used with the tobs helm install -f values.yml command.
+
+Testing
+Dependencies: kubectl, kind
+
+A testing suite is included in the tests folder. The testing suite can be run by ./e2e-tests.sh this script will create a kind cluster, execute the test suite, and delete the kind cluster.
