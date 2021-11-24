@@ -25,11 +25,11 @@ instead.
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
     ```bash
-    apt install postgresql-common
+    apt install gnupg postgresql-common
     ```
 1.  Run the PostgreSQL repository setup script:
     ```bash
-    sudo sh /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+    /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
 1.  Add the TimescaleDB third party repository:
     <terminal>
