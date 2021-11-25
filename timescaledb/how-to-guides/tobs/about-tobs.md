@@ -1,4 +1,4 @@
-# About the observability stack for Kubernetes (tobs)
+# About the observability stack (tobs) for Kubernetes
 The observability stack (tobs) is a technology stack that provides a
 command-line tool to help you manage your Kubernetes deployments. The stack
 consists of:

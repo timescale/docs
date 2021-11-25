@@ -1,54 +1,64 @@
-# Use the observability stack for Kubernetes (tobs)
-Getting started by viewing your metrics in Grafana
-To see your Grafana dashboards after installation run
+# Use the observability stack (tobs) for Kubernetes
+This section covers the main commands you can use with tobs, including how to
+use it to view metrics in Grafana. For more information about Helm charts, see
+the [tobs Helm charts page][tobs-helm].
 
-tobs grafana get-password
-tobs grafana port-forward
-Then, point your browser to http://127.0.0.1:8080/ and login with the admin username.
+Before you begin, you should already have installed and set up your Kubernetes
+cluster and the tobs package. For more information on installing tobs, see the
+[tobs installation page][tobs-install] .
 
-Usage guide
-The usage guide provides a good high-level overview of what tobs CLI can do.
+## Primary tobs commands
+This section covers the primary tobs commands.
 
-Commands
-The following are the commands possible with the CLI.
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs install`|Alias for tobs helm install|`--filename`, `-f`|File to load configuration from|
+|||`--chart-reference`, `-c`|Helm chart reference. Defaults to `timescale/tobs`|
+|||`--external-timescaledb-uri`, `-e`|External database URI. Skips TimescaleDB installation and Promscale connects to the provided database URI.|
+|||`--enable-prometheus-ha`|Option to enable Prometheus and Promscale HA. Defaults to 3 replicas|
+|||`--enable-timescaledb-backup`, `-b`|Enable TimescaleDB S3 backup|
+|||`--only-secrets`|Create only the TimescaleDB secrets, do no other install tasks|
+|||`--skip-wait`|Do not wait for pods to be running. Provides faster tobs installation.|
+|||`--timescaledb-tls-cert`|Provide your own TLS certificate for TimescaleDB|
+|||`--timescaledb-tls-key`|Provide your own TLS key for TimescaleDB|
+|||`--version`|Provide tobs Helm chart version, if not provided, installs the most recent available tobs Helm chart|
+|||`--tracing`|Enable tracing components|
+|`tobs uninstall`|Alias for `tobs Helm uninstall`|`--delete-data`|Delete persistent volume claims|
+|`tobs port-forward`|Port forward TimescaleDB, Grafana, and Prometheus to `localhost`|`--timescaledb`, `-t`|Port for TimescaleDB|
+|||`--grafana`, `-g`|Port for Grafana|
+|||`--prometheus`, `-p`|Port for Prometheus|
+|||`--promscale`, `-c`|Port for Promscale|
+|||`--promlens`, `-l`|Port for Promlens|
+|`tobs version`|Shows the installed version of tobs and the latest Helm chart|`--deployed-chart`, `-d`|Show the deployed Helm chart version with the tobs CLI version|
 
-Base Commands
-Command	Description	Flags
-tobs install	Alias for tobs helm install.	--filename, -f : file to load configuration from
---chart-reference, -c : helm chart reference (default "timescale/tobs")
---external-timescaledb-uri, -e: external database URI, TimescaleDB installation will be skipped & Promscale connects to the provided database
---enable-prometheus-ha : option to enable prometheus and promscale high-availability, by default scales to 3 replicas
---enable-timescaledb-backup, -b : option to enable TimescaleDB S3 backup
---only-secrets : option to create only TimescaleDB secrets
---skip-wait : option to do not wait for pods to get into running state (useful for faster tobs installation)
---timescaledb-tls-cert : option to provide your own tls certificate for TimescaleDB
---timescaledb-tls-key : option to provide your own tls key for TimescaleDB
---version : option to provide tobs helm chart version, if not provided will install the latest tobs chart available
---tracing : option to enable tracing components
-tobs uninstall	Alias for tobs helm unintall.	--delete-data: option to delete persistent volume claims
-tobs port-forward	Port-forwards TimescaleDB, Grafana, and Prometheus to localhost.	--timescaledb, -t : port for TimescaleDB
---grafana, -g : port for Grafana
---prometheus, -p : port for Prometheus
---promscale, -c : port for Promscale
---promlens, -l : port for Promlens
-tobs version	Shows the version of tobs CLI and latest helm chart	--deployed-chart, -d : option to show the deployed helm chart version alongside tobs CLI version
-Helm Commands
-Documentation about Helm configuration can be found in the Helm chart directory.
+## Helm tobs commands
+This section covers the tobs commands for managing Helm charts. For more
+information about Helm charts, see the [tobs Helm charts page][tobs-helm].
 
-Command	Description	Flags
-tobs helm show-values	Prints the YAML configuration of the Helm chart for The Observability Stack.	--filename, -f : file to load configuration from
---chart-reference, -c : helm chart reference (default "timescale/tobs")
-TimescaleDB Commands
-Command	Description	Flags
-tobs timescaledb connect	Connects to the Timescale database with the provided user.	--dbname, -d : database name to connect to, defaults to dbname from the helm release
---master, -m : directly execute session on master node
-tobs timescaledb port-forward	Port-forwards TimescaleDB to localhost.	--port, -p : port to listen from
-TimescaleDB superuser Commands
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs helm show-values`|Prints the YAML configuration of the Helm chart|`--filename`, `-f`|File to load configuration from|
+|||`--chart-reference`, `-c`|Helm chart reference. Defaults to `timescale/tobs`|
 
-Command	Description	Flags
-tobs timescaledb superuser get-password	Gets the password of superuser in the Timescale database.	None
-tobs timescaledb superuser change-password	Changes the password of superuser in the Timescale database.	None
-tobs timescaledb superuser connect	Connects to the TimescaleDB database using super-user	--master, -m : directly execute session on master node
+## TimescaleDB tobs commands
+This section covers the tobs commands for managing your TimescaleDB database.
+
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs timescaledb connect`|Connects to the Timescale database with the provided user|`--dbname`, `-d`|Database name to connect to. Defaults to the name providedd in the Helm release|
+|||`--master`, `-m`|Directly execute session on master node|
+|`tobs timescaledb port-forward`|Port forward TimescaleDB to `localhost`|`--port,` `-p`|Port to listen on|
+
+## TimescaleDB superuser tobs commands
+This section covers the tobs commands for managing your TimescaleDB database that are available to the superuser.
+
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs timescaledb superuser get-password`|Gets the password of the superuser in the TimescaleDB database|||
+|`tobs timescaledb superuser change-password`|Changes the password of the superuser in the Timescale database|||
+|`tobs timescaledb superuser connect`|Connects to the TimescaleDB database as the superuser|`--master`, `-m`|Directly execute session on master node|
+
+
 Grafana Commands
 Command	Description	Flags
 tobs grafana port-forward	Port-forwards the Grafana server to localhost.	--port, -p : port to listen from
@@ -101,7 +111,22 @@ Flag	Description
 Advanced configuration
 Documentation about Helm configuration can be found in the Helm chart directory. Custom values.yml files can be used with the tobs helm install -f values.yml command.
 
+
+## Use tobs to test your cluster
 Testing
 Dependencies: kubectl, kind
 
 A testing suite is included in the tests folder. The testing suite can be run by ./e2e-tests.sh this script will create a kind cluster, execute the test suite, and delete the kind cluster.
+
+
+## Use tobs with Grafana
+Getting started by viewing your metrics in Grafana
+To see your Grafana dashboards after installation run
+
+tobs grafana get-password
+tobs grafana port-forward
+Then, point your browser to http://127.0.0.1:8080/ and login with the admin username.
+
+
+[tobs-install]: /how-to-guides/tobs/install-tobs/
+[tobs-helm]: /how-to-guides/tobs/helm-charts-tobs/

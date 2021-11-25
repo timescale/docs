@@ -1,4 +1,4 @@
-# Helm charts for the observability stack for Kubernetes (tobs)
+# Helm charts for the observability stack (tobs) for Kubernetes
 Creating Secrets
 By default, timescaledb helm chart doesn't create its own secrets. So please follow these instructions to create timescaledb-secrets. If you use tobs CLI this is taken care for you.
 
