@@ -40,6 +40,8 @@ information about Helm charts, see the [tobs Helm charts page][tobs-helm].
 |`tobs helm show-values`|Prints the YAML configuration of the Helm chart|`--filename`, `-f`|File to load configuration from|
 |||`--chart-reference`, `-c`|Helm chart reference. Defaults to `timescale/tobs`|
 
+You can use a custom `values.yml` file with the `tobs helm install -f values.yml` command.
+
 ## TimescaleDB tobs commands
 This section covers the tobs commands for managing your TimescaleDB database.
 
@@ -58,74 +60,79 @@ This section covers the tobs commands for managing your TimescaleDB database tha
 |`tobs timescaledb superuser change-password`|Changes the password of the superuser in the Timescale database|||
 |`tobs timescaledb superuser connect`|Connects to the TimescaleDB database as the superuser|`--master`, `-m`|Directly execute session on master node|
 
+## Grafana tobs commands
+This section covers the tobs commands for managing Grafana.
 
-Grafana Commands
-Command	Description	Flags
-tobs grafana port-forward	Port-forwards the Grafana server to localhost.	--port, -p : port to listen from
-tobs grafana get-password	Gets the admin password for Grafana.	None
-tobs grafana change-password	Changes the admin password for Grafana.	None
-Prometheus Commands
-Command	Description	Flags
-tobs prometheus port-forward	Port-forwards the Prometheus server to localhost.	--port, -p : port to listen from
-Jaeger Commands
-Jaeger cmds are only supported if tracing is enabled in tobs installation
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs grafana port-forward`|Port forward the Grafana server to `localhost`|`--port`, `-p`|Port to listen on|
+|`tobs grafana get-password`|Get the Grafana `admin` password|||
+|`tobs grafana change-password`|Change the Grafana `admin` password|||
 
-Command	Description	Flags
-tobs jaeger port-forward	Port-forwards the jaeger query to localhost.	--port, -p : port to listen from
-Metrics Commands
-Command	Description	Flags
-tobs metrics retention get	Gets the data retention period of a specific metric.	None
-tobs metrics retention set-default	Sets the default data retention period to the specified number of days.	None
-tobs metrics retention set	Sets the data retention period of a specific metric to the specified number of days.	None
-tobs metrics retention reset	Resets the data retention period of a specific metric to the default value.	None
-tobs metrics chunk-interval get	Gets the chunk interval of a specific metric.	None
-tobs metrics chunk-interval set-default	Sets the default chunk interval to the specified duration.	None
-tobs metrics chunk-interval set	Sets the chunk interval of a specific metric to the specified duration.	None
-tobs metrics chunk-interval reset	Resets chunk interval of a specific metric to the default value.	None
-Volume Commands
-The volume operation is available for TimescaleDB & Prometheus PVC's.
+## Prometheus tobs commands
+This section covers the tobs commands for managing Prometheus.
 
-Note: To expand PVC's in Kubernetes cluster make sure you have configured storageClass with allowVolumeExpansion: true to allow PVC expansion.
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs prometheus port-forward`|Port forward the Prometheus server to `localhost`|`--port`, `-p`|Port to listen on|
 
-Command	Description	Flags
-tobs volume get	Displays Persistent Volume Claims sizes.	--timescaleDB-storage, s, --timescaleDB-wal, w, prometheus-storage, -p
-tobs volume expand	Expands the Persistent Volume Claims for provided resources to specified sizes. The expansion size is allowed in Ki, Mi & Gi units. example: 150Gi.	--timescaleDB-storage, s, --timescaleDB-wal, w, prometheus-storage, -p, --restart-pods, -r to restart pods bound to PVC after PVC expansion.
-Upgrade Command
-The upgrade cmd helps to upgrade the existing tobs deployment. You can upgrade the tobs to latest helm chart provided the helm chart is released to timescale helm repository. You can also upgrade your existing tobs deployment to latest values.yaml configuration. This internally uses the helm upgrade utility.
+## Jaeger tobs commands
+This section covers the tobs commands for managing Jaeger. These command are supported only if you enabled tracing when you installed tobs.
 
-Command	Description	Flags
-tobs upgrade	Upgrades the tobs deployment if new helm chart is available. Also, upgrades tobs if updated values.yaml is provided.	--filename, -f : file to load configuration from
---chart-reference, -c : helm chart reference (default "timescale/tobs")
---reuse-values : native helm upgrade flag to use existing values from release
---reset-values : native helm flag to reset values to default helm chart values
---confirm, -y : approve upgrade action
---same-chart : option to upgrade the helm release with latest values.yaml but the chart remains the same.
---skip-crds : option to skip creating CRDs on upgrade
-Global Flags
-The following are global flags that can be used with any of the above commands:
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs jaeger port-forward`|Port forward the Jaeger query to `localhost`|`--port`, `-p`|Port to listen on|
 
-Flag	Description
---name	Helm release name
---namespace, -n	Kubernetes namespace
---config	Tobs config file (default is $HOME/.tobs.yaml)
-Advanced configuration
-Documentation about Helm configuration can be found in the Helm chart directory. Custom values.yml files can be used with the tobs helm install -f values.yml command.
+## Metrics tobs commands
+This section covers the tobs commands for managing metrics.
 
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs metrics retention get`|Gets the data retention period for the specified metric|||
+|`tobs metrics retention set-default`|Set the default data retention period to the specified number of days|||
+|`tobs metrics retention set`|Set the data retention period for the specified metric to the specified number of days|||
+|`tobs metrics retention reset`|Reset the data retention period for the specified metric to the default value|||
+|`tobs metrics chunk-interval get`|Get the chunk interval for the specified metric|||
+|`tobs metrics chunk-interval set-default`|Set the default chunk interval for the specified duration|||
+|`tobs metrics chunk-interval set`|Set the chunk interval for the specified metric to the specified duration|||
+|`tobs metrics chunk-interval reset`|Reset the chunk interval for the specified metric to the default value|||
 
-## Use tobs to test your cluster
-Testing
-Dependencies: kubectl, kind
+## Volume tobs commands
+This section covers the tobs commands for managing  TimescaleDB and Prometheus persistent volume claim (PVC) volumes.
 
-A testing suite is included in the tests folder. The testing suite can be run by ./e2e-tests.sh this script will create a kind cluster, execute the test suite, and delete the kind cluster.
+To expand PVCs in your Kubernetes cluster, you must have configured the `storageClass` parameter to be `allowVolumeExpansion: true`.
 
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs volume get`|Displays PVC sizes|`--timescaleDB-storage`, `-s`||
+|||`--timescaleDB-wal`, `-w`||
+|||`--prometheus-storage`, `-p`||
+|`tobs volume expand`|Expand the PVC for provided resources to the specified size, given in Ki, Mi or Gi|`--timescaleDB-storage`, `-s`||
+|||`--timescaleDB-wal`, `-w`||
+|||`--prometheus-storage`, `-p`||
+|||`--restart-pods`, `-r`|Restart pods bound to PVC after PVC expansion.|
 
-## Use tobs with Grafana
-Getting started by viewing your metrics in Grafana
-To see your Grafana dashboards after installation run
+## Upgrade tobs commands
+This section covers the tobs commands for upgrading your existing tobs installation. You can upgrade tobs to the latest Helm chart, as long as the Helm chart exists in the Timescale Helm repository. You can also upgrade your existing tobs installation to use the latest `values.yaml` configuration file. Internally, these tools use the Helm upgrade utility.
 
-tobs grafana get-password
-tobs grafana port-forward
-Then, point your browser to http://127.0.0.1:8080/ and login with the admin username.
+|Command|Command Description|Available Flags|Flag description|
+|-|-|-|-|
+|`tobs upgrade`|Upgrade the tobs deployment to use the newest available Helm chart, and upgrades tobs if a new `values.yaml` file is provided|`--filename`, `-f`|File to load configuration from|
+|||`--chart-reference`, `-c`|Helm chart reference. Defaults to `timescale/tobs`|
+|||`--reuse-values`|Native Helm upgrade flag to use existing values from release|
+|||`--reset-values`|Native helm flag to reset values to default Helm chart values|
+|||`--confirm`, `-y`|Approve upgrade action without prompting|
+|||`--same-chart`|Upgrade the Helm release with latest `values.yaml`, but use the same chart|
+|||`--skip-crds`|Skip creating CRDs on upgrade|
+
+## Global tobs commands
+This section covers the global tobs commands that can be used with any other commands listed here.
+
+|Available Flags|Flag description|
+|-|-|
+|--name|Helm release name|
+|--namespace, -n|Kubernetes namespace|
+|--config|Tobs configuration file, defaults to ``$HOME/.tobs.yaml`
 
 
 [tobs-install]: /how-to-guides/tobs/install-tobs/
