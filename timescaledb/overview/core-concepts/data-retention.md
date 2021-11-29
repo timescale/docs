@@ -34,8 +34,8 @@ For example:
 SELECT drop_chunks('conditions', INTERVAL '24 hours');
 ```
 
-This will drop all chunks from the hypertable `conditions` that _only_
-include data older than this duration, and will _not_ delete any
+This drops all chunks from the hypertable `conditions` that _only_
+include data older than this duration, and does _not_ delete any
 individual rows of data in chunks.
 
 

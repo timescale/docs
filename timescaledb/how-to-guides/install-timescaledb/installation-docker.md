@@ -15,11 +15,11 @@ docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password time
 
 <highlight type="warning">
  The -p flag binds the container port to the host port, meaning
-anything that can access the host port will be able to access your TimescaleDB
+anything that can access the host port can access your TimescaleDB
 container. This can be particularly dangerous if you do not set a PostgreSQL
 password at runtime using the `POSTGRES_PASSWORD` environment variable as we
-do in the above command. Without that variable, the Docker container will
-disable password checks for all database users. If you want to access the
+do in the above command. Without that variable, the Docker container
+disables password checks for all database users. If you want to access the
 container from the host but avoid exposing it to the outside world, you can
 explicitly have it bind to 127.0.0.1 instead of the public interface by using
 `-p 127.0.0.1:5432:5432`.
@@ -28,7 +28,7 @@ Otherwise, you'll want to ensure that your host box is adequately locked down
 through security groups, IP Tables, or whatever you're using for access
 control. Note also that Docker binds the container by modifying your Linux IP
 Tables. For systems that use Linux UFW (Uncomplicated Firewall) for security
-rules, this means that Docker will potentially override any UFW settings that
+rules, this means that Docker potentially overrides any UFW settings that
 restrict the port you are binding to. If you are relying on UFW rules for
 network security, consider adding `DOCKER_OPTS="--iptables=false"` to
 `/etc/default/docker` to prevent Docker from overwriting IP Tables.
@@ -51,7 +51,7 @@ docker exec -it timescaledb psql -U postgres
 Our Docker image is derived from the [official PostgreSQL image][official-image]
 and includes [alpine Linux][] as its OS.
 
-While the above `run` command will pull the Docker image on demand,
+While the above `run` command pulls the Docker image on demand,
 you can also -- and for upgrades, **need to** -- explicitly pull our image from [Docker Hub][]:
 
 <highlight type="tip">
@@ -70,7 +70,7 @@ volume should be stored/mounted via the `-v` flag.  In particular, the
 above `docker run` command should now include some additional argument
 such as `-v /your/data/dir:/var/lib/postgresql/data`.
 
-Note that creating a new container (`docker run`) will also create a new
+Note that creating a new container (`docker run`) also creates a new
 volume unless an existing data volume is reused by reference via the
 -v parameter (e.g., `-v VOLUME_ID:/var/lib/postgresql/data`). Existing
 containers can be stopped (`docker stop`) and started again (`docker
@@ -92,4 +92,3 @@ code, you should pull the tag `latest-pg12-oss` as an example.
 [official-image]: https://github.com/docker-library/postgres/
 [alpine Linux]: https://alpinelinux.org/
 [docker-data-volumes]: https://docs.docker.com/storage/volumes/
-

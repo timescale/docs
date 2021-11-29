@@ -21,11 +21,11 @@ any developer. TimescaleDB is PostgreSQL for time-series data and
 as such, time-series data stored in TimescaleDB can be easily
 joined with business data in another relational database in order
 to develop an even more insightful forecast into how your data
-(and business) will change over time.
+(and business) changes over time.
 
-In this time-series forecasting example, we will demonstrate how to integrate
+In this time-series forecasting example, we demonstrate how to integrate
 TimescaleDB with R, Apache MADlib, and Python to perform various time-series
-forecasting methods. We will be using New York City taxicab data that is also
+forecasting methods. We are using New York City taxicab data that is also
 used in our [Hello Timescale Tutorial][hello_timescale]. The dataset contains
 information about all yellow cab trips in New York City in January 2016,
 including pickup and dropoff times, GPS coordinates, and total price of a trip.
@@ -116,7 +116,7 @@ goes up during the day and down over night every day. In contrast, the price
 of Bitcoin over time is (probably) non-seasonal since there is no clear
 observable pattern that recurs in fixed time periods.
 
-We will be using R to analyze the seasonality of the number of taxicab pickups
+We are using R to analyze the seasonality of the number of taxicab pickups
 at Times Square over a week.
 
 The table `rides_count` contains the data needed for this section of the tutorial.
@@ -155,7 +155,7 @@ SELECT * FROM rides_count;
  ...
 ```
 
-We will create two PostgreSQL views, `rides_count_train` and `rides_count_test`  for
+Create two PostgreSQL views, `rides_count_train` and `rides_count_test`  for
 the training and testing datasets.
 
 ```sql
@@ -357,7 +357,7 @@ Although R offers a rich library of statistical models, we had
 to import the data into R before performing calculations. With
 a larger dataset, this can become a bottleneck to marshal and
 transfer all the data to the R process (which itself might run
-out of memory and start swapping). So, we will now look into
+out of memory and start swapping). So, let's look into
 an alternative method that allows us to move our computations
 to the database and improve this performance.
 
@@ -389,7 +389,7 @@ host and database.
 </highlight>
 
 Now we can make use of MADlib's library to analyze our taxicab
-dataset. Here, we will train an ARIMA model to predict the price
+dataset. Here, we can train an ARIMA model to predict the price
 of a ride from JFK to Times Square at a given time.
 
 Let's look at the `rides_price` table. The `trip_price` column is
@@ -429,7 +429,7 @@ SELECT * FROM rides_price;
  2016-01-01 23:00:00 | 57.9088888888889
 ```
 
-We will also create two tables for the training and testing datasets.
+We can also create two tables for the training and testing datasets.
 We create tables instead of views here because we need to add columns
 to these datasets later in our time-series forecast analysis.
 
@@ -442,7 +442,7 @@ WHERE one_hour <= '2016-01-21 23:59:59';
 SELECT * INTO rides_price_test FROM rides_price
 WHERE one_hour >= '2016-01-22 00:00:00';
 ```
-Now we will use [MADlib's ARIMA][madlib_arima] library to make forecasts
+Now we can use [MADlib's ARIMA][madlib_arima] library to make forecasts
 on our dataset.
 
 MADlib does not yet offer a method that automatically finds the best
@@ -500,7 +500,7 @@ then train the model using MADlib. You can use a combination of the
 options outlined in this tutorial to take advantage of the strengths
 and work around weaknesses of the different tools.
 
-Using the parameters ARIMA(2,1,3) found using R, we will use MADlib's
+Using the parameters ARIMA(2,1,3) found using R, we can use MADlib's
 `arima_train` and `arima_forecast` functions.
 
 ```sql
@@ -598,7 +598,7 @@ in time-series forecasting. It is advised to create both models for
 a particular dataset and compare the performance to find out which is
 more suitable.
 
-We will use Python to analyze how long it takes from the Financial
+We can use Python to analyze how long it takes from the Financial
 District to Times Square at different time periods during the day.
 We need to install various Python packages:
 
@@ -637,7 +637,7 @@ SELECT * FROM rides_length;
 ...
 ```
 
-We will also create two PostgreSQL views for the training
+We can also create two PostgreSQL views for the training
 and testing datasets.
 
 ```sql

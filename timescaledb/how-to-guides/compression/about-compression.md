@@ -70,7 +70,7 @@ queries are more likely to be shallow in time, and wide in columns. Generally,
 they are debugging queries, or queries that cover the whole system, rather than
 specific, analytic queries. An example of the kind of query more likely for new
 data is "show me the current CPU usage, disk usage, energy consumption, and I/O
-for a particular server". When this is the case, the uncompressed data will have
+for a particular server". When this is the case, the uncompressed data has
 better query performance, so the native PostgreSQL row-based format is the best
 option.
 
@@ -190,7 +190,7 @@ ALTER TABLE  example
        timescaledb.compress_orderby = 'device_id, time DESC');
 ```
 
-Using those settings, the compressed table now shows each measurement in consecutive order, and the `cpu` values show a trend. This table will compress much better:
+Using those settings, the compressed table now shows each measurement in consecutive order, and the `cpu` values show a trend. This table compresses much better:
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |---|---|---|---|---|
@@ -198,7 +198,7 @@ Using those settings, the compressed table now shows each measurement in consecu
 
 Putting items in `orderby` and `segmentby` columns often achieves similar
 results. In this same example, if you set it to segment by the `device_id`
-column, it will have good compression, even without setting `orderby`. This is
+column, it has good compression, even without setting `orderby`. This is
 because ordering only matters within a segment, and segmenting by device means
 that each segment represents a series if it is ordered by time. So, if
 segmenting by an identifier causes segments to become too small, try moving the

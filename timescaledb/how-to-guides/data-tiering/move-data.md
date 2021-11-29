@@ -3,10 +3,10 @@ The [`move_chunk`][api-move-chunk] function requires multiple tablespaces set up
 start with a quick review of how this works.
 
 ## Creating a tablespace
-First, add a storage mount that will serve as a home for your new tablespace. This
-process will differ based on how you are deployed, but your system administrator
+First, add a storage mount that can serve as a home for your new tablespace. This
+process differs based on how you are deployed, but your system administrator
 should be able to arrange setting up the mount point. The key here is to provision
-your tablespace with storage that is appropriate for how its resident data will be used.
+your tablespace with storage that is appropriate for how its resident data is used.
 
 To create a [tablespace][] in Postgres:
 
@@ -16,7 +16,7 @@ OWNER postgres
 LOCATION '/mnt/history';
 ```
 
-Here we are creating a tablespace called `history` that will be
+Here we are creating a tablespace called `history` that is
 owned by the default `postgres` user, using the storage mounted at `/mnt/history`.
 
 ## Move Chunks [](move_chunks)
@@ -59,7 +59,7 @@ SELECT tablename from pg_tables
   WHERE tablespace = 'history' and tablename like '_hyper_%_%_chunk';
 ```
 
-As you will see, the target chunk is now listed as residing on `history`; we
+The target chunk is now listed as residing on `history`; we
 can similarly validate the location of our index:
 
 ```sql

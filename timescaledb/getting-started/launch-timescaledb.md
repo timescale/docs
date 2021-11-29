@@ -23,7 +23,7 @@ Provide your full name, email address, and a strong password to start:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-signup.png" alt="Sign up for Timescale Cloud"/>
 
-You will need to confirm your account by clicking the link you receive via
+You need to confirm your account by clicking the link you receive via
 email. If you do not receive this link, please first check your spam folder
 and, failing that, please [contact us][contact-timescale].
 
@@ -41,7 +41,7 @@ and storage options**. But don't worry, if you want to do more with Timescale Cl
 after you've completed everything, you can always resize your service or create
 a new one in a few clicks!
 
-After you select 'Create service', you will see confirmation of your service account and
+After you select 'Create service', you can see confirmation of your service account and
 password information. You should save the information in this confirmation screen in
 a safe place:
 
@@ -51,7 +51,7 @@ a safe place:
  If you forget your password in the future, you can reset your password from the *service dashboard*.
 </highlight>
 
-It will take a couple minutes for your service to be provisioned. When your database is
+It takes a couple minutes for your service to be provisioned. When your database is
 ready for connection, you should see a green `Running` label above the service in the
 service dashboard.
 

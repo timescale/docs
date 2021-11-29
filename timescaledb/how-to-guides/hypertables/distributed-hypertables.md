@@ -7,7 +7,7 @@ regular hypertables, including inserting, querying, and altering them.
 
 <highlight type="important">
 You must set up your multi-node cluster before implementing a distributed
-hypertable. See [multi-node](timescaledb/latest/how-to-guides/multinode-timescaledb/) for
+hypertable. See [multi-node](/timescaledb/latest/how-to-guides/multinode-timescaledb/) for
 instructions on setting up your multi-node cluster, and creating a distributed
 hypertable.
 </highlight>
@@ -34,7 +34,7 @@ begin, and plan your database according to your specific environment.
 
 ## Inserting data into a distributed hypertable
 Inserting data into a distributed hypertable works in much the same way as
-inserting data into a regular hypertable, except that distributeed hypertables
+inserting data into a regular hypertable, except that distributed hypertables
 come with a higher network load, as they push inserted data down to the data
 nodes. Try to amortize your `INSERT` statements over many rows of data, rather
 than have each insertion as its own transaction. This can help you avoid
@@ -216,6 +216,9 @@ see how a query is pushed down to a data node, use `EXPLAIN VERBOSE` on the
 query and inspect the query plan and the remote SQL statement sent to each data
 node.
 
+If you intend to use continuous aggregates in your multi-node environment, check
+the additional considerations in the [continuous aggregates][caggs] section.
+
 ### Limitations of pushing down queries
 The query planner might not always be able to push down queries, or can only push down parts of it. There are several reasons why this might happen.
 
@@ -240,7 +243,7 @@ the [`now()`][current_time] function to get the current transaction time. This
 function depends on the current timezone setting on each node.
 
 If the query includes a user-defined function (UDF) the access node assumes
-that the function does not exist on the data nodes and therefore will not push
+that the function does not exist on the data nodes and therefore does not push
 it down.
 
 TimescaleDB employs several optimizations to increase the likelihood of being
@@ -283,3 +286,4 @@ For more information about partitioning distributed hypertables, see the
 [about-multinode]: /how-to-guides/multinode-timescaledb/about-multinode/
 [explain]: https://www.postgresql.org/docs/current/sql-explain.html
 [dist_exec]:  /api/:currentVersion:/distributed-hypertables/distributed_exec
+[caggs]: timescaledb/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/

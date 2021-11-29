@@ -14,15 +14,14 @@ The VPCs created here are peered with your own VPC as part of the setup process.
 Click `Create VPC`, type a name for your new VPC, and provide an IPv4 CIDR block
 (E.G., `10.0.0.0/16` or `192.168.0.0/24`). Make sure that the CIDR block you
 choose for your Timescale Cloud VPC does not overlap with the AWS VPC you are using to create
-a peering connection. If the CIDR blocks overlap, the peering process will fail.
+a peering connection. If the CIDR blocks overlap, the peering process fails.
 You can always find the CIDR block of your AWS VPC from the AWS console.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
 <highlight type="tip">
-VPC peering can be enabled for free during your Timescale Cloud trial, but you will be
-required to enter a valid payment method in order to create a VPC (even though you
-will not yet be charged for it).
+VPC peering can be enabled for free during your Timescale Cloud trial, but you are required to enter a valid payment method in order to create a VPC (even though you
+are not yet charged for it).
 </highlight>
 
 ## Create a peering connection
@@ -52,7 +51,7 @@ Make note of the peering connection ID (starting with `pcx-`) as it is used in t
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws-vpc-peering.png" alt="Peering information in AWS"/>
 
 ## Network routing and security in AWS
-Once you have accepted the peering connection, the two VPCs will now be peered;
+Once you have accepted the peering connection, the two VPCs are peered;
 however, in order to use this peering connection, you need to update your
 VPC's route table to include the CIDR block of your peered Timescale Cloud VPC,
 and you also need to update your VPC's security groups.
@@ -85,7 +84,7 @@ dashboard. From this view, click `Create security group` to create a new securit
 
 <highlight type="tip">
 If you need to, you can use another security group which already exists in your VPC,
-however, for simplicity we will assume the creation of a new security group.
+however, for simplicity we assume the creation of a new security group.
 </highlight>
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws-vpc-securitygroup.png" alt="The AWS Security Groups dashboard"/>
@@ -97,18 +96,18 @@ which has been peered with your Cloud VPC.
 No inbound rules are required, so leave the inbound rules section empty.
 
 In the outbound rules section, select `Custom TCP` for the rule type. The protocol
-should remain as TCP. The port range should be `5432`, which is the port which will
-be used to connect to your Timescale Cloud services. The Destination should be set
+should remain as TCP. The port range should be `5432`, which is the port which is
+used to connect to your Timescale Cloud services. The Destination should be set
 to `Custom` and the value should be the CIDR block of your Cloud VPC.
 
 <highlight type="tip">
 AWS may pre-populate the `Destination` column with the value `0.0.0.0/0`. Though this
-value will certainly work, it is more "open" than needed, and should be deleted.
+value certainly works, it is more "open" than needed, and should be deleted.
 </highlight>
 
-Finally, click `Create security group`. With this step, you will now be able to
+Finally, click `Create security group`. With this step, you are now able to
 connect to any of your Timescale Cloud services attached to your peered VPC. In the next
-section, you will learn how to create a Timescale Cloud service with a VPC attachment.
+section, you learn how to create a Timescale Cloud service with a VPC attachment.
 
 ## Create a service with VPC attachment
 In the Timescale Cloud console, navigate to the
@@ -119,8 +118,8 @@ Expand the dropdown menu under the `Select a VPC` step and select the VPC you cr
 previously. If you have multiple VPCs, select the VPC which you want your new service
 to be attached to.
 
-Click `Create Service`, and Timescale Cloud will create your new service. Due to
-selecting a VPC during setup, your new service will be created with an attachment to
+Click `Create Service`, and Timescale Cloud creates your new service. Due to
+selecting a VPC during setup, your new service is created with an attachment to
 your selected VPC.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-select.png" alt="Create new service with VPC attachment"/>

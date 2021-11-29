@@ -8,7 +8,7 @@ using data that is not evenly sampled is not always useful.
 For example, if you have a lot of ice cream in freezers, you need to make sure
 the ice cream stays within a 0-10℉ (-20 to -12℃) temperature range. The
 temperature in the freezer can vary if folks are opening and closing the door,
-but the ice cream will only have a problem if the temperature is out of range
+but the ice cream only has a problem if the temperature is out of range
 for a long time. You can set your sensors in the freezer to sample every five
 minutes while the temperature is in range, and every 30 seconds while the
 temperature is out of range. If the results are generally stable, but with some

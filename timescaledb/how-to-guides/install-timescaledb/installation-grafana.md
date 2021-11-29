@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-You will need to [setup an instance of TimescaleDB][install-timescale].
+You need to [setup an instance of TimescaleDB][install-timescale].
 
 ### Options for installing Grafana
 
@@ -40,14 +40,14 @@ your TimescaleDB instance.
 
 ### Enable TimescaleDB within Grafana
 
-Since we will be connecting to a TimescaleDB instance for this
-tutorial, we will also want to check the option for 'TimescaleDB' in the
+Since we are connecting to a TimescaleDB instance for this
+tutorial, you also need to check the option for 'TimescaleDB' in the
 'PostgreSQL details' section of the PostgreSQL configuration screen.
 
 ### Wrapping up
 
 You should also change the 'Name' of the database to something descriptive. This is
-optional, but will inform others who use your Grafana dashboard what this data source
+optional, but informs others who use your Grafana dashboard what this data source
 contains.
 
 Once done, click 'Save & Test'. You should receive confirmation that your database

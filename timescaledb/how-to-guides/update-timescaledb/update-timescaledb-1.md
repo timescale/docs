@@ -46,7 +46,7 @@ It must also be the first command you execute in the session.
 </highlight>
 
 
-This will upgrade TimescaleDB to the latest installed version, even if you
+This upgrades TimescaleDB to the latest installed version, even if you
 are several versions behind.
 
 After executing the command, the psql `\dx` command should show the latest version:
@@ -90,7 +90,7 @@ using you can run the following command:
 ```bash
 docker inspect timescaledb --format='{{range .Mounts }}{{.Type}}{{end}}'
 ```
-This command will return either `volume` or `bind`, corresponding
+This command returns either `volume` or `bind`, corresponding
 to the two options below.
 
 1. [Volumes][volumes] -- to get the current volume name use:
@@ -116,7 +116,7 @@ docker rm timescaledb
 
 #### Step 4: Start new container [](update-docker-4)
 Launch a new container with the updated docker image, but pointing to
-the existing mount point. This will again differ by mount type.
+the existing mount point. This again differs by mount type.
 
 1. For volume mounts you can use:
 ```bash

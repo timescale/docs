@@ -6,8 +6,8 @@ underlying chunk.
 
 This change can be a potentially expensive operation if it requires a rewrite of
 the underlying data.  However, a common modification is to add a field with a
-default value of NULL (if no DEFAULT clause is specified, then the default will
-be NULL); such a schema modification is inexpensive. More details can be found
+default value of NULL (if no DEFAULT clause is specified, then the default is
+NULL); such a schema modification is inexpensive. More details can be found
 in the Notes section of the [PostgreSQL documentation on ALTER TABLE][postgres-alter-table].
 
 [postgres-alter-table]: https://www.postgresql.org/docs/current/static/sql-altertable.html
