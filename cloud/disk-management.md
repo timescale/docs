@@ -14,7 +14,7 @@ By default, Timescale Cloud services have autoscaling enabled. Autoscaling
 automatically increases your disk size, up to a maximum amount, as you fill the
 disk. For more information about autoscaling, including instructions for setting
 the maximum limit, or turning autoscaling off, see the
-[scaling a service](/scaling-a-service/) section.
+[scaling a service](/cloud/latest/scaling-a-service/) section.
 </highlight>
 
 ## Continuous storage monitoring

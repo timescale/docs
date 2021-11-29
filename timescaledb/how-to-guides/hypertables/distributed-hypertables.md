@@ -7,7 +7,7 @@ regular hypertables, including inserting, querying, and altering them.
 
 <highlight type="important">
 You must set up your multi-node cluster before implementing a distributed
-hypertable. See [multi-node](timescaledb/latest/how-to-guides/multinode-timescaledb/) for
+hypertable. See [multi-node](/timescaledb/latest/how-to-guides/multinode-timescaledb/) for
 instructions on setting up your multi-node cluster, and creating a distributed
 hypertable.
 </highlight>
@@ -34,7 +34,7 @@ begin, and plan your database according to your specific environment.
 
 ## Inserting data into a distributed hypertable
 Inserting data into a distributed hypertable works in much the same way as
-inserting data into a regular hypertable, except that distributeed hypertables
+inserting data into a regular hypertable, except that distributed hypertables
 come with a higher network load, as they push inserted data down to the data
 nodes. Try to amortize your `INSERT` statements over many rows of data, rather
 than have each insertion as its own transaction. This can help you avoid
