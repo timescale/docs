@@ -122,6 +122,9 @@ see how a query is pushed down to a data node, use `EXPLAIN VERBOSE` on the
 query and inspect the query plan and the remote SQL statement sent to each data
 node.
 
+If you intend to use continuous aggregates in your multi-node environment, check
+the additional considerations in the [continuous aggregates][caggs] section.
+
 ### Limitations of pushing down queries
 The query planner might not always be able to push down queries, or can only push down parts of it. There are several reasons why this might happen.
 
@@ -193,3 +196,4 @@ You can use `distributed_exec` to create a table on all data nodes and insert da
 [insert]: https://www.postgresql.org/docs/current/sql-insert.html
 [copy]: https://www.postgresql.org/docs/current/sql-copy.html
 [about-multinode]: /how-to-guides/multinode-timescaledb/about-multinode/
+[caggs]: timescaledb/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
