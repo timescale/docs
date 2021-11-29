@@ -158,7 +158,7 @@ Now that we have a successful connection to the `defaultdb` database, we
 can build out our first database and model.
 
 <highlight type="warning">
-You can skip the steps 1 and 2 if you're going to use TimescaleDB cloud. The
+You can skip the first two steps if you're going to use TimescaleDB cloud. The
 service will create a database with the extension already enabled.
 </highlight>
 
