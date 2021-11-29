@@ -16,6 +16,9 @@ across the cluster, and a set of data nodes (DNs) which store subsets of the
 distributed hypertable dataset and execute queries locally. For more information
 about the multi-node architecture, see [about multi-node][about-multi-node].
 
+If you intend to use continuous aggregates in your multi-node environment, check
+the additional considerations in the [continuous aggregates][caggs] section.
+
 ## Set up multi-node on self-hosted TimescaleDB
 When you have installed TimescaleDB on the access node and as many data nodes as
 you require, you can set up multi-node and create a distributed hypertable.
@@ -24,7 +27,7 @@ you require, you can set up multi-node and create a distributed hypertable.
 Before you begin, make sure you have considered what partitioning method you
 want to use for your multi-node cluster. For more information about multi-node
 and architecture, see the
-[About multi-node section](timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/about-multinode/).
+[About multi-node section](/timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/about-multinode/).
 </highlight>
 
 <procedure>
@@ -60,3 +63,4 @@ cluster. For more information, see the [configuration section][configuration].
 [install]: /how-to-guides/install-timescaledb
 [setup]: /how-to-guides/install-timescaledb/post-install-setup
 [about-multi-node]: /how-to-guides/multinode-timescaledb/about-multinode/
+[caggs]: timescaledb/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
