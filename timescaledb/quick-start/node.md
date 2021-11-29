@@ -159,7 +159,7 @@ can build out our first database and model.
 
 <highlight type="warning">
 You can skip the first two steps if you're going to use TimescaleDB cloud. The
-service will create a database with the extension already enabled.
+service creates a database with the extension already enabled.
 </highlight>
 
 Let's initialize Sequelize and create the necessary configuration files for our
