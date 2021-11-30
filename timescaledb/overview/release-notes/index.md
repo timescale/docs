@@ -16,7 +16,7 @@ we welcome you to visit our Github repo or join our [Slack community](https://sl
 For our next releases, we plan to add:
 
 - Continuous aggregates with compression
-- Multi-node performance improvements
+- Multi-node performance and UX improvements
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -33,7 +33,7 @@ follow these [setup instructions][distributed-hypertables-setup].
 
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
-This release also contains bug fixes since the 2.4.2 release.
+This release also contains bug fixes since the 2.5 release.
 
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
@@ -77,6 +77,10 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+
+## 2.5.1 (2021-11-30)
+
+TODO
 
 ## 2.5.0 (2021-10-28)
 
