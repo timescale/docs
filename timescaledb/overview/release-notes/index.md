@@ -67,7 +67,7 @@ For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 rel
 For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
-TimescaleDB 2.5 is now available, and we encourage
+TimescaleDB 2.5.1 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -125,7 +125,7 @@ for more information and links to installation instructions when upgrading from 
 This release contains bug fixes since the 2.4.1 release.
 We deem it high priority to upgrade.
 
-**Bugfixes**
+**Bug fixes**
 * #3437 Rename on all continuous aggregate objects
 * #3469 Use signal-safe functions in signal handler
 * #3520 Modify compression job processing logic
@@ -208,7 +208,7 @@ We deem it moderate priority for upgrading.
 * #3210 Add trigger support on distributed hypertables
 * #3230 Support for inserts into compressed chunks
 
-**Bugfixes**
+**Bug fixes**
 * #3213 Propagate grants to compressed hypertables
 * #3229 Use correct lock mode when updating chunk
 * #3243 Fix assertion failure in decompress_chunk_plan_create
@@ -222,7 +222,7 @@ We deem it moderate priority for upgrading.
 
 ## 2.2.1 (2021-05-05)
 
-This maintenance release contains bugfixes since the 2.2.0 release. We
+This maintenance release contains bug fixes since the 2.2.0 release. We
 deem it high priority for upgrading.
 
 This release extends Skip Scan to multinode by enabling the pushdown
@@ -234,7 +234,7 @@ of indexes, in compression, and in policies.
 * #3113 Pushdown "SELECT DISTINCT" in multi-node to allow use of Skip
   Scan
 
-**Bugfixes**
+**Bug fixes**
 * #3101 Use commit date in `get_git_commit()`
 * #3102 Fix `REINDEX TABLE` for distributed hypertables
 * #3104 Fix use after free in `add_reorder_policy`
@@ -311,7 +311,7 @@ announce in which version of TimescaleDB PostgreSQL 11 support is dropped.
 
 ## 2.1.1 (2021-03-29)
 
-This maintenance release contains bugfixes since the 2.1.0 release. We
+This maintenance release contains bug fixes since the 2.1.0 release. We
 deem it high priority for upgrading.
 
 The bug fixes in this release address issues with CREATE INDEX and
@@ -360,7 +360,7 @@ and renaming columns of compressed hypertables.
 
 ## 2.0.2 (2021-02-19)
 
-This maintenance release contains bugfixes since the 2.0.1 release. We
+This maintenance release contains bug fixes since the 2.0.1 release. We
 deem it high priority for upgrading.
 
 The bug fixes in this release address issues with joins, the status of
@@ -372,7 +372,7 @@ lot of invalidations.
 **Minor features**
 * #2926 Optimize cagg refresh for small invalidations
 
-**Bugfixes**
+**Bug fixes**
 * #2850 Set status for backend in background jobs
 * #2883 Fix join qual propagation for nested joins
 * #2884 Add GUC to control join qual propagation
@@ -390,7 +390,7 @@ lot of invalidations.
 
 ## 1.7.5 (2021-02-12)
 
-This maintenance release contains bugfixes since the 1.7.4 release.
+This maintenance release contains bug fixes since the 1.7.4 release.
 Most of these fixes were backported from the 2.0.0 and 2.0.1 releases.
 We deem it high priority for upgrading for users on TimescaleDB 1.7.4
 or previous versions.
@@ -428,14 +428,14 @@ and when upgrading from previous versions.
 
 ## 2.0.1 (2021-01-28)
 
-This maintenance release contains bugfixes since the 2.0.0 release.
+This maintenance release contains bug fixes since the 2.0.0 release.
 We deem it high priority for upgrading.
 
 In particular the fixes contained in this maintenance release address
 issues in continuous aggregates, compression, JOINs with hypertables
 and when upgrading from previous versions.
 
-**Bugfixes**
+**Bug fixes**
 * #2772 Always validate existing database and extension
 * #2780 Fix config enum entries for remote data fetcher
 * #2806 Add check for dropped chunk on update
@@ -534,7 +534,7 @@ improvements:
 
 **Bug fixes**
 
-Since the last release candidate 4, there are several bugfixes:
+Since the last release candidate 4, there are several bug fixes:
 * #2719 Support disabling compression on distributed hypertables
 * #2742 Fix compression status in chunks view for distributed chunks
 * #2751 Fix crash and cancel when adding data node
@@ -574,7 +574,7 @@ Thanks to all contributors for the TimescaleDB 2.0 release:
 
 ## 2.0.0-rc4 (2020-12-02)
 
-This release candidate contains bugfixes since the previous release
+This release candidate contains bug fixes since the previous release
 candidate, as well as additional minor features. It improves
 validation of configuration changes for background jobs, adds support
 for gapfill on distributed tables, contains improvements to the memory
@@ -605,7 +605,7 @@ distributed hypertables.
 
 ## 2.0.0-rc3 (2020-11-12)
 
-This release candidate contains bugfixes since the previous release
+This release candidate contains bug fixes since the previous release
 candidate, as well as additional minor features including support for
 "user-mapping" authentication between access/data nodes and an
 experimental API for refreshing continuous aggregates on individual
@@ -637,7 +637,7 @@ chunks.
 
 ## 2.0.0-rc2 (2020-10-21)
 
-This release candidate contains bugfixes since the previous release candidate.
+This release candidate contains bug fixes since the previous release candidate.
 
 **Minor features**
 * #2520 Support non-transactional distibuted_exec
@@ -661,7 +661,7 @@ This release candidate contains bugfixes since the previous release candidate.
 
 ## 2.0.0-rc1 (2020-10-06)
 
-This release adds major new features and bugfixes since the 1.7.4 release.
+This release adds major new features and bug fixes since the 1.7.4 release.
 We deem it moderate priority for upgrading.
 
 This release adds the long-awaited support for distributed hypertables to
