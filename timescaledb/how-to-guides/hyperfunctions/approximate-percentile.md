@@ -50,5 +50,5 @@ For more information about percentile approximation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-approx-percentile].
 
 
-[advanced-agg]: /how-to-guides/hyperfunctions/advanced-agg
+[advanced-agg]: /how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
 [hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
