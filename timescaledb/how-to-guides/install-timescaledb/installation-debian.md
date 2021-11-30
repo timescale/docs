@@ -45,7 +45,7 @@ instead.
     <tab label="Ubuntu">
 
     ```bash
-    sudo sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+    sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
     ```
 
     </tab>
@@ -53,7 +53,7 @@ instead.
     </terminal>
 1.  Get the TimescaleDB GPG signing packages, and unpack them:
     ```bash
-    wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/timescale.keyring
+    wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | gpg --dearmor -o /usr/share/keyrings/timescale.keyring
     ```
 1.  Update your local repository list:
     ```bash
