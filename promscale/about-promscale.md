@@ -2,21 +2,22 @@
 Promscale is an open source observability backend for metrics and traces
 powered by SQL.
 
-It's built on the robust and high-performance foundation of PostgreSQL and 
+It's built on the robust and high-performance foundation of PostgreSQL and
 TimescaleDB. It has native support for Prometheus metrics and OpenTelemetry
 traces as well as many other formats like StatsD, Jaeger and Zipkin through the
-OpenTelemetry Collector and is [100% PromQL compliant](promlabs-test). It's full SQL capabilities
-enable developers to correlate metrics, traces and also business data to derive
-new valuable insights not possible when data is siloed in different systems.
-It easily integrates with Grafana and Jaeger for visualizing metrics and traces.
+OpenTelemetry Collector and is [100% PromQL compliant](promlabs-test). It's full
+SQL capabilities enable developers to correlate metrics, traces and also
+business data to derive new valuable insights not possible when data is siloed
+in different systems. It easily integrates with Grafana and Jaeger for
+visualizing metrics and traces.
 
 Built on top of PostgreSQL and TimescaleDB it inherits rock-solid reliability,
 native compression up to 90%, continuous aggregates and the operational maturity
 of a system that is run on millions of instances worldwide.
 
-Our code is available on [Github][github].
+For the Promscale source code, see our [GitHub repository][gh-promscale].
 
-If you have any questions, you can join the #promscale channel on the
+If you have any questions, join the `#promscale` channel on the
 [TimescaleDB Community Slack][slack].
 
 ## Benefits
@@ -102,7 +103,7 @@ through the PostgreSQL data source.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-arch.png" alt="Promscale architecture diagram"/>
 
 
-[github]: https://github.com/timescale/promscale
+[gh-promscale]: https://github.com/timescale/promscale
 [slack]: https://slack.timescale.com
 [promlabs-test]: https://promlabs.com/promql-compliance-test-results/2021-10-14/promscale
 [otel-collector] https://github.com/open-telemetry/opentelemetry-collector

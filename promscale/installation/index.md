@@ -1,44 +1,36 @@
-# Up and running: Install Prometheus, Promscale, and TimescaleDB
+# Install Promscale
+Promscale allows you to extract more meaningful insights from your metrics data.
+It is an open source long-term store for Prometheus data designed for analytics.
+Promscale is built on top of TimescaleDB, and is a horizontally scalable and
+operationally mature platform for Prometheus data that uses PromQL and SQL to
+allow you to ask any question, create any dashboard, and achieve greater
+visibility into your systems.
 
-## Installation Pre-requisites
-
-### New installation with Prometheus
-
-1. As the first step in getting started with monitoring. You need to install Prometheus. Prometheus can be deployed as standalone process in bare-metal VM's, as a container in containerised environment and as a deployment, statefulset in Kubernetes. Prometheus installation steps can be found [here][prometheus-installation]
-2. Now install the Promscale as mentioned [here][]   
-
-### Installing Promscale to your existing monitoring solution
-
-1. Integrating to Prometheus or Replacing other remote-write systems with Promscale
-
-If you are already using Prometheus or an other remote storage system for long term storage of metrics and planning to replace remote-storage system with Promscale. We have tool to acheieve this using **Prom-migrator**, Prom-migrator is an open-source, community-driven and free-to-use, universal prometheus data migration tool, that migrates data from one storage system to another, leveraging Prometheus's remote storage endpoints. 
-
-Follow the below steps to migrate the existing data into Promscale:
-
-1. First install the Promscale as described [here](<>) 
-
-2. Install the Prom-migrator from [Promscale releases][promscale-gh-releases].
-
-3. Now the run the Prom-migrator to copy the data from existing Prometehues or remote-storage system to Promscale using the command:
-```yaml
-./prom-migrator -start=<migration-data-start-time> -end=<migration-data-end-time> -reader-url=<read_endpoint_url_for_remote_read_storage> -writer-url=<write_endpoint_url_for_remote_write_storage> -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
-```
-More details on Prom-migrator and it's CLI flags can be found [here][prom-migrator-readme].
-
-4. Now after successfully migrating the data into Promscale you can drop the old data from Prometheus and the other remote-storage system as all this data is copied into Promscale using Prom-migrator from the previous step. 
-
-5. Currently. Promscale doesn't support alerting, recording rules. So this needs to be achieved on Prometheus end by configuring the alerting, recording rules and an alert-manager to fire alerts. We recommend to configure the data renetion in Prometheus to `1d` but this is totally dependent on the alerting rules configured in Prometheus for evaluation. In future versions of Promscale we will support this natively in Promscale.
-
-6. By now all your data should be persisted into Promscale!! Now you can directly query from Promscale using PromQL and query using SQL from TimescaleDB. 
-
-## Installation Methods
-
-We recommend four methods to setup and install Promscale:
-1. [TOBS - The Observability Stack for Kubernetes ][tobs-github] (recommended for kubernetes deployments)
-2. Docker (instructions detailed below)
-3. [Helm][promscale-helm-chart]
-4. [Bare Metal][promscale-baremetal-docs]
-
-<highlight type="tip">
-See the [Promscale github installation guide](https://github.com/timescale/promscale#-choose-your-own-installation-adventure) for more information on installation options.
+<highlight type="important">
+Before you can install Promscale, you must have installed and configured
+Prometheus. You can install Prometheus within a virtual machine (VM), as a
+container, or within Kubernetes. For more information about installing
+Prometheus, see the
+[Prometheus documentation](https://prometheus.io/docs/prometheus/latest/installation/).
 </highlight>
+
+You can install Promscale in several different ways:
+
+*   If you have an existing Prometheus monitoring environment, you can add
+    Promscale with the
+    [Prom-migrator migration tool][promscale-install-prommigrator].
+*   For new installations, install Promscale from a
+    [pre-built Docker container][promscale-install-docker].
+*   For new bare metal installations, install Promscale
+    [from source][promscale-install-source].
+*   If you have an existing Kubernetes environment, install Promscale using
+    [the observability suite (tobs) for Kubernetes][promscale-install-tobs].
+*   If you only need the Promscale Connector, you can install it
+    [from a Helm chart][promscale-connector-install-helm].
+
+
+[promscale-install-prommigrator]: promscale/installation/prom-migrator/
+[promscale-install-docker]: promscale/installation/docker/
+[promscale-install-source]: promscale/installation/source/
+[promscale-install-tobs]: promscale/installation/tobs/
+[promscale-connector-install-helm]: promscale/installation/helm/
