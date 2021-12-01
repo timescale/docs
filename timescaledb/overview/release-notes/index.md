@@ -90,7 +90,6 @@ for more information and links to installation instructions when upgrading from 
  * #3766 Fix segfault in ts_hist_sfunc
  * #3779 Support GRANT/REVOKE on distributed database
  * #3789 Fix time_bucket comparison transformation
- * #3797 Fix DISTINCT ON queries for distributed hyperatbles
  * #3799 Fix error printout on correct security label
  * #3801 Fail size utility functions when data nodes do not respond
  * #3809 Fix NULL pointer evaluation in fill_result_error()
