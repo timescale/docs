@@ -463,8 +463,44 @@ a JSON payload.
 </procedure>
 
 ### Test the API
-You can test the API by making a POST request to the /insert endpoint with `curl`:
+You can test the API by making a POST request with a JSON payload.
 
+JSON payload (`post.json`):
+```json
+{
+    "records": [
+        {
+            "time": "2021-11-12 15:00:00",
+            "symbol": "AAPL",
+            "price_open": 149.8,
+            "price_close": 149.81,
+            "price_low": 149.73,
+            "price_high": 149.73,
+            "trading_volume": 17291
+        },
+        {
+            "time": "2021-11-12 15:00:00",
+            "symbol": "MSFT",
+            "price_open": 337.15,
+            "price_close": 337.15,
+            "price_low": 337.15,
+            "price_high": 337.15,
+            "trading_volume": 562
+        },
+        {
+            "time": "2021-11-12 15:00:00",
+            "symbol": "FB",
+            "price_open": 341.35,
+            "price_close": 341.3,
+            "price_low": 341.3,
+            "price_high": 341.35,
+            "trading_volume": 556
+        }
+    ]
+}
+```
+
+Use `curl` to make the request:
 ```bash
 curl -X POST -H "Content-Type: application/json" -d @./post.json 
 https://h45kwepq8g.execute-api.us-east-1.amazonaws.com/test_post_api/insert_function
@@ -472,6 +508,12 @@ https://h45kwepq8g.execute-api.us-east-1.amazonaws.com/test_post_api/insert_func
 
 If everything is working properly, the content of your JSON file gets inserted
 into the database.
+
+|time|symbol|price_open|price_high|price_low|price_close|trading_volume|
+|---|---|---|---|---|---|---|
+|2021-11-12 21:00:00|AAPL|149.8|149.73|149.73|149.81|17291|
+|2021-11-12 21:00:00|MSFT|337.15|337.15|337.15|337.15|562|
+|2021-11-12 21:00:00|FB|341.35|341.35|341.3|341.3|556|
 
 
 
