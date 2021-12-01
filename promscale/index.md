@@ -8,7 +8,7 @@ visibility into your systems.
 
 *   [Learn about Promscale][about-promscale] to understand how it works before you begin using it.
 *   [Install Promscale][install-promscale].
-*   Work through the [Promscale tutorial][tutorial-promscale].
+*   Work through the [Promscale tutorials][tutorial-promscale].
 
 For more documentation, see our [developer documentation][promscale-gh-docs].
 
