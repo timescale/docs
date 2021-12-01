@@ -27,9 +27,26 @@ get`, or download a binary from
     *   `pg_dump`
     *   `pg_dumpall`
     *   `pg_restore`
-1.  Install `timescaledb-backup`:
+1.  Download `timescaledb-backup`:
     ```bash
-    $ go get github.com/timescale/timescaledb-backup/
+    $ go get -d github.com/timescale/timescaledb-backup/
+    # Ignore any can't load packages errors, if any.
+    ```
+1. Build the binaries:
+   ```bash
+   $ cd ~/go/src/github.com/timescale/timescaledb-backup/
+   $ go install ./cmd/...
+   ```
+   The binaries will be available on your GOPATH.
+    Find it with:
+    ```bash
+    $ go env
+    ```
+1. (Optional) Make the binaries available on your path:
+     * Debian/Ubuntu:
+     ```bash
+   $ cd ~/go/bin/ # or whatever you GOPATH is
+   $ sudo mv {ts-dump,ts-restore} /usr/bin/
     ```
 
 </procedure>
