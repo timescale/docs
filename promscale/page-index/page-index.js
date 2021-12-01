@@ -10,9 +10,6 @@ module.exports = [
     pageComponents: ['featured-cards'],
     excerpt:
       'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
-    children: [
-      ...installPageIndex,
-      ...tutorialPageIndex,
       {
         title: 'About Promscale',
         href: 'about-promscale',
@@ -22,10 +19,64 @@ module.exports = [
       },
       {
         title: 'Install Promscale',
-        href: 'install-promscale',
-        tags: ['install', 'promscale', 'timescaledb'],
-        keywords: ['install', 'Promscale'],
-        excerpt: "Install Promscale on TimescaleDB"
+        href: 'installation',
+        children: [
+          {
+            title: 'Install Promscale on bare metal',
+            href: 'bare-metal',
+            tags: ['promscale'],
+            keywords: ['observability', 'tutorial'],
+            excerpt: 'Bare metal installation',
+          },
+          {
+            title: 'Install Docker',
+            href: 'docker',
+            tags: ['promscale'],
+            keywords: ['observability', 'tutorial'],
+            excerpt: 'Docker installation',
+          },
+          {
+            title: 'Install Helm',
+            href: 'helm',
+            tags: ['promscale'],
+            keywords: ['observability', 'tutorial'],
+            excerpt: 'Helm installation',
+          },
+          {
+            title: 'Install Kubernetes',
+            href: 'kubernetes',
+            tags: ['promscale'],
+            keywords: ['observability', 'tutorial'],
+            excerpt: "Kubernetes installation"
+          },
+        ],
+      },
+      {
+        title: 'Tutorials',
+        href: 'tutorials',
+        children: [
+          {
+            title: 'Promscale benefits tutorial',
+            href: 'promscale-benefits',
+            tags: ['promscale'],
+            keywords: ['observability', 'tutorial'],
+            excerpt: 'Benefits of Promscale',
+          },
+          {
+            title: 'How Promscale works tutorial',
+            href: 'promscale-how-it-works',
+            tags: ['promscale'],
+            keywords: ['observability', 'tutorial'],
+            excerpt: 'How Promscale works',
+          },
+          {
+            title: 'Run Queries in Promscale tutorial',
+            href: 'promscale-run-queries',
+            tags: ['promscale'],
+            keywords: ['observability', 'tutorial'],
+            excerpt: "Running Queries in Promscale"
+          },
+        ],
       },
     ],
   },
