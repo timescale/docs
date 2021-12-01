@@ -84,7 +84,6 @@ for more information and links to installation instructions when upgrading from 
  We deem it medium priority to upgrade.
 
  **Bugfixes**
- * #3706 Test enabling dist compression within a procedure
  * #3734 Rework distributed DDL processing logic
  * #3737 Fix flaky pg_dump
  * #3739 Fix compression policy on tables using INTEGER
