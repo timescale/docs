@@ -180,12 +180,12 @@ necessarily mean that monthly buckets or buckets with timezones are supported
 by continuous aggregates. The following table shows what functionality of
 `time_bucket_ng()` is currently supported on the continuous aggregates side:
 
-Functionality | Supported
---------------|----------
-Buckets by seconds, minutes, hours, days and weeks | YES, since 2.4.0
-Buckets by months and years | NO (expected in 2.6.0)
-Specifying custom origin | NO
-Timezones support | NO
+|Function|Available in continuous aggregate|TimescaleDB version|
+|-|-|-|
+|Buckets by seconds, minutes, hours, days, and weeks|✅|2.4.0 and later|
+|Buckets by months and years|❌|Expected in 2.6.0 or later|
+|Specify custom origin|❌|To be determined|
+|Timezones support|❌|To be determined|
 
 [time_bucket]: /hyperfunctions/time_bucket/
 [caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
