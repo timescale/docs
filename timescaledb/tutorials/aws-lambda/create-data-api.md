@@ -434,12 +434,11 @@ a JSON payload.
     aws apigateway put-method --rest-api-id <API_ID> --region us-east-1 \
     --resource-id <RESOURCE_ID> --http-method POST --authorization-type "NONE"
     ```
-1.  Set up a `200 OK` response to the method request
-    of `GET /ticker?symbol={symbol}`:
+1.  Set up a `200 OK` response to the method request of `POST /insert`:
     ```bash
     aws apigateway put-method-response --region us-east-1 \
     --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
-    --http-method GET --status-code 200
+    --http-method POST --status-code 200
     ```
 1.  Connect the API Gateway to the Lambda function:
     ```bash
