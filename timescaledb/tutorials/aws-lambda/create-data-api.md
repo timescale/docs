@@ -344,7 +344,7 @@ a JSON payload.
 
 <procedure>
 
-### Create a new Lambda function to insert data into the database
+### Create a Lambda function to insert data into the database
 1.  Create a new function called `insert_function.py`, with this content:
     ```python
     import json
@@ -462,10 +462,10 @@ a JSON payload.
 
 </procedure>
 
-### Test the API
-You can test the API by making a POST request with a JSON payload.
+### Test the API with a JSON payload
+You can test the API by making a `POST` request with a JSON payload.
 
-JSON payload (`post.json`):
+Create a new payload file, called `post.json`:
 ```json
 {
     "records": [
@@ -506,8 +506,8 @@ curl -X POST -H "Content-Type: application/json" -d @./post.json
 https://h45kwepq8g.execute-api.us-east-1.amazonaws.com/test_post_api/insert_function
 ```
 
-If everything is working properly, the content of your JSON file gets inserted
-into the database.
+If everything is working properly, the content of your JSON payload file gets 
+inserted into the database.
 
 |time|symbol|price_open|price_high|price_low|price_close|trading_volume|
 |---|---|---|---|---|---|---|
