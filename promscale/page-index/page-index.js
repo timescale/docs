@@ -13,8 +13,8 @@ module.exports = [
       {
         title: 'About Promscale',
         href: 'about-promscale',
-        tags: ['learn', 'promscale', 'timescaledb'],
-        keywords: ['Promscale'],
+        tags: ['promscale', 'learn', 'analytics', 'prometheus'],
+        keywords: ['Promscale', 'analytics'],
         excerpt: "Learn how Promscale extracts metrics from your TimescaleDB instance"
       },
       {
@@ -24,30 +24,30 @@ module.exports = [
           {
             title: 'Install Promscale on bare metal',
             href: 'bare-metal',
-            tags: ['promscale'],
-            keywords: ['observability', 'tutorial'],
-            excerpt: 'Bare metal installation',
+            tags: ['promscale', 'install', 'analytics', 'prometheus'],
+            keywords: ['Promscale', 'analytics'],
+            excerpt: 'Install Promscale on bare metal',
           },
           {
             title: 'Install Docker',
             href: 'docker',
-            tags: ['promscale'],
-            keywords: ['observability', 'tutorial'],
-            excerpt: 'Docker installation',
+            tags: ['promscale', 'install', 'analytics', 'docker'],
+            keywords: ['Promscale', 'analytics', 'Docker'],
+            excerpt: 'Install Docker for Promscale',
           },
           {
             title: 'Install Helm',
             href: 'helm',
-            tags: ['promscale'],
-            keywords: ['observability', 'tutorial'],
-            excerpt: 'Helm installation',
+            tags: ['promscale', 'install', 'analytics', 'helm'],
+            keywords: ['Promscale', 'analytics', 'Helm,'],
+            excerpt: 'Install Helm for Promscale',
           },
           {
             title: 'Install Kubernetes',
             href: 'kubernetes',
-            tags: ['promscale'],
-            keywords: ['observability', 'tutorial'],
-            excerpt: "Kubernetes installation"
+            tags: ['promscale', 'install', 'analytics', 'k8s'],
+            keywords: ['Promscale', 'analytics', 'Kubernetes,'],
+            excerpt: "Install Kubernetes for Promscale"
           },
         ],
       },
@@ -58,23 +58,23 @@ module.exports = [
           {
             title: 'Promscale benefits tutorial',
             href: 'promscale-benefits',
-            tags: ['promscale'],
-            keywords: ['observability', 'tutorial'],
-            excerpt: 'Benefits of Promscale',
+            tags: ['promscale', 'learn', 'analytics', 'prometheus'],
+            keywords: ['Promscale', 'analytics', 'tutorial'],
+            excerpt: 'Learn about the benefits of Promscale',
           },
           {
             title: 'How Promscale works tutorial',
             href: 'promscale-how-it-works',
-            tags: ['promscale'],
-            keywords: ['observability', 'tutorial'],
-            excerpt: 'How Promscale works',
+            tags: ['promscale', 'learn', 'analytics', 'prometheus'],
+            keywords: ['Promscale', 'analytics', 'tutorial'],
+            excerpt: 'Learn about how Promscale works',
           },
           {
             title: 'Run Queries in Promscale tutorial',
             href: 'promscale-run-queries',
-            tags: ['promscale'],
-            keywords: ['observability', 'tutorial'],
-            excerpt: "Running Queries in Promscale"
+            tags: ['promscale', 'learn', 'analytics', 'prometheus'],
+            keywords: ['Promscale', 'analytics', 'tutorial'],
+            excerpt: "Learn about running queries in Promscale"
           },
         ],
       },
