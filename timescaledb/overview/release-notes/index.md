@@ -94,7 +94,6 @@ for more information and links to installation instructions when upgrading from 
  * #3799 Fix error printout on correct security label
  * #3801 Fail size utility functions when data nodes do not respond
  * #3809 Fix NULL pointer evaluation in fill_result_error()
- * #3811 Fix INSERT..SELECT involving dist hypertables
  * #3812 Refactor isolation tests to prevent SQL injection
  * #3819 Fix reading garbage value from TSConnectionError
  * #3824 Remove pointers from CAGG lists for 64-bit archs
