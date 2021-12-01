@@ -175,10 +175,13 @@ ORDER BY bucket;
 
 For more information, see the [continuous aggregates documentation][caggs].
 
-Note that although `time_bucket_ng()` supports months and timezones, it doesn't
-necessarily mean that monthly buckets or buckets with timezones are supported
-by continuous aggregates. The following table shows what functionality of
-`time_bucket_ng()` is currently supported on the continuous aggregates side:
+<highlight type="important">
+While `time_bucket_ng()` supports months and timezones, 
+continuous aggregates cannot always be used with monthly 
+buckets or buckets with timezones. 
+</highlight>
+
+This table shows which `time_bucket_ng()` functions can be used in a continuous aggregate:
 
 |Function|Available in continuous aggregate|TimescaleDB version|
 |-|-|-|
