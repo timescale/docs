@@ -110,7 +110,7 @@ Lambda using the `create-function` AWS command.
 
 <procedure>
 
-## Uploading the function to AWS Lanbda
+## Uploading the function to AWS Lambda
 1.  At the command prompt, zip the function directory:
   ```bash
   zip function.zip function.py
@@ -336,3 +336,143 @@ this example, it's the latest stock price of MSFT (Microsoft) in JSON format.
 [lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html
 [lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
 [custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html
+
+## Create a Lambda function to insert data into the database
+Now that you know how to create a `GET` API for your database, let's see how
+to create a `POST` API which allows you to insert data into the database using 
+a JSON payload.
+
+<procedure>
+
+### Create a new Lambda function to insert data into the database
+1.  Create a new function called `insert_function.py`, with this content:
+    ```python
+    import json
+    import psycopg2
+    import psycopg2.extras
+    from psycopg2.extras import execute_values
+    import os
+    from typing import Dict
+    
+    def lambda_handler(event, context):
+    
+        db_name = os.environ['DB_NAME']
+        db_user = os.environ['DB_USER']
+        db_host = os.environ['DB_HOST']
+        db_port = os.environ['DB_PORT']
+        db_pass = os.environ['DB_PASS']
+    
+        conn = psycopg2.connect(user=db_user, database=db_name, host=db_host,
+                              password=db_pass, port=db_port)
+    
+        cursor = conn.cursor()
+        sql = "INSERT INTO stocks_intraday VALUES %s"
+        
+        records = json.loads(event["body"]).get("records")
+        if  isinstance(records, Dict):
+            values = [[value for value in records.values()], ]
+        else:
+            values = [[value for value in item.values()] for item in records]
+        execute_values(cursor, sql, values)
+        conn.commit()
+        conn.close()
+    
+        return {
+            'statusCode': 200,
+            'body': json.dumps(event, default=str),
+            'headers': {
+                "Content-Type": "application/json"
+                }
+        }
+    
+      ```
+1. Upload the function to AWS Lambda:
+  ```bash
+  zip insert_function.zip insert_function.py
+  aws lambda create-function --function-name insert_function \
+  --runtime python3.8 --handler function.lambda_handler \
+  --role <ARN_LAMBDA_ROLE> --zip-file fileb://insert_function.zip
+  ```
+1. Create a new API Gateway, called `InsertApi`:
+    ```bash
+    aws apigateway create-rest-api --name 'InsertApi' --region us-east-1
+    ```
+1.  Retrieve the `id` of the root resource, to add a new POST endpoint:
+    ```bash
+    aws apigateway get-resources --rest-api-id <API_ID> --region us-east-1
+    {
+      "items": [
+        {
+            "id": "hs26aaaw56",
+            "path": "/"
+        },
+        {
+            "id": "r9cakv",
+            "parentId": "hs26aaaw56",
+            "pathPart": "ticker",
+            "path": "/ticker",
+            "resourceMethods": {
+                "GET": {}
+            }
+        }
+      ]
+    }
+    ```
+1.  Create a new resource. In this example, the new resource is called `insert`:
+    ```bash
+    aws apigateway create-resource --rest-api-id <API_ID> --region us-east-1 
+    --parent-id <RESOURCE_ID> --path-part insert
+    {
+        "id": "arabc2",
+        "parentId": "r5fc0ufn0h",
+        "pathPart": "insert",
+        "path": "/insert"
+    }
+    ```
+1.  Create a POST request for the /insert resource:
+    ```bash
+    aws apigateway put-method --rest-api-id <API_ID> --region us-east-1 \
+    --resource-id <RESOURCE_ID> --http-method POST --authorization-type "NONE"
+    ```
+1.  Set up a `200 OK` response to the method request
+    of `GET /ticker?symbol={symbol}`:
+    ```bash
+    aws apigateway put-method-response --region us-east-1 \
+    --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
+    --http-method GET --status-code 200
+    ```
+1.  Connect the API Gateway to the Lambda function:
+    ```bash
+    aws apigateway put-integration --region us-east-1 \
+    --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
+    --http-method POST --type AWS --integration-http-method POST \
+    --uri <ARN_LAMBDA_FUNCTION> \
+    --request-templates '{ "application/json": "{\"statusCode\": 200}" }'
+    ```
+1.  Pass the Lambda function output to the client as a `200 OK` response:
+    ```bash
+    aws apigateway put-integration-response --region us-east-1 \
+    --rest-api-id <API_ID> / --resource-id <RESOURCE_ID> \
+    --http-method POST --status-code 200 --selection-pattern ""
+    ```
+1.  Deploy the API:
+    ```bash
+    aws apigateway create-deployment --rest-api-id <API_ID> --stage-name test_post_api
+    ```
+
+</procedure>
+
+### Test the API
+You can test the API by making a POST request to the /insert endpoint with `curl`:
+
+```bash
+curl -X POST -H "Content-Type: application/json" -d @./post.json 
+https://h45kwepq8g.execute-api.us-east-1.amazonaws.com/test_post_api/insert_function
+```
+
+If everything is working properly, the content of your JSON file gets inserted
+into the database.
+
+
+
+
