@@ -387,12 +387,12 @@ a JSON payload.
     
       ```
 1. Upload the function to AWS Lambda:
-  ```bash
-  zip insert_function.zip insert_function.py
-  aws lambda create-function --function-name insert_function \
-  --runtime python3.8 --handler function.lambda_handler \
-  --role <ARN_LAMBDA_ROLE> --zip-file fileb://insert_function.zip
-  ```
+    ```bash
+    zip insert_function.zip insert_function.py
+    aws lambda create-function --function-name insert_function \
+    --runtime python3.8 --handler function.lambda_handler \
+    --role <ARN_LAMBDA_ROLE> --zip-file fileb://insert_function.zip
+    ```
 1. Create a new API Gateway, called `InsertApi`:
     ```bash
     aws apigateway create-rest-api --name 'InsertApi' --region us-east-1
