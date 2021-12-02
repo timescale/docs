@@ -96,6 +96,7 @@ for more information and links to installation instructions when upgrading from 
  * #3824 Remove pointers from CAGG lists for 64-bit archs
  * #3846 Eliminate deadlock in recompress chunk policy
  * #3881 Fix SkipScan crash due to pruned unique path
+ * #3884 Fix create_distributed_restore_point memory issue 
 
  **Thanks**
  * @cbisnett for reporting and fixing a typo in an error message
