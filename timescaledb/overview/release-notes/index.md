@@ -83,7 +83,7 @@ for more information and links to installation instructions when upgrading from 
  This release contains bug fixes since the 2.5.0 release.
  We deem it medium priority to upgrade.
 
- **Bugfixes**
+ **Bug fixes**
  * #3734 Rework distributed DDL processing logic
  * #3737 Fix flaky pg_dump
  * #3739 Fix compression policy on tables using INTEGER
