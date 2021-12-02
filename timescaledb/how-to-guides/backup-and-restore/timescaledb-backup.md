@@ -27,7 +27,8 @@ get`, or download a binary from
     *   `pg_dump`
     *   `pg_dumpall`
     *   `pg_restore`
-1.  Download `timescaledb-backup`:
+1.  Download `timescaledb-backup`. If you see an error about 
+     not being able to load packages, you can safely ignore them:
     ```bash
     $ go get -d github.com/timescale/timescaledb-backup/
     # Ignore any can't load packages errors, if any.
