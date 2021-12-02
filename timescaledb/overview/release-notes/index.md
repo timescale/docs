@@ -95,6 +95,7 @@ for more information and links to installation instructions when upgrading from 
  * #3819 Fix reading garbage value from TSConnectionError
  * #3824 Remove pointers from CAGG lists for 64-bit archs
  * #3846 Eliminate deadlock in recompress chunk policy
+ * #3881 Fix SkipScan crash due to pruned unique path
 
  **Thanks**
  * @cbisnett for reporting and fixing a typo in an error message
