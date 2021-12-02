@@ -1,24 +1,49 @@
+# Prom-migrator data migration tool
+Prom-migrator is a universal Prometheus data migration tool that migrates your
+data from one storage system to another, using Prometheus remote storage
+endpoints. If you are already using Prometheus for long term storage of metrics,
+you can use Prom-migrator to replace your remote storage system with Promscale.
+Prom-migrator is open-source, community-driven and free-to-use.
 
-### Installing Promscale to your existing monitoring solution
+## Migrate to Promscale using Prom-migrator
+Before you begin, you must have an already installed and working Prometheus
+environment to migrate. Additionally, you need a
+[self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
 
-1. Integrating to Prometheus or Replacing other remote-write systems with Promscale
+<procedure>
 
-If you are already using Prometheus or an other remote storage system for long term storage of metrics and planning to replace remote-storage system with Promscale. We have tool to acheieve this using **Prom-migrator**, Prom-migrator is an open-source, community-driven and free-to-use, universal prometheus data migration tool, that migrates data from one storage system to another, leveraging Prometheus's remote storage endpoints.
+### Migrating to Promscale using Prom-migrator
+1.  Install Promscale from a [Docker container][promscale-install-docker],
+    or [from source][promscale-install-source].
+1.  Install the Prom-migrator tool from
+    [the Promscale releases page][promscale-gh-releases].
+1.  Run Prom-migrator to copy the data from the existing Prometheus installation
+    to Promscale:
+    ```bash
+    ./prom-migrator -start=<migration-data-start-time> -end=<migration-data-end-time> -reader-url=<read_endpoint_url_for_remote_read_storage> -writer-url=<write_endpoint_url_for_remote_write_storage> -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
+    ```
 
-Follow the below steps to migrate the existing data into Promscale:
+</procedure>
 
-1. First install the Promscale as described [here](<>)
+When you have migrated the data into Promscale, you can drop the old data from
+Prometheus and any other remote storage system.
 
-2. Install the Prom-migrator from [Promscale releases][promscale-gh-releases].
+When your data migration is complete, you can use TimescaleDB to query Promscale
+directly using PromQL and SQL.
 
-3. Now the run the Prom-migrator to copy the data from existing Prometehues or remote-storage system to Promscale using the command:
-```yaml
-./prom-migrator -start=<migration-data-start-time> -end=<migration-data-end-time> -reader-url=<read_endpoint_url_for_remote_read_storage> -writer-url=<write_endpoint_url_for_remote_write_storage> -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
-```
-More details on Prom-migrator and it's CLI flags can be found [here][prom-migrator-readme].
+<highlight type="important">>
+Promscale does not currently support alerting or recording rules. If you need
+access to these features, you can configure them within Prometheus directly. We
+also recommend that set the data retention setting in Prometheus to `1d`, but
+this is dependent on the alerting rules that you have configured in Prometheus.
+</highlight>
 
-4. Now after successfully migrating the data into Promscale you can drop the old data from Prometheus and the other remote-storage system as all this data is copied into Promscale using Prom-migrator from the previous step.
+For more information about Prom-migrator and it command line options, see our
+[developer documentation][gh-prom-migrator].
 
-5. Currently. Promscale doesn't support alerting, recording rules. So this needs to be achieved on Prometheus end by configuring the alerting, recording rules and an alert-manager to fire alerts. We recommend to configure the data renetion in Prometheus to `1d` but this is totally dependent on the alerting rules configured in Prometheus for evaluation. In future versions of Promscale we will support this natively in Promscale.
 
-6. By now all your data should be persisted into Promscale!! Now you can directly query from Promscale using PromQL and query using SQL from TimescaleDB.
+[tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
+[promscale-install-docker]: promscale/installation/docker/
+[promscale-install-source]: promscale/installation/source/
+[promscale-gh-releases]: https://github.com/timescale/promscale/releases
+[gh-prom-migrator]: https://github.com/timescale/promscale/tree/master/cmd/prom-migrator
