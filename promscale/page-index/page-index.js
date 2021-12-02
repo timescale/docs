@@ -1,6 +1,3 @@
-const tutorialPageIndex = require('../tutorials/page-index/page-index')
-const installPageIndex = require('../installation/page-index/page-index')
-
 module.exports = [
   {
     title: 'Promscale',
@@ -8,8 +5,8 @@ module.exports = [
     href: 'promscale',
     name: 'Promscale',
     pageComponents: ['featured-cards'],
-    excerpt:
-      'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
+    excerpt: 'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
+    children: [
       {
         title: 'About Promscale',
         href: 'about-promscale',
@@ -23,7 +20,7 @@ module.exports = [
         children: [
           {
             title: 'Install Promscale on bare metal',
-            href: 'bare-metal',
+            href: 'source',
             tags: ['promscale', 'install', 'analytics', 'prometheus'],
             keywords: ['Promscale', 'analytics'],
             excerpt: 'Install Promscale on bare metal',
@@ -75,9 +72,9 @@ module.exports = [
             tags: ['promscale', 'learn', 'analytics', 'prometheus'],
             keywords: ['Promscale', 'analytics', 'tutorial'],
             excerpt: "Learn about running queries in Promscale"
-          },
-        ],
-      },
-    ],
-  },
-];
+          }
+        ]
+      }
+    ]
+  }
+]
