@@ -37,8 +37,7 @@ get`, or download a binary from
    $ cd ~/go/src/github.com/timescale/timescaledb-backup/
    $ go install ./cmd/...
    ```
-   The binaries will be available on your GOPATH.
-    Find it with:
+1.  The binaries are available on your `GOPATH`. You can find them with this command:
     ```bash
     $ go env
     ```
