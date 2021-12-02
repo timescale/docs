@@ -101,7 +101,7 @@ for more information and links to installation instructions when upgrading from 
  **Thanks**
  * @cbisnett for reporting and fixing a typo in an error message
 * @CaptainCuddleCube for reporting bug on compression policy procedure on tables using INTEGER on time dimension
-* @phemmer for continuously reporting bugs on multi-node
+* @phemmer for reporting bugs on multi-node
 ## 2.5.0 (2021-10-28)
 
 **Features**
