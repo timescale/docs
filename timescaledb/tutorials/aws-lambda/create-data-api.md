@@ -338,13 +338,13 @@ this example, it's the latest stock price of MSFT (Microsoft) in JSON format.
 [custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html
 
 ## Create a Lambda function to insert data into the database
-Now that you know how to create a `GET` API for your database, let's see how
-to create a `POST` API which allows you to insert data into the database using 
-a JSON payload.
+When you have created the `GET` API for your database, you can
+create a `POST` API. This allows you to insert data into the database
+with a JSON payload.
 
 <procedure>
 
-### Create a Lambda function to insert data into the database
+### Creating a Lambda function to insert data into the database
 1.  Create a new function called `insert_function.py`, with this content:
     ```python
     import json
@@ -397,7 +397,7 @@ a JSON payload.
     ```bash
     aws apigateway create-rest-api --name 'InsertApi' --region us-east-1
     ```
-1.  Retrieve the `id` of the root resource, to add a new POST endpoint:
+1.  Retrieve the `id` of the root resource, and add a new POST endpoint:
     ```bash
     aws apigateway get-resources --rest-api-id <API_ID> --region us-east-1
     {
@@ -429,7 +429,7 @@ a JSON payload.
         "path": "/insert"
     }
     ```
-1.  Create a POST request for the /insert resource:
+1.  Create a POST request for the `insert` resource:
     ```bash
     aws apigateway put-method --rest-api-id <API_ID> --region us-east-1 \
     --resource-id <RESOURCE_ID> --http-method POST --authorization-type "NONE"
@@ -509,11 +509,8 @@ If everything is working properly, the content of your JSON payload file gets
 inserted into the database.
 
 |time|symbol|price_open|price_high|price_low|price_close|trading_volume|
-|---|---|---|---|---|---|---|
+|-|-|-|-|-|-|-|
 |2021-11-12 21:00:00|AAPL|149.8|149.73|149.73|149.81|17291|
 |2021-11-12 21:00:00|MSFT|337.15|337.15|337.15|337.15|562|
 |2021-11-12 21:00:00|FB|341.35|341.35|341.3|341.3|556|
-
-
-
 
