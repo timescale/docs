@@ -18,7 +18,9 @@ hypertable. Additionally, all functions and their arguments included in
 `SELECT`, `GROUP BY`, and `HAVING` clauses must be
 [immutable][postgres-immutable].
 
-### Procedure: Creating a continuous aggregate
+<procedure>
+
+### Creating a continuous aggregate
 1.  At the `psql`prompt, create the materialized view:
     ```sql
     CREATE MATERIALIZED VIEW conditions_summary_daily
@@ -38,6 +40,8 @@ hypertable. Additionally, all functions and their arguments included in
 	     end_offset => INTERVAL '1 day',
 	     schedule_interval => INTERVAL '1 hour');
     ```
+
+</procedure>
 
 Continuous aggregates are supported for most aggregate functions that can be
 [parallelized by PostgreSQL][postgres-parallel-agg], including the standard
@@ -85,7 +89,9 @@ have historical data that is older than the `start_offset` interval, you need to
 manually refresh the history up to the current `start_offset` to allow real-time
 queries to run efficiently.
 
-### Procedure: Creating a continuous aggregate with the WITH NO DATA option
+<procedure>
+
+### Creating a continuous aggregate with the WITH NO DATA option
 1.  At the `psql` prompt, create the view:
     ```sql
     CREATE MATERIALIZED VIEW cagg_rides_view
@@ -111,6 +117,8 @@ queries to run efficiently.
       end_offset   => INTERVAL '1 hour',
       schedule_interval => INTERVAL '30 minutes');
     ```
+  
+</procedure>
 
 ## Query continuous aggregates
 When you have created a continuous aggregate and set a refresh policy, you can
@@ -120,7 +128,9 @@ subqueries in your `SELECT` query is not supported. Additionally, make sure that
 the hypertable you are querying does not have [row-level-security
 policies][postgres-rls] enabled.
 
-### Procedure: Querying a continuous aggregate
+<procedure>
+
+### Querying a continuous aggregate
 1.  At the `psql` prompt, query the continuous aggregate view called
     `conditions_summary_hourly` for the average, minimum, and maximum
     temperatures for the first quarter of 2021 recorded by device 5:
@@ -142,6 +152,7 @@ policies][postgres-rls] enabled.
       ORDER BY bucket DESC, device DESC LIMIT 20;
     ```
 
+</procedure>
 
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/

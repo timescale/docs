@@ -1,7 +1,7 @@
 <highlight type="important">
 Timescale currently offers two hosting options. If you are a Timescale Cloud
 (previously called Timescale Forge) user, please use the documentation for
-[setting up multi-node on Cloud](cloud/cloud-multi-node) instead.
+[setting up multi-node on Cloud](/cloud/latest/cloud-multi-node) instead.
 </highlight>
 
 # Setting up TimescaleDB 2.0 multi-node on Managed Service for TimescaleDB
@@ -27,8 +27,8 @@ be accessed directly once joined to a multi-node cluster.
 <highlight type="tip">
 A proper TimescaleDB cluster should have at least two data nodes to begin
 realizing the benefits of distributed hypertables. While it is technically
-possible to add just one data node to a cluster, this will perform worse than a
-single-node TimescaleDB instance and is not recommended.
+possible to add just one data node to a cluster, this configuration performs
+worse than a single-node TimescaleDB instance and is not recommended.
 </highlight>
 
 ### Create services for access and data node services
@@ -55,12 +55,12 @@ access node.
 
 <highlight type="warning">
 To setup your first multi-node instance in Managed Service for TimescaleDB, you
-will need to create new Services for the Access Node and Data Nodes.
+need to create new Services for the Access Node and Data Nodes.
 </highlight>
 
 ### Modify access node settings
 The hard work of handling distributed queries in a multi-node cluster is
-handled by TimescaleDB for you. Some queries, however, will perform better in a
+handled by TimescaleDB for you. Some queries, however, perform better in a
 distributed environment when TimescaleDB is configured to more efficiently push
 down some types of queries to the data nodes.
 
@@ -89,10 +89,10 @@ for TimescaleDB Access node.
 
 With user mapping authentication, you don’t need to manage any new users,
 however, **you need to have the passwords for the `tsdbadmin` user from each
-data node you will be adding to the cluster**.
+data node you are adding to the cluster**.
 
 The main limitation of this approach is that any password changes to the
-connected `tsdbadmin` user on a data node will break the mapping connection
+connected `tsdbadmin` user on a data node breaks the mapping connection
 and impact normal cluster operations. Any time a password is changed on a data
 node, you'll need to complete the mapping process outlined below to re-establish
 the connection between the access node and the affected data node. You can read
@@ -141,7 +141,7 @@ Description          |
 ```
 
 ### Add a user mapping for each data node
-Now you can create a `USER MAPPING` that will enable communication between the
+Now you can create a `USER MAPPING` that enables communication between the
 access node and data node:
 
 ```SQL
@@ -178,7 +178,7 @@ with regular, single-node hypertables, there was often little benefit in
 specifying a partition key when creating the hypertable. With distributed
 hypertables, however, adding a partition key is essential to ensure that data
 is efficiently distributed across data nodes. Otherwise, all data for a specific
-time range will go to one chunk on one node, rather than being distributed
+time range goes to one chunk on one node, rather than being distributed
 across all available data nodes for the same time range.
 
 ## Adding additional database users (optional)
@@ -214,7 +214,7 @@ server:
 
 1.  Multi-node clusters can still use _regular_, non-distributed features like
     regular hypertables, PostgreSQL tables, and continuous aggregations. The
-		data stored in any of these objects will reside only on the access node.
+		data stored in any of these objects reside only on the access node.
 1.  There is no limitation on the number of distributed hypertables a user can
 		create on the access node.
 1.  Finally, remember that once a Service is marked as an access node or data

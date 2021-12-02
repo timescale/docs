@@ -6,9 +6,9 @@ case is to create the roles and permissions needed in a distributed
 database.
 
 The procedure can run distributed commands transactionally, so a command
-is executed either everywhere or nowhere. However, not all SQL commands can run in a 
-transaction. This can be toggled with the argument `transactional`. Note if the execution 
-is not transactional, a failure on one of the data node will require manual dealing with
+is executed either everywhere or nowhere. However, not all SQL commands can run in a
+transaction. This can be toggled with the argument `transactional`. Note if the execution
+is not transactional, a failure on one of the data node requires manual dealing with
 any introduced inconsistency.
 
 Note that the command is _not_ executed on the access node itself and
@@ -27,7 +27,7 @@ it is not possible to chain multiple commands together in one call.
 | `node_list` | ARRAY | An array of data nodes where the command should be executed. Defaults to all data nodes if not specified. |
 | `transactional` | BOOLEAN | Allows to specify if the execution of the statement should be transactional or not. Defaults to TRUE. |
 
-### Sample Usage 
+### Sample Usage
 
 Create the role `testrole` across all data nodes in a distributed database:
 

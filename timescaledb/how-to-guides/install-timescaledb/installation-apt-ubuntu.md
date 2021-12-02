@@ -1,8 +1,8 @@
 ## apt Installation (Ubuntu) [](installation-apt-ubuntu)
 
-This will install TimescaleDB via `apt` on Ubuntu distros.
+This installs TimescaleDB via `apt` on Ubuntu distros.
 
-**Note: TimescaleDB requires PostgreSQL 12 or 13.**
+**Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
 
 #### Prerequisites
 
@@ -14,7 +14,7 @@ non-obsolete releases.
 
 <highlight type="warning">
 If you have another PostgreSQL installation not via `apt`,
-this will likely cause problems.
+this could cause problems.
 
 If you wish to maintain your current version of PostgreSQL outside
 of `apt`, we recommend installing from source.  Otherwise, please be
@@ -43,8 +43,8 @@ new Ubuntu package repository for the release of TimescaleDB 2.4.
 </highlight>
 
 #### Upgrading from TimescaleDB 1.x
-If you are upgrading from TimescaleDB 1.x, the `apt` package will first
-uninstall the previous version of TimescaleDB and then install the latest TimescaleDB 2.0
+If you are upgrading from TimescaleDB 1.x, the `apt` package first
+uninstalls the previous version of TimescaleDB and then install the latest TimescaleDB 2.0
 binaries. The feedback in your terminal should look similar to the following:
 
 ```bash
@@ -69,7 +69,7 @@ EXTENSION update as discussed in [Updating Timescale to 2.0][update-tsdb-2].
 #### Configure your database
 
 There are a [variety of settings that can be configured][config] for your
-new database. At a minimum, you will need to update your `postgresql.conf`
+new database. At a minimum, you need to update your `postgresql.conf`
 file to include `shared_preload_libraries = 'timescaledb'`.
 The easiest way to get started is to run `timescaledb-tune`, which is
 installed by default when using `apt`:
@@ -77,7 +77,7 @@ installed by default when using `apt`:
 sudo timescaledb-tune
 ```
 
-This will ensure that our extension is properly added to the parameter
+This ensures that our extension is properly added to the parameter
 `shared_preload_libraries` as well as offer suggestions for tuning memory,
 parallelism, and other settings.
 

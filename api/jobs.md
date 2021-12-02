@@ -1,16 +1,16 @@
-## timescaledb_information.jobs 
-Shows information about all jobs registered with the automation framework. 
+## timescaledb_information.jobs
+Shows information about all jobs registered with the automation framework.
 
-### Available Columns 
+### Available Columns
 
 |Name|Type|Description|
 |---|---|---|
 |`job_id` | INTEGER | The id of the background job |
 |`application_name` | TEXT | Name of the policy or user defined action |
 |`schedule_interval` | INTERVAL |  The interval at which the job runs |
-|`max_runtime` | INTERVAL | The maximum amount of time the job will be allowed to run by the background worker scheduler before it is stopped |
-|`max_retries` | INTEGER |  The number of times the job will be retried should it fail |
-|`retry_period` | INTERVAL | The amount of time the scheduler will wait between retries of the job on failure |
+|`max_runtime` | INTERVAL | The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped |
+|`max_retries` | INTEGER |  The number of times the job is retried should it fail |
+|`retry_period` | INTERVAL | The amount of time the scheduler waits between retries of the job on failure |
 |`proc_schema` | TEXT | Schema name of the function or procedure executed by the job |
 |`proc_name` | TEXT | Name of the function or procedure executed by the job |
 |`owner` | TEXT | Owner of the job |
@@ -20,7 +20,7 @@ Shows information about all jobs registered with the automation framework.
 |`hypertable_schema` | TEXT | Schema name of the hypertable. NULL, if this is a user defined action.|
 |`hypertable_name` | TEXT | Table name of the hypertable. NULL, if this is a user defined action. |
 
-### Sample Usage 
+### Sample Usage
 
 Get information about jobs.
 ```sql
@@ -37,7 +37,7 @@ proc_schema       | _timescaledb_internal
 proc_name         | policy_refresh_continuous_aggregate
 owner             | postgres
 scheduled         | t
-config            | {"start_offset": "20 days", "end_offset": "10 
+config            | {"start_offset": "20 days", "end_offset": "10
 days", "mat_hypertable_id": 2}
 next_start        | 2020-10-02 12:38:07.014042-04
 hypertable_schema | _timescaledb_internal
@@ -84,8 +84,8 @@ owner             | postgres
 scheduled         | t
 config            | {"type": "function"}
 next_start        | 2020-10-02 14:45:33.339885-04
-hypertable_schema | 
-hypertable_name   | 
+hypertable_schema |
+hypertable_name   |
 -[ RECORD 2 ]-----+------------------------------
 job_id            | 1004
 application_name  | User-Defined Action [1004]
@@ -99,6 +99,6 @@ owner             | postgres
 scheduled         | t
 config            | {"type": "function"}
 next_start        | 2020-10-02 14:45:33.353733-04
-hypertable_schema | 
-hypertable_name   | 
+hypertable_schema |
+hypertable_name   |
 ```

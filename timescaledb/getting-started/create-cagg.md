@@ -38,7 +38,7 @@ sampled at high frequency, and querying downsampled data over long time periods.
 
 Now that you're familiar with what Continuous Aggregates are, let's create our
 first continuous aggregate. Creating a continuous aggregate is a two step process:
-first we define our view and second, we create a policies which will refresh the
+first we define our view and second, we create a policies which refresh the
 continuous aggregate according to a schedule.
 
 We'll use the example of creating a daily aggregation of all weather metrics.
@@ -149,7 +149,7 @@ so that you can spend time on feature development.
 
 You'll see policies for compression and data retention later in this **Getting started** section.
 
-Let's create a policy which will auto-update the continuous aggregate every two weeks:
+Let's create a policy which auto-updates the continuous aggregate every two weeks:
 
 ```sql
 -- create policy
@@ -160,8 +160,8 @@ SELECT add_continuous_aggregate_policy('weather_metrics_daily',
   schedule_interval => INTERVAL '14 days');
 ```
 
-The policy above will run every 14 days (`schedule_interval`). When it runs, it
-will materialize data from between 6 months (`start_offset`) and 1 hour (`end_offset`)
+The policy above runs every 14 days (`schedule_interval`). When it runs, it
+materializes data from between 6 months (`start_offset`) and 1 hour (`end_offset`)
 of the time it executes, according to the query which defined the continuous
 aggregate `weather_metrics_daily`.
 
@@ -191,7 +191,7 @@ continuous aggregate.
 Let's examine an example of a query which would perform better on our continuous
 aggregate (`weather_metrics_daily`) than on our hypertable (`weather_metrics`).
 Here's a query which looks at how temperatures in New York have changed over the
-past 6 years. It returns the returns the time as well as the daily maximum, minimum
+past 6 years. It returns the time as well as the daily maximum, minimum
 and average temperatures for New York City between 2015 and 2021:
 
 ```sql
@@ -219,7 +219,7 @@ by default).
 **With real-time aggregation turned off**, continuous aggregates only return
 results for data in the time period they have materialized (refreshed). If you
 query continuous aggregates for data newer than the last materialized time, it
-will not return it or return stale results.
+does not return it or returns stale results.
 
 **With real-time aggregation turned on**, you always receive up-to-date results,
 as querying a continuous aggregate returns data that is already materialized

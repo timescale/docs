@@ -16,7 +16,7 @@ services to and from VPCs, and creating new services with VPC peering attachment
 To use Timescale Cloud VPC peering, you need your own cloud VPC, where your
 applications and infrastructure are already running.
 
-If you do not have administrative access to your cloud provider account, you will need
+If you do not have administrative access to your cloud provider account, you need
 to work with someone from your team with sufficient permissions to:
 
 - accept VPC peering requests,
@@ -29,7 +29,7 @@ you may contact support to request a quota increase.
 </highlight>
 
 <highlight type="warning">
-Once you have attached your Timescale Cloud service to a VPC, it will no longer be accessible
-via the public internet. It will only be accessible via your AWS VPC which has been peered
+Once you have attached your Timescale Cloud service to a VPC, it is no longer accessible
+via the public internet. It is only accessible via your AWS VPC which has been peered
 with your Timescale Cloud VPC.
 </highlight>

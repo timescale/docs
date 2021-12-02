@@ -13,7 +13,7 @@ you'll learn how to:
 
 ## Prerequisites
 Before you start, make sure you have:
-* At least some knowledge of SQL (structured query language). The tutorial will walk you through each SQL command, 
+* At least some knowledge of SQL (structured query language). The tutorial walks you through each SQL command,
   but it is helpful if you've seen SQL before.
 * TimescaleDB installed, either in a [self-hosted environment][self-hosted-install] or [in the cloud][cloud-install]
 * The `psycopg2` library installed, [which you can install with pip][psycopg2-docs].
@@ -66,7 +66,7 @@ The above method of composing a connection string is for test or development pur
 
 ### Step 3: Connect to TimescaleDB using the psycopg2 connect function
 
-Use the psycopg2 [connect function][psycopg2-connect] to create a new database session and create 
+Use the psycopg2 [connect function][psycopg2-connect] to create a new database session and create
 a new [cursor object][psycopg2-cursor] to interact with the database.
 
 In your `main` function, add the following lines:
@@ -108,7 +108,7 @@ query_create_sensors_table = "CREATE TABLE sensors (id SERIAL PRIMARY KEY, type 
 
 ### Step 2: Execute the SQL statement and commit changes
 Next, we execute the `CREATE TABLE` statement by opening a cursor, executing the
-query from Step 1 and committing the query we executed in order to make the changes persistent. 
+query from Step 1 and committing the query we executed in order to make the changes persistent.
 Afterward, we close the cursor to clean up:
 
 ```python
@@ -153,8 +153,8 @@ query_create_sensordata_table = """CREATE TABLE sensor_data (
 
 ### Step 2: Formulate the SELECT statement to create your hypertable
 
-Next, formulate a `SELECT` statement that converts the `sensor_data` table to a hypertable. Note that you must specify 
-the table name which you wish to convert to a hypertable and its time column name as the two arguments, as mandated by 
+Next, formulate a `SELECT` statement that converts the `sensor_data` table to a hypertable. Note that you must specify
+the table name which you wish to convert to a hypertable and its time column name as the two arguments, as mandated by
 the [`create_hypertable` docs][create-hypertable-docs]:
 
 ```python
@@ -200,7 +200,7 @@ for sensor in sensors:
 conn.commit()
 ```
 
-A cleaner way to pass variables to the `cursor.execute` function is to separate the formulation of our SQL 
+A cleaner way to pass variables to the `cursor.execute` function is to separate the formulation of our SQL
 statement, `SQL`, from the data being passed with it into the prepared statement, `data`:
 
 ```python
@@ -231,7 +231,7 @@ from pgcopy import CopyManager
 
 ### Step 1: Get data to insert into database
 First we generate random sensor data using the `generate_series` function provided by PostgreSQL.
-In the example query below, you will insert a total of 480 rows of data (4 readings, every 5 minutes, for 24 hours).
+This example inserts a total of 480 rows of data (4 readings, every 5 minutes, for 24 hours).
 In your application, this would be the query that saves your time-series data into the hypertable.
 
 ```python
@@ -359,12 +359,12 @@ If you want a list of dictionaries instead, you can define the cursor using [`Di
 cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 ```
 
-Using this cursor, `cursor.fetchall()` will return a list of dictionary-like objects.
+Using this cursor, `cursor.fetchall()` returns a list of dictionary-like objects.
 
 ### Executing queries using prepared statements
 For more complex queries than a simple `SELECT *`, we can use prepared statements
 to ensure our queries are executed safely against the database. We write our
-query using placeholders as shown in the sample code below. For more information about properly using placeholders 
+query using placeholders as shown in the sample code below. For more information about properly using placeholders
 in psycopg2, see the [basic module usage document][psycopg2-docs-basics].
 
 ```python
@@ -378,7 +378,8 @@ query = """
            GROUP BY five_min
            ORDER BY five_min DESC;
            """
-
+location = "floor"
+sensor_type = "a"
 data = (location, sensor_type)
 cursor.execute(query, data)
 results = cursor.fetchall()

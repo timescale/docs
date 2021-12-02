@@ -18,14 +18,16 @@ The policy takes three arguments:
 *   `schedule_interval`: the refresh interval in minutes or hours
 
 If you set the `start_offset` or `end_offset` to NULL, the range is open-ended
-and will extend to the beginning or end of time. However, we recommend that you
+and extends to the beginning or end of time. However, we recommend that you
 set the `end_offset` so that at least the most recent time bucket is excluded.
 For time-series data that mostly contains writes that occur in time stamp order,
-the time buckets that see lots of writes will quickly have out-of-date
+the time buckets that see lots of writes quickly have out-of-date
 aggregates. You get better performance by excluding the time buckets that are
 getting a lot of writes.
 
-### Procedure: Changing a refresh policy to use a NULL start_offset
+<procedure>
+
+### Changing a refresh policy to use a NULL start_offset
 1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
     that keeps the continuous aggregate up to date, and runs every hour:
     ```sql
@@ -35,22 +37,26 @@ getting a lot of writes.
 	     schedule_interval => INTERVAL '1 h');
     ```
 
+</procedure>
+
 The policy in this example ensures that all the data in the continuous aggregate
 is up to date with the hypertable except for anything written in the last hour.
 It also does not refresh the last time bucket of the continuous aggregate.
 Because it has an open-ended `start_offset` parameter, any data that is removed
 from the table, for example with a DELETE or with `drop_chunks`, is also removed
 from the continuous aggregate view. This means that the continuous aggregate
-will always reflect the data in the underlying hypertable.
+always reflects the data in the underlying hypertable.
 
 If you want to keep data in the continuous aggregate even if it is removed from
 the underlying hypertable, you can set the `start_offset` to match the [data
 retention policy][sec-data-retention] on the source hypertable. For example, if
 you have a retention policy that removes data older than one month, set
-`start_offset` to one month or less. This will set your policy so that it does
+`start_offset` to one month or less. This sets your policy so that it does
 not refresh the dropped data.
 
-### Procedure: Changing a refresh policy to keep removed data
+<procedure>
+
+### Changing a refresh policy to keep removed data
 1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
     that keeps data removed from the hypertable in the continuous aggregate, and
     runs every hour:
@@ -60,6 +66,8 @@ not refresh the dropped data.
 	     end_offset => INTERVAL '1 h',
 	     schedule_interval => INTERVAL '1 h');
     ```
+
+</procedure>
 
 <highlight type="tip">
 It is important to consider your data retention policies when you're setting up
@@ -93,15 +101,19 @@ recommend using it, because you could inadvertently materialize a large amount
 of data, slow down your performance, and have unintended consequences on other
 policies like data retention.
 
-### Procedure: Manually refreshing a continuous aggregate
+<procedure>
+
+### Manually refreshing a continuous aggregate
 1.  To manually refresh a continuous aggregate, use the `refresh` command:
     ```sql
     CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
     ```
 
+</procedure>
+
 Avoid refreshing time intervals that are likely to have a lot of writes. In
 general, this means you should never refresh the most recent time bucket.
-Because the of constant change in the underlying datya, they are unlikely to
+Because the of constant change in the underlying data, they are unlikely to
 produce accurate aggregates. Additionally, refreshing this data slows down the
 ingest rate of the hypertable due to write amplification. If you want to include
 the latest bucket in your queries,

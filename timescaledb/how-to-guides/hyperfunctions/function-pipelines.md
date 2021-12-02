@@ -30,10 +30,10 @@ GROUP BY device_id;
 You can express the same query with a function pipeline like this:
 ```sql
 SELECT device_id,
-    toolkit_experimental.timevector(ts, val) 
-        -> toolkit_experimental.sort() 
-        -> toolkit_experimental.delta() 
-        -> toolkit_experimental.abs() 
+    toolkit_experimental.timevector(ts, val)
+        -> toolkit_experimental.sort()
+        -> toolkit_experimental.delta()
+        -> toolkit_experimental.abs()
         -> toolkit_experimental.sum() as volatility
 FROM measurements
 WHERE ts >= now()-'1 day'::interval
@@ -80,10 +80,10 @@ operator. To put it more plainly, you can think of it as "do the next thing".
 A typical function pipeline could look something like this:
 ```sql
 SELECT device_id,
- 	toolkit_experimental.timevector(ts, val) 
-        -> toolkit_experimental.sort() 
-        -> toolkit_experimental.delta() 
-        -> toolkit_experimental.abs() 
+ 	toolkit_experimental.timevector(ts, val)
+        -> toolkit_experimental.sort()
+        -> toolkit_experimental.delta()
+        -> toolkit_experimental.abs()
         -> toolkit_experimental.sum() as volatility
 FROM measurements
 WHERE ts >= now() - '1 day'::interval
@@ -135,9 +135,9 @@ an output in a specified format. or they can produce an aggregate of the
 For example, a finalizer element that produces an output:
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val) 
+	toolkit_experimental.timevector(ts, val)
     -> toolkit_experimental.sort()
-    -> toolkit_experimental.delta() 
+    -> toolkit_experimental.delta()
     -> toolkit_experimental.unnest()
 FROM measurements
 ```
@@ -145,9 +145,9 @@ FROM measurements
 Or a finalizer element that produces an aggregate:
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val) 
+	toolkit_experimental.timevector(ts, val)
     -> toolkit_experimental.sort()
-    -> toolkit_experimental.delta() 
+    -> toolkit_experimental.delta()
     -> toolkit_experimental.time_weight()
 FROM measurements
 ```
@@ -213,7 +213,7 @@ floating point representation of the integer. For example:
 SELECT (
     toolkit_experimental.timevector(time, value)
     -> toolkit_experimental.abs()
-    -> toolkit_experimental.unnest()).* 
+    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -250,7 +250,7 @@ the second argument of the function. The available elements are:
 |`sub(N)`|Computes each value less `N`|
 
 These elements calculate `vector -> power(2)` by squaring all of the `values`,
-and `vector -> logn(3)` will give the log-base-3 of each `value`. For example:
+and `vector -> logn(3)` gives the log-base-3 of each `value`. For example:
 ```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
@@ -281,7 +281,7 @@ Mathematical transforms are applied only to the `value` in each
 point in a `timevector` and always produce one-to-one output `timevectors`. Compound transforms can involve both the `time` and `value` parts of the points
 in the `timevector`, and they are not necessarily one-to-one. One or more points
 in the input can be used to produce zero or more points in the output. So, where
-mathematical transforms will always produce `timevectors` of the same length,
+mathematical transforms always produce `timevectors` of the same length,
 compound transforms can produce larger or smaller `timevectors` as an output.
 
 #### Delta transforms
@@ -321,7 +321,7 @@ without a previous value.
 
 #### Fill method transform
 The `fill_to()` transform ensures that there is a point at least every
-`interval`, if there is not a point, it will fill in the point using the method
+`interval`, if there is not a point, it fills in the point using the method
 provided. The `timevector` must be sorted before calling `fill_to()`. The
 available fill methods are:
 
@@ -629,7 +629,7 @@ available counter aggregate functions are:
 |`intercept()`|The y-intercept of the least squares fit line of the adjusted counter value|
 |`irate_left()`/`irate_right()`|Computes the instantaneous rate of change between the second and first points (left) or last and next-to-last points (right)|
 |`num_changes()`|Number of times the counter changed values|
-|`num_elements()`|Number of items - any with the exact same time will have been counted only once|
+|`num_elements()`|Number of items - any with the exact same time have been counted only once|
 |`num_changes()`|Number of times the counter reset|
 |`slope()`|The slope of the least squares fit line of the adjusted counter value|
 |`with_bounds(range)`|Applies bounds using the `range` (a `TSTZRANGE`) to the `CounterSummary` if they weren't provided in the aggregation step|

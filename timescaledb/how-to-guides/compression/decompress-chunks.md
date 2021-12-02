@@ -15,7 +15,7 @@ or backfilling data:
     trying to compress chunks that you are currently working on.
 1.  Decompress chunks.
 1.  Perform the insertion or backfill.
-1.  Re-enable the compression policy. This will re-compress the chunks you worked on.
+1.  Re-enable the compression policy. This re-compresses the chunks you worked on.
 
 ## Decompress chunks manually
 There are several methods for selecting chunks and decompressing them.
@@ -66,7 +66,9 @@ If you need to insert a batch of backfilled data, the [TimescaleDB
 extras][timescaledb-extras] GitHub repository includes functions for
 [backfilling batch data to compressed chunks][timescaledb-extras-backfill].  In this procedure, we describe how to use the `decompress_backfill` function.
 
-### Procedure: Backfilling with a supplied function
+<procedure>
+
+###  Backfilling with a supplied function
 1.  At the psql prompt, create a temporary table with the same schema as the hypertable you want to backfill into. In this example, our table is called `example`, and the data column is `cpu_temp`:
     ```sql
     CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM example WITH NO DATA;
@@ -80,12 +82,16 @@ extras][timescaledb-extras] GitHub repository includes functions for
     CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'example');
     ```
 
+</procedure>
+
 ## Backfill manually
 If you don't want to use a supplied function, you can perform the steps
 manually. In this procedure, we describe how to identify and turn off your
 compression policy, before manually decompressing chunks.
 
-### Procedure: Backfilling manually
+<procedure>
+
+### Backfilling manually
 1.  At the psql prompt, find the `job_id` of the policy:
     ```sql
     SELECT s.job_id
@@ -119,6 +125,7 @@ compression policy, before manually decompressing chunks.
     CALL run_job(<job_id>);
     ```
 
+</procedure>
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql

@@ -4,7 +4,7 @@
 error(sketch UddSketch) RETURNS DOUBLE PRECISION
 ```
 
-This returns the maximum relative error that a percentile estimate will have
+This returns the maximum relative error that a percentile estimate has
 relative to the correct value. This means the actual value falls in the range
 defined by `approx_percentile(sketch) +/- approx_percentile(sketch)*error(sketch)`.
 
@@ -20,7 +20,7 @@ This function can only be used on estimators produced by
 
 |Name|Type|Description|
 |-|-|-|
-|`sketch`|`UddSketch`|The sketch to determine the error of, usually from a [`percentile_agg()`](/hyperfunctions/percentile-approximation/aggregation-methods/percentile_agg/) call|
+|`sketch`|`UddSketch`|The sketch to determine the error of, usually from a [`percentile_agg()`](https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/percentile_agg/) call|
 
 ## Returns
 
@@ -41,7 +41,7 @@ FROM generate_series(0, 100) data;
 ```
 
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [uddsketch]: /hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/
 [percentile-agg]: /hyperfunctions/percentile-approximation/percentile_agg/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

@@ -1,10 +1,10 @@
 ## From source [](installation-source)
 
-**Note: TimescaleDB requires PostgreSQL 12.0 or 13.2, or later**
+**Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
 
 #### Prerequisites
 
-- A standard **PostgreSQL 13** installation with development environment (header files) (see https://www.postgresql.org/download/ for the appropriate package)
+- A standard **PostgreSQL 12, 13, or 14** installation with development environment (header files) (see https://www.postgresql.org/download/ for the appropriate package)
 - C compiler (e.g., gcc or clang)
 - [CMake][] version 3.11 or greater
 
@@ -18,7 +18,7 @@ Clone the repository from [GitHub][github-timescale]:
 ```bash
 git clone https://github.com/timescale/timescaledb.git
 cd timescaledb
-git checkout <release_tag>  # e.g., git checkout 2.2.1
+git checkout <release_tag>  # e.g., git checkout 2.5.0
 
 # Bootstrap the build system
 ./bootstrap
@@ -39,7 +39,7 @@ installed with.
 
 #### Update `postgresql.conf`
 
-You will need to edit your `postgresql.conf` file to include
+You need to edit your `postgresql.conf` file to include
 the TimescaleDB library, and then restart PostgreSQL. First, locate your
 `postgresql.conf` file:
 

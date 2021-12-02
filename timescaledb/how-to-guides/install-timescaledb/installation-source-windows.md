@@ -1,10 +1,10 @@
 ## From Source (Windows) [](installation-source)
 
-**Note: TimescaleDB requires PostgreSQL 12.0 or 13.2, or later**
+**Note: TimescaleDB requires PostgreSQL 12, 13, or 14.**
 
 #### Prerequisites
 
-- A standard **PostgreSQL 13 64-bit** installation
+- A standard **PostgreSQL 12, 13, or 14 64-bit** installation
 - Visual Studio 2017 (with [CMake][] and Git components)
   **or** Visual Studio 2015/2016 (with [CMake][] version 3.11+ and Git components)
 - Make sure all relevant binaries are in your PATH: `pg_config` and `cmake`
@@ -20,11 +20,11 @@ Clone the repository from [GitHub][github-timescale]:
 ```bash
 git clone https://github.com/timescale/timescaledb.git
 cd timescaledb
-git checkout <release_tag>  # e.g., git checkout 2.2.1
+git checkout <release_tag>  # e.g., git checkout 2.5.0
 ```
 
 If you are using Visual Studio 2017 with the CMake and Git components,
-you should be able to open the folder in Visual Studio, which will take
+you should be able to open the folder in Visual Studio, which takes
 care of the rest.
 
 If you are using an earlier version of Visual Studio:
@@ -49,7 +49,7 @@ cmake --build ./build --config Release --target install
 
 #### Update `postgresql.conf`
 
-You will need to edit your `postgresql.conf` file to include
+You need to edit your `postgresql.conf` file to include
 the TimescaleDB library, and then restart PostgreSQL. First, locate your
 `postgresql.conf` file:
 

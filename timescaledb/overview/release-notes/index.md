@@ -11,12 +11,12 @@ TimescaleDB is an open-source project with a vibrant community.
 We are currently focusing on making our priorities known by that community;
 we welcome you to visit our Github repo or join our [Slack community](https://slack.timescale.com).
 
-### What to expect from our next release
+### What to expect from our next releases
 
-For our next release, we plan to add:
+For our next releases, we plan to add:
 
-- Continuous aggregates for distributed hypertables
 - Continuous aggregates with compression
+- Multi-node performance improvements
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -25,24 +25,30 @@ If you have questions about distributed hypertables, join our #multinode channel
 [community slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-In addition to multi-node, we've also reassessed how some core
-functionality works, and, as a result, made APIs simpler and more consistent,
-while also empowering users with more control and flexibility to customize
-behaviors to suit your needs.  
-Some of these API updates are **breaking changes**.
+### What's new in TimescaleDB 2.5:
 
-### What's new in TimescaleDB 2.4.1:
-
-This release contains bug fixes since the 2.4.0 release. 
-We deem it high priority to upgrade since it is needed to support PostgreSQL 12.8 and 13.4.
+- Continuous aggregates for distributed hypertables
+- Support for PostgreSQL 14
+- Experimental: Support for timezones in 'time_bucket_ng()', including the 'origin' argument
 
 
-The experimental features in the 2.4.0 release were:
+You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
+This release also contains bug fixes since the 2.4.2 release.
+
+<!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
+
+<highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
+
+<!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
+
+
+The experimental features in the 2.5 release are:
+* The `time_bucket_ng` function, a newer version of `time_bucket`. This function
+supports years, months, days, hours, minutes, seconds, and timezones.
 * APIs for chunk manipulation across data nodes in a distributed
 hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
-* The `time_bucket_ng` function, a newer version of `time_bucket`. This function
-supports years, months, days, hours, minutes, and seconds.
+
 
 We’re committed to developing these experiments, giving the community a chance to
 provide early feedback and influence the direction of TimescaleDB’s development.
@@ -57,10 +63,11 @@ Several bugs fixed, see the release notes for more details.
 
 Timescale is working hard on our next exciting features.
 To make that possible, we require functionality that is available in Postgres 12 and above.
-For this reason, we are removing support for PostgreSQL 11 starting in the TimescaleDB 2.4 release. For TimescaleDB 2.4 and onwards, PostgreSQL 12 or 13 are required.
+For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 release.
+For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
-TimescaleDB 2.4.1 is currently GA, and we encourage
+TimescaleDB 2.5 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -70,6 +77,48 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+
+## 2.5.0 (2021-10-28)
+
+**Features**
+
+* #3034 Add support for PostgreSQL 14
+* #3435 Add continuous aggregates for distributed hypertables
+* #3505 Add support for timezones in time_bucket_ng()
+
+**Bug fixes**
+
+* #3580 Fix memory context bug executing TRUNCATE
+* #3592 Allow alter column type on distributed hypertable
+* #3598 Improve evaluation of stable functions such as now() on access node
+* #3618 Fix execution of refresh_caggs from user action
+* #3625 Add shared dependencies when creating chunk
+* #3626 Fix memory context bug executing TRUNCATE
+* #3627 Schema qualify UDTs in multi-node
+* #3638 Allow owner change of a data node
+* #3654 Fix index attnum mapping in reorder_chunk
+* #3661 Fix SkipScan path generation with constant DISTINCT column
+* #3667 Fix compress_policy for multi txn handling
+* #3673 Fix distributed hypertable DROP within a procedure
+* #3701 Allow anyone to use size utilities on distributed hypertables
+* #3708 Fix crash in get_aggsplit
+* #3709 Fix ordered append pathkey check
+* #3712 Fix GRANT/REVOKE ALL IN SCHEMA handling
+* #3717 Support transparent decompression on individual chunks
+* #3724 Fix inserts into compressed chunks on hypertables with caggs
+* #3727 Fix DirectFunctionCall crash in distributed_exec
+* #3728 Fix SkipScan with varchar column
+* #3733 Fix ANALYZE crash with custom statistics for custom types
+* #3747 Always reset expr context in DecompressChunk
+
+**Thanks**
+
+* @binakot and @sebvett for reporting an issue with DISTINCT queries
+* @hardikm10, @DavidPavlicek and @pafiti for reporting bugs on TRUNCATE
+* @mjf for reporting an issue with ordered append and JOINs
+* @phemmer for reporting the issues on multinode with aggregate queries and evaluation of now()
+* @abolognino for reporting an issue with INSERTs into compressed hypertables that have cagg
+* @tanglebones for reporting the ANALYZE crash with custom types on multinode
 
 ## 2.4.2 (2021-09-21)
 
@@ -235,10 +284,9 @@ planning.
 
 Timescale is working hard on our next exciting features. To make that
 possible, we require functionality that is unfortunately absent on
-PostgreSQL 11. For this reason, we will continue supporting PostgreSQL
-11 until mid-June 2021. Sooner to that time, we will announce the
-specific version of TimescaleDB in which PostgreSQL 11 support will
-not be included going forward.
+PostgreSQL 11. For this reason, we continue supporting PostgreSQL
+11 only until mid-June 2021. At some point before that time, we are going to
+announce in which version of TimescaleDB PostgreSQL 11 support is dropped.
 
 **Major features**
 * #2843 Add distributed restore point functionality
@@ -452,7 +500,7 @@ This release also adds:
 
 Some of the changes above (e.g., continuous aggregates, updated
 informational views) do introduce breaking changes to APIs and are not
-backwards compatible. While the update scripts in TimescaleDB 2.0 will
+backwards compatible. While the update scripts in TimescaleDB 2.0
 upgrade databases running TimescaleDB 1.x automatically, some of these
 API and feature changes may require changes to clients and/or upstream
 scripts that rely on the previous APIs.  Before upgrading, we recommend
@@ -806,10 +854,10 @@ This release adds the long-awaited support for PostgreSQL 12 to TimescaleDB.
 
 This release also adds a new default behavior when querying continuous
 aggregates that we call real-time aggregation. A query on a continuous
-aggregate will now combine materialized data with recent data that has
+aggregate now combines materialized data with recent data that has
 yet to be materialized.
 
-Note that only newly created continuous aggregates will have this real-time
+Note that only newly created continuous aggregates have this real-time
 query behavior, although it can be enabled on existing continuous aggregates
 with a configuration setting as follows:
 
@@ -820,7 +868,7 @@ Community version of TimescaleDB (from Enterprise), including data reordering
 and data retention policies.
 
 **Deprecation notice:**  Please note that with the release of Timescale 1.7, we are deprecating support for PostgreSQL 9.6.x and 10.x.
-The current plan is that the Timescale 2.0 release later this year will only support PostgreSQL major versions 11.x, 12.x, or newer.
+The current plan is that the Timescale 2.0 release later this year only supports PostgreSQL major versions 11.x, 12.x, or newer.
 
 **Major features**
 * #1807 Add support for PostgreSQL 12
@@ -855,7 +903,7 @@ for upgrading.
 In particular the fixes contained in this maintenance release address bugs in continuous aggregates, time_bucket_gapfill,
 partial index handling and drop_chunks.
 
-For this release only, you will need to restart the database after upgrade before restoring a backup.
+For this release only, you need to restart the database after upgrade before restoring a backup.
 
 **Minor features**
 * #1666 Support drop_chunks API for continuous aggregates
@@ -993,7 +1041,7 @@ underlying scans for parallel plans.
 For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](/timescaledb/:currentVersion:/getting-started/compress-data/),
 and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
-**For this release only**, you will need to restart the database before running
+**For this release only**, you need to restart the database before running
 `ALTER EXTENSION`
 
 **Major features**
@@ -1174,10 +1222,10 @@ in the view.
 
 Continuous aggregates are somewhat similar to PostgreSQL materialized
 views, but unlike a materialized view, continuous
-aggregates do not need to be refreshed manually; the view will be refreshed
+aggregates do not need to be refreshed manually; the view is refreshed
 automatically in the background as new data is added, or old data is
 modified. Additionally, it does not need to re-calculate all of the data on
-every refresh. Only new and/or invalidated data will be calculated.  Since this
+every refresh. Only new and/or invalidated data is calculated.  Since this
 re-aggregation is automatic, it doesn’t add any maintenance burden to your
 database.
 
@@ -1272,7 +1320,7 @@ We are excited to be introducing new time-series analytical functions, advanced 
 
 This release adds code under a new license, LICENSE_TIMESCALE. This code can be found in `tsl`.
 
-**For this release only**, you will need to restart the database before running
+**For this release only**, you need to restart the database before running
 `ALTER EXTENSION`
 
 **Notable commits**

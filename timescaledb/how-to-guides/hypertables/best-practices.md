@@ -90,7 +90,7 @@ following:
 - For each physical disk on a single instance, add a separate
 tablespace to the database.  TimescaleDB actually allows you to add
 multiple tablespaces to a *single* hypertable (although under the
-covers, each underlying chunk will be mapped by TimescaleDB to a
+covers, each underlying chunk is mapped by TimescaleDB to a
 single tablespace / physical disk).
 
 - Configure a distributed hypertable that spreads inserts and queries

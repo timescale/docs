@@ -8,7 +8,7 @@ We've created several open-source tools to help users make the most out of their
 
 `timescaledb-tune` is packaged along with our binary releases as a dependency, so if you installed one of our binary releases (including Docker), you should have access to the tool. Alternatively, with a standard Go environment, you can `go get` the repository to install it.
 
-The tool will first analyze the existing `postgresql.conf` file to ensure that the TimescaleDB extension is appropriately installed, and then it will provide recommendations for memory, parallelism, WAL, and other settings. These changes are written to your `postgresql.conf` and will take effect on the next (re)start. If you are starting on fresh instance and don't feel the need to approve each group of changes, you can automatically accept and append the suggestions to the end of your `postgresql.conf`.
+The tool first analyzes the existing `postgresql.conf` file to ensure that the TimescaleDB extension is appropriately installed, and then it provides recommendations for memory, parallelism, WAL, and other settings. These changes are written to your `postgresql.conf` and take effect on the next (re)start. If you are starting on fresh instance and don't feel the need to approve each group of changes, you can automatically accept and append the suggestions to the end of your `postgresql.conf`.
 
 For more information on how to get started with `timescaledb-tune`, visit the [GitHub repo][github-tstune].
 

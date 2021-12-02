@@ -12,14 +12,14 @@ you'll learn how to:
 * [Execute a query on your Timescale database](#execute_query)
 
 ## Prerequisites
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 To start, [install TimescaleDB][timescaledb-install]. Once your installation is complete,
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
-You will also need:
+You also need:
 * Go installed on your machine. ([Install instructions][golang-install])
 * The [PGX driver][pgx-driver-github] for Go
 
@@ -147,7 +147,7 @@ Congratulations, you've successfully connected to TimescaleDB using Go.
 
 ## Create a table [](create_table)
 
-Note: For the rest of this tutorial, we will use a connection pool, since
+Note: For the rest of this tutorial, you use a connection pool, since
 having concurrent connections is the most common use case.
 
 ### Step 1: Formulate your SQL statement
@@ -375,7 +375,7 @@ the SQL statement to generate the data, called `queryDataGeneration`. Then we
 use the `.Query()` function to execute the statement and return our sample data.
 
 Then we store the data returned by our query in `results`, a slice of structs,
-which we will then use as a source to insert data into our hypertable.
+which is then used as a source to insert data into our hypertable.
 
 ```go
    // Generate data to insert
@@ -394,7 +394,7 @@ which we will then use as a source to insert data into our hypertable.
        os.Exit(1)
    }
    defer rows.Close()
-   fmt.Println("Successfully generated sensor data\n")
+   fmt.Println("Successfully generated sensor data")
 
    //Store data generated in slice results
    type result struct {
@@ -413,7 +413,7 @@ which we will then use as a source to insert data into our hypertable.
        }
        results = append(results, r)
    }
-   // Any errors encountered by rows.Next or rows.Scan will be returned here
+   // Any errors encountered by rows.Next or rows.Scan are returned here
    if rows.Err() != nil {
        fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
        os.Exit(1)
@@ -455,7 +455,7 @@ We then execute that SQL statement for each sample we have in our results slice:
        }
        defer rows.Close()
    }
-   fmt.Println("Successfully inserted samples into sensor_data hypertable\n")
+   fmt.Println("Successfully inserted samples into sensor_data hypertable")
 ```
 
 Here's a sample `main.go` which generates sample data and inserts it into the
@@ -506,7 +506,7 @@ func main() {
        os.Exit(1)
    }
    defer rows.Close()
-   fmt.Println("Successfully generated sensor data\n")
+   fmt.Println("Successfully generated sensor data")
 
    //Store data generated in slice results
    type result struct {
@@ -525,7 +525,7 @@ func main() {
        }
        results = append(results, r)
    }
-   // Any errors encountered by rows.Next or rows.Scan will be returned here
+   // Any errors encountered by rows.Next or rows.Scan are returned here
    if rows.Err() != nil {
        fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
        os.Exit(1)
@@ -556,7 +556,7 @@ func main() {
        }
        defer rows.Close()
    }
-   fmt.Println("Successfully inserted samples into sensor_data hypertable\n")
+   fmt.Println("Successfully inserted samples into sensor_data hypertable")
 }
 ```
 
@@ -567,7 +567,7 @@ to be inserted. This can make ingestion of data slow. To speed up ingestion, we 
 batch inserting data.
 
 Here's a sample pattern for how to do so, using the sample data generated in Step 0
-above. We will use the pgx `Batch` object
+above, it uses the pgx `Batch` object:
 
 ```go
 package main
@@ -611,7 +611,7 @@ func main() {
        os.Exit(1)
    }
    defer rows.Close()
-   fmt.Println("Successfully generated sensor data\n")
+   fmt.Println("Successfully generated sensor data")
 
    //Store data generated in slice results
    type result struct {
@@ -630,7 +630,7 @@ func main() {
        }
        results = append(results, r)
    }
-   // Any errors encountered by rows.Next or rows.Scan will be returned here
+   // Any errors encountered by rows.Next or rows.Scan are returned here
    if rows.Err() != nil {
        fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
        os.Exit(1)
@@ -674,15 +674,15 @@ func main() {
            os.Exit(1)
        }
    }
-   fmt.Println("Successfully batch inserted data n")
+   fmt.Println("Successfully batch inserted data")
 
    //Compare length of results slice to size of table
-   fmt.Println("size of results: %d\n", len(results))
+   fmt.Printf("size of results: %d\n", len(results))
    //check size of table for number of rows inserted
    // result of last SELECT statement
    var rowsInserted int
    err = br.QueryRow().Scan(&rowsInserted)
-   fmt.Println("size of table: %d\n", rowsInserted)
+   fmt.Printf("size of table: %d\n", rowsInserted)
 
    err = br.Close()
    if err != nil {
@@ -776,7 +776,7 @@ for your desired purpose.
        results = append(results, r)
        fmt.Printf("Time bucket: %s | Avg: %f\n", &r.Bucket, r.Avg)
    }
-   // Any errors encountered by rows.Next or rows.Scan will be returned here
+   // Any errors encountered by rows.Next or rows.Scan are returned here
    if rows.Err() != nil {
        fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
        os.Exit(1)
@@ -855,7 +855,7 @@ func main() {
        results = append(results, r)
        fmt.Printf("Time bucket: %s | Avg: %f\n", &r.Bucket, r.Avg)
    }
-   // Any errors encountered by rows.Next or rows.Scan will be returned here
+   // Any errors encountered by rows.Next or rows.Scan are returned here
    if rows.Err() != nil {
        fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
        os.Exit(1)

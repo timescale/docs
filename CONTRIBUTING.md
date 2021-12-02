@@ -7,8 +7,9 @@ review with GitHub.
 You can make contributions to the documentation by creating a fork of the
 repository.
 
+<procedure>
 
-### Procedure: Contributing using a fork
+### Contributing using a fork
 1.  Make sure you have a [github](github.com) account, and that you're signed in.
 1.  Navigate to the [Timescale Documentation
 Repo](https://github.com/timescale/docs) click the `Fork` button in the
@@ -59,7 +60,11 @@ top-right corner, and select the account you want to use.
     git checkout -b update-readme-username
     ```
 
-### Procedure: Committing changes and creating a pull request
+</procedure>
+
+<procedure>
+
+### Committing changes and creating a pull request
 1.  Make your changes.
 1.  Add the updated files to your commit:
     ```bash
@@ -86,22 +91,26 @@ top-right corner, and select the account you want to use.
     about what you are working on, and making sure we all understand current
     progress.
 
-:warning: Choose your reviewers carefully! If you have made changes to the technical
+</procedure>
+
+<highlight type="warning">Choose your reviewers carefully! If you have made changes to the technical
 detail of the documentation, choose an appropriate subject matter expert (SME)
 to review those changes. Additionally, every change requires at least one
-documentation team member to approve.
+documentation team member to approve.</highlight>
 
 ## Second contribution
 Once you have checked out the repo and want to keep working on things, you need
 to ensure that your local copy of the repo stays up to date. If you don't do
 this, you *will* end up with merge conflicts.
 
-### Procedure: Second contribution
+<procedure>
+
+### Second contribution
 1.  Check out your fork's `latest` branch:
     ```bash
     git checkout latest
     ```
-    You will get a message like this:
+    You get a message like this:
     ```bash
     Switched to branch 'latest'
     Your branch is up to date with 'origin/latest'.
@@ -118,14 +127,17 @@ this, you *will* end up with merge conflicts.
     ```
 1.  If you are continuing work you began earlier, check out the branch that
     contains your work. For new work, create a new branch. Doing this regularly as
-    you are working will mean you keep your local copies up to date and avoid
+    you are working means you keep your local copies up to date and avoid
     conflicts. You should do it at least every day before you begin work, and again
     whenever you switch branches.
 
-:warning: Never leave branches lying around on your local system. Create your PR as soon
+
+</procedure>
+
+<highlight type="warning">Never leave branches lying around on your local system. Create your PR as soon
 as possible, and make good use of the Draft feature. Commit to your feature
 branch early and often! Update your local copy from latest whenever you switch
-branches.
+branches.</highlight>
 
 ## Writing standards
 Timescale is in the process of creating comprehensive writing and style standards. For the current guidelines, see [contributing to documentation][docs-standards].

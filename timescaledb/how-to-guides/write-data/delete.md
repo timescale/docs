@@ -1,7 +1,7 @@
 # DELETE
 
 Data can be deleted from a hypertable using the standard `DELETE` SQL
-command ([PostgreSQL docs][postgres-delete]), which will propagate
+command ([PostgreSQL docs][postgres-delete]), which propagates
 down to the appropriate chunks that comprise the hypertable.
 
 ```sql
@@ -26,4 +26,3 @@ For deleting old data, such as in the second example
 
 [postgres-delete]: https://www.postgresql.org/docs/current/static/sql-delete.html
 [postgres-vacuum]: https://www.postgresql.org/docs/current/static/sql-vacuum.html
-

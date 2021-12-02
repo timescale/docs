@@ -1,11 +1,11 @@
-## add_reorder_policy() <tag type="community">Community</tag> 
+## add_reorder_policy() <tag type="community">Community</tag>
 Create a policy to reorder chunks on a given hypertable index in the
 background. (See [reorder_chunk](/hypertable/reorder_chunk)). Only one reorder policy may
-exist per hypertable. Only chunks that are the 3rd from the most recent will be
+exist per hypertable. Only chunks that are the 3rd from the most recent are
 reordered to avoid reordering chunks that are still being inserted into.
 
 <highlight type="tip">
- Once a chunk has been reordered by the background worker it will not be
+ Once a chunk has been reordered by the background worker it is not 
 reordered again. So if one were to insert significant amounts of data in to
 older chunks that have already been reordered, it might be necessary to manually
 re-run the [reorder_chunk](/api/latest/hypertable/reorder_chunk) function on older chunks, or to drop
@@ -25,14 +25,14 @@ and re-create the policy if many older chunks have been affected.
 |---|---|---|
 | `if_not_exists` | BOOLEAN |  Set to true to avoid throwing an error if the reorder_policy already exists. A notice is issued instead. Defaults to false. |
 
-### Returns 
+### Returns
 
 |Column|Type|Description|
 |---|---|---|
 |`job_id`| INTEGER | TimescaleDB background job id created to implement this policy|
 
 
-### Sample Usage 
+### Sample Usage
 
 
 ```sql

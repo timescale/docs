@@ -60,7 +60,7 @@ same as `ts`.
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
 
-```
+```sql
 SELECT timescaledb_experimental.time_bucket_ng('3 month', date '2021-08-01');
  time_bucket_ng
 ----------------
@@ -70,7 +70,7 @@ SELECT timescaledb_experimental.time_bucket_ng('3 month', date '2021-08-01');
 
 This example uses `time_bucket_ng()` to bucket data in one year intervals:
 
-```
+```sql
 SELECT timescaledb_experimental.time_bucket_ng('1 year', date '2021-08-01');
  time_bucket_ng
 ----------------
@@ -82,7 +82,7 @@ To split time into buckets, `time_bucket_ng()` uses a starting point in time
 called `origin`. The default origin is `2000-01-01`. `time_bucket_ng` cannot use
 timestamps earlier than `origin`:
 
-```
+```sql
 SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08');
 ERROR:  origin must be before the given date
 ```
@@ -94,7 +94,7 @@ arbitrary `origin`, so `origin` defaults to the first day of the month.
 
 To bypass named limitations, you can override the default `origin`:
 
-```
+```sql
 -- working with timestamps before 2000-01-01
 SELECT timescaledb_experimental.time_bucket_ng('100 years', timestamp '1988-05-08', origin => '1900-01-01');
    time_bucket_ng
@@ -111,7 +111,7 @@ SELECT timescaledb_experimental.time_bucket_ng('1 week', timestamp '2021-08-26',
 This example shows how `time_bucket_ng()` is used to bucket data
 by months in a specified timezone:
 
-```
+```sql
 -- note that timestamptz is displayed differently depending on the session parameters
 SET TIME ZONE 'Europe/Moscow';
 SET
@@ -125,7 +125,7 @@ SELECT timescaledb_experimental.time_bucket_ng('1 month', timestamptz '2001-02-0
 You can use `time_bucket_ng()` with continuous aggregates. This example tracks
 the temperature in Moscow over seven day intervals:
 
-```
+```sql
 CREATE TABLE conditions(
   day DATE NOT NULL,
   city text NOT NULL,
@@ -174,6 +174,21 @@ ORDER BY bucket;
 ```
 
 For more information, see the [continuous aggregates documentation][caggs].
+
+<highlight type="important">
+While `time_bucket_ng()` supports months and timezones, 
+continuous aggregates cannot always be used with monthly 
+buckets or buckets with timezones. 
+</highlight>
+
+This table shows which `time_bucket_ng()` functions can be used in a continuous aggregate:
+
+|Function|Available in continuous aggregate|TimescaleDB version|
+|-|-|-|
+|Buckets by seconds, minutes, hours, days, and weeks|✅|2.4.0 and later|
+|Buckets by months and years|❌|Expected in 2.6.0 or later|
+|Specify custom origin|❌|To be determined|
+|Timezones support|❌|To be determined|
 
 [time_bucket]: /hyperfunctions/time_bucket/
 [caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

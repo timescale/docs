@@ -18,7 +18,7 @@ If you do not receive this link, check your spam folder first, then
 When you have completed account verification, visit the
 [Timescale Cloud console][cloud-console] and login with your credentials.
 
-To begin, click `Create service`.
+To begin, click `Create database`.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png" alt="Set up a Timescale Cloud service"/>
 
@@ -30,7 +30,7 @@ TimescaleDB and how your data processing needs vary, it's easy to
 [right-size your service with a few clicks](/cloud/latest/scaling-a-service/)!
 </highlight>
 
-After you select `Create service`, you will see confirmation of your service
+After you select `Create database`, you see confirmation of your service
 account and password information. You should save the information in this
 confirmation screen in a safe place:
 
@@ -54,6 +54,13 @@ a service altogether.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service.png" alt="View Timescale Cloud service information"/>
 
+### Rename your service
+Your service is created with a name that is automatically generated. We
+recommend that you rename your service to something more meaningful. To do this,
+navigate to the `Service details` section for the service you want to rename,
+and click the pencil icon next to the name. Type the new name for your service,
+and click `Rename` to save the changes.
+
 ### Complete your first tutorial
 Congratulations! You are now up and running with Timescale Cloud. To
 familiarize yourself with the features and capabilities of the product, we
@@ -68,11 +75,11 @@ Read about TimescaleDB features in our documentation:
     [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
 
 ### Keep testing during your free trial
-You’re now on your way to a great start with Timescale!
+You're now on your way to a great start with Timescale!
 
-You will have an unthrottled, 30-day free trial with Timescale Cloud to
+You have an unthrottled, 30-day free trial with Timescale Cloud to
 continue to test your use case. Before the end of your trial, we encourage you
-to add your credit card information. This will ensure a smooth transition after
+to add your credit card information. This ensures a smooth transition after
 your trial period concludes.
 
 ### Summary

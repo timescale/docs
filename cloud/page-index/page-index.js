@@ -19,7 +19,7 @@ module.exports = [
         href: "customize-configuration",
       },
       {
-        title: "Create a multi-node cluster",
+        title: "Multi-node on Timescale Cloud",
         href: "cloud-multi-node"
       },
       {
@@ -45,8 +45,16 @@ module.exports = [
         href: "maintenance"
       },
       {
+        title: "Explorer",
+        href: "explorer"
+      },
+      {
         title: "Backup and restore",
         href: "backup-restore-cloud"
+      },
+      {
+        title: "Account management",
+        href: "account-management"
       }
     ]
   }

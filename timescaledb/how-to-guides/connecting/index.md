@@ -1,28 +1,26 @@
 # Connecting to TimescaleDB
+When you have your TimescaleDB service up and running, either in the cloud or
+own your own self-hosted hardware, you need a way to talk to it from your local
+machine. Most of the instructions we give you assume you are using `psql`, but
+that's not the only connection tool available to you. In this section, we give
+you instructions for installing `psql`, as well as some other common tools.
 
-TimescaleDB can work with any tool that connects to PostgreSQL. In this section,
-we provide some basic instructions on connecting with popular tools for running
-queries against PostgreSQL.
+*   [Learn about connecting to your database][about-connecting] to understand
+    how it works before you begin.
+*   [Learn about using psql][about-psql].
+*   Install [psql][connect-psql].
+*   Install and use [Azure Data Studio][connect-azure].
+*   Install and use [DBeaver][connect-dbeaver].
+*   Install and use [pgAdmin][connect-pgadmin].
 
-In most cases, if you don't find instructions for a tool below or the instructions
-we provide don't seem to work in your scenario, the tooling website will certainly
-have up-to-date instructions for connecting.
+<!----
+*   [Troubleshoot][connect-tshoot] connection issues.
+-->
 
-Generally, you'll need to know the following information to connect any tool
-to your TimescaleDB instance:
-
- * Hostname
- * Port
- * Username
- * Password
- * Database name
-
-With that information ready to go, you can connect using one of these tools.
-
-
-**[Connect with `psql`][connect-psql]**: `psql` is the standard command line interface for 
-interacting with a PostgreSQL or TimescaleDB instance and used in most of our
-tutorials and documentation.
-
-
+[about-connecting]: /how-to-guides/connecting/about-connecting/
+[about-psql]: /how-to-guides/connecting/about-psql/
 [connect-psql]: /how-to-guides/connecting/psql/
+[connect-azure]: /how-to-guides/connecting/azure-data-studio/
+[connect-dbeaver]: /how-to-guides/connecting/dbeaver/
+[connect-pgadmin]: /how-to-guides/connecting/pgadmin/
+[connect-tshoot]: /how-to-guides/connecting/troubleshooting/

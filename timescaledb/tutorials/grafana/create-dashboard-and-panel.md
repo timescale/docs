@@ -9,8 +9,8 @@ data.
 
 ### Prerequisites
 
-To complete this tutorial, you will need a cursory knowledge of the Structured Query
-Language (SQL). The tutorial will walk you through each SQL command, but it will be
+To complete this tutorial, you need a cursory knowledge of the Structured Query
+Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 * To start, [install TimescaleDB][install-timescale].
@@ -23,31 +23,31 @@ on how to use TimescaleDB.
 
 ### Build a new dashboard
 
-We will start by creating a new dashboard. In the far left of the Grafana user
+Start by creating a new dashboard. In the far left of the Grafana user
 interface, you'll see a '+' icon. If you hover over it, you'll see a 'Create' menu,
 within which is a 'Dashboard' option. Select that 'Dashboard' option.
 
 After creating a new dashboard, you'll see a 'New Panel' screen, with options
 for 'Add Query' and 'Choose Visualization'. In the future, if you already have a
 dashboard with panels, you can click on the '+' icon at the **top** of the Grafana user
-interface, which will enable you to add a panel to an existing dashboard.
+interface, which enables you to add a panel to an existing dashboard.
 
 To proceed with our tutorial, let's add a new visualization by clicking on the 'Choose
 Visualization' option.
 
-At this point, you'll have several options for different Grafana visualizations. We will
-choose the first option, the 'Graph' visualization.
+At this point, you'll have several options for different Grafana visualizations.
+Choose the first option, the 'Graph' visualization.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_visualizations.png" alt="Grafana visualizations to choose from"/>
 
-There are multiple ways to configure our panel, but we will accept all the defaults
+There are multiple ways to configure our panel, but you can accept all the defaults
 and create a simple 'Lines' graph.
 
 In the far left section of the Grafana user interface, select the 'Queries' tab.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/create_grafana_query.png" alt="How to create a new Grafana query"/>
 
-Instead of using the Grafana query builder, we will edit our query directly. In the
+Instead of using the Grafana query builder, edit the query directly. In the
 view, click on the 'Edit SQL' button at the bottom.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/edit_sql_in_grafana.png" alt="Edit custom SQL queries in Grafana"/>
@@ -72,15 +72,15 @@ GROUP BY day
 ORDER BY day;
 ```
 
-We will need to alter this query to support Grafana's unique query syntax.
+We need to alter this query to support Grafana's unique query syntax.
 
 #### Modifying the SELECT statement
 
-First, we will modify the `date_trunc` function to use the TimescaleDB `time_bucket`
+First, modify the `date_trunc` function to use the TimescaleDB `time_bucket`
 function. You can consult the TimescaleDB [API Reference on time_bucket][time-bucket-reference]
 for more information on how to use it properly.
 
-Let's examine the `SELECT` portion of this query. First, we will bucket our results into
+Let's examine the `SELECT` portion of this query. First, bucket the results into
 one day groupings using the `time_bucket` function. If you set the 'Format' of a Grafana
 panel to be 'Time series', for use in Graph panel for example, then the query must return
 a column named `time` that returns either a SQL `datetime` or any numeric datatype
@@ -101,11 +101,11 @@ FROM rides
 #### The Grafana \_\_timeFilter function
 
 Grafana time-series panels include a tool that enables the end-user to filter on a given
-time range. A "time filter", if you will. Not surprisingly, Grafana has a way to link the
+time range, like a "time filter". Not surprisingly, Grafana has a way to link the
 user interface construct in a Grafana panel with the query itself. In this case,
 the `$__timefilter()` function.
 
-In the modified query below, we will use the `$__timefilter()` function
+In the modified query below, use the `$__timefilter()` function
 to set the `pickup_datetime` column as the filtering range for our visualizations.
 
 ```sql
@@ -122,7 +122,7 @@ WHERE $__timeFilter(pickup_datetime)
 
 Finally, we want to group our visualization by the time buckets we've selected,
 and we want to order the results by the time buckets as well. So, our `GROUP BY`
-and `ORDER BY` statements will reference `time`.
+and `ORDER BY` statements reference `time`.
 
 With these changes, this is our final Grafana query:
 
@@ -144,7 +144,7 @@ When we visualize this query in Grafana, we see the following:
 
 <highlight type="tip">
  Remember to set the time filter in the upper right corner of your Grafana dashboard.
- If you're using the pre-built sample dataset for this example, you will want to set
+ If you're using the pre-built sample dataset for this example, you can set
  your time filter around January 1st, 2016.
 </highlight>
 
@@ -163,7 +163,7 @@ GROUP BY time
 ORDER BY time
 ```
 
-When we visualize this query, it will look like this:
+When you visualize this query, it looks like this:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-tutorial/grafana_query_results_5m.png" alt="Visualizing time-series data in Grafana"/>
 

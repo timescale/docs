@@ -14,7 +14,9 @@ several roles available for project members:
 |Developer|✅|❌|✅|❌|✅|
 |Read-only|❌|❌|❌|❌|✅|
 
-### Procedure: Adding project members
+<procedure>
+
+### Adding project members
 1.  [Log in to your account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Check that you are in the project that you want to change the members for,
@@ -29,6 +31,8 @@ several roles available for project members:
     list. You can edit a member role by selecting a new role in the list. You
     can delete a member by clicking the delete icon in the list.
 
+</procedure>
+
 ## Service users
 You can create user accounts for accessing your services.
 
@@ -36,7 +40,9 @@ You can create user accounts for accessing your services.
 Your service must be running before you can manage users.
 </highlight>
 
-### Procedure: Adding service users
+<procedure>
+
+### Adding service users
 1.  [Log in to your account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click the name of the service that you want to add users to, and navigate
@@ -49,5 +55,6 @@ Your service must be running before you can manage users.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.png" alt="Add a new MST service user"/>
 
+</procedure>
 
 [mst-login]: https://portal.managed.timescale.com

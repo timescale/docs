@@ -332,7 +332,7 @@ CREATE TRIGGER create_vehicle_trigger
 ```
 You could also implement this functionality without a separate metadata table by
 performing a [loose index scan][loose-index-scan] over the `location`
-hypertable, although this will require more compute resources.
+hypertable, although this requires more compute resources.
 
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
