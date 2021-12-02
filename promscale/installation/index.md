@@ -16,13 +16,13 @@ Prometheus, see the
 
 You can install Promscale in several different ways:
 
-*   If you have an existing Prometheus monitoring environment, you can add
-    Promscale with the
-    [Prom-migrator migration tool][promscale-install-prommigrator].
 *   For new installations, install Promscale from a
     [pre-built Docker container][promscale-install-docker].
 *   For new bare metal installations, install Promscale
     [from source][promscale-install-source].
+*   If you have an existing Prometheus monitoring environment, you can add
+    Promscale with the
+    [Prom-migrator migration tool][promscale-install-prommigrator].
 *   If you have an existing Kubernetes environment, install Promscale using
     [the observability suite (tobs) for Kubernetes][promscale-install-tobs].
 *   If you only need the Promscale Connector, you can install it

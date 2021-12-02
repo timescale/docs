@@ -1,5 +1,9 @@
 # Promscale instalaltion using helm
 
+You can install the Promscale Connector with a Docker image from
+[Docker Hub][promscale-docker-hub]. To see the latest available images, see
+the [Promscale Releases on GitHub][promscale-releases-github].
+
 You can install Prometheus and Promscale using helm. But this requires using multiple helm charts. As Prometheus, Promscale and TimescaleDB are three different helm charts.
 
 Below are steps to install all the components using helm charts
@@ -39,7 +43,7 @@ For details about what parameters you can set, have a look at the [Administrator
 
 ### Installing from the Timescale Helm Repo
 
-We have a Helm Repository that you can use, instead of cloning this Git repo. 
+We have a Helm Repository that you can use, instead of cloning this Git repo.
 
 First add the repository with:
 ```console
@@ -57,13 +61,13 @@ helm install my-release .
 To keep the repo up to date with new versions you can do:
 ```console
 helm repo update
-``` 
+```
 
 ## Install Promscale
 
 ### Prerequisites
 
-For promscale to work correctly it needs a set of data to connect to timescale database. This 
+For promscale to work correctly it needs a set of data to connect to timescale database. This
 configuration can be supplied in two ways either by using DB URI or by specifying connection
 parameters. Options are mutually exclusive and specifying URI takes priority.
 
@@ -114,7 +118,7 @@ You can also install by referencing the db uri secret:
 helm install --name my-release . \
       --set connection.dbURI.secretTemplate="timescale-secret"
 ```
- 
+
 Alternatively, a YAML file the specifies the values for the parameters can be provided
 while installing the chart. For example:
 ```shell script

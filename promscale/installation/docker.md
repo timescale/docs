@@ -1,8 +1,5 @@
 # Promscale installation using Docker
 
-You can install the Promscale Connector with a Docker image from
-[Docker Hub][promscale-docker-hub]. To see the latest available images, see
-the [Promscale Releases on GitHub][promscale-releases-github].
 
 Alternatively, you can skip to the bonus section which contains a `docker-compose` file for four components above: [Skip to docker-compose file](#bonus-docker-compose-file)
 
