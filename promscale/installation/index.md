@@ -16,7 +16,7 @@ Prometheus, see the
 
 You can install Promscale in several different ways:
 
-*   For new installations, install Promscale from a
+*   For trying out Promscale in a test environment, install Promscale from a
     [pre-built Docker container][promscale-install-docker].
 *   For new bare metal installations, install Promscale
     [from source][promscale-install-source].
