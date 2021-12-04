@@ -25,7 +25,7 @@ still work on the resulting hypertable.
 |---|---|---|
 | `partitioning_column` | REGCLASS | Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided. |
 | `number_partitions` | INTEGER | Number of [hash partitions][] to use for `partitioning_column`. Must be > 0. |
-| `chunk_time_interval` | INTERVAL | Event time that each chunk covers. Must be > 0. As of TimescaleDB v0.11.0, default is 7 days. For previous versions, default is 1 month. |
+| `chunk_time_interval` | INTERVAL | Event time that each chunk covers. Must be > 0. Default is 7 days. |
 | `create_default_indexes` | BOOLEAN | Whether to create default indexes on time/partitioning columns. Default is TRUE. |
 | `if_not_exists` | BOOLEAN | Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE. |
 | `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|
