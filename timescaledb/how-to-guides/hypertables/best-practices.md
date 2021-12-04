@@ -6,13 +6,13 @@ Users of TimescaleDB often have two common questions:
 1. Should I use space partitioning, and how many space partitions should I use?
 
 ## Time intervals:
-Users can use the default time interval, which is 7 days starting in v0.11.0
-and 1 month prior to v0.11.0. Alternatively, users can explicitly configure time
-intervals by setting `chunk_time_interval` when creating a hypertable. After the
-hypertable has been created, the interval used for new chunks can be changed by
-calling [`set_chunk_time_interval`][set_chunk_time_interval].
+Users can use the default time interval, which is 7 days. Alternatively, users 
+can explicitly configure time intervals by setting `chunk_time_interval` when 
+creating a hypertable. After the hypertable has been created, the interval used 
+for new chunks can be changed by calling [`set_chunk_time_interval`][set_chunk_time_interval].
 
-The key property of choosing the time interval is that the chunk (including indexes) belonging to the most recent interval (or chunks if using space
+The key property of choosing the time interval is that the chunk (including indexes) 
+belonging to the most recent interval (or chunks if using space
 partitions) fit into memory.  As such, we typically recommend setting
 the interval so that these chunk(s) comprise no more than 25% of main
 memory.
