@@ -48,6 +48,7 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 1. [Analyzing NFT transactions][nft-analyze]
 
 ## Prerequisites
+* OpenSea API key ([request one from here][opensea-key])
 * TimescaleDB ([installation options][install-ts])
 * Psql or any other PostgreSQL client (for example DBeaver, or PgAdmin)
 
@@ -62,3 +63,4 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 [grafana]: https://grafana.com
 [eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
 [nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
+[opensea-key]: https://docs.opensea.io/reference/request-an-api-key
