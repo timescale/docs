@@ -52,7 +52,8 @@ This section covers the tobs commands for managing your TimescaleDB database.
 |`tobs timescaledb port-forward`|Port forward TimescaleDB to `localhost`|`--port,` `-p`|Port to listen on|
 
 ## TimescaleDB superuser tobs commands
-This section covers the tobs commands for managing your TimescaleDB database that are available to the superuser.
+This section covers the tobs commands for managing your TimescaleDB database
+that are available to the superuser.
 
 |Command|Command Description|Available Flags|Flag description|
 |-|-|-|-|
@@ -77,7 +78,8 @@ This section covers the tobs commands for managing Prometheus.
 |`tobs prometheus port-forward`|Port forward the Prometheus server to `localhost`|`--port`, `-p`|Port to listen on|
 
 ## Jaeger tobs commands
-This section covers the tobs commands for managing Jaeger. These command are supported only if you enabled tracing when you installed tobs.
+This section covers the tobs commands for managing Jaeger. These command are
+supported only if you enabled tracing when you installed tobs.
 
 |Command|Command Description|Available Flags|Flag description|
 |-|-|-|-|
@@ -98,9 +100,11 @@ This section covers the tobs commands for managing metrics.
 |`tobs metrics chunk-interval reset`|Reset the chunk interval for the specified metric to the default value|||
 
 ## Volume tobs commands
-This section covers the tobs commands for managing  TimescaleDB and Prometheus persistent volume claim (PVC) volumes.
+This section covers the tobs commands for managing  TimescaleDB and Prometheus
+persistent volume claim (PVC) volumes.
 
-To expand PVCs in your Kubernetes cluster, you must have configured the `storageClass` parameter to be `allowVolumeExpansion: true`.
+To expand PVCs in your Kubernetes cluster, you must have configured the
+`storageClass` parameter to be `allowVolumeExpansion: true`.
 
 |Command|Command Description|Available Flags|Flag description|
 |-|-|-|-|
@@ -113,7 +117,11 @@ To expand PVCs in your Kubernetes cluster, you must have configured the `storage
 |||`--restart-pods`, `-r`|Restart pods bound to PVC after PVC expansion.|
 
 ## Upgrade tobs commands
-This section covers the tobs commands for upgrading your existing tobs installation. You can upgrade tobs to the latest Helm chart, as long as the Helm chart exists in the Timescale Helm repository. You can also upgrade your existing tobs installation to use the latest `values.yaml` configuration file. Internally, these tools use the Helm upgrade utility.
+This section covers the tobs commands for upgrading your existing tobs
+installation. You can upgrade tobs to the latest Helm chart, as long as the Helm
+chart exists in the Timescale Helm repository. You can also upgrade your
+existing tobs installation to use the latest `values.yaml` configuration file.
+Internally, these tools use the Helm upgrade utility.
 
 |Command|Command Description|Available Flags|Flag description|
 |-|-|-|-|
@@ -126,13 +134,14 @@ This section covers the tobs commands for upgrading your existing tobs installat
 |||`--skip-crds`|Skip creating CRDs on upgrade|
 
 ## Global tobs commands
-This section covers the global tobs commands that can be used with any other commands listed here.
+This section covers the global tobs commands that can be used with any other
+commands listed here.
 
 |Available Flags|Flag description|
 |-|-|
 |--name|Helm release name|
 |--namespace, -n|Kubernetes namespace|
-|--config|Tobs configuration file, defaults to ``$HOME/.tobs.yaml`
+|--config|Tobs configuration file, defaults to ``$HOME/.tobs.yaml`|
 
 
 [tobs-install]: /how-to-guides/tobs/install-tobs/
