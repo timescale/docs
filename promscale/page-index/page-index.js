@@ -22,13 +22,6 @@ module.exports = [
         excerpt: 'Learn about the benefits of Promscale',
       },
       {
-        title: 'How Promscale works',
-        href: 'promscale-how-it-works',
-        tags: ['promscale', 'learn', 'analytics', 'prometheus'],
-        keywords: ['Promscale', 'analytics'],
-        excerpt: 'Learn about how Promscale works',
-      },
-      {
         title: 'Install Promscale',
         href: 'installation',
         children: [
