@@ -113,7 +113,7 @@ policies like data retention.
 
 Avoid refreshing time intervals that are likely to have a lot of writes. In
 general, this means you should never refresh the most recent time bucket.
-Because the of constant change in the underlying datya, they are unlikely to
+Because the of constant change in the underlying data, they are unlikely to
 produce accurate aggregates. Additionally, refreshing this data slows down the
 ingest rate of the hypertable due to write amplification. If you want to include
 the latest bucket in your queries,

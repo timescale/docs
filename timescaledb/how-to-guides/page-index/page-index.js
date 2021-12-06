@@ -280,12 +280,51 @@ module.exports = [
       {
         title: 'Connecting to TimescaleDB',
         href: 'connecting',
-        tags: ['psql', 'install', 'timescaledb'],
-        keywords: ['TimescaleDB', 'install', 'psql'],
-        excerpt: 'Connect to TimescaleDB with psql',
+        tags: ['connect', 'psql', 'install', 'timescaledb'],
+        keywords: ['TimescaleDB', 'connect', 'psql'],
+        excerpt: 'Connect to TimescaleDB',
         children: [
           {
+            title: 'About connecting to TimescaleDB',
+            href: 'about-connecting',
+            tags: ['connect', 'psql', 'learn', 'timescaledb'],
+            keywords: ['TimescaleDB', 'connect',],
+            excerpt: 'Learn about connecting to TimescaleDB',
+          },
+          {
+            title: 'About psql',
+            href: 'about-psql',
+            tags: ['connect', 'psql', 'learn', 'timescaledb'],
+            keywords: ['TimescaleDB', 'connect', 'psql'],
+            excerpt: 'Learn about using psql to connect to TimescaleDB',
+          },
+          {
+            title: 'Install psql',
             href: 'psql',
+            tags: ['connect', 'psql', 'install', 'timescaledb'],
+            keywords: ['TimescaleDB', 'connect', 'install', 'psql'],
+            excerpt: 'Install psql to connect to TimescaleDB',
+          },
+          {
+            title: 'Install Azure Data Studio',
+            href: 'azure-data-studio',
+            tags: ['connect', 'install', 'timescaledb'],
+            keywords: ['TimescaleDB', 'connect', 'install'],
+            excerpt: 'Install Azure Data Studio to connect to TimescaleDB',
+          },
+          {
+            title: 'Install DBeaver',
+            href: 'dbeaver',
+            tags: ['connect', 'install', 'timescaledb'],
+            keywords: ['TimescaleDB', 'connect', 'install'],
+            excerpt: 'Install DBeaver to connect to TimescaleDB',
+          },
+          {
+            title: 'Install pgAdmin',
+            href: 'pgadmin',
+            tags: ['connect', 'install', 'timescaledb'],
+            keywords: ['TimescaleDB', 'connect', 'install'],
+            excerpt: 'Install pgAdmin to connect to TimescaleDB',
           },
         ],
       },
@@ -798,8 +837,15 @@ module.exports = [
         href: 'configuration',
         children: [
           {
-            title: 'Using timescaledb-tune',
-            href: 'timescaledb-tune',
+            title: "About Configuration",
+            href: "about-configuration",
+            tags: ['configure', 'timescaledb'],
+            keywords: ['configure', 'timescaledb'],
+            excerpt: 'Overview of configuration options and methods for PostgreSQL and TimescaleDB'
+          },
+          {
+            title: "Using timescaledb-tune",
+            href: "timescaledb-tune",
             tags: ['configure', 'timescaledb'],
             keywords: ['configure', 'timescaledb'],
             excerpt: 'Configure TimescaleDB using timescaledb-tune',
