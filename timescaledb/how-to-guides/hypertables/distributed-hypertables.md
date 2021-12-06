@@ -273,6 +273,17 @@ the data over the data nodes, similar to traditional sharding.
 For more information about partitioning distributed hypertables, see the
 [About multi-node section][about-multinode].
 
+## Foreign key handling in distributed hypertables
+Tables referenced by foreign key constraints in a distributed
+hypertable must be present on the access node and all data
+nodes. This applies also to referenced values.
+
+You can use `distributed_exec` to create a table on all data 
+nodes and insert data into the table. Ensure that the table 
+exists on the access node first, and then update all the data 
+nodes with the correct data. You can then use a foreign key 
+in the distributed hypertable to that table.
+
 
 [multi-node]: /how-to-guides/multinode-timescaledb/
 [multi-node-ha]: /how-to-guides/multinode-timescaledb/multinode-ha/

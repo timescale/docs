@@ -837,8 +837,15 @@ module.exports = [
         href: 'configuration',
         children: [
           {
-            title: 'Using timescaledb-tune',
-            href: 'timescaledb-tune',
+            title: "About Configuration",
+            href: "about-configuration",
+            tags: ['configure', 'timescaledb'],
+            keywords: ['configure', 'timescaledb'],
+            excerpt: 'Overview of configuration options and methods for PostgreSQL and TimescaleDB'
+          },
+          {
+            title: "Using timescaledb-tune",
+            href: "timescaledb-tune",
             tags: ['configure', 'timescaledb'],
             keywords: ['configure', 'timescaledb'],
             excerpt: 'Configure TimescaleDB using timescaledb-tune',
