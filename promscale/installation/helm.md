@@ -30,7 +30,7 @@ If you do not configure the user credentials before you start, they are randomly
     ```bash
     helm repo update
     ```
-1.  Install the Helm chart:
+1.  Install the TimescaleDB Helm chart:
     ```bash
     helm install --name my-release charts/timescaledb-single
     ```
@@ -66,7 +66,7 @@ can provide the database URI, or specify connection parameters.
     ```bash
     helm repo update
     ```
-1.  Install the Helm chart:
+1.  Install the Promscale Helm chart:
     ```bash
     helm install --name my-release .
     ```
@@ -120,6 +120,27 @@ installing the chart, like this:
 ```bash
 helm install --name my-release -f myvalues.yaml .
 ```
+
+## FIXME Install the Prometheus Helm chart
+When you have installed the TimescaleDB and Promscale Helm charts, you can install the Prometheus Helm chart.
+
+<procedure>
+
+### FIXME Installing the Prometheus Helm chart
+1.  Add the TimescaleDB Helm chart repository:
+    ```bash
+    helm repo add timescale 'https://charts.timescale.com'
+    ```
+1.  Check that the repository is up to date:
+    ```bash
+    helm repo update
+    ```
+1.  Install the Prometheus Helm chart:
+    ```bash
+    helm install --name my-release charts/timescaledb-single
+    ```
+
+</procedure>
 
 
 [helm-install]: https://helm.sh/docs/intro/install/
