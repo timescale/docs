@@ -1,66 +1,139 @@
-# Why use Promscale & TimescaleDB to store Prometheus metrics [](why-promscale)
+# Promscale benefits
 
-This section details five reasons to use Timescale and Promscale to store Prometheus metrics:
+**Get started in minutes**: deploy a full observability stack for metrics and
+traces in your Kubernetes cluster with a single command using [our cli](tobs). Or deploy
+the two components that make up Promscale in a container platform or VM using
+the provided artifacts. Integrates with Grafana and Jaeger out-of-the-box.
 
-1. [Long term data storage](#long-term-data-storage)
-2. [Operational ease](#operational-ease)
-3. [Queries in SQL and PromQL](#queries-in-sql-and-promql)
-4. [Per Metric Retention](#per-metric-retention)
-5. [Ability to push data from custom applications](#ability-to-push-data-from-custom-applications)
+**Easy to operate**: simplify your operations with a single system to setup and
+operate for your metrics and traces that uses a simple architecture with just two
+components: Promscale Connector and TimescaleDB.
 
-## Long term data storage [](data-storage)
+**First-class Prometheus support**: seamlessly integrates with Prometheus as
+a long-term storage for metrics with 100% PromQL compliance, multitenancy and
+OpenMetrics exemplars support.
 
-In order to keep Prometheus simple and easy to operate, its creators intentionally left out many scaling features one would normally expect. Data in Prometheus is stored locally within the instance and is not replicated. Having both compute and data storage on one node may make it easier to operate, but also makes it harder to scale and ensure high availability.
+**Future-proof with OpenTelemetry**: easily collect your OpenTelemetry traces
+with our native OTLP ingest endpoint which has full support for the standard
+including events and links.
 
-As a result, Prometheus is not designed to be a long-term metrics store. From the [documentation][prometheus storage docs]:
+**Unprecendeted insights**: get true observability with the power and
+flexibility of full SQL together with TimescaleDB's advanced analytics functions
+to query and correlate metrics, traces and business data to get more value from
+your observability data.
 
->Prometheus is not arbitrarily scalable or durable in the face of disk or node outages and should thus be treated as more of an ephemeral sliding window of recent data.
+**Flexible data management**: per-metric data retention and highly configurable
+continuous metric aggregates and rollups.
 
-On the other hand, TimescaleDB can easily handle petabytes of data, and supports high availability and replication, making it a good fit for long term data storage. In addition, it provides advanced capabilities and features, such as full SQL, JOINs and data retention and aggregation policies, all of which are not available in Prometheus.
+**A rock-solid foundation**: Built on top of the maturity of Postgres and
+TimescaleDB with millions of instances worldwide. A trusted system that offers high
+availability, replication, data integrity, backups, authentication, roles and
+permissions.
 
-Using Promscale as a long term store for Prometheus metrics works as follows:
-* All metrics that are scraped from targets are first written to the Prometheus local storage.
-* Metrics are then written to Promscale via the Prometheus `remote-write` endpoint.
-* This means that all of your metrics are ingested into TimescaleDB in parallel using Promscale, making any Prometheus disk failure less painful.
+**Massive scale**: store and query terabytes of datapoints with horizontal
+scalability, columnar compression and continous aggregates.
 
-TimescaleDB can also store other types of data (metrics from other systems, time-series data, relational data, metadata), allowing you to consolidate monitoring data from different sources into one database and simplify your stack. You can also join different types of data and add context to your monitoring data for richer analysis, using SQL `JOIN`s.
+**100s of integrations**: access a large ecosystem of integrations available
+for Postgres and TimescaleDB: data visualization tools, AI platforms, IDEs, ORMs,
+management tools, performance tuning, etc.
 
-Moreover, the recent release of [TimescaleDB 2.0][multinode-blog] introduces multi-node functionality, making it easier to scale horizontally and store data at petabyte scale.
+## Why use Promscale
+This section covers five reasons to use Timescale and Promscale to store
+Prometheus metrics:
 
-## Operational ease [](operational-ease)
+### Long term data storage
+To keep Prometheus simple and easy to operate, its creators intentionally left
+out many scaling features. Data in Prometheus is stored locally within the
+instance and is not replicated. Having both compute and data storage on one node
+may make it easier to operate, but also makes it harder to scale and ensure high
+availability.
 
-Promscale operates as a single stateless service. This means that once you configure the `remote-write` & `remote-read` endpoints in your prometheus configuration file then all samples are forwarded to Promscale. Promscale then handles the ingestion of samples into TimescaleDB. Promscale exposes all Prometheus compatible APIs, allowing you to query your data using PromQL queries.
+Prometheus is not arbitrarily scalable or durable in the face of disk or node
+outages and should thus be treated as more of an ephemeral sliding window of
+recent data. As a result, Prometheus is not designed to be a long-term metrics
+store. For more information, see the
+[Prometheus documentation][prometheus-storage-docs].
 
-Moreover, the only way to scale Prometheus is by [federation][prometheus-federation]. However, there are cases where federation is not a good fit: for example, when copying large amounts of data from multiple Prometheus instances to be handled by a single machine. This can result in poor performance, decreased reliability (an additional point of failure), and loss of some data. These are all problems you can avoid by using an operationally simple and mature platform like Promscale combined with TimescaleDB.
+On the other hand, TimescaleDB can handle petabytes of data, and supports high
+availability and replication, making it a good fit for long term data storage.
+In addition, it provides advanced capabilities and features, such as full SQL,
+JOINs and data retention and aggregation policies, all of which are not
+available in Prometheus.
 
-Furthermore, with Promscale, it's simple to get a global view of all metrics data, using both PromQL and SQL queries.
+Promscale as a long term store for Prometheus metrics works by writing all
+scraped metrics from targets to the Prometheus local storage. Metrics are then
+written to Promscale using the Prometheus `remote-write` endpoint. This means
+that all of your metrics are ingested into TimescaleDB in parallel using
+Promscale, making any Prometheus disk failure leasier to manage.
 
-## Queries in SQL and PromQL [](queries)
+TimescaleDB can also store other types of data, such as metrics from other
+systems, time-series data, relational data, or metadata. This allows you to
+consolidate monitoring data from different sources into one database and
+simplify your stack. You can also join different types of data and add context
+to your monitoring data for richer analysis, using SQL `JOIN`s.
 
-By allowing you to use SQL, in addition to PromQL, Promscale empowers you to ask complex analytical queries from your metrics data, and thus extract more meaningful insights.
+Additionally, in TimescaleDB 2.0 and above, you can use multi-node functionality to
+make it easier to scale horizontally and store data at petabyte scale.
 
-PromQL is the Prometheus native query language. It's a powerful and expressive query language that allows you to easily slice and dice metrics data and use a variety of monitoring specific [functions][promql-functions].
+### Operational ease
+Promscale operates as a single stateless service. This means that when you have
+configures the `remote-write` and `remote-read` endpoints in your Prometheus
+configuration file, all samples are forwarded to Promscale. Promscale then
+handles the ingestion of samples into TimescaleDB. Promscale exposes all
+Prometheus compatible APIs, allowing you to query your data using PromQL
+queries.
 
-However, there may be times where you need greater query flexibility and expressiveness than what PromQL provides. For example, trying to cross-correlate metrics with events and incidents that occurred, running more granular queries for active troubleshooting, or applying machine learning or other forms of deeper analysis on metrics.
+The only way to scale Prometheus is by [federation][prometheus-federation].
+However, there are cases where federation is not a good fit: for example, when
+copying large amounts of data from multiple Prometheus instances to be handled
+by a single machine. This can result in poor performance, decreased reliability,
+and loss of some data. These are all problems you can avoid by using an
+operationally simple and mature platform like Promscale combined with
+TimescaleDB.
 
-TimescaleDB's full SQL support is of great help in these cases. It enables you to apply the full breadth of SQL to your Prometheus data, joining your metrics data with any other data you might have, and run more powerful queries.
+Additionally, with Promscale, it's simple to get a global view of all metrics
+data, using both PromQL and SQL queries.
 
-We detail examples of such SQL queries in [Run queries with PromQL and SQL][promscale-run-queries] of this tutorial.
+### Queries in SQL and PromQL
+Because Promscale allows you to use SQL and PromQL, it empowers you to create
+complex analytical queries from your metrics data, and extract more meaningful
+insights.
 
-## Per metric retention [](per-metric)
+PromQL is the Prometheus native query language. It's a powerful and expressive
+query language that allows you to easily slice and dice metrics data and use a
+variety of monitoring specific [functions][promql-functions].
 
-Promscale maintains isolation between metrics. This allows you to set retention periods, downsampling and compression settings on a per metric basis, giving you more control over your metrics data.
+However, there may be times where you need greater query flexibility and
+expressiveness than what PromQL provides. For example, trying to cross-correlate
+metrics with events and incidents that occurred, running more granular queries
+for active troubleshooting, or applying machine learning or other forms of
+deeper analysis on metrics.
 
-Per metric retention policies, downsampling, aggregation and compression helps you store only series you care about for the long term. This helps you better trade off the value brought by keeping metrics for the long term with the storage costs involved, allowing you to keep metrics that matter for as long as you need and discarding the rest to save on costs.
+TimescaleDB's full SQL support allows you to apply the full breadth of SQL to
+your Prometheus data, joining your metrics data with any other data you might
+have, and run more powerful queries.
 
-This isolation extends to query performance, wherein queries for one metric are not affected by the cardinality, query, or write load of other metrics. This provides better performance on smaller metrics and in general provides a level of safety within your metric storage system.
+For more information about using SQL queries in Promscale, see the
+[Running queries in Promscale section][promscale-run-queries].
 
-## Ability to push data from custom applications [](custom-apps)
+### Per metric retention
+Promscale maintains isolation between metrics. This allows you to set retention
+periods, downsampling and compression settings on a per metric basis, giving you
+more control over your metrics data.
 
-The Promscale write endpoints also accept data from your custom applications (i.e data outside of Prometheus) in JSON format.
+Per metric retention policies, downsampling, aggregation and compression helps
+you store only the series data that you require in the long term. This helps you
+better trade off the value brought by keeping metrics for the long term with the
+storage costs involved, allowing you to keep metrics that matter for as long as
+you need and discarding the rest to save on costs.
 
-All you have to do is parse your existing time series data to the object format below:
+This isolation extends to query performance, wherein queries for one metric are
+not affected by the cardinality, query, or write load of other metrics. This
+provides better performance on smaller metrics and in general provides a level
+of safety within your metric storage system.
 
+### Ability to push data from custom applications
+The Promscale write endpoints also accept data in JSON format from your custom applications that exist outside of Prometheus. You can parse your existing time series data to the object format like this:
 ```bash
 {
     "labels":{"__name__": "cpu_usage", "namespace":"dev", "node": "brain"},
@@ -73,8 +146,7 @@ All you have to do is parse your existing time series data to the object format 
 }
 ```
 
-Then perform a write request to Promscale:
-
+You can then perform a write request to Promscale, like this:
 ```bash
 curl --header "Content-Type: application/json" \
 --request POST \
@@ -82,50 +154,11 @@ curl --header "Content-Type: application/json" \
 "http://localhost:9201/write"
 ```
 
-For more details on writing custom time-series data to Promscale can be found in this document: [Writing to Promscale][Writing TO Promscale]
 
-## Next step
-* [How Promscale works][promscale-how-it-works]: Now that you've learned about the benefits of Promscale, let's look at how Promscale works in more depth.
-
-[prometheus-webpage]:https://prometheus.io
-[promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
-[promscale-readme]: https://github.com/timescale/promscale/blob/master/README.md
-[design-doc]: https://tsdb.co/prom-design-doc
-[promscale-github]: https://github.com/timescale/promscale#promscale
-[promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
-[promscale-helm-chart]: https://github.com/timescale/promscale/tree/master/helm-chart
-[tobs-github]: https://github.com/timescale/tobs
-[promscale-baremetal-docs]: https://github.com/timescale/promscale/blob/master/docs/bare-metal-promscale-stack.md#deploying-promscale-on-bare-metal
-[Prometheus]: https://prometheus.io/
-[timescaledb vs]: /overview/how-does-it-compare/timescaledb-vs-postgres/
-[prometheus storage docs]: https://prometheus.io/docs/prometheus/latest/storage/
-[prometheus lts]: https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage
-[prometheus-federation]: https://prometheus.io/docs/prometheus/latest/federation/
-[docker-pg-prom-timescale]: https://hub.docker.com/r/timescale/pg_prometheus
-[postgresql adapter]: https://github.com/timescale/prometheus-postgresql-adapter
-[Prometheus native format]: https://prometheus.io/docs/instrumenting/exposition_formats/
-[docker]: https://docs.docker.com/install
-[docker image]: https://hub.docker.com/r/timescale/prometheus-postgresql-adapter
-[Node Exporter]: https://github.com/prometheus/node_exporter
-[first steps]: https://prometheus.io/docs/introduction/first_steps/#configuring-prometheus
-[for example]: https://www.zdnet.com/article/linux-meltdown-patch-up-to-800-percent-cpu-overhead-netflix-tests-show/
-[promql-functions]: https://prometheus.io/docs/prometheus/latest/querying/functions/
-[promscale-intro-video]: https://youtube.com/playlist?list=PLsceB9ac9MHTrmU-q7WCEvies-o7ts3ps
-[Writing to Promscale]: https://github.com/timescale/promscale/blob/master/docs/writing_to_promscale.md
-[Node Exporter Github]: https://github.com/prometheus/node_exporter#node-exporter
-[promscale-github-installation]: https://github.com/timescale/promscale#-choose-your-own-installation-adventure
-[promscale-docker-image]: https://hub.docker.com/r/timescale/promscale
-[psql docs]: https://www.postgresql.org/docs/13/app-psql.html
-[an Luu's post on SQL query]: https://danluu.com/metrics-analytics/
-[grafana-homepage]:https://grafana.com
-[promlens-homepage]: https://promlens.com
+[prometheus-storage-docs]: https://prometheus.io/docs/prometheus/latest/storage/
+[writing-to-promscale]: https://github.com/timescale/promscale/blob/master/docs/writing_to_promscale.md
 [multinode-blog]:https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
-[grafana-docker]: https://grafana.com/docs/grafana/latest/installation/docker/#install-official-and-community-grafana-plugins
-[timescaledb-multinode-docs]: /how-to-guides/multi-node-setup/
-[timescale-analytics]:https://github.com/timescale/timescale-analytics
-[getting-started]: /getting-started/
-[promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
-[promscale-benefits]: /tutorials/promscale/promscale-benefits/
-[promscale-how-it-works]: /tutorials/promscale/promscale-how-it-works/
-[promscale-install]: /tutorials/promscale/promscale-install/
 [promscale-run-queries]: /tutorials/promscale/promscale-run-queries/
+[prometheus-federation]: https://prometheus.io/docs/prometheus/latest/federation/
+[promql-functions]: https://prometheus.io/docs/prometheus/latest/querying/functions/
+[promscale-run-queries]: promscale/promscale-run-queries/
