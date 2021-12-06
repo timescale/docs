@@ -1,126 +1,125 @@
-# Promscale instalaltion using helm
+# Install Promscale with Helm
+You can install Promscale using Helm charts. The Helm charts must be installed in this order:
 
-You can install the Promscale Connector with a Docker image from
-[Docker Hub][promscale-docker-hub]. To see the latest available images, see
-the [Promscale Releases on GitHub][promscale-releases-github].
+1.  Install the TimescaleDB Helm chart
+1.  Install the Promscale Helm chart
+1.  Install the Prometheus Helm chart
 
-You can install Prometheus and Promscale using helm. But this requires using multiple helm charts. As Prometheus, Promscale and TimescaleDB are three different helm charts.
+Before you begin, you must have installed Helm. For more information, including
+packages and installation instructions, see the [Helm documentation][helm-install]
 
-Below are steps to install all the components using helm charts
+## Install the TimescaleDB Helm chart
+Before you install the TimescaleDB Helm chart, you need to configure these
+settings in the `values.yaml` configuration file:
+*   Credentials for the superuser, admin, and other users
+*   TLS Certificates
+*   **Optional:** `pgbackrest` configuration
 
-1. Install TimescaleDB helm chart
-2. Install Promscale helm chart
-3. Install Prometheus helm chart
+<highlight type="note">
+If you do not configure the user credentials before you start, they are randomly generated. When this happens, the `helm update` command does not rotate the credentials, to prevent breaking the database.
+</highlight>
 
-## Install TimescaleDB
+<procedure>
 
-To install the chart with the release name `my-release`, first  in `values.yaml` you need to set credentials mentioned in list
-below. If you decide not to set those credentials, they will be randomly generated. Those credentials can be setup via helm only
-during helm first run and they won't be rotated with subsequent helm update commands to prevent breaking the database.
+### Installing the TimescaleDB Helm chart
+1.  Add the TimescaleDB Helm chart repository:
+    ```bash
+    helm repo add timescale 'https://charts.timescale.com'
+    ```
+1.  Check that the repository is up to date:
+    ```bash
+    helm repo update
+    ```
+1.  Install the Helm chart:
+    ```bash
+    helm install --name my-release charts/timescaledb-single
+    ```
 
-* The credentials for the superuser, admin and stand-by users
-* TLS Certificates
-* pgbackrest config (optional)
+</procedure>
 
-Then you can install the chart with:
-```console
-helm install --name my-release charts/timescaledb-single
-```
-
-You can override parameters using the `--set key=value[,key=value]` argument to `helm install`,
-e.g., to install the chart with backup enabled:
-
-```console
+You can provide arguments to the `helm install` command using this format:
+`--set key=value[,key=value]`. For example, to install the  chart with backups
+enabled, use this command:
+```bash
 helm install --name my-release charts/timescaledb-single --set backup.enabled=true
 ```
 
-Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
-```console
+Alternatively, you can provide a YAML answers file that includes parameters for
+installing the chart, like this:
+```bash
 helm install --name my-release -f myvalues.yaml charts/timescaledb-single
 ```
 
-For details about what parameters you can set, have a look at the [Administrator Guide](admin-guide.md#configure)
+## Install the Promscale Helm chart
+When you have your TimescaleDB Helm chart installed, you can install the
+Promscale Helm chart. Promscale needs to access your TimescaleDB database. You
+can provide the database URI, or specify connection parameters.
 
-### Installing from the Timescale Helm Repo
+<procedure>
 
-We have a Helm Repository that you can use, instead of cloning this Git repo.
+### Installing the Promscale Helm chart
+1.  Add the TimescaleDB Helm chart repository:
+    ```bash
+    helm repo add timescale 'https://charts.timescale.com'
+    ```
+1.  Check that the repository is up to date:
+    ```bash
+    helm repo update
+    ```
+1.  Install the Helm chart:
+    ```bash
+    helm install --name my-release .
+    ```
+1.  Open the `values.yaml` configuration file, and locate the `connection`
+    section. Add or edit this section with your TimescaleDB connection details:
+    <terminal>
 
-First add the repository with:
-```console
-helm repo add timescale 'https://charts.timescale.com'
-```
-> **NOTICE**: Helm chart installation will randomly generate secrets which cannot be rotated with subsequent helm upgrades.
-If you want to use predefined credentials, please set them in `secrets` section of `values.yaml` before running `helm install`.
+    <tab label='Database URI'>
 
-Next proceed to install the chart:
+    ```yaml
+    connection:
+      uri: <TIMESCALE_DB_URI>
+    ```
 
-```console
-helm install my-release .
-```
+    </tab>
 
-To keep the repo up to date with new versions you can do:
-```console
-helm repo update
-```
+    <tab label="Connection parameters">
 
-## Install Promscale
+    ```yaml
+    connection:
+      user: postgres
+      password: ""
+      host: db.timescale.svc.cluster.local
+      port: 5432
+      sslMode: require
+      dbName: timescale
+    ```
 
-### Prerequisites
+    </tab>
 
-For promscale to work correctly it needs a set of data to connect to timescale database. This
-configuration can be supplied in two ways either by using DB URI or by specifying connection
-parameters. Options are mutually exclusive and specifying URI takes priority.
+    </terminal>
 
-### Using DB URI
+</procedure>
 
-You can use db uri to connect to TimescaleDB. To do so, specify the URI in values.yaml as follows:
-```yaml
-connection:
-  uri: <TIMESCALE_DB_URI>
-```
-
-### Using Connection Parameters
-
-Instead of using db uri, you can specify all parameters necessary for connecting promscale to timescaledb using `connection` map.
-Bear in mind that timescale database should exist before starting promscale or at least credentials should be available.
-
-Following are the default configuration values:
-
-```yaml
-connection:
-  user: postgres
-  password: ""
-  host: db.timescale.svc.cluster.local
-  port: 5432
-  sslMode: require
-  dbName: timescale
-```
-
-### Installation
-
-To install the chart with the release name `my-release`:
-```shell script
-helm install --name my-release .
-```
-
-You can override parameters using the `--set key=value[,key=value]` argument
-to `helm install`, e.g. to install the chart with specifying a previously created
-secret `timescale-secret` and an existing TimescaleDB instance:
-```shell script
+You can provide arguments to the `helm install` command using this format:
+`--set key=value[,key=value]`. For example, to install the chart with a secret you have already created, and an existingg TimescaleDB service, use this command:
+```bash
 helm install --name my-release . \
       --set connection.password.secretTemplate="timescale-secret"
       --set connection.host.nameTemplate="timescaledb.default.svc.cluster.local"
 ```
 
-You can also install by referencing the db uri secret:
-
-```shell script
+You can also provide the database URI as an argument to the `helm install` command, instead of editing the `values.yaml` configuration file, like this:
+```bash
 helm install --name my-release . \
       --set connection.dbURI.secretTemplate="timescale-secret"
 ```
 
-Alternatively, a YAML file the specifies the values for the parameters can be provided
-while installing the chart. For example:
-```shell script
+Alternatively, you can provide a YAML answers file that includes parameters for
+installing the chart, like this:
+```bash
 helm install --name my-release -f myvalues.yaml .
 ```
+
+
+[helm-install]: https://helm.sh/docs/intro/install/
