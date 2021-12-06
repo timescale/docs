@@ -60,7 +60,7 @@ When you have Promscale running in a container, you can begin collecting metrics
 ## Install Prometheus
 When you are succecssdfully receiving metrics from your Promscale instalaltion, you can install Prometheus and configure it to garther the metrics data.
 
-<prcoedure>
+<procedure>
 
 ### Installing Prometheus
 
@@ -97,6 +97,8 @@ When you are succecssdfully receiving metrics from your Promscale instalaltion, 
         prom/prometheus
     ```
 
+</procedure>
+
 ## Install Promscale with a Docker compose file
 You can use a Docker compose file to create containers for TimescaleDB, Promscale, and the `node_exporter`, using a single command. To help you get started, we have created a sample Docker compose file, available from the [Promscale GitHub repository][promscale-docker-compose].
 
@@ -112,6 +114,8 @@ Before you begin, make sure that you have the `prometheus.yml` configuration fil
     ```bash
     docker-compose up
     ```
+
+</procedure>
 
 [promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
 [docker-install]: https://docs.docker.com/get-docker/
