@@ -12,7 +12,21 @@ module.exports = [
         href: 'about-promscale',
         tags: ['promscale', 'learn', 'analytics', 'prometheus'],
         keywords: ['Promscale', 'analytics'],
-        excerpt: "Learn how Promscale extracts metrics from your TimescaleDB instance"
+        excerpt: 'Learn how Promscale extracts metrics from your TimescaleDB instance'
+      },
+      {
+        title: 'Promscale benefits',
+        href: 'promscale-benefits',
+        tags: ['promscale', 'learn', 'analytics', 'prometheus'],
+        keywords: ['Promscale', 'analytics'],
+        excerpt: 'Learn about the benefits of Promscale',
+      },
+      {
+        title: 'How Promscale works',
+        href: 'promscale-how-it-works',
+        tags: ['promscale', 'learn', 'analytics', 'prometheus'],
+        keywords: ['Promscale', 'analytics'],
+        excerpt: 'Learn about how Promscale works',
       },
       {
         title: 'Install Promscale',
@@ -49,32 +63,12 @@ module.exports = [
         ],
       },
       {
-        title: 'Tutorials',
-        href: 'tutorials',
-        children: [
-          {
-            title: 'Promscale benefits tutorial',
-            href: 'promscale-benefits',
-            tags: ['promscale', 'learn', 'analytics', 'prometheus'],
-            keywords: ['Promscale', 'analytics', 'tutorial'],
-            excerpt: 'Learn about the benefits of Promscale',
-          },
-          {
-            title: 'How Promscale works tutorial',
-            href: 'promscale-how-it-works',
-            tags: ['promscale', 'learn', 'analytics', 'prometheus'],
-            keywords: ['Promscale', 'analytics', 'tutorial'],
-            excerpt: 'Learn about how Promscale works',
-          },
-          {
-            title: 'Run Queries in Promscale tutorial',
-            href: 'promscale-run-queries',
-            tags: ['promscale', 'learn', 'analytics', 'prometheus'],
-            keywords: ['Promscale', 'analytics', 'tutorial'],
-            excerpt: "Learn about running queries in Promscale"
-          }
-        ]
+        title: 'Run Queries in Promscale',
+        href: 'promscale-run-queries',
+        tags: ['promscale', 'analytics', 'prometheus'],
+        keywords: ['Promscale', 'analytics'],
+        excerpt: 'Learn about running queries in Promscale'
       }
-    ]
+    ],
   }
 ]
