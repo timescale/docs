@@ -8,7 +8,8 @@ that any chunks that are dropped in the region still being refreshed by the
 continuous aggregate causes the chunk data to disappear from the aggregate as
 well. If the intent is to keep the aggregate while dropping the underlying data,
 the interval being dropped should not overlap with the offsets for the continuous
-aggregate.
+aggregate. For more information, see the [troubleshooting section][troubleshooting].
+
 
 As an example, let's add a continuous aggregate to our `conditions` hypertable:
 ```sql
@@ -45,7 +46,7 @@ this to also drop the aggregate data after 600 days:
 SELECT add_retention_policy('conditions_summary_daily', INTERVAL '600 days');
 ```
 
-
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
 [continuous_aggregates]: /how-to-guides/continuous-aggregates
+[troubleshooting]: /how-to-guides/continuous-aggregates/troubleshooting/
