@@ -1,22 +1,26 @@
-## Using `timescaledb-tune`
-
-To streamline the configuration process, we've created a tool called
+# TimescaleDB tuning tool
+To help make configuring TimescaleDB a little easier, we created a tool called
 [`timescaledb-tune`][tstune] that handles setting the most common parameters to
-good values based on your system, accounting for memory, CPU, and PostgreSQL
-version. `timescaledb-tune` is packaged along with our binary releases as
-a dependency, so if you installed one of our binary releases (including
-Docker), you should have access to the tool. Alternatively, with a standard
-Go environment, you can also `go get` the repository to install it.
+good values based on your system. It accounts for memory, CPU, and PostgreSQL
+version. `timescaledb-tune` is packaged along with our binary releases as a
+dependency, so if you installed TimescaleDB from a binary release (including
+Docker), you should already have access to the tool. Alternatively, you can use
+the `go get` command to install it:
 
-`timescaledb-tune` reads your system's `postgresql.conf` file and offers
-interactive suggestions for updating your settings:
+```bash
+go get timescaledb_tune
 ```
+
+The `timescaledb-tune` tool reads your system's `postgresql.conf` file and offers
+interactive suggestions for your settings. Here is an example of the tool running:
+
+```bash
 Using postgresql.conf at this path:
 /usr/local/var/postgres/postgresql.conf
 
 Is this correct? [(y)es/(n)o]: y
 Writing backup to:
-/var/folders/cr/zpgdkv194vz1g5smxl_5tggm0000gn/T/timescaledb_tune.backup201901071520
+/var/folders/cr/example/T/timescaledb_tune.backup202101071520
 
 shared_preload_libraries needs to be updated
 Current:
@@ -27,7 +31,7 @@ Is this okay? [(y)es/(n)o]: y
 success: shared_preload_libraries will be updated
 
 Tune memory/parallelism/WAL and other settings? [(y)es/(n)o]: y
-Recommendations based on 8.00 GB of available memory and 4 CPUs for PostgreSQL 11
+Recommendations based on 8.00 GB of available memory and 4 CPUs for PostgreSQL 12
 
 Memory settings recommendations
 Current:
@@ -43,20 +47,12 @@ work_mem = 26214kB
 Is this okay? [(y)es/(s)kip/(q)uit]:
 ```
 
-These changes are then written to your `postgresql.conf` and take effect
-on the next (re)start. If you are starting on fresh instance and don't feel
-the need to approve each group of changes, you can also automatically accept
-and append the suggestions to the end of your `postgresql.conf` like so:
+When you have answered the questions, the changes are written to your `postgresql.conf` and take effect when you next restart.
+
+If you are starting on a fresh instance and don't want to approve each group of changes, you can automatically accept and append the suggestions to the end of your `postgresql.conf` by using some additional flags when you run the tool:
 ```bash
 $ timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
 ```
 
 
 [tstune]: https://github.com/timescale/timescaledb-tune
-[pgtune]: http://pgtune.leopard.in.ua/
-[async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
-[docker]: /how-to-guides/install-timescaledb//docker/installation-docker
-[wale]: /how-to-guides/backup-and-restore/docker-and-wale/
-[chunk_detailed_size]: /api/:currentVersion:/hypertable/chunk_detailed_size

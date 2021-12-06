@@ -48,15 +48,25 @@ to a specific data node based on the distributed hypertable's partitioning. The
 access node then writes each batch of rows to the correct data node.
 
 ### Using the INSERT function on distributed hypertables
-When you use the [`INSERT`][insert] function on a distributed hypertable, the
-access node sets up a multi-row prepared statement on each data node and then
-splits the original insert statement across these sub-statements. The access
-node can buffer up to `timescaledb.max_insert_batch_size` number of rows
-(default 1000) per data node before a prepared statement's limit is reached and
-gets flushed to the data node. For example, if there are 10,000 rows in the
-original `INSERT` statement and three data nodes with the default insert batch
-size, the `INSERT` would require around three full batches per data node and a
-partial final batch.
+When you use the [`INSERT`][insert] statement on a distributed
+hypertable, the access node tries to convert that into a more
+efficient [`COPY`][copy] between the access node and the data nodes
+However, this optimized plan won't work if the `INSERT`
+statement has a `RETURNING` clause, and the distributed hypertable has
+triggers that could alter the returned data. In that case, the planner
+falls back to a less efficient plan that uses a multi-row prepared
+statement on each data node and then splits the original insert
+statement across these sub-statements. You can run an
+[`EXPLAIN`][explain] on the `INSERT` to view the plan that the access
+node chooses.
+
+For the non-optimized plan, the access node can buffer up to
+`timescaledb.max_insert_batch_size` number of rows (default 1000) per
+data node before a prepared statement's limit is reached and gets
+flushed to the data node. For example, if there are 10,000 rows in the
+original `INSERT` statement and three data nodes with the default
+insert batch size, the `INSERT` requires around three full
+batches per data node and a partial final batch.
 
 You can optimize the throughput by tuning the insert batch size. The maximum
 insert batch size is limited by the maximum number of parameters allowed in a
@@ -70,6 +80,90 @@ node switches each data node to copy mode and then routes each row to the
 correct data node in a stream. `COPY` usually delivers better performance than
 `INSERT`, although it doesn't support features like conflict handling (`ON
 CONFLICT` clause) that are used for [upserts][upserts].
+
+## Using triggers on distributed hypertables
+Triggers on distributed hypertables work in a similar way to triggers on
+regular hypertables, including having the same limitations. However,
+due to data and tables being distributed across many data nodes, there
+are some notable differences compared to regular hypertables:
+
+* Row-level triggers fire on the data node where a row is inserted
+* Statement-level triggers fire once on each affected node,
+  including the access node
+* A replication factor greater than 1 further increases the number of
+  nodes that a trigger fires on. This is because each replica node fires the
+  trigger.
+
+### Creating triggers
+A trigger is created on distributed hypertables with [`CREATE
+TRIGGER`][create-trigger] as normal. The trigger is automatically
+created on each data node, including the function that the trigger
+executes. However, any other functions or objects referenced in the
+trigger function need to be present on all nodes prior to creating the
+trigger. To create a referenced function or other object on all data
+nodes, use the [`distributed_exec`][dist_exec] procedure. Once all
+dependencies are in place, a trigger function can be created on the
+access node:
+```sql
+CREATE OR REPLACE FUNCTION my_trigger_func()
+	RETURNS TRIGGER LANGUAGE PLPGSQL AS
+$BODY$
+BEGIN
+	RAISE NOTICE 'trigger fired';
+	RETURN NEW;
+END
+$BODY$;
+```
+followed by the trigger itself:
+```sql
+CREATE TRIGGER my_trigger
+	AFTER INSERT ON hyper
+	FOR EACH ROW
+	EXECUTE FUNCTION my_trigger_func();
+```
+
+### Row-level triggers
+Row-level triggers are executed on the data node where the data is
+stored, because `BEFORE` and `AFTER` row triggers need access to the
+stored data. The chunks on the access node do not contain any data and
+therefore also have no triggers.
+
+### Statement-level triggers
+Statement-level triggers execute once on each node affected by
+the statement. This includes the access node and any affected data
+nodes. For instance, if a distributed hypertable includes three data
+nodes, an `INSERT` of two rows of data executes a statement-level
+insert trigger on the access node and at most two of the data nodes
+(if the two rows go to different data nodes).
+
+To avoid processing the trigger multiple times, we recommend that
+you set the trigger function to check which node it is executing on, to ensure
+that the trigger action only affects the desired node. For example,
+to have a statement-level trigger do something different on the access
+node compared to a data node, you can define a statement-level trigger
+function like this:
+```sql
+CREATE OR REPLACE FUNCTION my_trigger_func()
+	RETURNS TRIGGER LANGUAGE PLPGSQL AS
+$BODY$
+DECLARE
+	is_access_node boolean;
+BEGIN
+	SELECT is_distributed INTO is_access_node
+	FROM timescaledb_information.hypertables
+	WHERE hypertable_name = TG_TABLE_NAME
+	AND hypertable_schema = TG_TABLE_SCHEMA;
+
+	IF is_access_node THEN
+	   RAISE NOTICE 'trigger fired on the access node';
+	ELSE
+	   RAISE NOTICE 'trigger fired on a data node';
+	END IF;
+
+	RETURN NEW;
+END
+$BODY$;
+```
 
 ## Querying a distributed hypertable
 The query performance of a distributed hypertable depends heavily on the ability
@@ -121,6 +215,9 @@ groupings, and joins. Joins on data nodes are currently unsupported, however. To
 see how a query is pushed down to a data node, use `EXPLAIN VERBOSE` on the
 query and inspect the query plan and the remote SQL statement sent to each data
 node.
+
+If you intend to use continuous aggregates in your multi-node environment, check
+the additional considerations in the [continuous aggregates][caggs] section.
 
 ### Limitations of pushing down queries
 The query planner might not always be able to push down queries, or can only push down parts of it. There are several reasons why this might happen.
@@ -185,4 +282,8 @@ For more information about partitioning distributed hypertables, see the
 [upserts]: /how-to-guides/write-data/upsert/
 [insert]: https://www.postgresql.org/docs/current/sql-insert.html
 [copy]: https://www.postgresql.org/docs/current/sql-copy.html
+[create-trigger]: https://www.postgresql.org/docs/current/sql-createtrigger.html
 [about-multinode]: /how-to-guides/multinode-timescaledb/about-multinode/
+[explain]: https://www.postgresql.org/docs/current/sql-explain.html
+[dist_exec]:  /api/:currentVersion:/distributed-hypertables/distributed_exec
+[caggs]: timescaledb/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
