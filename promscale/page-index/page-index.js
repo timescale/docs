@@ -69,6 +69,6 @@ module.exports = [
         keywords: ['Promscale', 'analytics'],
         excerpt: 'Learn about running queries in Promscale'
       }
-    ],
+    ]
   }
 ]
