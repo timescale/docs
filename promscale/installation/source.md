@@ -1,86 +1,80 @@
-# 🔟 Promscale installation using Binaries
+# Promscale from source
+You can install Promscale from source on any operating system. The Promscale
+source files are available from our
+[GitHub releases page][gh-promscale-download].
 
-## 🔧 Installing pre-built binaries
+Before you begin, you must have an already installed and working Prometheus
+environment. Additionally, you need a
+[self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
 
-You can download pre-built binaries for the Promscale
-Connector [from our release page](https://github.com/timescale/promscale/releases).
+## Install Promscale from source
+In this procedure, you download the Promscale source files and run them.
 
-Download Promscale
+<procedure>
 
-```
-curl -L -o promscale https://github.com/timescale/promscale/releases/download/<VERSION>/<PROMSCALE_DISTRIBUTION>
-```
+### Installing Promscale from source
+1.  At the command prompt, as root, download the appropriate source files for
+    your operating system:
+    ```bash
+    curl -L -o promscale https://github.com/timescale/promscale/releases/download/<VERSION>/<PROMSCALE_DISTRIBUTION>
+    ```
+1.  Grant executable permissions on the `promscale` directory:
+    ```bash
+    chmod +x promscale
+    ```
+1.  Run Promscale by providing the connection details for your TimescaleDB
+    service:
+    ```bash
+    ./promscale --db-name <DBNAME> --db-password <DBPASSWORD> --db-ssl-mode allow
+    ```
 
-Grant executable permissions to Promscale:
+    <highlight type="note">
+    In this example, Promscale is deployed with SSL allowed but not required. If
+    you need SSL mode enabled, configure your TimescaleDB instance with SSL
+    certificates and do not use `--db-ssl-mode` flag. Promscale authenticates
+    using SSL by default.
+    </highlight>
 
-```
-chmod +x promscale
-```
+</procedure>
 
-To deploy Promscale, run the following command:
-```
-./promscale --db-name <DBNAME> --db-password <DB-Password> --db-ssl-mode allow
-```
-Note that the flags `db-name` and `db-password` refer to the name and password of your TimescaleDB database.
+## Install the remote storage connector
+When you have installed Promscale, you need to install the remote storage
+connector, and configure Prometheus to use it.
 
-Further note that the command above is to deploy Promscale with SSL mode being allowed but not required. To deploy Promscale with SSL mode enabled, configure your TimescaleDB instance with ssl certificates and drop the `--db-ssl-mode` flag.  Promscale will then authenticate via SSL by default.
+Before you begin, make sure you have Go installed. For more information,
+including packages and installation instructions, see the
+[Go documentation][go-install].
 
-We recommend installing the [promscale](https://github.com/timescale/promscale_extension/releases)
-PostgreSQL extension into the TimescaleDB database you are connecting to.
-Instructions on how to compile and install the extension are in the
-extensions [README](https://github.com/timescale/promscale_extension/blob/master/Readme.md). While this isn't a requirement, it
-does optimize certain queries.
-Please note that the extension requires Postgres version 12 of newer.
+<procedure>
 
-## 🔥 Configuring Prometheus to use this remote storage connector
+### Installing the remote storage connector
 
-You must tell prometheus to use this remote storage connector by adding
-the following lines to `prometheus.yml`:
-```yaml
-remote_write:
-  - url: "http://<connector-address>:9201/write"
-remote_read:
-  - url: "http://<connector-address>:9201/read"
-    read_recent: true
-```
+1.  Clone the Promscale repository, and change into the new directory:
+    ```bash
+    git clone git@github.com:timescale/promscale.git
+    cd ./promscale
+    ```
+1.  Install the Promscale Connector binary:
+    ```bash
+    go install
+    ```
+1.  Open the `prometheus.yml` configuration file, and add or edit these lines:
+    ```yaml
+    remote_write:
+      - url: "http://<connector-address>:9201/write"
+    remote_read:
+      - url: "http://<connector-address>:9201/read"
+        read_recent: true
+    ```
 
-**Note:** Setting `read_recent` to `true` will make Prometheus query data from Promscale for all PromQL queries. This is highly recommended.
+    <highlight type="note">
+    Setting `read_recent` to `true` ensures that Prometheus queries data from
+    Promscale for all PromQL queries. This is highly recommended.
+    </highlight>
 
-You can configure Prometheus remote-write with our recommended configurations from [here](/docs/configuring_prometheus.md).
+</procedure>
 
-## ⚙️ Configuration
 
-The Promscale Connector binary is configured through either CLI flags, environment variables, or a YAML configuration file. 
-Precedence goes like this: CLI flag value, if not set, environment variable value, if not set, configuration file value, if not set, default value.
-
-All environment variables are prefixed with `PROMSCALE`.
-
-Configuration file is a YAML file where the keys are CLI flag names and values are their respective flag values.
-
-The list of available cli flags is available in [here](/docs/cli.md) in
-our docs or by running with the `-h` flag (e.g. `promscale -h`)
-
-## 🛠 Building from source
-
-Before building, make sure the following prerequisites are installed:
-
-* [Go](https://golang.org/dl/)
-
-The Promscale Connector is a Go project managed by go
-modules. You can download it in
-any directory and on the first build it will download it's required
-dependencies.
-
-```bash
-# Fetch the source code of Promscale in any directory
-$ git clone git@github.com:timescale/promscale.git
-$ cd ./promscale
-
-# Install the Promscale Connector binary (will automatically detect and download)
-# dependencies.
-$ cd cmd/promscale
-$ go install
-
-# Building without installing will also fetch the required dependencies
-$ go build ./...
-```
+[gh-promscale-download]: https://github.com/timescale/promscale/releases
+[tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
+[go-install]: https://golang.org/dl/

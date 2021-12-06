@@ -28,9 +28,14 @@ You can install Promscale in several different ways:
 *   If you only need the Promscale Connector, you can install it
     [from a Helm chart][promscale-connector-install-helm].
 
+You can also install Promscale as an extension to your TimescaleDB database,
+which can  help to optimize some queries. For more information, see the
+[Timescale extensions developer documentation][gh-tsdb-extensions].
+
 
 [promscale-install-prommigrator]: promscale/installation/prom-migrator/
 [promscale-install-docker]: promscale/installation/docker/
 [promscale-install-source]: promscale/installation/source/
 [promscale-install-tobs]: promscale/installation/tobs/
 [promscale-connector-install-helm]: promscale/installation/helm/
+[gh-tsdb-extensions]: https://github.com/timescale/promscale_extension/blob/master/Readme.md
