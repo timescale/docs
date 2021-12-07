@@ -48,7 +48,7 @@ module.exports = [
           },
           {
             title: 'Install Kubernetes',
-            href: 'kubernetes',
+            href: 'tobs',
             tags: ['promscale', 'install', 'analytics', 'k8s'],
             keywords: ['Promscale', 'analytics', 'Kubernetes,'],
             excerpt: "Install Kubernetes for Promscale"

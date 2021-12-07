@@ -102,17 +102,17 @@ can provide the database URI, or specify connection parameters.
 </procedure>
 
 You can provide arguments to the `helm install` command using this format:
-`--set key=value[,key=value]`. For example, to install the chart with a secret you have already created, and an existingg TimescaleDB service, use this command:
+`--set key=value[,key=value]`. For example, to install the chart with a secret you have already created, and an existing TimescaleDB service, use this command:
 ```bash
 helm install --name my-release . \
-      --set connection.password.secretTemplate="timescale-secret"
-      --set connection.host.nameTemplate="timescaledb.default.svc.cluster.local"
+      --set connectionSecretName="timescale-secret"
+      --set connection.host="timescaledb.default.svc.cluster.local"
 ```
 
 You can also provide the database URI as an argument to the `helm install` command, instead of editing the `values.yaml` configuration file, like this:
 ```bash
 helm install --name my-release . \
-      --set connection.dbURI.secretTemplate="timescale-secret"
+      --set connection.uri="<URI>"
 ```
 
 Alternatively, you can provide a YAML answers file that includes parameters for
@@ -121,23 +121,33 @@ installing the chart, like this:
 helm install --name my-release -f myvalues.yaml .
 ```
 
-## FIXME Install the Prometheus Helm chart
+## Install the Prometheus Helm chart
 When you have installed the TimescaleDB and Promscale Helm charts, you can install the Prometheus Helm chart.
 
 <procedure>
 
-### FIXME Installing the Prometheus Helm chart
-1.  Add the TimescaleDB Helm chart repository:
+### Installing the Prometheus Helm chart
+1.  Add the Prometheus community Helm chart repository:
     ```bash
-    helm repo add timescale 'https://charts.timescale.com'
+    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
     ```
 1.  Check that the repository is up to date:
     ```bash
     helm repo update
     ```
+1.  Configure the remote-read and write endpoints in Prometheus server configuration. As we are using 
+    Prometheus helm chart configure this values in `values.yaml` file as:
+    ```bash
+    server:
+      remote_write:
+        - url: "http://promscale:9201/write"
+      remote_read:
+        - url: "http://promscale:9201/read"
+          read_recent: true
+     ```
 1.  Install the Prometheus Helm chart:
     ```bash
-    helm install --name my-release charts/timescaledb-single
+    helm install [RELEASE_NAME] prometheus-community/prometheus -f values.yaml
     ```
 
 </procedure>
