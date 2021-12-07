@@ -1,40 +1,29 @@
-# Running queries using Promscale
+# Run queries with Promscale
+You can use Promscale to run queries in SQL and in PromQL.
 
-Promscale offers the combined power of PromQL and SQL, enabling you to ask any
-question, create any dashboard, and achieve greater visibility into the systems
-you monitor.
+SQL queries are handled directly by TimescaleDB. PromQL queries can be directed
+to the Promscale Connector. Alternatively, you can direct PromQL queries to the
+Prometheus instance, which reads data from the Connector using the `remote_read`
+interface. The Connector, in turn, fetches data from TimescaleDB.
 
-In the configuration used in [Installing Promscale][promscale-install], Prometheus scrapes the Node Exporter every 10s and metrics are stored in both Prometheus and TimescaleDB, via Promscale.
+## SQL queries in Promscale
+You can run SQL queries in Promscale with your preferred SQL tool. In this
+section, we use `psql`. For more information about installing and using `psql`,
+see the [installing psql section][install-psql].
 
-This section illustrates how to run simple and complex SQL queries against Promscale, as well as queries in PromQL.
-
-## SQL queries in Promscale [](sql-queries)
-
-You can query Promscale in SQL from your favorite favorite SQL tool or using psql:
-
-```bash
-docker exec -it timescaledb psql postgres postgres
-```
-
-The above command first enters our timescaledb docker container (from Step 3.1 above) and creates an interactive terminal to it. Then it opens up`psql`, a terminal-based front end to PostgreSQL (More information on psql -- [psql docs][].
-
-Once inside, we can now run SQL queries and explore the metrics collected by Prometheus and Promscale
-
-### Querying a metric [](querying-metric)
-
-Queries on metrics are performed by querying the view named after the metric you're interested in.
-
-In the example below, we query a metric named `go_dc_duration` for its samples in the past 5 minutes. This metric is a measurement for how long garbage collection is taking in Golang applications:
-
+### Query a metric
+When you query a metric, the query is performed against the view of the metric
+you're interested in. This example queries a metric named `go_dc_duration` for
+its samples in the past five minutes. This metric is a measurement for how long
+garbage collection is taking in Go applications:
 ``` sql
 SELECT * from go_gc_duration_seconds
 WHERE time > now() - INTERVAL '5 minutes';
 ```
 
-Here is a sample output for the query above (your output might differ):
-
+An example of the output for this query:
 ``` bash
-            time            |    value    | series_id |      labels       | instance_id | job_id | quantile_id
+time            |    value    | series_id |      labels       | instance_id | job_id | quantile_id
 ----------------------------+-------------+-----------+-------------------+-------------+--------+-------------
  2021-01-27 18:43:42.389+00 |           0 |       495 | {208,43,51,212}   |          43 |     51 |         212
  2021-01-27 18:43:42.389+00 |           0 |       497 | {208,43,51,213}   |          43 |     51 |         213
@@ -43,20 +32,27 @@ Here is a sample output for the query above (your output might differ):
  2021-01-27 18:43:42.389+00 |           0 |       500 | {208,43,51,216}   |          43 |     51 |         216
 ```
 
-Each row returned contains a number of different fields:
-* The most important fields are `time`, `value` and `labels`.
-* Each row has a `series_id` field, which uniquely identifies its measurements label set. This enables efficient aggregation by series.
-* Each row has a field named `labels`. This field contains an array of foreign key to label key-value pairs making up the label set.
-* While the `labels` array is the entire label set, there are also seperate fields for each label key in the label set, for easy access. These fields end with the suffix `_id` .
+In this output, each row includes a `series_id` field, which uniquely identifies
+its measurements label set. This enables efficient aggregation by series.
 
-### Querying values for label keys [](querying-value-label-key)
+Each row also includes a `labels` field, which contains an array of foreign keys
+to label key-value pairs making up the label set.
 
-As explained in the last bullet point above, each label key is expanded out into its own column storing foreign key identifiers to their value, which allows us to JOIN, aggregate and filter by label keys and values.
+While the `labels` array is the entire label set, there are also separate fields
+for each label key in the label set, to simplify access. These fields end with
+the suffix `_id` .
 
-To get back the text represented by a label id, use the `val(field_id)` function. This opens up nifty possibilities such as aggregating across all series with a particular label key.
+### Query values for label keys
+Each label key is expanded into its own column, which stores foreign key
+identifiers to their value. This allows you to `JOIN`, aggregate, and filter by
+label keys and values.
 
-For example, take this example, where we find the median value for the `go_gc_duration_seconds` metric, grouped by the job associated with it:
+To retrieve the text represented by a label ID, you can use the `val(field_id)`
+function. This allows you to do things like aggregation across all series with a
+particular label key.
 
+For example, to find the median value for the `go_gc_duration_seconds` metric,
+grouped by the job associated with it:
 ``` sql
 SELECT
     val(job_id) as job,
@@ -68,7 +64,7 @@ WHERE
 GROUP BY job_id;
 ```
 
-Sample Output:
+An example of the output for this query:
 ``` bash
       job      |  median
 ---------------+-----------
@@ -76,12 +72,11 @@ Sample Output:
  node-exporter | 0.0002631
 ```
 
-### Querying label sets for a metric [](querying-label-set)
-
-As explained in [How Promscale works][promscale-how-it-works], the `labels` field in any metric row represents the full set of labels associated with the measurement and is represented as an array of identifiers.
-
-To return the entire labelset in JSON, we can apply the `jsonb()` function, as in the example below:
-
+### Query label sets for a metric
+The `labels` field in any metric row represents the full set of labels
+associated with the measurement. It is represented as an array of identifiers.
+To return the entire labelset in JSON, you can use the `jsonb()` function, like
+this:
 ``` sql
 SELECT
     time, value, jsonb(labels) as labels
@@ -91,10 +86,9 @@ WHERE
     time > now() - INTERVAL '5 minutes';
 ```
 
-Sample Output:
-
+An example of the output for this query:
 ```sql
-            time            |    value    |                                                        labels                                                        
+time            |    value    |                                                        labels                                                        
 ----------------------------+-------------+----------------------------------------------------------------------------------------------------------------------
  2021-01-27 18:43:48.236+00 | 0.000275625 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}
  2021-01-27 18:43:48.236+00 | 0.000165632 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.25"}
@@ -103,12 +97,14 @@ Sample Output:
  2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "1"}
  2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.5"}
 ```
-This query returns the label set for the metric `go_gc_duration` in JSON format. It can then be read or further interacted with.
 
-### Advanced query: percentiles aggregated over time and series [](querying-percentile)
+This query returns the label set for the metric `go_gc_duration` in JSON format,
+so you can read or further interact with it.
 
-The query below calculates the 99th percentile over both time and series (`app_id`) for the metric named `go_gc_duration_seconds`. This metric is a measurement for how long garbage collection is taking in Go applications:
-
+### Advanced query: percentiles aggregated over time and series
+This query calculates the 99th percentile over both time and series (`app_id`)
+for the metric named `go_gc_duration_seconds`. This metric is a measurement for
+how long garbage collection is taking in Go applications:
 ``` sql
 SELECT
     val(instance_id) as app,
@@ -121,7 +117,7 @@ GROUP BY instance_id
 ORDER BY p99 desc;
 ```
 
-Sample Output:
+An example of the output for this query:
 ```sql
         app         |     p99     
 --------------------+-------------
@@ -129,11 +125,15 @@ Sample Output:
  localhost:9090     |  0.00097977
 ```
 
-The query above is uniquely enabled by Promscale, as it aggregates over both time and series and returns an accurate calculation of the percentile. Using only a PromQL query, it is not possible to accurately calculate percentiles when aggregating over both time and series.
+This query is unique to Promscale, as it aggregates over both time and series
+and returns an accurate calculation of the percentile. It is not possible to use
+PromQL alone to accurately calculate percentiles when aggregating over both time
+and series.
 
-The query above is just one example of the kind of analytics Promscale can help you perform on your Prometheus monitoring data.
 
-### Filtering by labels [](query-filter-by-labels)
+<!--- Lana, you're up to here! --LKB 2021-12-07-->
+
+### Filter by labels
 To simplify filtering by labels, we created operators corresponding to the selectors in PromQL.
 
 Those operators are used in a `WHERE` clause of the form `labels ? (<label_key> <operator> <pattern>)`
@@ -320,3 +320,7 @@ Now that you're up and running with Promscale, here are more resources to help y
 [promscale-how-it-works]: /tutorials/promscale/promscale-how-it-works/
 [promscale-install]: /tutorials/promscale/promscale-install/
 [promscale-run-queries]: /tutorials/promscale/promscale-run-queries/
+
+
+
+[install-psql]: timescaledb/:currentVersion:/how-to-guides/connecting/psql/

@@ -26,10 +26,10 @@ efficiently store and query your metrics using SQL. Prometheus writes data to
 the Promscale Connector using the Prometheus `remote_write` interface, and the
 Connector writes data to TimescaleDB.
 
-PromQL queries can be directed to the Connector directly. Alternatively, you can
-direct PromQL queries to the Prometheus instance, which reads data from the
-Connector using the `remote_read` interface. The Connector, in turn, fetches
-data from TimescaleDB. SQL queries are handled by TimescaleDB directly.
+SQL queries are handled directly by TimescaleDB. PromQL queries can be directed
+to the Promscale Connector. Alternatively, you can direct PromQL queries to the
+Prometheus instance, which reads data from the Connector using the `remote_read`
+interface. The Connector, in turn, fetches data from TimescaleDB. 
 
 ## Architecture
 Promscale includes two components:
