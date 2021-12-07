@@ -6,13 +6,17 @@ operationally mature platform for Prometheus data that uses PromQL and SQL to
 allow you to ask any question, create any dashboard, and achieve greater
 visibility into your systems.
 
-*   [Learn about Promscale][about-promscale] to understand how it works before you begin using it.
+*   [Learn about Promscale][about-promscale] to understand how it works before
+    you begin using it.
+*   Learn about [Promscale benefits][promscale-benefits] to understand how it
+    can be useful in your environment.
 *   [Install Promscale][install-promscale].
-*   Work through the [Promscale tutorials][tutorial-promscale].
+*   Use Promscale to [run queries][promscale-run-queries].
 
-For more documentation, see our [developer documentation][promscale-gh-docs].
+For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
 
 [about-promscale]: promscale/about-promscale
 [install-promscale]: promscale/install-promscale
-[tutorial-promscale]: timescaledb/:currentVersion:/tutorials/promscale/
+[promscale-benefits]: promscale/promscale-benefits/
+[promscale-run-queries]: promscale/promscale-run-queries/
