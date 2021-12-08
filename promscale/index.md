@@ -12,6 +12,7 @@ visibility into your systems.
     can be useful in your environment.
 *   [Install Promscale][install-promscale].
 *   Use Promscale to [run queries][promscale-run-queries].
+*   Use Promscale with [visualization tools][promscale-visualization].
 
 For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
@@ -20,3 +21,4 @@ For more about Promscale, see our [developer documentation][promscale-gh-docs].
 [install-promscale]: promscale/install-promscale
 [promscale-benefits]: promscale/promscale-benefits/
 [promscale-run-queries]: promscale/promscale-run-queries/
+[promscale-visualization]: promscale/promscale-visualization/
