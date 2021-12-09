@@ -17,9 +17,9 @@ visibility into your systems.
 For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
 
-[about-promscale]: promscale/about-promscale
-[install-promscale]: promscale/install-promscale
-[promscale-benefits]: promscale/promscale-benefits/
-[promscale-run-queries]: promscale/promscale-run-queries/
-[promscale-visualization]: promscale/promscale-visualization/
+[about-promscale]: promscale/:currentVersion:/about-promscale
+[install-promscale]: promscale/:currentVersion:/install-promscale
+[promscale-benefits]: promscale/:currentVersion:/promscale-benefits/
+[promscale-run-queries]: promscale/:currentVersion:/promscale-run-queries/
+[promscale-visualization]: promscale/:currentVersion:/promscale-visualization/
 [promscale-gh-docs]: https://github.com/timescale/promscale/
