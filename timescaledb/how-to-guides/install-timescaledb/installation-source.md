@@ -31,7 +31,7 @@ If you are installing from source on a Microsoft Windows system, you also need:
 1.  Checkout the latest release. You can find the latest release tag on
     our [Releases page][gh-releases]:
     ```bash
-    git checkout 2.5.0
+    git checkout 2.5.1
     ```
 1.  Bootstrap the build system:
     <terminal>
@@ -178,7 +178,7 @@ installed it yet, check out our [installing psql][install-psql] section.
     ```
 1.  Connect to the database you created:
     ```sql
-    \c tutorial
+    \c example
     ```
 1.  Add the TimescaleDB extension:
     ```sql
@@ -208,7 +208,7 @@ Schema      | pg_catalog
 Description | PL/pgSQL procedural language
 -[ RECORD 3 ]------------------------------------------------------------------
 Name        | timescaledb
-Version     | 2.4.1
+Version     | 2.5.1
 Schema      | public
 Description | Enables scalable inserts and complex queries for time-series data
 -[ RECORD 4 ]------------------------------------------------------------------

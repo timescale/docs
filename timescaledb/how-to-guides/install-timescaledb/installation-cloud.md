@@ -1,7 +1,7 @@
 # Install Timescale Cloud
 Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
 quickly spin up new TimescaleDB instances. You can
-[try Timescale Cloud for free][tsc-sign-up], no credit card required.
+[try Timescale Cloud for free][sign-up], no credit card required.
 
 Powered by [TimescaleDB][timescale-features], Timescale Cloud is an innovative
 and cost-effective way to store and analyze your time-series data. Get started

@@ -1,7 +1,7 @@
 # Install Managed Service for TimescaleDB
 Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
 than 75 regions in AWS, Azure, or GCP. You can
-[try Managed Service for TimescaleDB for free][mst-sign-up], no credit card
+[try Managed Service for TimescaleDB for free][sign-up], no credit card
 required.
 
 Powered by [TimescaleDB][timescale-features], you can create database instances
@@ -109,7 +109,7 @@ Schema      | pg_catalog
 Description | PL/pgSQL procedural language
 -[ RECORD 2 ]------------------------------------------------------------------
 Name        | timescaledb
-Version     | 2.4.2
+Version     | 2.5.1
 Schema      | public
 Description | Enables scalable inserts and complex queries for time-series data
 

@@ -113,7 +113,7 @@ Schema      | pg_catalog
 Description | PL/pgSQL procedural language
 -[ RECORD 3 ]------------------------------------------------------------------
 Name        | timescaledb
-Version     | 2.4.1
+Version     | 2.5.1
 Schema      | public
 Description | Enables scalable inserts and complex queries for time-series data
 -[ RECORD 4 ]------------------------------------------------------------------
