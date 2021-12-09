@@ -24,7 +24,7 @@ packages and instructions, see the
     [the TimescaleDB Docker installation section][tsdb-docker]. Promscale stores
     all metrics data scraped from Prometheus targets in this TimescaleDB service.
 1.  Run the Promscale Docker container. This example creates a TimescaleDB
-    instance called `timescaledb`, on a network named `promscale-timescale`. The
+    instance called `timescaledb`, on a network named `promscale-timescaledb`. The
     container runs in the background, and the container ID is shown after it is
     created. It also port forwards to port `5432` on your local system:
     ```bash
@@ -58,18 +58,19 @@ When you have Promscale running in a container, you can begin collecting metrics
 </procedure>
 
 ## Install Prometheus
-When you are succecssdfully receiving metrics from your Promscale instalaltion, you can install Prometheus and configure it to garther the metrics data.
+When you are successfully generating metrics in `node_exporter`, you can install
+Prometheus, configure it to collect the metrics data from the `node_exporter`,
+and forward the metrics to Promscale.
 
 <procedure>
 
 ### Installing Prometheus
 
-1.  Create a Prometheus configuration file called `prometheus.yml`. You can use
-    this example as a starting point. In this example, Prometheus uses Promscale
-    as its remote storage endpoint by configuring the `remote_read` and
-    `remote_write` settings to the Promscale URLs you set up earlier.
-    Additionally, it sets `node_exporter` as the target, and scrapes every
-    10&nbsp;seconds:
+1.  Create a Prometheus configuration file called `prometheus.yml`. In this
+    example, Prometheus uses Promscale as its remote storage endpoint by
+    configuring the `remote_read` and `remote_write` settings to the Promscale
+    URLs you set up earlier. Additionally, it sets `node_exporter` as the
+    target, and scrapes every 10&nbsp;seconds:
     ```yaml
     global:
      scrape_interval:     10s
@@ -100,9 +101,15 @@ When you are succecssdfully receiving metrics from your Promscale instalaltion, 
 </procedure>
 
 ## Install Promscale with a Docker compose file
-You can use a Docker compose file to create containers for TimescaleDB, Promscale, and the `node_exporter`, using a single command. To help you get started, we have created a sample Docker compose file, available from the [Promscale GitHub repository][promscale-docker-compose].
+You can use a Docker compose file to create containers for TimescaleDB,
+Promscale, and the `node_exporter`, using a single command. To help you get
+started, we have created a sample Docker compose file, available from the
+[Promscale GitHub repository][promscale-docker-compose].
 
-Before you begin, make sure that you have the `prometheus.yml` configuration file in the same directory as `docker-compose.yml`.
+Before you begin, make sure that you have your `prometheus.yml` configuration
+file is in the same directory as `docker-compose.yml`. For more information
+about creating a `prometheus.yml` configuration file, see the
+[Install Prometheus][install-prometheus] step in this section.
 
 <procedure>
 
@@ -119,5 +126,6 @@ Before you begin, make sure that you have the `prometheus.yml` configuration fil
 
 [promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
 [docker-install]: https://docs.docker.com/get-docker/
-[tsdb-docker]: timescaledb/how-to-guides/install-timescaledb/installation-docker.md
+[tsdb-docker]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/installation-docker/
 [gh-node-exporter]: https://github.com/prometheus/node_exporter#node-exporter
+[install-prometheus]: promscale/:currentVersion:/installation/docker#install-prometheus]

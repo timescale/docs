@@ -22,3 +22,4 @@ For more about Promscale, see our [developer documentation][promscale-gh-docs].
 [promscale-benefits]: promscale/promscale-benefits/
 [promscale-run-queries]: promscale/promscale-run-queries/
 [promscale-visualization]: promscale/promscale-visualization/
+[promscale-gh-docs]: https://github.com/timescale/promscale/

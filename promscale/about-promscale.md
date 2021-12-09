@@ -5,7 +5,7 @@ powered by SQL.
 It's built on the robust and high-performance foundation of PostgreSQL and
 TimescaleDB. It has native support for Prometheus metrics and OpenTelemetry
 traces as well as many other formats like StatsD, Jaeger and Zipkin through the
-OpenTelemetry Collector and is [100% PromQL compliant](promlabs-test). It's full
+OpenTelemetry Collector and is [100% PromQL compliant][promlabs-test]. It's full
 SQL capabilities enable developers to correlate metrics, traces and also
 business data to derive new valuable insights not possible when data is siloed
 in different systems. It easily integrates with Grafana and Jaeger for
@@ -29,7 +29,7 @@ Connector writes data to TimescaleDB.
 SQL queries are handled directly by TimescaleDB. PromQL queries can be directed
 to the Promscale Connector. Alternatively, you can direct PromQL queries to the
 Prometheus instance, which reads data from the Connector using the `remote_read`
-interface. The Connector, in turn, fetches data from TimescaleDB. 
+interface. The Connector, in turn, fetches data from TimescaleDB.
 
 ## Architecture
 Promscale includes two components:
@@ -46,6 +46,8 @@ stored. It offers a full SQL interface for querying the data as well as advanced
 capabilities like analytical functions, columnar compression and continuous
 aggregates. TimescaleDB offers a lot of  flexibility to also store business and
 other types of data that you can then use to correlate with observability data.
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-arch.png" alt="Promscale architecture diagram"/>
 
 The Promscale Connector ingests Prometheus metrics, metadata and OpenMetrics
 exemplars using the Prometheus `remote_write` interface. It also ingests
@@ -72,8 +74,6 @@ use many different visualization tools that integrate with PostgreSQL. For
 example, Grafana supports querying data in Promscale using SQL out of the box
 through the PostgreSQL data source.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-arch.png" alt="Promscale architecture diagram"/>
-
 ## Promscale PostgreSQL extension
 Promscale has a dependency on the
 [Promscale PostgreSQL extension][promscale-extension], which contains support
@@ -92,6 +92,10 @@ The basic schema uses a normalized design where time-series data is stored in
 compressed hypertables. These tables have a foreign key to series tables that
 are stored as regular PostgreSQL tables, and each series consists of a unique
 set of labels.
+
+For more information about compression, see the
+[compression section][tsdb-compression]. For more information about hypertables,
+see the [hypertables section][tsdb-hypertables].
 
 ### Metrics storage schema
 Each metric is stored in a separate hypertable. In particular, the schema
@@ -226,3 +230,6 @@ For examples of querying a specific metric view, see
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [Prometheus native format]: https://prometheus.io/docs/instrumenting/exposition_formats/
 [promscale-run-queries]: promscale/promscale-run-queries.md
+[promlabs-test]: https://promlabs.com/promql-compliance-test-results/2020-12-01/promscale/
+[tsdb-compression]: timescaledb/:currentVersion:/how-to-guides/compression/
+[tsdb-hypertables]: timescaledb/:currentVersion:/how-to-guides/hypertables/
