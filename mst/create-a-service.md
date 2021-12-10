@@ -19,4 +19,4 @@ Now you have your service up and running, you can try your
 [contact]: https://www.timescale.com/contact
 [getting-started]: /timescaledb/:currentVersion:/getting-started/
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
-[mst-install]:timescaledb/:currentVersion:/how-to-guides/install-timescaledb/installation-mst/
+[mst-install]: install/:currentVersion:/installation-mst/

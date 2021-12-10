@@ -37,7 +37,7 @@ source env/bin/activate
 ```
 
 
-[install-timescale]: /how-to-guides/install-timescaledb/
+[install-timescale]: /install/latest/
 [alpha-vantage-apikey]: https://www.alphavantage.co/support/#api-key
 [design-schema]: /tutorials/analyze-intraday-stocks/design-schema
 [fetch-ingest]: /tutorials/analyze-intraday-stocks/fetch-and-ingest

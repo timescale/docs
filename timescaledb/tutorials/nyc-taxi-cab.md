@@ -809,7 +809,7 @@ Ready for more learning? Here's a few suggestions:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-[install-timescale]: /how-to-guides/install-timescaledb
+[install-timescale]: /install/latest/
 [setup-psql]: /how-to-guides/connecting/psql
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [nyc_data]: https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz
