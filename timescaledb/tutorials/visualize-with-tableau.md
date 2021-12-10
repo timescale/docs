@@ -114,7 +114,7 @@ Ready for more learning? Here's a few suggestions:
 [get-tableau]: https://www.tableau.com/products/trial
 [crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
 [timescale-products]: https://www.timescale.com/products
-[install-timescale]: /how-to-guides/install-timescaledb
+[install-timescale]: /install/latest/
 [time-series-forecasting]: /tutorials/time-series-forecast
 [continuous-aggregates]: /how-to-guides/continuous-aggregates
 [other-samples]: /tutorials/sample-datasets

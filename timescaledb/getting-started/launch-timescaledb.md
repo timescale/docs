@@ -12,7 +12,7 @@ that you are ready to dive into the world of time-series data with TimescaleDB!
 <highlight type="tip">
 If you would prefer to setup TimescaleDB in your own environment and follow
 along with the rest of the _Getting Started_ tutorial, please see our documentation
-for [installing self-hosted TimescaleDB](/timescaledb/latest/how-to-guides/install-timescaledb/)
+for [installing self-hosted TimescaleDB](/install/latest/self-hosted/)
 </highlight>
 
 ### Step 1: Create a Timescale Cloud account
@@ -68,7 +68,7 @@ a service altogether.
 Now let's make sure you can connect to the database before we start adding data
 and learning about everything that TimescaleDB offers!
 
-[install-timescaledb]: /how-to-guides/install-timescaledb/
+[install-timescaledb]: /install/latest/
 [cloud-signup]: https://cloud.timescale.com
 [cloud-console]: https://console.cloud.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact

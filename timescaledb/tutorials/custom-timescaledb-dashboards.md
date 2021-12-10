@@ -393,7 +393,7 @@ this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 [TimescaleDB]: https://timescale.com/
 [timescale-signup]: https://www.timescale.com/timescale-signup
 [timescale-slack]: https://slack.timescale.com
-[timescale-install]: /how-to-guides/install-timescaledb
+[timescale-install]: /install/latest/
 [repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
 [hypertables]: /how-to-guides/hypertables/
 [caggs]: /how-to-guides/continuous-aggregates/

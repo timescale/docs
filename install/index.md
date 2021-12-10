@@ -30,9 +30,9 @@ than 75 regions on Amazon Web Services, Azure, or Google Cloud Platform.
 *   Start using [Managed Service for TimescaleDB][mst-install].
 
 
-[tsc-install]: /how-to-guides/install-timescaledb/installation-cloud/
-[self-hosted-install]: /how-to-guides/install-timescaledb/self-hosted/
-[self-hosted-source]: FIXME
-[self-hosted-container]: timescaledb/how-to-guides/install-timescaledb/installation-docker.md
-[self-hosted-cloud]: timescaledb/how-to-guides/install-timescaledb/installation-ubuntu-ami.md
-[mst-install]: /how-to-guides/install-timescaledb/managed-service-for-timescaledb/
+[tsc-install]: install/latest/installation-cloud/
+[self-hosted-install]: install/latest/self-hosted/
+[self-hosted-source]: /install/latest/self-hosted/installation-source/
+[self-hosted-container]: /install/latest/installation-docker/
+[self-hosted-cloud]: /install/latest/self-hosted/installation-debian/
+[mst-install]: /install/latest/installation-mst/

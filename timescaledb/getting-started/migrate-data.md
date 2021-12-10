@@ -1,6 +1,6 @@
 # Migrating data
 <highlight type="tip">
-First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/) **AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup)** TimescaleDB
+First make sure that you have properly [installed](/install/latest/) **AND [setup](/install/latest/)** TimescaleDB
 within your PostgreSQL instance.
 </highlight>
 
@@ -251,8 +251,8 @@ For more information on how to get started, please follow [this tutorial][outflu
 
 Now check out some common [hypertable commands][] for exploring your data.
 
-[installed]: /how-to-guides/install-timescaledb/
-[setup]: /how-to-guides/install-timescaledb/
+[installed]: /install/latest/
+[setup]: /install/latest/
 [same-db]: #same-db
 [different-db]: #different-db
 [import-data]: #import-data

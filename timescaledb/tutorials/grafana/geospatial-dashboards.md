@@ -107,7 +107,7 @@ for different timeframes.
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
-[install-timescale]: /how-to-guides/install-timescaledb/
+[install-timescale]: /install/latest/
 [install-grafana]: /tutorials/grafana/installation
 [getting-started]: /timescaledb/:currentVersion:/getting-started/
 [nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
