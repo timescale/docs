@@ -46,4 +46,4 @@ For additional documentation on how to:
 [resize]: /scaling-a-service/
 [configuration]: /customize-configuration/
 [multi-node]: /cloud-multi-node/
-[cloud-install]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/installation-cloud/
+[cloud-install]: install/:currentVersion:/installation-cloud/

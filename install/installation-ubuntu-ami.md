@@ -49,6 +49,6 @@ EC2 instance type that is optimized for EBS attached volumes. For information on
 choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html).
 </highlight>
 
-[setup]: /how-to-guides/install-timescaledb/post-install-setup/
+[setup]: /install/latest/
 [postgres instructions]: https://www.postgresql.org/docs/current/sql-createrole.html
 [pg_hba]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
