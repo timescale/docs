@@ -1,49 +1,90 @@
 # About multi-node
-If you have a larger workload, you might need more than one TimescaleDB
-instance. TimescaleDB multi-node allows you to run and manage multiple
-instances, which can give you faster data ingest, and more responsive and
-efficient queries for many large workloads.
+If you have a larger petabyte-scale workload, you might need more than
+one TimescaleDB instance. TimescaleDB multi-node allows you to run and
+manage a cluster of databases, which can give you faster data ingest,
+and more responsive and efficient queries for large workloads.
 
-<highlight type="important">
-In some cases, your processing speeds could be slower in a multi-node cluster,
-because distributed hypertables need to push operations down to the various data
-nodes. It is important that you understand multi-node architecture before you
-begin, and plan your database according to your specific environment.
+You can set up and configure multi-node on a set of self-managed
+TimescaleDB instances, or you can let [Timescale
+Cloud][multinode-cloud] do it for you.
+
+<highlight type="important"> 
+In some cases, your queries could be
+slower in a multi-node cluster due to the extra network communication
+between the various nodes. Queries perform the best when the query
+processing is distributed among the nodes and the result set is small
+relative the queried data set. It is important that you understand
+multi-node architecture before you begin, and plan your database
+according to your specific requirements.  
 </highlight>
 
-You can use multi-node on a self-managed TimescaleDB instance, or you can use it
-on [Timescale Cloud][multinode-cloud] or
-[Managed Service for TimescaleDB][multinode-mst].
-
-## Distributed hypertables
-Multi-node TimescaleDB allows you to run petabyte-scale workloads across
-multiple physical TimescaleDB instances, called data nodes. To do this, we use
-distributed hypertables.
-
-A [hypertable][hypertables] is a virtual table in TimescaleDB that automatically
-partitions data into chunks on a single machine, continuously creating new ones
-as necessary, while acting like a single continuous table across all time. A
-distributed hypertable is a hypertable that automatically partitions data into
-chunks across multiple machines, while still like a single continuous table
-across all time.
-
 ## Multi-node architecture
-Multi-node clusters consist of an access node that stores metadata
-for the distributed hypertable and performs query planning across the cluster,
-and any number of data nodes that store subsets of the distributed hypertable
-dataset and run queries locally.
+Multi-node TimescaleDB allows you to tie several databases together
+into a logical distributed database in order to combine the
+processing power of many physical PostgreSQL instances.
 
-You create the nodes by assigning roles to them within TimescaleDB. If you are
-using Timescale Cloud to run your multi-node cluster, they are created by
-default when you choose to create a multi-node cluster. For more instructions,
-see the [multi-node on Timescale Cloud][multinode-cloud] section.
+One of the databases exists on an access node and stores
+metadata about the other databases. The other databases are
+located on data nodes and hold the actual data. In theory, a
+PostgreSQL instance can serve as both an access node and a data node
+at the same time in different databases. However, we do not recommend
+mixed setups like this, because it can be complicated, and server
+instances are often provisioned differently depending on the role they
+serve.
 
-On a self-hosted installation, you create a server that can act as an access
-node (AN), then use that access node to create data nodes (DN). Finally, you
-create the distributed hypertable in the same way as you create a regular
-hypertable.
+If you are using Timescale Cloud to run your multi-node cluster, the
+nodes are created by default when you create a multi-node
+cluster. For more about multi-node on Timescale Cloud, see the [multi-node on Timescale
+Cloud section][multinode-cloud].
+
+For self-hosted installations, create a server that can act as an
+access node, then use that access node to create data nodes on other
+servers.
+
+When you have configured multi-node TimescaleDB, the access node coordinates
+the placement and access of data chunks on the data nodes. In most
+cases, we recommend that you use multidimensional partitioning to
+distribute data across chunks in both time and space dimensions. The
+figure in this section shows how an access node (AN) partitions data in the same
+time interval across multiple data nodes (DN1, DN2, and DN3).
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/multi-node-arch.png" alt="Diagram showing how multi-node access and data nodes interact"/>
+
+A database user connects to the access node to issue commands and
+execute queries, similar to how one connects to a regular single
+node TimescaleDB instance. In most cases, connecting directly to the
+data nodes is not necessary.
+
+Because TimescaleDB exists as an extension within a specific
+database, it is possible to have both distributed and non-distributed
+databases on the same access node. It is also possible to
+have several distributed databases that use different sets of physical
+instances as data nodes. In this section,
+however, we assume you have a single
+distributed database with a consistent set of data nodes.
+
+
+## Distributed hypertables
+If you use a regular table or hypertable on a distributed database, 
+they are not automatically distributed. Regular tables and 
+hypertables continue to work as usual, even when the underlying 
+database is distributed. To enable
+multi-node capabilities, you need to explicitly create a distributed
+hypertable on the access node to make use of the data nodes. A
+distributed hypertable is similar to a regular
+[hypertable][hypertables], but with the difference that chunks are
+distributed across data nodes instead of on local storage. By distributing
+the chunks, the processing power of the data nodes is combined to
+achieve higher ingest throughput and faster queries. However, the
+ability to achieve good performance is highly dependent on how the
+data is partitioned across the data nodes.
+
+To achieve good ingest performance, write the data in
+batches, with each batch containing data that can be distributed across
+many data nodes. To achieve good query performance, spread the
+query across many nodes and have a result set
+that is small relative to the amount of processed data. To achieve this,
+it is important to consider an appropriate partitioning method.
 
 ### Partitioning methods
 Data that is ingested into a distributed hypertable is spread across the data
