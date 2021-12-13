@@ -51,7 +51,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [Grafana]: /tutorials/grafana
 [telegraf]: /tutorials/telegraf-output-plugin
 [sample-data-sets]: /tutorials/sample-datasets
-[install-timescale]: /how-to-guides/install-timescaledb/
+[install-timescale]: /install/latest/
 [promscale]: /tutorials/promscale/
 [psql]: /how-to-guides/connecting/psql/
 [Crypto]: /tutorials/analyze-cryptocurrency-data

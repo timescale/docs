@@ -93,7 +93,7 @@ See our [updating documentation][update].
 [benchmarks]: https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
 [docs-architecture]: /overview/core-concepts/hypertables-and-chunks/
 [hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
-[install]: /how-to-guides/install-timescaledb/
+[install]: /install/latest/
 [update]: /how-to-guides/update-timescaledb/
 [compression-docs]: /how-to-guides/compression/
 [compression-blog]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/

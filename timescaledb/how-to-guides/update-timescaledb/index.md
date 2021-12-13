@@ -1,6 +1,6 @@
 # Updating TimescaleDB versions [](update)
 
-The instructions below all you to update TimescaleDB within the same major release
+The instructions below allow you to update TimescaleDB within the same major release
 version (for example, from TimescaleDB 2.1 to 2.2, or from 1.7 to 1.7.4). If you need
 to upgrade between TimescaleDB 1.x and 2.x, see our [separate upgrade document][update-tsdb-2]
 for detailed instructions.
@@ -90,5 +90,5 @@ After executing the command, the psql `\dx` command should show the latest versi
 [changes-in-2.0]: /overview/release-notes/changes-in-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/
-[Install]: /how-to-guides/install-timescaledb/
+[Install]: /install/latest/
 [telemetry]: /administration/telemetry/
