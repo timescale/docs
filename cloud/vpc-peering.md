@@ -40,12 +40,14 @@ To begin, you need to create a new VPC in the Timescale Cloud console.
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `VPC` section.
 1.  Click `Create VPC`.
-1.  In the `Create a VPC` dialog, type a name for your new VPC, and provide an
-    IPv4 CIDR block. Make sure that the CIDR block you choose for your Timescale
-    Cloud VPC does not overlap with the CIDR block used by your AWS VPC peer. If
-    the CIDR blocks overlap, the peering process fails. You can find the CIDR
-    block of your AWS VPC from the AWS console. In this example, we use
-    the `10.0.0.0/16` CIDR block.
+1.  In the `Create a VPC` dialog:
+    *   Type a name for your new VPC that matcghes the region of the service you
+        want to attach it to.
+    *   Provide an IPv4 CIDR block. Make sure that the CIDR block you choose for
+        your Timescale Cloud VPC does not overlap with the CIDR block used by
+        your AWS VPC peer. If the CIDR blocks overlap, the peering process
+        fails. You can find the CIDR block of your AWS VPC from the AWS console.
+        In this example, we use the `10.0.0.0/16` CIDR block.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
@@ -159,7 +161,7 @@ been attached to a VPC. This means that you need to update your connection
 string if you are migrating a service between the public internet and a VPC.
 </highlight>
 
-Before you begin, ensure you already have your VPC connection set up. 
+Before you begin, ensure you already have your VPC connection set up.
 
 <procedure>
 
