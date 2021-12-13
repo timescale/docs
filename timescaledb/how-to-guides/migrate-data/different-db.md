@@ -1,8 +1,8 @@
 # Migrating from a different PostgreSQL database
 
 <highlight type="tip">
-First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/)
-**AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB
+First make sure that you have properly [installed](/install/latest/)
+**AND [setup](/install/latest/)** TimescaleDB
 within your PostgreSQL instance.
 </highlight>
 
@@ -70,7 +70,7 @@ Follow [these instructions][csv-import] to insert data into your hypertable.
 Now check out some common [hypertable commands][] for exploring your data.
 
 
-[installed]: /how-to-guides/install-timescaledb/
-[setup]: /how-to-guides/install-timescaledb/post-install-setup/
+[installed]: /install/latest/
+[setup]: /install/latest/
 [csv-import]: /how-to-guides/migrate-data/import-csv/
 [hypertable commands]: /how-to-guides/hypertables/

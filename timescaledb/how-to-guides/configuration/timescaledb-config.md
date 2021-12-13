@@ -104,6 +104,6 @@ Version of `timescaledb-tune` used to tune when it ran.
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
 [synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
-[docker]: /how-to-guides/install-timescaledb//docker/installation-docker
+[docker]: /install/latest/installation-docker/
 [wale]: /how-to-guides/backup-and-restore/docker-and-wale/
 [chunk_detailed_size]: /api/:currentVersion:/hypertable/chunk_detailed_size
