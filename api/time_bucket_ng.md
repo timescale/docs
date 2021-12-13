@@ -6,8 +6,10 @@ supports years and months in addition to small units of time.
 
 <highlight type="warning">
 Experimental features could have bugs! They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk, and
-do not use any experimental features in production.
+and could be removed in future releases. It will be necessary to delete and
+re-build a CAGG that uses an experimental function when this function will be
+graduated from the experimental schema. Use these features at your own risk,
+and do not use any experimental features in production.
 </highlight>
 
 Functionality | time_bucket() | time_bucket_ng()
@@ -186,7 +188,7 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 |Function|Available in continuous aggregate|TimescaleDB version|
 |-|-|-|
 |Buckets by seconds, minutes, hours, days, and weeks|✅|2.4.0 and later|
-|Buckets by months and years|❌|Expected in 2.6.0 or later|
+|Buckets by months and years|✅|2.6.0 or later|
 |Specify custom origin|❌|To be determined|
 |Timezones support|❌|To be determined|
 
