@@ -1,10 +1,12 @@
 # Promscale
-Promscale allows you to extract more meaningful insights from your metrics data.
-It is an open source long-term store for Prometheus data designed for analytics.
-Promscale is built on top of TimescaleDB, and is a horizontally scalable and
-operationally mature platform for Prometheus data that uses PromQL and SQL to
-allow you to ask any question, create any dashboard, and achieve greater
-visibility into your systems.
+Promscale is the open source observability backend for metrics and traces
+powered by SQL.
+
+It is built on top of PosgreSQL and TimescaleDB and has native support for
+Prometheus metrics (including 100% PromQL compliance) and OpenTelemetry traces.
+It's full SQL capabilities enable developers to correlate metrics, traces and 
+also business data to derive new valuable insights not possible when data is 
+siloed in different systems..
 
 *   [Learn about Promscale][about-promscale] to understand how it works before
     you begin using it.
