@@ -68,7 +68,7 @@ can provide the database URI, or specify connection parameters.
     ```
 1.  Install the Promscale Helm chart:
     ```bash
-    helm install --name my-release .
+    helm install my-release timescale/promscale
     ```
 1.  Open the `values.yaml` configuration file, and locate the `connection`
     section. Add or edit this section with your TimescaleDB connection details:

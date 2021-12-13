@@ -34,7 +34,7 @@ directly using PromQL and SQL.
 <highlight type="important">>
 Promscale does not currently support alerting or recording rules. If you need
 access to these features, you can configure them within Prometheus directly. We
-also recommend that set the data retention setting in Prometheus to `1d`, but
+also recommend that you set the data retention setting in Prometheus to `1d`, but
 this is dependent on the alerting rules that you have configured in Prometheus.
 </highlight>
 

@@ -18,7 +18,7 @@ For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
 
 [about-promscale]: promscale/:currentVersion:/about-promscale
-[install-promscale]: promscale/:currentVersion:/install-promscale
+[install-promscale]: promscale/:currentVersion:/installation
 [promscale-benefits]: promscale/:currentVersion:/promscale-benefits/
 [promscale-run-queries]: promscale/:currentVersion:/promscale-run-queries/
 [promscale-visualization]: promscale/:currentVersion:/promscale-visualization/

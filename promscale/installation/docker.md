@@ -107,7 +107,7 @@ started, we have created a sample Docker compose file, available from the
 [Promscale GitHub repository][promscale-docker-compose].
 
 Before you begin, make sure that you have your `prometheus.yml` configuration
-file is in the same directory as `docker-compose.yml`. For more information
+file in the same directory as `docker-compose.yml`. For more information
 about creating a `prometheus.yml` configuration file, see the
 [install Prometheus][install-prometheus] step in this section.
 

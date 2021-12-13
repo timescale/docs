@@ -64,7 +64,7 @@ Promscale as a long term store for Prometheus metrics works by writing all
 scraped metrics from targets to the Prometheus local storage. Metrics are then
 written to Promscale using the Prometheus `remote-write` endpoint. This means
 that all of your metrics are ingested into TimescaleDB in parallel using
-Promscale, making any Prometheus disk failure leasier to manage.
+Promscale, making any Prometheus disk failure easier to manage.
 
 TimescaleDB can also store other types of data, such as metrics from other
 systems, time-series data, relational data, or metadata. This allows you to
@@ -77,7 +77,7 @@ make it easier to scale horizontally and store data at petabyte scale.
 
 ### Operational ease
 Promscale operates as a single stateless service. This means that when you have
-configures the `remote-write` and `remote-read` endpoints in your Prometheus
+configured the `remote-write` and `remote-read` endpoints in your Prometheus
 configuration file, all samples are forwarded to Promscale. Promscale then
 handles the ingestion of samples into TimescaleDB. Promscale exposes all
 Prometheus compatible APIs, allowing you to query your data using PromQL
