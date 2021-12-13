@@ -15,7 +15,7 @@ You build the application one step at a time, adding new methods to the `Timesca
 Before you begin this Quick Start, make sure you have:
 * At least some knowledge of SQL (structured query language). The tutorial walks you through each SQL command, but it is helpful if you've seen SQL before.
 * The latest compatible [.NET runtime installed](https://dotnet.microsoft.com/download/dotnet-framework) and accessible
-* TimescaleDB installed, either in a [self-hosted environment](http://docs.timescale.com/timescaledb/latest/how-to-guides/install-timescaledb/self-hosted/) or in the [cloud](https://www.timescale.com/timescale-signup).
+* TimescaleDB installed, either in a [self-hosted environment](http://docs.timescale.com/install/latest/self-hosted/) or in the [cloud](https://www.timescale.com/timescale-signup).
 * A PostgreSQL query tool like [psql](https://docs.timescale.com/timescaledb/latest/how-to-guides/connecting/psql/) or any other PostgreSQL client (for example, DBeaver). You need this to explore the final TimescaleDB database.
 
 ## Connect .NET to TimescaleDB [](connect-to-timescaledb)

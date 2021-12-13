@@ -51,7 +51,7 @@ This tutorial has a few sections to help you on your journey:
 * [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
 
-[install-timescale]: /how-to-guides/install-timescaledb/
+[install-timescale]: /install/latest/
 [psql-install]: /how-to-guides/connecting/psql
 [toolkit]: /how-to-guides/install-timescaledb-toolkit
 [kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data

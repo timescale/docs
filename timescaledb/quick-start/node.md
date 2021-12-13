@@ -516,7 +516,7 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 - [Migrate your own Data][migrate]
 
 
-[install-timescale]: /how-to-guides/install-timescaledb/
+[install-timescale]: /install/latest/
 [setup-psql]: /how-to-guides/connecting/psql/
 [time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /getting-started/create-cagg/

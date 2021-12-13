@@ -609,7 +609,7 @@ be sure to check out these advanced tutorials:
 * Get up and running with TimescaleDB with our [Getting Started][timescaledb-getting-started] tutorial.
 * Refer to the [PostgreSQL JDBC Driver documentation][pg-jdbc-driver-docs] for more information.
 
-[timescaledb-install]: /how-to-guides/install-timescaledb/
+[timescaledb-install]: /install/latest/
 [timescaledb-getting-started]: /getting-started/
 [timescaledb-hypertable]: /overview/core-concepts/hypertables-and-chunks/
 [timescaledb-hypertable-create-docs]: /api/:currentVersion:/hypertable/create_hypertable
