@@ -330,7 +330,7 @@ When you have started inserting data in TimescaleDB, you can begin to familiariz
 Additionally, we have several other [tutorials][] available for you to explore as you become accustomed to working with TimescaleDB.
 
 
-[getting-started]: /how-to-guides/install-timescaledb/
+[getting-started]: /install/latest/
 [tutorials]: /tutorials
 [public-slack]: https://slack.timescale.com/
 [architecture]: /overview/core-concepts
