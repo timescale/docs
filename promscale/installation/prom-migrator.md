@@ -20,7 +20,17 @@ environment to migrate. Additionally, you need a
 1.  Run Prom-migrator to copy the data from the existing Prometheus installation
     to Promscale:
     ```bash
-    ./prom-migrator -start=<migration-data-start-time> -end=<migration-data-end-time> -reader-url=<read_endpoint_url_for_remote_read_storage> -writer-url=<write_endpoint_url_for_remote_write_storage> -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
+    ./prom-migrator -start=<migration-data-start-time> \ -end=<migration-data-end-time> \ -reader-url=<read_endpoint_url_for_remote_read_storage> \ -writer-url=<write_endpoint_url_for_remote_write_storage> \ -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
+    ```
+
+    Example prom-migrator cmd to migrate the data:
+    ```bash
+    ./prom-migrator \
+    -start=1631007492 \
+    -end=1635845892 \
+    -reader-url=http://localhost:9091/api/v1/read \
+    -writer-url=http://localhost:9201/write \
+    -progress-metric-url=http://localhost:9201/read
     ```
 
 </procedure>
@@ -43,7 +53,7 @@ For more information about Prom-migrator and it command line options, see our
 
 
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
-[promscale-install-docker]: promscale/installation/docker/
-[promscale-install-source]: promscale/installation/source/
+[promscale-install-docker]: promscale/:currentVersion:/docker/
+[promscale-install-source]: promscale/:currentVersion:/source/
 [promscale-gh-releases]: https://github.com/timescale/promscale/releases
 [gh-prom-migrator]: https://github.com/timescale/promscale/tree/master/cmd/prom-migrator

@@ -158,7 +158,7 @@ curl --header "Content-Type: application/json" \
 [prometheus-storage-docs]: https://prometheus.io/docs/prometheus/latest/storage/
 [writing-to-promscale]: https://github.com/timescale/promscale/blob/master/docs/writing_to_promscale.md
 [multinode-blog]:https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
-[promscale-run-queries]: /tutorials/promscale/promscale-run-queries/
 [prometheus-federation]: https://prometheus.io/docs/prometheus/latest/federation/
 [promql-functions]: https://prometheus.io/docs/prometheus/latest/querying/functions/
-[promscale-run-queries]: promscale/promscale-run-queries/
+[promscale-run-queries]: promscale/:currentVersion:/promscale-run-queries
+[tobs]: promscale/:currentVersion:/installation/tobs

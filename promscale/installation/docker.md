@@ -3,8 +3,7 @@ If you want to try out Promscale in a test environment before getting started,
 you can use a pre-built Docker container.
 
 <highlight type="important">
-Using Promscale from a Docker container is for local testing purposes only. Do
-not use this installation method in a production environment.
+Running Promscale in a Docker container is not suitable for production use-cases. 
 </highlight>
 
 ## Install Promscale with Docker
@@ -17,21 +16,15 @@ packages and instructions, see the
 ### Installing Promscale with Docker
 1.  Use Docker to create a network for Promscale and TimescaleDB:
     ```bash
-    docker network create --driver bridge promscale-timescaledb
+    docker network create --driver bridge promscale
     ```
-1.  Install TimescaleDB in a Docker container, and make sure the service is
-    running. For instructions, see
-    [the TimescaleDB Docker installation section][tsdb-docker]. Promscale stores
-    all metrics data scraped from Prometheus targets in this TimescaleDB service.
-1.  Run the Promscale Docker container. This example creates a TimescaleDB
-    instance called `timescaledb`, on a network named `promscale-timescaledb`. The
-    container runs in the background, and the container ID is shown after it is
-    created. It also port forwards to port `5432` on your local system:
+1.  Install TimescaleDB in a Docker container on a network named `promscale`. It also port forwards to port `5432` on your local system:
     ```bash
-    docker run --name timescaledb \
-        --network promscale-timescaledb \
-        -e POSTGRES_PASSWORD=<password> -d -p 5432:5432 \
-        timescaledev/timescaledb-ha:pg12-latest
+    docker run --name timescaledb -e POSTGRES_PASSWORD=<password> -d -p 5432:5432 --network promscale timescaledev/promscale-extension:latest-ts2-pg13 postgres -csynchronous_commit=off
+    ```
+1.  Run the remote-storage connector Docker container on a network named `promscale`. It also port forwards to port `9201` on your local system:
+    ```bash
+    docker run --name promscale -d -p 9201:9201 --network promscale timescale/promscale:latest -db-password=<password> -db-port=5432 -db-name=postgres -db-host=timescaledb -db-ssl-mode=allow
     ```
 
 </procedure>
@@ -44,7 +37,7 @@ When you have Promscale running in a container, you can begin collecting metrics
 ### Collecting metrics with node_exporter
 1.  Run the `node_exporter` Docker container. This example creates
     a `node_exporter` instance called `node_exporter`, port forwarding output to
-    port `9100`, and it runs on the `promscale-timescaledb` network you created
+    port `9100`, and it runs on the `promscale` network you created
     earlier:
     ```bash
     docker run --name node_exporter -d -p 9100:9100 \
@@ -100,9 +93,10 @@ and forward the metrics to Promscale.
 
 </procedure>
 
-## Install Promscale with a Docker compose file
+## Alternatively you can install all the above components with a Docker compose file
+
 You can use a Docker compose file to create containers for TimescaleDB,
-Promscale, and the `node_exporter`, using a single command. To help you get
+Promscale, and the NodeExporter, using a single command. To help you get
 started, we have created a sample Docker compose file, available from the
 [Promscale GitHub repository][promscale-docker-compose].
 
@@ -126,6 +120,6 @@ about creating a `prometheus.yml` configuration file, see the
 
 [promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
 [docker-install]: https://docs.docker.com/get-docker/
-[tsdb-docker]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/installation-docker/
+[tsdb-docker]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/docker/installation-docker/
 [gh-node-exporter]: https://github.com/prometheus/node_exporter#node-exporter
-[install-prometheus]: promscale/:currentVersion:/installation/docker#install-prometheus]
+[install-prometheus]: promscale/:currentVersion:/installation/docker#installing-prometheus

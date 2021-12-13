@@ -7,7 +7,23 @@ Before you begin, you must have an already installed and working Prometheus
 environment. Additionally, you need a
 [self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
 
-## Install Promscale from source
+## Install TimescaleDB
+
+<procedure>
+
+### Build and Install TimescaleDB
+
+1.  Follow the steps on timescaledb installation (instructions for other platforms available on the [TimescaleDB install page][tsdb-install-self-hosted]
+
+</procedure>
+
+### Making Promscale Extension Available (optional)
+
+The Promscale extension contains support functions to improve performance of Promscale. While Promscale will run without it, adding this extension will support it to perfrom better.
+
+Follow the steps to compile Promscale extension from source available on [Promscale extension page][promscale-extension].
+
+## Install Promscale pre-compiled binary
 In this procedure, you download the Promscale source files and run them.
 
 <procedure>
@@ -37,28 +53,28 @@ In this procedure, you download the Promscale source files and run them.
 
 </procedure>
 
-## Install the remote storage connector
-When you have installed Promscale, you need to install the remote storage
-connector, and configure Prometheus to use it.
+## Install Prometheus pre-compiled binary
 
-Before you begin, make sure you have Go installed. For more information,
-including packages and installation instructions, see the
-[Go documentation][go-install].
+**Note**: Replace the versions of Prometheus listed here with the latest available version numbers
 
 <procedure>
 
-### Installing the remote storage connector
+1.  Download Prometheus:
 
-1.  Clone the Promscale repository, and change into the new directory:
     ```bash
-    git clone git@github.com:timescale/promscale.git
-    cd ./promscale
+    LATEST_VERSION=$(curl -s https://api.github.com/repos/prometheus/prometheus/releases/latest | grep "tag_name" | cut -d'"' -f4 | cut -c2- )
+    curl -O -L "https://github.com/prometheus/prometheus/releases/download/v${LATEST_VERSION}/prometheus-${LATEST_VERSION}.linux-amd64.tar.gz"
     ```
-1.  Install the Promscale Connector binary:
+
+1.  Uncompress the tarball and change directory into the Prometheus directory:
+
     ```bash
-    go install
+    tar -xzvf prometheus-${LATEST_VERSION}.linux-amd64.tar.gz
+    cd prometheus-${LATEST_VERSION}.linux-amd64
     ```
-1.  Open the `prometheus.yml` configuration file, and add or edit these lines:
+
+1.  Edit the `prometheus.yml` file in order to add Promscale as a remote_write and remote_read endpoint for Prometheus
+
     ```yaml
     remote_write:
       - url: "http://<connector-address>:9201/write"
@@ -66,15 +82,20 @@ including packages and installation instructions, see the
       - url: "http://<connector-address>:9201/read"
         read_recent: true
     ```
+    **Note**: Setting `read_recent` to `true` will make Prometheus query data from Promscale for all PromQL queries. This is highly recommended.
 
-    <highlight type="note">
-    Setting `read_recent` to `true` ensures that Prometheus queries data from
-    Promscale for all PromQL queries. This is highly recommended.
-    </highlight>
+    You can configure Prometheus remote-write with our recommended configurations from [here][prometheus-config-tips] for optimal performance.
 
-</procedure>
+1.  Run Prometheus using the following command:
+    ```yaml
+    ./prometheus
+    ```
+    **Note**: Prometheus will load with the configuration defined by the prometheus.yml residing in the same directory as the prometheus executable.
 
+</procedure>    
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
 [go-install]: https://golang.org/dl/
+[prometheus-config-tips]: https://github.com/timescale/promscale/blob/master/docs/configuring_prometheus.md
+[promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
