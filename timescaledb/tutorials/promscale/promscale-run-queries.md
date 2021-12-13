@@ -33,14 +33,14 @@ WHERE time > now() - INTERVAL '5 minutes';
 
 Here is a sample output for the query above (your output might differ):
 
-``` bash
-            time            |    value    | series_id |      labels       | instance_id | job_id | quantile_id
-----------------------------+-------------+-----------+-------------------+-------------+--------+-------------
- 2021-01-27 18:43:42.389+00 |           0 |       495 | {208,43,51,212}   |          43 |     51 |         212
- 2021-01-27 18:43:42.389+00 |           0 |       497 | {208,43,51,213}   |          43 |     51 |         213
- 2021-01-27 18:43:42.389+00 |           0 |       498 | {208,43,51,214}   |          43 |     51 |         214
- 2021-01-27 18:43:42.389+00 |           0 |       499 | {208,43,51,215}   |          43 |     51 |         215
- 2021-01-27 18:43:42.389+00 |           0 |       500 | {208,43,51,216}   |          43 |     51 |         216
+```sql
+|           time             |    value    | series_id |      labels       | instance_id | job_id | quantile_id |
+|----------------------------|-------------|-----------|-------------------|-------------|--------|-------------|
+| 2021-01-27 18:43:42.389+00 |           0 |       495 | {208,43,51,212}   |          43 |     51 |         212 |
+| 2021-01-27 18:43:42.389+00 |           0 |       497 | {208,43,51,213}   |          43 |     51 |         213 |
+| 2021-01-27 18:43:42.389+00 |           0 |       498 | {208,43,51,214}   |          43 |     51 |         214 |
+| 2021-01-27 18:43:42.389+00 |           0 |       499 | {208,43,51,215}   |          43 |     51 |         215 |
+| 2021-01-27 18:43:42.389+00 |           0 |       500 | {208,43,51,216}   |          43 |     51 |         216 |
 ```
 
 Each row returned contains a number of different fields:
@@ -69,11 +69,11 @@ GROUP BY job_id;
 ```
 
 Sample Output:
-``` bash
-      job      |  median
----------------+-----------
- prometheus    |  6.01e-05
- node-exporter | 0.0002631
+``` sql
+|      job      |  median   |
+|---------------|---------- |
+| prometheus    |  6.01e-05 |
+| node-exporter | 0.0002631 |
 ```
 
 ### Querying label sets for a metric [](querying-label-set)
@@ -94,14 +94,14 @@ WHERE
 Sample Output:
 
 ```sql
-            time            |    value    |                                                        labels                                                        
-----------------------------+-------------+----------------------------------------------------------------------------------------------------------------------
- 2021-01-27 18:43:48.236+00 | 0.000275625 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}
- 2021-01-27 18:43:48.236+00 | 0.000165632 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.25"}
- 2021-01-27 18:43:48.236+00 | 0.000320684 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.75"}
- 2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}
- 2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "1"}
- 2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.5"}
+|            time            |    value    |                                                        labels                                                       | 
+|-----------------------------|-------------|--------------------------------------------------------------------------------------------------------------------|
+| 2021-01-27 18:43:48.236+00 | 0.000275625 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}        | 
+| 2021-01-27 18:43:48.236+00 | 0.000165632 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.25"}       |
+| 2021-01-27 18:43:48.236+00 | 0.000320684 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.75"}       |
+| 2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}   |
+| 2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "1"}   |
+| 2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.5"} |
 ```
 This query returns the label set for the metric `go_gc_duration` in JSON format. It can then be read or further interacted with.
 
@@ -123,10 +123,10 @@ ORDER BY p99 desc;
 
 Sample Output:
 ```sql
-        app         |     p99     
---------------------+-------------
- node_exporter:9100 | 0.002790063
- localhost:9090     |  0.00097977
+|       app         |     p99      |  
+|-------------------|------------  |
+|node_exporter:9100 | 0.002790063  |
+|localhost:9090     |  0.00097977  | 
 ```
 
 The query above is uniquely enabled by Promscale, as it aggregates over both time and series and returns an accurate calculation of the percentile. Using only a PromQL query, it is not possible to accurately calculate percentiles when aggregating over both time and series.
@@ -159,12 +159,12 @@ WHERE
 ```
 
 Sample output:
-```bash
- time                       |   value   |              labels
-----------------------------+-----------+----------------------------------------------------------------------------------------------------------
- 2021-01-28 02:01:18.066+00 |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}
- 2021-01-28 02:01:28.066+00 |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}
- 2021-01-28 02:01:38.032+00 |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}
+```sql
+| time                       |   value   |              labels                                                                                              |
+|----------------------------|-----------|------------------------------------------------------------------------------------------------------------------|
+| 2021-01-28 02:01:18.066+00 |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}|
+| 2021-01-28 02:01:28.066+00 |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}|
+|2021-01-28 02:01:38.032+00  |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}|
 ```
 
 ### Querying number of datapoints in a series [](query-datapoints-in-series)
@@ -179,19 +179,19 @@ GROUP BY series_id;
 ```
 
 Sample output:
-``` bash
-                                                       labels                                                        | count
-----------------------------------------------------------------------------------------------------------------------+-------
- {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.75"} |   631
- {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.75"}        |   631
- {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "1"}    |   631
- {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.5"}  |   631
- {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}         |   631
- {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}    |   631
- {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "1"}           |   631
- {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.25"} |   631
- {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.25"}        |   631
- {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0"}           |   631
+```sql 
+|                                                       labels                                                        | count |
+|---------------------------------------------------------------------------------------------------------------------|-------|
+|{"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.75"} |   631 |
+|{"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.75"}        |   631 |
+|{"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "1"}    |   631 |
+|{"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.5"}  |   631 |
+|{"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}         |   631 |
+|{"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}    |   631 |
+|{"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "1"}           |   631 |
+|{"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.25"} |   631 |
+|{"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.25"}        |   631 |
+|{"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0"}           |   631 |
 ```
 
 

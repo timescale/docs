@@ -234,7 +234,7 @@ documentation:
 
 
 [github-tsbs]: https://github.com/timescale/tsbs
-[install-timescale]: /how-to-guides/install-timescaledb/
+[install-timescale]: /install/latest/
 [get-psql]: /how-to-guides/connecting/psql/
 [docs-hypertable]: /how-to-guides/hypertables/
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket

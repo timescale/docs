@@ -42,4 +42,4 @@ docker run -i -t timescale/timescaledb:latest-pg10 postgres -c max_wal_size=2GB
 ```
 
 
-[docker]: /how-to-guides/install-timescaledb//docker/installation-docker
+[docker]: /install/latest/installation-docker/
