@@ -311,7 +311,7 @@ hour                   | avg_temp | min_temp | max_temp
 2016-11-16 06:00:00-05 |    78.42 |    69.49 |    84.40
 (24 rows)
 ```
-[installation]: /how-to-guides/install-timescaledb/
+[installation]: /install/latest/
 <!-- datasets -->
 [devices-small]: https://timescaledata.blob.core.windows.net/datasets/devices_small.tar.gz
 [devices-medium]: https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz

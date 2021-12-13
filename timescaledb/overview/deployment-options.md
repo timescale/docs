@@ -35,6 +35,6 @@ distro, or a Docker image for your cluster deployment, we have you covered!
 [See a listing of current deployment][self-hosted] options for self-hosted installations.
 
 
-[timescale-cloud]: /how-to-guides/install-timescaledb/installation-cloud/
-[timescale-mst]: /how-to-guides/install-timescaledb/installation-mst/
-[self-hosted]: /how-to-guides/install-timescaledb/self-hosted/
+[timescale-cloud]: /install/latest/installation-cloud/
+[timescale-mst]: /install/latest/installation-mst/
+[self-hosted]: /install/latest/self-hosted/
