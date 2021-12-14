@@ -28,4 +28,11 @@ You can enable and disable real time aggregation by setting the
 
 </procedure>
 
+<highlight type="important">
+Real-time aggregates don't show the data inserted, updated or deleted in the
+bucket that was previously materialized. See [Troubleshooting][troubleshooting]
+section for more details.
+</highlight>
+
 [blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/
+[troubleshooting]: https://docs.timescale.com/timescaledb/latest/how-to-guides/troubleshoot-timescaledb/

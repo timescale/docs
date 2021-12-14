@@ -60,6 +60,95 @@ the database will be looking for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.
 
+### New data is not shown in real-time aggregates
+
+Real-time aggregates don't show the data inserted, updated or deleted in the
+bucket that was previously materialized. The following example illustrates this
+limitation:
+
+```sql
+-- Create and fill the hypertable
+CREATE TABLE conditions(
+  day DATE NOT NULL,
+  city text NOT NULL,
+  temperature INT NOT NULL);
+
+SELECT create_hypertable(
+  'conditions', 'day',
+  chunk_time_interval => INTERVAL '1 day'
+);
+
+INSERT INTO conditions (day, city, temperature) VALUES
+  ('2021-06-14', 'Moscow', 26),
+  ('2021-06-15', 'Moscow', 22),
+  ('2021-06-16', 'Moscow', 24),
+  ('2021-06-17', 'Moscow', 24),
+  ('2021-06-18', 'Moscow', 27),
+  ('2021-06-19', 'Moscow', 28),
+  ('2021-06-20', 'Moscow', 30),
+  ('2021-06-21', 'Moscow', 31),
+  ('2021-06-22', 'Moscow', 34),
+  ('2021-06-23', 'Moscow', 34),
+  ('2021-06-24', 'Moscow', 34),
+  ('2021-06-25', 'Moscow', 32),
+  ('2021-06-26', 'Moscow', 32),
+  ('2021-06-27', 'Moscow', 31);
+
+-- Create a real-time aggregate, don't do refresh yet
+CREATE MATERIALIZED VIEW conditions_summary
+WITH (timescaledb.continuous) AS
+SELECT city,
+   time_bucket('7 days', day) AS bucket,
+   MIN(temperature),
+   MAX(temperature)
+FROM conditions
+GROUP BY city, bucket
+WITH NO DATA;
+
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  30
+ Moscow | 2021-06-21 |  31 |  34
+
+-- Do the refresh
+CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+
+-- The CAGG didn't change, that's expected
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  30
+ Moscow | 2021-06-21 |  31 |  34
+
+-- Update the data in the previously refreshed (materialized) bucket:
+UPDATE conditions
+SET temperature = 35
+WHERE day = '2021-06-14' and city = 'Moscow';
+
+-- Here is the limitation. The new data is not visiable in the CAGG:
+-- (INSERT's and DELETE's will be not visiable either)
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  30
+ Moscow | 2021-06-21 |  31 |  34
+
+-- Do the refresh again
+CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+
+-- Now the data is visiable in the CAGG:
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  35
+ Moscow | 2021-06-21 |  31 |  34
+```
+
+In other words, `refresh_continuous_aggregate()` is supposed to be called for the
+data that is not going to be changed anymore. When it's necessary to change the
+already materialized data, it's required to explicitly call `refresh_continuous_aggregate()`
+for corresponding buckets.
 
 ## Getting more information
 
