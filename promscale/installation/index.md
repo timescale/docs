@@ -1,12 +1,6 @@
 # Install Promscale
-Promscale allows you to extract more meaningful insights from your metrics data.
-It is an open source long-term store for Prometheus data designed for analytics.
-Promscale is built on top of TimescaleDB, and is a horizontally scalable and
-operationally mature platform for Prometheus data that uses PromQL and SQL to
-allow you to ask any question, create any dashboard, and achieve greater
-visibility into your systems.
 
-<highlight type="important">
+<highlight type="important"> 
 Before you can install Promscale, you must have installed and configured
 Prometheus. You can install Prometheus within a virtual machine (VM), as a
 container, or within Kubernetes. For more information about installing
