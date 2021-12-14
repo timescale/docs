@@ -1,21 +1,30 @@
 # Maintenance
-On Timescale Cloud, minor software updates are handled automatically by us, and you do
-not need to perform any actions.
+On Timescale Cloud, minor software updates are handled automatically by us, and
+you do not need to perform any actions.
 
-Non-critical software updates are applied during a maintenance window that you
-can define to suit your workload.  If we detect a security vulnerability that
-affects you, we might need to perform maintenance outside of the scheduled
-maintenance window.
+Most updates that we perform on your Timescale Cloud services are applied during
+a maintenance window that you can define to suit your workload. However, if we
+detect a critical security vulnerability that affects you, we might need to
+perform maintenance outside of the scheduled maintenance window.
 
 <highlight type="important">
 After a maintenance update, the DNS name remains the same, but the IP address
 it points to often changes.
 </highlight>
 
-Upgrades are performed as zero-downtime upgrades during maintenance windows.
-This means that there is no outage of your services during the upgrade. However,
-all connections and transactions in progress during the upgrade are reset. In most
-cases, the database connection is automatically restored after the reset.
+In most cases, the updates that occur during your maintenance windows do not
+require any downtime. This means that there is no outage of your services during
+the upgrade. However, all connections and transactions in progress during the
+upgrade are reset. Usually, the database connection is automatically restored
+after the reset.
+
+Sometimes, updates that occur during your maintenance window require some
+downtime. In this case, the downtime is usually between 30&nbsp;seconds and
+5&nbsp;minutes. We endeavor to notify you on email ahead of the upgrade if
+downtime is required, so that you can plan accordingly. However, in some cases,
+we might not be able to do so. It is important that you schedule your
+maintenance window to minimize the disruption that a short downtime might have
+on your workloads.
 
 ## Non-critical maintenance updates
 Non-critical upgrades are made available before the upgrade is performed
@@ -50,8 +59,12 @@ system during the upgrade.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-maintenance-change.png" alt="Timescale Cloud change maintenance window"/>
 
 </procedure>
+
 ## Critical updates
 Critical upgrades and security fixes are installed outside normal maintenance
-windows when necessary, and sometimes require a short outage.
+windows when necessary, and sometimes require a short outage. In this case, the
+downtime is usually between 30&nbsp;seconds and 5&nbsp;minutes. We endeavor to
+notify you on email ahead of the upgrade if downtime is required, so that you
+can plan accordingly. However, in some cases, we might not be able to do so.
 
 [cloud-login]: https://cloud.timescale.com
