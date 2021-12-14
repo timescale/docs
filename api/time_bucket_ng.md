@@ -6,10 +6,10 @@ supports years and months in addition to small units of time.
 
 <highlight type="warning">
 Experimental features could have bugs! They might not be backwards compatible,
-and could be removed in future releases. It will be necessary to delete and
-re-build a CAGG that uses an experimental function when this function will be
-graduated from the experimental schema. Use these features at your own risk,
-and do not use any experimental features in production.
+and could be removed in future releases. When this function is no longer 
+experimental, you need to delete and rebuild any continuous aggregate 
+that uses it. Use experimental features at your own risk, and do not use 
+any experimental features in production.
 </highlight>
 
 Functionality | time_bucket() | time_bucket_ng()
