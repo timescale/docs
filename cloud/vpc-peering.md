@@ -6,7 +6,7 @@ accessible using your external cloud account, and is useful if you need to
 improve security through a reduction in the potential attach vector surface.
 
 When you have VPC peering set up in your external cloud provider, you can create
-and configure your VPC peering connections in the Timnescale Cloud console.
+and configure your VPC peering connections in the Timescale Cloud console.
 Timescale Cloud provides controls for adding and removing VPC peering
 connections, migrating services to and from VPCs, and creating new services with
 VPC peering attachments.
@@ -41,7 +41,7 @@ To begin, you need to create a new VPC in the Timescale Cloud console.
     the `VPC` section.
 1.  Click `Create VPC`.
 1.  In the `Create a VPC` dialog:
-    *   Type a name for your new VPC that matcghes the region of the service you
+    *   Type a name for your new VPC and select the region that matches the region of the service you
         want to attach it to.
     *   Provide an IPv4 CIDR block. Make sure that the CIDR block you choose for
         your Timescale Cloud VPC does not overlap with the CIDR block used by
