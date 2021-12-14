@@ -31,6 +31,10 @@ module.exports = [
         href: "disk-management"
       },
       {
+        title: "Operations",
+        href: "operations"
+      },
+      {
         title: "Maintenance",
         href: "maintenance"
       },
