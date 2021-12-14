@@ -51,7 +51,30 @@ module.exports = [
             href: 'tobs',
             tags: ['promscale', 'install', 'analytics', 'k8s'],
             keywords: ['Promscale', 'analytics', 'Kubernetes,'],
-            excerpt: "Install Kubernetes for Promscale"
+            excerpt: "Install tobs",
+            children: [
+              {
+                title: 'About tobs',
+                href: 'about-tobs',
+                tags: ['tobs', 'k8s', 'monitor', 'learn', 'timescaledb'],
+                keywords: ['tobs', 'Kubernetes', 'timescaleDB'],
+                excerpt: 'Learn about the observability stack for Kubernetes (tobs)',
+              },
+              {
+                title: 'Install tobs',
+                href: 'install-tobs',
+                tags: ['tobs', 'install', 'k8s', 'monitor', 'timescaledb'],
+                keywords: ['tobs', 'Kubernetes', 'install', 'timescaleDB'],
+                excerpt: 'Install the observability stack for Kubernetes (tobs)',
+              },
+              {
+                title: 'Use tobs',
+                href: 'using-tobs',
+                tags: ['tobs', 'monitor', 'k8s', 'timescaledb'],
+                keywords: ['tobs', 'Kubernetes', 'timescaleDB'],
+                excerpt: 'Using the tobs',
+              },
+            ],
           },
           {
             title: 'Install Promscale with Helm',
