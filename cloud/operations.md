@@ -11,7 +11,9 @@ reset the password, pause, or terminate the service.
 ### Fork a service
 When you a fork a service, you create an exact copy of the service, including
 the underlying database. This allows you to create a copy that you can use for
-testing purposes, or to prepare for a major version upgrade.
+testing purposes, or to prepare for a major version upgrade. The only difference
+between the original and the forked service is that the `tsdbadmin` user has a
+different password. 
 
 <highlight type="important">
 You can fork services that have a status of `Running` or `Paused`. You cannot
