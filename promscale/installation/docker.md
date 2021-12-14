@@ -41,7 +41,7 @@ When you have Promscale running in a container, you can begin collecting metrics
     earlier:
     ```bash
     docker run --name node_exporter -d -p 9100:9100 \
-    --network promscale-timescaledb \
+    --network promscale \
     quay.io/prometheus/node-exporter
     ```
 1.  Verify that system metrics are being exported, by opening
@@ -85,7 +85,7 @@ and forward the metrics to Promscale.
     created:
     ```bash
     docker run \
-        --network promscale-timescaledb \
+        --network promscale \
         -p 9090:9090 \
         -v ${PWD}/prometheus.yml:/etc/prometheus/prometheus.yml \
         prom/prometheus
