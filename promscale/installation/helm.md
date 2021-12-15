@@ -18,8 +18,8 @@ settings in the `values.yaml` configuration file:
 
 <highlight type="note">
 If you do not configure the user credentials before you start, they are randomly
-generated. When this happens, the `helm update` command does not rotate the
-credentials, to prevent breaking the database.
+generated. When this happens, the `helm upgrade` command does not rotate the
+credentials, to prevent breaking the database by changing the database credentials instead it uses the same credentials that are generated during the `helm install`.
 </highlight>
 
 <procedure>
