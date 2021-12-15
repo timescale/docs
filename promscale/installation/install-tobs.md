@@ -1,19 +1,20 @@
 # Install the observability stack (tobs) for Kubernetes
-The observability stack (tobs) is a command-line tool for managing the observability stack components in a Kubernetes cluster.
+The observability stack (tobs) is a command-line tool for managing the
+observability stack components in a Kubernetes cluster.
 
-Before you begin, you should already have installed and set up your Kubernetes cluster.
+Before you begin, you should already have installed and set up your Kubernetes
+cluster.
 
 ## Install the packages
 You can install tobs at the command prompt, using the `curl` command:
-
 ```bash
 curl --proto '=https' --tlsv1.2 -sSLf  https://tsdb.co/install-tobs-sh |sh
 ```
 
-Alternatively, you can download directly from our
-[repository][download-tobs] to install from source. Make sure you have the `go`
-programing language installed before you begin. When you have downloaded the
-source, unzip it and change into the `cli` directory, and run this command to install:
+Alternatively, you can download directly from our [repository][download-tobs] to
+install from source. Make sure you have the `go` programing language installed
+before you begin. When you have downloaded the source, unzip it and change into
+the `cli` directory, and run this command to install:
 ```bash
 make build -o tobs
 ```
