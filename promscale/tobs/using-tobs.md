@@ -1,5 +1,4 @@
 # Use the observability stack (tobs) for Kubernetes
-
 This section covers the main commands you can use with tobs, including how to
 use it to view metrics in Grafana. For more information about Helm charts, see
 the [tobs Helm charts page][tobs-helm].
