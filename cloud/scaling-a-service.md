@@ -103,6 +103,25 @@ longer, and in some cases this could create a delay longer than six hours.
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 10&nbsp;TB in size.
 
+Size increases occur with these gradations:
+*   10&nbsp;GB
+*   25&nbsp;GB
+*   50&nbsp;GB
+*   75&nbsp;GB
+*   100&nbsp;GB
+*   200&nbsp;GB
+*   300&nbsp;GB
+*   400&nbsp;GB
+*   500&nbsp;GB
+*   600&nbsp;GB
+*   700&nbsp;GB
+*   800&nbsp;GB
+*   900&nbsp;GB
+*   1&nbsp;TB
+*   1.5&nbsp;TB
+*   2&nbsp;TB
+*   10&nbsp;TB
+
 <procedure>
 
 ### Configuring autoscaling for disk size
