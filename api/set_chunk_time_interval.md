@@ -32,8 +32,8 @@ For more information, see the [`create_hypertable` section][create-hypertable].
 |-|-|-|
 |`dimension_name`|REGCLASS|The name of the time dimension to set the number of partitions for|
 
-You need to use `dimension_name` argument if your hypertable has multiple time
-dimensions.
+You need to use `dimension_name` argument only if your hypertable has multiple
+time dimensions.
 
 
 ### Sample Usage
