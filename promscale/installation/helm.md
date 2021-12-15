@@ -1,5 +1,6 @@
 # Install Promscale with Helm
-You can install Promscale using Helm charts. The Helm charts must be installed in this order:
+You can install Promscale using Helm charts. The Helm charts must be installed
+in this order:
 
 1.  Install the TimescaleDB Helm chart
 1.  Install the Promscale Helm chart
@@ -16,7 +17,9 @@ settings in the `values.yaml` configuration file:
 *   **Optional:** `pgbackrest` [configuration][timescale-backups]
 
 <highlight type="note">
-If you do not configure the user credentials before you start, they are randomly generated. When this happens, the `helm update` command does not rotate the credentials, to prevent breaking the database.
+If you do not configure the user credentials before you start, they are randomly
+generated. When this happens, the `helm update` command does not rotate the
+credentials, to prevent breaking the database.
 </highlight>
 
 <procedure>
@@ -66,7 +69,7 @@ can provide the database URI, or specify connection parameters.
     ```bash
     helm repo update
     ```
-1.  Open the `values.yaml` configuration file, download the tobs 
+1.  Open the `values.yaml` configuration file, download the tobs
     `values.yaml` from [here][tobs-values-yaml] and locate the `connection`
     section. Add or edit this section with your TimescaleDB connection details:
     <terminal>
@@ -115,7 +118,10 @@ When you have installed the TimescaleDB and Promscale Helm charts, you can insta
     ```bash
     helm repo update
     ```
-1.  Configure the remote-read and write endpoints in Prometheus server  configuration. As we are using Prometheus helm chart configure this values in `values.yaml`, download the `values.yaml` from [here][prometheus-values-yaml], locate the `server` section and configure the file as:
+1.  Configure the remote-read and write endpoints in the Prometheus server
+    configuration, in `values.yaml` configuration file. You can download the
+    `values.yaml` file from [our repository][prometheus-values-yaml]. Open the
+    file, locate the `server` section and configure the file like this:
     ```bash
     server:
       remote_write:
