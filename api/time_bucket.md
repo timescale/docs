@@ -1,58 +1,59 @@
-## time_bucket() 
+# time_bucket()
+The `time_bucket` function is based on the standard PostgreSQL `date_trunc`
+function. It allows for arbitrary time intervals instead of the second, minute,
+and hour intervals provided by `date_trunc`. The return value is the bucket's
+start time.
 
-This is a more powerful version of the standard PostgreSQL `date_trunc` function.
-It allows for arbitrary time intervals instead of the second, minute, hour, etc.
-provided by `date_trunc`. The return value is the bucket's start time.
-Below is necessary information for using it effectively.
-
-<highlight type="tip">
-TIMESTAMPTZ arguments are bucketed by the time at UTC. So the alignment of 
+`TIMESTAMPTZ` arguments are bucketed by the time in UTC, so the alignment of
 buckets is on UTC time. One consequence of this is that daily buckets are
-aligned to midnight UTC, not local time.
+aligned to midnight UTC, not local time. If you want buckets aligned by local
+time, cast the `TIMESTAMPTZ` input to `TIMESTAMP`, which converts the value to
+local time, before you pass it to `time_bucket`. For an example, see the sample
+use in this section.
 
-If the user wants buckets aligned by local time, the TIMESTAMPTZ input should be
-cast to TIMESTAMP (such a cast converts the value to local time) before being
-passed to time_bucket (see example below).  Note that along daylight savings
-time boundaries the amount of data aggregated into a bucket after such a cast is
-irregular: for example if the bucket_width is 2 hours, the number of UTC hours
-bucketed by local time on daylight savings time boundaries can be either 3 hours
-or 1 hour.
+Note that daylight savings time boundaries means that the amount of data
+aggregated into a bucket after such a cast can be irregular. For example, if the
+`bucket_width` is 2 hours, the number of UTC hours bucketed by local time on
+daylight savings time boundaries can be either three hours or one hour.
+
+<highlight type="important">
+Month, year, and timezone arguments are not supported by the `time_bucket`
+function. If you need to use month, year, or timezone arguments, try the
+experimental [`time_bucket_ng`](/api/latest/hyperfunctions/time_bucket_ng/)
+function instead.
 </highlight>
 
-#### Required Arguments 
+## Required arguments for interval time inputs
 
 |Name|Type|Description|
-|---|---|---|
-| `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
-| `ts` | TIMESTAMP | The timestamp to bucket |
+|-|-|-|
+|`bucket_width`|INTERVAL|A PostgreSQL time interval for how long each bucket is|
+|`ts`|TIMESTAMP|The timestamp to bucket|
 
-### Optional Arguments
-
-|Name|Type|Description|
-|---|---|---|
-| `offset` | INTERVAL | The time interval to offset all buckets by  |
-| `origin` | TIMESTAMP | Buckets are aligned relative to this timestamp  |
-
-### For Integer Time Inputs
-
-#### Required Arguments 
+## Optional arguments for interval time inputs
 
 |Name|Type|Description|
-|---|---|---|
-| `bucket_width` | INTEGER | The bucket width |
-| `ts` | INTEGER | The timestamp to bucket |
+|-|-|-|
+|`offset`|INTERVAL|The time interval to offset all buckets by|
+|`origin`|TIMESTAMP|Buckets are aligned relative to this timestamp|
 
-### Optional Arguments
+## Required arguments for integer time inputs
 
 |Name|Type|Description|
-|---|---|---|
-| `offset` | INTEGER | The amount to offset all buckets by |
+|-|-|-|
+|`bucket_width`|INTEGER|The bucket width|
+|`ts`|INTEGER|The timestamp to bucket|
+
+## Optional arguments for integer time inputs
+
+|Name|Type|Description|
+|-|-|-|
+|`offset`|INTEGER|The amount to offset all buckets by|
 
 
-### Sample Usage 
+## Sample usage
 
-Simple 5-minute averaging:
-
+Simple five minute averaging:
 ```sql
 SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
 FROM metrics
@@ -70,7 +71,7 @@ ORDER BY five_min DESC LIMIT 10;
 ```
 
 For rounding, move the alignment so that the middle of the bucket is at the
-5 minute mark (and report the middle of the bucket):
+five minute mark, and report the middle of the bucket:
 ```sql
 SELECT time_bucket('5 minutes', time, '-2.5 minutes') + '2.5 minutes'
   AS five_min, avg(cpu)
@@ -79,9 +80,9 @@ GROUP BY five_min
 ORDER BY five_min DESC LIMIT 10;
 ```
 
-To shift the alignment of the buckets you can use the origin parameter
-(passed as a timestamp, timestamptz, or date type).
-In this example, we shift the start of the week to a Sunday (the default is a Monday).
+To shift the alignment of the buckets you can use the origin parameter passed as
+a timestamp, timestamptz, or date type. This example shifts the start of the
+week to a Sunday, instead of the default of Monday:
 ```sql
 SELECT time_bucket('1 week', timetz, TIMESTAMPTZ '2017-12-31')
   AS one_week, avg(cpu)
@@ -91,13 +92,13 @@ WHERE time > TIMESTAMPTZ '2017-12-01'  AND time < TIMESTAMPTZ '2018-01-03'
 ORDER BY one_week DESC LIMIT 10;
 ```
 
-The value of the origin parameter we used in this example was `2017-12-31`, a Sunday within the
-period being analyzed. However, the origin provided to the function can be before, during, or
-after the data being analyzed. All buckets are calculated relative to this origin. So, in this example,
-any Sunday could have been used. Note that because `time < TIMESTAMPTZ '2018-01-03'` in this example,
-the last bucket would have only 4 days of data.
-
-Bucketing a TIMESTAMPTZ at local time instead of UTC(see note above):
+The value of the origin parameter in this example is `2017-12-31`, a Sunday
+within the period being analyzed. However, the origin provided to the function
+can be before, during, or after the data being analyzed. All buckets are
+calculated relative to this origin. So, in this example, any Sunday could have
+been used. Note that because `time < TIMESTAMPTZ '2018-01-03'` is used in this
+example, the last bucket would have only 4 days of data. This cast to TIMESTAMP
+converts the time to local time according to the server's timezone setting.
 ```sql
 SELECT time_bucket(INTERVAL '2 hours', timetz::TIMESTAMP)
   AS five_min, avg(cpu)
@@ -106,15 +107,11 @@ GROUP BY five_min
 ORDER BY five_min DESC LIMIT 10;
 ```
 
-Note that the above cast to TIMESTAMP converts the time to local time according
-to the server's timezone setting.
-
-<highlight type="warning">
- For users upgrading from a version before 1.0.0, please note
- that the default origin was moved from 2000-01-01 (Saturday) to 2000-01-03 (Monday)
- between versions 0.12.1 and 1.0.0. This change was made  to make time_bucket compliant
- with the ISO standard for Monday as the start of a week. This should only affect
- multi-day calls to time_bucket. The old behavior can be reproduced by passing
- 2000-01-01 as the origin parameter to time_bucket.
+<highlight type="important">
+If you are upgrading from a version earlier than 1.0.0, the default origin is
+moved from 2000-01-01 (Saturday) to 2000-01-03 (Monday) between versions 0.12.1
+and 1.0.0. This change was made to make `time_bucket` compliant with the ISO
+standard for Monday as the start of a week. This should only affect multi-day
+calls to `time_bucket`. The old behavior can be reproduced by passing
+`2000-01-01` as the origin parameter to `time_bucket`.
 </highlight>
-
