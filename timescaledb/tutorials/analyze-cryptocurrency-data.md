@@ -202,6 +202,8 @@ with open('coin_names.csv', mode = 'w') as test_file:
                                  quotechar = '"',
                                  quoting=csv.QUOTE_MINIMAL)
    for coin in cryptoDict.values():
+     if day.get('time') == None:
+       continue # skip this item
        name = coin['Name']
        symbol = coin['Symbol']
        symbol_array.append(symbol)
@@ -625,7 +627,7 @@ Ready for even more learning? Here's a few suggestions:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
-[install-timescale]: /how-to-guides/install-timescaledb/
+[install-timescale]: /install/latest/
 [crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
 [hypertable-docs]: /how-to-guides/hypertables
 [hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/

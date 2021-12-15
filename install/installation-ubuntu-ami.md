@@ -9,15 +9,15 @@ See below for the image id corresponding to each region for the most recent Time
 
 Region | Image ID
 --- | ---
-us-east-1 (North Virginia) | ami-0142e0ff4336460d8
-us-east-2 (Ohio) | ami-093758173e997a8aa
-us-west-1 (North California) | ami-0065769df35cdaf5e
-us-west-2 (Oregon) | ami-07a7e914792b3a760
-eu-central-1 (Germany) | ami-07bf96202903b78fd
-eu-north-1 (Sweden) | ami-03aa8f2270308356e
-eu-west-1 (Ireland) | ami-09d5dd90db4b4f9aa
-eu-west-2 (England) | ami-0a06dcf5597a26395
-eu-west-3 (France) | ami-00f44167b13c0a9ac
+us-east-1 (North Virginia) | ami-0f8c92d3ad3d207d4
+us-east-2 (Ohio) | ami-0f0b59bcc81056e7f
+us-west-1 (North California) | ami-09c607d20fbde8c67
+us-west-2 (Oregon) | ami-07eb27c82f65f2eb5
+eu-central-1 (Germany) | ami-0189878c4c9f6f19b
+eu-north-1 (Sweden) | ami-02b6c43d01423b7d4
+eu-west-1 (Ireland) | ami-0344fcb86804fef40
+eu-west-2 (England) | ami-07be508bbdd7f0864
+eu-west-3 (France) | ami-0eface5e67d2d7e56
 
 To launch the AMI, go to the `AMIs` section of your AWS EC2 Dashboard run the following steps:
 
@@ -49,6 +49,6 @@ EC2 instance type that is optimized for EBS attached volumes. For information on
 choosing the right EBS optimized EC2 instance type, see the AWS [instance configuration page](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html).
 </highlight>
 
-[setup]: /how-to-guides/install-timescaledb/post-install-setup/
+[setup]: /install/latest/
 [postgres instructions]: https://www.postgresql.org/docs/current/sql-createrole.html
 [pg_hba]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html

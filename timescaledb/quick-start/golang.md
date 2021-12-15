@@ -875,7 +875,7 @@ Golang application, be sure to check out these advanced TimescaleDB tutorials:
 * Get up and running with TimescaleDB with our [Getting Started][getting-started] tutorial.
 * Want fast inserts on CSV data? Check out [TimescaleDB parallel copy][parallel-copy-tool], our tool for fast inserts, written in Golang.
 
-[timescaledb-install]: /how-to-guides/install-timescaledb/
+[timescaledb-install]: /install/latest/
 [golang-install]: https://golang.org/doc/install
 [pgx-driver-github]: https://github.com/jackc/pgx
 [libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING

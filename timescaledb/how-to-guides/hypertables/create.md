@@ -14,10 +14,11 @@ convert it into a TimescaleDB hypertable.
 ### Creating a hypertable
 1.  Create a standard [PostgreSQL table][postgres-createtable]:
     ```sql
-    CREATE TABLE TABLE_NAME (
+    CREATE TABLE conditions (
        time        TIMESTAMPTZ       NOT NULL,
        location    TEXT              NOT NULL,
-       temperature DOUBLE PRECISION  NULL
+       temperature DOUBLE PRECISION  NULL,
+       humidity    DOUBLE PRECISION  NULL
     );
     ```
 1.  From the `psql` prompt on your new table, create the hypertable:
@@ -61,7 +62,7 @@ hypertable fails. For more information about setting up multi-node, see the
 1.  On the access node of your multi-node cluster, create a standard
     [PostgreSQL table][postgres-createtable]:
     ```sql
-    CREATE TABLE TABLE_NAME (
+    CREATE TABLE conditions (
       time        TIMESTAMPTZ       NOT NULL,
       location    TEXT              NOT NULL,
       temperature DOUBLE PRECISION  NULL,
@@ -78,4 +79,4 @@ hypertable fails. For more information about setting up multi-node, see the
 
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
-[multi-node]: timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/

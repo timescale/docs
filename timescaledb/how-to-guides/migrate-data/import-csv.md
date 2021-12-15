@@ -1,8 +1,8 @@
 # Import data into TimescaleDB from .csv
 
 <highlight type="tip">
-First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/)
-**AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB
+First make sure that you have properly [installed](/install/latest/)
+**AND [setup](/install/latest/)** TimescaleDB
 within your PostgreSQL instance.
 </highlight>
 
@@ -83,8 +83,8 @@ For more information on how to get started, please follow [this tutorial][outflu
 Now check out some common [hypertable commands][] for exploring your data.
 
 
-[installed]: /how-to-guides/install-timescaledb/
-[setup]: /how-to-guides/install-timescaledb/post-install-setup/
+[installed]: /install/latest/
+[setup]: /install/latest/
 [outflux]: /how-to-guides/migrate-data/migrate-influxdb/
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
 [unique_indexes]: /how-to-guides/schema-management/indexing/#default-indexes

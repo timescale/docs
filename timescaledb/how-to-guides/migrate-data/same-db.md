@@ -1,7 +1,7 @@
 # Migrate from the Same PostgreSQL Database
 <highlight type="tip">
-First make sure that you have properly [installed](/timescaledb/latest/how-to-guides/install-timescaledb/)
-**AND [setup](/timescaledb/latest/how-to-guides/install-timescaledb/post-install-setup/)** TimescaleDB
+First make sure that you have properly [installed](/install/latest/)
+**AND [setup](/install/latest/)** TimescaleDB
 within your PostgreSQL instance.
 </highlight>
 
@@ -77,8 +77,8 @@ our [schema management][indexing] section.
 Now check out some common [hypertable commands][] for exploring your data.
 
 
-[installed]: /how-to-guides/install-timescaledb/
-[setup]: /how-to-guides/install-timescaledb/post-install-setup/
+[installed]: /install/latest/
+[setup]: /install/latest/
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
 [indexing]: /how-to-guides/schema-management/indexing/#indexing-data
 [hypertable commands]: /how-to-guides/hypertables/

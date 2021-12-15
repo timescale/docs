@@ -378,7 +378,8 @@ query = """
            GROUP BY five_min
            ORDER BY five_min DESC;
            """
-
+location = "floor"
+sensor_type = "a"
 data = (location, sensor_type)
 cursor.execute(query, data)
 results = cursor.fetchall()
@@ -402,7 +403,7 @@ tutorials:
 
 
 [setup-psql]: /how-to-guides/connecting/psql/
-[install]: /how-to-guides/install-timescaledb/
+[install]: /install/latest/
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
@@ -417,7 +418,7 @@ tutorials:
 [continuous-aggregates]: /how-to-guides/continuous-aggregates/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
-[self-hosted-install]: http://docs.timescale.com/timescaledb/latest/how-to-guides/install-timescaledb/self-hosted/
+[self-hosted-install]: http://docs.timescale.com/install/latest/self-hosted/
 [cloud-install]: https://www.timescale.com/timescale-signup
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
