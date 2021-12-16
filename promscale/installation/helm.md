@@ -35,7 +35,7 @@ credentials, to prevent breaking the database by changing the database credentia
     ```
 1.  Install the TimescaleDB Helm chart:
     ```bash
-    helm install my-release charts/timescaledb-single
+    helm install my-release timescale/timescaledb-single
     ```
 
 </procedure>
@@ -99,7 +99,7 @@ can provide the database URI, or specify connection parameters.
 
 1.  Install the Promscale Helm chart:
     ```bash
-    helm install my-release timescale/promscale -f <values.yaml>
+    helm install my-release timescale/promscale -f values.yaml
     ```
 
 </procedure>

@@ -3,7 +3,10 @@ If you want to try out Promscale in a test environment before getting started,
 you can use a pre-built Docker container.
 
 <highlight type="important">
-Running Promscale in a Docker container is not suitable for production use-cases. 
+The instructions given in this section are designed for you to get started with 
+Promscale quickly. They are especially suited for creating a proof of concept. 
+We do not recommend that you run production workloads with Promscale in 
+a Docker container. 
 </highlight>
 
 ## Install Promscale with Docker
@@ -24,7 +27,13 @@ packages and instructions, see the
     ```
 1.  Run the remote-storage connector Docker container on a network named `promscale`. It also port forwards to port `9201` on your local system:
     ```bash
-    docker run --name promscale -d -p 9201:9201 --network promscale timescale/promscale:latest -db-password=<password> -db-port=5432 -db-name=postgres -db-host=timescaledb -db-ssl-mode=allow
+    docker run --name promscale -d -p 9201:9201 \
+    --network promscale timescale/promscale:latest \
+    -db-password=<password> \
+    -db-port=5432 \
+    -db-name=postgres \
+    -db-host=timescaledb \
+    -db-ssl-mode=allow
     ```
 
 </procedure>
@@ -120,6 +129,5 @@ about creating a `prometheus.yml` configuration file, see the
 
 [promscale-docker-compose]: https://github.com/timescale/promscale/blob/master/docker-compose/docker-compose.yaml
 [docker-install]: https://docs.docker.com/get-docker/
-[tsdb-docker]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/docker/installation-docker/
 [gh-node-exporter]: https://github.com/prometheus/node_exporter#node-exporter
 [install-prometheus]: promscale/:currentVersion:/installation/docker#installing-prometheus

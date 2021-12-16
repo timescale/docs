@@ -20,7 +20,11 @@ environment to migrate. Additionally, you need a
 1.  Run Prom-migrator to copy the data from the existing Prometheus installation
     to Promscale:
     ```bash
-    ./prom-migrator -start=<migration-data-start-time> \ -end=<migration-data-end-time> \ -reader-url=<read_endpoint_url_for_remote_read_storage> \ -writer-url=<write_endpoint_url_for_remote_write_storage> \ -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
+    ./prom-migrator -start=<migration-data-start-time> \
+    -end=<migration-data-end-time> \
+    -reader-url=<read_endpoint_url_for_remote_read_storage> \
+    -writer-url=<write_endpoint_url_for_remote_write_storage> \
+    -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
     ```
 
     Example prom-migrator cmd to migrate the data:
