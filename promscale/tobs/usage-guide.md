@@ -144,5 +144,5 @@ commands listed here.
 |--config|Tobs configuration file, defaults to ``$HOME/.tobs.yaml`|
 
 
-[tobs-install]: promscale/installation/tobs/install-tobs/
-[tobs-helm]: promscale/installation/tobs/helm-charts-tobs/
+[tobs-install]: promscale/:currentVersion:/installation/tobs/
+[tobs-helm]: https://github.com/timescale/tobs/tree/master/chart#tobs-helm-charts

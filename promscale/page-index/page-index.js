@@ -24,6 +24,9 @@ module.exports = [
       {
         title: 'Install Promscale',
         href: 'installation',
+        tags: ['promscale', 'learn', 'analytics', 'prometheus'],
+        keywords: ['Promscale', 'analytics'],
+        excerpt: 'Learn about installing Promscale',
         children: [
           {
             title: 'Install Promscale on Kubernetes',
@@ -61,6 +64,13 @@ module.exports = [
             excerpt: 'Configure Prometheus to send metrics to Promscale',
           },
           {
+            title: 'Configure OpenTelemetry Collector',
+            href: 'configure-otel-collector',
+            tags: ['promscale', 'configure', 'opentelemetry'],
+            keywords: ['Promscale', 'OpenTelemetry'],
+            excerpt: 'Configure OpenTelemetry to send metrics, traces to Promscale',
+          },
+          {
             title: 'Install Promscale with tobs',
             href: 'tobs',
             tags: ['promscale', 'install', 'analytics', 'k8s'],
@@ -70,28 +80,28 @@ module.exports = [
         ],
       },
       {
-        title: 'About tobs',
-        href: 'about-tobs',
+        title: 'Tobs',
+        href: 'tobs',
         tags: ['tobs', 'k8s', 'monitor', 'learn', 'timescaledb'],
-        keywords: ['tobs', 'Kubernetes', 'timescaleDB'],
+        keywords: ['tobs', 'Kubernetes', 'timescaleDB', 'Promscale'],
         excerpt: 'Learn about the observability stack for Kubernetes (tobs)',
         children: [
           {
-            title: 'Install tobs',
-            href: 'install-tobs',
+            title: 'About',
+            href: 'about',
             tags: ['tobs', 'install', 'k8s', 'monitor', 'timescaledb'],
-            keywords: ['tobs', 'Kubernetes', 'install', 'timescaleDB'],
+            keywords: ['tobs', 'Kubernetes', 'install', 'timescaleDB', 'Promscale'],
             excerpt: 'Install the observability stack for Kubernetes (tobs)',
           },
           {
-            title: 'Use tobs',
-            href: 'using-tobs',
+            title: 'Usage guide',
+            href: 'usage-guide',
             tags: ['tobs', 'monitor', 'k8s', 'timescaledb'],
-            keywords: ['tobs', 'Kubernetes', 'timescaleDB'],
+            keywords: ['tobs', 'Kubernetes', 'timescaleDB', 'Promscale'],
             excerpt: 'Using the observability suite for Kubernetes (tobs)',
           },
         ],
-      ],
+      },
       {
         title: 'Run Queries in Promscale',
         href: 'promscale-run-queries',

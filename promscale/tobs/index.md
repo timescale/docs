@@ -9,6 +9,6 @@ stack in a Kubernetes cluster.
 *   [Use tobs][tobs-use].
 
 
-[about-tobs]: promscale/installation/tobs/about-tobs/
-[tobs-install]: promscale/installation/tobs/install-tobs/
-[tobs-use]: promscale/installation/tobs/using-tobs/
+[about-tobs]: promscale/:currentVersion:/tobs/about/
+[tobs-install]: promscale/:currentVersion:/installation/tobs/
+[tobs-use]: promscale/:currentVersion:/tobs/usage-guide/

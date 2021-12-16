@@ -3,8 +3,8 @@
 Docker images for the [Promscale Connector][promscale-docker-image] and 
 [TimescaleDB (with the Promscale extension)][timescaledb-docker-image] are available
 on Docker Hub. The TimescaleDB images have a suffix that indicate the version of TimescaleDB
-and PostgreSQL. For example, the tag 0.3.0-ts2-pg13 includes the Promscale extension 0.3.0, TimescaleDB 2
-and PostgreSQL 13. 
+and PostgreSQL. For example, the tag `0.3.0-ts2-pg13` includes the Promscale extension `0.3.0`, TimescaleDB `2`
+and PostgreSQL `13`. 
 
 Reference those images when deploying Promscale and follow the instructions provided by your container
 platform. If you are using Kubernetes follow these [instructions][promscale-install-kubernetes].
@@ -49,4 +49,4 @@ packages and instructions, see the
 [install-prometheus]: promscale/:currentVersion:/installation/docker#installing-prometheus
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescaledev/promscale-extension/tags
-[promscale-install-kubernetes]: [promscale/installation/kubernetes/]
+[promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/

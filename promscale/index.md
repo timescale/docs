@@ -10,9 +10,10 @@ siloed in different systems..
 
 *   [Learn about Promscale][about-promscale] to understand how it works before
     you begin using it.
-*   Learn about [Promscale benefits][promscale-benefits] to understand how it
+*   [Learn about Promscale benefits][promscale-benefits] to understand how it
     can be useful in your environment.
-*   [Install Promscale][install-promscale].
+*   [Learn about Promscale installation][install-promscale] to understand how
+    to install using source, docker and kubernetes.
 *   [Learn about tobs][about-tobs] to understand how the observability stack for
     Kubernetes works before you begin using it.
 *   Use Promscale to [run queries][promscale-run-queries].

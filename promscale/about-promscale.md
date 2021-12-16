@@ -38,7 +38,7 @@ Promscale includes two components:
 for observability data, processes that data and stores it in TimescaleDB. It
 also provides an interface to query the data with PromQL. The Promscale
 Connector automatically sets up the data structures in TimescaleDB to store the
-data and handles changes in those data structures required if required for
+data and handles changes in those data structures if required for
 upgrading to newer versions of Promscale.
 
 **TimescaleDB**: the Postgres-based database where all the observability data is
@@ -229,7 +229,7 @@ For examples of querying a specific metric view, see
 [slack]: https://slack.timescale.com
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [Prometheus native format]: https://prometheus.io/docs/instrumenting/exposition_formats/
-[promscale-run-queries]: promscale/promscale-run-queries.md
-[promlabs-test]: https://promlabs.com/promql-compliance-test-results/2020-12-01/promscale/
+[promscale-run-queries]: promscale/:currentVersion:/promscale-run-queries/
+[promlabs-test]: https://promlabs.com/promql-compliance-test-results/2021-10-14/promscale
 [tsdb-compression]: timescaledb/:currentVersion:/how-to-guides/compression/
 [tsdb-hypertables]: timescaledb/:currentVersion:/how-to-guides/hypertables/

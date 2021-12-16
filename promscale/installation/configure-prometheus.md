@@ -17,7 +17,7 @@ remote_read:
 ```
 
 <highlight type="important">
-Setting read_recent to true will make Prometheus query data from Promscale for 
+Setting `read_recent` to true will make Prometheus query data from Promscale for 
 all PromQL queries. This is highly recommended.
 </highlight>
 

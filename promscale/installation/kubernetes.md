@@ -40,6 +40,10 @@ credentials, to prevent breaking the database by changing the database credentia
     ```bash
     helm install my-release timescale/timescaledb-single
     ```
+    
+    <highlight type="note">
+    Replace `my-release` with the name of your choice
+    </highlight>
 
 </procedure>
 
@@ -116,7 +120,7 @@ can provide the database URI, or specify connection parameters.
 ## Install Promscale with a manifest file
 
 We only provide instructions to deploy the Promscale Connector using a manifest file.
-To deploy TimescaleDB on Kubernetes our [helm charts][timescaledb-install-helm].
+To deploy TimescaleDB on Kubernetes use our [helm charts][timescaledb-install-helm].
 Alternatively, you may also consider [installing TimescaleDB on a host][timescaledb-host-install].
 
 <procedure>

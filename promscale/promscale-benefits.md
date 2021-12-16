@@ -1,7 +1,7 @@
 # Promscale benefits
 
 **Get started in minutes**: deploy a full observability stack for metrics and
-traces in your Kubernetes cluster with a single command using [our cli](tobs). Or deploy
+traces in your Kubernetes cluster with a single command using our [cli](tobs). Or deploy
 the two components that make up Promscale in a container platform or VM using
 the provided artifacts. Integrates with Grafana and Jaeger out-of-the-box.
 

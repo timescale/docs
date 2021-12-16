@@ -88,7 +88,7 @@ WHERE
 An example of the output for this query:
 ```sql
 |            time            |    value    |                                                        labels                                                       | 
-|-----------------------------|-------------|--------------------------------------------------------------------------------------------------------------------|
+|----------------------------|-------------|--------------------------------------------------------------------------------------------------------------------|
 | 2021-01-27 18:43:48.236+00 | 0.000275625 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}        | 
 | 2021-01-27 18:43:48.236+00 | 0.000165632 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.25"}       |
 | 2021-01-27 18:43:48.236+00 | 0.000320684 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.75"}       |
@@ -231,10 +231,11 @@ LIMIT 100;
 
 An example of the output for this query:
 ```sql
-container			       percent_used_p99        total
-cluster-overprovisioner-system    6.961822509765625e-05   4294967296
-sealed-secrets-controller           0.00790748596191406   1073741824
-dumpster                             0.0135690307617187    268435456
+| container                      |   percent_used_p99      |  total      |
+|--------------------------------|-------------------------|-------------|
+| cluster-overprovisioner-system |   6.961822509765625e-05 | 4294967296  |
+| sealed-secrets-controller      |   0.00790748596191406   | 1073741824  |
+| dumpster                       |   0.0135690307617187    |  268435456  |
 ```
 
 This example uses `cAdvisor`, as an example of the sorts of sophisticated

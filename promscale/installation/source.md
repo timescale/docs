@@ -27,7 +27,7 @@ install it.
 </procedure>
 
 ## Install the Promscale pre-compiled binary
-In this procedure, you download the Promscale source files and run them.
+In this procedure, you download the Promscale binarys and run them.
 
 <procedure>
 

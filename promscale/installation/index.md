@@ -4,8 +4,7 @@
 Promscale does not automatically instrument and collect telemetry from your 
 applications and infrastructure. Promscale has native support to ingest 
 Prometheus metrics and OpenTelemetry traces and you would typically deploy
-[Prometheus][prometheus-installation] and/or the 
-[OpenTelemetry Collector][otel-collector-installation] 
+[Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and/or the [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/getting-started/) 
 and configure them to send telemetry to Promscale.
 </highlight>
 
@@ -29,10 +28,10 @@ in the [tracing documentation][tracing-documentation].
     or using [a manifest][promscale-install-k8s-manifest].
 *   **VM or bare metal**: install Promscale [from source][promscale-install-source].
 
-Use our [prom-migrator tool][promscale-install-prommigrator] to easily load your
+Use our [prom-migrator tool][promscale-install-prom-migrator] to easily load your
 existing Prometheus data into Promscale.
 
-Finally, configure [Prometheus][config-prometheus] and / or the
+Finally, configure [Prometheus][config-prometheus] and/or the
 [OpenTelemetry Collector][config-otel-collector] to send telemetry to Promscale.
 
 ## Your system is not yet instrumented
@@ -41,15 +40,13 @@ If you have a Kubernetes environment and want to install a complete pre-configur
 observability stack on top of Promscale that includes Prometheus and OpenTelemetry, 
 use [the observability stack (tobs) for Kubernetes][promscale-install-tobs].
 
-
-[prometheus-installation]: https://prometheus.io/docs/prometheus/latest/installation/
-[otel-collector-installation]: https://opentelemetry.io/docs/collector/getting-started/
-[promscale-install-prommigrator]: promscale/installation/prom-migrator/
-[promscale-install-docker]: promscale/installation/docker/
-[promscale-install-source]: promscale/installation/source/
-[promscale-install-tobs]: promscale/installation/tobs/
-[promscale-install-helm]: promscale/installation/kubernetes/#install-promscale-with-helm
-[promscale-install-k8s-manifest]: promscale/installation/kubernetes/#install-promscale-with-a-manifest-file
+[promscale-install-prom-migrator]: promscale/:currentVersion:/installation/prom-migrator/
+[promscale-install-docker]: promscale/:currentVersion:/installation/docker/
+[promscale-install-source]: promscale/:currentVersion:/installation/source/
+[promscale-install-tobs]: promscale/:currentVersion:/tobs/
+[promscale-install-helm]: promscale/:currentVersion:/installation/kubernetes/#install-promscale-with-helm
+[promscale-install-k8s-manifest]: promscale/:currentVersion:/installation/kubernetes/#install-promscale-with-a-manifest-file
 [gh-tsdb-extensions]: https://github.com/timescale/promscale_extension/blob/master/Readme.md
 [tracing-documentation]: https://github.com/timescale/promscale/blob/master/docs/tracing.md
-[config-prometheus]: promscale/installation/configure-prometheus/
+[config-prometheus]: promscale/:currentVersion:/installation/configure-prometheus/
+[config-otel-collector]: promscale/:currentVersion:/installation/configure-otel-collector/

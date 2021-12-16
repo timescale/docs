@@ -42,8 +42,7 @@ environment to migrate. Additionally, you need a
 When you have migrated the data into Promscale, you can drop the old data from
 Prometheus and any other remote storage system.
 
-When your data migration is complete, you can use TimescaleDB to query Promscale
-directly using PromQL and SQL.
+When your data migration is complete, you can use Promscale directly to query using PromQL and TimescaleDB to query using SQL. 
 
 <highlight type="important">>
 Promscale does not currently support alerting or recording rules. If you need
