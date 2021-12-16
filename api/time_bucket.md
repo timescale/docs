@@ -17,7 +17,7 @@ aggregated into a bucket after such a cast can be irregular. For example, if the
 daylight savings time boundaries can be either three hours or one hour.
 
 <highlight type="important">
-Month, year, and timezone arguments are not supported by the `time_bucket`
+Month, year, and timezones are not supported by the `time_bucket`
 function. If you need to use month, year, or timezone arguments, try the
 experimental [`time_bucket_ng`](/api/latest/hyperfunctions/time_bucket_ng/)
 function instead.
