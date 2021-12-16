@@ -9,21 +9,24 @@ environment. Additionally, you need a
 
 ## Install TimescaleDB
 
+Installing TimescaleDB to be used with Promscale involves installing the
+TimescaleDB database as well as the Promscale extension. The Promscale 
+extension contains support functions to improve performance of Promscale. 
+While Promscale will run without it, it is strongly recommended that you
+install it.
+
 <procedure>
 
 ### Build and Install TimescaleDB
 
-1.  Follow the steps on timescaledb installation (instructions for other platforms available on the [TimescaleDB install page][tsdb-install-self-hosted]
+1. Install TimescaleDB following the instructions in the 
+   [TimescaleDB install page][tsdb-install-self-hosted]
+1. Complile and install the Promscale extension from source available 
+   on the [Promscale extension page][promscale-extension]
 
 </procedure>
 
-### Making Promscale Extension Available (optional)
-
-The Promscale extension contains support functions to improve performance of Promscale. While Promscale will run without it, adding this extension will support it to perfrom better.
-
-Follow the steps to compile Promscale extension from source available on [Promscale extension page][promscale-extension].
-
-## Install Promscale pre-compiled binary
+## Install the Promscale pre-compiled binary
 In this procedure, you download the Promscale source files and run them.
 
 <procedure>

@@ -1,15 +1,18 @@
-# Install Promscale with Helm
-You can install Promscale using Helm charts. The Helm charts must be installed
-in this order:
+# Install Promscale on Kubernetes
+
+You can install Promscale on Kubernetes using [Helm](#install-promscale-with-helm) (recommended)
+or a [manifest file](#install-promscale-with-a-manifest-file).
+
+## Install Promscale with Helm
+You can install Promscale using Helm charts. The Helm charts must be installed in this order:
 
 1.  Install the TimescaleDB Helm chart
 1.  Install the Promscale Helm chart
-1.  Install the Prometheus Helm chart
 
 Before you begin, you must have installed Helm. For more information, including
 packages and installation instructions, see the [Helm documentation][helm-install]
 
-## Install the TimescaleDB Helm chart
+### Install the TimescaleDB Helm chart
 Before you install the TimescaleDB Helm chart, you need to configure these
 settings in the `values.yaml` configuration file:
 *   Credentials for the superuser, admin, and other users
@@ -24,7 +27,7 @@ credentials, to prevent breaking the database by changing the database credentia
 
 <procedure>
 
-### Installing the TimescaleDB Helm chart
+#### Installing the TimescaleDB Helm chart
 1.  Add the TimescaleDB Helm chart repository:
     ```bash
     helm repo add timescale 'https://charts.timescale.com'
@@ -53,14 +56,14 @@ installing the chart, like this:
 helm install my-release -f myvalues.yaml charts/timescaledb-single
 ```
 
-## Install the Promscale Helm chart
+### Install the Promscale Helm chart
 When you have your TimescaleDB Helm chart installed, you can install the
 Promscale Helm chart. Promscale needs to access your TimescaleDB database. You
 can provide the database URI, or specify connection parameters.
 
 <procedure>
 
-### Installing the Promscale Helm chart
+#### Installing the Promscale Helm chart
 1.  Add the TimescaleDB Helm chart repository:
     ```bash
     helm repo add timescale 'https://charts.timescale.com'
@@ -102,43 +105,41 @@ can provide the database URI, or specify connection parameters.
     helm install my-release timescale/promscale -f values.yaml
     ```
 
+    <highlight type="note">
+    Replace `my-release` with the name of your choice
+    </highlight>
+
 </procedure>
 
-## Install the Prometheus Helm chart
-When you have installed the TimescaleDB and Promscale Helm charts, you can install the Prometheus Helm chart.
+
+
+## Install Promscale with a manifest file
+
+We only provide instructions to deploy the Promscale Connector using a manifest file.
+To deploy TimescaleDB on Kubernetes our [helm charts][timescaledb-install-helm].
+Alternatively, you may also consider [installing TimescaleDB on a host][timescaledb-host-install].
 
 <procedure>
 
-### Installing the Prometheus Helm chart
-1.  Add the Prometheus community Helm chart repository:
+#### Installing the Promscale Connector with a manifest
+1.  Download the [template manifest file][template-manifest]
     ```bash
-    helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+    curl https://github.com/timescale/promscale/blob/master/deploy/static/deploy.yaml --output promscale-connector.yaml
     ```
-1.  Check that the repository is up to date:
+1.  Edit the manifest and configure the TimescaleDB database details using the parameters starting with PROMSCALE_DB
+1.  Deploy the manifest:
     ```bash
-    helm repo update
-    ```
-1.  Configure the remote-read and write endpoints in the Prometheus server
-    configuration, in `values.yaml` configuration file. You can download the
-    `values.yaml` file from [our repository][prometheus-values-yaml]. Open the
-    file, locate the `server` section and configure the file like this:
-    ```bash
-    server:
-      remote_write:
-        - url: "http://promscale:9201/write"
-      remote_read:
-        - url: "http://promscale:9201/read"
-          read_recent: true
-     ```
-1.  Install the Prometheus Helm chart:
-    ```bash
-    helm install [RELEASE_NAME] prometheus-community/prometheus -f values.yaml
+    kubectl apply -f promscale-connector.yaml
     ```
 
 </procedure>
 
 
+[timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
+[timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
 [helm-install]: https://helm.sh/docs/intro/install/
 [tobs-values-yaml]: https://github.com/timescale/tobs/blob/master/chart/values.yaml
 [prometheus-values-yaml]: https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
+[template-manifest]: https://github.com/timescale/promscale/blob/master/deploy/static/deploy.yaml
+

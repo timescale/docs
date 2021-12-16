@@ -26,6 +26,13 @@ module.exports = [
         href: 'installation',
         children: [
           {
+            title: 'Install Promscale on Kubernetes',
+            href: 'kubernetes',
+            tags: ['promscale', 'install', 'kubernetes', 'analytics', 'helm'],
+            keywords: ['Promscale', 'Kubernetes', 'analytics', 'Helm'],
+            excerpt: 'Install Promscale on a Kubernetes cluster',
+          },
+          {
             title: 'Install Promscale with Docker',
             href: 'docker',
             tags: ['promscale', 'install', 'analytics', 'docker'],
@@ -35,16 +42,23 @@ module.exports = [
           {
             title: 'Install Promscale from source',
             href: 'source',
-            tags: ['promscale', 'install', 'analytics', 'prometheus'],
+            tags: ['promscale', 'install', 'analytics'],
             keywords: ['Promscale', 'analytics'],
             excerpt: 'Install Promscale on bare metal',
           },
           {
-            title: 'Install Prom-migrator',
+            title: 'Migrate existing data',
             href: 'prom-migrator',
-            tags: ['promscale', 'install', 'analytics', 'prometheus'],
+            tags: ['promscale', 'install', 'data', 'migration', 'prometheus'],
             keywords: ['Promscale', 'analytics'],
-            excerpt: 'Install Prom-migrator',
+            excerpt: 'Use Prom-migrator to send existing Prometheus data to Promscale',
+          },
+          {
+            title: 'Configure Prometheus',
+            href: 'configure-prometheus',
+            tags: ['promscale', 'configure', 'prometheus'],
+            keywords: ['Promscale', 'Prometheus'],
+            excerpt: 'Configure Prometheus to send metrics to Promscale',
           },
           {
             title: 'Install Promscale with tobs',
@@ -52,13 +66,6 @@ module.exports = [
             tags: ['promscale', 'install', 'analytics', 'k8s'],
             keywords: ['Promscale', 'analytics', 'Kubernetes,'],
             excerpt: "Install tobs",
-          },
-          {
-            title: 'Install Promscale with Helm',
-            href: 'helm',
-            tags: ['promscale', 'install', 'analytics', 'helm'],
-            keywords: ['Promscale', 'analytics', 'Helm,'],
-            excerpt: 'Install Helm for Promscale',
           },
         ],
       },
