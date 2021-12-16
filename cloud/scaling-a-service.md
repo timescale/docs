@@ -103,6 +103,24 @@ longer, and in some cases this could create a delay longer than six hours.
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 10&nbsp;TB in size.
 
+<procedure>
+
+### Configuring autoscaling for disk size
+1.  In the Timescale Cloud console, from the `Services` list, click the name of
+    the service you want to modify.
+1.  In the `Service overview` page, navigate to the `Operations` tab, and click
+    `Autoscaling`.
+1.  Toggle `Enable storage autoscaling` to turn autoscaling on or off.
+1.  In the `Storage autoscaling limit` field, adjust the slider to set the
+    maximum disk size. Autoscaling can not increase the disk size higher than
+    this limit.
+1.  Review the new allocations and costs in the comparison chart.
+1.  Click `Apply` to save your changes. The new disk size generally becomes
+    available within a few seconds.
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscaling.png" alt="Configure autoscaling disk size"/>
+
+</procedure>
+
 Size increases occur with these gradations:
 *   10&nbsp;GB
 *   25&nbsp;GB
@@ -144,21 +162,3 @@ Size increases occur with these gradations:
 *   12&nbsp;TB
 *   14&nbsp;TB
 *   16&nbsp;TB
-
-<procedure>
-
-### Configuring autoscaling for disk size
-1.  In the Timescale Cloud console, from the `Services` list, click the name of
-    the service you want to modify.
-1.  In the `Service overview` page, navigate to the `Operations` tab, and click
-    `Autoscaling`.
-1.  Toggle `Enable storage autoscaling` to turn autoscaling on or off.
-1.  In the `Storage autoscaling limit` field, adjust the slider to set the
-    maximum disk size. Autoscaling can not increase the disk size higher than
-    this limit.
-1.  Review the new allocations and costs in the comparison chart.
-1.  Click `Apply` to save your changes. The new disk size generally becomes
-    available within a few seconds.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscaling.png" alt="Configure autoscaling disk size"/>
-
-</procedure>
