@@ -23,18 +23,8 @@ module.exports = [
         href: "cloud-multi-node"
       },
       {
-        title: "VPC peering with AWS",
-        href: "vpc-peering-aws",
-        children: [
-          {
-            title: "Create and connect a VPC",
-            href: "create"
-          },
-          {
-            title: "Migrate a service between networks",
-            href: "migrate"
-          }
-        ]
+        title: "VPC peering",
+        href: "vpc-peering",
       },
       {
         title: "Disk management",
