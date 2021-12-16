@@ -87,7 +87,7 @@ and forward the metrics to Promscale.
     docker run \
         --network promscale \
         -p 9090:9090 \
-        -v ${PWD}/prometheus.yml:/etc/prometheus/prometheus.yml \
+        -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
         prom/prometheus
     ```
 
