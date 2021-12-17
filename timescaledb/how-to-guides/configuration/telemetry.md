@@ -89,7 +89,7 @@ If you disable telemetry, the version checking functionality is also disabled.
 		and opening the file.
 1. 	Change the parameter setting to `off`:
 		```yaml
-		timescaledb.telemetry_level=off
+    timescaledb.telemetry_level=off
 		```
 1. 	Reload the configuration file:
 		```bash
@@ -114,7 +114,7 @@ If you disable telemetry, the version checking functionality is also disabled.
 		and opening the file.
 1. 	Change the parameter setting to `off`:
 		```yaml
-		timescaledb.telemetry_level=basic
+    timescaledb.telemetry_level=basic
 		```
 1. 	Reload the configuration file:
 		```bash
