@@ -8,26 +8,24 @@ environment. Additionally, you need a
 [self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
 
 ## Install TimescaleDB
-
-Installing TimescaleDB to be used with Promscale involves installing the
-TimescaleDB database as well as the Promscale extension. The Promscale 
-extension contains support functions to improve performance of Promscale. 
-While Promscale will run without it, it is strongly recommended that you
-install it.
+Installing TimescaleDB to use with Promscale requires the TimescaleDB database,
+as well as the Promscale extension. The Promscale  extension contains support
+functions to improve performance of Promscale.  While Promscale runs without it,
+it is strongly recommended that you install the Promscale extension.
 
 <procedure>
 
 ### Build and Install TimescaleDB
 
-1. Install TimescaleDB following the instructions in the 
-   [TimescaleDB install page][tsdb-install-self-hosted]
-1. Complile and install the Promscale extension from source available 
-   on the [Promscale extension page][promscale-extension]
+1.  Install TimescaleDB following the instructions in the
+    [TimescaleDB install page][tsdb-install-self-hosted]
+1.  Compile and install the Promscale extension from source, it is available
+    on the [Promscale extension page][promscale-extension]
 
 </procedure>
 
 ## Install the Promscale pre-compiled binary
-In this procedure, you download the Promscale binarys and run them.
+In this procedure, you download the Promscale binaries and run them.
 
 <procedure>
 
@@ -57,27 +55,32 @@ In this procedure, you download the Promscale binarys and run them.
 </procedure>
 
 ## Install Prometheus pre-compiled binary
+When you have installed the Promscale binary, you can install the Prometheus
+pre-compiled binary.
 
-**Note**: Replace the versions of Prometheus listed here with the latest available version numbers
+You can configure Prometheus remote-write with our recommended configurations from [here][prometheus-config-tips] for optimal performance.
 
 <procedure>
 
-1.  Download Prometheus:
+<highlight="note"
+In this procedure, make sure you replace the versions of Prometheus listed here
+with the latest available version numbers.
+</highlight>
 
+1.  Download Prometheus:
     ```bash
     LATEST_VERSION=$(curl -s https://api.github.com/repos/prometheus/prometheus/releases/latest | grep "tag_name" | cut -d'"' -f4 | cut -c2- )
     curl -O -L "https://github.com/prometheus/prometheus/releases/download/v${LATEST_VERSION}/prometheus-${LATEST_VERSION}.linux-amd64.tar.gz"
     ```
 
-1.  Uncompress the tarball and change directory into the Prometheus directory:
-
+1.  Decompress the tarball and change into the Prometheus directory:
     ```bash
     tar -xzvf prometheus-${LATEST_VERSION}.linux-amd64.tar.gz
     cd prometheus-${LATEST_VERSION}.linux-amd64
     ```
 
-1.  Edit the `prometheus.yml` file in order to add Promscale as a remote_write and remote_read endpoint for Prometheus
-
+1.  Edit the `prometheus.yml` file to add Promscale as a `remote_write` and
+    `remote_read` endpoint for Prometheus:
     ```yaml
     remote_write:
       - url: "http://<connector-address>:9201/write"
@@ -85,17 +88,18 @@ In this procedure, you download the Promscale binarys and run them.
       - url: "http://<connector-address>:9201/read"
         read_recent: true
     ```
-    **Note**: Setting `read_recent` to `true` will make Prometheus query data from Promscale for all PromQL queries. This is highly recommended.
-
-    You can configure Prometheus remote-write with our recommended configurations from [here][prometheus-config-tips] for optimal performance.
-
-1.  Run Prometheus using the following command:
+    We highly recommend that you set `read_recent` to `true`, so that Prometheus
+    queries data from Promscale for all PromQL queries.
+1.  Run Prometheus:
     ```yaml
     ./prometheus
     ```
-    **Note**: Prometheus will load with the configuration defined by the prometheus.yml residing in the same directory as the prometheus executable.
+    Prometheus loads the configuration defined by the `prometheus.yml`
+    configuration file that is in the same directory as the Prometheus
+    executable file.
 
-</procedure>    
+</procedure>
+
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
