@@ -26,11 +26,9 @@ environment to migrate. Additionally, you need a
     -writer-url=<write_endpoint_url_for_remote_write_storage> \
     -progress-metric-url=<read_endpoint_url_for_remote_write_storage>
     ```
-
-    Example prom-migrator cmd to migrate the data:
+    For example:
     ```bash
-    ./prom-migrator \
-    -start=1631007492 \
+    ./prom-migrator -start=1631007492 \
     -end=1635845892 \
     -reader-url=http://localhost:9091/api/v1/read \
     -writer-url=http://localhost:9201/write \
@@ -42,13 +40,15 @@ environment to migrate. Additionally, you need a
 When you have migrated the data into Promscale, you can drop the old data from
 Prometheus and any other remote storage system.
 
-When your data migration is complete, you can use Promscale directly to query using PromQL and TimescaleDB to query using SQL. 
+When your data migration is complete, you can use Promscale directly to query
+using PromQL and TimescaleDB to query using SQL.
 
 <highlight type="important">>
 Promscale does not currently support alerting or recording rules. If you need
 access to these features, you can configure them within Prometheus directly. We
-also recommend that you set the data retention setting in Prometheus to `1d`, but
-this is dependent on the alerting rules that you have configured in Prometheus.
+also recommend that you set the data retention setting in Prometheus to `1d`,
+but this is dependent on the alerting rules that you have configured in
+Prometheus.
 </highlight>
 
 For more information about Prom-migrator and it command line options, see our
