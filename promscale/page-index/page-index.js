@@ -114,7 +114,7 @@ module.exports = [
         href: 'promscale-visualization',
         tags: ['promscale', 'visualization', 'analytics', 'grafana', 'prometheus'],
         keywords: ['Promscale', 'analytics', 'Grafana'],
-        excerpt: 'Learn about visualising queries in Promscale'
+        excerpt: 'Learn about visualizing queries in Promscale'
       }
     ]
   }
