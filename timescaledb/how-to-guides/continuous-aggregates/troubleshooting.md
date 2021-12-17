@@ -12,6 +12,15 @@ with continuous aggregates.
 * Copy this comment at the top of every troubleshooting page
 -->
 
+## Compression policies
+If you have hypertables that use a different retention policy to your continuous
+aggregates, the retention policies are applied separately.  The retention policy
+on a hypertable determines how long the raw data is kept for. The retention
+policy on a continuous aggregate determines how long the continuous aggregate is
+kept for. For  example, if you have a hypertable with a retention policy of a
+week, but a continuous aggregate with a retention policy of a month, the raw
+data is kept for a week, and the continuous aggregate is kept for a month.
+
 ## Insert irregular data into a continuous aggregate
 Materialized views are generally used with ordered data. If you insert historic
 data, or data that is not related to the current time, you need to refresh
@@ -40,6 +49,102 @@ for example, five of them in a continuous aggregation.  In this case, it could
 be hard to refresh and would make more sense to isolate these columns in another
 hypertable. Alternatively, you might create one hypertable per metric and
 refresh them independently.
+
+### New data is not shown in real-time aggregates
+If you have a time bucket that has already been materialized, the real-time
+aggregate won't show the data that has been inserted, updated, or deleted. In
+this worked example, `refresh_continuous_aggregate()` is called for the data
+that is not going to change. When you need to change data that has already been
+materialized, use `refresh_continuous_aggregate()` for the corresponding
+buckets.
+
+Create and fill the hypertable:
+```sql
+CREATE TABLE conditions(
+  day DATE NOT NULL,
+  city text NOT NULL,
+  temperature INT NOT NULL);
+
+SELECT create_hypertable(
+  'conditions', 'day',
+  chunk_time_interval => INTERVAL '1 day'
+);
+
+INSERT INTO conditions (day, city, temperature) VALUES
+  ('2021-06-14', 'Moscow', 26),
+  ('2021-06-15', 'Moscow', 22),
+  ('2021-06-16', 'Moscow', 24),
+  ('2021-06-17', 'Moscow', 24),
+  ('2021-06-18', 'Moscow', 27),
+  ('2021-06-19', 'Moscow', 28),
+  ('2021-06-20', 'Moscow', 30),
+  ('2021-06-21', 'Moscow', 31),
+  ('2021-06-22', 'Moscow', 34),
+  ('2021-06-23', 'Moscow', 34),
+  ('2021-06-24', 'Moscow', 34),
+  ('2021-06-25', 'Moscow', 32),
+  ('2021-06-26', 'Moscow', 32),
+  ('2021-06-27', 'Moscow', 31);
+```
+
+Create a real-time aggregate, but don't refresh the data:
+```sql
+CREATE MATERIALIZED VIEW conditions_summary
+WITH (timescaledb.continuous) AS
+SELECT city,
+   time_bucket('7 days', day) AS bucket,
+   MIN(temperature),
+   MAX(temperature)
+FROM conditions
+GROUP BY city, bucket
+WITH NO DATA;
+
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  30
+ Moscow | 2021-06-21 |  31 |  34
+ ```
+
+Refresh the data:
+```
+CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+
+-- The CAGG didn't change, that's expected
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  30
+ Moscow | 2021-06-21 |  31 |  34
+```
+
+Update the data in the previously materialized bucket:
+```sql
+UPDATE conditions
+SET temperature = 35
+WHERE day = '2021-06-14' and city = 'Moscow';
+```
+
+The updated data is not yet visible in the continuous aggregate. Additionally,
+INSERT and DELETE are not visible:
+```sql
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  30
+ Moscow | 2021-06-21 |  31 |  34
+```
+
+Refresh the data again to see the updates:
+```sql
+CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
+
+SELECT * FROM conditions_summary ORDER BY bucket;
+  city  |   bucket   | min | max
+--------+------------+-----+-----
+ Moscow | 2021-06-14 |  22 |  35
+ Moscow | 2021-06-21 |  31 |  34
+```
 
 ## Queries that work on regular tables, fail on continuous aggregates
 Continuous aggregates don't work on all queries. If you are using a function
@@ -77,14 +182,3 @@ dev=# select * FROM (select time_bucket_gapfill(4, time,-5,13), locf(avg(v)::int
                   -8 |
 (6 rows)
 ```
-
-## Compression policies
-If you have hypertables using a different retention policy to your 
-continuous aggregates, the retention policies are applied separately. 
-The retention policy on a hypertable determines how long the raw 
-data is kept for. The retention policy on a continuous aggregate 
-determines how long the continuous aggregate is kept for. For 
-example, if you have a hypertable with a retention policy of a 
-week, but a continuous aggregate with a retention policy of a 
-month, the raw data is kept for a week, and the continuous
-aggregate is kept for a month.
