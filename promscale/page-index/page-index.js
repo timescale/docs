@@ -57,6 +57,19 @@ module.exports = [
             excerpt: 'Use Prom-migrator to send existing Prometheus data to Promscale',
           },
           {
+            title: 'Install Promscale with tobs',
+            href: 'install-tobs',
+            tags: ['promscale', 'install', 'analytics', 'k8s'],
+            keywords: ['Promscale', 'analytics', 'Kubernetes,'],
+            excerpt: "Install tobs",
+          },
+        ],
+      },
+      {
+        title: 'Configure Promscale',
+        href: 'configuration',
+        children: [
+          {
             title: 'Configure Prometheus',
             href: 'configure-prometheus',
             tags: ['promscale', 'configure', 'prometheus'],
@@ -69,13 +82,6 @@ module.exports = [
             tags: ['promscale', 'configure', 'opentelemetry'],
             keywords: ['Promscale', 'OpenTelemetry'],
             excerpt: 'Configure OpenTelemetry to send metrics, traces to Promscale',
-          },
-          {
-            title: 'Install Promscale with tobs',
-            href: 'install-tobs',
-            tags: ['promscale', 'install', 'analytics', 'k8s'],
-            keywords: ['Promscale', 'analytics', 'Kubernetes,'],
-            excerpt: "Install tobs",
           },
         ],
       },
