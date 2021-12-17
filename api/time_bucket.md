@@ -1,7 +1,7 @@
 # time_bucket()
-The `time_bucket` function is based on the standard PostgreSQL `date_trunc`
-function. It allows for arbitrary time intervals instead of the second, minute,
-and hour intervals provided by `date_trunc`. The return value is the bucket's
+The `time_bucket` function is similar to the standard PostgreSQL `date_trunc`
+function. Unlike `date_trunc`, it allows for arbitrary time intervals instead of 
+second, minute, and hour intervals. The return value is the bucket's
 start time.
 
 `TIMESTAMPTZ` arguments are bucketed by the time in UTC, so the alignment of
