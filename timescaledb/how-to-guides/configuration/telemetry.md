@@ -8,8 +8,7 @@ appropriately seeded random number generators.
 
 This is an example of the JSON data file that is sent to our servers about a
 specific deployment:
-
-```javascript
+```java
 {
 	"db_uuid": "26917841-2fc0-48fd-b096-ba19b3fda98f",
 	"license": {
