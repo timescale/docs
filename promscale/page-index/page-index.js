@@ -44,7 +44,7 @@ module.exports = [
           },
           {
             title: 'Install Promscale from source',
-            href: 'source',
+            href: 'install-source',
             tags: ['promscale', 'install', 'analytics'],
             keywords: ['Promscale', 'analytics'],
             excerpt: 'Install Promscale on bare metal',
@@ -72,7 +72,7 @@ module.exports = [
           },
           {
             title: 'Install Promscale with tobs',
-            href: 'tobs',
+            href: 'install-tobs',
             tags: ['promscale', 'install', 'analytics', 'k8s'],
             keywords: ['Promscale', 'analytics', 'Kubernetes,'],
             excerpt: "Install tobs",
@@ -80,22 +80,19 @@ module.exports = [
         ],
       },
       {
-        title: 'Tobs',
+        title: 'tobs',
         href: 'tobs',
-        tags: ['tobs', 'k8s', 'monitor', 'learn', 'timescaledb'],
-        keywords: ['tobs', 'Kubernetes', 'timescaleDB', 'Promscale'],
-        excerpt: 'Learn about the observability stack for Kubernetes (tobs)',
         children: [
           {
-            title: 'About',
+            title: 'About tobs',
             href: 'about',
             tags: ['tobs', 'install', 'k8s', 'monitor', 'timescaledb'],
             keywords: ['tobs', 'Kubernetes', 'install', 'timescaleDB', 'Promscale'],
             excerpt: 'Install the observability stack for Kubernetes (tobs)',
           },
           {
-            title: 'Usage guide',
-            href: 'usage-guide',
+            title: 'Use tobs',
+            href: 'use-tobs',
             tags: ['tobs', 'monitor', 'k8s', 'timescaledb'],
             keywords: ['tobs', 'Kubernetes', 'timescaleDB', 'Promscale'],
             excerpt: 'Using the observability suite for Kubernetes (tobs)',
