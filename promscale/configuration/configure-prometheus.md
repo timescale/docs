@@ -1,14 +1,10 @@
 # Configure Prometheus to use Promscale as a remote storage
-
 Promscale has native support for the Prometheus remote write and read protocols
 as well as full PromQL support.
 
 ## Configure Prometheus to read and write data from Promscale
-
-Configure Prometheus to use Promscale as a remote storage by adding the 
-following lines to the prometheus configuration:
-
-```
+You can configure Prometheus to use Promscale as a remote storage. Open the Prometheus configuration file and add or edit these lines:
+```yaml
 remote_write:
   - url: "http://<connector-address>:9201/write"
 remote_read:
@@ -17,22 +13,16 @@ remote_read:
 ```
 
 <highlight type="important">
-Setting `read_recent` to true will make Prometheus query data from Promscale for 
-all PromQL queries. This is highly recommended.
+We highly recommend that you set Prometheus to query data from Promscale for all
+PromQL queries. To do this, set the `read_recent` parameter to `true`.
 </highlight>
 
 
-## Configuring Prometheus for better performance with Promscale
+## Configure Prometheus for better performance with Promscale
+This section contains information about configuring the Prometheus remote-write
+settings to maximize performance from Promscale.
 
-This document mentions details about configuring Prometheus's remote-write settings to maximize performance
-from Promscale.
-
-All details related to the Prometheus remote-write configuration can be found
-[here](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write).
-
-Remote-write performance is mainly dependent on `queue_config`. Changing values in `queue_config` will allow
-the remote-write component to adjust to different scenarios. For most cases, they should be:
-
+Remote-write performance is dependent on `queue_config`. Changing values in `queue_config` allows you to change the remote-write component for different scenarios. For most cases, these settings work well:
 ```yaml
 remote_write:
   remote_timeout: 30s
@@ -46,54 +36,67 @@ remote_write:
     max_backoff: 10s
 ```
 
-Please read further for explanation of each setting.
+This section contains further explanation of each parameter.
 
-### remote timeout (remote-write)
+For more information about Prometheus remote-write configuration, see the
+[Prometheus documentation][prometheus-config].
 
-Set by `remote_timeout:` field in `remote_write`.
+### Remote timeout
+Set with the `remote_timeout:` field in `remote_write`.
 
-Remote-timeout corresponds to the timeout of HTTP `POST` requests, that carry the samples batch to the remote storage.
-If Promscale is far from where Prometheus is deployed, or you have a high cardinality of data being ingested, you can
-set this to `remote_timeout: 30s`. However, higher values for `remote_timeout` can be considered, based on the requirements.
+This parameter corresponds to the timeout value of HTTP `POST` requests, which
+carry the samples batch to the remote storage. If Promscale is far from where
+Prometheus is deployed, or you have a high cardinality of data being ingested,
+you can set this to `remote_timeout: 30s`. However, higher values for
+`remote_timeout` can be considered, based on the requirements.
 
-### capacity
+### Capacity
+Set with the `capacity:` field in `queue_config`.
 
-Set by `capacity:` field in `queue_config`.
+This parameter sets the maximum number of samples that each queue in a
+remote-write shard can hold. If you have higher throughput, set the capacity of
+queues to at least `capacity: 10000`.
 
-This sets the maximum number of samples that each queues in a remote-write shards can hold. If you have
-higher throughput, then the capacity of queues should be `capacity: 10000` at least.
+### Maximum samples per send
+Set with the `max_samples_per_send:` field in `queue_config`.
 
-### maximum samples per send
+This parameter is the maximum number of samples that can fit in a single write
+request to the remote storage system. Samples batch less than
+`max_samples_per_send:` are sent only when `batch_send_deadline:` expires.
 
-Set by `max_samples_per_send:` field in `queue_config`.
+### Batch send deadline
+Set with the `batch_send_deadline:` field in `queue_config`.
 
-It denotes the maximum number of samples that can fit in a single write request to the remote storage system. Samples batch
-less than `max_samples_per_send:` will be sent only when `batch_send_deadline:` expires.
+This parameter is the maximum time allowed for a samples batch to be in the
+queue of Prometheus's shards. When this deadline expires, the samples batch is
+sent to the remote storage, even if the `max_samples_per_send` is yet to be
+full. You should set this value higher if you have a higher cardinality.
+Ideally, it should be set to `batch_send_deadline: 10s`.
 
-### batch send deadline
+### Number of shards
+Set with the `min_shards:` and `max_shards` fields in `queue_config`.
 
-Set by `batch_send_deadline:` field in `queue_config`.
+This parameter is the minimum and maximum number of shards that can be used
+concurrently. Shards are the elements of remote-write component that push data
+to remote storage. Multiple shards send data concurrently. The number of
+concurrent shards sets the amount of parallel requests sent to the remote-write
+endpoint. Promscale is optimized for concurrent inserts, so it will perform
+better with more shards. Ideally, set `min_shards: 4` & `max_shards: 200`.
+Shards start at the specified minimum, and increase their count to the specified
+maximum if the write-endpoint is unable to keep up with the rate of samples
+scraped by the Prometheus instance. However, increasing shards by large values
+can effect memory usage.
 
-Batch send deadline denotes the maximum time allowed for a samples batch to be in the queue of Prometheus's shards.
-When this deadline is expired, the samples batch is sent to the remote storage, even if the `max_samples_per_send` is yet to be full. You should
-set this high if you have a higher cardinality. Ideally, it should be set to `batch_send_deadline: 10s`.
+### Maximum retry delay
+Set with the `min_backoff` & `max_backoff` fields in `queue_config`.
 
-### number of shards
-
-Set by `min_shards:` field in `queue_config`.
-
-Shards are they actual elements of remote-write component that push data to remote storage. Multiple shards send data concurrently.
-Thus, the number of shards sets the amount of parallel requests sent to the remote-write endpoint. Since Promscale is
-optimized for concurrent inserts, it will perform better with more shards. Ideally, you can set `min_shards: 4` & `max_shards: 200`.
-Shards increase their count (till `max_shards`) if the write-endpoint is unable to keep up with the rate of samples scraped by the Prometheus instance.
-However, you should also keep in mind that increasing shards by large values can impact the memory usage.
-
-### maximum retry delay
-
-Set by `min_backoff` & `max_backoff` fields in `queue_config`.
-
-The remote-write component implements backoff duration on requests to write-endpoint if they fail with a recoverable error
-i.e., retry the write request again after a pause. This can be particularly useful if the remote-storage is facing some rate-limiting. You can set this
-to `min_backoff: 1s` and `max_backoff: 10s`. However, you can set higher values for `*_backoffs:` based on the requirements.
+This parameter is the minimum and maximum number of retries available for failed
+write requests. The remote-write component implements backoff duration on
+requests to the write-endpoint if they fail with a recoverable error. This means
+that the write request is retried again after a pause of a set number of
+seconds. This can be particularly useful if the remote-storage is subject to
+rate limiting. You can set this to `min_backoff: 1s` and `max_backoff: 10s`.
+However, you can set higher values for `*_backoffs:` based on the requirements.
 
 
+[prometheus-config]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write

@@ -1,14 +1,11 @@
-# Configure OpenTelemetry collector to forward data to Promscale
+# Configure the OpenTelemetry collector
+You can configure the OpenTelemetry collector to forward data to Promscale. Promscale natively supports OpenTelemetry traces using the OpenTelemetry Line Protocol (OTLP) gRPC API to ingest the traces.
 
-Promscale natively supports the OpenTelemetry traces using OpenTelemetry Line Protocol (OTLP) gRPC API to ingest the traces.
+Open the OpenTelemetry collector configuration file, and forward the OTLP traces to Promscale by adding or editing these lines:
 
-Configure the OTLP exporter in OpenTelemetry collector configuration to forward the OTLP traces to Promscale:
-
-```
+```yaml
 exporters:
   otlp:
     endpoint: "{{ .Release.Name }}-promscale-connector.{{ .Release.Namespace }}.svc.cluster.local:9202"
     insecure: true
 ```
-
-
