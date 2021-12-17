@@ -1,7 +1,6 @@
 # The observability stack (tobs) for Kubernetes
-
-The tobs comamnd line tool helps you install and manage a full observability
-stack in a Kubernetes cluster.
+The observability stack (tobs} for Kubernetes command line tool helps you
+install and manage a full observability stack in a Kubernetes cluster.
 
 *   [Learn about tobs][about-tobs] to understand how it works before you begin
     using it.
