@@ -108,24 +108,22 @@ If you disable telemetry, the version checking functionality is also disabled.
 
 ### Enabling telemetry
 
-1. 	Open your PostgreSQL configuration file, and locate
-		the `timescaledb.telemetry_level` parameter. See our
-		[PostgreSQL configuration file][postgres-config] instructions for locating
-		and opening the file.
-1. 	Change the parameter setting to `off`:
-		```yaml
-    timescaledb.telemetry_level=basic
-		```
-1. 	Reload the configuration file:
-		```bash
-		pg_ctl
-		```
-1. 	Alternatively, you can use this command at the `psql` prompt, as the root
-		user:
-		```sql
-		ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=basic
-		```
-		This command enables telemetry for the specified system, database, or user.
+1. Open your PostgreSQL configuration file, and locate the 'timescaledb.telemetry_level' 
+	parameter. See our [PostgreSQL configuration file][postgres-config] instructions for locating and opening the file.
+
+1. Change the parameter setting to 'off':
+	```yaml
+	timescaledb.telemetry_level=basic
+	```
+1. Reload the configuration file:
+	```bash
+	pg_ctl
+	```
+1. Alternatively, you can use this command at the `psql` prompt, as the root user:
+	```sql
+	ALTER [SYSTEM | DATABASE | USER] { *db_name* | *role_specification* } SET timescaledb.telemetry_level=basic
+	```
+	This command enables telemetry for the specified system, database, or user.
 
 </procedure>
 
