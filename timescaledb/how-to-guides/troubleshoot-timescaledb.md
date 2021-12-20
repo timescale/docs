@@ -60,7 +60,6 @@ the database will be looking for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.
 
-
 ## Getting more information
 
 ###  EXPLAINing query performance [](explain)
