@@ -120,3 +120,45 @@ to 10&nbsp;TB in size.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-autoscaling.png" alt="Configure autoscaling disk size"/>
 
 </procedure>
+
+Size increases occur with these gradations:
+*   10&nbsp;GB
+*   25&nbsp;GB
+*   50&nbsp;GB
+*   75&nbsp;GB
+*   100&nbsp;GB
+*   125&nbsp;GB
+*   150&nbsp;GB
+*   175&nbsp;GB
+*   200&nbsp;GB
+*   225&nbsp;GB
+*   250&nbsp;GB
+*   275&nbsp;GB
+*   300&nbsp;GB
+*   325&nbsp;GB
+*   350&nbsp;GB
+*   375&nbsp;GB
+*   400&nbsp;GB
+*   425&nbsp;GB
+*   450&nbsp;GB
+*   475&nbsp;GB
+*   500&nbsp;GB
+*   600&nbsp;GB
+*   700&nbsp;GB
+*   800&nbsp;GB
+*   900&nbsp;GB
+*   1&nbsp;TB
+*   1.5&nbsp;TB
+*   2&nbsp;TB
+*   2.5&nbsp;TB
+*   3&nbsp;TB
+*   4&nbsp;TB
+*   5&nbsp;TB
+*   6&nbsp;TB
+*   7&nbsp;TB
+*   8&nbsp;TB
+*   9&nbsp;TB
+*   10&nbsp;TB
+*   12&nbsp;TB
+*   14&nbsp;TB
+*   16&nbsp;TB
