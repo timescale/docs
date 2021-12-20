@@ -62,7 +62,7 @@ You can configure Prometheus remote-write with our recommended configurations fr
 
 <procedure>
 
-<highlight="note"
+<highlight type="note">
 In this procedure, make sure you replace the versions of Prometheus listed here
 with the latest available version numbers.
 </highlight>

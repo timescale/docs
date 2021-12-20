@@ -26,7 +26,7 @@ When you have Promscale installed, you can configure
 [Prometheus][config-prometheus] and the
 [OpenTelemetry Collector][config-otel-collector] to send telemetry to Promscale.
 
-<highlight="important">
+<highlight note="important">
 Support for OpenTelemetry traces is currently in beta and is disabled by default.
 If you want to send your OpenTelemetry traces to Promscale, see the
 instructions in the
