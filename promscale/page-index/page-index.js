@@ -5,7 +5,7 @@ module.exports = [
     href: 'promscale',
     name: 'Promscale',
     pageComponents: ['featured-cards'],
-    excerpt: 'Promscale is an open source long-term store for Prometheus data designed for analytics, built on top of TimescaleDB.',
+    excerpt: 'Promscale is the open source observability backend for metrics and traces powered by SQL, built on top of TimescaleDB.',
     children: [
       {
         title: 'About Promscale',
@@ -98,7 +98,7 @@ module.exports = [
           },
           {
             title: 'Use tobs',
-            href: 'use-tobs',
+            href: 'use',
             tags: ['tobs', 'monitor', 'k8s', 'timescaledb'],
             keywords: ['tobs', 'Kubernetes', 'timescaleDB', 'Promscale'],
             excerpt: 'Using the observability suite for Kubernetes (tobs)',
