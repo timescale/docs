@@ -29,7 +29,7 @@ access node typically requires a different connection limit than the
 data nodes that are only accessed internally. The nodes could also be
 provisioned differently, having varying levels of CPU, memory, and
 disk capabilities, so the database-level configuration must be
-heterogeneous and reflect the node capabilities.
+heterogeneous and should reflect the node capabilities.
 
 As well as distributed and non-distributed objects within a database,
 you can also have instance-level objects, such as roles and
