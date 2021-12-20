@@ -49,6 +49,10 @@ module.exports = [
       {
         title: "Account management",
         href: "account-management"
+      },
+      {
+        title: "User management",
+        href: "user-management"
       }
     ]
   }
