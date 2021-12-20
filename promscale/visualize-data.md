@@ -1,4 +1,4 @@
-# Promscale and visualization
+# Visualize data in Promscale
 Promscale can be used as a Prometheus data source for visualization tools like
 [Grafana][grafana-homepage] and [PromLens][promlens-homepage].
 

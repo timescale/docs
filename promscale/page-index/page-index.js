@@ -12,7 +12,7 @@ module.exports = [
         href: 'about-promscale',
         tags: ['promscale', 'learn', 'analytics', 'prometheus'],
         keywords: ['Promscale', 'analytics'],
-        excerpt: 'Learn how Promscale extracts metrics from your TimescaleDB instance'
+        excerpt: 'Learn about what Promscale is and how it works'
       },
       {
         title: 'Promscale benefits',
@@ -26,7 +26,7 @@ module.exports = [
         href: 'installation',
         tags: ['promscale', 'learn', 'analytics', 'prometheus'],
         keywords: ['Promscale', 'analytics'],
-        excerpt: 'Learn about installing Promscale',
+        excerpt: 'Install Promscale on Kubernetes, Docker, VMs or bare metal',
         children: [
           {
             title: 'Install Promscale on Kubernetes',
@@ -44,7 +44,7 @@ module.exports = [
           },
           {
             title: 'Install Promscale from source',
-            href: 'install-source',
+            href: 'source',
             tags: ['promscale', 'install', 'analytics'],
             keywords: ['Promscale', 'analytics'],
             excerpt: 'Install Promscale on bare metal',
@@ -58,7 +58,7 @@ module.exports = [
           },
           {
             title: 'Install Promscale with tobs',
-            href: 'install-tobs',
+            href: 'tobs',
             tags: ['promscale', 'install', 'analytics', 'k8s'],
             keywords: ['Promscale', 'analytics', 'Kubernetes,'],
             excerpt: "Install tobs",
@@ -66,28 +66,9 @@ module.exports = [
         ],
       },
       {
-        title: 'Configure Promscale',
-        href: 'configuration',
-        children: [
-          {
-            title: 'Configure Prometheus',
-            href: 'configure-prometheus',
-            tags: ['promscale', 'configure', 'prometheus'],
-            keywords: ['Promscale', 'Prometheus'],
-            excerpt: 'Configure Prometheus to send metrics to Promscale',
-          },
-          {
-            title: 'Configure OpenTelemetry Collector',
-            href: 'configure-otel-collector',
-            tags: ['promscale', 'configure', 'opentelemetry'],
-            keywords: ['Promscale', 'OpenTelemetry'],
-            excerpt: 'Configure OpenTelemetry to send metrics, traces to Promscale',
-          },
-        ],
-      },
-      {
         title: 'tobs',
         href: 'tobs',
+        excerpt: 'Install a complete observability stack in Kubernetes with tobs',
         children: [
           {
             title: 'About tobs',
@@ -105,19 +86,41 @@ module.exports = [
           },
         ],
       },
+
       {
-        title: 'Run Queries in Promscale',
-        href: 'promscale-run-queries',
-        tags: ['promscale', 'analytics', 'prometheus'],
-        keywords: ['Promscale', 'analytics'],
-        excerpt: 'Learn about running queries in Promscale'
+        title: 'Send data to Promscale',
+        href: 'send-data',
+        excerpt: 'Send data to Promscale from Prometheus, OpenTelemetry and other tools',
+        children: [
+          {
+            title: 'Prometheus',
+            href: 'prometheus',
+            tags: ['promscale', 'configure', 'prometheus', 'metrics'],
+            keywords: ['Promscale', 'Prometheus'],
+            excerpt: 'Send Prometheus metrics to Promscale',
+          },
+          {
+            title: 'OpenTelemetry',
+            href: 'opentelemetry',
+            tags: ['promscale', 'configure', 'opentelemetry', 'traces'],
+            keywords: ['Promscale', 'OpenTelemetry'],
+            excerpt: 'Send OpenTelemetry data to Promscale',
+          },
+        ],
       },
       {
-        title: 'Promscale and visualization',
-        href: 'promscale-visualization',
+        title: 'Query data in Promscale',
+        href: 'query-data',
+        tags: ['promscale', 'analytics', 'sql', 'promql', 'prometheus'],
+        keywords: ['Promscale', 'analytics'],
+        excerpt: 'Learn how to query data in Promscale'
+      },
+      {
+        title: 'Visualize data in Promscale',
+        href: 'visualize-data',
         tags: ['promscale', 'visualization', 'analytics', 'grafana', 'prometheus'],
         keywords: ['Promscale', 'analytics', 'Grafana'],
-        excerpt: 'Learn about visualizing queries in Promscale'
+        excerpt: 'Learn about data visualization tools you can use with Promscale'
       }
     ]
   }

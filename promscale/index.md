@@ -16,8 +16,9 @@ siloed in different systems.
     to install using source, docker and kubernetes.
 *   [Learn about tobs][about-tobs] to understand how to install a complete
     observability stack on Kubernetes.
-*   Use Promscale to [run queries][promscale-run-queries].
-*   Use Promscale with [visualization tools][promscale-visualization].
+*   [Send metrics and traces][send-data] to Promscale    
+*   Use Promscale to [run queries][query-data].
+*   Use Promscale with [visualization tools][visualize-data].
 
 For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
@@ -25,7 +26,8 @@ For more about Promscale, see our [developer documentation][promscale-gh-docs].
 [about-promscale]: promscale/:currentVersion:/about-promscale
 [install-promscale]: promscale/:currentVersion:/installation
 [promscale-benefits]: promscale/:currentVersion:/promscale-benefits/
-[promscale-run-queries]: promscale/:currentVersion:/promscale-run-queries/
-[promscale-visualization]: promscale/:currentVersion:/promscale-visualization/
+[query-data]: promscale/:currentVersion:/query-data/
+[visualize-data]: promscale/:currentVersion:/visualize-data/
 [promscale-gh-docs]: https://github.com/timescale/promscale/
 [about-tobs]: promscale/:currentVersion:/tobs/
+[send-data]: promscale/:currentVersion:/send-data/

@@ -20,17 +20,6 @@ For the Promscale source code, see our [GitHub repository][gh-promscale].
 If you have any questions, join the `#promscale` channel on the
 [TimescaleDB Community Slack][slack].
 
-## How it works
-Promscale automatically generates an optimized schema which allows you to
-efficiently store and query your metrics using SQL. Prometheus writes data to
-the Promscale Connector using the Prometheus `remote_write` interface, and the
-Connector writes data to TimescaleDB.
-
-SQL queries are handled directly by TimescaleDB. PromQL queries can be directed
-to the Promscale Connector. Alternatively, you can direct PromQL queries to the
-Prometheus instance, which reads data from the Connector using the `remote_read`
-interface. The Connector, in turn, fetches data from TimescaleDB.
-
 ## Architecture
 Promscale includes two components:
 
@@ -81,7 +70,7 @@ functions to improve the performance of Promscale. While Promscale is able to
 run without the additional extension installed, adding this extension gets
 better performance from Promscale.
 
-## Promscale schema
+## Promscale schema for metric data
 To achieve high ingestion, query performance, and optimal storage the Promscale
 schema writes the data in the most optimal format for storage and querying in
 TimescaleDB. Promscale translates data from the
@@ -164,7 +153,7 @@ CREATE TABLE _prom_catalog.label (
 );
 ```
 
-## Promscale views
+### Promscale views
 You interact with Prometheus data in Promscale through views. These views are
 automatically created and are used to interact with metrics and labels.
 
@@ -222,14 +211,14 @@ key, the label's value column name, the label's ID column name, the list of all
 values taken by the label,and the total number of values for that label.
 
 For examples of querying a specific metric view, see
-[Querying Promscale in SQL and PromQL][promscale-run-queries].
+[Query data in Promscale][query-data].
 
 
 [gh-promscale]: https://github.com/timescale/promscale
 [slack]: https://slack.timescale.com
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [Prometheus native format]: https://prometheus.io/docs/instrumenting/exposition_formats/
-[promscale-run-queries]: promscale/:currentVersion:/promscale-run-queries/
+[query-data]: promscale/:currentVersion:/query-data
 [promlabs-test]: https://promlabs.com/promql-compliance-test-results/2021-10-14/promscale
 [tsdb-compression]: timescaledb/:currentVersion:/how-to-guides/compression/
 [tsdb-hypertables]: timescaledb/:currentVersion:/how-to-guides/hypertables/

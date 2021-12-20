@@ -5,8 +5,8 @@ need to set these up.
 
 Promscale does not, by default, provide instrumentation to collect telemetry
 from your applications and infrastructure. It is expected that you use
-[Prometheus][prometheus-install] to collect metrics. You can also use the
-[OpenTelemetry Collector][otel-install] to collect traces. When you have the
+[Prometheus][prometheus-install] to collect metrics. You can also use
+[OpenTelemetry][otel] to collect traces. When you have the
 instrumentation set up, you can use Promscale to ingest the metrics and
 telemetry data.
 
@@ -23,14 +23,14 @@ You can also use our [prom-migrator tool][promscale-install-prom-migrator] to
 migrate your existing Prometheus data into Promscale.
 
 When you have Promscale installed, you can configure
-[Prometheus][config-prometheus] and the
-[OpenTelemetry Collector][config-otel-collector] to send telemetry to Promscale.
+[Prometheus][config-prometheus] and
+[OpenTelemetry][config-otel] to send data to Promscale.
 
 <highlight type="important">
 Support for OpenTelemetry traces is currently in beta and is disabled by default.
 If you want to send your OpenTelemetry traces to Promscale, see the
 instructions in the
-[tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing/).
+[tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing.md).
 </highlight>
 
 ## Install Promscale with instrumentation
@@ -46,7 +46,7 @@ Kubernetes includes Prometheus, OpenTelemetry, and Promscale.
 [promscale-install-tobs]: /tobs/
 [promscale-install-helm]: /installation/kubernetes/#install-promscale-with-helm
 [promscale-install-k8s-manifest]: /installation/kubernetes/#install-promscale-with-a-manifest-file
-[config-prometheus]: /configuration/configure-prometheus/
-[config-otel-collector]: /configuration/configure-otel-collector/
+[config-prometheus]: /send-data/prometheus/
+[config-otel]: /send-data/opentelemetry/
 [prometheus-install]: https://prometheus.io/docs/prometheus/latest/installation/
-[otel-install]: https://opentelemetry.io/docs/collector/getting-started/
+[otel]: https://opentelemetry.io/docs/

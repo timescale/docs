@@ -34,6 +34,11 @@ This command deploys all of the tobs component into your
 cluster. Follow the prompts to complete set up.
 
 ## Install tracing support
+
+<highlight type="important">
+Support for OpenTelemetry traces is currently in beta and is disabled by default.
+</highlight>
+
 In tobs version 0.7.0 and later, tracing components are included in the stack.
 To install the tracing components, use this command:
 ```bash
@@ -53,4 +58,4 @@ version of tobs and Kubernetes:
 
 
 [download-tobs]: https://github.com/timescale/tobs/releases/latest
-[promscale-developer-docs]: https://github.com/timescale/promscale/blob/master/docs/tracing/
+[promscale-developer-docs]: https://github.com/timescale/promscale/blob/master/docs/tracing.md

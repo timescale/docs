@@ -45,6 +45,12 @@ packages and instructions, see the
 
 </procedure>
 
+<highlight type="note">
+Support for OpenTelemetry traces is currently in beta and is disabled by default.
+If you want to send your OpenTelemetry traces to Promscale, see the
+instructions in the
+[tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing/).
+</highlight>
 
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescaledev/promscale-extension/tags

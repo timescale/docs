@@ -1,5 +1,5 @@
 # Install Promscale on Kubernetes
-You can install Promscale on Kubernetes using Helm or by using a manifest file.
+You can install Promscale on Kubernetes using Helm or using a manifest file.
 
 ## Install Promscale with Helm
 You can install Promscale using Helm charts. The Helm charts must be installed

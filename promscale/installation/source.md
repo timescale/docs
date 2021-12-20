@@ -54,53 +54,6 @@ In this procedure, you download the Promscale binaries and run them.
 
 </procedure>
 
-## Install Prometheus pre-compiled binary
-When you have installed the Promscale binary, you can install the Prometheus
-pre-compiled binary.
-
-You can configure Prometheus remote-write with our recommended configurations from [here][prometheus-config-tips] for optimal performance.
-
-<procedure>
-
-<highlight type="note">
-In this procedure, make sure you replace the versions of Prometheus listed here
-with the latest available version numbers.
-</highlight>
-
-1.  Download Prometheus:
-    ```bash
-    LATEST_VERSION=$(curl -s https://api.github.com/repos/prometheus/prometheus/releases/latest | grep "tag_name" | cut -d'"' -f4 | cut -c2- )
-    curl -O -L "https://github.com/prometheus/prometheus/releases/download/v${LATEST_VERSION}/prometheus-${LATEST_VERSION}.linux-amd64.tar.gz"
-    ```
-
-1.  Decompress the tarball and change into the Prometheus directory:
-    ```bash
-    tar -xzvf prometheus-${LATEST_VERSION}.linux-amd64.tar.gz
-    cd prometheus-${LATEST_VERSION}.linux-amd64
-    ```
-
-1.  Edit the `prometheus.yml` file to add Promscale as a `remote_write` and
-    `remote_read` endpoint for Prometheus:
-    ```yaml
-    remote_write:
-      - url: "http://<connector-address>:9201/write"
-    remote_read:
-      - url: "http://<connector-address>:9201/read"
-        read_recent: true
-    ```
-    We highly recommend that you set `read_recent` to `true`, so that Prometheus
-    queries data from Promscale for all PromQL queries.
-1.  Run Prometheus:
-    ```yaml
-    ./prometheus
-    ```
-    Prometheus loads the configuration defined by the `prometheus.yml`
-    configuration file that is in the same directory as the Prometheus
-    executable file.
-
-</procedure>
-
-
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
 [go-install]: https://golang.org/dl/
