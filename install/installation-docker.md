@@ -178,10 +178,10 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timeascaledb/:currentVersion:/index/
+[install-psql]: timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[tsdb-docs]: timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: /how-to-guides/configuration/
+[config]: timescaledb/:currentVersion:/how-to-guides/configuration/
 [docker-install]: https://docs.docker.com/get-docker/
 [official-image]: https://github.com/docker-library/postgres/
 [alpine Linux]: https://alpinelinux.org/
