@@ -1,5 +1,4 @@
 # Send OpenTelemetry data to Promscale
-
 Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for 
 traces. Therefore you can use any of the OpenTelemetry client SDKs,
 instrumentation libraries or the OpenTelemetry Collector to send traces to
