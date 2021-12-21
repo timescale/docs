@@ -30,7 +30,6 @@ Kubernetes cluster the endpoint parameter would be similar to
 `endpoint: "promscale-connector.default.svc.cluster.local:9202"`
 
 # Configure the OpenTelemetry instrumentation
-
 While using the OpenTelemetry Collector to export data to an observability backend
 is recommended in production, you can also send data from OpenTelemetry instrumentation
 libraries and SDKs directly to Promscale using OTLP.
