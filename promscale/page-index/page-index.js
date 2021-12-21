@@ -12,7 +12,7 @@ module.exports = [
         href: 'about-promscale',
         tags: ['promscale', 'learn', 'analytics', 'prometheus'],
         keywords: ['Promscale', 'analytics'],
-        excerpt: 'Learn about what Promscale is and how it works'
+        excerpt: 'Learn about Promscale and how it works'
       },
       {
         title: 'Promscale benefits',
