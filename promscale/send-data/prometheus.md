@@ -1,5 +1,4 @@
 # Send Prometheus metrics to Promscale
-
 Promscale can be used as a remote storage for Prometheus and has native 
 support for the Prometheus remote write and read protocols as well as full 
 PromQL support.
