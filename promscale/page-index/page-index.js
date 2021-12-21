@@ -26,7 +26,7 @@ module.exports = [
         href: 'installation',
         tags: ['promscale', 'learn', 'analytics', 'prometheus'],
         keywords: ['Promscale', 'analytics'],
-        excerpt: 'Install Promscale on Kubernetes, Docker, VMs or bare metal',
+        excerpt: 'Install Promscale on Kubernetes, Docker, virtual machine, or bare metal',
         children: [
           {
             title: 'Install Promscale on Kubernetes',
