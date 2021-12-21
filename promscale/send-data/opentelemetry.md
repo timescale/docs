@@ -36,6 +36,6 @@ OpenTelemetry instrumentation libraries and SDKs directly to Promscale using
 OTLP.
 
 The specifics of the configuration depend on each SDK and library. See the corresponding
-github repository or the [OpenTelemetry documentation][otel-docs] for more information.
+GitHub repository or the [OpenTelemetry documentation][otel-docs] for more information.
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
