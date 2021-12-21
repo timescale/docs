@@ -24,8 +24,9 @@ exporters:
     insecure: true
 ```
 
-Replace `<connector-host>` and `OTLP-port` with the corresponding hostname and port. For example, if you are running
-the OTLP Collector and the Promscale Connector on a Kubernetes cluster the endpoint parameter would be something like
+Replace `<connector-host>` and `OTLP-port` with the corresponding hostname and port. 
+For example, if you are running the OTLP Collector and the Promscale Connector on a 
+Kubernetes cluster the endpoint parameter would be similar to
 `endpoint: "promscale-connector.default.svc.cluster.local:9202"`
 
 # Configure the OpenTelemetry instrumentation
