@@ -15,6 +15,8 @@ For more information about installing and using `psql`, see the
 [installing psql section][install-psql].
 
 ## Query metric data with SQL
+This section covers information about the different SQL queries you can use for metrics data.
+
 ### Query a metric
 When you query a metric, the query is performed against the view of the metric
 you're interested in. This example queries a metric named `go_dc_duration` for
