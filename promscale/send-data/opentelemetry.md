@@ -12,7 +12,6 @@ instructions in the
 </highlight>
 
 # Configure the OpenTelemetry Collector
-
 You can configure the OpenTelemetry collector to forward traces to Promscale. Promscale listens
 to OTLP data on the port you specified with the `otlp-grpc-server-listen-address`
 parameter when you started the Promscale connector.
