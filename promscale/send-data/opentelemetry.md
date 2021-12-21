@@ -17,7 +17,6 @@ to OTLP data on the port you specified with the `otlp-grpc-server-listen-address
 parameter when you started the Promscale connector.
 
 Open the OpenTelemetry collector configuration file, and forward the OTLP traces to Promscale by adding or editing these lines:
-
 ```yaml
 exporters:
   otlp:
