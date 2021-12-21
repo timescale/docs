@@ -1,6 +1,6 @@
 # Send data to Promscale
 Promscale has native support for ingesting Prometheus and OpenTelemetry data.
-It also has apis that you can use to send metrics in a variety of formats.
+It also has APIs that you can use to send metrics in a variety of formats.
 
 *   [Configure Prometheus][configure-prometheus] to send metrics to Promscale.
 *   [Configure OpenTelemetry][configure-opentelemetry] to send data to Promscale.
