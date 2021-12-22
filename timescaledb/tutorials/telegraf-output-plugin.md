@@ -5,9 +5,9 @@ it is extendable. It is written in Go, which means that it is a compiled
 and standalone binary that can be run on any system with no need for
 external dependencies, or package management tools required.
 
-Telegraf is an open-source tool. It contains over 200 plugins for gathering and
+Telegraf is an open source tool. It contains over 200 plugins for gathering and
 writing different types of data written by people who work with that data.
-Timescale have built downloadable binaries of Telegraf with our plugin included.
+Timescale have built downloadable binaries of Telegraf with the plugin included.
 This tutorial runs through a couple of examples on how to use the PostgreSQL and
 TimescaleDB output plugin for Telegraf.
 
@@ -18,9 +18,8 @@ Before you start, you need [TimescaleDB installed][getting-started] and a means 
 Telegraf is written in Go, and the current build process of the tool is
 configured to produce one standalone binary. Because of this all the code for
 the different plugins must be part of that binary. Timescale have an unofficial
-build of Telegraf version 1.13.0 with our plugin added, that you can download
+build of Telegraf version 1.13.0 with the plugin added, that you can download
 from:
-
 *   Linux amd64: <tag type="download">[deb](https://telegrafreleases.blob.core.windows.net/linux/telegraf_1.13.0~with~pg-1_amd64.deb)</tag> <tag type="download">[rpm](https://telegrafreleases.blob.core.windows.net/linux/telegraf-1.13.0~with~pg-1.x86_64.rpm)</tag> <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/linux/telegraf)</tag>
 *   Windows amd64: <tag type="download">[binary/exe](https://telegrafreleases.blob.core.windows.net/windows/telegraf.exe)</tag>
 *   MacOS amd64: <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/macos/telegraf)</tag>
@@ -30,7 +29,7 @@ Timescale also provide you with builds for:
 *   Linux (i386, armhf, armel, arm64, static_amd64, s390x, mipsel)
 *   FreeBSD (amd64, i386)
 
-if you contact us in our [community slack][public-slack]
+You can get in contact using the Timescale [community Slack][public-slack]
 
 Once you download the binary and extract it to a suitable location (or install
 the packages) you can test out the build. You might need to make the file
@@ -77,7 +76,7 @@ This command selects the generated configuration file that enables only the CPU 
 ```
 
 A line is outputted for each core of the CPU and the total. Values are presented in `key=value` pairs with the timestamp last in the row.
-When writing to STDOUT you can distinguish between *tags*, which are indexed fields (`cpu`, `host`) and value *fields* (`usage_quest`, `usage_user` ...) by a blank space (in our example the space after `host=local`).
+When writing to STDOUT you can distinguish between *tags*, which are indexed fields (`cpu`, `host`) and value *fields* (like `usage_quest` or `usage_user`) by a blank space (in this example the space after `host=local`).
 The distinction exists because different configuration options are available for the different fields.
 
 ### Configuring the PostgreSQL output plugin
@@ -325,7 +324,7 @@ telegraf --config telegraf.conf
 Instead of having three text columns, now you have one JSONB column.
 
 ## Next steps
-When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with our [architecture][] and [API reference][api].
+When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with the [architecture][] and [API reference][api].
 
 Additionally, there are several other [tutorials][] available for you to explore
 as you become accustomed to working with TimescaleDB.
