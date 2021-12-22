@@ -1,22 +1,21 @@
-# How to set up a Prometheus endpoint for a managed service for TimescaleDB database
-
-You can get more insights into the performance of your managed service for TimescaleDB
-database by monitoring it using [Prometheus][get-prometheus], a popular
-open-source metrics-based systems monitoring solution. This tutorial
-takes you through setting up a Prometheus endpoint for a database running
-in a [managed service for TimescaleDB][timescale-mst]. To create a monitoring system to ingest and analyze
-Prometheus metrics from your managed service for TimescaleDB instance, you can use [Promscale][promscale]!
+# How to set up a Prometheus endpoint for Managed Service for TimescaleDB
+You can get more insights into the performance of your managed service for
+TimescaleDB database by monitoring it using [Prometheus][get-prometheus], a
+popular open-source metrics-based systems monitoring solution. This tutorial
+takes you through setting up a Prometheus endpoint for a database running in a
+[Managed Service for TimescaleDB][timescale-mst]. To create a monitoring system
+to ingest and analyze Prometheus metrics from your managed service for
+TimescaleDB instance, you can use [Promscale][promscale].
 
 This exposes metrics from the [node_exporter][node-exporter-metrics] as well
 as [pg_stats][pg-stats-metrics] metrics.
 
 ## Prerequisites
-To proceed with this tutorial, you need a Managed Service for TimescaleDB database.
-To create one, see these instructions for how to
+To proceed with this tutorial, you need a Managed Service for TimescaleDB
+database. To create one, see these instructions for how to
 [get started with Managed Service for TimescaleDB][timescale-mst-get-started]
 
-## Step 1: Enable Prometheus service integration
-
+## Enable Prometheus service integration
 In the navigation bar, select 'Service Integrations'. Navigate to the service
 integrations, pictured below.  
 
@@ -24,19 +23,19 @@ integrations, pictured below.
 
 This presents you with the option to add a Prometheus integration point.
 Select the plus icon to add a new endpoint and give it a name of your choice.
-We've named ours `endpoint_dev`.
+This example uses `endpoint_dev`.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/docs.iobeam.com/images/Prometheus_service_integration_1.png" alt="Create a Prometheus endpoint on Timescale Cloud"/>
 
-Furthermore, notice that you are given basic authentication information and a port number
-in order to access the service. This is used when setting up your Prometheus
-installation, in the `prometheus.yml` configuration file. This enables you to make
-this Managed Service for TimescaleDB endpoint a target for Prometheus to scrape.
+Furthermore, notice that you are given basic authentication information and a
+port number in order to access the service. This is used when setting up your
+Prometheus installation, in the `prometheus.yml` configuration file. This
+enables you to make this Managed Service for TimescaleDB endpoint a target for
+Prometheus to scrape.
 
 Here's a sample configuration file you can use when you setup your Prometheus
 installation, substituting the target port, IP address, username, and password
 for those of your Managed Service for TimescaleDB instance:
-
 ```yaml
 # prometheus.yml for monitoring a Timescale Cloud instance
 global:
@@ -58,10 +57,9 @@ remote_read:
  - url: "http://{ADAPTER_IP}:9201/read"
 ```
 
-## Step 2: Associate Prometheus endpoint with managed service
-
-Next, we want to associate our Prometheus endpoint with our Timescale
-Cloud service.  Using the navigation menu, select the service we want to
+## Associate Prometheus endpoint with managed service
+You need to associate the Prometheus endpoint with your Timescale
+Cloud service.  Using the navigation menu, select the service you want to
 monitor and click the 'Overview' tab.
 
 Navigate down to the 'Service Integrations' section and click the 'Manage Integrations' button.
@@ -88,7 +86,6 @@ Congratulations, you have successfully set up a Prometheus endpoint on your mana
 service on Managed Service for TimescaleDB!
 
 ## Next steps
-
 Next, [use Promscale][promscale] with Timescale, Grafana, and Prometheus to ingest
 and analyze Prometheus metrics from your Timescale Cloud instance.
 
