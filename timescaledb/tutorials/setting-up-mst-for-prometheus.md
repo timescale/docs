@@ -1,7 +1,7 @@
 # How to set up a Prometheus endpoint for Managed Service for TimescaleDB
 You can get more insights into the performance of your managed service for
 TimescaleDB database by monitoring it using [Prometheus][get-prometheus], a
-popular open-source metrics-based systems monitoring solution. This tutorial
+popular open source metrics-based systems monitoring solution. This tutorial
 takes you through setting up a Prometheus endpoint for a database running in a
 [Managed Service for TimescaleDB][timescale-mst]. To create a monitoring system
 to ingest and analyze Prometheus metrics from your managed service for
@@ -16,7 +16,7 @@ database. To create one, see these instructions for how to
 [get started with Managed Service for TimescaleDB][timescale-mst-get-started]
 
 ## Enable Prometheus service integration
-In the navigation bar, select 'Service Integrations'. Navigate to the service
+In the navigation bar, select `Service Integrations`. Navigate to the service
 integrations, pictured below.  
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/docs.iobeam.com/images/Prometheus_service_integration_0.png" alt="Service Integrations Menu Option"/>
@@ -58,35 +58,35 @@ remote_read:
 ```
 
 ## Associate Prometheus endpoint with managed service
-You need to associate the Prometheus endpoint with your Timescale
-Cloud service.  Using the navigation menu, select the service you want to
-monitor and click the 'Overview' tab.
-
-Navigate down to the 'Service Integrations' section and click the 'Manage Integrations' button.
+You need to associate the Prometheus endpoint with your Timescale Cloud service.
+Using the navigation menu, select the service you want to monitor and click the
+`Overview` tab. Navigate to the `Service Integrations` section and click the
+`Manage Integrations` button.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integrations_4.png" alt="Manage Service integrations on your managed service"/>
 
-Find the Prometheus integration option and select 'Use Prometheus'.
+Find the Prometheus integration option and select `Use Prometheus`.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_2.png" alt="Select Prometheus integration to integrate with"/>
 
-Next, select the endpoint name you created in Step 1 as the endpoint you'd like to use
-with this service and then click the 'Enable' button. It's possible to use the same
-endpoint for multiple services or a separate one for services you'd like to keep apart.
+Select the endpoint name you created earlier as the endpoint you'd like to
+use with this service and then click the `Enable` button. It's possible to use
+the same endpoint for multiple services or a separate one for services you'd
+like to keep apart.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_3.png" alt="Select name of Prometheus endpoint to integrate with"/>
 
-To check if this was successful, navigate back to the Service Integrations section of your
-managed service, and check if that “Active” flag appears, along with the name of the endpoint
-you associated the service with.
+To check if this was successful, navigate back to the Service Integrations
+section of your managed service, and check if that `Active` flag appears, along
+with the name of the endpoint you associated the service with.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_5.png" alt="Success! Active prometheus endpoint with name"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-prometheus-endpoint-tutorial/Prometheus_service_integration_5.png" alt="Active prometheus endpoint with name"/>
 
-Congratulations, you have successfully set up a Prometheus endpoint on your managed
-service on Managed Service for TimescaleDB!
+Congratulations, you have successfully set up a Prometheus endpoint on your
+Managed Service for TimescaleDB.
 
 ## Next steps
-Next, [use Promscale][promscale] with Timescale, Grafana, and Prometheus to ingest
+Next, use [Promscale][promscale] with Timescale, Grafana, and Prometheus to ingest
 and analyze Prometheus metrics from your Timescale Cloud instance.
 
 
@@ -95,5 +95,5 @@ and analyze Prometheus metrics from your Timescale Cloud instance.
 [get-prometheus]: https://prometheus.io
 [timescale-mst-get-started]: /mst/:currentVersion:/
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
-[promscale]: https://github.com/timescale/timescale-prometheus
+[promscale]: /promscale/:currentVersion:/
 [node-exporter-metrics]: https://github.com/prometheus/node_exporter
