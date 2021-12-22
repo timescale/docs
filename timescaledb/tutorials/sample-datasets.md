@@ -1,6 +1,5 @@
 # Sample datasets
-
-We have created several sample datasets to help you get started using
+Timescale have created several sample datasets to help you get started using
 TimescaleDB. These datasets vary in database size, number of time
 intervals, and number of values for the partition field.
 
@@ -10,25 +9,29 @@ data to be copied into those tables. These files presume the database
 you are importing them to has already been [set up with the TimescaleDB extension][installation].
 
 
-**Device ops**: These datasets are designed to represent metrics (e.g. CPU,
-memory, network) collected from mobile devices. (Click on the name to
-download.)
+**Device ops**: these datasets are designed to represent metrics such as CPU,
+memory, and network, that are collected from mobile devices. Click on the name
+to download.
 
-1. <tag type="download" >[devices_small](https://timescaledata.blob.core.windows.net/datasets/devices_small.tar.gz)</tag> 1,000 devices recorded over 1,000 time intervals - 39MB
-1. <tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</tag> 5,000 devices recorded over 2,000 time intervals - 390MB
-1. <tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</tag> 3,000 devices recorded over 10,000 time intervals - 1.2GB
+*   <tag type="download" >[devices_small](https://timescaledata.blob.core.windows.net/datasets/devices_small.tar.gz)</tag> 1,000 devices recorded over 1,000 time intervals - 39&nbsp;MB
+*   <tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</tag> 5,000 devices recorded over 2,000 time intervals - 390MB
+*   <tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</tag> 3,000 devices recorded over 10,000 time intervals - 1.2&nbsp;GB
 
-For more details and example usage, see [In-depth: Device ops datasets](#in-depth-device-ops-datasets).
+For more details and example usage, see
+[device ops datasets](#in-depth-device-ops-datasets).
 
-**Weather**: These datasets are designed to represent temperature and
+**Weather**: these datasets are designed to represent temperature and
 humidity data from a variety of locations. (Click on the name to
 download.)
 
-1. <tag type="download" >[weather_small](https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz)</tag> 1,000 locations over 1,000 two-minute intervals - 8.1MB
-1. <tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</tag> 1,000 locations over 15,000 two-minute intervals - 115MB
-1. <tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</tag> 2,000 locations over 20,000 two-minute intervals - 305MB
+1.  <tag type="download" >[weather_small](https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz)</tag>
+    1,000 locations over 1,000 two-minute intervals - 8.1&nbsp;MB
+1.  <tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</tag>
+    1,000 locations over 15,000 two-minute intervals - 115&nbsp;MB
+1.  <tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</tag>
+    2,000 locations over 20,000 two-minute intervals - 305&nbsp;MB
 
-For more details and example usage, see [In-depth: Weather datasets](#in-depth-weather-datasets).
+For more details and example usage, see [weather datasets](#in-depth-weather-datasets).
 
 ## Importing
 <!-- Add steps format-->
@@ -43,13 +46,11 @@ For example, `devices_small.tar.gz` is dataset `devices` and size `small`.
 Each dataset contains one `.sql` file named `[dataset].sql` and a few
 CSV files named in the format `[dataset]_[size]_[table].csv`.
 
-As an example, if you wanted to import the `devices_small` dataset
-above, it creates two tables (`device_info` and a hypertable
-named `readings`) from `devices.sql`. Therefore, there are two CSV
-files: `devices_small_readings.csv` and `devices_small_device_info.csv`.
-So, to import this dataset into a TimescaleDB database
-named `devices_small`:
-
+As an example, if you wanted to import the `devices_small` dataset, it creates
+two tables (`device_info` and a hypertable named `readings`) from `devices.sql`.
+Therefore, there are two CSV files: `devices_small_readings.csv` and
+`devices_small_device_info.csv`. So, to import this dataset into a TimescaleDB
+database named `devices_small`:
 ```bash
 # (1) unzip the archive
 tar -xvzf devices_small.tar.gz
@@ -65,25 +66,26 @@ psql -U postgres -d devices_small -c "\COPY device_info FROM devices_small_devic
 The data is now ready for you to use.
 
 <highlight type="tip">
-The standard `COPY` command in PostgreSQL is single threaded.
- So to speed up importing the larger sample datasets, we recommend using
- our [parallel importer](https://github.com/timescale/timescaledb-parallel-copy) instead.
+The standard `COPY` command in PostgreSQL is single threaded. To speed up
+importing the larger sample datasets, you can use the
+[parallel importer](https://github.com/timescale/timescaledb-parallel-copy)
+instead.
 </highlight>
 
 ```bash
-# To access your database (e.g., devices_small)
+# To access your database (for example: `devices_small`)
 psql -U postgres -h localhost -d devices_small
 ```
 
-## In-depth: Device ops datasets [](in-depth-devices)
-After importing one of these datasets (`devices_small`, `devices_med`, `devices_big`),
-you have a plain PostgreSQL table called `device_info`
-and a hypertable called `readings`. The `device_info` table has (static)
-metadata about each device, such as the OS name and manufacturer.
-The `readings` hypertable tracks data sent from each device, e.g. CPU activity,
-memory levels, etc. Because hypertables are exposed as a single table, you
-can query them and join them with the metadata as you would normal SQL
-tables (see Example Queries below).
+## Device ops datasets [](in-depth-devices)
+After importing one of these datasets (`devices_small`, `devices_med`,
+`devices_big`), you have a plain PostgreSQL table called `device_info` and a
+hypertable called `readings`. The `device_info` table has (static) metadata
+about each device, such as the OS name and manufacturer. The `readings`
+hypertable tracks data sent from each device, fore xample CPU activity, memory
+levels, etc. Because hypertables are exposed as a single table, you can query
+them and join them with the metadata as you would normal SQL tables, as shown in
+the example queries in this section.
 
 #### Schemas
 ```sql
@@ -120,7 +122,7 @@ Indexes:
 ```
 
 #### Example queries
-_Note: Uses dataset_ `devices_med`
+Uses `devices_med` dataset
 
 **10 most recent battery temperature readings for charging devices**
 ```sql
@@ -192,15 +194,15 @@ hour                   | min_battery_level | max_battery_level
 
 ---
 
-## In-depth: Weather datasets [](in-depth-weather)
-After importing one of these datasets (`weather_small`, `weather_med`, `weather_big`),
-you notice a plain PostgreSQL table called `locations` and
-a hypertable called `conditions`. The `locations` table has metadata about
-each of the locations, such as its name and environmental type.
-The `conditions` hypertable tracks readings of temperature and humidity from
-those locations. Because hypertables are exposed as a single table, you can
-query them and join them with the metadata as you would normal SQL tables
-(see Example Queries below).
+## Weather datasets [](in-depth-weather)
+After importing one of these datasets (`weather_small`, `weather_med`,
+`weather_big`), you notice a plain PostgreSQL table called `locations` and a
+hypertable called `conditions`. The `locations` table has metadata about each of
+the locations, such as its name and environmental type. The `conditions`
+hypertable tracks readings of temperature and humidity from those locations.
+Because hypertables are exposed as a single table, you can query them and join
+them with the metadata as you would normal SQL tables, as shown in the example
+queries in this section.
 
 #### Schemas
 ```sql
@@ -226,9 +228,9 @@ Indexes:
 ```
 
 #### Example queries
-_Note: Uses dataset_ `weather_med`
+Uses `weather_med` dataset.
 
-**Last 10 readings**
+**Last ten readings**
 ```sql
 SELECT * FROM conditions c ORDER BY time DESC LIMIT 10;
 
