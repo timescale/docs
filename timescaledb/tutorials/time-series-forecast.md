@@ -71,7 +71,7 @@ INSERT INTO rides_count
 ```
 
 Notice that you have made the `rides_count` table a TimescaleDB hypertable.
-This allows us to take advantage of TimescaleDB's faster insert and query
+This allows you to take advantage of TimescaleDB's faster insert and query
 performance with time-series data. Here, you can see how PostgreSQL aggregate
 functions such as `COUNT` and various PostGIS functions all work as usual
 with TimescaleDB. You can use PostGIS to select data points from the original
@@ -191,7 +191,7 @@ dbListTables(con)
 ```
 
 You can query the database with SQL code inside R. Putting the query result
-in an R data frame allows us to analyze the data using tools provided by R.
+in an R data frame allows you to analyze the data using tools provided by R.
 
 ```r
 # query the database and input the result into an R data frame
@@ -224,7 +224,7 @@ head(count_rides_test)
 
 In order to feed the data into an ARIMA model, you must first convert the
 data frame into a time-series object in R. [`xts`][r-xts] is a package that allows
-us to do this easily. You can also set the frequency of the time-series object
+you to do this easily. You can also set the frequency of the time-series object
 to 168. This is because the number of pickups is expected to fluctuate with
 a fixed pattern every week, and there are 168 hours in a week, or in other
 words, 168 data points in each seasonal period. If you want to model
