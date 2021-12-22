@@ -6,9 +6,9 @@ and standalone binary that can be run on any system with no need for
 external dependencies, or package management tools required.
 
 Telegraf is an open-source tool. It contains over 200 plugins for gathering and
-writing different types of data written by people who work with that data. We
-have built downloadable binaries of Telegraf with our plugin included. This
-tutorial runs through a couple of examples on how to use the PostgreSQL and
+writing different types of data written by people who work with that data.
+Timescale have built downloadable binaries of Telegraf with our plugin included.
+This tutorial runs through a couple of examples on how to use the PostgreSQL and
 TimescaleDB output plugin for Telegraf.
 
 ## Installation [](telegraf-installation)
@@ -17,15 +17,15 @@ Before you start, you need [TimescaleDB installed][getting-started] and a means 
 ### Setting up Telegraf
 Telegraf is written in Go, and the current build process of the tool is
 configured to produce one standalone binary. Because of this all the code for
-the different plugins must be part of that binary. We have an unofficial build
-of Telegraf version 1.13.0 with our plugin added, that you can download from:
+the different plugins must be part of that binary. Timescale have an unofficial
+build of Telegraf version 1.13.0 with our plugin added, that you can download
+from:
 
 *   Linux amd64: <tag type="download">[deb](https://telegrafreleases.blob.core.windows.net/linux/telegraf_1.13.0~with~pg-1_amd64.deb)</tag> <tag type="download">[rpm](https://telegrafreleases.blob.core.windows.net/linux/telegraf-1.13.0~with~pg-1.x86_64.rpm)</tag> <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/linux/telegraf)</tag>
 *   Windows amd64: <tag type="download">[binary/exe](https://telegrafreleases.blob.core.windows.net/windows/telegraf.exe)</tag>
 *   MacOS amd64: <tag type="download">[binary](https://telegrafreleases.blob.core.windows.net/macos/telegraf)</tag>
 
-We can also provide you with builds for:
-
+Timescale also provide you with builds for:
 *   Windows i386
 *   Linux (i386, armhf, armel, arm64, static_amd64, s390x, mipsel)
 *   FreeBSD (amd64, i386)
@@ -327,7 +327,8 @@ Instead of having three text columns, now you have one JSONB column.
 ## Next steps
 When you have started inserting data in TimescaleDB, you can begin to familiarize yourself with our [architecture][] and [API reference][api].
 
-Additionally, we have several other [tutorials][] available for you to explore as you become accustomed to working with TimescaleDB.
+Additionally, there are several other [tutorials][] available for you to explore
+as you become accustomed to working with TimescaleDB.
 
 
 [getting-started]: /install/latest/
