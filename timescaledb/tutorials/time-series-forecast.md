@@ -25,7 +25,7 @@ to develop an even more insightful forecast into how your data
 This time-series forecasting example demonstrates how to integrate
 TimescaleDB with R, Apache MADlib, and Python to perform various time-series
 forecasting methods. It uses New York City taxicab data that is also
-used in our [Hello Timescale Tutorial][hello_timescale]. The dataset contains
+used in the [Hello Timescale Tutorial][hello_timescale]. The dataset contains
 information about all yellow cab trips in New York City in January 2016,
 including pickup and dropoff times, GPS coordinates, and total price of a trip.
 You can extract some interesting insights from this rich dataset, build a
@@ -41,7 +41,7 @@ Prerequisites:
 *   [Installed R][install_r]
 *   [Installed Python][install_python]
 
-First, let's create our schema and populate our tables. Download the file
+First, let's create the schema and populate the tables. Download the file
 [`forecast.sql`][forecast-sql] and execute the following command:
 
 ```bash
@@ -120,7 +120,7 @@ at Times Square over a week.
 
 The table `rides_count` contains the data needed for this section of the tutorial.
 `rides_count` has two columns `one_hour` and `count`. The `one_hour` column is
-a TimescaleDB `time_bucket` for every hour from January 1st to January 31st.
+a TimescaleDB `time_bucket` for every hour from January 1 to January 31.
 The `count` column is the number of pickups from Times Square during each hourly period.
 
 ```sql
@@ -243,13 +243,13 @@ xts_count_rides <- xts(count_rides_train$count, order.by = as.POSIXct(count_ride
 attr(xts_count_rides, 'frequency') <- 168
 ```
 
-The [`forecast`][r-forecast] package in R provides a useful function `auto.arima`,
-which automatically finds the best ARIMA parameters for the dataset.
-The parameter D, which captures the seasonality of the model, is set
-to 1 to force the function to find a seasonal model. Note that this
-calculation can take a while to compute (in this dataset, around 5 minutes).
-Once the computation is complete, you can save the output of the `auto.arima`
-function into `fit` and get a summary of the ARIMA model that has been created.
+The [`forecast`][r-forecast] package in R provides a useful function
+`auto.arima`, which automatically finds the best ARIMA parameters for the
+dataset. Set the parameter D, which captures the seasonality of the model,  to 1
+to force the function to find a seasonal model. This calculation can take a
+while to compute (in this dataset, around five minutes). Once the computation is
+complete, you can save the output of the `auto.arima` function into `fit` and
+get a summary of the ARIMA model that has been created.
 
 ```r
 # Install and load the forecast package needed for ARIMA
@@ -320,77 +320,73 @@ lines(count_rides_test$x, count_rides_test$count, col="red")
 
 <img class="main-content__illustration" src="http://assets.iobeam.com/images/docs/rides_count.png" alt="Rides Count Graph" />
 
-In our graphing of this data, the grey area around the prediction line in blue
-is the prediction interval, i.e. the uncertainty of the prediction, while the
-red line is the actual observed pickup count.The number of pickups on Saturday
-January 23rd is zero because the data is missing for this period of time.
+In the graphing of this data, the grey area around the prediction line in blue
+is the prediction interval, or the uncertainty of the prediction, while the
+red line is the actual observed pickup count. The number of pickups on Saturday
+January 23 is zero because the data is missing for this period of time.
 
-You might find that the prediction for January 22nd matches impressively with
-the observed values, but the prediction overestimates for the following days. It
-is clear that the model has captured the seasonality of the data, as you can see
+You might find that the prediction for January 22 matches impressively with the
+observed values, but the prediction overestimates for the following days. It is
+clear that the model has captured the seasonality of the data, as you can see
 the forecasted values of the number of pickups drop dramatically overnight from
-1am, before rising again from around 6am. There is a noticeable increase in the
-number of pickups in the afternoon compared to the morning, with a slight dip
-around lunchtime and a sharp peak around 6pm when presumably people take cabs to
-return home after work.
+1&nbsp;AM, before rising again from around 6&nbsp;AM. There is a noticeable
+increase in the number of pickups in the afternoon compared to the morning, with
+a slight dip around lunchtime and a sharp peak around 6&nbsp;PM when presumably people
+take cabs to return home after work.
 
 While these findings do not reveal anything completely unexpected, it is still
-valuable to have the analysis verify our expectations. It must be noted that the
+valuable to have the analysis verify your expectations. It must be noted that the
 ARIMA model is not perfect and this is evident from the anomalous prediction
-made for January 25th. The ARIMA model created uses the previous week's data to
-make predictions. January 18th 2016 was Martin Luther King day, and so the
+made for January 25. The ARIMA model created uses the previous week's data to
+make predictions. January 18 2016 was Martin Luther King day, and so the
 distribution of ride pickups throughout the day is slightly different from that
 of a standard Monday. Also, the holiday probably affected riders' behavior on
 the surrounding days too. The model does not pick up such anomalous data that
 arise from various holidays and this must be noted before reaching a conclusion.
 Simply taking out such anomalous data, by only using the first two weeks of
 January for example, may have led to a more accurate prediction. This
-demonstrates the importance of understanding the context behind our data.
+demonstrates the importance of understanding the context behind your data.
 
 Although R offers a rich library of statistical models, it requires importing the
 data into R before performing calculations. With a larger dataset, this can
 become a bottleneck to marshal and transfer all the data to the R process (which
 itself might run out of memory and start swapping). So, let's look into an
-alternative method that allows us to move our computations to the database and
+alternative method that allows you to move computations to the database and
 improve this performance.
 
 ### Non-Seasonal ARIMA with Apache MADlib
-[MADlib][madlib] is an open-source library
-for in-database data analytics that provides a wide collection
-of popular machine learning methods and various supplementary
-statistical tools.
+[MADlib][madlib] is an open source library for in-database data analytics that
+provides a wide collection of popular machine learning methods and various
+supplementary statistical tools.
 
-MADlib supports many machine learning algorithms that are
-available in R and Python. And by executing these machine
-learning algorithms within the database, it may be efficient
-enough to process them against an entire dataset rather than
+MADlib supports many machine learning algorithms that are available in R and
+Python. And by executing these machine learning algorithms within the database,
+it may be efficient enough to process them against an entire dataset rather than
 pulling a much smaller sample to an external program.
 
 Install MADlib following the steps outlined in their documentation:
 [MADlib Installation Guide][madlib_install].
 
-Set up MADlib in our `nyc_data` database:
+Set up MADlib in the `nyc_data` database:
 
 ```bash
 /usr/local/madlib/bin/madpack -s madlib -p postgres -c postgres@localhost/nyc_data install
 ```
 
 <highlight type="warning">
- This command might differ depending on the directory in
-which you installed MADlib and the names of your PostgreSQL user,
-host and database.
+This command might differ depending on the directory in which you installed
+MADlib and the names of your PostgreSQL user, host and database.
 </highlight>
 
-Now you can make use of MADlib's library to analyze our taxicab
-dataset. Here, you can train an ARIMA model to predict the price
-of a ride from JFK to Times Square at a given time.
+Now you can make use of MADlib's library to analyze the taxicab dataset. Here,
+you can train an ARIMA model to predict the price of a ride from JFK to Times
+Square at a given time.
 
-Let's look at the `rides_price` table. The `trip_price` column is
-the the average price of a trip from JFK to Times Square during
-each hourly period. Data points that are missing due to no rides
-being taken during a certain hourly period are filled with the
-previous value. This is done by [gap filling][gap_filling],
-mentioned earlier in this tutorial.
+Let's look at the `rides_price` table. The `trip_price` column is the the
+average price of a trip from JFK to Times Square during each hourly period. Data
+points that are missing due to no rides being taken during a certain hourly
+period are filled with the previous value. This is done by
+[gap filling][gap_filling], mentioned earlier in this tutorial.
 
 ```sql
 SELECT * FROM rides_price;
@@ -424,7 +420,7 @@ SELECT * FROM rides_price;
 
 You can also create two tables for the training and testing datasets.
 You can create tables instead of views here because you need to add columns
-to these datasets later in our time-series forecast analysis.
+to these datasets later in the time-series forecast analysis.
 
 ```sql
 -- Make the training dataset
@@ -436,11 +432,11 @@ SELECT * INTO rides_price_test FROM rides_price
 WHERE one_hour >= '2016-01-22 00:00:00';
 ```
 Now you can use [MADlib's ARIMA][madlib_arima] library to make forecasts
-on our dataset.
+on your dataset.
 
 MADlib does not yet offer a method that automatically finds the best
-parameters of the ARIMA model. So, the non-seasonal orders of our
-ARIMA model is obtained by using R's `auto.arima` function in the same
+parameters of the ARIMA model. So, the non-seasonal orders of the
+ARIMA model are obtained by using R's `auto.arima` function in the same
 way you obtained them in the previous section with seasonal ARIMA.
 Here is the R code:
 
@@ -566,7 +562,7 @@ are multiple ways to evaluate the quality of a model's forecast
 values. In this case, you calculated the mean absolute percentage
 error and got 4.24%.
 
-What can you take away from this? Our non-seasonal ARIMA model
+What can you take away from this? The non-seasonal ARIMA model
 predicts that the price of a trip from the airport to Manhattan
 remains constant at $62 and performs well against the testing
 dataset. Unlike some ride hailing apps such as Uber that have
@@ -715,7 +711,7 @@ ride_length_test['forecast'] = fit.forecast(len(ride_length_test))
 ```
 
 Now `ride_length_test` has a column with the observed values and
-predicted values from January 22nd to January 31st. You can plot
+predicted values from January 22 to January 31. You can plot
 these values on top of each other to make a visual comparison:
 
 ```python
@@ -734,14 +730,14 @@ The model predicts that the length of a trip from the Financial
 District to Times Square fluctuates roughly between 16 minutes
 and 38 minutes, with high points midday and low points overnight.
 The trip length is notably longer during weekdays than it is
-during weekends (January 23rd 24th, 30th, 31st).
+during weekends (January 23, 24, 30, 31).
 
 The initial reaction from the plotted graph is that the model
 does a relatively good job in capturing the overall trend, but at
 times has quite a large margin of error. This can be due to the
 inherent irregularity of Manhattan's traffic situation with
-frequent roadblocks, accidents and unexpected weather conditions.
-Moreover, as it was the case with taxi pickup counts in our analysis
+frequent roadblocks, accidents, and unexpected weather conditions.
+Moreover, as it was the case with taxi pickup counts in your analysis
 with R using the seasonal ARIMA model, the Holt-Winters model was
 also thrown off by the anomalous data points on Martin Luther King
 day on the previous Monday.
