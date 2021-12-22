@@ -4,31 +4,29 @@ TimescaleDB. These datasets vary in database size, number of time
 intervals, and number of values for the partition field.
 
 Each gzip archive contains a single `.sql` file to create the necessary
-(hyper)tables within the database, and several `.csv` files that contain the
+hypertables within the database, and several `.csv` files that contain the
 data to be copied into those tables. These files presume the database
 you are importing them to has already been [set up with the TimescaleDB extension][installation].
 
 
-**Device ops**: these datasets are designed to represent metrics such as CPU,
-memory, and network, that are collected from mobile devices. Click on the name
-to download.
+**Device ops**: these datasets include metrics such as CPU, memory, and network,
+that are collected from mobile devices. Click on the name to download.
 
 *   <tag type="download" >[devices_small](https://timescaledata.blob.core.windows.net/datasets/devices_small.tar.gz)</tag> 1,000 devices recorded over 1,000 time intervals - 39&nbsp;MB
-*   <tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</tag> 5,000 devices recorded over 2,000 time intervals - 390MB
+*   <tag type="download" >[devices_med](https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz)</tag> 5,000 devices recorded over 2,000 time intervals - 390&nbsp;MB
 *   <tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</tag> 3,000 devices recorded over 10,000 time intervals - 1.2&nbsp;GB
 
 For more details and example usage, see
 [device ops datasets](#in-depth-device-ops-datasets).
 
-**Weather**: these datasets are designed to represent temperature and
-humidity data from a variety of locations. (Click on the name to
-download.)
+**Weather**: these datasets include metrics like temperature and humidity data
+from a variety of locations. Click on the name to download.
 
-1.  <tag type="download" >[weather_small](https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz)</tag>
+*   <tag type="download" >[weather_small](https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz)</tag>
     1,000 locations over 1,000 two-minute intervals - 8.1&nbsp;MB
-1.  <tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</tag>
+*   <tag type="download" >[weather_med](https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz)</tag>
     1,000 locations over 15,000 two-minute intervals - 115&nbsp;MB
-1.  <tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</tag>
+*   <tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</tag>
     2,000 locations over 20,000 two-minute intervals - 305&nbsp;MB
 
 For more details and example usage, see [weather datasets](#in-depth-weather-datasets).
@@ -38,10 +36,10 @@ For more details and example usage, see [weather datasets](#in-depth-weather-dat
 Briefly, the import steps are:
 1. Setup a database with TimescaleDB.
 1. Unzip the archive.
-1. Import the `.sql` file to create the (hyper)tables via `psql`.
+1. Import the `.sql` file to create the hypertables via `psql`.
 1. Import the data from `.csv` files via `psql`.
 
-Each dataset is named `[dataset]_[size].tar.gz`.
+Each dataset has a name in the format of `[dataset]_[size].tar.gz`.
 For example, `devices_small.tar.gz` is dataset `devices` and size `small`.
 Each dataset contains one `.sql` file named `[dataset].sql` and a few
 CSV files named in the format `[dataset]_[size]_[table].csv`.
@@ -63,7 +61,7 @@ psql -U postgres -d devices_small -c "\COPY readings FROM devices_small_readings
 psql -U postgres -d devices_small -c "\COPY device_info FROM devices_small_device_info.csv CSV"
 ```
 
-The data is now ready for you to use.
+The data is now ready for use.
 
 <highlight type="tip">
 The standard `COPY` command in PostgreSQL is single threaded. To speed up
@@ -80,10 +78,10 @@ psql -U postgres -h localhost -d devices_small
 ## Device ops datasets [](in-depth-devices)
 After importing one of these datasets (`devices_small`, `devices_med`,
 `devices_big`), you have a plain PostgreSQL table called `device_info` and a
-hypertable called `readings`. The `device_info` table has (static) metadata
+hypertable called `readings`. The `device_info` table has static metadata
 about each device, such as the OS name and manufacturer. The `readings`
-hypertable tracks data sent from each device, fore xample CPU activity, memory
-levels, etc. Because hypertables are exposed as a single table, you can query
+hypertable tracks data sent from each device, for example CPU activity, or
+memory levels. Hypertables are exposed as a single table, so you can query
 them and join them with the metadata as you would normal SQL tables, as shown in
 the example queries in this section.
 
