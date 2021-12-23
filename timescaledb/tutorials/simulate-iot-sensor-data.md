@@ -88,7 +88,7 @@ this:
 
 ## Create the simulated IoT sensor data [](step2)
 
-<highlight type="note"
+<highlight type="note">
 This section shows results of the queries as examples, but because the tutorial
 generates random data every time it is run, your results look different, but is
 structured the same way.
