@@ -92,11 +92,11 @@ module.exports = [
         excerpt: 'Configure Promscale for scaling and high availability',
         children: [
           {
-            title: 'High-availability',
+            title: 'High availability',
             href: 'high-availability',
-            tags: ['promscale', 'ha', 'high-availability', 'timescaledb'],
-            keywords: ['promscale', 'ha', 'high-availability', 'prometheus', 'timescaledb'],
-            excerpt: 'Configure Promscale for high-availability',
+            tags: ['promscale', 'ha', 'timescaledb'],
+            keywords: ['promscale', 'HA', 'prometheus', 'timescaledb'],
+            excerpt: 'Configure Promscale for high availability',
           },
           {
             title: 'Multi-node',

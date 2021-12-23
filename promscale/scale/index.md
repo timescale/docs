@@ -1,10 +1,10 @@
 # Scalability and high availability in Promscale
 Promscale is made of two components: The Promscale Connector and TimescaleDB, which
-is built on top of PostgreSQL. As a result Promscale benefits from the scalability
-and high availability capabilities that TimescaleDB and PostgreSQL provides.
+is built on top of PostgreSQL. Promscale benefits from the scalability
+and high availability capabilities that TimescaleDB and PostgreSQL provide.
 
-The Promscale Connector is a stateless service which can be easily horizontally 
-scaled and put behind a load balander for high availability.
+The Promscale Connector is a stateless service that can be horizontally
+scaled. It can also be used with a load balancer for high availability.
 
 * Run Promscale in [high availability][high-availability] mode.
 * Scale Promscale with a [TimescaleDB multi-node database][multi-node]
