@@ -121,7 +121,14 @@ module.exports = [
         tags: ['promscale', 'visualization', 'analytics', 'grafana', 'prometheus'],
         keywords: ['Promscale', 'analytics', 'Grafana'],
         excerpt: 'Learn about data visualization tools you can use with Promscale'
-      }
+      },
+      {
+        title: 'Distributed tracing with Promscale',
+        href: 'distributed-tracing',
+        tags: ['promscale', 'tracing', 'opentelemetry', 'jaeger', 'grafana'],
+        keywords: ['Promscale', 'opentelemetry', 'tracing', 'jaeger'],
+        excerpt: 'Use Promscale for troubleshooting applications with distributed tracing'
+      },
     ]
   }
 ]
