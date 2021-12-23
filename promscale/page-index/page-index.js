@@ -109,6 +109,41 @@ module.exports = [
         ],
       },
       {
+        title: 'Manage data in Promscale',
+        href: 'manage-data',
+        excerpt: 'Manage the data stored in Promscale',
+        children: [
+          {
+            title: 'Retention',
+            href: 'retention',
+            tags: ['promscale', 'configure', 'retention', 'metrics', 'storage'],
+            keywords: ['Promscale', 'retention'],
+            excerpt: 'Configure data retention policies in Promscale',
+          },
+          {
+            title: 'Downsampling',
+            href: 'downsampling',
+            tags: ['promscale', 'downsample', 'continuous aggregates', 'metrics', 'recording rules'],
+            keywords: ['Promscale', 'Prometheus', 'downsampling'],
+            excerpt: 'Configure downsampling in Promscale',
+          },
+          {
+            title: 'Compression',
+            href: 'compression',
+            tags: ['promscale', 'configure', 'compression', 'metrics', 'storage'],
+            keywords: ['Promscale', 'compression'],
+            excerpt: 'Configure data compression in Promscale',
+          },
+          {
+            title: 'Delete data',
+            href: 'delete-data',
+            tags: ['promscale', 'delete', 'metrics'],
+            keywords: ['Promscale', 'Prometheus', 'delete'],
+            excerpt: 'Delete data in Promscale',
+          },
+        ],
+      },
+      {
         title: 'Query data in Promscale',
         href: 'query-data',
         tags: ['promscale', 'analytics', 'sql', 'promql', 'prometheus'],
