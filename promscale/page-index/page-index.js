@@ -122,13 +122,6 @@ module.exports = [
         excerpt: 'Learn about data visualization tools you can use with Promscale'
       },
       {
-        title: 'Alert in Promscale',
-        href: 'alert',
-        tags: ['promscale', 'prometheus', 'alert'],
-        keywords: ['Promscale', 'Prometheus', 'alert', 'Alert Manager'],
-        excerpt: 'Learn about configuring alerts on Promscale data'
-      },
-      {
         title: 'Promscale CLI reference',
         href: 'cli',
         tags: ['promscale', 'cli', 'reference'],
