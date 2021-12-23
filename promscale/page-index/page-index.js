@@ -86,7 +86,6 @@ module.exports = [
           },
         ],
       },
-
       {
         title: 'Send data to Promscale',
         href: 'send-data',
@@ -128,6 +127,20 @@ module.exports = [
         tags: ['promscale', 'prometheus', 'alert'],
         keywords: ['Promscale', 'Prometheus', 'alert', 'Alert Manager'],
         excerpt: 'Learn about configuring alerts on Promscale data'
+      },
+      {
+        title: 'Promscale CLI reference',
+        href: 'cli',
+        tags: ['promscale', 'cli', 'reference'],
+        keywords: ['Promscale', 'cli'],
+        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
+      },
+      {
+        title: 'SQL API reference',
+        href: 'sql-api',
+        tags: ['promscale', 'sql', 'api', 'reference'],
+        keywords: ['Promscale', 'sql', 'api'],
+        excerpt: 'Learn about all Promscale SQL API functions'
       }
     ]
   }
