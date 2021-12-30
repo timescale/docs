@@ -16,8 +16,6 @@ efficient scale-out performance. For [regular hypertables](/hypertable/create_hy
 that exist only on a single node, additional partitioning can be used
 for specialized use cases and not recommended for most users.
 
-afdlkajdf
-
 Space partitions use hashing: Every distinct item is hashed to one of
 *N* buckets.  Remember that we are already using (flexible) time
 intervals to manage chunk sizes; the main purpose of space
