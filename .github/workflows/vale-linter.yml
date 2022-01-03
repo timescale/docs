@@ -10,7 +10,8 @@ jobs:
 
     - name: Vale
       uses: errata-ai/vale-action@v1.4.0
-      # with:
+      with:
+        onlyAnnotateModifiedLines: true
         # config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
         # styles: |
         #   https://github.com/errata-ai/Google/releases/latest/download/Google.zip
