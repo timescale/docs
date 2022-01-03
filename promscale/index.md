@@ -1,38 +1,33 @@
 # Promscale
-Promscale allows you to extract more meaningful insights from your metrics data.
-It is an open source long-term store for Prometheus data designed for analytics.
-Promscale is built on top of TimescaleDB, and is a horizontally scalable and
-operationally mature platform for Prometheus data that uses PromQL and SQL to
-allow you to ask any question, create any dashboard, and achieve greater
-visibility into your systems.
+Promscale is the open source observability backend for metrics and traces
+powered by SQL.
 
-Promscale has consistently been one of the only long-term stores for Prometheus
-data that continues to maintain top performance. It received a 100% compliance
-test score each time, with no cross-cutting concerns, from PromLab's [PromQL
-Compliance Test Suite][promlabs].
+It is built on top of PosgreSQL and TimescaleDB and has native support for
+Prometheus metrics (including 100% PromQL compliance) and OpenTelemetry traces.
+It's full SQL capabilities enable developers to correlate metrics, traces and
+also business data to derive new valuable insights not possible when data is
+siloed in different systems.
 
-For more information about Promscale, see our [blog post][promscale-blog], or
-check out the [demo][promscale-demo]. If you have any questions, you can join
-the Promscale channel on the [TimescaleDB Community Slack][slack].
+*   [Learn about Promscale][about-promscale] to understand how it works before
+    you begin using it.
+*   [Learn about Promscale benefits][promscale-benefits] to understand how it
+    can be useful in your environment.
+*   [Learn about Promscale installation][install-promscale] to understand how
+    to install using source, docker and kubernetes.
+*   [Learn about tobs][about-tobs] to understand how to install a complete
+    observability stack on Kubernetes.
+*   [Send metrics and traces][send-data] to Promscale    
+*   Use Promscale to [run queries][query-data].
+*   Use Promscale with [visualization tools][visualize-data].
 
-## Promscale architecture
-Prometheus writes data to the Promscale Connector using its `remote_write`
-interface. The Connector writes data to TimescaleDB. PromQL queries can be
-directed to the Connector, or to the Prometheus instance, which then reads data
-from the Connector using the `remote_read` interface. The Connector then fetches
-data from TimescaleDB. SQL queries can be directed to TimescaleDB directly.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-arch.png" alt="Promscale architecture diagram"/>
-
-For a detailed description of this architecture, see our
-[design document][design-doc].
-
-For more documentation, see our [developer documentation][promscale-gh-docs].
+For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
 
-[promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/
-[promscale-demo]: https://youtu.be/FWZju1De5lc
-[slack]: https://slack.timescale.com/
-[promlabs]: https://promlabs.com/promql-compliance-test-results/2020-12-01/promscale
-[design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
-[promscale-gh-docs]: https://github.com/timescale/promscale/tree/master/docs
+[about-promscale]: promscale/:currentVersion:/about-promscale
+[install-promscale]: promscale/:currentVersion:/installation
+[promscale-benefits]: promscale/:currentVersion:/promscale-benefits/
+[query-data]: promscale/:currentVersion:/query-data/
+[visualize-data]: promscale/:currentVersion:/visualize-data/
+[promscale-gh-docs]: https://github.com/timescale/promscale/
+[about-tobs]: promscale/:currentVersion:/tobs/
+[send-data]: promscale/:currentVersion:/send-data/
