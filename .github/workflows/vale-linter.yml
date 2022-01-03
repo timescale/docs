@@ -16,3 +16,4 @@ jobs:
         #   https://github.com/errata-ai/Google/releases/latest/download/Google.zip
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      continue-on-error: true
