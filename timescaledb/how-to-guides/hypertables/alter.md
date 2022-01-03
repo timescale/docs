@@ -7,9 +7,8 @@ ALTER TABLE TABLE_NAME
   ADD COLUMN humidity DOUBLE PRECISION NULL;
 ```
 
-TimescaleDB automatically propagates the schema changes to the chunks
-of the hypertable. On distributed hypertables, the alter commands are
-also propagated to the data nodes in the multi-node cluster.
+TimescaleDB automatically propagates the schema changes to
+the chunks of the hypertable.
 
 <highlight type="note">
 Altering a table's schema is quite efficient provided that the default value for
