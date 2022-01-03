@@ -433,14 +433,6 @@ module.exports = [
         href: "backup-and-restore",
         children: [
           {
-            title: "The timescaledb-backup tool",
-            href: "timescaledb-backup",
-            tags: ["backup", "restore", "timescaledb"],
-            keywords: ["backup", "TimescaleDB"],
-            excerpt:
-              "Backing up and restoring with the timescaledb-backup tool",
-          },
-          {
             title: "Using pg_dump/pg_restore",
             href: "pg-dump-and-restore",
             tags: ["backup", "restore", "timescaledb"],
