@@ -667,12 +667,10 @@ func main() {
    //send batch to connection pool
    br := dbpool.SendBatch(ctx, batch)
    //execute statements in batch queue
-   for i := 0; i < numInserts; i++ {
-       _, err := br.Exec()
-       if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to execute statement in batch queue %v\n", err)
-           os.Exit(1)
-       }
+   _, err := br.Exec()
+   if err != nil {
+       fmt.Fprintf(os.Stderr, "Unable to execute statement in batch queue %v\n", err)
+       os.Exit(1)
    }
    fmt.Println("Successfully batch inserted data")
 
