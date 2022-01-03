@@ -5,13 +5,16 @@ applying principles from functional programming and popular tools like Python
 Pandas, and PromQL.
 
 <highlight type="warning">
-	
 Experimental features could have bugs! They might not be backwards compatible,
 and could be removed in future releases. Use these features at your own risk,
-and do not use any experimental features in production. Notably, `timevector()`
-_will_ materialize all its datapoints in memory, so using it on an excesively
-large dataset will run out of memory.
+and do not use any experimental features in production. 
+</highlight>
 
+<highlight type="important">
+The `timevector()` function materializes all its data points in 
+memory. This means that if you use it on a very large dataset, 
+it runs out of memory. Do not use the `timevector` function 
+on a large dataset, or in production.
 </highlight>
 
 SQL is the best language for data analysis, but it is not perfect, and at times
