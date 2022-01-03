@@ -71,7 +71,7 @@ hypertable fails. For more information about setting up multi-node, see the
     ```
 1.  From the `psql` prompt on your new table, create the hypertable:
      ```sql
-     SELECT create_distributed_hypertable('conditions', 'time', 'humidity');
+     SELECT create_distributed_hypertable('conditions', 'time', 'location');
      ```
 
 </procedure>
