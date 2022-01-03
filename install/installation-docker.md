@@ -90,6 +90,12 @@ docker run -d --name timescaledb -p 5432:5432 \
 -v /your/data/dir:/var/lib/postgresql/data
 ```
 
+When you install TimescaleDB using a Docker container, the PostgreSQL settings
+are inherited from the container. In most cases, you do not need to adjust them.
+However, if you need to change a setting you can add `-c setting=value` to your
+Docker `run` command. For more information, see the
+[Docker documentation][docker-postgres].
+
 The link provided in these instructions is for the latest version of TimescaleDB
 on PostgreSQL 14. To find other Docker tags you can use, see the
 [Dockerhub repository][dockerhub].
@@ -186,3 +192,4 @@ if you want to have a chat.
 [official-image]: https://github.com/docker-library/postgres/
 [alpine Linux]: https://alpinelinux.org/
 [dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
+[docker-postgres]: https://hub.docker.com/_/postgres
