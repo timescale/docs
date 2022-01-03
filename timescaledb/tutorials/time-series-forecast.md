@@ -1,10 +1,9 @@
 # Time-series forecasting
-
 Time-series forecasting enables us to predict likely
 future values for a dataset based on historical time-series
 data. Time-series data collectively represents how a system,
-process, or behavior changes over time. When we accumulate
-millions of data points over a time period, we can build models
+process, or behavior changes over time. When you accumulate
+millions of data points over a time period, you can build models
 to predict the next set of values likely to occur.
 
 Time-series predictions can be used to:
@@ -23,14 +22,14 @@ joined with business data in another relational database in order
 to develop an even more insightful forecast into how your data
 (and business) changes over time.
 
-In this time-series forecasting example, we demonstrate how to integrate
+This time-series forecasting example demonstrates how to integrate
 TimescaleDB with R, Apache MADlib, and Python to perform various time-series
-forecasting methods. We are using New York City taxicab data that is also
-used in our [Hello Timescale Tutorial][hello_timescale]. The dataset contains
+forecasting methods. It uses New York City taxicab data that is also
+used in the [Hello Timescale Tutorial][hello_timescale]. The dataset contains
 information about all yellow cab trips in New York City in January 2016,
 including pickup and dropoff times, GPS coordinates, and total price of a trip.
-We seek to extract some interesting insights from this rich dataset, build a
-time-series forecasting model, as well as explore the use of various forecasting
+You can extract some interesting insights from this rich dataset, build a
+time-series forecasting model, and explore the use of various forecasting
 and machine learning tools.
 
 ### Setting up
@@ -42,7 +41,7 @@ Prerequisites:
 *   [Installed R][install_r]
 *   [Installed Python][install_python]
 
-First, let's create our schema and populate our tables. Download the file
+First, let's create the schema and populate the tables. Download the file
 [`forecast.sql`][forecast-sql] and execute the following command:
 
 ```bash
@@ -51,7 +50,7 @@ psql -U postgres -d nyc_data -h localhost -f forecast.sql
 
 The `forecast.sql` file contains SQL statements that create three
 TimescaleDB hypertables `rides_count`, `rides_length` and `rides_price`.
-Let's look at how we create the `rides_count` table as an example.
+Let's look at how to create the `rides_count` table as an example.
 Here is a portion of the code taken from `forecast.sql`:
 
 ```sql
@@ -71,19 +70,19 @@ INSERT INTO rides_count
   ORDER BY one_hour;
 ```
 
-Notice that we have made the `rides_count` table a TimescaleDB hypertable.
-This allows us to take advantage of TimescaleDB's faster insert and query
+Notice that you have made the `rides_count` table a TimescaleDB hypertable.
+This allows you to take advantage of TimescaleDB's faster insert and query
 performance with time-series data. Here, you can see how PostgreSQL aggregate
 functions such as `COUNT` and various PostGIS functions all work as usual
-with TimescaleDB. We are using PostGIS to select data points from the original
+with TimescaleDB. You can use PostGIS to select data points from the original
 `rides` table where the pickup location is less than 400m from the GPS location
 (40.7589, -73.9851), which is Times Square.
 
-Our data, supplied by the [NYC Taxi and Limousine Commission][NYCTLC], like most data,
-is not perfect; it is missing data points for certain hours. We fill in the
-missing values with 0, following the documentation that we have on
-[gap filling][gap_filling]. An adaptation of the same method is used to achieve
-the same result when creating `rides_length` and `rides_price`.
+The data, supplied by the [NYC Taxi and Limousine Commission][NYCTLC], like most
+data, is not perfect; it is missing data points for certain hours. You can fill
+in the missing values with 0, following the
+[gap filling][gap_filling]documentation. An adaptation of the same method is
+used to achieve the same result when creating `rides_length` and `rides_price`.
 
 Before you move onto the next few sections, check that the following tables
 are in your database.
@@ -116,12 +115,12 @@ goes up during the day and down over night every day. In contrast, the price
 of Bitcoin over time is (probably) non-seasonal since there is no clear
 observable pattern that recurs in fixed time periods.
 
-We are using R to analyze the seasonality of the number of taxicab pickups
+This tutorial uses R to analyze the seasonality of the number of taxicab pickups
 at Times Square over a week.
 
 The table `rides_count` contains the data needed for this section of the tutorial.
 `rides_count` has two columns `one_hour` and `count`. The `one_hour` column is
-a TimescaleDB `time_bucket` for every hour from January 1st to January 31st.
+a TimescaleDB `time_bucket` for every hour from January 1 to January 31.
 The `count` column is the number of pickups from Times Square during each hourly period.
 
 ```sql
@@ -191,8 +190,8 @@ con <- dbConnect(RPostgres::Postgres(), dbname = "nyc_data",
 dbListTables(con)
 ```
 
-We can query the database with SQL code inside R. Putting the query result
-in an R data frame allows us to analyze the data using tools provided by R.
+You can query the database with SQL code inside R. Putting the query result
+in an R data frame allows you to analyze the data using tools provided by R.
 
 ```r
 # query the database and input the result into an R data frame
@@ -223,13 +222,13 @@ head(count_rides_test)
 6 2016-01-22 05:00:00   100
 ```
 
-In order to feed the data into an ARIMA model, we must first convert the
+In order to feed the data into an ARIMA model, you must first convert the
 data frame into a time-series object in R. [`xts`][r-xts] is a package that allows
-us to do this easily. We also set the frequency of the time-series object
-to 168. This is because we expect the number of pickups to fluctuate with
+you to do this easily. You can also set the frequency of the time-series object
+to 168. This is because the number of pickups is expected to fluctuate with
 a fixed pattern every week, and there are 168 hours in a week, or in other
-words, 168 data points in each seasonal period. If we wanted to model
-the data as having a seasonality of 1 day, we can change the frequency
+words, 168 data points in each seasonal period. If you want to model
+the data as having a seasonality of 1 day, you can change the frequency
 parameter to 24.
 
 ```r
@@ -244,13 +243,13 @@ xts_count_rides <- xts(count_rides_train$count, order.by = as.POSIXct(count_ride
 attr(xts_count_rides, 'frequency') <- 168
 ```
 
-The [`forecast`][r-forecast] package in R provides a useful function `auto.arima`,
-which automatically finds the best ARIMA parameters for the dataset.
-The parameter D, which captures the seasonality of the model, is set
-to 1 to force the function to find a seasonal model. Note that this
-calculation can take a while to compute (in this dataset, around 5 minutes).
-Once the computation is complete, we save the output of the `auto.arima`
-function into `fit` and get a summary of the ARIMA model that has been created.
+The [`forecast`][r-forecast] package in R provides a useful function
+`auto.arima`, which automatically finds the best ARIMA parameters for the
+dataset. Set the parameter D, which captures the seasonality of the model,  to 1
+to force the function to find a seasonal model. This calculation can take a
+while to compute (in this dataset, around five minutes). Once the computation is
+complete, you can save the output of the `auto.arima` function into `fit` and
+get a summary of the ARIMA model that has been created.
 
 ```r
 # Install and load the forecast package needed for ARIMA
@@ -281,7 +280,7 @@ Training set -0.02641353
 ```
 
 Finally, the ARIMA model can be used to forecast future values.
-The `h` parameter specifies the number of steps we want to forecast.
+The `h` parameter specifies the number of steps to forecast.
 
 ```r
 # forecast future values using the arima model, h specifies the number of readings to forecast
@@ -321,83 +320,73 @@ lines(count_rides_test$x, count_rides_test$count, col="red")
 
 <img class="main-content__illustration" src="http://assets.iobeam.com/images/docs/rides_count.png" alt="Rides Count Graph" />
 
-In our graphing of this data, the grey area around the prediction
-line in blue is the prediction interval, i.e. the uncertainty of
-the prediction, while the red line is the actual observed pickup
-count.The number of pickups on Saturday January 23rd is zero
-because the data is missing for this period of time.
+In the graphing of this data, the grey area around the prediction line in blue
+is the prediction interval, or the uncertainty of the prediction, while the
+red line is the actual observed pickup count. The number of pickups on Saturday
+January 23 is zero because the data is missing for this period of time.
 
-We find that the prediction for January 22nd matches impressively
-with the observed values, but the prediction overestimates for the
-following days. It is clear that the model has captured the seasonality
-of the data, as you can see the forecasted values of the number of
-pickups drop dramatically overnight from 1am, before rising again
-from around 6am. There is a noticeable increase in the number of
-pickups in the afternoon compared to the morning, with a slight
-dip around lunchtime and a sharp peak around 6pm when presumably
-people take cabs to return home after work.
+You might find that the prediction for January 22 matches impressively with the
+observed values, but the prediction overestimates for the following days. It is
+clear that the model has captured the seasonality of the data, as you can see
+the forecasted values of the number of pickups drop dramatically overnight from
+1&nbsp;AM, before rising again from around 6&nbsp;AM. There is a noticeable
+increase in the number of pickups in the afternoon compared to the morning, with
+a slight dip around lunchtime and a sharp peak around 6&nbsp;PM when presumably people
+take cabs to return home after work.
 
-While these findings do not reveal anything completely unexpected,
-it is still valuable to have the analysis verify our expectations.
-It must be noted that the ARIMA model is not perfect and this is
-evident from the anomalous prediction made for January 25th.
-The ARIMA model created uses the previous week's data to make
-predictions. January 18th 2016 was Martin Luther King day, and so
-the distribution of ride pickups throughout the day is slightly
-different from that of a standard Monday. Also, the holiday
-probably affected riders' behavior on the surrounding days
-too. The model does not pick up such anomalous data that arise
-from various holidays and this must be noted before reaching a
-conclusion. Simply taking out such anomalous data, by only using
-the first two weeks of January for example, may have led to a
-more accurate prediction. This demonstrates the importance of
-understanding the context behind our data.
+While these findings do not reveal anything completely unexpected, it is still
+valuable to have the analysis verify your expectations. It must be noted that the
+ARIMA model is not perfect and this is evident from the anomalous prediction
+made for January 25. The ARIMA model created uses the previous week's data to
+make predictions. January 18 2016 was Martin Luther King day, and so the
+distribution of ride pickups throughout the day is slightly different from that
+of a standard Monday. Also, the holiday probably affected riders' behavior on
+the surrounding days too. The model does not pick up such anomalous data that
+arise from various holidays and this must be noted before reaching a conclusion.
+Simply taking out such anomalous data, by only using the first two weeks of
+January for example, may have led to a more accurate prediction. This
+demonstrates the importance of understanding the context behind your data.
 
-Although R offers a rich library of statistical models, we had
-to import the data into R before performing calculations. With
-a larger dataset, this can become a bottleneck to marshal and
-transfer all the data to the R process (which itself might run
-out of memory and start swapping). So, let's look into
-an alternative method that allows us to move our computations
-to the database and improve this performance.
+Although R offers a rich library of statistical models, it requires importing the
+data into R before performing calculations. With a larger dataset, this can
+become a bottleneck to marshal and transfer all the data to the R process (which
+itself might run out of memory and start swapping). So, let's look into an
+alternative method that allows you to move computations to the database and
+improve this performance.
 
 ### Non-Seasonal ARIMA with Apache MADlib
-[MADlib][madlib] is an open-source library
-for in-database data analytics that provides a wide collection
-of popular machine learning methods and various supplementary
-statistical tools.
+[MADlib][madlib] is an open source library for in-database data analytics that
+provides a wide collection of popular machine learning methods and various
+supplementary statistical tools.
 
-MADlib supports many machine learning algorithms that are
-available in R and Python. And by executing these machine
-learning algorithms within the database, it may be efficient
-enough to process them against an entire dataset rather than
+MADlib supports many machine learning algorithms that are available in R and
+Python. And by executing these machine learning algorithms within the database,
+it may be efficient enough to process them against an entire dataset rather than
 pulling a much smaller sample to an external program.
 
 Install MADlib following the steps outlined in their documentation:
 [MADlib Installation Guide][madlib_install].
 
-Set up MADlib in our `nyc_data` database:
+Set up MADlib in the `nyc_data` database:
 
 ```bash
 /usr/local/madlib/bin/madpack -s madlib -p postgres -c postgres@localhost/nyc_data install
 ```
 
 <highlight type="warning">
- This command might differ depending on the directory in
-which you installed MADlib and the names of your PostgreSQL user,
-host and database.
+This command might differ depending on the directory in which you installed
+MADlib and the names of your PostgreSQL user, host and database.
 </highlight>
 
-Now we can make use of MADlib's library to analyze our taxicab
-dataset. Here, we can train an ARIMA model to predict the price
-of a ride from JFK to Times Square at a given time.
+Now you can make use of MADlib's library to analyze the taxicab dataset. Here,
+you can train an ARIMA model to predict the price of a ride from JFK to Times
+Square at a given time.
 
-Let's look at the `rides_price` table. The `trip_price` column is
-the the average price of a trip from JFK to Times Square during
-each hourly period. Data points that are missing due to no rides
-being taken during a certain hourly period are filled with the
-previous value. This is done by [gap filling][gap_filling],
-mentioned earlier in this tutorial.
+Let's look at the `rides_price` table. The `trip_price` column is the the
+average price of a trip from JFK to Times Square during each hourly period. Data
+points that are missing due to no rides being taken during a certain hourly
+period are filled with the previous value. This is done by
+[gap filling][gap_filling], mentioned earlier in this tutorial.
 
 ```sql
 SELECT * FROM rides_price;
@@ -429,9 +418,9 @@ SELECT * FROM rides_price;
  2016-01-01 23:00:00 | 57.9088888888889
 ```
 
-We can also create two tables for the training and testing datasets.
-We create tables instead of views here because we need to add columns
-to these datasets later in our time-series forecast analysis.
+You can also create two tables for the training and testing datasets.
+You can create tables instead of views here because you need to add columns
+to these datasets later in the time-series forecast analysis.
 
 ```sql
 -- Make the training dataset
@@ -442,13 +431,13 @@ WHERE one_hour <= '2016-01-21 23:59:59';
 SELECT * INTO rides_price_test FROM rides_price
 WHERE one_hour >= '2016-01-22 00:00:00';
 ```
-Now we can use [MADlib's ARIMA][madlib_arima] library to make forecasts
-on our dataset.
+Now you can use [MADlib's ARIMA][madlib_arima] library to make forecasts
+on your dataset.
 
 MADlib does not yet offer a method that automatically finds the best
-parameters of the ARIMA model. So, the non-seasonal orders of our
-ARIMA model is obtained by using R's `auto.arima` function in the same
-way we obtained them in the previous section with seasonal ARIMA.
+parameters of the ARIMA model. So, the non-seasonal orders of the
+ARIMA model are obtained by using R's `auto.arima` function in the same
+way you obtained them in the previous section with seasonal ARIMA.
 Here is the R code:
 
 ```r
@@ -490,9 +479,9 @@ Training set 0.1319955 3.30592 2.186295 -0.04371788 3.47929 0.6510487
 Training set -0.002262549
 ```
 
-Of course, we could simply continue our analysis with R by following
-the same steps in the previous seasonal ARIMA section. Unfortunately, MADlib does not yet offer a way to automatically
-find the orders of the ARIMA model.
+Of course, you can continue the analysis with R by following the same steps in
+the previous seasonal ARIMA section. Unfortunately, MADlib does not yet offer a
+way to automatically find the orders of the ARIMA model.
 
 However with a larger dataset, you could take the approach of loading
 a subset of the data to calculate the model's parameters in R and
@@ -500,7 +489,7 @@ then train the model using MADlib. You can use a combination of the
 options outlined in this tutorial to take advantage of the strengths
 and work around weaknesses of the different tools.
 
-Using the parameters ARIMA(2,1,3) found using R, we can use MADlib's
+Using the parameters ARIMA(2,1,3) found using R, you can use MADlib's
 `arima_train` and `arima_forecast` functions.
 
 ```sql
@@ -567,20 +556,20 @@ SELECT * FROM rides_price_mean_abs_perc_error;
 (1 row)
 ```
 
-We had to set up the columns of the `rides_price_test` table to
+Earlier, you had to set up the columns of the `rides_price_test` table to
 fit the format of MADlib's `mean_abs_perc_error` function. There
 are multiple ways to evaluate the quality of a model's forecast
-values. In this case, we calculated the mean absolute percentage
+values. In this case, you calculated the mean absolute percentage
 error and got 4.24%.
 
-What might we take away from this? Our non-seasonal ARIMA model
+What can you take away from this? The non-seasonal ARIMA model
 predicts that the price of a trip from the airport to Manhattan
 remains constant at $62 and performs well against the testing
 dataset. Unlike some ride hailing apps such as Uber that have
 surge pricing during rush hours, yellow taxicab prices stay
 pretty much constant all day.
 
-From a technical standpoint, we have seen how TimescaleDB integrates
+From a technical standpoint, you have seen how TimescaleDB integrates
 seamlessly with other PostgreSQL extensions PostGIS and MADlib.
 This means that TimescaleDB users can easily take advantage of
 the vast PostgreSQL ecosystem.
@@ -598,9 +587,9 @@ in time-series forecasting. It is advised to create both models for
 a particular dataset and compare the performance to find out which is
 more suitable.
 
-We can use Python to analyze how long it takes from the Financial
+You can use Python to analyze how long it takes from the Financial
 District to Times Square at different time periods during the day.
-We need to install various Python packages:
+You need to install these Python packages:
 
 ```bash
 pip install psycopg2
@@ -637,7 +626,7 @@ SELECT * FROM rides_length;
 ...
 ```
 
-We can also create two PostgreSQL views for the training
+You can also create two PostgreSQL views for the training
 and testing datasets.
 
 ```sql
@@ -676,7 +665,7 @@ ride_length_train = cursor_train.fetchall()
 ride_length_test = cursor_test.fetchall()
 ```
 
-We now manipulate the data to feed it into the Holt-Winters model.
+You can now manipulate the data to feed it into the Holt-Winters model.
 
 ```python
 import pandas as pd
@@ -701,13 +690,12 @@ ride_length_train['trip_length'] = ride_length_train['trip_length']/np.timedelta
 ride_length_test['trip_length'] = ride_length_test['trip_length']/np.timedelta64(1, 's')
 ```
 
-This data can now be used to train a Holt-Winters model that
-is imported from the [`statsmodels`][python-statsmodels] package. We expect a pattern
-to repeat weekly, and therefore set the `seasonal_periods`
-parameter to 56 (there are eight 3-hour periods in a day,
-seven days in a week). Since we expect the seasonal variations
-to be fairly constant over time, we use the additive method rather
-than the multiplicative method, which is specified by the `trend`
+This data can now be used to train a Holt-Winters model that is imported from
+the [`statsmodels`][python-statsmodels] package. You can expect the pattern to
+repeat weekly, and therefore set the `seasonal_periods` parameter to 56 (there
+are eight 3-hour periods in a day, seven days in a week). Since the seasonal
+variations are likely to be fairly constant over time, you can use the additive
+method rather than the multiplicative method, which is specified by the `trend`
 and `seasonal` parameters.
 
 ```python
@@ -715,7 +703,7 @@ from statsmodels.tsa.api import ExponentialSmoothing
 fit = ExponentialSmoothing(np.asarray(ride_length_train['trip_length']), seasonal_periods = 56, trend = 'add', seasonal = 'add').fit()
 ```
 
-We use the model that has been trained to make a forecast and compare
+You use the model that has been trained to make a forecast and compare
 with the testing dataset.
 
 ```python
@@ -723,7 +711,7 @@ ride_length_test['forecast'] = fit.forecast(len(ride_length_test))
 ```
 
 Now `ride_length_test` has a column with the observed values and
-predicted values from January 22nd to January 31st. We can plot
+predicted values from January 22 to January 31. You can plot
 these values on top of each other to make a visual comparison:
 
 ```python
@@ -742,32 +730,31 @@ The model predicts that the length of a trip from the Financial
 District to Times Square fluctuates roughly between 16 minutes
 and 38 minutes, with high points midday and low points overnight.
 The trip length is notably longer during weekdays than it is
-during weekends (January 23rd 24th, 30th, 31st).
+during weekends (January 23, 24, 30, 31).
 
 The initial reaction from the plotted graph is that the model
 does a relatively good job in capturing the overall trend, but at
 times has quite a large margin of error. This can be due to the
 inherent irregularity of Manhattan's traffic situation with
-frequent roadblocks, accidents and unexpected weather conditions.
-Moreover, as it was the case with taxi pickup counts in our analysis
+frequent roadblocks, accidents, and unexpected weather conditions.
+Moreover, as it was the case with taxi pickup counts in your analysis
 with R using the seasonal ARIMA model, the Holt-Winters model was
 also thrown off by the anomalous data points on Martin Luther King
 day on the previous Monday.
 
 ### Takeaways from analysis
-We looked at different ways you can build statistical models to
-analyze time-series data and how you can leverage the full power
-of the PostgreSQL ecosystem with TimescaleDB. In this tutorial
-we looked at integrating TimescaleDB with R, Apache MADlib, and
-Python. You can simply choose the option you are most familiar
-with from a vast number of choices that TimescaleDB inherits
-from PostgreSQL. ARIMA and Holt-Winters are just a couple from a
-wide variety of statistical models and machine learning algorithms
-that you can use to analyze and make predictions on time-series
-data in your TimescaleDB database.
+This tutorial looked at different ways you can build statistical models to
+analyze time-series data and how you can leverage the full power of the
+PostgreSQL ecosystem with TimescaleDB. This tutorial also looked at integrating
+TimescaleDB with R, Apache MADlib, and Python. You can simply choose the option
+you are most familiar with from a vast number of choices that TimescaleDB
+inherits from PostgreSQL. ARIMA and Holt-Winters are just a couple from a wide
+variety of statistical models and machine learning algorithms that you can use
+to analyze and make predictions on time-series data in your TimescaleDB
+database.
 
 [hello_timescale]: /tutorials/nyc-taxi-cab/
-[install]: /how-to-guides/install-timescaledb/
+[install]: /install/latest/
 [tutorial-postgis]: /tutorials/nyc-taxi-cab/#mission-monitoring
 [install_r]: https://www.r-project.org/
 [install_python]: https://www.python.org/downloads/

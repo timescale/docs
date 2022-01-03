@@ -119,43 +119,6 @@ module.exports = [
         ],
       },
       {
-        title: 'Using Promscale and Prometheus',
-        href: 'promscale',
-        tags: ['promscale', 'prometheus', 'learn', 'timescaledb'],
-        keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-        excerpt: 'Learn about using Promscale and Prometheus with TimescaleDB',
-        children: [
-          {
-            title: 'The Benefits of using Promscale',
-            href: 'promscale-benefits',
-            tags: ['promscale', 'prometheus', 'learn', 'timescaledb'],
-            keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-            excerpt: 'Explore the benefits of using Promscale',
-          },
-          {
-            title: 'How Promscale works',
-            href: 'promscale-how-it-works',
-            tags: ['promscale', 'prometheus', 'learn', 'timescaledb'],
-            keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-            excerpt: 'Learn how Promscale works',
-          },
-          {
-            title: 'Installing Promscale',
-            href: 'promscale-install',
-            tags: ['promscale', 'prometheus', 'install', 'learn', 'timescaledb'],
-            keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-            excerpt: 'Install Promscale',
-          },
-          {
-            title: 'Run queries with PromQL and SQL',
-            href: 'promscale-run-queries',
-            tags: ['promscale', 'prometheus', 'query', 'learn', 'timescaledb'],
-            keywords: ['Promscale', 'Prometheus', 'tutorial', 'TimescaleDB'],
-            excerpt: 'Query your data using PromQL and SQL in Promscale',
-          },
-        ],
-      },
-      {
         title: 'Monitor MST with Prometheus',
         href: 'monitor-mst-with-prometheus',
         tags: ['prometheus', 'monitor', 'learn', 'timescaledb'],

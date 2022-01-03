@@ -66,5 +66,5 @@ After executing the command, the psql `\dx` command should show the latest versi
 [update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/
-[Install]: /how-to-guides/install-timescaledb/
+[Install]: /install/latest/
 [telemetry]: /administration/telemetry/

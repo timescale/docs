@@ -391,7 +391,7 @@ high availability solution with automatic failover functionality.
 [postgres-archive-docs]: https://www.postgresql.org/docs/current/static/continuous-archiving.html
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [postgres-recovery-docs]: https://www.postgresql.org/docs/current/static/recovery-config.html
-[timescale-setup-docs]: /how-to-guides/install-timescaledb/post-install-setup/
+[timescale-setup-docs]: /install/latest/
 [postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/10/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html

@@ -19,7 +19,7 @@ when creating distributed hypertables.
 | `number_partitions` | INTEGER | Number of hash partitions to use for `partitioning_column`. Must be > 0. Default is the number of `data_nodes`. |
 | `associated_schema_name` | TEXT | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
 | `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is "_hyper". |
-| `chunk_time_interval` | INTERVAL | Interval in event time that each chunk covers. Must be > 0. As of TimescaleDB v0.11.0, default is 7 days, unless adaptive chunking (DEPRECATED)  is enabled, in which case the interval starts at 1 day. For previous versions, default is 1 month. |
+| `chunk_time_interval` | INTERVAL | Interval in event time that each chunk covers. Must be > 0. Default is 7 days. |
 | `create_default_indexes` | BOOLEAN | Boolean whether to create default indexes on time/partitioning columns. Default is TRUE. |
 | `if_not_exists` | BOOLEAN | Boolean whether to print warning if table already converted to hypertable or raise exception. Default is FALSE. |
 | `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|

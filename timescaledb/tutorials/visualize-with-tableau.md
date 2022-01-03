@@ -4,7 +4,7 @@
 greater intelligence about your business. It is an ideal tool for visualizing
 data stored in [TimescaleDB][timescale-products].
 
-In this tutorial, we cover:
+This tutorial covers:
 
 - Setting up Tableau to work with TimescaleDB
 - Running queries on TimescaleDB from within Tableau
@@ -16,15 +16,16 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-To start, [install TimescaleDB][install-timescale]. Once your installation is complete,
-we can proceed to ingesting or creating sample data and finishing the tutorial.
+To start, [install TimescaleDB][install-timescale]. When your installation is
+complete, you can proceed to ingesting or creating sample data and finishing the
+tutorial.
 
 Also, [get a copy or license of Tableau][get-tableau].
 
 You also want to [complete the Cryptocurrency tutorial][crypto-tutorial], as it
 sets up and configures the data you need to complete the remainder of this
-tutorial. We visualize many of the queries found at the end of the Cryptocurrency
-tutorial.
+tutorial. You can visualize many of the queries found at the end of the
+Cryptocurrency tutorial.
 
 ### Step 1: Setup Tableau to connect to TimescaleDB
 
@@ -41,7 +42,7 @@ Let's use the built-in SQL editor in Tableau. To run a query, add custom SQL to 
 by dragging and dropping the “New Custom SQL” button (in the bottom left of the Tableau desktop
 user interface) to the place that says ‘Drag tables here'.
 
-A window pops up, in which we can place a query. In this case, use the first
+Type a query in the dialog box. In this case, use the first
 query from the [Cryptocurrency Tutorial][crypto-tutorial]:
 
 ```sql
@@ -81,24 +82,24 @@ any other value in our database.
 
 To put it in more direct terms, July 4, 1776 is still July 4, 1776, even if the
 price of tea skyrockets. However, the price of tea may change, depending on which
-day we are looking into.
+day you are looking into.
 
-So, in our case, we want to move the dimension `period` into the Columns section of
-our worksheet, while we want to examine the measure `last_closing_price` depending
-on a given `period`. In Tableau, we can drag and drop these elements into the
-proper place, like so:
+So, in this case, move the dimension `period` into the Columns section of
+your worksheet, and examine the `last_closing_price` measure depending
+on a given `period`. In Tableau, you can drag and drop these elements into the
+proper place, like this:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-tableau-tutorial/tableau-dimension-measure-setup.png" alt="New dimensions and measures in Tableau to examine time-series data"/>
 
-Now this graph doesn't quite have the level of fidelity we're looking for because
+Now this graph doesn't quite have the level of fidelity you want because
 the data points are being grouped by year. To fix this, click on the drop down
 arrow on period and select 'exact date'.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-tableau-tutorial/tableau-granular.png" alt="Analyze granular data in Tableau to examine time-series data"/>
 
 Tableau is a powerful business intelligence tool and an ideal companion to data
-stored in TimescaleDB. We've only scratched the surface of the kinds of data
-you can visualize using Tableau.
+stored in TimescaleDB. This tutorial only scratched the surface of the kinds of
+data you can visualize using Tableau.
 
 ### Conclusion
 
@@ -114,7 +115,7 @@ Ready for more learning? Here's a few suggestions:
 [get-tableau]: https://www.tableau.com/products/trial
 [crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
 [timescale-products]: https://www.timescale.com/products
-[install-timescale]: /how-to-guides/install-timescaledb
+[install-timescale]: /install/latest/
 [time-series-forecasting]: /tutorials/time-series-forecast
 [continuous-aggregates]: /how-to-guides/continuous-aggregates
 [other-samples]: /tutorials/sample-datasets
