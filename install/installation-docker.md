@@ -100,7 +100,7 @@ The link provided in these instructions is for the latest version of TimescaleDB
 on PostgreSQL 14. To find other Docker tags you can use, see the
 [Dockerhub repository][dockerhub].
 
-## Set up the TimeascaleDB extension
+## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
