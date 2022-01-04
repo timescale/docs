@@ -8,6 +8,7 @@ instructions use the `apt` package manager on these distributions:
 *   Ubuntu 18.04 LTS Bionic Beaver
 *   Ubuntu 20.04 LTS Focal Fossa
 *   Ubuntu 21.04 Hirsute Hippo
+*   Ubuntu 21.10 Impish Indri
 
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `apt`
@@ -37,7 +38,7 @@ instead.
     <tab label='Debian'>
 
     ```bash
-    sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+    sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
     ```
 
     </tab>
@@ -45,16 +46,12 @@ instead.
     <tab label="Ubuntu">
 
     ```bash
-    sh -c "echo 'deb [signed-by=/usr/share/keyrings/timescale.keyring] https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+    sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
     ```
 
     </tab>
 
     </terminal>
-1.  Get the TimescaleDB GPG signing packages, and unpack them:
-    ```bash
-    wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | gpg --dearmor -o /usr/share/keyrings/timescale.keyring
-    ```
 1.  Update your local repository list:
     ```bash
     apt update
