@@ -34,7 +34,7 @@ depending on the type of the time column of the hypertable:
 
 ### Sample use
 Add a policy that refreshes the last month once an hour, excluding the latest
-hour from the aggregate. For performance reasons, we recommended that you
+hour from the aggregate. For performance reasons, we recommend that you
 exclude buckets that see lots of writes:
 ```sql
 SELECT add_continuous_aggregate_policy('conditions_summary',
