@@ -29,7 +29,11 @@ packages and instructions, see the
 1.  Install TimescaleDB in a Docker container on a network named `promscale`. It
     also port forwards to port `5432` on your local system:
     ```bash
-    docker run --name timescaledb -e POSTGRES_PASSWORD=<password> -d -p 5432:5432 --network promscale timescaledev/promscale-extension:latest-ts2-pg13 postgres -csynchronous_commit=off
+    docker run --name timescaledb -e POSTGRES_PASSWORD=<password> \
+    -d -p 5432:5432 \
+    --network promscale \
+    timescaledev/promscale-extension:latest-ts2-pg13 \
+    postgres -csynchronous_commit=off
     ```
 1.  Run the Promscale Connector Docker container on a network named `promscale`.
     It also port forwards to port `9201` on your local system:
