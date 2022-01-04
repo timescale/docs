@@ -1,11 +1,10 @@
 ## add_dimension()
-
 Add an additional partitioning dimension to a TimescaleDB hypertable.
 The column selected as the dimension can either use interval
 partitioning (e.g., for a second time partition) or hash partitioning.
 
 <highlight type="warning">
- The `add_dimension` command can only be executed after a table has been
+The `add_dimension` command can only be executed after a table has been
 converted to a hypertable (via `create_hypertable`), but must similarly
 be run only on an empty hypertable.
 </highlight>
@@ -25,7 +24,6 @@ across multiple disks within the same time interval
 (in the case of single-node deployments).
 
 ### Parallelizing queries across multiple data nodes
-
 In a distributed hypertable, space partitioning enables inserts to be
 parallelized across data nodes, even while the inserted rows share
 timestamps from the same time interval, and thus increases the ingest rate.
@@ -38,7 +36,6 @@ when using `location` as a space partition). Please see our
 for more information.
 
 ### Parallelizing disk I/O on a single node
-
 Parallel I/O can benefit in two scenarios: (a) two or more concurrent
 queries should be able to read from different disks in parallel, or
 (b) a single query should be able to use query parallelization to read
@@ -70,31 +67,31 @@ per-partition load balancing (the mapping of items to partitions using
 hashing), as well as much increased planning latency for some types of
 queries.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `hypertable` | REGCLASS | Hypertable to add the dimension to.|
-| `column_name` | TEXT |  Column to partition by.|
+|-|-|-|
+|`hypertable`|REGCLASS|Hypertable to add the dimension to|
+|`column_name`|TEXT|Column to partition by|
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `number_partitions` | INTEGER | Number of hash partitions to use on `column_name`. Must be > 0.|
-| `chunk_time_interval` | INTERVAL | Interval that each chunk covers. Must be > 0.|
-| `partitioning_func` | REGCLASS | The function to use for calculating a value's partition (see `create_hypertable` [instructions](/hypertable/create_hypertable)).|
-| `if_not_exists` | BOOLEAN | Set to true to avoid throwing an error if a dimension for the column already exists. A notice is issued instead. Defaults to false. |
+|-|-|-|
+|`number_partitions`|INTEGER|Number of hash partitions to use on `column_name`. Must be > 0|
+|`chunk_time_interval`|INTERVAL|Interval that each chunk covers. Must be > 0|
+|`partitioning_func`|REGCLASS|The function to use for calculating a value's partition (see `create_hypertable` [instructions](/hypertable/create_hypertable))|
+|`if_not_exists`|BOOLEAN|Set to true to avoid throwing an error if a dimension for the column already exists. A notice is issued instead. Defaults to false|
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
-| `dimension_id` | INTEGER |ID of the dimension in the TimescaleDB internal catalog. |
-| `schema_name` | TEXT | Schema name of the hypertable.|
-| `table_name` | TEXT | Table name of the hypertable. |
-| `column_name` | TEXT | Column name of the column to partition by. |
-| `created` | BOOLEAN | True if the dimension was added, false when `if_not_exists` is true and no dimension was added. |
+|-|-|-|
+|`dimension_id`|INTEGER|ID of the dimension in the TimescaleDB internal catalog|
+|`schema_name`|TEXT|Schema name of the hypertable|
+|`table_name`|TEXT|Table name of the hypertable|
+|`column_name`|TEXT|Column name of the column to partition by|
+|`created`|BOOLEAN|True if the dimension was added, false when `if_not_exists` is true and no dimension was added|
 
 When executing this function, either `number_partitions` or
 `chunk_time_interval` must be supplied, which dictates if the
@@ -118,8 +115,7 @@ is the number of milliseconds since the UNIX epoch).
  to use at most one "space" dimension.
 </highlight>
 
-### Sample Usage
-
+### Sample use
 First convert table `conditions` to hypertable with just time
 partitioning on column `time`, then add an additional partition key on `location` with four partitions:
 ```sql
