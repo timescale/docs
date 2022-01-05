@@ -8,6 +8,7 @@ instructions use the `apt` package manager on these distributions:
 *   Ubuntu 18.04 LTS Bionic Beaver
 *   Ubuntu 20.04 LTS Focal Fossa
 *   Ubuntu 21.04 Hirsute Hippo
+*   Ubuntu 21.10 Impish Indri
 
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `apt`
