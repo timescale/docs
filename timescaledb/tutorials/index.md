@@ -52,7 +52,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [telegraf]: /tutorials/telegraf-output-plugin
 [sample-data-sets]: /tutorials/sample-datasets
 [install-timescale]: /install/latest/
-[promscale]: /tutorials/promscale/
+[promscale]: /promscale/latest/
 [psql]: /how-to-guides/connecting/psql/
 [Crypto]: /tutorials/analyze-cryptocurrency-data
 [Stocks]: /tutorials/analyze-intraday-stocks/
