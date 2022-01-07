@@ -83,4 +83,4 @@ data-stores become more efficient.
 See the [Hypertable How To](/how-to-guides/hypertables) to learn more about
 hypertables and best practices for configuring chunks.
 
-Next, ingest some sample data into TimescaleDB.
+Next, ingest some sample data into TimescaleDB. You can also use this [sample dataset](/getting-started/add-data/#accessing-the-dataset) to populate the table you just created. 
