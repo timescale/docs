@@ -26,7 +26,7 @@ instead.
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
     ```bash
-    apt install gnupg postgresql-common
+    apt install gnupg postgresql-common apt-transport-https lsb-release wget
     ```
 1.  Run the PostgreSQL repository setup script:
     ```bash
@@ -52,6 +52,10 @@ instead.
     </tab>
 
     </terminal>
+1.  Install Timescale GPG key
+    ```bash
+    wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add -
+    ```
 1.  Update your local repository list:
     ```bash
     apt update
