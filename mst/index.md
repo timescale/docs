@@ -10,7 +10,7 @@ management.
 *   Create a [multi-node cluster][mst-multi-node]
 *   View [service logs][viewing-service-logs]
 *   Use [VPC peering][vpc-peering]
-*   Understand [security for Timescale Cloud][security]
+*   Understand [security for Timescale MST][security]
 
 Some important terms:
 *   **Account:** Your Managed Service for TimescaleDB account. You can register
