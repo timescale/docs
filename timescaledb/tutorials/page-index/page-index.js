@@ -206,7 +206,7 @@ module.exports = [
         excerpt: 'Custom TimescaleDB dashboards in Tableau',
       },
       {
-        title: 'Simulate IoT Sensor Data',
+        title: 'Simulate IoT sensor data',
         href: 'simulate-iot-sensor-data',
         tags: ['tableau', 'iot', 'visualize', 'learn', 'timescaledb'],
         keywords: ['Tableau', 'tutorial', 'IoT', 'TimescaleDB'],
