@@ -214,7 +214,7 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
+[install-psql]: /timescaledb/latest/how-to-guides/connecting/psql/
 [tsdb-docs]: /timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
