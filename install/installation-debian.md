@@ -33,6 +33,7 @@ instead.
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
 1.  Add the TimescaleDB third party repository:
+
     <terminal>
 
     <tab label='Debian'>
@@ -52,6 +53,7 @@ instead.
     </tab>
 
     </terminal>
+    
 1.  Install Timescale GPG key
     ```bash
     wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add -
