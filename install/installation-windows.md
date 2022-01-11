@@ -26,7 +26,7 @@ instead.
     click `Environment Variables...`. Locate the `Path` variable and
     click `Edit...`. In the `Edit environment variable` dialog, click `New` and
     type the path to your PostgreSQL `pg_config` file. It should
-    be `C:\Program Files\PostreSQL\14\bin\`. Click `OK` to save your changes.
+    be `C:\Program Files\PostgreSQL\14\bin\`. Click `OK` to save your changes.
 1.  Download the TimescaleDB installation `.zip` file from our
     [Windows releases page][windows-releases].
 1.  Locate the downloaded file on your local file system, and extract the files.
