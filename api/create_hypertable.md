@@ -210,7 +210,7 @@ you are writing roughly 2 GB of data per day and have 64 GB of memory,
 setting the time interval to a week would be good.  If you are writing
 10 GB per day on the same machine, setting the time interval to a day
 would be appropriate.  This interval would also hold if data is loaded
-more in batches, e.g., you bulk load 70 GB of data per week, with data
+more in batches - for example, you bulk load 70 GB of data per week, with data
 corresponding to records from throughout the week.
 
 While it's generally safer to make chunks smaller rather than too
