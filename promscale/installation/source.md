@@ -31,7 +31,7 @@ In this procedure, you download the Promscale binaries and run them.
 
 ### Installing Promscale from source
 1.  At the command prompt, as root, download the appropriate source files for
-    your operating system (get the url from the [GitHub repository releases page][releases]):
+    your operating system (get the URL from the [GitHub repository releases page][releases]):
     ```bash
     curl -L -o promscale https://github.com/timescale/promscale/releases/download/<VERSION>/<PROMSCALE_DISTRIBUTION>
     ```
