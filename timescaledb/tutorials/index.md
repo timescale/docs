@@ -25,7 +25,7 @@ data analysis and make forecasts on your data.
 - **[Creating a Grafana dashboard and panel][tutorial-grafana-dashboards]**: Basic tutorial on using Grafana to visualize data in TimescaleDB.
 - **[Visualize Geospatial data in Grafana][tutorial-grafana-geospatial]**: Use the Grafana WorldMap visualization to view your TimescaleDB data.
 - **[Use Grafana variables][tutorial-grafana-variables]**: Filter and customize your Grafana visualizations.
-- **[Visualizing Missing Data with Grafana][tutorial-grafana-missing-data]**: Learn how to visualize and aggregate missing time-series data in Grafana.
+- **[Visualizing missing data with Grafana][tutorial-grafana-missing-data]**: Learn how to visualize and aggregate missing time-series data in Grafana.
 - **[Setting up Grafana alerts][tutorial-grafana-alerts]**: Configure Grafana to alert you in Slack, PagerDuty, and more.
 
 ### Other integrations
@@ -37,7 +37,7 @@ data analysis and make forecasts on your data.
 
 - **[Sample data sets][sample-data-sets]**: And if you want to explore on your own
 with some sample data, we have some ready-made data sets for you to explore.
-- **[Simulate IoT Sensor Data][simul-iot-data]**: Simulate a basic IoT sensor dataset
+- **[Simulate IoT sensor data][simul-iot-data]**: Simulate a basic IoT sensor dataset
 on PostgreSQL or TimescaleDB.
 - **[psql installation][psql]**: `psql` is a terminal-based front-end for PostgreSQL.
 Learn how to install `psql` on Mac, Ubuntu, Debian, Windows,
