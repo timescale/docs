@@ -42,7 +42,7 @@ In this procedure, you download the Promscale binaries and run them.
 1.  Run Promscale by providing the connection details for your TimescaleDB
     service:
     ```bash
-    ./promscale --db-name <DBNAME> --db-password <DBPASSWORD> --db-ssl-mode allow
+    ./promscale --db-host <DB_HOSTNAME> --db-port <DB_PORT> --db-name <DBNAME> --db-password <DBPASSWORD> --db-ssl-mode allow
     ```
 
     <highlight type="note">
