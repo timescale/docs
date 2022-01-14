@@ -374,7 +374,7 @@ could potentially force the next job to start all over again.
 
 To prevent this, the `ignore_invalidation_older_than` setting could be used to ignore backfill data older than
 a specified interval (e.g., ignore backfill older than 1 week), preventing the materializer from restarting if
-hypertable data was modified beyond this interval boundary. However, this would also stop TimescalDB 1.x from
+hypertable data was modified beyond this interval boundary. However, this would also stop TimescaleDB 1.x from
 tracking changes in the underlying data beyond the `ignore_invalidation_older_than` threshold too. This meant
 that it was not possible to revert this setting later to a larger interval (e.g., 1 month) without potentially
 having a mismatch between the raw data and the aggregated data in the continuous aggregate.

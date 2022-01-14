@@ -43,7 +43,7 @@ that you can use it. The easiest way to do this is to run the `timescaledb-tune`
 script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
-## Set up the TimeascaleDB extension
+## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
@@ -128,7 +128,7 @@ if you want to have a chat.
 
 [contact]: https://www.timescale.com/contact
 [install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timeascaledb/:currentVersion:/index/
+[tsdb-docs]: timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /how-to-guides/configuration/
 [homebrew]: https://docs.brew.sh/Installation
