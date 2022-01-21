@@ -125,7 +125,7 @@ if you want to have a chat.
 
 [config]: /how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
+[install-psql]: timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [tsdb-docs]: timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
