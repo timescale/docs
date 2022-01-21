@@ -37,4 +37,4 @@ information, see the [Troubleshooting section][troubleshooting].
 </highlight>
 
 [blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/
-[troubleshooting]: /continuous-aggregates/troubleshooting/
+[troubleshooting]: https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/troubleshooting/

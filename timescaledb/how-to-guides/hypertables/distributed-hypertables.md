@@ -297,4 +297,4 @@ in the distributed hypertable to that table.
 [about-multinode]: /how-to-guides/multinode-timescaledb/about-multinode/
 [explain]: https://www.postgresql.org/docs/current/sql-explain.html
 [dist_exec]:  /api/:currentVersion:/distributed-hypertables/distributed_exec
-[caggs]: timescaledb/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
+[caggs]: timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
