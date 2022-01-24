@@ -86,8 +86,8 @@ on top of an existing data directory, you can specify the directory to mount a
 data volume using the `-v` flag. For example:
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14 \
--v /your/data/dir:/var/lib/postgresql/data
+-v /your/data/dir:/var/lib/postgresql/data \
+-e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
 ```
 
 When you install TimescaleDB using a Docker container, the PostgreSQL settings

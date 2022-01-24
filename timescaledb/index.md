@@ -57,7 +57,7 @@ and best practices.
 [getting-started]: /getting-started/
 [how-to]: /how-to-guides/
 [tutorials]: /tutorials/
-[promscale]: /tutorials/promscale
+[promscale]: /promscale/latest/
 [grafana]: /tutorials/grafana
 [crypto]: /tutorials/analyze-cryptocurrency-data/
 [forecast]: /tutorials/time-series-forecast/

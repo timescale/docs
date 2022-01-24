@@ -79,4 +79,4 @@ hypertable fails. For more information about setting up multi-node, see the
 
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
-[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[multi-node]: https://docs.timescale.com/timescaledb/latest/how-to-guides/multinode-timescaledb/

@@ -56,7 +56,7 @@ For more information about Prom-migrator and it command line options, see our
 
 
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
-[promscale-install-docker]: promscale/:currentVersion:/docker/
-[promscale-install-source]: promscale/:currentVersion:/source/
+[promscale-install-docker]: promscale/:currentVersion:/installation/docker/
+[promscale-install-source]: promscale/:currentVersion:/installation/source/
 [promscale-gh-releases]: https://github.com/timescale/promscale/releases
 [gh-prom-migrator]: https://github.com/timescale/promscale/tree/master/cmd/prom-migrator
