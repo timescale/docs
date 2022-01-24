@@ -15,4 +15,4 @@ To change the view, select the time range from the drop down menu.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/FIXME.png" alt="Timescale Cloud Metrics dashboard"/>
 
 Additionally, you can turn automatic metric refreshes on and off. When automatic
-metric refresh is on, polling updates every thirty seconds.
+metric refresh is on, the dashboard updates every thirty seconds.
