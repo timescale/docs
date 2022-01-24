@@ -21,7 +21,7 @@ and you can use a `#` symbol at the beginning of a line to denote a comment.
 
 When you have made changes to the configuration file, the new configuration is
 not applied immediately. The configuration file is reloaded whenever the server
-receives a `SIGHUP` sugnal, or you can manually reload the file uses the
+receives a `SIGHUP` signal, or you can manually reload the file uses the
 `pg_ctl` command.
 
 ## Setting parameters at the command prompt
