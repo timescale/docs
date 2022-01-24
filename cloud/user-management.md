@@ -40,7 +40,7 @@ create one.
 ### Removing members from a project group
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Members` section.
-1.  Locate the Member you want to remove in the list, and click the trashcan
+1.  Locate the Member you want to remove in the list, and click the trash can
     icon.
 1.  Confirm the deletion by typing DELETE, and click `Delete`.
 1.  The member is deleted from the project immediately, and can no longer switch
