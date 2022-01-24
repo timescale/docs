@@ -4,8 +4,8 @@ and store the intermediate state in a materialization hypertable. You can modify
 this materialized hypertable in the same way as any other hypertable.
 
 ## Discover the name of a materialized hypertable
-To change a materialized hypertable, you need to discover the fully qualified
-name of it. To do this, use the
+To change a materialized hypertable, you need to use its fully qualified
+name. To find the correct name, use the
 [timescaledb_information.continuous_aggregates view][api-continuous-aggregates-info]).
 You can then use the name to modify it in the same way as any other hypertable.
 
