@@ -1,6 +1,7 @@
 # Continuous aggregates
 
-Aggregate queries which touch large swathes of time-series data can
+Aggregate queries (`min()`, `max()`, `avg()`...) 
+which touch large swathes of time-series data can
 take a long time to compute because the system needs to scan large
 amounts of data on every query execution. To make such queries faster,
 a continuous aggregate allows materializing the computed aggregates,

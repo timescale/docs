@@ -26,7 +26,7 @@ instead.
     click `Environment Variables...`. Locate the `Path` variable and
     click `Edit...`. In the `Edit environment variable` dialog, click `New` and
     type the path to your PostgreSQL `pg_config` file. It should
-    be `C:\Program Files\PostreSQL\14\bin\`. Click `OK` to save your changes.
+    be `C:\Program Files\PostgreSQL\14\bin\`. Click `OK` to save your changes.
 1.  Download the TimescaleDB installation `.zip` file from our
     [Windows releases page][windows-releases].
 1.  Locate the downloaded file on your local file system, and extract the files.
@@ -40,7 +40,7 @@ that you can use it. The easiest way to do this is to run the `timescaledb-tune`
 script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
-## Set up the TimeascaleDB extension
+## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
@@ -125,8 +125,8 @@ if you want to have a chat.
 
 [config]: /how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timeascaledb/:currentVersion:/index/
+[install-psql]: timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[tsdb-docs]: timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
