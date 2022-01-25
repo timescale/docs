@@ -1,5 +1,5 @@
 # About Timescale hyperfunctions
-Timescale hyperfunctions are a specialized set of functions that allow you to to
+Timescale hyperfunctions are a specialized set of functions that allow you to
 analyze time-series data. You can use hyperfunctions to analyze anything you
 have stored as time-series data, including IoT devices, IT systems, marketing
 analytics, user behavior, financial metrics, and cryptocurrency.
