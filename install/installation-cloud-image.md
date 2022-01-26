@@ -7,7 +7,7 @@ The currently available pre-built cloud image is:
 *   Ubuntu 18.04 Amazon EBS-backed AMI
 
 The Timescale AMI uses Elastic Block Store (EBS) attached volumes. This allows
-yopu to store image snapshots, dynamic IOPS configuration, and provides some
+you to store image snapshots, dynamic IOPS configuration, and provides some
 protection of your data if the EC2 instance goes down. Choose an EC2 instance
 type that is optimized for EBS attached volumes. For information on choosing the
 right EBS optimized EC2 instance type, see the AWS
