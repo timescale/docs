@@ -17,7 +17,7 @@ To change the view, select the time range from the drop down menu.
 Additionally, you can turn automatic metric refreshes on and off. When automatic
 metric refresh is on, the dashboard updates every thirty seconds.
 
-In some cases, grey vertical bars display on the metrics dashboard, like this:
+In some cases, gray vertical bars display on the metrics dashboard, like this:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-metrics_graybar.png" alt="Timescale Cloud Metrics not collected"/>
 
