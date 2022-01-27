@@ -1,5 +1,5 @@
 # Ingesting data
-By defult, TimescaleDB supports standard SQL inserts. Additionally, you can use
+By default, TimescaleDB supports standard SQL inserts. Additionally, you can use
 third party tools to build data ingest pipelines. A data ingest pipeline can
 increase your data ingest rates by using batch writes, instead of inserting data
 one row or metric at a time. Any tool that can read or write to PostgreSQL also
@@ -13,10 +13,10 @@ into TimescaleDB, see the [Writing Data][writing-data] section.
 
 ## Prometheus
 Prometheus is used to monitor infrastructure metrics. It scrapes any endpoints
-that can expose metrics in a compatible format. The metrics are stored in
-Prometheus, and you can query them using the PromQL query language. Prometheus
-is not intended to be used for long-term metrics storage, but it supports a
-variety of remote storage solutions that can be used for that purpose.
+that expose metrics in a compatible format. The metrics are stored in
+Prometheus, and you can query them using PromQL (Prometheus Query Language). Prometheus
+is not intended for long-term metrics storage, but it supports a
+variety of remote storage solutions for that purpose.
 
 TimescaleDB can use Prometheus as a remote store for long-term metrics, by using
 [Promscale][promscale]. Promscale supports both PromQL and SQL queries. PromQL
@@ -40,12 +40,12 @@ collected data, and then ingests the data into TimescaleDB.
 
 The output plugin handles schema generation and modification. As metrics are
 collected by Telegraf, the plugin checks to see if a table exists, creates it
-necessary, and alters the table if the schema changes.
+if necessary, and alters the table if the schema changes.
 
 By default, the plugin uses a [wide data model][wide-model], which is the most
 common data model for storing metrics. Alternatively, you can specify a narrow
 data model with a separate metadata table and foreign keys, or JSONB, if that
-works better for you environment.
+works better for your environment.
 
 For more information about installing the Timescale Telegraf binaries with the
 plugin, see the [telegraf-tutorial][telegraf-tutorial].
@@ -56,7 +56,7 @@ connector. The connector  is deployed to a Kafka Connect runtime service, and
 ingests change events from  PostgreSQL databases, such as TimescaleDB.
 
 The deployed connector monitors one or more schemas within a TimescaleDB server
-and write all change events to Kafka topics, which can be independently consumed
+and writes all change events to Kafka topics, which can be independently consumed
 by one or more clients. Kafka Connect can be distributed to provide fault
 tolerance to ensure the connectors are running and continually keeping up with
 changes in the database.
