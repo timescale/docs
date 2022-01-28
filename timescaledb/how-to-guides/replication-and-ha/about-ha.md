@@ -28,21 +28,6 @@ simultaneously. The instances that are not the primary database are called
 replicas. Having a replica (or many) can significantly reduce RTO, as there is
 already an up-to-date, running database that can take over. 
 
-Timescale Cloud customers can enable a high availability (HA) replica for their
-single-node services. These replicas are asynchronous. In the event of a primary
-going down, the replica automatically assumes the role of primary, and a new
-standby replica is created. WAL segments are retrieved from S3 and replayed on
-the "new" primary to account for any lag at the time of failure. Due to their
-asynchronous nature, it is possible that not all WALs produced by the primary
-were shipped to S3 at the point of failure, meaning there may be some data loss.
-Connections to the primary will be closed and should be reopened by the client.
-The entire promotion and switchover process should only take a matter of
-seconds. Timescale Cloud does not currently offer synchronous replicas.
-
-High Availability (HA) replicas also provide protection against Availability
-Zone outages. Replicas are automatically created in a different AZ than the
-primary.
-
 # Zonal Redundancy
 While the public cloud is highly reliable, entire portions of the cloud may be
 unavailable at times. Timescale Cloud does not protect against Availability Zone
@@ -53,12 +38,12 @@ For more information about HA replicas in Timescale Cloud, see
 the [high availability section][cloud-ha] in the Cloud documentation.
 
 # Replication
-TimescaleDB supports replication using PostgreSQL's built-in [streaming
-replication][postgres-streaming-replication-docs]. Using [logical
-replication][postgres-logrep-docs] with TimescaleDB is *not recommended*, as it
-requires schema synchronization between the primary and replica nodes and
-replicating partition root tables, which are [not currently
-supported][postgres-partition-limitations].
+TimescaleDB supports replication using PostgreSQL's built-in
+[streaming replication][postgres-streaming-replication-docs]. Using
+[logical replication][postgres-logrep-docs] with TimescaleDB is not recommended,
+as it requires schema synchronization between the primary and replica nodes and
+replicating partition root tables, which are
+[not currently supported][postgres-partition-limitations].
 
 This tutorial outline the basic configuration needed to set up streaming
 replication on one or more replicas, covering both synchronous and asynchronous
@@ -68,13 +53,12 @@ using a [PostgreSQL entrypoint script][docker-postgres-scripts] to run the
 configuration. For our sample Docker configuration and run scripts, check out
 our [Streaming Replication Docker Repository][timescale-streamrep-docker].
 
-<highlight type="tip">
-PostgreSQL achieves streaming replication by having replicas continuously
-stream the WAL from the primary database. See the official
-[replication documentation](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION) for details. For more
-information about how PostgreSQL implements Write-Ahead Logging,
-see their [WAL Documentation](https://www.postgresql.org/docs/current/static/wal-intro.html).
-</highlight>
+PostgreSQL achieves streaming replication by having replicas continuously stream
+the WAL from the primary database. See the official
+[replication documentation](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION)
+for details. For more information about how PostgreSQL implements Write-Ahead
+Logging, see their
+[WAL Documentation](https://www.postgresql.org/docs/current/static/wal-intro.html).
 
 ## Failover
 PostgreSQL offers failover functionality (i.e., promoting the replica to the
