@@ -227,7 +227,7 @@ Now you're ready to create the `node_test` database. From the command line, type
 the following:
 
 ```bash
-npx sequelize db:create node_test
+npx sequelize db:create
 ```
 
 You should get this result:
