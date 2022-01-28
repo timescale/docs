@@ -48,7 +48,7 @@ the service's CPU size. Once the Postgres service has finished restoring, it
 will begin replaying all of the WAL in S3 until it has reached the last
 committed transaction. The entire process can take up to 30 minutes. For more
 information on how this process works, please see our
-[<ins>documentation</ins>](https://docs.timescale.com/cloud/latest/backup-restore-cloud/). 
+[documentation](https://docs.timescale.com/cloud/latest/backup-restore-cloud/). 
 
 Since backups are stored on S3, they [remain accessible in an Availability Zone
 outage](https://aws.amazon.com/s3/faqs/). However, Timescale Cloud does not
