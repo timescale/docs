@@ -32,9 +32,9 @@ For systems that can tolerate a higher RTO, recovering from backup alone may be
 a sufficient availability strategy. 
 
 For Timescale Cloud customers, full backups are taken weekly and stored on
-Amazon S3\. Incremental backups are performed daily, and Write-Ahead Log (WAL)
-segments are streamed to S3\. In the event of a failure, the only data loss
-should be from any WAL that was committed but not sent to S3\. This scenario
+Amazon S3. Incremental backups are performed daily, and Write-Ahead Log (WAL)
+segments are streamed to S3. In the event of a failure, the only data loss
+should be from any WAL that was committed but not sent to S3. This scenario
 should only happen when an instance is under heavy load, causing the WAL
 shipping process to queue behind processing queries. Uncommitted transactions
 will return an error to the application, where they should then be retried by
@@ -43,7 +43,7 @@ the application.
 In the event of a failure, the database will automatically begin recovering on
 its own from the most recent successful backup. We use Patroni, which calls
 `pgbackrest` as a custom bootstrap method to recover the data directory from
-S3\. This process hydrates the database quickly, with throughput determined by
+S3. This process hydrates the database quickly, with throughput determined by
 the service's CPU size. Once the Postgres service has finished restoring, it
 will begin replaying all of the WAL in S3 until it has reached the last
 committed transaction. The entire process can take up to 30 minutes. For more
@@ -62,17 +62,16 @@ copies of a database’s data files. If the storage currently attached to a
 Postgres instance corrupts or otherwise becomes unavailable, the system can
 failover by replacing its current storage with one of the copies. 
 
-For Timescale Cloud customers, data files are stored on AWS’s [<ins>Elastic
-Block
-Store</ins>](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes.html)
+For Timescale Cloud customers, data files are stored on AWS’s
+[Elastic Block Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes.html)
 (EBS) volumes. An EBS volume has two drives and automatically replicates data
 between them using a
-[<ins>RAID1</ins>](https://forums.aws.amazon.com/thread.jspa?threadID=223363)
+[RAID1](https://forums.aws.amazon.com/thread.jspa?threadID=223363)
 (mirroring) strategy, meaning that the copy will always be up-to-date. The copy
 will automatically take over if one drive fails, and a new drive will be
 provisioned within the volume. The volume will remain attached to the instance,
-with the only impact to the database being [<ins>potentially degraded
-performance</ins>](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html)
+with the only impact to the database being
+[potentially degraded performance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html)
 as the impacted drive is repaired or replaced within the volume. Since the copy
 is always up-to-date, WAL will not have to be replayed. The entire failover
 process for a drive failure should be near-instantaneous, with zero RTO (as the
@@ -84,11 +83,11 @@ transaction as committed and flushing the buffers to disk. Postgres's approach
 ensures that either the client does not receive confirmation that the
 transaction is committed (and thus should retry the transaction), or a committed
 transaction is in the WAL file and will be recovered upon restart. For an EC2
-failure, the RTO is the time it takes to mount the storage to a new EC2\. The
+failure, the RTO is the time it takes to mount the storage to a new EC2. The
 RPO is zero.
 
-Currently, Timescale Cloud does not take EBS snapshots, [<ins>which
-means</ins>](https://docs.aws.amazon.com/prescriptive-guidance/latest/backup-recovery/ec2-backup.html)
+Currently, Timescale Cloud does not take EBS snapshots,
+[which means](https://docs.aws.amazon.com/prescriptive-guidance/latest/backup-recovery/ec2-backup.html)
 that we do not currently offer AZ redundancy at the storage level.mTo protect
 against For services that require protection from AZ outages, see Zonal
 Redundancy.
