@@ -1,6 +1,6 @@
 # time_bucket()
 The `time_bucket` function is similar to the standard PostgreSQL `date_trunc`
-function. Unlike `date_trunc`, it allows for arbitrary time intervals instead of 
+function. Unlike `date_trunc`, it allows for arbitrary time intervals instead of
 second, minute, and hour intervals. The return value is the bucket's
 start time.
 
@@ -73,12 +73,14 @@ ORDER BY five_min DESC LIMIT 10;
 For rounding, move the alignment so that the middle of the bucket is at the
 five minute mark, and report the middle of the bucket:
 ```sql
-SELECT time_bucket('5 minutes', time, '-2.5 minutes') + '2.5 minutes'
+SELECT time_bucket('5 minutes', time, '-2.5 minutes'::INTERVAL) + '2.5 minutes'
   AS five_min, avg(cpu)
 FROM metrics
 GROUP BY five_min
 ORDER BY five_min DESC LIMIT 10;
 ```
+In this example, add the explicit cast to ensure that PostgreSQL chooses the
+correct function.
 
 To shift the alignment of the buckets you can use the origin parameter passed as
 a timestamp, timestamptz, or date type. This example shifts the start of the
