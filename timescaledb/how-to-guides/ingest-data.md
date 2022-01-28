@@ -30,7 +30,7 @@ and [PostgreSQL][postgres-grafana] data sources.
 
 ## Telegraf
 Telegraf collects, processes, aggregates, and writes metrics. Telegraf is highly
-extensible, and has over two hundred plugins for gathering and writing different
+extensible, and has over 200 plugins for gathering and writing different
 types of data.
 
 Timescale provides a downloadable Telegraf binary that includes an output
