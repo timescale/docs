@@ -35,6 +35,10 @@ module.exports = [
         href: "operations"
       },
       {
+        title: "Metrics",
+        href: "metrics"
+      },
+      {
         title: "Maintenance",
         href: "maintenance"
       },
