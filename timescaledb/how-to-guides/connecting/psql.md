@@ -120,5 +120,5 @@ EnterpriseDB.
 </procedure>
 
 
-[brew-package-manager]: https://brew.sh/
+[homebrew]: https://brew.sh/
 [windows-installer]: https://www.postgresql.org/download/windows/
