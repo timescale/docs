@@ -1,30 +1,12 @@
-# Replication
-
-TimescaleDB supports replication using PostgreSQL's built-in [streaming
-replication][postgres-streaming-replication-docs]. Using [logical
-replication][postgres-logrep-docs] with TimescaleDB is *not recommended*, as it
-requires schema synchronization between the primary and replica nodes and
-replicating partition root tables, which are [not currently
-supported][postgres-partition-limitations].
-
-This tutorial outline the basic configuration needed to set up streaming
-replication on one or more replicas, covering both synchronous and asynchronous
-options. It assumes you have at least two separate instances of TimescaleDB
-running. If you're using our [Docker Image][timescale-docker], we recommend
-using a [PostgreSQL entrypoint script][docker-postgres-scripts] to run the
-configuration. For our sample Docker configuration and run scripts, check out
-our [Streaming Replication Docker Repository][timescale-streamrep-docker].
-
-<highlight type="tip">
-PostgreSQL achieves streaming replication by having replicas continuously
-stream the WAL from the primary database. See the official
-[replication documentation](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION) for details. For more
-information about how PostgreSQL implements Write-Ahead Logging,
-see their [WAL Documentation](https://www.postgresql.org/docs/current/static/wal-intro.html).
-</highlight>
+# Configure Replication
+Credibly initiate bricks-and-clicks niche markets for real-time processes.
+Completely promote resource sucking value via premier initiatives. Conveniently
+revolutionize just in time supply chains rather than reliable portals.
+Conveniently maximize intermandated bandwidth vis-a-vis premier results.
+Progressively evisculate professional models with strategic information.
 
 ## Configure the primary database
-
+FIXME - turn this into procedures. --LKB 20220128
 Create a PostgreSQL user with a role that allows it to initialize streaming
 replication. This is the user each replica uses to stream from the primary
 database. Run the command as the `postgres` user, or another user that is
