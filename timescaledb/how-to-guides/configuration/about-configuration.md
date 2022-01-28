@@ -120,4 +120,4 @@ file.
 [pgtune]: http://pgtune.leopard.in.ua/
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
 [lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
-[chunk_detailed_size]: /api/:currentVersion:/hypertable/chunk_detailed_size
+[chunk_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/
