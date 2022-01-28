@@ -22,13 +22,15 @@ GROUP BY time_bucket( <const_value>, <partition_col_of_hypertable> ),
 [HAVING ...]
 ```
 
+The continuous aggregate view is automatically refreshed unless `WITH NO DATA`
+is given. This setting defaults to `WITH DATA`. For more information, see
+[`refresh_continuous_aggregate`][refresh-cagg].
+
 Continuous aggregates have some limitations of what types of queries they can
 support, described in more length below.  For example, the `FROM` clause must
 provide only one hypertable, and joins, CTEs, views or subqueries are not
 supported. The `GROUP BY` clause must include a time bucket on the hypertable
 time column, and all aggregates must be parallelizable.
-
-The continuous aggregate view is automatically refreshed unless `WITH NO DATA` is given. This setting defaults to `WITH DATA`. For more information, see [`refresh_continuous_aggregate`][refresh-cagg].
 
 Some important things to remember when constructing your `SELECT` query:
 *   Only a single hypertable can be specified in the `FROM` clause of
