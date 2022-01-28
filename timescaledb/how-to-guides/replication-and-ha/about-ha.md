@@ -10,7 +10,8 @@ the [high availability section][cloud-ha] in the Cloud documentation.
 For systems that can tolerate a higher RTO, recovering from backup alone may be
 a sufficient availability strategy. 
 
-For more information about backups in self-hosted TimescaleDB, see the [backup and restore section][db-backup] in the TimescaleDB documentation.
+For more information about backups in self-hosted TimescaleDB, see the
+[backup and restore section][db-backup] in the TimescaleDB documentation.
 
 For more information about backups in Timescale Cloud, see
 the [backup and restore section][cloud-backup] in the Cloud documentation.
