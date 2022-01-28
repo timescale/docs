@@ -33,7 +33,7 @@ still work on the resulting hypertable.
 | `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is "_hyper". |
 | `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Defaults to FALSE. |
 | `time_partitioning_func` | REGCLASS | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
-| `replication_factor` | INTEGER | If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable) in place of `create_hypertable`. |
+| `replication_factor` | INTEGER | If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable/) in place of `create_hypertable`. |
 | `data_nodes` | ARRAY | This is the set of data nodes that are used for this table if it is distributed. This has no impact on non-distributed hypertables. If no data nodes are specified, a distributed hypertable uses all data nodes known by this instance. |
 
 ### Returns
@@ -56,7 +56,7 @@ in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
 If you would like finer control over index formation and other aspects of your
-hypertable, [follow these migration instructions instead](/timescaledb/latest/how-to-guides/migrate-data).
+hypertable, [follow these migration instructions instead](/timescaledb/latest/how-to-guides/migrate-data/).
 
 When converting a normal SQL table to a hypertable, pay attention to how you handle
 constraints. A hypertable can contain foreign keys to normal SQL table columns,
@@ -192,7 +192,7 @@ configuring `chunk_time_interval`.
 the manual and automated adaption of its time intervals. With
 manually-set intervals, users should specify a `chunk_time_interval`
 when creating their hypertable (the default value is 1 week). The
-interval used for new chunks can be changed by calling [`set_chunk_time_interval()`](/hypertable/set_chunk_time_interval).
+interval used for new chunks can be changed by calling [`set_chunk_time_interval()`](/hypertable/set_chunk_time_interval/).
 
 The key property of choosing the time interval is that the chunk (including indexes)
 belonging to the most recent interval (or chunks if using space
@@ -206,11 +206,11 @@ to fit into 25% of main memory, rather than 25% per hypertable.
 </highlight>
 
 To determine this, you roughly need to understand your data rate.  If
-you are writing roughly 2GB of data per day and have 64GB of memory,
+you are writing roughly 2 GB of data per day and have 64 GB of memory,
 setting the time interval to a week would be good.  If you are writing
-10GB per day on the same machine, setting the time interval to a day
+10 GB per day on the same machine, setting the time interval to a day
 would be appropriate.  This interval would also hold if data is loaded
-more in batches, e.g., you bulk load 70GB of data per week, with data
+more in batches - for example, you bulk load 70 GB of data per week, with data
 corresponding to records from throughout the week.
 
 While it's generally safer to make chunks smaller rather than too
@@ -222,13 +222,13 @@ One caveat is that the total chunk size is actually dependent on
 both the underlying data size *and* any indexes, so some care might be
 taken if you make heavy use of expensive index types (e.g., some
 PostGIS geospatial indexes).  During testing, you might check your
-total chunk sizes via the [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size)
+total chunk sizes via the [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size/)
 function.
 </highlight>
 
 **Space partitions:** In most cases, it is advised for users not to use
 space partitions. However, if you create a distributed hypertable, it is
 important to create space partitioning, see
-[create_distributed_hypertable](/distributed-hypertables/create_distributed_hypertable).
+[create_distributed_hypertable](/distributed-hypertables/create_distributed_hypertable/).
 The rare cases in which space partitions may be useful for non-distributed
-hypertables are described in the [add_dimension](/hypertable/add_dimension) section.
+hypertables are described in the [add_dimension](/hypertable/add_dimension/) section.

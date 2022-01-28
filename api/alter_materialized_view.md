@@ -18,13 +18,8 @@ ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ...
 |---|---|---|
 | `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 
-### Options
-|Name|Description|
-|-|-|
-|timescaledb.materialized_only|Enable and disable real time aggregation|
-|timescaledb.compress|Enable and disable compression|
+### Sample Usage
 
-### Sample usage
 To disable real-time aggregates for a
 continuous aggregate:
 
@@ -32,14 +27,8 @@ continuous aggregate:
 ALTER MATERIALIZED VIEW contagg_view SET (timescaledb.materialized_only = true);
 ```
 
-To enable compression for a continuous aggregate:
-
-```sql
-ALTER MATERIALIZED VIEW contagg_view SET (timescaledb.compress = true);
-```
-
-The only options that currently can be modified with `ALTER
-MATERIALIZED VIEW` are `materialized_only` and `compress`. The other options
+The only option that currently can be modified with `ALTER
+MATERIALIZED VIEW` is `materialized_only`. The other options
 `continuous` and `create_group_indexes` can only be set when creating
 the continuous aggregate.
 

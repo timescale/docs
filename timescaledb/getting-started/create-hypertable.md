@@ -17,7 +17,7 @@ Hypertables and chunks enable superior performance for shallow and wide queries,
 like those used in real-time monitoring. They are also good for deep and narrow
 queries, like those used in time-series analysis.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg" alt="hypertable and chunks"/>
+<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.png" alt="hypertable and chunks"/>
 
 You can interact with chunks individually if you need to, but chunks are created
 automatically based on the `chunk_time` and `chunk_size` parameters you specify.
@@ -83,4 +83,6 @@ data-stores become more efficient.
 See the [Hypertable How To](/how-to-guides/hypertables) to learn more about
 hypertables and best practices for configuring chunks.
 
-Next, ingest some sample data into TimescaleDB.
+Next, ingest some sample data into TimescaleDB. You can also use this 
+[sample dataset](/getting-started/add-data/#accessing-the-dataset) to 
+populate the table you just created. 

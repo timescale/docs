@@ -3,6 +3,12 @@
 Get chunk-specific statistics related to hypertable compression.
 All sizes are in bytes.
 
+This view shows the cached size of chunks. The cached sizes are computed 
+when `compress_chunk` is executed, or when a compression policy touches 
+the chunk. An insert into a compressed chunk does not update the cached 
+sizes. For more information about how to compute exact sizes, rather than 
+cached sizes, see the `chunks_detailed_size` section.
+
 ### Required Arguments
 
 |Name|Type|Description|
