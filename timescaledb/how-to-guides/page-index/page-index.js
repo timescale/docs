@@ -420,12 +420,26 @@ module.exports = [
         href: "replication-and-ha",
         children: [
           {
-            title: "Replication and HA",
-            href: "replication",
+            title: "About high availability",
+            href: "about-ha",
             tags: ["ha", "replicate", "timescaledb"],
             keywords: ["ha", "replicate", "TimescaleDB"],
-            excerpt: "Replication and high availability",
+            excerpt: "High availability in TimescaleDB",
           },
+          {
+            title: "Configure HA",
+            href: "configure-ha",
+            tags: ["ha", "replicate", "timescaledb"],
+            keywords: ["ha", "configure", "TimescaleDB"],
+            excerpt: "Configure high availability",
+          },
+          {
+            title: "Configure replication",
+            href: "configure-replication",
+            tags: ["ha", "replicate", "timescaledb"],
+            keywords: ["replicate", "configure", "TimescaleDB"],
+            excerpt: "Configure replication",
+          }
         ],
       },
       {
