@@ -1,23 +1,25 @@
 # Run Promscale in high availability mode
-Promscale is a stateless service, so it can run safely in high availability (HA)
-mode by using multiple replicas. A load balancer routes Promscale requests to
-any replica.
+Promscale is a stateless service, so it can use multiple replicas to run in a
+high availability (HA) mode. In this mode, a load balancer routes Promscale
+requests to any available replica.
 
-You can run Promscale in HA mode with multiple Prometheus instances running as a
-cluster, which is two or more identical Prometheus instances running on
-different machines or containers. A cluster is a group of similar Prometheus
-instances that are all scraping the same targets, and replicas are individual
-Prometheus instances within the cluster. All of the instances in the cluster
-scrape the same targets, so that they have very similar data. Some small
-differences occur because scrapes happen at slightly different times on
-different instances.
+To run Promscale in HA mode, you need multiple Prometheus instances running as a
+cluster. A cluster contains two or more identical Prometheus instances, each
+running on a different machine or container, with all instances scraping the
+same targets. This results in each Prometheus instance within the cluster having
+similar data. The data is not identical, because small differences can occur
+when data is scraped at slightly different times on each instance.
 
-Promscale de-duplicates data on each cluster when it is ingested. It does this
-by electing a Prometheus instance as leader, and only ingesting data from that
-leader. If the leader stops sending data to Promscale for any reason, Promscale
-fails over to another Prometheus instance. You can also have multiple clusters
-sending data to the same set of Promscale instances. One leader is elected for
-each cluster.
+Promscale de-duplicates the data on each cluster after the data is ingested. One
+of the Prometheus instances is randomly elected leader, and all other instances
+only ingest data from that leader. This occurs until the leader stops sending
+data to Promscale for any reason. When the leader fails, Promscale selects a new
+Prometheus instance to act as leader instead, and the other instances ingest
+data from the new leader. Additionally, you can have multiple clusters sending
+data to the same set of Promscale instances, and in this case one leader is
+elected for each cluster.
+
+<!-- Lana, you're up to here! --LKB 20220128-->
 
 ## Prometheus leader-election using external labels
 To process data from Prometheus running in HA mode,
