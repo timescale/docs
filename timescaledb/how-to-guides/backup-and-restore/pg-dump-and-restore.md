@@ -33,7 +33,7 @@ database and restore the data.
 <procedure>
 
 ### Restoring an entire database from backup
-1.  In `pgsql`, create a new database to restore to, and connect to it:
+1.  In `psql`, create a new database to restore to, and connect to it:
     ```sql
     CREATE DATABASE exampledb;
     \c exampledb
