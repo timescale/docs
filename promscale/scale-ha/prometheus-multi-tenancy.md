@@ -5,7 +5,7 @@ set of Promscale servers. Each Prometheus server indicates to the tenant that it
 is writing by using custom headers or external labels.
 
 When Promscale executes a PromQL query it can return data for all tenants, or
-restrict its answers to a particular tenant, or set or tenants. This allows a
+restrict its answers to a particular tenant or set of tenants. This allows a
 tenant to be given access to a particular Promscale PromQL endpoint for querying
 its own data, while ensuring that it cannot access other tenant's data.
 
@@ -21,21 +21,21 @@ Multi-tenancy features:
 ## Configure Promscale for multi-tenancy
 By default, Promscale ingests data without using multi-tenancy. To enable it,
 start Promscale with the `-multi-tenancy` flag. This allows Promscale to ingest
-data from all tenants by default. If you want Promscale to ingest or query data
-from a restricted list of tenants, you can list the tenant names with
+data from all tenants. To restrict the list of tenants for Promscale ingestion and querying,
+list the tenant names with
 `-multi-tenancy-valid-tenants=<tenant_names_seperated_by_commas>`.
 
-By default, when multi-tenancy is enabled, data is rejected if it does not include a tenant name. If you want to accept data without  tenant information,
+By default, when multi-tenancy is enabled, data is rejected if it does not include a tenant name. To accept data without tenant information,
 set the `-multi-tenancy-allow-non-tenants` flag.
 
 <highlight type="note">
 When you set a CLI flag on a Promscale instance, remember to set it on all of
-your other Promscale instances as well, if you need them to have the asme
+your other Promscale instances as well, if you need them to have the same
 functionality.
 </highlight>
 
-This example ingests data from `tenant-A` and `tenant-B` Prometheus instances,
-and allows data to be ingested from non-tenant instances of Prometheus:
+This example ingests data from `tenant-A` and `tenant-B` Prometheus instances.
+It also allows data to be ingested from non-tenant instances of Prometheus:
 ```bash
 -multi-tenancy \
 -multi-tenancy-valid-tenants=tenant-A,tenant-B \
@@ -53,17 +53,18 @@ The `-multi-tenancy-valid-tenants` flag defaults to `allow-all`.
 </highlight>
 
 ## Configure Prometheus for writing multi-tenant data
-Promscale accepts tenant information from `headers`, or by `external_labels`. It
-keeps the tenant name as a `__tenant__: <tenant_name>` label pair attached to
-the series that is ingested in the write-request.
+Promscale accepts tenant information from `headers` or `external_labels`. It
+keeps the tenant name as a `__tenant__: <tenant_name>` label pair, which it attaches to
+the series ingested in the write request.
 
 ### Headers
-You can supply the tenant name with a header using the `TENANT` key, and the value corresponding to the tenant name. For example:
+You can supply the tenant name in a header by using it as the value of the `TENANT` key.
+For example:
 ```bash
 TENANT: tenant-A
 ```
 
-Alternatively, you can specify the heaxder in the Prometheus remote-write
+Alternatively, you can specify the header in the Prometheus remote-write
 configuration file, like this:
 ```yaml
 remote_write:
@@ -73,8 +74,8 @@ remote_write:
 ```
 
 ### External labels
-Promscale reserves `__tenant__` as a label key for storing the tenant name for
-the incoming series. You can push data directly with this label like this:
+Promscale reserves `__tenant__` as a label key for storing the tenant name of
+incoming series. You can push data directly with this label like this:
 ```yaml
 global:
   external_labels:
@@ -89,7 +90,7 @@ tenant label can be queried only if you apply
 `-multi-tenancy-allow-non-tenants`.
 
 If your query needs to be evaluated across multiple tenants, you can use
-`metric_name{__tenant__=~"tenant-A|tenant-B"}` respectively.
+`metric_name{__tenant__=~"tenant-A|tenant-B"}`.
 
 In this example, Promscale contains data from `tenant-A`, `tenant-B` and
 `tenant-C`. If Promscale is configured with
