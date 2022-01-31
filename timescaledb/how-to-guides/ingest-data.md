@@ -87,7 +87,7 @@ For more information about the parallel copy tool, see the
 [writing-data]: /how-to-guides/write-data/
 [prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
 [postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/
-[promscale]: /promscale/
+[promscale]: /promscale/:currentVersion:/
 [timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
 [wide-model]: /overview/data-model-flexibility/wide-data-model/
 [telegraf-tutorial]: /timescaledb/:currentVersion:/tutorials/telegraf-output-plugin/
