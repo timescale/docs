@@ -19,27 +19,30 @@ data from the new leader. Additionally, you can have multiple clusters sending
 data to the same set of Promscale instances, and in this case one leader is
 elected for each cluster.
 
-## Prometheus leader-election using external labels
-To process data from Prometheus running in HA mode,
-Prometheus must be configured to communicate which cluster it belongs to. This is done using external labels. In particular, each Prometheus instance sends a `cluster`
-label to indicate which cluster it's in, and a `__replica__` label that
-provides a unique identifier for the Prometheus instance within the cluster.
-Two Prometheus instances running as part of a HA cluster must send the same
-`cluster` label and different `__replica__` labels.
+## Leader election using external labels
+To process data from Prometheus running in HA mode, Prometheus must be
+configured to communicate which cluster it belongs to. This is done using
+external labels. In particular, each Prometheus instance sends a `cluster` label
+to indicate which cluster it's in, and a `__replica__` label that provides a
+unique identifier for the Prometheus instance within the cluster. Two Prometheus
+instances running as part of a HA cluster must send the same `cluster` label and
+different `__replica__` labels.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-ha.png" alt="Promscale architecture for Prometheus in HA using external labels"/>
 
 In Kubernetes environments, it is useful to set the `__replica__` label to match
 the pod name, and the cluster name as the Prometheus deployment or `statefulset`
-name. If you are using the
-[Prometheus Operator](https://github.com/prometheus-operator/prometheus-operator#prometheus-operator), you can set it with these configuration
-parameters:
+name. If you are using the [Prometheus
+Operator](https://github.com/prometheus-operator/prometheus-operator#prometheus-operator),
+you can set it with these configuration parameters:
 ```yaml
   replicaExternalLabelName: "__replica__"
   prometheusExternalLabelName: "cluster"
 ```
 
-In bare metal environments, and any environment where you are not using Kubernetes, you can configure external labels with the cluster and replica names in each Prometheus instance configuration, like this:
+In bare metal environments, and any environment where you are not using
+Kubernetes, you can configure external labels with the cluster and replica names
+in each Prometheus instance configuration, like this:
 ```yaml
 global:
   external_labels:
@@ -55,10 +58,10 @@ promscale --high-availability
 ```
 
 Promscale automatically elects a single replica in each cluster as the current
-leader. Only data sent from that replica is ingested. If that leader-replica
+leader. Only data sent from that replica is ingested. If that leader replica
 stops sending data, then a new replica is elected as the leader.
 
-## Leader-election using pg_advisory_lock
+## Leader election using pg_advisory_lock
 PostgreSQL provides a
 [pg_advisory_lock](https://www.postgresql.org/docs/current/explicit-locking.html#ADVISORY-LOCKS)
 that locks an application-defined resource based on an ID. Promscale can make
