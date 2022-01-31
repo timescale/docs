@@ -1,11 +1,16 @@
-# Alert in Promscale
+# Alerting in Promscale
+To configure alerts in Promscale, use the alerting capabilities provided by
+Prometheus.
 
-At the moment Promscale doesn't offer native alerting capabilities. It's in our roadmap for 2022.
-To configure alerts we recommend using the [alerting capabilities provided by Prometheus](https://prometheus.io/docs/alerting/latest/overview/). 
+Prometheus alerting rules are used to trigger alerts based on the violation of
+conditions. Alerts can be configured to send to external services such as Slack
+or email. Alerting rules are written in a YAML file and specified in the
+Prometheus configuration file. These conditional rules are evaluated by
+Prometheus, not by Promscale.
 
-Prometheus alerting rules are used to trigger alerts based on the violation of any condition(s). These alerts are fired to external services like slack, mails, etc by the alert manager. Alerting rules are written in a YAML file and paths of these files are mentioned in the Prometheus configuration respectively. It is important to note that the evaluation of these conditional rules are performed at the Prometheus side. The newly formed series for alerting are stored in both Prometheus and Promscale.
-
-```
+Set up alerting by adding creating a YAML file containing configuration like
+this for each alert you want to add:
+```yaml
 groups:
   - name: <alert-group-name>
     rules:
@@ -19,16 +24,15 @@ groups:
         description: <description on alert>
 ```
 
-Load the above defined alert rule file to your prometheus configuration for evaluation.
-
-```
+Load the newly created alert rule file to Prometheus by adding this to the
+Prometheus configuration file:
+```yaml
 rule_files:
   - "<alert-rules-file>"
 ```
 
-Configure the alert manager in prometheus configuration.
-
-```
+Configure the alert manager by adding this to the Prometheus configuration file:
+```yaml
 alerting:
   alertmanagers:
   - static_configs:
@@ -36,4 +40,11 @@ alerting:
       - localhost:9093
 ```
 
-More details on alerting rules can be found [here](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/).
+For more information about Prometheus alerting, see
+[the Prometheus alerting documentation][prometheus-alerting]. For specific
+information about alerting rules in Prometheus, see
+[the Prometheus alerting rules documentation][prometheus-alert-rules].
+
+
+[prometheus-alerting]: https://prometheus.io/docs/alerting/latest/overview/
+[prometheus-alert-rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
