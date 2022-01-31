@@ -52,7 +52,7 @@ SELECT prom_api.drop_metric('container_cpu_load_average_10s');
 
 To delete the data for an entire metric from the database using the HTTP API,
 use the `/delete_series` endpoint and pass the metric name to be deleted as the
-matcher. This works differently to the SQL method shown, because it deleted all
+matcher. This works differently to the SQL method shown, because it deletes all
 the data, but leaves the metric itself.
 
 To delete data in Promscale, you need to enable permissions for advanced users.
@@ -80,8 +80,8 @@ curl -X POST -g http://localhost:9201/delete_series?match[]=container_cpu_load_a
 ## Deletion by time
 You can delete a series of metrics based on time, using an SQL query. Data in a
 hypertable chunk can be either compressed and uncompressed, so all compressed
-data needs to be decompressed first, before performing the deletion. You can
-recompress the chunks later on, if you need to.
+data needs to be decompressed before performing the deletion. You can
+recompress the chunks later on, if necessary.
 
 For example, to delete all data from the `container_cpu_load_average_10s` metric
 that is older than ten hours, you need to start by decompressing all chunks
@@ -95,7 +95,7 @@ Then, you can perform the deletion query:
 DELETE FROM prom_data.container_cpu_load_average_10s WHERE time > Now() - interval '10 hour';
 ```
 
-If you want to delete a particular series from that metric only, you can use `series_id=<id>` in the `WHERE` clause in the `DELETE` query.
+If you want to delete a particular series from that metric only, you can use `series_id=<id>` in the `WHERE` clause of the `DELETE` query.
 
 Now, recompress the remaining data:
 ```sql
