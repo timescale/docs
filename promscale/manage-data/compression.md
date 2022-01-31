@@ -1,17 +1,17 @@
 # Compress data in Promscale
-Telemetry data is stored in Promscale, and a maintenance job periodically
-[compresses][tsdb-compression] the Telemetry data in [hypertables][hypertables].
-The maintenance job is automatically scheduled in TimescaleDB version 2.0 and
-higher using the job scheduling function. If you are using an earlier version of
+Telemetry data is stored in Promscale [hypertables][hypertables].
+A maintenance job periodically [compresses][tsdb-compression] this data.
+In Timescale DB version 2.0 and higher, this maintenance job is automatically scheduled
+using the job scheduling function. In earlier versions of
 TimescaleDB, you can use `cron` or a similar scheduling tool to schedule the
 maintenance task. See the [installation instructions][promscale-install] for
 your platform for more details.
 
-When compression is enabled on Promscale data, the hypertable chunk that is
-currently being written to is not compressed, to ensure good write performance.
+When compression is enabled on Promscale data, the hypertable chunk
+currently being written to is not compressed. This ensures good write performance.
 Additionally, previously used chunks are kept uncompressed for at least an hour
-after they have been closed and a new chunk has been created, to handle the case
-of late arrival of data. By default, the chunk interval is configured so that a
+after they have been closed and a new chunk has been created. This helps with handling
+late-arriving data. By default, the chunk interval is configured so that a
 new chunk is created every eight hours. You can configure the chunk size with
 the `set_default_chunk_interval` SQL function, like this:
 ```sql
