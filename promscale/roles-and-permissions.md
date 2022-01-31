@@ -24,7 +24,7 @@ Promscale uses these roles:
     Promscale, including data retention policies, and chunk intervals. This role
     also includes all permissions of `prom_modifier` and `prom_maintenance`.
 
-|Role|Schema migration|Delete data|Write data|Read data|Execute maintenance tasks|Change configuration options|
+|Role|Migrate schema|Delete data|Write data|Read data|Execute maintenance tasks|Change configuration options|
 |-|-|-|-|-|-|-|
 |`owner`|✅|✅|✅|✅|✅|✅|
 |`prom_reader`|❌|❌|❌|✅|❌|❌|
