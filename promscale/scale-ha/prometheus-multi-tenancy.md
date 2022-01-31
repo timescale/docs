@@ -5,7 +5,7 @@ set of Promscale servers. Each Prometheus server indicates to the tenant that it
 is writing by using custom headers or external labels.
 
 When Promscale executes a PromQL query it can return data for all tenants, or
-restrict its answers to a particular tenant or set or tenants. This allows a
+restrict its answers to a particular tenant, or set or tenants. This allows a
 tenant to be given access to a particular Promscale PromQL endpoint for querying
 its own data, while ensuring that it cannot access other tenant's data.
 
@@ -19,18 +19,20 @@ Multi-tenancy features:
 *   Authorize tenants using `bearer_tokens`
 
 ## Configure Promscale for multi-tenancy
-By default, Promscale ingests data without multi-tenancy. For Promscale to
-ingest tenant data, apply the `-multi-tenancy` flag when you start Promscale.
-This allows Promscale to ingest data from all tenants by default. If you want
-Promscale to ingest or query data from a restricted list of tenants, list the
-tenant names in
-`-multi-tenancy-valid-tenants=<tenant_name_seperated_by_commas>`.
+By default, Promscale ingests data without using multi-tenancy. To enable it,
+start Promscale with the `-multi-tenancy` flag. This allows Promscale to ingest
+data from all tenants by default. If you want Promscale to ingest or query data
+from a restricted list of tenants, you can list the tenant names with
+`-multi-tenancy-valid-tenants=<tenant_names_seperated_by_commas>`.
 
-When multi-tenancy is enabled, data that does not include a tenant name is
-rejected by default. If you want to accept data without the tenant information,
+By default, when multi-tenancy is enabled, data is rejected if it does not include a tenant name. If you want to accept data without  tenant information,
 set the `-multi-tenancy-allow-non-tenants` flag.
 
-Remember to set the appropriate CLI flags on all of your Promscale instances.
+<highlight type="note">
+When you set a CLI flag on a Promscale instance, remember to set it on all of
+your other Promscale instances as well, if you need them to have the asme
+functionality.
+</highlight>
 
 This example ingests data from `tenant-A` and `tenant-B` Prometheus instances,
 and allows data to be ingested from non-tenant instances of Prometheus:
@@ -91,7 +93,7 @@ If your query needs to be evaluated across multiple tenants, you can use
 
 In this example, Promscale contains data from `tenant-A`, `tenant-B` and
 `tenant-C`. If Promscale is configured with
-`-multi-tenancy-valid-tenants=tenant-A,tenant-B` then you can perform these
+`-multi-tenancy-valid-tenants=tenant-A,tenant-B` you can perform these
 PromQL queries:
 *   `metric_name{__tenant__=tenant-A}` returns `metric_name` from `tenant-A` only.
 *   `metric_name{__tenant__=tenant-C}` returns no data.
@@ -103,7 +105,7 @@ PromQL queries:
 *   `metric_name` returns `metric_name` from only `tenant-A` and `tenant-B`.
 
 If the same database also contains samples without any tenant label, and
-`-multi-tenancy-allow-non-tenants` is applied then you can perform these PromQL
+`-multi-tenancy-allow-non-tenants` is applied, you can perform these PromQL
 queries:
 *   `metric_name{__tenant__=tenant-A}` returns `metric_name` from `tenant-A`.
 *   `metric_name{__tenant__=tenant-A|}` returns `metric_name` from non-tenants
