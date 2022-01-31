@@ -1,32 +1,29 @@
 ## add_job() <tag type="community">Community</tag>
+Register an action for scheduling by the automation framework. For more information about scheduling, including example actions, see the [actions section][using-actions].
 
-Register an action to be scheduled by our automation framework.
-Please read the [instructions][using-actions] for more details including
-multiple example actions.
-
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `proc` | REGPROC | Name of the function or procedure to register as job|
-| `schedule_interval` | INTERVAL | Interval between executions of this job|
+|-|-|-|
+|`proc`|REGPROC|Name of the function or procedure to register as job|
+|`schedule_interval`|INTERVAL|Interval between executions of this job. Defaults to 24 hours|
 
 ### Optional Arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `config` | JSONB | Job-specific configuration (this is passed to the function when executed) |
-| `initial_start` | TIMESTAMPTZ | Time of first execution of job |
-| `scheduled` | BOOLEAN | Set to `FALSE` to exclude this job from scheduling. Defaults to `TRUE`. |
+|-|-|-|
+|`config`|JSONB|Job-specific configuration, passed to the function when it runs|
+|`initial_start`|TIMESTAMPTZ|Time the job is first run|
+|`scheduled`|BOOLEAN|Set to `FALSE` to exclude this job from scheduling. Defaults to `TRUE`. |
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`job_id`| INTEGER  | TimescaleDB background job id |
+|-|-|-|
+|`job_id`|INTEGER|TimescaleDB background job ID|
 
-### Sample Usage
-
+### Sample use
+Register the `user_defined_action` procedure to run every hour:
 ```sql
 CREATE OR REPLACE PROCEDURE user_defined_action(job_id int, config jsonb) LANGUAGE PLPGSQL AS
 $$
@@ -37,8 +34,6 @@ $$;
 
 SELECT add_job('user_defined_action','1h');
 ```
-
-Register the procedure `user_defined_action` to be run every hour.
 
 
 [using-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions
