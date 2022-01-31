@@ -26,10 +26,13 @@ distributed hypertable, you need to fetch the raw data from data nodes and
 perform the `JOIN` locally.
 
 <highlight type="important">
-In some cases, your processing speeds could be slower in a multi-node cluster,
-because distributed hypertables need to push operations down to the various data
-nodes. It is important that you understand multi-node architecture before you
-begin, and plan your database according to your specific environment.
+In some cases, your processing speeds could be slower in a multi-node
+cluster, because distributed hypertables need to push operations down
+to the various data nodes. In operations like UPDATEs and DELETEs,
+some data needs to be pulled from data nodes to the access node first,
+before sending further instructions down to the data nodes. Make sure
+you understand multi-node architecture before you begin, and plan your
+database according to your specific environment.
 </highlight>
 
 ## Inserting data into a distributed hypertable
