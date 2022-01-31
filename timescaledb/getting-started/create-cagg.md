@@ -124,7 +124,7 @@ returned is for 1 January 2010:
 
 ```sql
 -- Show that manual refresh worked
-SELECT * from weather_metrics_daily
+SELECT * FROM weather_metrics_daily
 WHERE bucket > '2009-01-01'
 ORDER BY bucket ASC;
 ```

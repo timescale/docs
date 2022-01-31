@@ -8,7 +8,7 @@ Docker), you should already have access to the tool. Alternatively, you can use
 the `go get` command to install it:
 
 ```bash
-go get timescaledb_tune
+go get github.com/timescale/timescaledb-tune/cmd/timescaledb-tune
 ```
 
 The `timescaledb-tune` tool reads your system's `postgresql.conf` file and offers
