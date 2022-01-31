@@ -1,18 +1,18 @@
 # Run Promscale in a multi-node environment
-You can use Promscale to write and read data within a TimescaleDB multi-node environment.
+You can use Promscale to write and read data within a TimescaleDB multi-node
+environment.
 
-To get started, follow
-[the multi-node instructions](https://docs.timescale.com/latest/getting-started/setup-multi-node-basic) to set up a multi-node TimescaleDB cluster. When you have your
-multi-node environment set up, you can point Promscale to connect to the access
-node of the cluster.  Promscale automatically connects to the cluster and sets
-up any tables, objects, and roles that it needs. To query Promscale data from
-SQL, make sure you connect to the access node.
+To start, set up a multi-node TimescaleDB cluster, following the instructions in
+the [TimescaleDB multi-node section][db-multinode]. When your multi-node cluster
+is running, you can connect Promscale to the access node of the cluster.
+Promscale then creates the tables, objects, and roles that it needs. You can
+connect to the access node to  query Promscale SQL data.
 
 ## Expanding the cluster
-You can add nodes to a TimescaleDB cluster that is being written to by
-Promscale. Do this by running the `add_data_node()` function to add the data
-node, then use the `add_prom_node(node_name)` function to add the Promscale
-functionality. For example:
+When you have a TimescaleDB multi-nopde cluster that is being written to by
+Promscale, you can add nodes to the cluster using the `add_data_node()`
+function. This command adds the data node and uses the
+`add_prom_node(node_name)` function to add Promscale functionality. For example:
 ```sql
 SELECT add_data_node('example_node_name', host => 'example_host_address')
 SELECT add_prom_node('example_node_name');
@@ -22,3 +22,5 @@ SELECT add_prom_node('example_node_name');
 Make sure that you run the `add_prom_node` command as the same database user as
 the one writing data from Promscale.
 </highlight>
+
+[db-multinode]: https://docs.timescale.com/latest/getting-started/setup-multi-node-basic
