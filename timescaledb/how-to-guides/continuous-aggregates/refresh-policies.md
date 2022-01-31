@@ -13,9 +13,11 @@ it is removed from the hypertable.
 You can change the way your continuous aggregate is refreshed by adjusting the
 [add_continuous_aggregate_policy][api-add-continuous-aggregate-policy].
 The policy takes three arguments:
-*   `start_offset`: the start of the refresh window relative to when the policy runs
+*   `start_offset`: the start of the refresh window relative to when the policy
+    runs
 *   `end_offset`: the end of the refresh window relative to when the policy runs
-*   `schedule_interval`: the refresh interval in minutes or hours
+*   `schedule_interval`: the refresh interval in minutes or hours. Defaults to
+    24 hours.
 
 If you set the `start_offset` or `end_offset` to NULL, the range is open-ended
 and extends to the beginning or end of time. However, we recommend that you
