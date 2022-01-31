@@ -524,8 +524,8 @@ module.exports = [
           {
             title: "Migrate from Managed Service for TimescaleDB to Timescale Cloud",
             href: "migrate-mst-cloud",
-            tags: ["migrate", "data", "cloud", "mst"],
-            keywords: ["migrate", "data", "Timescale Cloud", "Managed Service for TimescaleDB"],
+            tags: ["migrate", "data"],
+            keywords: ["migrate", "data"],
             excerpt: "Migrate data from Managed Service for TimescaleDB to Timescale Cloud",
           },
           {
