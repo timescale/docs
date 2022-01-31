@@ -173,9 +173,11 @@ Promscale adds a `__schema__` tag, which helps you identify in which schema the 
 
 <highlight type="note">
 Both the `__schema__` and `__column__` label matchers support exact matching. You cannot use regular expressions or other multi-value matchers. Additionally, metric views are excluded from queries that match multiple metrics, such as matching on metric names with a regular expression, like this:
+
 ```sql
 {__name__=~"node_mem*"} // this valid PromQL query will not match our previously created metric view
 ```
+
 </highlight>
 
 ### Deleting continuous aggregates
