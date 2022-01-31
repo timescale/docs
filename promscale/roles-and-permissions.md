@@ -1,94 +1,98 @@
 # Promscale database roles and permissions
+Promscale uses Role Based Access Control (RBAC) to manage permissions for the
+database. You can choose to use a single PostgreSQL user for all Promscale
+operations, or implement more granular control for permissions management.
 
-Promscale adopts a Role Based Access Control (RBAC) philosophy to managing permissions
-at the SQL layer. Many users will choose to simply use a single PostgreSQL user for all
-Promscale operations (using a single owner user as defined belows).
-But we also allow users more granular control over permissions management.
+Promscale uses these roles:
+*   Owner: The owner of the Promscale schema and objects. Defined as the user
+    that originally installed or migrated to Promscale. This user must be able
+    to install PostgreSQL extensions, so they must be a PostgreSQL superuser.
+    Alternatively, you can use [pgextwlist][pgextwlist] to authorize a  regular
+    user to install the extensions. The owner should be consistent every time
+    you migrate the Promscale schema.
+*   prom_reader: This role can read but not modify the data stored by Promscale.
+*   prom_writer: This role can read and write new data, but cannot modify or
+    delete data. This role also includes all permissions of `prom_reader`.
+*   prom_modifier: This role can read, write, and modify all data. This role
+    also includes all permissions of `prom_writer`.
+*   prom_maintenance: This role can execute maintenance tasks, such as
+    compression and data retention jobs. This role is mostly only used
+    externally, unless you are using a cron job to `execute_maintenance()`
+    instead of the jobs framework. This role also includes all permission of
+    `prom_reader`.
+*   prom_admin: This role can change the configuration options associated with
+    Promscale, including data retention policies, and chunk intervals. This role
+    also includes all permissions of `prom_modifier` and `prom_maintenance`.
 
-Promscale defines several roles:
-- **Owner** this is the owner of the Promscale schema and objects. It is defined
-  as the user that originally installed/migrated Promscale. This user needs to be
-  able to install several PostgreSQL extensions and thus either needs to be a
-  PostgreSQL superuser or use [pgextwlist](https://github.com/dimitri/pgextwlist) to authorize
-  a non-superuser to install the extensions(see below). The owner should be consistent
-  every time you migrate the Promscale schema.
-- **prom_reader** this role is allowed to read but not modify the data stored by Promscale.
-- **prom_writer** is allowed to read Promscale data as well as write (insert) new data. This
-  role is not allowed to modify or delete data. Includes all permissions of prom_reader.
-- **prom_modifier** is able to read, write, and modify all Promscale data. Includes all permissions of prom_writer.
-- **prom_admin** is allowed to change the configuration options associated with Promscale. This
-  includes data retention policies, chunk intervals, etc. Includes all permissions of prom_modifier and prom_maintenance.
-- **prom_maintenance** is allowed to execute maintenance tasks such as compression and data retention jobs.
-  mostly only used externally unless using a CRON job to execute_maintenance() instead of the jobs framework.
-  Includes all permissions of prom_reader.
+|Role|Schema migration|Delete data|Write data|Read data|Execute maintenance tasks|Change configuration options|
+|-|-|-|-|-|-|-|
+|`owner`|✅|✅|✅|✅|✅|✅|
+|`prom_reader`|❌|❌|❌|✅|❌|❌|
+|`prom_writer`|❌|❌|✅|✅|❌|❌|
+|`prom_modifier`|❌|✅|✅|✅|❌|❌|
+|`prom_maintenance`|❌|❌|❌|✅|✅|❌|
+|`prom_admin`|❌|✅|✅|✅|✅|✅|
 
-You can assign roles to users with the following sql command:
-`GRANT <role> to <user>`. A user can be assigned multiple roles. More information
-can be found in the [PostgreSQL docs about permissions](https://www.postgresql.org/docs/current/user-manag.html).
+Promscale can be run by the owner, or a user with the `prom_modifier`,
+`prom_writer` or `prom_reader` role. A user can be assigned multiple roles.
 
-
-Promscale can be run by the owner or a user with the `prom_modifier`, `prom_writer` or `prom_reader` role.
-The following table describes what features of promscale are available with each role:
-
-|user / role| schema migration | delete series api | write api | read api |
-| --- | --- | --- | --- | --- |
-| owner | ✅ | ✅ | ✅ | ✅|
-| prom_modifier | ❌ | ✅ | ✅ | ✅|
-| prom_writer | ❌ | ❌ | ✅ | ✅|
-| prom_reader | ❌ | ❌ | ❌ | ✅|
-
-
-# Examples
-
-## Simplest possible deployment with one owner
-
-To use a simple deployment with a single owner `tsdbadmin` that has permissions to
-install the Promscale and Timescaledb extensions simply start Promscale with:
-
-`PGPASSWORD=<password> ./promscale -db-uri=postgres://tsdbadmin@<hostname>:<port>/<databasename>?sslmode=require`
-
-## Deployments with separate owner and modifier users
-
-If you want to more tightly control your permissions and want to separate out
-the users that are used for normal Promscale operations from the users that
-can upgrade the Promscale schema do the following. Given a database user `tsdbadmin`
-that has permissions to install the Promscale and Timescaledb extensions and will
-become the Promscale owner.
-
-First, install the Promscale schema:
-
-```sh
-PGPASSWORD=<password> ./promscale -db-uri="postgres://tsdbadmin@<hostname>:<port>/<databasename>?sslmode=require" -migrate=only
+You can assign roles to users with this SQL command:
+```sql
+GRANT <role> to <user>
 ```
 
-This will exit as soon as the schema is installed thanks to the `-migrate=only` flag.
+For more information, see the
+[PostgreSQL docs about permissions](https://www.postgresql.org/docs/current/user-manag.html).
 
-Next, create a more limited user for use by Promscale by connecting with psql:
-```sh
+## Example permissions
+This section outlines some example permissions environments.
+
+### Single owner
+The simplest possible permissions environment is a single owner called `tsdbadmin`, that has permissions to install the Promscale and Timescaledb extensions. To use this environment, start Promscale with this command:
+```bash
+PGPASSWORD=<password> ./promscale -db-uri=postgres://tsdbadmin@<hostname>:<port>/<databasename>?sslmode=require
+```
+
+### Separate owner and modifier users
+You can separate the users that are used for normal Promscale operations from
+the users that can upgrade the Promscale schema. In this environment, a database
+user called `tsdbadmin` has permissions to install the Promscale and Timescaledb extensions and becomes the Promscale owner.
+
+Begin by installing the Promscale schema. Use the `-migrate=only` flag so that the command exits as soon as the schema is installed:
+```sql
+PGPASSWORD=<password> ./promscale \
+-db-uri="postgres://tsdbadmin@<hostname>:<port>/<databasename>?sslmode=require" \
+-migrate=only
+```
+
+Create a more limited user for use by Promscale with psql:
+```sql
 PGPASSWORD=<password> psql "postgres://tsdbadmin@<hostname>:<port>/<databasename>?sslmode=require"
 ```
-and executing:
 
+Create the `promscale_modifier` user:
 ```sql
-   CREATE ROLE promscale_modifier_user PASSWORD '<new password>' LOGIN;
-   GRANT prom_modifier TO promscale_modifier_user;
+CREATE ROLE promscale_modifier_user PASSWORD '<new password>' LOGIN;
+GRANT prom_modifier TO promscale_modifier_user;
 ```
 
-Now, start promscale with that user:
-
-```sh
-PGPASSWORD=<password> ./promscale -db-uri="postgres://promscale_modifier_user@<hostname>:<port>/<databasename>?sslmode=require"  -install-extensions=false -migrate=false -upgrade-extensions=false`
+Start promscale with the `promscale_modifier` user:
+```sql
+PGPASSWORD=<password> ./promscale -db-uri="postgres://promscale_modifier_user@<hostname>:<port>/<databasename>?sslmode=require"  \
+-install-extensions=false -migrate=false -upgrade-extensions=false
 ```
 
-# Using a non-superuser owner with pgextwlist
-
-The owner user of Promscale need to be able to install
-and upgrade the promscale and timescaledb PostgreSQL extensions.
-
-Normally extension installation and upgrade requires superuser permissions. To avoid
-using superuser, you could use the [pgextwlist](https://github.com/dimitri/pgextwlist) extension with the following PostgreSQL
-config:
+### A non-superuser owner with pgextwlist
+The `owner` user of Promscale need to be able to install and upgrade the
+Promscale and TimescaleDB PostgreSQL extensions. In most environments, the
+`owner` user is a PostgreSQL superuser. However, you can use
+[pgextwlist][pgextwlist] to authorize a regular user to install the extensions
+instead. Set up the `pgextwlist` extension by adding this to the PostgreSQL
+configuration file:
 ```
 local_preload_libraries=pgextwlist
 extwlist.extensions=promscale,timescaledb
 ```
+
+
+[pgextwlist]: https://github.com/dimitri/pgextwlist
