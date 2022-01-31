@@ -2,7 +2,7 @@
 [//]: # (Comment: Add image comparing single node, physical replication, multi-node)
 
 TimescaleDB supports three main deployment options:  as an single database server,
-in a tradition primary/replica deployment, or in a multi-node deployment with horizontal
+in a traditional primary/replica deployment, or in a multi-node deployment with horizontal
 scalability.
 
 ## Single instance (node)
