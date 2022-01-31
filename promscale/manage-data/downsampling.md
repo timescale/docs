@@ -3,11 +3,11 @@ Downsampling is the term used when reducing the rate of a signal. When you
 downsample data, the size of the data on disk is reduced, but so is the
 resolution of the data. This means that you have fewer entries in your source
 data, to take up less space on disk. The main reasons for downsampling are to
-reduce cost, and increase performance. Querying downsampled data gets faster as
+reduce cost and increase performance. Querying downsampled data gets faster as
 the size of the data decreases.
 
-There are two downsampling methods available for use with Promscale; continuous
-aggregates, and Prometheus recording rules.
+There are two downsampling methods available for use with Promscale: continuous
+aggregates and Prometheus recording rules.
 
 There are a few things to take into account when deciding on a downsampling
 method.
@@ -172,7 +172,7 @@ node_memfree_1hour
 Promscale adds a `__schema__` tag, which helps you identify in which schema the metric view is registered. This is useful if you have two metrics with the same name in different schemas, which is strongly discouraged but could happen by mistake. In this case, you can use the `__schema__` tag to select which schema to use. If you don't specify a schema, Promscale queries the metric in the `prom_data` schema, which is the same schema used for all ingested metrics. To avoid those issues, make sure you name your continuous aggregate views in a way that is different to your raw ingested metrics, for example, `node_memfree_1hour`.
 
 <highlight type="note">
-Both the `__schema__` and `__column__` label matchers support exact matching. You cannot use regular expressions or other multi value matchers. Additionally, metric views are excluded from queries that match multiple metrics, such as matching on metric names with a regular expression, like this:
+Both the `__schema__` and `__column__` label matchers support exact matching. You cannot use regular expressions or other multi-value matchers. Additionally, metric views are excluded from queries that match multiple metrics, such as matching on metric names with a regular expression, like this:
 ```sql
 {__name__=~"node_mem*"} // this valid PromQL query will not match our previously created metric view
 ```
@@ -195,7 +195,7 @@ DROP MATERIALIZED VIEW node_memfree_1hour;
 ## Prometheus downsampling with recording rules
 Prometheus provides a downsampling mechanism called recording rules. These rules
 are used to calculate frequently used or computationally expensive queries
-before they are requires. A recording rule is a PromQL expression that
+before they are required. A recording rule is a PromQL expression that
 Prometheus evaluates at a predefined frequency to generate a new metric series.
 The new metric series is stored in Promscale, and you can query it in the same
 way as any other Prometheus metric. An example recording rule:
