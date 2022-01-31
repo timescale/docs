@@ -19,8 +19,6 @@ data from the new leader. Additionally, you can have multiple clusters sending
 data to the same set of Promscale instances, and in this case one leader is
 elected for each cluster.
 
-<!-- Lana, you're up to here! --LKB 20220128-->
-
 ## Prometheus leader-election using external labels
 To process data from Prometheus running in HA mode,
 Prometheus must be configured to communicate which cluster it belongs to. This is done using external labels. In particular, each Prometheus instance sends a `cluster`
