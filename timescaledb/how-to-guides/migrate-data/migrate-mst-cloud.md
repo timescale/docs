@@ -19,7 +19,7 @@ There are two methods for migrating your data:
   Choose this option for larger databases.
   This method allows you to individually migrate tables and chunks.
   If the migration fails mid-way, you can restart from the failure point rather
-  than the beginning. With this method, TimescaleDB-specific features will not be 
+  than the beginning. With this method, TimescaleDB-specific features won't be 
   migrated.
   See the instructions below to restore your hypertables, continuous
   aggregates, and policies. 
@@ -34,8 +34,8 @@ If it takes too long, switch to the second method.
 
 ## Migrate the entire database at once
 
-Migrate smaller databases by using [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
-on your entire database.
+Migrate smaller databases by using `pg_dump` and `pg_restore` on your entire 
+database.
 
 <highlight type="note">
 Depending on the size of your database and your network speed, migration may take 
@@ -45,15 +45,15 @@ You can continue reading and writing(?) to your old database during this time.
 
 ### Prerequisites
 
-- Have the PostgreSQL utilities `pg_dump` and `pg_restore` installed on your system.
-  Run the following commands to check if they're installed:
+- Check that the PostgreSQL utilities [`pg_dump`][pg_dump] and 
+  [`pg_restore`][pg_restore] are installed on your system:
 
   ```bash
   pg_dump --version
   pg_restore --version
   ```
 
-- Have a new Cloud database created in Timescale Cloud.
+- Create a new empty database in Timescale Cloud.
   For instructions on installing Timescale Cloud, see 
   [Install Timescale Cloud][install-timescale-cloud].
 
@@ -104,17 +104,11 @@ You can continue reading and writing(?) to your old database during this time.
 
 </procedure>
 
-To learn more about the TimescaleDB-specific APIs in this procedure, see the API
-references for: 
-
-- [timescaledb_pre_restore][timescaledb_pre_restore]
-- [timescaledb_post_restore][timescaledb_post_restore]
-
-### Errors and warnings
-
+<highlight type="note">
 You may encounter the following errors while running `pg_dump` and `pg_restore`.
 You can safely ignore them.
 The migration still occurs successfully.
+</highlight>
 
 #### pg_dump errors
 
@@ -149,50 +143,57 @@ pg_restore: error: could not execute query: ERROR:  must be owner of extension t
 pg_restore: warning: errors ignored on restore: 1
 ```
 
+To learn more about the TimescaleDB APIs in this procedure, see the API
+references for: 
+
+- [timescaledb_pre_restore][timescaledb_pre_restore]
+- [timescaledb_post_restore][timescaledb_post_restore]
+
+
 ## Migrate the schema and data separately
 
-Migrate larger databases by using [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
-to migrate your schema.
-Then copy data from each table or chunk separately.
+Migrate larger databases by first migrating your schema with `pg_dump` and 
+`pg_restore`.
+Then copy data separately from each table or chunk.
 
 Follow the procedures below to migrate your database:
 
-- [Migrate PostgreSQL schema pre-data](#migrate-postgresql-scheme-pre-data)
-- [Restore hypertables](#restore-hypertables)
+- [Migrate schema pre-data](#migrate-schema-pre-data)
+- [Restore hypertables in Timescale Cloud](#restore-hypertables-in-timescale-cloud)
 - [Copy data from Managed Service for TimescaleDB](#copy-data-from-managed-service-for-timescaledb)
 - [Restore data into Timescale Cloud](#restore-data-into-timescale-cloud)
-- [Migrate PostgreSQL schema post-data](#migrate-postgresql-scheme-post-data)
+- [Migrate schema post-data](#migrate-schema-post-data)
 - [Recreate continuous aggregates](#recreate-continuous-aggregates) (optional)
 - [Recreate policies](#recreate-policies) (optional)
 
 ### Prerequisites
 
-- Have the PostgreSQL utilities `pg_dump` and `pg_restore` installed on your system.
-  Run the following commands to check if they're installed:
+- Check that the PostgreSQL utilities [`pg_dump`][pg_dump] and 
+[`pg_restore`][pg_restore] are installed on your system:
 
   ```bash
   pg_dump --version
   pg_restore --version
   ```
 
-- Have a new Cloud instance created in Timescale Cloud.
+- Create a new empty database in Timescale Cloud.
   For instructions on installing Timescale Cloud, see 
   [Install Timescale Cloud][install-timescale-cloud].
 
-### Migrate PostgreSQL schema pre-data
+### Migrate schema pre-data
 
 Migrate your PostgreSQL schema pre-data from Managed Service for TimescaleDB to
 Timescale Cloud.
 
-#### Migrating PostgreSQL schema pre-data
+#### Migrating schema pre-data
 
 <procedure>
 
 1. Dump schema pre-data from Managed Service for TimescaleDB into a file.
-   Exclude Timescale-specific schemas.
+   Exclude Timescale-specific schemas:
 
    ```bash
-   # Use your Managed Service for TimescaleDB connection details in place of <mst_host> and <mst-port>.
+   # Use your Managed Service for TimescaleDB connection details in place of <mst_host> and <mst_port>.
    pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v --section=pre-data --exclude-schema="_timescaledb*" -f <file-name-pre-data>.bak defaultdb
    ```
 
@@ -204,19 +205,17 @@ Timescale Cloud.
    permissions problems:
 
     ```bash
-    # Use your Cloud credentials and connection details in place of <mst-host> and <mst-port>.
+    # Use your Cloud credentials and connection details in place of <cloud_host> and <cloud_port>.
     pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc -v -d tsdb <file-name-pre-data>.bak
     ```
 
 </procedure>
 
-#### Errors and warnings
-
-### Errors and warnings
-
+<highlight type="note">
 You may encounter the following errors while running `pg_restore`.
 You can safely ignore them.
 The migration still occurs successfully.
+</highlight>
 
 ```bash
 pg_restore: creating EXTENSION "timescaledb"
@@ -234,16 +233,16 @@ pg_restore: error: could not execute query: ERROR:  relation "_timescaledb_inter
 ​​pg_restore: WARNING:  no privileges were granted for "<..>"
 ```
 
-### Restore hypertables
+### Restore hypertables in Timescale Cloud
 
 After migrating your schema pre-data into Cloud, your hypertables are now regular PostgreSQL tables in Cloud.
 Recreate your hypertables to restore them.
 
-#### Restoring hypertables
+#### Restoring hypertables in Timescale Cloud
 
 <procedure>
 
-1. Connect to your Timescale Cloud database using psql:
+1. Connect to your Cloud database using psql:
 
    ```bash
    # Use your Cloud credentials and connection details.
@@ -253,7 +252,7 @@ Recreate your hypertables to restore them.
 1. In psql, run:
 
    ```bash
-   SELECT create_hypertable('table-name', 'time', chunk_time_interval => INTERVAL '<interval used in your old database>');
+   SELECT create_hypertable('table-name', 'time', chunk_time_interval => INTERVAL '<chunk interval used in your old database>');
    ```
 
 </procedure>
@@ -285,9 +284,11 @@ Maanged Service for TimescaleDB to copy your tables one by one.
 
 </procedure>
 
-If your tables are very large, you can speed up each `\COPY` action by migrating
-your table in multiple pieces.
-Split your table by time range and copy each range individually:
+<highlight type="tip">
+If your tables are very large, you may choose to migrate each table in multiple 
+pieces.
+Split each table by time range and copy each range individually:
+</highlight>
 
    ```bash
    \COPY (SELECT * FROM <table-name> WHERE time > ‘2021-11-01’ AND time < ‘2011-11-02’) TO <table-name-date-range>.binary.copy BINARY
@@ -316,12 +317,12 @@ from the binary file.
 
 </procedure>
 
-### Migrate PostgreSQL schema post-data
+### Migrate schema post-data
 
 After migrating your table and hypertable data, migrate your PostgreSQL schema 
 post-data.
 
-#### Migrating PostgreSQL schema post-data
+#### Migrating schema post-data
 
 <procedure>
 
@@ -348,13 +349,11 @@ post-data.
 
 </procedure>
 
-#### Errors and warnings
-
-### Errors and warnings
-
+<highlight type="note">
 You may encounter the following errors while running `pg_restore`.
 You can safely ignore them.
 The migration still occurs successfully.
+</highlight>
 
 ```bash
 pg_restore: error: could not execute query: ERROR:  relation "<relation_name>" already exists
@@ -364,9 +363,9 @@ pg_restore: error: could not execute query: ERROR:  relation "<relation_name>" a
 pg_restore: error: could not execute query: ERROR:  trigger "ts_insert_blocker" for relation "<relation_name>" already exists
 ```
 
-### Recreate continous aggregates
+### Recreate continuous aggregates
 
-Continuous aggregates are not migrated when you transfer your schema and data
+Continuous aggregates aren't migrated when you transfer your schema and data
 separately.
 Restore them by recreating the continuous aggregate definitions and recomputing
 the results on your Cloud database.
@@ -376,7 +375,7 @@ This is faster than copying the continuous aggregate data.
 
 <procedure>
 
-1. Connect to your Managed Service for TimescaleDB database using psql if you're 
+1. Use psql to connect to your Managed Service for TimescaleDB database if you're 
    not already connected:
 
    ```bash
@@ -427,14 +426,14 @@ This is faster than copying the continuous aggregate data.
 
 ### Recreate policies
 
-Policies are not migrated when you transfer your schema and data separately.
+Policies aren't migrated when you transfer your schema and data separately.
 Recreate them on your Cloud database.
 
 #### Recreating policies
 
 <procedure>
 
-1. Connect to your Managed Service for TimescaleDB database using psql if you're 
+1. Use psql to connect to your Managed Service for TimescaleDB database if you're 
    not already connected:
 
    ```bash
@@ -460,7 +459,7 @@ Recreate them on your Cloud database.
    ```
 
 1. In psql, while connected to your Cloud database, recreate all your policies.
-   See instructions for creating [continuous-aggregate refresh policies](cagg-policy),
+   See instructions for creating [continuous-aggregate refresh policies][cagg-policy],
    [retention policies][retention-policy], [compression policies][compression-policy],
    and [reorder policies][reorder-policy].
 
@@ -470,10 +469,10 @@ Recreate them on your Cloud database.
 [compression]: /how-to-guides/compression/manually-compress-chunks/
 [compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[install-timescale-cloud]: /install/:currentVersion/installation-cloud/
+[install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
 [retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
-[reorder-policy]: /hypertable/add_reorder_policy/
+[reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
-[timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
+[timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
