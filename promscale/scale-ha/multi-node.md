@@ -9,9 +9,9 @@ Promscale then creates the tables, objects, and roles that it needs. You can
 connect to the access node to  query Promscale SQL data.
 
 ## Expanding the cluster
-When you have a TimescaleDB multi-nopde cluster that is being written to by
+When you have a TimescaleDB multi-node cluster that is being written to by
 Promscale, you can add nodes to the cluster using the `add_data_node()`
-function. This command adds the data node and uses the
+function. These commands add the data node and uses the
 `add_prom_node(node_name)` function to add Promscale functionality. For example:
 ```sql
 SELECT add_data_node('example_node_name', host => 'example_host_address')
@@ -23,4 +23,4 @@ Make sure that you run the `add_prom_node` command as the same database user as
 the one writing data from Promscale.
 </highlight>
 
-[db-multinode]: https://docs.timescale.com/latest/getting-started/setup-multi-node-basic
+[db-multinode]: timescaledb/:currentVersion:/getting-started/setup-multi-node-basic/
