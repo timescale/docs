@@ -1,51 +1,46 @@
 # Migrate from Managed Service for TimescaleDB to Timescale Cloud
 
-Migrate your data from Managed Service for TimescaleDB to Timescale Cloud to take
-advantage of Cloud's features.
-These include separate scaling for compute and storage requirements, first-class 
-multi-node support, and more.
+Migrate your data from Managed Service for TimescaleDB to Timescale Cloud to
+take advantage of Cloud's features. These include separate scaling for compute
+and storage requirements, first-class multi-node support, and more.
 
 There are two methods for migrating your data:
 
-- [**Migrate the entire database at once using the PostgreSQL utilities `pg_dump` 
-  and `pg_restore`.**](#migrate-the-entire-database-at-once)
-  Choose this option for smaller databases.
-  This method directly transfers all data and schemas, including TimescaleDB-specific 
-  features.
-  Your hypertables, continuous aggregates, and policies are automatically
-  available in Cloud.
+- [**Migrate the entire database at once using the PostgreSQL utilities 
+  `pg_dump` and `pg_restore`.**](#migrate-the-entire-database-at-once) Choose
+  this option for smaller databases. This method directly transfers all data and
+  schemas, including TimescaleDB-specific features. Your hypertables, continuous
+  aggregates, and policies are automatically available in Cloud.
 
-- [**Migrate the schema, and then migrate the data separately.**](#migrate-the-schema-and-data-separately)
-  Choose this option for larger databases.
-  This method allows you to individually migrate tables and chunks.
-  If the migration fails mid-way, you can restart from the failure point rather
-  than the beginning. With this method, TimescaleDB-specific features won't be 
-  migrated.
-  See the instructions below to restore your hypertables, continuous
-  aggregates, and policies. 
+- [**Migrate the schema, and then migrate the data
+  separately.**](#migrate-the-schema-and-data-separately) Choose this option for
+  larger databases. This method allows you to individually migrate tables and
+  chunks. If the migration fails mid-way, you can restart from the failure point
+  rather than the beginning. With this method, TimescaleDB-specific features
+  won't be migrated. See the instructions below to restore your hypertables,
+  continuous aggregates, and policies. 
 
-<highlight type="tip">
-The recommended migration method depends on both your database size and your network
-upload and download speeds.
-If you aren't sure which method to use, start with the first method and try running
-`pg_dump` on one table. 
-If it takes too long, switch to the second method.
+<highlight type="tip"> 
+The recommended migration method depends on both your
+database size and your network upload and download speeds. If you aren't sure
+which method to use, start with the first method and try running `pg_dump` on
+one table. If it takes too long, switch to the second method. 
 </highlight>
 
 ## Migrate the entire database at once
 
-Migrate smaller databases by using `pg_dump` and `pg_restore` on your entire 
+Migrate smaller databases by using `pg_dump` and `pg_restore` on your entire
 database.
 
 <highlight type="note">
-Depending on the size of your database and your network speed, migration may take 
-several hours.
-You can continue reading and writing(?) to your old database during this time.
+Depending on the size of your database and your network speed, migration may
+take several hours. You can continue reading and writing(?) to your old database
+during this time.
 </highlight>
 
 ### Prerequisites
 
-- Check that the PostgreSQL utilities [`pg_dump`][pg_dump] and 
+- Check that the PostgreSQL utilities [`pg_dump`][pg_dump] and
   [`pg_restore`][pg_restore] are installed on your system:
 
   ```bash
@@ -53,9 +48,8 @@ You can continue reading and writing(?) to your old database during this time.
   pg_restore --version
   ```
 
-- Create a new empty database in Timescale Cloud.
-  For instructions on installing Timescale Cloud, see 
-  [Install Timescale Cloud][install-timescale-cloud].
+- Create a new empty database in Timescale Cloud. For instructions on installing
+  Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
 ### Migrating the entire database at once
 
@@ -63,20 +57,24 @@ You can continue reading and writing(?) to your old database during this time.
 
 1. [Compress all your data][compression] for faster migration.
 
-1. Dump all the data from your Managed Service for TimescaleDB database into a file:
+1. Dump all the data from your Managed Service for TimescaleDB database into a
+   file:
 
    ```bash
-   # Use your Managed Service for TimescaleDB connection details in place of <mst_host> and <mst_port>.
-   pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v -f <file-name>.bak defaultdb
+   # Use your Managed Service for TimescaleDB connection details in place of 
+   # <mst_host> and <mst_port>.
+   pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v \
+   -f <file-name>.bak defaultdb
    ```
 
-   The service prompts you for a password.
-   Use your credentials for Managed Service in TimescaleDB.
+   The service prompts you for a password. Use your credentials for Managed
+   Service in TimescaleDB.
 
 1. Connect to your Timescale Cloud database using psql:
 
    ```bash
-   # Use your Cloud credentials and connection details in place of <cloud_password>, <cloud_host>, and <cloud_port>.
+   # Use your Cloud credentials and connection details in place of 
+   # <cloud_password>, <cloud_host>, and <cloud_port>.
    psql “postgres://tsdbadmin:<cloud_password>@<cloud_host>:<cloud_port>/tsdb?sslmode=require”
    ```
 
@@ -86,14 +84,14 @@ You can continue reading and writing(?) to your old database during this time.
    SELECT timescaledb_pre_restore();
    ```
 
-1. Check that `pg_dump` has finished.
-   In your regular shell (not in psql), run the following command to restore the 
-   dumped data into your Cloud database.
-   Be sure to set the `--no-owner` flag to avoid permissions problems.
+1. Check that `pg_dump` has finished. In your regular shell (not in psql), run
+   the following command to restore the dumped data into your Cloud database. Be
+   sure to set the `--no-owner` flag to avoid permissions problems.
 
     ```bash
     # Use your Cloud credentials and connection details.
-   pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc -v -d tsdb <file-name>.bak
+   pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc \
+   -v -d tsdb <file-name>.bak
     ```
 
 1. In psql, run:
@@ -106,8 +104,7 @@ You can continue reading and writing(?) to your old database during this time.
 
 <highlight type="note">
 You may encounter the following errors while running `pg_dump` and `pg_restore`.
-You can safely ignore them.
-The migration still occurs successfully.
+You can safely ignore them. The migration still occurs successfully.
 </highlight>
 
 #### pg_dump errors
@@ -152,9 +149,8 @@ references for:
 
 ## Migrate the schema and data separately
 
-Migrate larger databases by first migrating your schema with `pg_dump` and 
-`pg_restore`.
-Then copy data separately from each table or chunk.
+Migrate larger databases by first migrating your schema with `pg_dump` and
+`pg_restore`. Then copy data separately from each table or chunk.
 
 Follow the procedures below to migrate your database:
 
@@ -168,17 +164,16 @@ Follow the procedures below to migrate your database:
 
 ### Prerequisites
 
-- Check that the PostgreSQL utilities [`pg_dump`][pg_dump] and 
-[`pg_restore`][pg_restore] are installed on your system:
+- Check that the PostgreSQL utilities [`pg_dump`][pg_dump] and
+  [`pg_restore`][pg_restore] are installed on your system:
 
   ```bash
   pg_dump --version
   pg_restore --version
   ```
 
-- Create a new empty database in Timescale Cloud.
-  For instructions on installing Timescale Cloud, see 
-  [Install Timescale Cloud][install-timescale-cloud].
+- Create a new empty database in Timescale Cloud. For instructions on installing
+  Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
 ### Migrate schema pre-data
 
@@ -193,28 +188,32 @@ Timescale Cloud.
    Exclude Timescale-specific schemas:
 
    ```bash
-   # Use your Managed Service for TimescaleDB connection details in place of <mst_host> and <mst_port>.
-   pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v --section=pre-data --exclude-schema="_timescaledb*" -f <file-name-pre-data>.bak defaultdb
+   # Use your Managed Service for TimescaleDB connection details in place of 
+   # <mst_host> and <mst_port>.
+   pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v \
+   --section=pre-data --exclude-schema="_timescaledb*" \
+   -f <file-name-pre-data>.bak defaultdb
    ```
 
-   The service prompts you for a password.
-   Use your credentials for Managed Service in TimescaleDB.
+   The service prompts you for a password. Use your credentials for Managed
+   Service in TimescaleDB.
 
-1. Restore the dumped schema pre-data into your Cloud database.
-   Be sure to use your Cloud credentials, and set the `--no-owner` flag to avoid 
-   permissions problems:
+1. Restore the dumped schema pre-data into your Cloud database. Be sure to use
+   your Cloud credentials, and set the `--no-owner` flag to avoid permissions
+   problems:
 
     ```bash
-    # Use your Cloud credentials and connection details in place of <cloud_host> and <cloud_port>.
-    pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc -v -d tsdb <file-name-pre-data>.bak
+    # Use your Cloud credentials and connection details in place of <cloud_host> 
+    # and <cloud_port>.
+    pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc \
+    -v -d tsdb <file-name-pre-data>.bak
     ```
 
 </procedure>
 
 <highlight type="note">
-You may encounter the following errors while running `pg_restore`.
-You can safely ignore them.
-The migration still occurs successfully.
+You may encounter the following errors while running `pg_restore`. You can
+safely ignore them. The migration still occurs successfully.
 </highlight>
 
 ```bash
@@ -235,8 +234,8 @@ pg_restore: error: could not execute query: ERROR:  relation "_timescaledb_inter
 
 ### Restore hypertables in Timescale Cloud
 
-After migrating your schema pre-data into Cloud, your hypertables are now regular PostgreSQL tables in Cloud.
-Recreate your hypertables to restore them.
+After migrating your schema pre-data into Cloud, your hypertables are now
+regular PostgreSQL tables in Cloud. Recreate your hypertables to restore them.
 
 #### Restoring hypertables in Timescale Cloud
 
@@ -252,15 +251,18 @@ Recreate your hypertables to restore them.
 1. In psql, run:
 
    ```bash
-   SELECT create_hypertable('table-name', 'time', chunk_time_interval => INTERVAL '<chunk interval used in your old database>');
+   SELECT create_hypertable(
+       'table-name', 'time', 
+        chunk_time_interval => 
+            INTERVAL '<chunk interval used in your old database>');
    ```
 
 </procedure>
 
 ### Copy data from Managed Service for TimescaleDB
 
-After your schema pre-data are migrated and your hypertables are restored, return to
-Maanged Service for TimescaleDB to copy your tables one by one.
+After your schema pre-data are migrated and your hypertables are restored,
+return to Managed Service for TimescaleDB to copy your tables one by one.
 
 #### Copying data from Managed Service for TimescaleDB
 
@@ -269,12 +271,12 @@ Maanged Service for TimescaleDB to copy your tables one by one.
 1. Connect to your Managed Service for TimescaleDB database using psql:
 
    ```bash
-   # Use your Managed Service for TimescaleDB credentials and connection details.
+   # Use your Managed Service for TimescaleDB credentials and connection 
+   # details.
    psql “postgres://tsdbadmin:<mst_password>@<mst_host>:<mst_port>/tsdb?sslmode=require”
    ```
 
-1. Dump the data from one table into a binary file.
-   In psql, run:
+1. Dump the data from one table into a binary file. In psql, run:
 
    ```bash
    \COPY (SELECT * FROM <table-name>) TO <table-name>.binary.copy BINARY
@@ -286,8 +288,7 @@ Maanged Service for TimescaleDB to copy your tables one by one.
 
 <highlight type="tip">
 If your tables are very large, you may choose to migrate each table in multiple 
-pieces.
-Split each table by time range and copy each range individually:
+pieces. Split each table by time range and copy each range individually:
 </highlight>
 
    ```bash
@@ -296,8 +297,8 @@ Split each table by time range and copy each range individually:
 
 ### Restore data into Timescale Cloud
 
-After copying your data into binary files, restore it into Timescale Cloud by copying 
-from the binary file.
+After copying your data into binary files, restore it into Timescale Cloud by
+copying from the binary file.
 
 #### Restoring data into Timescale Cloud
 
@@ -319,7 +320,7 @@ from the binary file.
 
 ### Migrate schema post-data
 
-After migrating your table and hypertable data, migrate your PostgreSQL schema 
+After migrating your table and hypertable data, migrate your PostgreSQL schema
 post-data.
 
 #### Migrating schema post-data
@@ -327,32 +328,34 @@ post-data.
 <procedure>
 
 1. Dump schema post-data from Managed Service for TimescaleDB into a file.
-   Exclude Timescale-specific schemas. 
-   In your regular shell (not in psql), run:
+   Exclude Timescale-specific schemas. In your regular shell (not in psql), run:
 
    ```bash
    # Use your Managed Service for TimescaleDB connection details.
-   pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v --section=post-data --exclude-schema="_timescaledb*" -f <file-name-post-data>.bak defaultdb
+   pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v \
+   --section=post-data --exclude-schema="_timescaledb*" \
+   -f <file-name-post-data>.bak defaultdb
    ```
 
-   The service prompts you for a password.
-   Use your credentials for Managed Service in TimescaleDB.
+   The service prompts you for a password. Use your credentials for Managed
+   Service in TimescaleDB.
 
-1. Restore the dumped schema post-data into your Cloud database.
-   Be sure to use your Cloud credentials, and set the `--no-owner` flag to avoid 
-   permissions problems:
+1. Restore the dumped schema post-data into your Cloud database. Be sure to use
+   your Cloud credentials, and set the `--no-owner` flag to avoid permissions
+   problems:
 
     ```bash
     # Use your Cloud credentials and connection details.
-    pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc -v -d tsdb <file-name-post-data>.bak
+    pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc \
+    -v -d tsdb <file-name-post-data>.bak
     ```
 
 </procedure>
 
-<highlight type="note">
-You may encounter the following errors while running `pg_restore`.
-You can safely ignore them.
-The migration still occurs successfully.
+<highlight type="note"> 
+You may encounter the following errors while running
+`pg_restore`. You can safely ignore them. The migration still occurs
+successfully. 
 </highlight>
 
 ```bash
@@ -366,20 +369,20 @@ pg_restore: error: could not execute query: ERROR:  trigger "ts_insert_blocker" 
 ### Recreate continuous aggregates
 
 Continuous aggregates aren't migrated when you transfer your schema and data
-separately.
-Restore them by recreating the continuous aggregate definitions and recomputing
-the results on your Cloud database.
-This is faster than copying the continuous aggregate data.
+separately. Restore them by recreating the continuous aggregate definitions and
+recomputing the results on your Cloud database. This is faster than copying the
+continuous aggregate data.
 
 #### Recreating continuous aggregates
 
 <procedure>
 
-1. Use psql to connect to your Managed Service for TimescaleDB database if you're 
-   not already connected:
+1. Use psql to connect to your Managed Service for TimescaleDB database if
+   you're not already connected:
 
    ```bash
-   # Use your Managed Service for TimescaleDB credentials and connection details.
+   # Use your Managed Service for TimescaleDB credentials and connection 
+   # details.
    psql “postgres://tsdbadmin:<mst_password>@<mst_host>:<mst_port>/tsdb?sslmode=require”
    ```
 
@@ -389,8 +392,8 @@ This is faster than copying the continuous aggregate data.
    SELECT view_name, view_definition FROM timescaledb_information.continuous_aggregates;
    ```
 
-    This query returns the names and definitions for all your continuous aggregates.
-    For example:
+    This query returns the names and definitions for all your continuous
+    aggregates. For example:
 
     ```bash
     view_name       |                                            view_definition
@@ -426,15 +429,15 @@ This is faster than copying the continuous aggregate data.
 
 ### Recreate policies
 
-Policies aren't migrated when you transfer your schema and data separately.
+Policies aren't migrated when you transfer your schema and data separately. 
 Recreate them on your Cloud database.
 
 #### Recreating policies
 
 <procedure>
 
-1. Use psql to connect to your Managed Service for TimescaleDB database if you're 
-   not already connected:
+1. Use psql to connect to your Managed Service for TimescaleDB database if 
+   you're not already connected:
 
    ```bash
    # Use your Managed Service for TimescaleDB credentials and connection details.
@@ -444,7 +447,9 @@ Recreate them on your Cloud database.
 1. In psql, get a list of your existing continuous aggregate definitions:
 
    ```bash
-   SELECT application_name, schedule_interval, retry_period, config, hypertable_name FROM timescaledb_information.jobs WHERE owner = 'tsdbadmin';
+   SELECT application_name, schedule_interval, retry_period, 
+        config, hypertable_name 
+        FROM timescaledb_information.jobs WHERE owner = 'tsdbadmin';
    ```
 
     This query returns a list of all your policies, including continuous-aggregate
@@ -459,9 +464,9 @@ Recreate them on your Cloud database.
    ```
 
 1. In psql, while connected to your Cloud database, recreate all your policies.
-   See instructions for creating [continuous-aggregate refresh policies][cagg-policy],
-   [retention policies][retention-policy], [compression policies][compression-policy],
-   and [reorder policies][reorder-policy].
+   See instructions for creating [continuous-aggregate refresh
+   policies][cagg-policy], [retention policies][retention-policy], [compression
+   policies][compression-policy], and [reorder policies][reorder-policy].
 
 </procedure>
 
