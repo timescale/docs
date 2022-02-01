@@ -3,7 +3,7 @@ You can control how metric data is retained in Promscale. For example, you can
 set a default data retention period, and override the default on a per-metric
 basis.
 
-A maintenance job periodically removes metric data that it outside the defined
+A maintenance job periodically removes metric data that is outside the defined
 retention period. The maintenance job is automatically scheduled in TimescaleDB
 version 2.0 and higher using the job scheduling function. If you are using an
 earlier version of TimescaleDB, you can use `cron` or a similar scheduling tool

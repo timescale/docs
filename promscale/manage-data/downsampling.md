@@ -147,7 +147,7 @@ You do not need to specify the `__column__` label in queries, because Promscale
 uses the value column by default when ingesting data.
 
 You could modify this continuous aggregate to name one of the metrics `value`,
-which would them make Promscale return that metric even if no `__column__` label
+which would then make Promscale return that metric even if no `__column__` label
 is specified. To do this with the previous example, you can create a continuous
 aggregate that sets the average as the default to be returned in PromQL queries,
 like this:
@@ -224,7 +224,7 @@ recommend that you also set `read_recent` to `true` in the
 [Prometheus remote_read configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read).
 This tells Prometheus to fetch data from Promscale when evaluating PromQL
 queries, including recording rules. If `read_recent` is disabled, only the data
-stored in the local TimescaleDB instance is used when evaluating alerting and
+stored in the Prometheus local on-disk database is used when evaluating alerting and
 recording rules, so it is dependent on the retention period of Prometheus rather
 than Promscale.
 </highlight>

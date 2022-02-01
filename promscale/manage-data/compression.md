@@ -1,5 +1,5 @@
 # Compress data in Promscale
-Telemetry data is stored in Promscale [hypertables][hypertables].
+Telemetry data is stored in Promscale using TimescaleDB [hypertables][hypertables].
 A maintenance job periodically [compresses][tsdb-compression] this data.
 In Timescale DB version 2.0 and higher, this maintenance job is automatically scheduled
 using the job scheduling function. In earlier versions of
