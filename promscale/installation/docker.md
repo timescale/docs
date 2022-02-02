@@ -49,13 +49,28 @@ packages and instructions, see the
 
 </procedure>
 
-<highlight type="note">
+## Install tracing support
+
+<highlight type="important">
 Support for OpenTelemetry traces is currently in beta and is disabled by default.
-If you want to send your OpenTelemetry traces to Promscale, see the
-instructions in the
-[tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing/).
 </highlight>
+
+In tobs version 0.7.0 and later, tracing components are included in the stack.
+To install the tracing components, run the Promscale Connector with tracing
+enabled:
+```bash
+docker run --name promscale -d -p 9201:9201 -p 9202:9202 \
+--network promscale-timescaledb timescale/promscale:latest \
+-db-password=<password> -db-port=5432 -db-name=postgres \
+-db-host=timescaledb -db-ssl-mode=allow -enable-feature=tracing \
+-otlp-grpc-server-listen-address=:9202
+```
+
+For more information about Promscale tracing, see the
+[distributed tracing section][promscale-tracing].
+
 
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescaledev/promscale-extension/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
+[promscale-tracing]: promscale/:currentVersion:/distributed-tracing/
