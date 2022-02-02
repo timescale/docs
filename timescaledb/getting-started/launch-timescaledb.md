@@ -1,18 +1,18 @@
 # Launch your first instance
 
-For this Getting Started tutorial we'll use Timescale Cloud to get you up
+For this Getting Started tutorial, we'll use Timescale Cloud to get you up
 and running quickly. Timescale Cloud combines the power and reliability
-of TimescaleDB with a fully-managed, cloud-native experience that is easy to
+of TimescaleDB with a fully managed, cloud-native experience that is easy to
 start and less expensive to operate.
 
 Creating a Timescale Cloud account is fast and simple, allowing you to explore
 TimescaleDB free for 30 days, no credit card required. We're just excited
-that you are ready to dive into the world of time-series data with TimescaleDB!
+that you're ready to dive into the world of time-series data with TimescaleDB!
 
 <highlight type="tip">
-If you would prefer to setup TimescaleDB in your own environment and follow
+If you would prefer to set up TimescaleDB in your own environment and follow
 along with the rest of the _Getting Started_ tutorial, please see our documentation
-for [installing self-hosted TimescaleDB](/install/latest/self-hosted/)
+for [installing self-hosted TimescaleDB](/install/latest/self-hosted/).
 </highlight>
 
 ### Step 1: Create a Timescale Cloud account
@@ -24,31 +24,32 @@ Provide your full name, email address, and a strong password to start:
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-signup.png" alt="Sign up for Timescale Cloud"/>
 
 You need to confirm your account by clicking the link you receive via
-email. If you do not receive this link, please first check your spam folder
-and, failing that, please [contact us][contact-timescale].
+email. If you don't receive this link, first check your spam folder
+and, failing that, [contact us][contact-timescale].
 
 ### Step 2: Create your first service
 
-After you complete account verification, you can visit the
-[Timescale Cloud console][cloud-console] and login with your credentials.
+After confirming your account, visit the
+[Timescale Cloud console][cloud-console] and log in with your credentials.
 
 To begin, click 'Create service'.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png" alt="Create a Timescale Cloud service"/>
 
-For the purposes of this tutorial, **you can simply select the default name, compute
-and storage options**. But don't worry, if you want to do more with Timescale Cloud
-after you've completed everything, you can always resize your service or create
-a new one in a few clicks!
+For this tutorial, select the default name and compute and storage options.
+They'll suffice for now. If you want to do more with Timescale Cloud after
+completing the tutorial, you can always resize your service or create a new one
+in a few clicks.
 
-After you select 'Create service', you can see confirmation of your service account and
-password information. You should save the information in this confirmation screen in
-a safe place:
+After you select 'Create service,' you can see confirmation of your service
+account and password. Save the information in this confirmation screen in a safe
+place:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-build-service.png" alt="Timescale Cloud service creation confirmation"/>
 
 <highlight type="warning">
- If you forget your password in the future, you can reset your password from the *service dashboard*.
+ You won't be able to view your password again, so remember to save it. But you
+ can always reset your password if you forget it.
 </highlight>
 
 It takes a couple minutes for your service to be provisioned. When your database is
@@ -66,7 +67,7 @@ a service altogether.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service.png" alt="View Timescale Cloud service information"/>
 
 Now let's make sure you can connect to the database before we start adding data
-and learning about everything that TimescaleDB offers!
+and learning about everything that TimescaleDB offers.
 
 [install-timescaledb]: /install/latest/
 [cloud-signup]: https://cloud.timescale.com
