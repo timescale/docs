@@ -86,16 +86,16 @@ that case, feel free to ignore them.
 *Adverbs*
 : Do not use.
 
-:+1: Install TimescaleDB.
+&#128077; Install TimescaleDB.
 
-:x: Simply install TimescaleDB.
+&#10060; Simply install TimescaleDB.
 
 *And/Or*
 : Do not use. You can usually pick one. If you're not sure, pick "and".
 
-:x: I like apples and/or oranges.
+&#10060; I like apples and/or oranges.
 
-:+1: I like apples and oranges.
+&#128077; I like apples and oranges.
 
 ### B [](#B)
 
@@ -128,9 +128,9 @@ that case, feel free to ignore them.
 *Latin abbreviations*
 : Do not use.
 
-:+1: For example
+&#128077; For example
 
-:x: eg
+&#10060; eg
 
 ### M [](#M)
 
@@ -151,20 +151,20 @@ that case, feel free to ignore them.
 *Timescale*
 : The name of the company. Do not use camel case.
 
-:+1: Timescale is hosting a virtual event.
+&#128077; Timescale is hosting a virtual event.
 
-:x: I have installed Timescale to manage my time-series data.
+&#10060; I have installed Timescale to manage my time-series data.
 
-:x: TimeScale
+&#10060; TimeScale
 
 *TimescaleDB*
 : The name of the product. Capitalize the initial letter, and the "DB" at the end.
 
-:+1: "I have installed TimescaleDB to manage my time-series data."
+&#128077; "I have installed TimescaleDB to manage my time-series data."
 
-:x: "TimescaleDB is hosting a virtual event."
+&#10060; "TimescaleDB is hosting a virtual event."
 
-:x: "TimeScaleDB"
+&#10060; "TimeScaleDB"
 
 ### U [](#U)
 
@@ -183,9 +183,9 @@ that case, feel free to ignore them.
 : Do not use. It usually indicates that you are writing in future tense.
 Always write in simple present tense.
 
-:+1: After installation, you see a message.
+&#128077; After installation, you see a message.
 
-:x: After installation, you will see a message.
+&#10060; After installation, you will see a message.
 
 ### X [](#X)
 
