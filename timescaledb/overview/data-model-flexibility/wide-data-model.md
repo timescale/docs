@@ -44,10 +44,7 @@ Without joins, one would need to denormalize their data and store
 all metadata with each measurement row. This creates data bloat,
 and makes data management more difficult.
 
-With joins, one can store metadata independently, and update mappings
-more easily.
-
-For example, if we wanted
-to update our "region" for `location_id` 77 (e.g., from "Massachusetts"
-to "Boston"), we can make this change without having to go back and
-overwrite historical data.
+With joins, one can store metadata independently, and update mappings more
+easily. For example, to change the `region` for `location_id` 77 from
+"Massachusetts" to "Boston", one can change the metadata without overwriting
+historical data in the time-series table.
