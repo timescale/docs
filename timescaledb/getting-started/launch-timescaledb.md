@@ -7,7 +7,7 @@ start and less expensive to operate.
 
 Creating a Timescale Cloud account is fast and simple, allowing you to explore
 TimescaleDB free for 30 days, no credit card required. We're just excited
-that you're ready to dive into the world of time-series data with TimescaleDB!
+that you're ready to dive into the world of time-series data with TimescaleDB.
 
 <highlight type="tip">
 If you would prefer to set up TimescaleDB in your own environment and follow
