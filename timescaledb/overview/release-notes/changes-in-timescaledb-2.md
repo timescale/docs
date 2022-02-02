@@ -494,7 +494,7 @@ introduces additional settings, including  `scheduled` to pause and resume jobs,
 or action-specific settings.
 *   [`run_job`](/api/:currentVersion:/actions/run_job): Manually executes a job immediately and in the foreground.
 *   [`delete_job`](/api/:currentVersion:/actions/delete_job): Removes the job from the scheduler.  This is equivalent to functions that remove policies for
-built-in actions (e.g., `remove_retention_policy`).
+built-in actions (for example, `remove_retention_policy`).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
 *   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/job_stats):  The view presents statistics of executing jobs for policies and actions.
 
