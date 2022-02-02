@@ -11,7 +11,7 @@ In this model, each metric/tag-set combination is considered an individual
 "time series" containing a sequence of time/value pairs.
 
 Using our example above, this approach would result in 9 different "time
-series", each of which is defined by a unique set of tags.
+series," each of which is defined by a unique set of tags.
 ```
 1. {name:  cpu_1m_avg,  device_id: abc123,  location_id: 335,  dev_type: field}
 2. {name:  cpu_1m_avg,  device_id: def456,  location_id: 335,  dev_type: roof}

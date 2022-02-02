@@ -190,7 +190,7 @@ First, continuous aggregates have always been more closely aligned with material
 creating a continuous aggregate now uses `CREATE MATERIALIZED VIEW`, rather than `CREATE VIEW`.
 
 Second, the continuous aggregate API now separates the explicit mechanism for updating a continuous aggregate from
-the policy that automates the process of keeping a continuous aggregate up-to-date.  This change both
+the policy that automates the process of keeping a continuous aggregate up-to-date. This change both
 simplifies the continuous aggregate API in TimescaleDB 2.0, provides more flexibility to users (especially when
 combined with user-defined actions and a newly exposed API for scheduling jobs directly), and makes it consistent
 with other policy automation in TimescaleDB 2.0:
