@@ -112,7 +112,7 @@ This is useful for refreshing data for only a specific time period in the past
 or if you want to materialize a lot of data at once on a once-off basis.
 
 The example below refreshes the continuous aggregate `weather_metrics_daily` for
-the time period starting 1 January 2010 and ending 1 January 2021:
+the time period starting January 1, 2010 and ending January 1, 2021:
 
 ```sql
 -- manual refresh
@@ -120,9 +120,9 @@ the time period starting 1 January 2010 and ending 1 January 2021:
 CALL refresh_continuous_aggregate('weather_metrics_daily','2010-01-01', '2021-01-01');
 ```
 
-Querying our continuous aggregate for data older than 1 January 2009 shows that
+Querying our continuous aggregate for data older than January 1, 2009 shows that
 it is indeed populated with data from the above time frame, as the first row
-returned is for 1 January 2010:
+returned is for January 1, 2010:
 
 ```sql
 -- Show that manual refresh worked
