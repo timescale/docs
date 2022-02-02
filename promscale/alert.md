@@ -8,7 +8,7 @@ or email. Alerting rules are written in a YAML file and specified in the
 Prometheus configuration file. These conditional rules are evaluated by
 Prometheus, not by Promscale.
 
-Set up alerting by adding creating a YAML file containing configuration like
+Set up alerting by creating a YAML file containing configuration like
 this for each alert you want to add:
 ```yaml
 groups:
