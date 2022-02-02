@@ -165,5 +165,77 @@ Register job to run daily downsampling and compressing chunks older than
 SELECT add_job('downsample_compress','1d', config => '{"lag":"12 month"}');
 ```
 
+### Set up a table and procedure
+
+Set up a simple table and procedure:
+```sql
+CREATE TABLE IF NOT EXISTS times(time timestamptz);
+
+CREATE OR REPLACE PROCEDURE add_time(job_id int, config jsonb)
+LANGUAGE PLPGSQL
+AS $$
+BEGIN
+  INSERT INTO times VALUES (now());  
+END
+$$;
+
+CALL add_time(null, '{}');
+
+SELECT * from times;
+```
+
+Returns:
+```sql
+|time                         |
+|-----------------------------|
+|2021-12-27 10:50:28.449 -0600|
+```
+
+Register a job to run every 5 seconds and return a `job_id`:
+```sql
+SELECT add_job('add_time', '5 secs');
+```
+
+Returns:
+```sql
+|add_job|
+|-------|
+|1000   |
+```
+
+Wait for some jobs to run, then view the results:
+```sql
+SELECT * from times;
+```
+
+Returns:
+```sql
+|time                         |
+|-----------------------------|
+|2021-12-27 10:50:28.449 -0600|
+|2021-12-27 10:50:38.825 -0600|
+|2021-12-27 10:50:44.164 -0600|
+|2021-12-27 10:50:49.207 -0600|
+|...|
+```
+
+See running jobs:
+```sql
+SELECT job_id, total_runs, total_failures, total_successes
+FROM timescaledb_information.job_stats;
+```
+
+Returns:
+```sql
+|job_id|total_runs|total_failures|total_successes|
+|------|----------|--------------|---------------|
+|1000  |9         |0             |9              |
+```
+
+Stop or delete the job:
+```sql
+SELECT delete_job(1000);
+```
+
 
 [api-move_chunk]: /api/:currentVersion:/hypertable/move_chunk
