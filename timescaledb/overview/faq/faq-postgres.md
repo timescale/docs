@@ -10,9 +10,10 @@ To summarize, TimescaleDB offers:
 "chunks") is automatically performed for the user. All of the complexity of automatic
 partitioning is abstracted away behind a "hypertable," which users interact with just as
 they would with a PostgreSQL table.
-* Much higher ingest scale: TimescaleDB sees throughput more than 20X that of
+* Much higher ingest scale: TimescaleDB sees throughput more than 20X that of 
 <!-- vale Google.Units = NO -->
-PostgreSQL once tables reach moderate size (for example, 10s of millions of rows).
+PostgreSQL once tables reach moderate size (for example, 10s of millions of
+rows). 
 <!-- vale Google.Units = YES -->
 While vanilla PostgreSQL is suitable for time-series data at low volumes, it does
 not scale well to the volume of data that most time-series applications produce, especially
