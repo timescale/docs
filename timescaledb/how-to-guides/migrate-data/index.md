@@ -7,8 +7,8 @@ There are a number of choices available to migrate data into TimescaleDB:
 1.  Different database: to migrate data from a different database or a different
     PostgreSQL instance altogether, [follow these instructions][different-db].
 1.  Importing data from `.csv`: If you have a dataset stored in a `.csv` file,
-    you can import it into an empty TimescaleDB hypertable,
-    [follow these instructions][import-data].
+    you can import it into an empty TimescaleDB hypertable.
+    [Follow these instructions][import-data].
 1.  Migrating from InfluxDB: to migrate data from InfluxDB,
     [follow these instructions][outflux]
 
