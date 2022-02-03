@@ -8,8 +8,13 @@ The `move_chunk` function acts like a combination of the
 these PostgreSQL commands, however, the `move_chunk` function uses lower lock
 levels so that the chunk and hypertable are able to be read for most of the
 process. This comes at a cost of slightly higher disk usage during the
-operation. For a more detailed discussion of this capability, see the [Data
-Tiering][using-data-tiering] documentation.
+operation. For a more detailed discussion of this capability, see the
+[Data Tiering][using-data-tiering] documentation.
+
+<highlight type="note">
+You must be logged in as a super user, such as the `postgres` user, to be able
+to use the `move_chunk()` call.
+</highlight>
 
 ### Required arguments
 
