@@ -176,7 +176,7 @@ data from recent time frames, as they help them stay up to date.
 Continuous aggregates are actually a special kind of hypertable, so you can
 query, view, and modify their chunks just like you would a regular hypertable.
 You can also add data retention policies and drop chunks on continuous aggregate
-hypertables. The only restriction at this time is that you cannot apply
+hypertables. The only restriction is that you can't apply
 compression or continuous aggregation to these hypertables.
 </highlight>
 
@@ -185,7 +185,7 @@ smaller materialized table, which has been refreshed at scheduled intervals. Thi
 makes querying continuous aggregates useful for speeding up dashboards, summarizing
 data sampled at high frequency, and querying downsampled data over long time periods.
 
-Moreover, querying continuous aggregates does not slow down `INSERT` operations,
+Additionally, querying continuous aggregates doesn't slow down `INSERT` operations,
 since data is inserted into a different hypertable than the one underlying the
 continuous aggregate.
 

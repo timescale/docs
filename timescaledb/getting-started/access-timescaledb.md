@@ -26,7 +26,7 @@ in our How-to guides for [Installing `psql`](/timescaledb/latest/how-to-guides/c
 </highlight>
 
 ## Connect to your TimescaleDB server
-Now we've confirmed that `psql` is installed, it's time to connect to your
+Now you've confirmed that `psql` is installed, it's time to connect to your
 Timescale Cloud instance.
 
 In Timescale Cloud, open the **Service Details** by clicking on the service
@@ -48,7 +48,7 @@ password, you are prompted for the password in order to finish authenticating.
 
 If you want to save yourself time, you can add the password to the URL by adding
 a colon and the password between the username and the hostname as shown
-in the placeholder above.
+in the placeholder.
 </highlight>
 
 Now that you've connected to your Timescale Cloud service, let's look at how to
