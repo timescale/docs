@@ -12,7 +12,7 @@ operation. For a more detailed discussion of this capability, see the
 [Data Tiering][using-data-tiering] documentation.
 
 <highlight type="note">
-You must be logged in as a super user, such as the `postgres` user, to be able
+You must be logged in as a super user, such as the `postgres` user,
 to use the `move_chunk()` call.
 </highlight>
 

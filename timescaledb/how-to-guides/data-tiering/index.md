@@ -8,7 +8,7 @@ continual read/write workload of more recent data.
 
 PostgreSQL uses tablespaces to determine the physical location of your data. In
 most cases, you want to use faster storage to store data that is accessed
-frequently, and slower storage for data this is accessed less often.
+frequently, and slower storage for data that is accessed less often.
 
 In TimescaleDB, you can move chunks between different tablespaces, using the
 [`move_chunk`][api-move-chunk] API call. For example, you can attach two

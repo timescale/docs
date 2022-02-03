@@ -1,18 +1,18 @@
 # Data tiering
 PostgreSQL uses tablespaces to determine the physical location of your data. In
 most cases, you want to use faster storage to store data that is accessed
-frequently, and slower storage for data this is accessed less often.
+frequently, and slower storage for data that is accessed less often.
 
-In TimescaleDB, you can move chunks between different tablespaces, using the
+In TimescaleDB, you can move chunks between different tablespaces using the
 [`move_chunk`][api-move-chunk] API call.
 
 <highlight type="note">
-You must be logged in as a super user, such as the `postgres` user, to be able
+You must be logged in as a super user, such as the `postgres` user,
 to use the `move_chunk()` API call.
 </highlight>
 
 ## Move data
-To set up data tiering you need to have created the tablespace to use and set
+To set up data tiering, you first need to create the new tablespace and set
 the storage mount point. You can then use the [`move_chunk`][api-move-chunk] API
 call to move individual chunks from the default tablespace to the new
 tablespace. The `move_chunk` command also allows you to move indexes belonging
@@ -87,9 +87,9 @@ SELECT move_chunk(
 );
 ```
 
-You could also keep the data in `pg_default` but move the index to `history`.
+You can also keep the data in `pg_default` but move the index to `history`.
 Alternatively, you could set up a third tablespace called `history_indexes`,
-move the data to `history`, and the indexes to `history_indexes`.
+and move the data to `history` and the indexes to `history_indexes`.
 
 In TimescaleDB 2.0 and later, you can use `move_chunk` with the job scheduler
 framework. For more information, see the [user-defined actions section][actions].
