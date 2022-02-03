@@ -11,6 +11,10 @@ module.exports = [
         href: "create-a-service",
       },
       {
+        title: "Migrate from Managed Service for TimescaleDB",
+        href: "migrate-mst-cloud",
+      },
+      {
         title: "Scale a service",
         href: "scaling-a-service",
       },

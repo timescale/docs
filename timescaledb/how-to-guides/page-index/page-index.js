@@ -522,13 +522,6 @@ module.exports = [
             excerpt: "Migrate data from a different PostgreSQL database",
           },
           {
-            title: "Migrate from Managed Service for TimescaleDB to Timescale Cloud",
-            href: "migrate-mst-cloud",
-            tags: ["migrate", "data"],
-            keywords: ["migrate", "data"],
-            excerpt: "Migrate data from Managed Service for TimescaleDB to Timescale Cloud",
-          },
-          {
             title: "Import from CSV",
             href: "import-csv",
             tags: ["migrate", "data", "timescaledb"],
