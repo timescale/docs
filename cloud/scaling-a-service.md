@@ -10,8 +10,8 @@ usually available for use within a few seconds.
 *   Storage can only be increased in size. You cannot decrease the amount of
     storage capacity your service has available.
 *   Storage size changes can only be made once every six hours.
-*   Storage can be modified in various increments between 10&nbsp;GB
-    and 16&nbsp;TB.
+*   Storage can range in size from 10&nbsp;GB to 16&nbsp;TB, 
+     and can be changed in various increments.
 
 You can increase or decrease the compute size of your service at any time, with
 a short downtime.
