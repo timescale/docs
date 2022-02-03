@@ -54,7 +54,7 @@ as writes (inserts) to the latest time intervals, not as updates to existing rec
 * Workloads have a natural partitioning across both time and space.
 
 TimescaleDB leverages these properties by automatically partitioning data into
-two-dimensional "chunks" (smaller PostgreSQL tables), performing
+two-dimensional chunks that operate like smaller PostgreSQL tables, performing
 operations and optimizing query planning across all chunks. This partitioning of the
 data into chunks ensures that recent tables' indexes are kept in memory as data is inserted
 into the database. Yet all this complexity is abstracted away from the user and

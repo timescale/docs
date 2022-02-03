@@ -8,11 +8,11 @@ Read our TimescaleDB-PostgreSQL benchmarks:
 To summarize, TimescaleDB offers:
 * Ease-of-use: TimescaleDB is far easier to use because creating partitions (or what we call
 "chunks") is automatically performed for the user. All of the complexity of automatic
-partitioning is abstracted away behind a "hypertable," which users interact with just as
+partitioning is abstracted away behind a hypertable, which users interact with just as
 they would with a PostgreSQL table.
-* Much higher ingest scale: TimescaleDB sees throughput more than 20X that of 
+* Much higher ingest scale: TimescaleDB sees throughput more than 20 times that of 
 <!-- vale Google.Units = NO -->
-PostgreSQL once tables reach moderate size (for example, 10s of millions of
+PostgreSQL once tables reach moderate size (for example, tens of millions of
 rows). 
 <!-- vale Google.Units = YES -->
 While vanilla PostgreSQL is suitable for time-series data at low volumes, it does

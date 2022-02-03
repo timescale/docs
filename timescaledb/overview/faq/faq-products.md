@@ -168,9 +168,9 @@ natural queries.
 and inherits its support for varied datatypes and indexes (B-tree, hash, range, BRIN, GiST, GIN).
 * If support for geospatial data is desirable. Data stored in TimescaleDB can leverage PostGIS's
 geometric datatypes, indexes, and queries.
-* If you want greater optionality when it comes to using third-party tools. TimescaleDB supports
-anything that speaks SQL (in other words, the entire PostgreSQL ecosystem).
-* If you already use and like PostgreSQL, and don't want to "give it up" and move to a
+* If you want more options when it comes to using third-party tools. TimescaleDB supports
+anything that speaks SQL, including the entire PostgreSQL ecosystem.
+* If you already use and like PostgreSQL, and don't want to give it up and move to a
 NoSQL system in order to scale to larger volumes of data.
 * If you already chose to abandon PostgreSQL or another relational database for a Hadoop/NoSQL
 system due to scaling concerns or issues. We provide support for the migration back.
@@ -179,8 +179,8 @@ system due to scaling concerns or issues. We provide support for the migration b
 For this scenario, in-memory or column-oriented databases are designed for
 key-value storage with fast lookup and a relational database may not be ideal.
 However, these systems clearly do not scale to large data volumes and cannot
-perform well for more complex queries (where relational databases
-like TimescaleDB and PostgreSQL are better suited).
+perform well for more complex queries, where relational databases
+like TimescaleDB and PostgreSQL are better suited.
 
 ## What if I have very sparse or unstructured data?
 TimescaleDB leverages PostgreSQL support for JSON/JSONB formats
