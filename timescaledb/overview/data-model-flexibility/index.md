@@ -29,7 +29,7 @@ timestamp | device_id | cpu_1m_avg | free_mem | temperature | location_id | dev_
 2017-01-01 01:03:42 | ghi789 | 100 | 100MB | 56 |  77 | roof
 
 
-Now, let's look at various ways to model this data:
+Now you can look at various ways to model this data:
 
 - [Wide data model][wide-data-model]
 - [Narrow data model][narrow-data-model]
