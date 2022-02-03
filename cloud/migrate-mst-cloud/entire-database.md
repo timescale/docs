@@ -1,4 +1,4 @@
-## Migrate the entire database at once
+## Migrate entire database at once
 
 Migrate smaller databases by using `pg_dump` and `pg_restore` on your entire
 database.
