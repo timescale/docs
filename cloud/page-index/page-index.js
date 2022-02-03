@@ -13,6 +13,16 @@ module.exports = [
       {
         title: "Migrate from Managed Service for TimescaleDB",
         href: "migrate-mst-cloud",
+        children: [
+          {
+            title: "Migrate the entire database at once",
+            href: "entire-database",
+          },
+          {
+            title: "Migrate schema and data separately",
+            href: "schema-then-data",
+          },
+        ],
       },
       {
         title: "Scale a service",
