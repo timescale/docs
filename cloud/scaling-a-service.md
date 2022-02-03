@@ -2,8 +2,8 @@
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is useful when you need to do something like increasing your
 storage capacity, but not your compute size. You can resize compute and storage
-in the Timescale Cloud console for any service, including multi-node
-environments.
+in the Timescale Cloud console for any service, including members of multi-node
+clusters.
 
 Storage changes are applied with no downtime, and the new storage capacity is
 usually available for use within a few seconds.
@@ -82,10 +82,10 @@ longer, and in some cases this could create a delay longer than six hours.
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 16&nbsp;TB in size.
 
-If you have a Timescale Cloud multi-node environment, you can also use
+If you have a Timescale Cloud multi-node cluster, you can also use
 autoscaling. We recommend that you define different scale limits for the access
 node and data nodes, not just because they have different workloads, but also
-because access nodes should scale much more slowly than data nodes. Data nodes
+because access nodes are less demanding for storage than data nodes. Data nodes
 have a single scaling threshold that applies across all the data nodes.
 
 <procedure>
