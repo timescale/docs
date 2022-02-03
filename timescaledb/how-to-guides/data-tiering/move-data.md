@@ -1,75 +1,72 @@
-# Move data
-The [`move_chunk`][api-move-chunk] function requires multiple tablespaces set up in PostgreSQL, so let's
-start with a quick review of how this works.
+# Data tiering
+PostgreSQL uses tablespaces to determine the physical location of your data. In
+most cases, you want to use faster storage to store data that is accessed
+frequently, and slower storage for data this is accessed less often.
 
-## Creating a tablespace
-First, add a storage mount that can serve as a home for your new tablespace. This
-process differs based on how you are deployed, but your system administrator
-should be able to arrange setting up the mount point. The key here is to provision
-your tablespace with storage that is appropriate for how its resident data is used.
+In TimescaleDB, you can move chunks between different tablespaces, using the
+[`move_chunk`][api-move-chunk] API call.
 
-To create a [tablespace][] in Postgres:
+<highlight type="note">
+You must be logged in as a super user, such as the `postgres` user, to be able
+to use the `move_chunk()` API call.
+</highlight>
 
-```sql
-CREATE TABLESPACE history
-OWNER postgres
-LOCATION '/mnt/history';
-```
+## Move data
+To set up data tiering you need to have created the tablespace to use and set
+the storage mount point. You can then use the [`move_chunk`][api-move-chunk] API
+call to move individual chunks from the default tablespace to the new
+tablespace. The `move_chunk` command also allows you to move indexes belonging
+to those chunks to an approprate tablespace.
 
-Here we are creating a tablespace called `history` that is
-owned by the default `postgres` user, using the storage mounted at `/mnt/history`.
+Additionally, `move_chunk` allows you reorder the chunk during the migration.
+This can be used to make your queries faster, and works in a similar way to the
+[`reorder_chunk` command][api-reorder-chunk].
 
-## Move Chunks [](move_chunks)
-Now that we have set up a new, empty tablespace, we can move individual chunks
-to there from the default tablespace.  The move chunks command also allows you
-to move indexes belonging to those chunks to the secondary tablespace (or
-another one).
+<procedure>
 
-In addition, the [`move_chunk`][api-move-chunk] function has the
-ability to "reorder" the chunk during the migration in order to enable faster
-queries.  This behavior is similar to [`reorder_chunk`][api-reorder-chunk]; please
-see that documentation for more information.
+### Moving data
+1.  Create a new tablespace. In this example, the tablespace is called
+    `history`, it is owned by the `postgres` super user, and the mount point is
+    `/mnt/history`:
+    ```sql
+    CREATE TABLESPACE history
+    OWNER postgres
+    LOCATION '/mnt/history';
+    ```
+1.  List chunks that you want to move. In this example, chunks that contain data
+    that is older than two days:
+    ```sql
+    SELECT show_chunks('conditions', older_than => INTERVAL '2 days');
+    ```
+1.  Move a chunk and its index to the new tablespace. You can also reorder the
+    data in this step. In this example, the chunk called
+    `_timescaledb_internal._hyper_1_4_chunk` is moved to the `history`
+    tablespace, and is reordered based on its time index:
+    ```sql
+    SELECT move_chunk(
+      chunk => '_timescaledb_internal._hyper_1_4_chunk',
+      destination_tablespace => 'history',
+      index_destination_tablespace => 'history',
+      reorder_index => '_timescaledb_internal._hyper_1_4_chunk_netdata_time_idx',
+      verbose => TRUE
+    );
+    ```
+1.  You can verify that the chunk now resides in the correct tablespace by
+    querying `pg_tables` to list all of the chunks on the tablespace:
+    ```sql
+    SELECT tablename from pg_tables
+      WHERE tablespace = 'history' and tablename like '_hyper_%_%_chunk';
+    ```
+    You can also verify that the index is in the correct location:
+    ```sql
+    SELECT indexname FROM pg_indexes WHERE tablespace = 'history';
+    ```
 
-To determine which chunks to move, we can list chunks that fit a specific
-criteria.  For example, to identify chunks older than two days:
+</procedure>
 
-```sql
-SELECT show_chunks('conditions', older_than => INTERVAL '2 days');
-```
-
-We then can move `_timescaledb_internal._hyper_1_4_chunk` along with its index
-over to `history`, while reordering the chunk based on its time index:
-
-
-```sql
-SELECT move_chunk(
-  chunk => '_timescaledb_internal._hyper_1_4_chunk',
-  destination_tablespace => 'history',
-  index_destination_tablespace => 'history',
-  reorder_index => '_timescaledb_internal._hyper_1_4_chunk_netdata_time_idx',
-  verbose => TRUE
-);
-```
-Once this successfully executes, we can verify that our chunk now lives on the
-`history` tablespace by querying `pg_tables` to list all of the chunks that
-are on `history`:
-
-```sql
-SELECT tablename from pg_tables
-  WHERE tablespace = 'history' and tablename like '_hyper_%_%_chunk';
-```
-
-The target chunk is now listed as residing on `history`; we
-can similarly validate the location of our index:
-
-```sql
-SELECT indexname FROM pg_indexes WHERE tablespace = 'history';
-```
-
-## Additional data tiering examples [](other-examples)
-After moving a chunk to a slower tablespace, you may want to move a chunk back
-to the default, faster tablespace:
-
+## Examples
+After moving a chunk to a slower tablespace, you can move it back to the
+default, faster tablespace:
 ```sql
 SELECT move_chunk(
   chunk => '_timescaledb_internal._hyper_1_4_chunk',
@@ -79,9 +76,8 @@ SELECT move_chunk(
 );
 ```
 
-Alternatively, you may decide to move a data chunk to your slower tablespace,
-but keep the chunk's indexes on the default, faster tablespace:
-
+You can move a data chunk to the slower tablespace, but keep the chunk's indexes
+on the default, faster tablespace:
 ```sql
 SELECT move_chunk(
   chunk => '_timescaledb_internal._hyper_1_4_chunk',
@@ -91,14 +87,13 @@ SELECT move_chunk(
 );
 ```
 
-You could perform the opposite as well (keeping the data in `pg_default` but
-moving the index to `history`), or setup a third tablespace
-(`history_indexes`) and move the data to `history` and its corresponding
-indexes to `history_indexes`.
+You could also keep the data in `pg_default` but move the index to `history`.
+Alternatively, you could set up a third tablespace called `history_indexes`,
+move the data to `history`, and the indexes to `history_indexes`.
 
-Finally, with the introduction of user-exposed automation in TimescaleDB 2.0,
-you can use `move_chunk` within TimescaleDB's job scheduler framework.  Please see
-our [Actions documentation][actions] for more information.
+In TimescaleDB 2.0 and later, you can use `move_chunk` with the job scheduler
+framework. For more information, see the [user-defined actions section][actions].
+
 
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
 [api-reorder-chunk]: /api/:currentVersion:/hypertable/reorder_chunk
