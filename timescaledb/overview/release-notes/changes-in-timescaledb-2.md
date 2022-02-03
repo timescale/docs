@@ -5,15 +5,15 @@ database for time-series data. Driven by user feedback and our experience buildi
 products like [Promscale](https://github.com/timescale/promscale), 2.0 is a major
 milestone and introduces the first multi-node, petabyte-scale relational database
 for time-series. In addition to multi-node capabilities, this release includes new
-features—and improvements to existing ones—focused on giving users more flexibility,
- control over their data, and the ability to customize behavior to suit their needs.
+features, and improvements to existing ones, focused on giving you more flexibility,
+ control over your data, and the ability to customize behavior to suit your needs.
 
 To facilitate many of the improvements in [TimescaleDB 2.0](https://github.com/timescale/timescaledb/releases/2.0.0),
  several existing APIs and function definitions have been modified which may require updates to your existing code.
 
 Most notably, the following API and PostgreSQL compatibility changes may impact
 existing code using these interfaces. If your workloads use any of the features,
-this document covers each in detail to help you understand what—if any—action
+this document covers each in detail to help you understand what action
 you need to take.
 
 *   **Dropping support for PostgreSQL versions 9.6 and 10:** As mentioned in
@@ -72,9 +72,9 @@ to customize behaviors when needed.**
 For example, in TimescaleDB 2.0 we've separated the automation of _refreshing_ continuous aggregate
 data from the core functionality, giving users the option to manually refresh the data and, if
 desired, add automation via a policy. This also makes this feature consistent with TimescaleDB's
-other policy-driven features—such as retention, reordering, and compression—which offer both
-manual control and automation via policies. We have also opened up our jobs scheduling framework
-to enable user-defined actions (custom background jobs that users can define themselves).
+other policy-driven features such as retention, reordering, and compression, which offer both
+manual control and automation using policies. We have also opened up our jobs scheduling framework
+to enable user-defined actions. User-defined actions are custom background jobs that you can define yourself.
 
 In the rest of this document, we go through each of the features and API changes in detail, and
 what users migrating from an earlier version of TimescaleDB should consider prior to updating to TimescaleDB 2.0.
@@ -146,12 +146,12 @@ FROM timescaledb_information.chunks c
 ### New functions for size information
 
 Information views no longer display size information about hypertables and other
-objects. Instead size information is available through a set of functions that
+objects. Instead, size information is available through a set of functions that
 all return the size in number of bytes. Removing size information makes the
 views faster since the information is often read dynamically from disk, or, in
 the case of distributed hypertables, read across a network.
 
-Size functions are also split into basic and detailed ones. Basic functions
+Size functions are also split into basic and detailed. Basic functions
 return only a single aggregate value and can be easily applied in queries, while
 the detailed functions return multiple columns and possibly multiple rows of
 information.
@@ -167,7 +167,7 @@ returns one row per data node that holds a copy of the chunk.
 *   [`hypertable_index_size(index)`](/api/:currentVersion:/hypertable/hypertable_index_size): Returns the
 aggregate number of bytes corresponding to a hypertable index across all chunks.
 *   [`approximate_row_count(relation)`](/api/:currentVersion:/hyperfunctions/approximate_row_count/):  The function
-has been renamed from `hypertable_approximate_row_count`. It can now also be called on non-hypertables.
+has been renamed from `hypertable_approximate_row_count`. It can now also be called on regular SQL tables.
 
 In previous versions of TimescaleDB, you could get size information for all hypertables in the `hypertable` view.
 In TimescaleDB 2.0, you can now instead combine the new `hypertables` view with size functions to achieve a similar result:
@@ -244,10 +244,10 @@ returned by the function `now()`).
 
 It is worth noting the way that `start_offset` and `end_offset` work as new data arrives and is added to the source hypertables.
 
-The above example sets the refresh interval as between four weeks and two hours
-ago (`start_offset` and `end_offset` respectively). Therefore, if any late data
-arrives with timestamps within the last four weeks and is backfilled into the
-source hypertable, then the continuous aggregate view is updated with this old
+This example sets the refresh interval between four weeks and two hours
+ago (using `start_offset` and `end_offset`). Therefore, if any late data
+arrives with timestamps within the last four weeks that is backfilled into the
+source hypertable, the continuous aggregate view is updated with the old
 data the next time the policy executes.
 
 This policy can, in the worst case, materialize the whole window every time it runs if data at least four weeks
