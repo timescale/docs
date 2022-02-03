@@ -25,7 +25,7 @@ Using the same temperature example, you can create the same query as a
 continuous aggregate view like this:
 
 ```sql
-CREATE VIEW daily_average WITH (timescaledb.continuous)
+CREATE MATERIALIZED VIEW daily_average WITH (timescaledb.continuous)
     AS SELECT time_bucket(‘1 day’, time) as Day,
               location,
               avg(temperature)
