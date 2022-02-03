@@ -1,4 +1,4 @@
-# Data tiering
+# About data tiering
 When running TimescaleDB on your own hardware, you can use data tiering to make
 the most effective use of your physical hardware. Data tiering provides another
 mechanism, in addition to other TimescaleDB capabilities like compression and
