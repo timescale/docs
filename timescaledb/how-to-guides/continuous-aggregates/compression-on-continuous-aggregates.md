@@ -43,7 +43,7 @@ actively refreshed regions are not compressed. This is to prevent refresh
 policies from failing. For example, consider a refresh policy like this:
 
 ```sql
-SELECT add_continuous_aggregate_policy('cagg_name', refresh_start=>'30 days', refresh_end=>'1 day', '1 h');
+SELECT add_continuous_aggregate_policy('cagg_name', start_offset=>'30 days', end_offset=>'1 day', '1 h');
 ```
 
 With this kind of refresh policy, the compression policy needs the `compress_after` 
