@@ -88,7 +88,7 @@ SELECT move_chunk(
 ```
 
 You can also keep the data in `pg_default` but move the index to `history`.
-Alternatively, you could set up a third tablespace called `history_indexes`,
+Alternatively, you can set up a third tablespace called `history_indexes`,
 and move the data to `history` and the indexes to `history_indexes`.
 
 In TimescaleDB 2.0 and later, you can use `move_chunk` with the job scheduler
