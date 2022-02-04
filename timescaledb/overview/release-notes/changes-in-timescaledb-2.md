@@ -250,7 +250,7 @@ source hypertable, the continuous aggregate view is updated with the old
 data the next time the policy executes.
 
 This policy can, in the worst case, materialize the whole window every time it runs if data at least four weeks
-old continues to arrive and be inserted into the source hypertables.  However, since a continuous aggregate tracks
+old continues to arrive and be inserted into the source hypertables. However, since a continuous aggregate tracks
 changes since the last refresh, it can in most cases materialize a subset of the window that corresponds to the
 data that has actually changed.
 
@@ -501,7 +501,7 @@ built-in actions (for example, `remove_retention_policy`).
 ## License information [](license-changes)
 
 In TimescaleDB 2.0, all features which had been classified previously as "enterprise" have become "community" features
-and are available for free under the Timescale License.  As such, the need for an "enterprise license" to unlock any
+and are available for free under the Timescale License. As such, the need for an "enterprise license" to unlock any
 features has been removed. All features are available either under the community Timescale License or under the
 open-source Apache-2 License. [This blog post](https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/)
 explains the changes. The following changes were made to license API:
