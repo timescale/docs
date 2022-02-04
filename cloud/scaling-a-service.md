@@ -10,7 +10,7 @@ usually available for use within a few seconds.
 *   Storage can only be increased in size. You cannot decrease the amount of
     storage capacity your service has available.
 *   Storage size changes can only be made once every six hours.
-*   Storage can range in size from 10&nbsp;GB to 16&nbsp;TB, 
+*   Storage can range in size from 10&nbsp;GB to 16&nbsp;TB,
      and can be changed in various increments.
 
 You can increase or decrease the compute size of your service at any time, with
@@ -34,6 +34,22 @@ costs.
 You can use the Timescale Cloud console to change how much CPU and memory
 resources your service has available, as well as change the disk size for your
 service. You can adjust this manually as required, or for disk size you can use autoscaling.
+
+## Memory limits
+If you run intensive queries on your Timescale Cloud services, you might
+encounter out of memory (OOM) errors. This occurs if your query consumes more
+memory than is available. The error usually looks like this:
+```sql
+2021-09-09 18:15:08 UTC [560567]:TimescaleDB: DETAIL: Failed process was running: select * from pg_class a, pg_class b, pg_class c, pg_class d, pg_class e order by random();
+2021-09-09 18:15:08 UTC [560567]:TimescaleDB: LOG: server process (PID 2351983) was terminated by signal 9: Killed
+```
+
+When this happens, an `OOM killer` process shuts down PostgreSQL processes using
+`SIGKILL` commands, until the memory usage falls below the upper limit. To
+prevent service disruption caused by OOM errors, Timescale Cloud attempts to
+shut down only the query that caused the problem. This means that the
+problematic query does not run, but that your PostgreSQL service continues to
+operate normally.
 
 ## Change resource allocations manually
 When you change the disk size, the changes are applied with no downtime, and the
