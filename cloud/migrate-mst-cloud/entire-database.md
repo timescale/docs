@@ -1,18 +1,17 @@
-## Migrate entire database at once
+# Migrate entire database at once
 
-Migrate smaller databases by using `pg_dump` and `pg_restore` on your entire
-database.
+Migrate smaller databases by dumping and restoring the entire database at once.
 
-<highlight type="note">
-Depending on the size of your database and your network speed, migration may
-take several hours. You can continue reading and writing(?) to your old database
-during this time.
-</highlight>
+<highlight type="warning">Depending on your database size and  network speed,
+migration may take several hours. You can continue reading from your old
+database during this time. But writes made to your old database while migration
+is running might not be copied to Timescale Cloud. Plan your migration
+accordingly to avoid data loss.</highlight>
 
-### Prerequisites
+## Prerequisites
 
 - Check that the PostgreSQL utilities [`pg_dump`][pg_dump] and
-  [`pg_restore`][pg_restore] are installed on your system:
+  [`pg_restore`][pg_restore] are installed:
 
   ```bash
   pg_dump --version
@@ -22,7 +21,7 @@ during this time.
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
-### Migrating the entire database at once
+## Migrating the entire database at once
 
 <procedure>
 
@@ -32,8 +31,8 @@ during this time.
    file:
 
    ```bash
-   # Use your Managed Service for TimescaleDB connection details in place of 
-   # <mst_host> and <mst_port>.
+   # Use your Managed Service for TimescaleDB connection details in place 
+   # of <mst_host> and <mst_port>.
    pg_dump -U tsdbadmin -W -h <mst_host> -p <mst_port> -Fc -v \
    -f <file-name>.bak defaultdb
    ```
@@ -55,14 +54,16 @@ during this time.
    SELECT timescaledb_pre_restore();
    ```
 
-1. Check that `pg_dump` has finished. In your regular shell (not in psql), run
-   the following command to restore the dumped data into your Cloud database. Be
-   sure to set the `--no-owner` flag to avoid permissions problems.
+1. Check that `pg_dump` has finished. 
+
+1. From your regular shell prompt, not psql, run the following command to
+   restore the dumped data into your Cloud database. Set the `--no-owner` flag
+   to avoid permissions errors.
 
     ```bash
     # Use your Cloud credentials and connection details.
-   pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner -Fc \
-   -v -d tsdb <file-name>.bak
+   pg_restore -U tsdbadmin -W -h <cloud_host> -p <cloud_port> --no-owner \
+   -Fc -v -d tsdb <file-name>.bak
     ```
 
 1. In psql, run:
@@ -71,14 +72,16 @@ during this time.
     SELECT timescaledb_post_restore();
     ```
 
+1. Decompress your data.
+
 </procedure>
 
-<highlight type="note">
+## Errors
+
 You may encounter the following errors while running `pg_dump` and `pg_restore`.
 You can safely ignore them. The migration still occurs successfully.
-</highlight>
 
-#### pg_dump errors
+### pg_dump errors
 
 ```bash
 pg_dump: warning: there are circular foreign-key constraints on this table:
@@ -93,7 +96,7 @@ DETAIL:  Data for hypertables are stored in the chunks of a hypertable so COPY T
 HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
 ```
 
-#### pg_restore errors
+### pg_restore errors
 
 ```bash
 pg_restore: creating EXTENSION "timescaledb"
@@ -111,17 +114,17 @@ pg_restore: error: could not execute query: ERROR:  must be owner of extension t
 pg_restore: warning: errors ignored on restore: 1
 ```
 
-To learn more about the TimescaleDB APIs in this procedure, see the API
+## Useful references
+
+To learn about the TimescaleDB APIs in this procedure, see the API
 references for: 
 
 - [timescaledb_pre_restore][timescaledb_pre_restore]
 - [timescaledb_post_restore][timescaledb_post_restore]
 
-[cagg-policy]: /how-to-guides/continuous-aggregates/refresh-policies/
-[compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/manually-compress-chunks/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
-[retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
-[reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
+[timescaledb_post_restore]:/api/:currentVersion:/administration/timescaledb_post_restore/
