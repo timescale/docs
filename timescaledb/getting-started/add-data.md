@@ -8,35 +8,36 @@ describes how the climate in that area changes over time.
 ## About the dataset
 
 Our dataset comes from [OpenWeatherMap](https://openweathermap.org) and contains
-measurements for 10 cities in which Timescalers reside: New York City, San Francisco,
-Princeton, Austin, Stockholm, Lisbon, Pietermaritzburg, Nairobi, Toronto and Vienna.
+measurements for 10 cities in which Timescalers reside: New York City, San
+Francisco, Princeton, Austin, Stockholm, Lisbon, Pietermaritzburg, Nairobi,
+Toronto, and Vienna.
 
 The dataset contains weather metrics for each city from 1 January 1979 to 27 April 2021.
 
 For each city, we record the following metrics:
 ```bash
-* time: timestamp of data calculation
+* time: Timestamp of data calculation
 * timezone: Shift in seconds from UTC
 * city_name: City name
 * temp_c: Temperature in degrees celsius
 * feels_like_c:  This temperature parameter accounts for the human perception of weather
 * temp_min_c: Minimum temperature
 * temp_max_c Maximum temperature
-* pressure_hpa: Atmospheric pressure (on the sea level) in hPa
-* humidity_percent:  humidity as a percentage of
+* pressure_hpa: Atmospheric pressure (at sea level) in hPa
+* humidity_percent:  Humidity as a percentage of maximum water vapor
 * wind_speed_ms: Wind speed in meters per second
 * wind_deg: Wind direction, degrees (meteorological)
 * rain_1h: Rain volume for the last hour, mm
 * rain_3h: Rain volume for the last 3 hours, mm
 * snow_1h: Snow volume for the last hour, in mm
 * snow_3h: Snow volume for the last 3 hours, in mm
-* clouds_percent: Cloudiness as a percentage of
+* clouds_percent: Cloudiness as a percentage
 * weather_id: Weather condition id
 ```
 
 ## Accessing the dataset
 
-We provide a csv file with commands for inserting the data into your TimescaleDB instance.
+We provide a CSV file with commands for inserting the data into your TimescaleDB instance.
 
 Download the CSV file (in ZIP format) below and insert it into your database from psql.
 
