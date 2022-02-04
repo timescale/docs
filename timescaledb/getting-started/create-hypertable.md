@@ -1,12 +1,14 @@
 # 3.Create a hypertable
-When you have launched your first TimescaleDB instance and accessed your database, you can create your first hypertable. Hypertables are the heart of TimescaleDB and are what allows TimescaleDB to work so effectively with time-series data.
+When you've launched your first TimescaleDB instance and accessed your database,
+you can create your first hypertable. Hypertables are the heart of TimescaleDB
+and are what allows TimescaleDB to work so effectively with time-series data.
 
 ## Chunks and hypertables
-Chunks and hypertables make storing and querying times-series data blazing fast
-at peta-byte scale. TimescaleDB automatically partitions time-series data into
-chunks, or sub-tables, based on time and space. For example, chunks can be based
-on hash key, device ID, location or some other distinct key. You can configure
-chunk size so that recent chunks fit memory for faster queries.
+Chunks and hypertables make storing and querying times-series data blazingly
+fast at peta-byte scale. TimescaleDB automatically partitions time-series data
+into chunks, or sub-tables, based on time and space. For example, chunks can be
+based on hash key, device ID, location or some other distinct key. You can
+configure chunk size so that recent chunks fit in memory for faster queries.
 
 A hypertable is an abstraction layer over chunks that hold time-series data.
 Hypertables allow you to query and access data from all the chunks as if they
@@ -54,19 +56,19 @@ CREATE TABLE IF NOT EXISTS weather_metrics (
 SELECT create_hypertable('weather_metrics','time');
 ```
 
-Creating a hypertable is a two step process. Start by using a `CREATE TABLE`
-statement to create a regular relational table. Then you can use a `SELECT`
+Creating a hypertable is a two-step process. Start by using a `CREATE TABLE`
+statement to create a regular relational table. Then, use a `SELECT`
 statement with the `create_hypertable` function to convert the table into a
 hypertable. The `SELECT` statement requires the name of the table to convert,
 and the name of the time column in that table.
 
 ## How hypertables help with times-series data
-**Hypertables help speed up ingest rates:** Because data is only inserted into
+**Hypertables speed up ingest rates:** Because data is only inserted into
 the current chunk, data in the other chunks remains untouched. If you use a
-single table, every time you ingest data into the table it becomes bigger and
+single table, every time you ingest data into the table, it becomes bigger and
 more bloated.
 
-**Hypertables help speed up queries:** Because only specific chunks are queried
+**Hypertables speed up queries:** Because only specific chunks are queried
 thanks to the automatic indexing by time or space.
 
 The value of hypertables is in how data is partitioned on disk. The index value
@@ -75,8 +77,8 @@ focused use of memory and query planning resources. In PostgreSQL (and other
 relational database management systems), you can build indexes on one or more
 values, but the data must still be retrieved. Retrieval is in most cases, from
 portions of the physical layer (memory or disk), which doesn't always result in
-effective use of memory and disk resources. By automatically partitioning on
-time, transparently, hypertables improve resource use and queries and
+effective use of memory and disk resources. By automatically and transparently
+partitioning on time, hypertables improve resource use. Queries and
 data-stores become more efficient.
 
 ## Learn more about hypertables and chunks
