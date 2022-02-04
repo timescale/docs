@@ -321,9 +321,11 @@ Recreate them on your Cloud database.
 
 </procedure>
 
-[compression]: /how-to-guides/compression/manually-compress-chunks/
+[cagg-policy]: /how-to-guides/continuous-aggregates/refresh-policies/
+[compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
-[timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
-[timescaledb_post_restore]:/api/:currentVersion:/administration/timescaledb_post_restore/
+[retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
+[reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
