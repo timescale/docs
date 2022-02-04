@@ -23,11 +23,13 @@ series, each of which is defined by a unique set of tags.
 8. {name: temperature,  device_id: def456,  location_id: 335,  dev_type: roof}
 9. {name: temperature,  device_id: ghi789,  location_id:  77,  dev_type: roof}
 ```
-The number of such time series scales with the cross-product of the cardinality
-of each tag, i.e., (# names) &times; (# device ids) &times; (# location ids)
-&times; (device types). Some time-series databases struggle as cardinality
-increases, ultimately limiting the number of device types and devices you can
-store in a single database.
+
+In general, your model has as many time series as the cardinality of all your
+tags multiplied together. For example, if `name` has 10 possible values,
+`device_id` has 5 possible values, `location_id` has 2 possible values, and
+`dev_type` has 2 possible values, your model has 200 time series. Some
+time-series databases struggle as cardinality increases. This limits the number
+of device types and devices you can store in a single database.
 
 TimescaleDB supports narrow models and does not suffer from the same cardinality
 limitations as other time-series databases. A narrow model makes sense if you
