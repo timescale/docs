@@ -1,6 +1,6 @@
 # Language quick starts
 
-Here is a collection of quick starts on your favorite language.
+Here is a collection of quick starts for your favorite language.
 
 <highlight type="warning">
 If you didn't find a quick start with your beloved language,
