@@ -93,7 +93,7 @@ powerful function for time-series analysis is `time_bucket_gapfill`.
 Another common problem in time-series analysis is dealing with imperfect datasets.
 Some time-series analyses or visualizations want to display records for each
 selected time period, even if no data was recorded during that period. This is
-commonly termed "gap filling", and may involve performing such operations as
+commonly termed "gap filling," and may involve performing such operations as
 recording a "0" for any missing data, interpolating missing values, or carrying
 the last observed value forward until new data is recorded.
 
