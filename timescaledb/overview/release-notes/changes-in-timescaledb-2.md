@@ -35,11 +35,10 @@ about the impetus for these changes and our design decisions. For a more in-dept
   please [review our updated documentation](/how-to-guides/)
   (navigate to specific features of interest).
 
-Once you have read through this guide and understand the impact that upgrading to the latest
- version may have on your existing application and infrastructure, please follow our
- [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/)
-  documentation. There you can find instructions and recommendations to ensure
-  everything is updated and works correctly.
+Read this guide to understand the impact of upgrading to the latest version and
+to evaluate the effects on your application and infrastructure. Then, for upgrade
+instructions and recommendations, see the [documentation on upgrading to
+TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/).
 
 
 ## Why we've made these changes [](why-changes)
