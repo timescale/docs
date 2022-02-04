@@ -148,6 +148,13 @@ module.exports = [
         tags: ['promscale', 'visualization', 'analytics', 'grafana', 'prometheus'],
         keywords: ['Promscale', 'analytics', 'Grafana'],
         excerpt: 'Learn about data visualization tools you can use with Promscale'
+      },
+      {
+        title: 'Database roles and permissions',
+        href: 'roles-and-permissions',
+        tags: ['promscale', 'roles', 'permissions', 'database'],
+        keywords: ['Promscale', 'analytics', 'permissions', 'roles'],
+        excerpt: 'Learn about the different database roles and permissions Promscale defines'
       }
     ]
   }
