@@ -21,11 +21,12 @@ accordingly to avoid data loss.</highlight>
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
+<highlight type="tip">For faster migration, [compress all your
+data](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/manually-compress-chunks/)
+
 ## Migrating the entire database at once
 
 <procedure>
-
-1. [Compress all your data][compression] for faster migration.
 
 1. Dump all the data from your Managed Service for TimescaleDB database into a
    file:
@@ -72,9 +73,10 @@ accordingly to avoid data loss.</highlight>
     SELECT timescaledb_post_restore();
     ```
 
-1. Decompress your data.
-
 </procedure>
+
+Your data is now in Timescale Cloud. If you compressed it before migration,
+[decompress chunks][decompress] as necessary for normal operation.
 
 ## Errors
 
@@ -123,6 +125,7 @@ references for:
 - [timescaledb_post_restore][timescaledb_post_restore]
 
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/manually-compress-chunks/
+[decompress]: /timescaledb/:currentVersion/how-to-guides/compression/decompress-chunks/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
