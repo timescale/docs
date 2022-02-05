@@ -53,7 +53,7 @@ of a query across the data nodes.
 You must have set up your multi-node cluster before you create a distributed
 hypertable. If you have not configured multi-node, creating a distributed
 hypertable fails. For more information about setting up multi-node, see the
-[multi-node section](/how-to-guides/multinode-timescaledb).
+[multi-node section](https://docs.timescale.com/timescaledb/latest/how-to-guides/multinode-timescaledb/).
 </highlight>
 
 <procedure>
@@ -79,4 +79,4 @@ hypertable fails. For more information about setting up multi-node, see the
 
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
-[multi-node]: https://docs.timescale.com/timescaledb/latest/how-to-guides/multinode-timescaledb/
+[multi-node]: /how-to-guides/multinode-timescaledb/
