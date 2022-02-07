@@ -148,7 +148,7 @@ Yes. TimescaleDB is currently deployed in production across a variety of industr
 including manufacturing, energy, utilities, mining, oil and gas, finance, ad tech,
 smart spaces, and more.
 
-## When is TimescaleDB a good choice?**  [](when-good)
+## When is TimescaleDB a good choice?  [](when-good)
 TimescaleDB is a good choice:
 
 * If you, and more of your organization, want to make standard SQL queries on time-series data,
@@ -168,9 +168,9 @@ natural queries.
 and inherits its support for varied datatypes and indexes (B-tree, hash, range, BRIN, GiST, GIN).
 * If support for geospatial data is desirable. Data stored in TimescaleDB can leverage PostGIS's
 geometric datatypes, indexes, and queries.
-* If you want greater optionality when it comes to using third-party tools. TimescaleDB supports
-anything that speaks SQL (i.e., the entire PostgreSQL ecosystem).
-* If you already use and like PostgreSQL, and don't want to have to "give it up" and move to a
+* If you want more options when it comes to using third-party tools. TimescaleDB supports
+anything that speaks SQL, including the entire PostgreSQL ecosystem.
+* If you already use and like PostgreSQL, and don't want to give it up and move to a
 NoSQL system in order to scale to larger volumes of data.
 * If you already chose to abandon PostgreSQL or another relational database for a Hadoop/NoSQL
 system due to scaling concerns or issues. We provide support for the migration back.
@@ -179,20 +179,21 @@ system due to scaling concerns or issues. We provide support for the migration b
 For this scenario, in-memory or column-oriented databases are designed for
 key-value storage with fast lookup and a relational database may not be ideal.
 However, these systems clearly do not scale to large data volumes and cannot
-perform well for more complex queries (whereas relational databases
-like TimescaleDB and PostgreSQL are better suited).
+perform well for more complex queries, where relational databases
+like TimescaleDB and PostgreSQL are better suited.
 
 ## What if I have very sparse or unstructured data?
-Good question. TimescaleDB leverages PostgreSQL support for JSON/JSONB formats
+TimescaleDB leverages PostgreSQL support for JSON/JSONB formats
 and handles sparsity quite efficiently (bitmaps for NULL values). However,
 there are some best practices and suggestions that may apply to get optimal
-performance depending on your scenario. Please see discussion in these docs
+performance depending on your scenario. See discussion in these docs
 or [join our Slack group][join_slack].
 
-[why-sql]: https://www.timescale.com/blog/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
-[new-queries]: /how-to-guides/query-data/advanced-analytic-queries
+[distributed_hypertable]: /overview/core-concepts/distributed-hypertables/
 [join_slack]: https://slack.timescale.com/
-[timescale-license]: https://www.timescale.com/legal/licenses
+[new-queries]: /how-to-guides/query-data/advanced-analytic-queries
 [timescale-k8s]: https://github.com/timescale/timescaledb-kubernetes
+[timescale-license]: https://www.timescale.com/legal/licenses
 [timescale-signup]: https://www.timescale.com/timescale-signup
 [timescale-support]: https://www.timescale.com/support
+[why-sql]: https://www.timescale.com/blog/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
