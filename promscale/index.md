@@ -12,10 +12,10 @@ siloed in different systems.
     you begin using it.
 *   [Learn about Promscale benefits][promscale-benefits] to understand how it
     can be useful in your environment.
-*   [Learn about Promscale installation][install-promscale] to understand how
-    to install using source, docker and kubernetes.
+*   [Install Promscale][install-promscale] from source, or using Docker and Kubernetes.
 *   [Learn about tobs][about-tobs] to understand how to install a complete
     observability stack on Kubernetes.
+*   Configure Promscale for [scaling and high availability][scaling-ha].
 *   [Send metrics and traces][send-data] to Promscale    
 *   Use Promscale to [run queries][query-data].
 *   Use Promscale with [visualization tools][visualize-data].
@@ -31,3 +31,4 @@ For more about Promscale, see our [developer documentation][promscale-gh-docs].
 [promscale-gh-docs]: https://github.com/timescale/promscale/
 [about-tobs]: promscale/:currentVersion:/tobs/
 [send-data]: promscale/:currentVersion:/send-data/
+[scaling-ha]: promscale/:currentVersion:/scale/
