@@ -199,7 +199,7 @@ SELECT time_bucket('1 day', time) AS day,
 ```
 
 For more information about TimescaleDB's current (and growing) list of
-time features, please [see our API][api].
+time features, [see our API][api].
 
 #### Time-oriented data management
 
