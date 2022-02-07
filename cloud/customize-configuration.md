@@ -63,15 +63,18 @@ and the `Apply changes` (or `Restart and apply changes`) button is available to
 click, prompting you to confirm any changes before the Service is modified.
 
 ## Multiple databases
-Today, Timescale Cloud does not allow the creation of multiple databases within 
-a single service. If you require multiple databases, you will need to create a 
-service for each database. Another option would be to redesign your table 
-structure. Timescale Cloud does not support multiple databases within the same 
-service to reduce complexity. Each database would require its own installation 
-of TimescaleDB, managed independently, which breaks our ability to manage 
-maintenance upgrades for you. Supporting multiple databases also adds 
-significant complexity to the UI. To keep our services as easy to use as 
-possible, we have opted to limit services to one database per service.  
+To create more than one Timescale Cloud database, you need to create a new 
+service for each database. Timescale Cloud does not support multiple 
+databases within the same service. Having a separate service for each database 
+affords each database its own isolated resources. 
+
+Another option is to use [schemas](https://www.postgresql.org/docs/current/ddl-schemas.html). Schemas provide a way to organize 
+tables into logical groups. A single database can contain multiple schemas, 
+which in turn contain tables. The main difference between isolating with 
+databases versus schemas is that a user can access objects in any of the 
+schemas in the database they are connected to, so long as they have the 
+corresponding privileges. Schemas can help isolate smaller use cases 
+that do not warrant their own service.
 
 ## PostgreSQL extensions
 You can use PostgreSQL extensions with Timescale Cloud. If you run
