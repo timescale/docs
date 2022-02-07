@@ -6,8 +6,7 @@ Migrate smaller databases by dumping and restoring the entire database at once.
 Depending on your database size and  network speed,
 migration may take several hours. You can continue reading from your old
 database during this time, though performance may be slower. Writes made to your
-old database while migration is running might not be copied to Timescale Cloud.
-Plan your migration accordingly to avoid data loss. 
+old database during migration might not be copied to Timescale Cloud. Plan your migration accordingly to avoid data loss. 
 </highlight>
 
 ## Prerequisites
@@ -28,26 +27,22 @@ Plan your migration accordingly to avoid data loss.
   the section on [upgrading PostgreSQL][upgrading-postgresql].
 
 - Check that you're running the same major version of TimescaleDB on both
-  Managed Service for TimescaleDB and Timescale Cloud. To upgrade from
-  TimescaleDB 1.x to 2.x, refer to the section on [upgrading
-  TimescaleDB][upgrading-timescaledb].
+  Managed Service for TimescaleDB and Timescale Cloud. To upgrade your version,
+  refer to the section on [upgrading TimescaleDB][upgrading-timescaledb].
 
-<highlight type="note"> 
-To speed up migration, compress your data. After you finish the migration, 
-decompress chunks as necessary for normal operation. For more information about 
-compression and decompression, see the
-[compression](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/manually-compress-chunks/)
-and
-[decompression](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/decompress-chunks/)
-sections. 
-</highlight>
+<highlight type="note"> To speed up migration, compress your data. You can
+compress any chunks where data is not being currently inserted, updated, or
+deleted. After you finish migrating, decompress chunks as necessary for
+normal operation. For more information about compression and decompression, see
+the
+[compression](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/)
+section. </highlight>
 
 ## Migrating the entire database at once
 
 <procedure>
 
-1. Dump all the data from your Managed Service for TimescaleDB database into a
-   file:
+1. Dump all the data from your old database into a .bak file:
 
    ```bash
    # Use your Managed Service for TimescaleDB connection details in place 
@@ -57,7 +52,8 @@ sections.
    ```
 
    The service prompts you for a password. Use your credentials for Managed
-   Service in TimescaleDB.
+   Service in TimescaleDB. Wait for `pg_dump` to finish before going to the next
+   step.
 
 1. Connect to your Timescale Cloud database using psql:
 
@@ -67,17 +63,17 @@ sections.
    psql “postgres://tsdbadmin:<cloud_password>@<cloud_host>:<cloud_port>/tsdb?sslmode=require”
    ```
 
-1. In psql, run:
+1. Prepare your Timescale Cloud database for data restoration with
+   [`timescaledb_pre_restore`][timescaledb_pre_restore]. This stops background
+   workers. In psql, run:
 
    ```bash
    SELECT timescaledb_pre_restore();
    ```
 
-1. Check that `pg_dump` has finished. 
-
-1. From your regular shell prompt, not psql, run the following command to
-   restore the dumped data into your Cloud database. Set the `--no-owner` flag
-   to avoid permissions errors.
+1. From your regular shell prompt, not psql, run the following command. This
+   restores the dumped data from the .bak file into your Cloud database. Set the
+   `--no-owner` flag to avoid permissions errors.
 
     ```bash
     # Use your Cloud credentials and connection details.
@@ -85,7 +81,8 @@ sections.
    -Fc -v -d tsdb <file-name>.bak
     ```
 
-1. In psql, run:
+1. Return your Timescale Cloud database to normal operations with
+   [`timescaledb_post_restore`][timescaledb_post_restore]. In psql, run:
 
     ```bash
     SELECT timescaledb_post_restore();
@@ -115,6 +112,10 @@ HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypert
 
 ### pg_restore errors
 
+`pg_restore` tries to apply the TimescaleDB extension as it copies your schema,
+and it throws a permissions error. Since TimescaleDB is already installed by
+default on Timescale Cloud, you can safely ignore this:
+
 ```bash
 pg_restore: creating EXTENSION "timescaledb"
 pg_restore: creating COMMENT "EXTENSION timescaledb"
@@ -122,6 +123,8 @@ pg_restore: while PROCESSING TOC:
 pg_restore: from TOC entry 6239; 0 0 COMMENT EXTENSION timescaledb 
 pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
 ```
+
+You can also ignore:
 
 ```bash
 ​​pg_restore: WARNING:  no privileges were granted for "<..>"
@@ -131,16 +134,7 @@ pg_restore: error: could not execute query: ERROR:  must be owner of extension t
 pg_restore: warning: errors ignored on restore: 1
 ```
 
-## Useful references
-
-To learn about the TimescaleDB APIs in this procedure, see the API
-references for: 
-
-- [timescaledb_pre_restore][timescaledb_pre_restore]
-- [timescaledb_post_restore][timescaledb_post_restore]
-
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/manually-compress-chunks/
-[decompress]: /timescaledb/:currentVersion/how-to-guides/compression/decompress-chunks/
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
