@@ -29,7 +29,7 @@ to distributed hypertables:
 - Continuous aggregates are only supported on the access node.
 - Reordering chunks is not supported.
 - Tablespaces cannot be attached to a distributed hypertable on the
-  access node. It is still possible attach tablespaces on data nodes.
+  access node. It is still possible to attach tablespaces on data nodes.
 - Roles and permissions are assumed to be consistent across the nodes
   of a distributed database, but consistency is not enforced.
 - Joins on data nodes are not supported. Joining a distributed

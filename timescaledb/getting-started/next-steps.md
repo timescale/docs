@@ -32,8 +32,8 @@ Superhero and connect to other 3rd party visualization tools.
 
 ## Connect to your data with code
 
-While this may the century of big data, the power greatest power often happens
-in connected applications that help us ingest and provide value to users. Using
+While this may be the century of big data, the greatest power often happens
+in connected applications that help us turn data into value to users. Using
 time-series data effectively means you need to get your code connected and
 working as efficiently as possible.
 
