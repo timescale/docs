@@ -255,7 +255,7 @@ changes since the last refresh, it can in most cases materialize a subset of the
 data that has actually changed.
 
 In this example, data backfilled more than 4 weeks ago is not rematerialized, nor does the continuous aggregate
-include data less than 2 hours old.  However, querying the continuous aggregate view can still return aggregates
+include data less than 2 hours old. However, querying the continuous aggregate view can still return aggregates
 about the latest data, and not just aggregated data more than 2 hours old, based on support for
 [real-time aggregation](/overview/core-concepts/continuous-aggregates/#real-time-aggregation),
 specified as before with the `timescaledb.materialized_only=false` parameter. Real-time aggregates are still the default
