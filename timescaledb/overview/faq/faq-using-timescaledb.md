@@ -14,7 +14,7 @@ Owing to these advantages, TimescaleDB is currently deployed across a variety of
 including manufacturing, energy, utilities, mining, oil and gas, finance, ad tech, smart spaces,
 and more. Use cases include complex monitoring and analytics; predicting the performance and
 behavior of applications, models, consumers and connected machines; powering operational
-analytical workflows and dashboards; for QA and performance testing.
+analytical workflows and dashboards; and QA and performance testing.
 
 ## How do I write data?
 Just via normal SQL, but here are some [insert examples][INSERT].
@@ -30,8 +30,8 @@ compression algorithms for timestamps, integers, floats, strings, or other
 data). Many users see between a 90-98% reduction in their storage footprint,
 leading to significant cost savings (and other query performance improvements).
 Note that compression must be *explicitly turned on and configured* for a
-hypertable; compression is by default off. For more details about how to use
-TimescaleDB ncompression, please see [our compression docs][compression-docs]
+hypertable; compression is off by default. For more details about how to use
+TimescaleDB compression, please see [our compression docs][compression-docs]
 or a longer technical deep-dive [on our blog ][compression-blog].
 
 ## How far can TimescaleDB scale?
@@ -42,7 +42,7 @@ Multi-node TimescaleDB can scale to 10+ million metric inserts / second, and
 store petabytes of data. You can read more about
 [insert and query benchmarks][benchmarks] for multi-node TimescaleDB.
 
-TimescaleDB is designed to combine the scalability of popular NoSQL databases,
+TimescaleDB is designed to combine the scalability of popular NoSQL databases
 with the native query complexity supported by RDBMS systems. Read on for more
 details on clustering.
 
@@ -54,7 +54,7 @@ as writes (inserts) to the latest time intervals, not as updates to existing rec
 * Workloads have a natural partitioning across both time and space.
 
 TimescaleDB leverages these properties by automatically partitioning data into
-two-dimensional "chunks" (i.e., smaller PostgreSQL tables), performing
+two-dimensional chunks that operate like smaller PostgreSQL tables, performing
 operations and optimizing query planning across all chunks. This partitioning of the
 data into chunks ensures that recent tables' indexes are kept in memory as data is inserted
 into the database. Yet all this complexity is abstracted away from the user and
