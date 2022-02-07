@@ -21,8 +21,11 @@ accordingly to avoid data loss.</highlight>
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
-<highlight type="tip">For faster migration, [compress all your
-data](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/manually-compress-chunks/)
+<highlight type="tip">
+To speed up migration, compress your data. For more information about 
+compression, see the 
+[compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/manually-compress-chunks/)
+</highlight>
 
 ## Migrating the entire database at once
 
