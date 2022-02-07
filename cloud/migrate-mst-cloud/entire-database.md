@@ -30,13 +30,15 @@ old database during migration might not be copied to Timescale Cloud. Plan your 
   Managed Service for TimescaleDB and Timescale Cloud. To upgrade your version,
   refer to the section on [upgrading TimescaleDB][upgrading-timescaledb].
 
-<highlight type="note"> To speed up migration, compress your data. You can
+<highlight type="note">
+To speed up migration, compress your data. You can
 compress any chunks where data is not being currently inserted, updated, or
 deleted. After you finish migrating, decompress chunks as necessary for
 normal operation. For more information about compression and decompression, see
 the
 [compression](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/)
-section. </highlight>
+section. 
+</highlight>
 
 ## Migrating the entire database at once
 
