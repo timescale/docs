@@ -40,7 +40,6 @@ swap:
   check: select
   CLI: command-line tool
   click on: click|click in
-  Cloud: Google Cloud Platform|GCP
   Container Engine: Kubernetes Engine
   content type: media type
   curated roles: predefined roles
@@ -58,13 +57,13 @@ swap:
   grayed-out: unavailable
   HTTPs: HTTPS
   in order to: to
-  ingest: import|load
   k8s: Kubernetes
   long press: touch & hold
   network IP address: internal IP address
   omnibox: address bar
   open-source: open source
   overview screen: recents screen
+  Postgres: PostgreSQL
   regex: regular expression
   SHA1: SHA-1|HAS-SHA1
   sign into: sign in to
