@@ -1,15 +1,16 @@
 # TimescaleDB release notes and future plans
 
-Interested in what's coming down the pipeline? Review our
-Future Plans section. Interested in learning more about
-what's already available? Jump down below to see what's
-been released.
+Interested in what's coming down the pipeline? Review our [Future
+Plans](#future-plans) section. Interested in learning more about what's already
+available? Jump to [What's New](#what-x27-s-new-in-timescaledb-2-5) to see
+what's been released.
 
 ## Future plans
 
-TimescaleDB is an open-source project with a vibrant community.
-We are currently focusing on making our priorities known by that community;
-we welcome you to visit our Github repo or join our [Slack community](https://slack.timescale.com).
+TimescaleDB is an open-source project with a vibrant community. We are currently
+focusing on making our priorities known by that community; we welcome you to
+visit our [Github repo][github-repo] or join our [Slack
+community][timescale-slack].
 
 ### What to expect from our next releases
 
@@ -21,15 +22,16 @@ For our next releases, we plan to add:
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
 
-If you have questions about distributed hypertables, join our #multinode channel on
-[community slack](https://slack.timescale.com/) for installation details and
+If you have questions about distributed hypertables, join our #multinode channel
+on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
 ### What's new in TimescaleDB 2.5:
 
 - Continuous aggregates for distributed hypertables
 - Support for PostgreSQL 14
-- Experimental: Support for timezones in 'time_bucket_ng()', including the 'origin' argument
+- Experimental: Support for timezones in `time_bucket_ng`, including the
+  `origin` argument
 
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
@@ -54,10 +56,12 @@ We’re committed to developing these experiments, giving the community a chance
 provide early feedback and influence the direction of TimescaleDB’s development.
  We’ll travel faster with your input!
 
-Please create your feedback as a GitHub issue, and add the `experimental-schema` label.
-Describe what you found, and tell us the steps or share the code snippet to recreate it.
+Please [create your feedback as a GitHub issue][github-issue], and add the
+`experimental-schema` label. Describe what you found, and tell us the steps or
+share the code snippet to recreate it.
 
-Several bugs fixed, see the release notes for more details.
+Several bugs fixed. See the [release notes](#release-notes) for more
+details.
 
 **PostgreSQL 11 deprecation announcement**
 
@@ -1462,8 +1466,11 @@ For more information on this release, read the [blog announcement](https://blog.
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
 
+[changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
 [distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
 [distributed-hypertables-setup]: /how-to-guides/multi-node-setup/
-[changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
+[github-issue]: https://github.com/timescale/timescaledb/issues/new/choose
+[github-repo]: https://github.com/timescale/timescaledb
 [multinode-intro]: /overview/core-concepts/distributed-hypertables
 [multinode-setup]: /how-to-guides/multi-node-setup/
+[timescale-slack]: https://slack.timescale.com
