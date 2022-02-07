@@ -67,7 +67,7 @@ Today, Timescale Cloud does not allow the creation of multiple databases within
 a single service. If you require multiple databases, you will need to create a 
 service for each database. Another option would be to redesign your table 
 structure. Timescale Cloud does not support multiple databases within the same 
-instance to reduce complexity. Each database would require its own installation 
+service to reduce complexity. Each database would require its own installation 
 of TimescaleDB, managed independently, which breaks our ability to manage 
 maintenance upgrades for you. Supporting multiple databases also adds 
 significant complexity to the UI. To keep our services as easy to use as 
