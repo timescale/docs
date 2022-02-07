@@ -62,6 +62,17 @@ As with the basic database configuration parameters, any changes are highlighted
 and the `Apply changes` (or `Restart and apply changes`) button is available to
 click, prompting you to confirm any changes before the Service is modified.
 
+## Multiple databases
+Today, Timescale Cloud does not allow the creation of multiple databases within 
+a single service. If you require multiple databases, you will need to create a 
+service for each database. Another option would be to redesign your table 
+structure. Timescale Cloud does not support multiple databases within the same 
+instance to reduce complexity. Each database would require its own installation 
+of TimescaleDB, managed independently, which breaks our ability to manage 
+maintenance upgrades for you. Supporting multiple databases also adds 
+significant complexity to the UI. To keep our services as easy to use as 
+possible, we have opted to limit services to one database per service.  
+
 ## PostgreSQL extensions
 You can use PostgreSQL extensions with Timescale Cloud. If you run
 `pg_available_extensions` at the command prompt, the returned list of extensions
