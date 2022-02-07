@@ -18,7 +18,7 @@ Choose between two methods for migrating your data:
   TimescaleDB-specific features won't be automatically migrated. Follow the
   instructions to restore your hypertables, continuous aggregates, and policies. 
 
-<highlight type="tip">The recommended migration method depends on your database
+<highlight type="note">The recommended migration method depends on your database
 size and your network upload and download speeds. If you aren't sure which
 method to use, run the first method on one table to estimate the time required,
 and switch to the second method if necessary.</highlight>
