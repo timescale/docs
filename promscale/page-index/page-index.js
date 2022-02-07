@@ -86,7 +86,34 @@ module.exports = [
           },
         ],
       },
-
+      {
+        title: 'Scale Promscale',
+        href: 'scale',
+        excerpt: 'Configure Promscale for scaling and high availability',
+        children: [
+          {
+            title: 'High availability',
+            href: 'high-availability',
+            tags: ['promscale', 'ha', 'timescaledb'],
+            keywords: ['promscale', 'HA', 'prometheus', 'timescaledb'],
+            excerpt: 'Configure Promscale for high availability',
+          },
+          {
+            title: 'Multi-node',
+            href: 'multi-node',
+            tags: ['promscale', 'multi-node', 'scale', 'timescaledb'],
+            keywords: ['promscale', 'multinode', 'scale', 'timescaledb'],
+            excerpt: 'Scale Promscale with a TimescaleDB multinode database',
+          },
+          {
+            title: 'Prometheus multi-tenancy',
+            href: 'prometheus-multi-tenancy',
+            tags: ['promscale', 'multi-tenancy', 'scale', 'prometheus', 'timescaledb'],
+            keywords: ['promscale', 'multi-tenancy', 'scale', 'prometheus', 'timescaledb'],
+            excerpt: 'Configure Promscale multi-tenancy for Prometheus',
+          },
+        ],
+      },
       {
         title: 'Send data to Promscale',
         href: 'send-data',
@@ -121,6 +148,13 @@ module.exports = [
         tags: ['promscale', 'visualization', 'analytics', 'grafana', 'prometheus'],
         keywords: ['Promscale', 'analytics', 'Grafana'],
         excerpt: 'Learn about data visualization tools you can use with Promscale'
+      },
+      {
+        title: 'Alert in Promscale',
+        href: 'alert',
+        tags: ['promscale', 'prometheus', 'alert'],
+        keywords: ['Promscale', 'Prometheus', 'alert', 'Alert Manager'],
+        excerpt: 'Learn about configuring alerts on Promscale data'
       },
       {
         title: 'Database roles and permissions',
