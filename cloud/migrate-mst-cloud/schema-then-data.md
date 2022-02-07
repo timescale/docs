@@ -26,6 +26,15 @@ Follow the procedures below to migrate your database:
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
+- Check that you're running the same major version of PostgreSQL on both Managed
+  Service for TimescaleDB and Timescale Cloud. To upgrade your version, refer to
+  the section on [upgrading PostgreSQL][upgrading-postgresql].
+
+- Check that you're running the same major version of TimescaleDB on both
+  Managed Service for TimescaleDB and Timescale Cloud. To upgrade from
+  TimescaleDB 1.x to 2.x, refer to the section on [upgrading
+  TimescaleDB][upgrading-timescaledb].
+
 ### Migrate schema pre-data
 
 Migrate your PostgreSQL schema pre-data from Managed Service for TimescaleDB to

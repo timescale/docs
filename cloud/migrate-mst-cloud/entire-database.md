@@ -2,11 +2,13 @@
 
 Migrate smaller databases by dumping and restoring the entire database at once.
 
-<highlight type="warning">Depending on your database size and  network speed,
+<highlight type="warning"> 
+Depending on your database size and  network speed,
 migration may take several hours. You can continue reading from your old
-database during this time. But writes made to your old database while migration
-is running might not be copied to Timescale Cloud. Plan your migration
-accordingly to avoid data loss.</highlight>
+database during this time, though performance may be slower. Writes made to your
+old database while migration is running might not be copied to Timescale Cloud.
+Plan your migration accordingly to avoid data loss. 
+</highlight>
 
 ## Prerequisites
 
@@ -21,10 +23,23 @@ accordingly to avoid data loss.</highlight>
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
-<highlight type="tip">
-To speed up migration, compress your data. For more information about 
-compression, see the 
-[compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/manually-compress-chunks/)
+- Check that you're running the same major version of PostgreSQL on both Managed
+  Service for TimescaleDB and Timescale Cloud. To upgrade your version, refer to
+  the section on [upgrading PostgreSQL][upgrading-postgresql].
+
+- Check that you're running the same major version of TimescaleDB on both
+  Managed Service for TimescaleDB and Timescale Cloud. To upgrade from
+  TimescaleDB 1.x to 2.x, refer to the section on [upgrading
+  TimescaleDB][upgrading-timescaledb].
+
+<highlight type="note"> 
+To speed up migration, compress your data. After you finish the migration, 
+decompress chunks as necessary for normal operation. For more information about 
+compression and decompression, see the
+[compression](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/manually-compress-chunks/)
+and
+[decompression](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/decompress-chunks/)
+sections. 
 </highlight>
 
 ## Migrating the entire database at once
@@ -77,9 +92,6 @@ compression, see the
     ```
 
 </procedure>
-
-Your data is now in Timescale Cloud. If you compressed it before migration,
-[decompress chunks][decompress] as necessary for normal operation.
 
 ## Errors
 
@@ -134,3 +146,5 @@ references for:
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]:/api/:currentVersion:/administration/timescaledb_post_restore/
+[upgrading-postgresql]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
+[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/
