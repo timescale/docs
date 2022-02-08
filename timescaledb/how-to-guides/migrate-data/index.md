@@ -14,7 +14,7 @@ There are a number of choices available to migrate data into TimescaleDB:
 
 <highlight type="warning">
 Before you begin migrating data, ensure you have enough free disk space. In most
-cases, you require free space of at least one and a half times the size of the
+cases, you require free space of at least 1.5 times the size of the
 original data and any indexes.
 </highlight>
 
