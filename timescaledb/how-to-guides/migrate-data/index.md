@@ -11,6 +11,9 @@ There are a number of choices available to migrate data into TimescaleDB:
     [Follow these instructions][import-data].
 1.  Migrating from InfluxDB: to migrate data from InfluxDB,
     [follow these instructions][outflux]
+1.  Migrating from Managed Service for TimescaleDB to Timescale Cloud: To
+    migrate between Timescale's cloud services, [follow these
+    instructions][mst-to-cloud].
 
 <highlight type="note">
 When converting a normal SQL table to a hypertable, pay attention to how you
@@ -23,4 +26,5 @@ include the partitioning key.
 [same-db]: /how-to-guides/migrate-data/same-db/
 [different-db]: /how-to-guides/migrate-data/different-db/
 [import-data]: /how-to-guides/migrate-data/import-csv/
+[mst-to-cloud]: /cloud/:currentVersion:/migrate-mst-cloud/
 [outflux]: /how-to-guides/migrate-data/migrate-influxdb/
