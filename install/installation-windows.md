@@ -130,4 +130,4 @@ if you want to have a chat.
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
-[windows-releases]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.0-windows-amd64.zip
+[windows-releases]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.1-windows-amd64.zip
