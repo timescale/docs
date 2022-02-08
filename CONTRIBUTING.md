@@ -149,4 +149,4 @@ Timescale is in the process of creating comprehensive writing and style standard
 *   Ted Sczelecki <https://github.com/tedsczelecki>
 
 
-[docs-standards]: timescaledb/latest/contribute-to-docs
+[docs-standards]: timescaledb/:currentVersion:/contribute-to-docs
