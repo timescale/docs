@@ -20,8 +20,8 @@ Choose between two methods for migrating your data:
 
 <highlight type="note">The recommended migration method depends on your database
 size and your network upload and download speeds. If you aren't sure which
-method to use, run the first method on one table to estimate the time required,
-and switch to the second method if necessary.</highlight>
+method to use, start running the first method to estimate the time required.
+Abort and switch to the second method if necessary.</highlight>
 
 [migrate-entire]: migrate-mst-cloud/entire-database/
 [migrate-separately]: migrate-mst-cloud/schema-then-data/

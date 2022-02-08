@@ -131,9 +131,9 @@ restore them.
 
    ```bash
    SELECT create_hypertable(
-       '<table-name>', '<time-column-name>', 
+       '<table_name>', '<time_column_name>', 
         chunk_time_interval => 
-            INTERVAL '<chunk interval used in your old database>');
+            INTERVAL '<chunk_time_interval>');
    ```
 
 </procedure>
@@ -141,7 +141,7 @@ restore them.
 ## Copy data from Managed Service for TimescaleDB
 
 After restoring your hypertables, return to Managed Service for TimescaleDB to
-copy your tables one by one.
+copy your data, table by table
 
 ### Copying data from Managed Service for TimescaleDB
 
@@ -322,7 +322,7 @@ Recreate them on your Cloud database.
    psql “postgres://tsdbadmin:<mst_password>@<mst_host>:<mst_port>/tsdb?sslmode=require”
    ```
 
-1. In psql, get a list of your existing continuous aggregate definitions:
+1. In psql, get a list of your existing policies:
 
    ```bash
    SELECT application_name, schedule_interval, retry_period, 
