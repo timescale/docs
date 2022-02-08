@@ -3,10 +3,12 @@
 Migrate smaller databases by dumping and restoring the entire database at once.
 
 <highlight type="warning"> 
-Depending on your database size and  network speed,
-migration may take several hours. You can continue reading from your old
-database during this time, though performance may be slower. Writes made to your
-old database during migration might not be copied to Timescale Cloud. Plan your migration accordingly to avoid data loss. 
+Depending on your database size and  network speed, migration may take several 
+hours. You can continue reading from your old database during this time, though
+performance may be slower. If writes are made to your old tables during
+migration, the new writes might not be transferred to Timescale Cloud. To avoid
+this problem, refer to the section on [migrating an active
+database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
 </highlight>
 
 ## Prerequisites

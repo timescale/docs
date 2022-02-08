@@ -33,5 +33,11 @@ the time required. Abort and switch to the second method if necessary.
 
 ## Migrating an active database
 
+If your database is actively ingesting data, take precautions to ensure that
+your new database contains data ingested while migration is happening. First,
+run ingest in parallel on both databases. This ensure that the newest data is
+written to both Managed Service for TimescaleDB and Timescale Cloud. Then
+backfill your data with one of the two migration methods.
+
 [migrate-entire]: migrate-mst-cloud/entire-database/
 [migrate-separately]: migrate-mst-cloud/schema-then-data/

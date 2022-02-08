@@ -16,10 +16,13 @@ Follow the procedures below to migrate your database:
 - [Recompress previously compressed data](#recompress-data) (optional)
 
 <highlight type="warning"> 
-Depending on your database size and  network speed, steps that involve copying 
+Depending on your database size and  network speed, steps that involve copying
 data may take several hours. You can continue reading from your old database
 during this time, though performance may be slower. If writes are made to your
-old tables while `\COPY` is running, the new writes might not be transferred to Timescale Cloud. Plan your migration accordingly to avoid data loss. 
+old tables while `\COPY` is running, the new writes might not be transferred to
+Timescale Cloud. To avoid this problem, refer to the section on [migrating an
+active
+database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
 </highlight>
 
 ## Prerequisites
