@@ -12,8 +12,7 @@ begin, and plan your database according to your specific environment.
 </highlight>
 
 You can use multi-node on a self-managed TimescaleDB instance, or you can use it
-on [Timescale Cloud][multinode-cloud] or
-[Managed Service for TimescaleDB][multinode-mst].
+on [Timescale Cloud][multinode-cloud].
 
 ## Distributed hypertables
 Multi-node TimescaleDB allows you to run petabyte-scale workloads across
@@ -118,5 +117,4 @@ hypertables.
 
 [hypertables]: /how-to-guides/hypertables/
 [multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/
-[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html

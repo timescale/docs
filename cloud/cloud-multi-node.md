@@ -5,8 +5,7 @@ instances, which can give you faster data ingest, and more responsive and
 efficient queries for many large workloads.
 
 This section shows you how to use multi-node on Timescale Cloud. You can also
-use multi-node on [Managed Service for TimescaleDB][multinode-mst], or
-[self-hosted TimescaleDB][multinode-timescaledb].
+use multi-node on [self-hosted TimescaleDB][multinode-timescaledb].
 
 <highlight type="important">
 In some cases, your processing speeds could be slower in a multi-node cluster,
@@ -57,6 +56,5 @@ For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
 
 [multinode-timescaledb]: timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
-[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
 [cloud-login]: https://cloud.timescale.com
 [cloud-signup]: https://www.timescale.com/timescale-signup

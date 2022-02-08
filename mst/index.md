@@ -7,7 +7,6 @@ focusing on your time-series workloads and less time worrying about database
 management.
 
 *   Find out [about services][create-a-service]
-*   Create a [multi-node cluster][mst-multi-node]
 *   View [service logs][viewing-service-logs]
 *   Use [VPC peering][vpc-peering]
 *   Understand [security for Timescale MST][security]
@@ -67,7 +66,6 @@ integrations and extensions.
 For more information on Managed Service for TimescaleDB's terms of service, visit the [Timescale website][tos].
 
 [create-a-service]: /create-a-service
-[mst-multi-node]: /mst-multi-node
 [viewing-service-logs]: /viewing-service-logs
 [vpc-peering]: /vpc-peering
 [security]: /security
