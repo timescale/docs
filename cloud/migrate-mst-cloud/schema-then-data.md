@@ -162,10 +162,10 @@ copy your data, table by table.
    psql “postgres://tsdbadmin:<mst_password>@<mst_host>:<mst_port>/tsdb?sslmode=require”
    ```
 
-1. Dump the data from one table into a binary file. In psql, run:
+1. Dump the data from one table into a CSV file. In psql, run:
 
    ```bash
-   \COPY (SELECT * FROM <table-name>) TO <table-name>.binary.copy BINARY
+   \COPY (SELECT * FROM <table-name>) TO <table-name>.csv CSV
    ```
 
 1. Repeat Step 2 for each table and hypertable you want to migrate.
@@ -178,13 +178,13 @@ pieces. Split each table by time range and copy each range individually. For exa
 </highlight>
 
    ```bash
-   \COPY (SELECT * FROM <table-name> WHERE time > ‘2021-11-01’ AND time < ‘2011-11-02’) TO <table-name-date-range>.binary.copy BINARY
+   \COPY (SELECT * FROM <table-name> WHERE time > ‘2021-11-01’ AND time < ‘2011-11-02’) TO <table-name-date-range>.csv CSV
    ```
 
 ## Restore data into Timescale Cloud
 
-After copying your data into binary files, restore it into Timescale Cloud by
-copying from the binary file.
+After copying your data into CSV files, restore it into Timescale Cloud by
+copying from the CSV file.
 
 ### Restoring data into Timescale Cloud
 
@@ -199,7 +199,7 @@ copying from the binary file.
 
 1. In psql, run the following command for each table and hypertable:
    ```bash
-   \COPY <table-name> FROM '<table-name>.binary.copy' WITH (FORMAT binary);
+   \COPY <table-name> FROM '<table-name>.csv' WITH (FORMAT CSV);
    ```
 
 </procedure>
