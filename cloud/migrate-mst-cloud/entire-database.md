@@ -150,5 +150,5 @@ pg_restore: warning: errors ignored on restore: 1
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]:/api/:currentVersion:/administration/timescaledb_post_restore/
-[upgrading-postgresql]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
+[upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/
