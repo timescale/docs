@@ -187,10 +187,10 @@ After copying your data into CSV files, restore it into Timescale Cloud by
 copying from the CSV file. There are two methods: using regular PostgreSQL
 `COPY` and using the TimescaleDB function
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy]. In tests,
-`timescaledb-parallel-copy` is 16% faster, but you must install the function. It
-doesn't come by default with TimescaleDB.
+`timescaledb-parallel-copy` is 16% faster, but you have to install the function.
+It doesn't come by default with TimescaleDB.
 
-### Restoring data into Timescale Cloud with `timescaledb-parallel-copy`
+### Restoring data into Timescale Cloud with timescaledb-parallel-copy
 
 <procedure>
 
@@ -200,11 +200,13 @@ doesn't come by default with TimescaleDB.
    go get github.com/timescale/timescaledb-parallel-copy/cmd/timescaledb-parallel-copy
    ```
 
-2. Use `timescaledb-parallel-copy` to import data into your Cloud database. Set
-   `<num_workers>` to twice the number of CPUs in your cloud database. If you
-   have 4 CPUs, `<num_workers>` should be `8`.
+2. Use `timescaledb-parallel-copy` to import data into your Cloud database. Run
+   the following command for each table and hypertable. Set `<num_workers>` to
+   twice the number of CPUs in your cloud database. If you have 4 CPUs,
+   `<num_workers>` should be `8`.
 
    ```bash
+   # Use your Cloud credentials and connection details.
    timescaledb-parallel-copy \
    --connection "host=<cloud_host> user=tsdbadmin password=<cloud_password> port=<cloud_port> sslmode=require" \
    --db-name tsdb --table <table_name> --file <file_name>.csv --workers <num_workers> --reporting-period 30s
@@ -212,7 +214,7 @@ doesn't come by default with TimescaleDB.
 
 </procedure>
 
-### Restoring data into Timescale Cloud with `COPY`
+### Restoring data into Timescale Cloud with COPY
 
 <procedure>
 
