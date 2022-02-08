@@ -23,7 +23,7 @@ old database during migration might not be copied to Timescale Cloud. Plan your 
   ```
 
 - Check that you have a client for connecting to PostgreSQL. These instructions
-  assume you are using [psql][psql], but any client will work.
+  assume that you're using [psql][psql], but any client will work.
 
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].

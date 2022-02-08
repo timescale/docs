@@ -36,7 +36,7 @@ old tables while `\COPY` is running, the new writes might not be transferred to 
   ```
 
 - Check that you have a client for connecting to PostgreSQL. These instructions
-  assume you are using [psql][psql], but any client will work.
+  assume that you're using [psql][psql], but any client will work.
 
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
@@ -148,7 +148,7 @@ restore them.
 ## Copy data from Managed Service for TimescaleDB
 
 After restoring your hypertables, return to Managed Service for TimescaleDB to
-copy your data, table by table
+copy your data, table by table.
 
 ### Copying data from Managed Service for TimescaleDB
 
