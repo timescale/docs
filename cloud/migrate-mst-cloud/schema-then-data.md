@@ -29,15 +29,22 @@ old tables while `\COPY` is running, the new writes might not be transferred to 
 
   ```bash
   pg_dump --version
+  ```
+
+  ```bash
   pg_restore --version
   ```
+
+- Check that you have a client for connecting to PostgreSQL. These instructions
+  assume you are using [psql][psql], but any client will work.
 
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
 - Check that you're running the same major version of PostgreSQL on both Managed
-  Service for TimescaleDB and Timescale Cloud. To upgrade your version, refer to
-  the section on [upgrading PostgreSQL][upgrading-postgresql].
+  Service for TimescaleDB and Timescale Cloud. To upgrade PostgreSQL on Managed
+  Service for TimescaleDB, refer to the article on [upgrading
+  PostgreSQL][upgrading-postgresql].
 
 - Check that you're running the same major version of TimescaleDB on both
   Managed Service for TimescaleDB and Timescale Cloud. To upgrade your version,
@@ -361,7 +368,8 @@ Compressed chunks in Managed Service for TimescaleDB are decompressed during the
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
+[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
-[upgrading-postgresql]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
+[upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/

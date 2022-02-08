@@ -16,15 +16,22 @@ old database during migration might not be copied to Timescale Cloud. Plan your 
 
   ```bash
   pg_dump --version
+  ```
+
+  ```bash
   pg_restore --version
   ```
+
+- Check that you have a client for connecting to PostgreSQL. These instructions
+  assume you are using [psql][psql], but any client will work.
 
 - Create a new empty database in Timescale Cloud. For instructions on installing
   Timescale Cloud, see [Install Timescale Cloud][install-timescale-cloud].
 
 - Check that you're running the same major version of PostgreSQL on both Managed
-  Service for TimescaleDB and Timescale Cloud. To upgrade your version, refer to
-  the section on [upgrading PostgreSQL][upgrading-postgresql].
+  Service for TimescaleDB and Timescale Cloud. To upgrade PostgreSQL on Managed
+  Service for TimescaleDB, refer to the article on [upgrading
+  PostgreSQL][upgrading-postgresql].
 
 - Check that you're running the same major version of TimescaleDB on both
   Managed Service for TimescaleDB and Timescale Cloud. To upgrade your version,
@@ -140,6 +147,7 @@ pg_restore: warning: errors ignored on restore: 1
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html 
+[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]:/api/:currentVersion:/administration/timescaledb_post_restore/
 [upgrading-postgresql]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
