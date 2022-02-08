@@ -184,9 +184,35 @@ pieces. Split each table by time range and copy each range individually. For exa
 ## Restore data into Timescale Cloud
 
 After copying your data into CSV files, restore it into Timescale Cloud by
-copying from the CSV file.
+copying from the CSV file. There are two methods: using regular PostgreSQL
+`COPY` and using the TimescaleDB function
+[`timescaledb-parallel-copy`][timescaledb-parallel-copy]. In tests,
+`timescaledb-parallel-copy` is 16% faster, but you must install the function. It
+doesn't come by default with TimescaleDB.
 
-### Restoring data into Timescale Cloud
+### Restoring data into Timescale Cloud with `timescaledb-parallel-copy`
+
+<procedure>
+
+1. Install `timescaledb-parallel-copy`. In your regular shell, not psql, run:
+
+   ```bash
+   go get github.com/timescale/timescaledb-parallel-copy/cmd/timescaledb-parallel-copy
+   ```
+
+2. Use `timescaledb-parallel-copy` to import data into your Cloud database. Set
+   `<num_workers>` to twice the number of CPUs in your cloud database. If you
+   have 4 CPUs, `<num_workers>` should be `8`.
+
+   ```bash
+   timescaledb-parallel-copy \
+   --connection "host=<cloud_host> user=tsdbadmin password=<cloud_password> port=<cloud_port> sslmode=require" \
+   --db-name tsdb --table <table_name> --file <file_name>.csv --workers <num_workers> --reporting-period 30s
+   ```
+
+</procedure>
+
+### Restoring data into Timescale Cloud with `COPY`
 
 <procedure>
 
@@ -371,5 +397,6 @@ Compressed chunks in Managed Service for TimescaleDB are decompressed during the
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
+[timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/
