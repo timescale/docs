@@ -29,8 +29,9 @@ Before you begin, check that you have:
     utilities.
 *   Installed a client for connecting to PostgreSQL. These instructions use
     [psql][psql], but any client works.
-*   Created a new empty database in Timescale Cloud. For more information, see the    
-    [Install Timescale Cloud section][install-timescale-cloud].
+*   Created a new empty database in Timescale Cloud. For more information, see
+    the [Install Timescale Cloud section][install-timescale-cloud].
+*   Installed any other PostgreSQL extensions that you use.
 *   Checked that you're running the same major version of PostgreSQL on both
     Managed Service for TimescaleDB, and Timescale Cloud. For more information
     about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
