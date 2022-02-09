@@ -5,10 +5,11 @@ This method works best on databases smaller than FIXME&nbsp;GB.
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
 long time. You can continue reading from your old database during this time,
-though performance could be slower. If you write to your old tables during the
-migration, the new writes might not be transferred to Timescale Cloud. To avoid
-this problem, see
-[migrating an active database](https://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
+though performance could be slower. To avoid this problem, fork your database
+and migrate your data from the fork. If you write to your old tables during the
+migration, the new writes might not be transferred to Timescale Cloud. To avoid 
+this problem, see [migrating an active
+database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
 </highlight>
 
 ## Prerequisites
