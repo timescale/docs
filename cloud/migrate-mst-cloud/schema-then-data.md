@@ -142,11 +142,11 @@ copy your data, table by table.
 <highlight type="note">
 If your tables are very large, you can migrate each table in multiple pieces.
 Split each table by time range, and copy each range individually. For example:
-</highlight>
 
 ```sql
 COPY (SELECT * FROM <table-name> WHERE time > ‘2021-11-01’ AND time < ‘2011-11-02’) TO <table-name-date-range>.csv CSV
 ```
+</highlight>
 
 ## Restore data into Timescale Cloud
 When you have copied your data into `.csv` files, you can restore it to
