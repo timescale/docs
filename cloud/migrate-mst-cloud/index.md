@@ -29,7 +29,7 @@ interruption in the copy is possible, choose to migrate your schema and data
 separately instead.
 
 If you aren't sure which method to use, try copying the entire database at once
-to estimate the time required. If the time estimate is very long, abort the
+to estimate the time required. If the time estimate is very long, stop the
 migration and switch to the other method.
 
 ## Migrate an active database

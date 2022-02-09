@@ -76,7 +76,7 @@ information about compression and decompression, see the
 
 ## Troubleshooting
 If you see any of these errors during the migration process, you can safely
-ignore them.  The migration still occurs successfully.
+ignore them. The migration still occurs successfully.
 
 ```sql
 pg_dump: warning: there are circular foreign-key constraints on this table:

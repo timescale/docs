@@ -77,7 +77,7 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 
 ### Troubleshooting
 If you see any of these errors during the migration process, you can safely
-ignore them.  The migration still occurs successfully.
+ignore them. The migration still occurs successfully.
 
 `pg_restore` tries to apply the TimescaleDB extension as it copies your schema,
 and this can cause a permissions error. Because TimescaleDB is already installed
@@ -229,7 +229,7 @@ post-data. This includes information about constraints.
 
 ### Troubleshooting
 If you see any of these errors during the migration process, you can safely
-ignore them.  The migration still occurs successfully.
+ignore them. The migration still occurs successfully.
 
 ```sql
 pg_restore: error: could not execute query: ERROR:  relation "<relation_name>" already exists
