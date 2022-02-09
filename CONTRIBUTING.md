@@ -1,7 +1,36 @@
 # Introduction
-There are multiple ways to help make TimescaleDB better. All of our
-documentation and source for the PostgreSQL extension are available to use and
-review with GitHub.
+Help make TimescaleDB better. Our documentation and [source
+code][timescaledb-repo] are available to use and review with GitHub. This guide
+covers the contributing workflow for our documentation. For our style guide, see
+[the contributing page on our site][docs-standards].
+
+## Contribute to documentation
+
+We accept pull requests for [major](#make-a-major-change) and [minor
+changes](#make-a-minor-change).
+
+### Make a minor change
+
+For minor changes, such as typos and broken-link fixes, you can edit directly in
+GitHub. 
+
+#### Making a minor change
+
+1.  Sign in to your [github](github.com) account, or make a new one.
+1.  Open the file you want to edit within GitHub.
+1.  Click the pencil icon in the top-right corner of the code box. GitHub
+    automatically forks the project for you and opens a code editor.
+    <img src="" />
+1.  Make your edits.
+1.  Propose your changes by adding a title and optional description in the
+    `Propose changes` box at the bottom of the page.
+1.  Review the differences between your changes and the `latest` branch on our
+    docs repository. Click `Create pull request`.
+1.  Edit the pull request description. Click `Create pull request`. If
+    this is your first contribution, you receive a comment asking you to sign
+    our Contributor License Agreement.  
+1.  Sign the agreement to allow us to use your contribution in our
+    documentation.
 
 ## First contribution
 You can make contributions to the documentation by creating a fork of the
