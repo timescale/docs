@@ -1,6 +1,6 @@
 # Migrate from Managed Service for TimescaleDB to Timescale Cloud
-You can migrate your data from Managed Service for TimescaleDB, to Timescale
-Cloud. This allows you use Timescale Cloud's exclusive features, including
+You can migrate your data from Managed Service for TimescaleDB to Timescale
+Cloud. This allows you to use Timescale Cloud's exclusive features, including
 separate scaling for compute and storage requirements, first-class multi-node
 support, and more.
 
