@@ -15,7 +15,7 @@ module.exports = [
         href: "migrate-mst-cloud",
         children: [
           {
-            title: "Migrate entire database at once",
+            title: "Migrate the entire database at once",
             href: "entire-database",
           },
           {

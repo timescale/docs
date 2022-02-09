@@ -8,7 +8,7 @@ long time. You can continue reading from your old database during this time,
 though performance could be slower. If you write to your old tables during the
 migration, the new writes might not be transferred to Timescale Cloud. To avoid
 this problem, see
-[migrating an active database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
+[migrating an active database](https://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
 </highlight>
 
 ## Prerequisites
@@ -20,7 +20,8 @@ Before you begin, check that you have:
 *   Created a new empty database in Timescale Cloud. For more information, see the    
     [Install Timescale Cloud section][install-timescale-cloud].
 *   Checked that you're running the same major version of PostgreSQL on both
-    Managed Service for TimescaleDB, and Timescale Cloud. For more information about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
+    Managed Service for TimescaleDB, and Timescale Cloud. For more information
+    about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
     [upgrading PostgreSQL section][upgrading-postgresql].
 *   Checked that you're running the same major version of TimescaleDB on both
     Managed Service for TimescaleDB and Timescale Cloud. For more information,
@@ -35,12 +36,12 @@ information about compression and decompression, see the
 </highlight>
 
 <procedure>
+
 ### Migrating the entire database at once
-1.  At the `psql` prompt, dump all the data from your old database into a `.bak`
-    file, using your Managed Service for TimescaleDB connection details. When
-    you are prompted for a password, use your Managed Service for TimescaleDB
-    credentials:
-    ```sql
+1.  Dump all the data from your old database into a `.bak` file, using your
+    Managed Service for TimescaleDB connection details. When you are prompted
+    for a password, use your Managed Service for TimescaleDB credentials:
+    ```bash
     pg_dump -U tsdbadmin -W \
     -h <mst_host> -p <mst_port> -Fc -v \
     -f <file-name>.bak defaultdb
@@ -48,10 +49,10 @@ information about compression and decompression, see the
 1.  Connect to your Timescale Cloud database using your Timescale Cloud
     connection details. When you are prompted for a password, use your Timescale
     Cloud credentials:
-    ```sql
+    ```bash
     psql “postgres://tsdbadmin:<cloud_password>@<cloud_host>:<cloud_port>/tsdb?sslmode=require”
     ```
-1.  Prepare your Timescale Cloud database for data restoration using
+1.  Prepare your Timescale Cloud database for data restoration by using
     [`timescaledb_pre_restore`][timescaledb_pre_restore] to stop background
     workers:
     ```sql
@@ -60,14 +61,14 @@ information about compression and decompression, see the
 1.  At the command prompt, restore the dumped data from the `.bak` file into
     your Timescale Cloud database, using your Timescale Cloud connection
     details. To avoid permissions errors, include the `--no-owner` flag:
-    ```sql
+    ```bash
     pg_restore -U tsdbadmin -W \
     -h <cloud_host> -p <cloud_port> --no-owner \
     -Fc -v -d tsdb <file-name>.bak
     ```
 1.  At the `psql` prompt, return your Timescale Cloud database to normal
-    operations with the [`timescaledb_post_restore`][timescaledb_post_restore]
-    command:
+    operations by using the
+    [`timescaledb_post_restore`][timescaledb_post_restore] command:
     ```sql
     SELECT timescaledb_post_restore();
     ```
@@ -75,27 +76,27 @@ information about compression and decompression, see the
 </procedure>
 
 ## Troubleshooting
-If you see any of these errors during the migration process, you can safely
-ignore them. The migration still occurs successfully.
+If you these errors during the migration process, you can safely ignore them.
+The migration still occurs successfully.
 
-```sql
+```bash
 pg_dump: warning: there are circular foreign-key constraints on this table:
 pg_dump: hypertable
 pg_dump: You might not be able to restore the dump without using --disable-triggers or temporarily dropping the constraints.
 pg_dump: Consider using a full dump instead of a --data-only dump to avoid this problem.
 ```
 
-```sql
+```bash
 pg_dump: NOTICE:  hypertable data are in the chunks, no data will be copied
 DETAIL:  Data for hypertables are stored in the chunks of a hypertable so COPY TO of a hypertable will not copy any data.
 HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
 ```
 
-`pg_restore` tries to apply the TimescaleDB extension as it copies your schema,
-and this can cause a permissions error. Because TimescaleDB is already installed
-by default on Timescale Cloud, you can safely ignore this.
+`pg_restore` tries to apply the TimescaleDB extension when it copies your
+schema. This can cause a permissions error. Because TimescaleDB is already
+installed by default on Timescale Cloud, you can safely ignore this.
 
-```sql
+```bash
 pg_restore: creating EXTENSION "timescaledb"
 pg_restore: creating COMMENT "EXTENSION timescaledb"
 pg_restore: while PROCESSING TOC:
@@ -103,11 +104,11 @@ pg_restore: from TOC entry 6239; 0 0 COMMENT EXTENSION timescaledb
 pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
 ```
 
-```sql
+```bash
 ​​pg_restore: WARNING:  no privileges were granted for "<..>"
 ```
 
-```sql
+```bash
 pg_restore: warning: errors ignored on restore: 1
 ```
 
@@ -117,6 +118,6 @@ pg_restore: warning: errors ignored on restore: 1
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
-[timescaledb_post_restore]:/api/:currentVersion:/administration/timescaledb_post_restore/
+[timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/
