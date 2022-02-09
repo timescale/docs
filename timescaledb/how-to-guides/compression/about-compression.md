@@ -44,7 +44,7 @@ compressed.
 <procedure>
 
 ### Enabling compression
-1.  At the `pgsl` prompt, alter the table:
+1.  At the `psql` prompt, alter the table:
     ```sql
     ALTER TABLE example SET (
       timescaledb.compress,
