@@ -1,43 +1,44 @@
 # Migrate from Managed Service for TimescaleDB to Timescale Cloud
-
-Migrate your data to Timescale Cloud to experience Cloud's exclusive features.
-These include separate scaling for compute and storage requirements, first-class
-multi-node support, and more.
+You can migrate your data from Managed Service for TimescaleDB, to Timescale
+Cloud. This allows you use Timescale Cloud's exclusive features, including
+separate scaling for compute and storage requirements, first-class multi-node
+support, and more.
 
 There are two methods for migrating your data:
 
-- [**Migrate your entire database at once.**][migrate-entire] This method
-  directly transfers all data and schemas, including TimescaleDB-specific
-  features. Your hypertables, continuous aggregates, and policies are
-  automatically available in Cloud.
+*   [Migrate your entire database at once][migrate-entire]: This method
+    directly transfers all data and schemas, including TimescaleDB-specific
+    features. Your hypertables, continuous aggregates, and policies are
+    automatically available in Cloud.
+*   [Migrate your schema and data separately][migrate-separately]: With this
+    method, you migrate your tables one by one for easier failure recovery. If
+    migration fails mid-way, you can restart from the failure point rather than
+    from the beginning. However, TimescaleDB-specific features won't be
+    automatically migrated. Follow the instructions to restore your hypertables,
+    continuous aggregates, and policies.
 
-- [**Migrate your schema and data separately.**][migrate-separately] With this
-  method, you migrate your tables one by one for easier failure recovery. If
-  migration fails mid-way, you can restart from the failure point rather than
-  from the beginning. However, TimescaleDB-specific features won't be
-  automatically migrated. Follow the instructions to restore your hypertables,
-  continuous aggregates, and policies. 
+## Choose a migration method
+Which method you choose depends on your database size, network upload and
+download speeds, and tolerance for failure recovery.
 
-## Choosing a migration method
-  
-The recommended method depends on your database size, network upload and
-download speeds, and tolerance for failure recovery. As a starting guideline,
-the first method may work well for databases smaller than ??? GB. 
+If your database is smaller than FIXME&nbsp;GB, choose to migrate your entire
+database at once. You can also migrate larger databases using this method, but
+the copying process must keep running, potentially over days or weeks. If the
+copy is interrupted, the process needs to be restarted. If you think an
+interruption in the copy is possible, choose to migrate your schema and data
+separately instead.
 
-Larger databases can also be migrated using the first method. However, the
-copying process must keep running, potentially over days or weeks. If
-interruptions are a concern, the second method may work better.
+If you aren't sure which method to use, try copying the entire database at once
+to estimate the time required. If the time estimate is very long, abort the
+migration and switch to the other method.
 
-If you aren't sure which method to use, try running the first method to estimate
-the time required. Abort and switch to the second method if necessary.
-
-## Migrating an active database
-
+## Migrate an active database
 If your database is actively ingesting data, take precautions to ensure that
-your new database contains data ingested while migration is happening. First,
-run ingest in parallel on both databases. This ensure that the newest data is
-written to both Managed Service for TimescaleDB and Timescale Cloud. Then
-backfill your data with one of the two migration methods.
+your new database contains the data that is ingested while the migration is
+happening. Begin by running ingest in parallel on the old and new databases.
+This ensures that the newest data is written to both Managed Service for
+TimescaleDB and Timescale Cloud. Then backfill your data with one of the two
+migration methods.
 
 [migrate-entire]: migrate-mst-cloud/entire-database/
 [migrate-separately]: migrate-mst-cloud/schema-then-data/
