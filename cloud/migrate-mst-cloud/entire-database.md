@@ -75,6 +75,12 @@ information about compression and decompression, see the
     SELECT timescaledb_post_restore();
     ```
 
+1.  Update your table statistics by running [`ANALYZE`][analyze] on your entire
+    dataset:
+    ```sql
+    ANALYZE;
+    ```
+
 </procedure>
 
 ## Troubleshooting
@@ -114,6 +120,7 @@ pg_restore: error: could not execute query: ERROR:  must be owner of extension t
 pg_restore: warning: errors ignored on restore: 1
 ```
 
+[analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html

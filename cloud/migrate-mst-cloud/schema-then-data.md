@@ -12,6 +12,7 @@ The procedure to migrate your database requires these steps:
 *   [Recreate continuous aggregates](#recreate-continuous-aggregates) (optional)
 *   [Recreate policies](#recreate-policies) (optional)
 *   [Recompress previously compressed data](#recompress-data) (optional)
+*   [Update table statistics](#update-table-statistics)
 
 <highlight type="warning">
 Depending on your database size and network speed, steps that involve copying
@@ -320,7 +321,14 @@ Compressed chunks in Managed Service for TimescaleDB are decompressed during the
 `COPY` operation. For more information about recompressing data, see the
 [compression section][compression].
 
+## Update table statistics
+Update your table statistics by running [`ANALYZE`][analyze] on your entire
+dataset:
+```sql
+ANALYZE;
+```
 
+[analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [cagg-policy]: /how-to-guides/continuous-aggregates/refresh-policies/
 [compression]: /timescaledb/:currentVersion/how-to-guides/compression/
 [compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
