@@ -19,8 +19,8 @@ data can take a very long time. You can continue reading from your old database
 during this time, though performance could be slower. To avoid this problem,
 fork your database and migrate your data from the fork. If you write to your
 old tables during the migration, the new writes might not be transferred to 
-Timescale Cloud. To avoid this problem, see
-[migrating an active database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
+Timescale Cloud. To avoid this problem, see [migrating an active 
+database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
 </highlight>
 
 ## Prerequisites
@@ -38,14 +38,6 @@ Before you begin, check that you have:
 *   Checked that you're running the same major version of TimescaleDB on both
     Managed Service for TimescaleDB and Timescale Cloud. For more information,
     see the [upgrading TimescaleDB section][upgrading-timescaledb].
-
-<highlight type="note">
-To speed up migration, compress your data. You can compress any chunks where
-data is not being currently inserted, updated, or deleted. When you finish the
-migration, you can decompress chunks as needed for normal operation. For more
-information about compression and decompression, see the
-[compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
-</highlight>
 
 ## Migrate schema pre-data
 Migrate your pre-data from Managed Service for TimescaleDB to Timescale Cloud.
