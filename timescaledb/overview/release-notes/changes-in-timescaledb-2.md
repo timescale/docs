@@ -5,15 +5,15 @@ database for time-series data. Driven by user feedback and our experience buildi
 products like [Promscale](https://github.com/timescale/promscale), 2.0 is a major
 milestone and introduces the first multi-node, petabyte-scale relational database
 for time-series. In addition to multi-node capabilities, this release includes new
-features - and improvements to existing ones - focused on giving users more flexibility,
- control over their data and the ability to customize behavior to suit their needs.
+features, and improvements to existing ones, focused on giving you more flexibility,
+ control over your data, and the ability to customize behavior to suit your needs.
 
 To facilitate many of the improvements in [TimescaleDB 2.0](https://github.com/timescale/timescaledb/releases/2.0.0),
  several existing APIs and function definitions have been modified which may require updates to your existing code.
 
 Most notably, the following API and PostgreSQL compatibility changes may impact
 existing code using these interfaces. If your workloads use any of the features,
-this document covers each in detail to help you understand what - if any - action
+this document covers each in detail to help you understand what action
 you need to take.
 
 *   **Dropping support for PostgreSQL versions 9.6 and 10:** As mentioned in
@@ -35,11 +35,10 @@ about the impetus for these changes and our design decisions. For a more in-dept
   please [review our updated documentation](/how-to-guides/)
   (navigate to specific features of interest).
 
-Once you have read through this guide and understand the impact that upgrading to the latest
- version may have on your existing application and infrastructure, please follow our
- [upgrade to TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/)
-  documentation. You can find straight-forward instructions and recommendations to ensure
-  everything is updated and works correctly.
+Read this guide to understand the impact of upgrading to the latest version and
+to evaluate the effects on your application and infrastructure. Then, for upgrade
+instructions and recommendations, see the [documentation on upgrading to
+TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/).
 
 
 ## Why we've made these changes [](why-changes)
@@ -50,7 +49,7 @@ we've added many new capabilities: support for compression, continuous aggregate
 lifecycle management, and numerous optimizations, as well as two new underlying PostgreSQL
 versions (11 and 12). At the same time, the core of TimescaleDB hasn't changed significantly:
 we still have hypertables, auto-partitioning, query optimizations, and a basic user
-experience that many have come to appreciate because things "just work".
+experience that many have come to appreciate because things "just work."
 
 Still, as with any technology solution, there are some things that we didn't get 100%
 right in our first release. In particular, as usage of TimescaleDB has skyrocketed, many
@@ -72,9 +71,9 @@ to customize behaviors when needed.**
 For example, in TimescaleDB 2.0 we've separated the automation of _refreshing_ continuous aggregate
 data from the core functionality, giving users the option to manually refresh the data and, if
 desired, add automation via a policy. This also makes this feature consistent with TimescaleDB's
-other policy-driven features – such as retention, reordering, and compression – which offer both
-manual control and automation via policies. We have also opened up our jobs scheduling framework
-to enable user-defined actions, i.e, custom background jobs that users can define themselves.
+other policy-driven features such as retention, reordering, and compression, which offer both
+manual control and automation using policies. We have also opened up our jobs scheduling framework
+to enable user-defined actions. User-defined actions are custom background jobs that you can define yourself.
 
 In the rest of this document, we go through each of the features and API changes in detail, and
 what users migrating from an earlier version of TimescaleDB should consider prior to updating to TimescaleDB 2.0.
@@ -145,14 +144,16 @@ FROM timescaledb_information.chunks c
 
 ### New functions for size information
 
-Information views no longer display size information about hypertables and other objects, instead
-size information is available through a set of functions that all return the size in number of
-bytes. Removing size information makes the views faster since the information is often read dynamically
-from disk, or, in the case of distributed hypertables, read across a network.
+Information views no longer display size information about hypertables and other
+objects. Instead, size information is available through a set of functions that
+all return the size in number of bytes. Removing size information makes the
+views faster since the information is often read dynamically from disk, or, in
+the case of distributed hypertables, read across a network.
 
-Size functions are also split into basic and detailed ones. The former class of functions return
-only a single aggregate value and can be easily applied in queries, while the detailed functions
-return multiple columns and (possibly) multiple rows of information.
+Size functions are also split into basic and detailed. Basic functions
+return only a single aggregate value and can be easily applied in queries, while
+the detailed functions return multiple columns and possibly multiple rows of
+information.
 
 *   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):  
 The function has been renamed from `hypertable_relation_size(hypertable)`.  Further, if the hypertable is distributed,
@@ -165,7 +166,7 @@ returns one row per data node that holds a copy of the chunk.
 *   [`hypertable_index_size(index)`](/api/:currentVersion:/hypertable/hypertable_index_size): Returns the
 aggregate number of bytes corresponding to a hypertable index across all chunks.
 *   [`approximate_row_count(relation)`](/api/:currentVersion:/hyperfunctions/approximate_row_count/):  The function
-has been renamed from `hypertable_approximate_row_count`, but can now also be called on non-hypertables.
+has been renamed from `hypertable_approximate_row_count`. It can now also be called on regular SQL tables.
 
 In previous versions of TimescaleDB, you could get size information for all hypertables in the `hypertable` view.
 In TimescaleDB 2.0, you can now instead combine the new `hypertables` view with size functions to achieve a similar result:
@@ -182,15 +183,15 @@ SELECT hypertable_name, hypertable_size(hypertable_name::regclass) FROM timescal
 
 ## Continuous aggregates [](caggs)
 
-Major changes have been made to Continuous Aggregates in TimescaleDB 2.0 to better clarify this feature.
+Major changes have been made to continuous aggregates in TimescaleDB 2.0 to better clarify this feature.
 
-First, Continuous Aggregates have always been more closely aligned with Materialized Views in PostgreSQL. Therefore,
+First, continuous aggregates have always been more closely aligned with materialized views in PostgreSQL. Therefore,
 creating a continuous aggregate now uses `CREATE MATERIALIZED VIEW`, rather than `CREATE VIEW`.
 
 Second, the continuous aggregate API now separates the explicit mechanism for updating a continuous aggregate from
-the policy that automates the process of keeping a continuous aggregate up-to-date.  This change both
+the policy that automates the process of keeping a continuous aggregate up-to-date. This change both
 simplifies the continuous aggregate API in TimescaleDB 2.0, provides more flexibility to users (especially when
-combined with user-defined actions and a newly-exposed API for scheduling jobs directly), and makes it consistent
+combined with user-defined actions and a newly exposed API for scheduling jobs directly), and makes it consistent
 with other policy automation in TimescaleDB 2.0:
 
 Action API                    | Policy API for Automation
@@ -230,7 +231,7 @@ materializing data at creation time, instead deferring the population of aggrega
 as a background job or as part of a manual refresh. Therefore, we recommend that users create continuous aggregates
 using the `WITH NO DATA` option, especially if a significant amount of historical data can be materialized.
 
-Once the Continuous Aggregate is created, calling `add_continuous_aggregate_policy` creates a continuous
+Once the continuous aggregate is created, calling `add_continuous_aggregate_policy` creates a continuous
 aggregate policy, which automatically materializes or refreshes the data following the schedule and rules
 provided. Inputs to the policy function include the continuous aggregate name, a refresh window, and a
 schedule interval.  The refresh window is specified by the start and end offsets, which are used to calculate
@@ -240,19 +241,21 @@ returned by the function `now()`).
 
 ### Understanding continuous aggregate policies [](cagg-policies)
 
-It is worth noting the way that "start_offset" and "end_offset" work as new data arrives and is added to the source hypertables.
+It is worth noting the way that `start_offset` and `end_offset` work as new data arrives and is added to the source hypertables.
 
-The above example sets the refresh interval as between four weeks and two hours ago (start_offset and end_offset
-respectively). Therefore, if any late data arrives with timestamps within the last four weeks and is backfilled
-into the source hypertable, then the continuous aggregate view is updated with this old data the next time the policy executes.
+This example sets the refresh interval between four weeks and two hours
+ago (using `start_offset` and `end_offset`). Therefore, if any late data
+arrives with timestamps within the last four weeks that is backfilled into the
+source hypertable, the continuous aggregate view is updated with the old
+data the next time the policy executes.
 
 This policy can, in the worst case, materialize the whole window every time it runs if data at least four weeks
-old continues to arrive and be inserted into the source hypertables.  However, since a continuous aggregate tracks
+old continues to arrive and be inserted into the source hypertables. However, since a continuous aggregate tracks
 changes since the last refresh, it can in most cases materialize a subset of the window that corresponds to the
 data that has actually changed.
 
 In this example, data backfilled more than 4 weeks ago is not rematerialized, nor does the continuous aggregate
-include data less than 2 hours old.  However, _querying the continuous aggregate view can still return aggregates
+include data less than 2 hours old. However, querying the continuous aggregate view can still return aggregates
 about the latest data, and not just aggregated data more than 2 hours old, based on support for
 [real-time aggregation](/overview/core-concepts/continuous-aggregates/#real-time-aggregation),
 specified as before with the `timescaledb.materialized_only=false` parameter. Real-time aggregates are still the default
@@ -286,7 +289,7 @@ then scheduled via `add_job`.
 Note that `refresh_continuous_aggregate` only recomputes the aggregated time buckets that completely fall
 inside the given refresh window and are in a region that has seen changes in the underlying hypertable.
 Thus, if no changes have occurred in the underlying source data (that is, no data has been backfilled to the
-region or no updates to existing data have been made), no materialization is performed either over that
+region or no updates to existing data have been made), no materialization is performed over that
 region. This behavior is similar to the continuous aggregate policy and ensures more efficient operation.
 
 
@@ -322,7 +325,7 @@ continuous aggregates** and users have to ensure that retention and continuous a
 desired interplay.
 
 Another change in 2.0 is that `drop_chunks` and the retention policy no longer
-automatically refreshes continuous aggregates to account for changes in original hypertable
+automatically refresh continuous aggregates to account for changes in original hypertable
 after the last refresh. Previously, the goal was to ensure that all updates were processed
 prior to dropping chunks in the original hypertable. In practice, it often didn't work as intended.
 
@@ -334,7 +337,7 @@ _timescaledb_internal.refresh_continuous_aggregate(continuous_aggregate REGCLASS
 ```
 The example below demonstrates how to use the chunk-based refresh function to define a
 retention policy, which ensures that all updates to data in the original hypertable are
-refreshed in all continuous aggregates prior dropping chunks older than 2 weeks:
+refreshed in all continuous aggregates prior to dropping chunks older than 2 weeks:
 
 ```sql
 CREATE OR REPLACE PROCEDURE refresh_and_drop_policy(job_id int, config jsonb) LANGUAGE PLPGSQL AS
@@ -365,18 +368,20 @@ SELECT add_job('refresh_and_drop_policy', '2 weeks',
 
 ### Differences in the handling of backfill on continuous aggregates [](cagg-backfill)
 
-In TimescaleDB 1.x, data that was backfilled into hypertables wasn't handled optimally; modification of
-any hypertable data, regardless of how old, would cause the continuous aggregate materializer job to restart
-from the point of the earliest backfill and then materialize from that point forward. Unfortunately,
-this could also cause the materializer to get "stuck", since the background job only processed a limited
-amount of data per run, as governed by the `max_interval_per_job` setting. When this happened, one job run
-could potentially force the next job to start all over again.
+In TimescaleDB 1.x, data that was backfilled into hypertables wasn't handled
+optimally. Modification of any hypertable data, regardless of how old, would
+cause the continuous aggregate materializer job to restart from the point of the
+earliest backfill and then materialize from that point forward. Unfortunately,
+this could also cause the materializer to get "stuck", since the background job
+only processed a limited amount of data per run, as governed by the
+`max_interval_per_job` setting. When this happened, one job run could
+potentially force the next job to start all over again.
 
 To prevent this, the `ignore_invalidation_older_than` setting could be used to ignore backfill data older than
-a specified interval (e.g., ignore backfill older than 1 week), preventing the materializer from restarting if
+a specified interval (for example, ignore backfill older than 1 week), preventing the materializer from restarting if
 hypertable data was modified beyond this interval boundary. However, this would also stop TimescaleDB 1.x from
 tracking changes in the underlying data beyond the `ignore_invalidation_older_than` threshold too. This meant
-that it was not possible to revert this setting later to a larger interval (e.g., 1 month) without potentially
+that it was not possible to revert this setting later to a larger interval (for example, 1 month) without potentially
 having a mismatch between the raw data and the aggregated data in the continuous aggregate.
 
 In contrast, TimescaleDB 2.0 never stops tracking backfill, and to avoid materializing too much historical data,
@@ -384,7 +389,7 @@ one should simply use a refresh window that does not include that region of data
 always be refreshed at a later time, either manually or via a policy.
 
 To ensure that previously ignored backfill can be refreshed after the upgrade to TimescaleDB 2.0, the upgrade
-process marks the region older than the `ignore_invalidation_older_than` threshold as "requiring refresh".
+process marks the region older than the `ignore_invalidation_older_than` threshold as "requiring refresh."
 This allows a manual refresh to bring a continuous aggregate up-to-date with the underlying source data. If
 the `ignore_invalidation_older_than` threshold was modified at some point to a longer interval, we recommend
 setting it back to the smaller interval prior to upgrading to ensure that all the backfill can be refreshed,
@@ -488,7 +493,7 @@ introduces additional settings, including  `scheduled` to pause and resume jobs,
 or action-specific settings.
 *   [`run_job`](/api/:currentVersion:/actions/run_job): Manually executes a job immediately and in the foreground.
 *   [`delete_job`](/api/:currentVersion:/actions/delete_job): Removes the job from the scheduler.  This is equivalent to functions that remove policies for
-built-in actions (e.g., `remove_retention_policy`).
+built-in actions (for example, `remove_retention_policy`).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
 *   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/job_stats):  The view presents statistics of executing jobs for policies and actions.
 
@@ -496,8 +501,8 @@ built-in actions (e.g., `remove_retention_policy`).
 ## License information [](license-changes)
 
 In TimescaleDB 2.0, all features which had been classified previously as "enterprise" have become "community" features
-and are available for free under the Timescale License.  As such, the need for an "enterprise license" to unlock any
-features has been removed; all features are available either under the community Timescale License or under the
+and are available for free under the Timescale License. As such, the need for an "enterprise license" to unlock any
+features has been removed. All features are available either under the community Timescale License or under the
 open-source Apache-2 License. [This blog post](https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/)
 explains the changes. The following changes were made to license API:
 
@@ -506,5 +511,6 @@ has been removed, as it primarily provided information on the enterprise license
 longer applicable. The current license used by the extension can instead be viewed in the GUC below.
 *   `timescaledb.license`: This GUC value (which replaces the former [`timescaledb.license_key`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_license-key) GUC)
 can take the value `timescale` or `apache`. It can be set only at startup (in the postgresql.conf configuration file
-or on the server command line), and allows limiting access to certain features by license. For example, setting the l
-icense to `apache` allows access to only Apache-2 licensed features.
+or on the server command line), and allows limiting access to certain features
+by license. For example, setting the 
+license to `apache` allows access to only Apache-2 licensed features.
