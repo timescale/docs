@@ -27,8 +27,8 @@ another one).
 
 In addition, the [`move_chunk`][api-move-chunk] function has the
 ability to "reorder" the chunk during the migration in order to enable faster
-queries.  This behavior is similar to [`reorder_chunk`][api-reorder-chunk]; please
-see that documentation for more information.
+queries.  This behavior is similar to `reorder_chunk`. To learn more, see the 
+[documentation for `reorder_chunk`][api-reorder-chunk].
 
 To determine which chunks to move, we can list chunks that fit a specific
 criteria.  For example, to identify chunks older than two days:

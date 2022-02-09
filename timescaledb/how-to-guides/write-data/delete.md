@@ -15,7 +15,7 @@ FULL` the hypertable to reclaim storage from deleted or obsolete rows.
 <highlight type="tip"> 
 To delete old data, use
 [`drop_chunks`](https://docs.timescale.com/api/latest/hypertable/drop_chunks/)
-instead. `drop-chunks` is more performant as it deletes entire chunks by
+instead. `drop-chunks` is more performant because it deletes entire chunks by
 removing files, rather than deleting individual rows that need vacuuming. To
 learn more, see the [data retention 
 section](https://docs.timescale.com/timescaledb/latest/how-to-guides/data-retention/).
