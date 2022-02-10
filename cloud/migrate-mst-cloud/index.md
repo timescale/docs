@@ -29,7 +29,7 @@ copy is interrupted, the process needs to be restarted. If you think an
 interruption in the copy is possible, choose to migrate your schema and data
 separately instead.
 
-<highlight tip="warning">
+<highlight type="warning">
 Migrating your schema and data separately does not retain continuous aggregates
 calculated using already-deleted data. For example, if you delete raw data after
 a month but retain downsampled data in a continuous aggregate for a year, the
