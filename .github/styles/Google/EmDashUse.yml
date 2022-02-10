@@ -1,6 +1,5 @@
 extends: existence
 message: "Use em-dashes judiciously."
-link: 'https://developers.google.com/style/parentheses'
 nonword: true
 level: suggestion
 tokens:
