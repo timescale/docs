@@ -33,7 +33,7 @@ If you have a time bucket that has already been materialized, the real-time
 aggregate won't show the data that has been inserted, updated, or deleted. When
 you need to change data that has already been materialized, use
 `refresh_continuous_aggregate()` for the corresponding buckets. For more
-information, see the [Troubleshooting section][troubleshooting].
+information, see the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/troubleshooting/).
 </highlight>
 
 [blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/
