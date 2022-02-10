@@ -38,7 +38,8 @@ Before you begin, check that you have:
 *   Created a new empty database in Timescale Cloud. For more information, see
     the [Install Timescale Cloud section][install-timescale-cloud]. Provision
     your database with enough space for all your data.
-*   Installed any other PostgreSQL extensions that you use.
+*   Checked that any other PostgreSQL extensions you use are compatible with
+    Timescale Cloud. Install your other PostgreSQL extensions.
 *   Checked that you're running the same major version of PostgreSQL on both
     Timescale Cloud and Managed Service for TimescaleDB. For more information
     about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
@@ -255,8 +256,7 @@ pg_restore: error: could not execute query: ERROR:  trigger "ts_insert_blocker" 
 ## Recreate continuous aggregates
 By default, continuous aggregates aren't migrated when you transfer your schema
 and data separately. Restore them by recreating the continuous aggregate
-definitions and recomputing the results on your Cloud database. This is faster
-than copying the continuous aggregate data.
+definitions and recomputing the results on your Cloud database.
 
 <procedure>
 

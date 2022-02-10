@@ -23,7 +23,8 @@ Before you begin, check that you have:
 *   Created a new empty database in Timescale Cloud. For more information, see
     the [Install Timescale Cloud section][install-timescale-cloud]. Provision
     your database with enough space for all your data.
-*   Installed any other PostgreSQL extensions that you use.
+*   Checked that any other PostgreSQL extensions you use are compatible with
+    Timescale Cloud. Install your other PostgreSQL extensions.
 *   Checked that you're running the same major version of PostgreSQL on both
     Timescale Cloud and Managed Service for TimescaleDB. For more information
     about upgrading PostgreSQL on Managed Service for TimescaleDB, see the

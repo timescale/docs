@@ -19,7 +19,8 @@ There are two methods for migrating your data:
 
 ## Choose a migration method
 Which method you choose depends on your database size, network upload and
-download speeds, and tolerance for failure recovery.
+download speeds, existing continuous aggregates, and tolerance for failure
+recovery.
 
 If your database is smaller than 100&nbsp;GB, choose to migrate your entire
 database at once. You can also migrate larger databases using this method, but
@@ -27,6 +28,15 @@ the copying process must keep running, potentially over days or weeks. If the
 copy is interrupted, the process needs to be restarted. If you think an
 interruption in the copy is possible, choose to migrate your schema and data
 separately instead.
+
+<highlight tip="warning">
+Migrating your schema and data separately does not retain continuous aggregates
+calculated using already-deleted data. For example, if you delete raw data after
+a month but retain downsampled data in a continuous aggregate for a year, the
+continuous aggregate loses any data older than a month upon migration. If you
+must keep continuous aggregates calculated using deleted data, migrate your 
+entire database at once regardless of database size.
+</highlight>
 
 If you aren't sure which method to use, try copying the entire database at once
 to estimate the time required. If the time estimate is very long, stop the
