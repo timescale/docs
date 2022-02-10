@@ -1,7 +1,7 @@
 # Install the psql connection tool
 The `psql` command line tool is widely used for interacting with a PostgreSQL or
 TimescaleDB instance, and it is available for all operating systems. Most of
-the instructions in the Timescale docs assume you are using `psql`.
+the instructions in the Timescale documentation assume you are using `psql`.
 
 Before you start, check that you don't already have `psql` installed. It is
 sometimes installed by default, depending on your operating system and other

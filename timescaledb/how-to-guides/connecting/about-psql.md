@@ -1,7 +1,7 @@
 # About psql
 The `psql` command line tool is widely used for interacting with a PostgreSQL or
 TimescaleDB instance, and it is available for all operating systems. Most of
-the instructions in the Timescale docs assume you are using `psql`.
+the instructions in the Timescale documentation assume you are using `psql`.
 
 To use `psql` to connect to your database, you need the connection details for
 your PostgreSQL server. For more information about how to retrieve your

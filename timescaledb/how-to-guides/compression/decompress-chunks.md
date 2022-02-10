@@ -1,5 +1,5 @@
 # Decompression
-If you need to backfill or update data in a compressed chunk, you should decompress
+If you need to backfill or update data in a compressed chunk, decompress
 the chunk first. Inserting data into a compressed chunk is more computationally
 expensive than inserting data into an uncompressed chunk, so decompressing the
 chunk is also a good idea if you need to backfill large amounts of data.

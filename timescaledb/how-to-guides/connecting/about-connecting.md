@@ -41,7 +41,7 @@ TimescaleDB service:
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service to see its connection information. Copy the
-    `host`, `port`, and `password`. You will need these when connecting.
+    `host`, `port`, and `password`. You need these to connect.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-connection-info.png" alt="View Managed Service for TimescaleDB connection info"/>
 
