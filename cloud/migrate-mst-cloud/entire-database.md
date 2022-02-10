@@ -1,6 +1,8 @@
 # Migrate the entire database at once
 Migrate smaller databases by dumping and restoring the entire database at once.
-This method works best on databases smaller than 100&nbsp;GB.
+This method works best on databases smaller than 100&nbsp;GB. For larger
+databases, consider [migrating your schema and data
+separately][migrate-separately].
 
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
@@ -8,8 +10,8 @@ long time. You can continue reading from your old database during this time,
 though performance could be slower. To avoid this problem, fork your database
 and migrate your data from the fork. If you write to your old tables during the
 migration, the new writes might not be transferred to Timescale Cloud. To avoid 
-this problem, see [migrating an active
-database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
+this problem, see the section on [migrating an active
+database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrate-an-active-database).
 </highlight>
 
 ## Prerequisites
@@ -17,17 +19,17 @@ Before you begin, check that you have:
 *   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
 *   Installed a client for connecting to PostgreSQL. These instructions use
-    [psql][psql], but any client works.
+    [`psql`][psql], but any client works.
 *   Created a new empty database in Timescale Cloud. For more information, see
     the [Install Timescale Cloud section][install-timescale-cloud]. Provision
     your database with enough space for all your data.
 *   Installed any other PostgreSQL extensions that you use.
 *   Checked that you're running the same major version of PostgreSQL on both
-    Managed Service for TimescaleDB, and Timescale Cloud. For more information
+    Timescale Cloud and Managed Service for TimescaleDB. For more information
     about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
     [upgrading PostgreSQL section][upgrading-postgresql].
 *   Checked that you're running the same major version of TimescaleDB on both
-    Managed Service for TimescaleDB and Timescale Cloud. For more information,
+    Timescale Cloud and Managed Service for TimescaleDB. For more information,
     see the [upgrading TimescaleDB section][upgrading-timescaledb].
 
 <highlight type="note">
@@ -85,8 +87,8 @@ information about compression and decompression, see the
 </procedure>
 
 ## Troubleshooting
-If you these errors during the migration process, you can safely ignore them.
-The migration still occurs successfully.
+If you see these errors during the migration process, you can safely ignore
+them. The migration still occurs successfully.
 
 ```bash
 pg_dump: warning: there are circular foreign-key constraints on this table:
@@ -124,6 +126,7 @@ pg_restore: warning: errors ignored on restore: 1
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
+[migrate-separately]: migrate-mst-cloud/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/

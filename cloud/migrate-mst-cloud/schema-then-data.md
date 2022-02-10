@@ -3,6 +3,12 @@ Migrate larger databases by migrating your schema first, then migrating the
 data. This method copies each table or chunk separately, which allows you to
 restart midway if one copy operation fails.
 
+<highlight type="note">
+For smaller databases, it may be more convenient to migrate your entire database
+at once. For more information, see the section on [choosing a migration
+method](https://docs.timescale.com/cloud/latest/migrate-mst-cloud/).
+</highlight>
+
 The procedure to migrate your database requires these steps:
 *   [Migrate schema pre-data](#migrate-schema-pre-data)
 *   [Restore hypertables in Timescale Cloud](#restore-hypertables-in-timescale-cloud)
@@ -19,8 +25,8 @@ data can take a very long time. You can continue reading from your old database
 during this time, though performance could be slower. To avoid this problem,
 fork your database and migrate your data from the fork. If you write to your
 old tables during the migration, the new writes might not be transferred to 
-Timescale Cloud. To avoid this problem, see [migrating an active 
-database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrating-an-active-database).
+Timescale Cloud. To avoid this problem, see the section on [migrating an active 
+database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrate-an-active-database).
 </highlight>
 
 ## Prerequisites
@@ -28,17 +34,17 @@ Before you begin, check that you have:
 *   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
 *   Installed a client for connecting to PostgreSQL. These instructions use
-    [psql][psql], but any client works.
+    [`psql`][psql], but any client works.
 *   Created a new empty database in Timescale Cloud. For more information, see
     the [Install Timescale Cloud section][install-timescale-cloud]. Provision
     your database with enough space for all your data.
 *   Installed any other PostgreSQL extensions that you use.
 *   Checked that you're running the same major version of PostgreSQL on both
-    Managed Service for TimescaleDB, and Timescale Cloud. For more information
+    Timescale Cloud and Managed Service for TimescaleDB. For more information
     about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
     [upgrading PostgreSQL section][upgrading-postgresql].
 *   Checked that you're running the same major version of TimescaleDB on both
-    Managed Service for TimescaleDB and Timescale Cloud. For more information,
+    Timescale Cloud and Managed Service for TimescaleDB. For more information,
     see the [upgrading TimescaleDB section][upgrading-timescaledb].
 
 ## Migrate schema pre-data
@@ -151,7 +157,7 @@ COPY (SELECT * FROM <table-name> WHERE time > ‘2021-11-01’ AND time < ‘201
 ## Restore data into Timescale Cloud
 When you have copied your data into `.csv` files, you can restore it to
 Timescale Cloud by copying from the `.csv` files. There are two methods: using
-regular PostgreSQL `COPY`, or using the TimescaleDB
+regular PostgreSQL [`COPY`][copy], or using the TimescaleDB
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy] function. In tests,
 `timescaledb-parallel-copy` is 16% faster. The `timescaledb-parallel-copy` tool
 is not included by default. You must install the function.
@@ -329,8 +335,10 @@ ANALYZE;
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [cagg-policy]: /how-to-guides/continuous-aggregates/refresh-policies/
+[copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression]: /timescaledb/:currentVersion/how-to-guides/compression/
 [compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
+[choosing-method]: /migrate-mst-cloud/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
