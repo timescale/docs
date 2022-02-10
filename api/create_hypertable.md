@@ -49,6 +49,14 @@ still work on the resulting hypertable.
  If you use `SELECT * FROM create_hypertable(...)` you get the return value formatted as a table with column headings.
 </highlight>
 
+<highlight type="note"> 
+The primary key for your PostgreSQL table must include
+all partitioning columns for your hypertable. Since all TimescaleDB hypertables
+are partitioned by time, your primary key must include the `time` column. If you
+specify a `partitioning_column`, your primary key must include that column as 
+well.
+</highlight>
+
 <highlight type="warning">
 The use of the `migrate_data` argument to convert a non-empty table can
 lock the table for a significant amount of time, depending on how much data is

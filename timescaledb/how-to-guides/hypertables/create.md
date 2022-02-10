@@ -33,6 +33,12 @@ explicitly time-based, as long as it can increment. For example, a
 monotonically increasing ID works.
 </highlight>
 
+<highlight type="note">
+The primary key for your table must include all partitioning columns for your
+hypertable. Since all TimescaleDB hypertables are partitioned by time, your
+primary key must include the `time` column.
+</highlight>
+
 </procedure>
 
 If you need to migrate data from an existing table to a hypertable, set the
@@ -73,6 +79,12 @@ hypertable fails. For more information about setting up multi-node, see the
      ```sql
      SELECT create_distributed_hypertable('conditions', 'time', 'location');
      ```
+
+<highlight type="note">
+The primary key for your table must include all partitioning columns for your
+hypertable. In this example, your primary key must contain both `time` and 
+`location`.
+</highlight>
 
 </procedure>
 
