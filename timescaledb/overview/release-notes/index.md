@@ -16,8 +16,7 @@ community][timescale-slack].
 
 For our next releases, we plan to add:
 
-- Continuous aggregates with compression
-- `time_bucket_ng` suport for N months and Timezones on continuous aggregates
+TBD
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -26,25 +25,26 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.5:
+### What's new in TimescaleDB 2.6:
 
-- Continuous aggregates for distributed hypertables
-- Support for PostgreSQL 14
-- Experimental: Support for timezones in `time_bucket_ng`, including the
-  `origin` argument
+- Continuous aggregates with compression
+- `time_bucket_ng` support for N months and Timezones on continuous aggregates
 
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
 This release also contains bug fixes since the 2.5.0 release.
 
-<!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
+ <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> 
 
 <!-- <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight> -->
 
- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> 
+<!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
 
 
-The experimental features in the 2.5 release are:
+The experimental features in the 2.6 release are:
+
+TBD
+
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, seconds, and timezones.
 * APIs for chunk manipulation across data nodes in a distributed
@@ -71,7 +71,7 @@ For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 rel
 For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
-TimescaleDB 2.5.2 is now available, and we encourage
+TimescaleDB 2.6 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -81,6 +81,8 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+
+TBD
 
 ## 2.5.2 (2022-02-09)
 
