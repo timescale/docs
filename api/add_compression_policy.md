@@ -6,7 +6,7 @@ Note that compression policies can only be created on hypertables or continuous
 aggregates that already have compression enabled. Use the [`ALTER TABLE`][compression_alter-table] command
 to set `timescaledb.compress` and other configuration parameters for hypertables.
 Use [`ALTER MATERIALIZED VIEW`][compression_continuous-aggregate] command to
-enable compression on continuous aggregated
+enable compression on continuous aggregates
 
 ### Required arguments
 
