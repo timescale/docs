@@ -240,3 +240,13 @@ important to create space partitioning, see
 [create_distributed_hypertable](/distributed-hypertables/create_distributed_hypertable/).
 The rare cases in which space partitions may be useful for non-distributed
 hypertables are described in the [add_dimension](/hypertable/add_dimension/) section.
+
+### Troubleshooting
+
+You may get the following error if your primary key doesn't contain all your
+partitioning columns. Add your time column and `partitioning_column` to your
+primary key and try creating the hypertable again.
+
+```
+ERROR: cannot create a unique index without the column "<column_name>" (used in partitioning)
+```
