@@ -21,7 +21,7 @@ There are two methods for migrating your data:
 Which method you choose depends on your database size, network upload and
 download speeds, and tolerance for failure recovery.
 
-If your database is smaller than FIXME&nbsp;GB, choose to migrate your entire
+If your database is smaller than 100&nbsp;GB, choose to migrate your entire
 database at once. You can also migrate larger databases using this method, but
 the copying process must keep running, potentially over days or weeks. If the
 copy is interrupted, the process needs to be restarted. If you think an

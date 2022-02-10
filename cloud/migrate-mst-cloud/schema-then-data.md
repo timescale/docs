@@ -11,7 +11,6 @@ The procedure to migrate your database requires these steps:
 *   [Migrate schema post-data](#migrate-schema-post-data)
 *   [Recreate continuous aggregates](#recreate-continuous-aggregates) (optional)
 *   [Recreate policies](#recreate-policies) (optional)
-*   [Recompress previously compressed data](#recompress-data) (optional)
 *   [Update table statistics](#update-table-statistics)
 
 <highlight type="warning">
@@ -31,7 +30,8 @@ Before you begin, check that you have:
 *   Installed a client for connecting to PostgreSQL. These instructions use
     [psql][psql], but any client works.
 *   Created a new empty database in Timescale Cloud. For more information, see
-    the [Install Timescale Cloud section][install-timescale-cloud].
+    the [Install Timescale Cloud section][install-timescale-cloud]. Provision
+    your database with enough space for all your data.
 *   Installed any other PostgreSQL extensions that you use.
 *   Checked that you're running the same major version of PostgreSQL on both
     Managed Service for TimescaleDB, and Timescale Cloud. For more information
@@ -153,11 +153,15 @@ When you have copied your data into `.csv` files, you can restore it to
 Timescale Cloud by copying from the `.csv` files. There are two methods: using
 regular PostgreSQL `COPY`, or using the TimescaleDB
 [`timescaledb-parallel-copy`][timescaledb-parallel-copy] function. In tests,
-`timescaledb-parallel-copy` is 16% faster. 
+`timescaledb-parallel-copy` is 16% faster. The `timescaledb-parallel-copy` tool
+is not included by default. You must install the function.
 
-<highlight type="note">
-The `timescaledb-parallel-copy` tool is not included by default. You must
-install the function.
+<highlight type="important">
+Both `timescaledb-parallel-copy` and `\COPY` decompress compressed data. If you
+provisioned your Timescale Cloud storage for your compressed data, the
+uncompressed data may take too much storage. To avoid this problem, periodically
+recompress your data as you copy it in. For more information on compression, see
+the [compression section](https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/).
 </highlight>
 
 <procedure>
@@ -315,11 +319,6 @@ separately. Recreate them on your Cloud database.
     policies][compression-policy], and [reorder policies][reorder-policy].
 
 </procedure>
-
-## Recompress data
-Compressed chunks in Managed Service for TimescaleDB are decompressed during the
-`COPY` operation. For more information about recompressing data, see the
-[compression section][compression].
 
 ## Update table statistics
 Update your table statistics by running [`ANALYZE`][analyze] on your entire

@@ -1,6 +1,6 @@
 # Migrate the entire database at once
 Migrate smaller databases by dumping and restoring the entire database at once.
-This method works best on databases smaller than FIXME&nbsp;GB.
+This method works best on databases smaller than 100&nbsp;GB.
 
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
@@ -19,7 +19,8 @@ Before you begin, check that you have:
 *   Installed a client for connecting to PostgreSQL. These instructions use
     [psql][psql], but any client works.
 *   Created a new empty database in Timescale Cloud. For more information, see
-    the [Install Timescale Cloud section][install-timescale-cloud]. 
+    the [Install Timescale Cloud section][install-timescale-cloud]. Provision
+    your database with enough space for all your data.
 *   Installed any other PostgreSQL extensions that you use.
 *   Checked that you're running the same major version of PostgreSQL on both
     Managed Service for TimescaleDB, and Timescale Cloud. For more information
