@@ -17,7 +17,6 @@ community][timescale-slack].
 For our next releases, we plan to add:
 
 - Continuous aggregates with compression
-- Multi-node performance and UX improvements
 - `time_bucket_ng` suport for N months and Timezones on continuous aggregates
 
 You can read more about our architecture and design for distributed hypertables
