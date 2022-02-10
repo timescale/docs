@@ -40,7 +40,7 @@ SELECT time, AVG(temperature) OVER(ORDER BY time
 ## Increase
 To calculate the increase in a value, you need to account for counter resets.
 Counter resets can occur if a host reboots or container restarts. This example
-finds the number of bytes bytes sent, and takes counter resets into account:
+finds the number of bytes sent, and takes counter resets into account:
 ```sql
 SELECT
   time,
