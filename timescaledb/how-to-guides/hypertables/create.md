@@ -94,6 +94,10 @@ You may get the following error if your primary key doesn't contain all your
 partitioning columns. Add your time column and any other partitioning columns to
 your primary key and try creating the hypertable again.
 
+```
+ ERROR: cannot create a unique index without the column "<column_name>" (used in partitioning)
+ ```
+
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
 [multi-node]: /how-to-guides/multinode-timescaledb/
