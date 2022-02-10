@@ -39,7 +39,8 @@ Before you begin, check that you have:
     the [Install Timescale Cloud section][install-timescale-cloud]. Provision
     your database with enough space for all your data.
 *   Checked that any other PostgreSQL extensions you use are compatible with
-    Timescale Cloud. Install your other PostgreSQL extensions.
+    Timescale Cloud. For more information, see the [list of compatible
+    extensions][extensions]. Install your other PostgreSQL extensions.
 *   Checked that you're running the same major version of PostgreSQL on both
     Timescale Cloud and Managed Service for TimescaleDB. For more information
     about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
@@ -339,6 +340,7 @@ ANALYZE;
 [compression]: /timescaledb/:currentVersion/how-to-guides/compression/
 [compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
 [choosing-method]: /migrate-mst-cloud/
+[extensions]: /customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
