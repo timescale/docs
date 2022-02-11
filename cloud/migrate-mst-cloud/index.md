@@ -1,8 +1,8 @@
-# Migrate from Managed Service for TimescaleDB to Timescale Cloud
-You can migrate your data from Managed Service for TimescaleDB to Timescale
-Cloud. This allows you to use Timescale Cloud's exclusive features, including
-separate scaling for compute and storage requirements, first-class multi-node
-support, and more.
+# Migrate your TimescaleDB database to Timescale Cloud
+You can migrate your data to Timescale Cloud from self-hosted TimescaleDB or
+Managed Service for TimescaleDB. This allows you to use Timescale Cloud's
+exclusive features, including separate scaling for compute and storage
+requirements, first-class multi-node support, and more.
 
 There are two methods for migrating your data:
 
@@ -44,11 +44,10 @@ migration and switch to the other method.
 
 ## Migrate an active database
 If your database is actively ingesting data, take precautions to ensure that
-your new database contains the data that is ingested while the migration is
-happening. Begin by running ingest in parallel on the old and new databases.
-This ensures that the newest data is written to both Managed Service for
-TimescaleDB and Timescale Cloud. Then backfill your data with one of the two
-migration methods.
+Timescale Cloud contains the data that is ingested while the migration is
+happening. Begin by running ingest in parallel on the source database and
+Timescale Cloud. This ensures that the newest data is written to both databases.
+Then backfill your data with one of the two migration methods.
 
 [migrate-entire]: migrate-mst-cloud/entire-database/
 [migrate-separately]: migrate-mst-cloud/schema-then-data/

@@ -6,11 +6,11 @@ separately][migrate-separately].
 
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
-long time. You can continue reading from your old database during this time,
+long time. You can continue reading from your source database during this time,
 though performance could be slower. To avoid this problem, fork your database
-and migrate your data from the fork. If you write to your old tables during the
-migration, the new writes might not be transferred to Timescale Cloud. To avoid 
-this problem, see the section on [migrating an active
+and migrate your data from the fork. If you write to tables in your source
+database during the migration, the new writes might not be transferred to
+Timescale Cloud. To avoid this problem, see the section on [migrating an active
 database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrate-an-active-database).
 </highlight>
 
@@ -27,12 +27,13 @@ Before you begin, check that you have:
     Timescale Cloud. For more information, see the [list of compatible 
     extensions][extensions]. Install your other PostgreSQL extensions.
 *   Checked that you're running the same major version of PostgreSQL on both
-    Timescale Cloud and Managed Service for TimescaleDB. For more information
-    about upgrading PostgreSQL on Managed Service for TimescaleDB, see the
-    [upgrading PostgreSQL section][upgrading-postgresql].
+    Timescale Cloud and your source database. For information about upgrading
+    PostgreSQL on your source database, see the [upgrade instructions for
+    self-hosted TimescaleDB][upgrading-postgresql-self-hosted] and [Managed
+    Service for TimescaleDB][upgrading-postgresql].
 *   Checked that you're running the same major version of TimescaleDB on both
-    Timescale Cloud and Managed Service for TimescaleDB. For more information,
-    see the [upgrading TimescaleDB section][upgrading-timescaledb].
+    Timescale Cloud and your source database. For more information, see the
+    [upgrading TimescaleDB section][upgrading-timescaledb].
 
 <highlight type="note">
 To speed up migration, compress your data. You can compress any chunks where
@@ -45,19 +46,19 @@ information about compression and decompression, see the
 <procedure>
 
 ### Migrating the entire database at once
-1.  Dump all the data from your old database into a `.bak` file, using your
-    Managed Service for TimescaleDB connection details. When you are prompted
-    for a password, use your Managed Service for TimescaleDB credentials:
+1.  Dump all the data from your source database into a `.bak` file, using your
+    source database connection details. If you are prompted for a password, use
+    your source database credentials:
     ```bash
-    pg_dump -U tsdbadmin -W \
-    -h <mst_host> -p <mst_port> -Fc -v \
-    -f <file-name>.bak defaultdb
+    pg_dump -U <SOURCE_DB_USERNAME> -W \
+    -h <SOURCE_DB_HOST> -p <SOURCE_DB_PORT> -Fc -v \
+    -f <FILENAME>.bak <SOURCE_DB_NAME>
     ```
 1.  Connect to your Timescale Cloud database using your Timescale Cloud
     connection details. When you are prompted for a password, use your Timescale
     Cloud credentials:
     ```bash
-    psql “postgres://tsdbadmin:<cloud_password>@<cloud_host>:<cloud_port>/tsdb?sslmode=require”
+    psql “postgres://tsdbadmin:<CLOUD_PASSWORD>@<CLOUD_HOST>:<CLOUD_PORT>/tsdb?sslmode=require”
     ```
 1.  Prepare your Timescale Cloud database for data restoration by using
     [`timescaledb_pre_restore`][timescaledb_pre_restore] to stop background
@@ -70,8 +71,8 @@ information about compression and decompression, see the
     details. To avoid permissions errors, include the `--no-owner` flag:
     ```bash
     pg_restore -U tsdbadmin -W \
-    -h <cloud_host> -p <cloud_port> --no-owner \
-    -Fc -v -d tsdb <file-name>.bak
+    -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner \
+    -Fc -v -d tsdb <FILENAME>.bak
     ```
 1.  At the `psql` prompt, return your Timescale Cloud database to normal
     operations by using the
@@ -136,4 +137,5 @@ pg_restore: warning: errors ignored on restore: 1
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
+[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
 [upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/

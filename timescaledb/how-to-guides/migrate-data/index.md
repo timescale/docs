@@ -11,8 +11,8 @@ There are a number of choices available to migrate data into TimescaleDB:
     [Follow these instructions][import-data].
 1.  Migrating from InfluxDB: to migrate data from InfluxDB,
     [follow these instructions][outflux]
-1.  Migrating from Managed Service for TimescaleDB to Timescale Cloud: To
-    migrate between Timescale's cloud services, [follow these
+1.  Migrating from self-hosted TimescaleDB or Managed Service for TimescaleDB to
+    Timescale Cloud: To migrate between TimescaleDB services, [follow these
     instructions][mst-to-cloud].
 
 <highlight type="warning">
