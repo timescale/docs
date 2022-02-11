@@ -88,7 +88,7 @@ module.exports = [
       },
       {
         title: 'Scale Promscale',
-        href: 'scale',
+        href: 'scale-ha',
         excerpt: 'Configure Promscale for scaling and high availability',
         children: [
           {
