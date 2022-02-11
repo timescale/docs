@@ -73,7 +73,7 @@ to the next PostgreSQL version in the Timescale Cloud dashboard.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
-version of PostgreSQL that is compatible with the newest version of TimescaleDB,
+version of PostgreSQL that's compatible with the newest version of TimescaleDB,
 allowing you to take advantage of everything Timescale has to offer. For more
 information about feature changes between versions, see the
 [PostgreSQL release notes][postgres-relnotes] and
@@ -81,14 +81,14 @@ information about feature changes between versions, see the
 
 <highlight type="warning">
 Your Timescale Cloud service is unavailable for use until the upgrade is
-complete. Upgrading can take up to several hours to complete, so we recommend
+complete. Upgrading can take up to several hours, so we recommend
 that you plan ahead, and upgrade during a time with low usage.
 </highlight>
 
 If you want to try out the upgrade before you run it on your production system,
 you can create a fork of your service, and attempt the upgrade on the fork
 before you start. This can give you a good idea of what happens during an
-upgrade, and how long it might take in your use case. For more infomration about
+upgrade, and how long it might take. For more infomration about
 creating a fork of your service, see the [Operations
 section][operations-forking].
 
@@ -96,7 +96,7 @@ section][operations-forking].
 
 ### Upgrading to a new PostgreSQL version
 1.  In the Timescale Cloud console, navigate to `Services` and click the service
-    you want to adjust.
+    you want to upgrade.
 1.  Navigate to the `Operations` tab, and go to the `Maintenance` section.
 1.  If a new PostgreSQL version is available, click the `Upgrade` button, and
     confirm that you are ready to start the upgrade. Your Timescale Cloud
