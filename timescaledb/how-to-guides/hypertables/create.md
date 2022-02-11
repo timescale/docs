@@ -90,13 +90,15 @@ hypertable. In this example, your primary key must contain both `time` and
 
 ### Troubleshooting
 
-You may get the following error if your primary key doesn't contain all your
-partitioning columns. Add your time column and any other partitioning columns to
-your primary key and try creating the hypertable again.
+If your primary key doesn't contain all your partitioning columns, you 
+ might get an error like this:
 
-```
+ ```
  ERROR: cannot create a unique index without the column "<column_name>" (used in partitioning)
  ```
+
+ To fix this error, add the time column and any other partitioning columns to your
+ primary key, and try creating the hypertable again.
 
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
