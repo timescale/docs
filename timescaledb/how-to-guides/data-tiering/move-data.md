@@ -67,6 +67,7 @@ This can be used to make your queries faster, and works in a similar way to the
 ## Examples
 After moving a chunk to a slower tablespace, you can move it back to the
 default, faster tablespace:
+
 ```sql
 SELECT move_chunk(
   chunk => '_timescaledb_internal._hyper_1_4_chunk',

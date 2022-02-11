@@ -1,6 +1,7 @@
 ## UPDATE commands [](update)
 
-Updates in TimescaleDB work as expected in standard SQL ([PostgreSQL docs][postgres-update]).
+Update data in a hypertable with the standard [`UPDATE`][postgres-update] SQL
+command.
 
 ```sql
 UPDATE conditions SET temperature = 70.2, humidity = 50.0
