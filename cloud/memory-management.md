@@ -20,7 +20,7 @@ Wait for the entire service to come back online before reconnecting.
 
 If Timescale Cloud successfully guards the service against the OOM killer, it shuts
 down only the client connection that was using too much memory. This prevents 
-the entire PostgreSQL service from being shut down, so you can reconnect 
+the entire PostgreSQL service from shutting down, so you can reconnect 
 immediately. The error log looks like this:
 ```yml
 2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
