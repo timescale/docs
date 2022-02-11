@@ -1,7 +1,7 @@
 # INSERT
 
-Data can be inserted into a hypertable using the standard `INSERT` SQL command
-([PostgreSQL docs][postgres-insert]).
+Insert data into a hypertable with the standard [`INSERT`][postgres-insert] SQL
+command.
 
 ```sql
 INSERT INTO conditions(time, location, temperature, humidity)

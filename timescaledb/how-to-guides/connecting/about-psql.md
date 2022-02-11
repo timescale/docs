@@ -1,7 +1,7 @@
 # About psql
 The `psql` command line tool is widely used for interacting with a PostgreSQL or
 TimescaleDB instance, and it is available for all operating systems. Most of
-the instructions we give you assume you are using `psql`.
+the instructions in the Timescale documentation assume you are using `psql`.
 
 To use `psql` to connect to your database, you need the connection details for
 your PostgreSQL server. For more information about how to retrieve your
@@ -60,8 +60,8 @@ frequently:
     [psql documentation][psql-docs].
 
 ### Save query results to a file
-When you run queries in `psql`, the results are shown in the console be default.
-If you are running queries that have a lot fo results, you might like to save
+When you run queries in `psql`, the results are shown in the console by default.
+If you are running queries that have a lot of results, you might like to save
 the results into a comma-separated `.csv` file instead. You can do this using
 the `COPY` command. For example:
 ```sql

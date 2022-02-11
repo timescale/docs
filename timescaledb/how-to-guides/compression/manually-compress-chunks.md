@@ -4,7 +4,7 @@ want more control over compression, you can also manually compress specific
 chunks.
 
 <highlight type="warning">
-Compression alters data on your disk, so always back up before you start!
+Compression alters data on your disk, so always back up before you start.
 </highlight>
 
 ## Compress chunks manually
