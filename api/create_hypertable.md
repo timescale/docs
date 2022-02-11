@@ -248,3 +248,6 @@ might get an error like this:
 ```
 ERROR: cannot create a unique index without the column "<column_name>" (used in partitioning)
 ```
+
+To fix this error, add the time column and the partitioning_column to your
+primary key, and try creating the hypertable again.
