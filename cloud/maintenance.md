@@ -89,8 +89,8 @@ If you want to try out the upgrade before you run it on your production system,
 you can create a fork of your service, and attempt the upgrade on the fork
 before you start. This can give you a good idea of what happens during an
 upgrade, and how long it might take. For more infomration about
-creating a fork of your service, see the [Operations
-section][operations-forking].
+creating a fork of your service, see the 
+[Operations section][operations-forking].
 
 <procedure>
 
