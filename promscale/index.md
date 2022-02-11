@@ -31,4 +31,4 @@ For more about Promscale, see our [developer documentation][promscale-gh-docs].
 [promscale-gh-docs]: https://github.com/timescale/promscale/
 [about-tobs]: promscale/:currentVersion:/tobs/
 [send-data]: promscale/:currentVersion:/send-data/
-[scaling-ha]: promscale/:currentVersion:/scale/
+[scaling-ha]: promscale/:currentVersion:-ha/
