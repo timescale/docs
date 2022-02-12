@@ -1,11 +1,14 @@
 # duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
-This function is used to report the total duration for a given state with in a [state aggregate](hyperfunctions/frequency-analysis/state_agg/).
+Use this function to report the total duration for a given state in a [state aggregate][(hyperfunctions/frequency-analysis/state_agg/)].
 
-This API is experimental and is subject to change without notice.
-
+<highlight type="warning">
+Experimental features could have bugs! They might not be backwards compatible,
+and could be removed in future releases. Use these features at your own risk, and
+do not use any experimental features in production.
+</highlight>
 ## Required arguments
 
-|Name| Type |Description|
+|Name|Type|Description|
 |-|-|-|
 |`state`|`TEXT`|State to query|
 |`aggregate`|`stateagg`|Previously created aggregate|
@@ -17,8 +20,7 @@ This API is experimental and is subject to change without notice.
 |`duration_in`|`BIGINT`|An object storing the total time in microseconds spent in the target state.|
 
 ## Sample usage
-For this example we'll create a simple test table:
-
+This example creates a simple test table:
 ```sql
 SET timezone TO 'UTC';
 CREATE TABLE states(time TIMESTAMPTZ, state TEXT);
@@ -31,7 +33,7 @@ INSERT INTO states VALUES
   ('1-5-2020 12:00', 'stopping');
 ```
 
-Here is how we can query this table for the time spent in the running state:
+You can query this table for the time spent in the running state, like this:
 ```sql
 SELECT toolkit_experimental.duration_in('running', toolkit_experimental.state_agg(time, state)) FROM states;
 ```
