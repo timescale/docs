@@ -1,42 +1,122 @@
 # Hypertables
+TimescaleDB stores time-series data in hypertables. To the user, these look like
+regular single PostgreSQL tables. You can perform most of the same operations:
+inserting, deleting, and updating data; querying data with `SELECT`s and
+`JOIN`s; adding indexes and columns; and more.
 
-From a user's perspective, TimescaleDB exposes what look like singular tables,
-called **hypertables**. A hypertable is the primary point of interaction
-with your data, as it provides the standard table abstraction that you can query
-via standard SQL.  [Creating a hypertable][create-hypertable] in TimescaleDB takes two
-SQL commands: `CREATE TABLE` (with standard SQL syntax),
-followed by `SELECT create_hypertable()`.
+Behind the scenes, hypertables speed up time-series workflows through chunking. 
 
-Virtually all user interactions with TimescaleDB are with hypertables.
-Inserting, updating, or deleting data, querying data via SELECTs, altering
-tables, adding new columns or indexes, JOINs with other tables or hypertables,
-and so forth can (and should) all be executed on the hypertable.
+<highlight tip="note"> To learn how to work with hypertables, see the [how-to
+guides on
+hypertables](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/).
+</highlight>
 
-However, hypertables are actually an abstraction or virtual view of
-many individual tables that actually store the data, called **chunks**.
+## Hypertables are made up of chunks
+Each hypertable is made up of many regular PostgreSQL tables, called chunks. The
+hypertable is the parent table, and the chunks are its child tables.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg" alt="hypertable and chunks"/>
+<img class="main-content__illustration"
+src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg"
+alt="A hypertable represented as a table, and chunks represented as tables
+inside the hypertable."/>
 
-## Partitioning in hypertables with chunks
+When you create a hypertable and insert data into it, TimescaleDB automatically
+creates these chunks by partitioning the data. It always partitions by the time
+column, which may be a timestamp, a date, or an integer. It assigns a time
+interval to each chunk, and inserts rows into chunks based on the value of their
+time column. For example, if the time partitioning column is one day, all rows
+with timestamps belonging to the same day are co-located within the same chunk.
+Rows belonging to different days belong in different chunks.
 
-Chunks are created by partitioning a hypertable's data into one
-(or potentially multiple) dimensions. All hypertables are partitioned
-by the values belonging to a time column, which may be in timestamp,
-date, or various integer forms.  If the time partitioning interval is one
-day, for example, then rows with timestamps that belong to the same
-day are co-located within the same chunk, while rows belonging to
-different days belong to different chunks.
+[//]: # (Comment: Opportunity for image that shows rows from different days)
+[//]: # (being inserted into different chunks)
 
-TimescaleDB creates these chunks automatically as rows are inserted into the
-database.  If the timestamp of a newly-inserted row belongs to a day not yet
-present in the database, TimescaleDB creates a new chunk corresponding to
-that day as part of the INSERT process. Otherwise, TimescaleDB
-determines the existing chunk(s) to which the new row(s) belong, and
-insert the rows into the corresponding chunks.  The interval of a hypertable's
-partitioning can also be changed over time (e.g., to adapt to changing workload
-conditions, so in one example, a hypertable could initially create a new chunk
-per day and then change to a chunk every 6 hours as the workload increases).
+This all happens behind the scenes. You run a regular `INSERT` command, and
+TimescaleDB decides which chunk each row belongs in, creating new chunks as
+needed. You can control chunking behavior by changing the chunk time interval,
+which is the length of time spanned by each chunk. To learn more about best
+practices for chunk time intervals, see the [section on hypertable best
+practices][hypertable-best-practices].
 
+## How chunks improve time-series performance
+Chunking helps TimescaleDB achieve its [high time-series
+performance][performance-benchmark] and improved time-series workflows. The
+benefits include:
+
+- **Faster inserts and queries because recent data fits in memory**. Chunks can
+  be configured (based on their time intervals) so that the recent chunks (and
+  their indexes) fit in memory.  This helps ensure that inserts to recent time
+  intervals, as well as queries to recent data, typically accesses data already
+  stored in memory, rather than from disk.  But TimescaleDB doesn't *require*
+  that chunks fit solely in memory (and otherwise error); rather, the database
+  follows LRU caching rules on disk pages to maintain in-memory data and index
+  caching.
+
+- **Local indexes**. Indexes are built on each chunk independently, rather than
+  a global index across all data. This similarly ensures that *both* data and
+  indexes from the latest chunks typically reside in memory, so that updating
+  indexes when inserting data remains fast.  And TimescaleDB can still ensure
+  global uniqueness on keys that include any partitioning keys, given the
+  disjoint nature of its chunks, i.e., given a unique (device_id, timestamp)
+  primary key, first identify the corresponding chunk given constraints, then
+  use one of that chunk's index to ensure uniqueness.  But this remains simple
+  to use with TimecaleDB's hypertable abstraction: Users simply create an index
+  on the hypertable, and these operations (and configurations) are pushed down
+  to both existing and new chunks.
+
+- **Easy data retention**. In many time-series applications users often only
+  want to retain raw data only for a certain amount of time, usually because of
+  cost, storage, compliance, or other reasons. With TimescaleDB, users can quickly
+  delete chunks based on their time ranges (e.g., all chunks whose data has
+  timestamps more than 6 months old). Even easier, users can create a data
+  retention policy within TimescaleDB to make this automatic, which employs its
+  internal job-scheduling framework. Chunk-based deletion is fast -- it's simply
+  deleting a file from disk -- as opposed to deleting individual rows, which
+  requires more expensive "vacuum" operations to later garbage collect and
+  defragment these deleted rows.
+
+- **Age-based compression, data reordering, and more**.  Many other data
+  management features can also take advantage of this chunk-based architecture,
+  which allows users to execute specific commands on chunks or employ
+  hypertable policies to automate these actions.  These include TimescaleDB's
+  native compression, which convert chunks from their traditional row-major
+  form into a layout that is more columnar in nature, while employing
+  type-specific compression on each column. Or data reordering, which
+  asynchronously rewrites data stored on disk from the order it was inserted
+  into an order specified by the user based on a specified index. By reordering
+  data based on (device_id, timestamp), for example, all data associated with a
+  specific device becomes written contiguously on disk, making "deep and
+  narrow" scans for a particular device's data much faster.
+
+- **Instant multi-node elasticity**.  TimescaleDB supports horizontally
+  scaling across multiple nodes. Unlike traditional one-dimensional
+  database sharding, where shards must be migrated to a newly-added
+  server as part of the process of expanding the cluster, TimescaleDB
+  supports the elastic addition (or removal) of new servers without
+  requiring any immediate rebalancing. When a new server is added,
+  existing chunks can remain at their current location, while chunks
+  created for future time intervals are partitioned across the new set
+  of servers.  The TimescaleDB planner can then handle queries
+  across these reconfigurations, always knowing which nodes are
+  storing which chunks.  Server load subsequently can be rebalanced
+  either by asynchronously migrating chunks or handled via data
+  retention policies if desired.
+
+- **Data replication**.  Chunks can be individually replicated across
+  nodes transactionally, either by configuring a replication factor on a
+  distributed hypertable (which occurs as part of a 2PC transaction at
+  insert time) or by copying an older chunk from one node to another
+  to increase its replication factor, e.g., after a node failure (coming soon).
+
+- **Data migration**.  Chunks can be individually migrated transactionally.
+  This migration can be across tablespaces (disks) residing on a single
+  server, often as a form of data tiering; e.g., moving older data from
+  faster, more expensive disks to slower, cheaper storage. This migration
+  can also occur across nodes in a distributed hypertable, e.g., in order to
+  asynchronous rebalance a cluster after adding a server or to prepare for
+  retiring a server (coming soon).
+
+## Partitioning by other columns
 A hypertable can be partitioned by additional columns as well -- such as a device
 identifier, server or container id, user or customer id, location, stock ticker
 symbol, and so forth.  Such partitioning on this additional column typically
@@ -45,7 +125,7 @@ buckets), although interval-based partitioning can be employed here as well.
 We sometimes refer to hypertables partitioned by both time and this additional
 dimension as "time and space" partitions.
 
-This time-and-space partitioning is primarily used for *[distributed hypertables]*.
+This time-and-space partitioning is primarily used for *[distributed-hypertables]*.
 With such two-dimensional partitioning, each time interval is also
 partitioned across multiple nodes comprising the distributed hypertables.
 In such cases, for the same hour, information about some portion of the
@@ -155,4 +235,5 @@ management. These includes:
 
 
   [create-hypertable]: /how-to-guides/hypertables/create/
-  [distributed hypertables]: /overview/core-concepts/distributed-hypertables/
+  [distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
+  [hypertable-best-practices]: /how-to-guides/hypertables/best-practices/#time-intervals
