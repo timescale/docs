@@ -1,7 +1,7 @@
 # UPSERT functionality
 
 TimescaleDB supports UPSERTs in the same manner as PostgreSQL
-via the optional `ON CONFLICT` clause ([PostgreSQL docs][postgres-upsert]).
+via the optional [`ON CONFLICT`][postgres-upsert] clause.
 If such a clause is provided, rather than cause an error,
 an inserted row that
 conflicts with another can either (a) do nothing or (b) result in a

@@ -111,7 +111,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
  ```
 
 Materialize data into the continuous aggregate:
-```
+```sql
 CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
 
 The select query returns the same data, as expected, but this time the data is 
