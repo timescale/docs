@@ -47,8 +47,7 @@ or annual aggregates.
 | `timezone` | TEXT | The name of the timezone. The argument can be specified only if the type of `ts` is TIMESTAMPTZ |
 
 For backward compatibility with `time_bucket()` the `timezone` argument is
-optional. However, it is required for time buckets that are less than twenty
-four hours.
+optional. However, it is required for time buckets that are less than 24 hours.
 
 If you call the TIMESTAMPTZ-version of the function without the `timezone`
 argument, the timezone defaults to the session's timezone and so the function
