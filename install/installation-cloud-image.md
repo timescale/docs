@@ -18,15 +18,15 @@ each of the available regions are:
 
 |Region|Country or state|Image ID|
 |-|-|-|
-|us-east-1|North Virginia|`ami-0142e0ff4336460d8`|
-|us-east-2|Ohio|`ami-093758173e997a8aa`|
-|us-west-1|North California|`ami-0065769df35cdaf5e`|
-|us-west-2|Oregon|`ami-07a7e914792b3a760`|
-|eu-central-1|Germany|`ami-07bf96202903b78fd`|
-|eu-north-1|Sweden|`ami-03aa8f2270308356e`|
-|eu-west-1|Ireland|`ami-09d5dd90db4b4f9aa`|
-|eu-west-2|England|`ami-0a06dcf5597a26395`|
-|eu-west-3|France|`ami-00f44167b13c0a9ac`|
+|us-east-1|North Virginia|`ami-0e1fda26a1ed02cfa`|
+|us-east-2|Ohio|`ami-0125218e638acecc6`|
+|us-west-1|North California|`ami-067fc377a13e8a478`|
+|us-west-2|Oregon|`ami-02ebb0bba83c21e18`|
+|eu-central-1|Germany|`ami-091761278280a85ea`|
+|eu-north-1|Sweden|`ami-073032763b7b002e2`|
+|eu-west-1|Ireland|`ami-079be8591e30184db`|
+|eu-west-2|England|`ami-0f470a62b8b999882`|
+|eu-west-3|France|`ami-06ffe8616822f2c79`|
 
 <highlight type="note">
 This section shows how to use the AMI from within the AWS EC2 dashboard.
