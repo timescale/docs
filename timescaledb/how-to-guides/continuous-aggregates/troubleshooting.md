@@ -107,7 +107,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
  ```
 
 Refresh the data:
-```
+```sql
 CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
 
 -- The CAGG didn't change, that's expected
