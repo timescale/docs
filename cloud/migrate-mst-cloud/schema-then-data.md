@@ -57,7 +57,7 @@ Before you begin, check that you have:
     self-hosted TimescaleDB][upgrading-postgresql-self-hosted] and [Managed
     Service for TimescaleDB][upgrading-postgresql].
 *   Checked that you're running the same major version of TimescaleDB on both
-    Timescale Cloud and yoru source database. For more information, see the
+    Timescale Cloud and your source database. For more information, see the
     [upgrading TimescaleDB section][upgrading-timescaledb].
 
 ## Migrate schema pre-data
