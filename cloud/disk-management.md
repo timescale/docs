@@ -9,13 +9,14 @@ services. There are four key tasks that Cloud performs to handle disk space:
 This section explains what the various mechanisms are, and how to best make use
 of them.
 
-<highlight type="important">
 By default, Timescale Cloud services have autoscaling enabled. Autoscaling
 automatically increases your disk size, up to a maximum amount, as you fill the
 disk. For more information about autoscaling, including instructions for setting
 the maximum limit, or turning autoscaling off, see the
-[scaling a service](/cloud/latest/scaling-a-service/) section.
-</highlight>
+[scaling a service][scaling] section.
+
+For more information about memory management, including out of memory (OOM)
+errors, see the [memory management][memory-mgmt] section.
 
 ## Continuous storage monitoring
 Timescale Cloud continuously monitors the health and resource consumption of all
@@ -123,3 +124,6 @@ leaving the database in read-only mode.
 
 As soon as the storage consumption drops below the threshold, the read-only
 protection is automatically removed, and you can start writing data again.
+
+[scaling]: cloud/:currentVersion:/scaling-a-service/
+[memory-mgmt]: cloud/:currentVersion:/memory-management/
