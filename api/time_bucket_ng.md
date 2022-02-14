@@ -48,11 +48,12 @@ or annual aggregates.
 
 For backward compatibility with `time_bucket()` the `timezone` argument is
 optional. However, it is required for time buckets that are less than twenty
-four hours. 
+four hours.
 
 If you call the TIMESTAMPTZ-version of the function without the `timezone`
 argument, the timezone defaults to the session's timezone and so the function
-can't be used with continuous aggregates.
+can't be used with continuous aggregates. Best practice is to use
+`time_bucket_ng(interval, timestamptz, text)` and specify the timezone.
 
 ### Return value
 
