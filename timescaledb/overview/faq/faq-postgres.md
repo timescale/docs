@@ -8,10 +8,13 @@ Read our TimescaleDB-PostgreSQL benchmarks:
 To summarize, TimescaleDB offers:
 * Ease-of-use: TimescaleDB is far easier to use because creating partitions (or what we call
 "chunks") is automatically performed for the user. All of the complexity of automatic
-partitioning is abstracted away behind a "hypertable", which users interact with just as
+partitioning is abstracted away behind a hypertable, which users interact with just as
 they would with a PostgreSQL table.
-* Much higher ingest scale: TimescaleDB sees throughput more than 20X that of
-PostgreSQL once tables reach moderate size (e.g., 10s of millions of rows).
+* Much higher ingest scale: TimescaleDB sees throughput more than 20 times that of 
+<!-- vale Google.Units = NO -->
+PostgreSQL once tables reach moderate size (for example, tens of millions of
+rows). 
+<!-- vale Google.Units = YES -->
 While vanilla PostgreSQL is suitable for time-series data at low volumes, it does
 not scale well to the volume of data that most time-series applications produce, especially
 when running on a single server. In particular, vanilla PostgreSQL has poor write performance
@@ -33,24 +36,26 @@ and easily enforces data retention policies by specifying the data you wish to b
 deleted that is older than a specified time period. For more information, see [Data Retention][data-retention].
 * Extended time-oriented features: TimescaleDB includes time-series specific features
 not included in vanilla PostgreSQL and entirely unique to TimescaleDB
-(e.g., [`time_bucket`][time_bucket],[`first`][first] and [`last`][last]), with more to come.
+(such as [`time_bucket`][time_bucket],[`first`][first], and [`last`][last]), 
+with more to come.
 
 ## How compatible is TimescaleDB with PostgreSQL?
 TimescaleDB is implemented as an extension to PostgreSQL that introduces
 transparent scalability and performance optimizations, as well as time-series
-specific features (e.g., arbitrary aggregations, data retention policies). TimescaleDB
-connects with any and all third party tools that communicate with standard PostgreSQL
-connectors. TimescaleDB supports the same extensions, tools and drivers that PostgreSQL
-supports. You can continue to run your existing PostgreSQL databases and work with your
-current visualization and reporting tools.
+specific features (for example, arbitrary aggregations, data retention
+policies). TimescaleDB connects with any and all third-party tools that
+communicate with standard PostgreSQL connectors. TimescaleDB supports the same
+extensions, tools and drivers that PostgreSQL supports. You can continue to run
+your existing PostgreSQL databases and work with your current visualization and
+reporting tools.
 
 ## How does TimescaleDB handle geospatial data?
 As an extension of PostgreSQL, TimescaleDB works well with PostGIS. For example,
 [see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data.
 
 
-[PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e
-[PostgreSQL-problems-time-series]: https://www.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5
+[PostgreSQL-benchmark]: https://blog.timescale.com/blog/timescaledb-vs-6a696248104e/
+[PostgreSQL-problems-time-series]: https://blog.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [last]: /api/:currentVersion:/hyperfunctions/last/

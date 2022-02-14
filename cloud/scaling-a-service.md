@@ -1,57 +1,36 @@
 # Resizing compute and storage in Timescale Cloud
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
-at any time. This is extremely useful when users have a need to increase storage
-(for instance) but not compute. The Timescale Cloud console makes this very easy
-to do for any service.
+at any time. This is useful when you need to do something like increasing your
+storage capacity, but not your compute size. You can resize compute and storage
+in the Timescale Cloud console for any service, including members of multi-node
+clusters.
 
-Before you modify the compute or storage settings for a Cloud Service, please
-note the following limitations and when a change to these settings results
-in momentary downtime.
+Storage changes are applied with no downtime, and the new storage capacity is
+usually available for use within a few seconds.
+*   Storage can only be increased in size. You cannot decrease the amount of
+    storage capacity your service has available.
+*   Storage size changes can only be made once every six hours.
+*   Storage can range in size from 10&nbsp;GB to 16&nbsp;TB,
+     and can be changed in various increments.
 
-**Storage**: Storage changes are applied with no downtime, typically available
-within a few seconds. Other things to note about storage changes:
-*   At the current time, storage can only be _increased_ in size.
-*   Storage size changes can only be made once every six (6) hours.
-*   Storage can be modified in various increments between 10GB and 10TB.
-
-**Compute**: Modifications to the compute size of your service (increases or
-decreases) can be applied at any time, however, please note the following:
-*   **_There is momentary downtime_** while the compute settings are applied.
+You can increase or decrease the compute size of your service at any time, with
+a short downtime.
+*   There is momentary downtime while the new compute settings are applied.
     In most cases, this downtime is less than 30 seconds.
-*   Because this requires an interruption to your service, you should plan
- accordingly to have the settings applied at an appropriate service window.
+*   Because compute changes require an interruption to your service, plan
+    accordingly so that the settings are applied during an appropriate service
+    window.
 
-## View service operation details
-To modify the compute or storage of your Service, first select the Service that
-you want to modify. This displays the `service details`, which list four tabs
-across the top: Overview, Operations, Metrics, and Logs. Select `Operations`.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-service-operations.png" alt="View Timescale Cloud service operational information"/>
-
-## Display the current service resources
-Under the Operations tab, you can perform the same basic operations as before
-(Reset password, Pause service, Delete service). There is now a second, advanced
-section on the left labeled `Resources`. Selecting this option displays the
-current resource settings for the Service.
+To modify the compute or storage of your service, select the service that you
+want to modify, and navigate to the `Operations` tab. Go to the `Resources`
+section to see the current resource settings for the service.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-unchanged.png" alt="View Timescale Cloud service resource information"/>
 
-## Modify service resources
-When you have navigated to the current Service resources, you can modify either
-the compute (CPU/Memory) or disk size. When you change these settings, the
-current and new hourly charges are displayed immediately so that you can verify
-how the changes impact your costs.
+When you change compute or storage settings, the current and new hourly charges
+are displayed immediately so that you can verify how the changes impact your
+costs.
 
-Changes to disk size do not cause any downtime.  However, the platform currently
-only supports _increasing_ disk size (not decreasing it), and you can increase
-disk size once every six hours.
-
-When you're satisfied with the changes, click `Apply` (storage resizes only) or
-`Apply and Restart` (when modifying compute resources).
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-resources-changed.png" alt="View Timescale Cloud service apply resize"/>
-
-# Compute resources and disk size
 You can use the Timescale Cloud console to change how much CPU and memory
 resources your service has available, as well as change the disk size for your
 service. You can adjust this manually as required, or for disk size you can use autoscaling.
@@ -101,7 +80,13 @@ very quickly. However, if you have a lot of existing data, optimization can take
 longer, and in some cases this could create a delay longer than six hours.
 
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
-to 10&nbsp;TB in size.
+to 16&nbsp;TB in size.
+
+If you have a Timescale Cloud multi-node cluster, you can also use
+autoscaling. We recommend that you define different scale limits for the access
+node and data nodes, not just because they have different workloads, but also
+because access nodes are less demanding for storage than data nodes. Data nodes
+have a single scaling threshold that applies across all the data nodes.
 
 <procedure>
 

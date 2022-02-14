@@ -1,35 +1,37 @@
 # TimescaleDB release notes and future plans
 
-Interested in what's coming down the pipeline? Review our
-Future Plans section. Interested in learning more about
-what's already available? Jump down below to see what's
-been released.
+Interested in what's coming down the pipeline? Review our [Future
+Plans](#future-plans) section. Interested in learning more about what's already
+available? Jump to [What's New](#what-x27-s-new-in-timescaledb-2-5) to see
+what's been released.
 
 ## Future plans
 
-TimescaleDB is an open-source project with a vibrant community.
-We are currently focusing on making our priorities known by that community;
-we welcome you to visit our Github repo or join our [Slack community](https://slack.timescale.com).
+TimescaleDB is an open-source project with a vibrant community. We are currently
+focusing on making our priorities known by that community; we welcome you to
+visit our [Github repo][github-repo] or join our [Slack
+community][timescale-slack].
 
 ### What to expect from our next releases
 
 For our next releases, we plan to add:
 
 - Continuous aggregates with compression
-- Multi-node performance and UX improvements
+- `time_bucket_ng` suport for N months and Timezones on continuous aggregates
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
 
-If you have questions about distributed hypertables, join our #multinode channel on
-[community slack](https://slack.timescale.com/) for installation details and
+If you have questions about distributed hypertables, join our #multinode channel
+on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
 ### What's new in TimescaleDB 2.5:
 
 - Continuous aggregates for distributed hypertables
 - Support for PostgreSQL 14
-- Experimental: Support for timezones in 'time_bucket_ng()', including the 'origin' argument
+- Experimental: Support for timezones in `time_bucket_ng`, including the
+  `origin` argument
 
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
@@ -37,9 +39,9 @@ This release also contains bug fixes since the 2.5.0 release.
 
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
-<highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
+<!-- <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight> -->
 
-<!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
+ <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> 
 
 
 The experimental features in the 2.5 release are:
@@ -54,10 +56,12 @@ We’re committed to developing these experiments, giving the community a chance
 provide early feedback and influence the direction of TimescaleDB’s development.
  We’ll travel faster with your input!
 
-Please create your feedback as a GitHub issue, and add the `experimental-schema` label.
-Describe what you found, and tell us the steps or share the code snippet to recreate it.
+Please [create your feedback as a GitHub issue][github-issue], and add the
+`experimental-schema` label. Describe what you found, and tell us the steps or
+share the code snippet to recreate it.
 
-Several bugs fixed, see the release notes for more details.
+Several bugs fixed. See the [release notes](#release-notes) for more
+details.
 
 **PostgreSQL 11 deprecation announcement**
 
@@ -67,7 +71,7 @@ For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 rel
 For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
-TimescaleDB 2.5.1 is now available, and we encourage
+TimescaleDB 2.5.2 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -77,6 +81,34 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+
+## 2.5.2 (2022-02-09)
+
+This release contains bug fixes since the 2.5.1 release.
+This release is high priority for upgrade. We strongly recommend that you
+upgrade as soon as possible.
+
+**Bug fixes**
+* #3900 Improve custom scan node registration
+* #3911 Fix role type deparsing for GRANT command
+* #3918 Fix DataNodeScan plans with one-time filter
+* #3921 Fix segfault on insert into internal compressed table
+* #3938 Fix subtract_integer_from_now on 32-bit platforms and improve error handling
+* #3939 Fix projection handling in time_bucket_gapfill
+* #3948 Avoid double PGclear() in data fetchers
+* #3979 Fix deparsing of index predicates
+* #4020 Fix ALTER TABLE EventTrigger initialization
+* #4024 Fix premature cache release call
+* #4037 Fix status for dropped chunks that have catalog entries
+* #4069 Fix riinfo NULL handling in ANY construct
+* #4071 Fix extension installation privilege escalation
+
+**Thanks**
+* @carlocperez for reporting crash with NULL handling in ANY construct
+* @erikhh for reporting an issue with time_bucket_gapfill
+* @kancsuki for reporting drop column and partial index creation not working
+* @mmouterde for reporting an issue with floats and interpolate
+* Pedro Gallegos for reporting a possible privilege escalation during extension installation
 
 ## 2.5.1 (2021-12-01)
 
@@ -102,6 +134,7 @@ for more information and links to installation instructions when upgrading from 
  * @cbisnett for reporting and fixing a typo in an error message
 * @CaptainCuddleCube for reporting bug on compression policy procedure on tables using INTEGER on time dimension
 * @phemmer for reporting bugs on multi-node
+
 ## 2.5.0 (2021-10-28)
 
 **Features**
@@ -1462,8 +1495,11 @@ For more information on this release, read the [blog announcement](https://blog.
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
 
+[changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
 [distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
 [distributed-hypertables-setup]: /how-to-guides/multi-node-setup/
-[changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
+[github-issue]: https://github.com/timescale/timescaledb/issues/new/choose
+[github-repo]: https://github.com/timescale/timescaledb
 [multinode-intro]: /overview/core-concepts/distributed-hypertables
 [multinode-setup]: /how-to-guides/multi-node-setup/
+[timescale-slack]: https://slack.timescale.com

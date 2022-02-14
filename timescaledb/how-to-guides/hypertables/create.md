@@ -2,7 +2,7 @@
 When you have created your database, you're ready to create your first
 hypertable. Creating a hypertable is a two-step process; you need to create a
 standard PostgreSQL table, and then convert it into a TimescaleDB hypertable.
-The method for creating distributed hypertable on a multi-node cluster is
+The method for creating a distributed hypertable on a multi-node cluster is
 similar.
 
 ## Create a hypertable
@@ -53,7 +53,7 @@ of a query across the data nodes.
 You must have set up your multi-node cluster before you create a distributed
 hypertable. If you have not configured multi-node, creating a distributed
 hypertable fails. For more information about setting up multi-node, see the
-[multi-node section][multi-node].
+[multi-node section](https://docs.timescale.com/timescaledb/latest/how-to-guides/multinode-timescaledb/).
 </highlight>
 
 <procedure>
@@ -79,4 +79,4 @@ hypertable fails. For more information about setting up multi-node, see the
 
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
-[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[multi-node]: /how-to-guides/multinode-timescaledb/

@@ -7,7 +7,7 @@ The currently available pre-built cloud image is:
 *   Ubuntu 18.04 Amazon EBS-backed AMI
 
 The Timescale AMI uses Elastic Block Store (EBS) attached volumes. This allows
-yopu to store image snapshots, dynamic IOPS configuration, and provides some
+you to store image snapshots, dynamic IOPS configuration, and provides some
 protection of your data if the EC2 instance goes down. Choose an EC2 instance
 type that is optimized for EBS attached volumes. For information on choosing the
 right EBS optimized EC2 instance type, see the AWS
@@ -18,15 +18,15 @@ each of the available regions are:
 
 |Region|Country or state|Image ID|
 |-|-|-|
-|us-east-1|North Virginia|`ami-0142e0ff4336460d8`|
-|us-east-2|Ohio|`ami-093758173e997a8aa`|
-|us-west-1|North California|`ami-0065769df35cdaf5e`|
-|us-west-2|Oregon|`ami-07a7e914792b3a760`|
-|eu-central-1|Germany|`ami-07bf96202903b78fd`|
-|eu-north-1|Sweden|`ami-03aa8f2270308356e`|
-|eu-west-1|Ireland|`ami-09d5dd90db4b4f9aa`|
-|eu-west-2|England|`ami-0a06dcf5597a26395`|
-|eu-west-3|France|`ami-00f44167b13c0a9ac`|
+|us-east-1|North Virginia|`ami-0e1fda26a1ed02cfa`|
+|us-east-2|Ohio|`ami-0125218e638acecc6`|
+|us-west-1|North California|`ami-067fc377a13e8a478`|
+|us-west-2|Oregon|`ami-02ebb0bba83c21e18`|
+|eu-central-1|Germany|`ami-091761278280a85ea`|
+|eu-north-1|Sweden|`ami-073032763b7b002e2`|
+|eu-west-1|Ireland|`ami-079be8591e30184db`|
+|eu-west-2|England|`ami-0f470a62b8b999882`|
+|eu-west-3|France|`ami-06ffe8616822f2c79`|
 
 <highlight type="note">
 This section shows how to use the AMI from within the AWS EC2 dashboard.
@@ -54,7 +54,7 @@ that you can use it. The easiest way to do this is to run the `timescaledb-tune`
 script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
-## Set up the TimeascaleDB extension
+## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
@@ -142,6 +142,6 @@ if you want to have a chat.
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
 [contact]: https://www.timescale.com/contact
 [install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timeascaledb/:currentVersion:/index/
+[tsdb-docs]: timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /how-to-guides/configuration/

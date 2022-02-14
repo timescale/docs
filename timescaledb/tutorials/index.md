@@ -25,7 +25,7 @@ data analysis and make forecasts on your data.
 - **[Creating a Grafana dashboard and panel][tutorial-grafana-dashboards]**: Basic tutorial on using Grafana to visualize data in TimescaleDB.
 - **[Visualize Geospatial data in Grafana][tutorial-grafana-geospatial]**: Use the Grafana WorldMap visualization to view your TimescaleDB data.
 - **[Use Grafana variables][tutorial-grafana-variables]**: Filter and customize your Grafana visualizations.
-- **[Visualizing Missing Data with Grafana][tutorial-grafana-missing-data]**: Learn how to visualize and aggregate missing time-series data in Grafana.
+- **[Visualizing missing data with Grafana][tutorial-grafana-missing-data]**: Learn how to visualize and aggregate missing time-series data in Grafana.
 - **[Setting up Grafana alerts][tutorial-grafana-alerts]**: Configure Grafana to alert you in Slack, PagerDuty, and more.
 
 ### Other integrations
@@ -35,9 +35,9 @@ data analysis and make forecasts on your data.
 
 ### Additional resources
 
-- **[Sample data sets][sample-data-sets]**: And if you want to explore on your own
-with some sample data, we have some ready-made data sets for you to explore.
-- **[Simulate IoT Sensor Data][simul-iot-data]**: Simulate a basic IoT sensor dataset
+- **[Sample datasets][sample-data-sets]**: And if you want to explore on your own
+with some sample data, we have some ready-made datasets for you to explore.
+- **[Simulate IoT sensor data][simul-iot-data]**: Simulate a basic IoT sensor dataset
 on PostgreSQL or TimescaleDB.
 - **[psql installation][psql]**: `psql` is a terminal-based front-end for PostgreSQL.
 Learn how to install `psql` on Mac, Ubuntu, Debian, Windows,
@@ -52,7 +52,7 @@ and pick up some valuable `psql` tips and tricks along the way.
 [telegraf]: /tutorials/telegraf-output-plugin
 [sample-data-sets]: /tutorials/sample-datasets
 [install-timescale]: /install/latest/
-[promscale]: /tutorials/promscale/
+[promscale]: /promscale/latest/
 [psql]: /how-to-guides/connecting/psql/
 [Crypto]: /tutorials/analyze-cryptocurrency-data
 [Stocks]: /tutorials/analyze-intraday-stocks/

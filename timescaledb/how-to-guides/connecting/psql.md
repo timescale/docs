@@ -1,7 +1,7 @@
 # Install the psql connection tool
 The `psql` command line tool is widely used for interacting with a PostgreSQL or
 TimescaleDB instance, and it is available for all operating systems. Most of
-the instructions we give you assume you are using `psql`.
+the instructions in the Timescale documentation assume you are using `psql`.
 
 Before you start, check that you don't already have `psql` installed. It is
 sometimes installed by default, depending on your operating system and other
@@ -78,9 +78,8 @@ If you do not want to install the entire PostgreSQL package, you can install the
     ```bash
     brew link --force libpq
     ```
-    For your reference, on Intel chips, the symbolic link is added to
-    `/usr/local/bin`. On Apple Silicon, the symbolic link is added to
-    `/opt/homebrew/bin`.
+    On Intel chips, the symbolic link is added to `/usr/local/bin`. On Apple
+    Silicon, the symbolic link is added to `/opt/homebrew/bin`.
 
 </procedure>
 
@@ -120,5 +119,5 @@ EnterpriseDB.
 </procedure>
 
 
-[brew-package-manager]: https://brew.sh/
+[homebrew]: https://brew.sh/
 [windows-installer]: https://www.postgresql.org/download/windows/

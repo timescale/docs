@@ -8,6 +8,7 @@ instructions use the `apt` package manager on these distributions:
 *   Ubuntu 18.04 LTS Bionic Beaver
 *   Ubuntu 20.04 LTS Focal Fossa
 *   Ubuntu 21.04 Hirsute Hippo
+*   Ubuntu 21.10 Impish Indri
 
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `apt`
@@ -25,13 +26,18 @@ instead.
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
     ```bash
-    apt install gnupg postgresql-common
+    apt install gnupg postgresql-common apt-transport-https lsb-release wget
     ```
 1.  Run the PostgreSQL repository setup script:
     ```bash
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
+1.  Add the Timescale GPG key:
+    ```bash
+    curl -L https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
+    ```
 1.  Add the TimescaleDB third party repository:
+
     <terminal>
 
     <tab label='Debian'>
@@ -51,6 +57,11 @@ instead.
     </tab>
 
     </terminal>
+
+1.  Install Timescale GPG key
+    ```bash
+    wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add -
+    ```
 1.  Update your local repository list:
     ```bash
     apt update
@@ -67,7 +78,7 @@ that you can use it. The easiest way to do this is to run the `timescaledb-tune`
 script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
-## Set up the TimeascaleDB extension
+## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
@@ -151,7 +162,7 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timeascaledb/:currentVersion:/index/
+[install-psql]: /timescaledb/latest/how-to-guides/connecting/psql/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: /how-to-guides/configuration/
+[config]: timescaledb/latest/how-to-guides/configuration/

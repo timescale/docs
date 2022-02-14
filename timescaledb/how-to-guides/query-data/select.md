@@ -1,9 +1,9 @@
 # SELECT commands
 
-Data can be queried from a hypertable using the standard `SELECT` SQL command
-([PostgreSQL docs][postgres-select]), including with arbitrary `WHERE` clauses,
-`GROUP BY` and `ORDER BY` commands, joins, subqueries, window functions,
-user-defined functions (UDFs), `HAVING` clauses, and so on.
+Query data from a hypertable using the standard [`SELECT`][postgres-select] SQL
+command. You can use all SQL features, including `WHERE` clauses, `GROUP BY` and
+`ORDER BY` commands, joins, subqueries, window functions, user-defined functions
+(UDFs), `HAVING` clauses, and more.
 
 From basic queries:
 
