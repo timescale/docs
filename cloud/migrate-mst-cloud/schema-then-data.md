@@ -175,7 +175,8 @@ regular PostgreSQL [`COPY`][copy], or using the TimescaleDB
 is not included by default. You must install the function.
 
 <highlight type="important">
-Both `timescaledb-parallel-copy` and `COPY` decompress compressed data. If you
+Because `COPY` decompresses data, any compressed data in your source 
+database is now stored uncompressed in your `.csv` files. If you
 provisioned your Timescale Cloud storage for your compressed data, the
 uncompressed data may take too much storage. To avoid this problem, periodically
 recompress your data as you copy it in. For more information on compression, see
