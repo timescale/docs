@@ -35,8 +35,8 @@ data analysis and make forecasts on your data.
 
 ### Additional resources
 
-- **[Sample data sets][sample-data-sets]**: And if you want to explore on your own
-with some sample data, we have some ready-made data sets for you to explore.
+- **[Sample datasets][sample-data-sets]**: And if you want to explore on your own
+with some sample data, we have some ready-made datasets for you to explore.
 - **[Simulate IoT sensor data][simul-iot-data]**: Simulate a basic IoT sensor dataset
 on PostgreSQL or TimescaleDB.
 - **[psql installation][psql]**: `psql` is a terminal-based front-end for PostgreSQL.

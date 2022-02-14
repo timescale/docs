@@ -54,7 +54,7 @@ prevent this happening by setting the function parameter `repartition` to
 ## Move data between chunks <tag type="experimental">Experimental</tag>
 When you attach a new data node to a distributed hypertable, you can move
 existing data in your hypertable to the new node to free up storage on the
-existing nodes and better use of the added capacity.
+existing nodes and make better use of the added capacity.
 
 <highlight type="warning">
 The ability to move chunks between data nodes is an experimental feature that is
