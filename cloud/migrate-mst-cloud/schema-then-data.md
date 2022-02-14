@@ -68,22 +68,22 @@ owners, and settings. This doesn't include Timescale-specific schemas.
 <procedure>
 
 ### Migrating schema pre-data
-1.  Dump the schema pre-data from your source database into a `.bak` file, using
+1.  Dump the schema pre-data from your source database into a `dump_pre_data.bak` file, using
     your source database connection details. Exclude Timescale-specific schemas.
     If you are prompted for a password, use your source database credentials:
     ```bash
     pg_dump -U <SOURCE_DB_USERNAME> -W \
     -h <SOURCE_DB_HOST> -p <SOURCE_DB_PORT> -Fc -v \
     --section=pre-data --exclude-schema="_timescaledb*" \
-    -f <FILENAME_PRE_DATA>.bak <DATABASE_NAME>
+    -f dump_pre_data.bak <DATABASE_NAME>
     ```
-1.  Restore the dumped data from the `.bak` file into your Timescale Cloud
+1.  Restore the dumped data from the `dump_pre_data.bak` file into your Timescale Cloud
     database, using your Timescale Cloud connection details. To avoid
     permissions errors, include the `--no-owner` flag:
     ```bash
     pg_restore -U tsdbadmin -W \
     -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner -Fc \
-    -v -d tsdb <FILENAME_PRE_DATA>.bak
+    -v -d tsdb dump_pre_data.bak
     ```
 
 </procedure>
@@ -162,7 +162,7 @@ If your tables are very large, you can migrate each table in multiple pieces.
 Split each table by time range, and copy each range individually. For example:
 
 ```sql
-\COPY (SELECT * FROM <TABLE_NAME> WHERE time > ‘2021-11-01’ AND time < ‘2011-11-02’) TO <TABLE_NAME_DATE_RANGE>.csv CSV
+\COPY (SELECT * FROM <TABLE_NAME> WHERE time > '2021-11-01' AND time < '2011-11-02') TO <TABLE_NAME_DATE_RANGE>.csv CSV
 ```
 </highlight>
 
@@ -231,22 +231,22 @@ schema post-data. This includes information about constraints.
 
 ### Migrating schema post-data
 1.  At the command prompt, dump the schema post-data from your source database
-    into a `.bak` file, using your source database connection details. Exclude
+    into a `dump_post_data.bak` file, using your source database connection details. Exclude
     Timescale-specific schemas. If you are prompted for a password, use your
     source database credentials:
     ```bash
     pg_dump -U <SOURCE_DB_USERNAME> -W \
     -h <SOURCE_DB_HOST> -p <SOURCE_DB_PORT> -Fc -v \
     --section=post-data --exclude-schema="_timescaledb*" \
-    -f <FILENAME_POST_DATA>.bak <DATABASE_NAME>
+    -f dump_post_data.bak <DATABASE_NAME>
     ```
-1.  Restore the dumped schema post-data from the `.bak` file into your Timescale
+1.  Restore the dumped schema post-data from the `dump_post_data.bak` file into your Timescale
     Cloud database, using your Timescale Cloud connection details. To avoid
     permissions errors, include the `--no-owner` flag:
     ```bash
     pg_restore -U tsdbadmin -W \
     -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner -Fc \
-    -v -d tsdb <FILENAME_POST_DATA>.bak
+    -v -d tsdb dump_post_data.bak
     ```
 
 </procedure>
