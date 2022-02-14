@@ -46,13 +46,13 @@ information about compression and decompression, see the
 <procedure>
 
 ### Migrating the entire database at once
-1.  Dump all the data from your source database into a `.bak` file, using your
+1.  Dump all the data from your source database into a `dump.bak` file, using your
     source database connection details. If you are prompted for a password, use
     your source database credentials:
     ```bash
     pg_dump -U <SOURCE_DB_USERNAME> -W \
     -h <SOURCE_DB_HOST> -p <SOURCE_DB_PORT> -Fc -v \
-    -f <FILENAME>.bak <SOURCE_DB_NAME>
+    -f dump.bak <SOURCE_DB_NAME>
     ```
 1.  Connect to your Timescale Cloud database using your Timescale Cloud
     connection details. When you are prompted for a password, use your Timescale
@@ -66,13 +66,13 @@ information about compression and decompression, see the
     ```sql
     SELECT timescaledb_pre_restore();
     ```
-1.  At the command prompt, restore the dumped data from the `.bak` file into
+1.  At the command prompt, restore the dumped data from the `dump.bak` file into
     your Timescale Cloud database, using your Timescale Cloud connection
     details. To avoid permissions errors, include the `--no-owner` flag:
     ```bash
     pg_restore -U tsdbadmin -W \
     -h <CLOUD_HOST> -p <CLOUD_PORT> --no-owner \
-    -Fc -v -d tsdb <FILENAME>.bak
+    -Fc -v -d tsdb dump.bak
     ```
 1.  At the `psql` prompt, return your Timescale Cloud database to normal
     operations by using the
