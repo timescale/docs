@@ -53,7 +53,9 @@ One caveat is that the total chunk size is actually dependent on
 both the underlying data size *and* any indexes, so some care might be
 taken if you make heavy use of expensive index types (e.g., some
 PostGIS geospatial indexes).  During testing, you might check your
-total chunk sizes via the [`chunk_detailed_size`](/api/latest/hypertable/chunks_detailed_size/) function.
+total chunk sizes via the 
+[`chunks_detailed_size`](https://docs.timescale.com/api/latest/hypertable/chunks_detailed_size/) 
+function.
 </highlight>
 
 ## Space partitions

@@ -90,12 +90,12 @@ After configuring `postgresql.conf` and restarting PostgreSQL, create a
 [replication slot][postgres-rslots-docs] for each replica. Replication slots
 ensure that the primary does not delete segments from the WAL until they have
 been received by the replicas. This is crucial for cases where a replica goes
-down for extended periods of time -- without verifying that a WAL segment has
+down for extended periods of time. Without verifying that a WAL segment has
 already been consumed by a replica, the primary may delete data needed for
 replication. To some extent, you can achieve this using
 [archiving][postgres-archive-docs], but replication slots provide the strongest
 protection of WAL data for streaming replication. The name of the slot is
-arbitrary -- we'll call the slot for this replica `replica_1_slot`.
+arbitrary. In this example, the replication slot is named `replica_1_slot`:
 
 ```sql
 SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');

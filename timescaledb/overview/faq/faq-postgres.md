@@ -54,8 +54,8 @@ As an extension of PostgreSQL, TimescaleDB works well with PostGIS. For example,
 [see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data.
 
 
-[PostgreSQL-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e
-[PostgreSQL-problems-time-series]: https://www.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5
+[PostgreSQL-benchmark]: https://blog.timescale.com/blog/timescaledb-vs-6a696248104e/
+[PostgreSQL-problems-time-series]: https://blog.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [last]: /api/:currentVersion:/hyperfunctions/last/
