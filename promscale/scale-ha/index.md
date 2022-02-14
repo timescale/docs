@@ -10,6 +10,6 @@ scaled. It can also be used with a load balancer for high availability.
 *   Scale Promscale with a [TimescaleDB multi-node database][multi-node]
 *   Configure Promscale [multi-tenancy for Prometheus][multi-tenancy]
 
-[high-availability]: /scale/high-availability/
-[multi-node]: /scale/multi-node/
-[multi-tenancy]: /scale/prometheus-multi-tenancy/
+[high-availability]: /scale-ha/high-availability/
+[multi-node]: /scale-ha/multi-node/
+[multi-tenancy]: /scale-ha/prometheus-multi-tenancy/
