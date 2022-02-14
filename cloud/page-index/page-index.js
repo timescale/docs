@@ -11,10 +11,6 @@ module.exports = [
         href: "create-a-service",
       },
       {
-        title: "Scale a service",
-        href: "scaling-a-service",
-      },
-      {
         title: "Customize configuration",
         href: "customize-configuration",
       },
@@ -29,6 +25,14 @@ module.exports = [
       {
         title: "Disk management",
         href: "disk-management"
+      },
+      {
+        title: "Scale a service",
+        href: "scaling-a-service",
+      },
+      {
+        title: "Memory management",
+        href: "memory-management",
       },
       {
         title: "Operations",
