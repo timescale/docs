@@ -132,7 +132,7 @@ pg_restore: warning: errors ignored on restore: 1
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [migrate-separately]: migrate-to-cloud/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
-[pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
+[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/

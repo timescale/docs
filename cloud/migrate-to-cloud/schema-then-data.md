@@ -355,7 +355,7 @@ ANALYZE;
 [extensions]: /customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
-[pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
+[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
