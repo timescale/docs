@@ -1,42 +1,37 @@
-# Updating TimescaleDB versions [](update)
+# Update TimescaleDB versions
+Update your TimescaleDB version with an in-place update. By updating in-place,
+you don't need to dump and restore your data. Automated migration scripts handle
+conversion of internal states where needed.
 
-The instructions below allow you to update TimescaleDB within the same major release
-version (for example, from TimescaleDB 2.1 to 2.2, or from 1.7 to 1.7.4). If you need
-to upgrade between TimescaleDB 1.x and 2.x, see our [separate upgrade document][update-tsdb-2]
-for detailed instructions.
-
-TimescaleDB supports **in-place updates only**: you don't need to dump and
-restore your data, and versions are published with automated migration scripts
-that convert any internal state if necessary.
-
-<highlight type="warning">
-There is currently no automated way to downgrade to an earlier release of TimescaleDB without setting up
-a new instance of PostgreSQL with a previous release of TimescaleDB and then using `pg_restore`
-from a backup.
+<highlight type="important">
+Follow these instructions to update TimescaleDB within the same major release
+version. For example, you can update from TimescaleDB 2.1 to 2.2, or from 1.7 to
+1.7.4. To update from 1.x to 2.x, see the [section on updating to TimescaleDB 
+2.x](https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb-2/).
 </highlight>
 
-### TimescaleDB release compatibility [](compatibility)
+## TimescaleDB release compatibility
+TimescaleDB supports the following PostgreSQL releases. If you aren't running a
+compatible release, update PostgreSQL before updating TimescaleDB. To learn
+more, see the sections on updating PostgreSQL in [Timescale
+Cloud][cloud-update-pg], [Managed Service for TimescaleDB][mst-update-pg], and
+[self-hosted TimescaleDB][self-hosted-update-pg]. 
 
-TimescaleDB currently supports the following PostgreSQL releases. If you are not
-currently running a compatible release, please upgrade before updating TimescaleDB.
+|TimescaleDB release|Supported PostgreSQL releases|
+|-|-|
+|1.7|9.6, 10, 11, 12|
+|2.0|11, 12|
+|2.1-2.3|11, 12, 13|
+|2.4|12, 13|
+|2.5+|12, 13, 14|
 
- TimescaleDB Release |   Supported PostgreSQL Release
- --------------------|-------------------------------
- 1.7                 | 9.6, 10, 11, 12
- 2.0                 | 11, 12
- 2.1-2.3             | 11, 12, 13
- 2.4                 | 12, 13
- 2.5+                | 12, 13, 14
+<highlight type="important"> 
+To make sure your update completes properly, update PostgreSQL and TimescaleDB
+separately. Keep PostgreSQL and TimescaleDB versions compatible throughout the 
+process. If your update spans multiple versions, this may require several steps.
 
-If you need to upgrade PostgreSQL first,
-see [our documentation][upgrade-pg].
-
-<highlight type="tip">
-We always recommend that you update PostgreSQL and TimescaleDB as
-separate actions to make sure that each process completes properly.
-For example, if you are currently running PostgreSQL 10 and
-TimescaleDB 1.7.5, and you want to upgrade to PostgreSQL 13 and
-TimescaleDB 2.2, upgrade in this order:
+For example, if you're currently running PostgreSQL 10 and TimescaleDB 1.7.5,
+and you want to update to PostgreSQL 13 and TimescaleDB 2.2:
 
 1. Upgrade PostgreSQL 10 to PostgreSQL 12
 1. Update TimescaleDB 1.7.5 to TimescaleDB 2.2 on PostgreSQL 12
@@ -44,51 +39,63 @@ TimescaleDB 2.2, upgrade in this order:
 
 </highlight>
 
-### Update TimescaleDB
-Software upgrades use PostgreSQL's `ALTER EXTENSION` support to update to the
-latest version. TimescaleDB supports having different extension
-versions on different databases within the same PostgreSQL instance. This
-allows you to update extensions independently on different databases. The
-upgrade process involves three steps:
+## Update TimescaleDB
+Update TimescaleDB by using PostgreSQL's `ALTER EXTENSION` command. You can run
+different TimescaleDB versions on different databases within the same PostgreSQL
+instance. You can also update your extensions independently on different
+databases.
 
-1. Perform a [backup][] of your database via `pg_dump`.
-1. [Install][] the latest version of the TimescaleDB extension.
-1. Execute the following `psql` command inside any database that you want to
-   update:
+<procedure>
 
-```sql
-ALTER EXTENSION timescaledb UPDATE;
-```
+### Updating TimescaleDB
 
-<highlight type="warning">
-When executing `ALTER EXTENSION`, you should connect using `psql`
-with the `-X` flag to prevent any `.psqlrc` commands from accidentally
-triggering the load of a previous TimescaleDB version on session startup.
-It must also be the first command you execute in the session.
-</highlight>
+1.  [Back up][backup] your database with [`pg_dump`][pg_dump].
+1.  [Install][install] the latest version of the TimescaleDB extension.
+1.  Connect to your database with a PostgreSQL client. This example uses `psql`,
+    but any client works. If you're using `psql`, connect with the `-X` flag.
+    This prevents any commands in `.psqlrc` from loading a previous TimescaleDB
+    version on session startup. 
+    ```bash
+    psql -x "postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DB_NAME>?sslmode=require"
+    ```
+    Do not run any other commands before continuing to the next step.
+1.  Run the following `psql` command:
+    ```sql
+    ALTER EXTENSION timescaledb UPDATE;
+    ```
+    This upgrades TimescaleDB to the latest installed version, even if you're
+    several versions behind. To update to a version that's not the latest
+    installed version, specify the version number, like so:
+    ```sql
+    ALTER EXTENSION timescaledb UPDATE TO '2.5.1';
+    ```
+1.  Verify that the upgrade worked by running `\dx timescaledb` to see the
+    extension's version number.
+    ```sql
+    \dx timescaledb
 
+       Name     | Version |   Schema   |                             Description
+    ------------+---------+------------+---------------------------------------------------------------------
+    timescaledb | x.y.z   | public     | Enables scalable inserts and complex queries for time-series data
+    (1 row)
 
-This upgrades TimescaleDB to the latest installed version, even if you
-are several versions behind.
+</procedure>
 
-After executing the command, the psql `\dx` command should show the latest version:
+## Downgrade TimescaleDB
+If you encounter a problem immediately after upgrading, you can roll back your
+upgrade. To learn more, see the [section on downgrading TimescaleDB][downgrade].
 
-```sql
-\dx timescaledb
-
-    Name     | Version |   Schema   |                             Description
--------------+---------+------------+---------------------------------------------------------------------
- timescaledb | x.y.z   | public     | Enables scalable inserts and complex queries for time-series data
-(1 row)
-```
-
-
-[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
+[backup]: /how-to-guides/backup-and-restore/
+[changes-in-2.0]: /overview/release-notes/changes-in-timescaledb-2/
+[cloud-update-pg]: FIXME
+[downgrade]: /how-to-guides/update-timescaledb/downgrade-timescaledb/
+[install]: /install/:currentVersion:/
+[mst-update-pg]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
+[pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
+[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
+[self-hosted-update-pg]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
+[telemetry]: /administration/telemetry/
+[update-docker]: /how-to-guides/update-timescaledb/updating-docker/
 [update-timescaledb]: /how-to-guides/update-timescaledb/update-timescaledb/
 [update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
-[update-docker]: /how-to-guides/update-timescaledb/updating-docker/
-[changes-in-2.0]: /overview/release-notes/changes-in-timescaledb-2/
-[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /how-to-guides/backup-and-restore/
-[Install]: /install/latest/
-[telemetry]: /administration/telemetry/
+[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
