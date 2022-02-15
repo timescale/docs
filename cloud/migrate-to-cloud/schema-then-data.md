@@ -6,7 +6,7 @@ restart midway if one copy operation fails.
 <highlight type="note">
 For smaller databases, it may be more convenient to migrate your entire database
 at once. For more information, see the section on [choosing a migration
-method](https://docs.timescale.com/cloud/latest/migrate-mst-cloud/).
+method](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
 </highlight>
 
 <highlight type="warning">
@@ -16,7 +16,7 @@ retain downsampled data in a continuous aggregate for a year, the continuous
 aggregate loses any data older than a month upon migration. If you must keep
 continuous aggregates calculated using deleted data, migrate your entire
 database at once. For more information, see the section on [choosing a migration
-method](https://docs.timescale.com/cloud/latest/migrate-mst-cloud/).
+method](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
 </highlight>
 
 The procedure to migrate your database requires these steps:
@@ -36,7 +36,7 @@ database during this time, though performance could be slower. To avoid this
 problem, fork your database and migrate your data from the fork. If you write to
 the tables in your source database during the migration, the new writes might
 not be transferred to Timescale Cloud. To avoid this problem, see the section on
-[migrating an active database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrate-an-active-database).
+[migrating an active database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database).
 </highlight>
 
 ## Prerequisites
@@ -351,7 +351,7 @@ ANALYZE;
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression]: /timescaledb/:currentVersion/how-to-guides/compression/
 [compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
-[choosing-method]: /migrate-mst-cloud/
+[choosing-method]: /migrate-to-cloud/
 [extensions]: /customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
