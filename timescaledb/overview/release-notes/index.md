@@ -37,7 +37,7 @@ follow these [setup instructions][distributed-hypertables-setup].
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
 This release also contains bug fixes since the 2.5.0 release.
 
- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> 
+<!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
 <!-- <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight> -->
 
