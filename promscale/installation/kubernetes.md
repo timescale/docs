@@ -26,6 +26,8 @@ credentials instead it uses the same credentials that are generated during the
 `helm install`.
 </highlight>
 
+By default, `timescaledb-single` helm chart deploys the TimescaleDB in **high-availability** mode. This results in running 3 replicas of database instances which in return comsumes 3x of disk as each database instance mounts to it's own persistent volume claim (PVC). You can disable high-availability mode by changing the `timescaledb-single` helm chart `replicaCount` values to `1` in ` values.yaml`.
+
 <procedure>
 
 #### Installing the TimescaleDB Helm chart
@@ -73,8 +75,18 @@ can provide the database URI, or specify connection parameters.
     ```bash
     helm repo update
     ```
-1.  Open the `values.yaml` configuration file, download the tobs
-    `values.yaml` from [here][tobs-values-yaml] and locate the `connection`
+1.  Create a database with name `tsdb` for Promscale data
+    ```bash
+    MASTERPOD="$(kubectl get pod -o name --namespace <namespace> -l release=<releaseName>,role=master)"
+    kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
+    CREATE DATABASE tsdb WITH OWNER postgres;
+    ```
+1.  Capture the `postgres` user password using
+    ```bash
+    echo $(kubectl get secret --namespace default tobs-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
+    ```
+1.  Download the Promscale
+    `values.yaml` from [here][promscale-values-yaml], open the `values.yaml` configuration file, and locate the `connection`
     section. Add or edit this section with your TimescaleDB connection details:
     <terminal>
 
@@ -87,16 +99,18 @@ can provide the database URI, or specify connection parameters.
 
     </tab>
 
+    OR
+
     <tab label="Connection parameters">
 
     ```yaml
     connection:
       user: postgres
       password: ""
-      host: db.timescale.svc.cluster.local
+      host: <releaseName>.<namespace>.svc.cluster.local
       port: 5432
       sslMode: require
-      dbName: timescale
+      dbName: tsdb
     ```
     </tab>
     </terminal>
@@ -138,6 +152,6 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 [timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
 [timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
 [helm-install]: https://helm.sh/docs/intro/install/
-[tobs-values-yaml]: https://github.com/timescale/tobs/blob/master/chart/values.yaml
+[promscale-values-yaml]: https://github.com/timescale/promscale/blob/master/deploy/helm-chart/values.yaml
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
 [template-manifest]: https://github.com/timescale/promscale/blob/master/deploy/static/deploy.yaml

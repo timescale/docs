@@ -14,10 +14,9 @@ telemetry data.
 If you have Prometheus or OpenTelemetry installed, you can install Promscale
 using one of these methods:
 
-*   Install Promscale from a [pre-built Docker container][promscale-install-docker]
-*   Install Promscale using [Helm charts][promscale-install-helm]
-*   Install Promscale using [a manifest][promscale-install-k8s-manifest]
-*   Install Promscale [from source][promscale-install-source]
+*   **Kubernetes**: install Promscale using our [Helm charts][promscale-install-helm] or using [a manifest][promscale-install-k8s-manifest].
+*   **Docker**: install Promscale from a [pre-built Docker container][promscale-install-docker].
+*   **VM or bare metal**: install Promscale [from source][promscale-install-source].
 
 You can also use our [prom-migrator tool][promscale-install-prom-migrator] to
 migrate your existing Prometheus data into Promscale.

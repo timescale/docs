@@ -54,7 +54,8 @@ version of tobs and Kubernetes:
 
 |Tobs version|Kubernetes version|
 |-|-|
-|0.7.0|1.19 to 1.21|
+|0.8.x|1.21 to 1.23|
+|0.7.x|1.19 to 1.21|
 
 
 [download-tobs]: https://github.com/timescale/tobs/releases/latest
