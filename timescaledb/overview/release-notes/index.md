@@ -43,8 +43,6 @@ This release also contains bug fixes since the 2.5.0 release.
 
 The experimental features in the 2.6 release are:
 
-- `time_bucket_ng` support for N months on continuous aggregates
-`time_bucket_ng` support for Timezones on continuous aggregates
 
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, seconds, and timezones.
