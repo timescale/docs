@@ -11,7 +11,7 @@ though performance could be slower. To avoid this problem, fork your database
 and migrate your data from the fork. If you write to tables in your source
 database during the migration, the new writes might not be transferred to
 Timescale Cloud. To avoid this problem, see the section on [migrating an active
-database](http://docs.timescale.com/cloud/latest/migrate-mst-cloud/#migrate-an-active-database).
+database](http://docs.timescale.com/cloud/latest/migrate-to-cloud/#migrate-an-active-database).
 </highlight>
 
 ## Prerequisites
@@ -130,7 +130,7 @@ pg_restore: warning: errors ignored on restore: 1
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [extensions]: /customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
-[migrate-separately]: migrate-mst-cloud/schema-then-data/
+[migrate-separately]: migrate-to-cloud/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
