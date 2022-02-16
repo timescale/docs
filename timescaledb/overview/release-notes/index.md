@@ -46,6 +46,7 @@ The experimental features in the 2.6 release are:
 
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, seconds, and timezones.
+* `time_bucket_ng` support for N months and Timezones on continuous aggregates
 * APIs for chunk manipulation across data nodes in a distributed
 hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
