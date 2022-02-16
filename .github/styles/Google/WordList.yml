@@ -7,16 +7,17 @@ action:
   name: replace
 swap:
   '(?:API Console|dev|developer) key': API key
-  '(?:BAK|[^.]bak|[^\w`].bak[^`])': `.bak`
+  '(?:BAK| bak)': .bak
   '(?:cell ?phone|smart ?phone)': phone|mobile phone
-  '(?:CSV|[^.]csv|[^\w`].csv[^`])': `.csv`
+  '(?:CSV| csv)': .csv
   '(?:dev|developer|APIs) console': API console
+  '(?:drop ?down) menu': drop-down menu
   '(?:e-mail|Email|E-mail)': email
   '(?:file ?path|path ?name)': path
   '(?:kill|terminate|abort)': stop|exit|cancel|end
   '(?:OAuth ?2|Oauth)': OAuth 2.0
   '(?:ok|Okay)': OK|okay
-  '(?:PDF|[^.]pdf|[^\w`].pdf[^`])': `.pdf`
+  '(?:PDF| pdf)': .pdf
   '(?:WiFi|wifi)': Wi-Fi
   '[\.]+apk': APK
   '3\-D': 3D
@@ -67,7 +68,6 @@ swap:
   network IP address: internal IP address
   omnibox: address bar
   open-source: open source
-  overview screen: recents screen
   Postgres: PostgreSQL
   quickstart: quick start
   regex: regular expression
@@ -79,6 +79,7 @@ swap:
   synch: sync
   tablename: table name
   tablet: device
+  time weighted: time-weighted
   touch: tap
   url:  URL
   user defined actions: user-defined actions
