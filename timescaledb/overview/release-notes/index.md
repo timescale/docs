@@ -41,9 +41,10 @@ This release also contains bug fixes since the 2.5.0 release.
 <!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
 
 
-The experimental features in the 2.6 release are:
+The new experimental features in the 2.6 release are:
 
-TBD
+- `time_bucket_ng` support for N months on continuous aggregates
+`time_bucket_ng` support for Timezones on continuous aggregates
 
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, seconds, and timezones.
