@@ -85,7 +85,39 @@ for more information and links to installation instructions when upgrading from 
 
 ## Release notes
 
-TBD
+## 2.6.0 (2022-02-16)
+This release adds major new features since the 2.5.2 release, among
+them:
+
+* Compression in continuous aggregates
+* Experimental support for timezones in continuous aggregates
+* Experimental support for monthly buckets in continuous aggregates
+
+It also includes several bug fixes. Telemetry reports are switched to a new
+format, and now include more detailed statistics on compression, distributed
+hypertables and indexes.  We deem this release to be moderate priority for
+upgrading.
+
+**Features**
+* #3768 Allow ALTER TABLE ADD COLUMN with DEFAULT on compressed hypertable
+* #3769 Allow ALTER TABLE DROP COLUMN on compressed hypertable
+* #3943 Optimize first/last
+* #3945 Add support for ALTER SCHEMA on multi-node
+* #3949 Add support for DROP SCHEMA on multi-node
+
+**Bugfixes**
+* #3808 Properly handle `max_retries` option
+* #3863 Fix remote transaction heal logic
+* #3869 Fix ALTER SET/DROP NULL contstraint on distributed hypertable
+* #3944 Fix segfault in add_compression_policy
+* #3961 Fix crash in EXPLAIN VERBOSE on distributed hypertable
+* #4015 Eliminate float rounding instabilities in interpolate
+* #4019 Update ts_extension_oid in transitioning state
+* #4073 Fix buffer overflow in partition scheme
+
+**Thanks**
+* @fvannee for reporting a first/last memory leak
+* @mmouterde for reporting an issue with floats and interpolate
 
 ## 2.5.2 (2022-02-09)
 
