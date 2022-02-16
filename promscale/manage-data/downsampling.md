@@ -6,6 +6,7 @@ data, to take up less space on disk. The main reasons for downsampling are to
 reduce cost and increase performance. Querying downsampled data gets faster as
 the size of the data decreases.
 
+## Choose a downsampling method
 There are two downsampling methods available for use with Promscale: continuous
 aggregates and Prometheus recording rules.
 
@@ -57,8 +58,8 @@ Benefits of continuous aggregates:
     multi-purpose. For example, the TimescaleDB toolkit extension supports
     percentile queries on any percentile, and statistical aggregates with
     multiple summary aggregates. The aggregates that you define when you
-    configure the materialization allow you to derive a range of different types
-    of data at query time.
+    configure the materialization allow you to derive a range of different data 
+    types at query time.
 *   Backfilling: continuous aggregates automatically downsample all data
     available, including past data, so that performance improvements on the
     aggregated metric are seen as soon as it is created.  
@@ -129,7 +130,7 @@ time series chart in Grafana, use this query:
 SELECT time, jsonb(labels) as metric, avg
 FROM node_memfree_1hour
 WHERE $__timeFilter(time)
-ORDER BY time asc
+ORDER BY time ASC
 ```
 
 To do the same with PromQL, you need to use the `__column__` label. The
@@ -201,7 +202,7 @@ before they are required. A recording rule is a PromQL expression that
 Prometheus evaluates at a predefined frequency to generate a new metric series.
 The new metric series is stored in Promscale, and you can query it in the same
 way as any other Prometheus metric. An example recording rule:
-```sql
+```yaml
 groups:
   - name: daily_stats
     interval: 1h
@@ -215,13 +216,13 @@ For the recording rules to be applied, add the location of the recording rules
 file to the Prometheus configuration file:
 ```yaml
 rule_files:
-  - "<recording-rules-file>"
+  - "<RECORDING-RULES-FILE>"
 ```
 
 <highlight type="note">
 When you set up the Prometheus configuration file to use recording rules, we
 recommend that you also set `read_recent` to `true` in the
-[Prometheus remote_read configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read).
+[Prometheus `remote_read` configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read).
 This tells Prometheus to fetch data from Promscale when evaluating PromQL
 queries, including recording rules. If `read_recent` is disabled, only the data
 stored in the Prometheus local on-disk database is used when evaluating alerting and
@@ -238,7 +239,7 @@ To query the metric with SQL:
 ```sql
 SELECT time, jsonb(labels) as metric, value
 FROM "customer:api_requests:rate1day"
-ORDER BY time asc
+ORDER BY time ASC
 ```
 
 To learn more about recording rules, see the

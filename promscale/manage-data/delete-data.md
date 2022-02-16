@@ -21,7 +21,7 @@ entire time range.
 This URL query uses a repeated label matcher argument that selects the series to
 delete. You need to provide at least one `match[]` argument:
 ```bash
-match[]=<series_selector>
+match[]=<SERIES_SELECTOR>
 ```
 
 Use the API endpoints:
@@ -62,7 +62,7 @@ to `true`.
 This URL query uses a repeated label matcher argument that selects the series to
 delete. You need to provide at least one `match[]` argument:
 ```bash
-match[]=<series_selector>
+match[]=<SERIES_SELECTOR>
 ```
 
 Use the API endpoints:
@@ -84,18 +84,19 @@ data needs to be decompressed before performing the deletion. You can
 recompress the chunks later on, if necessary.
 
 For example, to delete all data from the `container_cpu_load_average_10s` metric
-that is older than ten hours, you need to start by decompressing all chunks
+that is older than 10 hours, start by decompressing all chunks
 related to the hypertable of the metric:
 ```sql
 SELECT decompress_chunks(show_chunks('prom_data.container_cpu_load_average_10s'));
 ```
 
-Then, you can perform the deletion query:
+Then, perform the deletion query:
 ```sql
 DELETE FROM prom_data.container_cpu_load_average_10s WHERE time > Now() - interval '10 hour';
 ```
 
-If you want to delete a particular series from that metric only, you can use `series_id=<id>` in the `WHERE` clause of the `DELETE` query.
+If you want to delete a particular series from that metric only, you can use `series_id=<ID>` 
+in the `WHERE` clause of the `DELETE` query.
 
 Now, recompress the remaining data:
 ```sql
