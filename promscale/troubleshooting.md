@@ -32,7 +32,7 @@ Promscale keeps metric data in chunks. The most recent chunk is kept
 uncompressed as a cache for faster querying, and chunks are compressed as they
 age. If your data is taking up more disk space than expected, compression might
 not be working correctly. If compression is not working correctly, older chunks
-might not be getting compressed, and taking up too much room on disk. To check
+might not be getting compressed, and they might be taking up too much room on disk. To check
 that compression is working correctly, query the `prom_info.metric` view and
 make sure that `total_chunks-number_compressed_chunks` is not larger than 2.
 
@@ -40,23 +40,23 @@ If compression is not working correctly, make sure that you have enough
 background workers to do scheduled jobs like compression and retention. To
 calculate the number of background workers you require, start with the number of
 databases you have in your environment, plus 2. If you are using TimescaleDB
-version 2.0.0 or earlier, make sure that you are running the maintenance cron
+version 2.0.0 or earlier, make sure that you are running the maintenance `cron`
 jobs, and that they are returning success. When compression is working
 correctly, your data is being compressed as it ages.
 
 For more information about compression, see the
-[Promscale compression documentaion][promscale-compression].
+[Promscale compression documentation][promscale-compression].
 
 ## The PromQL dashboard doesn't show Promscale data
 Backfilling data which has not been ingested into Prometheus can cause the
 PromQL dashboard to not show Promscale data.
 
 To fix this error, enable the `read_recent` option for Promscale in the
-Prometheus configuration in remote_read section, This ensures that backfilled
+Prometheus configuration's `remote_read` section. This ensures that backfilled
 data is shown in the PromQL dashboard:
 ```yml
 remote_read:
-  - url: "http://<connector-address>:9201/read"
+  - url: "http://<CONNECTOR-ADDRESS>:9201/read"
     read_recent: true
 ```
 
