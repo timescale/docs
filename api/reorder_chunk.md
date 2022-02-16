@@ -42,3 +42,5 @@ SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', 'conditions_devi
 ```
 
 runs a reorder on the `_timescaledb_internal._hyper_1_10_chunk` chunk using the `conditions_device_id_time_idx` index.
+
+[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html

@@ -173,10 +173,9 @@ Under `scrape_configs:`, add:
     - localhost:8000
 ```
 
-<highlight type="tip">
-Replace the job_name "django" with whatever you'd like as a prefix for
-your Django application metrics in Prometheus. For example, "webapp", etc.
-
+<highlight type="note">
+Replace the `job_name`, `django`, with your preferred prefix for Django
+application metrics in Prometheus. For example, you can use `webapp`.
 </highlight>
 
 ### Restart Prometheus
