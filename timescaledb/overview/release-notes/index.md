@@ -16,7 +16,10 @@ community][timescale-slack].
 
 For our next releases, we plan to add:
 
-TBD
+- Performance improvements for:
+  - Inserts and common queries on Multi-node 
+  - Continuous Aggregates by removing re-aggregation 
+- Custom origin's support in continuous aggregates with `time_bucket_ng`
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
