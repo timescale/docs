@@ -1,8 +1,3 @@
-<highlight type="important">
-Timescale currently offers two hosting options. If you are a Timescale Cloud
-(previously called Timescale Forge) user, please use the documentation for
-[setting up multi-node on Cloud](/cloud/latest/cloud-multi-node) instead.
-</highlight>
 
 # Setting up TimescaleDB 2.0 multi-node on Managed Service for TimescaleDB
 TimescaleDB 2.0 [introduces a number of new features][changes-in-tsdb2] to
@@ -13,6 +8,12 @@ TimescaleDB instances to scale both reads and writes.
 In this How To, we’ll show you how to create a multi-node cluster in your
 Managed Service for TimescaleDB account with TimescaleDB 2.0 as a
 "do-it-yourself" (DIY) multi-node experience.
+
+<highlight type="important">
+Timescale offers two hosting options. If you are a Timescale Cloud user, see the
+documentation for [setting up multi-node on
+Cloud](/cloud/latest/cloud-multi-node) instead.
+</highlight>
 
 ## Overview of multi-node setup
 Multi-node clusters consist of at least two or more TimescaleDB instances
@@ -54,7 +55,7 @@ access node.
 </highlight>
 
 <highlight type="warning">
-To setup your first multi-node instance in Managed Service for TimescaleDB, you
+To set up your first multi-node instance in Managed Service for TimescaleDB, you
 need to create new Services for the Access Node and Data Nodes.
 </highlight>
 

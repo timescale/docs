@@ -22,7 +22,7 @@ page, in the `Past Payments` section. If a payment could not be processed,
 payment confirmations in this section display an error asking you to review the
 payment method.
 
-When you open a new Timescale Cloud account, the first thirty days is free for
+When you open a new Timescale Cloud account, the first 30 days is free for
 you to use. During the trial, a payment confirmation is issued on the last day
 of the calendar month for the value of the services you have used, with a
 discount applied to bring the payment confirmation total to $0.00. If the

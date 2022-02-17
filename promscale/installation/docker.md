@@ -56,6 +56,7 @@ instructions in the
 [tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing/).
 </highlight>
 
+[docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescaledev/promscale-extension/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
