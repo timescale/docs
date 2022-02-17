@@ -38,7 +38,7 @@ npm init -y
 ```
 
 This creates a `package.json` file in your directory, which contains all
-of the depenencies for your project:
+of the dependencies for your project:
 
 ```json
 {
@@ -525,3 +525,4 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 [hypertables]: /overview/core-concepts/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
+[sequelize-info]: https://sequelize.org

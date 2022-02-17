@@ -34,7 +34,6 @@ deploy your code to AWS Lambda.
 Now you can create a new GitHub repository which contains the function code.
 
 1.  Create a new GitHub [repository](https://github.com/new).
-    ![lambda github repo](image url)
 1.  On your local system, create a new project folder called `lambda-cd`:
     ```bash
     mkdir lambda-cd
@@ -94,7 +93,7 @@ to the AWS Lambda function.
 
 ## Connect GitHub and AWS Lambda
 
-Let's connect the Github repository AWS Lambda using Github actions.
+Connect the Github repository to AWS Lambda using Github actions.
 
 <procedure>
 
@@ -107,8 +106,8 @@ using the GitHub CLI.
     ```bash
     gh auth login
     ```
-    This prompts you to choose which account you want to log into using either your password or GitHub
-    authentication token.
+    Choose which account you want to log in to. Authenticate with your GitHub
+    password or authentication token.
 1.  Add AWS credentials as GitHub secrets.
     By using GitHub secrets, your credentials are encrypted and cannot be seen
     publicly. Use the `gh secret set` command to upload your AWS credentials one by one

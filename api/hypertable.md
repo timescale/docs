@@ -1,7 +1,7 @@
 ## Hypertables & Chunks
 
 From a user's perspective, TimescaleDB exposes what look like singular tables,
-called **hypertables**. A hypertable is the primarily point of interaction
+called **hypertables**. A hypertable is the primary point of interaction
 with your data, as it provides the standard table abstraction that you can query
 via standard SQL.  [Creating a hypertable](/hypertable/create_hypertable) in TimescaleDB takes two 
 SQL commands: `CREATE TABLE` (with standard SQL syntax),

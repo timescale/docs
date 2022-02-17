@@ -22,7 +22,7 @@ Settings:
 You can adjust each of these to match the machine's available memory. To make it
 easier, you can use the [PgTune][pgtune] site to work out what settings to use:
 enter your machine details, and select the `data warehouse` DB type to see the
-suggested parameters.  (suggested DB Type: Data warehouse).
+suggested parameters.
 
 <highlight type="tip">
 You can adjust these settings with `timescaledb-tune`.
