@@ -14,7 +14,7 @@ CREATE TABLE metrics (
 );
 ```
 The above model schema demonstrates some best practices when using JSON:
-1. Common fields such as time, user_id, and device_id are pulled outside of the
+1. Common fields such as `time`, `user_id`, and `device_id` are pulled outside of the
 JSONB structure and stored as columns. This is because field accesses are more
 efficient on table columns than inside of JSONB structures. Storage is also more
 efficient.
