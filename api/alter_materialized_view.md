@@ -18,7 +18,7 @@ ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ...
 |---|---|---|
 | `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 
-### Sample Usage
+### Sample usage
 
 To disable real-time aggregates for a
 continuous aggregate:

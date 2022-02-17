@@ -6,7 +6,7 @@ Note that compression policies can only be created on hypertables that already
 have compression enabled, e.g., via the [`ALTER TABLE`][compression_alter-table] command
 to set `timescaledb.compress` and other configuration parameters.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -18,13 +18,13 @@ The `compress_after` parameter should be specified differently depending on the 
 - For hypertables with integer-based timestamps: the time interval should be an integer type (this requires
 the [integer_now_func][set_integer_now_func] to be set).
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `if_not_exists` | BOOLEAN | Setting to true causes the command to fail with a warning instead of an error if a compression policy already exists on the hypertable. Defaults to false.|
 
-### Sample Usage
+### Sample usage
 Add a policy to compress chunks older than 60 days on the 'cpu' hypertable.
 
 ``` sql

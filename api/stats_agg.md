@@ -1,4 +1,4 @@
-# stats_agg() <tag type="toolkit" content="toolkit" />
+# stats_agg() <tag type="toolkit" content="Toolkit" />
 An aggregate that produces a StatsSummary from `DOUBLE PRECISION` values. 
 
 Statistical aggregates can be done on either one or two variables. 
@@ -54,7 +54,7 @@ on input to the function.
 
 Note that the function is called with the dependent variable first (`stats_agg(Y, X)`), which
 could seem unusual because the independent variable is often first in non-SQL contexts. 
-However, we have followed PostgreSQL and the SQL standard, which put the dependent 
+However, we have followed PostgreSQL and the SQL standard, which puts the dependent 
 variable first in [linear regression type functions][pg-stats-aggs]. 
 
 <highlight type="note">

@@ -469,7 +469,7 @@ module.exports = [
               },
               {
                 title: 'corr',
-                href: 'corr-stats',
+                href: 'corr-counter',
               },
               {
                 title: 'counter_zero_time',
@@ -530,7 +530,7 @@ module.exports = [
             ],
           },
           {
-            title: 'Time weighted averages',
+            title: 'Time-weighted averages',
             type: 'directory',
             href: 'time-weighted-averages',
             children: [

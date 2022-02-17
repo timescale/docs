@@ -32,14 +32,14 @@ it is the first day of the month and the year. This works better with monthly
 or annual aggregates.
 </highlight>
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
 | `ts` | DATE, TIMESTAMP or TIMESTAMPTZ | The timestamp to bucket |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -54,13 +54,13 @@ argument, the timezone defaults to the session's timezone and so the function
 can't be used with continuous aggregates. Best practice is to use
 `time_bucket_ng(interval, timestamptz, text)` and specify the timezone.
 
-### Return value
+### Returns
 
 The function returns the bucket's start time. The return value type is the
 same as `ts`.
 
 
-### Sample Usage
+### Sample usage
 
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
