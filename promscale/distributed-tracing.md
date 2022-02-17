@@ -95,7 +95,7 @@ for your preferred tracing receiver.
 ### Instrument OpenTelemetry
 To instrument OpenTelemetry, configure the OpenTelemetry SDK to export your
 traces using the OTLP exporter to the OpenTelemetry Collector OTLP receiver.
-Alternatively, you can instrument the OTLP exporter to Promscale’s native OTLP
+Alternatively, you can instrument the OTLP exporter to Promscale's native OTLP
 ingest endpoint.
 
 The OTLP receiver supports both gRPC and HTTP. Promscale supports gRPC only. We
@@ -134,7 +134,7 @@ endpoint with `<opentelemetry-collector-host>:9411`. Tobs does not currently
 configure the OpenTelemetry Collector to ingest Zipkin traces.
 
 <!--- Consider starting a new sub-page for visualization. --LKB 20220202-->
-## Visualize traces
+## Visualize traces with tobs
 If you used tobs to deploy Promscale and all its components, you can access
 Grafana and Jaeger to visualize your traces, and you do not need to do any
 further configuration steps.
@@ -165,79 +165,113 @@ further configuration steps.
 
 </procedure>
 
+## Visualize traces without tobs
+If you did not use tobs to deploy Promscale and its components, you must do some
+additional setting up to access Grafana and Jaeger to visualize your traces.
+Begin by setting up the Jaeger UI to show traces stored in Promscale. You can
+then use the Jaeger UI directly, or set up Grafana to query and visualize
+traces.
 
-<!-- I'm not sure how this is relevant, considering we already give instructions for this in the previous section. Do we need it?  --LKB 20220202
+The `promscale-jaeger` plugin acts as a proxy between Jaeger and Promscale. It
+does not contain any logic, all processing is done by the Promscale Connector.
 
-## Setting up Jaeger UI
+<highlight type="note">
+The `promscale-jaeger` plugin implements the APIs for Jaeger to read traces from
+Promscale. It does not allow  Jaeger to write traces to Promscale. If you want
+to send Jaeger traces to Promscale, use the OpenTelemetry Collector instead.
+</highlight>
 
-In order for the Jaeger UI to show traces stored in Promscale we leverage Jaeger’s support for [gRPC storage plugins](https://github.com/jaegertracing/jaeger/tree/master/plugin/storage/grpc). Our plugin acts as a simple proxy between Jaeger and Promscale. It does not contain any logic. All the processing work is done in the Promscale Connector.
+The Jaeger UI uses
+[gRPC storage plugins](https://github.com/jaegertracing/jaeger/tree/master/plugin/storage/grpc)
+to visualize traces. When you have enabled the plugin in the configuration file,
+it executes the binary. If you deploy Jaeger using a container, then make sure
+that the binary is in the same container image as Jaeger itself. The Promscale
+Jaeger container provides the upstream Jaeger Query component, and the Jaeger
+gRPC storage plugin. You can download the container from
+[DockerHub][jaeger-dockerhub]. Use the `latest` image to ensure you have the
+most recent packages.
 
-This plugin only implements the APIs for Jaeger to read traces from Promscale. It does not implement the APIs for Jaeger to write traces to Promscale. To send Jaeger traces to Promscale use the OpenTelemetry Collector instead as explained [here](#jaeger-instrumentation).
+<procedure>
 
-Jaeger's gRPC plugin system works by executing the binary for the plugin when enabled in the configuration file. For that reason when deploying as a container, Jaeger and the binary need to be on the same container image. And since Jaeger doesn’t package all gRPC storage plugins in its default Docker images, we provide an image that includes the upstream Jaeger Query component (not the rest since they are not needed) and Promscale’s gRPC storage plugin for Jaeger. The image is available on [DockerHub](https://hub.docker.com/r/timescale/jaeger-query-proxy/tags). We recomment using the `latest` image
-
-To enable Jaeger to use the plugin you need to pass the following parameters:
-
-* `span-storage.type=grpc-plugin`
-* `grpc-storage-plugin.binary=<path-to-jaeger-query-proxy-binary>`, pointing to the location of the plugin binary
-* `grpc-storage-plugin.configuration-file=<config_file>`, a path pointing to the plugin's configuration file.
-
-This is how you would run the container with Docker:
-
-```bash
-docker run --name promscale-jaeger -d -p 16686:16686 -v <path-to-plugin-config-file>:/configs/jaeger-promscale-query.yaml --network promscale-timescaledb timescale/jaeger-query-proxy:latest
+### Setting up Jaeger UI with Docker
+1.  Start the Jaeger Docker container:
+    ```bash
+    docker run --name promscale-jaeger -d \
+    -p 16686:16686 \
+    -v <path-to-plugin-config-file>:/configs/jaeger-promscale-query.yaml \
+    --network promscale-timescaledb \
+    timescale/jaeger-query-proxy:latest
 ```
-The container already sets the required values for those parameters.
+1.  The Jaeger UI can be accessed on port 16686.
 
-The Jaeger UI would be accessible on port 16686.
+</procedure>
 
-If you run Jaeger directly on a host, you first need to download the plugin binary for your system. The binaries are available under the assets of the latest Promscale release on [Github](https://github.com/timescale/promscale/releases). Then you have to run the binary as follows:
+<procedure>
 
-```bash
-./jaeger-query-plugin --span-storage.type=grpc-plugin --grpc-storage-plugin.binary=<path-to-jaeger-query-proxy-binary> --grpc-storage-plugin.configuration-file=<config_file>
-```
+### Setting up Jaeger UI self-hosted
+1.  Download the appropriate plugin binary for your system from
+    [Github](https://github.com/timescale/promscale/releases).
+1.  Run the binary:
+    ```bash
+    ./jaeger-query-plugin \
+    --span-storage.type=grpc-plugin \
+    --grpc-storage-plugin.binary=<JAEGER_BINARY> \
+    --grpc-storage-plugin.configuration-file=<CONFIGURATION_FILE>
+    ```
+1.  Open the plugin configuration file, and set these parameters. The
+    `grprc-server` parameter must be set. By default, the port is 9202. All
+    other parameters are optional:
+    ```yaml
+    grpc-server: <promscale-host>:<OTLP_GRPC_PORT>
+    connection-timeout: 5s
+    grpc-server-host-override: ""
+    cafile: ""
+    tls: false
+    ```
+1.  The Jaeger UI can be accessed on port 9202.
 
-The parameters in the plugin configuration file are the following (only the first is mandatory):
+</procedure>
 
-```yaml
-grpc-server: <promscale-host>:<otlp-grpc-port>
-#connection-timeout: 5s
-#grpc-server-host-override: ""
-#cafile: ""
-#tls: false
-```
+<procedure>
 
-If you followed the instructions described in this document then otlp-grpc-port will be 9202. For example
+### Additional Jaeger set up for Kubernetes
+1.  If you are using Kubernetes, some additional set up is required. Create a
+    ConfigMap, like this:
+    ```yaml
+    ​​apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: promscale-jaeger
+    data:
+      jaeger-promscale-query.yaml: |
+        grpc-server: <promscale-service>:9202   
+    ```
+1.  Use a volumeMount to make the ConfigMap available to the `promscale-jaeger`
+    container through a volumeMount. For more information, see the
+    [Kubernetes documentation][k8s-jaeger].
 
-```yaml
-grpc-server: localhost:9202
-```
+</procedure>
 
-If you run on Kubernetes, create a ConfigMap like the one below
+## Set up Grafana to visualize Jaeger traces
+When you have the Jaeger UI installed, you can use Grafana to query and
+visualize Promscale traces. Before you begin, you need to have Grafana version 7.4 or higher installed and accessible.
 
-```yaml
-​​apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: promscale-jaeger
-data:
-  jaeger-promscale-query.yaml: |
-    grpc-server: <promscale-service>:9202   
-```
+<procedure>
 
-Then make this ConfigMap available to the promscale-jaeger container through a volumeMount. Read more on how to do that in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods).
+### Setting up Grafana to visualize Jaeger traces
+1.  In the Grafana web interface, add a new Jaeger data source with the URL of
+    the Jaeger instance. If you have enabled authentication in Jaeger, add the
+    credentials.
+1.  Make sure you specify the correct port to access Jaeger. By default, the
+    port is 16686.
+1.  To access your traces, navigate to `Explore` and select the Jaeger data
+    source.
 
-### Setting up Grafana
+</procedure>
 
-Grafana can query and visualize traces in Promscale through Jaeger. You’ll need Grafana version 7.4 or higher.
+For more information about using a Jaeger data source with Grafana, see the
+[Grafana documentation][grafana-jaeger].
 
-Go into Grafana and configure a Jaeger data source by passing the url of the Jaeger instance and credentials if you have enabled authentication in Jaeger. You have to specify the port you use to access the Jaeger UI which by default is 16686.
-
-You can read more details on how to configure a Jaeger data source in the [Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/jaeger/).
-
-To access your traces go to Explore and select the Jaeger data source you just created. More details can be found in the [Grafana documentation](https://grafana.com/docs/grafana/latest/datasources/jaeger/).
-
--->
 
 [opentelemetry]: https://opentelemetry.io/
 [tobs-tracing]: promscale/:currentVersion:/installation/tobs#install-tracing-support
@@ -245,3 +279,6 @@ To access your traces go to Explore and select the Jaeger data source you just c
 [reporter-grpc-host-port]: https://www.jaegertracing.io/docs/1.26/deployment/#discovery-system-integration
 [jaeger-receiver]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/jaegerreceiver
 [zipkin-receiver]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/zipkinreceiver
+[jaeger-dockerhub]: https://hub.docker.com/r/timescale/jaeger-query-proxy/tags
+[k8s-jaeger]: https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods
+[grafana-jaeger]: https://grafana.com/docs/grafana/latest/datasources/jaeger/
