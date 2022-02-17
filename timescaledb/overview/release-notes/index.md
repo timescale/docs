@@ -84,8 +84,7 @@ for more information and links to installation instructions when upgrading from 
 ## Release notes
 
 ## 2.6.0 (2022-02-16)
-This release adds major new features since the 2.5.2 release, among
-them:
+This release adds major new features since the 2.5.2 release, including:
 
 * Compression in continuous aggregates
 * Experimental support for timezones in continuous aggregates
