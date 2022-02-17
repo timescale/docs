@@ -101,7 +101,7 @@ upgrading.
 * #3945 Add support for ALTER SCHEMA on multi-node
 * #3949 Add support for DROP SCHEMA on multi-node
 
-**Bugfixes**
+**Bug fixes**
 * #3808 Properly handle `max_retries` option
 * #3863 Fix remote transaction heal logic
 * #3869 Fix ALTER SET/DROP NULL contstraint on distributed hypertable
