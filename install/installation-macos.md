@@ -1,6 +1,6 @@
 # Install self-hosted TimescaleDB on macOS systems
 You can host TimescaleDB yourself on your Apple macOS system.
-These instructions use a Homebrew installer on these versions:
+These instructions use a Homebrew or Macports installer on these versions:
 *   Apple macOS 10.15 Catalina
 *   Apple macOS 11 Big Sur
 *   Apple macOS 12 Monterey
@@ -14,15 +14,12 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
 instead.
 </highlight>
 
+## Install self-hosted TimescaleDB using Homebrew
+You can use Homebrew to install TimescaleDB on macOS-based systems.
 
-### Installing self-hosted TimescaleDB on macOS-based systems
+<procedure>
 
-You can use Homebrew or MacPorts to install TimescaleDB on macOS-based systems.
-
- <procedure>
-
-#### Using Homebrew
-
+### Installing self-hosted TimescaleDB using Homebrew
 1.  Install Homebrew, if you don't already have it:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -44,25 +41,30 @@ You can use Homebrew or MacPorts to install TimescaleDB on macOS-based systems.
 
 </procedure>
 
+## Install self-hosted TimescaleDB using Macports
+You can use Macports to install TimescaleDB on macOS-based systems.
+
 <procedure>
 
-#### Using MacPorts
-1.  Install MacPorts, by downloading the macOS package and double-click the downloaded package installer.
-    
-    For more information about MacPorts, including installation instructions,
-    see the [MacPorts documentation][macports].
+### Installing self-hosted TimescaleDB using Macports
+1.  Install MacPorts, if you don't already have it. For more information about
+    MacPorts, including installation instructions, see the
+    [MacPorts documentation][macports].
 1.  Install TimescaleDB:
     ```bash
-    sudo port install timescaledb 
+    sudo port install timescaledb
     ```
-1.  View the files that were installed by timescaledb:
+1.  **OPTIONAL**: View the files that have been installed:
     ```bash
     port contents timescaledb
-    ``` 
-     
-<highlight type="warning">
- MacPorts does not install the `timescaledb-tools` to run the `timescaledb-tune` script. For more information about installing and using the tool, see [timescaledb-tune][tune] section.
- </highlight>
+    ```
+
+<highlight type="important">
+By default, MacPorts does not install the `timescaledb-tools` package, so the
+`timescaledb-tune` script is not included. For more information about installing
+and using the tool, see the
+[timescaledb-tune](/timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool) section.
+</highlight>
 
 </procedure>
 
@@ -70,7 +72,6 @@ When you have completed the installation, you need to configure your database so
 that you can use it. The easiest way to do this is to run the `timescaledb-tune`
 script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
-
 
 ## Where to next
 Now that you have your first TimescaleDB database up and running, you can check
@@ -85,10 +86,8 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
 [tsdb-docs]: timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [homebrew]: https://docs.brew.sh/Installation
 [macports]: https://guide.macports.org/#installing.macports
-[tune]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool
