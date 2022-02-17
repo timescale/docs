@@ -31,7 +31,7 @@ follow these [setup instructions][distributed-hypertables-setup].
 ### What's new in TimescaleDB 2.6:
 
 - Continuous aggregates with compression
-- `time_bucket_ng` support for N months and Timezones on continuous aggregates
+- `time_bucket_ng` support for N months and timezones on continuous aggregates
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
 This release also contains bug fixes since the 2.5.0 release.
