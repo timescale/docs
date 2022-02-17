@@ -20,8 +20,11 @@ exceptions:
   - macOS
   - Marketplace
   - MongoDB
+  - Promscale
   - REPL
   - Studio
+  - Timescale
+  - TimescaleDB
   - TypeScript
   - URLs
   - Visual
