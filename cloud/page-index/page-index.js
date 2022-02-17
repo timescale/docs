@@ -11,6 +11,20 @@ module.exports = [
         href: "create-a-service",
       },
       {
+        title: "Migrate a TimescaleDB database to Cloud",
+        href: "migrate-to-cloud",
+        children: [
+          {
+            title: "Migrate the entire database at once",
+            href: "entire-database",
+          },
+          {
+            title: "Migrate schema and data separately",
+            href: "schema-then-data",
+          },
+        ],
+      },
+      {
         title: "Customize configuration",
         href: "customize-configuration",
       },
