@@ -22,6 +22,11 @@ head over to [Managed Service for TimescaleDB][mst-install]. This option allows
 you more flexibility in choosing where your installation is hosted, from more
 than 75 regions on Amazon Web Services, Azure, or Google Cloud Platform.
 
+<highlight type="important">
+Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
+version 12 or higher.
+</highlight>
+
 *   Start using the [Timescale Cloud][tsc-install] hosted service.
 *   Install self-hosted TimescaleDB on [your own server hardware][self-hosted-install].
 *   Install self-hosted TimescaleDB [from source][self-hosted-source].
