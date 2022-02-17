@@ -5,7 +5,7 @@ The aggregate operates over `AnyElement` types, so this method
 requires a type parameter to determine the type of the output.
 
 <highlight type="warning">
-Experimental features could have bugs! They might not be backwards compatible,
+Experimental features could have bugs. They might not be backwards compatible,
 and could be removed in future releases. Use these features at your own risk, and
 do not use any experimental features in production.
 </highlight>
