@@ -1,30 +1,30 @@
-# Data tiering
-TimescaleDB includes the ability to perform data tiering by moving chunks
-between PostgreSQL tablespaces. Tablespaces are locations on disk where
-PostgreSQL stores data files containing database objects, and each can be
-backed by a different class of storage. As data ages, you can add new
-tablespaces backed by a specified storage class and use the
-[`move_chunk`][api-move-chunk] API function to migrate data between these
-tablespaces.
+# About data tiering
+When running TimescaleDB on your own hardware, you can use data tiering to make
+the most effective use of your physical hardware. Data tiering provides another
+mechanism, in addition to other TimescaleDB capabilities like compression and
+data retention, to help manage data storage costs. Using multiple tablespaces
+can also yield performance benefits, by isolating historical data away from the
+continual read/write workload of more recent data.
 
-For example, we can attach multiple tablespaces to a single hypertable; in the
-following example, we use two tablespaces:
-1.  Tablespace `pg_default` is backed by faster, more expensive storage
-    (SSDs) and is meant for recent chunks that are being actively written to and
-    regularly queried.
-1.  Tablespace `history` is backed by slower, less expensive storage
-    (HDDs) and is meant for older chunks that are more rarely queried.
+PostgreSQL uses tablespaces to determine the physical location of your data. In
+most cases, you want to use faster storage to store data that is accessed
+frequently, and slower storage for data that is accessed less often.
 
-Taking a "data tiering" approach, as data ages, its corresponding chunks are
-moved from `pg_default` to `history`. This provides users with the ability to
-tradeoff storage performance for cost, and additional "tiers" of increasingly
-large/cheap/slow tablespaces may be employed when appropriate.  Therefore, data
-tiering provides another mechanism, in addition to other TimescaleDB
-capabilities like compression and data retention, to help manage data storage
-costs.
+In TimescaleDB, you can move chunks between different tablespaces, using the
+[`move_chunk`][api-move-chunk] API call. For example, you can attach two
+different tablespaces to a hypertable, and as the data chunks age, move the
+chunks between the tablespaces. The first tablespace, `pg_default`, is backed by
+solid state disks (SSDs), which are faster and more expensive. The `pg_default`
+tablespace is used for recent chunks that are being actively written to and
+queried. The second tablespace, `history`, is backed by hard disk drives (HDDs),
+which are slower and less expensive. The `history` tablespace is used for older
+chunks that are written to and queried less frequently.
 
-Using multiple tablespaces can also yield I/O performance benefits. With data
-tiering, you can isolate large scans of historical data away from the continual
-read/write workload against recent data (in the default tablespace).
+In this approach, chunks are moved from `pg_default` to `history` as the data
+ages. This allows you to use less expensive storage for data where performance
+is less important, and save your expensive storage for situations where you
+receive the most performance benefit. It also allows you to add tiers of
+increasingly large, cheap, or slow tablespaces as appropriate.
+
 
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk

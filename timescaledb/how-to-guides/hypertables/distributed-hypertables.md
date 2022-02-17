@@ -46,7 +46,7 @@ two-phase commit protocol).
 
 A single `INSERT` transaction to the access node that contains many rows of data
 is processed by the access node. The access node splits the input set into
-several smaller batches of rows, with each batch inclduing the rows that belong
+several smaller batches of rows, with each batch including the rows that belong
 to a specific data node based on the distributed hypertable's partitioning. The
 access node then writes each batch of rows to the correct data node.
 
