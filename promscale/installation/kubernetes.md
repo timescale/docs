@@ -75,7 +75,7 @@ can provide the database URI, or specify connection parameters.
     ```bash
     helm repo update
     ```
-1.  Create a database with name `tsdb` for Promscale data
+1.  Create a database called `tsdb` for Promscale data:
     ```bash
     MASTERPOD="$(kubectl get pod -o name --namespace <namespace> -l release=<releaseName>,role=master)"
     kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
