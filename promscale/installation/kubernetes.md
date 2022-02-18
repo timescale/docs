@@ -81,7 +81,7 @@ can provide the database URI, or specify connection parameters.
     kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
     CREATE DATABASE tsdb WITH OWNER postgres;
     ```
-1.  Capture the `postgres` user password using
+1.  Capture the `postgres` user password:
     ```bash
     echo $(kubectl get secret --namespace default tobs-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
