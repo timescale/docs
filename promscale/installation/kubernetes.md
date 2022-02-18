@@ -107,7 +107,7 @@ can provide the database URI, or specify connection parameters.
     connection:
       user: postgres
       password: ""
-      host: <releaseName>.<namespace>.svc.cluster.local
+      host: <RELEASE_NAME>.<NAMESPACE>.svc.cluster.local
       port: 5432
       sslMode: require
       dbName: tsdb
