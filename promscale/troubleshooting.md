@@ -32,9 +32,10 @@ Promscale keeps metric data in chunks. The most recent chunk is kept
 uncompressed as a cache for faster querying, and chunks are compressed as they
 age. If your data is taking up more disk space than expected, compression might
 not be working correctly. If compression is not working correctly, older chunks
-might not be getting compressed, and they might be taking up too much room on disk. To check
-that compression is working correctly, query the `prom_info.metric` view and
-make sure that `total_chunks-number_compressed_chunks` is not larger than 2.
+might not be getting compressed, and they might be taking up too much room on
+disk. To check that compression is working correctly, query the
+`prom_info.metric` view and make sure that
+`total_chunks-number_compressed_chunks` is not larger than 2.
 
 If compression is not working correctly, make sure that you have enough
 background workers to do scheduled jobs like compression and retention. To
@@ -46,6 +47,13 @@ correctly, your data is being compressed as it ages.
 
 For more information about compression, see the
 [Promscale compression documentation][promscale-compression].
+
+If compression is working properly, check these things:
+*   Check you are using the most recent version of Promscale, to ensure you have
+    the latest features.
+*   Consider reducing the length of time that you retain data for.
+*   Reduce the chunk interval to 4&nbsp;hours or 2&nbsp;hours. This could slow
+    down query performance.
 
 ## The PromQL dashboard doesn't show Promscale data
 Backfilling data which has not been ingested into Prometheus can cause the
@@ -62,7 +70,6 @@ remote_read:
 
 For more information, see the
 [Prometheus remote read documentation][prometheus-remote-read].
-
 
 ## Tracing span data is missing
 If OpenTelemetry Tracing is not recording all Promscale spans, it is usually due
