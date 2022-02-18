@@ -141,9 +141,12 @@ further configuration steps.
 <procedure>
 
 ### Visualizing traces in Grafana
-1.  Set up the Grafana user interface:
+1.  Fetch the Grafana credentials:
     ```bash
     tobs grafana get-password
+    ```
+1. Set up port forwarding for the Grafana interface:
+    ```bash
     tobs grafana port-forward
     ```
 1.  In your browser, navigate to `http://127.0.0.1:8080/`.
