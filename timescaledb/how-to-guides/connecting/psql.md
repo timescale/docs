@@ -64,7 +64,7 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
     sudo port install postgresql<xx>  
     ```
     For example, to install version *14* replace `postgresql<xx>` with `postgresql14`.
-1.  View the files that were installed:
+1.  **OPTIONAL** View the files that were installed:
     ```bash
     port contents postgresql<xx>
     ``` 
@@ -111,7 +111,7 @@ If you do not want to install the entire PostgreSQL package, you can install the
     ```bash
     sudo port install libpqxx 
     ```
-1.  View the files that were installed by libpqxx:
+1.  **OPTIONAL** View the files that were installed by libpqxx:
     ```bash
     port contents libpqxx
     ``` 
