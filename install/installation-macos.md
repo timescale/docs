@@ -46,25 +46,23 @@ You can use Macports to install TimescaleDB on macOS-based systems.
 
 <procedure>
 
-### Installing self-hosted TimescaleDB using Macports
-1.  Install MacPorts, if you don't already have it. For more information about
-    MacPorts, including installation instructions, see the
-    [MacPorts documentation][macports].
+#### Using MacPorts
+1.  Install MacPorts by downloading and running the package installer.
+    For more information about MacPorts, including installation instructions,
+    see the [MacPorts documentation][macports].
 1.  Install TimescaleDB:
     ```bash
     sudo port install timescaledb
     ```
-1.  **OPTIONAL**: View the files that have been installed:
+1.  **OPTIONAL**View the files that were installed:
     ```bash
     port contents timescaledb
-    ```
-
+    ``` 
+     
 <highlight type="important">
-By default, MacPorts does not install the `timescaledb-tools` package, so the
-`timescaledb-tune` script is not included. For more information about installing
-and using the tool, see the
-[timescaledb-tune](/timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool) section.
-</highlight>
+ MacPorts does not install the `timescaledb-tools` to run the `timescaledb-tune` script.
+ For more information about installing and using the tool, see [timescaledb-tune][https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool] section.
+ </highlight>
 
 </procedure>
 

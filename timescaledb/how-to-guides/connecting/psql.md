@@ -30,7 +30,7 @@ wmic
 
 ## Install psql on macOS
 The `psql` tool is installed by default on macOS systems when you install
-PostgreSQL, and this is the most effective way to install the tool. On macOS you can use Homebrew or MacPorts to install PostgreSQL package or just the `psql` tool.
+PostgreSQL, and this is the most effective way to install the tool. On macOS you can use Homebrew or MacPorts to install the PostgreSQL package or just the `psql` tool.
 
 <procedure>
 
@@ -56,7 +56,7 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 <procedure>
 
 ### Installing PostgreSQL package using MacPorts
-1.  Install MacPorts.
+1.  Install MacPorts by downloading and running the package installer..
     For more information about MacPorts, including installation instructions,
     see the [MacPorts documentation][macports].
 1.  Install the latest version of Postgresql:
@@ -72,7 +72,7 @@ PostgreSQL, and this is the most effective way to install the tool. On macOS you
 </procedure>
 
 ### Installing psql on macOS
-If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own. `libpqxx` is the official C++ client API for PostgreSQL, the enterprise-strength open-source database software.
+If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own. `libpqxx` is the official C++ client API for PostgreSQL.
 
 <procedure>
 
@@ -105,7 +105,7 @@ If you do not want to install the entire PostgreSQL package, you can install the
 <procedure>
 
 #### Installing psql using MacPorts
-1.  Install MacPorts.
+1.  Install MacPorts by downloading and running the package installer.
     For more information about MacPorts, including installation instructions, see the [MacPorts documentation][macports].
 1.  Install the latest version of libpqxx:
     ```bash
@@ -124,7 +124,7 @@ the `psql` tool.
 
 <procedure>
 
-### Installing psql using package manager
+### Installing psql using the apt package manager
 1.  Make sure your `apt` repository is up to date:
     ```bash
     sudo apt-get update
