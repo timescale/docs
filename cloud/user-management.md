@@ -16,7 +16,7 @@ role.
 
 ## Add or remove members
 You can add members to your project group from the `Members` section in your
-Cloud console.  The new member does not need  to have a Timescale Cloud account
+Cloud console.  The new member does not need to have a Timescale Cloud account
 before you add them. If they do not yet have an account, they are prompted to
 create one.
 
