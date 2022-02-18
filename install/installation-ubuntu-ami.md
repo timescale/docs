@@ -1,5 +1,4 @@
 ## Installing from an Amazon AMI (Ubuntu) [](installation-ubuntu-ami)
-
 TimescaleDB is currently available as an Ubuntu 18.04 Amazon EBS-backed AMI. AMIs are
 distributed by region, and our AMI is currently available in US and EU
 regions. Note that this image is built to use an EBS attached volume
