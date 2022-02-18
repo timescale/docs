@@ -14,7 +14,7 @@ queries. This allows you to get deep insights from your tracing data, which can
 help you understand problems and identify optimizations for your applications.
 
 <highlight type="warning">
-Promscale tracing is currently in beta, and could have bugs! This feature might
+Promscale tracing is currently in beta, and could have bugs. This feature might
 not be backwards compatible, and could be removed in a future release. Use this
 feature at your own risk, and do not use any experimental features in
 production.
