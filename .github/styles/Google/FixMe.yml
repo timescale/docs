@@ -1,0 +1,6 @@
+extends: existence
+message: "Replace placeholder text."
+ignorecase: false
+level: warning
+tokens:
+  - FIXME
