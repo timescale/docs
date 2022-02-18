@@ -12,7 +12,7 @@ instructions use the `apt` package manager on these distributions:
 
 <highlight type="important">
 Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
-version 12 or higher.
+version 12 or later.
 </highlight>
 
 <highlight type="warning">

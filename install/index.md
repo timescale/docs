@@ -24,7 +24,7 @@ than 75 regions on Amazon Web Services, Azure, or Google Cloud Platform.
 
 <highlight type="important">
 Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
-version 12 or higher.
+version 12 or later.
 </highlight>
 
 *   Start using the [Timescale Cloud][tsc-install] hosted service.
