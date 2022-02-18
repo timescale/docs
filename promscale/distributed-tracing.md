@@ -98,8 +98,7 @@ traces using the OTLP exporter to the OpenTelemetry Collector OTLP receiver.
 Alternatively, you can instrument the OTLP exporter to Promscale's native OTLP
 ingest endpoint.
 
-The OTLP receiver supports both gRPC and HTTP. Promscale supports gRPC only. We
-recommend using gRPC.
+The OTLP receiver supports both gRPC and HTTP. Promscale supports gRPC only. 
 
 The OpenTelemetry Collector OTLP receiver listens on port 4317 for
 gRPC and 4318 for HTTP connections.
