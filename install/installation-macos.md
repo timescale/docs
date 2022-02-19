@@ -51,7 +51,7 @@ You can use Macports to install TimescaleDB on macOS-based systems.
 
 <procedure>
 
-#### Using MacPorts
+#### Installing self-hosted TimescaleDB using MacPorts
 1.  Install MacPorts by downloading and running the package installer.
     For more information about MacPorts, including installation instructions,
     see the [MacPorts documentation][macports].
@@ -146,6 +146,7 @@ Description | timescaledb_toolkit
 
 tsdb=>
 ```
+
 ## Where to next
 Now that you have your first TimescaleDB database up and running, you can check
 out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what
