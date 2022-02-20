@@ -48,6 +48,11 @@ database and restore the data.
 
 </procedure>
 
+<highlight type="warning">
+Do not use the `pg_restore` command with -j option. This option does not 
+correctly restore the Timescale catalogs.
+</highlight>
+
 ## Back up individual hypertables [](backup-hypertable)
 The `pg_dump` command provides flags that allow you to specify tables or schemas
 to back up. However, using these flags means that the dump lacks necessary
