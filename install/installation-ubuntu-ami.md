@@ -6,6 +6,8 @@ rather than the default disk that comes with EC2 instances.
 
 See below for the image id corresponding to each region for the most recent TimescaleDB version:
 
+<!-- vale Google.Units = NO -->
+
 Region | Image ID
 --- | ---
 us-east-1 (North Virginia) | ami-049af5874b750603f
@@ -17,6 +19,8 @@ eu-north-1 (Sweden) | ami-0d1b4497e3de9c999
 eu-west-1 (Ireland) | ami-016bd50ec09475098
 eu-west-2 (England) | ami-0983a20d47b9427c3
 eu-west-3 (France) | ami-00be4bb77bf15fe6a
+
+<!-- vale Google.Units = YES -->
 
 To launch the AMI, go to the `AMIs` section of your AWS EC2 Dashboard run the following steps:
 
