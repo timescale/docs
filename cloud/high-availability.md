@@ -1,7 +1,5 @@
-# High Availability
-A key piece of running a service on the cloud is keeping it accessible to users,
-often called availability. Timescale Cloud employs various techniques to improve
-the availability of your service. Here we will discuss some of the strategies
+# High availability
+Timescale Cloud uses various methods to ensure that your service remains available. This section covers some of the strategies
 used by Timescale Cloud to increase the availability of the services running on
 it. Many of these are free and enabled by default.
 
@@ -56,13 +54,13 @@ currently automatically recover services to a separate AZ from backup during an
 AZ outage. For services that require protection from AZ outages, see <a
 href="">Zonal Redundancy</a>.
 
-# Storage Redundancy
+# Storage redundancy
 Storage redundancy, in the context of PostgreSQL, refers to having multiple
-copies of a database’s data files. If the storage currently attached to a
+copies of a database's data files. If the storage currently attached to a
 Postgres instance corrupts or otherwise becomes unavailable, the system can
 failover by replacing its current storage with one of the copies. 
 
-For Timescale Cloud customers, data files are stored on AWS’s
+For Timescale Cloud customers, data files are stored on AWS's
 [Elastic Block Store](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes.html)
 (EBS) volumes. An EBS volume has two drives and automatically replicates data
 between them using a
@@ -92,7 +90,7 @@ that we do not currently offer AZ redundancy at the storage level.mTo protect
 against For services that require protection from AZ outages, see Zonal
 Redundancy.
 
-# Instance Redundancy
+# Instance redundancy
 Instance redundancy refers to having multiple instances of your database running
 simultaneously. The instances that are not the primary database are called
 replicas. Having a replica (or many) can significantly reduce RTO, as there is
@@ -113,7 +111,7 @@ High Availability (HA) replicas also provide protection against Availability
 Zone outages. Replicas are automatically created in a different AZ than the
 primary.
 
-# Zonal Redundancy
+# Zonal redundancy
 While the public cloud is highly reliable, entire portions of the cloud may be
 unavailable at times. Timescale Cloud does not protect against Availability Zone
 failures unless the user is using HA Replicas. We do not currently offer
