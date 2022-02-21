@@ -1,69 +1,83 @@
 # Configure Replication
 This section outlines how to set up streaming replication on one or more
-database replicas, covering both synchronous and asynchronous options. It
-assumes you have at least two separate instances of TimescaleDB running. If
-you're using our [Docker image][timescale-docker], we recommend using a
+database replicas, covering both synchronous and asynchronous options.
+
+Before you begin, make sure you have at least two separate instances of
+TimescaleDB running.
+
+If you installed TimescaleDB using a Docker container, use a
 [PostgreSQL entry point script][docker-postgres-scripts] to run the
-configuration. For sample Docker configuration and run scripts, see
-the [streaming replication Docker repository][timescale-streamrep-docker].
+configuration. For sample Docker configuration and run scripts, see the
+[streaming replication Docker repository][timescale-streamrep-docker].
+
+To configure replication on self-hosted TimescaleDB, you need to perform these
+procedures:
+1.   [Configure the primary database][configure-primary-db]
+1.   [Configure replication parameters][configure-params]
+1.   [Create replication slots][create-replication-slots]
+1.   [Configure host-based authentication parameters][configure-pghba]
+1.   [Create a base backup on the replica][create-base-backup]
+1.   Replication and recovery settings
+1.   Configure replication modes
+1.   View replication diagnostics
 
 ## Configure the primary database
-Create a PostgreSQL user with a role that allows it to initialize streaming
-replication. This is the user each replica uses to stream from the primary
-database. Run the command as the `postgres` user, or another user that is
-configured with superuser privileges on the database you're working with.
+To configure the primary database, you need a PostgreSQL user with a role that allows it to initialize streaming replication. This is the user each replica uses to stream from the primary database.
 
-```sql
-SET password_encryption = 'scram-sha-256';
-CREATE ROLE repuser WITH REPLICATION PASSWORD 'password' LOGIN;
-```
+<procedure>
 
-<highlight type="warning">
-[scram-sha-256](https://www.postgresql.org/docs/current/static/sasl-authentication.html#SASL-SCRAM-SHA-256) is PostgreSQL's most secure
-password based authentication, but it is only available in PostgreSQL 10 and
-above. If you are using an earlier version, consider using `md5` authentication
-by replacing the first line in the above SQL with `SET password_encryption = true;`
-and changing the `AUTH_METHOD` in `pg_hba` to `md5`. (see [Configure Host Based Authentication](#configure-host-based-authentication))
+### Configuring the primary database
+1.  On the primary database, as a user with superuser priveleges, such as the
+    `postgres` user, set the password encryption level to `scram-sha-256`:
+    ```sql
+    SET password_encryption = 'scram-sha-256';
+    ```
+1.  Create a new user called `repuser`:
+    ```sql
+    CREATE ROLE repuser WITH REPLICATION PASSWORD '<PASSWORD>' LOGIN;
+    ```
+
+<highlight type="important">
+The [scram-sha-256](https://www.postgresql.org/docs/current/static/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
+password based authentication available in PostgreSQL. It is only available in PostgreSQL 10 and later.
 </highlight>
 
-### Configure replication parameters
-There are several replication settings that must be added to `postgresql.conf`
-(if you're unsure of where PostgreSQL is reading `postgresql.conf` from, just
-execute `show config_file;` in a `psql` shell). You can either comment out the
-existing settings in `postgresql.conf` and add the desired value, or you can
-simply append the desired settings to the `postgresql.conf`.
+</procedure>
 
-`synchronous_commit` has a number of settings that strongly impact data
-consistency and performance. For this tutorial, we'll focus on the common
-setting of turning `synchronous_commit` off. For more detail on the different
-modes, see [Replication Modes](#replication-modes)
+## Configure replication parameters
+There are several replication settings that need to be added or edited to the
+`postgresql.conf` configuration file.
 
-* `max_wal_senders` - The total number of concurrent connections from replicas
-or backup clients. At the very least, this should equal the number of replicas
-you intend to have.
-* `wal_level` - The amount of information written to the PostgreSQL Write-Ahead
-  Log (WAL). For replication to work, there needs to be enough data in the WAL
-  to support archiving and replication. The default level of `replica` covers
-  this, but it bears mentioning here since it is an absolute requirement for
-  streaming replication.
-* `max_replication_slots` - The total number of replication slots the primary
-  database can support. See below for more information about replication slots.
-* `listen_address` - Since remote replicas are connecting to the primary to
-  stream the WAL, we'll need to make sure that the primary is not just listening
-  on the local loopback.
+<procedure>
 
-### Sample replication configuration
+### Configuring replication parameters
+1.  Set the `synchronous_commit` parameter to `off`.
+1.  Set the `max_wal_senders` parameter to the total number of concurrent
+    connections from replicas or backup clients. As a minimum, this should equal
+    the number of replicas you intend to have.
+1.  Set the `wal_level` parameter to the amount of information written to the
+    PostgreSQL Write-Ahead Log (WAL). For replication to work, there needs to be enough data in the WAL to support archiving and replication. The default
+    value is usually appropriate.
+1.  Set the `max_replication_slots` parameter to the total number of replication
+    slots the primary database can support.
+1.  Set the `listen_address` parameter to the address of the primary database.
+    Do not leave this parameter as the local loopback address, because the
+    remote replicas must be able to connect to the primary to stream the WAL.
+1.  Restart PostgreSQL to pick up the changes. This must be done before you
+    create replication slots.
+
+</procedure>
+
 The most common streaming replication use case is asynchronous replication with
-one or more replicas. We'll use that as that as our sample configuration.
-
-In cases where you need stronger consistency on the replicas or where your
-query load is heavy enough to cause significant lag between the primary and
-replica nodes in asyncronous mode, you may want to consider one of the
-synchronous replication configurations.
-
-#### Asynchronous replication with one replica
-
-```
+one or more replicas. In this example, the WAL is streamed to the replica, but
+the primary server does not wait for confirmation that the WAL has been written
+to disk on either the primary or the replica. This is the most performant
+replication configuration, but it does carry the risk of a small amount of data
+loss in the event of a system crash. It also makes no guarantees that the
+replica is fully up to date with the primary, which could cause inconsistencies
+between read queries on the primary and the replica. The example configuration
+for this use case:
+```yaml
 listen_addresses = '*'
 wal_level = replica
 max_wal_senders = 1
@@ -71,93 +85,92 @@ max_replication_slots = 1
 synchronous_commit = off
 ```
 
-In this example, the WAL is streamed to the replica, but the primary server
-does not wait for confirmation that the WAL has been written to disk on either
-the primary or the replica. This is the most performant replication
-configuration, but it does carry the risk of a small amount of data loss in the
-event of a system crash. It also makes no guarantees that the replica is
-fully up to date with the primary, which could cause inconsistencies between
-read queries on the primary and the replica.
+If you need stronger consistency on the replicas, or if your query load is heavy
+enough to cause significant lag between the primary and replica nodes in
+asynchronous mode, consider a synchronous replication configuration instead.
 
-For replication settings to apply, you must restart PostgreSQL, not just
-reload the configuration file. This needs to be done before creating replication
-slots in the next step.
+## Create replication slots
+When you have configured `postgresql.conf` and restarted PostgreSQL, you can
+create a [replication slot][postgres-rslots-docs] for each replica. Replication
+slots ensure that the primary does not delete segments from the WAL until they
+have been received by the replicas. This is important in case a replica goes
+down for an extended time. The primary needs to verify that a WAL segment has
+been consumed by a replica, so that it can safely delete data. You can use
+[archiving][postgres-archive-docs] for this purpose, but replication slots
+provide the strongest protection for streaming replication.
 
-### Create replication slots
-After configuring `postgresql.conf` and restarting PostgreSQL, create a
-[replication slot][postgres-rslots-docs] for each replica. Replication slots
-ensure that the primary does not delete segments from the WAL until they have
-been received by the replicas. This is crucial for cases where a replica goes
-down for extended periods of time. Without verifying that a WAL segment has
-already been consumed by a replica, the primary may delete data needed for
-replication. To some extent, you can achieve this using
-[archiving][postgres-archive-docs], but replication slots provide the strongest
-protection of WAL data for streaming replication. The name of the slot is
-arbitrary. In this example, the replication slot is named `replica_1_slot`:
+<procedure>
 
-```sql
-SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');
-```
+### Creating replication slots
+1.  At the `psql` slot, create the first replication slot. The name of the slot
+    is arbitrary, in this example, it id called `replica_1_slot`:
+    ```sql
+    SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');
+    ```
+1.  Repeat for each required replication slot.
 
-### Configure host-based authentication [](configure-host-based-authentication)
-Configure the `pg_hba.conf` file (run `show hba_file;` in a `psql` shell if
-you're unsure of its location) to accept connections from the replication user
-on the host of each replica.
+</procedure>
 
-```sql
-# TYPE     DATABASE        USER            ADDRESS METHOD               AUTH_METHOD
-host       replication     repuser         <REPLICATION_HOST_IP>/32     scram-sha-256
-```
+## Configure host-based authentication parameters
+There are several replication settings that need to be added or edited to the
+`pg_hba.conf` configuration file. In this example, the settings restrict
+replication connections to traffic coming from `REPLICATION_HOST_IP` as the
+PostgreSQL user `repuser` with a valid password. `REPLICATION_HOST_IP` can
+initiate streaming replication from that machine without additional credentials.
+You can change the `address` and `method` values to match your security and
+network settings.
 
-<highlight type="tip">
-The above settings restrict replication connections to traffic coming
-from `REPLICATION_HOST_IP` as the PostgreSQL user `repuser` with a valid
-password. `REPLICATION_HOST_IP` can initiate streaming replication
-from that machine without additional credentials. You may want to
-change the `address` and `method` values to match your security and network
-settings. Read more about `pg_hba.conf` in the [official documentation](https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html).
-</highlight>
+For more information about `pg_hba.conf`, see the
+[`pg_hba` documentation][pg-hba-docs].
 
-## Configure the replica database
+<procedure>
+
+### Configuring host-based authentication parameters
+1.  Open the `pg_hba.conf` configuration file and add or edit this line:
+    ```yaml
+    TYPE  DATABASE    USER    ADDRESS METHOD            AUTH_METHOD
+    host  replication repuser <REPLICATION_HOST_IP>/32  scram-sha-256
+    ```
+1.  Restart PostgreSQL to pick up the changes.
+
+</procedure>
+
+## Create a base backup on the replica
 Replicas work by streaming the primary server's WAL log and replaying its
-transactions in what PostgreSQL calls "recovery mode". Before this can happen,
-the replica needs to be in a state where it can replay the log. This is achieved
-by restoring the replica from a base backup of the primary instance.
+transactions in PostgreSQL recovery mode. To do this, the replica needs to be in
+a state where it can replay the log. You can do this by restoring the replica
+from a base backup of the primary instance.
 
-### Create a base backup on the replica
-Stop PostgreSQL. If the replica's PostgreSQL database already has data, you
-need to remove it prior to running the backup. This can be done by removing the
-contents of the PostgreSQL data directory. To determine the location of the
-data directory, run `show data_directory;` in a `psql` shell.
+<procedure>
+## Creating a base backup on the replica
+1.  Stop PostgreSQL services.
+1.  If the replica database already contains data, delete it before you run the
+    backup, by removing the PostgreSQL data directory:
+    ```bash
+    rm -rf <DATA_DIRECTORY>/*
+    ```
+    If you don't know the location of the data directory, find it with the
+    `show data_directory;` command.
+1.  Restore from the base backup, using the IP address of the primary database
+    and the replication username:
+    ```bash
+    pg_basebackup -h <PRIMARY_IP> \
+    -D <DATA_DIRECTORY> \
+    -U repuser -vP -W
+    ```
+    The -W flag prompts you for a password. If you are using this command in an
+    automated setup, you might need to use a [pgpass file][pgpass-file].
+1.  When the backup is complete, create a
+    [recovery.conf][postgres-recovery-docs] file in your data directory,
+    and set the appropriate permissions. When PostgreSQL finds a `recovery.conf`
+    file in its data directory, it starts in recovery mode and streams the WAL through the replication protocol:
+    ```bash
+    touch <DATA_DIRECTORY>/recovery.conf
+    chmod 0600 <DATA_DIRECTORY>/recovery.conf
+    ```
+</procedure>
 
-```bash
-rm -rf <DATA_DIRECTORY>/*
-```
-
-Now run the `pg_basebackup` command using the IP address of the primary database
-along with the replication username.
-
-```bash
-pg_basebackup -h <PRIMARY_IP> -D <DATA_DIRECTORY> -U repuser -vP -W
-```
-
-<highlight type="warning">
-The -W flag prompts you for a password on the command line. This may
-cause problems for automated setups. If you are using password based
-authentication in an automated setup, you may need to make use of a
-[pgpass file](https://www.postgresql.org/docs/current/static/libpq-pgpass.html).
-</highlight>
-
-When the backup finishes, create a [recovery.conf][postgres-recovery-docs] file
-in your data directory, ensuring it has the proper permissions. When
-PostgreSQL finds a `recovery.conf` file in its data directory, it knows to start
-up in recovery mode and begin streaming the WAL through the replication
-protocol.
-
-```bash
-touch <DATA_DIRECTORY>/recovery.conf
-chmod 0600 <DATA_DIRECTORY>/recovery.conf
-```
+<!--- Lana, you're up to here! --LKB 20220221-->
 
 ### Replication and recovery settings
 Add settings for communicating with the primary server to `recovery.conf`. In
@@ -369,3 +382,11 @@ high availability solution with automatic failover functionality.
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
+[pg-hba-docs]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
+[pgpass-file]: https://www.postgresql.org/docs/current/static/libpq-pgpass.html
+
+[configure-primary-db]: /how-to-guides/replication-and-ha/configure-replication#configure-the-primary-database
+[configure-params]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-parameters
+[create-replication-slots]: /how-to-guides/replication-and-ha/configure-replication#create-replication-slots
+[configure-pghba]: /how-to-guides/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
+[create-base-backup]: /how-to-guides/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica

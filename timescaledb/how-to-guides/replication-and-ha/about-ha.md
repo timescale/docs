@@ -1,5 +1,5 @@
 # High availability (HA)
-High availability (HA) can be achieved by increasing redundancy, and increasing
+High availability (HA) is achieved by increasing redundancy, and increasing
 resilience. To increase redundancy, parts of the system are replicated, so that
 they are on standby in the event of a failure. To increase resilience, recovery
 processes switch between these standby resources as quickly as possible.

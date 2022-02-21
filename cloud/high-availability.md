@@ -3,7 +3,7 @@ Timescale Cloud uses various methods to ensure that your service remains
 available. This section covers some of the strategies used by Timescale Cloud to
 increase the availability of your services.
 
-High availability (HA) can be achieved by increasing redundancy, and
+High availability (HA) is achieved by increasing redundancy, and
 increasing resilience. To increase redundancy, parts of the system are
 replicated, so that they are on standby in the event of a failure. To increase
 resilience, recovery processes switch between these standby resources as quickly
