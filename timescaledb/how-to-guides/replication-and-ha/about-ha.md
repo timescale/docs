@@ -45,14 +45,6 @@ as it requires schema synchronization between the primary and replica nodes and
 replicating partition root tables, which are
 [not currently supported][postgres-partition-limitations].
 
-This tutorial outline the basic configuration needed to set up streaming
-replication on one or more replicas, covering both synchronous and asynchronous
-options. It assumes you have at least two separate instances of TimescaleDB
-running. If you're using our [Docker Image][timescale-docker], we recommend
-using a [PostgreSQL entrypoint script][docker-postgres-scripts] to run the
-configuration. For our sample Docker configuration and run scripts, check out
-our [Streaming Replication Docker Repository][timescale-streamrep-docker].
-
 PostgreSQL achieves streaming replication by having replicas continuously stream
 the WAL from the primary database. See the official
 [replication documentation](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION)

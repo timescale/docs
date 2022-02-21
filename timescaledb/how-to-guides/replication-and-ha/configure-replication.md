@@ -1,12 +1,13 @@
 # Configure Replication
-Credibly initiate bricks-and-clicks niche markets for real-time processes.
-Completely promote resource sucking value via premier initiatives. Conveniently
-revolutionize just in time supply chains rather than reliable portals.
-Conveniently maximize intermandated bandwidth vis-a-vis premier results.
-Progressively evisculate professional models with strategic information.
+This section outlines how to set up streaming replication on one or more
+database replicas, covering both synchronous and asynchronous options. It
+assumes you have at least two separate instances of TimescaleDB running. If
+you're using our [Docker image][timescale-docker], we recommend using a
+[PostgreSQL entry point script][docker-postgres-scripts] to run the
+configuration. For our sample Docker configuration and run scripts, check out
+our [streaming replication Docker repository][timescale-streamrep-docker].
 
 ## Configure the primary database
-FIXME - turn this into procedures. --LKB 20220128
 Create a PostgreSQL user with a role that allows it to initialize streaming
 replication. This is the user each replica uses to stream from the primary
 database. Run the command as the `postgres` user, or another user that is
@@ -26,7 +27,6 @@ and changing the `AUTH_METHOD` in `pg_hba` to `md5`. (see [Configure Host Based 
 </highlight>
 
 ### Configure replication parameters
-
 There are several replication settings that must be added to `postgresql.conf`
 (if you're unsure of where PostgreSQL is reading `postgresql.conf` from, just
 execute `show config_file;` in a `psql` shell). You can either comment out the
@@ -53,7 +53,6 @@ you intend to have.
   on the local loopback.
 
 ### Sample replication configuration
-
 The most common streaming replication use case is asynchronous replication with
 one or more replicas. We'll use that as that as our sample configuration.
 
@@ -85,7 +84,6 @@ reload the configuration file. This needs to be done before creating replication
 slots in the next step.
 
 ### Create replication slots
-
 After configuring `postgresql.conf` and restarting PostgreSQL, create a
 [replication slot][postgres-rslots-docs] for each replica. Replication slots
 ensure that the primary does not delete segments from the WAL until they have
@@ -102,7 +100,6 @@ SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');
 ```
 
 ### Configure host-based authentication [](configure-host-based-authentication)
-
 Configure the `pg_hba.conf` file (run `show hba_file;` in a `psql` shell if
 you're unsure of its location) to accept connections from the replication user
 on the host of each replica.
@@ -122,14 +119,12 @@ settings. Read more about `pg_hba.conf` in the [official documentation](https://
 </highlight>
 
 ## Configure the replica database
-
 Replicas work by streaming the primary server's WAL log and replaying its
 transactions in what PostgreSQL calls "recovery mode". Before this can happen,
 the replica needs to be in a state where it can replay the log. This is achieved
 by restoring the replica from a base backup of the primary instance.
 
 ### Create a base backup on the replica
-
 Stop PostgreSQL. If the replica's PostgreSQL database already has data, you
 need to remove it prior to running the backup. This can be done by removing the
 contents of the PostgreSQL data directory. To determine the location of the
@@ -165,7 +160,6 @@ chmod 0600 <DATA_DIRECTORY>/recovery.conf
 ```
 
 ### Replication and recovery settings
-
 Add settings for communicating with the primary server to `recovery.conf`. In
 streaming replication, the `application_name` in `primary_conninfo` should be
 the same as the name used in the primary's `synchronous_standby_names` settings.
@@ -214,7 +208,6 @@ This is fully compatible with TimescaleDB's functionality, provided
 you [set up TimescaleDB][timescale-setup-docs] on the primary database.
 
 ## Configure replication modes [](replication-modes)
-
 This walkthrough gets asynchronous streaming replication working, but
 in many cases stronger consistency between the primary and replicas is
 required. Under heavy workloads, replicas can lag far behind the primary,
@@ -294,7 +287,6 @@ replay the missed WAL transactions asynchronously.
 </highlight>
 
 ## View replication diagnostics [](view-replication-diagnostics)
-
 PostgreSQL provides a valuable view for getting information about each replica
 -- [pg_stat_replication][postgres-pg-stat-replication-docs]. Run `select * from
 pg_stat_replication;` from the primary database to view this data. The output
@@ -355,7 +347,6 @@ doing (available modes are `startup`, `catchup`, `streaming`, `backup`, and
 `stopping`).
 
 ## Failover
-
 PostgreSQL offers failover functionality (i.e., promoting the replica to the
 primary in the event of a failure on the primary) through [pg_ctl][pgctl-docs]
 or the `trigger_file`, but it does not provide out-of-the-box support for
