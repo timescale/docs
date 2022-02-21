@@ -2,10 +2,8 @@
 Promscale is the open source observability backend for metrics and traces
 powered by SQL.
 
-It is built on top of PosgreSQL and TimescaleDB and has native support for
-Prometheus metrics (including 100% PromQL compliance) and OpenTelemetry traces.
-It's full SQL capabilities enable developers to correlate metrics, traces and
-also business data to derive new valuable insights not possible when data is
+It is built on top of PostgreSQL and TimescaleDB. Promscale supports Prometheus metrics and 100% compliant with PromQL and OpenTelemetry traces.
+It's full SQL capabilities enable developers to correlate metrics, traces, and business data to get valuable insights. This is not possible when data is
 siloed in different systems.
 
 *   [Learn about Promscale][about-promscale] to understand how it works before
