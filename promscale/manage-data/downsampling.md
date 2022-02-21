@@ -8,7 +8,7 @@ the size of the data decreases.
 
 ## Choose a downsampling method
 There are two downsampling methods available for use with Promscale: continuous
-aggregates and Prometheus recording rules.
+aggregates, and Prometheus recording rules.
 
 There are a few things to take into account when deciding on a downsampling
 method.
@@ -86,7 +86,7 @@ the `series_id` corresponds to a specific metric name and set of labels.
 For more information about continuous aggregates, see the
 [TimescaleDB continuous aggregates documentation][tsdb-caggs].
 
-### Worked example of a Promscale continuous aggregate
+### Example of a Promscale continuous aggregate
 Creating a continuous aggregate in Promscale requires two operations. Start by
 creating a TimescaleDB continuous aggregate, and then register the new metric so
 it's available to PromQL queries and other Promscale functions. This section
@@ -109,7 +109,7 @@ WITH (timescaledb.continuous) AS
 ```
 
 <highlight type="note">
-In the worked example in this section, one hour is added to `time_bucket` in the
+In this example, one hour is added to `time_bucket` in the
 `SELECT` clause. This is done to match the PromQL semantics of representing a
 bucket with the timestamp at the end of the bucket instead of the start of the
 bucket.

@@ -1,6 +1,6 @@
 # Manage data in Promscale
-Promscale provides different methods to manage the data you store in Promscale
-and help you reduce disk space use and improve query performance.
+Promscale provides different methods to manage your data,
+reduce disk space, and improve query performance.
 
 *   Configure [retention policies][retention] on metrics
 *   [Downsample][downsampling] your data for long term storage and querying

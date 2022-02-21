@@ -78,13 +78,12 @@ curl -X POST -g http://localhost:9201/delete_series?match[]=container_cpu_load_a
 ```
 
 ## Deletion by time
-You can delete a series of metrics based on time, using an SQL query. Data in a
-hypertable chunk can be either compressed and uncompressed, so all compressed
+You can delete a series of metrics based on time, using an SQL query. Any compressed
 data needs to be decompressed before performing the deletion. You can
 recompress the chunks later on, if necessary.
 
 For example, to delete all data from the `container_cpu_load_average_10s` metric
-that is older than 10 hours, start by decompressing all chunks
+that is older than 10 hours, decompress all chunks
 related to the hypertable of the metric:
 ```sql
 SELECT decompress_chunks(show_chunks('prom_data.container_cpu_load_average_10s'));
