@@ -4,8 +4,8 @@ database replicas, covering both synchronous and asynchronous options. It
 assumes you have at least two separate instances of TimescaleDB running. If
 you're using our [Docker image][timescale-docker], we recommend using a
 [PostgreSQL entry point script][docker-postgres-scripts] to run the
-configuration. For our sample Docker configuration and run scripts, check out
-our [streaming replication Docker repository][timescale-streamrep-docker].
+configuration. For sample Docker configuration and run scripts, see
+the [streaming replication Docker repository][timescale-streamrep-docker].
 
 ## Configure the primary database
 Create a PostgreSQL user with a role that allows it to initialize streaming

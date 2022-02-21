@@ -3,7 +3,7 @@ Timescale Cloud uses various methods to ensure that your service remains
 available. This section covers some of the strategies used by Timescale Cloud to
 increase the availability of your services.
 
-Timescale Cloud provides high availability by increasing redundancy, and
+High availability (HA) can be achieved by increasing redundancy, and
 increasing resilience. To increase redundancy, parts of the system are
 replicated, so that they are on standby in the event of a failure. To increase
 resilience, recovery processes switch between these standby resources as quickly
@@ -45,6 +45,7 @@ When this occurs, connections to the original, failed database are closed and
 need to be reopened. The entire process usually takes a few seconds. Timescale
 Cloud does not currently offer synchronous replicas.
 
+<!--- This isn't available on dev yet. --LKB 20220221
 <procedure>
 
 ### Enabling HA database replicas
@@ -59,8 +60,10 @@ Cloud does not currently offer synchronous replicas.
 
 </procedure>
 
+-->
+
 # Zonal redundancy
-While the public cloud is highly reliable, entire portions of the cloud may be
+While the public cloud is highly reliable, entire portions of the cloud can be
 unavailable at times. Timescale Cloud does not protect against Availability Zone
 failures unless the user is using HA replicas. We do not currently offer
 protection from an AWS Regional failure or multi-cloud solutions.
