@@ -26,7 +26,7 @@ support with tobs, see [the tobs installation section][tobs-tracing]. For more
 information about installing tracing support with Docker, see
 [the Docker installation section][docker-tracing].
 
-Help us improve Promscale by
+Help improve Promscale by
 [sharing your feedback](https://github.com/timescale/promscale/discussions/916)
 and [reporting issues](https://github.com/timescale/promscale/issues/new).
 
