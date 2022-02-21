@@ -38,7 +38,7 @@ tracing in Promscale, because it centralizes management of all your telemetry
 data. This helps you define processing rules and manage where to send the
 data.
 
-Jaeger and Zipkin trace formats are supported using the OpenTelemetry Collector
+Both Jaeger and Zipkin trace formats are supported using the OpenTelemetry Collector
 only.
 
 ### Configure the OpenTelemetry Collector
@@ -135,7 +135,7 @@ configure the OpenTelemetry Collector to ingest Zipkin traces.
 <!--- Consider starting a new sub-page for visualization. --LKB 20220202-->
 ## Visualize traces with tobs
 If you used tobs to deploy Promscale and all its components, you can access
-Grafana and Jaeger to visualize your traces, and you do not need to do any
+Grafana, and Jaeger to visualize your traces. You do not need to do any
 further configuration steps.
 
 <procedure>
