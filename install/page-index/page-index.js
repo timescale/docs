@@ -11,8 +11,6 @@ module.exports = [
       {
         title: "Timescale Cloud",
         href: "installation-cloud",
-        title: "Timescale Cloud",
-        href: "installation-cloud",
         tags: ["tsc", "install"],
         keywords: ["install", "Timescale Cloud", "create service", "connect to service"],
         excerpt: "Install Timescale Cloud",
@@ -20,7 +18,6 @@ module.exports = [
       {
         title: "Self hosted",
         href: "self-hosted",
-        type: "react-page",
         component: "InstallationPage",
         showNewsletterForm: true,
         tags: ["install", "timescaledb"],
