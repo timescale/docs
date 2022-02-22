@@ -1,12 +1,10 @@
 # Configure Replication
-This section outlines how to set up streaming replication on one or more
-database replicas, covering both synchronous and asynchronous options.
+This section outlines how to set up asynchronous streaming replication on one or
+more database replicas.
 
 Before you begin, make sure you have at least two separate instances of
-TimescaleDB running.
-
-If you installed TimescaleDB using a Docker container, use a
-[PostgreSQL entry point script][docker-postgres-scripts] to run the
+TimescaleDB running. If you installed TimescaleDB using a Docker container, use
+a [PostgreSQL entry point script][docker-postgres-scripts] to run the
 configuration. For sample Docker configuration and run scripts, see the
 [streaming replication Docker repository][timescale-streamrep-docker].
 
@@ -17,12 +15,13 @@ procedures:
 1.   [Create replication slots][create-replication-slots]
 1.   [Configure host-based authentication parameters][configure-pghba]
 1.   [Create a base backup on the replica][create-base-backup]
-1.   Replication and recovery settings
-1.   Configure replication modes
-1.   View replication diagnostics
+1.   [Configure replication and recovery settings][configure-replication]
+1.   [Verify that the replica is working][verify-replica]
 
 ## Configure the primary database
-To configure the primary database, you need a PostgreSQL user with a role that allows it to initialize streaming replication. This is the user each replica uses to stream from the primary database.
+To configure the primary database, you need a PostgreSQL user with a role that
+allows it to initialize streaming replication. This is the user each replica
+uses to stream from the primary database.
 
 <procedure>
 
@@ -56,7 +55,8 @@ There are several replication settings that need to be added or edited to the
     connections from replicas or backup clients. As a minimum, this should equal
     the number of replicas you intend to have.
 1.  Set the `wal_level` parameter to the amount of information written to the
-    PostgreSQL Write-Ahead Log (WAL). For replication to work, there needs to be enough data in the WAL to support archiving and replication. The default
+    PostgreSQL Write-Ahead Log (WAL). For replication to work, there needs to be
+    enough data in the WAL to support archiving and replication. The default
     value is usually appropriate.
 1.  Set the `max_replication_slots` parameter to the total number of replication
     slots the primary database can support.
@@ -73,7 +73,7 @@ one or more replicas. In this example, the WAL is streamed to the replica, but
 the primary server does not wait for confirmation that the WAL has been written
 to disk on either the primary or the replica. This is the most performant
 replication configuration, but it does carry the risk of a small amount of data
-loss in the event of a system crash. It also makes no guarantees that the
+loss in the event of a system failure. It also makes no guarantees that the
 replica is fully up to date with the primary, which could cause inconsistencies
 between read queries on the primary and the replica. The example configuration
 for this use case:
@@ -87,7 +87,9 @@ synchronous_commit = off
 
 If you need stronger consistency on the replicas, or if your query load is heavy
 enough to cause significant lag between the primary and replica nodes in
-asynchronous mode, consider a synchronous replication configuration instead.
+asynchronous mode, consider a synchronous replication configuration instead. For
+more information about the different replication modes, see the
+[replication modes section][replication-modes].
 
 ## Create replication slots
 When you have configured `postgresql.conf` and restarted PostgreSQL, you can
@@ -142,7 +144,7 @@ a state where it can replay the log. You can do this by restoring the replica
 from a base backup of the primary instance.
 
 <procedure>
-## Creating a base backup on the replica
+### Creating a base backup on the replica
 1.  Stop PostgreSQL services.
 1.  If the replica database already contains data, delete it before you run the
     backup, by removing the PostgreSQL data directory:
@@ -163,49 +165,52 @@ from a base backup of the primary instance.
 1.  When the backup is complete, create a
     [recovery.conf][postgres-recovery-docs] file in your data directory,
     and set the appropriate permissions. When PostgreSQL finds a `recovery.conf`
-    file in its data directory, it starts in recovery mode and streams the WAL through the replication protocol:
+    file in its data directory, it starts in recovery mode and streams the WAL
+    through the replication protocol:
     ```bash
     touch <DATA_DIRECTORY>/recovery.conf
     chmod 0600 <DATA_DIRECTORY>/recovery.conf
     ```
 </procedure>
 
-<!--- Lana, you're up to here! --LKB 20220221-->
+## Configure replication and recovery settings
+When you have successfully created a base backup and a `recovery.conf` file, you
+can configure the replication and recovery settings.
 
-### Replication and recovery settings
-Add settings for communicating with the primary server to `recovery.conf`. In
-streaming replication, the `application_name` in `primary_conninfo` should be
-the same as the name used in the primary's `synchronous_standby_names` settings.
+<procedure>
 
-```
-standby_mode = on # Ensures that the replica continues to fetch WAL records from the primary
-primary_conninfo = 'host=<PRIMARY_IP> port=5432 user=repuser password=<POSTGRES_USER_PASSWORD> application_name=r1'
-primary_slot_name = 'replica_1_slot' # Name of the replication slot we created on the master
-```
+## Configuring replication and recovery settings
+1.  In the `recovery.conf` file, add details for communicating with the
+    primary server. If you are using streaming replication, the
+    `application_name` in `primary_conninfo` should be the same as the name used
+    in the primary's `synchronous_standby_names` settings:
+    ```yaml
+    standby_mode = on
+    primary_conninfo = 'host=<PRIMARY_IP> port=5432 user=repuser
+    password=<POSTGRES_USER_PASSWORD> application_name=r1'
+    primary_slot_name = 'replica_1_slot'
+    ```
+1.  In the `postgresql.conf` file, add details to mirror the configuration of
+    the primary database. If you are using asynchronous replication, use these
+    settings:
+    ```yaml
+    hot_standby = on
+    wal_level = replica
+    max_wal_senders = 2
+    max_replication_slots = 2
+    synchronous_commit = off
+    ```
+    The `hot_standby` parameter must be set to `on` to allow read-only queries
+    on the replica. In PostgreSQL 10 and later, this setting is `on` by default.
+1.  Restart PostgreSQL to pick up the changes.
 
-Next, update the `postgresql.conf` file to mirror the configuration of the
-primary database. For asynchronous replication, this would look like:
+</procedure>
 
-```
-hot_standby = on
-wal_level = replica
-max_wal_senders = 2
-max_replication_slots = 2
-synchronous_commit = off
-```
-
-<highlight type="warning">
-In order to allow reads on the replica, `hot_standby` must be set to `on`.
-This allows read-only queries on the replica. By default, this
-setting is set to `on` in PostgreSQL 10, but in earlier versions it defaults to
-`off`.
-</highlight>
-
-Finally, restart PostgreSQL. At this point, the replica should be fully
-synchronized with the primary database and prepared to stream from it. The
-logs on the replica should look something like this:
-
-```
+## Verify that the replica is working
+At this point, your replica should be fully synchronized with the primary
+database and prepared to stream from it. You can verify that it is working
+properly by checking the logs on the replica, which should look like this:
+```txt
 LOG:  database system was shut down in recovery at 2018-03-09 18:36:23 UTC
 LOG:  entering standby mode
 LOG:  redo starts at 0/2000028
@@ -214,97 +219,106 @@ LOG:  database system is ready to accept read only connections
 LOG:  started streaming WAL from primary at 0/3000000 on timeline 1
 ```
 
-Any clients can perform reads on the replica. Verify this
-by running inserts, updates, or other modifications to your data on the primary
-and querying the replica to ensure they have been properly copied over.
-This is fully compatible with TimescaleDB's functionality, provided
-you [set up TimescaleDB][timescale-setup-docs] on the primary database.
+Any client can perform reads on the replica. You can verify this by running
+inserts, updates, or other modifications to your data on the primary database,
+and then querying the replica to ensure they have been properly copied over.
 
-## Configure replication modes [](replication-modes)
-This walkthrough gets asynchronous streaming replication working, but
-in many cases stronger consistency between the primary and replicas is
-required. Under heavy workloads, replicas can lag far behind the primary,
-providing stale data to clients reading from the replicas. Moreover, in cases
-where any data loss is fatal, asynchronous replication may not provide enough
-of a durability guarantee. Luckily [`synchronous_commit`][postgres-synchronous-commit-docs] has several options
-with varying consistency/performance tradeoffs:
+## Replication modes
+In most cases, asynchronous streaming replication is sufficient. However, you
+might require greater consistency between the primary and replicas, especially
+if you have a heavy workload. Under heavy workloads, replicas can lag far behind
+the primary, providing stale data to clients reading from the replicas.
+Additionally, in cases where any data loss is fatal, asynchronous replication
+might not provide enough of a durability guarantee. The PostgreSQL
+[`synchronous_commit`][postgres-synchronous-commit-docs] feature has several
+options with varying consistency and performance tradeoffs.
 
-<highlight type="warning">
+In the `postgresql.conf` file, set the `synchronous_commit` parameter to:
+
+*   `on`: This is the default value. The server does not return `success` until
+    the WAL transaction has been written to disk on the primary and any
+    replicas.
+*   `off`: The server returns `success` when the WAL transaction has been sent
+    to the operating system to write to the WAL on disk on the primary, but
+    does not wait for the operating system to actually write it. This can cause
+    a small amount of data loss if the server crashes when some data has not
+    been written, but it does not result in data corruption. Turning
+    `synchronous_commit` off is a well known PostgreSQL optimization for
+    workloads that can withstand some data loss in the event of a system crash.
+*   `local`: Enforces `on` behavior only on the primary server.
+*   `remote_write`: The database returns `success` to a client when the WAL
+    record has been sent to the operating system for writing to the WAL on the
+    replicas, but before confirmation that the record has actually been
+    persisted to disk. This is similar to asynchronous commit, except it waits
+    for the replicas as well as the primary. In practice, the extra wait time
+    incurred waiting for the replicas significantly decreases replication lag.
+*   `remote_apply`: Requires confirmation that the WAL records have been written
+    to the WAL and applied to the databases on all replicas. This provides the
+    strongest consistency of any of the `synchronous_commit` options. In this
+    mode, replicas always reflect the latest state of the primary, and
+    replication lag is nearly non-existent.
+
+<highlight type="important">
 If `synchronous_standby_names` is empty, the settings `on`, `remote_apply`,
-`remote_write` and `local` all provide the same synchronization level:
-transaction commits only wait for local flush to disk.
+`remote_write` and `local` all provide the same synchronization level, and
+transaction commits wait for the local flush to disk.
 </highlight>
 
-* `on` - Default value. The server does not return "success" until the WAL
-  transaction has been written to disk on the primary and any replicas.
-* `off` - The server returns "success" when the WAL transaction has been
-  sent to the operating system to write to the WAL on disk on the primary, but
-  does not wait for the operating system to actually write it. This can cause
-  a small amount of data loss if the server crashes when some data has not been
-  written, but it does not result in data corruption. Turning
-  `synchronous_commit` off is a well known PostgreSQL optimization for
-  workloads that can withstand some data loss in the event of a system
-  crash.
-* `local` - Enforces `on` behavior only on the primary server.
-* `remote_write` - The database returns "success" to a client when the
-  WAL record has been sent to the operating system for writing to the WAL on
-  the replicas, but before confirmation that the record has actually been
-  persisted to disk. This is basically asynchronous commit except it waits
-  for the replicas as well as the primary. In practice, the extra wait time
-  incurred waiting for the replicas significantly decreases replication lag.
-* `remote_apply` - Requires confirmation that the WAL records have been
-  written to the WAL *and* applied to the databases on all replicas. This
-  provides the strongest consistency of any of the `synchronous_commit`
-  options. In this mode, replicas always reflect the latest state of
-  the primary, and the concept of replication lag (see [Replication
-  Diagnostics](#view-replication-diagnostics)) is basically non-existent.
+This matrix shows the level of consistency each mode provides:
 
-This matrix visualizes the level of consistency each mode provides:
+|Mode|WAL Sent to OS (Primary)|WAL Persisted (Primary)|WAL Sent to OS (Primary & Replicas)|WAL Persisted (Primary & Replicas)|Transaction Applied (Primary & Replicas)|
+|-|-|-|-|-|-|
+|Off|✅|❌|❌|❌|❌|
+|Local|✅|✅|❌|❌|❌|
+|Remote Write|✅|✅|✅|❌|❌|
+|On|✅|✅|✅|✅|❌|
+|Remote Apply|✅|✅|✅|✅|✅|
 
-Mode | WAL Sent to OS (Primary) | WAL Persisted (Primary) | WAL Sent to OS (Primary + Replicas) | WAL Persisted (Primary + Replicas) | Transaction Applied (Primary + Replicas)
---- | --- | --- | --- | --- | ---
-Off | X | | | |
-Local | X | X | | |
-Remote Write | X | X | X | |
-On | X | X | X | X |
-Remote Apply | X | X | X | X | X
+The `synchronous_standby_names` setting is a complementary setting to
+`synchronous_commit`. It lists the names of all replicas the primary database
+supports for synchronous replication, and configures how the primary database
+waits for them. The `synchronous_standby_names` setting supports these formats:
 
-An important complementary setting to `synchronous_commit` is
-`synchronous_standby_names`. This setting lists the names of all replicas the
-primary database supports for synchronous replication, and configures *how*
-the primary database waits for them. The setting supports several
-different formats:
+*   `FIRST num_sync (replica_name_1, replica_name_2)`: This waits for
+    confirmation from the first `num_sync` replicas before returning `success`.
+    The list of `replica_names` determines the relative priority of
+    the replicas. Replica names are determined by the `application_name` setting
+    on the replicas.
+*   `ANY num_sync (replica_name_1, replica_name_2)`: This waits for confirmation
+    from `num_sync` replicas in the provided list, regardless of their priority
+    or position in the list. This is works as a quorum function.
 
-* `FIRST num_sync (replica_name_1, replica_name_2)` - This waits for
-  confirmation from the first `num_sync` replicas before returning
-  "success". The list of replica_names determines the relative priority of
-  the replicas. Replica names are determined by the `application_name`
-  setting on the replicas.
-* `ANY num_sync (replica_name_1, replica_name_2)`  - This waits for
-  confirmation from `num_sync` replicas in the provided list, regardless of
-  their priority/position in the list. This is essentially a quorum
-  function.
+Synchronous replication modes force the primary to wait until all required
+replicas have written the WAL, or applied the database transaction, depending on
+the `synchronous_commit` level. This could cause the primary to hang
+indefinitely if a required replica crashes. When the replica reconnects, it
+replays any of the WAL it needs to catch up. Only then is the primary able to
+resume writes. To mitigate this, provision more than the amount of nodes
+required under the `synchronous_standby_names` setting and list them in the
+`FIRST` or `ANY` clauses. This allows the primary to move forward as long as a
+quorum of replicas have written the most recent WAL transaction. Replicas that
+were out of service are able to reconnect and replay the missed WAL transactions
+asynchronously.
 
-<highlight type="warning">
-Any synchronous replication mode forces the primary to wait until all
-required replicas have written the WAL or applied the database transaction,
-depending on the `synchronous_commit` level. This could cause the
-primary to hang indefinitely if a required replica crashes. When the replica
-reconnects, it replays any of the WAL it needs to catch up. Only then does
-the primary be able to resume writes. To mitigate this, provision more than the
-amount of nodes required under the `synchronous_standby_names` setting and list
-them in the `FIRST` or `ANY` clauses. This allows the primary to move
-forward as long as a quorum of replicas have written the most recent WAL
-transaction. Replicas that were out of service is able to reconnect and
-replay the missed WAL transactions asynchronously.
-</highlight>
+## Replication diagnostics
+The PostgreSQL [pg_stat_replication][postgres-pg-stat-replication-docs] view
+provides information about each replica. This view is particularly useful for
+calculating replication lag, which measures how far behind the primary the
+current state of the replica is. The `replay_lag` field gives a measure of the
+seconds between the most recent WAL transaction on the primary, and the last
+reported database commit on the replica. Coupled with `write_lag` and
+`flush_lag`, this provides insight into how far behind the replica is. The
+`*_lsn` fields also come in handy, allowing you to compare WAL locations between
+the primary and the replicas. The `state` field is useful for determining
+exactly what each replica is currently doing; the available modes are `startup`,
+`catchup`, `streaming`, `backup`, and `stopping`.
 
-## View replication diagnostics [](view-replication-diagnostics)
-PostgreSQL provides a valuable view for getting information about each replica
--- [pg_stat_replication][postgres-pg-stat-replication-docs]. Run `select * from
-pg_stat_replication;` from the primary database to view this data. The output
-looks like this:
+To see the data, on the primary database, run this command:
+```sql
+select * from pg_stat_replication;
+```
 
+The output looks like this:
 ```sql
 -[ RECORD 1 ]----+------------------------------
 pid              | 52343
@@ -348,45 +362,30 @@ sync_priority    | 1
 sync_state       | sync
 ```
 
-This view is particularly useful for calculating replication lag, which
-measures how far behind the primary the current state of the replica is. The
-`replay_lag` field gives a measure of the seconds between the most recent WAL
-transaction on the primary and the last reported database commit on the replica.
-Coupled with `write_lag` and `flush_lag`, this provides insight into how far
-behind the replica is. The `*_lsn` fields also come in handy, allowing you to
-compare WAL locations between the primary and the replicas. Finally, the
-`state` field is useful for determining exactly what each replica is currently
-doing (available modes are `startup`, `catchup`, `streaming`, `backup`, and
-`stopping`).
-
 ## Failover
-PostgreSQL offers failover functionality (i.e., promoting the replica to the
-primary in the event of a failure on the primary) through [pg_ctl][pgctl-docs]
-or the `trigger_file`, but it does not provide out-of-the-box support for
-automatic failover. Read more in the PostgreSQL [failover
-documentation][failover-docs]). [patroni][patroni-github] offers a configurable
-high availability solution with automatic failover functionality.
+PostgreSQL provides some failover functionality, where the replica is promoted
+to  primary in the event of a failure. This is provided using the
+[pg_ctl][pgctl-docs] command, or the `trigger_file`. However, PostgreSQL does
+not provide support for automatic failover. For more information, see the
+[PostgreSQL failover documentation][failover-docs]. If you require a
+configurable high availability solution with automatic failover functionality,
+check out [Patroni][patroni-github].
 
-[postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION
-[postgres-partition-limitations]: https://www.postgresql.org/docs/current/static/logical-replication-restrictions.html
-[postgres-logrep-docs]: https://www.postgresql.org/docs/current/static/logical-replication.html
-[timescale-docker]: https://github.com/timescale/timescaledb-docker
 [docker-postgres-scripts]: https://docs.docker.com/samples/library/postgres/#how-to-extend-this-image
 [timescale-streamrep-docker]: https://github.com/timescale/streaming-replication-docker
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-archive-docs]: https://www.postgresql.org/docs/current/static/continuous-archiving.html
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[postgres-recovery-docs]: https://www.postgresql.org/docs/current/static/recovery-config.html
-[timescale-setup-docs]: /install/latest/
 [postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/10/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pg-hba-docs]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
-[pgpass-file]: https://www.postgresql.org/docs/current/static/libpq-pgpass.html
-
 [configure-primary-db]: /how-to-guides/replication-and-ha/configure-replication#configure-the-primary-database
 [configure-params]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-parameters
 [create-replication-slots]: /how-to-guides/replication-and-ha/configure-replication#create-replication-slots
 [configure-pghba]: /how-to-guides/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
 [create-base-backup]: /how-to-guides/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
+[configure-replication]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
+[verify-replica]: /how-to-guides/replication-and-ha/configure-replication#verify-that-the-replica-is-working
+[replication-modes]: /how-to-guides/replication-and-ha/configure-replication#replication-modes
