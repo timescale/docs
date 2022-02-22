@@ -282,7 +282,7 @@ module.exports = [
 Each page listed in `page-index.js` can have the following properties:
 
 |Property|Required or optional|Description|
-|-|-|
+|-|-|-|
 |`href`|Required|The name of the Markdown file containing the content for the page. For example: `example-file.md`|
 |`title`|Optional|The page title to display in the navigation menu and browser title area. If no title is provided, `href` is used, in Camel Case and with hyphens replaced by spaces.|
 |`children`|Optional|An array containing the child pages for the page. Child-page properties are defined in the same way as parent-page properties. Child pages can be nested inside other child pages to form multiple levels. The filenames provided in `href` should be located in a sub-folder with the same name as the parent page.|
