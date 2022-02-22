@@ -21,13 +21,16 @@ ALTER EXTENSION timescaledb_toolkit UPDATE;
 If you're hosting your own TimescaleDB database, you can install Toolkit as an
 RPM, Debian, or Ubuntu package. You can also build Toolkit from source.
 
-<procedure>
+### Install Toolkit on Red Hat-based systems
 
-### Installing Toolkit on Red Hat-based systems
 These instructions use the `dnf` package manager on RHEL, CentOS, and Fedora.
 
+<procedure>
+
+#### Installing Toolkit on Red Hat-based systems
+
 1.  Make sure you have installed TimescaleDB and created a TimescaleDB
-    repository in your `yum` `repo.d` directory. For more information, see [the installation
+    repository in your `yum` `repo.d` directory. For more information, see [the
     instructions for Red Hat-based systems][red-hat-install].
 1.  Update your local repository list:
     ```bash
@@ -45,14 +48,17 @@ These instructions use the `dnf` package manager on RHEL, CentOS, and Fedora.
 
 </procedure>
 
-<procedure>
+### Install Toolkit on Debian-based systems
 
-### Installing Toolkit on Debian-based systems
 These instructions use the `apt` package manager on Debian and Ubuntu.
 
+<procedure>
+
+#### Installing Toolkit on Debian-based systems
+
 1.  Make sure you have installed TimescaleDB and added the TimescaleDB
-    repository and GPG key. For more information, see [the installation
-    instructions for Debian-based systems][debian-install].
+    repository and GPG key. For more information, see [the instructions for
+    Debian-based systems][debian-install].
 1.  Update your local repository list:
     ```bash
     apt update
@@ -69,9 +75,14 @@ These instructions use the `apt` package manager on Debian and Ubuntu.
 
 </procedure>
 
+### Build Toolkit from source
+
+You can build Toolkit from source. For more information, see the [Toolkit
+developer documentation][toolkit-gh-docs] .
+
 <procedure>
 
-### Building Toolkit from source
+#### Building Toolkit from source
 1.  The extension requires `rust`, `rustfmt`, `clang`, and `pgx` packages, as
     well as the PostgreSQL headers for your installed version of PostgreSQL.
     Install these using your native package manager. For instructions on how to
@@ -93,9 +104,6 @@ These instructions use the `apt` package manager on Debian and Ubuntu.
     ```
 
 </procedure>
-
-For more information about installing Toolkit from source, see the
-[developer documentation][toolkit-gh-docs] .
 
 [cloud]: /cloud/:currentVersion:/
 [debian-install]: /install/:currentVersion:/self-hosted/installation-debian/
