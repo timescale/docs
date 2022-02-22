@@ -44,13 +44,13 @@ GitHub.
 For larger changes, such as new content and long edits, fork the repository and
 make changes on your local machine.
 
-## Fork and clone the repository
+#### Fork and clone the repository
 If this is your first contribution, start by forking the repository and cloning
 the fork to your local machine.
 
 <procedure>
 
-### Forking and cloning the repository
+##### Forking and cloning the repository
 1.  Sign in to your [github](github.com) account.
 1.  Navigate to the [Timescale documentation repo](github.com/timescale/docs).
 1.  Click the `Fork` button in the top-right corner, and select the account you
@@ -106,13 +106,13 @@ the fork to your local machine.
 
 </procedure>
 
-## Commit changes and create a pull request
+#### Commit changes and create a pull request
 Once you have a local copy of the docs, make your changes. Then commit your work
 and create a pull request to the Timescale docs repo.
 
 <procedure>
 
-### Committing changes
+##### Committing changes
 1.  Make your changes. You can edit the Markdown files in any text editor. For
     mroe information, see the sections on [repository
     structure](#repository-structure) and [markup
@@ -134,7 +134,7 @@ and create a pull request to the Timescale docs repo.
     git push --set-upstream origin <BRANCH_NAME>
     ```
 
-### Creating a pull request
+##### Creating a pull request
 1.  Navigate to the [Timescale documentation repo](github.com/timescale/docs).
 1.  Click `Compare and Create Pull Request`.
 1.  Write an informative commit message detailing your changes. 
@@ -160,7 +160,7 @@ soon as possible. Even if you haven't finished work, you can make a pull request
 with the Draft feature. Communicating your work helps prevent duplicated work
 and conflicting information.
 
-## Keep your local copy up to date
+### Keep your local copy up to date
 As other contributors add to the docs, your local copy drifts out of sync with
 the `latest` branch. Avoid merge conflicts by keeping your local copy up to
 date. Fetch and merge changes from `latest` every day before you begin your
@@ -168,7 +168,7 @@ work, and again whenever you switch branches.
 
 <procedure>
 
-### Keeping your local copy up to date
+#### Keeping your local copy up to date
 1.  Check out your fork's `latest` branch:
     ```bash
     git checkout latest
@@ -277,7 +277,7 @@ module.exports = [
 ]
 ```
 
-#### Layout of `page-index.js`
+### Layout of `page-index.js`
 
 Each page listed in `page-index.js` can have the following properties:
 
@@ -291,7 +291,7 @@ Each page listed in `page-index.js` can have the following properties:
 |`type`|Optional|Associates the page with a specific page type that has special features or layout. Not usually required.|
 |`newLabel`|Optional|Adds a `NEW` label to content in the navigation menu. Set the value of `newLabel` the date when the label should expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.|
 
-### How to add a new page
+### Add a new page
 
 To add a new page, create a new `<FILENAME>.md` file within the appropriate
 folder. Name your file descriptively, in lowercase, and separate words with
