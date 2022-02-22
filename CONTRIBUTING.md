@@ -19,6 +19,8 @@ You can make contribute to documentation by making a pull request.
 For minor changes, such as typos and broken-link fixes, you can edit directly in
 GitHub. 
 
+<procedure>
+
 #### Making a minor change
 
 1.  Sign in to your [github](github.com) account.
@@ -35,6 +37,8 @@ GitHub.
     this is your first contribution, you receive a comment asking you to sign
     the Contributor License Agreement.  
 1.  Sign the agreement so your contribution can be added to the documentation.
+
+</procedure>
 
 ### Make a larger change
 For larger changes, such as new content and long edits, fork the repository and
@@ -73,7 +77,7 @@ the fork to your local machine.
     ```bash
     git remote add upstream https://github.com/timescale/docs.git
     ```
-1.  Check that the upstream repo was successfully added:
+1.  Check that the upstream repository is added successfully:
     ```bash
     git remote -v
     ```
@@ -145,13 +149,16 @@ and create a pull request to the Timescale docs repo.
     beside `Create pull request`. This lets your reviewers know that you're
     working on the topic. They can understand your progress and expect your
     contribution. Once you've finished, you can click `Ready for review`.
+1.  If this is your first contribution, you receive a comment asking you to sign
+    the Contributor License Agreement. Sign the agreement so your contribution
+    can be added to the documentation.
 
 </procedure>
 
 Commit to your feature branch early and often, and create your pull request as
 soon as possible. Even if you haven't finished work, you can make a pull request
-with the Draft feature. Communicating your work often helps prevent duplicated
-work and conflicting information.
+with the Draft feature. Communicating your work helps prevent duplicated work
+and conflicting information.
 
 ## Keep your local copy up to date
 As other contributors add to the docs, your local copy drifts out of sync with
@@ -190,11 +197,12 @@ work, and again whenever you switch branches.
 
 ## Repository structure
 
-## Contributor license agreement
+## Markup conventions
 
 ## The Timescale documentation team
 *   Ryan Booz <https://github.com/ryanbooz>
 *   Lana Brindley <https://github.com/Loquacity>
-*   Charis Lam <https://github.com/charislam>
+*   Daniel Bogart <https://github.com/daniel-bogart>
 *   Rajakavitha Kodhandapani <https://github.com/Rajakavitha1>
-
+*   Charis Lam <https://github.com/charislam>
+*   Jacob Prall <https://github.com/jacobprall>
