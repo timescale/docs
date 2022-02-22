@@ -13,8 +13,9 @@ version. For example, you can update from TimescaleDB 2.1 to 2.2, or from 1.7 to
 ## TimescaleDB release compatibility
 TimescaleDB supports the following PostgreSQL releases. If you aren't running a
 compatible release, update PostgreSQL before updating TimescaleDB. To learn
-more, see the sections on updating PostgreSQL in [Timescale
-Cloud][cloud-update-pg], [Managed Service for TimescaleDB][mst-update-pg], and
+more, see the sections on updating PostgreSQL in 
+[Timescale Cloud][cloud-update-pg], 
+[Managed Service for TimescaleDB][mst-update-pg], and
 [self-hosted TimescaleDB][self-hosted-update-pg]. 
 
 |TimescaleDB release|Supported PostgreSQL releases|
@@ -28,11 +29,10 @@ Cloud][cloud-update-pg], [Managed Service for TimescaleDB][mst-update-pg], and
 <highlight type="important"> 
 To make sure your update completes properly, update PostgreSQL and TimescaleDB
 separately. Keep PostgreSQL and TimescaleDB versions compatible throughout the 
-process. If your update spans multiple versions, this may require several steps.
+process. If your update spans multiple versions, this could require several steps.
 
 For example, if you're currently running PostgreSQL 10 and TimescaleDB 1.7.5,
 and you want to update to PostgreSQL 13 and TimescaleDB 2.2:
-
 1. Upgrade PostgreSQL 10 to PostgreSQL 12
 1. Update TimescaleDB 1.7.5 to TimescaleDB 2.2 on PostgreSQL 12
 1. Upgrade PostgreSQL 12 to PostgreSQL 13 with TimescaleDB 2.2 installed
@@ -59,18 +59,18 @@ databases.
     psql -x "postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DB_NAME>?sslmode=require"
     ```
     Do not run any other commands before continuing to the next step.
-1.  Run the following `psql` command:
+1.  At the `psql` prompt, upgrade TimescaleDB to the latest installed version:
     ```sql
     ALTER EXTENSION timescaledb UPDATE;
     ```
     This upgrades TimescaleDB to the latest installed version, even if you're
     several versions behind. To update to a version that's not the latest
-    installed version, specify the version number, like so:
+    installed version, specify the version number, like this:
     ```sql
     ALTER EXTENSION timescaledb UPDATE TO '2.5.1';
     ```
 1.  Verify that the upgrade worked by running `\dx timescaledb` to see the
-    extension's version number.
+    version number of the extension.
     ```sql
     \dx timescaledb
 

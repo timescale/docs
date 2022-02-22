@@ -567,7 +567,7 @@ module.exports = [
             title: "Downgrade TimescaleDB",
             href: "downgrade-timescaledb",
             tags: ["downgrade", "timescaledb"],
-            keywords: ["TimescaleDB"],
+            keywords: ["TimescaleDB", "downgrade"],
             excerpt: "Downgrade a TimescaleDB version",
           },
         ],
