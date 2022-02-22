@@ -197,6 +197,116 @@ work, and again whenever you switch branches.
 
 ## Repository structure
 
+The documentation site's navigation hierarchy mirrors the repository's folder
+hierarchy. Each top-level section in the site corresponds to a top-level folder
+in the repository:
+
+|Site section|Repository folder|
+|-|-|
+|Install TimescaleDB|`install/`|
+|TimescaleDB|`timescaledb/`|
+|API reference|`api/`|
+|Timescale Cloud|`cloud/`|
+|Managed Service for TimescaleDB|`mst/`|
+|Promscale|`promscale/`|
+
+Each folder must contain an `index.md` file. This file contains the content for
+that section's landing page. For example, `cloud/index.md` contains the content
+for `docs.timescale.com/cloud/`.
+
+Each folder also contains other Markdown files. These files contain the content
+for that section's direct child pages.
+
+Each folder may also contain subfolders. These folders correspond to the
+subsections in that section. Each subfolder has its own `index.md` page and
+child pages, and may have its own subfolders.
+
+To find the repository file corresponding to a specific page, you can use the
+page's URL, ignoring the domain, subdomain, and version. For example, for the
+URL `docs.timescale.com/timescaledb/latest/how-to-guides/hyperfunctions/<SLUG>`,
+ignore the domain and subdomain, `docs.timescale.com`, and the version,
+`latest`. If the page has no sub-pages, the corresponding file is
+`timescaledb/how-to-guides/hyperfunctions/<SLUG>.md`. If the page has sub-pages,
+the corresponding file is
+`timescaledb/how-to-guides/hyperfunctions/<SLUG>/index.md`.
+
+### Site navigation
+
+The documentation site's navigation menu is defined in the `page-index.js`
+files. Each section's `page-index.js` contains the details for that section's
+landing page and child pages. For example:
+
+```js
+module.exports = [
+    {
+        href: "overview",
+        children: [
+          {
+            title: "What is time-series data?",
+            href: "what-is-time-series-data",
+            pageComponents: ['featured-cards'],
+            tags: ['data', 'timescaledb'],
+            keywords: ['TimescaleDB', 'data'],
+            excerpt: "Learn about time-series data"
+          },
+          {
+            title: "Core concepts",
+            href: "core-concepts",
+            excerpt: "Why use TimescaleDB?",
+            children : [
+              {
+                title: "Hypertables and chunks",
+                href: "hypertables-and-chunks",
+                tags: ['hypertables', 'chunks', 'timescaledb'],
+                keywords: ['hypertables', 'chunks', 'TimescaleDB'],
+                excerpt: "Understanding hypertables and chunks"
+              },
+              {
+                title: "Scaling",
+                href: "scaling",
+                tags: ['hypertables', 'chunks', 'timescaledb'],
+                keywords: ['hypertables', 'chunks', 'TimescaleDB'],
+                excerpt: "Scaling hypertables"
+              },
+              ...
+            ]
+          },
+          ...
+        ]
+    }
+]
+```
+
+#### Layout of `page-index.js`
+
+Each page listed in `page-index.js` can have the following properties:
+
+|Property|Required or optional|Description|
+|-|-|
+|`href`|Required|The name of the Markdown file containing the content for the page. For example: `example-file.md`|
+|`title`|Optional|The page title to display in the navigation menu and browser title area. If no title is provided, `href` is used, in Camel Case and with hyphens replaced by spaces.|
+|`children`|Optional|An array containing the child pages for the page. Child-page properties are defined in the same way as parent-page properties. Child pages can be nested inside other child pages to form multiple levels. The filenames provided in `href` should be located in a sub-folder with the same name as the parent page.|
+|`excerpt`|Optional|A short description of the page. Excerpts are displayed within navigation cards and Related Content cards.|
+|`pageComponents`|Optional|If provided, child pages are listed below any other content in the parent page. Takes two possible values, `['featured-cards']` and `['content-list']`, corresponding to the two list styles.|
+|`type`|Optional|Associates the page with a specific page type that has special features or layout. Not usually required.|
+|`newLabel`|Optional|Adds a `NEW` label to content in the navigation menu. Set the value of `newLabel` the date when the label should expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.|
+
+### How to add a new page
+
+To add a new page, create a new `<FILENAME>.md` file within the appropriate
+folder. Name your file descriptively, in lowercase, and separate words with
+hyphens.
+
+Then, add an entry to the `page-index.js` file for that section. To find the
+`page-index.js` file, look in the top-level folder for the section, which should
+be one of `api/`, `cloud/`, `install/`, `mst/`, `promscale/`, or `timescaledb/`.
+The folder contains a `page-index/` subfolder, which holds the `page-index.js`
+file.
+
+In larger sections, `page-index.js` is split into multiple files. In this case,
+the parent `page-index.js` starts with several `require` statements, which show
+the paths to child `page-index.js` files.
+
 ## Markup conventions
 
 ## The Timescale documentation team
