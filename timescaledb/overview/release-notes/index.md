@@ -111,6 +111,10 @@ upgrading.
 * #4019 Update ts_extension_oid in transitioning state
 * #4073 Fix buffer overflow in partition scheme
 
+**Improvements**
+
+Query planning performance is improved for hypertables with a large number of chunks.
+
 **Thanks**
 * @fvannee for reporting a first/last memory leak
 * @mmouterde for reporting an issue with floats and interpolate
