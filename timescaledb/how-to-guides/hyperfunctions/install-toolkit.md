@@ -27,7 +27,7 @@ RPM, Debian, or Ubuntu package. You can also build Toolkit from source.
 These instructions use the `dnf` package manager on RHEL, CentOS, and Fedora.
 
 1.  Make sure you have installed TimescaleDB and created a TimescaleDB
-    repository in your `yum` repos. For more information, see [the installation
+    repository in your `yum` `repo.d` directory. For more information, see [the installation
     instructions for Red Hat-based systems][red-hat-install].
 1.  Update your local repository list:
     ```bash
