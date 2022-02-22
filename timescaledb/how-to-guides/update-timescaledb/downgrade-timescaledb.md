@@ -21,7 +21,14 @@ You can verify that the downgrade worked by running `\dx timescaledb` to see the
 version number of the extension.
 
 ## Limitations
-The downgrade script is tested for a single-step downgrade from the current
-version to the previous version. Multi-step downgrades may work but have not
-been tested. Downgrading might not work if you make changes to your database
-between upgrading and downgrading.
+Downgrading might not be supported for all versions. Where possible, downgrades
+between patch versions and between consecutive minor versions are supported. For
+example, you can downgrade from TimescaleDB 2.5.2 to 2.5.1, or from 2.5.0 to
+2.4.2. However, some versions might not support downgrading. To check whether
+you can downgrade from a specific version, see the [release
+notes](https://docs.timescale.com/timescaledb/latest/overview/release-notes/).
+
+Where supported, the downgrade script is tested for a single-step downgrade from
+the current version to the previous version. Multi-step downgrades may work but
+have not been tested. Downgrading might not work if you make changes to your
+database between upgrading and downgrading.
