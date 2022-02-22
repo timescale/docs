@@ -1,6 +1,6 @@
 # Launch your first instance
 
-Getting Started tutorial, we'll use Timescale Cloud to get you up
+ we'll use Timescale Cloud to get you up
 and running quickly. Timescale Cloud combines the power and reliability
 of TimescaleDB with a fully managed, cloud-native experience that is easy to
 start and less expensive to operate.
