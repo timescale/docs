@@ -16,7 +16,7 @@ on these environments:
 
 *   **Kubernetes**:  use [Helm charts][promscale-install-helm] or [a manifest][promscale-install-k8s-manifest] file.
 *   **Docker**: install Promscale from a [pre-built Docker container][promscale-install-docker].
-*   **VM or bare metal**: install Promscale [from source][promscale-install-source].
+*   **VM or bare metal**: use the [source][promscale-install-source] file.
 
 You can also use our [prom-migrator tool][promscale-install-prom-migrator] to
 migrate your existing Prometheus data into Promscale.
