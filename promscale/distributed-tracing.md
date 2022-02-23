@@ -196,7 +196,6 @@ most recent packages.
 <procedure>
 
 ### Setting up Jaeger UI with Docker
-
 1.  Start the Jaeger Docker container:
     ```bash
     docker run --name promscale-jaeger -d \
