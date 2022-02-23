@@ -1,5 +1,5 @@
 # Troubleshooting Promscale
-This section contains some ideas for troubleshooting common problems experienced
+This section covers some common errors or problems you might run into while using
 with Promscale.
 
 <!---
