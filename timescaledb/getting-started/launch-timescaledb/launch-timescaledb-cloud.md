@@ -1,4 +1,4 @@
-# Launch your first instance
+# Launch your first instance of TimescaleDB in the Cloud
 
 ### Step 1: Create a Timescale Cloud account
 
@@ -13,25 +13,25 @@ don't receive this link, first check your spam folder and, failing that, [contac
 
 ### Step 2: Create your first service
 
-After confirming your account, there should be a link which will redirect you to your 
+After confirming your account, there should be a link that will redirect you to your 
 new Timescale Cloud account. Alternatively, you can visit the [Timescale Cloud console][cloud-console] 
 and log in with your credentials.
 
 When you first open your Cloud account, the 'Create your database' prompt (shown below) may 
-automatically be showing, this is how you create your first service. If you do not 
+automatically be showing. This is how you create your first service. If you do not 
 see the database prompt, you can click on the 'Create service' button to show it. 
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png" alt="Create a Timescale Cloud service"/>
 
 For this tutorial, all the default settings for the database will suffice. In addition 
 to the CPU, Memory, and Storage options shown, auto-scaling is also enabled. This means 
-that even if you do hit computing bounds, the service will scale automatically for you. 
+that even if you hit computing bounds, the service will automatically scale for you. 
 
 For future databases, if you want to change any settings, you can select the 'Advanced options' 
-link. Additionally, you can change any service settings later on through the database's dashboard
+link. Additionally, you can change any service settings later on through the database's dashboard.
 
 After you select 'Create service,' you will see a deploying confirmation page. Here 
-you find your service information and some examples for how to connect to it. Be sure 
+you find your service information and some examples for how to connect. Be sure 
 to save off your password in a secure location:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-build-service.png" alt="Timescale Cloud service creation confirmation"/>
