@@ -14,7 +14,7 @@ telemetry data.
 If you have Prometheus or OpenTelemetry installed, you can install Promscale
 on these environments:
 
-*   **Kubernetes**: install Promscale using our [Helm charts][promscale-install-helm] or using [a manifest][promscale-install-k8s-manifest].
+*   **Kubernetes**:  use [Helm charts][promscale-install-helm] or [a manifest][promscale-install-k8s-manifest] file.
 *   **Docker**: install Promscale from a [pre-built Docker container][promscale-install-docker].
 *   **VM or bare metal**: install Promscale [from source][promscale-install-source].
 
