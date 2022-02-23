@@ -24,9 +24,6 @@ To fix this error, increase the `max_locks_per_transaction` setting in the
 PostgreSQL configuration file, so that `pg_dump` and `pg_restore` can create the
 required number of locks, and the backup or restore can continue.
 
-For more information, see the
-[backup and restore documentation][promscale-backup-restore].
-
 ## Data is occupying too much space
 Promscale keeps metric data in chunks. The most recent chunk is kept
 uncompressed as a cache for faster querying, and chunks are compressed as they
@@ -44,9 +41,6 @@ databases you have in your environment, plus 2. If you are using TimescaleDB
 version 2.0.0 or earlier, make sure that you are running the maintenance `cron`
 jobs, and that they are returning success. When compression is working
 correctly, your data is being compressed as it ages.
-
-For more information about compression, see the
-[Promscale compression documentation][promscale-compression].
 
 If compression is working properly, then do the following:
 *   Check you are using the most recent version of Promscale, to ensure you have
@@ -92,8 +86,5 @@ are shown as expected in the trace.
 
 For more information, see the [batch processor documentation][batch-processor].
 
-
-[promscale-backup-restore]: FIXME
-[promscale-compression]: FIXME
 [prometheus-remote-read]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read
 [batch-processor]: https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/batchprocessor/README.md

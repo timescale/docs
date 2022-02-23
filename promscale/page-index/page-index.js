@@ -86,7 +86,6 @@ module.exports = [
           },
         ],
       },
-<<<<<<< HEAD
       {
         title: 'Scale Promscale',
         href: 'scale-ha',
@@ -115,8 +114,6 @@ module.exports = [
           },
         ],
       },
-=======
->>>>>>> e24ca1d... troubleshooting promscale
       {
         title: 'Send data to Promscale',
         href: 'send-data',
@@ -153,7 +150,6 @@ module.exports = [
         excerpt: 'Learn about data visualization tools you can use with Promscale'
       },
       {
-<<<<<<< HEAD
         title: 'Distributed tracing with Promscale',
         href: 'distributed-tracing',
         tags: ['promscale', 'tracing', 'opentelemetry', 'jaeger', 'grafana'],
@@ -173,15 +169,14 @@ module.exports = [
         tags: ['promscale', 'roles', 'permissions', 'database'],
         keywords: ['Promscale', 'analytics', 'permissions', 'roles'],
         excerpt: 'Learn about the different database roles and permissions Promscale defines'
-      }
-=======
+      },
+      {
         title: 'Troubleshooting Promscale',
         href: 'troubleshooting',
         tags: ['promscale', 'learn', 'troubleshooting', 'prometheus'],
         keywords: ['Promscale', 'troubleshooting'],
         excerpt: 'Troubleshooting Promscale'
-      },
->>>>>>> e24ca1d... troubleshooting promscale
+      }
     ]
   }
 ]
