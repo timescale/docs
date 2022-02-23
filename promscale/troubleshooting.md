@@ -1,6 +1,6 @@
 # Troubleshooting Promscale
 This section covers some common errors or problems you might run into while using
-with Promscale.
+ Promscale.
 
 <!---
 * Keep this section in alphabetical order
