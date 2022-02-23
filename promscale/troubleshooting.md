@@ -48,7 +48,7 @@ correctly, your data is being compressed as it ages.
 For more information about compression, see the
 [Promscale compression documentation][promscale-compression].
 
-If compression is working properly, check these things:
+If compression is working properly, then do the following:
 *   Check you are using the most recent version of Promscale, to ensure you have
     the latest features.
 *   Consider reducing the length of time that you retain data for.
