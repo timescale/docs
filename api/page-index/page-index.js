@@ -563,6 +563,33 @@ module.exports = [
               },
             ],
           },
+          {
+            title: 'Frequency Analysis',
+            type: 'directory',
+            href: 'frequency-analysis',
+            children: [
+              {
+                title: 'freq_agg',
+                href: 'freq_agg',
+              },
+              {
+                title: 'values',
+                href: 'values-freq_agg',
+              },
+              {
+                title: 'topn',
+                href: 'topn',
+              },
+              {
+                title: 'state_agg',
+                href: 'state_agg',
+              },
+              {
+                title: 'duration_in',
+                href: 'duration_in',
+              },
+            ],
+          },
         ],
       },
       {

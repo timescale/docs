@@ -45,8 +45,8 @@ Some important things to remember when constructing your `SELECT` query:
     aggregates, but you can run them in a `SELECT` query from the continuous
     aggregate view.
 *   You can usually use aggregates that are
-    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition, i
-    ncluding most aggregates distributed by PostgreSQL. However, the `ORDER BY`,
+    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition, 
+    including most aggregates distributed by PostgreSQL. However, the `ORDER BY`,
     `DISTINCT` and `FILTER` clauses are not supported.
 *   All functions and their arguments included in `SELECT`, `GROUP BY` and
     `HAVING` clauses must be [immutable][postgres-immutable].
