@@ -45,9 +45,17 @@ different TimescaleDB versions on different databases within the same PostgreSQL
 instance. You can also update your extensions independently on different
 databases.
 
+<highlight type="important"> 
+Before updating, check the [release
+notes](https://docs.timescale.com/timescaledb/latest/overview/release-notes/)
+for the version you want to update to. Specific versions might have different
+update requirements that add additional steps.
+</highlight>
+
 <procedure>
 
 ### Updating TimescaleDB
+
 
 1.  [Back up][backup] your database with [`pg_dump`][pg_dump].
 1.  [Install][install] the latest version of the TimescaleDB extension.
@@ -87,7 +95,7 @@ upgrade. To learn more, see the [section on downgrading TimescaleDB][downgrade].
 
 [backup]: /how-to-guides/backup-and-restore/
 [changes-in-2.0]: /overview/release-notes/changes-in-timescaledb-2/
-[cloud-update-pg]: FIXME
+[cloud-update-pg]: cloud/:currentVersion:/maintenance/#upgrade-to-a-new-postgresql-version
 [downgrade]: /how-to-guides/update-timescaledb/downgrade-timescaledb/
 [install]: /install/:currentVersion:/
 [mst-update-pg]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
