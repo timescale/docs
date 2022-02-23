@@ -49,32 +49,23 @@ supports public AMIs.
 
 </procedure>
 
-When you have completed the installation, you need to configure your database so
-that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. For more
-information, see the [configuration][config] section.
+After you have completed the installation, connect to your instance and configure your database. For infomration about connecting to the instance, see the AWS [accessing instance documentation][aws-connect]. The easiest way configure your datase is to run the `timescaledb-tune` script, which is included with the `timescaledb-tools` package. For more information, see the [configuration][config] section. 
+
+<highlight type="note">
+After you run the *timescaledb-tune* script you need to restart the PostgreSQL service for the configuration changes to take effect. To restart the service use the **sudo systemctl restart postgresql.service** command.
+</highlight>
+
 
 ## Set up the TimescaleDB extension
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
-your local system using the `psql` command-line utility. This is the same tool
-you might have used to connect to PostgreSQL before, but if you haven't
-installed it yet, check out our [installing psql][install-psql] section.
+When you have PostgreSQL and TimescaleDB installed, connect to your instance and setup the TimescaleDB extension.
 
 <procedure>
 
 ### Setting up the TimescaleDB extension
-1.  On your local system, at the command prompt, connect to the PostgreSQL
+1.  On your instance, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
     ```bash
-    psql -U postgres -h localhost
-    ```
-    If your connection is successful, you'll see a message like this, followed
-    by the `psql` prompt:
-    ```
-    psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
-    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-    Type "help" for help.
-    tsdb=>
+    sudo -u postgres psql
     ```
 1.  At the `psql` prompt, create an empty database. Our database is
     called `example`:
@@ -89,40 +80,21 @@ installed it yet, check out our [installing psql][install-psql] section.
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
-1.  You can now connect to your database using this command:
-    ```bash
-    psql -U postgres -h localhost -d example
-    ```
-
 </procedure>
 
 You can check that the TimescaleDB extension is installed by using the `\dx`
-command at the `psql` prompt. It looks like this:
+command at the command prompt. It looks like this:
 ```sql
-tsdb=> \dx
-List of installed extensions
--[ RECORD 1 ]------------------------------------------------------------------
-Name        | pg_stat_statements
-Version     | 1.7
-Schema      | public
-Description | track execution statistics of all SQL statements executed
--[ RECORD 2 ]------------------------------------------------------------------
-Name        | plpgsql
-Version     | 1.0
-Schema      | pg_catalog
-Description | PL/pgSQL procedural language
--[ RECORD 3 ]------------------------------------------------------------------
-Name        | timescaledb
-Version     | 2.5.1
-Schema      | public
-Description | Enables scalable inserts and complex queries for time-series data
--[ RECORD 4 ]------------------------------------------------------------------
-Name        | timescaledb_toolkit
-Version     | 1.3.1
-Schema      | public
-Description | timescaledb_toolkit
+example=# \dx
 
-tsdb=>
+                                      List of installed extensions
+    Name     | Version |   Schema   |                            Description                            
+-------------+---------+------------+-------------------------------------------------------------------
+ plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+ timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
+(2 rows)
+
+(END)
 ```
 
 ## Where to next
@@ -140,8 +112,9 @@ if you want to have a chat.
 [aws-signup]: https://portal.aws.amazon.com/billing/signup
 [aws-dashboard]: https://console.aws.amazon.com/ec2/
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
+[aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
 [contact]: https://www.timescale.com/contact
 [install-psql]: /how-to-guides/connecting/psql/
 [tsdb-docs]: timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: /how-to-guides/configuration/
+[config]: /trimescaledb/:currentVersion:/how-to-guides/configuration/
