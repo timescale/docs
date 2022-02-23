@@ -46,7 +46,7 @@ tobs install --tracing
 ```
 
 For more information about Promscale tracing, see the
-[Promscale developer documentation][promscale-developer-docs].
+[distributed tracing section][promscale-tracing].
 
 ## Compatibility
 If you are having trouble with tobs, check that you are using a compatible
@@ -58,4 +58,4 @@ version of tobs and Kubernetes:
 
 
 [download-tobs]: https://github.com/timescale/tobs/releases/latest
-[promscale-developer-docs]: https://github.com/timescale/promscale/blob/master/docs/tracing.md
+[promscale-tracing]: promscale/:currentVersion:/distributed-tracing/
