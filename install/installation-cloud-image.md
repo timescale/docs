@@ -67,14 +67,14 @@ When you have PostgreSQL and TimescaleDB installed, connect to your instance and
     ```bash
     sudo -u postgres psql
     ```
-1.  At the `psql` prompt, create an empty database. Our database is
-    called `example`:
+1.  At the prompt, create an empty database. Our database is
+    called `tsdb`:
     ```sql
-    CREATE database example;
+    CREATE database tsdb;
     ```
 1.  Connect to the database you created:
     ```sql
-    \c example
+    \c tsdb
     ```
 1.  Add the TimescaleDB extension:
     ```sql
@@ -85,7 +85,7 @@ When you have PostgreSQL and TimescaleDB installed, connect to your instance and
 You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the command prompt. It looks like this:
 ```sql
-example=# \dx
+tsdb=# \dx
 
                                       List of installed extensions
     Name     | Version |   Schema   |                            Description                            
