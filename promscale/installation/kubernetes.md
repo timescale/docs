@@ -29,9 +29,21 @@ credentials instead it uses the same credentials that are generated during the
 By default, the `timescaledb-single` helm chart deploys TimescaleDB in 
 high availability mode. By default, this creates three database replicas, 
 which consumes three times the amount of disk space. Each database 
-instance mounts to its own persistent volume claim (PVC). You can 
+instance mounts to its own persistent volume claim (PVC). 
+
+You can 
 disable high availability mode by changing the `timescaledb-single` 
-helm chart `replicaCount` values to `1` in ` values.yaml`.
+helm chart `replicaCount` values to `1` in [`values.yaml`][timescaledb-single-values-yaml].
+
+<procedure>
+
+#### Steps to disbale TimescaleDB High-Availability
+1.  Download the default `values.yaml` of `timescaledb-single` helm chart from [here][timescaledb-single-values-yaml].
+1.  In `values.yaml` change the default `replicaCount` from `3` to `1`. 
+1.  In the next step while installing the `timescaledb-single` helm chart, use this `values.yaml` file with `-f` flag.
+
+</procedure>
+
 
 <procedure>
 
@@ -158,5 +170,6 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 [timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
 [helm-install]: https://helm.sh/docs/intro/install/
 [promscale-values-yaml]: https://github.com/timescale/promscale/blob/master/deploy/helm-chart/values.yaml
+[timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml 
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
 [template-manifest]: https://github.com/timescale/promscale/blob/master/deploy/static/deploy.yaml
