@@ -78,11 +78,10 @@ with TimescaleDB. You can use PostGIS to select data points from the original
 `rides` table where the pickup location is less than 400m from the GPS location
 (40.7589, -73.9851), which is Times Square.
 
-The data, supplied by the [NYC Taxi and Limousine Commission][NYCTLC], like most
-data, is not perfect; it is missing data points for certain hours. You can fill
-in the missing values with 0, following the
-[gap filling][gap_filling]documentation. An adaptation of the same method is
-used to achieve the same result when creating `rides_length` and `rides_price`.
+The data comes from the [NYC Taxi and Limousine Commission][NYCTLC]. It is
+missing data points for certain hours. You can gapfill the missing values with
+0. To learn more, see the [gap filling][gap_filling] documentation. A similar
+method is used to create `rides_length` and `rides_price`.
 
 Before you move onto the next few sections, check that the following tables
 are in your database.
