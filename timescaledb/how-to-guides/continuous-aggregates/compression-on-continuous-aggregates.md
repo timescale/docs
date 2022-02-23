@@ -26,7 +26,9 @@ You can enable and disable compression on continuous aggregated by setting
     ```sql
     ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = false);
     ```
+
 </procedure>
+
 The decompress command fails if there are compressed chunks associated with the 
 continuous aggregate. In this case, you need to decompress the chunks, and then 
 drop any compression policy on the continuous aggregate, before you disable 
