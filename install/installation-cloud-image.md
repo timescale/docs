@@ -80,6 +80,7 @@ When you have PostgreSQL and TimescaleDB installed, connect to your instance and
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
+    
 </procedure>
 
 You can check that the TimescaleDB extension is installed by using the `\dx`
