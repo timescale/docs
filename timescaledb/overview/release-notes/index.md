@@ -95,11 +95,13 @@ hypertables and indexes.  We deem this release to be moderate priority for
 upgrading.
 
 **Features**
-* #3768 Allow ALTER TABLE ADD COLUMN with DEFAULT on compressed hypertable
+* #3768 Allow ALTER TABLE ADD COLUMN with DEFAULT on compressed hypertable
 * #3769 Allow ALTER TABLE DROP COLUMN on compressed hypertable
+* #3873 Enable compression on continuous aggregates 
 * #3943 Optimize first/last
 * #3945 Add support for ALTER SCHEMA on multi-node
 * #3949 Add support for DROP SCHEMA on multi-node
+* #3977 Timezones support in CAGGs
 
 **Bug fixes**
 * #3808 Properly handle `max_retries` option
