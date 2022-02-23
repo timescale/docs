@@ -1,16 +1,16 @@
 # High availability
 Timescale Cloud uses various methods to ensure that your service remains
 available. This section covers some of the strategies used by Timescale Cloud to
-increase the availability of your services.
+increase service availability.
 
-High availability (HA) is achieved by increasing redundancy, and
-increasing resilience. To increase redundancy, parts of the system are
+High availability (HA) is achieved by increasing redundancy and
+resilience. To increase redundancy, parts of the system are
 replicated, so that they are on standby in the event of a failure. To increase
 resilience, recovery processes switch between these standby resources as quickly
 as possible.
 
 ## Backups
-On Timescale Cloud full backups are taken weekly and incremental backups are
+On Timescale Cloud, full backups are taken weekly and incremental backups are
 performed daily.
 
 For more information about backups on Timescale Cloud, see the
@@ -37,8 +37,8 @@ You can enable a high availability replica for your single-node services. The
 replicas are asynchronous, and if your primary database fails, the replica
 automatically assumes the role of primary, and a new standby replica is created.
 Any missing data writes are retrieved from backup and replayed on the new
-primary, to account for any lag at the time of failure. Due to their
-asynchronous nature, it is possible that not all data is captured, so there
+primary, to account for any lag at the time of failure. Because replicas are
+asynchronous, it is possible that not all data is captured, so there
 might be some small amount of data loss.
 
 When this occurs, connections to the original, failed database are closed and
@@ -62,7 +62,7 @@ Cloud does not currently offer synchronous replicas.
 
 -->
 
-# Zonal redundancy
+## Zonal redundancy
 While the public cloud is highly reliable, entire portions of the cloud can be
 unavailable at times. Timescale Cloud does not protect against Availability Zone
 failures unless the user is using HA replicas. We do not currently offer

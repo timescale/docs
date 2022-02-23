@@ -1,10 +1,10 @@
 # High availability (HA)
-High availability (HA) is achieved by increasing redundancy, and increasing
+High availability (HA) is achieved by increasing redundancy and
 resilience. To increase redundancy, parts of the system are replicated, so that
 they are on standby in the event of a failure. To increase resilience, recovery
 processes switch between these standby resources as quickly as possible.
 
-# Backups
+## Backups
 For some systems, recovering from backup alone can be a suitable availability
 strategy. 
 
@@ -14,18 +14,18 @@ For more information about backups in self-hosted TimescaleDB, see the
 For more information about backups in Timescale Cloud, see
 the [backup and restore section][cloud-backup] in the Cloud documentation.
 
-# Storage Redundancy
+## Storage redundancy
 Storage redundancy refers to having multiple copies of a database's data files.
 If the storage currently attached to a PostgreSQL instance corrupts or otherwise
 becomes unavailable, the system can replace its current storage with one of the
 copies. 
 
-# Instance Redundancy
+## Instance redundancy
 Instance redundancy refers to having replicas of your database running
 simultaneously. In the case of a database failure, a replica is an up-to-date,
 running database that can take over immediately.
 
-# Zonal Redundancy
+## Zonal redundancy
 While the public cloud is highly reliable, entire portions of the cloud can be
 unavailable at times. Timescale Cloud does not protect against Availability Zone
 failures unless the user is using HA replicas. We do not currently offer
@@ -34,7 +34,7 @@ protection from an AWS Regional failure or multi-cloud solutions.
 For more information about HA replicas in Timescale Cloud, see
 the [high availability section][cloud-ha] in the Cloud documentation.
 
-# Replication
+## Replication
 TimescaleDB supports replication using PostgreSQL's built-in
 [streaming replication][postgres-streaming-replication-docs]. Using
 [logical replication][postgres-logrep-docs] with TimescaleDB is not recommended,
