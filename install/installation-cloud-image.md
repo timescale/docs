@@ -117,4 +117,4 @@ if you want to have a chat.
 [install-psql]: /how-to-guides/connecting/psql/
 [tsdb-docs]: timescaledb/:currentVersion:/index/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: /trimescaledb/:currentVersion:/how-to-guides/configuration/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
