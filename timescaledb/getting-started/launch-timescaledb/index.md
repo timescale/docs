@@ -16,7 +16,7 @@ your local machine to use this option.
 
 
 Methods:
-* [Launch TimescaleDB using the Cloud][launch-timescaledb-cloud]
+* [Launch TimescaleDB using Timescale Cloud][launch-timescaledb-cloud]
 * [Launch TimescaleDB using Docker][launch-timescaledb-docker]
 
 [launch-timescaledb-cloud]: /getting-started/launch-timescaledb/launch-timescaledb-cloud/

@@ -2,16 +2,16 @@
 
 ### Step 1: Download and install Docker
 
-To install and launch TimescaleDB using Docker, you will first need to install Docker on your machine. 
+To install and launch TimescaleDB using Docker, you first need to install Docker on your machine. 
 You will find information on downloading and installing Docker on their [getting started page][docker-install]. 
 
 Once you have Docker installed, you can create a TimescaleDB container instance. 
 
-### Step 2: Create TimescaleDB instance within a Docker container
+### Create TimescaleDB instance within a Docker container
 
 This tutorial will show you how to create a docker container instance using the [official TimescaleDB docker image][timescale-docker]. While you can use `docker pull timescale/timescaledb` to add the TimescaleDB image to your Docker library, you do not have to. Docker will automatically pull the image if it is not already in your Docker library when running the `docker run` command below. 
 
-To create a docker container using this image, you need to run the following code. Once you run this command, you will have a TimescaleDB instance on Docker ready to connect to. 
+To create a Docker container using this image, you need to run the following code. Once you run this command, you will have a TimescaleDB instance on Docker ready to connect to. 
 
 ```
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
