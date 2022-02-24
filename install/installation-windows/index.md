@@ -5,6 +5,14 @@ These instructions use a `zip` installer on these versions:
 *   Microsoft Windows 11
 *   Microsoft Windows Server 2019
 
+For the latest Windows releases, see the [Windows releases
+page][windows-releases].
+
+<highlight type="important">
+Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
+version 12 or later.
+</highlight>
+
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `zip`
 installer provided here, you could encounter errors following these
@@ -130,4 +138,4 @@ if you want to have a chat.
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
-[windows-releases]: https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_2.5.1-windows-amd64.zip
+[windows-releases]: self-hosted/installation-windows/windows-releases/
