@@ -20,8 +20,10 @@ community][timescale-slack].
 
 For our next releases, we plan to add:
 
-- Continuous aggregates with compression
-- `time_bucket_ng` suport for N months and Timezones on continuous aggregates
+- Performance improvements for:
+  - Inserts and common queries on Multi-node 
+  - Continuous aggregates by removing re-aggregation 
+- Custom origin's support in continuous aggregates with `time_bucket_ng`
 
 You can read more about our architecture and design for distributed hypertables
 [here][distributed-hypertables].
@@ -30,27 +32,26 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.5:
+### What's new in TimescaleDB 2.6:
 
-- Continuous aggregates for distributed hypertables
-- Support for PostgreSQL 14
-- Experimental: Support for timezones in `time_bucket_ng`, including the
-  `origin` argument
-
+- Continuous aggregates with compression
+- `time_bucket_ng` support for N months, years and timezones on continuous aggregates
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-5).
 This release also contains bug fixes since the 2.5.0 release.
 
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
-<!-- <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight> -->
+<highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
 
- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> 
+<!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
 
 
-The experimental features in the 2.5 release are:
+The experimental features in the 2.6 release are:
+
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, seconds, and timezones.
+* `time_bucket_ng` support for N months and Timezones on continuous aggregates
 * APIs for chunk manipulation across data nodes in a distributed
 hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
@@ -75,7 +76,7 @@ For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 rel
 For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
-TimescaleDB 2.5.2 is now available, and we encourage
+TimescaleDB 2.6 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -85,6 +86,44 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+
+## 2.6.0 (2022-02-16)
+This release adds major new features since the 2.5.2 release, including:
+* Compression in continuous aggregates
+* Experimental support for timezones in continuous aggregates
+* Experimental support for monthly buckets in continuous aggregates
+
+It also includes several bug fixes. Telemetry reports are switched to a new
+format, and now include more detailed statistics on compression, distributed
+hypertables and indexes.  We deem this release to be moderate priority for
+upgrading.
+
+**Features**
+* #3768 Allow ALTER TABLE ADD COLUMN with DEFAULT on compressed hypertable
+* #3769 Allow ALTER TABLE DROP COLUMN on compressed hypertable
+* #3873 Enable compression on continuous aggregates 
+* #3943 Optimize first/last
+* #3945 Add support for ALTER SCHEMA on multi-node
+* #3949 Add support for DROP SCHEMA on multi-node
+* #3977 Timezones support in CAGGs
+
+**Bug fixes**
+* #3808 Properly handle `max_retries` option
+* #3863 Fix remote transaction heal logic
+* #3869 Fix ALTER SET/DROP NULL contstraint on distributed hypertable
+* #3944 Fix segfault in add_compression_policy
+* #3961 Fix crash in EXPLAIN VERBOSE on distributed hypertable
+* #4015 Eliminate float rounding instabilities in interpolate
+* #4019 Update ts_extension_oid in transitioning state
+* #4073 Fix buffer overflow in partition scheme
+
+**Improvements**
+
+Query planning performance is improved for hypertables with a large number of chunks.
+
+**Thanks**
+* @fvannee for reporting a first/last memory leak
+* @mmouterde for reporting an issue with floats and interpolate
 
 ## 2.5.2 (2022-02-09)
 

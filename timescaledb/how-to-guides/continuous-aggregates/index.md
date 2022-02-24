@@ -13,6 +13,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Drop data][cagg-drop] from your continuous aggregates.
 *   [Manage materialized hypertables][cagg-mat-hypertables].
 *   [Use real-time aggregates][cagg-realtime].
+*   [Compression with continuous aggregates][cagg-compression].
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
 
@@ -24,4 +25,5 @@ only the data that has changed needs to be computed, not the entire dataset.
 [cagg-drop]: /how-to-guides/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
 [cagg-realtime]: /how-to-guides/continuous-aggregates/real-time-aggregates
+[cagg-compression]: /how-to-guides/continuous-aggregates/compression-on-continuous-aggregates
 [cagg-tshoot]: /how-to-guides/continuous-aggregates/troubleshooting
