@@ -6,7 +6,7 @@ available? Jump to [What's New](#what-x27-s-new-in-timescaledb-2-5) to see
 what's been released.
 
 <highlight type="note">
-Want to stay up-to-date with our releases? Subscribe to our [release notes email updates](https://www.timescale.com/signup/release-notes).
+Want to stay up-to-date with new releases? Subscribe to get [release notes email updates](https://www.timescale.com/signup/release-notes).
 </highlight>
 
 ## Future plans
