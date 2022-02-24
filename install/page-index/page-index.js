@@ -125,6 +125,15 @@ module.exports = [
         keywords: ["install", "Managed Service for TimescaleDB"],
         excerpt: "Install a managed service for TimescaleDB",
       },
+      {
+        title: "Kubernetes",
+        href: "installation-kubernetes",
+        title: "TimescaleDB on Kubernetes",
+        href: "installation-kubernetes",
+        tags: ["tsc", "install", "kubernetes", "helm"],
+        keywords: ["install", "TimescaleDB on Kubernetes"],
+        excerpt: "Install TimescaleDB on Kubernetes",
+      },
     ],
   },
 ];
