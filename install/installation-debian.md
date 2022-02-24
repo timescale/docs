@@ -10,6 +10,11 @@ instructions use the `apt` package manager on these distributions:
 *   Ubuntu 21.04 Hirsute Hippo
 *   Ubuntu 21.10 Impish Indri
 
+<highlight type="important">
+Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
+version 12 or later.
+</highlight>
+
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `apt`
 package manager, you could encounter errors following these instructions. It is
@@ -32,6 +37,10 @@ instead.
     ```bash
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
+1.  Add the Timescale GPG key:
+    ```bash
+    curl -L https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
+    ```
 1.  Add the TimescaleDB third party repository:
 
     <terminal>
@@ -53,7 +62,7 @@ instead.
     </tab>
 
     </terminal>
-    
+
 1.  Install Timescale GPG key
     ```bash
     wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add -

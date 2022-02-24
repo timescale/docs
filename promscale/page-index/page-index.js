@@ -87,6 +87,34 @@ module.exports = [
         ],
       },
       {
+        title: 'Scale Promscale',
+        href: 'scale-ha',
+        excerpt: 'Configure Promscale for scaling and high availability',
+        children: [
+          {
+            title: 'High availability',
+            href: 'high-availability',
+            tags: ['promscale', 'ha', 'timescaledb'],
+            keywords: ['promscale', 'HA', 'prometheus', 'timescaledb'],
+            excerpt: 'Configure Promscale for high availability',
+          },
+          {
+            title: 'Multi-node',
+            href: 'multi-node',
+            tags: ['promscale', 'multi-node', 'scale', 'timescaledb'],
+            keywords: ['promscale', 'multinode', 'scale', 'timescaledb'],
+            excerpt: 'Scale Promscale with a TimescaleDB multinode database',
+          },
+          {
+            title: 'Prometheus multi-tenancy',
+            href: 'prometheus-multi-tenancy',
+            tags: ['promscale', 'multi-tenancy', 'scale', 'prometheus', 'timescaledb'],
+            keywords: ['promscale', 'multi-tenancy', 'scale', 'prometheus', 'timescaledb'],
+            excerpt: 'Configure Promscale multi-tenancy for Prometheus',
+          },
+        ],
+      },
+      {
         title: 'Send data to Promscale',
         href: 'send-data',
         excerpt: 'Send data to Promscale from Prometheus, OpenTelemetry and other tools',
@@ -122,11 +150,18 @@ module.exports = [
         excerpt: 'Learn about data visualization tools you can use with Promscale'
       },
       {
-        title: 'Promscale CLI reference',
-        href: 'cli',
-        tags: ['promscale', 'cli', 'reference'],
-        keywords: ['Promscale', 'cli'],
-        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
+        title: 'Distributed tracing with Promscale',
+        href: 'distributed-tracing',
+        tags: ['promscale', 'tracing', 'opentelemetry', 'jaeger', 'grafana'],
+        keywords: ['Promscale', 'opentelemetry', 'tracing', 'jaeger'],
+        excerpt: 'Use Promscale for troubleshooting applications with distributed tracing'
+      },
+      {
+        title: 'Alert in Promscale',
+        href: 'alert',
+        tags: ['promscale', 'prometheus', 'alert'],
+        keywords: ['Promscale', 'Prometheus', 'alert', 'Alert Manager'],
+        excerpt: 'Learn about configuring alerts on Promscale data'
       },
       {
         title: 'Database roles and permissions',
@@ -134,6 +169,13 @@ module.exports = [
         tags: ['promscale', 'roles', 'permissions', 'database'],
         keywords: ['Promscale', 'analytics', 'permissions', 'roles'],
         excerpt: 'Learn about the different database roles and permissions Promscale defines'
+      },
+     {
+        title: 'Promscale CLI reference',
+        href: 'cli',
+        tags: ['promscale', 'cli', 'reference'],
+        keywords: ['Promscale', 'cli'],
+        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
       },
       {
         title: 'SQL API reference',

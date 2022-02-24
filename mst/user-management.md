@@ -7,12 +7,16 @@ service.
 You can invite new users to join your project as project members. There are
 several roles available for project members:
 
-|Role|Invite more users|Modify billing information|Manage services|Start and stop services|View service information|
+|Role|Invite more users|Modify billing information|Manage existing services|Start and stop services|View service information|
 |-|-|-|-|-|-|
 |Admin|✅|✅|✅|✅|✅|
 |Operator|❌|❌|✅|✅|✅|
 |Developer|✅|❌|✅|❌|✅|
 |Read-only|❌|❌|❌|❌|✅|
+
+Users who can manage existing services can create databases and connect to them,
+on a service that already exists. To create a new service, users need the start
+and stop services permission.
 
 <procedure>
 

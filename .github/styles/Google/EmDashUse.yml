@@ -1,0 +1,6 @@
+extends: existence
+message: "Use em-dashes judiciously."
+nonword: true
+level: suggestion
+tokens:
+  - '—'
