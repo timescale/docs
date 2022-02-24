@@ -67,7 +67,7 @@ When you have PostgreSQL and TimescaleDB installed, connect to your instance and
     ```bash
     sudo -u postgres psql
     ```
-1.  At the prompt, create an empty database. Our database is
+1.  At the prompt, create an empty database. For example, to create a database
     called `tsdb`:
     ```sql
     CREATE database tsdb;
