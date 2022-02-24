@@ -4,7 +4,7 @@ from a pre-built, publicly available machine image. These instructions show you
 how to use a pre-built Amazon machine image (AMI), on Amazon Web Services (AWS).
 The currently available pre-built cloud image is:
 
-*   Ubuntu 18.04 Amazon EBS-backed AMI
+*   Ubuntu 20.04 Amazon EBS-backed AMI
 
 The Timescale AMI uses Elastic Block Store (EBS) attached volumes. This allows
 you to store image snapshots, dynamic IOPS configuration, and provides some
@@ -12,21 +12,6 @@ protection of your data if the EC2 instance goes down. Choose an EC2 instance
 type that is optimized for EBS attached volumes. For information on choosing the
 right EBS optimized EC2 instance type, see the AWS
 [instance configuration documentation][aws-instance-config].
-
-This AMI is available in the US and EU cloud regions. The current image IDs for
-each of the available regions are:
-
-|Region|Country or state|Image ID|
-|-|-|-|
-|us-east-1|North Virginia|`ami-0e1fda26a1ed02cfa`|
-|us-east-2|Ohio|`ami-0125218e638acecc6`|
-|us-west-1|North California|`ami-067fc377a13e8a478`|
-|us-west-2|Oregon|`ami-02ebb0bba83c21e18`|
-|eu-central-1|Germany|`ami-091761278280a85ea`|
-|eu-north-1|Sweden|`ami-073032763b7b002e2`|
-|eu-west-1|Ireland|`ami-079be8591e30184db`|
-|eu-west-2|England|`ami-0f470a62b8b999882`|
-|eu-west-3|France|`ami-06ffe8616822f2c79`|
 
 <highlight type="note">
 This section shows how to use the AMI from within the AWS EC2 dashboard.
@@ -40,11 +25,10 @@ supports public AMIs.
 ### Installing self-hosted TimescaleDB from a pre-build cloud image
 1.  Make sure you have an [Amazon Web Services account][aws-signup], and
     are signed in to [your EC2 dashboard][aws-dashboard].
-1.  Navigate to `Images → AMIs`.
-1.  In the search bar, change the search to `Public images` and enter the
-    Image ID for your region. Alternatively, you can use the `Timescale` search
+1.  Navigate to **Images > AMIs**.
+1.  In the search bar, change the search to `Public images` and type *Timescale* search
     term to find all available Timescale images.
-1.  Select the image you want to use, and click `Launch`.
+1.  Select the image you want to use, and click **Launch instance from image**.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws_launch_ami.png" alt="Launch an AMI in AWS EC2"/>
 
 </procedure>
