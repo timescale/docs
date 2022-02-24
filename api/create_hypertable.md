@@ -17,7 +17,7 @@ still work on the resulting hypertable.
 |Name|Type|Description|
 |---|---|---|
 | `relation` | REGCLASS | Identifier of table to convert to hypertable. |
-| `time_column_name` | REGCLASS | Name of the column containing time values as well as the primary column to partition by. |
+| `time_column` | REGCLASS | Name of the column containing time values as well as the primary column to partition by. |
 
 ### Optional Arguments
 
@@ -50,11 +50,16 @@ still work on the resulting hypertable.
 </highlight>
 
 <highlight type="note"> 
-The primary key for your PostgreSQL table must include
-all partitioning columns for your hypertable. Since all TimescaleDB hypertables
-are partitioned by time, your primary key must include the `time` column. If you
-specify a `partitioning_column`, your primary key must include that column as 
-well.
+If your table has a `PRIMARY KEY` or `UNIQUE` constraint, that key or constraint
+must include all columns that are used to partition your hypertable. All
+TimescaleDB hypertables are partitioned by a `time_column`, so the key or
+constraint must always include the `time_column`. If you specify a
+`partitioning_column`, the key or constraint must include the
+`partitioning_column` as well.
+
+It may additionally include columns that aren't partitioning columns. For more
+information, see [the hypertable how-to
+guides](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
 </highlight>
 
 <highlight type="warning">
@@ -242,12 +247,13 @@ The rare cases in which space partitions may be useful for non-distributed
 hypertables are described in the [add_dimension](/hypertable/add_dimension/) section.
 
 ### Troubleshooting
-If your primary key doesn't contain all your partitioning columns, you 
-might get an error like this:
+If your `PRIMARY KEY` or `UNIQUE` constraint doesn't contain all your
+partitioning columns, you might get an error like this:
 
 ```
-ERROR: cannot create a unique index without the column "<column_name>" (used in partitioning)
+ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in 
+partitioning)
 ```
 
-To fix this error, add the time column and the partitioning_column to your
-primary key, and try creating the hypertable again.
+To fix this error, add the `time_column` and the `partitioning_column` to your
+`PRIMARY KEY` or `UNIQUE` constraint, and try creating the hypertable again.

@@ -33,10 +33,15 @@ explicitly time-based, as long as it can increment. For example, a
 monotonically increasing ID works.
 </highlight>
 
-<highlight type="note">
-The primary key for your table must include all partitioning columns for your
-hypertable. Since all TimescaleDB hypertables are partitioned by time, your
-primary key must include the `time` column.
+<highlight type="note"> 
+If your table has a `PRIMARY KEY` or `UNIQUE` constraint, that key or constraint
+must include all columns that are used to partition your hypertable. All
+TimescaleDB hypertables are partitioned by a time column, so the key or
+constraint must include the time column.
+
+It may additionally include columns that aren't partitioning columns. For more
+information, see [the troubleshooting
+section](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
 </highlight>
 
 </procedure>
@@ -80,26 +85,79 @@ hypertable fails. For more information about setting up multi-node, see the
      SELECT create_distributed_hypertable('conditions', 'time', 'location');
      ```
 
-<highlight type="note">
-The primary key for your table must include all partitioning columns for your
-hypertable. In this example, your primary key must contain both `time` and 
-`location`.
+<highlight type="note"> 
+If your table has a `PRIMARY KEY` or `UNIQUE` constraint, that key or constraint
+must include all columns that are used to partition your hypertable. In this
+example, the key or constraint must include `time` and `location`.
+
+It may additionally include columns that aren't partitioning columns. For more
+information, see [the troubleshooting
+section](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
 </highlight>
 
 </procedure>
 
-### Troubleshooting
+## Troubleshooting
 
-If your primary key doesn't contain all your partitioning columns, you 
- might get an error like this:
+### Primary keys and unique constraints
 
- ```
- ERROR: cannot create a unique index without the column "<column_name>" (used in partitioning)
- ```
+If your `PRIMARY KEY` or `UNIQUE` constraint doesn't contain all your
+partitioning columns, you get an error. Partitioning columns always include the
+time column, and optionally include space-partitioning columns defined with the
+`partitioning_columns` parameter of `create_hypertable`, or with the third
+argument of `create_distributed_hypertable`.
 
- To fix this error, add the time column and any other partitioning columns to your
- primary key, and try creating the hypertable again.
+For example, if you create a table with the `PRIMARY KEY (device_id, ts)`, the
+`PRIMARY KEY` limits the partitioning schemes you can use:
 
+```sql
+CREATE TABLE hypertable_example(
+  ts TIMESTAMPTZ,
+  user_id BIGINT,
+  device_id BIGINT,
+  val1 FLOAT,
+  val2 FLOAT,
+  PRIMARY KEY (device_id, ts)
+);
+```
+
+You can partition your hypertable by `ts` alone:
+```sql
+SELECT * FROM create_hypertable('hypertable_example', 'ts');
+```
+
+You can partition by both `ts` and `device_id`:
+```sql
+SELECT * FROM create_hypertable(
+  'hypertable_example',
+  'ts',
+  'partitioning_columns' => 'device_id'
+);
+```
+
+But you cannot partition by `user_id`, because it is not part of the `PRIMARY
+KEY`. This does not work:
+```sql
+-- This gives you an error
+SELECT * from create_hypertable(
+  'hypertable_example',
+  'ts',
+  'partitioning_columns' => 'user_id'
+);
+```
+
+You get the following error:
+
+```
+ ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
+partitioning) 
+```
+
+To fix such an error, add the time column and any other partitioning columns to
+your `PRIMARY KEY` or `UNIQUE` constraint. In this example, you should add the
+`user_id` column.
+
+[create-hypertable]: /api/:currentVersion/hypertable/create_hypertable/
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
 [multi-node]: /how-to-guides/multinode-timescaledb/
