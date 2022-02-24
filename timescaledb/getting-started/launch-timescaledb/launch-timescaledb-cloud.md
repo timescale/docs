@@ -1,64 +1,88 @@
 # Launch your first instance of TimescaleDB in the Cloud
+Launch your first instance by creating a Timescale Cloud account and then
+creating a service.
 
-### Step 1: Create a Timescale Cloud account
+## Create a Timescale Cloud account
+Sign up for Timescale Cloud to start your 30-day free trial, no credit card
+required.
 
-Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
+<procedure>
 
-Provide your full name, email address, and a strong password to start:
+### Creating a Timescale Cloud account
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-signup-full.png" alt="Sign up for Timescale Cloud"/>
+1.  Sign up for Timescale Cloud by visiting
+    [console.cloud.timescale.com][cloud-signup].
+1.  Provide your full name, email address, and a strong password.
 
-You need to confirm your account by clicking on the link you receive via email. If you 
-don't receive this link, first check your spam folder and, failing that, [contact us][contact-timescale].
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-signup-full.png"
+    alt="Sign up for Timescale Cloud"/>
 
-### Step 2: Create your first service
+1.  Confirm your account by clicking on the link you receive via email. If you
+    don't receive this link, first check your spam folder and, failing that,
+    [contact us][contact-timescale].
 
-After confirming your account, there should be a link that will redirect you to your 
-new Timescale Cloud account. Alternatively, you can visit the [Timescale Cloud console][cloud-console] 
-and log in with your credentials.
+</procedure>
 
-When you first open your Cloud account, the 'Create your database' prompt (shown below) may 
-automatically be showing. This is how you create your first service. If you do not 
-see the database prompt, you can click on the 'Create service' button to show it. 
+## Create your first service
+Once you've created your account, create your first service to get a TimescaleDB
+database started.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png" alt="Create a Timescale Cloud service"/>
+<procedure>
 
-For this tutorial, all the default settings for the database will suffice. In addition 
-to the CPU, Memory, and Storage options shown, auto-scaling is also enabled. This means 
-that even if you hit computing bounds, the service will automatically scale for you. 
+### Creating your first service
 
-For future databases, if you want to change any settings, you can select the 'Advanced options' 
-link. Additionally, you can change any service settings later on through the database's dashboard.
+1.  Log in to your new Timescale Cloud account by clicking the link that appears
+    after you confirm your account. Or, visit the [Timescale Cloud
+    console][cloud-console] and log in with your credentials.
+1.  Click the `Create your database` prompt that appears when you first open
+    your account. If you don't see the database prompt, click the `Create
+    service` button to show it. 
 
-After you select 'Create service,' you will see a deploying confirmation page. Here 
-you find your service information and some examples for how to connect. Be sure 
-to save off your password in a secure location:
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png"
+    alt="Create a Timescale Cloud service"/> 
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-build-service.png" alt="Timescale Cloud service creation confirmation"/>
+    For this tutorial, use the default CPU, memory, and storage settings. The
+    default settings also enable auto-scaling, which automatically increases
+    your disk size as you approach storage limits. You can change these settings
+    for this database later, or use different settings for future databases you
+    create. For more information, see the section on [scaling a
+    service][scaling].
+1.  On the deploying confirmation page, review your service information and the
+    instructions for connecting to your database. Save your password in a secure
+    location. You won't be able to view it again, but you can always reset it.
 
-<highlight type="warning">
- You won't be able to view your password again, so remember to save it. But you
- can always reset your password if you forget it.
-</highlight>
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-build-service.png"
+    alt="Timescale Cloud service creation confirmation"/>
 
-It takes a couple minutes for your service to be provisioned. When your database is
-ready for connection, you should see a green `Running` label above the service in the
-service dashboard.
+1.  Wait a few minutes for your service to be provisioned. When your database is
+    ready for connection, a green `Running` label appears above the service in
+    the service dashboard.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-service-dashboard.png" alt="Timescale Cloud dashboard"/>
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-service-dashboard.png"
+    alt="Timescale Cloud dashboard"/>
 
-Select any service to view *service details*. You can obtain connection,
-configuration, and utilization information. In addition, you can reset the
-password for your service, power down or power up any service (which stops
-or starts your compute, although your storage persists), or delete
-a service altogether.
+    You can click on the service to view its details, including connection,
+    configuration, and utilization information. You can also reset your service
+    password, power your service up and down, or delete it.
+    
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service.png"
+    alt="View Timescale Cloud service information"/>
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service.png" alt="View Timescale Cloud service information"/>
+</procedure>
 
-Now that you have a database service ready to go, you can connect to it. We provide two connection methods for this tutorial, [how to connect via the terminal][connect-terminal] and [how to connect via third party tools][connect-3party-tools]. 
+Now that you've created your database service, you can connect to it. This
+tutorial describes two connection methods:
+*   [Connecting from the terminal][connect-terminal] 
+*   [Connecting with third-party tools][connect-3party-tools]
 
 [connect-terminal]: /getting-started/access-timescaledb/access-timescaledb-terminal/
 [connect-3party-tools]: /getting-started/access-timescaledb/access-timescaledb-third-party-tools/
 [cloud-signup]: https://console.cloud.timescale.com/signup
 [cloud-console]: https://console.cloud.timescale.com/login
 [contact-timescale]: https://www.timescale.com/contact
+[scaling]: cloud/:currentVersion:/scaling-a-service/
