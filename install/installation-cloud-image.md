@@ -52,7 +52,7 @@ supports public AMIs.
 After you have completed the installation, connect to your instance and configure your database. For information about connecting to the instance, see the AWS [accessing instance documentation][aws-connect]. The easiest way to configure your datase is to run the `timescaledb-tune` script, which is included with the `timescaledb-tools` package. For more information, see the [configuration][config] section. 
 
 <highlight type="note">
-After you run the *timescaledb-tune* script you need to restart the PostgreSQL service for the configuration changes to take effect. To restart the service use the **sudo systemctl restart postgresql.service** command.
+After running the `timescaledb-tune` script, you need to restart the PostgreSQL service for the configuration changes to take effect. To restart the service, run `sudo systemctl restart postgresql.service`.
 </highlight>
 
 
