@@ -2,18 +2,19 @@
 You can install Promscale on Kubernetes using Helm or using a manifest file.
 
 ## Install Promscale with Helm
-You can install Promscale using Helm charts. The Helm charts must be installed
-in this order:
-1.  Install the TimescaleDB Helm chart
-1.  Install the Promscale Helm chart
 
 Before you begin, you must have installed Helm. For more information, including
 packages and installation instructions, see the
 [Helm documentation][helm-install]
 
+You can install Promscale using Helm charts. The Helm charts must be installed
+in this order:
+1.  Install the TimescaleDB Helm chart
+1.  Install the Promscale Helm chart
+
 ### Install the TimescaleDB Helm chart
 Before you install the TimescaleDB Helm chart, you need to configure these
-settings in the `values.yaml` configuration file:
+settings in the [`values.yaml`][timescaledb-single-values-yaml] configuration file:
 *   Credentials for the superuser, admin, and other users
 *   TLS Certificates
 *   **Optional:** `pgbackrest` [configuration][timescale-backups]
