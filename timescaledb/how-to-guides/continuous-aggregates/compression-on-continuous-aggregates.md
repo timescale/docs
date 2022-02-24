@@ -31,7 +31,7 @@ You can enable and disable compression on continuous aggregated by setting
 
 </procedure>
 
-Disabling compression on a continuous aggregate will fail if there are 
+Disabling compression on a continuous aggregate fails if there are 
 compressed chunks associated with the continuous aggregate. In this case, you 
 need to decompress the chunks, and then drop any compression policy on the 
 continuous aggregate, before you disable compression. For more detailed information, see the
