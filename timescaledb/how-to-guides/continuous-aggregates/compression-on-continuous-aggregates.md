@@ -13,7 +13,7 @@ the compressed chunk and then execute a [`refresh_continuous_aggregate`](/api/la
 </highlight>
 
 ## Enable compression on continuous aggregates
-You can enable and disable compression on continuous aggregated by setting
+You can enable and disable compression on continuous aggregated by setting the
 `compress` parameter when you alter the view.
 
 <procedure>
