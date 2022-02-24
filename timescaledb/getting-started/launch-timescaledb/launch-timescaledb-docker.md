@@ -27,7 +27,7 @@ A lot is happening in this code, so let’s break it down:
 - The `-e POSTGRES_PASSWORD=password` is a flag that sets the PostgreSQL database's password
 -  And finally, the `timescale/timescaledb:lastest-pg14` lets Docker know the image it should use when creating the container
 
-The last portion, `latest-pg14`, of the command `timescale/timescaledb:lastest-pg14` specifies the TimescaleDB version should be the latest, and the PostgreSQL version should be 14. You can select different versions of TimescaleDB and PostgreSQL. However, we recommend using the latest version of TimescaleDB and PostgreSQL that we support. 
+The last portion, `latest-pg14`, of the command `timescale/timescaledb:lastest-pg14` specifies that the TimescaleDB version should be the latest, and the PostgreSQL version should be 14. You can select different versions of TimescaleDB and PostgreSQL. However, we recommend using the latest version of TimescaleDB and PostgreSQL that we support. 
 
 
 [docker-install]: https://www.docker.com/get-started
