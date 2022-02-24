@@ -57,7 +57,7 @@ After running the `timescaledb-tune` script, you need to restart the PostgreSQL 
 
 
 ## Set up the TimescaleDB extension
-When you have PostgreSQL and TimescaleDB installed, connect to your instance and setup the TimescaleDB extension.
+When you have PostgreSQL and TimescaleDB installed, connect to your instance and set up the TimescaleDB extension.
 
 <procedure>
 
