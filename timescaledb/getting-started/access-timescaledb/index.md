@@ -1,58 +1,26 @@
 # Access your database
 
-Now that you have TimescaleDB set up and running in Timescale Cloud, it's time
-to connect to your database. While this can be accomplished with many tools, `psql`
-is the standard command line interface for interacting with a PostgreSQL
-or TimescaleDB instance.
+Now that you have TimescaleDB set up and running in either Timescale Cloud or a Docker container, it's time
+to connect to your database. We will cover two ways for this tutorial: connecting to your database using the terminal and connecting to your database using third-party tools.
 
-Below, we'll verify that you have `psql` installed and show you how to connect
-to your TimescaleDB database.
+### Using the terminal
+We cover three scenarios for how to connect to TimescaleDB databases using the terminal:
+- Accessing TimescaleDB Cloud instance using your local terminal
+- Accessing TimescaleDB Docker instance using your local terminal
+- Accessing TimescaleDB Docker instance through the containers terminal (does not require `psql` tools to be installed locally)
+Using the terminal to connect to your database requires that you have access to `psql` tooling. `psql` is the standard command-line interface for interacting with PostgreSQL or TimescaleDB instances. Note that you will have to make sure `psql` tools are installed locally on your machine for the first two methods; the last one leverages the `psql` tooling within the docker container itself. 
 
-## Verify that `psql` is installed
-Before you start, let's confirm that you already have `psql` installed.
-In fact, if you’ve ever installed PostgreSQL or TimescaleDB before, you likely already
-have `psql` installed.
+### Using third-party tools
+We cover two scenarios for ways to access your TimescaleDB databases using third-party tools:
+- Accessing TimescaleDB Cloud instance
+- Accessing TimescaleDB Docker instance
+While there are many third-party tools you could use, we show you how to connect using [DBeaver][dbeaver-link] in this tutorial. DBeaver is a free, open-source, multi-platform database tool. If you decide to use another third-party tool, the process and information required should be almost identical. 
 
-In a command line or terminal window, run the following command. If `psql` is
-installed, it returns the version number. Otherwise, it returns an error.
 
-```bash
-psql --version
-```
+### Methods:
+* [Accessing TimescaleDB instance using the terminal][access-terminal]
+* [Accessing TimescaleDB instance using third party tools][access-third-party]
 
-<highlight type="tip">
-If you don't have `psql` installed, follow the instructions provided
-in our How-to guides for [Installing `psql`](/timescaledb/latest/how-to-guides/connecting/psql/) and then return here.
-</highlight>
-
-## Connect to your TimescaleDB server
-Now you've confirmed that `psql` is installed, it's time to connect to your
-Timescale Cloud instance.
-
-In Timescale Cloud, open the **Service Details** by clicking on the service
-that you created in [Step 1][launch-timescaledb].
-
-Copy the **Service URL** from the information displayed. This service URL contains
-all the information to connect to your new service *_except_* the password.
-
-In a terminal window, type the following command, substituting the **Service URL**
-that you just copied for the sample URL shown below:
-
-```bash
-psql postgres://[USERNAME]:[PASSWORD]@[HOSTNAME]:[PORT]/[DATABASENAME]?sslmode=require
-```
-
-<highlight type="tip">
-Because the URL provided in the Timescale Cloud interface does not supply the
-password, you are prompted for the password in order to finish authenticating.
-
-If you want to save yourself time, you can add the password to the URL by adding
-a colon and the password between the username and the hostname as shown
-in the placeholder.
-</highlight>
-
-Now that you've connected to your Timescale Cloud service, let's look at how to
-quickly add data so that you can start to explore the power of TimescaleDB.
-
-[install-psql]: /how-to-guides/connecting/psql/
-[launch-timescaledb]: /getting-started/launch-timescaledb/
+[access-terminal]: /getting-started/access-timescaledb/access-timescaledb-terminal/
+[access-third-party]: /getting-started/access-timescaledb/access-timescaledb-third-party-tools/
+[dbeaver-link]: https://dbeaver.io/
