@@ -32,6 +32,7 @@ projects.
 [kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics
 [prometheus-operator]: https://github.com/prometheus-operator/prometheus-operator#prometheus-operator
 [promscale]: https://github.com/timescale/promscale
+[design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
 [timescaledb]: https://github.com/timescale/timescaledb
 [promlens]: https://promlens.com/
 [opentelemetry-operator]: https://github.com/open-telemetry/opentelemetry-operator#opentelemetry-operator-for-kubernetes
