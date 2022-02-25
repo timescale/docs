@@ -188,7 +188,7 @@ command. The same things applies to altering the owner of an existing
 schema.
 
 ### Prepare for role removal with DROP OWNED
-The [`DROP OWNED`][drop-owned] command is used drop all objects owned
+The [`DROP OWNED`][drop-owned] command is used to drop all objects owned
 by a role and prepare the role for removal. Execute the following
 commands to prepare a role for removal across all data nodes in a
 distributed database:
