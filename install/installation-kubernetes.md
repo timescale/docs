@@ -51,7 +51,7 @@ enabled, use this command:
 helm install <MY_RELEASE> timescale/timescaledb-single --set backup.enabled=true
 ```
 
-Alternatively, you can provide a YAML file that includes parameters for
+Alternatively, you can provide a `.yaml` file that includes parameters for
 installing the chart, like this:
 ```bash
 helm install my-release -f myvalues.yaml timescale/timescaledb-single
