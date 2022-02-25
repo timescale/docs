@@ -28,7 +28,7 @@ credentials instead it uses the same credentials that are generated during the
 `helm install`.
 </highlight>
 
-By default, the `timescaledb-single` helm chart deploys TimescaleDB in 
+By default, the `timescaledb-single` Helm chart deploys TimescaleDB in 
 high availability mode. This creates three database replicas, 
 which consumes three times the amount of disk space. Each database 
 instance mounts to its own persistent volume claim (PVC). 
