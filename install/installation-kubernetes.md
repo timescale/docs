@@ -11,7 +11,7 @@ Before you begin installing TimescaleDB, make sure you have installed:
 * Kubernetes Cluster
 </highlight>
 
-### Install the TimescaleDB Helm chart
+## Install the TimescaleDB Helm chart
 Before you install the TimescaleDB Helm chart, you need to configure these
 settings in the `values.yaml` configuration file:
 *   Credentials for the superuser, admin, and other users
