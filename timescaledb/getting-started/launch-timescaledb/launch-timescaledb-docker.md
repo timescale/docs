@@ -20,10 +20,10 @@ This command does several things:
 |`docker run`|Creates a new container|
 |`-d`|Runs the container in detached mode, which means it runs in the background|
 |`--name timescaledb`|Specifies the container's name as `timescaledb`. You can choose another name if you want.|
-|`--p 127.0.0.1:5432:5432`|Allows you to connect to the container's 5432 port from your local machine's 5432 port. 5432 is the default PostgreSQL port. 127.0.0.01 is the IP address for localhost.|
+|`--p 127.0.0.1:5432:5432`|Connects your local machine's 5432 port to the container's 5432 port. 5432 is the default PostgreSQL port. If your local 5432 port is already in use, you can change it to another port value, for example `127.0.0.1:5439:5432`. 127.0.0.01 is the IP address for localhost.|
 |`-e POSTGRES_PASSWORD=password`|Sets the PostgreSQL database's password|
 |`timescale/timescaledb`|Tells Docker to use the TimescaleDB image to create the container|
-|`:lastest-pg14`|Specifies the latest version of TimescaleDB and PostgreSQL version 14. You can select different versions of either, but the latest versions give you all the latest features and fixes.|
+|`:lastest-pg14`|Specifies the latest version of TimescaleDB and PostgreSQL version 14. You can select different versions of either, but it is recommended to use the latest versions because they give you all the latest features and fixes.|
 
 <highlight type="note">
 You can also use `docker pull timescale/timescaledb` to add the TimescaleDB

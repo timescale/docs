@@ -35,9 +35,10 @@ database started.
 1.  Log in to your new Timescale Cloud account by clicking the link that appears
     after you confirm your account. Or, visit the [Timescale Cloud
     console][cloud-console] and log in with your credentials.
-1.  Click the `Create your database` prompt that appears when you first open
-    your account. If you don't see the database prompt, click the `Create
-    service` button to show it. 
+1.  The `Create your database` prompt may automatically appear when you first open
+    your account. You use this prompt to create a service, an example of the prompt 
+    is shown below. If you don't see this database prompt, click the `Create service` 
+    button on your services page to show it. 
 
     <img class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png"
@@ -46,9 +47,9 @@ database started.
     For this tutorial, use the default CPU, memory, and storage settings. The
     default settings also enable auto-scaling, which automatically increases
     your disk size as you approach storage limits. You can change these settings
-    for this database later, or use different settings for future databases you
-    create. For more information, see the section on [scaling a
-    service][scaling].
+    for this database later. For more information, see the section on [scaling a
+    service][scaling]. For future databases, you can also change the settings upon 
+    creation by selecting the `Advanced optins` link.
 1.  On the deploying confirmation page, review your service information and the
     instructions for connecting to your database. Save your password in a secure
     location. You won't be able to view it again, but you can always reset it.
