@@ -12,6 +12,8 @@ approx_percentile(
 For more information about percentile approximation functions, see the
 [hyperfunctions documentation][hyperfunctions-percentile-approx].
 
+TEST TEST TEST TEST TEST
+
 ## Required arguments
 
 |Name|Type|Description|
