@@ -2,20 +2,22 @@
 You can install Promscale on Kubernetes using Helm or using a manifest file.
 
 ## Install Promscale with Helm
-You can install Promscale using Helm charts. The Helm charts must be installed
+You can install Promscale using Helm charts.
+
+Before you begin, you must have installed Helm. For more information, including
+packages and installation instructions, see the
+[Helm documentation][helm-install].
+
+The Helm charts must be installed
 in this order:
 1.  Install the TimescaleDB Helm chart
 1.  Install the Promscale Helm chart
 
-Before you begin, you must have installed Helm. For more information, including
-packages and installation instructions, see the
-[Helm documentation][helm-install]
-
 ### Install the TimescaleDB Helm chart
 Before you install the TimescaleDB Helm chart, you need to configure these
-settings in the `values.yaml` configuration file:
-*   Credentials for the superuser, admin, and other users
-*   TLS Certificates
+settings in the [`values.yaml`][timescaledb-single-values-yaml] configuration file:
+*   [Credentials for the superuser, admin, and other users][timescaledb-helm-values-creds]
+*   [TLS Certificates][timescaledb-helm-values-certs]
 *   **Optional:** `pgbackrest` [configuration][timescale-backups]
 
 <highlight type="note">
@@ -25,6 +27,26 @@ credentials, to prevent breaking the database by changing the database
 credentials instead it uses the same credentials that are generated during the
 `helm install`.
 </highlight>
+
+By default, the `timescaledb-single` Helm chart deploys TimescaleDB in 
+high availability mode. This creates three database replicas, 
+which consumes three times the amount of disk space. Each database 
+instance mounts to its own persistent volume claim (PVC). 
+
+You can 
+disable high availability mode by changing the value of `replicaCount`
+to `1` in [`values.yaml`][timescaledb-single-values-yaml].
+
+<procedure>
+
+#### Disabling TimescaleDB high availability mode
+1.  Download the default [`values.yaml`][timescaledb-single-values-yaml] file for the `timescaledb-single` Helm chart. 
+1.  In `values.yaml`, change the default `replicaCount` from `3` to `1`. 
+1.  Use this `values.yaml` file with the `-f` flag when installing the `timescaledb-single` Helm chart.
+    For installation instructions, see [the procedures for installing the Helm chart](#installing-the-timescaledb-helm-chart).
+
+</procedure>
+
 
 <procedure>
 
@@ -39,7 +61,7 @@ credentials instead it uses the same credentials that are generated during the
     ```
 1.  Install the TimescaleDB Helm chart, using a release name of your choice:
     ```bash
-    helm install <MY_RELEASE> timescale/timescaledb-single
+    helm install <RELEASE_NAME> timescale/timescaledb-single
     ```
 
 </procedure>
@@ -48,13 +70,13 @@ You can provide arguments to the `helm install` command using this format:
 `--set key=value[,key=value]`. For example, to install the  chart with backups
 enabled, use this command:
 ```bash
-helm install my-release timescale/timescaledb-single --set backup.enabled=true
+helm install <RELEASE_NAME> timescale/timescaledb-single --set backup.enabled=true
 ```
 
 Alternatively, you can provide a YAML file that includes parameters for
 installing the chart, like this:
 ```bash
-helm install my-release -f myvalues.yaml timescale/timescaledb-single
+helm install <RELEASE_NAME> -f myvalues.yaml timescale/timescaledb-single
 ```
 
 ### Install the Promscale Helm chart
@@ -73,8 +95,18 @@ can provide the database URI, or specify connection parameters.
     ```bash
     helm repo update
     ```
-1.  Open the `values.yaml` configuration file, download the tobs
-    `values.yaml` from [here][tobs-values-yaml] and locate the `connection`
+1.  Create a database called `tsdb` for Promscale data:
+    ```bash
+    kubectl exec -i --tty $(kubectl get pod -o name --namespace <NAMESPACE> -l role=master,release=<RELEASE_NAME>) -- psql -U postgres
+    CREATE DATABASE tsdb WITH OWNER postgres;
+    \q
+    ```
+1.  Capture the `postgres` user password:
+    ```bash
+    echo $(kubectl get secret --namespace default tobs-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
+    ```
+1.  Download the Promscale
+    [values.yaml][promscale-values-yaml], and update the `connection` section with your TimescaleDB connection details.
     section. Add or edit this section with your TimescaleDB connection details:
     <terminal>
 
@@ -87,27 +119,29 @@ can provide the database URI, or specify connection parameters.
 
     </tab>
 
+    OR
+
     <tab label="Connection parameters">
 
     ```yaml
     connection:
       user: postgres
       password: ""
-      host: db.timescale.svc.cluster.local
+      host: <RELEASE_NAME>.<NAMESPACE>.svc.cluster.local
       port: 5432
       sslMode: require
-      dbName: timescale
+      dbName: tsdb
     ```
     </tab>
     </terminal>
 
 1.  Install the Promscale Helm chart:
     ```bash
-    helm install my-release timescale/promscale -f values.yaml
+    helm install <RELEASE_NAME> timescale/promscale -f values.yaml
     ```
 
     <highlight type="note">
-    Replace `my-release` with the name of your choice
+    Replace `<RELEASE_NAME>` with the name of your choice
     </highlight>
 
 </procedure>
@@ -138,6 +172,9 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 [timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
 [timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
 [helm-install]: https://helm.sh/docs/intro/install/
-[tobs-values-yaml]: https://github.com/timescale/tobs/blob/master/chart/values.yaml
+[promscale-values-yaml]: https://github.com/timescale/promscale/blob/master/deploy/helm-chart/values.yaml
+[timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml 
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
 [template-manifest]: https://github.com/timescale/promscale/blob/master/deploy/static/deploy.yaml
+[timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
+[timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
