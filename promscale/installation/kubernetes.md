@@ -133,6 +133,7 @@ can provide the database URI, or specify connection parameters.
       dbName: tsdb
     ```
     </tab>
+
     </terminal>
 
 1.  Install the Promscale Helm chart:
@@ -141,7 +142,7 @@ can provide the database URI, or specify connection parameters.
     ```
 
     <highlight type="note">
-    Replace `<RELEASE_NAME>` with the name of your choice
+    Replace `&lt;RELEASE_NAME&gt;` with the name of your choice
     </highlight>
 
 </procedure>
