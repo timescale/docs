@@ -106,7 +106,7 @@ can provide the database URI, or specify connection parameters.
     echo $(kubectl get secret --namespace default tobs-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 1.  Download the Promscale
-    `values.yaml` from [here][promscale-values-yaml], open the `values.yaml` configuration file, and locate the `connection`
+    [values.yaml][promscale-values-yaml], and update the `connection` section with your TimescaleDB connection details.
     section. Add or edit this section with your TimescaleDB connection details:
     <terminal>
 
