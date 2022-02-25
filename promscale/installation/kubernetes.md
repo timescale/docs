@@ -34,8 +34,8 @@ which consumes three times the amount of disk space. Each database
 instance mounts to its own persistent volume claim (PVC). 
 
 You can 
-disable high availability mode by changing the `timescaledb-single` 
-helm chart `replicaCount` values to `1` in [`values.yaml`][timescaledb-single-values-yaml].
+disable high availability mode by changing the value of `replicaCount`
+to `1` in [`values.yaml`][timescaledb-single-values-yaml].
 
 <procedure>
 
