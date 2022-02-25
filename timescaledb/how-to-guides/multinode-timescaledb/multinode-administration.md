@@ -116,7 +116,7 @@ CALL distributed_exec($$ ALTER ROLE alice CREATEROLE; $$);
 ## Manage distributed databases
 A distributed database can contain both distributed and
 non-distributed objects. In general, when a command is issued to alter
-a distributed object it applies to all nodes that have that object (or
+a distributed object, it applies to all nodes that have that object (or
 a part of it).
 
 However, in some cases settings *should* be different depending on
