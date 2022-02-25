@@ -120,7 +120,7 @@ a distributed object, it applies to all nodes that have that object (or
 a part of it).
 
 However, in some cases settings *should* be different depending on
-node, because nodes might be provisioned differently (having, e.g.,
+node, because nodes might be provisioned differently (having, for example,
 varying levels of CPU, memory, and disk capabilities) and the role of
 the access node is different from a data node's.
 
