@@ -280,6 +280,13 @@ module.exports = [
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
           {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            tags: ["caggs", "compression", "timescaledb"],
+            keywords: ["caggs", "compression", "TimescaleDB"],
+            excerpt: "Compress continuous aggregates",
+          },          
+          {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
             tags: ["caggs", "tshoot", "timescaledb"],
