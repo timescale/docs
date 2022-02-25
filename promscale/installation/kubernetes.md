@@ -8,7 +8,7 @@ Before you begin, you must have installed Helm. For more information, including
 packages and installation instructions, see the
 [Helm documentation][helm-install].
 
-You can install Promscale using Helm charts. The Helm charts must be installed
+The Helm charts must be installed
 in this order:
 1.  Install the TimescaleDB Helm chart
 1.  Install the Promscale Helm chart
