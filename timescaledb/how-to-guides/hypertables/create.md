@@ -159,5 +159,5 @@ your `PRIMARY KEY` or `UNIQUE` constraint. In this example, you should add the
 
 [create-hypertable]: /api/:currentVersion/hypertable/create_hypertable/
 [migrate-data]: /how-to-guides/migrate-data
-[postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
+[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [multi-node]: /how-to-guides/multinode-timescaledb/
