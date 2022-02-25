@@ -97,7 +97,7 @@ can provide the database URI, or specify connection parameters.
     ```
 1.  Create a database called `tsdb` for Promscale data:
     ```bash
-    MASTERPOD="$(kubectl get pod -o name --namespace <namespace> -l release=<releaseName>,role=master)"
+    MASTERPOD="$(kubectl get pod -o name --namespace <NAMESPACE> -l release=<RELEASE_NAME>,role=master)"
     kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
     CREATE DATABASE tsdb WITH OWNER postgres;
     ```
