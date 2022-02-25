@@ -1,75 +1,41 @@
-# Launch your first instance
+# Launch your first instance of TimescaleDB using Docker
+You can create a Docker container to launch your first instance of TimescaleDB.
+Timescale provides an [official Docker image][timescale-docker].
 
-For this Getting Started tutorial, we'll use Timescale Cloud to get you up
-and running quickly. Timescale Cloud combines the power and reliability
-of TimescaleDB with a fully managed, cloud-native experience that is easy to
-start and less expensive to operate.
+Before you begin, make sure you have installed Docker. For installation
+instructions, see [Docker's getting started guide][docker-install]. 
 
-Creating a Timescale Cloud account is fast and simple, allowing you to explore
-TimescaleDB free for 30 days, no credit card required. We're just excited
-that you're ready to dive into the world of time-series data with TimescaleDB.
+## Create a TimescaleDB instance within a Docker container
+Create a TimescaleDB instance in a Docker container using the [official
+TimescaleDB Docker image][timescale-docker]:
+```
+docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
+-e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+```
 
-<highlight type="tip">
-If you would prefer to set up TimescaleDB in your own environment and follow
-along with the rest of the _Getting Started_ tutorial, please see our documentation
-for [installing self-hosted TimescaleDB](/install/latest/self-hosted/).
+This command does several things:
+
+|Command, argument, or flag|Description|
+|-|-|
+|`docker run`|Creates a new container|
+|`-d`|Runs the container in detached mode, which means it runs in the background|
+|`--name timescaledb`|Specifies the container's name as `timescaledb`. You can choose another name if you want.|
+|`--p 127.0.0.1:5432:5432`|Connects your local machine's 5432 port to the container's 5432 port. 5432 is the default PostgreSQL port. If your local 5432 port is already in use, you can change it to another port value, for example `127.0.0.1:5439:5432`. 127.0.0.01 is the IP address for localhost.|
+|`-e POSTGRES_PASSWORD=password`|Sets the PostgreSQL database's password|
+|`timescale/timescaledb`|Tells Docker to use the TimescaleDB image to create the container|
+|`:lastest-pg14`|Specifies the latest version of TimescaleDB and PostgreSQL version 14. You can select different versions of either, but it is recommended to use the latest versions because they give you all the latest features and fixes.|
+
+<highlight type="note">
+You can also use `docker pull timescale/timescaledb` to add the TimescaleDB
+image to your Docker library, but you don't have to. When you use the `docker
+run` command provided, Docker automatically pulls the image if it isn't already
+in your Docker library.
 </highlight>
 
-### Step 1: Create a Timescale Cloud account
+<!-- 
+Now that you've created your database service... 
+TODO: add suggestions for next content
+-->
 
-Sign up for Timescale Cloud by visiting [console.cloud.timescale.com][cloud-signup].
-
-Provide your full name, email address, and a strong password to start:
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-signup.png" alt="Sign up for Timescale Cloud"/>
-
-You need to confirm your account by clicking the link you receive via
-email. If you don't receive this link, first check your spam folder
-and, failing that, [contact us][contact-timescale].
-
-### Step 2: Create your first service
-
-After confirming your account, visit the
-[Timescale Cloud console][cloud-console] and log in with your credentials.
-
-To begin, click 'Create service'.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-createdb.png" alt="Create a Timescale Cloud service"/>
-
-For this tutorial, select the default name and compute and storage options.
-They'll suffice for now. If you want to do more with Timescale Cloud after
-completing the tutorial, you can always resize your service or create a new one
-in a few clicks.
-
-After you select 'Create service,' you can see confirmation of your service
-account and password. Save the information in this confirmation screen in a safe
-place:
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-build-service.png" alt="Timescale Cloud service creation confirmation"/>
-
-<highlight type="warning">
- You won't be able to view your password again, so remember to save it. But you
- can always reset your password if you forget it.
-</highlight>
-
-It takes a couple minutes for your service to be provisioned. When your database is
-ready for connection, you should see a green `Running` label above the service in the
-service dashboard.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-service-dashboard.png" alt="Timescale Cloud dashboard"/>
-
-Select any service to view *service details*. You can obtain connection,
-configuration, and utilization information. In addition, you can reset the
-password for your service, power down or power up any service (which stops
-or starts your compute, although your storage persists), or delete
-a service altogether.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service.png" alt="View Timescale Cloud service information"/>
-
-Now let's make sure you can connect to the database before we start adding data
-and learning about everything that TimescaleDB offers.
-
-[install-timescaledb]: /install/latest/
-[cloud-signup]: https://cloud.timescale.com
-[cloud-console]: https://console.cloud.timescale.com/login
-[contact-timescale]: https://www.timescale.com/contact
+[docker-install]: https://www.docker.com/get-started
+[timescale-docker]: https://hub.docker.com/r/timescale/timescaledb
