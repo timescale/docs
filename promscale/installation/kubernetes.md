@@ -6,7 +6,7 @@ You can install Promscale using Helm charts.
 
 Before you begin, you must have installed Helm. For more information, including
 packages and installation instructions, see the
-[Helm documentation][helm-install]
+[Helm documentation][helm-install].
 
 You can install Promscale using Helm charts. The Helm charts must be installed
 in this order:
