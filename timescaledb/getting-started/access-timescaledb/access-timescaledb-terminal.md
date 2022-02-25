@@ -24,7 +24,7 @@ If you don't have `psql` installed, follow these instructions provided
 in our How-to guides for [Installing `psql`][install-psql] and then return here.
 </highlight>
 
-## Connect to your TimescaleDB Cloud instance using your local terminal <a name="cloud-terminal"></a>
+## Connect to your TimescaleDB Cloud instance using your local terminal 
 
 First, you need to [login to your Timescale Cloud account][cloud-log-in]. Once in, open the **Service Details** for your database by clicking on the service
 that you created in [the previous section][launch-timescaledb].
@@ -54,7 +54,7 @@ Now that you've connected to your Timescale Cloud service, you can look at how t
 [quickly add data][add-data] and explore the power of TimescaleDB.
 
 
-## Connect to your TimescaleDB Docker instance using your local terminal <a name="docker-terminal"></a>
+## Connect to your TimescaleDB Docker instance using your local terminal 
 
 First, you need to double-check the port and host information you used when creating the docker container. If you [followed the steps provided before][launch-docker], we provided this code for creating the Docker container. 
 
@@ -73,7 +73,7 @@ When submitting the connection code, you will be prompted to type in your passwo
 Now that you've connected to your Timescale Docker instance, you can look at how to
 [quickly add data][add-data] and explore the power of TimescaleDB.
 
-## Connect to your TimescaleDB Docker instance using the container <a name="docker-container"></a>
+## Connect to your TimescaleDB Docker instance using the container 
 
 Remember that this last method does not require you to install `psql` tools locally. Your Docker container will have PostgreSQL and thus `psql` tools. 
 
