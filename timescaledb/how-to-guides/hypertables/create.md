@@ -36,7 +36,7 @@ monotonically increasing ID works.
 <highlight type="note"> 
 If you get an error when creating a hypertable with a `PRIMARY KEY` or `UNIQUE`
 constraint, see [the troubleshooting
-section](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
+section](/timescaledb/latest/how-to-guides/hypertables/create/#hypertable-partitioning-with-unique-constraints).
 </highlight>
 
 </procedure>
@@ -81,22 +81,49 @@ hypertable fails. For more information about setting up multi-node, see the
      ```
 
 <highlight type="note"> 
-If you get an error when creating a hypertable with a `PRIMARY KEY` or `UNIQUE`
-constraint, see [the troubleshooting
-section](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
+If you get an error when creating a distributed hypertable with a `PRIMARY KEY`
+or `UNIQUE` constraint, see [the troubleshooting
+section](/timescaledb/latest/how-to-guides/hypertables/create/#hypertable-partitioning-with-unique-constraints).
 </highlight>
 
 </procedure>
 
 ## Troubleshooting
 
-### Primary keys and unique constraints
+### Hypertable partitioning with unique constraints
 
-If your `PRIMARY KEY` or `UNIQUE` constraint doesn't contain all your
-partitioning columns, you get an error. Partitioning columns always include the
-time column, and optionally include space-partitioning columns defined with the
-`partitioning_columns` parameter of `create_hypertable`, or with the third
-argument of `create_distributed_hypertable`.
+You get the following error if your partitioning columns aren't included in your
+`UNIQUE` constraints. Because a `PRIMARY KEY` contains a `UNIQUE` constraint,
+this applies to `PRIMARY KEY`s as well.
+
+```
+ ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
+partitioning) 
+```
+
+The error occurs because `UNIQUE` constraints can't be enforced if they don't
+include all the partitioning columns.
+
+#### Identify partitioning columns
+
+The following columns are partitioning columns:
+
+1.  The time column used to create the hypertable. This is always a partitioning
+    column, so the time column must be part of any `UNIQUE` constraint.
+1.  Any space-partitioning columns. Space partitions are optional and not
+    included in every hypertable. You have a space-partitioning column if you:
+    
+    * Specify a `partitioning_column` parameter in
+      [`create_hypertable`][create_hypertable] *or*
+    * Add a third argument to
+      [`create_distributed_hypertable`][create_distributed_hypertable]
+
+#### Fix
+
+To fix the error, add the time column and any other partitioning columns to your
+`PRIMARY KEY` or `UNIQUE` constraint.
+
+#### Example
 
 For example, if you create a table with the `PRIMARY KEY (device_id, ts)`, the
 `PRIMARY KEY` limits the partitioning schemes you can use:
@@ -137,18 +164,10 @@ SELECT * from create_hypertable(
 );
 ```
 
-You get the following error:
+Fix the error by adding `user_id` to the `PRIMARY KEY`.
 
-```
- ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
-partitioning) 
-```
-
-To fix such an error, add the time column and any other partitioning columns to
-your `PRIMARY KEY` or `UNIQUE` constraint. In this example, you should add the
-`user_id` column.
-
-[create-hypertable]: /api/:currentVersion/hypertable/create_hypertable/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [multi-node]: /how-to-guides/multinode-timescaledb/

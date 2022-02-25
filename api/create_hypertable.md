@@ -17,22 +17,22 @@ still work on the resulting hypertable.
 |Name|Type|Description|
 |---|---|---|
 | `relation` | REGCLASS | Identifier of table to convert to hypertable. |
-| `time_column` | REGCLASS | Name of the column containing time values as well as the primary column to partition by. |
+| `time_column_name` | NAME | Name of the column containing time values as well as the primary column to partition by. |
 
 ### Optional Arguments
 
 |Name|Type|Description|
 |---|---|---|
-| `partitioning_column` | REGCLASS | Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided. |
+| `partitioning_column` | NAME | Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided. |
 | `number_partitions` | INTEGER | Number of [hash partitions][] to use for `partitioning_column`. Must be > 0. |
 | `chunk_time_interval` | INTERVAL | Event time that each chunk covers. Must be > 0. Default is 7 days. |
 | `create_default_indexes` | BOOLEAN | Whether to create default indexes on time/partitioning columns. Default is TRUE. |
 | `if_not_exists` | BOOLEAN | Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE. |
-| `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|
-| `associated_schema_name` | REGCLASS | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
+| `partitioning_func` | REGPROC | The function to use for calculating a value's partition.|
+| `associated_schema_name` | NAME | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
 | `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is "_hyper". |
 | `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Defaults to FALSE. |
-| `time_partitioning_func` | REGCLASS | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
+| `time_partitioning_func` | REGPROC | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
 | `replication_factor` | INTEGER | If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable/) in place of `create_hypertable`. |
 | `data_nodes` | ARRAY | This is the set of data nodes that are used for this table if it is distributed. This has no impact on non-distributed hypertables. If no data nodes are specified, a distributed hypertable uses all data nodes known by this instance. |
 
@@ -50,16 +50,10 @@ still work on the resulting hypertable.
 </highlight>
 
 <highlight type="note"> 
-If your table has a `PRIMARY KEY` or `UNIQUE` constraint, that key or constraint
-must include all columns that are used to partition your hypertable. All
-TimescaleDB hypertables are partitioned by a `time_column`, so the key or
-constraint must always include the `time_column`. If you specify a
-`partitioning_column`, the key or constraint must include the
-`partitioning_column` as well.
-
-It may additionally include columns that aren't partitioning columns. For more
-information, see [the hypertable how-to
-guides](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
+If your table has a `PRIMARY KEY` or `UNIQUE` constraint, your partitioning
+columns must be included in that key or constraint. For more information, see
+[the hypertable how-to
+guides](/timescaledb/latest/how-to-guides/hypertables/create/#hypertable-partitioning-with-unique-constraints).
 </highlight>
 
 <highlight type="warning">
@@ -246,14 +240,4 @@ important to create space partitioning, see
 The rare cases in which space partitions may be useful for non-distributed
 hypertables are described in the [add_dimension](/hypertable/add_dimension/) section.
 
-### Troubleshooting
-If your `PRIMARY KEY` or `UNIQUE` constraint doesn't contain all your
-partitioning columns, you might get an error like this:
-
-```
-ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in 
-partitioning)
-```
-
-To fix this error, add the `time_column` and the `partitioning_column` to your
-`PRIMARY KEY` or `UNIQUE` constraint, and try creating the hypertable again.
+[create]: timescaledb/:currentVersion:/how-to-guides/hypertables/create/#hypertable-partitioning-with-unique-constraints
