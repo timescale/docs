@@ -1,15 +1,18 @@
 # api_call() <tag type="FIXME" content="FIXME" />
-<!---Single sentence description of the API call-->
+<!--Single sentence description of the API call-->
+```sql
+FIXME: Syntax example
+```
 
-<!---Any special notes about the API call-->
-
-<!---For more information about api_call(), see the [FIXME docs][link_ref]-->
+<!--Any special notes about the API call-->
 
 <!---
 <highlight type="note"
 Use a highlight for any important information. Choose `note`, `important`, or `warning`.
 </highlight>
 -->
+
+For more information about `api_call`, see the [ docs][].
 
 ## Required arguments
 
