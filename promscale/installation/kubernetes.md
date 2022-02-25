@@ -39,7 +39,7 @@ to `1` in [`values.yaml`][timescaledb-single-values-yaml].
 
 <procedure>
 
-#### Steps to disbale TimescaleDB High-Availability
+#### Disabling TimescaleDB high availability mode
 1.  Download the default `values.yaml` of `timescaledb-single` helm chart from [here][timescaledb-single-values-yaml].
 1.  In `values.yaml`, change the default `replicaCount` from `3` to `1`. 
 1.  Use this `values.yaml` file with the `-f` flag when installing the `timescaledb-single` Helm chart.
