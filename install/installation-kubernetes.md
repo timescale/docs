@@ -30,7 +30,7 @@ credentials instead it uses the same credentials that are generated during the
 
 <procedure>
 
-#### Installing the TimescaleDB using Helm chart
+### Installing the TimescaleDB using Helm chart
 1.  Add the TimescaleDB Helm chart repository:
     ```bash
     helm repo add timescale 'https://charts.timescale.com'
