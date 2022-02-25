@@ -12,8 +12,8 @@ and is not included in AWS Lambda, so you need to manually include the library
 in your deployment package to make it available to use. This tutorial uses
 [Lambda Layers][lambda-layers] to include `psycopg2`. A Lambda Layer is an
 archive containing additional code, such as libraries or dependencies. Layers
-help you use external libraries in your function code that are not be available
-otherwise.
+help you use external libraries in your function code that would not be
+available otherwise.
 
 Additionally, `psycopg2` needs to be built and compiled with statically linked
 libraries, something that you can't do directly in a Lambda function or layer. A
