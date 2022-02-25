@@ -5,25 +5,25 @@ encouraged.
 
 This guide covers the documentation's [contributing
 workflow](#contribute-to-documentation), [repository
-structure](#repository-structure), and [markup
-conventions](#markup-conventions). For the style guide, see [the documentation
-site](docs.timescale.com/timescaledb/latest/contribute-to-docs/).
+structure](#repository-structure), [markup conventions](#markup-conventions),
+and [templates](#templates). For the style guide, see [the documentation
+site](https://docs.timescale.com/timescaledb/latest/contribute-to-docs/).
 
 To contribute to TimescaleDB's source code, see the [TimescaleDB
-repository](github.com/timescale/timescaledb).
+repository](https://github.com/timescale/timescaledb).
 
-## Contribute to documentation
-You can make contribute to documentation by making a pull request.
+# Contribute to documentation
+You can contribute to documentation by making a pull request.
 
-### Make a minor change
+## Make a minor change
 For minor changes, such as typos and broken-link fixes, you can edit directly in
 GitHub. 
 
 <procedure>
 
-#### Making a minor change
+### Making a minor change
 
-1.  Sign in to your [github](github.com) account.
+1.  Sign in to your [GitHub](https://github.com) account.
 1.  Open the file you want to edit within GitHub. For help finding the right
     file, see the [repository structure section](#repository-structure).
 1.  Click the pencil icon in the top-right corner of the code box. GitHub
@@ -33,26 +33,27 @@ GitHub.
     `Propose changes` box at the bottom of the page.
 1.  Review the differences between your changes and the `latest` branch on the
     docs repository. Click `Create pull request`.
-1.  Edit the pull request description. Click `Create pull request`. If
+1.  Edit the pull request description. Click `Create pull request` again. If
     this is your first contribution, you receive a comment asking you to sign
     the Contributor License Agreement.  
 1.  Sign the agreement so your contribution can be added to the documentation.
 
 </procedure>
 
-### Make a larger change
+## Make a larger change
 For larger changes, such as new content and long edits, fork the repository and
 make changes on your local machine.
 
-#### Fork and clone the repository
+### Fork and clone the repository
 If this is your first contribution, start by forking the repository and cloning
 the fork to your local machine.
 
 <procedure>
 
-##### Forking and cloning the repository
-1.  Sign in to your [github](github.com) account.
-1.  Navigate to the [Timescale documentation repo](github.com/timescale/docs).
+#### Forking and cloning the repository
+1.  Sign in to your [GitHub](https://github.com) account.
+1.  Navigate to the [Timescale documentation
+    repo](https://github.com/timescale/docs).
 1.  Click the `Fork` button in the top-right corner, and select the account you
     want to use.
 1.  Wait for GitHub to create your fork and redirect you.
@@ -106,15 +107,15 @@ the fork to your local machine.
 
 </procedure>
 
-#### Commit changes and create a pull request
+### Commit changes and create a pull request
 Once you have a local copy of the docs, make your changes. Then commit your work
 and create a pull request to the Timescale docs repo.
 
 <procedure>
 
-##### Committing changes
+#### Committing changes
 1.  Make your changes. You can edit the Markdown files in any text editor. For
-    mroe information, see the sections on [repository
+    more information, see the sections on [repository
     structure](#repository-structure) and [markup
     conventions](#markup-conventions).
 1.  Add the updated files to your commit:
@@ -134,16 +135,17 @@ and create a pull request to the Timescale docs repo.
     git push --set-upstream origin <BRANCH_NAME>
     ```
 
-##### Creating a pull request
-1.  Navigate to the [Timescale documentation repo](github.com/timescale/docs).
+#### Creating a pull request
+1.  Navigate to the [Timescale documentation
+    repo](https://github.com/timescale/docs).
 1.  Click `Compare and Create Pull Request`.
 1.  Write an informative commit message detailing your changes. 
 1.  Choose reviewers. Each documentation change needs a reviewer from the
     [Timescale documentation team](#the-timescale-documentation-team). If you
     made changes to any technical details, you also neeed a subject matter
     expert (SME) to review. For help choosing an SME, see the [TimescaleDB
-    source code repo](github.com/timescale/timescaledb) for SMEs who have worked
-    on your topic.
+    source code repository](https://github.com/timescale/timescaledb) for SMEs
+    who have worked on your topic.
 1.  If you've finished your work, submit a pull request by clicking `Create pull
     request`. If you haven't finished, create a draft PR by clicking the arrow
     beside `Create pull request`. This lets your reviewers know that you're
@@ -160,7 +162,7 @@ soon as possible. Even if you haven't finished work, you can make a pull request
 with the Draft feature. Communicating your work helps prevent duplicated work
 and conflicting information.
 
-### Keep your local copy up to date
+## Keep your local copy up to date
 As other contributors add to the docs, your local copy drifts out of sync with
 the `latest` branch. Avoid merge conflicts by keeping your local copy up to
 date. Fetch and merge changes from `latest` every day before you begin your
@@ -168,7 +170,7 @@ work, and again whenever you switch branches.
 
 <procedure>
 
-#### Keeping your local copy up to date
+### Keeping your local copy up to date
 1.  Check out your fork's `latest` branch:
     ```bash
     git checkout latest
@@ -195,7 +197,7 @@ work, and again whenever you switch branches.
 
 </procedure>
 
-## Repository structure
+# Repository structure
 
 The documentation site's navigation hierarchy mirrors the repository's folder
 hierarchy. Each top-level section in the site corresponds to a top-level folder
@@ -230,11 +232,11 @@ ignore the domain and subdomain, `docs.timescale.com`, and the version,
 the corresponding file is
 `timescaledb/how-to-guides/hyperfunctions/<SLUG>/index.md`.
 
-### Site navigation
+## Site navigation and URL structure
 
-The documentation site's navigation menu is defined in the `page-index.js`
-files. Each section's `page-index.js` contains the details for that section's
-landing page and child pages. For example:
+The documentation site's navigation and URL structure are defined in the
+`page-index.js` files. Each section's `page-index.js` contains the details for
+that section's landing page and child pages. For example:
 
 ```js
 module.exports = [
@@ -277,7 +279,7 @@ module.exports = [
 ]
 ```
 
-### Layout of `page-index.js`
+## Layout of `page-index.js`
 
 Each page listed in `page-index.js` can have the following properties:
 
@@ -288,10 +290,10 @@ Each page listed in `page-index.js` can have the following properties:
 |`children`|Optional|An array containing the child pages for the page. Child-page properties are defined in the same way as parent-page properties. Child pages can be nested inside other child pages to form multiple levels. The filenames provided in `href` should be located in a sub-folder with the same name as the parent page.|
 |`excerpt`|Optional|A short description of the page. Excerpts are displayed within navigation cards and Related Content cards.|
 |`pageComponents`|Optional|If provided, child pages are listed below any other content in the parent page. Takes two possible values, `['featured-cards']` and `['content-list']`, corresponding to the two list styles.|
-|`type`|Optional|Associates the page with a specific page type that has special features or layout. Not usually required.|
-|`newLabel`|Optional|Adds a `NEW` label to content in the navigation menu. Set the value of `newLabel` the date when the label should expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.|
+|`type`|Optional|Associates the page with a specific page type that has special features or layout. Rarely used.|
+|`newLabel`|Optional|Adds a `NEW` label to content in the navigation menu. Set the value of `newLabel` to the date when the label should expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.|
 
-### Add a new page
+## Add a new page
 
 To add a new page, create a new `<FILENAME>.md` file within the appropriate
 folder. Name your file descriptively, in lowercase, and separate words with
@@ -307,9 +309,157 @@ In larger sections, `page-index.js` is split into multiple files. In this case,
 the parent `page-index.js` starts with several `require` statements, which show
 the paths to child `page-index.js` files.
 
-## Markup conventions
+# Markup conventions
 
-## The Timescale documentation team
+Documentation content is written in standard Markdown. 
+
+Follow the following conventions:
+*   Break lines at 80 characters to make documentation review easier
+*   Wrap functions, commands, function arguments, and user interface elements in
+    backticks
+*   Don't write functions with parentheses unless the function is being written
+    with arguments within the parentheses. The title of API references is an
+    exception.
+
+## Links
+
+Use reference-style links and put the link address at the bottom of the page.
+For example:
+
+```md
+<!-- within text -->
+[link text to display][link-ref]
+
+<!-- at bottom of page -->
+[link-ref]: https://example.com/path/to/page
+```
+
+There are three exceptions where inline links must be used:
+*   Links within [callouts and highlights](#callout-and-highlight-blocks)
+*   Links within [tags](#tags)
+*   Links to anchors on the same page as the link itself
+
+Organize link references in alphabetical order. Use an explicit link reference
+instead of `[link text to display][]`. Within the link reference, join words
+with hyphens and avoid spaces, so the missing-link check can work properly.
+
+### Internal links
+
+If your internal link's URL contains the same product and version as the current
+page, you don't need to include the product or version. Include only the part of
+the link after the version identifier.
+
+For example, to link from
+`docs.timescale.com/timescaledb/latest/overview/what-is-time-series-data/` to
+`docs.timescale.com/timescaledb/latest/overview/deployment-options/`, use
+`overview/deployment-options`.
+
+If your internal link's URL points to a different product or version than the
+current page, include the product or version. To point to the same version, use
+`:currentVersion:`.
+
+For example, to link from
+`docs.timescale.com/timescaledb/latest/overview/what-is-time-series-data/` to
+`docs.timescale.com/cloud/latest/create-a-service/`, use
+`cloud/:currentVersion:/create-a-service/`.
+
+## Anchor tags
+
+`h2` and `h3` headings, which correspond to `##` and `###` in Markdown, have
+automatically generated anchor tags. The tag is the heading text, in lowercase,
+with spaces replaced by hyphens.
+
+To set your own anchor and table-of-contents text, use `[custom table of
+contents label](custom-anchor-tag)`.
+
+To create an anchor tag for another Markdown element, include `[](anchor-name)`
+right after the element.
+
+The anchor name must be unique.
+
+## Code blocks
+
+Don't include a prompt character for the command prompt.
+
+Do this:
+
+```bash
+some_command
+```
+
+And not this:
+```bash
+$ some_command
+```
+
+Otherwise the code highlighter may be disrupted.
+
+Include the programming language name after the three initial backticks to
+select the appropriate syntax highlighting.
+
+### Language or environment tabs
+
+For some code blocks, you may want separate tabs to display the example in
+different languages or operating system environments. For example:
+
+Use the syntax in the [multi-code block
+template](https://github.com/timescale/docs/blob/latest/_multi-code-block.md?plain=1).
+
+## Callout and highlight blocks
+
+To create a callout, wrap the callout text in the custom `<highlight>`
+component, like this:
+
+```markdwon
+<highlight type="note">
+This is a note. It links to [an example link](https://example.com/).
+</highlight>
+```
+
+The supported values for `type`, in approximate order of severity, are `note`,
+`important`, `warning`, and `deprecated`. `tip` is maintained for backwards
+compatibility only. Don't use it for new content.
+
+Any links in a `<highlight>` component must use inline link styles. The version
+number must be explicitly specified. `:currentVersion:` does not work.
+
+If you're using Visual Studio Code, you can wrap selected text in a
+`<highlight>` component by using the `high` snippet.
+<!--
+TODO: PR for this not yet merged
+You can also insert a blank `<highlight>` component by using the `hl` snippet.
+-->
+
+## Tags
+
+A bubble-style tag appears around certain links and decorator text in the
+documentation:
+
+*   Download links. Wrap links to direct downloads in a download tag, like this:
+    ```html
+    <tag type="download">[file name](https://example.com/file-link.extension)</tag>
+    ```
+    This appends a 'download link' icon to the link.
+*   API reference tags. API references may be grouped into the categories
+    `Community`, `Experimental`, and `Toolkit`. To add the appropriate tag, add
+    the following component next to the header:
+    *   `<tag type="community" content="Community" />`
+    *   `<tag type="experimental" content="Experimental" />`
+    *   `<tag type="toolkit" content="Toolkit" />` 
+
+# Templates
+
+In the API references section, documents follow [the API
+template](https://github.com/timescale/docs/blob/latest/api/_template.md). Copy
+and paste the template to create a new API reference.
+
+<!--
+TODO: PR for this not yet merged
+If you're using Visual Studio Code, you can also insert the template by using 
+the `api` snippet.
+-->
+
+# The Timescale documentation team
 *   Ryan Booz <https://github.com/ryanbooz>
 *   Lana Brindley <https://github.com/Loquacity>
 *   Daniel Bogart <https://github.com/daniel-bogart>
