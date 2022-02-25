@@ -34,13 +34,8 @@ monotonically increasing ID works.
 </highlight>
 
 <highlight type="note"> 
-If your table has a `PRIMARY KEY` or `UNIQUE` constraint, that key or constraint
-must include all columns that are used to partition your hypertable. All
-TimescaleDB hypertables are partitioned by a time column, so the key or
-constraint must include the time column.
-
-It may additionally include columns that aren't partitioning columns. For more
-information, see [the troubleshooting
+If you get an error when creating a hypertable with a `PRIMARY KEY` or `UNIQUE`
+constraint, see [the troubleshooting
 section](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
 </highlight>
 
@@ -86,12 +81,8 @@ hypertable fails. For more information about setting up multi-node, see the
      ```
 
 <highlight type="note"> 
-If your table has a `PRIMARY KEY` or `UNIQUE` constraint, that key or constraint
-must include all columns that are used to partition your hypertable. In this
-example, the key or constraint must include `time` and `location`.
-
-It may additionally include columns that aren't partitioning columns. For more
-information, see [the troubleshooting
+If you get an error when creating a hypertable with a `PRIMARY KEY` or `UNIQUE`
+constraint, see [the troubleshooting
 section](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/create/#primary-keys-and-unique-constraints).
 </highlight>
 
