@@ -29,8 +29,8 @@ still work on the resulting hypertable.
 | `create_default_indexes` | BOOLEAN | Whether to create default indexes on time/partitioning columns. Default is TRUE. |
 | `if_not_exists` | BOOLEAN | Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE. |
 | `partitioning_func` | REGPROC | The function to use for calculating a value's partition.|
-| `associated_schema_name` | NAME | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
-| `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is "_hyper". |
+| `associated_schema_name` | NAME | Name of the schema for internal hypertable tables. Default is `"_timescaledb_internal"`. |
+| `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is `"_hyper"`. |
 | `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Defaults to FALSE. |
 | `time_partitioning_func` | REGPROC | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
 | `replication_factor` | INTEGER | If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable/) in place of `create_hypertable`. |
