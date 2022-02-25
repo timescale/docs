@@ -29,7 +29,7 @@ credentials instead it uses the same credentials that are generated during the
 </highlight>
 
 By default, the `timescaledb-single` helm chart deploys TimescaleDB in 
-high availability mode. By default, this creates three database replicas, 
+high availability mode. This creates three database replicas, 
 which consumes three times the amount of disk space. Each database 
 instance mounts to its own persistent volume claim (PVC). 
 
