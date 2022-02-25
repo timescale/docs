@@ -12,7 +12,7 @@ This section covers some common errors or problems you might run into while usin
 * Copy this comment at the top of every troubleshooting page
 -->
 
-## Backing up Promscale data gives an `out of shared memory` error
+## Backing up Promscale data gives an out of shared memory error
 Promscale creates a table for each metric. When you run `pg_dump` and
 `pg_restore`, they lock each table to work on it. This can require a lot of
 locks in a single transaction, which can quickly grow higher than the maximum
