@@ -16,8 +16,8 @@ in this order:
 ### Install the TimescaleDB Helm chart
 Before you install the TimescaleDB Helm chart, you need to configure these
 settings in the [`values.yaml`][timescaledb-single-values-yaml] configuration file:
-*   Credentials for the superuser, admin, and other users
-*   TLS Certificates
+*   [Credentials for the superuser, admin, and other users][timescaledb-helm-values-creds]
+*   [TLS Certificates][timescaledb-helm-values-certs]
 *   **Optional:** `pgbackrest` [configuration][timescale-backups]
 
 <highlight type="note">
@@ -61,7 +61,7 @@ to `1` in [`values.yaml`][timescaledb-single-values-yaml].
     ```
 1.  Install the TimescaleDB Helm chart, using a release name of your choice:
     ```bash
-    helm install <MY_RELEASE> timescale/timescaledb-single
+    helm install <RELEASE_NAME> timescale/timescaledb-single
     ```
 
 </procedure>
@@ -70,13 +70,13 @@ You can provide arguments to the `helm install` command using this format:
 `--set key=value[,key=value]`. For example, to install the  chart with backups
 enabled, use this command:
 ```bash
-helm install my-release timescale/timescaledb-single --set backup.enabled=true
+helm install <RELEASE_NAME> timescale/timescaledb-single --set backup.enabled=true
 ```
 
 Alternatively, you can provide a YAML file that includes parameters for
 installing the chart, like this:
 ```bash
-helm install my-release -f myvalues.yaml timescale/timescaledb-single
+helm install <RELEASE_NAME> -f myvalues.yaml timescale/timescaledb-single
 ```
 
 ### Install the Promscale Helm chart
@@ -97,9 +97,9 @@ can provide the database URI, or specify connection parameters.
     ```
 1.  Create a database called `tsdb` for Promscale data:
     ```bash
-    MASTERPOD="$(kubectl get pod -o name --namespace <NAMESPACE> -l release=<RELEASE_NAME>,role=master)"
-    kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
+    kubectl exec -i --tty $(kubectl get pod -o name --namespace <NAMESPACE> -l role=master,release=<RELEASE_NAME>) -- psql -U postgres
     CREATE DATABASE tsdb WITH OWNER postgres;
+    \q
     ```
 1.  Capture the `postgres` user password:
     ```bash
@@ -137,11 +137,11 @@ can provide the database URI, or specify connection parameters.
 
 1.  Install the Promscale Helm chart:
     ```bash
-    helm install my-release timescale/promscale -f values.yaml
+    helm install <RELEASE_NAME> timescale/promscale -f values.yaml
     ```
 
     <highlight type="note">
-    Replace `my-release` with the name of your choice
+    Replace `<RELEASE_NAME>` with the name of your choice
     </highlight>
 
 </procedure>
@@ -176,3 +176,5 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 [timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml 
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
 [template-manifest]: https://github.com/timescale/promscale/blob/master/deploy/static/deploy.yaml
+[timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
+[timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
