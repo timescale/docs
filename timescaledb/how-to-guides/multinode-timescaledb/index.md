@@ -7,7 +7,6 @@ giving you faster data ingest, and more responsive and efficient queries.
     before you begin using it.
 *   Set up [multi-node][setup-selfhosted] in a self-hosted environment.
 *   Set up [multi-node in Timescale Cloud][setup-cloud].
-*   Set up [multi-node in Managed Service for TimescaleDB][setup-mst].
 *   Set up [authentication][multi-node-auth] for your cluster
 *   [Configure][multi-node-config] your cluster
 *   [Administer][multi-node-administration] your cluster 

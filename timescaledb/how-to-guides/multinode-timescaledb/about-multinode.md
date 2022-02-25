@@ -4,10 +4,6 @@ one TimescaleDB instance. TimescaleDB multi-node allows you to run and
 manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
-You can set up and configure multi-node on a set of self-managed
-TimescaleDB instances, or you can let [Timescale
-Cloud][multinode-cloud] do it for you.
-
 <highlight type="important"> 
 In some cases, your queries could be
 slower in a multi-node cluster due to the extra network communication
@@ -17,6 +13,9 @@ relative to the queried data set. It is important that you understand
 multi-node architecture before you begin, and plan your database
 according to your specific requirements.  
 </highlight>
+
+You can use multi-node on a self-managed TimescaleDB instance, or you can use it
+on [Timescale Cloud][multinode-cloud].
 
 ## Multi-node architecture
 Multi-node TimescaleDB allows you to tie several databases together
