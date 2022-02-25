@@ -169,6 +169,20 @@ module.exports = [
         tags: ['promscale', 'roles', 'permissions', 'database'],
         keywords: ['Promscale', 'analytics', 'permissions', 'roles'],
         excerpt: 'Learn about the different database roles and permissions Promscale defines'
+      },
+     {
+        title: 'Promscale CLI reference',
+        href: 'cli',
+        tags: ['promscale', 'cli', 'reference'],
+        keywords: ['Promscale', 'cli'],
+        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
+      },
+      {
+        title: 'SQL API reference',
+        href: 'sql-api',
+        tags: ['promscale', 'sql', 'api', 'reference'],
+        keywords: ['Promscale', 'sql', 'api'],
+        excerpt: 'Learn about all Promscale SQL API functions'
       }
     ]
   }
