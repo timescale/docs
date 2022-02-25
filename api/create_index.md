@@ -38,3 +38,5 @@ Other index methods
 CREATE INDEX ON conditions(time, location) USING brin
   WITH (timescaledb.transaction_per_chunk);
 ```
+
+[postgres-createindex]: https://www.postgresql.org/docs/current/manage-ag-tablespaces.html
