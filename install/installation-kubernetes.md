@@ -48,7 +48,7 @@ You can provide arguments to the `helm install` command using this format:
 `--set key=value[,key=value]`. For example, to install the  chart with backups
 enabled, use this command:
 ```bash
-helm install my-release timescale/timescaledb-single --set backup.enabled=true
+helm install <MY_RELEASE> timescale/timescaledb-single --set backup.enabled=true
 ```
 
 Alternatively, you can provide a YAML file that includes parameters for
