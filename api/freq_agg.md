@@ -2,7 +2,7 @@
 The `freq_agg` aggregate uses the [SpaceSaving][spacesaving-algorithm] algorithm 
 to estimate the most common elements of a set. This API takes a sizing parameter and 
 a PostgreSQL column, and returns a FreqAgg object that can be passed to 
-[other freq_agg APIs][(hyperfunctions/frequency-analysis/).
+[other freq_agg APIs][frequency-analysis].
 
 <highlight type="warning">
 Experimental features could have bugs. They might not be backwards compatible,
@@ -30,4 +30,4 @@ CREATE toolkit_experimental.freq_agg(0.05, ZIP) FROM HomeSales;
 ```
 
 [spacesaving-algorithm]: https://www.cse.ust.hk/~raywong/comp5331/References/EfficientComputationOfFrequentAndTop-kElementsInDataStreams.pdf
-[frequency-analysis]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
+[frequency-analysis]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/frequency-analysis/

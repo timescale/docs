@@ -1,6 +1,6 @@
 # values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 This function returns the data accumulated in a 
-[frequency aggregate][(hyperfunctions/frequency-analysis/freq_agg/)].  
+[frequency aggregate][freq_agg].  
 The aggregate operates over `AnyElement` types, so this method 
 requires a type parameter to determine the type of the output.
 
@@ -56,3 +56,5 @@ The output for this query looks like this, with some variation due to randomness
     11 |  0.05565 |  0.05595
     10 |  0.05286 |  0.05289
 ```
+
+[freq_agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/frequency-analysis/freq_agg/

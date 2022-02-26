@@ -1,6 +1,6 @@
 # topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 This function returns the most common values accumulated in a 
-[frequency aggregate][(hyperfunctions/frequency-analysis/freq_agg/)]. Note that 
+[frequency aggregate][freq_agg]. Note that 
 since the aggregate operates over `AnyElement` types, this method does require 
 a type parameter to determine the type of the output.
 
@@ -54,3 +54,5 @@ The output for this query:
    16
    15
 ```
+
+[freq_agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/frequency-analysis/freq_agg/
