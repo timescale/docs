@@ -13,7 +13,7 @@ Before you begin installing TimescaleDB on a Kubernetes deployment, make sure yo
 
 </highlight>
 
-## Install the TimescaleDB using Helm chart
+## Install TimescaleDB using a Helm chart
 Before you install the TimescaleDB Helm chart, you need to configure these
 settings in the `values.yaml` configuration file:
 *   Credentials for the superuser, admin, and other users
