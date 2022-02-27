@@ -59,8 +59,8 @@ helm install <MY_NAME> -f myvalues.yaml timescale/timescaledb-single
 ```
 
 ## Where to next
-Now that you have your first TimescaleDB database up and running, you can check
-out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what
+Now that you have your first TimescaleDB database up and running, see
+the [TimescaleDB][tsdb-docs] section in our documentation to learn what
 you can do with it.
 
 If you want to work through some tutorials to help you get up and running with
