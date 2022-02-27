@@ -63,7 +63,7 @@ Now that you have your first TimescaleDB database up and running, see
 the [TimescaleDB][tsdb-docs] section in our documentation to learn what
 you can do with it.
 
-If you want to work through some tutorials to help you get up and running with
+To work through some tutorials that help you get started with
 TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 
 You can always [contact us][contact] if you need help working something out, or
