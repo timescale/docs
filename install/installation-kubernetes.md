@@ -66,8 +66,7 @@ you can do with it.
 To work through some tutorials that help you get started with
 TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 
-You can always [contact us][contact] if you need help working something out, or
-if you want to have a chat.
+To get help or chat with the Timescale team, [contact us][contact].
 
 
 [kubectl-install]: https://kubernetes.io/docs/tasks/tools/
