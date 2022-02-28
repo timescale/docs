@@ -10,13 +10,13 @@ Before you begin installing TimescaleDB on a Kubernetes deployment, make sure yo
 * [kubectl][kubectl-install]
 * [Helm][helm-install]
 * [Kubernetes Cluster][kubernetes-install]
-* (Optional) Create a YAML file that specifies the values for the parameters that are provided while installing the chart. For example, you can create a new `myvalues.yaml` file. For details about the parameters you can set, see  the [Administrator Guide].
+* (**Optional**) Create a YAML file that specifies the values for the parameters that are provided while installing the chart. For example, you can create a new `myvalues.yaml` file. For details about the parameters you can set, see  the [Administrator Guide][admin-guide].
 
 </highlight>
 
 ## Install TimescaleDB using a Helm chart
 You can install TimescaleDB on Kubernetes using a Helm chart with the default `values.yaml`.
-When you use the default `values.yaml`, the user credentials are randomly generated during the installation. When you use the `helm upgrade` command it does not rotate the credentials, to prevent breaking the database by changing the database credentials instead it uses the same credentials that are generated during the `helm install`.
+When you use the default `values.yaml`, the user credentials are randomly generated during the installation. When you use the `helm upgrade` command it does not rotate the credentials, to prevent breaking the database by changing the database credentials instead it uses the same credentials that are generated during the `helm install`. The following section provides instructions to deploy TimescaleDB using `timescaldb-single` helm chart.
 <procedure>
 
 ### Installing TimescaleDB using a Helm chart
@@ -30,11 +30,11 @@ When you use the default `values.yaml`, the user credentials are randomly genera
     ```
 1.  Install the TimescaleDB Helm chart, by replacing `<my_name>` with a name of your choice:
     ```bash
-    helm install --name <my_name> timescale/timescaledb-single
+    helm install <my_name> timescale/timescaledb-single
     ```
-    (Optional) If you created a `<myvalues.yaml>` file, then use:
+    (**Optional**) If you created a `<myvalues.yaml>` file, then use:
     ```bash
-    helm install --name  <my_name> -f <myvalues.yaml> charts/timescaledb-single
+    helm install <my_name> -f <myvalues.yaml> charts/timescaledb-single
     ```
 
 </procedure> 
@@ -48,44 +48,65 @@ You can connect to TimescaleDB using an External IP or from within the cluster.
     ```console
     kubectl get service/my-release
     ```
-1. Decode the password that was generated during the helm installation:
+
+1. Decode the `admin` user password `PGPASSWORD_ADMIN` that was generated during the helm installation, by replacing `<my_name>` with the name that you provided during the installation:
     ```console
-    PGPOSTGRESPASSWORD=$(kubectl get secret --namespace default my-release-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
+    PGPASSWORD_ADMIN=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
     ```
-1. Connect with psql:
+1. (**Optional**) Decode the super user password `PGPOSTGRESPASSWORD` that was generated during the helm installation, by replacing `<my_name>` with the name that you provided during the installation:
     ```console
-    PGPASSWORD=$PGPOSTGRESPASSWORD psql -h verylongname.example.com -U postgres
-    ```
-1. Create users and databases, for example, using the above `psql` session:
-    ```sql
-    CREATE USER example WITH PASSWORD 'thisIsInsecure';
-    CREATE DATABASE example OWNER example;
-    ```
-1. Connect to the example database with the example user:
-    ```console
-    psql -h verylongname.example.com -U example -d example
+    PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 
+1. Connect with psql as `admin` user, by replacing `<my_name>` with the name that you provided during the installation:
+    ```console
+    kubectl run -i --tty --rm psql --image=postgres \
+      --env "PGPASSWORD=$PGPASSWORD_ADMIN" \
+      --command -- psql -U admin \
+      -h <my_name>.default.svc.cluster.local postgres
+    ```
 </procedure>
 
 <procedure>
 
 ### Connecting to TimescaleDB from inside the Cluster
+1. Get the Pod on which TimescaleDB is installed:
+   ```console
+    MASTERPOD="$(kubectl get pod -o name --namespace default -l release=test,role=master)"
+    ```
+
 1. Run `psql` inside the Pod containing the primary:
     ```console
-    kubectl exec -ti $(kubectl get pod -o name -l role=master release=$RELEASE) psql
+    kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
     ```
-1. Create users and databases, for example, using the above `psql` session:
-    ```sql
-    CREATE USER example WITH PASSWORD 'thisIsInsecure';
-    CREATE DATABASE example OWNER example;
-    ```
-1. Connect to the example database with the example user:
-    ```console
-    psql -h verylongname.example.com -U example -d example
-    ```
-    
+
 </procedure>
+
+### Create a Database
+
+1.  At the prompt, create an empty database. For example, to create a database
+    called `tsdb`:
+    ```sql
+    CREATE database tsdb;
+    ```
+1.  Connect to the database you created:
+    ```sql
+    \c tsdb
+    ```
+1. Verify that the TimescaleDB extension is installed by using the `\dx`
+command at the command prompt. It looks like this:
+```sql
+tsdb=# \dx
+
+                                      List of installed extensions
+    Name     | Version |   Schema   |                            Description                            
+-------------+---------+------------+-------------------------------------------------------------------
+ plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+ timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
+(2 rows)
+
+(END)
+```
 
 ## Cleanup
 
@@ -93,8 +114,8 @@ To remove the spawned pods you can run a simple
 ```console
 helm delete my-release
 ```
-Some items, (pvc's and S3 backups for example) are not immediately removed.
-To also purge these items, have a look at the [Administrator Guide]
+Some items such as pvc's and S3 backups are not removed immediately.
+To purge these items, see the [Administrator Guide][admin-guide].
 
 ## Where to next
 Now that you have your first TimescaleDB database up and running, see
@@ -115,3 +136,4 @@ To get help or chat with the Timescale team, [contact us][contact].
 [microk8s-install]: https://microk8s.io/docs/getting-started
 [contact]: https://www.timescale.com/contact
 [tsdb-docs]: timescaledb/:currentVersion:/
+[admin-guide]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/admin-guide.md
