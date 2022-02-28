@@ -15,8 +15,10 @@ Before you begin installing TimescaleDB on a Kubernetes deployment, make sure yo
 </highlight>
 
 ## Install TimescaleDB using a Helm chart
-You can install TimescaleDB on Kubernetes using a Helm chart with the default `values.yaml`.
-When you use the default `values.yaml`, the user credentials are randomly generated during the installation. When you use the `helm upgrade` command it does not rotate the credentials, to prevent breaking the database by changing the database credentials instead it uses the same credentials that are generated during the `helm install`. The following section provides instructions to deploy TimescaleDB using `timescaldb-single` helm chart.
+You can install TimescaleDB on Kubernetes using a Helm chart with the default `values.yaml`. The user credentials are randomly generated during the installation with the default `values.yaml` file.
+When you use the `helm upgrade` command it does not rotate the credentials, to prevent breaking the database by changing the database credentials instead it uses the same credentials that are generated during the `helm install`.
+
+The following section provides instructions to deploy TimescaleDB using `timescaldb-single` helm chart.
 <procedure>
 
 ### Installing TimescaleDB using a Helm chart
@@ -41,9 +43,16 @@ When you use the default `values.yaml`, the user credentials are randomly genera
 
 ## Connect to TimescaleDB
 You can connect to TimescaleDB using an External IP or from within the cluster.
+
 <procedure>
 
 ### Connecting to TimescaleDB using an External IP
+
+<highlight type="note">
+If you configured the user credentials in the `my_values.yaml` file, then you dont have to decode the passwords.
+
+</highlight>
+
 1. Get the name of the host to connect to using:
     ```console
     kubectl get service/my-release
@@ -52,7 +61,8 @@ You can connect to TimescaleDB using an External IP or from within the cluster.
 1. Decode the `admin` user password `PGPASSWORD_ADMIN` that was generated during the helm installation, by replacing `<my_name>` with the name that you provided during the installation:
     ```console
     PGPASSWORD_ADMIN=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
-    ```
+    ``` 
+
 1. (**Optional**) Decode the super user password `PGPOSTGRESPASSWORD` that was generated during the helm installation, by replacing `<my_name>` with the name that you provided during the installation:
     ```console
     PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
@@ -65,6 +75,7 @@ You can connect to TimescaleDB using an External IP or from within the cluster.
       --command -- psql -U admin \
       -h <my_name>.default.svc.cluster.local postgres
     ```
+    
 </procedure>
 
 <procedure>
