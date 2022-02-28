@@ -205,6 +205,13 @@ module.exports = [
             excerpt: "Configure a multi-node environment",
           },
           {
+            title: "Multi-node administration",
+            href: "multinode-administration",
+            tags: ['multi-node', 'management', 'administration', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'management', 'administration'],
+            excerpt: 'Administer a multi-node cluster'
+          },			
+          {
             title: "Grow and shrink a multi-node cluster",
             href: "multinode-grow-shrink",
             tags: ["multi-node", "configure", "manage", "distributed", "nodes"],
@@ -279,6 +286,13 @@ module.exports = [
             keywords: ["caggs", "TimescaleDB"],
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
+          {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            tags: ["caggs", "compression", "timescaledb"],
+            keywords: ["caggs", "compression", "TimescaleDB"],
+            excerpt: "Compress continuous aggregates",
+          },          
           {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
