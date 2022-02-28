@@ -55,4 +55,4 @@ The output for this query:
    15
 ```
 
-[freq_agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/frequency-analysis/freq_agg/
+[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
