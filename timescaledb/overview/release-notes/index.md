@@ -5,6 +5,10 @@ Plans](#future-plans) section. Interested in learning more about what's already
 available? Jump to [What's New](#what-x27-s-new-in-timescaledb-2-5) to see
 what's been released.
 
+<highlight type="note">
+Want to stay up-to-date with new releases? Subscribe to get [release notes email updates](https://www.timescale.com/signup/release-notes).
+</highlight>
+
 ## Future plans
 
 TimescaleDB is an open-source project with a vibrant community. We are currently
