@@ -11,7 +11,7 @@ module.exports = [
       {
         title: "Timescale Cloud",
         href: "installation-cloud",
-        tags: ["tsc", "install"],
+        tags: ["timescaledb", "install"],
         keywords: ["install", "Timescale Cloud", "create service", "connect to service"],
         excerpt: "Install Timescale Cloud",
       },
