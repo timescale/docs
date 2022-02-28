@@ -1,7 +1,6 @@
 # Introduction
-You can help make TimescaleDB better in multiple ways. The documentation and
-TimescaleDB source code are available on GitHub. Issues and pull requests are
-encouraged.
+Join the community in making TimescaleDB documentation better. Issues and pull
+requests are highly welcome. 
 
 This guide covers the documentation's [contributing
 workflow](#contribute-to-documentation), [repository
@@ -33,10 +32,12 @@ GitHub.
     `Propose changes` box at the bottom of the page.
 1.  Review the differences between your changes and the `latest` branch on the
     docs repository. Click `Create pull request`.
-1.  Edit the pull request description. Click `Create pull request` again. If
-    this is your first contribution, you receive a comment asking you to sign
-    the Contributor License Agreement.  
-1.  Sign the agreement so your contribution can be added to the documentation.
+1.  Edit the pull request description. Click `Create pull request` again. 
+1.  If this is your first contribution, you receive a comment asking you to sign
+    the Contributor License Agreement. Sign the agreement so your contribution
+    can be added to the documentation.
+1.  Review the auto-generated preview of your changes. A GiHub action produces
+    the preview and attaches the link to your PR.
 
 </procedure>
 
@@ -154,6 +155,8 @@ and create a pull request to the Timescale docs repo.
 1.  If this is your first contribution, you receive a comment asking you to sign
     the Contributor License Agreement. Sign the agreement so your contribution
     can be added to the documentation.
+1.  Review the auto-generated preview of your changes. A GiHub action produces
+    the preview and attaches the link to your PR.
 
 </procedure>
 
