@@ -328,6 +328,7 @@ See special instructions for:
 *   [Links](#links)
 *   [Anchor tags](#anchor-tags)
 *   [Code blocks](#code-blocks)
+*   [Procedures](#procedures)
 *   [Callout and highlight blocks](#callout-and-highlight-blocks)
 *   [Tags](#tags)
 
@@ -429,6 +430,24 @@ different languages or operating system environments. For example:
 
 Use the syntax in the [multi-code block
 template](https://github.com/timescale/docs/blob/latest/_multi-code-block.md?plain=1).
+
+## Procedures
+
+Format multiple step procedures inside a procedure component, like this:
+
+```md
+<procedure>
+
+### Procedure title
+1.  Instructions for step one
+1.  Instructions for step two
+1.  Instructions for step three
+
+</procedure>
+```
+
+Keep a blank line between the `<procedure>` tags and the procedure contents to 
+avoid parsing problems.
 
 ## Callout and highlight blocks
 
