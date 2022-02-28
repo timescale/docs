@@ -45,4 +45,4 @@ Which gives the result:
  338400000000
 ```
 
-[state_agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/frequency-analysis/state_agg/
+[state_agg]: /hyperfunctions/frequency-analysis/state_agg/

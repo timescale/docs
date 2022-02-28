@@ -57,4 +57,4 @@ The output for this query looks like this, with some variation due to randomness
     10 |  0.05286 |  0.05289
 ```
 
-[freq_agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/frequency-analysis/freq_agg/
+[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
