@@ -12,7 +12,7 @@ pages using a bash script and markdown parser.
 ## Contributing
 
 We welcome and appreciate any help the community can provide to make
-TimescaleDB's documentation better!
+TimescaleDB's documentation better.
 
 You can help either by opening an
 [issue](https://github.com/timescale/docs/issues) with
@@ -27,8 +27,8 @@ ability to use your contributions.
 ## Docs versions
 
 There is a version of the docs for each supported version of the database, stored in
-a separate git branch.  Our docs site parses those branches to allow users to choose
-what version of the docs they want to see.  When submitting pull requests, you should determine
+a separate git branch. Our docs site parses those branches to allow users to choose
+what version of the docs they want to see. When submitting pull requests, you should determine
 what versions of the docs your changes will apply to and attach a label to the pull request
 that denotes the earliest version that your changes should apply to (`2.0`, `2.1`, etc.)
 The admin for the docs will use that as a guide when updating version branches.
@@ -89,7 +89,7 @@ specific functionality is required, it may be necessary to inquire about other p
  create navigation "cards" on high-level landing pages. It is only intended to
  be used for the highest level pages at the current time.
  
- - **"NEW" label**: To add a NEW label to content in the sidebar, include the key newLabel and the value of a date string when the NEW label is set to expire. Use the format "Month Day Year" or "YYYY-MM-DD".
+ - **"NEW" label**: To add a NEW label to content in the sidebar, include the key newLabel and the value of a date string when the NEW label is set to expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.
 
 __Example__
 ```json
@@ -176,7 +176,7 @@ need to use special anchor Markdown next to your anchor text; eg. `[](anchor_nam
 **Command formatting**
 
 When showing commands being entered from a command line, do not include a
-character for the prompt.  Do this:
+character for the prompt. Do this:
 
 ```bash
 some_command
@@ -221,7 +221,7 @@ bottom of the page. The two exceptions are:
  * Functions should not be written with parentheses unless the function is
 being written with arguments within the parentheses.
  * "PostgreSQL" is the way to write the elephant database name, rather than
-"Postgres".  "TimescaleDB" refers to the database, "Timescale" refers to the
+"Postgres." "TimescaleDB" refers to the database, "Timescale" refers to the
 company.
  * Use single quotes when referring to the object of a user interface action.
 For example: Click 'Get started' to proceed with the tutorial.
@@ -231,7 +231,7 @@ To create a callout around a paragraph of text, wrap it with the following custo
 React component tag. **Reminder**, any links within the callout text MUST have
 inline link styles.
 
-The "type" can currently support a value of "tip", "warning", "important", "deprecation" or "note".
+The `type` can currently support a value of `"tip"`, `"warning"`, `"important"`, `"deprecation"` or `"note`".
 
 ```html
 <highlight type="tip">
@@ -248,15 +248,15 @@ formatting within the docs.
 + Adding `sss` to the start of every list item in an ordered list will result in
   a switch to "steps" formatting which is used to denote instructional steps, as
   for a tutorial.
-+ Adding `:FOOTER_LINK: ` to the start of a paragraph(line) will format it as a "footer link".
-+ Adding `x.y.z` anywhere in the text will be replaced by the version number of the branch.  Ex. `look at file foo-x.y.z` >> `look at file foo-0.4.2`.
-+ Adding `:pg_version:` to text displayed in an installation section (i.e. any page with a filename beginning `installation-`) will display the PostgreSQL version number.  This is primarily to be used for displayed filenames in install instructions that need to be modular based on the version.
++ Adding `:FOOTER_LINK: ` to the start of a paragraph(line) will format it as a "footer link."
++ Adding `x.y.z` anywhere in the text will be replaced by the version number of the branch. Ex. `look at file foo-x.y.z` >> `look at file foo-0.4.2`.
++ Adding `:pg_version:` to text displayed in an installation section (that is, any page with a filename beginning `installation-`) will display the PostgreSQL version number. This is primarily to be used for displayed filenames in install instructions that need to be modular based on the version.
 + Wrapping a link with `<tag type="download">[file link here](https://link-to-file.com)</tag>` will create a tag "bubble" wrapper around the link and append a 'download link' icon to the end of the link inline.
 + Designating functions
-    + Adding `<tag type="community">Community</tag>` next to a header (for example, in the api section) adds decorator text "Community".
-    + Adding `<tag type="function">TSDB Function</tag>` next to a header (for example, in the api section) adds decorator text "TSDB Function".
+    + Adding `<tag type="community">Community</tag>` next to a header (for example, in the api section) adds decorator text "Community."
+    + Adding `<tag type="function">TSDB Function</tag>` next to a header (for example, in the api section) adds decorator text "TSDB Function."
 
-_Make sure to include the space after the formatting command!_
+_Make sure to include the space after the formatting command._
 
 
 ### Editing the API section
@@ -266,9 +266,9 @@ There is a specific format for the API section which consists of:
 - A brief, specific description of the function
 - Any warnings necessary
 - **Required Arguments**
-    - A table with columns for "Name", "Type", and "Description"
+    - A table with columns for "Name," "Type," and "Description"
 - **Optional Arguments**
-    - A table with columns for "Name", "Type", and "Description"
+    - A table with columns for "Name," "Type," and "Description"
 - Any specific instructions about the arguments, including valid types
 - **Sample Usage**
     - One or two literal examples of the function being used to demonstrate argument syntax.
