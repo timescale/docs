@@ -1,5 +1,5 @@
 # duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
-Use this function to report the total duration for a given state in a [state aggregate][(hyperfunctions/frequency-analysis/state_agg/)].
+Use this function to report the total duration for a given state in a [state aggregate][state_agg].
 
 <highlight type="warning">
 Experimental features could have bugs. They might not be backwards compatible,
@@ -44,3 +44,5 @@ Which gives the result:
 --------------
  338400000000
 ```
+
+[state_agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/frequency-analysis/state_agg/
