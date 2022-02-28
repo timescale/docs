@@ -346,6 +346,18 @@ dataset:
 ANALYZE;
 ```
 
+### Troubleshooting
+
+If you see errors of the following form when you run `ANALYZE`, you can safely
+ignore them:
+
+```
+WARNING:  skipping "<TABLE OR INDEX>" --- only superuser can analyze it
+```
+
+The skipped tables and indexes correspond to system catalogs that can't be
+accessed. Skipping them does not affect statistics on your data.
+
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [cagg-policy]: /how-to-guides/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
