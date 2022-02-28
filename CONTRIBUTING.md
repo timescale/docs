@@ -315,11 +315,18 @@ Documentation content is written in standard Markdown.
 
 Follow the following conventions:
 *   Break lines at 80 characters to make documentation review easier
-*   Wrap functions, commands, function arguments, and user interface elements in
-    backticks
+*   Format function names, commands, function arguments, and user interface
+    elements as inline code by wrapping them in backticks
 *   Don't write functions with parentheses unless the function is being written
     with arguments within the parentheses. The title of API references is an
     exception.
+
+See special instructions for:
+*   [Links](#links)
+*   [Anchor tags](#anchor-tags)
+*   [Code blocks](#code-blocks)
+*   [Callout and highlight blocks](#callout-and-highlight-blocks)
+*   [Tags](#tags)
 
 ## Links
 
@@ -339,9 +346,24 @@ There are three exceptions where inline links must be used:
 *   Links within [tags](#tags)
 *   Links to anchors on the same page as the link itself
 
-Organize link references in alphabetical order. Use an explicit link reference
-instead of `[link text to display][]`. Within the link reference, join words
-with hyphens and avoid spaces, so the missing-link check can work properly.
+Organize link references in alphabetical order. Don't use an empty link
+reference. Within the link reference, join words with hyphens and avoid spaces,
+so the missing-link check can work properly.
+
+Do:
+```md
+[Timescale Cloud][timescale-cloud]
+```
+
+Don't do:
+```md
+[Timescale Cloud][]
+```
+
+Don't do:
+```md
+[Timescale Cloud][timescale cloud]
+```
 
 ### Internal links
 
@@ -381,13 +403,13 @@ The anchor name must be unique.
 
 Don't include a prompt character for the command prompt.
 
-Do this:
+Do:
 
 ```bash
 some_command
 ```
 
-And not this:
+Don't do:
 ```bash
 $ some_command
 ```
@@ -420,15 +442,13 @@ The supported values for `type`, in approximate order of severity, are `note`,
 `important`, `warning`, and `deprecated`. `tip` is maintained for backwards
 compatibility only. Don't use it for new content.
 
-Any links in a `<highlight>` component must use inline link styles. The version
-number must be explicitly specified. `:currentVersion:` does not work.
+Any links in a `<highlight>` component must use inline link styles. The product
+and version number must be explicitly specified. `:currentVersion:` does not
+work.
 
 If you're using Visual Studio Code, you can wrap selected text in a
-`<highlight>` component by using the `high` snippet.
-<!--
-TODO: PR for this not yet merged
-You can also insert a blank `<highlight>` component by using the `hl` snippet.
--->
+`<highlight>` component by using the `high` snippet. You can also insert a blank
+`<highlight>` component by using the `hl` snippet.
 
 ## Tags
 
@@ -453,11 +473,8 @@ In the API references section, documents follow [the API
 template](https://github.com/timescale/docs/blob/latest/api/_template.md). Copy
 and paste the template to create a new API reference.
 
-<!--
-TODO: PR for this not yet merged
 If you're using Visual Studio Code, you can also insert the template by using 
 the `api` snippet.
--->
 
 # The Timescale documentation team
 *   Ryan Booz <https://github.com/ryanbooz>
