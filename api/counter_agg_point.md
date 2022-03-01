@@ -1,4 +1,4 @@
-# counter_agg() <tag type="toolkit" content="toolkit" />
+# counter_agg() <tag type="toolkit" content="Toolkit" />
 An aggregate that produces a CounterSummary from timestamps and associated
 values.
 

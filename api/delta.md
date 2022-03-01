@@ -1,4 +1,4 @@
-# delta() <tag type="toolkit" content="toolkit" />
+# delta() <tag type="toolkit" content="Toolkit" />
 The change in the counter over the time period. This is the raw or simple delta
 computed by accounting for resets and subtracting the last seen value from the
 first.
