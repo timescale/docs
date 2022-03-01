@@ -37,21 +37,21 @@ CPU can help alleviate this bottleneck.
 
 ## Daily backups
 Incremental database backups are performed daily. This backs up the database
-first against the weekly full backup, and then against the previous days
+first against the weekly full backup, and then against the previous day's
 incremental backup. This means that each day has a full record that can be used
 to restore the service, but does not take as long to run as a full backup.
 
-Because writes to the database occur in realtime, the service commits
+Because writes to the database occur in real time, the service commits
 write-ahead log (WAL) segments of all changes by streaming them to an Amazon S3
 service. This ensures that any data committed is available for recovery.
 
-If an incremental backup fails to complete it will try again the next day. In
+If an incremental backup fails to complete, it will try again the next day. In
 this case, the backup contains the difference between the last complete backup
 and the current day.
 
-## Restoring from backup
+## Restore from backup
 If your database fails the restore process begins automatically. This occurs in
-two distinct stages:
+two stages:
 
 1.  Restore: The PostgreSQL service uses `pg_restore` to restore from the most
     recent successful backup. In most cases, the most recent successful backup
@@ -61,7 +61,7 @@ two distinct stages:
 1.  Recovery: When the restore is complete, recovery can begin. This is where
     the database replays the WAL segments that have been created since the last
     successful backup. This stage is processed using a single thread, so the
-    speed of this stage is not dependent on the size of the service, but the
+    speed of this stage is dependent not on the size of the service, but on the
     amount of data between the last successful backup and the WAL segments
     stored. If your last successful backup was recent, this step will be quicker
     than the restore step.
