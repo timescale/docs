@@ -28,7 +28,7 @@ supports public AMIs.
 1.  Navigate to `Images → AMIs`.
 1.  In the search bar, change the search to `Public images` and type *Timescale* search
     term to find all available Timescale images.
-1.  Select the image you want to use, and click **Launch instance from image**.
+1.  Select the image you want to use, and click `Launch instance from image`.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws_launch_ami.png" alt="Launch an AMI in AWS EC2"/>
 
 </procedure>
