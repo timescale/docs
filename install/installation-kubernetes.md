@@ -49,7 +49,7 @@ You can connect to TimescaleDB using an External IP or from within the cluster.
 ### Connecting to TimescaleDB using an External IP
 
 <highlight type="note">
-If you configured the user credentials in the `my_values.yaml` file, then you dont have to decode the passwords.
+If you configured the user credentials in the `my_values.yaml` file, you don't need to decode the passwords.
 
 </highlight>
 
