@@ -16,7 +16,7 @@ You can also find information on flags with `promscale_<version> -help`.
 
 | Flag | Type | Default | Description |
 |------|:-----:|:-------:|:-----------|
-| cache.memory-target | unsigned-integer or percentage | 80% | Target for max amount of memory to use. Specified in bytes or as a percentage of system memory (e.g. 80%). |
+| cache.memory-target | unsigned-integer or percentage | 80% | Target for max amount of memory to use. Specified in bytes or as a percentage of system memory (for example, 80%). |
 | config | string | config.yml | YAML configuration file path for Promscale. |
 | enable-feature | string | "" | Enable one or more experimental promscale features (as a comma-separated list). Current experimental features are `tracing`, `promql-at-modifier`, and `promql-negative-offset`. For more information, please consult the following resources: [tracing](tracing.md), [promql-at-modifier](https://prometheus.io/docs/prometheus/latest/feature_flags/#modifier-in-promql), [promql-negative-offset](https://prometheus.io/docs/prometheus/latest/feature_flags/#negative-offset-in-promql). |
 | migrate | string | true | Update the Prometheus SQL schema to the latest version. Valid options are: [true, false, only]. |
@@ -52,9 +52,9 @@ You can also find information on flags with `promscale_<version> -help`.
 
 | Flag | Type | Default | Description |
 |------|:-----:|:-------:|:-----------|
-| log.format | string | logfmt | Log format to use from [ "logfmt", "json" ]. |
-| log.level | string | debug | Log level to use from [ "error", "warn", "info", "debug" ]. |
-| log.throughput-report-interval | duration | 0 second | Duration interval at which throughput should be reported. Setting duration to `0` will disable reporting throughput, otherwise, an interval with unit must be provided, e.g. `10s` or `3m`. |
+| log.format | string | logfmt | Log format to use from [` "logfmt"`, `"json"` ]. |
+| log.level | string | debug | Log level to use from [ `"error"`, `"warn"`, `"info"`, `"debug"` ]. |
+| log.throughput-report-interval | duration | 0 second | Duration interval at which throughput should be reported. Setting duration to `0` will disable reporting throughput, otherwise, an interval with unit must be provided, for example, `10s` or `3m`. |
 
 ## Metrics specific flags flags
 
@@ -65,7 +65,7 @@ You can also find information on flags with `promscale_<version> -help`.
 | metrics.cache.labels.size | unsigned-integer | 10000 | Maximum number of labels to cache. |
 | metrics.cache.metrics.size | unsigned-integer | 10000 | Maximum number of metric names to cache. |
 | metrics.cache.series.initial-size | unsigned-integer| 250000 | Initial number of elements in the series cache. |
-| metrics.cache.series.max-bytes | unsigned-integer or percentage | 50% |  Target for amount of memory to use for the series cache. Specified in bytes or as a percentage of the memory-target (e.g. 50%). |
+| metrics.cache.series.max-bytes | unsigned-integer or percentage | 50% |  Target for amount of memory to use for the series cache. Specified in bytes or as a percentage of the memory-target (for example, 50%). |
 | metrics.high-availability | boolean | false | Enable external_labels based HA. |
 | metrics.ignore-samples-written-to-compressed-chunks | boolean | false | Ignore/drop samples that are being written to compressed chunks. Setting this to false allows Promscale to ingest older data by decompressing chunks that were earlier compressed. However, setting this to true will save your resources that may be required during decompression. |
 | metrics.multi-tenancy | boolean | false | Use multi-tenancy mode in Promscale. |
@@ -82,7 +82,7 @@ You can also find information on flags with `promscale_<version> -help`.
 | Flag | Type | Default | Description |
 |------|:-----:|:-------:|:-----------|
 | startup.install-extensions | boolean | true | Install TimescaleDB & Promscale extensions. |
-| startup.only | boolean | false | Only run startup configuration with Promscale (i.e. migrate) and exit. Can be used to run promscale as an init container for HA setups. |
+| startup.only | boolean | false | Only run startup configuration with Promscale (in other words, migrate) and exit. Can be used to run promscale as an init container for HA setups. |
 | startup.skip-migrate | boolean | false | Skip migrating Promscale SQL schema to latest version on startup. |
 | startup.upgrade-extensions | boolean | true | Upgrades TimescaleDB & Promscale extensions. |
 | startup.upgrade-prerelease-extensions | boolean | false | Upgrades to pre-release TimescaleDB, Promscale extensions. |
