@@ -25,10 +25,6 @@ module.exports = [
         ],
       },
       {
-        title: "Scale a service",
-        href: "scaling-a-service",
-      },
-      {
         title: "Customize configuration",
         href: "customize-configuration",
       },

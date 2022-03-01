@@ -6,14 +6,14 @@
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
 	// Example:
-	 "Highlight Callout": {
+	 "Highlight Blank": {
 	 	"scope": "markdown",
-	 	"prefix": ["high","callout"],
+	 	"prefix": ["hl"],
 	 	"body": [
 	 		"<highlight type=\"${1:note|important|warning|deprecated}\">",
-			 "$TM_SELECTED_TEXT",
+			 "$2",
 			 "</highlight>"
 	 	],
-	 	"description": "Make the selected text a callout block"
+	 	"description": "Make a blank callout block"
 	 }
 }

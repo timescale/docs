@@ -69,8 +69,6 @@ this hypertable.
 CREATE INDEX on new_table (column_name, <options>)
 ```
 
-Tada!  You did it!
-
 For more info on the best strategies for indexing, check out
 our [schema management][indexing] section.
 
