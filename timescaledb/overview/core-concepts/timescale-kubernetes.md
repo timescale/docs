@@ -19,7 +19,7 @@ When you deploy on AWS EKS:
 
 <highlight type="note">
 The backup to S3 is disabled by default, look at the
-[Administrator Guide](admin-guide.md#backups) on how to configure backup location, credentials, schedules, and others.
+[Administrator Guide](admin-guide.md#backups) on how to configure backup location, credentials, schedules, and more.
 </highlight>
 
 When configured for backups to S3:
