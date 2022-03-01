@@ -1,6 +1,6 @@
 # Setting up TimescaleDB 2.0 multi-node on Managed Service for TimescaleDB
 
-<highlight type="warning">
+<highlight type="deprecation">
 This section describes a feature that is deprecated on Managed Service for
 TimescaleDB. We strongly recommend that you do not use this feature in a
 production environment. If you need more information, please  
