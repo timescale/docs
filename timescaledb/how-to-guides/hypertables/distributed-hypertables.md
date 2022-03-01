@@ -1,29 +1,30 @@
 # Distributed hypertables
-Distributed hypertables are used in [multi-node][multi-node] clusters. A
-distributed hypertable is a hypertable that automatically partitions data into
-chunks across multiple machines, while still acting like a single continuous table
-across all time. In most cases, distributed hypertables work the same way as
-regular hypertables, including inserting, querying, and altering them.
+
+
+Distributed hypertables are created on access nodes in
+[multi-node][multi-node] clusters and allow spreading data across
+multiple physical machines, while still acting like a single
+continuous table across all time. In most cases, distributed
+hypertables work the same way as regular hypertables, including
+inserting, querying, and altering them. However, certain limitations
+exist so it is important to study the documentation before deciding on
+whether this is the right solution for you.
 
 <highlight type="important">
-You must set up your multi-node cluster before implementing a distributed
+You must set up your multi-node cluster before creating a distributed
 hypertable. See [multi-node](/timescaledb/latest/how-to-guides/multinode-timescaledb/) for
 instructions on setting up your multi-node cluster, and creating a distributed
 hypertable.
 </highlight>
 
-The primary difference between a regular hypertable and a distributed hypertable
-is that a distributed hypertable needs to push operations down to the various
-data nodes. This can slow down processing speeds in some cases, but reduces the
-risk of data loss.
-
-You can run distributed hypertables in the same database as regular hypertables
-and other objects. However, some interactions between distributed hypertables
-and non-distributed objects might not work as expected. For example, when you
-set permissions on a distributed hypertable, they work only if the roles are
-identical on all the data nodes. Additionally, if you `JOIN` a local table and a
-distributed hypertable, you need to fetch the raw data from data nodes and
-perform the `JOIN` locally.
+For certain analytical workloads, a distributed hypertable can give
+much better performance than a regular hypertable, but not always. The
+key to good performance is the ability to distribute and push down
+query processing to data nodes, which in turn depends on how data is
+partitioned across the nodes. When query processing cannot be
+distributed optimally, the access node might need to pull in a lot of
+unprocessed data from data nodes and do the processing locally, which
+will degrade performance.
 
 <highlight type="important">
 In some cases, your processing speeds could be slower in a multi-node
@@ -34,6 +35,15 @@ before sending further instructions down to the data nodes. Make sure
 you understand multi-node architecture before you begin, and plan your
 database according to your specific environment.
 </highlight>
+
+You can use distributed hypertables in the same database as regular
+hypertables and other objects, which are not distributed. However,
+some interactions between distributed hypertables and non-distributed
+objects might not work as expected. For example, when you set
+permissions on a distributed hypertable, they work only if the roles
+are identical on all the data nodes. Additionally, if you `JOIN` a
+local table and a distributed hypertable, you need to fetch the raw
+data from data nodes and perform the `JOIN` locally.
 
 ## Inserting data into a distributed hypertable
 Inserting data into a distributed hypertable works in much the same way as
@@ -50,10 +60,10 @@ several smaller batches of rows, with each batch including the rows that belong
 to a specific data node based on the distributed hypertable's partitioning. The
 access node then writes each batch of rows to the correct data node.
 
-### Using the INSERT function on distributed hypertables
+### Using the INSERT statement on distributed hypertables
 When you use the [`INSERT`][insert] statement on a distributed
 hypertable, the access node tries to convert that into a more
-efficient [`COPY`][copy] between the access node and the data nodes
+efficient [`COPY`][copy] between the access node and the data nodes.
 However, this optimized plan won't work if the `INSERT`
 statement has a `RETURNING` clause, and the distributed hypertable has
 triggers that could alter the returned data. In that case, the planner
@@ -77,10 +87,10 @@ prepared statement, currently 32,767, and the number of columns in each row. For
 example, if a distributed hypertable has 10 columns, the maximum insert batch
 size is capped at 3,276 rows.
 
-### Using the COPY function on distributed hypertables
-When you use the [`COPY`][copy] function on a distributed hypertable, the access
+### Using the COPY statement on distributed hypertables
+When you use the [`COPY`][copy] statement on a distributed hypertable, the access
 node switches each data node to copy mode and then routes each row to the
-correct data node in a stream. `COPY` usually delivers better performance than
+correct data node in a stream. `COPY` can deliver better performance than
 `INSERT`, although it doesn't support features like conflict handling (`ON
 CONFLICT` clause) that are used for [upserts][upserts].
 
@@ -255,7 +265,12 @@ example, to get around the limitation of not pushing down the `now()` function,
 the function is constified on the access node so that the resulting timestamp is
 instead pushed down to the data nodes.
 
-## Native replication in distributed hypertables
+## Alter and set privileges on a distributed hypertable
+When altering a distributed hypertable, or granting privileges on it,
+the commands are applied across all its data nodes. See the section on
+[multi-node administration][multi-node-admin] for more information.
+
+## Replicating distributed hypertables
 A distributed hypertable can be configured to write each chunk to multiple
 data nodes in order to replicate data at the chunk level. This native
 replication ensures that a distributed hypertable is protected against data
@@ -301,3 +316,4 @@ in the distributed hypertable to that table.
 [explain]: https://www.postgresql.org/docs/current/sql-explain.html
 [dist_exec]:  /api/:currentVersion:/distributed-hypertables/distributed_exec
 [caggs]: timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
+[multi-node-admin]: /how-to-guides/multinode-timescaledb/multinode-administration/
