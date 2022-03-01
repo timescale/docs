@@ -1,76 +1,72 @@
 # Migrating from a different PostgreSQL database
+You can migrate your data into TimescaleDB from a different PostgreSQL database.
 
-<highlight type="tip">
-First make sure that you have properly [installed](/install/latest/)
-**AND [setup](/install/latest/)** TimescaleDB
-within your PostgreSQL instance.
+<highlight type="note">
+To migrate between TimescaleDB databases, for example from self-hosted
+TimescaleDB to Timescale Cloud, see the [guide to migrating your TimescaleDB
+database to Cloud](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
 </highlight>
 
-To migrate your database from PostgreSQL to TimescaleDB, you
-need `pg_dump` for exporting your schema and data.
+## Prerequisites
 
-Migration falls into three main steps:
+Before you begin, check that you have:
 
-1. Copy over the database schema and choose which tables become
-hypertables (i.e., those that currently have time-series data).
-1. Backup data to comma-separated values (CSV).
-1. Import the data into TimescaleDB
+- [Installed and set up TimescaleDB][install] within your PostgreSQL instance
+- Installed the PostgreSQL [`pg_dump`][pg_dump] utility
+- Installed a client for connecting to PostgreSQL. These instructions use
+  `psql`, but any client works.
 
-For this example we'll assume you have a PostgreSQL instance with a database
-called `old_db` that contains a single table called `conditions` that you want to
-convert into a hypertable in a new database called `new_db`.
+## Migrate your data into TimescaleDB
 
-### 1. Copying Schema & Setting up Hypertables
+Migrate your data into TimescaleDB from a different PostgreSQL database.
 
-Copying over your database schema is easily done with `pg_dump`:
-```bash
-pg_dump --schema-only -f old_db.bak old_db
-```
+<procedure>
 
-This creates a backup file called `old_db.bak` that contains only the
-SQL commands to recreate all the tables in `old_db`, which in this case
-is just `conditions`.
+### Migrating your data into TimescaleDB
 
-To create those tables in `new_db`:
-```bash
-psql -d new_db < old_db.bak
-```
+1.  Copy the database schema from your source database into a backup file named
+    `source_db.bak`. This file contains the SQL commands to recreate all the
+    tables in your source database.
+    ```bash
+    pg_dump --schema-only -f source_db.bak <SOURCE_DB_NAME>
+    ```
 
-Now that we have the schema, we want to convert tables into hypertables
-where appropriate. So let's connect with the client:
-```bash
-psql -d new_db
-```
-Then use the `create_hypertable` function on the tables to make hypertables.
-Due to a current limitation, this must be run on a table while it is empty, so
-we do this before importing data.
-In this case, our hypertable target is `conditions` (using
-column `time` as the time partitioning column):
-```sql
-SELECT create_hypertable('conditions', 'time');
-```
+1.  Recreate these tables in your destination database by copying out of the
+    `source_db.bak` file.
+    ```bash
+    psql -d <DESTINATION_DB_NAME> < source_db.bak
+    ```
 
-Your new database is now ready for data.
+1.  Connect to your destination database.
+    ```bash
+    psql -d <DESTINATION_DB_NAME>
+    ```
 
-### 2. Backing up Data to CSV
+1.  Turn tables that contain time-series data into hypertables by using the
+    [`create_hypertable`][create_hypertable] function. This function must be run
+    on a table while it's empty. For example, for a time-series table named
+    `conditions` that uses `time` as its time partitioning column, run:
+    ```sql
+    \SELECT create_hypertable('conditions', 'time');
+    ```
 
-To backup your data to CSV, we can run a `COPY`:
+1.  Copy the data from your source database table into a `.csv`.
+    ```bash
+    psql -d <SOURCE_DB_NAME> -c "\COPY (SELECT * FROM <TABLE_NAME>) TO <FILENAME>.csv DELIMITER ',' CSV"
+    ```
+    Repeat for any other tables in your database.
 
-```bash
-# The following ensures 'conditions' outputs to a comma-separated .csv file
-psql -d old_db -c "\COPY (SELECT * FROM conditions) TO old_db.csv DELIMITER ',' CSV"
-```
+1.  Insert the data from the `.csv` into your destination database's
+    hypertables. For detailed instructions, see the [CSV import
+    guide][csv-import].
 
-Your data is now stored in a file called `old_db.csv`.
+</procedure>
 
-### 3. Import Data into TimescaleDB
+To learn what you can do with your hypertable data, read about common
+[hypertable commands][hypertable-commands].
 
-Follow [these instructions][csv-import] to insert data into your hypertable.
-
-Now check out some common [hypertable commands][] for exploring your data.
-
-
-[installed]: /install/latest/
-[setup]: /install/latest/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [csv-import]: /how-to-guides/migrate-data/import-csv/
-[hypertable commands]: /how-to-guides/hypertables/
+[hypertable-commands]: /how-to-guides/hypertables/
+[install]: /install/:currentVersion:/
+[pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html

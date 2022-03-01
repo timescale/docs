@@ -346,6 +346,18 @@ dataset:
 ANALYZE;
 ```
 
+### Troubleshooting
+
+If you see errors of the following form when you run `ANALYZE`, you can safely
+ignore them:
+
+```
+WARNING:  skipping "<TABLE OR INDEX>" --- only superuser can analyze it
+```
+
+The skipped tables and indexes correspond to system catalogs that can't be
+accessed. Skipping them does not affect statistics on your data.
+
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [cagg-policy]: /how-to-guides/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
@@ -355,7 +367,7 @@ ANALYZE;
 [extensions]: /customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
-[pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
+[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
