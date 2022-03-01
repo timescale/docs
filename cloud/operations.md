@@ -36,10 +36,16 @@ complete the transition before you start forking.
 
 </procedure>
 
-### Reset password
-Use this section to reset the password you use to log in to your Timescale Cloud
-account. You must have access to the current password to do this. If you have
-forgotten your password, you can reset it from the login screen instead.
+### Reset service password
+You can reset your service password from the `Operations` dashboard. This is the
+password you use to connect to your database, not the password to your Timescale
+Cloud account. To reset your Timescale Cloud password, navigate to the `Account`
+page. 
+
+When you reset your service password, you are first prompted for your Timescale
+Cloud password. Once you authenticate, you can create a new service password,
+ask Timescale Cloud to auto-generate a password, or switch your authentication
+type between SCRAM and MD5.
 
 ### Pause service
 You can pause a service if you want to stop it running temporarily. This stops
