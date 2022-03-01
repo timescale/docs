@@ -10,7 +10,7 @@ Before you begin installing TimescaleDB on a Kubernetes deployment, make sure yo
 * Installed [kubectl][kubectl-install]
 * Installed [Helm][helm-install]
 * Installed [Kubernetes Cluster][kubernetes-install]
-* (**Optional**) Create a YAML file that specifies the values for the parameters that are provided while installing the chart. For example, you can create a new `myvalues.yaml` file. For details about the parameters you can set, see  the [Administrator Guide][admin-guide].
+* (**Optional**) Created your own `.yaml` file if you want to use parameters other than those specified in the default `values.yaml`. You can name this file `myvalues.yaml` file. For details about the parameters you can set, see  the [Administrator Guide][admin-guide].
 
 </highlight>
 
