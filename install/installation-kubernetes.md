@@ -122,7 +122,7 @@ tsdb=# \dx
 
 ## Cleanup
 
-To remove the spawned pods you can run a simple
+To remove the spawned pods, run:
 ```console
 helm delete my-release
 ```
