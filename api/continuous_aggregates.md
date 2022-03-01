@@ -11,7 +11,8 @@ Get metadata and settings information for continuous aggregates.
 |`view_schema` | TEXT | Schema for continuous aggregate view |
 |`view_name` | TEXT | User supplied name for continuous aggregate view |
 |`view_owner` | TEXT | Owner of the continuous aggregate view|
-|`materialized_only` | BOOLEAN | Return only materialized data when querying the continuous aggregate view. |
+|`materialized_only` | BOOLEAN | Return only materialized data when querying the continuous aggregate view|
+|`compression_enabled` | BOOLEAN | Is compression enabled for the continuous aggregate view?|
 |`materialization_hypertable_schema` | TEXT | Schema of the underlying materialization table|
 |`materialization_hypertable_name` | TEXT | Name of the underlying materialization table|
 |`view_definition` | TEXT | `SELECT` query for continuous aggregate view|
@@ -27,6 +28,7 @@ view_schema                       | public
 view_name                         | contagg_view
 view_owner                        | postgres
 materialized_only                 | f
+compression_enabled               | f
 materialization_hypertable_schema | _timescaledb_internal
 materialization_hypertable_name   | _materialized_hypertable_2
 view_definition                   |  SELECT foo.a,                                  +

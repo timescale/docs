@@ -193,7 +193,7 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 |Buckets by seconds, minutes, hours, days, and weeks|✅|2.4.0 and later|
 |Buckets by months and years|✅|2.6.0 or later|
 |Timezones support|✅|2.6.0 or later|
-|Specify custom origin|❌|To be determined|
+|Specify custom origin|✅|2.7.0 or later|
 
 [time_bucket]: /hyperfunctions/time_bucket/
 [caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

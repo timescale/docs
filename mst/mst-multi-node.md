@@ -1,5 +1,12 @@
-
 # Setting up TimescaleDB 2.0 multi-node on Managed Service for TimescaleDB
+
+<highlight type="deprecation">
+This section describes a feature that is deprecated on Managed Service for
+TimescaleDB. We strongly recommend that you do not use this feature in a
+production environment. If you need more information, please  
+[contact the support team](https://www.timescale.com/support).
+</highlight>
+
 TimescaleDB 2.0 [introduces a number of new features][changes-in-tsdb2] to
 supercharge time-series data even further. One of the most anticipated new
 features is what we call **multi-node** - the ability to create a cluster of

@@ -32,5 +32,5 @@ include the partitioning key.
 [same-db]: /how-to-guides/migrate-data/same-db/
 [different-db]: /how-to-guides/migrate-data/different-db/
 [import-data]: /how-to-guides/migrate-data/import-csv/
-[mst-to-cloud]: /cloud/:currentVersion:/migrate-mst-cloud/
+[mst-to-cloud]: /cloud/:currentVersion:/migrate-to-cloud/
 [outflux]: /how-to-guides/migrate-data/migrate-influxdb/
