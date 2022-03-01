@@ -50,7 +50,7 @@ this case, the backup contains the difference between the last complete backup
 and the current day.
 
 ## Restore from backup
-If your database fails the restore process begins automatically. This occurs in
+If your database fails, the restore process begins automatically. This occurs in
 two stages:
 
 1.  Restore: The PostgreSQL service uses `pg_restore` to restore from the most
