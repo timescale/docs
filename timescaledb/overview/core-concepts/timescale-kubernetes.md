@@ -18,7 +18,7 @@ When you deploy on AWS EKS:
 - An AWS Elastic Load Balancer (ELB) is configured to handle routing incoming traffic to the Master pod.
 
 <highlight type="note">
-The backup to S3 is disabled by default, look at the
+The backup to S3 is disabled by default. See the
 [Administrator Guide](admin-guide.md#backups) on how to configure backup location, credentials, schedules, and more.
 </highlight>
 
