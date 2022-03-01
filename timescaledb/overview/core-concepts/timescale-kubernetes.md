@@ -31,7 +31,7 @@ When configured for backups to S3:
 <img src="./timescaledb-single-backups.png" width="640" />
 
 
-## A Multi Node Distributed TimescaleDB
+## Multi-node distributed TimescaleDB
 
 The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster that does the following:
 
