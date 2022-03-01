@@ -18,14 +18,6 @@ module.exports = [
       ...tutorialPageIndex,
       ...quickStartPageIndex,
       {
-        title: 'Contribute to TimescaleDB',
-        href: 'contribute-to-timescaledb',
-      },
-      {
-        title: 'Contribute to documentation',
-        href: 'contribute-to-docs',
-      },
-      {
         title: 'Compare TimescaleDB Editions',
         href: 'timescaledb-edition-comparison',
       },
