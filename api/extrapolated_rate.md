@@ -53,7 +53,6 @@ FROM (
     FROM foo
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
-``
-`
+```
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
