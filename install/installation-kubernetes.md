@@ -54,7 +54,7 @@ If you configured the user credentials in the `my_values.yaml` file, you don't n
 
 </highlight>
 
-1. Get the name of the host to connect to using:
+1. Get the name of the host to connect to:
     ```console
     kubectl get service/my-release
     ```
