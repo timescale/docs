@@ -126,7 +126,7 @@ To remove the spawned pods, run:
 ```console
 helm delete my-release
 ```
-Some items such as pvc's and S3 backups are not removed immediately.
+Some items such as Persistent Volume Claims and S3 backups are not removed immediately.
 To purge these items, see the [Administrator Guide][admin-guide].
 
 ## Where to next
