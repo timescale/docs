@@ -25,7 +25,7 @@ supports public AMIs.
 ### Installing self-hosted TimescaleDB from a pre-build cloud image
 1.  Make sure you have an [Amazon Web Services account][aws-signup], and
     are signed in to [your EC2 dashboard][aws-dashboard].
-1.  Navigate to **Images > AMIs**.
+1.  Navigate to `Images → AMIs`.
 1.  In the search bar, change the search to `Public images` and type *Timescale* search
     term to find all available Timescale images.
 1.  Select the image you want to use, and click **Launch instance from image**.
