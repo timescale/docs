@@ -75,7 +75,7 @@ a larger time interval.
 For example, assume you are ingesting 10GB of data per day and you
 have five data nodes, each with 64GB of memory.  If this is the only
 table being served by these data nodes, then you should use a time
-interval of 1 week (7 * 10GB / 5 * 64GB ~= 22% main memory used for
+interval of 1 week (7 * 10&nbsp;GB / 5 * 64&nbsp;GB ~= 22% main memory used for
 most recent chunks).
 
 If space partitioning is not being used, the `chunk_time_interval`
