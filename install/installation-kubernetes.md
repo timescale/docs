@@ -5,11 +5,11 @@ You can install a TimescaleDB instance on any Kubernetes deployment. Use the `ti
 * [minikube][minikube-install]
 
 <highlight type="important">
-Before you begin installing TimescaleDB on a Kubernetes deployment, make sure you have installed:
+Before you begin installing TimescaleDB on a Kubernetes deployment, make sure you have:
 
-* [kubectl][kubectl-install]
-* [Helm][helm-install]
-* [Kubernetes Cluster][kubernetes-install]
+* Installed [kubectl][kubectl-install]
+* Installed [Helm][helm-install]
+* Installed [Kubernetes Cluster][kubernetes-install]
 * (**Optional**) Create a YAML file that specifies the values for the parameters that are provided while installing the chart. For example, you can create a new `myvalues.yaml` file. For details about the parameters you can set, see  the [Administrator Guide][admin-guide].
 
 </highlight>
