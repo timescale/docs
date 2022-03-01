@@ -1,4 +1,4 @@
-# Configure Replication
+# Configure replication
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
 
@@ -26,7 +26,7 @@ uses to stream from the primary database.
 <procedure>
 
 ### Configuring the primary database
-1.  On the primary database, as a user with superuser priveleges, such as the
+1.  On the primary database, as a user with superuser privileges, such as the
     `postgres` user, set the password encryption level to `scram-sha-256`:
     ```sql
     SET password_encryption = 'scram-sha-256';
@@ -38,13 +38,13 @@ uses to stream from the primary database.
 
 <highlight type="important">
 The [scram-sha-256](https://www.postgresql.org/docs/current/static/sasl-authentication.html#SASL-SCRAM-SHA-256) encryption level is the most secure
-password based authentication available in PostgreSQL. It is only available in PostgreSQL 10 and later.
+password-based authentication available in PostgreSQL. It is only available in PostgreSQL 10 and later.
 </highlight>
 
 </procedure>
 
 ## Configure replication parameters
-There are several replication settings that need to be added or edited to the
+There are several replication settings that need to be added or edited in the
 `postgresql.conf` configuration file.
 
 <procedure>
@@ -105,7 +105,7 @@ provide the strongest protection for streaming replication.
 
 ### Creating replication slots
 1.  At the `psql` slot, create the first replication slot. The name of the slot
-    is arbitrary, in this example, it id called `replica_1_slot`:
+    is arbitrary. In this example, it is called `replica_1_slot`:
     ```sql
     SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');
     ```
@@ -243,7 +243,7 @@ In the `postgresql.conf` file, set the `synchronous_commit` parameter to:
     does not wait for the operating system to actually write it. This can cause
     a small amount of data loss if the server crashes when some data has not
     been written, but it does not result in data corruption. Turning
-    `synchronous_commit` off is a well known PostgreSQL optimization for
+    `synchronous_commit` off is a well-known PostgreSQL optimization for
     workloads that can withstand some data loss in the event of a system crash.
 *   `local`: Enforces `on` behavior only on the primary server.
 *   `remote_write`: The database returns `success` to a client when the WAL
@@ -264,7 +264,7 @@ If `synchronous_standby_names` is empty, the settings `on`, `remote_apply`,
 transaction commits wait for the local flush to disk.
 </highlight>
 
-This matrix shows the level of consistency each mode provides:
+This matrix shows the level of consistency provided by each mode:
 
 |Mode|WAL Sent to OS (Primary)|WAL Persisted (Primary)|WAL Sent to OS (Primary & Replicas)|WAL Persisted (Primary & Replicas)|Transaction Applied (Primary & Replicas)|
 |-|-|-|-|-|-|
@@ -308,7 +308,7 @@ current state of the replica is. The `replay_lag` field gives a measure of the
 seconds between the most recent WAL transaction on the primary, and the last
 reported database commit on the replica. Coupled with `write_lag` and
 `flush_lag`, this provides insight into how far behind the replica is. The
-`*_lsn` fields also come in handy, allowing you to compare WAL locations between
+`*_lsn` fields also provide helpful information. They allow you to compare WAL locations between
 the primary and the replicas. The `state` field is useful for determining
 exactly what each replica is currently doing; the available modes are `startup`,
 `catchup`, `streaming`, `backup`, and `stopping`.
@@ -365,7 +365,7 @@ sync_state       | sync
 ## Failover
 PostgreSQL provides some failover functionality, where the replica is promoted
 to  primary in the event of a failure. This is provided using the
-[pg_ctl][pgctl-docs] command, or the `trigger_file`. However, PostgreSQL does
+[pg_ctl][pgctl-docs] command or the `trigger_file`. However, PostgreSQL does
 not provide support for automatic failover. For more information, see the
 [PostgreSQL failover documentation][failover-docs]. If you require a
 configurable high availability solution with automatic failover functionality,
