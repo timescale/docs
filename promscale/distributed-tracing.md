@@ -203,7 +203,7 @@ most recent packages.
     -v <PATH_TO_PLUGIN_CONFIG_FILE>:/configs/jaeger-promscale-query.yaml \
     --network promscale-timescaledb \
     timescale/jaeger-query-proxy:latest
-```
+    ```
 1.  The Jaeger UI can be accessed on port 16686.
 
 </procedure>
