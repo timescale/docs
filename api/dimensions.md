@@ -6,13 +6,13 @@ hypertable, for example, two rows of metadata are returned for the
 hypertable.
 
 A time-based dimension column has either an integer datatype
-(bigint, integer, smallint) or a time related datatype
+(bigint, integer, smallint) or a time-related datatype
 (timestamptz, timestamp, date).
 The `time_interval` column is defined for hypertables that use time datatypes.
 Alternatively, for hypertables that use integer datatypes,
  the `integer_interval` and `integer_now_func` columns are defined.
 
-For space based dimensions, metadata is returned that specifies their number
+For space-based dimensions, metadata is returned that specifies their number
 of `num_partitions`. The `time_interval` and `integer_interval` columns are
 not applicable for space based dimensions.
 
@@ -67,7 +67,7 @@ integer_now_func  |
 num_partitions    | 2
 ```
 
-Get information about dimensions of a hypertable that has 2 time based dimensions
+Get information about dimensions of a hypertable that has two time-based dimensions.
 ``` sql
 CREATE TABLE hyper_2dim (a_col date, b_col timestamp, c_col integer);
 SELECT table_name from create_hypertable('hyper_2dim', 'a_col');

@@ -17,7 +17,7 @@ Any background worker job can be run in the foreground when executed with
 |`job_id`| (INTEGER)  TimescaleDB background job ID |
 
 #### Sample Usage
-
+Set log level shown to client to `DEBUG1` and run the job with the job ID 1000:
 ```sql
 SET client_min_messages TO DEBUG1;
 CALL run_job(1000);

@@ -12,9 +12,7 @@ If the job is currently running, the process is terminated.
 |`job_id`| INTEGER |  TimescaleDB background job id |
 
 ### Sample Usage
-
+Delete the job with the job id 1000:
 ```sql
 SELECT delete_job(1000);
 ```
-
-Delete the job with the job id 1000.
