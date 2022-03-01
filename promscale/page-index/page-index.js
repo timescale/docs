@@ -176,6 +176,19 @@ module.exports = [
         tags: ['promscale', 'learn', 'troubleshooting', 'prometheus'],
         keywords: ['Promscale', 'troubleshooting'],
         excerpt: 'Troubleshooting Promscale'
+     {
+        title: 'Promscale CLI reference',
+        href: 'cli',
+        tags: ['promscale', 'cli', 'reference'],
+        keywords: ['Promscale', 'cli'],
+        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
+      },
+      {
+        title: 'SQL API reference',
+        href: 'sql-api',
+        tags: ['promscale', 'sql', 'api', 'reference'],
+        keywords: ['Promscale', 'sql', 'api'],
+        excerpt: 'Learn about all Promscale SQL API functions'
       }
     ]
   }
