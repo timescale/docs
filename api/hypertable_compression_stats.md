@@ -3,7 +3,7 @@
 Get statistics related to hypertable compression.
 All sizes are in bytes.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -24,7 +24,7 @@ All sizes are in bytes.
 |`after_compression_total_bytes` | BIGINT | Size of the entire table (table+indexes+toast) after compression (NULL if currently uncompressed) |
 |`node_name` | TEXT | nodes on which the hypertable is located, applicable only to distributed hypertables |
 
-### Sample Usage 
+### Sample usage 
 ```sql
 SELECT * FROM hypertable_compression_stats('conditions');
 
