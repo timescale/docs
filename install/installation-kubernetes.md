@@ -120,7 +120,6 @@ tsdb=# \dx
 </procedure>
 
 ## Cleanup
-
 To remove the spawned Pods:
 ```bash
 helm delete my-release
