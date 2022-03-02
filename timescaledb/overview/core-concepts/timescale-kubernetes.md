@@ -2,7 +2,7 @@
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the `timescaledb-single` Helm chart to deploy a highly available TimescaleDB database, and the `timescaledb-multinode` Helm chart to deploy a multi-node distributed TimescaleDB database. 
 
 ## Highly available TimescaleDB 
-The `timescaledb-single` Helm chart does the following:
+The `timescaledb-single` Helm chart performs these actions:
 
 - Creates three default Pods using Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
 - Creates each Pod that has a container using the [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
