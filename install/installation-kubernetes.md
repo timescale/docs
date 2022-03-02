@@ -58,7 +58,6 @@ If you configured the user credentials in the `my_values.yaml` file, you don't n
     ```bash
     kubectl get service/my-release
     ```
-
 1. Decode the `admin` user password `PGPASSWORD_ADMIN` that was generated during the Helm installation, by replacing `<my_name>` with the name that you provided during the installation:
     ```console
     PGPASSWORD_ADMIN=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
