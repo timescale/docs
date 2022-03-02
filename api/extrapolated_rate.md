@@ -1,4 +1,4 @@
-# extrapolated_rate() <tag type="toolkit" content="toolkit" />
+# extrapolated_rate() <tag type="toolkit" content="Toolkit" />
 The rate of change in the counter computed over the time period specified by the
 bounds in the CounterSummary, extrapolating to the edges. It is an
 `extrapolated_delta` divided by the duration in seconds.

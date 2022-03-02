@@ -1,4 +1,4 @@
-# irate_left() and irate_right() <tag type="toolkit" content="toolkit" />
+# irate_left() and irate_right() <tag type="toolkit" content="Toolkit" />
 The instantaneous rate of change of the counter at the left (earlier) and right
 (later) side of the time range.
 
