@@ -1,6 +1,6 @@
 # Introduction
-Join the community in making TimescaleDB documentation better. Issues and pull
-requests are highly welcome. 
+Join the community to help make TimescaleDB documentation even better. Issues and pull
+requests are always welcome. 
 
 This guide covers the documentation's [contributing
 workflow](#contribute-to-documentation), [repository

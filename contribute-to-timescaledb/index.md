@@ -1,7 +1,7 @@
 # Contribute to TimescaleDB
-Join the community in making TimescaleDB even better. You can contribute to the
+Join the community to make TimescaleDB even better. You can contribute to the
 [TimescaleDB source code][github-timescaledb] and [documentation][github-docs],
-both of which available on GitHub. Issues and pull requests are highly welcome.
+both of which are available on GitHub. Issues and pull requests are always welcome.
 
 ## Contribute to TimescaleDB source code
 You can contribute to TimescaleDB source code by:

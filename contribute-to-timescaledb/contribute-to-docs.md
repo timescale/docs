@@ -1,9 +1,9 @@
 # Contribute to Timescale documentation
-Join the community in making Timescale documentation even better. You can
+Join the community to help make Timescale documentation even better. You can
 contribute to the [documentation repository on GitHub][github-docs].
 
 Issues and pull requests of any size, from typo fixes to new content sections,
-are highly welcome.
+are always welcome.
 
 The contribution and style guides introduce you to the Timescale documentation
 workflow, style, and standards. But don't worry too much about perfection. The
@@ -17,7 +17,6 @@ To learn more:
     workflows, repository structure, and markup conventions
 
 ## Style guide sections
-
 This style guide covers:
 *   [Style references](#style-references)
     *   Style references in order of importance
@@ -29,7 +28,7 @@ This style guide covers:
     *   User interface actions
     *   Prose linting with Vale
 *   [Structure](#structure)
-    *   Information when it's needed, where it's needed
+    *   Information where it's needed, when it's needed
     *   Documenting processes and procedures
 *   [Word use](#word-use)
     *   Word list from A to Z
@@ -75,9 +74,9 @@ group.
 
 ### Voice
 We prefer active voice, but don't be afraid to use passive when it serves
-better. For example, the most important words come first in an English sentence.
-If the object of an action is the most important part of a sentence, put it
-first, even if it means using passive.
+the purpose better. For example, the most important words come first in an English sentence.
+If the object or the action is the most important part of a sentence, put it
+first, even if it means using passive voice.
 
 ### Grammar
 Grammar rules matter only because everyone follows them. They change over time
@@ -116,7 +115,7 @@ Vale has three levels of admonitions:
 
 ## Structure
 
-### Information when it's needed, where it's needed
+### Information where it's needed, when it's needed
 Readers don't read documentation from cover to cover, like a book. They skim and
 skip. Don't assume that they know something because it's explained earlier in
 the document. Use cross-references to guide them to further information when
