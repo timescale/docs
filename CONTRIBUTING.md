@@ -329,6 +329,7 @@ See special instructions for:
 *   [Links](#links)
 *   [Anchor tags](#anchor-tags)
 *   [Code blocks](#code-blocks)
+*   [Images](#images)
 *   [Procedures](#procedures)
 *   [Callout and highlight blocks](#callout-and-highlight-blocks)
 *   [Tags](#tags)
@@ -431,6 +432,28 @@ different languages or operating system environments. For example:
 
 Use the syntax in the [multi-code block
 template](https://github.com/timescale/docs/blob/latest/_multi-code-block.md?plain=1).
+
+## Images
+
+Images are inserted using HTML tags rather than Markdown embeds. Every image
+needs alt text. If the image is purely decorative, use empty alt text, like
+this:
+
+```html
+alt=""
+```
+
+Images also need the class `main-content__illustration` to display correctly on
+the site. The full image tag looks like this:
+
+```html
+<img class="main-content__illustration" 
+src="https://example.com/image.png" 
+alt="Example image" />
+```
+
+If you're using Visual Studio Code, you can insert an image by using the `img`
+snippet.
 
 ## Procedures
 
