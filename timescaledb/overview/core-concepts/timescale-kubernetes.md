@@ -28,7 +28,6 @@ When configured for backups to S3:
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-single-backups.png" alt="Highly Available TimescaleDB with backups to S3" width="640"/>
 
 ## Multi-node distributed TimescaleDB
-
 The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster that sets up:
 
 - Creates s single TimescaleDB `Access Node` using Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
