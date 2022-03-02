@@ -126,7 +126,7 @@ To remove the spawned Pods:
 ```bash
 helm delete my-release
 ```
-Some items such as Persistent Volume Claims and S3 backups are not removed immediately. To purge these items, see the [Administrator Guide][admin-guide].
+Some items such as Persistent Volume Claims (PVC) and S3 backups are not removed immediately. For more information about purging these items, see the [Administrator Guide][admin-guide].
 
 ## Where to next
 Now that you have your first TimescaleDB database up and running, see
