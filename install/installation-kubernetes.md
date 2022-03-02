@@ -36,7 +36,7 @@ This section provides instructions to deploy TimescaleDB using the `timescaledb-
     ```bash
     helm install <my_name> timescale/timescaledb-single
     ```
-    (**Optional**) If you created a `<myvalues.yaml>` file, then use:
+    If you created a `<myvalues.yaml>` file, use this command instead:
     ```bash
     helm install <my_name> -f <myvalues.yaml> charts/timescaledb-single
     ```
