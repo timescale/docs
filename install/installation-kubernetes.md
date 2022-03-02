@@ -8,7 +8,6 @@ You can install TimescaleDB on Kubernetes deployed on:
 * [minikube][minikube-install]
 
 Before you begin installing TimescaleDB on a Kubernetes deployment, make sure you have:
-
 * Installed [kubectl][kubectl-install]
 * Installed [Helm][helm-install]
 * Installed [Kubernetes Cluster][kubernetes-install]
