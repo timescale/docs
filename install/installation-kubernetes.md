@@ -83,7 +83,6 @@ If you configured the user credentials in the `my_values.yaml` file, you don't n
    ```bash
     MASTERPOD="$(kubectl get pod -o name --namespace default -l release=test,role=master)"
     ```
-
 1. Run `psql` inside the Pod containing the primary:
     ```console
     kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
