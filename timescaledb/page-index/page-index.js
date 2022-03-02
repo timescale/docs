@@ -12,7 +12,7 @@ module.exports = [
     tags: ["timescaledb", "overview", "get started", "learn", "contribute"],
     keywords: ["TimescaleDB","get started","tutorials", "code", "contribute"],
     excerpt:
-      "All you need to know about TimescaleDB architecture, concepts, setup, how-to's, tutorials, management, and contribution.",
+      "All you need to know about TimescaleDB architecture, concepts, setup, how-tos, tutorials, management, and contribution.",
     filePath: "index.md",
     children: [
       ...overviewPageIndex,
