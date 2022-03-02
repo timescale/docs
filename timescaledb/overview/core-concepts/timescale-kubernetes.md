@@ -12,7 +12,6 @@ The `timescaledb-single` Helm chart does the following:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-single.png" alt="Illustration of Highly Available TimescaleDB without backups to S3" width="640"/>
 
-
 When you deploy on AWS Elastic Kubernetes Service:
 - The Pods are scheduled on nodes which run in different Availability Zones (AZs).
 - An AWS Elastic Load Balancer (ELB) is configured to handle routing incoming traffic to the master Pod.
