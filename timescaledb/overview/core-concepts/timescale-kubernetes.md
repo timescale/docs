@@ -5,11 +5,11 @@ You can install a TimescaleDB instance on any Kubernetes deployment. Use the `ti
 
 The `timescaledb-single` Helm chart does the following:
 
-- Three default Pods are created using a Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
-- Each Pod has a container created using the [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
-- TimescaleDB 2.1 and PG 13 are installed.
-- Each of the containers runs a TimescaleDB instance and [Patroni](https://patroni.readthedocs.io/en/latest/) agent.
-- Each TimescaleDB instance is configured for replication  with one master and two replicas.
+- Creates three default Pods using Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
+- Creates each Pod that has a container using the [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
+- Installs TimescaleDB 2.1 and PG 13.
+- Creates containers that run a TimescaleDB instance and [Patroni](https://patroni.readthedocs.io/en/latest/) agent.
+- Configures each TimescaleDB instance for replication with one master and two replicas.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-single.png" alt="Illustration of Highly Available TimescaleDB without backups to S3" width="640"/>
 
@@ -33,9 +33,9 @@ When configured for backups to S3:
 
 The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster that does the following:
 
-- A single TimescaleDB `Access Node` using a Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) is created.
-- Three Pods containing `Data Nodes`using another Kubernetes StatefulSet are created.
-- Each Pod has a container created using a Docker image which includes the TimescaleDB multinode sources.
+- Creates s single TimescaleDB `Access Node` using Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
+- Creates three Pods containing `Data Nodes`using another Kubernetes StatefulSet.
+- Creates each Pod that has a container using a Docker image which includes the TimescaleDB multinode sources.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-multi.png" alt="Illustration of Multi-node TimescaleDB on Kubernetes" width="640"/>
 
