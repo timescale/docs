@@ -68,15 +68,27 @@ clarity:
 |✅ Plain English|To install X, do these steps ...|
 
 ### Tense and perspective
-Use simple present tense and the second person singular ("you"). Avoid the first
-person plural ("we," "us"), because it isn't clear who is included in that
-group.
+Use simple present tense and the second person singular ("you"). In general,
+avoid the first person plural ("we," "us"), because it isn't clear who is
+included in that group.
 
 ### Voice
-We prefer active voice, but don't be afraid to use passive when it serves
-the purpose better. For example, the most important words come first in an English sentence.
-If the object or the action is the most important part of a sentence, put it
-first, even if it means using passive voice.
+We prefer active voice, but don't be afraid to use passive when it serves the
+purpose better. For example, the most important words come first in an English
+sentence. If the object or the action is the most important part of a sentence,
+put it first, even if it means using passive voice.
+
+In other kinds of writing, identifying the actor early helps readers understand
+the text. In documentation writing, the actor is known. It's "you," the reader.
+As a writer, you can use imperative voice more often. For example:
+
+```md
+Install the thing
+```
+
+```md
+Configure the thing
+```
 
 ### Grammar
 Grammar rules matter only because everyone follows them. They change over time
@@ -120,6 +132,12 @@ Readers don't read documentation from cover to cover, like a book. They skim and
 skip. Don't assume that they know something because it's explained earlier in
 the document. Use cross-references to guide them to further information when
 they need it.  
+
+The Timescale documentation follows an Every Page is Page One philosophy. That
+is, we assume readers come to the documentation from search and links. They may
+land on any page as their first page. Each page needs to provide enough context
+to stand alone. Pages should also link to other pages to provide the reader with
+navigation cues.
 
 ### Documenting processes and procedures
 Documentation often describes action steps needed to complete a task. A
@@ -240,7 +258,8 @@ procedures in one place for quick reference.
 ## W [](#W)
 
 *We*
-: Do not use. Use second person ("you") instead.
+: Use with caution. When providing instructions to the reader, use "you"
+instead. Only use "we" to refer to Timescale, the company.
 
 *Will*
 : Do not use. It usually indicates that you are writing in future tense.
