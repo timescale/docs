@@ -4,14 +4,14 @@ Creates a TimescaleDB hypertable distributed across a multinode
 environment. Use this function in place of [`create_hypertable`][create-hypertable]
 when creating distributed hypertables.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `relation` | REGCLASS | Identifier of table to convert to hypertable. |
 | `time_column_name` | TEXT | Name of the column containing time values as well as the primary column to partition by. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -37,7 +37,7 @@ when creating distributed hypertables.
 | `table_name` | TEXT | Table name of the table converted to hypertable. |
 | `created` | BOOLEAN | TRUE if the hypertable was created, FALSE when `if_not_exists` is TRUE and no hypertable was created. |
 
-### Sample Usage
+### Sample usage
 
 Create a table `conditions` which is partitioned across data
 nodes by the 'location' column.  Note that the number of space
@@ -54,7 +54,7 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location',
     data_nodes => '{ "data_node_1", "data_node_2", "data_node_4", "data_node_7" }');
 ```
 
-#### Best Practices
+#### Best practices
 
 **Space partitions:** As opposed to the normal
 [`create_hypertable` best practices][create-hypertable],
@@ -75,7 +75,7 @@ a larger time interval.
 For example, assume you are ingesting 10GB of data per day and you
 have five data nodes, each with 64GB of memory.  If this is the only
 table being served by these data nodes, then you should use a time
-interval of 1 week (7 * 10GB / 5 * 64GB ~= 22% main memory used for
+interval of 1 week (7 * 10&nbsp;GB / 5 * 64&nbsp;GB ~= 22% main memory used for
 most recent chunks).
 
 If space partitioning is not being used, the `chunk_time_interval`

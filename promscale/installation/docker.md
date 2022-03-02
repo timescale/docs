@@ -69,7 +69,7 @@ docker run --name promscale -d -p 9201:9201 -p 9202:9202 \
 For more information about Promscale tracing, see the
 [distributed tracing section][promscale-tracing].
 
-
+[docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescaledev/promscale-extension/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/

@@ -16,7 +16,7 @@ For space-based dimensions, metadata is returned that specifies their number
 of `num_partitions`. The `time_interval` and `integer_interval` columns are
 not applicable for space based dimensions.
 
-### Available Columns
+### Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -31,7 +31,7 @@ not applicable for space based dimensions.
 | `integer_now_func` | TEXT | integer_now function for primary dimension if the column type is integer based datatype|
 | `num_partitions` | SMALLINT | Number of partitions for the dimension |
 
-### Sample Usage
+### Sample usage
 
 Get information about the dimensions of hypertables.
 

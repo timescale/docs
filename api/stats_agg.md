@@ -1,4 +1,4 @@
-# stats_agg() <tag type="toolkit" content="toolkit" />
+# stats_agg() <tag type="toolkit" content="Toolkit" />
 An aggregate that produces a StatsSummary from `DOUBLE PRECISION` values. 
 
 Statistical aggregates can be done on either one or two variables. 
