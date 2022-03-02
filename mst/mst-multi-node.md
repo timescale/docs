@@ -56,7 +56,7 @@ access node.
 </highlight>
 
 <highlight type="warning">
-To setup your first multi-node instance in Managed Service for TimescaleDB, you
+To set up your first multi-node instance in Managed Service for TimescaleDB, you
 need to create new Services for the Access Node and Data Nodes.
 </highlight>
 

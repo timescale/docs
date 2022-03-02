@@ -1,5 +1,5 @@
 ## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
-The `CREATE MATERIALIZED VIEW` statement is used to create continuous \
+The `CREATE MATERIALIZED VIEW` statement is used to create continuous
 aggregates.
 
 The syntax is:

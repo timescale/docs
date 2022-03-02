@@ -10,7 +10,7 @@ utility function.
 ```sql
 extrapolated_rate(
     summary CounterSummary,
-    method TEXT¹
+    method TEXT
 ) RETURNS DOUBLE PRECISION
 ```
 

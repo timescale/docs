@@ -54,7 +54,7 @@ on input to the function.
 
 Note that the function is called with the dependent variable first (`stats_agg(Y, X)`), which
 could seem unusual because the independent variable is often first in non-SQL contexts. 
-However, we have followed PostgreSQL and the SQL standard, which put the dependent 
+However, this function follows PostgreSQL and the SQL standard, which puts the dependent 
 variable first in [linear regression type functions][pg-stats-aggs]. 
 
 <highlight type="note">

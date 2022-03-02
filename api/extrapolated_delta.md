@@ -11,7 +11,7 @@ utility function to set the bounds.
 ```sql
 extrapolated_delta(
     summary CounterSummary,
-    method TEXT¹
+    method TEXT
 ) RETURNS DOUBLE PRECISION
 ```
 
