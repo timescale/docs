@@ -21,3 +21,5 @@ function is run following the restore. See [backup/restore docs][backup-restore]
 ```sql
 SELECT timescaledb_pre_restore();
 ```
+
+[backup-restore]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/

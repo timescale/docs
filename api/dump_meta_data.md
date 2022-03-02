@@ -3,8 +3,7 @@
 To help when asking for support and reporting bugs,
 TimescaleDB includes a SQL script that outputs metadata
 from the internal TimescaleDB tables as well as version information.
-The script is available in the source distribution in `scripts/`
-but can also be [downloaded separately][].
+The script is available in the source distribution in `scripts/`.
 To use it, run:
 
 ```bash

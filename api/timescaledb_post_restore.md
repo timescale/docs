@@ -8,3 +8,5 @@ background workers. See [backup/restore docs][backup-restore] for more informati
 ```sql
 SELECT timescaledb_post_restore();
 ```
+
+[backup-restore]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/
