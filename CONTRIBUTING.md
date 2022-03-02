@@ -319,7 +319,8 @@ Documentation content is written in standard Markdown.
 Follow the following conventions:
 *   Break lines at 80 characters to make documentation review easier
 *   Format function names, commands, function arguments, and user interface
-    elements as inline code by wrapping them in backticks
+    elements as inline code by wrapping them in backticks. Headers are an
+    exception. Markdown markup doesn't work within headers.
 *   Don't write functions with parentheses unless the function is being written
     with arguments within the parentheses. The title of API references is an
     exception.
