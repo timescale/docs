@@ -67,7 +67,7 @@ If you configured the user credentials in the `my_values.yaml` file, you don't n
     PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 1. Connect with psql as `admin` user, by replacing `<my_name>` with the name that you provided during the installation:
-    ```console
+    ```bash
     kubectl run -i --tty --rm psql --image=postgres \
       --env "PGPASSWORD=$PGPASSWORD_ADMIN" \
       --command -- psql -U admin \
