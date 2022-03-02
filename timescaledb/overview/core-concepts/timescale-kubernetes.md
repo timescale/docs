@@ -23,9 +23,9 @@ The backup to S3 is disabled by default. To configure backup location, credentia
 </highlight>
 
 When configured for backups to S3:
-- Each Pod also includes a container running [pgBackRest](https://pgbackrest.org/).
-- Two [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs) are created to handle full weekly and incremental daily backups.
-- The backups are stored to an S3 bucket.
+* Each Pod also includes a container running [pgBackRest](https://pgbackrest.org/).
+* Two [cron jobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs) are created to handle full weekly and incremental daily backups.
+* The backups are stored in an S3 bucket.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-single-backups.png" alt="Illustration of Highly Available TimescaleDB with backups to S3" width="640"/>
 
