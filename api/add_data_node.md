@@ -32,14 +32,14 @@ node during bootstrapping. The [`distributed_exec`](/distributed-hypertables/dis
 procedure can be used to create additional roles on the data node
 after it is added.
 
-### Required Arguments
+### Required arguments
 
 | Name        | Description                         |
 | ----------- | -----------                         |
 | `node_name` | Name for the data node.             |
 | `host`      | Host name for the remote data node. |
 
-### Optional Arguments
+### Optional arguments
 
 | Name                 | Description                                           |
 |----------------------|-------------------------------------------------------|
@@ -87,7 +87,7 @@ Note, however, that superuser privileges might still be necessary on
 the data node in order to bootstrap it, including creating the
 TimescaleDB extension on the data node unless it is already installed.
 
-### Sample Usage
+### Sample usage
 
 Let's assume that you have an existing hypertable `conditions` and
 want to use `time` as the time partitioning column and `location` as

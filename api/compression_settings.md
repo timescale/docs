@@ -4,7 +4,7 @@ Get information about compression-related settings for hypertables.
 Each row of the view provides information about individual orderby
 and segmentby columns used by compression.
 
-### Available Columns 
+### Available columns 
 
 |Name|Type|Description|
 |---|---|---|
@@ -17,7 +17,7 @@ and segmentby columns used by compression.
 | `orderby_nullsfirst` | BOOLEAN | True if nulls are ordered first for this column, False if nulls are ordered last|
 
 
-### Sample Usage 
+### Sample usage 
 
 ```sql
 CREATE TABLE hypertab (a_col integer, b_col integer, c_col integer, d_col integer, e_col integer);

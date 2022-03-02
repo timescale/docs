@@ -16,8 +16,10 @@ function is run following the restore. See [backup/restore docs][backup-restore]
   the database normally.
 </highlight>
 
-### Sample Usage  
+### Sample usage  
 
 ```sql
 SELECT timescaledb_pre_restore();
 ```
+
+[backup-restore]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/

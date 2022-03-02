@@ -9,13 +9,13 @@ removed from all hypertables that use it
 - You want to have fewer data nodes for a distributed hypertable to
 partition across
 
-### Required Arguments
+### Required arguments
 
 | Name        | Type|Description                       |
 |-------------|----|-------------------------------|
 | `node_name` | TEXT | Name of data node to detach from the distributed hypertable |
 
-### Optional Arguments
+### Optional arguments
 
 | Name          | Type|Description                            |
 |---------------|---|-------------------------------------|
@@ -48,7 +48,7 @@ up with under-replicated chunks.
 The only safe way to detach a data node is to first safely delete any
 data on it or replicate it to another data node.
 
-### Sample Usage
+### Sample usage
 
 Detach data node `dn3` from `conditions`:
 

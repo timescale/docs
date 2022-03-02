@@ -125,14 +125,11 @@ Scroll down to find the 'Allowed IP Addresses' section. By default, this value i
 This wide-open setting simplifies getting started since it accepts incoming traffic from all sources, but you absolutely want to narrow this range.
 </highlight>
 
-If you are curious about how to interpret this [Classless Inter-Domain Routing][cidr-wiki] (CIDR) syntax,
-check out [this great online tool][cidr-tool] to help decipher CIDR.
-
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/allowed-ip.png" alt="Allowed IP addresses"/>
 
 #### Step 3 - Change the allowed IP addresses section
 
-Click 'Change' and adjust the CIDR value based on where your source traffic is coming from.
+Click 'Change' and adjust the [Classless Inter-Domain Routing][cidr-wiki] (CIDR) value based on where your source traffic is coming from.
 For example, entering a value of `192.168.1.15/32` ONLY allows incoming traffic from a
 source IP of `192.168.1.15` and denies all other traffic.
 
@@ -146,3 +143,7 @@ account when securing your data. To learn more about security options within Tim
 visit the [Managed TimescaleDB Knowledge Base][timescale-mst-kb].
 
 [cloud-security-eval]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjtm4bbn4rbAhUBDZoKHdBRDgkQFggpMAA&url=https%3A%2F%2Fwww.elfgroup.fi%2Fecc%2F1708-S6-71acd0046.pdf&usg=AOvVaw2wcBEPGeys6PL21W3G6wGW
+
+[timescale-mst-portal]: https://portal.managed.timescale.com/
+[cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[timescale-mst-kb]: https://kb-managed.timescale.com/en/
