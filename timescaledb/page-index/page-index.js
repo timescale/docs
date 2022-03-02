@@ -31,7 +31,7 @@ module.exports = [
         title: 'Contribute to documentation',
         href: 'contribute-to-docs',
         tags:["timescaledb", "get started", "learn", "contribute"],
-        keywords:["code", "docs", "markdown", "styleguide"],
+        keywords:["code", "docs", "markdown", "style guide"],
         excerpt:"Learn more about how to contribute to TimescaleDB documentation",
       },
       {
