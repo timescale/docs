@@ -37,7 +37,7 @@ The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster t
 - Creates three Pods containing `Data Nodes`using another Kubernetes StatefulSet.
 - Creates each Pod that has a container using a Docker image which includes the TimescaleDB multinode sources.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-multi.png" alt="Illustration of Multi-node TimescaleDB on Kubernetes" width="640"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-multi.png" alt="Multi-node TimescaleDB on Kubernetes" width="640"/>
 
 
 When you deploy on AWS Elastic Kubernetes Service:
