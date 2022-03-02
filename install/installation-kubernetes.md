@@ -63,7 +63,7 @@ If you configured the user credentials in the `my_values.yaml` file, you don't n
     PGPASSWORD_ADMIN=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
     ``` 
 1. (**Optional**) Decode the super user password `PGPOSTGRESPASSWORD` that was generated during the Helm installation, by replacing `<my_name>` with the name that you provided during the installation:
-    ```console
+    ```bash
     PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 
