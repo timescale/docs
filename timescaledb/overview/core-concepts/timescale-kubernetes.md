@@ -31,7 +31,7 @@ When configured for backups to S3:
 
 ## Multi-node distributed TimescaleDB
 
-The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster that does the following:
+The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster that sets up:
 
 - Creates s single TimescaleDB `Access Node` using Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
 - Creates three Pods containing `Data Nodes`using another Kubernetes StatefulSet.
