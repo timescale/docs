@@ -39,7 +39,7 @@ module.exports = [
         href: 'timescaledb-edition-comparison',
         tags:["timescaledb", "get started", "learn", "contribute"],
         keywords:["Apache", "community", "features",],
-        excerpt:"Compare different editions of TimecaleDB",
+        excerpt:"Compare different editions of TimescaleDB",
       },
     ],
   },
