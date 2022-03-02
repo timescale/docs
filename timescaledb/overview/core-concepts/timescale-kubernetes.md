@@ -5,41 +5,40 @@ You can install a TimescaleDB instance on any Kubernetes deployment. Use the `ti
 
 The `timescaledb-single` Helm chart does the following:
 
-- Creates three default pods using a Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
-- Each pod has a container created using the [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
-  - TimescaleDB 2.1 and PG 13
+- Three default Pods are created using a Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
+- Each Pod has a container created using the [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
+- TimescaleDB 2.1 and PG 13 are installed.
 - Each of the containers runs a TimescaleDB instance and [Patroni](https://patroni.readthedocs.io/en/latest/) agent.
 - Each TimescaleDB instance is configured for replication  with one master and two replicas.
 
-<img src="./timescaledb-single.png" width="640" />
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-single.png" alt="Illustration of Highly Available TimescaleDB without backups to S3" width="640"/>
 
-When you deploy on AWS EKS:
-- The pods are scheduled on nodes which run in different Availability Zones (AZs).
-- An AWS Elastic Load Balancer (ELB) is configured to handle routing incoming traffic to the Master pod.
+
+When you deploy on AWS Elastic Kubernetes Service:
+- The Pods are scheduled on nodes which run in different Availability Zones (AZs).
+- An AWS Elastic Load Balancer (ELB) is configured to handle routing incoming traffic to the master Pod.
 
 <highlight type="note">
-The backup to S3 is disabled by default. See the
-[Administrator Guide](admin-guide.md#backups) on how to configure backup location, credentials, schedules, and more.
+The backup to S3 is disabled by default. To configure backup location, credentials, schedules, and more, see the [Administrator Guide](https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/admin-guide.md/).
 </highlight>
 
 When configured for backups to S3:
-- Each pod also includes a container running [pgBackRest](https://pgbackrest.org/).
-- By default, two [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) are created to handle full weekly and incremental daily backups.
+- Each Pod also includes a container running [pgBackRest](https://pgbackrest.org/).
+- Two [CronJobs](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs) are created to handle full weekly and incremental daily backups.
 - The backups are stored to an S3 bucket.
 
-
-<img src="./timescaledb-single-backups.png" width="640" />
-
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-single-backups.png" alt="Illustration of Highly Available TimescaleDB with backups to S3" width="640"/>
 
 ## Multi-node distributed TimescaleDB
 
 The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster that does the following:
 
-- Creates a single TimescaleDB **Access Node** using a Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
-- Creates three pods by default containing **Data Nodes** using another Kubernetes StatefulSet
-- Each pod has a container created using a Docker image which includes the TimescaleDB multinode sources
+- A single TimescaleDB `Access Node` using a Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) is created.
+- Three Pods containing `Data Nodes`using another Kubernetes StatefulSet are created.
+- Each Pod has a container created using a Docker image which includes the TimescaleDB multinode sources.
 
-<img src="./timescaledb-multi.png" width="640" />
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-multi.png" alt="Illustration of Multi-node TimescaleDB on Kubernetes" width="640"/>
 
-When deploying on AWS EKS:
-- An AWS Elastic Load Balancer (ELB) is configured to handle routing incoming traffic to the Access Node.
+
+When you deploy on AWS Elastic Kubernetes Service:
+- An AWS Elastic Load Balancer (ELB) is configured to handle routing incoming traffic to the `Access Node`.

@@ -1,5 +1,7 @@
 # Install TimescaleDB on Kubernetes
-You can install a TimescaleDB instance on any Kubernetes deployment. Use the `timescaledb-single` Helm chart to deploy a highly-available TimescaleDB database, and `timescaledb-multinode` to deploy a multi-node distributed TimescaleDB database. You can install TimescaleDB on Kubernetes deployed on:
+You can install a TimescaleDB instance on any Kubernetes deployment. Use the `timescaledb-single` Helm chart to deploy a highly-available TimescaleDB database, and `timescaledb-multinode` to deploy a multi-node distributed TimescaleDB database.
+For more information about the components that are deployed with these charts see,  [TimescaleDB on Kubernetes][timescaledb-k8s].
+You can install TimescaleDB on Kubernetes deployed on:
 * [AWS Elastic Kubernetes Service][aws-eks]
 * [MicroK8s][microk8s-install]
 * [minikube][minikube-install]
@@ -122,12 +124,11 @@ tsdb=# \dx
 
 ## Cleanup
 
-To remove the spawned pods, run:
+To remove the spawned Pods:
 ```console
 helm delete my-release
 ```
-Some items such as Persistent Volume Claims and S3 backups are not removed immediately.
-To purge these items, see the [Administrator Guide][admin-guide].
+Some items such as Persistent Volume Claims and S3 backups are not removed immediately. To purge these items, see the [Administrator Guide][admin-guide].
 
 ## Where to next
 Now that you have your first TimescaleDB database up and running, see
@@ -149,3 +150,4 @@ To get help or chat with the Timescale team, [contact us][contact].
 [contact]: https://www.timescale.com/contact
 [tsdb-docs]: timescaledb/:currentVersion:/
 [admin-guide]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/admin-guide.md
+[timescaledb-k8s]: timescaledb/:currentVersion:/overview/core-concepts/timescale-kubenetes
