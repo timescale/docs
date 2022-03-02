@@ -577,6 +577,13 @@ module.exports = [
             keywords: ["upgrade", "postgresql", "TimescaleDB"],
             excerpt: "Upgrade the version of PostgreSQL used by TimescaleDB",
           },
+          {
+            title: "Downgrade TimescaleDB",
+            href: "downgrade-timescaledb",
+            tags: ["downgrade", "timescaledb"],
+            keywords: ["TimescaleDB", "downgrade"],
+            excerpt: "Downgrade a TimescaleDB version",
+          },
         ],
       },
       {
