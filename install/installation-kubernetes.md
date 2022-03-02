@@ -93,7 +93,6 @@ If you configured the user credentials in the `my_values.yaml` file, you don't n
 <procedure>
 
 ### Create a Database
-
 1.  At the prompt, create an empty database. For example, to create a database
     called `tsdb`:
     ```sql
