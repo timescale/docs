@@ -3,6 +3,9 @@ module.exports = [
     title: "How-to Guides",
     href: "how-to-guides",
     pageComponents: ["content-list"],
+    tags: ["timescaledb", "overview", "get started", "contribute"],
+    keywords: ["connect", "write data", "query data", "alerts"],
+    excerpt: "How to connect to TimescaleDB, administer and configure the database.",
     children: [
       {
         title: "Connecting to TimescaleDB",

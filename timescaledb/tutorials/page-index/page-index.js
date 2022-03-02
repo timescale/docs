@@ -2,6 +2,9 @@ module.exports = [
   {
     title: 'Tutorials',
     href: 'tutorials',
+    tags: ["timescaledb", "overview", "get started", "learn"],
+    keywords: ["IoT", "analyze data", "monitor", "visualize"],
+    excerpt: "Learn all about the common scenarios and usecases for using TimescaleDB",
     children: [
       {
         title: 'Introduction to IoT',
