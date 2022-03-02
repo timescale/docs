@@ -96,7 +96,7 @@ This example uses a metric called `node_memory_MemFree`, and shows you how to
 create a continuous aggregate to derive some summary statistics about the metric
 on an hourly basis. Run this query on the underlying TimescaleDB database:
 ```sql
-CREATE MATERIALIZED VIEW node_memfree_1hour( time, min, max, avg, count, sum, series_id)
+CREATE MATERIALIZED VIEW node_memfree_1hour( time, series_id, min, max, avg)
 WITH (timescaledb.continuous) AS
   SELECT
         time_bucket('1 hour', time) + '1 hour' as time ,
@@ -153,7 +153,7 @@ is specified. To do this with the previous example, you can create a continuous
 aggregate that sets the average as the default to be returned in PromQL queries,
 like this:
 ```sql
-CREATE MATERIALIZED VIEW node_memfree_1hour( time, min, max, avg, count, sum, series_id)
+CREATE MATERIALIZED VIEW node_memfree_1hour( time, series_id, min, max, value)
 WITH (timescaledb.continuous) AS
   SELECT
         time_bucket('1 hour', time) + '1 hour' as time ,
