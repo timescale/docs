@@ -27,7 +27,7 @@ wish to ensure _all_ chunks have a copy of the index, drop and recreate it.
 </highlight>
 
 
-### Sample Usage
+### Sample usage
 
 Anonymous index
 ```SQL
@@ -38,3 +38,5 @@ Other index methods
 CREATE INDEX ON conditions(time, location) USING brin
   WITH (timescaledb.transaction_per_chunk);
 ```
+
+[postgres-createindex]: https://www.postgresql.org/docs/current/manage-ag-tablespaces.html

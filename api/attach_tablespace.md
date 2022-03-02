@@ -5,8 +5,8 @@ Attach a tablespace to a hypertable and use it to store chunks. A
 that allows control over where individual tables and indexes are
 stored on the filesystem. A common use case is to create a tablespace
 for a particular storage disk, allowing tables to be stored
-there. Please review the standard PostgreSQL documentation for more
-[information on tablespaces][postgres-tablespaces].
+there. To learn more, see the [PostgreSQL documentation on 
+tablespaces][postgres-tablespaces].
 
 TimescaleDB can manage a set of tablespaces for each hypertable,
 automatically spreading chunks across the set of tablespaces attached
@@ -17,7 +17,7 @@ may also change the placement behavior. A hypertable with no attached
 tablespaces has its chunks placed in the database's default
 tablespace.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -32,13 +32,13 @@ using the `TABLESPACE` option to `CREATE TABLE`, prior to calling
 `create_hypertable`, has the same effect as calling
 `attach_tablespace` immediately following `create_hypertable`.
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `if_not_attached` | BOOLEAN |Set to true to avoid throwing an error if the tablespace is already attached to the table. A notice is issued instead. Defaults to false. |
 
-### Sample Usage
+### Sample usage
 
 Attach the tablespace `disk1` to the hypertable `conditions`:
 
@@ -47,3 +47,6 @@ Attach the tablespace `disk1` to the hypertable `conditions`:
 SELECT attach_tablespace('disk1', 'conditions');
 SELECT attach_tablespace('disk2', 'conditions', if_not_attached => true);
  ```
+
+[postgres-createtablespace]: https://www.postgresql.org/docs/current/sql-createtablespace.html
+[postgres-tablespaces]: https://www.postgresql.org/docs/current/manage-ag-tablespaces.html

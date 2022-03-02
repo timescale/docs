@@ -2,14 +2,14 @@
 
 Show the tablespaces attached to a hypertable.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to show attached tablespaces for.|
 
 
-### Sample Usage 
+### Sample usage 
 
 ```sql
 SELECT * FROM show_tablespaces('conditions');

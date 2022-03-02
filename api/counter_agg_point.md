@@ -1,4 +1,4 @@
-# counter_agg() <tag type="toolkit" content="toolkit" />
+# counter_agg() <tag type="toolkit" content="Toolkit" />
 An aggregate that produces a CounterSummary from timestamps and associated
 values.
 
@@ -46,7 +46,7 @@ extrapolation, but not for other accessor functions.
 
 ## Sample usage
 This example produces a CounterSummary from timestamps and associated values,
-then computes the [`irate_right` accessor]((/hyperfunctions/counter_aggs/irate/):
+then computes the [`irate_right` accessor][irate_right]:
 
 ``` sql
 WITH t as (
@@ -65,3 +65,4 @@ FROM t;
 
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[irate-right]: /hyperfunctions/counter_aggs/irate/

@@ -3,7 +3,7 @@ Timescale Cloud allows you to create a virtual private cloud (VPC) network
 between an external cloud provider and your Timescale Cloud services. This
 allows you to isolate your Timescale Cloud services so that they are only
 accessible using your external cloud account, and is useful if you need to
-improve security through a reduction in the potential attach vector surface.
+improve security through a reduction in the potential attack vector surface.
 
 When you have VPC peering set up in your external cloud provider, you can create
 and configure your VPC peering connections in the Timescale Cloud console.
@@ -81,8 +81,8 @@ between your Timescale Cloud VPC and your AWS VPC.
 When you create a peering connection in Timescale Cloud, the peering request is sent to your AWS account for you to accept. When you have accepted the request, you need to edit the routing table so that network traffic can flow between the AWS VPC, and your Timescale Cloud services.
 
 <highlight type="warning">
-The request acceptance process is an important safety mechanism, do not accept a
-peering connection from an unknown account!
+The request acceptance process is an important safety mechanism. Do not accept a
+peering connection from an unknown account.
 </highlight>
 
 <procedure>

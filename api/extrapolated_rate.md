@@ -1,4 +1,4 @@
-# extrapolated_rate() <tag type="toolkit" content="toolkit" />
+# extrapolated_rate() <tag type="toolkit" content="Toolkit" />
 The rate of change in the counter computed over the time period specified by the
 bounds in the CounterSummary, extrapolating to the edges. It is an
 `extrapolated_delta` divided by the duration in seconds.
@@ -10,7 +10,7 @@ utility function.
 ```sql
 extrapolated_rate(
     summary CounterSummary,
-    method TEXT¹
+    method TEXT
 ) RETURNS DOUBLE PRECISION
 ```
 
@@ -53,7 +53,6 @@ FROM (
     FROM foo
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
-``
-`
+```
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

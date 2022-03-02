@@ -1,22 +1,22 @@
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
 The `time_bucket_ng()` (next generation) experimental function is an updated
 version of  the original [`time_bucket()`][time_bucket] function. While
-`time_bucket` works only with small units of time,  `time_bucket_ng()` 
+`time_bucket` works only with small units of time,  `time_bucket_ng()`
 supports years and months in addition to small units of time.
 
 <highlight type="warning">
 Experimental features could have bugs! They might not be backwards compatible,
-and could be removed in future releases. When this function is no longer experimental, 
-you will need to delete and rebuild any continuous aggregate that uses it. 
-Use experimental features at your own risk and we do not recommend to use 
+and could be removed in future releases. When this function is no longer experimental,
+you will need to delete and rebuild any continuous aggregate that uses it.
+Use experimental features at your own risk and we do not recommend to use
 any experimental feature in a production environment.
 </highlight>
 
-Functionality | time_bucket() | time_bucket_ng()
---------------|---------------|-----------------
-Buckets by seconds, minutes, hours, days and weeks | YES | YES
-Buckets by months and years | NO | YES
-Timezones support | NO | YES
+|Functionality|time_bucket()|time_bucket_ng()|
+|-|-|-|
+|Buckets by seconds, minutes, hours, days and weeks|YES|YES|
+|Buckets by months and years|NO|YES|
+|Timezones support|NO|YES|
 
 <highlight type="warning">
 The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
@@ -32,14 +32,14 @@ it is the first day of the month and the year. This works better with monthly
 or annual aggregates.
 </highlight>
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `bucket_width` | INTERVAL | A PostgreSQL time interval for how long each bucket is |
 | `ts` | DATE, TIMESTAMP or TIMESTAMPTZ | The timestamp to bucket |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -47,17 +47,20 @@ or annual aggregates.
 | `timezone` | TEXT | The name of the timezone. The argument can be specified only if the type of `ts` is TIMESTAMPTZ |
 
 For backward compatibility with `time_bucket()` the `timezone` argument is
-optional. Note that if you call the TIMESTAMPTZ-version of the function
-without the `timezone` argument, the timezone defaults to the session's
-timezone and so the function can't be used with continuous aggregates.
+optional. However, it is required for time buckets that are less than 24 hours.
 
-### Return value
+If you call the TIMESTAMPTZ-version of the function without the `timezone`
+argument, the timezone defaults to the session's timezone and so the function
+can't be used with continuous aggregates. Best practice is to use
+`time_bucket_ng(interval, timestamptz, text)` and specify the timezone.
+
+### Returns
 
 The function returns the bucket's start time. The return value type is the
 same as `ts`.
 
 
-### Sample Usage
+### Sample usage
 
 In this example, `time_bucket_ng()` is used to create bucket data in three month
 intervals:
@@ -178,9 +181,9 @@ ORDER BY bucket;
 For more information, see the [continuous aggregates documentation][caggs].
 
 <highlight type="important">
-While `time_bucket_ng()` supports months and timezones, 
-continuous aggregates cannot always be used with monthly 
-buckets or buckets with timezones. 
+While `time_bucket_ng()` supports months and timezones,
+continuous aggregates cannot always be used with monthly
+buckets or buckets with timezones.
 </highlight>
 
 This table shows which `time_bucket_ng()` functions can be used in a continuous aggregate:
@@ -190,7 +193,7 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 |Buckets by seconds, minutes, hours, days, and weeks|✅|2.4.0 and later|
 |Buckets by months and years|✅|2.6.0 or later|
 |Timezones support|✅|2.6.0 or later|
-|Specify custom origin|❌|To be determined|
+|Specify custom origin|✅|2.7.0 or later|
 
 [time_bucket]: /hyperfunctions/time_bucket/
 [caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

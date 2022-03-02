@@ -1,4 +1,4 @@
-# with_bounds() <tag type="toolkit" content="toolkit" />
+# with_bounds() <tag type="toolkit" content="Toolkit" />
 A utility function to add bounds to an already-computed CounterSummary. The
 bounds represent the outer limits of the timestamps allowed for this
 CounterSummary as well as the edges of the range to extrapolate to in functions

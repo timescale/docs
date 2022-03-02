@@ -8,7 +8,7 @@ The statistics include information useful for administering jobs and determining
 whether they ought be rescheduled, such as: when and whether the background job
 used to implement the policy succeeded and when it is scheduled to run next.
 
-### Available Columns 
+### Available columns 
 
 |Name|Type|Description|
 |---|---|---|
@@ -25,7 +25,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 |`total_successes` | BIGINT | The total number of times this job succeeded |
 |`total_failures` | BIGINT | The total number of times this job failed |
 
-### Sample Usage 
+### Sample usage 
 
 Get job success/failure information for a specific hypertable.
 

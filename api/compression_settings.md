@@ -4,7 +4,7 @@ Get information about compression-related settings for hypertables.
 Each row of the view provides information about individual orderby
 and segmentby columns used by compression.
 
-### Available Columns 
+### Available columns 
 
 |Name|Type|Description|
 |---|---|---|
@@ -17,28 +17,47 @@ and segmentby columns used by compression.
 | `orderby_nullsfirst` | BOOLEAN | True if nulls are ordered first for this column, False if nulls are ordered last|
 
 
-### Sample Usage 
+### Sample usage 
 
 ```sql
 CREATE TABLE hypertab (a_col integer, b_col integer, c_col integer, d_col integer, e_col integer);
-SELECT table_name FROM create_hypertable('hypertab', 'a_col');
+SELECT table_name FROM create_hypertable('hypertab', 'a_col', chunk_time_interval => 864000000);
 
 ALTER TABLE hypertab SET (timescaledb.compress, timescaledb.compress_segmentby = 'a_col,b_col', 
   timescaledb.compress_orderby = 'c_col desc, d_col asc nulls last');
 
 SELECT * FROM timescaledb_information.compression_settings WHERE hypertable_name = 'hypertab';
 
- hypertable_schema | hypertable_name | attname | segmentby_column_index | orderby_column_in
-dex | orderby_asc | orderby_nullsfirst 
--------------+------------+---------+------------------------+------------------
-----+-------------+--------------------
- public      | hypertab   | a_col   |                      1 |
-    |             | 
- public      | hypertab   | b_col   |                      2 |
-    |             | 
- public      | hypertab   | c_col   |                        |
-  1 | f           | t
- public      | hypertab   | d_col   |                        |
-  2 | t           | f
-(4 rows)
+-[ RECORD 1 ]----------+---------
+hypertable_schema      | public
+hypertable_name        | hypertab
+attname                | a_col
+segmentby_column_index | 1
+orderby_column_index   | 
+orderby_asc            | 
+orderby_nullsfirst     | 
+-[ RECORD 2 ]----------+---------
+hypertable_schema      | public
+hypertable_name        | hypertab
+attname                | b_col
+segmentby_column_index | 2
+orderby_column_index   | 
+orderby_asc            | 
+orderby_nullsfirst     | 
+-[ RECORD 3 ]----------+---------
+hypertable_schema      | public
+hypertable_name        | hypertab
+attname                | c_col
+segmentby_column_index | 
+orderby_column_index   | 1
+orderby_asc            | f
+orderby_nullsfirst     | t
+-[ RECORD 4 ]----------+---------
+hypertable_schema      | public
+hypertable_name        | hypertab
+attname                | d_col
+segmentby_column_index | 
+orderby_column_index   | 2
+orderby_asc            | t
+orderby_nullsfirst     | f
 ```

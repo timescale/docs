@@ -10,7 +10,7 @@
 	 	"scope": "markdown",
 	 	"prefix": ["high","callout"],
 	 	"body": [
-	 		"<highlight type=\"$1\">",
+	 		"<highlight type=\"${1:note|important|warning|deprecated}\">",
 			 "$TM_SELECTED_TEXT",
 			 "</highlight>"
 	 	],

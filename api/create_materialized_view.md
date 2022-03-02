@@ -1,5 +1,5 @@
 ## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
-The `CREATE MATERIALIZED VIEW` statement is used to create continuous \
+The `CREATE MATERIALIZED VIEW` statement is used to create continuous
 aggregates.
 
 The syntax is:
@@ -45,8 +45,8 @@ Some important things to remember when constructing your `SELECT` query:
     aggregates, but you can run them in a `SELECT` query from the continuous
     aggregate view.
 *   You can usually use aggregates that are
-    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition, i
-    ncluding most aggregates distributed by PostgreSQL. However, the `ORDER BY`,
+    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition, 
+    including most aggregates distributed by PostgreSQL. However, the `ORDER BY`,
     `DISTINCT` and `FILTER` clauses are not supported.
 *   All functions and their arguments included in `SELECT`, `GROUP BY` and
     `HAVING` clauses must be [immutable][postgres-immutable].
@@ -80,7 +80,7 @@ Optional `WITH` clause options:
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
-### Sample use
+### Sample usage
 Create a daily continuous aggregate view:
 ```sql
 CREATE MATERIALIZED VIEW continuous_aggregate_daily( timec, minl, sumt, sumh )

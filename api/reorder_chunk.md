@@ -17,13 +17,13 @@ these types of queries.
 One can call this function directly on individual chunks of a hypertable, but
 using [add_reorder_policy](/hypertable/add_reorder_policy/) is often much more convenient.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `chunk` | REGCLASS | Name of the chunk to reorder. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -35,10 +35,12 @@ using [add_reorder_policy](/hypertable/add_reorder_policy/) is often much more c
 This function returns void.
 
 
-### Sample Usage
+### Sample usage
 
 ```sql
 SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', 'conditions_device_id_time_idx');
 ```
 
 runs a reorder on the `_timescaledb_internal._hyper_1_10_chunk` chunk using the `conditions_device_id_time_idx` index.
+
+[postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
