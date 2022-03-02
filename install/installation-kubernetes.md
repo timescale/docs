@@ -80,7 +80,7 @@ If you configured the user credentials in the `my_values.yaml` file, you don't n
 
 ### Connecting to TimescaleDB from inside the Cluster
 1. Get the Pod on which TimescaleDB is installed:
-   ```console
+   ```bash
     MASTERPOD="$(kubectl get pod -o name --namespace default -l release=test,role=master)"
     ```
 
