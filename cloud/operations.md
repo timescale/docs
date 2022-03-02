@@ -47,6 +47,11 @@ Cloud password. Once you authenticate, you can create a new service password,
 ask Timescale Cloud to auto-generate a password, or switch your authentication
 type between SCRAM and MD5.
 
+SCRAM (Salted Challenge Response Authentication Mechanism) and MD5 (Message Digest
+Algorithm 5) are cryptographic authentication mechanisms. Timescale Cloud uses SCRAM
+by default. It is more secure and strongly recommended. The MD5 option is provided
+for compatibility with older clients.
+
 ### Pause service
 You can pause a service if you want to stop it running temporarily. This stops
 your service from costing you, but the service is still available and ready to
