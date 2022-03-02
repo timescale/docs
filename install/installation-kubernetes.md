@@ -44,7 +44,7 @@ This section provides instructions to deploy TimescaleDB using the `timescaledb-
 </procedure> 
 
 ## Connect to TimescaleDB
-You can connect to TimescaleDB using an External IP or from within the cluster.
+You can connect to TimescaleDB from an external IP address, or from within the cluster.
 
 <procedure>
 
