@@ -1,6 +1,7 @@
 # Install TimescaleDB on Kubernetes
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the `timescaledb-single` Helm chart to deploy a highly-available TimescaleDB database, and `timescaledb-multinode` to deploy a multi-node distributed TimescaleDB database.
-For more information about the components that are deployed with these charts see,  [TimescaleDB on Kubernetes][timescaledb-k8s].
+For more information about the components that are deployed with these charts, see 
+[TimescaleDB on Kubernetes][timescaledb-k8s].
 You can install TimescaleDB on Kubernetes deployed on:
 * [AWS Elastic Kubernetes Service][aws-eks]
 * [MicroK8s][microk8s-install]
