@@ -118,6 +118,8 @@ tsdb=# \dx
 (END)
 ```
 
+</procedure>
+
 ## Cleanup
 
 To remove the spawned Pods:
