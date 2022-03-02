@@ -52,7 +52,6 @@ You can connect to TimescaleDB from an external IP address, or from within the c
 
 <highlight type="note">
 If you configured the user credentials in the `my_values.yaml` file, you don't need to decode the passwords.
-
 </highlight>
 
 1. Get the name of the host to connect to:
