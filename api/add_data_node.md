@@ -15,9 +15,8 @@ data node, the access node also tries to connect to the data node
 and therefore needs a way to authenticate with it. TimescaleDB
 currently supports several different such authentication methods for
 flexibility (including trust, user mappings, password, and certificate
-methods). Please refer to [Setting up Multi-Node
-TimescaleDB][multinode] for more information about node-to-node
-authentication.
+methods). Refer to [Setting up Multi-Node TimescaleDB][multinode] for more 
+information about node-to-node authentication.
 
 Unless `bootstrap` is false, the function attempts to bootstrap
 the data node by:
@@ -112,3 +111,5 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location');
 
 Note that this does not offer any performance advantages over using a
 regular hypertable, but it can be useful for testing.
+
+[multinode]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/
