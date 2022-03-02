@@ -2,7 +2,7 @@
 
 Get metadata and settings information for continuous aggregates.
 
-### Available Columns
+### Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -17,7 +17,7 @@ Get metadata and settings information for continuous aggregates.
 |`materialization_hypertable_name` | TEXT | Name of the underlying materialization table|
 |`view_definition` | TEXT | `SELECT` query for continuous aggregate view|
 
-### Sample Usage
+### Sample usage
 ```sql
 SELECT * FROM timescaledb_information.continuous_aggregates;
 

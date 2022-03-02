@@ -10,13 +10,13 @@ Any background worker job can be run in the foreground when executed with
 `run_job`. You can use this with an increased log level to help debug problems.
 </highlight>
 
-#### Required Arguments
+#### Required arguments
 
 |Name|Description|
 |---|---|
 |`job_id`| (INTEGER)  TimescaleDB background job ID |
 
-#### Sample Usage
+#### Sample usage
 
 ```sql
 SET client_min_messages TO DEBUG1;

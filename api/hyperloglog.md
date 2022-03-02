@@ -5,7 +5,7 @@ the specified number of buckets over the given values.
 For more information about approximate count distinct functions, see the
 [hyperfunctions documentation][hyperfunctions-approx-count-distincts].
 
-## Required Arguments
+## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
@@ -23,7 +23,7 @@ of more storage.
 
 <!---Any special notes about the returns-->
 
-## Sample Usage
+## Sample usage
 This examples assumes you have a table called `samples`, that contains a column
 called `weights` that holds DOUBLE PRECISION values. This command returns a
 digest over that column:
