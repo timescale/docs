@@ -1,4 +1,4 @@
-# num_resets() <tag type="toolkit" content="toolkit" />
+# num_resets() <tag type="toolkit" content="Toolkit" />
 The total number of times the counter is reset while calculating the
 CounterSummary.
 

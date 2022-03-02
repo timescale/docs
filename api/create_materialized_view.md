@@ -1,5 +1,5 @@
 ## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
-The `CREATE MATERIALIZED VIEW` statement is used to create continuous \
+The `CREATE MATERIALIZED VIEW` statement is used to create continuous
 aggregates.
 
 The syntax is:
@@ -80,7 +80,7 @@ Optional `WITH` clause options:
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
-### Sample use
+### Sample usage
 Create a daily continuous aggregate view:
 ```sql
 CREATE MATERIALIZED VIEW continuous_aggregate_daily( timec, minl, sumt, sumh )
