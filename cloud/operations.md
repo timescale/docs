@@ -42,8 +42,8 @@ password you use to connect to your database, not the password to your Timescale
 Cloud account. To reset your Timescale Cloud password, navigate to the `Account`
 page. 
 
-When you reset your service password, you are first prompted for your Timescale
-Cloud password. Once you authenticate, you can create a new service password,
+When you reset your service password, you are prompted for your Timescale
+Cloud password. When you have authenticated, you can create a new service password,
 ask Timescale Cloud to auto-generate a password, or switch your authentication
 type between SCRAM and MD5.
 
