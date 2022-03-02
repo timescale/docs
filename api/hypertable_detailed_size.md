@@ -7,7 +7,7 @@ reported in bytes. If the function is executed on a distributed
 hypertable, it returns size information as a separate row per node,
 including the access node.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -27,7 +27,7 @@ If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </highlight>
 
-### Sample Usage 
+### Sample usage 
 Get size information for a hypertable.
 ```sql
 -- disttable is a distributed hypertable --

@@ -21,7 +21,7 @@ on the type of the time column of the hypertable or continuous aggregate:
 - For hypertables with integer-based timestamps: the time interval should be an integer type (this requires
 the [integer_now_func][set_integer_now_func] to be set).
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
