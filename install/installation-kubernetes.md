@@ -123,7 +123,7 @@ tsdb=# \dx
 ## Cleanup
 
 To remove the spawned Pods:
-```console
+```bash
 helm delete my-release
 ```
 Some items such as Persistent Volume Claims and S3 backups are not removed immediately. To purge these items, see the [Administrator Guide][admin-guide].
