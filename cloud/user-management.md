@@ -29,11 +29,13 @@ create one.
 1.  Type the email address of the person that you want to add. A confirmation
     email is sent to the email address you entered.
 1.  Follow the instructions in the confirmation email to confirm the email
-    address. Alternatively, the new member can create or sign in to a Timescale
-    Cloud account with the email address, and accept the invitation by
-    navigating to the `Invitations` section, and clicking `Accept`.
-1.  The new member can switch to the shared project by selecting it from the
-    `Project` drop down menu.
+    address. Alternatively, the new member can sign in to a Timescale Cloud
+    account with the invited email address, and accept the invitation by
+    navigating to the `Invitations` section, and clicking `Accept`. For invitees
+    that do not have a Timescale Cloud account, the invite is automatically
+    accepted when they create a new account with the invited email address. 
+1.  The new project member can switch to the shared project by selecting it from
+    the `Project` drop down menu.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-members.png" alt="Adding a new member to a project in Timescale Cloud"/>
 
