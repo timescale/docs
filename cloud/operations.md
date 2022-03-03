@@ -58,6 +58,6 @@ your service from costing you, but the service is still available and ready to
 be restarted at any time.
 
 ### Terminate a service
-You can terminate a service to delete it completely, and remove the service and
-it's underlying data from the server. You cannot recover a service that has been
-terminated.
+You can terminate a service to delete it completely. This removes the service
+and its underlying data from the server. You cannot recover a terminated
+service.

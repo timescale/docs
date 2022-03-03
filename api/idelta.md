@@ -1,4 +1,4 @@
-# idelta_left() and idelta_right() <tag type="toolkit" content="toolkit" />
+# idelta_left() and idelta_right() <tag type="toolkit" content="Toolkit" />
 The instantaneous change in the counter at the left (earlier) and right (later)
 side of the time range.
 
