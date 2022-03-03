@@ -1,4 +1,4 @@
-# intercept() <tag type="toolkit" content="toolkit" />
+# intercept() <tag type="toolkit" content="Toolkit" />
 The intercept of the [least squares fit][least-squares] line computed from the adjusted counter
 values and times input in the CounterSummary. This corresponds to the projected
 value at the PostgreSQL epoch (2000-01-01 00:00:00+00). This is useful for

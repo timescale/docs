@@ -1,4 +1,4 @@
-# num_elements() <tag type="toolkit" content="toolkit" />
+# num_elements() <tag type="toolkit" content="Toolkit" />
 The total number of points seen while calculating the CounterSummary. Only
 points with distinct times are counted, as duplicate times are usually discarded
 in these calculations.

@@ -1,4 +1,4 @@
-# intercept() <tag type="toolkit" content="toolkit" />
+# intercept() <tag type="toolkit" content="Toolkit" />
 
 ```sql
 intercept(

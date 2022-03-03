@@ -86,7 +86,7 @@ better with more shards. Ideally, set `min_shards: 4` & `max_shards: 200`.
 Shards start at the specified minimum, and increase their count to the specified
 maximum if the write-endpoint is unable to keep up with the rate of samples
 scraped by the Prometheus instance. However, increasing shards by large values
-can effect memory usage.
+can affect memory usage.
 
 ### Maximum retry delay
 Set with the `min_backoff` & `max_backoff` fields in `queue_config`.
