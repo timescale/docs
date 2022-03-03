@@ -15,9 +15,8 @@ data node, the access node also tries to connect to the data node
 and therefore needs a way to authenticate with it. TimescaleDB
 currently supports several different such authentication methods for
 flexibility (including trust, user mappings, password, and certificate
-methods). Please refer to [Setting up Multi-Node
-TimescaleDB][multinode] for more information about node-to-node
-authentication.
+methods). Refer to [Setting up Multi-Node TimescaleDB][multinode] for more 
+information about node-to-node authentication.
 
 Unless `bootstrap` is false, the function attempts to bootstrap
 the data node by:
@@ -32,14 +31,14 @@ node during bootstrapping. The [`distributed_exec`](/distributed-hypertables/dis
 procedure can be used to create additional roles on the data node
 after it is added.
 
-### Required Arguments
+### Required arguments
 
 | Name        | Description                         |
 | ----------- | -----------                         |
 | `node_name` | Name for the data node.             |
 | `host`      | Host name for the remote data node. |
 
-### Optional Arguments
+### Optional arguments
 
 | Name                 | Description                                           |
 |----------------------|-------------------------------------------------------|
@@ -87,7 +86,7 @@ Note, however, that superuser privileges might still be necessary on
 the data node in order to bootstrap it, including creating the
 TimescaleDB extension on the data node unless it is already installed.
 
-### Sample Usage
+### Sample usage
 
 Let's assume that you have an existing hypertable `conditions` and
 want to use `time` as the time partitioning column and `location` as
@@ -112,3 +111,5 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location');
 
 Note that this does not offer any performance advantages over using a
 regular hypertable, but it can be useful for testing.
+
+[multinode]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/

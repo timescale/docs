@@ -6,7 +6,7 @@ table, and any toast tables. The size is reported in bytes.  This is
 equivalent to computing the sum of `total_bytes` column from the
 output of `hypertable_detailed_size` function.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -21,7 +21,7 @@ output of `hypertable_detailed_size` function.
 `NULL` is returned if the function is executed on a non-hypertable relation.
 </highlight>
 
-### Sample Usage 
+### Sample usage 
 Get size information for a hypertable.
 ```sql
 SELECT hypertable_size('devices') ;

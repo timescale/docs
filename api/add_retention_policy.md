@@ -5,7 +5,7 @@ hypertable or continuous aggregate on a schedule in the background. (See [drop_c
 This implements a data retention policy and removes data on a schedule. Only
 one retention policy may exist per hypertable.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -19,7 +19,7 @@ interval should be an INTERVAL type.
 - For hypertables with integer-based timestamps: the time interval should be an
 integer type (this requires the [integer_now_func](/hypertable/set_integer_now_func) to be set).
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -31,7 +31,7 @@ integer type (this requires the [integer_now_func](/hypertable/set_integer_now_f
 |---|---|---|
 |`job_id`| INTEGER |  TimescaleDB background job id created to implement this policy|
 
-### Sample Usage
+### Sample usage
 
 Create a data retention policy to discard chunks greater than 6 months old:
 ```sql

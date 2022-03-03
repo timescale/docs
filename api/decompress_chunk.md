@@ -10,18 +10,18 @@ operation on.  Once the update and/or backfill is complete simply turn the polic
 and the system recompresses your chunks.
 </highlight>
 
-### Required Arguments
+### Required arguments
 |Name|Type|Description|
 |---|---|---|
 | `chunk_name` | REGCLASS | Name of the chunk to be decompressed. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `if_compressed` | BOOLEAN | Setting to true skips chunks that are not compressed. Defaults to false.|
 
-### Sample Usage
+### Sample usage
 Decompress a single chunk
 
 ``` sql

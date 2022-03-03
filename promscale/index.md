@@ -4,8 +4,8 @@ powered by SQL.
 
 It is built on top of PosgreSQL and TimescaleDB and has native support for
 Prometheus metrics (including 100% PromQL compliance) and OpenTelemetry traces.
-It's full SQL capabilities enable developers to correlate metrics, traces and
-also business data to derive new valuable insights not possible when data is
+Its full SQL capabilities enable developers to correlate metrics, traces, and
+business data to derive new valuable insights not possible when data is
 siloed in different systems.
 
 *   [Learn about Promscale][about-promscale] to understand how it works before
