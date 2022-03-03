@@ -17,7 +17,7 @@ may also change the placement behavior. A hypertable with no attached
 tablespaces has its chunks placed in the database's default
 tablespace.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -32,13 +32,13 @@ using the `TABLESPACE` option to `CREATE TABLE`, prior to calling
 `create_hypertable`, has the same effect as calling
 `attach_tablespace` immediately following `create_hypertable`.
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `if_not_attached` | BOOLEAN |Set to true to avoid throwing an error if the tablespace is already attached to the table. A notice is issued instead. Defaults to false. |
 
-### Sample Usage
+### Sample usage
 
 Attach the tablespace `disk1` to the hypertable `conditions`:
 
