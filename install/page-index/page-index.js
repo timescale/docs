@@ -4,7 +4,7 @@ module.exports = [
     href: "install",
     pageComponents: ["featured-cards"],
     tags: ["timescaledb", "install"],
-    keywords: ["install", "TimescaleDB", "self hosted", "containers", "cloud images", "managed services"],
+    keywords: ["install", "TimescaleDB", "self-hosted", "containers", "cloud images", "managed services"],
     excerpt: "Install TimescaleDB",
     filePath: "index.md",
     children: [
