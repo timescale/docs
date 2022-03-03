@@ -16,7 +16,7 @@ DROP MATERIALIZED VIEW <view_name>;
 |---|---|---|
 | `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 
-### Sample Usage 
+### Sample usage 
 Drop existing continuous aggregate.
 
 ```sql

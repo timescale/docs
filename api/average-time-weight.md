@@ -6,7 +6,7 @@ average(
 ) RETURNS DOUBLE PRECISION
 ```
 
-A function to compute a time weighted average from a `TimeWeightSummary`.
+A function to compute a time-weighted average from a `TimeWeightSummary`.
 
 *   For more information about time-weighted average functions, see the
     [hyperfunctions documentation][hyperfunctions-time-weight-average].
@@ -23,7 +23,7 @@ A function to compute a time weighted average from a `TimeWeightSummary`.
 
 |Column|Type|Description|
 |-|-|-|
-|`average`|`DOUBLE PRECISION`|The time weighted average computed from the `TimeWeightSummary`|
+|`average`|`DOUBLE PRECISION`|The time-weighted average computed from the `TimeWeightSummary`|
 
 ### Sample usage
 

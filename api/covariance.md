@@ -1,4 +1,4 @@
-# covariance() <tag type="toolkit" content="toolkit" />
+# covariance() <tag type="toolkit" content="Toolkit" />
 
 ```sql
 covariance(
@@ -22,7 +22,7 @@ For more information about statistical aggregate functions, see the
 |-|-|-|
 |`summary`|`StatsSummary2D`|The input StatsSummary from a [`stats_agg` call][stats-agg]|
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|

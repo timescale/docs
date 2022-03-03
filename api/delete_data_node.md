@@ -27,13 +27,13 @@ but is no longer synchronized.
 An error is generated if the data node cannot be detached from
 all attached hypertables.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `node_name` | TEXT | Name of the data node. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -45,7 +45,7 @@ all attached hypertables.
 
 A boolean indicating if the operation was successful or not.
 
-### Sample Usage
+### Sample usage
 
 To delete a data node named `dn1`:
 ```sql

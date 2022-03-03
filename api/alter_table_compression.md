@@ -10,12 +10,12 @@ ALTER TABLE <table_name> SET (timescaledb.compress, timescaledb.compress_orderby
 timescaledb.compress_segmentby = '<column_name> [, ...]'
 );
 ```
-#### Required Options
+#### Required arguments
 |Name|Type|Description|
 |---|---|---|
 | `timescaledb.compress` | BOOLEAN | Enable/Disable compression |
 
-#### Other Options
+#### Optional arguments
 |Name|Type|Description|
 |---|---|---|
 | `timescaledb.compress_orderby` | TEXT |Order used by compression, specified in the same way as the ORDER BY clause in a SELECT query. The default is the descending order of the hypertable's time column. |
@@ -27,7 +27,7 @@ timescaledb.compress_segmentby = '<column_name> [, ...]'
 | `table_name` | TEXT |Hypertable that supports compression |
 | `column_name` | TEXT | Column used to order by and/or segment by |
 
-### Sample Usage
+### Sample usage
 Configure a hypertable that ingests device data to use compression.
 
 ```sql

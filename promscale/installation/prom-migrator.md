@@ -3,7 +3,7 @@ Prom-migrator is a universal Prometheus data migration tool that migrates your
 data from one storage system to another, using Prometheus remote storage
 endpoints. If you are already using Prometheus for long term storage of metrics,
 you can use Prom-migrator to replace your remote storage system with Promscale.
-Prom-migrator is open-source, community-driven and free-to-use.
+Prom-migrator is open source, community-driven, and free-to-use.
 
 ## Migrate to Promscale using Prom-migrator
 Before you begin, you must have an already installed and working Prometheus
@@ -43,7 +43,7 @@ Prometheus and any other remote storage system.
 When your data migration is complete, you can use Promscale directly to query
 using PromQL and TimescaleDB to query using SQL.
 
-<highlight type="important">>
+<highlight type="important">
 Promscale does not currently support alerting or recording rules. If you need
 access to these features, you can configure them within Prometheus directly. We
 also recommend that you set the data retention setting in Prometheus to `1d`,

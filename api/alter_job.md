@@ -40,7 +40,7 @@ other useful statistics for deciding what the new schedule should be.
 |`config`|JSONB|Job-specific configuration, passed to the function when it runs|
 |`next_start`|TIMESTAMPTZ|The next time to run the job|
 
-### Sample use
+### Sample usage
 Reschedules job ID `1000` so that it runs every two days:
 ```sql
 SELECT alter_job(1000, schedule_interval => INTERVAL '2 days');
