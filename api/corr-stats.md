@@ -1,4 +1,4 @@
-# corr() <tag type="toolkit" content="toolkit" />
+# corr() <tag type="toolkit" content="Toolkit" />
 
 ```sql
 corr(

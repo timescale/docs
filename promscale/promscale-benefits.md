@@ -17,9 +17,9 @@ OpenMetrics exemplars support.
 with our native OTLP ingest endpoint which has full support for the standard
 including events and links.
 
-**Unprecendeted insights**: get true observability with the power and
+**Unprecedented insights**: get true observability with the power and
 flexibility of full SQL together with TimescaleDB's advanced analytics functions
-to query and correlate metrics, traces and business data to get more value from
+to query and correlate metrics, traces, and business data to get more value from
 your observability data.
 
 **Flexible data management**: per-metric data retention and highly configurable
