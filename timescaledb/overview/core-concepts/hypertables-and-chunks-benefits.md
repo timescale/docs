@@ -1,6 +1,6 @@
 # Benefits of hypertables
-Hypertables help TimescaleDB achieve [better performance for time-series data,
-compared to regular PostgreSQL][performance-benchmark].
+Hypertables help TimescaleDB achieve [high time series performance
+][performance-benchmark] and improved time series workflows.
 
 ## Faster inserts and queries
 In time series workflows, many inserts and queries are performed on recent data.
@@ -30,14 +30,14 @@ databases.
 <!-- TODO: insert index and chunks diagram -->
 
 Even with multiple local indexes, TimescaleDB can still ensure global uniqueness
-for keys. It enforces one important constraint: any key that requires
-uniqueness, such as a `PRIMARY KEY`, must include all columns that are used for
-data partitioning.
+for keys. It enforces an important constraint: any key that requires uniqueness,
+such as a `PRIMARY KEY`, must include all columns that are used for data
+partitioning.
 
-In other words, because data is partitioned between chunks based on timestamp,
-the unique key must include the timestamp. When data is inserted, TimescaleDB
+In other words, because data is partitioned between chunks based on time value,
+the unique key must include the time value. When data is inserted, TimescaleDB
 identifies the corresponding time chunk and checks for uniqueness within that
-chunk. Because no other chunk can contain that timestamp, uniqueness within the
+chunk. Because no other chunk can contain that time value, uniqueness within the
 chunk implies global uniqueness.
 
 If another column is used for partitioning, the same logic applies. The column
@@ -45,7 +45,7 @@ must be included in the unique key, so that uniqueness within the corresponding
 partition implies global uniqueness.
 
 These checks happen in the background. As a user, you run a regular `INSERT`
-command, and the correct index is automatially updated.
+command, and the correct index is automatically updated.
 
 ## Age-based data compression and reordering 
 As data ages, you can compress it to save on storage. TimescaleDB's native
@@ -59,7 +59,7 @@ form. This allows:
     with recent data. Thus, compression serves best for older data.
 
 To further speed up "deep and narrow" queries, you can also reorder data.
-TimescaleDB inserts recent data ordered by timestamp. While this is efficient
+TimescaleDB inserts recent data ordered by time value. While this is efficient
 for rapid inserts of real-time data, it can be less efficient for some
 analytical queries of older data. 
 
@@ -73,53 +73,56 @@ of time. After that, you might delete the data to save on storage, to comply
 with data retention regulations, or for other reasons. You might also want to
 move older data to less expensive storage.
 
-Because TimescaleDB stores data in time-based chunks, deleting and moving older
-data is fast. You can delete or move an entire chunk based on its time range.
-For example, you can delete chunks containing data with timestamps more than 6
-months old. Because deleting a chunk means deleting an entire file from disk,
-it's faster than deleting individual rows. Deleting rows requires expensive
-`VACUUM` operations to garbage collect and defragment the tables.
+In TimescaleDB, you can delete entire chunks of data based on time values. For
+example, you can delete chunks containing data with time values more than 6
+months old. 
 
-You can also automate data deletion by setting data retention policies.
+Because deleting a chunk means deleting an entire file from disk, it's faster
+than deleting individual rows. Deleting rows requires expensive `VACUUM`
+operations to garbage collect and defragment the tables.
 
-To learn more, see the documentation on [data retention][data-retention] and
-[data tiering][data-tiering].
+You can also automate data deletion by setting data retention policies. To learn
+more, see the documentation on [data retention][data-retention].
 
-- **Data migration**.  Chunks can be individually migrated transactionally.
-  This migration can be across tablespaces (disks) residing on a single
-  server, often as a form of data tiering; e.g., moving older data from
-  faster, more expensive disks to slower, cheaper storage. 
-
-## Data replication and rebalancing
-
-- **Data replication**.  Chunks can be individually replicated across
-  nodes transactionally, either by configuring a replication factor on a
-  distributed hypertable (which occurs as part of a 2PC transaction at
-  insert time) or by copying an older chunk from one node to another
-  to increase its replication factor, e.g., after a node failure (coming soon).
-
-  This migration
-  can also occur across nodes in a distributed hypertable, e.g., in order to
-  asynchronous rebalance a cluster after adding a server or to prepare for
-  retiring a server (coming soon).
+If you don't want to delete your older data outright, you might considering data
+tiering. With data tiering, you migrate your older data to slower, cheaper
+storage. Just like with deleting data, you can move an entire chunk at once from
+disk to disk.
 
 ## Instant multi-node elasticity
+TimescaleDB supports multi-node architecture for horizontal scaling. Because
+TimescaleDB uses time chunks, it can add and remove servers without immediately
+rebalancing data. This differs from traditional database sharding, where some
+data must be migrated to the new server when you expand a cluster.
 
-- **Instant multi-node elasticity**.  TimescaleDB supports horizontally
-  scaling across multiple nodes. Unlike traditional one-dimensional
-  database sharding, where shards must be migrated to a newly-added
-  server as part of the process of expanding the cluster, TimescaleDB
-  supports the elastic addition (or removal) of new servers without
-  requiring any immediate rebalancing. When a new server is added,
-  existing chunks can remain at their current location, while chunks
-  created for future time intervals are partitioned across the new set
-  of servers.  The TimescaleDB planner can then handle queries
-  across these reconfigurations, always knowing which nodes are
-  storing which chunks.  Server load subsequently can be rebalanced
-  either by asynchronously migrating chunks or handled via data
-  retention policies if desired.
+Instead, TimescaleDB keeps existing chunks at their current locations. When it
+adds new chunks for new time intervals, it partitions them across the new set of
+servers. This eventually balances out inserts without incurring the costs of
+immediate data migration. The TimescaleDB planner handles queries seamlessly as
+partitions change. Behind the scenes, it keeps track of where each chunk is
+stored.
 
+To fine-tune server rebalancing, you can asynchronously migrate chunks. Or, you
+can delete older data by using data retention policies. Since older data is
+partitioned according to the older server setup, while newer data is partitioned
+according to the newer setup, data retention eventually rebalances data across
+your servers. 
+
+To learn more, see the documentation on [chunk migration][chunk-migration] and
+[data retention][data-retention].
+
+## Data replication
+In addition to migrating chunks, you can also replicate chunks across nodes.
+This allows you to:
+*   Increase availability with multiple replicas
+*   Recover from node failure or primary server outage
+*   Horizontally scale reads by spreading query volume across multiple nodes
+
+To learn more, see the documentation on [replication][replication].
+
+[chunk-migration]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental/
 [chunk-sizing]: /how-to-guides/hypertables/best-practices/#time-intervals
-[data-retention]: FIXME
-[data-tiering]: FIXME
-[performance-benchmark]: FIXME
+[data-retention]: /how-to-guides/data-retention/
+[data-tiering]: /how-to-guides/data-tiering/
+[performance-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e/
+[replication]: /how-to-guides/replication-and-ha/
