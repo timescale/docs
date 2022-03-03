@@ -23,6 +23,13 @@ module.exports = [
                 excerpt: "Understanding hypertables and chunks"
               },
               {
+                title: "Benefits of hypertables",
+                href: "hypertables-and-chunks-benefits",
+                tags: ['hypertables', 'chunks', 'timescaledb'],
+                keywords: ['hypertables', 'chunks', 'TimescaleDB'],
+                excerpt: "How hypertables can improve your time-series workflows",
+              },
+              {
                 title: "Scaling",
                 href: "scaling",
                 tags: ['hypertables', 'chunks', 'timescaledb'],

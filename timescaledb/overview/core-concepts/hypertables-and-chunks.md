@@ -1,122 +1,64 @@
 # Hypertables
 TimescaleDB stores time-series data in hypertables. To the user, these look like
-regular single PostgreSQL tables. You can perform most of the same operations:
+regular PostgreSQL tables. You can perform most of the same operations:
 inserting, deleting, and updating data; querying data with `SELECT`s and
 `JOIN`s; adding indexes and columns; and more.
 
 Behind the scenes, hypertables speed up time-series workflows through chunking. 
 
-<highlight tip="note"> To learn how to work with hypertables, see the [how-to
-guides on
-hypertables](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/).
+<highlight tip="note"> 
+To learn how to work with hypertables, see the [how-to guides on
+hypertables](/timescaledb/latest/how-to-guides/hypertables/).
 </highlight>
 
-## Hypertables are made up of chunks
-Each hypertable is made up of many regular PostgreSQL tables, called chunks. The
-hypertable is the parent table, and the chunks are its child tables.
-
-<img class="main-content__illustration"
-src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.svg"
-alt="A hypertable represented as a table, and chunks represented as tables
-inside the hypertable."/>
+## Hypertables are made up of time chunks
+Each hypertable is made up of many regular PostgreSQL tables, called chunks.
 
 When you create a hypertable and insert data into it, TimescaleDB automatically
-creates these chunks by partitioning the data. It always partitions by the time
-column, which may be a timestamp, a date, or an integer. It assigns a time
-interval to each chunk, and inserts rows into chunks based on the value of their
-time column. For example, if the time partitioning column is one day, all rows
-with timestamps belonging to the same day are co-located within the same chunk.
-Rows belonging to different days belong in different chunks.
+creates chunks and partitions the data into them. It always partitions data by
+the time column. This column may be a timestamp, a date, or an integer. 
 
-[//]: # (Comment: Opportunity for image that shows rows from different days)
-[//]: # (being inserted into different chunks)
+To each chunk, TimescaleDB assigns a time interval. It then looks at the time
+column of each row and inserts it into the corresponding chunk. For example,
+assume each chunk contains one day's worth of data. Then all rows with
+timestamps from the same day are inserted into the same chunk. Rows belonging to
+different days are inserted into different chunks.
 
-This all happens behind the scenes. You run a regular `INSERT` command, and
-TimescaleDB decides which chunk each row belongs in, creating new chunks as
-needed. You can control chunking behavior by changing the chunk time interval,
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png"
+alt="Rows are inserted into hypertable chunks based on their timestamps." />
+
+This happens behind the scenes. As a user, you run a regular `INSERT` command,
+and TimescaleDB automatically does the partitioning.
+
+You can control time-partitioning behavior by changing the chunk time interval,
 which is the length of time spanned by each chunk. To learn more about best
-practices for chunk time intervals, see the [section on hypertable best
-practices][hypertable-best-practices].
+practices for chunk time intervals, see the documentation on [chunk
+sizing][chunk-sizing].
 
-## How chunks improve time-series performance
+In addition to time, you can also partition a hypertable by a space parameter.
+For more information, see the section on [time-and-space
+partitioning](#hypertables-can-also-be-partitioned-by-space).
+
+## Chunks improve time-series performance
 Chunking helps TimescaleDB achieve its [high time-series
 performance][performance-benchmark] and improved time-series workflows. The
 benefits include:
 
-- **Faster inserts and queries because recent data fits in memory**. Chunks can
-  be configured (based on their time intervals) so that the recent chunks (and
-  their indexes) fit in memory.  This helps ensure that inserts to recent time
-  intervals, as well as queries to recent data, typically accesses data already
-  stored in memory, rather than from disk.  But TimescaleDB doesn't *require*
-  that chunks fit solely in memory (and otherwise error); rather, the database
-  follows LRU caching rules on disk pages to maintain in-memory data and index
-  caching.
+*   Faster inserts and queries because recent data fits in memory
+*   Faster index updates because local indexes fit in memory
+*   Age-based data compression and reordering to suit data query patterns over
+    time
+*   Easy data retention and tiering
 
-- **Local indexes**. Indexes are built on each chunk independently, rather than
-  a global index across all data. This similarly ensures that *both* data and
-  indexes from the latest chunks typically reside in memory, so that updating
-  indexes when inserting data remains fast.  And TimescaleDB can still ensure
-  global uniqueness on keys that include any partitioning keys, given the
-  disjoint nature of its chunks, i.e., given a unique (device_id, timestamp)
-  primary key, first identify the corresponding chunk given constraints, then
-  use one of that chunk's index to ensure uniqueness.  But this remains simple
-  to use with TimecaleDB's hypertable abstraction: Users simply create an index
-  on the hypertable, and these operations (and configurations) are pushed down
-  to both existing and new chunks.
+For more information, see the documentation on the [benefits of
+hypertables][hypertable-benefits].
 
-- **Easy data retention**. In many time-series applications users often only
-  want to retain raw data only for a certain amount of time, usually because of
-  cost, storage, compliance, or other reasons. With TimescaleDB, users can quickly
-  delete chunks based on their time ranges (e.g., all chunks whose data has
-  timestamps more than 6 months old). Even easier, users can create a data
-  retention policy within TimescaleDB to make this automatic, which employs its
-  internal job-scheduling framework. Chunk-based deletion is fast -- it's simply
-  deleting a file from disk -- as opposed to deleting individual rows, which
-  requires more expensive "vacuum" operations to later garbage collect and
-  defragment these deleted rows.
+## Hypertables can also be partitioned by space
 
-- **Age-based compression, data reordering, and more**.  Many other data
-  management features can also take advantage of this chunk-based architecture,
-  which allows users to execute specific commands on chunks or employ
-  hypertable policies to automate these actions.  These include TimescaleDB's
-  native compression, which convert chunks from their traditional row-major
-  form into a layout that is more columnar in nature, while employing
-  type-specific compression on each column. Or data reordering, which
-  asynchronously rewrites data stored on disk from the order it was inserted
-  into an order specified by the user based on a specified index. By reordering
-  data based on (device_id, timestamp), for example, all data associated with a
-  specific device becomes written contiguously on disk, making "deep and
-  narrow" scans for a particular device's data much faster.
+Hypertables must be partitioned by time, but they may also be partitioned by
+another column. This is sometimes called "time-and-space" partitioning. 
 
-- **Instant multi-node elasticity**.  TimescaleDB supports horizontally
-  scaling across multiple nodes. Unlike traditional one-dimensional
-  database sharding, where shards must be migrated to a newly-added
-  server as part of the process of expanding the cluster, TimescaleDB
-  supports the elastic addition (or removal) of new servers without
-  requiring any immediate rebalancing. When a new server is added,
-  existing chunks can remain at their current location, while chunks
-  created for future time intervals are partitioned across the new set
-  of servers.  The TimescaleDB planner can then handle queries
-  across these reconfigurations, always knowing which nodes are
-  storing which chunks.  Server load subsequently can be rebalanced
-  either by asynchronously migrating chunks or handled via data
-  retention policies if desired.
-
-- **Data replication**.  Chunks can be individually replicated across
-  nodes transactionally, either by configuring a replication factor on a
-  distributed hypertable (which occurs as part of a 2PC transaction at
-  insert time) or by copying an older chunk from one node to another
-  to increase its replication factor, e.g., after a node failure (coming soon).
-
-- **Data migration**.  Chunks can be individually migrated transactionally.
-  This migration can be across tablespaces (disks) residing on a single
-  server, often as a form of data tiering; e.g., moving older data from
-  faster, more expensive disks to slower, cheaper storage. This migration
-  can also occur across nodes in a distributed hypertable, e.g., in order to
-  asynchronous rebalance a cluster after adding a server or to prepare for
-  retiring a server (coming soon).
-
-## Partitioning by other columns
 A hypertable can be partitioned by additional columns as well -- such as a device
 identifier, server or container id, user or customer id, location, stock ticker
 symbol, and so forth.  Such partitioning on this additional column typically
@@ -132,9 +74,7 @@ In such cases, for the same hour, information about some portion of the
 devices are stored on each node.  This allows multi-node TimescaleDB
 to parallelize inserts and queries for data during that time interval.
 
-[//]: # (Comment: We should include an image that shows a chunk picture of a)
-[//]: # (partition pointing at multiple chunks, each chunk have some range of)
-[//]: # (data, and an index --binary tree-like data structure-- associated with it)
+## Chunk architecture
 
 Each chunk is implemented using a standard database table.  (In PostgreSQL
 internals, the chunk is actually a "child table" of the "parent" hypertable.)
@@ -156,84 +96,8 @@ the past week, and excludes any chunks before that time.  This happens
 transparently to the user, however, who simply queries the hypertable with
 a standard SQL statement.
 
-## Benefits of Hypertables and Chunks [](hypertable-benefits)
-
-This chunk-based architecture benefits many aspects of time-series data
-management. These includes:
-
-- **In-memory data**. Chunks can be configured (based on their time intervals)
-  so that the recent chunks (and their indexes) fit in memory.  This helps ensure that inserts to
-  recent time intervals, as well as queries to recent data, typically accesses
-  data already stored in memory, rather than from disk.  But TimescaleDB
-  doesn't *require* that chunks fit solely in memory (and otherwise error);
-  rather, the database follows LRU caching rules on disk pages to maintain
-  in-memory data and index caching.
-
-- **Local indexes**. Indexes are built on each chunk independently, rather than
-  a global index across all data. This similarly ensures that *both* data and
-  indexes from the latest chunks typically reside in memory, so that updating
-  indexes when inserting data remains fast.  And TimescaleDB can still ensure
-  global uniqueness on keys that include any partitioning keys, given the
-  disjoint nature of its chunks, i.e., given a unique (device_id, timestamp)
-  primary key, first identify the corresponding chunk given constraints, then
-  use one of that chunk's index to ensure uniqueness.  But this remains simple
-  to use with TimecaleDB's hypertable abstraction: Users simply create an index
-  on the hypertable, and these operations (and configurations) are pushed down
-  to both existing and new chunks.
-
-- **Easy data retention**. In many time-series applications users often only
-  want to retain raw data only for a certain amount of time, usually because of
-  cost, storage, compliance, or other reasons. With TimescaleDB, users can quickly
-  delete chunks based on their time ranges (e.g., all chunks whose data has
-  timestamps more than 6 months old). Even easier, users can create a data
-  retention policy within TimescaleDB to make this automatic, which employs its
-  internal job-scheduling framework. Chunk-based deletion is fast -- it's simply
-  deleting a file from disk -- as opposed to deleting individual rows, which
-  requires more expensive "vacuum" operations to later garbage collect and
-  defragment these deleted rows.
-
-- **Age-based compression, data reordering, and more**.  Many other data
-  management features can also take advantage of this chunk-based architecture,
-  which allows users to execute specific commands on chunks or employ
-  hypertable policies to automate these actions.  These include TimescaleDB's
-  native compression, which convert chunks from their traditional row-major
-  form into a layout that is more columnar in nature, while employing
-  type-specific compression on each column. Or data reordering, which
-  asynchronously rewrites data stored on disk from the order it was inserted
-  into an order specified by the user based on a specified index. By reordering
-  data based on (device_id, timestamp), for example, all data associated with a
-  specific device becomes written contiguously on disk, making "deep and
-  narrow" scans for a particular device's data much faster.
-
-- **Instant multi-node elasticity**.  TimescaleDB supports horizontally
-  scaling across multiple nodes. Unlike traditional one-dimensional
-  database sharding, where shards must be migrated to a newly-added
-  server as part of the process of expanding the cluster, TimescaleDB
-  supports the elastic addition (or removal) of new servers without
-  requiring any immediate rebalancing. When a new server is added,
-  existing chunks can remain at their current location, while chunks
-  created for future time intervals are partitioned across the new set
-  of servers.  The TimescaleDB planner can then handle queries
-  across these reconfigurations, always knowing which nodes are
-  storing which chunks.  Server load subsequently can be rebalanced
-  either by asynchronously migrating chunks or handled via data
-  retention policies if desired.
-
-- **Data replication**.  Chunks can be individually replicated across
-  nodes transactionally, either by configuring a replication factor on a
-  distributed hypertable (which occurs as part of a 2PC transaction at
-  insert time) or by copying an older chunk from one node to another
-  to increase its replication factor, e.g., after a node failure (coming soon).
-
-- **Data migration**.  Chunks can be individually migrated transactionally.
-  This migration can be across tablespaces (disks) residing on a single
-  server, often as a form of data tiering; e.g., moving older data from
-  faster, more expensive disks to slower, cheaper storage. This migration
-  can also occur across nodes in a distributed hypertable, e.g., in order to
-  asynchronous rebalance a cluster after adding a server or to prepare for
-  retiring a server (coming soon).
-
-
-  [create-hypertable]: /how-to-guides/hypertables/create/
-  [distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
-  [hypertable-best-practices]: /how-to-guides/hypertables/best-practices/#time-intervals
+[chunk-sizing]: /how-to-guides/hypertables/best-practices/#time-intervals
+[create-hypertable]: /how-to-guides/hypertables/create/
+[distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
+[hypertable-benefits]: /overview/core-concepts/hypertables-and-chunks-benefits/
+[performance-benchmark]: FIXME
