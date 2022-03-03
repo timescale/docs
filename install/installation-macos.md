@@ -46,8 +46,8 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
 
 </procedure>
 
-## Install self-hosted TimescaleDB using Macports
-You can use Macports to install TimescaleDB on macOS-based systems.
+## Install self-hosted TimescaleDB using MacPorts
+You can use MacPorts to install TimescaleDB on macOS-based systems.
 
 <procedure>
 
