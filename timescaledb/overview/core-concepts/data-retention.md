@@ -28,7 +28,7 @@ slow if done row-by-row using the standard `DELETE` command. Instead,
 TimescaleDB provides a function [`drop_chunks`][drop-chunks] that quickly drop data
 at the granularity of chunks without incurring the same overhead.
 
-For example:
+For example, to drop data older than `24 hours` from `conditions`:
 
 ```sql
 SELECT drop_chunks('conditions', INTERVAL '24 hours');

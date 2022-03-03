@@ -77,7 +77,7 @@ check out our [installing psql][install-psql] section.
     the service URL. When you are prompted for the password, enter the password
     you just created:
     ```bash
-    psql -x "postgres://tsdbadmin@t9aggksc24.gspnhi29bv.tsdb.cloud.timescale.com:33251/tsdb?sslmode=require"
+    psql -x "postgres://tsdbadmin@<HOST>:<PORT>/tsdb?sslmode=require"
     Password for user tsdbadmin:
     ```
     If your connection is successful, you'll see a message like this, followed
