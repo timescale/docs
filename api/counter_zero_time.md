@@ -1,4 +1,4 @@
-# counter_zero_time() <tag type="toolkit" content="toolkit" />
+# counter_zero_time() <tag type="toolkit" content="Toolkit" />
 The time at which the counter value is predicted to have been zero based on the
 least squares fit line computed from the points in the CounterSummary.
 

@@ -14,20 +14,20 @@ any introduced inconsistency.
 Note that the command is _not_ executed on the access node itself and
 it is not possible to chain multiple commands together in one call.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `query` | TEXT | The command to execute on data nodes. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `node_list` | ARRAY | An array of data nodes where the command should be executed. Defaults to all data nodes if not specified. |
 | `transactional` | BOOLEAN | Allows to specify if the execution of the statement should be transactional or not. Defaults to TRUE. |
 
-### Sample Usage
+### Sample usage
 
 Create the role `testrole` across all data nodes in a distributed database:
 
