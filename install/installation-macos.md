@@ -164,5 +164,6 @@ if you want to have a chat.
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [homebrew]: https://docs.brew.sh/Installation
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [macports]: https://guide.macports.org/#installing.macports
 [timescaledb-tune]: https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool
