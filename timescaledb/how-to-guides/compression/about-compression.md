@@ -72,12 +72,8 @@ SELECT * FROM timescaledb_information.jobs
 For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
 
 ## Remove compression policy
-To remove a compression policy, run:
-```sql
-SELECT remove_compression_policy('<TABLE>');
-```
-
-For example, to remove the compression policy from a hypertable named `cpu`:
+To remove a compression policy, use `remove_compression_policy`. For example, given a
+hypertable named `cpu`, run:
 ```sql
 SELECT remove_compression_policy('cpu');
 ```
