@@ -58,6 +58,33 @@ compressed.
 
 </procedure>
 
+For more information, see the API reference for [`ALTER TABLE
+(compression)`][alter-table-compression] and
+[`add_compression_policy`][add_compression_policy].
+
+## View current compression policy
+To view the compression policy that you've set, run:
+```sql
+SELECT * FROM timescaledb_information.jobs
+  WHERE proc_name='policy_compression';
+```
+
+For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
+
+## Remove compression policy
+To remove a compression policy, run:
+```sql
+SELECT remove_compression_policy('<TABLE>');
+```
+
+For example, to remove the compression policy from a hypertable named `cpu`:
+```sql
+SELECT remove_compression_policy('cpu');
+```
+
+For more information, see the API reference for
+[`remove_compression_policy`][remove_compression_policy].
+
 ## Compression policy intervals
 Data is usually compressed after an interval of time has elapsed, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
@@ -213,5 +240,8 @@ column that specifies the range of values in the compressed column, without
 first performing any decompression, in order to determine whether the row could
 possibly match a time predicate specified by the query.
 
-
+[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
+[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [decompress-chunks]: /how-to-guides/compression/decompress-chunks
+[remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
+[timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/
