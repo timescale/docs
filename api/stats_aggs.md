@@ -3,7 +3,7 @@ This section includes functions related to statistical aggregates.
 
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
-[Timescale Toolkit][install-toolkit] PostgreSQL extension, all of these aggregates 
+[Timescale Toolkit][install-toolkit] PostgreSQL extension. All of these aggregates 
 are in the [Timescale Toolkit][install-toolkit]. They provide a superset of functionality
 available with [PostgreSQL statistical aggregates][pg-stats-aggs].
 

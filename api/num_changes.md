@@ -1,4 +1,4 @@
-# num_changes() <tag type="toolkit" content="toolkit" />
+# num_changes() <tag type="toolkit" content="Toolkit" />
 The number of times the value changed within the period over which the
 CounterSummary is calculated. This is determined by evaluating consecutive
 points. Any change in the value is counted, including counter resets where the
