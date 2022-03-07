@@ -93,13 +93,11 @@ example, a specific chunk can only contain data with timestamps within
 The TimescaleDB planner uses knowledge of chunks' constraints to optimize
 database operations. When a row is inserted, it routes the insertion into the
 right chunk for the row's time value. When a query is made, it pushes the query
-down to only the chunks that matter. 
-
-For example, if a query has a `WHERE` clause specifying `time > now() - INTERVAL
+down to only the chunks that matter. For example, if a query has a `WHERE` clause specifying `time > now() - INTERVAL
 '1 week'`, the database only executes the query against chunks covering the past
 week. It excludes any chunks from before that time. 
 
-All of this happens in the background, transparently to the user.
+All of this happens in the background. From your perspective, the hypertable should look just like a regular PostgreSQL table.
 
 ### Space-partitioning architecture
 Space partitions are also enforced with chunk constraints. Partitions are always
