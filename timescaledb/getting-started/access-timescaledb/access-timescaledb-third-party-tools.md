@@ -41,7 +41,10 @@ Connect to a TimescaleDB instance on Timescale Cloud by using DBeaver.
     Should we use WebMs or MP4s embedded as videos rather than GIFs embedded as 
     images? We might get some file-size savings, and viewers can use the video 
     control buttons to pause and rewind, which is very useful when trying to follow 
-    video instructions.
+    video instructions. 
+    
+    I wasn't sure where we were in the process of embedding videos.
+    If we want to go with a vid no problem!
     -->
 
 1.  Refer back to your Timescale Cloud service details to find the database

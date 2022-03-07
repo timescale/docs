@@ -4,10 +4,10 @@ three scenarios:
 
 - [Accessing a Timescale Cloud instance using your local terminal](#connect-to-a-timescale-cloud-instance-using-your-local-terminal)
 - [Accessing a TimescaleDB Docker instance using your local terminal](#connect-to-a-timescaledb-docker-instance-using-your-local-terminal)
-- [Accessing a TimescaleDB Docker instance through the container's terminal](#connect-to-a-timescaledb-docker-instance-using-the-container)
+- [Accessing a TimescaleDB Docker instance through the container's terminal](#connect-to-a-timescaledb-docker-instance-using-the-container) (does not require `psql` tools to be installed locally)
 
 You can jump directly to the scenario that best suits your needs. If you're
-connecting from a local terminal, first verify that [`psql` is
+connecting from a local terminal (first two scenarios), first verify that [`psql` is
 installed](#verify-that-psql-is-installed).
 
 <highlight type="note">
@@ -18,7 +18,7 @@ access your database with third-party tools. To learn more, see the
 
 ## Verify that psql is installed 
 If you're connecting from your local terminal, first verify that `psql` is
-installed. Because you installed TimescaleDB, you likely already have `psql`.
+installed. If you have PostgreSQL installed locally, you likely already have `psql`.
 
 To double-check, run the following command from the command prompt:
 
@@ -80,7 +80,7 @@ terminal.
 ### Connecting to a TimescaleDB Docker instance using your local terminal
 1.  Double-check the port and host information that you used to create your
     Docker container. If you followed the [Docker installation steps in this
-    tutorial][launch-docker], the port is `5432` and the host is `127.0.0.1`.
+    tutorial][launch-docker], the host port is `5432` and the host is `127.0.0.1`.
     Otherwise, the port and host are the values you provided for the `-p` flag:
     ```
     -p <HOST>:<HOST_PORT>:<CONTAINER_PORT>
@@ -91,12 +91,12 @@ terminal.
     psql -p 5432 -h localhost -U postgres
     ```
     Otherwise, replace the flag values with your own vales. `-p` specifies the
-    port, `-h` specifies the host, and `-U` specifies the user. By default, the
+    port (input the host port value for the container), `-h` specifies the host, and `-U` specifies the user. By default, the
     user is `postgres`. 
     <!-- COMMENT: 
     Is the port the host port or the container port? For example, if you created 
     the container with `-p 127.0.0.1:5431:5432`, would you use `5431` or `5432` 
-    here? 
+    here? you would use the host port 5431 :)
     -->
 1.  Enter your password when prompted. Use the password you set within your
     initial `docker run` command.
@@ -117,7 +117,7 @@ already has `psql` tools.
 1.  Double-check the information that you used to create your Docker container.
     If you followed the [Docker installation steps in this
     tutorial][launch-docker], the container name is `timescaledb`. Otherwise,
-    the container name is the value you provided for the `-name` flag:
+    the container name is the value you provided for the `--name` flag:
     ```
     --name <CONTAINER_NAME>
     ```
