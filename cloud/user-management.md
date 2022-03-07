@@ -9,7 +9,7 @@ When you have created your project, you can add other users so that they can see
 your project in their Timescale Cloud console. You can add, manage, and delete
 users from the `Members` section of the Cloud console.
 
-You are the assigned an `Administrator` role for projects that you create,
+You are assigned an `Administrator` role for projects that you create,
 and have the ability to add and delete other users, as well as change the
 project name. If you have been added to a project, you are assigned a `Member`
 role.
