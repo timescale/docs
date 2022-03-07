@@ -4,11 +4,11 @@ You can install a TimescaleDB instance on any Kubernetes deployment. Use the `ti
 ## High availability TimescaleDB 
 The `timescaledb-single` Helm chart performs these actions:
 
-- Creates three default Pods using Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
-- Creates each Pod that has a container using the [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
-- Installs TimescaleDB 2.1 and PG 13.
-- Creates containers that run a TimescaleDB instance and [Patroni](https://patroni.readthedocs.io/en/latest/) agent.
-- Configures each TimescaleDB instance for replication with one master and two replicas.
+* Creates three default Pods using Kubernetes [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
+* Creates each Pod that has a container using the [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
+* Installs TimescaleDB 2.1 and PG 13.
+* Creates containers that run a TimescaleDB instance and [Patroni](https://patroni.readthedocs.io/en/latest/) agent.
+* Configures each TimescaleDB instance for replication with one master and two replicas.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-single.png" alt="Illustration of Highly Available TimescaleDB without backups to S3" width="640"/>
 
