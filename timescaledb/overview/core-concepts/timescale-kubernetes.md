@@ -34,4 +34,4 @@ The `timescaledb-multinode` Helm chart deploys a multinode TimescaleDB cluster t
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescaledb-multi.png" alt="Multi-node TimescaleDB on Kubernetes" width="640"/>
 
-When you deploy on AWS Elastic Kubernetes Service, an AWS Elastic Load Balancer (ELB) is configured to handle routing incoming traffic to the access node.
+When you deploy on AWS Elastic Kubernetes service, an AWS Elastic load balancer (ELB) is configured to handle routing incoming traffic to the access node.
