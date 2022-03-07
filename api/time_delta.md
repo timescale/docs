@@ -1,4 +1,4 @@
-# time_delta() <tag type="toolkit" content="toolkit" />
+# time_delta() <tag type="toolkit" content="Toolkit" />
 The observed change in time. Calculated by subtracting the first observed time
 from the last observed time over the period aggregated. Measured in seconds.
 

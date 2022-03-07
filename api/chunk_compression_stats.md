@@ -9,7 +9,7 @@ the chunk. An insert into a compressed chunk does not update the cached
 sizes. For more information about how to compute exact sizes, rather than 
 cached sizes, see the `chunks_detailed_size` section.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -31,7 +31,7 @@ cached sizes, see the `chunks_detailed_size` section.
 |`after_compression_total_bytes` | BIGINT | Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed) |
 |`node_name` | TEXT | nodes on which the chunk is located, applicable only to distributed hypertables |
 
-### Sample Usage 
+### Sample usage 
 ```sql
 SELECT * FROM chunk_compression_stats('conditions')
   ORDER BY chunk_name LIMIT 2;

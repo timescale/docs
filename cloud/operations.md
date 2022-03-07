@@ -36,10 +36,21 @@ complete the transition before you start forking.
 
 </procedure>
 
-### Reset password
-Use this section to reset the password you use to log in to your Timescale Cloud
-account. You must have access to the current password to do this. If you have
-forgotten your password, you can reset it from the login screen instead.
+### Reset service password
+You can reset your service password from the `Operations` dashboard. This is the
+password you use to connect to your database, not the password to your Timescale
+Cloud account. To reset your Timescale Cloud password, navigate to the `Account`
+page. 
+
+When you reset your service password, you are prompted for your Timescale
+Cloud password. When you have authenticated, you can create a new service password,
+ask Timescale Cloud to auto-generate a password, or switch your authentication
+type between SCRAM and MD5.
+
+SCRAM (Salted Challenge Response Authentication Mechanism) and MD5 (Message Digest
+Algorithm 5) are cryptographic authentication mechanisms. Timescale Cloud uses SCRAM
+by default. It is more secure and strongly recommended. The MD5 option is provided
+for compatibility with older clients.
 
 ### Pause service
 You can pause a service if you want to stop it running temporarily. This stops
@@ -47,6 +58,6 @@ your service from costing you, but the service is still available and ready to
 be restarted at any time.
 
 ### Terminate a service
-You can terminate a service to delete it completely, and remove the service and
-it's underlying data from the server. You cannot recover a service that has been
-terminated.
+You can terminate a service to delete it completely. This removes the service
+and its underlying data from the server. You cannot recover a terminated
+service.

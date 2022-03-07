@@ -14,10 +14,10 @@ The `start_offset` should be greater than `end_offset`.
 
 You must specify the `start_offset` and `end_offset` parameters differently,
 depending on the type of the time column of the hypertable:
-* 	For hypertables with `TIMESTAMP`, `TIMESTAMPTZ`, and `DATE` time columns,
-		set the offset as an `INTERVAL` type
-* 	For hypertables with integer-based timestamps, set the offset as
-		an `INTEGER` type.
+*   For hypertables with `TIMESTAMP`, `TIMESTAMPTZ`, and `DATE` time columns,
+    set the offset as an `INTERVAL` type
+*   For hypertables with integer-based timestamps, set the offset as an
+    `INTEGER` type.
 
 ### Optional arguments
 

@@ -1,4 +1,4 @@
-# determination_coeff() <tag type="toolkit" content="toolkit" />
+# determination_coeff() <tag type="toolkit" content="Toolkit" />
 
 ```sql
 determination_coeff(
