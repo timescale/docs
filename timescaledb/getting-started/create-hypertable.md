@@ -1,14 +1,13 @@
-# 3.Create a hypertable
-When you've launched your first TimescaleDB instance and accessed your database,
-you can create your first hypertable. Hypertables are the heart of TimescaleDB
-and are what allows TimescaleDB to work so effectively with time-series data.
+# Create a hypertable
+Now that you've launched your first TimescaleDB instance and accessed your database,
+you can create your first hypertable. Hypertables are the heart of TimescaleDB functionality,
+and allows TimescaleDB to work so efficiently with time-series data.
 
 ## Chunks and hypertables
-Chunks and hypertables make storing and querying times-series data blazingly
-fast at peta-byte scale. TimescaleDB automatically partitions time-series data
-into chunks, or sub-tables, based on time and space. For example, chunks can be
-based on hash key, device ID, location or some other distinct key. You can
-configure chunk size so that recent chunks fit in memory for faster queries.
+Chunks and hypertables make storing and querying times-series data fast at peta-byte 
+scale. TimescaleDB automatically partitions time-series data into chunks, or sub-tables, 
+based on time and space. You can configure chunk size so that recent chunks fit in memory 
+for faster queries. 
 
 A hypertable is an abstraction layer over chunks that hold time-series data.
 Hypertables allow you to query and access data from all the chunks as if they
@@ -23,6 +22,8 @@ queries, like those used in time-series analysis.
 
 You can interact with chunks individually if you need to, but chunks are created
 automatically based on the `chunk_time` and `chunk_size` parameters you specify.
+
+For more detailed information, check out the Overview page on 'Hypertables and chunks'
 
 **Create your first hypertable**
 
