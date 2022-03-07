@@ -64,7 +64,7 @@ update requirements that add additional steps.
     This prevents any commands in `.psqlrc` from loading a previous TimescaleDB
     version on session startup. 
     ```bash
-    psql -x "postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DB_NAME>?sslmode=require"
+    psql -X "postgres://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<DB_NAME>?sslmode=require"
     ```
     Do not run any other commands before continuing to the next step.
 1.  At the `psql` prompt, upgrade TimescaleDB to the latest installed version:

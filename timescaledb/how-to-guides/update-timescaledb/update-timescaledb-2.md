@@ -96,21 +96,21 @@ Execute the following SQL to save current settings for Continuous Aggregates and
 
 **Policy Stats**
 ```SQL
-\COPY timescaledb_information.policy_stats TO ‘policy_stats.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.policy_stats) TO policy_stats.csv csv header
 ```
 
 **Continuous Aggregate Stats**
 ```SQL
-\COPY timescaledb_information.continuous_aggregate_stats TO ‘continuous_aggregate_stats.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.continuous_aggregate_stats) TO continuous_aggregate_stats.csv csv header
 ```
 
 **Drop Chunk Policies**
 ```SQL
-\COPY timescaledb_information.drop_chunks_policies TO ‘drop_chunk_policies.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.drop_chunks_policies) TO drop_chunk_policies.csv csv header
 ```
 **Reorder Policy Stats**
 ```SQL
-\COPY timescaledb_information.reorder_policies TO ‘reorder_policies.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.reorder_policies) TO reorder_policies.csv csv header
 ```
 
 #### Step 2: Install and update TimescaleDB extension
