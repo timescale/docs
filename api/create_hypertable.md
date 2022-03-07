@@ -49,13 +49,6 @@ still work on the resulting hypertable.
  If you use `SELECT * FROM create_hypertable(...)` you get the return value formatted as a table with column headings.
 </highlight>
 
-<highlight type="note"> 
-If your table has a `PRIMARY KEY` or `UNIQUE` constraint, your partitioning
-columns must be included in that key or constraint. For more information, see
-[the hypertable how-to
-guides](/timescaledb/latest/how-to-guides/hypertables/create/#hypertable-partitioning-with-unique-constraints).
-</highlight>
-
 <highlight type="warning">
 The use of the `migrate_data` argument to convert a non-empty table can
 lock the table for a significant amount of time, depending on how much data is
@@ -240,4 +233,16 @@ important to create space partitioning, see
 The rare cases in which space partitions may be useful for non-distributed
 hypertables are described in the [add_dimension](/hypertable/add_dimension/) section.
 
+## Troubleshooting
+If you create a hypertable on a table that already has a unique index or primary
+key, you might get this error:
+```
+ ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
+partitioning) 
+```
+
+To learn more and fix the problem, see the section on [hypertables and unique
+indexes][unique-indexes].
+
 [create]: timescaledb/:currentVersion:/how-to-guides/hypertables/create/#hypertable-partitioning-with-unique-constraints
+[unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

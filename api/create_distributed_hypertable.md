@@ -95,4 +95,16 @@ be removed in a future release. To avoid such inconsistency, we do not yet
 recommend using `replication_factor` > 1, and instead rely on physical
 replication of each data node if such fault-tolerance is required.
 
+## Troubleshooting
+If you create a distributed hypertable on a table that already has a unique
+index or primary key, you might get this error:
+```
+ ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
+partitioning) 
+```
+
+To learn more and fix the problem, see the section on [hypertables and unique
+indexes][unique-indexes].
+
 [create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create
+[unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

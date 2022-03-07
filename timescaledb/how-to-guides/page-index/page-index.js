@@ -88,6 +88,13 @@ module.exports = [
             excerpt: "Learn about distributed hypertables",
           },
           {
+            title: "Hypertables and unique indexes",
+            href: "hypertables-and-unique-indexes",
+            tags: ["hypertables", "create", "timescaledb", "index"],
+            keywords: ["hypertables", "TimescaleDB", "index"],
+            excerpt: "Learn how unique indexes work with hypertables.",
+          },
+          {
             title: "Best practices",
             href: "best-practices",
             tags: [
