@@ -41,8 +41,9 @@ For more information, see the section on [time-and-space
 partitioning](#hypertables-can-also-be-partitioned-by-space).
 
 ### Chunks improve time-series performance
-Chunking helps TimescaleDB achieve its [high time series
-performance][performance-benchmark] and improved time series workflows. The
+Chunking helps TimescaleDB achieve its 
+[high time series performance][performance-benchmark] 
+and improved time series workflows. The
 benefits include:
 
 *   Faster inserts and queries because recent data fits in memory
@@ -58,14 +59,14 @@ hypertables][hypertable-benefits].
 
 ## Hypertables can also be partitioned by space
 All TimescaleDB hypertables are partitioned by time. They can also be
-partitioned by some other column in addition to time. This is sometimes called
+partitioned by another column in addition to time. This is sometimes called
 "time-and-space partitioning."
 
 For example, say that you are collecting sensor data from multiple devices and
 storing it in a hypertable. You can partition the hypertable by both time and
 device ID. Instead of creating one chunk for each time interval, TimescaleDB
 creates multiple chunks for each time interval. It decides which chunk each row
-belongs in by looking at its time value *and* its device ID. 
+belongs in by looking at its time value and its device ID. 
 
 <!-- TODO: add the time-and-space partitioning diagram -->
 
@@ -80,13 +81,12 @@ For more information, see the documentation on [distributed
 hypertables][distributed-hypertables].
 
 ## Chunk architecture
-
 Each chunk is a standard PostgreSQL table. The hypertable is an abstraction on
 top of the chunks, making the whole entity look and behave like a single table.
-In PostgreSQL vocabulary, the hypertable is a "parent table" and the chunks are
+In PostgreSQL terminology, the hypertable is a "parent table" and the chunks are
 its "child tables."
 
-To enforce each chunk's time boundaries, each chunk includes constraints. For
+To enforce each chunk's time boundaries, each chunk includes time constraints. For
 example, a specific chunk can only contain data with timestamps within
 `['2020-07-01 00:00:00+00', '2020-07-02 00:00:00+00']`.
 
@@ -102,12 +102,11 @@ week. It excludes any chunks from before that time.
 All of this happens in the background, transparently to the user.
 
 ### Space-partitioning architecture
-
 Space partitions are also enforced with chunk constraints. Partitions are always
 non-overlapping.
 
 To determine how the values of the space-parititioning column map to partitions,
-two methods can be used:
+choose from one of these two methods:
 *   Hashing, which maps every value into one of several defined hash buckets.
     This is the most common method.
 *   Interval-based partitioning. This works the same way as time-based

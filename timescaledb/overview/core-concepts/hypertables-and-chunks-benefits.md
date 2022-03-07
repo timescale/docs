@@ -1,6 +1,7 @@
 # Benefits of hypertables
-Hypertables help TimescaleDB achieve [high time series performance
-][performance-benchmark] and improved time series workflows.
+Hypertables help TimescaleDB achieve 
+[high time series performance][performance-benchmark] 
+and improved time series workflows.
 
 ## Faster inserts and queries
 In time series workflows, many inserts and queries are performed on recent data.
@@ -84,7 +85,7 @@ operations to garbage collect and defragment the tables.
 You can also automate data deletion by setting data retention policies. To learn
 more, see the documentation on [data retention][data-retention].
 
-If you don't want to delete your older data outright, you might considering data
+If you don't want to delete your older data outright, you might consider data
 tiering. With data tiering, you migrate your older data to slower, cheaper
 storage. Just like with deleting data, you can move an entire chunk at once from
 disk to disk.
@@ -103,13 +104,13 @@ partitions change. Behind the scenes, it keeps track of where each chunk is
 stored.
 
 To fine-tune server rebalancing, you can asynchronously migrate chunks. Or, you
-can delete older data by using data retention policies. Since older data is
+can delete older data by using data retention policies. Older data is
 partitioned according to the older server setup, while newer data is partitioned
-according to the newer setup, data retention eventually rebalances data across
+according to the newer setup. So data retention eventually rebalances data across
 your servers. 
 
-To learn more, see the documentation on [chunk migration][chunk-migration] and
-[data retention][data-retention].
+For more information, see the [chunk migration][chunk-migration] and
+[data retention][data-retention] sections.
 
 ## Data replication
 In addition to migrating chunks, you can also replicate chunks across nodes.
@@ -118,7 +119,7 @@ This allows you to:
 *   Recover from node failure or primary server outage
 *   Horizontally scale reads by spreading query volume across multiple nodes
 
-To learn more, see the documentation on [replication][replication].
+For more information, see the [replication][replication] section.
 
 [chunk-migration]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental/
 [chunk-sizing]: /how-to-guides/hypertables/best-practices/#time-intervals
