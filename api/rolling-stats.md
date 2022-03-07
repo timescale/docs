@@ -11,8 +11,8 @@ rolling(
 ) RETURNS StatsSummary2D
 ```
 
-This combines multiple outputs from the [`stats_agg()` function][stats_agg] function, 
-it works with both one and two dimensional statistical aggregates. It is optimized
+This combines multiple outputs from the [`stats_agg()` function][stats_agg] function.
+It works with both one and two dimensional statistical aggregates. It is optimized
 for use in a [window function][postgres-window-functions] context for computing tumbling window
 statistical aggregates. 
 

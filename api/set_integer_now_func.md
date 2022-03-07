@@ -7,20 +7,20 @@ In particular, many policies only apply to chunks of a certain age and a
 function that returns the current time is necessary to determine the age of a
 chunk.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `main_table` | REGCLASS | Hypertable to set the integer now function for .|
 | `integer_now_func` | REGPROC | A function that returns the current time value in the same units as the time column. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `replace_if_exists` | BOOLEAN | Whether to override the function if one is already set. Defaults to false.|
 
-### Sample Usage 
+### Sample usage 
 
 To set the integer now function for a hypertable with a time column in unix
 time (number of seconds since the unix epoch, UTC).

@@ -75,12 +75,12 @@ Before you begin, make sure you have
     manually from [our GitHub repository][github-parallel-copy] if you need to.
     In this example, we are inserting the data using four workers:
     ```sql
-    timescaledb-parallel-copy
-    --connection '<service_url>’
-    --table conditions
-    --file ~/Downloads/example.csv
-    --workers 4
-    --copy-options "CSV"
+    timescaledb-parallel-copy \
+    --connection '<service_url>’ \
+    --table conditions \
+    --file ~/Downloads/example.csv \
+    --workers 4 \
+    --copy-options "CSV" \
     --skip-header
     ```
     We recommend that you set the number of workers lower than the number of
