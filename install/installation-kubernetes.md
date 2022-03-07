@@ -8,10 +8,10 @@ You can install TimescaleDB on Kubernetes deployed on:
 * [MicroK8s][microk8s-install]
 * [minikube][minikube-install]
 
-Before you begin installing TimescaleDB on a Kubernetes deployment, make sure you have:
-* Installed [kubectl][kubectl-install]
-* Installed [Helm][helm-install]
-* Installed [Kubernetes Cluster][kubernetes-install]
+Before you begin installing TimescaleDB on a Kubernetes deployment, make sure you have installed:
+* [kubectl][kubectl-install]
+* [Helm][helm-install]
+* [Kubernetes Cluster][kubernetes-install]
 * (**Optional**) Created your own `.yaml` file if you want to use parameters other than those specified in the default `values.yaml`. You can name this file `myvalues.yaml` file. For details about the parameters you can set, see  the [Administrator Guide][admin-guide].
 
 
