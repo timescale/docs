@@ -54,7 +54,7 @@ module.exports = [
             href: 'recomm-guide',
             tags: ['promscale', 'install', 'analytics'],
             keywords: ['Promscale', 'analytics'],
-            excerpt: 'Resource recommendation guide',
+            excerpt: 'Recommended resources for Promscale',
           },
           {
             title: 'Migrate existing data',
