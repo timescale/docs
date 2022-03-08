@@ -12,14 +12,14 @@ the table contains foreign key constraints (see below).
 After creation, all actions, such as `ALTER TABLE`, `SELECT`, etc.,
 still work on the resulting hypertable.
 
-#### Required Arguments
+#### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `relation` | REGCLASS | Identifier of table to convert to hypertable. |
 | `time_column_name` | REGCLASS | Name of the column containing time values as well as the primary column to partition by. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -125,7 +125,7 @@ the dimension's key space, which is then divided across the partitions.
  table when it is executed.
 </highlight>
 
-### Sample Usage
+### Sample usage
 
 Convert table `conditions` to hypertable with just time partitioning on column `time`:
 ```sql

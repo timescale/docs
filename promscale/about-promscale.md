@@ -5,15 +5,15 @@ powered by SQL.
 It's built on the robust and high-performance foundation of PostgreSQL and
 TimescaleDB. It has native support for Prometheus metrics and OpenTelemetry
 traces as well as many other formats like StatsD, Jaeger and Zipkin through the
-OpenTelemetry Collector and is [100% PromQL compliant][promlabs-test]. It's full
+OpenTelemetry Collector and is [100% PromQL compliant][promlabs-test]. Its full
 SQL capabilities enable developers to correlate metrics, traces and also
 business data to derive new valuable insights not possible when data is siloed
 in different systems. It easily integrates with Grafana and Jaeger for
 visualizing metrics and traces.
 
-Built on top of PostgreSQL and TimescaleDB it inherits rock-solid reliability,
-native compression up to 90%, continuous aggregates and the operational maturity
-of a system that is run on millions of instances worldwide.
+Built on top of PostgreSQL and TimescaleDB, it inherits rock-solid reliability,
+native compression up to 90%, continuous aggregates, and the operational
+maturity of a system that is run on millions of instances worldwide.
 
 For the Promscale source code, see our [GitHub repository][gh-promscale].
 

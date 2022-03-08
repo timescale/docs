@@ -1,4 +1,4 @@
-# slope() <tag type="toolkit" content="toolkit" />
+# slope() <tag type="toolkit" content="Toolkit" />
 The slope of the least squares fit line computed from the adjusted counter
 values and times input in the CounterSummary. Because the times are input as
 seconds, the slope provides a per-second rate of change estimate based on the

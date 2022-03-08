@@ -2,7 +2,7 @@
 
 Get metadata information about hypertables.
 
-### Available Columns 
+### Available columns 
 
 |Name|Type|Description|
 |---|---|---|
@@ -17,7 +17,7 @@ Get metadata information about hypertables.
 | `data_nodes` | TEXT | Nodes on which hypertable is distributed|
 | `tablespaces` | TEXT | Tablespaces attached to the hypertable |
 
-### Sample Usage 
+### Sample usage 
 
 Get information about a hypertable.
 
