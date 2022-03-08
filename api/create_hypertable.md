@@ -232,5 +232,3 @@ important to create space partitioning, see
 [create_distributed_hypertable](/distributed-hypertables/create_distributed_hypertable/).
 The rare cases in which space partitions may be useful for non-distributed
 hypertables are described in the [add_dimension](/hypertable/add_dimension/) section.
-
-[create]: timescaledb/:currentVersion:/how-to-guides/hypertables/create/#hypertable-partitioning-with-unique-constraints
