@@ -1,5 +1,5 @@
 # Resource recommendations
-Here are the compute and disk requirements that is recommended for Promscale based on the ingest rate and retention. 
+This section describes the compute and disk requirements that are recommended for Promscale, based on the ingest rate and retention. 
 
 ## Metrics
 Resource recommendation for ingestion through Prometheus remote-write. 
