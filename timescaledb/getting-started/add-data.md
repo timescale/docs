@@ -60,5 +60,5 @@ Now that you’re up and running with data inside TimescaleDB let’s [start que
 
 
 [twelve-data]: https://twelvedata.com/
-[script-twelve-data]:
+[script-twelve-data]: /
 [query-data]: /getting-started/query-data/
