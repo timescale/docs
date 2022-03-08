@@ -23,25 +23,35 @@ supports public AMIs.
 <procedure>
 
 ### Installing self-hosted TimescaleDB from a pre-build cloud image
-1.  Make sure you have an [Amazon Web Services account][aws-signup], and
-    are signed in to [your EC2 dashboard][aws-dashboard].
+1.  Make sure you have an [Amazon Web Services account][aws-signup], and are
+    signed in to [your EC2 dashboard][aws-dashboard].
 1.  Navigate to `Images → AMIs`.
-1.  In the search bar, change the search to `Public images` and type *Timescale* search
-    term to find all available Timescale images.
+1.  In the search bar, change the search to `Public images` and type *Timescale*
+    search term to find all available Timescale images.
 1.  Select the image you want to use, and click `Launch instance from image`.
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws_launch_ami.png" alt="Launch an AMI in AWS EC2"/>
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/aws_launch_ami.png"
+    alt="Launch an AMI in AWS EC2"/>
 
 </procedure>
 
-After you have completed the installation, connect to your instance and configure your database. For information about connecting to the instance, see the AWS [accessing instance documentation][aws-connect]. The easiest way to configure your datase is to run the `timescaledb-tune` script, which is included with the `timescaledb-tools` package. For more information, see the [configuration][config] section. 
+After you have completed the installation, connect to your instance and
+configure your database. For information about connecting to the instance, see
+the AWS [accessing instance documentation][aws-connect]. The easiest way to
+configure your datase is to run the `timescaledb-tune` script, which is included
+with the `timescaledb-tools` package. For more information, see the
+[configuration][config] section. 
 
 <highlight type="note">
-After running the `timescaledb-tune` script, you need to restart the PostgreSQL service for the configuration changes to take effect. To restart the service, run `sudo systemctl restart postgresql.service`.
+After running the `timescaledb-tune` script, you need to restart the PostgreSQL
+service for the configuration changes to take effect. To restart the service,
+run `sudo systemctl restart postgresql.service`.
 </highlight>
 
 
 ## Set up the TimescaleDB extension
-When you have PostgreSQL and TimescaleDB installed, connect to your instance and set up the TimescaleDB extension.
+When you have PostgreSQL and TimescaleDB installed, connect to your instance and
+set up the TimescaleDB extension.
 
 <procedure>
 
