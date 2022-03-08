@@ -59,7 +59,7 @@ cluster.
 
 <procedure>
 
-### Connecting to TimescaleDB using an External IP
+### Connecting to TimescaleDB using an external IP
 
 <highlight type="note">
 If you configured the user credentials in the `my_values.yaml` file, you don't
