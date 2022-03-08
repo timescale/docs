@@ -3,63 +3,62 @@
 To help get you familiar with TimescaleDB's features, you’ll need some
 sample data to play around with. For this tutorial, we provide real-time financial 
 stock data provided by ['Twelve Data'][twelve-data]. The data set contains time-series 
-stock prices from the last three months. For information on how to get more data 
-from them, check out details on [how to use the 'Twelve data' script][script-twelve-data].
+stock prices from the last three months. 
 
-## About the dataset
+<highlight type="note">
+For information on how to get more from 'Twelve data', check out our [tutorial][script-twelve-data] on how to 
+ingest stock data into TimescaleDB.
+</highlight>
 
-The dataset contains tick level (10th of a second) stock data. There are two tables that 
-you will ingest, the hypertable `stocks_real_time` and regular table `company`. 
+### About the dataset
 
-Details on the columns are as follows:
-`stocks_real_time`: tick level stock data indicating the minimum 
-    * time: time zone timestamp column showing the time at which the stock was traded
-    * symbol
-    * price
-    * day_volume
+The dataset contains tick level (second by second) stock data along with further information on company symbols. 
+There are two tables that you will ingest, a hypertable `stocks_real_time` and a regular table `company`. 
+
+Details on the data set are as follows:
+`stocks_real_time`: Stock data indicating quotes for stock prices for a given second during trading hours
+    * time: timestamp column incrementing at a tick level (second by second)
+    * symbol: symbols representing a company, mappings found in the `company` table
+    * price: stock quote price for a company at the given timestamp
+    * day_volume: how many shares are traded each day, NULL values indicate the market is closed
 
 `company`: mapping for symbols to company names
-    * 
-    * 
+    * symbol: the symbol representing a company name
+    * name: corresponding company name
 
-For each city, we record the following metrics:
-```bash
-* time: Timestamp of data calculation
-* timezone: Shift in seconds from UTC
-* city_name: City name
-* temp_c: Temperature in degrees celsius
-* feels_like_c:  This temperature parameter accounts for the human perception of weather
-* temp_min_c: Minimum temperature
-* temp_max_c Maximum temperature
-* pressure_hpa: Atmospheric pressure (at sea level) in hPa
-* humidity_percent:  Humidity as a percentage of maximum water vapor
-* wind_speed_ms: Wind speed in meters per second
-* wind_deg: Wind direction, degrees (meteorological)
-* rain_1h: Rain volume for the last hour, mm
-* rain_3h: Rain volume for the last 3 hours, mm
-* snow_1h: Snow volume for the last hour, in mm
-* snow_3h: Snow volume for the last 3 hours, in mm
-* clouds_percent: Cloudiness as a percentage
-* weather_id: Weather condition id
-```
+<procedure>
 
-## Accessing the dataset
+### Accessing the dataset
 
-We provide a CSV file with commands for inserting the data into your TimescaleDB instance.
+1.  Before ingesting the data, you must create another table, `company`. Run the 
+    following code to do this. 
 
-Download the CSV file (in ZIP format) below and insert it into your database from psql.
+    ```sql
+    CREATE TABLE IF NOT EXISTS company (
+        symbol text NOT NULL,
+        name text NOT NULL
+    );
+    ```
 
-Download CSV: <tag type="download">[weather_data.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/weather_data.zip)</tag>
+1.  We provide CSV files for accessing the data. Download the CSV files (in ZIP format) 
+    below.
 
-After unzipping the file, use the following command (which assumes `weather_data.csv` is located in your current directory):
+    Download CSV: <tag type="download">[stock_data_real_time.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
 
-```sql
--- copy data from weather_data.csv into weather_metrics
-\copy weather_metrics (time, timezone_shift, city_name, temp_c, feels_like_c, temp_min_c, temp_max_c, pressure_hpa, humidity_percent, wind_speed_ms, wind_deg, rain_1h_mm, rain_3h_mm, snow_1h_mm, snow_3h_mm, clouds_percent, weather_type_id) from './weather_data.csv' CSV HEADER;
-```
-Now that you’re up and running with historical data inside TimescaleDB and a
-method to ingest the latest data into your database, let’s start querying the data.
+1.  After unzipping the files, use the following commands to insert the data into your 
+    TimescleDB instance. The code assumes your tables are in the current directory:
+
+    ```sql
+    -- copy data from stocks_real_time.csv into stocks_real_time table
+    \copy stocks_real_time from './stocks_real_time.csv' DELIMITER ',' CSV;
+    \copy company from './compsny.csv' DELIMITER ',' CSV;
+    ```
+
+</procedure>
+
+Now that you’re up and running with data inside TimescaleDB let’s [start querying the data][query-data].
 
 
-[twelve-data]: 
+[twelve-data]: https://twelvedata.com/
 [script-twelve-data]:
+[query-data]: /getting-started/query-data/
