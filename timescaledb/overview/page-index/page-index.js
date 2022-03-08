@@ -1,6 +1,9 @@
 module.exports = [
     {
         href: "overview",
+        tags: ["timescaledb", "get started", "learn", "contribute"],
+        keywords: ["TimescaleDB", "time-series", "data model", "deployment"],
+        excerpt: "Overview of TimescaleDB",
         children: [
           {
             title: "What is time-series data?",
