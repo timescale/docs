@@ -14,6 +14,7 @@ you have installed:
 * [kubectl][kubectl-install]
 * [Helm][helm-install]
 * [Kubernetes Cluster][kubernetes-install]
+
 If you want to, you can create your own `.yaml` file to use parameters other
 than those specified in the default `values.yaml`. You can name this file
 `myvalues.yaml` file. For details about the parameters you can set, see  the
