@@ -1,17 +1,17 @@
 # Create a hypertable
 Now that you've launched your first TimescaleDB instance and accessed your database,
 you can create your first hypertable. Hypertables are the heart of TimescaleDB functionality
-and allow TimescaleDB to work so efficiently with time-series data.
+and allow TimescaleDB to work efficiently with time-series data.
 
 ## Hypertables and chunks
 Hypertables and chunks make storing and querying times-series data fast at peta-byte 
 scale. 
 
-TimescaleDB automatically partitions time-series data into chunks, or sub-tables, 
+TimescaleDB automatically partitions time-series data into **chunks**, or sub-tables, 
 based on time and space. You can configure chunk size so that recent chunks fit in memory 
 for faster queries. 
 
-A hypertable is an abstraction layer over chunks that hold the time-series data.
+A **hypertable** is an abstraction layer over chunks that hold the time-series data.
 Hypertables allow you to query and access data from all the chunks within the hypertable. 
 
 Hypertables and chunks enable superior performance for shallow and wide queries,
@@ -50,6 +50,7 @@ Creating a hypertable is a two-step process:
 the table into a hypertable. The `create_hypertable` function requires two input 
 values, the name of the table, and the name of the time column.
 
+<!-- 
 ## How hypertables help with times-series data
 **Hypertables speed up ingest rates:** Because data is only inserted into
 the current chunk, data in the other chunks remains untouched. If you use a
@@ -69,18 +70,21 @@ effective use of memory and disk resources. By automatically and transparently
 partitioning on time, hypertables improve resource use. Queries and
 data-stores become more efficient.
 
-   <!-- COMMENT:
+   COMMENT:
    I feel like we probably don't need this section but wherever this section is, 
    I think it would be cool to include a graphic that shows these benefits 
    https://iobeam.slack.com/archives/C0J94TE4F/p1646682667481189?thread_ts=1646682487.374619&cid=C0J94TE4F
-   -->
+-->
 
 ## Learn more about hypertables and chunks
 See the [Hypertable How To](/how-to-guides/hypertables) to learn more about
-hypertables and best practices for configuring chunks.
+hypertables and best practices for configuring chunks. You can also learn more 
+about why hypertables help with storing and querying time-series data through 
+the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
 Next, ingest some sample data into TimescaleDB. Continue on to the ['Add time-series data' section][add-data] 
-for infomation on how to populate the table you just created. 
+for information on how to populate the table you just created. 
 
-[add-data]: /getting-started/add-data/
+[core-concepts-hypertables]: /getting-started/add-data/
+[add-data]: /overview/core-concepts/hypertables-and-chunks/
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable
