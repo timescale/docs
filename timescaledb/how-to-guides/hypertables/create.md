@@ -76,20 +76,8 @@ hypertable fails. For more information about setting up multi-node, see the
 
 </procedure>
 
-## Troubleshooting
-If you create a hypertable or distributed hypertable on a table that already has
-a unique index or primary key, you might get this error:
-```
- ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
-partitioning) 
-```
-
-To learn more and fix the problem, see the section on [hypertables and unique
-indexes][unique-indexes].
-
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
 [migrate-data]: /how-to-guides/migrate-data
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [multi-node]: /how-to-guides/multinode-timescaledb/
-[unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

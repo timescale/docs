@@ -110,6 +110,12 @@ module.exports = [
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Best practices for managing hypertables",
           },
+          {
+            href: "troubleshooting",
+            tags: ["hypertables", "tshoot", "timescaledb"],
+            keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
+            excerpt: "Troubleshooting and error fixes for hypertables",
+          },
         ],
       },
       {
