@@ -109,7 +109,7 @@ need to decode the passwords.
 
 <procedure>
 
-### Create a Database
+### Creating a database
 1.  At the prompt, create an empty database. For example, to create a database
     called `tsdb`:
     ```sql
