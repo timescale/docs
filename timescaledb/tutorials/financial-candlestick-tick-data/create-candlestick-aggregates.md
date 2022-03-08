@@ -253,8 +253,8 @@ refresh and query performance should be satisfying.
 
 
 [intraday-tutorial]: /tutorials/analyze-intraday-stocks/
-[hyperfunctions]: /hyperfunctions/
-[time-bucket]: /hyperfunctions/time_bucket/
-[first]: /hyperfunctions/first/
-[last]: /hyperfunctions/last/
+[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[first]: /api/:currentVersion:/hyperfunctions/first/
+[last]: /api/:currentVersion:/hyperfunctions/last/
 [caggs]: /how-to-guides/continuous-aggregates/
