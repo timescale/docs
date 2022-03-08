@@ -33,7 +33,7 @@ create one.
     account with the invited email address, and accept the invitation by
     navigating to the `Invitations` section, and clicking `Accept`. For invitees
     that do not have a Timescale Cloud account, the invite is automatically
-    accepted when they create a new account with the invited email address. 
+    accepted when they create a new account with the invited email address.
 1.  The new project member can switch to the shared project by selecting it from
     the `Project` drop down menu.
 
@@ -54,18 +54,19 @@ create one.
 
 </procedure>
 
-<!--- This isn't active yet. --LKB 20220217
 <procedure>
 
 ### Leaving a project group
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Members` section.
-1.  Locate your own email address in the list, and click `Leave Project`.
-1.  Confirm the deletion by typing DELETE, and click `Delete`.
-1.  Your account is deleted from the project immediately, and you can no longer
+1.  Click `Leave Project`.
+1.  Confirm the action, and click `Leave`.
+1.  Your account is removed from the project immediately, and you can no longer
     switch to the shared project.
 
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-leave-members.png" alt="Leaving a project in Timescale Cloud"/>
+
 </procedure>
--->
+
 
 [cloud-login]: https://console.cloud.timescale.com/
