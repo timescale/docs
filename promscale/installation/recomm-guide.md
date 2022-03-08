@@ -15,7 +15,7 @@ Compute recommendations for the Promscale connector and TimescaleDB are:
 | 200k samples/sec   |     8     |     4.5 GB     |     16   |      64 GB    |        8        |
 | 500k samples/sec   |    32      |     9 GB     |     32   |     128 GB    |        64        |
 
-Disk recommendations for the TimescaleDB are:
+Disk recommendations for TimescaleDB are:
 
 The default chunk interval is `8h`
 
