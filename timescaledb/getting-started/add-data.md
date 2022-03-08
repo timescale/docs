@@ -1,18 +1,26 @@
-# 4. Add time-series data
+# Add time-series data
 
-To showcase TimescaleDB and get you familiar with its features, we’ll need some
-sample data to play around with. We’ll use the real-world scenario of climate
-change. Data about the climate in a certain region is time-series data, as it
-describes how the climate in that area changes over time.
+To help get you familiar with TimescaleDB's features, you’ll need some
+sample data to play around with. For this tutorial, we provide real-time financial 
+stock data provided by ['Twelve Data'][twelve-data]. The data set contains time-series 
+stock prices from the last three months. For information on how to get more data 
+from them, check out details on [how to use the 'Twelve data' script][script-twelve-data].
 
 ## About the dataset
 
-Our dataset comes from [OpenWeatherMap](https://openweathermap.org) and contains
-measurements for 10 cities in which Timescalers reside: New York City, San
-Francisco, Princeton, Austin, Stockholm, Lisbon, Pietermaritzburg, Nairobi,
-Toronto, and Vienna.
+The dataset contains tick level (10th of a second) stock data. There are two tables that 
+you will ingest, the hypertable `stocks_real_time` and regular table `company`. 
 
-The dataset contains weather metrics for each city from 1 January 1979 to 27 April 2021.
+Details on the columns are as follows:
+`stocks_real_time`: tick level stock data indicating the minimum 
+    * time: time zone timestamp column showing the time at which the stock was traded
+    * symbol
+    * price
+    * day_volume
+
+`company`: mapping for symbols to company names
+    * 
+    * 
 
 For each city, we record the following metrics:
 ```bash
@@ -51,3 +59,7 @@ After unzipping the file, use the following command (which assumes `weather_data
 ```
 Now that you’re up and running with historical data inside TimescaleDB and a
 method to ingest the latest data into your database, let’s start querying the data.
+
+
+[twelve-data]: 
+[script-twelve-data]:
