@@ -28,12 +28,12 @@ the only impact to the database being potentially degraded performance as the
 impacted drive is repaired or replaced within the volume. The entire recovery
 process for a drive failure is near-instantaneous. 
 
-## HA database replicas
+## Database replicas
 Instance redundancy refers to having replicas of your database running
 simultaneously. In the case of a database failure, a replica is an up-to-date,
 running database that can take over immediately.
 
-You can enable a high availability replica for your single-node services. The
+You can enable a replica for your single-node services. The
 replicas are asynchronous, and if your primary database fails, the replica
 automatically assumes the role of primary, and a new standby replica is created.
 Any missing data writes are retrieved from backup and replayed on the new
