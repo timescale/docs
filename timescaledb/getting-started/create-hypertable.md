@@ -1,29 +1,29 @@
 # Create a hypertable
 Now that you've launched your first TimescaleDB instance and accessed your database,
-you can create your first hypertable. Hypertables are the heart of TimescaleDB functionality,
-and allows TimescaleDB to work so efficiently with time-series data.
+you can create your first hypertable. Hypertables are the heart of TimescaleDB functionality
+and allow TimescaleDB to work so efficiently with time-series data.
 
-## Chunks and hypertables
-Chunks and hypertables make storing and querying times-series data fast at peta-byte 
-scale. TimescaleDB automatically partitions time-series data into chunks, or sub-tables, 
+## Hypertables and chunks
+Hypertables and chunks make storing and querying times-series data fast at peta-byte 
+scale. 
+
+TimescaleDB automatically partitions time-series data into chunks, or sub-tables, 
 based on time and space. You can configure chunk size so that recent chunks fit in memory 
 for faster queries. 
 
-A hypertable is an abstraction layer over chunks that hold time-series data.
-Hypertables allow you to query and access data from all the chunks as if they
-were in a single table. This is because commands issued to the hypertable are
-applied to all of the chunks that belong to that hypertable.
+A hypertable is an abstraction layer over chunks that hold the time-series data.
+Hypertables allow you to query and access data from all the chunks within the hypertable. 
 
 Hypertables and chunks enable superior performance for shallow and wide queries,
 like those used in real-time monitoring. They are also good for deep and narrow
 queries, like those used in time-series analysis.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.png" alt="hypertable and chunks"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png" alt="hypertable and chunks"/>
 
-You can interact with chunks individually if you need to, but chunks are created
-automatically based on the `chunk_time` and `chunk_size` parameters you specify.
+<highlight type="note">
+For more detailed information, check out the [Overview page on 'Hypertables and chunks'](/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/).
+</highlight>
 
-For more detailed information, check out the Overview page on 'Hypertables and chunks'
 
 **Create your first hypertable**
 
@@ -32,36 +32,23 @@ For more detailed information, check out the Overview page on 'Hypertables and c
 -- Hypertable to store weather metrics
 ----------------------------------------
 -- Step 1: Define regular table
-CREATE TABLE IF NOT EXISTS weather_metrics (
+CREATE TABLE IF NOT EXISTS stocks_real_time (
 
-   time TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-   timezone_shift int NULL,
-   city_name text NULL,
-   temp_c double PRECISION NULL,
-   feels_like_c double PRECISION NULL,
-   temp_min_c double PRECISION NULL,
-   temp_max_c double PRECISION NULL,
-   pressure_hpa double PRECISION NULL,
-   humidity_percent double PRECISION NULL,
-   wind_speed_ms double PRECISION NULL,
-   wind_deg int NULL,
-   rain_1h_mm double PRECISION NULL,
-   rain_3h_mm double PRECISION NULL,
-   snow_1h_mm double PRECISION NULL,
-   snow_3h_mm double PRECISION NULL,
-   clouds_percent int NULL,
-   weather_type_id int NULL
+   time TIMESTAMPTZ NOT NULL,
+   symbol text NULL,
+   price double PRECISION NULL,
+   day_volume int NULL
 );
 
 -- Step 2: Turn into hypertable
-SELECT create_hypertable('weather_metrics','time');
+SELECT create_hypertable('stocks_real_time','time');
 ```
 
-Creating a hypertable is a two-step process. Start by using a `CREATE TABLE`
-statement to create a regular relational table. Then, use a `SELECT`
-statement with the `create_hypertable` function to convert the table into a
-hypertable. The `SELECT` statement requires the name of the table to convert,
-and the name of the time column in that table.
+Creating a hypertable is a two-step process:
+- Use a `CREATE TABLE` statement to create a regular relational table
+- Use a `SELECT` statement with the [`create_hypertable`][create-hypertable] function to convert 
+the table into a hypertable. The `create_hypertable` function requires two input 
+values, the name of the table, and the name of the time column.
 
 ## How hypertables help with times-series data
 **Hypertables speed up ingest rates:** Because data is only inserted into
@@ -82,10 +69,18 @@ effective use of memory and disk resources. By automatically and transparently
 partitioning on time, hypertables improve resource use. Queries and
 data-stores become more efficient.
 
+   <!-- COMMENT:
+   I feel like we probably don't need this section but wherever this section is, 
+   I think it would be cool to include a graphic that shows these benefits 
+   https://iobeam.slack.com/archives/C0J94TE4F/p1646682667481189?thread_ts=1646682487.374619&cid=C0J94TE4F
+   -->
+
 ## Learn more about hypertables and chunks
 See the [Hypertable How To](/how-to-guides/hypertables) to learn more about
 hypertables and best practices for configuring chunks.
 
-Next, ingest some sample data into TimescaleDB. You can also use this 
-[sample dataset](/getting-started/add-data/#accessing-the-dataset) to 
-populate the table you just created. 
+Next, ingest some sample data into TimescaleDB. Continue on to the ['Add time-series data' section][add-data] 
+for infomation on how to populate the table you just created. 
+
+[add-data]: /getting-started/add-data/
+[create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable
