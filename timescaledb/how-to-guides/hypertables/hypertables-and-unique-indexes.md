@@ -15,6 +15,12 @@ In TimescaleDB, the following columns are partitioning columns:
     [`create_distributed_hypertable`][create_distributed_hypertable].
 
 ## Partitioning and unique indexes
+
+<highlight type="note">
+In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
+Any information about unique indexes also applies to primary keys.
+</highlight>
+
 When you create a unique index on a hypertable, it must contain all the
 partitioning columns of the hypertable. It may contain other columns as well,
 and they may be arranged in any order.
@@ -29,11 +35,6 @@ If you don't include all the partitioning columns, you get this error:
  ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
 partitioning) 
 ```
-
-<highlight type="note">
-In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
-Any information about unique indexes also applies to primary keys.
-</highlight>
 
 ### Create unique indexes on a hypertable
 Create a unique index as you normally would in PostgreSQL, using `CREATE UNIQUE
@@ -59,22 +60,22 @@ SELECT * FROM create_hypertable(
 
 You can create a unique index on `time` and `device_id`:
 ```sql
-CREATE UNIQUE INDEX idx_time_deviceid
-ON hypertable_example(time, device_id);
+CREATE UNIQUE INDEX idx_deviceid_time
+ON hypertable_example(device_id, time);
 ```
 
 You can create a unique index on `time`, `user_id`, and `device_id`:
 ```sql
-CREATE UNIQUE INDEX idx_time_userid_deviceid
-ON hypertable_example(time, user_id, device_id);
+CREATE UNIQUE INDEX idx_userid_deviceid_time
+ON hypertable_example(user_id, device_id, time);
 ```
 
-But you cannot create a unique index without `device_id`, because `device_id` is
-a partitioning column. This does not work:
+But you cannot create a unique index without `time`, because `time` is a
+partitioning column. This does not work:
 ```sql
 -- This gives you an error
-CREATE UNIQUE INDEX idx_time
-ON hypertable_example(time);
+CREATE UNIQUE INDEX idx_deviceid
+ON hypertable_example(device_id);
 ```
 
 Fix the error by adding `device_id` to your unique index.
