@@ -1,4 +1,14 @@
 # Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
+
+<highlight type="deprecation">
+This section describes a feature that is deprecated on TimescaleDB. We strongly
+recommend that you do not use this feature in a production environment. For some
+suggestions of workarounds, see this
+[Timescale Forum post](https://www.timescale.com/forum/t/telegraf-plugin/118).
+If you need more information, please
+[contact the support team](https://www.timescale.com/support).
+</highlight>
+
 Telegraf collects metrics from a wide array of inputs and writes them to a wide
 array of outputs. It is plugin-driven for both collection and output of data so
 it is extendable. It is written in Go, which means that it is a compiled

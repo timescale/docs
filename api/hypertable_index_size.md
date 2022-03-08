@@ -4,7 +4,7 @@ Get the disk space used by an index on a hypertable, including the
 disk space needed to provide the index on all chunks. The size is
 reported in bytes.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -19,7 +19,7 @@ reported in bytes.
 NULL is returned if the function is executed on a non-hypertable relation.
 </highlight>
 
-### Sample Usage 
+### Sample usage 
 
 Get size of a specific index on a hypertable.
 
