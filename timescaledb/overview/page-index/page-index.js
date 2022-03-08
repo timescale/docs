@@ -85,7 +85,7 @@ module.exports = [
           },
           {
             title: "TimescaleDB on Kubernetes",
-            href: "timescale-kubernetes"
+            href: "timescale-kubernetes",
             tags: ['install', 'timescaledb', 'self-hosted', 'Kubernetes', 'Helm Charts'],
             keywords: ['install', 'TimescaleDB', 'self-hosted', 'Kubernetes'],
             excerpt: "Deployment options for TimescaleDB",
