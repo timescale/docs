@@ -1,4 +1,4 @@
-# extrapolated_delta() <tag type="toolkit" content="toolkit" />
+# extrapolated_delta() <tag type="toolkit" content="Toolkit" />
 The change in the counter during the time period specified by the bounds in the
 CounterSummary. To calculate the extrapolated delta, any counter resets are
 accounted for and the observed values are extrapolated to the bounds using the
@@ -11,7 +11,7 @@ utility function to set the bounds.
 ```sql
 extrapolated_delta(
     summary CounterSummary,
-    method TEXT¹
+    method TEXT
 ) RETURNS DOUBLE PRECISION
 ```
 

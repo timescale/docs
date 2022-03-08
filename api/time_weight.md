@@ -10,10 +10,6 @@ time_weight(
 
 An aggregate that produces a `TimeWeightSummary` from timestamps and associated values.
 
-NB: Only two values for `method` are currently supported: `linear` and `LOCF`, and
-any capitalization is accepted. See [interpolation methods](#interpolation-methods-details)
-for more information.
-
 For more information about time-weighted average functions, see the
 [hyperfunctions documentation][hyperfunctions-time-weight-average].
 
@@ -23,17 +19,21 @@ For more information about time-weighted average functions, see the
 |---|---|---|
 |`method`|`TEXT`| The weighting method we should use, options are `linear` or `LOCF`, not case sensitive|
 |`ts`|`TIMESTAMPTZ`|The time at each point|
-|`value`|`DOUBLE PRECISION`|The value at each point to use for the time weighted average|
+|`value`|`DOUBLE PRECISION`|The value at each point to use for the time-weighted average|
 
 
 Note that `ts` and `value` can be `null`, however the aggregate is not evaluated
 on `null` values and returns `null`, but does not error on `null` inputs.
 
+Only two values for `method` are currently supported: `linear` and `LOCF`, and
+any capitalization is accepted. See [interpolation methods](#interpolation-methods-details)
+for more information.
+
 ### Returns
 
 |Column|Type|Description|
 |---|---|---|
-|`time_weight`|`TimeWeightSummary`|A TimeWeightSummary object that can be passed to other functions within the time weighting API|
+|`time_weight`|`TimeWeightSummary`|A TimeWeightSummary object that can be passed to other functions within the time-weighting API|
 
 ### Sample usage
 
@@ -57,9 +57,9 @@ Most cases work out of the box, but for power users, or those who want to
 dive deeper, we've included a bit more context below.
 
 ### Interpolation methods details
-Discrete time values don't always allow for an obvious calculation of the time
-weighted average. In order to calculate a time weighted average we need to choose
-how to weight each value. The two methods we currently use are last observation
+Discrete time values don't always allow for an obvious calculation of the time-weighted average. In order to calculate a time-weighted average, you need to choose
+how to weight each value. The two methods currently available in TimescaleDB
+Toolkit are last observation
 carried forward (LOCF) and linear interpolation.
 
 In the LOCF approach, the value is treated as if it remains constant until the
@@ -72,7 +72,7 @@ interpolation approach is used to account for irregularly sampled data where the
 sensor doesn't provide any guarantees.
 
 ### Parallelism and ordering
-The time weighted average calculations we perform require a strict ordering of
+The time-weighted average calculations we perform require a strict ordering of
 inputs and therefore the calculations are not parallelizable in the strict
 Postgres sense. This is because when Postgres does parallelism it hands out rows
 randomly, basically as it sees them to workers. However, if your parallelism can
@@ -104,9 +104,9 @@ FROM t;
 
 Internally, the first and last points seen as well as the calculated weighted sum
 are stored in each `TimeWeightSummary` and used to combine with a neighboring
-`TimeWeightSummary` when re-aggregation or the Postgres combine function is called.
+`TimeWeightSummary` when re-aggregation or the PostgreSQL combine function is called.
 In general, the functions support partial aggregation and partitionwise aggregation
-in the multinode context, but are not parallelizable (in the Postgres sense,
+in the multinode context, but are not parallelizable (in the PostgreSQL sense,
 which requires them to accept potentially overlapping input).
 
 Because they require ordered sets, the aggregates build up a buffer of input

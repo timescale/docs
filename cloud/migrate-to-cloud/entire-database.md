@@ -93,38 +93,43 @@ information about compression and decompression, see the
 If you see these errors during the migration process, you can safely ignore
 them. The migration still occurs successfully.
 
-```bash
-pg_dump: warning: there are circular foreign-key constraints on this table:
-pg_dump: hypertable
-pg_dump: You might not be able to restore the dump without using --disable-triggers or temporarily dropping the constraints.
-pg_dump: Consider using a full dump instead of a --data-only dump to avoid this problem.
+1.  ```bash
+    pg_dump: warning: there are circular foreign-key constraints on this table:
+    pg_dump: hypertable
+    pg_dump: You might not be able to restore the dump without using --disable-triggers or temporarily dropping the constraints.
+    pg_dump: Consider using a full dump instead of a --data-only dump to avoid this problem.
+    ```
+1.  ```bash
+    pg_dump: NOTICE:  hypertable data are in the chunks, no data will be copied
+    DETAIL:  Data for hypertables are stored in the chunks of a hypertable so COPY TO of a hypertable will not copy any data.
+    HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
+    ```
+1.  `pg_restore` tries to apply the TimescaleDB extension when it copies your
+    schema. This can cause a permissions error. Because TimescaleDB is already
+    installed by default on Timescale Cloud, you can safely ignore this.
+    ```bash
+    pg_restore: creating EXTENSION "timescaledb"
+    pg_restore: creating COMMENT "EXTENSION timescaledb"
+    pg_restore: while PROCESSING TOC:
+    pg_restore: from TOC entry 6239; 0 0 COMMENT EXTENSION timescaledb
+    pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
+    ```
+1.  ```bash
+    ​​pg_restore: WARNING:  no privileges were granted for "<..>"
+    ```
+1.  ```bash
+    pg_restore: warning: errors ignored on restore: 1
+    ```
+
+If you see errors of the following form when you run `ANALYZE`, you can safely
+ignore them:
+
+```
+WARNING:  skipping "<TABLE OR INDEX>" --- only superuser can analyze it
 ```
 
-```bash
-pg_dump: NOTICE:  hypertable data are in the chunks, no data will be copied
-DETAIL:  Data for hypertables are stored in the chunks of a hypertable so COPY TO of a hypertable will not copy any data.
-HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
-```
-
-`pg_restore` tries to apply the TimescaleDB extension when it copies your
-schema. This can cause a permissions error. Because TimescaleDB is already
-installed by default on Timescale Cloud, you can safely ignore this.
-
-```bash
-pg_restore: creating EXTENSION "timescaledb"
-pg_restore: creating COMMENT "EXTENSION timescaledb"
-pg_restore: while PROCESSING TOC:
-pg_restore: from TOC entry 6239; 0 0 COMMENT EXTENSION timescaledb
-pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
-```
-
-```bash
-​​pg_restore: WARNING:  no privileges were granted for "<..>"
-```
-
-```bash
-pg_restore: warning: errors ignored on restore: 1
-```
+The skipped tables and indexes correspond to system catalogs that can't be
+accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
@@ -132,7 +137,7 @@ pg_restore: warning: errors ignored on restore: 1
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [migrate-separately]: migrate-to-cloud/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
-[pg_restore]: https://www.postgresql.org/docs/9.2/app-pgrestore.html
+[pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/

@@ -469,7 +469,7 @@ module.exports = [
               },
               {
                 title: 'corr',
-                href: 'corr-stats',
+                href: 'corr-counter',
               },
               {
                 title: 'counter_zero_time',
@@ -530,7 +530,7 @@ module.exports = [
             ],
           },
           {
-            title: 'Time weighted averages',
+            title: 'Time-weighted averages',
             type: 'directory',
             href: 'time-weighted-averages',
             children: [
@@ -560,6 +560,33 @@ module.exports = [
               {
                 title: 'lttb',
                 href: 'lttb',
+              },
+            ],
+          },
+          {
+            title: 'Frequency Analysis',
+            type: 'directory',
+            href: 'frequency-analysis',
+            children: [
+              {
+                title: 'freq_agg',
+                href: 'freq_agg',
+              },
+              {
+                title: 'values',
+                href: 'values-freq_agg',
+              },
+              {
+                title: 'topn',
+                href: 'topn',
+              },
+              {
+                title: 'state_agg',
+                href: 'state_agg',
+              },
+              {
+                title: 'duration_in',
+                href: 'duration_in',
               },
             ],
           },

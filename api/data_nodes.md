@@ -3,7 +3,7 @@
 Get information on data nodes. This function is specific to running
 TimescaleDB in a multi-node setup.
 
-### Available Columns
+### Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -11,7 +11,7 @@ TimescaleDB in a multi-node setup.
 | `owner` | REGCLASS | Oid of the user, who added the data node. |
 | `options` | JSONB | Options used when creating the data node. |
 
-### Sample Usage
+### Sample usage
 
 Get metadata related to data nodes.
 
@@ -29,7 +29,7 @@ SELECT * FROM timescaledb_information.data_nodes;
 
 Get metadata information about hypertables.
 
-### Available Columns 
+### Available columns 
 
 |Name|Type|Description|
 |---|---|---|
@@ -44,7 +44,7 @@ Get metadata information about hypertables.
 | `data_nodes` | ARRAY | Nodes on which hypertable is distributed|
 | `tablespaces` | ARRAY | Tablespaces attached to the hypertable |
 
-### Sample Usage 
+### Sample usage 
 
 Get information about a hypertable.
 
