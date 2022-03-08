@@ -74,13 +74,15 @@ need to decode the passwords.
    the Helm installation, by replacing `<my_name>` with the name that you
    provided during the installation:
     ```bash
-    PGPASSWORD_ADMIN=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
+    PGPASSWORD_ADMIN=$(kubectl get secret --namespace default 
+    <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
     ``` 
 1. **OPTIONAL** Decode the super user password `PGPOSTGRESPASSWORD` that was
    generated during the Helm installation, by replacing `<my_name>` with the
    name that you provided during the installation:
     ```bash
-    PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
+    PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default 
+    <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 1. Connect with psql as `admin` user, by replacing `<my_name>` with the name
    that you provided during the installation:
