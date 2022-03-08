@@ -1,0 +1,260 @@
+# Create candlestick aggregates
+Turning raw, real-time tick data into aggregated candlestick views is a common
+task for users that work with financial data. If your data is not tick data -
+maybe because you receive it in an already aggregated form
+(eg. in 1-min buckets) - the following functions can still help you to create
+additional aggregates of your data into larger buckets (eg. 1-hour or 1-day
+buckets). You can also look at the tutorial for 
+[Analyzing Intraday Stock Data][intraday-tutorial]
+for examples of how to work with pre-aggregated stock and crypto data.
+
+TimescaleDB includes multiple functions ([hyperfunctions][hyperfunctions])
+that you can take advantage of to store and query your financial data more
+easily. Hyperfunctions are SQL functions within TimescaleDB that make it
+easier to manipulate and analyze time-series data in PostgreSQL with fewer
+lines of code. In the context of candlestick data, there are three
+hyperfunctions that are essential to calculate the candlestick values:
+[`time_bucket()`][time-bucket], [`FIRST()`][first] and [`LAST()`][last]. 
+
+The `time_bucket()` hyperfunction helps you aggregate records into buckets of
+arbitrary time intervals based on the timestamp value. `FIRST()` and `LAST()`
+are essential to calculate the opening and closing prices. To calculate
+highest and lowest prices, you can use standard PostgreSQL aggregate
+functions `MIN` and `MAX`.
+
+In this first SQL example, use the hyperfunctions to query the tick data,
+and turn it into 1-min candlestick values in the candlestick format:
+```sql
+-- Create the candlestick format
+SELECT
+time_bucket('1 min', time) AS bucket,
+symbol,
+FIRST(price, time) AS "open",
+MAX(price) AS high,
+MIN(price) AS low,
+LAST(price, time) AS "close",
+LAST(day_volume, time) AS day_volume
+FROM crypto_ticks
+GROUP BY bucket, symbol
+```
+
+Hyperfunctions in this query:
+* `time_bucket('1 min', time)` this function will create 1-minute buckets
+* `FIRST(price, time)` this function selects the first `price` value ordered
+    by the `time` column which is the first price of the bucket (aka the opening price of the candlestick)
+* `LAST(price, time)` this function does something very similar but it selects
+    the last `price` value ordered by the `time` column which is the last
+    price of the bucket (aka the closing price of the candlestick)
+
+Besides the hyperfunctions, you can see other common SQL aggregate functions
+like `MIN`, `MAX` which calculate the lowest and highest prices in the
+candlestick.
+
+<highlight type="tip">
+**How to calculate volume within a bucket?**
+To calculate the volume, this example uses the `LAST()` hyperfunction because
+our sample tick data already provides an incremental `day_volume` field which
+contains the total volume for the given day with each trade. Depending on the
+raw data you receive and whether you want to calculate volume in terms of
+trade count or the total value of the trades, you might need to use
+`COUNT(*)`, `SUM(price)`, or subtraction between the last and first values
+in the bucket to get the correct result.
+</highlight> 
+
+## Create continuous aggregates for candlestick data
+
+In TimescaleDB, the most efficient way to create candlestick views is to
+use [continuous aggregates][caggs]. Continuous aggregates are very similar
+to PostgreSQL materialized views but with three major advantages. First,
+unlike Materialized Views which recreate all of the data any time the view
+is refreshed (which causes history to be lost), continuous aggregates only
+refresh the buckets of aggregated data where the source, raw data has been
+changed or added. 
+
+Second, continuous aggregates can be automatically refreshed using built-in
+policies configured by the user to align with the data of each continuous
+aggregate. This means that no special triggers or stored procedures are
+needed to refresh the data over time.
+
+And finally, continuous aggregates are real-time by default. Any new raw
+tick data that is inserted between refreshes will be automatically appended
+to the materialized data. This keeps your candlestick data up-to-date
+without having to write special SQL to UNION data from multiple views and
+tables.  
+
+Continuous aggregates are often used to power dashboards and other user-facing
+applications (e.g. price charts) where query performance and timeliness of
+your data matter.
+
+Let’s see how to create different candlestick time buckets - 1 minute,
+1 hour, and 1 day - using continuous aggregates with different refresh
+policies!
+
+### 1-minute candlestick
+To create a continuous aggregate of 1-minute candlestick data, you provide the
+candlestick query shown above as the definition of the continuous aggregate
+to create the view.
+
+**Continuous aggregate definition**
+```sql
+/* 1-min candlestick view*/
+CREATE MATERIALIZED VIEW one_min_candle
+WITH (timescaledb.continuous) AS
+SELECT
+time_bucket('1 min', time) AS bucket,
+symbol,
+FIRST(price, time) AS "open",
+MAX(price) AS high,
+MIN(price) AS low,
+LAST(price, time) AS "close",
+LAST(day_volume, time) AS day_volume
+FROM crypto_ticks
+GROUP BY bucket, symbol
+```
+
+When you run this query, TimescaleDB queries 1-minute aggregate values of all
+your tick data, creating the continuous aggregate and materializing the
+results. But your candlestick data has only been materialized up to the
+last data point. If you want the continuous aggregate to stay up to date
+as new data comes in over time, you also need to add a continuous aggregate
+refresh policy.
+
+**Refresh policy**
+```sql
+/* Refresh the continuous aggregate every hour */
+SELECT add_continuous_aggregate_policy('one_min_candle',
+    start_offset => INTERVAL '2 hour',
+    end_offset => INTERVAL '10 sec',
+    schedule_interval => INTERVAL '2 min');
+```
+* The continuous aggregate will refresh every hour (aka every hour there will
+be new candlesticks materialized, if there’s new raw tick data in the
+hypertable)
+* When this job runs it will only refresh the time period between
+`start_offset` and `end_offset` (and ignore modifications outside of
+this window)
+
+We suggest that you should set `end_offset` to be the same or bigger as the
+time bucket in the continuous aggregate definition to make sure that only full
+buckets get materialized during the  refresh process.
+
+### 1-hour candlestick
+To create a 1-hour candlestick view, you need to follow the same process as
+in the previous step, except now you will set the time bucket value to be one
+hour in the continuous aggregate definition.
+
+**Continuous aggregate definition**
+```sql
+/* 1-hour candlestick view */
+CREATE MATERIALIZED VIEW one_hour_candle
+WITH (timescaledb.continuous) AS
+SELECT
+time_bucket('1 hour', time) AS bucket,
+symbol,
+FIRST(price, time) AS "open",
+MAX(price) AS high,
+MIN(price) AS low,
+LAST(price, time) AS "close",
+LAST(day_volume, time) AS day_volume
+FROM crypto_ticks
+GROUP BY bucket, symbol
+```
+
+**Refresh policy**
+```sql
+/* Refresh the continuous aggregate every 12 hours */
+SELECT add_continuous_aggregate_policy('one_hour_candle',
+    start_offset => INTERVAL '1 day',
+    end_offset => INTERVAL '1 min',
+    schedule_interval => INTERVAL '1 hour');
+```
+
+Notice how this example uses a different refresh policy with different
+parameter values to accommodate the 1-hour time bucket in the continuous
+aggregate definition. The continuous aggregate will refresh every hour
+(aka every hour there will be new candlestick data materialized, if there’s
+new raw tick data in the hypertable).
+
+### 1-day candlestick
+Create the final view in this tutorial for 1-day candlesticks using the same
+process as above, using a 1-day time bucket size.
+
+**Continuous aggregate definition**
+```sql
+/* 1-day candlestick */
+CREATE MATERIALIZED VIEW one_day_candle
+WITH (timescaledb.continuous) AS
+SELECT
+time_bucket('1 day', time) AS bucket,
+symbol,
+FIRST(price, time) AS "open",
+MAX(price) AS high,
+MIN(price) AS low,
+LAST(price, time) AS "close",
+LAST(day_volume, time) AS day_volume
+FROM crypto_ticks
+GROUP BY bucket, symbol
+```
+
+**Refresh policy**
+```sql
+/* Refresh the continuous aggregate every day */
+SELECT add_continuous_aggregate_policy('one_day_candle',
+    start_offset => INTERVAL '3 day',
+    end_offset => INTERVAL '1 day',
+    schedule_interval => INTERVAL '1 day');
+```
+
+The refresh job will run every day, and materialize two days worth of
+candlesticks.
+
+## Optional: add price change (delta) column in the candlestick view
+As an optional step, you can add an additional column in the continuous aggregate to calculate the price difference between the opening and closing price within the bucket.
+
+In general, this is how you can calculate the price difference:
+
+```text
+(CLOSE PRICE - OPEN PRICE) / OPEN PRICE = delta
+```
+
+Calculate delta in SQL: 
+```sql
+SELECT *, (LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
+FROM crypto_ticks
+```
+
+The full continuous aggregate definition:
+```sql
+/* 1-day candlestick with price change column*/
+CREATE MATERIALIZED VIEW one_day_candle_delta
+WITH (timescaledb.continuous) AS
+SELECT
+time_bucket('1 day', time) AS bucket,
+symbol,
+FIRST(price, time) AS "open",
+MAX(price) AS high,
+MIN(price) AS low,
+LAST(price, time) AS "close",
+LAST(day_volume, time) AS day_volume,
+(LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
+FROM crypto_ticks
+WHERE price != 0
+GROUP BY bucket, symbol
+```
+
+## Can I create a continuous aggregate on top of another?
+Currently you cannot create a continuous aggregate on top of another one.
+On the other hand, we found that for most, if not all, use cases this is
+not even necessary. You can achieve the desired result and performance by
+simply creating multiple continuous aggregates for the same hypertable. Due
+to the efficient materialization mechanism of continuous aggregates, both
+refresh and query performance should be satisfying.
+
+
+
+[intraday-tutorial]: /tutorials/analyze-intraday-stocks/
+[hyperfunctions]: /hyperfunctions/
+[time-bucket]: /hyperfunctions/time_bucket/
+[first]: /hyperfunctions/first/
+[last]: /hyperfunctions/last/
+[caggs]: /how-to-guides/continuous-aggregates/
