@@ -119,13 +119,6 @@ module.exports = [
         excerpt: "Install self-hosted TimescaleDB on Amazon with an Ubuntu AMI",
       },
       {
-        title: "Managed Service for TimescaleDB",
-        href: "installation-mst",
-        tags: ["mst", "install"],
-        keywords: ["install", "Managed Service for TimescaleDB"],
-        excerpt: "Install a managed service for TimescaleDB",
-      },
-      {
         title: "Kubernetes",
         href: "installation-kubernetes",
         title: "TimescaleDB on Kubernetes",
@@ -133,6 +126,13 @@ module.exports = [
         tags: ["timescaledb", "install", "self-hosted", "kubernetes", "helm"],
         keywords: ["install", "TimescaleDB", "self-hosted", "Kubernetes"],
         excerpt: "Install TimescaleDB on Kubernetes",
+      },
+      {
+        title: "Managed Service for TimescaleDB",
+        href: "installation-mst",
+        tags: ["mst", "install"],
+        keywords: ["install", "Managed Service for TimescaleDB"],
+        excerpt: "Install a managed service for TimescaleDB",
       },
     ],
   },

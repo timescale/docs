@@ -79,15 +79,14 @@ module.exports = [
             tags: ['install', 'timescaledb', 'tsc', 'mst', 'self-hosted'],
             keywords: ['install', 'TimescaleDB', 'Timescale Forge', 'Timescale Cloud', 'self-hosted'],
             excerpt: "Deployment options for TimescaleDB",
-          children: [
+          },
           {
             title: "TimescaleDB on Kubernetes",
+            href: "timescale-kubernetes"
             tags: ['install', 'timescaledb', 'self-hosted', 'Kubernetes', 'Helm Charts'],
             keywords: ['install', 'TimescaleDB', 'self-hosted', 'Kubernetes'],
             excerpt: "Deployment options for TimescaleDB",
           },
-         ]
-        },
           {
             title: "Data model flexibility",
             href: "data-model-flexibility",
