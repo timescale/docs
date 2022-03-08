@@ -69,7 +69,7 @@ need to decode the passwords.
 
 1. Get the name of the host to connect to:
     ```bash
-    kubectl get service/my-release
+    kubectl get service/my_name
     ```
 1. Decode the `admin` user password `PGPASSWORD_ADMIN` that was generated during
    the Helm installation, by replacing `<my_name>` with the name that you
