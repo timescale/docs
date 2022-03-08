@@ -14,14 +14,14 @@ falls fully before (or after) the specified timestamp, the remaining
 data may still contain timestamps that are before (or after) the
 specified one.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `relation` | REGCLASS | Hypertable or continuous aggregate from which to drop chunks. |
 | `older_than` | INTERVAL | Specification of cut-off point where any full chunks older than this timestamp should be removed. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -53,7 +53,7 @@ specifying `newer_than => 4 months` and `older_than => 3 months` drops all full 
 all full chunks between '2017-01-01' and '2017-02-01'. Specifying parameters that do not result in an overlapping
 intersection between two ranges results in an error.
 
-### Sample Usage
+### Sample usage
 
 Drop all chunks from hypertable `conditions` older than 3 months:
 ```sql

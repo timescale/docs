@@ -1,4 +1,4 @@
-# rate() <tag type="toolkit" content="toolkit" />
+# rate() <tag type="toolkit" content="Toolkit" />
 The rate of change of the counter over the observed time period. This is the raw
 or simple rate, equivalent to `delta(summary)` or `time_delta(summary)`. After
 accounting for resets, the last value is subtracted from the first value and

@@ -28,7 +28,7 @@ For more information about statistical aggregate functions, see the
 |-|-|-|
 |`summary`|`StatsSummary1D`/`StatsSummary2D`|The already constructed data structure from a previous [`stats_agg`][stats-agg] call|
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|

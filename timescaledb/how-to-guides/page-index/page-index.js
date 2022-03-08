@@ -3,6 +3,9 @@ module.exports = [
     title: "How-to Guides",
     href: "how-to-guides",
     pageComponents: ["content-list"],
+    tags: ["timescaledb", "overview", "get started", "contribute"],
+    keywords: ["connect", "write data", "query data", "alerts"],
+    excerpt: "How to connect to TimescaleDB, and administer and configure the database.",
     children: [
       {
         title: "Connecting to TimescaleDB",
@@ -205,6 +208,13 @@ module.exports = [
             excerpt: "Configure a multi-node environment",
           },
           {
+            title: "Multi-node administration",
+            href: "multinode-administration",
+            tags: ['multi-node', 'management', 'administration', 'distributed', 'nodes'],
+            keywords: ['multi-node', 'management', 'administration'],
+            excerpt: 'Administer a multi-node cluster'
+          },			
+          {
             title: "Grow and shrink a multi-node cluster",
             href: "multinode-grow-shrink",
             tags: ["multi-node", "configure", "manage", "distributed", "nodes"],
@@ -279,6 +289,13 @@ module.exports = [
             keywords: ["caggs", "TimescaleDB"],
             excerpt: "Manage real time aggregates in continuous aggregates",
           },
+          {
+            title: "Compress continuous aggregates",
+            href: "compression-on-continuous-aggregates",
+            tags: ["caggs", "compression", "timescaledb"],
+            keywords: ["caggs", "compression", "TimescaleDB"],
+            excerpt: "Compress continuous aggregates",
+          },          
           {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
@@ -562,6 +579,13 @@ module.exports = [
             tags: ["upgrade", "postregsql", "timescaledb"],
             keywords: ["upgrade", "postgresql", "TimescaleDB"],
             excerpt: "Upgrade the version of PostgreSQL used by TimescaleDB",
+          },
+          {
+            title: "Downgrade TimescaleDB",
+            href: "downgrade-timescaledb",
+            tags: ["downgrade", "timescaledb"],
+            keywords: ["TimescaleDB", "downgrade"],
+            excerpt: "Downgrade a TimescaleDB version",
           },
         ],
       },

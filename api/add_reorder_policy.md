@@ -12,14 +12,14 @@ re-run the [reorder_chunk](/api/latest/hypertable/reorder_chunk) function on old
 and re-create the policy if many older chunks have been affected.
 </highlight>
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to create the policy for. |
 | `index_name` | TEXT | Existing index by which to order rows on disk. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -32,7 +32,7 @@ and re-create the policy if many older chunks have been affected.
 |`job_id`| INTEGER | TimescaleDB background job id created to implement this policy|
 
 
-### Sample Usage
+### Sample usage
 
 
 ```sql
