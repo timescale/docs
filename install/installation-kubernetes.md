@@ -169,3 +169,4 @@ To get help or chat with the Timescale team, [contact us][contact].
 [tsdb-docs]: timescaledb/:currentVersion:/
 [admin-guide]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/admin-guide.md
 [timescaledb-k8s]: timescaledb/:currentVersion:/overview/core-concepts/timescale-kubernetes
+[tutorials]: /timescaledb/:currentVersion:/tutorials/
