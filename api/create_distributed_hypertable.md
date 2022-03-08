@@ -103,8 +103,8 @@ index or primary key, you might get this error:
 partitioning) 
 ```
 
-To learn more and fix the problem, see the section on [hypertables and unique
-indexes][unique-indexes].
+For more information on how to fix this problem, see the
+[hypertables and unique indexes][unique-indexes] section.
 
 [create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create
 [unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
