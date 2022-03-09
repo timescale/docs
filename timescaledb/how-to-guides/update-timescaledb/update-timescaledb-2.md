@@ -43,7 +43,7 @@ TimescaleDB 2.0 supports **in-place updates** just like previous releases. Durin
 the update, scripts automatically configure updated features to work as expected
 with TimescaleDB 2.0.
 
-Because this is our first major version release in two years, however, we’re providing additional guidance
+Because this is our first major version release in two years, however, we're providing additional guidance
 to help you ensure the update completes successfully and everything is configured as expected (and optimized
 for your workload). In particular, settings related to [Continuous Aggregates][caggs], [compression][compression],
 and [data retention][retention] have been modified to provide greater configuration transparency and flexibility,

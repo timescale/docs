@@ -1,7 +1,7 @@
 # 4. Add time-series data
 
-To showcase TimescaleDB and get you familiar with its features, we’ll need some
-sample data to play around with. We’ll use the real-world scenario of climate
+To showcase TimescaleDB and get you familiar with its features, we'll need some
+sample data to play around with. We'll use the real-world scenario of climate
 change. Data about the climate in a certain region is time-series data, as it
 describes how the climate in that area changes over time.
 
@@ -49,5 +49,5 @@ After unzipping the file, use the following command (which assumes `weather_data
 -- copy data from weather_data.csv into weather_metrics
 \copy weather_metrics (time, timezone_shift, city_name, temp_c, feels_like_c, temp_min_c, temp_max_c, pressure_hpa, humidity_percent, wind_speed_ms, wind_deg, rain_1h_mm, rain_3h_mm, snow_1h_mm, snow_3h_mm, clouds_percent, weather_type_id) from './weather_data.csv' CSV HEADER;
 ```
-Now that you’re up and running with historical data inside TimescaleDB and a
-method to ingest the latest data into your database, let’s start querying the data.
+Now that you're up and running with historical data inside TimescaleDB and a
+method to ingest the latest data into your database, let's start querying the data.

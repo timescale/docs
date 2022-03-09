@@ -12,7 +12,7 @@ supercharge time-series data even further. One of the most anticipated new
 features is what we call **multi-node** - the ability to create a cluster of
 TimescaleDB instances to scale both reads and writes.
 
-In this How To, we’ll show you how to create a multi-node cluster in your
+In this How To, we'll show you how to create a multi-node cluster in your
 Managed Service for TimescaleDB account with TimescaleDB 2.0 as a
 "do-it-yourself" (DIY) multi-node experience.
 
@@ -89,7 +89,7 @@ User mapping authentication allows users to continue connecting with the
 allows you to continue making secure (SSL) connections to your Managed Service
 for TimescaleDB Access node.
 
-With user mapping authentication, you don’t need to manage any new users,
+With user mapping authentication, you don't need to manage any new users,
 however, **you need to have the passwords for the `tsdbadmin` user from each
 data node you are adding to the cluster**.
 
