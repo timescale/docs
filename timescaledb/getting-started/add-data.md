@@ -21,7 +21,7 @@ Details on the data set are as follows:
 
 `company`: mapping for symbols to company names
 
-```
+```bash
     * symbol: the symbol representing a company name
     * name: corresponding company name
 ```
