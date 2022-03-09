@@ -13,7 +13,6 @@ Compute recommendations for the Promscale connector and TimescaleDB are:
 | 50k samples/sec      |     2     |     700 MB     |    4    |     16 GB     |       2         |
 | 100k samples/sec   |    4      |     2 GB     |          8     |       32 GB         |  4|
 | 200k samples/sec   |     8     |     4.5 GB     |     16   |      64 GB    |        8        |
-| 500k samples/sec   |    32      |     9 GB     |     32   |     128 GB    |        64        |
 
 Disk recommendations for TimescaleDB are:
 
@@ -25,7 +24,6 @@ The default chunk interval is `8h`
 |  50k samples/sec      |  90 days        |    ~10 GB      | ~105 GB | ~1 TB      |              -          |
 | 100k samples/sec   |     90 days    |    ~20 GB      |  ~210 GB  | ~2 TB    |     -     |
 | 200k samples/sec   |     90 days     |      ~40 GB    |  ~420 GB  | ~4 TB   |      -    |
-| 500k samples/sec   |      90 days    |      ~100 GB    |   ~1.05 TB  | ~10 TB   |     -     |
 
 **Disk size per day**: disk consumption per day based on the ingest rate.
 
@@ -33,7 +31,9 @@ The default chunk interval is `8h`
 
 **Total disk size**: size of disk required to store the data based on the ingest rate and retention. 
 
-You can calculate the **total disk size** based on rentention and ingest rate using the following formula:
+<highlight type="tip">
+You can calculate the `total disk size` based on rentention and ingest rate using the following formula:
 
-**Total disk size** = (Disk size per day based on the ingest rate * Retention in days) + Uncompressed buffer.
-
+Total disk size = (Disk size per day based on the ingest rate * Retention in days) + 
+Uncompressed buffer based on the ingest rate.
+</highlight>
