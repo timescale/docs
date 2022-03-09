@@ -10,7 +10,7 @@ to your TimescaleDB database.
 
 ## Verify that `psql` is installed
 Before you start, let's confirm that you already have `psql` installed.
-In fact, if you’ve ever installed PostgreSQL or TimescaleDB before, you likely already
+In fact, if you've ever installed PostgreSQL or TimescaleDB before, you likely already
 have `psql` installed.
 
 In a command line or terminal window, run the following command. If `psql` is
