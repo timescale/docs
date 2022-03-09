@@ -12,7 +12,6 @@ module.exports = [
             tags: ['data', 'timescaledb'],
             keywords: ['TimescaleDB', 'data'],
             excerpt: "Learn about time-series data",
-            relatedPages: ['core-concepts']
           },
           {
             title: "Core concepts",
