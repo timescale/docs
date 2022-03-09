@@ -176,7 +176,8 @@ module.exports = [
         tags: ['promscale', 'learn', 'troubleshooting', 'prometheus'],
         keywords: ['Promscale', 'troubleshooting'],
         excerpt: 'Troubleshooting Promscale'
-     {
+      },
+      {
         title: 'Promscale CLI reference',
         href: 'cli',
         tags: ['promscale', 'cli', 'reference'],
