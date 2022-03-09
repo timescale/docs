@@ -11,14 +11,14 @@ You can get a list of chunks belonging to a hypertable using the
 `show_chunks` [function](/api/latest/hypertable/show_chunks/).
 </highlight>
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `chunk_name` | REGCLASS | Name of the chunk to be compressed|
 
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -31,7 +31,7 @@ You can get a list of chunks belonging to a hypertable using the
 | `compress_chunk` | (REGCLASS) Name of the chunk that was compressed|
 
 
-### Sample Usage
+### Sample usage
 Compress a single chunk.
 
 ``` sql

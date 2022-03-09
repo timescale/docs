@@ -13,7 +13,7 @@ on a single machine is the significant cost/performance trade-off between memory
 and disk. Eventually, the entire dataset does not fit in memory, and you need
 to write your data and indexes to disk.
 
-Once the data is sufficiently large that we can’t fit all pages of our indexes
+Once the data is sufficiently large that we can't fit all pages of our indexes
 (e.g., B-trees) in memory, then updating a random part of the tree can involve
 swapping in data from disk.  And databases like PostgreSQL keep a B-tree (or
 other data structure) for each table index, in order for values in that

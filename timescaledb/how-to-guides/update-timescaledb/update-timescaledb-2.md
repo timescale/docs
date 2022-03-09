@@ -43,7 +43,7 @@ TimescaleDB 2.0 supports **in-place updates** just like previous releases. Durin
 the update, scripts automatically configure updated features to work as expected
 with TimescaleDB 2.0.
 
-Because this is our first major version release in two years, however, we’re providing additional guidance
+Because this is our first major version release in two years, however, we're providing additional guidance
 to help you ensure the update completes successfully and everything is configured as expected (and optimized
 for your workload). In particular, settings related to [Continuous Aggregates][caggs], [compression][compression],
 and [data retention][retention] have been modified to provide greater configuration transparency and flexibility,
@@ -96,21 +96,21 @@ Execute the following SQL to save current settings for Continuous Aggregates and
 
 **Policy Stats**
 ```SQL
-\COPY timescaledb_information.policy_stats TO ‘policy_stats.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.policy_stats) TO policy_stats.csv csv header
 ```
 
 **Continuous Aggregate Stats**
 ```SQL
-\COPY timescaledb_information.continuous_aggregate_stats TO ‘continuous_aggregate_stats.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.continuous_aggregate_stats) TO continuous_aggregate_stats.csv csv header
 ```
 
 **Drop Chunk Policies**
 ```SQL
-\COPY timescaledb_information.drop_chunks_policies TO ‘drop_chunk_policies.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.drop_chunks_policies) TO drop_chunk_policies.csv csv header
 ```
 **Reorder Policy Stats**
 ```SQL
-\COPY timescaledb_information.reorder_policies TO ‘reorder_policies.csv’ csv header
+\COPY (SELECT * FROM timescaledb_information.reorder_policies) TO reorder_policies.csv csv header
 ```
 
 #### Step 2: Install and update TimescaleDB extension

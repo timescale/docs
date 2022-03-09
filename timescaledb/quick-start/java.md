@@ -316,7 +316,7 @@ for (final var sensor : sensors) {
 
 You can insert a batch of rows into TimescaleDB in a couple of different ways.
 Let's see what it looks like to insert a number of rows with batching mechanism.
-For simplicity's sake, we’ll use PostgreSQL to generate some sample time-series data in order
+For simplicity's sake, we'll use PostgreSQL to generate some sample time-series data in order
 to insert into the `sensor_data` hypertable:
 
 ```java

@@ -3,6 +3,9 @@ module.exports = [
     title: "How-to Guides",
     href: "how-to-guides",
     pageComponents: ["content-list"],
+    tags: ["timescaledb", "overview", "get started", "contribute"],
+    keywords: ["connect", "write data", "query data", "alerts"],
+    excerpt: "How to connect to TimescaleDB, and administer and configure the database.",
     children: [
       {
         title: "Connecting to TimescaleDB",
@@ -576,6 +579,13 @@ module.exports = [
             tags: ["upgrade", "postregsql", "timescaledb"],
             keywords: ["upgrade", "postgresql", "TimescaleDB"],
             excerpt: "Upgrade the version of PostgreSQL used by TimescaleDB",
+          },
+          {
+            title: "Downgrade TimescaleDB",
+            href: "downgrade-timescaledb",
+            tags: ["downgrade", "timescaledb"],
+            keywords: ["TimescaleDB", "downgrade"],
+            excerpt: "Downgrade a TimescaleDB version",
           },
         ],
       },

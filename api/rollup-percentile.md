@@ -12,7 +12,7 @@ rollup(
 ```
 
 This combines multiple outputs from the
-[`percentile_agg()` function][percentile_agg] function, or either
+[`percentile_agg()` function][percentile_agg], or either
 [`uddsketch()` or `tdigest()`][advanced-agg]). This is especially useful for
 re-aggregation in a continuous aggregate. For example, bucketing by a larger
 [`time_bucket()`][time_bucket], or re-grouping on other dimensions included in

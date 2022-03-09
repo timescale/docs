@@ -12,7 +12,7 @@ node is not included since it doesn't have any local chunk data.
 Additional metadata associated with a chunk can be accessed 
 via the `timescaledb_information.chunks` view.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -34,7 +34,7 @@ If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </highlight>
 
-### Sample Usage 
+### Sample usage 
 ```sql
 SELECT * FROM chunks_detailed_size('dist_table')
   ORDER BY chunk_name, node_name;

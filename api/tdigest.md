@@ -22,7 +22,7 @@ candidates for continuous aggregation.
 The `tdigest` function is somewhat dependent on the order of inputs. The
 percentile approximations should be nearly equal for the same underlying data,
 especially at the extremes of the quantile range where the  `tdigest` is
-inherently more accurate, they are unlikely to be identical if built in a
+inherently more accurate. They are unlikely to be identical if built in a
 different order. While this should have little effect on the accuracy of the
 estimates, it is worth noting that repeating the creation of the `tdigest` might
 have subtle differences if the call is being parallelized by PostgreSQL.
