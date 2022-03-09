@@ -91,9 +91,8 @@ policies.
 ### 1-minute candlestick
 To create a continuous aggregate of 1-minute candlestick data, provide the
 candlestick query shown above as the definition of the continuous aggregate
-to create the view.
+to create the view:
 
-**Continuous aggregate definition**
 ```sql
 /* 1-min candlestick view*/
 CREATE MATERIALIZED VIEW one_min_candle
@@ -115,9 +114,8 @@ your tick data, creating the continuous aggregate and materializing the
 results. But your candlestick data has only been materialized up to the
 last data point. If you want the continuous aggregate to stay up to date
 as new data comes in over time, you also need to add a continuous aggregate
-refresh policy.
+refresh policy:
 
-**Refresh policy**
 ```sql
 /* Refresh the continuous aggregate every hour */
 SELECT add_continuous_aggregate_policy('one_min_candle',
@@ -125,23 +123,22 @@ SELECT add_continuous_aggregate_policy('one_min_candle',
     end_offset => INTERVAL '10 sec',
     schedule_interval => INTERVAL '2 min');
 ```
-* The continuous aggregate will refresh every hour (aka every hour there will
-be new candlesticks materialized, if there’s new raw tick data in the
-hypertable)
-* When this job runs it will only refresh the time period between
-`start_offset` and `end_offset` (and ignore modifications outside of
-this window)
 
-We suggest that you should set `end_offset` to be the same or bigger as the
-time bucket in the continuous aggregate definition to make sure that only full
+The continuous aggregate refreshes every hour, so every hour new 
+candlesticks are materialized, if there's new raw tick data in the hypertable.
+
+When this job runs, it only refreshes the time period between `start_offset` 
+and `end_offset`, and ignores modifications outside of this window.
+
+In most cases, set `end_offset` to be the same or bigger as the
+time bucket in the continuous aggregate definition. This makes sure that only full
 buckets get materialized during the  refresh process.
 
 ### 1-hour candlestick
-To create a 1-hour candlestick view, you need to follow the same process as
-in the previous step, except now you will set the time bucket value to be one
-hour in the continuous aggregate definition.
+To create a 1-hour candlestick view, follow the same process as
+in the previous step, except this time set the time bucket value to be one
+hour in the continuous aggregate definition:
 
-**Continuous aggregate definition**
 ```sql
 /* 1-hour candlestick view */
 CREATE MATERIALIZED VIEW one_hour_candle
@@ -158,7 +155,7 @@ FROM crypto_ticks
 GROUP BY bucket, symbol
 ```
 
-**Refresh policy**
+Add a refresh policy:
 ```sql
 /* Refresh the continuous aggregate every 12 hours */
 SELECT add_continuous_aggregate_policy('one_hour_candle',
@@ -169,15 +166,13 @@ SELECT add_continuous_aggregate_policy('one_hour_candle',
 
 Notice how this example uses a different refresh policy with different
 parameter values to accommodate the 1-hour time bucket in the continuous
-aggregate definition. The continuous aggregate will refresh every hour
-(aka every hour there will be new candlestick data materialized, if there’s
-new raw tick data in the hypertable).
+aggregate definition. The continuous aggregate will refresh every hour, so 
+every hour there will be new candlestick data materialized, if there’s
+new raw tick data in the hypertable.
 
 ### 1-day candlestick
 Create the final view in this tutorial for 1-day candlesticks using the same
-process as above, using a 1-day time bucket size.
-
-**Continuous aggregate definition**
+process as above, using a 1-day time bucket size:
 ```sql
 /* 1-day candlestick */
 CREATE MATERIALIZED VIEW one_day_candle
@@ -194,7 +189,7 @@ FROM crypto_ticks
 GROUP BY bucket, symbol
 ```
 
-**Refresh policy**
+Add a refresh policy:
 ```sql
 /* Refresh the continuous aggregate every day */
 SELECT add_continuous_aggregate_policy('one_day_candle',
@@ -203,11 +198,13 @@ SELECT add_continuous_aggregate_policy('one_day_candle',
     schedule_interval => INTERVAL '1 day');
 ```
 
-The refresh job will run every day, and materialize two days worth of
+The refresh job runs every day, and materializes two days worth of
 candlesticks.
 
 ## Optional: add price change (delta) column in the candlestick view
-As an optional step, you can add an additional column in the continuous aggregate to calculate the price difference between the opening and closing price within the bucket.
+As an optional step, you can add an additional column in the continuous 
+aggregate to calculate the price difference between the opening and closing 
+price within the bucket.
 
 In general, this is how you can calculate the price difference:
 
@@ -240,14 +237,13 @@ WHERE price != 0
 GROUP BY bucket, symbol
 ```
 
-## Can I create a continuous aggregate on top of another?
+## Using multiple continuous aggregates
 Currently you cannot create a continuous aggregate on top of another one.
 On the other hand, we found that for most, if not all, use cases this is
 not even necessary. You can achieve the desired result and performance by
-simply creating multiple continuous aggregates for the same hypertable. Due
+creating multiple continuous aggregates for the same hypertable. Due
 to the efficient materialization mechanism of continuous aggregates, both
-refresh and query performance should be satisfying.
-
+refresh and query performance should work well.
 
 
 [intraday-tutorial]: /tutorials/analyze-intraday-stocks/

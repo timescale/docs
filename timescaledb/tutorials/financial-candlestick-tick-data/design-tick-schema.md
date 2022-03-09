@@ -1,28 +1,35 @@
 # Design schema and ingest tick data
-This tutorial shows you how to store real-time cryptocurrency (or stock) tick data in TimescaleDB. The initial schema provides the foundation to store tick data only. Once we begin to store individual transactions, we will calculate the candlestick values using TimescaleDB continuous aggregates based on the raw tick data. Therefore, our initial schema doesn’t need to specifically store candlestick data.
+This tutorial shows you how to store real-time cryptocurrency or stock 
+tick data in TimescaleDB. The initial schema provides the foundation to 
+store tick data only. When you can store individual transactions, you can 
+calculate the candlestick values using TimescaleDB continuous aggregates 
+based on the raw tick data, so that our initial schema doesn’t need to 
+specifically store candlestick data.
 
 ## Schema
-We are going to use two tables:
-* **crypto_assets**: a relational table that stores the symbols we want to monitor (you could also use this table to pull in additional information about each symbol, eg. social links)
-* **crypto_ticks**: time-series table that stores the real-time tick data
+This schema uses two tables:
+* **crypto_assets**: a relational table that stores the symbols to monitor. 
+   You could also use this table to pull in additional information about each 
+   symbol, such as social links.
+* **crypto_ticks**: a time-series table that stores the real-time tick data.
 
 **crypto_assets:**
 
-| Field | Description |
-|---|---|---|---|
-| symbol | The symbol of the crypto currency pair, eg.: BTC/USD |
-| name | The name of the pair, eg.: Bitcoin USD |
+|Field|Description|
+|-|-|-|-|
+|symbol|The symbol of the crypto currency pair, such as BTC/USD|
+|name|The name of the pair, such as Bitcoin USD|
 
 **crypto_ticks:**
 
-| Field | Description |
-|---|---|
-| time | Timestamp of the price record in UTC time zone |
-| symbol | Crypto pair symbol from the `crypto_assets` table |
-| price | The price registered on the exchange |
-| day_volume | Total volume for the given day (incremental) |
+|Field|Description|
+|-|-|
+|time|Timestamp of the price record in UTC time zone|
+|symbol|Crypto pair symbol from the `crypto_assets` table|
+|price|The price registered on the exchange|
+|day_volume|Total volume for the given day (incremental)|
 
-**Create the tables:**
+Create the tables:
 ```sql
 CREATE TABLE crypto_assets (
     symbol UNIQUE TEXT,
@@ -39,17 +46,17 @@ CREATE TABLE crypto_ticks (
 SELECT create_hypertable('crypto_ticks', 'time');
 ```
 
-Notice how you also need to turn the *time-series* table into a
+You also need to turn the time-series table into a
 [hypertable][hypertable]. This is an important step in order to efficiently
 store your time-series data in TimescaleDB.
 
-### Should I use TIMESTAMP or TIMESTAMP WITH TIME ZONE data type for the time column?
-Our recommendation is to always use `TIMESTAMP WITH TIME ZONE` (`TIMESTAMPTZ`)
+### Using TIMESTAMP data types
+Best practice is to always use `TIMESTAMP WITH TIME ZONE` (`TIMESTAMPTZ`)
 as the data type to store time values. This way the timestamp column holds the
-time zone information as well which will make it easier to query your data
+time zone information as well which makes it easier to query your data
 using different time zones if needed. TimescaleDB has support for time zones
 and it stores `TIMESTAMPTZ` values in UTC internally and makes the necessary
-conversions to satisfy your queries.
+conversions for your queries.
 
 ## Insert tick data
 With the hypertable and relational table created, download the sample files

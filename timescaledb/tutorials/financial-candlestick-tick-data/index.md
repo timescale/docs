@@ -1,21 +1,20 @@
 # Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
 [Candlestick charts][charts] are the standard way to analyze the price changes of
 various financial assets. Be it stock prices, cryptocurrency prices, or even
-NFT prices, candlestick data is essential to analyze this type of time-series
-data. To generate candlestick charts you need to have candlestick data that is
-represented by the OHLCV format. 
+NFT prices, candlestick charts are essential to analyze this type of time-series
+data. To generate candlestick charts you need to have candlestick data in
+the OHLCV format. 
 
-In this tutorial, you will learn how to efficiently store raw financial tick
-data, create different candlestick views and query aggregated data in
-TimescaleDB using the OHLCV format. You will also be able to download sample
+This tutorial shows you how to efficiently store raw financial tick
+data, create different candlestick views, and query aggregated data in
+TimescaleDB using the OHLCV format. It also shows you how to download sample
 data containing real-world crypto tick transactions for cryptocurrencies like
 BTC, ETH, and other popular assets.
 
-
-## What’s candlestick data and OHLCV?
+## What's candlestick data and OHLCV?
 Candlestick charts are used in the financial sector to visualize the price
 change of a specific financial asset. Each candlestick represents a time
-frame (eg. 1 minute, 5 minutes, 1 hour, etc) and conveys how the asset’s
+frame (for example, 1 minute, 5 minutes, 1 hour, or similar) and conveys how the asset's
 price changed in that time frame.
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
@@ -31,7 +30,7 @@ as OHLCV (open-high-low-close-volume):
 * Volume: volume of transactions
 
 And remember, all these data points represent only that given bucket of time
-(eg. 1 minute).
+(for example, 1 minute).
 
 In the Timescale community, there are many users who are successfully using
 TimescaleDB to store and analyze candlestick data. Here are some examples:
