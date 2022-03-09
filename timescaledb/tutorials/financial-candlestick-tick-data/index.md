@@ -11,6 +11,13 @@ TimescaleDB using the OHLCV format. It also shows you how to download sample
 data containing real-world crypto tick transactions for cryptocurrencies like
 BTC, ETH, and other popular assets.
 
+<highlight type="note">
+Before you begin, make sure to have a TimescaleDB instance running locally or
+in cloud (see [installation options](/install/latest/)) and
+[Psql](/how-to-guides/connecting/psql) or any other PostgreSQL
+client (e.g. DBeaver) installed.
+</highlight>
+
 ## What's candlestick data and OHLCV?
 Candlestick charts are used in the financial sector to visualize the price
 change of a specific financial asset. Each candlestick represents a time
@@ -40,13 +47,9 @@ TimescaleDB to store and analyze candlestick data. Here are some examples:
 
 Follow this tutorial and see how to set up your TimescaleDB database to consume real-time tick or aggregated financial data and generate candlestick views efficiently.
 
-* Create candlestick (open-high-low-close-volume) aggregates
-* Query the candlestick views
-* Advanced data management
-
-## Prerequisites
-* TimescaleDB (see [installation options][install-timescale])
-* [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
+* [Create candlestick (open-high-low-close-volume) aggregates][create]
+* [Query candlestick views][query]
+* [Advanced data management][manage]
 
 
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
@@ -55,3 +58,6 @@ Follow this tutorial and see how to set up your TimescaleDB database to consume 
 [bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [install-timescale]: /install/latest/
 [psql-install]: /how-to-guides/connecting/psql
+[create]: /tutorials/financial-candlestick-tick-data/create-candlestick-aggregates
+[query]: /tutorials/financial-candlestick-tick-data/query-candlestick-views
+[manage]: /tutorials/financial-candlestick-tick-data/advanced-data-management
