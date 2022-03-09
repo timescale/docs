@@ -12,17 +12,17 @@ includes a separate table of company symbols and company names, in a table named
 `stocks_real_time`: Stock data. Includes stock price quotes at every second during trading hours.
 
 ```bash
-    * time: timestamp column incrementing second by second
-    * symbol: symbols representing a company, mapped to company names in the `company` table
-    * price: stock quote price for a company at the given timestamp
-    * day_volume: number of shares traded each day, NULL values indicate the market is closed
+    * time (timestamptz): timestamp column incrementing second by second
+    * symbol (text): symbols representing a company, mapped to company names in the `company` table
+    * price (double precision): stock quote price for a company at the given timestamp
+    * day_volume (int): number of shares traded each day, NULL values indicate the market is closed
 ```
 
 `company`: mapping for symbols to company names
 
 ```bash
-    * symbol: the symbol representing a company name
-    * name: corresponding company name
+    * symbol (text): the symbol representing a company name
+    * name (text): corresponding company name
 ```
 
 ## Access the dataset
