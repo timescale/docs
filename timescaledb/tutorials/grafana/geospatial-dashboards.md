@@ -82,7 +82,7 @@ left of the Grafana user interface. You'll see options for 'Map Visual Options',
 and more.
 
 First, make sure the 'Map Data Options' are set to 'table' and 'current'.  Then in
-the 'Field Mappings' section. Set the 'Table Query Format' to be ‘Table'.
+the 'Field Mappings' section. Set the 'Table Query Format' to be 'Table'.
 We can map the 'Latitude Field' to our `latitude` variable, the 'Longitude Field' to
 our `longitude` variable, and the 'Metric' field to our `value` variable.
 
