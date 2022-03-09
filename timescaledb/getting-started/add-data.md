@@ -1,18 +1,12 @@
 # Add time-series data
 
 To help get you familiar with TimescaleDB's features, you’ll need some
-sample data to play around with. For this tutorial, we provide real-time financial 
-stock data provided by ['Twelve Data'][twelve-data]. The data set contains time-series 
-stock prices from the last three months. 
-
-<highlight type="note">
-For information on how to get more from 'Twelve data', check out our [tutorial][script-twelve-data] on how to 
-ingest stock data into TimescaleDB.
-</highlight>
+sample data to use. For this tutorial, we provide real-time 
+stock trade data (aka. "tick data") provided by [twelvedata][twelve-data] for 100 stock symbols for the most recent month. 
 
 ### About the dataset
 
-The dataset contains tick level (second by second) stock data along with further information on company symbols. 
+The dataset contains tick level (second by second) stock trade data for the top 100 most traded symbols along with a separate table of company symbols and company names. 
 There are two tables that you will ingest, a hypertable `stocks_real_time` and a regular table `company`. 
 
 Details on the data set are as follows:
@@ -31,7 +25,7 @@ Details on the data set are as follows:
 ### Accessing the dataset
 
 1.  Before ingesting the data, you must create another table, `company`. Run the 
-    following code to do this. 
+    following SQL to do this. 
 
     ```sql
     CREATE TABLE IF NOT EXISTS company (
@@ -40,13 +34,12 @@ Details on the data set are as follows:
     );
     ```
 
-1.  We provide CSV files for accessing the data. Download the CSV files (in ZIP format) 
-    below.
+1.  Download the following CSV files (in ZIP format). There are two files with company information and real-time stock trades for one month.
 
     Download CSV: <tag type="download">[stock_data_real_time.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
 
-1.  After unzipping the files, use the following commands to insert the data into your 
-    TimescleDB instance. The code assumes your tables are in the current directory:
+1.  After unzipping the files, use the following `psql` commands to insert the data into your 
+    TimescleDB instance. The code assumes your CSV files are in the current directory:
 
     ```sql
     -- copy data from stocks_real_time.csv into stocks_real_time table
