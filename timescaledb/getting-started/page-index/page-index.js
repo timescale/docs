@@ -3,6 +3,9 @@ module.exports = [
         title: "Getting started",
         href: "getting-started",
         pageComponents: ['featured-cards'],
+        tags: ["timescaledb", "overview", "learn", "contribute"],
+        keywords: ["instance", "time-series", "hypertable", "query"],
+        excerpt: "Getting started with TimescaleDB",
         children: [
           {
             title: "1. Launch your first instance",
