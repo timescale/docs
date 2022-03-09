@@ -8,10 +8,10 @@ This section contains four examples of how you can set up automation policies on
 tick data hypertable, and your candlestick continuous aggregates. This can help you 
 save on disk storage and improve the performance of long-range analytical queries by
 automatically:
-* Deleting older tick data
-* Deleting older candlestick data
-* Compressing tick data
-* Compressing candlestick data
+* [Deleting older tick data](#automatically-delete-older-tick-data)
+* [Deleting older candlestick data](#automatically-delete-older-candlestick-data)
+* [Compressing tick data](#automatically-compress-tick-data)
+* [Compressing candlestick data](#automatically-compress-candlestick-data)
 
 Before you implement any of these automation policies, it's important to have
 a high level understanding about chunk time intervals in TimescaleDB
