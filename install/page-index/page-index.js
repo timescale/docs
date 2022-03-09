@@ -107,7 +107,7 @@ module.exports = [
       {
         title: "Kubernetes",
         href: "installation-kubernetes",
-        title: "TimescaleDB on Kubernetes",
+        title: "Kubernetes",
         href: "installation-kubernetes",
         tags: ["timescaledb", "install", "self-hosted", "kubernetes", "helm"],
         keywords: ["install", "TimescaleDB", "self-hosted", "Kubernetes"],
