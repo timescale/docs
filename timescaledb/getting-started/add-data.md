@@ -44,13 +44,18 @@ Details on the data set are as follows:
 
     Download CSV: <tag type="download">[stock_data_real_time.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
 
-1.  After unzipping the files, use the following `psql` commands to insert the data into your 
+1.  Unzip the CSV files
+    ```bash
+    unzip stock_data_real_time.zip
+    ```
+
+1.  Use the following `psql` commands to insert the data into your 
     TimescleDB instance. The code assumes your CSV files are in the current directory:
 
     ```sql
     -- copy data from stocks_real_time.csv into stocks_real_time table
     \copy stocks_real_time from './stocks_real_time.csv' DELIMITER ',' CSV;
-    \copy company from './compsny.csv' DELIMITER ',' CSV;
+    \copy company from './company.csv' DELIMITER ',' CSV;
     ```
 
 </procedure>
