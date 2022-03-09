@@ -78,8 +78,6 @@ data-stores become more efficient.
 
 ## Learn more about hypertables and chunks
 See the [Hypertable How-To](/how-to-guides/hypertables) to learn more about
-about why hypertables help with storing and querying time-series data through 
-the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
 ## Next steps
 Next, ingest some sample stock trade data into TimescaleDB! Step 4, ['Add time-series data' section][add-data], will show you how to populate the hypertable you just created. 
