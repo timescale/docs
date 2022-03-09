@@ -64,29 +64,27 @@ cluster.
 
 <highlight type="note">
 If you configured the user credentials in the `my_values.yaml` file, you don't
-need to decode the passwords.
+need to decode the passwords. In the following section replace `<my_name>` with
+the name that you provided during the installation.
 </highlight>
 
 1. Get the name of the host to connect to:
     ```bash
-    kubectl get service/my_name
+    kubectl get service/<my_name>
     ```
 1. Decode the `admin` user password `PGPASSWORD_ADMIN` that was generated during
-   the Helm installation, by replacing `<my_name>` with the name that you
-   provided during the installation:
+   the Helm installation:
     ```bash
     PGPASSWORD_ADMIN=$(kubectl get secret --namespace default 
     <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
     ``` 
 1. **OPTIONAL** Decode the super user password `PGPOSTGRESPASSWORD` that was
-   generated during the Helm installation, by replacing `<my_name>` with the
-   name that you provided during the installation:
+   generated during the Helm installation:
     ```bash
     PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default 
     <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
-1. Connect with psql as `admin` user, by replacing `<my_name>` with the name
-   that you provided during the installation:
+1. Connect with psql as `admin` user:
     ```bash
     kubectl run -i --tty --rm psql --image=postgres \
       --env "PGPASSWORD=$PGPASSWORD_ADMIN" \
@@ -111,6 +109,11 @@ need to decode the passwords.
 </procedure>
 
 <procedure>
+
+## Create a database
+ After installing and connecting to TimescaleDB you can create a database,
+ connect to the database, and also verify that the TimescaleDB extension is
+ installed.
 
 ### Creating a database
 1.  At the prompt, create an empty database. For example, to create a database
@@ -140,9 +143,13 @@ tsdb=# \dx
 </procedure>
 
 ## Clean up
+You can use Helm to uninstall TimescaleDB on the Kubernetes cluster and clean up
+the Pods, Persistent Volume Claims (PVC), S3 backups, and more.
+
+### Cleaning up
 To remove the spawned Pods:
 ```bash
-helm delete my-release
+helm delete <my_name>
 ```
 Some items such as Persistent Volume Claims (PVC) and S3 backups are not removed
 immediately. For more information about purging these items, see the
