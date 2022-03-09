@@ -56,9 +56,10 @@ When you are happy with the list of chunks, you can use the chunk names to manua
 
 ## Manually compress chunks in a single command
 Alternatively, you can select the chunks and compress them in a single command
-by using the output of the `show_chunks` command to compress each one, like
-this:
-
+by using the output of the `show_chunks` command to compress each one. For
+example, use this command to compress chunks between one and three weeks old 
+if they are not already compressed:
 ```sql
-SELECT compress_chunk(i) from show_chunks('example', now() - interval '1 week', now() - interval '3 weeks') i;
+SELECT compress_chunk(i, if_not_compressed => true) 
+  FROM show_chunks('example', now() - INTERVAL '1 week', now() - INTERVAL '3 weeks') i;
 ```
