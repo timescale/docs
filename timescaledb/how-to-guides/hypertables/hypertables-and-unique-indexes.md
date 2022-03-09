@@ -5,7 +5,7 @@ Hypertable partitioning introduces some restrictions on unique indexes.
 Before you create a unique index, you need to determine what unique indexes are allowed on your
 hypertable. Begin by identifying your partitioning columns.
 
-In TimescaleDB, the following columns are partitioning columns:
+TimescaleDB uses these columns for partitioning hypertables:
 *   The time column used to create the hypertable. Every TimescaleDB hypertable
     is partitioned by time.
 *   Any space-partitioning columns. Space partitions are optional and not
