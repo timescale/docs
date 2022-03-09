@@ -1,22 +1,21 @@
 # Add time-series data
 
-To help get you familiar with TimescaleDB's features, you’ll need some
-sample data to use. For this tutorial, we provide real-time 
-stock trade data (aka. "tick data") provided by [twelvedata][twelve-data] for 100 stock symbols for the most recent month. 
+To explore TimescaleDB's features, you need some sample data. This tutorial provides real-time 
+stock trade data (also known as "tick data") from [twelvedata][twelve-data].
 
-### About the dataset
+## About the dataset
 
-The dataset contains tick level (second by second) stock trade data for the top 100 most traded symbols along with a separate table of company symbols and company names. 
-There are two tables that you will ingest, a hypertable `stocks_real_time` and a regular table `company`. 
+The dataset contains second-by second stock-trade data for the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It also
+includes a separate table of company symbols and company names, in a table named `company`. `company` is not a hypertable.
 
-Details on the data set are as follows:
-`stocks_real_time`: Stock data indicating quotes for stock prices for a given second during trading hours
+### Table details
+`stocks_real_time`: Stock data. Includes stock price quotes at every second during trading hours.
 
 ```bash
-    * time: timestamp column incrementing at a tick level (second by second)
-    * symbol: symbols representing a company, mappings found in the `company` table
+    * time: timestamp column incrementing second by second
+    * symbol: symbols representing a company, mapped to company names in the `company` table
     * price: stock quote price for a company at the given timestamp
-    * day_volume: how many shares are traded each day, NULL values indicate the market is closed
+    * day_volume: number of shares traded each day, NULL values indicate the market is closed
 ```
 
 `company`: mapping for symbols to company names
@@ -26,12 +25,13 @@ Details on the data set are as follows:
     * name: corresponding company name
 ```
 
+## Access the dataset
+
 <procedure>
 
 ### Accessing the dataset
 
-1.  Before ingesting the data, you must create another table, `company`. Run the 
-    following SQL to do this. 
+1.  Before ingesting data, create another table named `company`. At the `psql` prompt, run:
 
     ```sql
     CREATE TABLE IF NOT EXISTS company (
@@ -40,27 +40,27 @@ Details on the data set are as follows:
     );
     ```
 
-1.  Download the following CSV files (in ZIP format). There are two files with company information and real-time stock trades for one month.
+1.  Download the following `.zip` file. The file contains two `.csv` files: one with company information, and one with real-time stock trades for one month.
 
-    Download CSV: <tag type="download">[stock_data_real_time.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
+    Download: <tag type="download">[stock_data_real_time.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
 
-1.  Unzip the CSV files
+1.  At the command prompt, unzip the `.csv` files:
     ```bash
     unzip stock_data_real_time.zip
     ```
 
-1.  Use the following `psql` commands to insert the data into your 
-    TimescleDB instance. The code assumes your CSV files are in the current directory:
+1.  At the `psql` prompt, insert the data into your 
+    TimescleDB instance. If the `.csv` files aren't in your current directory, replace the file paths as needed:
 
     ```sql
-    -- copy data from stocks_real_time.csv into stocks_real_time table
     \copy stocks_real_time from './stocks_real_time.csv' DELIMITER ',' CSV;
     \copy company from './company.csv' DELIMITER ',' CSV;
     ```
 
 </procedure>
 
-Now that you’re up and running with data inside TimescaleDB let’s [start querying the data][query-data].
+## Next steps
+Now that you have data in your TimescaleDB instance, learn how to [query the data][query-data].
 
 
 [twelve-data]: https://twelvedata.com/
