@@ -18,7 +18,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 |`last_run_started_at`| TIMESTAMP WITH TIME ZONE | Start time of the last job|
 |`last_successful_finish`| TIMESTAMP WITH TIME ZONE | Time when the job completed successfully|
 |`last_run_status` | TEXT | Whether the last run succeeded or failed |
-|`job_status`| TEXT | Status of the job. Valid values are ‘Running’, ‘Scheduled’ and 'Paused'|
+|`job_status`| TEXT | Status of the job. Valid values are 'Running', 'Scheduled' and 'Paused'|
 |`last_run_duration`| INTERVAL | Duration of last run of the job|
 |`next_scheduled_run` | TIMESTAMP WITH TIME ZONE | Start time of the next run |
 |`total_runs` | BIGINT | The total number of runs of this job|
