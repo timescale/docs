@@ -78,7 +78,6 @@ data-stores become more efficient.
 
 ## Learn more about hypertables and chunks
 See the [Hypertable How-To](/how-to-guides/hypertables) to learn more about
-hypertables and best practices for configuring chunks. You can also learn more 
 about why hypertables help with storing and querying time-series data through 
 the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
