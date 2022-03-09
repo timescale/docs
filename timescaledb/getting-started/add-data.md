@@ -11,14 +11,20 @@ There are two tables that you will ingest, a hypertable `stocks_real_time` and a
 
 Details on the data set are as follows:
 `stocks_real_time`: Stock data indicating quotes for stock prices for a given second during trading hours
+
+```bash
     * time: timestamp column incrementing at a tick level (second by second)
     * symbol: symbols representing a company, mappings found in the `company` table
     * price: stock quote price for a company at the given timestamp
     * day_volume: how many shares are traded each day, NULL values indicate the market is closed
+```
 
 `company`: mapping for symbols to company names
+
+```
     * symbol: the symbol representing a company name
     * name: corresponding company name
+```
 
 <procedure>
 
