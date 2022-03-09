@@ -1,25 +1,24 @@
 # Create candlestick aggregates
 Turning raw, real-time tick data into aggregated candlestick views is a common
-task for users that work with financial data. If your data is not tick data -
-maybe because you receive it in an already aggregated form
-(eg. in 1-min buckets) - the following functions can still help you to create
-additional aggregates of your data into larger buckets (eg. 1-hour or 1-day
-buckets). You can also look at the tutorial for 
-[Analyzing Intraday Stock Data][intraday-tutorial]
-for examples of how to work with pre-aggregated stock and crypto data.
+task for users that work with financial data. If your data is not tick data, for
+example if you receive it in an already aggregated form such as 1-min buckets,
+you can still use these functions to help you create
+additional aggregates of your data into larger buckets, such as 1-hour or 1-day
+buckets. If you want to work with pre-aggregated stock and crypto data, see the
+[Analyzing Intraday Stock Data][intraday-tutorial] tutorial for more examples.
 
-TimescaleDB includes multiple functions ([hyperfunctions][hyperfunctions])
-that you can take advantage of to store and query your financial data more
+TimescaleDB includes [hyperfunctions][hyperfunctions] that you can use to
+store and query your financial data more
 easily. Hyperfunctions are SQL functions within TimescaleDB that make it
 easier to manipulate and analyze time-series data in PostgreSQL with fewer
-lines of code. In the context of candlestick data, there are three
-hyperfunctions that are essential to calculate the candlestick values:
-[`time_bucket()`][time-bucket], [`FIRST()`][first] and [`LAST()`][last]. 
+lines of code. There are three
+hyperfunctions that are essential for calculating candlestick values:
+[`time_bucket()`][time-bucket], [`FIRST()`][first], and [`LAST()`][last]. 
 
 The `time_bucket()` hyperfunction helps you aggregate records into buckets of
 arbitrary time intervals based on the timestamp value. `FIRST()` and `LAST()`
-are essential to calculate the opening and closing prices. To calculate
-highest and lowest prices, you can use standard PostgreSQL aggregate
+are essential for calculating the opening and closing prices. To calculate
+highest and lowest prices, you can use the standard PostgreSQL aggregate
 functions `MIN` and `MAX`.
 
 In this first SQL example, use the hyperfunctions to query the tick data,
@@ -39,20 +38,20 @@ GROUP BY bucket, symbol
 ```
 
 Hyperfunctions in this query:
-* `time_bucket('1 min', time)` this function will create 1-minute buckets
+* `time_bucket('1 min', time)` this function creates 1-minute buckets
 * `FIRST(price, time)` this function selects the first `price` value ordered
-    by the `time` column which is the first price of the bucket (aka the opening price of the candlestick)
-* `LAST(price, time)` this function does something very similar but it selects
-    the last `price` value ordered by the `time` column which is the last
-    price of the bucket (aka the closing price of the candlestick)
+    by the `time` column, which is the first price of the bucket, or the 
+    opening price of the candlestick.
+* `LAST(price, time)` this function is similar, but it selects
+    the last `price` value ordered by the `time` column, which is the last
+    price of the bucket, or the closing price of the candlestick.
 
 Besides the hyperfunctions, you can see other common SQL aggregate functions
-like `MIN`, `MAX` which calculate the lowest and highest prices in the
+like `MIN` and `MAX`, which calculate the lowest and highest prices in the
 candlestick.
 
-<highlight type="tip">
-**How to calculate volume within a bucket?**
-To calculate the volume, this example uses the `LAST()` hyperfunction because
+<highlight type="note">
+This tutorial uses the `LAST()` hyperfunction to calculate the volume within a bucket, because
 our sample tick data already provides an incremental `day_volume` field which
 contains the total volume for the given day with each trade. Depending on the
 raw data you receive and whether you want to calculate volume in terms of
@@ -62,12 +61,11 @@ in the bucket to get the correct result.
 </highlight> 
 
 ## Create continuous aggregates for candlestick data
-
 In TimescaleDB, the most efficient way to create candlestick views is to
 use [continuous aggregates][caggs]. Continuous aggregates are very similar
 to PostgreSQL materialized views but with three major advantages. First,
-unlike Materialized Views which recreate all of the data any time the view
-is refreshed (which causes history to be lost), continuous aggregates only
+materialized views recreate all of the data any time the view
+is refreshed, which causes history to be lost, so continuous aggregates only
 refresh the buckets of aggregated data where the source, raw data has been
 changed or added. 
 
@@ -76,22 +74,22 @@ policies configured by the user to align with the data of each continuous
 aggregate. This means that no special triggers or stored procedures are
 needed to refresh the data over time.
 
-And finally, continuous aggregates are real-time by default. Any new raw
-tick data that is inserted between refreshes will be automatically appended
+Finally, continuous aggregates are real-time by default. Any new raw
+tick data that is inserted between refreshes is automatically appended
 to the materialized data. This keeps your candlestick data up-to-date
 without having to write special SQL to UNION data from multiple views and
 tables.  
 
 Continuous aggregates are often used to power dashboards and other user-facing
-applications (e.g. price charts) where query performance and timeliness of
+applications, like price charts, where query performance and timeliness of
 your data matter.
 
-Let’s see how to create different candlestick time buckets - 1 minute,
+Let's see how to create different candlestick time buckets - 1 minute,
 1 hour, and 1 day - using continuous aggregates with different refresh
-policies!
+policies.
 
 ### 1-minute candlestick
-To create a continuous aggregate of 1-minute candlestick data, you provide the
+To create a continuous aggregate of 1-minute candlestick data, provide the
 candlestick query shown above as the definition of the continuous aggregate
 to create the view.
 

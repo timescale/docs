@@ -1,25 +1,24 @@
 # Advanced data management
-In the final part of this tutorial, you will see some more advanced techniques
+The final part of this tutorial shows you some more advanced techniques
 to efficiently manage your tick and candlestick data long-term. TimescaleDB
 is equipped with multiple features that help you manage your data lifecycle
 and reduce your disk storage needs as your data grows.
 
-You will see four examples how you can set up automation policies on your
-hypertable (containing tick data) and continuous aggregates (containing
-various candlestick aggregations) to save on disk storage and improve the
-performance of long-range analytical queries:
+This section contains four examples of how you can set up automation policies on your
+tick data hypertable, and your candlestick continuous aggregates. This can help you 
+save on disk storage and improve the performance of long-range analytical queries by
+automatically:
+* Deleting older tick data
+* Deleting older candlestick data
+* Compressing tick data
+* Compressing candlestick data
 
-* Automatically delete older tick data
-* Automatically delete older candlestick data
-* Automatically compress tick data
-* Automatically compress candlestick data
-
-Before implementing any of these automation policies, it’s important to gain
+Before you implement any of these automation policies, it's important to have
 a high level understanding about chunk time intervals in TimescaleDB
 hypertables and continuous aggregates. The chunk time interval you set
 for your tick data table directly affects how these automation policies
-will work. Hence, we suggest that you should have at least a high level
-understanding of [hypertables and chunks][chunks].
+work. For more information, see the 
+[hypertables and chunks][chunks] section.
 
 ## Hypertable chunk time intervals and automation policies
 TimescaleDB uses hypertables to provide a high-level and familiar abstraction
@@ -29,20 +28,19 @@ hypertable to access all of your time-series data.
 Under the hood, TimescaleDB creates chunks based on the timestamp column.
 Each chunk size is determined by the [`chunk_time_interval`][interval]
 parameter you can provide when creating the hypertable or you can also change
-this setting afterwards. If you don’t provide this optional parameter, the
-chunk time interval will be 7 days, by default. This means that each of the
-chunks in the hypertable will contain 7 days worth of data.
+this setting afterwards. If you don't provide this optional parameter, the
+chunk time interval defaults to 7 days. This means that each of the
+chunks in the hypertable contains 7 days worth of data.
 
-Why is this important to be aware of? It’s important because all of the
-TimescaleDB automation policies described below depend on this information
-and the chunk time interval fundamentally affects how these policies impact
-your data.
+It's important to understand this, because all of the TimescaleDB automation 
+policies described in this section depend on this information, and the chunk 
+time interval fundamentally affects how these policies impact your data.
 
-Let’s look at these specific automation policies and how they work in the
+Let's look at these specific automation policies and how they work in the
 context of financial tick data.
 
 ## Automatically delete older tick data
-The older most time-series data becomes, the less relevant and useful it is.
+Usually, the older your time-series data becomes, the less relevant and useful it is.
 This is often the case with tick data as well. As time goes on you might not
 need the raw tick data any more because you only want to query the candlestick
 aggregations. In this scenario, you can decide to remove old tick data
@@ -52,34 +50,33 @@ interval.
 TimescaleDB has a built-in way to automatically remove raw data after a
 specific time. You can set up this automation using a
 [data retention policy][retention]:
-
 ```sql
 SELECT add_retention_policy('crypto_ticks', INTERVAL '7 days');
 ```
 
-Running this SQL, it adds a data retention policy to the `crypto_ticks`
-hypertable that will remove a chunk after all the data in the chunk gets
-older than 7 days. Important to note that all records in the chunk need to be
+When you run this, it adds a data retention policy to the `crypto_ticks`
+hypertable that removes a chunk after all the data in the chunk becomes
+older than 7 days. All records in the chunk need to be
 older than 7 days before the chunk is dropped. 
 
-This is where the knowledge about your hypertable’s chunk time interval
+This is where knowledge about your hypertable's chunk time interval
 becomes crucial. If you were to set a data retention policy with
-`INTERVAL '3 days'`, the policy would NOT remove any data after three days.
-Why? Because your chunk time interval is 7 days. Meaning, even after three
-days, the most recent chunk would still contain data that is newer than three
-days, hence cannot be removed by the data retention policy.
+`INTERVAL '3 days'`, the policy would not remove any data after three days.
+This is because your chunk time interval is 7 days. So even after 3
+days have passed, the most recent chunk still contains data that is newer than 3
+days, and so cannot be removed by the data retention policy.
 
-If you want to change this behavior in order to drop chunks more often and
+If you want to change this behavior, and drop chunks more often and
 sooner, experiment with different chunk time intervals. For example, if you
 set the chunk time interval to be 2 days only, you could create a retention
-policy with a 2-day interval which would drop a chunk every other day
-(assuming you’re ingesting data in the meantime).
+policy with a 2-day interval that would drop a chunk every other day
+(assuming you're ingesting data in the meantime).
 
-[Read more about data retention.][retention]
+For more information, see the [data retention][retention] section.
 
-<highlight type="warning">
+<highlight type="important">
 Make sure none of the continuous aggregate policies intersect with a data
-retention policy. It’s possible to keep the candlestick data in the continuous
+retention policy. It's possible to keep the candlestick data in the continuous
 aggregate and drop tick data from the underlying hypertable, but only if you
 materialize data in the continuous aggregate first, before the data is dropped
 from the underlying hypertable.
@@ -89,40 +86,40 @@ from the underlying hypertable.
 Deleting older raw tick data from your hypertable while retaining aggregate
 views for longer periods is a common way of minimizing disk utilization.
 However, deleting older candlestick data from the continuous aggregates can
-provide another method for further control over long-term disk usage.
+provide another method for further control over long-term disk use.
 TimescaleDB allows you to create data retention policies on continuous
 aggregates as well.
 
-<highlight type="tip">
-Continuous aggregates also have chunk time intervals (because they use
-hypertables under the hood). By default, the continuous aggregate’s chunk
-time interval is 10x what the original hypertable’s chunk time interval is.
-For example, if the original hypertable’s chunk time interval is 7 days, the
+<highlight type="note">
+Continuous aggregates also have chunk time intervals because they use
+hypertables in the background. By default, the continuous aggregate's chunk
+time interval is 10 times what the original hypertable's chunk time interval is.
+For example, if the original hypertable's chunk time interval is 7 days, the
 continuous aggregates that are on top of it will have a 70 day chunk time
 interval.
 </highlight>
 
-Let’s see how you can set up a data retention policy to remove old data from
+You can set up a data retention policy to remove old data from
 your `one_min_candle` continuous aggregate:
 ```sql
 SELECT add_retention_policy('one_min_candle', INTERVAL '70 days');
 ```
 
-This data retention policy will remove chunks from the continuous aggregate
+This data retention policy removes chunks from the continuous aggregate
 that are older than 70 days. In TimescaleDB, this is determined by the
-`range_end` property of a hypertable (or materialized hypertable in context
-of continuous aggregates). In practice, this means that if you were to
+`range_end` property of a hypertable, or in the case of a continuous 
+aggregate, the materialized hypertable. In practice, this means that if 
+you were to
 define a data retention policy of 30 days for a continuous aggregate that has
-a chunk_time_interval of 70 days, data would not be removed from the
+a `chunk_time_interval` of 70 days, data would not be removed from the
 continuous aggregates until the `range_end` of a chunk is at least 70
 days older than the current time, due to the chunk time interval of the
 original hypertable.
 
 ## Automatically compress tick data
-
-Going further TimescaleDB allows you to keep your tick data in the hypertable
-but still save on storage costs with TimescaleDB’s native compression.
-You just need to enable compression on the hypertable and set up a compression
+TimescaleDB allows you to keep your tick data in the hypertable
+but still save on storage costs with TimescaleDB's native compression.
+You need to enable compression on the hypertable and set up a compression
 policy to automatically compress old data.
 
 Enable compression on crypto_ticks hypertable:
@@ -133,15 +130,15 @@ ALTER TABLE crypto_ticks SET (
 );
 ```
 
-Set up compression policy to compress data that’s older than 7 days:
+Set up compression policy to compress data that's older than 7 days:
 ```sql
 SELECT add_compression_policy('crypto_ticks', INTERVAL '7 days');
 ```
 
-Executing these two SQL scripts will make sure to compress chunks that are
+Executing these two SQL scripts compresses chunks that are
 older than 7 days.
 
-[Read more about compression.][compression]
+For more information, see the [compression][compression] section.
 
 ## Automatically compress candlestick data
 Beginning with [TimescaleDB 2.6][release-blog], you can also set up a
@@ -159,9 +156,9 @@ Set compression policy to compress data after 70 days:
 SELECT add_compression_policy('one_min_candle', compress_after=> INTERVAL '70 days');
 ```
 
-<highlight type="warning">
-Before setting up a compression policy on any of the candlestick views, you
-should set up a refresh policy first. The compression policy interval should
+<highlight type="important">
+Before setting up a compression policy on any of the candlestick views,
+set up a refresh policy first. The compression policy interval should
 be set so that actively refreshed time intervals are not compressed.
 </highlight>
 
