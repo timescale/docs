@@ -3,6 +3,9 @@ module.exports = [
       title: "Code quick starts",
       href: "quick-start",
       pageComponents: ['featured-cards'],
+      tags: ["timescaledb", "overview", "get started", "learn"],
+      keywords: ["node", "python", "ruby", "golang", "java", "C#"],
+      excerpt: "A collection of quick starts for common programming languages.",
       children: [
         {
           title: 'Node.js',
