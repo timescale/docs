@@ -14,8 +14,6 @@ not have.
 Here we provide some query examples so that you can get familiar with using SQL along
 with some of TimescaleDB's most popular functions. 
 
-<procedure>
-
 ## Basic SQL queries
 
 1. Selecting all stock data from the last day.
@@ -28,7 +26,7 @@ with some of TimescaleDB's most popular functions.
    where time > now() - interval '1 day';
    ```
 
-1. Selecting the top 10 stock values by price.
+2. Selecting the top 10 stock values by price.
 
    This query utilizes the [`order by`][order-by] keyword to order the results by price descending
    and limit the number of results shown to 10. 
@@ -39,7 +37,7 @@ with some of TimescaleDB's most popular functions.
    limit 10;   
    ```
 
-1. The average trade price for Apple from the last day
+3. The average trade price for Apple from the last day
 
    This query uses the [`avg()`][average] function along with [`filter`][filter] and `where` 
    to specify that the results should only include 'AAPL' (Apple) trades that were made within the 
@@ -51,10 +49,7 @@ with some of TimescaleDB's most popular functions.
    from stocks_real_time srt
    where time > now() - interval '2 day';
    ```
-</procedure>
 
-
-<procedure>
 
 ## Advanced TimescaleDB SQL functions
 
@@ -86,7 +81,7 @@ Functions covered include:
    group by symbol;
    ```
 
-1. Using the `time_bucket()` function
+2. Using the `time_bucket()` function
 
    Before showing the query, let's look at the `time_bucket()` function in a more detail. 
 
@@ -126,7 +121,6 @@ Functions covered include:
    order by bucket, symbol;
    ```
 
-</procedure>
 
 <highlight type="note">
 For more information about the functions provided by TimescaleDB and Timescale Toolkit extension,
