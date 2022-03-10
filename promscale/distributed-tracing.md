@@ -13,13 +13,6 @@ When you have tracing set up in Promscale, you can query the traces using SQL
 queries. This allows you to get deep insights from your tracing data, which can
 help you understand problems and identify optimizations for your applications.
 
-<highlight type="warning">
-Promscale tracing is currently in beta, and could have bugs. This feature might
-not be backwards compatible, and could be removed in a future release. Use this
-feature at your own risk, and do not use any experimental features in
-production.
-</highlight>
-
 To enable tracing in Promscale 0.7.0 and later, use the
 `-enable-feature=tracing` flag. For more information about installing tracing
 support with tobs, see [the tobs installation section][tobs-tracing]. For more
