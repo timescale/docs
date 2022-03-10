@@ -26,10 +26,17 @@ refreshing in order to align with bucket boundaries.
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `continuous_aggregate` | REGCLASS | The continuous aggregate to refresh. |
-| `window_start` | INTERVAL | Start of the window to refresh, has to be before `window_end`. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable. |
-| `window_end` | INTERVAL | End of the window to refresh, has to be after `window_start`. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable. |
+|-|-|-|
+|`continuous_aggregate`|REGCLASS|The continuous aggregate to refresh.|
+|`window_start`|INTERVAL|Start of the window to refresh, has to be before `window_end`. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable.|
+|`window_end`|INTERVAL|End of the window to refresh, has to be after `window_start`. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable.|
+
+<highlight type="warning">
+While setting `window_end` to `NULL` is possible, it is not recommended. To 
+include the most recent data in your aggregates, use 
+[real-time aggregation](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/)
+instead.
+</highlight>
 
 ### Sample usage
 
