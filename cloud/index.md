@@ -35,6 +35,13 @@ and extensions.
  * More than 75 popular PostgreSQL extensions including PostGIS, pre-installed
  * Integrated support for Prometheus long-term storage 
 
+### Available in multiple AWS regions
+Choose your preferred AWS region for each service. Supported regions include:
+*   `eu-central-1`, Europe (Frankfurt)
+*   `eu-west-1`, Europe (Ireland)
+*   `us-east-1`, US East (North Virginia)
+*   `us-west-2`, US West (Oregon)
+
 For more information on Timescale Cloud's terms of service, visit the [Timescale website][tos].
 
 
