@@ -5,7 +5,7 @@ is equipped with multiple features that help you manage your data lifecycle
 and reduce your disk storage needs as your data grows.
 
 This section contains four examples of how you can set up automation policies on your
-tick data hypertable, and your candlestick continuous aggregates. This can help you 
+tick data hypertable and your candlestick continuous aggregates. This can help you 
 save on disk storage and improve the performance of long-range analytical queries by
 automatically:
 * [Deleting older tick data](#automatically-delete-older-tick-data)
@@ -14,7 +14,7 @@ automatically:
 * [Compressing candlestick data](#automatically-compress-candlestick-data)
 
 Before you implement any of these automation policies, it's important to have
-a high level understanding about chunk time intervals in TimescaleDB
+a high-level understanding of chunk time intervals in TimescaleDB
 hypertables and continuous aggregates. The chunk time interval you set
 for your tick data table directly affects how these automation policies
 work. For more information, see the 
@@ -27,22 +27,22 @@ hypertable to access all of your time-series data.
 
 Under the hood, TimescaleDB creates chunks based on the timestamp column.
 Each chunk size is determined by the [`chunk_time_interval`][interval]
-parameter you can provide when creating the hypertable or you can also change
-this setting afterwards. If you don't provide this optional parameter, the
+parameter. You can provide this parameter when creating the hypertable, or you can change
+it afterwards. If you don't provide this optional parameter, the
 chunk time interval defaults to 7 days. This means that each of the
-chunks in the hypertable contains 7 days worth of data.
+chunks in the hypertable contains 7 days' worth of data.
 
-It's important to understand this, because all of the TimescaleDB automation 
+Knowing your chunk time interval is important. All of the TimescaleDB automation 
 policies described in this section depend on this information, and the chunk 
 time interval fundamentally affects how these policies impact your data.
 
-Let's look at these specific automation policies and how they work in the
+In this section, learn about these automation policies and how they work in the
 context of financial tick data.
 
 ## Automatically delete older tick data
 Usually, the older your time-series data becomes, the less relevant and useful it is.
-This is often the case with tick data as well. As time goes on you might not
-need the raw tick data any more because you only want to query the candlestick
+This is often the case with tick data as well. As time passes, you might not
+need the raw tick data any more, because you only want to query the candlestick
 aggregations. In this scenario, you can decide to remove old tick data
 automatically from your hypertable after it becomes older than a certain time
 interval.
