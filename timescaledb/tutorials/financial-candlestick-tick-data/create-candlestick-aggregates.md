@@ -1,6 +1,6 @@
 # Create candlestick aggregates
 Turning raw, real-time tick data into aggregated candlestick views is a common
-task for users that work with financial data. If your data is not tick data, for
+task for users who work with financial data. If your data is not tick data, for
 example if you receive it in an already aggregated form such as 1-min buckets,
 you can still use these functions to help you create
 additional aggregates of your data into larger buckets, such as 1-hour or 1-day
@@ -17,7 +17,7 @@ hyperfunctions that are essential for calculating candlestick values:
 
 The `time_bucket()` hyperfunction helps you aggregate records into buckets of
 arbitrary time intervals based on the timestamp value. `FIRST()` and `LAST()`
-are essential for calculating the opening and closing prices. To calculate
+help you calculate the opening and closing prices. To calculate
 highest and lowest prices, you can use the standard PostgreSQL aggregate
 functions `MIN` and `MAX`.
 
@@ -52,7 +52,7 @@ candlestick.
 
 <highlight type="note">
 This tutorial uses the `LAST()` hyperfunction to calculate the volume within a bucket, because
-our sample tick data already provides an incremental `day_volume` field which
+the sample tick data already provides an incremental `day_volume` field which
 contains the total volume for the given day with each trade. Depending on the
 raw data you receive and whether you want to calculate volume in terms of
 trade count or the total value of the trades, you might need to use
@@ -63,9 +63,11 @@ in the bucket to get the correct result.
 ## Create continuous aggregates for candlestick data
 In TimescaleDB, the most efficient way to create candlestick views is to
 use [continuous aggregates][caggs]. Continuous aggregates are very similar
-to PostgreSQL materialized views but with three major advantages. First,
+to PostgreSQL materialized views but with three major advantages. 
+
+First,
 materialized views recreate all of the data any time the view
-is refreshed, which causes history to be lost, so continuous aggregates only
+is refreshed, which causes history to be lost. Continuous aggregates only
 refresh the buckets of aggregated data where the source, raw data has been
 changed or added. 
 

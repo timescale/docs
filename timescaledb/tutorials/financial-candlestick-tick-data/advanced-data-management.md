@@ -143,7 +143,7 @@ For more information, see the [compression][compression] section.
 Beginning with [TimescaleDB 2.6][release-blog], you can also set up a
 compression policy on your continuous aggregates. This is a useful feature
 if you store a lot of historical candlestick data that consumes significant
-disk space but you still want to retain it for longer periods.
+disk space, but you still want to retain it for longer periods.
 
 Enable compression on the 1-min candlestick view:
 ```sql
@@ -156,8 +156,8 @@ SELECT add_compression_policy('one_min_candle', compress_after=> INTERVAL '70 da
 ```
 
 <highlight type="important">
-Before setting up a compression policy on any of the candlestick views,
-set up a refresh policy first. The compression policy interval should
+Before setting a compression policy on any of the candlestick views,
+set a refresh policy first. The compression policy interval should
 be set so that actively refreshed time intervals are not compressed.
 </highlight>
 
