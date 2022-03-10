@@ -1,9 +1,9 @@
 # Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
 [Candlestick charts][charts] are the standard way to analyze the price changes of
-various financial assets. Be it stock prices, cryptocurrency prices, or even
-NFT prices, candlestick charts are essential to analyze this type of time-series
-data. To generate candlestick charts you need to have candlestick data in
-the OHLCV format. 
+financial assets. They can be used to examine trends in stock prices, cryptocurrency prices, 
+or even NFT prices. To generate candlestick charts, you need candlestick data in
+the OHLCV format. That is, you need the Open, High, Low, Close, and Volume data for
+some financial assets.
 
 This tutorial shows you how to efficiently store raw financial tick
 data, create different candlestick views, and query aggregated data in
@@ -11,23 +11,21 @@ TimescaleDB using the OHLCV format. It also shows you how to download sample
 data containing real-world crypto tick transactions for cryptocurrencies like
 BTC, ETH, and other popular assets.
 
-<highlight type="note">
-Before you begin, make sure to have a TimescaleDB instance running locally or
-in cloud (see [installation options](/install/latest/)) and
-[Psql](/how-to-guides/connecting/psql) or any other PostgreSQL
-client (e.g. DBeaver) installed.
-</highlight>
+## Prerequisites
+Before you begin, make sure you have:
+* A TimescaleDB instance running locally or on the cloud. For more information, see [installation options](/install/latest/)
+* [`psql`](/how-to-guides/connecting/psql), DBeaver, or any other PostgreSQL client
 
 ## What's candlestick data and OHLCV?
 Candlestick charts are used in the financial sector to visualize the price
-change of a specific financial asset. Each candlestick represents a time
+change of an asset. Each candlestick represents a time
 frame (for example, 1 minute, 5 minutes, 1 hour, or similar) and conveys how the asset's
 price changed in that time frame.
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
 
-On the other hand, candlestick *data* is the collection of data points that
-one needs in order to generate a candlestick chart. This is often abbreviated
+Candlestick charts are generated from candlestick data, which is the collection of data points
+used in the chart. This is often abbreviated
 as OHLCV (open-high-low-close-volume):
 
 * Open: opening price
@@ -39,7 +37,7 @@ as OHLCV (open-high-low-close-volume):
 And remember, all these data points represent only that given bucket of time
 (for example, 1 minute).
 
-In the Timescale community, there are many users who are successfully using
+Many Timescale community members use
 TimescaleDB to store and analyze candlestick data. Here are some examples:
 * [How Trading Strategy built a data stack for crypto quant trading][trading-strategy]
 * [How Messari uses data to open the cryptoeconomy to everyone][messari]
