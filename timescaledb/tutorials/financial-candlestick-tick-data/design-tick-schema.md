@@ -1,22 +1,22 @@
 # Design schema and ingest tick data
 This tutorial shows you how to store real-time cryptocurrency or stock 
 tick data in TimescaleDB. The initial schema provides the foundation to 
-store tick data only. When you can store individual transactions, you can 
+store tick data only. Once you begin to store individual transactions, you can 
 calculate the candlestick values using TimescaleDB continuous aggregates 
-based on the raw tick data, so that our initial schema doesn’t need to 
+based on the raw tick data. This means that our initial schema doesn’t need to 
 specifically store candlestick data.
 
 ## Schema
 This schema uses two tables:
 * **crypto_assets**: a relational table that stores the symbols to monitor. 
-   You could also use this table to pull in additional information about each 
+   You can also include additional information about each 
    symbol, such as social links.
 * **crypto_ticks**: a time-series table that stores the real-time tick data.
 
 **crypto_assets:**
 
 |Field|Description|
-|-|-|-|-|
+|-|-|
 |symbol|The symbol of the crypto currency pair, such as BTC/USD|
 |name|The name of the pair, such as Bitcoin USD|
 
@@ -24,9 +24,9 @@ This schema uses two tables:
 
 |Field|Description|
 |-|-|
-|time|Timestamp of the price record in UTC time zone|
+|time|Timestamp, in UTC time zone|
 |symbol|Crypto pair symbol from the `crypto_assets` table|
-|price|The price registered on the exchange|
+|price|The price registered on the exchange at that time|
 |day_volume|Total volume for the given day (incremental)|
 
 Create the tables:
@@ -60,13 +60,13 @@ conversions for your queries.
 
 ## Insert tick data
 With the hypertable and relational table created, download the sample files
-containing crypto assets and tick data from the last 3 weeks and insert it
+containing crypto assets and tick data from the last three weeks. Insert the data
 into your TimescaleDB instance.
 
 <procedure>
 
 ### Inserting sample data
-1. Download sample CSV files [from here][sample-download].
+1. Download [the sample `.csv` files][sample-download].
     ```bash
     wget https://assets.timescale.com/docs/downloads/crypto_sample.zip
     ```
@@ -74,12 +74,12 @@ into your TimescaleDB instance.
     ```bash
     unzip crypto_sample.zip
     ```
-1. Insert the content of the CSV files into the database using `psql`
+1. At the `psql` prompt, insert the content of the `.csv` files into the database.
     ```bash
     psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/tsdb?sslmode=require"
     
-    \copy crypto_assets FROM 'crypto_assets.csv' CSV HEADER;
-    \copy crypto_ticks FROM 'crypto_ticks.csv' CSV HEADER;
+    \COPY crypto_assets FROM 'crypto_assets.csv' CSV HEADER;
+    \COPY crypto_ticks FROM 'crypto_ticks.csv' CSV HEADER;
     ```
 
 </procedure>

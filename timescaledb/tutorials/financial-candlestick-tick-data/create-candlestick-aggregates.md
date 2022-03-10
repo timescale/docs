@@ -38,13 +38,13 @@ GROUP BY bucket, symbol
 ```
 
 Hyperfunctions in this query:
-* `time_bucket('1 min', time)` this function creates 1-minute buckets
-* `FIRST(price, time)` this function selects the first `price` value ordered
-    by the `time` column, which is the first price of the bucket, or the 
+* `time_bucket('1 min', time)`: creates 1-minute buckets
+* `FIRST(price, time)`: selects the first `price` value in the bucket, ordered
+    by `time`, which is the 
     opening price of the candlestick.
-* `LAST(price, time)` this function is similar, but it selects
-    the last `price` value ordered by the `time` column, which is the last
-    price of the bucket, or the closing price of the candlestick.
+* `LAST(price, time)` selects
+    the last `price` value in the bucket, ordered by `time`, which is
+    the closing price of the candlestick
 
 Besides the hyperfunctions, you can see other common SQL aggregate functions
 like `MIN` and `MAX`, which calculate the lowest and highest prices in the
@@ -71,9 +71,8 @@ is refreshed, which causes history to be lost. Continuous aggregates only
 refresh the buckets of aggregated data where the source, raw data has been
 changed or added. 
 
-Second, continuous aggregates can be automatically refreshed using built-in
-policies configured by the user to align with the data of each continuous
-aggregate. This means that no special triggers or stored procedures are
+Second, continuous aggregates can be automatically refreshed using built-in,
+user-configured policies. No special triggers or stored procedures are
 needed to refresh the data over time.
 
 Finally, continuous aggregates are real-time by default. Any new raw
@@ -127,7 +126,7 @@ SELECT add_continuous_aggregate_policy('one_min_candle',
 ```
 
 The continuous aggregate refreshes every hour, so every hour new 
-candlesticks are materialized, if there's new raw tick data in the hypertable.
+candlesticks are materialized, **if there's new raw tick data in the hypertable**.
 
 When this job runs, it only refreshes the time period between `start_offset` 
 and `end_offset`, and ignores modifications outside of this window.
@@ -208,7 +207,7 @@ As an optional step, you can add an additional column in the continuous
 aggregate to calculate the price difference between the opening and closing 
 price within the bucket.
 
-In general, this is how you can calculate the price difference:
+In general, you can calculate the price difference with the formula:
 
 ```text
 (CLOSE PRICE - OPEN PRICE) / OPEN PRICE = delta
@@ -240,9 +239,8 @@ WITH (timescaledb.continuous) AS
 ```
 
 ## Using multiple continuous aggregates
-Currently you cannot create a continuous aggregate on top of another one.
-On the other hand, we found that for most, if not all, use cases this is
-not even necessary. You can achieve the desired result and performance by
+You cannot currently create a continuous aggregate on top of another continuous aggregate.
+However, this is not necessary in most cases. You can get a similar result and performance by
 creating multiple continuous aggregates for the same hypertable. Due
 to the efficient materialization mechanism of continuous aggregates, both
 refresh and query performance should work well.
