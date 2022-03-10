@@ -199,7 +199,7 @@ SELECT add_continuous_aggregate_policy('one_day_candle',
     schedule_interval => INTERVAL '1 day');
 ```
 
-The refresh job runs every day, and materializes two days worth of
+The refresh job runs every day, and materializes two days' worth of
 candlesticks.
 
 ## Optional: add price change (delta) column in the candlestick view

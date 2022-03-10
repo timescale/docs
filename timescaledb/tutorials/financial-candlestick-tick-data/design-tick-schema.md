@@ -43,6 +43,7 @@ CREATE TABLE crypto_ticks (
     day_volume NUMERIC
 );
  
+-- convert the regular 'crypto_ticks' table into a TimescaleDB hypertable with 7 day chunks
 SELECT create_hypertable('crypto_ticks', 'time');
 ```
 
@@ -51,11 +52,10 @@ You also need to turn the time-series table into a
 store your time-series data in TimescaleDB.
 
 ### Using TIMESTAMP data types
-Best practice is to always use `TIMESTAMP WITH TIME ZONE` (`TIMESTAMPTZ`)
-as the data type to store time values. This way the timestamp column holds the
-time zone information as well which makes it easier to query your data
-using different time zones if needed. TimescaleDB has support for time zones
-and it stores `TIMESTAMPTZ` values in UTC internally and makes the necessary
+It is best practice to store time values using the `TIMESTAMP WITH TIME ZONE` (`TIMESTAMPTZ`)
+data type. This makes it easier to query your data
+using different time zones. TimescaleDB 
+stores `TIMESTAMPTZ` values in UTC internally and makes the necessary
 conversions for your queries.
 
 ## Insert tick data

@@ -19,8 +19,8 @@ Before you begin, make sure you have:
 ## What's candlestick data and OHLCV?
 Candlestick charts are used in the financial sector to visualize the price
 change of an asset. Each candlestick represents a time
-frame (for example, 1 minute, 5 minutes, 1 hour, or similar) and conveys how the asset's
-price changed in that time frame.
+frame (for example, 1 minute, 5 minutes, 1 hour, or similar) and shows how the asset's
+price changed during that time.
 
 ![candlestick](https://assets.timescale.com/docs/images/tutorials/intraday-stock-analysis/candlestick_fig.png)
 
