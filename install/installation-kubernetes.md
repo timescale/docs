@@ -21,7 +21,7 @@ than those specified in the default `values.yaml`. You can name this file
 [Administrator Guide][admin-guide].
 
 ## Install TimescaleDB using a Helm chart
-You can install TimescaleDB on Kubernetes using a Helm chart with the default
+Install TimescaleDB on Kubernetes using a Helm chart with the default
 `values.yaml` file. When you use the default `values.yaml`, the user credentials
 are randomly generated during installation. When you then use the `helm upgrade`
 command, it does not rotate the credentials, because changing the database
