@@ -47,15 +47,18 @@ Examples of these functions include:
 * [`time_bucket()`] - used for analyzing data over arbitrary time intervals
 * [`first()`] - used for finding the earliest value based on a time within an aggregate group
 * [`last()`] - used for finding the latest value based on time within an aggregate group
-* [`time_bucket_gapfill()`] - used to analyze data over arbitrary time intervals and fill any gaps in the data
+* [`time_bucket_gapfill()`] - used to analyze data over arbitrary time intervals and fill 
+any gaps in the data
 * [`locf()`] - used to fill gaps in data by carrying the last observed value forward
-* [`interpolate()`] - used to fill gaps by linearly interpolating the missing values between known data points
+* [`interpolate()`] - used to fill gaps by linearly interpolating the missing values between 
+known data points
 
 Let's take a closer look at `time_bucket`.
 
 ### time_bucket()
 
-Here's an example of how to use [`time_bucket()`] to find the average temperature per 15 day period, for each city, in the past 6 months:
+Here's an example of how to use [`time_bucket()`] to find the average temperature per 15 day 
+period, for each city, in the past 6 months:
 
 ```sql
 -----------------------------------
