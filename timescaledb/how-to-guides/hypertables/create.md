@@ -76,7 +76,6 @@ hypertable fails. For more information about setting up multi-node, see the
 
 </procedure>
 
-
 [migrate-data]: /how-to-guides/migrate-data
-[postgres-createtable]: https://www.postgresql.org/docs/9.1/sql-createtable.html
+[postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
 [multi-node]: /how-to-guides/multinode-timescaledb/
