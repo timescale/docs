@@ -11,11 +11,10 @@ that improve query reusability for INTERVAL predicates, something PostgreSQL doe
 not have.
 </highlight>
 
-Here we provide some query examples so that you can get familiar with using SQL along
+Here are some query examples so that you can get familiar with using SQL along
 with some of TimescaleDB's most popular functions. 
 
 ## Basic SQL queries
-
 1. Selecting all stock data from the last day.
 
    This query utilizes the [`where`][clause-expressions] clause to specify that you only want to see result
@@ -70,7 +69,7 @@ Functions covered include:
    used `first(value, time)`, your results would show the first number in the `value` column when ordered 
    with respect to the `time` column ascending in value. 
 
-   In this query, you will use both the `first()` and `last()` functions in order to find the 
+   In this query, you use both the `first()` and `last()` functions to find the 
    first and last trading price for each company. With the `where` clause, the interval of time is 
    limited to the last three days. 
 
@@ -103,11 +102,11 @@ Functions covered include:
    Reference section. 
 
    For this SQL query, you will find the average stock trading price for each company
-   over each day. We use the `time_bucket()` function with an interval of one day, include 
-   the `avg()` function on price, and include `symbol` so we can group the average 
-   price calculations by company. The `where` clause specifies results will be limited to only 
+   over each day. Use the `time_bucket()` function with an interval of one day, include 
+   the `avg()` function on price, and include `symbol` so you can group the average 
+   price calculations by company. The `where` clause specifies results are limited to only 
    show days that occur within the last week. The [`group by`][clause-expressions] clause is necessary 
-   for aggregation and allows you to group the results by the day and company. And finally the `order by` 
+   for aggregation and allows you to group the results by the day and company. Finally the `order by` 
    clause orders the results first on the bucketed date, then by symbol. 
 
    ```sql
@@ -122,14 +121,11 @@ Functions covered include:
    ```
 
 
-<highlight type="note">
 For more information about the functions provided by TimescaleDB and Timescale Toolkit extension,
 see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions).
-</highlight>
 
 ## Next steps
-
-Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, let's learn about
+Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, learn about
 continuous aggregates in the [next section][create-cagg].
 
 
