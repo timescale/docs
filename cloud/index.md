@@ -37,7 +37,7 @@ and extensions.
 
 ### Available in multiple AWS regions
 Choose your preferred AWS region for each service. Supported regions include:
-*   `eu-central-1`, Europe (Frankfurt)
+<!-- *   `eu-central-1`, Europe (Frankfurt) -->
 *   `eu-west-1`, Europe (Ireland)
 *   `us-east-1`, US East (North Virginia)
 *   `us-west-2`, US West (Oregon)
