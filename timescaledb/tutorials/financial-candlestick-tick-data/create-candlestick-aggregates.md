@@ -26,13 +26,13 @@ and turn it into 1-min candlestick values in the candlestick format:
 ```sql
 -- Create the candlestick format
 SELECT
-time_bucket('1 min', time) AS bucket,
-symbol,
-FIRST(price, time) AS "open",
-MAX(price) AS high,
-MIN(price) AS low,
-LAST(price, time) AS "close",
-LAST(day_volume, time) AS day_volume
+    time_bucket('1 min', time) AS bucket,
+    symbol,
+    FIRST(price, time) AS "open",
+    MAX(price) AS high,
+    MIN(price) AS low,
+    LAST(price, time) AS "close",
+    LAST(day_volume, time) AS day_volume
 FROM crypto_ticks
 GROUP BY bucket, symbol
 ```
@@ -97,16 +97,16 @@ to create the view:
 /* 1-min candlestick view*/
 CREATE MATERIALIZED VIEW one_min_candle
 WITH (timescaledb.continuous) AS
-SELECT
-time_bucket('1 min', time) AS bucket,
-symbol,
-FIRST(price, time) AS "open",
-MAX(price) AS high,
-MIN(price) AS low,
-LAST(price, time) AS "close",
-LAST(day_volume, time) AS day_volume
-FROM crypto_ticks
-GROUP BY bucket, symbol
+    SELECT
+        time_bucket('1 min', time) AS bucket,
+        symbol,
+        FIRST(price, time) AS "open",
+        MAX(price) AS high,
+        MIN(price) AS low,
+        LAST(price, time) AS "close",
+        LAST(day_volume, time) AS day_volume
+    FROM crypto_ticks
+    GROUP BY bucket, symbol
 ```
 
 When you run this query, TimescaleDB queries 1-minute aggregate values of all
@@ -143,16 +143,16 @@ hour in the continuous aggregate definition:
 /* 1-hour candlestick view */
 CREATE MATERIALIZED VIEW one_hour_candle
 WITH (timescaledb.continuous) AS
-SELECT
-time_bucket('1 hour', time) AS bucket,
-symbol,
-FIRST(price, time) AS "open",
-MAX(price) AS high,
-MIN(price) AS low,
-LAST(price, time) AS "close",
-LAST(day_volume, time) AS day_volume
-FROM crypto_ticks
-GROUP BY bucket, symbol
+    SELECT
+        time_bucket('1 hour', time) AS bucket,
+        symbol,
+        FIRST(price, time) AS "open",
+        MAX(price) AS high,
+        MIN(price) AS low,
+        LAST(price, time) AS "close",
+        LAST(day_volume, time) AS day_volume
+    FROM crypto_ticks
+    GROUP BY bucket, symbol
 ```
 
 Add a refresh policy:
@@ -177,16 +177,16 @@ process as above, using a 1-day time bucket size:
 /* 1-day candlestick */
 CREATE MATERIALIZED VIEW one_day_candle
 WITH (timescaledb.continuous) AS
-SELECT
-time_bucket('1 day', time) AS bucket,
-symbol,
-FIRST(price, time) AS "open",
-MAX(price) AS high,
-MIN(price) AS low,
-LAST(price, time) AS "close",
-LAST(day_volume, time) AS day_volume
-FROM crypto_ticks
-GROUP BY bucket, symbol
+    SELECT
+        time_bucket('1 day', time) AS bucket,
+        symbol,
+        FIRST(price, time) AS "open",
+        MAX(price) AS high,
+        MIN(price) AS low,
+        LAST(price, time) AS "close",
+        LAST(day_volume, time) AS day_volume
+    FROM crypto_ticks
+    GROUP BY bucket, symbol
 ```
 
 Add a refresh policy:
@@ -223,18 +223,18 @@ The full continuous aggregate definition:
 /* 1-day candlestick with price change column*/
 CREATE MATERIALIZED VIEW one_day_candle_delta
 WITH (timescaledb.continuous) AS
-SELECT
-time_bucket('1 day', time) AS bucket,
-symbol,
-FIRST(price, time) AS "open",
-MAX(price) AS high,
-MIN(price) AS low,
-LAST(price, time) AS "close",
-LAST(day_volume, time) AS day_volume,
-(LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
-FROM crypto_ticks
-WHERE price != 0
-GROUP BY bucket, symbol
+    SELECT
+        time_bucket('1 day', time) AS bucket,
+        symbol,
+        FIRST(price, time) AS "open",
+        MAX(price) AS high,
+        MIN(price) AS low,
+        LAST(price, time) AS "close",
+        LAST(day_volume, time) AS day_volume,
+        (LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
+    FROM crypto_ticks
+    WHERE price != 0
+    GROUP BY bucket, symbol
 ```
 
 ## Using multiple continuous aggregates
