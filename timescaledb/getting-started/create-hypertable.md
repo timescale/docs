@@ -20,7 +20,9 @@ Hypertables and chunks enable superior performance for shallow and wide queries,
 like those used in real-time monitoring. They are also good for deep and narrow
 queries, like those used in time-series analysis.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png" alt="hypertable and chunks"/>
+<img class="main-content__illustration" 
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png" 
+alt="hypertable and chunks"/>
 
 <highlight type="note">
 For more detailed information, check out the [Overview page on 'Hypertables and chunks'](/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/).
@@ -48,7 +50,8 @@ SELECT create_hypertable('stocks_real_time','time');
 Creating a hypertable is a two-step process:
 - Create a regular PostgreSQL table with `CREATE TABLE...`
 - Convert it to a hypertable by calling the [`create_hypertable()`][create-hypertable] function to convert 
-the table into a hypertable. The `create_hypertable()` function requires two input parameters - the name of the table, and the name of the time column.
+the table into a hypertable. The `create_hypertable()` function requires two 
+input parameters - the name of the table, and the name of the time column.
 
 <!-- 
 ## How hypertables help with times-series data
@@ -77,11 +80,13 @@ data-stores become more efficient.
 -->
 
 ## Learn more about hypertables and chunks
-To learn more about hypertables and best practices for configuring chunks, see [Hypertable How-To](/how-to-guides/hypertables). To learn more about why hypertables help with storing and querying data, see
-the [hypertables and chunks core concepts page][core-concepts-hypertables].
+To learn more about hypertables and best practices for configuring chunks, see 
+[Hypertable How-To](/how-to-guides/hypertables). To learn more about why hypertables 
+help with storing and querying data, seethe [hypertables and chunks core concepts page][core-concepts-hypertables].
 
 ## Next steps
-Next, ingest some sample stock trade data into TimescaleDB! Step 4, ['Add time-series data' section][add-data], will show you how to populate the hypertable you just created. 
+Next, ingest some sample stock trade data into TimescaleDB! Step 4, ['Add time-series data' section][add-data], 
+will show you how to populate the hypertable you just created. 
 
 [core-concepts-hypertables]: /getting-started/add-data/
 [add-data]: /overview/core-concepts/hypertables-and-chunks/
