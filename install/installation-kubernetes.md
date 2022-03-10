@@ -127,18 +127,18 @@ the name that you provided during the installation.
     ```
 1. Verify that the TimescaleDB extension is installed by using the `\dx`
 command at the command prompt. It looks like this:
-```sql
-tsdb=# \dx
+    ```sql
+    tsdb=# \dx
 
                                       List of installed extensions
     Name     | Version |   Schema   |                            Description                            
--------------+---------+------------+-------------------------------------------------------------------
- plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
- timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
-(2 rows)
+    -------------+---------+------------+-------------------------------------------------------------------
+    plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+    timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
+    (2 rows)
 
-(END)
-```
+    (END)
+    ```
 
 </procedure>
 
