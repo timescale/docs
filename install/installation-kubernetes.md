@@ -17,7 +17,7 @@ you have installed:
 
 If you want to, you can create your own `.yaml` file to use parameters other
 than those specified in the default `values.yaml`. You can name this file
-`myvalues.yaml` file. For details about the parameters you can set, see  the
+`myvalues.yaml`. For details about the parameters you can set, see the
 [Administrator Guide][admin-guide].
 
 ## Install TimescaleDB using a Helm chart
