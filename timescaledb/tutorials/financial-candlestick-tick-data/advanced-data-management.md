@@ -40,11 +40,11 @@ In this section, learn about these automation policies and how they work in the
 context of financial tick data.
 
 ## Automatically delete older tick data
-Usually, the older your time-series data becomes, the less relevant and useful it is.
+Usually, the older your time-series data, the less relevant and useful it is.
 This is often the case with tick data as well. As time passes, you might not
 need the raw tick data any more, because you only want to query the candlestick
-aggregations. In this scenario, you can decide to remove old tick data
-automatically from your hypertable after it becomes older than a certain time
+aggregations. In this scenario, you can decide to remove tick data
+automatically from your hypertable after it gets older than a certain time
 interval.
 
 TimescaleDB has a built-in way to automatically remove raw data after a
@@ -59,16 +59,15 @@ hypertable that removes a chunk after all the data in the chunk becomes
 older than 7 days. All records in the chunk need to be
 older than 7 days before the chunk is dropped. 
 
-This is where knowledge about your hypertable's chunk time interval
-becomes crucial. If you were to set a data retention policy with
-`INTERVAL '3 days'`, the policy would not remove any data after three days.
-This is because your chunk time interval is 7 days. So even after 3
-days have passed, the most recent chunk still contains data that is newer than 3
+Knowledge of your hypertable's chunk time interval
+is crucial here. If you were to set a data retention policy with
+`INTERVAL '3 days'`, the policy would not remove any data after three days, because your chunk time interval is seven days. Even after three
+days have passed, the most recent chunk still contains data that is newer than three
 days, and so cannot be removed by the data retention policy.
 
 If you want to change this behavior, and drop chunks more often and
 sooner, experiment with different chunk time intervals. For example, if you
-set the chunk time interval to be 2 days only, you could create a retention
+set the chunk time interval to be two days only, you could create a retention
 policy with a 2-day interval that would drop a chunk every other day
 (assuming you're ingesting data in the meantime).
 
