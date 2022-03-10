@@ -53,8 +53,8 @@ includes a separate table of company symbols and company names, in a table named
     TimescleDB instance. If the `.csv` files aren't in your current directory, replace the file paths as needed:
 
     ```sql
-    \copy stocks_real_time from './stocks_real_time.csv' DELIMITER ',' CSV;
-    \copy company from './company.csv' DELIMITER ',' CSV;
+    \COPY stocks_real_time from './stocks_real_time.csv' DELIMITER ',' CSV;
+    \COPY company from './company.csv' DELIMITER ',' CSV;
     ```
 
 </procedure>
