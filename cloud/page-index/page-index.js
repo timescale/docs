@@ -3,75 +3,120 @@ module.exports = [
     title: "Timescale Cloud",
     filePath: 'index.md',
     href: "cloud",
-    name: 'Timescale Cloud',
+    name: 'About Timescale Cloud',
     excerpt: 'Timescale Cloud is a fully managed TimescaleDB service that allows you to start querying data in less than a minute!',
     children: [
       {
-        title: "Create a service",
-        href: "create-a-service",
-      },
-      {
-        title: "Migrate a TimescaleDB database to Cloud",
-        href: "migrate-to-cloud",
+        title: "Services",
+        href: "services",
         children: [
           {
-            title: "Migrate the entire database at once",
-            href: "entire-database",
+            title: "Create a service",
+            href: "create-a-service",
           },
           {
-            title: "Migrate schema and data separately",
-            href: "schema-then-data",
-          },
+            title: "Create a service demo",
+            href: "create-a-service-demo",
+          }
         ],
       },
       {
-        title: "Customize configuration",
-        href: "customize-configuration",
+        title: "Service overview",
+        href: "service-overview",
       },
       {
-        title: "Multi-node on Timescale Cloud",
-        href: "cloud-multi-node"
+        title: "Service explorer",
+        href: "explorer",
       },
       {
-        title: "VPC peering",
-        href: "vpc-peering",
-      },
-      {
-        title: "Disk management",
-        href: "disk-management"
-      },
-      {
-        title: "Scale a service",
-        href: "scaling-a-service",
-      },
-      {
-        title: "Memory management",
-        href: "memory-management",
-      },
-      {
-        title: "Operations",
-        href: "operations"
-      },
-      {
-        title: "Metrics",
-        href: "metrics"
-      },
-      {
-        title: "Maintenance",
-        href: "maintenance"
-      },
-      {
-        title: "Explorer",
-        href: "explorer"
-      },
-      {
-        title: "Backup and restore",
-        href: "backup-restore-cloud"
-      },
-      {
-        title: "Account management",
-        href: "account-management"
+        title: "Service operations",
+        href: "operations",
+        children: [
+          {
+            title: "General",
+            href: "disk-management",
+          },
+          {
+            title: "Resources",
+            href: "memory-management",
+          },
+          {
+            title: "Autoscaling",
+            href: "scaling-a-service",
+          },
+          {
+            title: "Maintenance",
+            href: "maintenance",
+          },
+          {
+            title: "VPC",
+            href: "vpc-peering",
+          }
+        ],
+        {
+          title: "Service metrics",
+          href: "metrics",
+        },
+        {
+          title: "Service logs",
+          href: "service-logs",
+        },
+        {
+          title: "Service settings",
+          href: "service-settings",
+          children: [
+            {
+              title: "Database configuration",
+              href: "customize-configuration",
+            },
+            {
+              title: "Advanced parameters",
+              href: "settings-advanced",
+            },
+          ],
+        },
+        {
+          title: "Members",
+          href: "members",
+          children: [
+            {
+              title: "User management",
+              href: "members-users",
+            },
+          ]
+        },
+        {
+          title: "Billing",
+          href: "billing",
+          children: [
+            {
+              title: "Account management",
+              href: "account-management",
+            }
+          ]
+        },
+        {
+          title: "Multi-node",
+          href: "cloud-multi-node",
+        },
+        {
+          title: "Backup and restore",
+          href: "backup-restore-cloud",
+        },
+        {
+          title: "Migrate a TimescaleDB database to Cloud",
+          href: "migrate-to-cloud",
+          children: [
+            {
+              title: "Migrate the entire database at once",
+              href: "entire-database",
+            },
+            {
+              title: "Migrate schema and data separately",
+              href: "schema-then-data",
+            },
+          ],
+        }
       }
     ]
   }
-]
