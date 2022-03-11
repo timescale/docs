@@ -103,7 +103,7 @@ analysis in fewer lines of code. Here's how to use three of these functions:
 
    ```sql
    SELECT
-      time_bucket('1 day', time) as bucket,
+      time_bucket('1 day', time) AS bucket,
       symbol,
       avg(price)
    FROM stocks_real_time srt
