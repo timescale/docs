@@ -12,8 +12,8 @@ with some of TimescaleDB's most popular functions.
 ## Basic SQL queries
 ### Select all stock data from the last day.
 
-   This query uses the [`WHERE`][clause-expressions] clause to only show results with
-   a timestamp within the last day. 
+   This query uses the [`WHERE`][clause-expressions] clause to only show results for
+   timestamps within the last day. 
 
    ```sql
    SELECT * from stocks_real_time srt
@@ -33,7 +33,7 @@ with some of TimescaleDB's most popular functions.
 
 ### Calculate the average trade price for Apple from the last day
 
-   This query uses the [`avg()`][average] function along with [`filter`][filter] and `WHERE` 
+   This query uses the [`avg()`][average] function along with [`FILTER`][filter] and `WHERE` 
    to include only 'AAPL' (Apple) trades made within the 
    last day. 
 
