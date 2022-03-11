@@ -213,7 +213,7 @@ module.exports = [
             tags: ['multi-node', 'management', 'administration', 'distributed', 'nodes'],
             keywords: ['multi-node', 'management', 'administration'],
             excerpt: 'Administer a multi-node cluster'
-          },			
+          },
           {
             title: "Grow and shrink a multi-node cluster",
             href: "multinode-grow-shrink",
@@ -295,7 +295,7 @@ module.exports = [
             tags: ["caggs", "compression", "timescaledb"],
             keywords: ["caggs", "compression", "TimescaleDB"],
             excerpt: "Compress continuous aggregates",
-          },          
+          },
           {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
@@ -442,13 +442,6 @@ module.exports = [
             tags: ["ha", "replicate", "timescaledb"],
             keywords: ["ha", "replicate", "TimescaleDB"],
             excerpt: "High availability in TimescaleDB",
-          },
-          {
-            title: "Configure replication",
-            href: "configure-replication",
-            tags: ["ha", "replicate", "timescaledb"],
-            keywords: ["ha", "configure", "TimescaleDB"],
-            excerpt: "Configure replication",
           },
           {
             title: "Configure replication",
