@@ -6,8 +6,8 @@ ecosystem of PostgreSQL tools, and add the extra features and performance of
 TimescaleDB.
 
 
-Here are some query examples so that you can get familiar with using SQL along
-with some of TimescaleDB's most popular functions. 
+Here are some query examples so you can get familiar with using SQL alongside
+popular TimescaleDB functions.
 
 ## Basic SQL queries
 ### Select all stock data from the last day.
