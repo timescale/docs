@@ -1,4 +1,4 @@
-# 6. Create a continuous aggregate
+# Create a continuous aggregate
 
 ## What are continuous aggregates?
 
