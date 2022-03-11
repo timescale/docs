@@ -29,7 +29,7 @@ running database that can take over immediately.
 While the public cloud is highly reliable, entire portions of the cloud can be
 unavailable at times. Timescale Cloud does not protect against Availability Zone
 failures unless the user is using HA replicas. We do not currently offer
-protection from an AWS Regional failure or multi-cloud solutions.
+multi-cloud solutions or protection from an AWS Regional failure.
 
 For more information about HA replicas in Timescale Cloud, see
 the [high availability section][cloud-ha] in the Cloud documentation.

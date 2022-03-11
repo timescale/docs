@@ -144,6 +144,7 @@ a state where it can replay the log. You can do this by restoring the replica
 from a base backup of the primary instance.
 
 <procedure>
+
 ### Creating a base backup on the replica
 1.  Stop PostgreSQL services.
 1.  If the replica database already contains data, delete it before you run the
@@ -315,7 +316,7 @@ exactly what each replica is currently doing; the available modes are `startup`,
 
 To see the data, on the primary database, run this command:
 ```sql
-select * from pg_stat_replication;
+SELECT * FROM pg_stat_replication;
 ```
 
 The output looks like this:

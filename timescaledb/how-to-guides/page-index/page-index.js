@@ -444,11 +444,11 @@ module.exports = [
             excerpt: "High availability in TimescaleDB",
           },
           {
-            title: "Configure HA",
-            href: "configure-ha",
+            title: "Configure replication",
+            href: "configure-replication",
             tags: ["ha", "replicate", "timescaledb"],
             keywords: ["ha", "configure", "TimescaleDB"],
-            excerpt: "Configure high availability",
+            excerpt: "Configure replication",
           },
           {
             title: "Configure replication",
