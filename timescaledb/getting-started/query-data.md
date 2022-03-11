@@ -96,8 +96,8 @@ analysis in fewer lines of code. Here's how to use three of these functions:
    The next SQL query calculates the average stock trading price for each company
    over each day. Use the `time_bucket()` function with an interval of one day, include 
    the `avg()` function on price, and include `symbol` so you can group the average 
-   price calculations by company. The `where` clause specifies results are limited to only 
-   show days that occur within the last week. The [`group by`][clause-expressions] clause is necessary 
+   price calculations by company. The `WHERE` limits the results to
+   days within the last week. The [`GROUP BY`][clause-expressions] clause is necessary 
    for aggregation and allows you to group the results by the day and company. Finally the `order by` 
    clause orders the results first on the bucketed date, then by symbol. 
 
