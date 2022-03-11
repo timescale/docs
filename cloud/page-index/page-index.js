@@ -53,70 +53,70 @@ module.exports = [
             href: "vpc-peering",
           }
         ],
-        {
-          title: "Service metrics",
-          href: "metrics",
-        },
-        {
-          title: "Service logs",
-          href: "service-logs",
-        },
-        {
-          title: "Service settings",
-          href: "service-settings",
-          children: [
-            {
-              title: "Database configuration",
-              href: "customize-configuration",
-            },
-            {
-              title: "Advanced parameters",
-              href: "settings-advanced",
-            },
-          ],
-        },
-        {
-          title: "Members",
-          href: "members",
-          children: [
-            {
-              title: "User management",
-              href: "members-users",
-            },
-          ]
-        },
-        {
-          title: "Billing",
-          href: "billing",
-          children: [
-            {
-              title: "Account management",
-              href: "account-management",
-            }
-          ]
-        },
-        {
-          title: "Multi-node",
-          href: "cloud-multi-node",
-        },
-        {
-          title: "Backup and restore",
-          href: "backup-restore-cloud",
-        },
-        {
-          title: "Migrate a TimescaleDB database to Cloud",
-          href: "migrate-to-cloud",
-          children: [
-            {
-              title: "Migrate the entire database at once",
-              href: "entire-database",
-            },
-            {
-              title: "Migrate schema and data separately",
-              href: "schema-then-data",
-            },
-          ],
-        }
+      },
+      {
+        title: "Service metrics",
+        href: "metrics",
+      },
+      {
+        title: "Service logs",
+        href: "service-logs",
+      },
+      {
+        title: "Service settings",
+        href: "service-settings",
+        children: [
+          {
+            title: "Database configuration",
+            href: "customize-configuration",
+          },
+          {
+            title: "Advanced parameters",
+            href: "settings-advanced",
+          },
+        ],
+      },
+      {
+        title: "Members",
+        href: "members",
+        children: [
+          {
+            title: "User management",
+            href: "members-users",
+          },
+        ]
+      },
+      {
+        title: "Billing",
+        href: "billing",
+        children: [
+          {
+            title: "Account management",
+            href: "account-management",
+          }
+        ]
+      },
+      {
+        title: "Multi-node",
+        href: "cloud-multi-node",
+      },
+      {
+        title: "Backup and restore",
+        href: "backup-restore-cloud",
+      },
+      {
+        title: "Migrate a TimescaleDB database to Cloud",
+        href: "migrate-to-cloud",
+        children: [
+          {
+            title: "Migrate the entire database at once",
+            href: "entire-database",
+          },
+          {
+            title: "Migrate schema and data separately",
+            href: "schema-then-data",
+          },
+        ],
       }
     ]
   }
