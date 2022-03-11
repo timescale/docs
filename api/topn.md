@@ -1,8 +1,27 @@
 # topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
-This function returns the most common values accumulated in a 
-[frequency aggregate][freq_agg]. Note that 
-since the aggregate operates over `AnyElement` types, this method does require 
-a type parameter to determine the type of the output.
+Returns the most common values accumulated in a [frequency aggregate][freq_agg]
+or [top N aggregate][topn_agg].
+```sql
+topn (
+    agg FrequencyAggregate,
+    n INTEGER,
+    ty AnyElement
+) RETURNS topn AnyElement
+```
+```sql
+topn (
+    agg TopnAggregate,
+    n INTEGER,
+    ty AnyElement
+) RETURNS topn AnyElement
+```
+
+Both frequency aggregates and top N aggregates can be used to calculate `topn`.
+Top N aggregates allow you to specify the target number of values you want
+returned, without estimating their threshold frequency. Frequency aggregates
+allow you to store all values that surpass a threshold frequency. They are
+useful if you want to store and use frequency information, and not just
+calculate top N.
 
 <highlight type="warning">
 Experimental features could have bugs. They might not be backwards compatible,
@@ -14,18 +33,31 @@ do not use any experimental features in production.
 
 |Name|Type|Description|
 |-|-|-|
-|`agg`|`FrequencyAggregate`|The aggregate to display the values for|
-|`n`|`INTEGER`|The number of values to return|
-|`ty`|`AnyElement`|A value matching the type to output from the aggregate|
+|`agg`|`FrequencyAggregate` or `TopnAggregate`|The aggregate to display values for|
+|`n`|`INTEGER`|The number of values to return. Required only for frequency aggregates. For top N aggregates, defaults to target `n` of the aggregate itself|
+|`ty`|`AnyElement`|A value that provides an example of the output type|
+
+<highlight type="important">
+Because frequency aggregates and top N aggregates can operate over data of any
+type, `topn` uses the `ty` parameter to specify the data type of the output.
+`ty` must be an object, so it must be an actual example of the data type rather
+than the name of the type. For example, for integer output, use `0::INTEGER`.
+</highlight>
+
+## Optional arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`n`|`INTEGER`|The number of values to return. Optional only for top N aggregates, where it must be less than the target `n` of the aggregate itself|
 
 ## Returns
 
 |Column|Type|Description|
 |-|-|-|
-|`topn`|`AnyElement`|The N most common elements seen in the aggregate.|
+|`topn`|`AnyElement`|The `n` most-frequent values in the aggregate.|
 
-If fewer than `N` elements have been found with the minimum
-frequency of the aggregate, this returns fewer than `N` values.
+If a frequency aggregate is used, and it contains fewer than `n` elements, the
+function returns fewer than `n` values.
 
 ## Sample usage
 This test uses a table of randomly generated data. The values used are the 
@@ -56,3 +88,4 @@ The output for this query:
 ```
 
 [freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/

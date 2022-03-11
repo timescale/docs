@@ -464,6 +464,10 @@ module.exports = [
                 href: 'counter_agg_point',
               },
               {
+                title: 'gauge_agg',
+                href: 'gauge_agg',
+              },
+              {
                 title: 'rollup',
                 href: 'rollup-counter',
               },
@@ -573,16 +577,20 @@ module.exports = [
                 href: 'freq_agg',
               },
               {
+                title: 'topn_agg',
+                href: 'topn_agg',
+              },
+              {
+                title: 'state_agg',
+                href: 'state_agg',
+              },
+              {
                 title: 'values',
                 href: 'values-freq_agg',
               },
               {
                 title: 'topn',
                 href: 'topn',
-              },
-              {
-                title: 'state_agg',
-                href: 'state_agg',
               },
               {
                 title: 'duration_in',
