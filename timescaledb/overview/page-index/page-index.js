@@ -11,7 +11,7 @@ module.exports = [
             pageComponents: ['featured-cards'],
             tags: ['data', 'timescaledb'],
             keywords: ['TimescaleDB', 'data'],
-            excerpt: "Learn about time-series data"
+            excerpt: "Learn about time-series data",
           },
           {
             title: "Core concepts",
