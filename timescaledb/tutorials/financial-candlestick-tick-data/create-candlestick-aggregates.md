@@ -90,9 +90,9 @@ Let's see how to create different candlestick time buckets - 1 minute,
 policies.
 
 ### 1-minute candlestick
-To create a continuous aggregate of 1-minute candlestick data, provide the
-candlestick query shown above as the definition of the continuous aggregate
-to create the view:
+To create a continuous aggregate of 1-minute candlestick data, use the same query
+that you previously used to get the 1-minute OHLCV values. But this time, put the
+query in a continuous aggregate definition:
 
 ```sql
 /* 1-min candlestick view*/

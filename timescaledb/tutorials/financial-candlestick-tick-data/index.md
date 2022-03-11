@@ -34,8 +34,8 @@ as OHLCV (open-high-low-close-volume):
 * Close: closing price
 * Volume: volume of transactions
 
-And remember, all these data points represent only that given bucket of time
-(for example, 1 minute).
+These data points correspond to the bucket of time covered by the candlestick.
+For example, a 1-minute candlestick would need the open and close prices for that minute.
 
 Many Timescale community members use
 TimescaleDB to store and analyze candlestick data. Here are some examples:
