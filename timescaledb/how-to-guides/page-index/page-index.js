@@ -239,6 +239,7 @@ module.exports = [
         tags: ["time bucket", "timescaledb"],
         keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
         excerpt: "Learn how time buckets work in TimescaleDB.",
+        relatedPages: ["time_bucket", "time_bucket_ng", "use-time-buckets"],
         children: [
           {
             title: "Use time buckets to group time series data",

@@ -11,6 +11,10 @@ up data for analysis or downsampling. For example, you can calculate five-minute
 averages for a sensor reading over the last day. You can perform these rollups
 as needed or pre-calculate them in [continuous aggregates][caggs].
 
+This section explains how time bucketing works. For examples of the
+`time_bucket` function, see the section on [using time
+buckets][use-time-buckets].
+
 ## How time bucketing works
 Time bucketing groups data into time intervals. With `time_bucket`, the interval
 length can be any number of microseconds, milliseconds, seconds, minutes, hours,
@@ -20,13 +24,13 @@ days, or weeks.
 For example, you can calculate the average, maximum, or minimum value within a
 bucket.
 
-<!-- insert time bucket and data diagram -->
+<!-- TODO: insert time bucket and data diagram -->
 
 <highlight type="note"> 
 `time_bucket` doesn't support months, years, and timezones. The experimental
 function `time_bucket_ng` adds support for these intervals and parameters. To
 learn more, see the sections on [timezones](#timezones) and
-[`time_bucket_ng`][time_bucket_ng].
+[`time_bucket_ng`](#experimental-function-timebucketng).
 </highlight>
 
 ### Origin
@@ -47,6 +51,8 @@ preceding Monday. It starts on April 13, because you can get to April 13, 2020,
 by counting in two-week increments from January 3, 2000.
 
 <!-- TODO: insert time bucket origin diagram -->
+
+For integer time values, time buckets align to an origin of 0.
 
 #### Choice of origin
 Since TimescaleDB 1.0, the default origin for `time_bucket` is January 3, 2020.
@@ -70,29 +76,36 @@ at a time that you can get to by counting in increments from `00:00:00` on
 January 3, 2000.
 
 If you use `TIMESTAMPTZ`, by default, bucket start times are aligned with
-`00:00:00+00`, or in other words, `00:00:00` UTC time. To get buckets aligned to
-local time, cast the `TIMESTAMP` to `TIMESTAMPTZ` before passing it to
-`time_bucket`.
-
-<!-- QUESTION: What about integer time values? -->
+`00:00:00 UTC`. To get buckets aligned to local time, cast the `TIMESTAMPTZ` to
+`TIMESTAMP` before passing it to `time_bucket`.
 
 <highlight type="note">
-Casting `TIMESTAMP` to `TIMESTAMPTZ` works outside of continuous aggregates. For
+Casting `TIMESTAMPTZ` to `TIMESTAMP` works outside of continuous aggregates. For
 example, you can use it in a stand-alone `SELECT` statement to perform a
 one-time calculation. It does not work within continuous aggregates. To learn 
 more, see the section on [time in continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/time/).
 </highlight>
+
+### Using time_bucket in continuous aggregates
+Time buckets are commonly used to create [continuous aggregates][caggs].
+Continuous aggregates add some limitations to what you can do with
+`time_bucket`.
+
+Continuous aggregates don't allow functions that depend on a local timezone
+setting. That is, you cannot cast a `TIMESTAMPTZ` to `TIMESTAMP` within a
+continuous aggregate definition. To learn more and find a workaround, see the
+section on [time in continuous aggregates][time-cagg].
+
+Continuous aggregates also don't allow named parameters.
 
 ## Experimental function: time_bucket_ng
 The experimental function [`time_bucket_ng`][time_bucket_ng] adds new features,
 including support for months, years, and timezones.
 
 <highlight type="warning">
-Experimental features could have bugs! They might not be backwards compatible,
-and could be removed in future releases. When this function is no longer experimental,
-you will need to delete and rebuild any continuous aggregate that uses it.
-Use experimental features at your own risk and we do not recommend to use
-any experimental feature in a production environment.
+Experimental features could have bugs. They might not be backwards compatible,
+and could be removed in future releases. Use these features at your own risk,
+and do not use any experimental features in production.
 </highlight>
 
 ### Months and years
@@ -118,6 +131,22 @@ parameter, you can align bucket start times to local time, even if the time
 values are in `TIMESTAMPTZ` form. That means you can start daily buckets at
 midnight local time rather than UTC time.
 
+### Using time_bucket_ng in continuous aggregates
+Time buckets are commonly used to create [continuous aggregates][caggs].
+Continuous aggregates add some limitations to what you can do with
+`time_bucket_ng`.
+
+For example, continuous aggregates don't allow named parameters.
+
+Here are the `time_bucket_ng` features supported by continuous aggregates:
+
+|Feature|Available in continuous aggregate|TimescaleDB version|
+|-|-|-|
+|Buckets by seconds, minutes, hours, days, and weeks|✅|2.4.0 and later|
+|Buckets by months and years|✅|2.6.0 and later|
+|Timezones|✅|2.6.0 and later|
+|Custom origin|✅|2.7.0 and later|
+
 ## Time_bucket vs time_bucket_ng
 There are several differences between `time_bucket` and `time_bucket_ng`:
 
@@ -125,5 +154,6 @@ There are several differences between `time_bucket` and `time_bucket_ng`:
 |-|-|-|
 |Bucket by microseconds, milliseconds, seconds, hours, minutes, days, and weeks|✅|✅|
 |Bucket by months and years|❌|✅|
+|Bucket `TIMESTAMPTZ` values according to local time using the `timezone` parameter|❌|✅|
 |Origin|January 3, 2000|January 1, 2000|
 |Bucket dates before the origin|✅|❌ Work around this by changing the origin.|
