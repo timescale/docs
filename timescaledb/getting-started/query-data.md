@@ -16,7 +16,7 @@ popular TimescaleDB functions.
    timestamps within the last day. 
 
    ```sql
-   SELECT * from stocks_real_time srt
+   SELECT * FROM stocks_real_time srt
    WHERE time > now() - INTERVAL '1 day';
    ```
 
@@ -27,7 +27,7 @@ popular TimescaleDB functions.
 
    ```sql
    SELECT * FROM stocks_real_time srt
-   ORDER by PRICE desc
+   ORDER BY price DESC
    LIMIT 10;   
    ```
 
