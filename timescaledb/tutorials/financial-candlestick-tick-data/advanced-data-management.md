@@ -121,7 +121,7 @@ but still save on storage costs with TimescaleDB's native compression.
 You need to enable compression on the hypertable and set up a compression
 policy to automatically compress old data.
 
-Enable compression on crypto_ticks hypertable:
+Enable compression on `crypto_ticks` hypertable:
 ```sql
 ALTER TABLE crypto_ticks SET (
  timescaledb.compress,
@@ -145,12 +145,12 @@ compression policy on your continuous aggregates. This is a useful feature
 if you store a lot of historical candlestick data that consumes significant
 disk space, but you still want to retain it for longer periods.
 
-Enable compression on the 1-min candlestick view:
+Enable compression on the `one_min_candle` view:
 ```sql
 ALTER MATERIALIZED VIEW one_min_candle set (timescaledb.compress = true);
 ```
 
-Set compression policy to compress data after 70 days:
+Add a compression policy to compress data after 70 days:
 ```sql
 SELECT add_compression_policy('one_min_candle', compress_after=> INTERVAL '70 days');
 ```
