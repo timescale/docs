@@ -115,10 +115,11 @@ your tick data, creating the continuous aggregate and materializing the
 results. But your candlestick data has only been materialized up to the
 last data point. If you want the continuous aggregate to stay up to date
 as new data comes in over time, you also need to add a continuous aggregate
-refresh policy:
+refresh policy. For example, to refresh the continuous aggregate every two
+minutes:
 
 ```sql
-/* Refresh the continuous aggregate every hour */
+/* Refresh the continuous aggregate every two minutes */
 SELECT add_continuous_aggregate_policy('one_min_candle',
     start_offset => INTERVAL '2 hour',
     end_offset => INTERVAL '10 sec',
@@ -156,9 +157,9 @@ WITH (timescaledb.continuous) AS
     GROUP BY bucket, symbol
 ```
 
-Add a refresh policy:
+Add a refresh policy to refresh the continuous aggregate every hour:
 ```sql
-/* Refresh the continuous aggregate every 12 hours */
+/* Refresh the continuous aggregate every hour */
 SELECT add_continuous_aggregate_policy('one_hour_candle',
     start_offset => INTERVAL '1 day',
     end_offset => INTERVAL '1 min',
@@ -190,7 +191,7 @@ WITH (timescaledb.continuous) AS
     GROUP BY bucket, symbol
 ```
 
-Add a refresh policy:
+Add a refresh policy to refresh the continuous aggregate once a day:
 ```sql
 /* Refresh the continuous aggregate every day */
 SELECT add_continuous_aggregate_policy('one_day_candle',
@@ -219,7 +220,8 @@ SELECT *, (LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pc
 FROM crypto_ticks
 ```
 
-The full continuous aggregate definition:
+The full continuous aggregate definition for a 1-day candlestick with a
+price-change column:
 ```sql
 /* 1-day candlestick with price change column*/
 CREATE MATERIALIZED VIEW one_day_candle_delta
