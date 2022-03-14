@@ -211,6 +211,11 @@ procedures in one place for quick reference.
 
 ## N [](#N)
 
+*Numbers* 
+: Write numbers as numerals rather than spelling them out, including
+single-digit numbers. For exceptions, see the Google Developer Documentation
+Style Guide.
+
 ## O [](#O)
 
 ## P [](#P)
