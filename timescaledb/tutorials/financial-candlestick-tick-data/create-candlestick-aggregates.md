@@ -216,8 +216,10 @@ In general, you can calculate the price difference with the formula:
 
 Calculate delta in SQL: 
 ```sql
-SELECT *, (LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
+SELECT time_bucket('1 day', time) AS bucket, symbol, (LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
 FROM crypto_ticks
+WHERE price != 0
+GROUP BY bucket, symbol
 ```
 
 The full continuous aggregate definition for a 1-day candlestick with a
