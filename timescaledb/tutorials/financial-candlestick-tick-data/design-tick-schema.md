@@ -69,13 +69,14 @@ into your TimescaleDB instance.
 <procedure>
 
 ### Inserting sample data
-1. Download [the sample `.csv` files][sample-download].
+1. Download the sample `.csv` files: <tag type="download">[crypto_sample.csv](https://assets.timescale.com/docs/downloads/crypto_sample.zip)</tag>
     ```bash
     wget https://assets.timescale.com/docs/downloads/crypto_sample.zip
     ```
 1. Unzip the file.
     ```bash
     unzip crypto_sample.zip
+    cd crypto_sample
     ```
 1. At the `psql` prompt, insert the content of the `.csv` files into the database.
     ```bash
