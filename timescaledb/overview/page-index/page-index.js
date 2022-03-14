@@ -20,14 +20,26 @@ module.exports = [
                 href: "hypertables-and-chunks",
                 tags: ['hypertables', 'chunks', 'timescaledb'],
                 keywords: ['hypertables', 'chunks', 'TimescaleDB'],
-                excerpt: "Understanding hypertables and chunks"
+                excerpt: "Understanding hypertables and chunks",
+                children: [
+                  {
+                    title: "Benefits of hypertables",
+                    href: "hypertables-and-chunks-benefits",
+                    tags: ['hypertables', 'chunks', 'timescaledb'],
+                    keywords: ['hypertables', 'chunks', 'TimescaleDB'],
+                    excerpt: "How hypertables can improve your time-series workflows",
+                  },
+                  {
+                    title: "Chunk architecture",
+                    href: "chunk-architecture",
+                    tags: ['hypertables', 'chunks', 'timescaledb'],
+                    keywords: ['hypertables', 'chunks', 'TimescaleDB'],
+                    excerpt: "Chunnk architecture and how indexes work in hypertables",
+                  }
+                ]
               },
               {
-                title: "Benefits of hypertables",
-                href: "hypertables-and-chunks-benefits",
-                tags: ['hypertables', 'chunks', 'timescaledb'],
-                keywords: ['hypertables', 'chunks', 'TimescaleDB'],
-                excerpt: "How hypertables can improve your time-series workflows",
+                
               },
               {
                 title: "Scaling",

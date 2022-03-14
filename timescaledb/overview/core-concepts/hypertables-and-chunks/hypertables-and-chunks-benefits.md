@@ -1,10 +1,9 @@
 # Benefits of hypertables
-Hypertables help TimescaleDB achieve 
-[high time series performance][performance-benchmark] 
-and improved time series workflows.
+Hypertables help TimescaleDB achieve [high time-series
+performance][performance-benchmark] and offer improved time-series workflows.
 
 ## Faster inserts and queries
-In time series workflows, many inserts and queries are performed on recent data.
+In time-series workflows, many inserts and queries are performed on recent data.
 That is, you're more likely to insert data from the past day than from 300 days
 ago. The exact timescales depend on your application.
 
@@ -18,9 +17,9 @@ no larger than 25% of your system's main memory. For more information, see the
 documentation on [chunk sizing][chunk-sizing].
 
 Though fitting chunks in memory gives the best performance, TimescaleDB doesn't
-*require* this setup. It still works with larger chunks. It uses Least Recently
-Used (LRU) caching on disk pages to choose which indexes and data to keep in
-memory.
+*require* this setup. It still works with larger chunks. To choose which indexes
+and data to keep in memory, it uses Least Recently Used (LRU) caching on disk
+pages.
 
 ## Faster index updates
 TimescaleDB builds local indexes on each chunk, rather than global indexes
