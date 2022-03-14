@@ -45,6 +45,7 @@ TimescaleDB to store and analyze candlestick data. Here are some examples:
 
 Follow this tutorial and see how to set up your TimescaleDB database to consume real-time tick or aggregated financial data and generate candlestick views efficiently.
 
+* [Design schema and ingest tick data][design]
 * [Create candlestick (open-high-low-close-volume) aggregates][create]
 * [Query candlestick views][query]
 * [Advanced data management][manage]
@@ -56,6 +57,7 @@ Follow this tutorial and see how to set up your TimescaleDB database to consume 
 [bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [install-timescale]: /install/latest/
 [psql-install]: /how-to-guides/connecting/psql
+[design]: /tutorials/financial-candlestick-tick-data/design-tick-schema
 [create]: /tutorials/financial-candlestick-tick-data/create-candlestick-aggregates
 [query]: /tutorials/financial-candlestick-tick-data/query-candlestick-views
 [manage]: /tutorials/financial-candlestick-tick-data/advanced-data-management
