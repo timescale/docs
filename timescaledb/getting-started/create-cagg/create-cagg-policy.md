@@ -1,33 +1,33 @@
 # Using and setting up continuous aggregate policies
 
-You've created a continuous aggregate but you have not updated any data or created an automatic 
+You now have a continuous aggregate, but you have not updated any data or created an automatic 
 policy. There are two ways to update a continuous aggregate: 
 1. Manual refresh
 2. Automatic continuous aggregate refresh policy
 
 These methods enable you to refresh materialized data in your
-continuous aggregates when it's most convenient for you (for example, during low
-query-load times on your database).
+continuous aggregates when it's most convenient. For example, you can perform refreshes
+during low query-load times on your database.
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>
 
-Let's look at how to do each one.
+In this section, learn how to perform a manual refresh and set up a policy.
 
 ## Manual refresh
 
-You can [manually refresh a continuous aggregate][manual-refresh] using a **one-shot refresh**.
-This is useful for refreshing data for only a specific time period in the past
-or if you want to materialize a lot of data at once on a once-off basis.
+You can [manually refresh a continuous aggregate][manual-refresh] using a one-time refresh.
+You might want to do so if you only need to refresh data for a specific time
+period in the past, or if you want to materialize a lot of data at once on a once-off basis.
 
 The example below refreshes the continuous aggregate `stock_candlestick_daily` 
-for data that exists within the past week:
+for data within the past week:
 
 ```sql
 CALL refresh_continuous_aggregate('stock_candlestick_daily',now() - interval '1 week', now());
 ```
-Once again, remember that this manual refresh policy **will not keep your continuous aggregate** 
-**up-to-date automatically**. To set up an automatic refresh policy, you need to follow the section
-below. 
+This manual refresh updates your continuous aggregate once only. It doesn't keep the aggregate
+up to date automatically. To set up an automatic refresh policy, see the following section on continuous
+aggregate refresh policies.
 
 ## Automatic continuous aggregate refresh policy
 
@@ -36,12 +36,12 @@ according to a schedule. This type of policy is very useful for continuous aggre
 data is continually being added to the underlying hypertable. For stock data, like the kind used in this 
 tutorial, an automatic refresh policy is extremely useful. 
 
-Using the automated [continuous aggregate policy][auto-refresh] for updating continuous 
+Using the automated [continuous aggregate policy][auto-refresh] to update continuous 
 aggregate data allows you to "set it, and forget it" and guaruntees new data will be 
-materialized overtime.
+materialized over time.
 
-Let's create an auto-updating policy for our continuous aggregate `stock_candlestick_daily` 
-that runs every three days, and refreshes aggregated data from the past week:
+In the next command, create an auto-updating policy for the continuous aggregate `stock_candlestick_daily`. 
+The refresh job runs every 3 days, and refreshes aggregated data from the past week:
 
 ```sql
 SELECT add_continuous_aggregate_policy('stock_candlestick_daily',

@@ -1,23 +1,23 @@
 # Creating continuous aggregates
 
-Now that you've been introduced to continuous aggregates, let's create one. 
+Now that you've been introduced to continuous aggregates, create your own continuous
+aggregate from your data. 
 
-## Step 1: Create aggregate query to use for generating continuous aggregate
+## Step 1: Create an aggregate query to use in your continuous aggregate
 
-In this tutorial, we use stock price data. A popular aggregate pattern many individuals use
-for analyzing stock data is called a [candlestick][candlestick]. Generally, candelstick 
-charts use four different aggregations over a one day period. 
+For this tutorial, you have stock price data. A popular aggregate pattern used
+for analyzing stock data is called a [candlestick][candlestick]. Generally, candlestick 
+charts use 4 different aggregations over a 1-day period:
 
-The breakdown is as follows:
 * `high`: highest stock price of the day
 * `open`: opening stock price of the day
 * `close`: closing stock price of the day
 * `low`: lowest stock price of the day 
 
-For this use case, the [`time_bucket()`][time-bucket] function interval will be one day. The 
+For this use case, the [`time_bucket()`][time-bucket] function interval will be 1 day. The 
 `high` and `low` values can be found by using the PostgreSQL [`MAX()`][max] and [`MIN()`][min] 
-functions. Then finally, the `open` and `close` values can be found by using the [`first()`][first] 
-and [`last()`][last] functions respectively.  
+functions. Finally, the `open` and `close` values can be found by using the [`first()`][first] 
+and [`last()`][last] functions.  
 
 ```sql
 SELECT
@@ -31,12 +31,12 @@ FROM stocks_real_time srt
 GROUP BY day, symbol;
 ```
 
-## Step 2: Create continuous aggregate from aggregte query
+## Step 2: Create continuous aggregate from aggregate query
 
 Now that you have the aggregation query, you can use it to create a continuous aggregate. 
 
-The `CREATE MATERIALIZED VIEW` triggers the database to create a materialized view with 
-the name specified, in this case being `stock_candlestick_daily`. In the next line, 
+The `CREATE MATERIALIZED VIEW` command triggers the database to create a materialized view with 
+the given name, in this case `stock_candlestick_daily`. In the next line, 
 `WITH (timescaledb.continuous)` lets the database know that you want to create a continuous 
 aggregate and not just a generic materialized view. Then, the `AS` keyword is needed to specify 
 the aggregate query you want to use for creating the continuous aggregate. 
@@ -57,35 +57,37 @@ FROM stocks_real_time srt
 GROUP BY day, symbol;
 ```
 
-By default, this code will create the aggregate **and** materialized the aggregated data. 
+Notice that the `SELECT` statement is the same query you wrote earlier.
+By default, this code both creates the aggregate *and* materializes the aggregated data.
+That means the view is created *and* populated with the aggregate calculations from
+your existing hypertable data. 
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
 
-This is why the query may take some time to run. From this point on, query the data from the 
-continuous aggregate will be much faster. Run the following query to get all the data in your 
-continuous aggregate, **note how much faster this is then the simple aggrgetation `SELECT`**
-**query from the step before**. 
+The query may take some time to run because it needs to perform these calculations. 
+After the calculation results are stored, querying the data from the 
+continuous aggregate is much faster. Run the following query to get all the data in your 
+continuous aggregate, and note how much faster this is than Step 1, where the `SELECT` statement
+queries and aggregates the raw data.
 
 ```sql
 SELECT * FROM stock_candlestick_daily
 ```
 
-<highlight type="tip">
-If you ever need to inspect details about a continuous aggregate, such as its 
-configuration or the query used to define it, you can use the following 
+<highlight type="note">
+To inspect details about a continuous aggregate, such as its 
+configuration or the query used to define it, use the following 
 informational view:
 </highlight>
 
 ```sql
--- See info about continuous aggregates
 SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
 
-**If you do not set up a continuous aggrgegate refresh policy, your continuous aggregate will**
-**not materialized any new data in the `stocks_real_time` table.** This implies that over time, 
-querying from your continuous aggregate will get slower. This is due to the fact that by default 
-the database will aggregate your unmaterialized data on-the-fly. The more unmaterialized data 
-your machine processes, the slower the query will take.
+Now that you have your continuous aggregate, set up a [continuous aggregate refresh policy][cagg-policy].
+Without a policy, your continuous aggregate won't materialize new data inserted into the `stocks_real_time`
+table. Over time, querying your aggregate gets slower as more data needs to be aggregated on-the-fly from
+the raw data table.
 
 ## Learn more about continuous aggregates
 
@@ -107,3 +109,4 @@ found in the [continuous aggregates docs][continuous-aggregates].
 [min]: https://www.postgresql.org/docs/current/tutorial-agg.html
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [last]: /api/:currentVersion:/hyperfunctions/last/
+[cagg-policy]: /getting-started/create-cagg/create-cagg-policy/
