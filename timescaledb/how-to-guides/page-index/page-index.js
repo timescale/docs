@@ -91,6 +91,13 @@ module.exports = [
             excerpt: "Learn about distributed hypertables",
           },
           {
+            title: "Hypertables and unique indexes",
+            href: "hypertables-and-unique-indexes",
+            tags: ["hypertables", "create", "timescaledb", "index"],
+            keywords: ["hypertables", "TimescaleDB", "index"],
+            excerpt: "Learn how unique indexes work with hypertables.",
+          },
+          {
             title: "Best practices",
             href: "best-practices",
             tags: [
@@ -102,6 +109,12 @@ module.exports = [
             ],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Best practices for managing hypertables",
+          },
+          {
+            href: "troubleshooting",
+            tags: ["hypertables", "tshoot", "timescaledb"],
+            keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
+            excerpt: "Troubleshooting and error fixes for hypertables",
           },
         ],
       },
