@@ -73,7 +73,7 @@ into your TimescaleDB instance.
     ```bash
     wget https://assets.timescale.com/docs/downloads/crypto_sample.zip
     ```
-1. Unzip the file.
+1. Unzip the file and change the directory if you need to:
     ```bash
     unzip crypto_sample.zip
     cd crypto_sample
