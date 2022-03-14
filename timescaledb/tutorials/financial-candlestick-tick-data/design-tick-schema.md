@@ -32,7 +32,7 @@ This schema uses two tables:
 Create the tables:
 ```sql
 CREATE TABLE crypto_assets (
-    symbol UNIQUE TEXT,
+    symbol TEXT UNIQUE,
     "name" TEXT
 );
  
