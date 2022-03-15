@@ -12,10 +12,10 @@ Calculating aggregates on time-series data can be computationally intensive. Rea
 2. Ingesting new data requires new aggregation calculations which can affect ingest rate 
 and aggregation speed. 
 
-Now, let's look at **Continuous aggregates**. Continuous aggregates are automatically refreshed 
-[materialized views][material-view] that massively speed up workloads for large amounts of data. 
+TimescaleDB's continuous aggregates solve both of these problems. Continuous aggregates 
+are automatically refreshed [materialized views][material-view]. They massively speed up 
+workloads for large amounts of data because:
 
-**Continuous aggregates solve both the problems above.**
 
 1. The database processes the aggregation calculations when the aggregate is created. 
 It then stores the aggregation results to minimize re-calculation when new raw data is added. 
