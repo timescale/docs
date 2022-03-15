@@ -101,7 +101,14 @@ test:
 production:
   <<: *default
   database: my_app_db
+```
 
+<highlight type="NOTE">
+In the *config/environments/test.rb* file
+add:`config.active_record.verify_foreign_keys_for_fixtures = false` to ensure
+that the tests run succesfully because there are internal foreign keys in
+timescaledb.
+</highlight>
 
 #### Create the database
 ```
