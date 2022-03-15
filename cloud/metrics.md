@@ -49,9 +49,9 @@ include the time spent planning and executing each query; the number of blocks
 hit, read, and written; and more.
 
 You can query the `pg_stat_statements` view as you would any PostgreSQL view.
-Limit the results to the current user, which is `tsdbadmin` by default. This
-filters out superuser queries that are used by Timescale Cloud to manage your
-service.
+The full view includes superuser queries, which are used by Timescale Cloud to
+manage your service in the background. To limit the results to only your
+queries, filter by the current user.
 
 Connect to your database using a PostgreSQL client, such as [`psql`][psql], and
 run:
@@ -69,6 +69,36 @@ not collected.
 With `pg_stat_statements`, you can view performance statistics to help you
 monitor and optimize your queries.
 
-Here are some sample queries to try.
+Here are some sample scenarios to try.
 
+### Identify long-running queries
+Identify the 5 longest-running queries by their mean execution time:
+```sql
+SELECT calls,
+    mean_exec_time,
+    query
+FROM pg_stat_statements
+WHERE pg_get_userbyid(userid) = current_user
+ORDER BY mean_exec_time DESC
+LIMIT 5;
+```
+
+### Identify queries with highly variable execution time
+The relative standard deviation, or the standard deviation expressed as a
+percentage of the mean, measures how variable the execution time is. The higher
+the relative standard deviation, the more variable the query execution time.
+```sql
+SELECT calls,
+    stddev_exec_time/mean_exec_time*100 AS rel_std_dev,
+    query
+FROM pg_stat_statements
+WHERE pg_get_userbyid(userid) = current_user
+ORDER BY rel_std_dev DESC
+LIMIT 5;
+```
+
+For more examples and detailed explanations, see the [blog post on identifying
+performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
+
+[blog-pg_stat_statements]: FIXME
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/
