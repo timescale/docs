@@ -3,7 +3,7 @@ This tutorial shows you how to store real-time cryptocurrency or stock
 tick data in TimescaleDB. The initial schema provides the foundation to 
 store tick data only. Once you begin to store individual transactions, you can 
 calculate the candlestick values using TimescaleDB continuous aggregates 
-based on the raw tick data. This means that our initial schema doesn’t need to 
+based on the raw tick data. This means that our initial schema doesn't need to 
 specifically store candlestick data.
 
 ## Schema
