@@ -235,7 +235,7 @@ blockchain and our database contains seller (`seller_account`) and
 buyer (`winner_account`) columns as well, you can analyze the purchase
 activity of a specific account.
 
-This query analyzes [Snoop Dogg’s](https://twitter.com/cozomomedici) address to
+This query analyzes [Snoop Dogg's](https://twitter.com/cozomomedici) address to
 analyze his trades, but you can edit the query to add any address in the `WHERE`
 clause to see the specified account's transactions:
 ```sql
@@ -555,14 +555,14 @@ The first 20 people to complete this tutorial can earn a limited edition NFT
 from the
 [Time Travel Tigers collection][eon-collection], for free!
 
-Now that you’ve completed the tutorial, all you need to do is answer the questions
-in [this form][nft-form] (including the challenge question), and we’ll send one
+Now that you've completed the tutorial, all you need to do is answer the questions
+in [this form][nft-form] (including the challenge question), and we'll send one
 of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
 
 You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-collection].
 
 ### Build on the NFT Starter Kit
-Congratulations! You’re now up and running with NFT data and TimescaleDB. Check out
+Congratulations! You're now up and running with NFT data and TimescaleDB. Check out
 our [NFT Starter Kit][nft-starter-kit] to use as your starting point to
 build your own, more complex NFT analysis projects.
 
