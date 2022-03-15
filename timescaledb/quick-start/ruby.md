@@ -169,10 +169,9 @@ The output should be something like the following:
 (2 rows)
 ```
 <highlight type="NOTE">
-After you migrate in the *config/environments/test.rb* file
-add:`config.active_record.verify_foreign_keys_for_fixtures = false` to ensure
-that the tests run succesfully because there are internal foreign keys in
-timescaledb.
+To ensure that your tests run successfully, add `config.active_record.verify_foreign_keys_for_fixtures = false` 
+to your `config/environments/test.rb` file. Otherwise you get an error because TimescaleDB
+uses internal foreign keys.
 </highlight>
 
 ### Step 3: Create a table
