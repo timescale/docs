@@ -103,13 +103,6 @@ production:
   database: my_app_db
 ```
 
-<highlight type="NOTE">
-In the *config/environments/test.rb* file
-add:`config.active_record.verify_foreign_keys_for_fixtures = false` to ensure
-that the tests run succesfully because there are internal foreign keys in
-timescaledb.
-</highlight>
-
 #### Create the database
 ```
 Now we can run the following `rake` command to create the database in TimescaleDB:
@@ -175,6 +168,12 @@ The output should be something like the following:
  timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
 (2 rows)
 ```
+<highlight type="NOTE">
+After you migrate in the *config/environments/test.rb* file
+add:`config.active_record.verify_foreign_keys_for_fixtures = false` to ensure
+that the tests run succesfully because there are internal foreign keys in
+timescaledb.
+</highlight>
 
 ### Step 3: Create a table
 
