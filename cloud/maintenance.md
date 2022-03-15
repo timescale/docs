@@ -68,8 +68,16 @@ notify you on email ahead of the upgrade if downtime is required, so that you
 can plan accordingly. However, in some cases, we might not be able to do so.
 
 ## Upgrade to a new PostgreSQL version
-Timescale currently supports PostgreSQL&nbsp;12 and 13. You can manually upgrade
-to the next PostgreSQL version in the Timescale Cloud dashboard.
+Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, and 14. You can see
+your PostgreSQL and TimescaleDB versions from the Timescale Cloud dashboard. 
+
+<img class="main-content__illustration"
+    src="FIXME"
+    alt="The Timescale Cloud dashboard, showing the PostgreSQL and TimescaleDB
+    versions"
+/>
+
+You can also manually upgrade to the next PostgreSQL version from the dashboard.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
@@ -82,15 +90,9 @@ information about feature changes between versions, see the
 <highlight type="warning">
 Your Timescale Cloud service is unavailable for use until the upgrade is
 complete. Upgrading can take up to several hours, so we recommend
-that you plan ahead, and upgrade during a time with low usage.
+that you plan ahead, and upgrade during a time with low usage. You can also
+reduce downtime for upgrades by enabling replicas.
 </highlight>
-
-If you want to try out the upgrade before you run it on your production system,
-you can create a fork of your service, and attempt the upgrade on the fork
-before you start. This can give you a good idea of what happens during an
-upgrade, and how long it might take. For more infomration about
-creating a fork of your service, see the 
-[Operations section][operations-forking].
 
 <procedure>
 
@@ -107,7 +109,28 @@ creating a fork of your service, see the
 
 </procedure>
 
+### Best practices for upgrading
+Follow some best practices for a smooth upgrade experience.
+
+#### Create a fork
+Fork your database before you upgrade. This allows you to:
+*   Try out the upgrade on the fork before running it on your production system.
+    This gives you a good idea of what happens during the upgrade, and how long it
+    might take.
+*   Keep a copy of your old database version if you're worried about losing it
+    after an upgrade
+
+#### Enable replicas for near-zero-downtime upgrades
+If you have replicas enabled on Timescale Cloud, you can get near-zero-downtime
+major upgrades. The upgrade process upgrades your nodes one by one, so one node
+is always available. The only downtime is the time needed for failover, which
+usually takes several seconds.
+
+To learn more about replicas in Timescale Cloud, see the section on
+[replicas][replicas].
+
 [cloud-login]: https://cloud.timescale.com
 [operations-forking]: cloud/:currentVersion:/operations/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
+[replicas]: /high-availability/
 [timescale-relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
