@@ -168,7 +168,7 @@ The output should be something like the following:
  timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
 (2 rows)
 ```
-<highlight type="NOTE">
+<highlight type="note">
 To ensure that your tests run successfully, add `config.active_record.verify_foreign_keys_for_fixtures = false` 
 to your `config/environments/test.rb` file. Otherwise you get an error because TimescaleDB
 uses internal foreign keys.
