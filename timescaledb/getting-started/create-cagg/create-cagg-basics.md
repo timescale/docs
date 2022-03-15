@@ -78,11 +78,11 @@ SELECT * FROM stock_candlestick_daily
 To inspect details about a continuous aggregate, such as its 
 configuration or the query used to define it, use the following 
 informational view:
-</highlight>
 
 ```sql
 SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
+</highlight>
 
 Now that you have your continuous aggregate, set up a [continuous aggregate refresh policy][cagg-policy].
 Without a policy, your continuous aggregate won't materialize new data inserted into the `stocks_real_time`

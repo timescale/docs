@@ -31,10 +31,11 @@ aggregate refresh policies.
 
 ## Automatic continuous aggregate refresh policy
 
-The **automatic refresh policy** can also be used to refresh continuous aggregates 
-according to a schedule. This type of policy is very useful for continuous aggregates where 
-data is continually being added to the underlying hypertable. For stock data, like the kind used in this 
-tutorial, an automatic refresh policy is extremely useful. 
+To refresh your continuous aggregate on a schedule, set up an automatic refresh policy. Automatic 
+refresh policies are useful for continuous aggregates where data is continually being added to 
+the underlying hypertable. For example, stock data often has new records continually added. 
+With this refresh policy, the data can be incorporated into your continuous aggregate automatically. 
+
 
 Using the automated [continuous aggregate policy][auto-refresh] to update continuous 
 aggregate data allows you to "set it, and forget it" and guaruntees new data will be 
