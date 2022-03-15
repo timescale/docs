@@ -22,9 +22,9 @@ It then stores the aggregation results to minimize re-calculation when new raw d
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
 
-2. With the addition of continuous aggregate refresh policies, you can set up an automatic job 
-which only re-calculates new data for specific time periods, thus only recomputing the newest 
-changes in the raw data rather then recomuting everything. 
+2. You can set up an automatic continuous aggregate refresh policy. This schedules an automatic job 
+that re-calculates new data only for specific time periods. Thus, the policy only recomputes the newest 
+changes in the raw data rather then recomputing everything. 
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>
 
