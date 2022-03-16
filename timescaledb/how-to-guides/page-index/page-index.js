@@ -235,6 +235,7 @@ module.exports = [
         ],
       },
       {
+        title: "Time buckets",
         href: "time-buckets",
         tags: ["time bucket", "timescaledb"],
         keywords: ["time bucket", "TimescaleDB", "hyperfunction"],

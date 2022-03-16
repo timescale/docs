@@ -7,7 +7,7 @@ It's similar to PostgreSQL's [`date_trunc`][date_trunc] function, but it gives
 you more flexibility in bucket size and start time.
 
 Time bucketing is essential to working with time series. You can use it to roll
-up data for analysis or downsampling. For example, you can calculate five-minute
+up data for analysis or downsampling. For example, you can calculate 5-minute
 averages for a sensor reading over the last day. You can perform these rollups
 as needed or pre-calculate them in [continuous aggregates][caggs].
 
@@ -92,7 +92,7 @@ Continuous aggregates add some limitations to what you can do with
 `time_bucket`.
 
 Continuous aggregates don't allow functions that depend on a local timezone
-setting. That is, you cannot cast a `TIMESTAMPTZ` to `TIMESTAMP` within a
+setting. That is, you cannot cast `TIMESTAMPTZ` to `TIMESTAMP` within a
 continuous aggregate definition. To learn more and find a workaround, see the
 section on [time in continuous aggregates][time-cagg].
 
@@ -110,8 +110,8 @@ and do not use any experimental features in production.
 
 ### Months and years
 In addition to the time units supported by `time_bucket`, `time_bucket_ng` also
-supports months and years. For example, you can bucket data into three-month or
-five-year intervals.
+supports months and years. For example, you can bucket data into 3-month or
+5-year intervals.
 
 ### Origin
 By default, `time_bucket_ng` uses Saturday, January 1, 2000 for its origin. This
@@ -121,9 +121,7 @@ years, January 1 provides a more natural starting date for counting intervals.
 Unlike `time_bucket`, `time_bucket_ng` doesn't support dates before the origin.
 In other words, by default, you cannot use `time_bucket_ng` with data from
 before the year 2000. If you need to go farther back in time, you can change the
-origin by setting the [`origin` parameter][origin].
-
-<!-- QUESTION: Limitations of going back in time? -->
+origin by setting the [`origin` parameter][origin-ng].
 
 ### Timezones
 `time_bucket_ng` adds support for timezones. By setting the `timezone`
@@ -134,9 +132,8 @@ midnight local time rather than UTC time.
 ### Using time_bucket_ng in continuous aggregates
 Time buckets are commonly used to create [continuous aggregates][caggs].
 Continuous aggregates add some limitations to what you can do with
-`time_bucket_ng`.
-
-For example, continuous aggregates don't allow named parameters.
+`time_bucket_ng`. For example, continuous aggregates don't allow named
+parameters.
 
 Here are the `time_bucket_ng` features supported by continuous aggregates:
 
@@ -147,7 +144,7 @@ Here are the `time_bucket_ng` features supported by continuous aggregates:
 |Timezones|✅|2.6.0 and later|
 |Custom origin|✅|2.7.0 and later|
 
-## Time_bucket vs time_bucket_ng
+## Time_bucket compared to time_bucket_ng
 There are several differences between `time_bucket` and `time_bucket_ng`:
 
 |Feature|`time_bucket`|`time_bucket_ng`|
@@ -157,3 +154,12 @@ There are several differences between `time_bucket` and `time_bucket_ng`:
 |Bucket `TIMESTAMPTZ` values according to local time using the `timezone` parameter|❌|✅|
 |Origin|January 3, 2000|January 1, 2000|
 |Bucket dates before the origin|✅|❌ Work around this by changing the origin.|
+
+[caggs]: /how-to-guides/continuous-aggregates/
+[date_trunc]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[time_bucket_ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/
+[time-cagg]: /how-to-guides/continuous-aggregates/time/
+[origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
+[origin-ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/#optional-arguments
+[use-time-buckets]: /how-to-guides/time-buckets/use-time-buckets/
