@@ -16,6 +16,7 @@ SELECT time_bucket('1 day', time) AS bucket,
     avg(temperature) AS avg_temp
 FROM weather_conditions
 GROUP BY bucket;
+```
 
 `time_bucket` returns the start time of the bucket. In this example, the first
 bucket starts at midnight on November 15, 2016, and aggregates all the data from
