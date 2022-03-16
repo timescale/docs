@@ -8,7 +8,9 @@ Behind the scenes, hypertables speed up time-series workflows by using chunks.
 
 <highlight tip="note"> 
 To learn how to work with hypertables, see the [how-to guides on
-hypertables](/timescaledb/latest/how-to-guides/hypertables/).
+hypertables](/timescaledb/latest/how-to-guides/hypertables/). To learn about
+hypertable architecture, see the section on [chunk 
+architecture](/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/chunk-architecture).
 </highlight>
 
 ## Hypertables are made up of time chunks
@@ -80,7 +82,7 @@ the data. This allows parallel inserts and queries. For example, TimescaleDB can
 write data about device A at time Z to chunk C on node M, at the same time as it
 writes data about device B at time Z to chunk D on node N.
 
-For more information, see the documentation on [distributed
+For more information, see the section on [distributed
 hypertables][distributed-hypertables].
 
 [chunk-sizing]: /how-to-guides/hypertables/best-practices/#time-intervals

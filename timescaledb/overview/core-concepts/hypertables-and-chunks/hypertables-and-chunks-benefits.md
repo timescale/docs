@@ -10,11 +10,13 @@ ago. The exact timescales depend on your application.
 Because hypertables are partitioned into time-based chunks, the most recent data
 is all stored in the same chunk. If properly sized, this chunk fits into memory.
 So, when you insert and query recent data, these operations access data from
-memory, which is faster than loading data from disk.
+memory. This improves operation speed, since data doesn't need to be loaded from
+disk.
 
-To get the best performance, the most recent chunk, including indexes, should be
-no larger than 25% of your system's main memory. For more information, see the
-documentation on [chunk sizing][chunk-sizing].
+<highlight type="note">
+To learn about chunk sizing for improved performance, see the section on 
+[chunk sizing](timescaledb/latest/how-to-guides/hypertables/best-practices/#time-intervals).
+</highlight>
 
 Though fitting chunks in memory gives the best performance, TimescaleDB doesn't
 *require* this setup. It still works with larger chunks. To choose which indexes
@@ -27,25 +29,7 @@ across all data. This ensures that recent data and its indexes both reside in
 memory. When inserting recent data, index updates remain fast even on large
 databases.
 
-<!-- TODO: insert index and chunks diagram -->
-
-Even with multiple local indexes, TimescaleDB can still ensure global uniqueness
-for keys. It enforces an important constraint: any key that requires uniqueness,
-such as a `PRIMARY KEY`, must include all columns that are used for data
-partitioning.
-
-In other words, because data is partitioned between chunks based on time value,
-the unique key must include the time value. When data is inserted, TimescaleDB
-identifies the corresponding time chunk and checks for uniqueness within that
-chunk. Because no other chunk can contain that time value, uniqueness within the
-chunk implies global uniqueness.
-
-If another column is used for partitioning, the same logic applies. The column
-must be included in the unique key, so that uniqueness within the corresponding
-partition implies global uniqueness.
-
-These checks happen in the background. As a user, you run a regular `INSERT`
-command, and the correct index is automatically updated.
+To learn more, see the section on [chunk local indexes][local-indexes].
 
 ## Age-based data compression and reordering 
 As data ages, you can compress it to save on storage. TimescaleDB's native
@@ -56,12 +40,13 @@ form. This allows:
 *   Efficient "deep and narrow" queries. Compared to "wide and shallow" queries,
     "deep and narrow" queries query data from fewer columns over longer time
     ranges. Such queries are more common with historical time series data than
-    with recent data. Thus, compression serves best for older data.
+    with recent data. Thus, compression serves best for older chunks.
 
-To further speed up "deep and narrow" queries, you can also reorder data.
+Another way to speed up "deep and narrow" queries is to reorder data.
 TimescaleDB inserts recent data ordered by time value. While this is efficient
 for rapid inserts of real-time data, it can be less efficient for some
-analytical queries of older data. 
+analytical queries of older data. You can reorder chunks to better match your
+application query patterns.
 
 For example, if you frequently query older data for a specific device, you can
 reorder the data by `(device_id, timestamp)`. For each device, all the device's
@@ -82,7 +67,7 @@ than deleting individual rows. Deleting rows requires expensive `VACUUM`
 operations to garbage collect and defragment the tables.
 
 You can also automate data deletion by setting data retention policies. To learn
-more, see the documentation on [data retention][data-retention].
+more, see the section on [data retention][data-retention].
 
 If you don't want to delete your older data outright, you might consider data
 tiering. With data tiering, you migrate your older data to slower, cheaper
@@ -105,8 +90,8 @@ stored.
 To fine-tune server rebalancing, you can asynchronously migrate chunks. Or, you
 can delete older data by using data retention policies. Older data is
 partitioned according to the older server setup, while newer data is partitioned
-according to the newer setup. So data retention eventually rebalances data across
-your servers. 
+according to the newer setup. So data retention eventually rebalances data
+across your servers. 
 
 For more information, see the [chunk migration][chunk-migration] and
 [data retention][data-retention] sections.
@@ -121,8 +106,8 @@ This allows you to:
 For more information, see the [replication][replication] section.
 
 [chunk-migration]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental/
-[chunk-sizing]: /how-to-guides/hypertables/best-practices/#time-intervals
 [data-retention]: /how-to-guides/data-retention/
 [data-tiering]: /how-to-guides/data-tiering/
+[local-indexes]: /overview/core-concepts/hypertables-and-chunks/chunk-architecture/#chunk-local-indexes
 [performance-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e/
 [replication]: /how-to-guides/replication-and-ha/

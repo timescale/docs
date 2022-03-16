@@ -42,9 +42,6 @@ module.exports = [
                 ]
               },
               {
-                
-              },
-              {
                 title: "Scaling",
                 href: "scaling",
                 tags: ['hypertables', 'chunks', 'timescaledb'],
