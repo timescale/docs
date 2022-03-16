@@ -3,7 +3,7 @@ You can view your service metrics from Timescale Cloud's [metrics
 dashboard](#metrics-dashboard). This dashboard gives you service-level
 information, such as CPU, memory, and storage usage.
 
-You can also view your query statistics by using the pre-installed
+You can also view your query-level statistics by using the pre-installed
 [`pg_stat_statements`](#query-level-statistics-with-pg-stat-statements)
 extension from a PostgreSQL client.
 
@@ -50,7 +50,7 @@ hit, read, and written; and more.
 
 You can query the `pg_stat_statements` view as you would any PostgreSQL view.
 The full view includes superuser queries, which are used by Timescale Cloud to
-manage your service in the background. To limit the results to only your
+manage your service in the background. To view only your
 queries, filter by the current user.
 
 Connect to your database using a PostgreSQL client, such as [`psql`][psql], and
@@ -66,12 +66,12 @@ not collected.
 </highlight>
 
 ## Example usage
-With `pg_stat_statements`, you can view performance statistics to help you
+With `pg_stat_statements`, you can view performance statistics that help you
 monitor and optimize your queries.
 
 Here are some sample scenarios to try.
 
-### Identify long-running queries
+### Identifying long-running queries
 Identify the 5 longest-running queries by their mean execution time:
 ```sql
 SELECT calls,
@@ -83,7 +83,7 @@ ORDER BY mean_exec_time DESC
 LIMIT 5;
 ```
 
-### Identify queries with highly variable execution time
+### Identifying queries with highly variable execution time
 The relative standard deviation, or the standard deviation expressed as a
 percentage of the mean, measures how variable the execution time is. The higher
 the relative standard deviation, the more variable the query execution time.
