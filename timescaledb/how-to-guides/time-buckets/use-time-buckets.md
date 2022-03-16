@@ -22,33 +22,35 @@ GROUP BY bucket;
 bucket starts at midnight on November 15, 2016, and aggregates all the data from
 that day:
 ```sql
-         bucket         |      avg_temp       
-------------------------+---------------------
- 2016-11-15 00:00:00+00 | 68.3704391666665821
- 2016-11-16 00:00:00+00 | 67.0816684374999347
- ```
+bucket                 |      avg_temp       
+-----------------------+---------------------
+2016-11-15 00:00:00+00 | 68.3704391666665821
+2016-11-16 00:00:00+00 | 67.0816684374999347
+```
 
 ## Calculate the max and min value within 5-minute intervals
 Group data into 5-minute buckets and calculate the maximum and minimum values of
-a column within each interval. Report the end time of the bucket rather than the
+a column within each bucket. Report the end time of the bucket rather than the
 start time. For example, calculate the minimum and maximum CPU usage in a table
 named `metrics`. The table has a time column named `time` and a CPU usage column
 named `cpu`.
 ```sql
-SELECT time_bucket('5 min', time) + '5 min' AS bucket
+SELECT time_bucket('5 min', time) + '5 min' AS bucket,
     min(cpu),
     max(cpu)
 FROM metrics
 GROUP BY bucket;
 ```
 
+The addition of `+ '5 min'` changes the displayed timestamp to the end of the
+bucket. It doesn't change the time spanned by the bucket.
+
 ## Calculate the time bucket of a single value
 Time buckets are usually used together with `GROUP BY` to aggregate data. But
 you can also run `time_bucket` on a single time value. This is useful for
-testing and learning, because you can use it to see what bucket a value would
-fall into.
+testing and learning, because you can see what bucket a value falls into.
 
-For example, to see the one-week time bucket into which January 5, 2021 would
+For example, to see the 1-week time bucket into which January 5, 2021 would
 fall, run:
 ```sql
 SELECT time_bucket(INTERVAL '1 week', TIMESTAMP '2021-01-05');

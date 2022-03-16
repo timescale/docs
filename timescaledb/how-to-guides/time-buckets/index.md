@@ -6,10 +6,10 @@ into buckets of time, for example: 5 minutes, 1 hour, or 3 days.
 It's similar to PostgreSQL's [`date_trunc`][date_trunc] function, but it gives
 you more flexibility in bucket size and start time.
 
-Time bucketing is essential to working with time series. You can use it to roll
-up data for analysis or downsampling. For example, you can calculate 5-minute
-averages for a sensor reading over the last day. You can perform these rollups
-as needed or pre-calculate them in [continuous aggregates][caggs].
+Time bucketing is essential to working with time-series data. You can use it to
+roll up data for analysis or downsampling. For example, you can calculate
+5-minute averages for a sensor reading over the last day. You can perform these
+rollups as needed or pre-calculate them in [continuous aggregates][caggs].
 
 This section explains how time bucketing works. For examples of the
 `time_bucket` function, see the section on [using time
@@ -29,8 +29,8 @@ bucket.
 <highlight type="note"> 
 `time_bucket` doesn't support months, years, and timezones. The experimental
 function `time_bucket_ng` adds support for these intervals and parameters. To
-learn more, see the sections on [timezones](#timezones) and
-[`time_bucket_ng`](#experimental-function-timebucketng).
+learn more, see the section on
+[`time_bucket_ng`](#experimental-function-time-bucket-ng).
 </highlight>
 
 ### Origin
@@ -115,8 +115,8 @@ supports months and years. For example, you can bucket data into 3-month or
 
 ### Origin
 By default, `time_bucket_ng` uses Saturday, January 1, 2000 for its origin. This
-is different from `time_bucket`. Because `time_bucket_ng` supports months and
-years, January 1 provides a more natural starting date for counting intervals.
+differs from `time_bucket`. Because `time_bucket_ng` supports months and years,
+January 1 provides a more natural starting date for counting intervals.
 
 Unlike `time_bucket`, `time_bucket_ng` doesn't support dates before the origin.
 In other words, by default, you cannot use `time_bucket_ng` with data from
