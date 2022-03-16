@@ -104,7 +104,6 @@ production:
 ```
 
 #### Create the database
-```
 Now we can run the following `rake` command to create the database in TimescaleDB:
 
 ```bash
