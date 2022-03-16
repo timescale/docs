@@ -130,4 +130,4 @@ continuous aggregates in the [next section][create-cagg].
 [last]: /api/:currentVersion:/hyperfunctions/last
 [first]: /api/:currentVersion:/hyperfunctions/first
 [date-trunc]: https://www.postgresql.org/docs/current/functions-datetime.html
-
+[create-cagg]: /getting-started/create-cagg/
