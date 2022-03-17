@@ -169,7 +169,7 @@ SELECT add_continuous_aggregate_policy('one_hour_candle',
 Notice how this example uses a different refresh policy with different
 parameter values to accommodate the 1-hour time bucket in the continuous
 aggregate definition. The continuous aggregate will refresh every hour, so 
-every hour there will be new candlestick data materialized, if there’s
+every hour there will be new candlestick data materialized, if there's
 new raw tick data in the hypertable.
 
 ### 1-day candlestick
