@@ -145,9 +145,25 @@ module.exports = [
       {
         title: 'Visualize data in Promscale',
         href: 'visualize-data',
-        tags: ['promscale', 'visualization', 'analytics', 'grafana', 'prometheus'],
+        tags: ['promscale', 'visualization', 'analytics', 'grafana', 'jaeger'],
         keywords: ['Promscale', 'analytics', 'Grafana'],
-        excerpt: 'Learn about data visualization tools you can use with Promscale'
+        excerpt: 'Learn about data visualization tools you can use with Promscale',
+        children: [
+          {
+            title: 'Grafana',
+            href: 'grafana',
+            tags: ['promscale', 'configure', 'prometheus', 'metrics'],
+            keywords: ['Promscale', 'Grafana'],
+            excerpt: 'Grafana to visualise data in Promscale',
+          },
+          {
+            title: 'Jaeger',
+            href: 'jaeger',
+            tags: ['promscale', 'configure', 'jaeger', 'opentelemetry', 'traces'],
+            keywords: ['Promscale', 'Jaeger'],
+            excerpt: 'Jaeger to visualize data in Promscale',
+          },
+        ],
       },
       {
         title: 'Distributed tracing with Promscale',
