@@ -1,17 +1,17 @@
 # Create a data retention policy
 
 An intrinsic part of working with time-series data is that the relevance of
-data can diminish over time. New data is accumulated and old data
-is rarely, if ever, updated. It is therefore often desirable to delete old raw
+data can diminish over time. New data accumulates, and old data
+is rarely if ever, updated. Thus, it is often desirable to delete old raw
 data to save disk space.
 
-In practice, continuous aggregates downsample the data, and then
+In practice, continuous aggregates downsample the data and then
  data retention policies discard historic raw data points.
 
 <highlight type="note">
-In the following image dropping data on the underlaying hypertable doesn't 
-affect the continuous aggregate. As long as you do not refresh the continuous aggregate 
-for time periods that you dropped data, your aggregate is unaffected.
+In the following image, dropping data on the underlying hypertable doesn't 
+affect the continuous aggregate. Your aggregate is unaffected as long as you do not refresh the continuous aggregate 
+for time periods where you dropped data.
 </highlight>
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy-retention.jpg" alt="Continuous aggregate with refresh and retention policies"/>
@@ -22,7 +22,7 @@ underlaying hypertable:
 1. Automatic data retention policy
 2. Manually dropping chunks
 
-In this first section we look at the automatic refresh policy and removing data 
+In this first section, we look at the automatic refresh policy and remove data 
 on a schedule. 
 
 ## Automatic data retention policies
@@ -31,16 +31,16 @@ on a schedule.
 These policies are "set it and forget it" in nature, meaning less hassle 
 for maintenance and upkeep.
 
-For example, you may want to continually remove stock data in the underlaying hypertable 
+For example, you may want to continually remove stock data in the underlying hypertable 
 `stocks_real_time` for time periods greater than two months ago. You can use this code with 
 the [`add_retention_policy()`][retention-policy] function to set up the automatic retention policy for this:
 
 ```sql
 SELECT add_retention_policy('stocks_real_time', INTERVAL '2 months');
 ```
-Similar to the continuous aggregates policy, one you run this code, all data 
-from two months prior will be dropped in `stocks_real_time` and a recurring retention
-policy will be created. 
+Similar to the continuous aggregates policy, once you run this code, all data 
+from two months prior will be dropped in `stocks_real_time`, and a recurring retention
+policy is created. 
 
 To see information about your retention policies and their job statistics, use the
 following code to see the informational views:
@@ -57,16 +57,16 @@ Timescale also provides a function that drops chunks for situations where
 you want to perform manual **one-time** removal of data. This function is 
 [`drop_chunks()`][drop-chunks]
 
-This function has similar arguments to the retention policy above. However, in 
-addition to setting an interval for when to drop data after, you can also specify a
-parameter to drop data before. This means that you can drop all data after a certain 
+This function has similar arguments to the retention policy above. However, besides 
+setting an interval for when to drop data after, you can also specify a
+parameter to drop data before. This means that you can drop all data after a particular 
 time **or** specify to drop data within an interval of time. 
 
 Use this code for dropping all data older than two months:
 ```sql
 SELECT drop_chunks('stocks_real_time', INTERVAL '2 months');
 ```
-Use this code for dropping data older than one month, but earlier than two months old:
+Use this code for dropping data older than one month but earlier than two months old:
 ```sql
 SELECT drop_chunks('stocks_real_time', older_than => INTERVAL '1 month', newer_than => INTERVAL '2 months')
 ```
