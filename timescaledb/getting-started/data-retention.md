@@ -5,13 +5,13 @@ data can diminish over time. New data is accumulated and old data
 is rarely, if ever, updated. It is therefore often desirable to delete old raw
 data to save disk space.
 
-In practice, data is often downsampled first, for example through continuous aggregates, 
-then historic raw data points are discarded via data retention policies.
+In practice, continuous aggregates downsample the data, and then
+ data retention policies discard historic raw data points.
 
 <highlight type="note">
-Notice in the following image that dropping data on the underlaying hypertable does not 
+In the following image dropping data on the underlaying hypertable doesn't 
 affect the continuous aggregate. As long as you do not refresh the continuous aggregate 
-for time periods that you dropped data, your aggregate will be unaffected.
+for time periods that you dropped data, your aggregate is unaffected.
 </highlight>
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy-retention.jpg" alt="Continuous aggregate with refresh and retention policies"/>
