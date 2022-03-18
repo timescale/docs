@@ -19,7 +19,7 @@ Disk recommendations for TimescaleDB are:
 The default chunk interval is `8h`
 
 |Ingest rate|Retention|Disk size per day|Uncompressed buffer|Total disk size|WAL size| 
-|-|-|-|-|-|-|-|
+|-|-|-|-|-|-|
 |10k samples/sec|90 days|~2 GB|~21 GB|~200 GB|1.25 GB|
 |50k samples/sec|90 days|~10 GB|~105 GB|~1 TB|-|
 |100k samples/sec|90 days|~20 GB|~210 GB|~2 TB|-|
