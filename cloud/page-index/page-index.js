@@ -30,7 +30,7 @@ module.exports = [
       },
       {
         title: "Service operations",
-        href: "operations",
+        href: "service-operations",
         children: [
           {
             title: "General",
