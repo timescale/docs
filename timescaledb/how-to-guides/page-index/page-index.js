@@ -329,11 +329,11 @@ module.exports = [
             excerpt: "About data compression",
           },
           {
-            title: "Manually compress chunks",
-            href: "manually-compress-chunks",
+            title: "Enable compression",
+            href: "enable-compression",
             tags: ["compression", "chunks", "data", "timescaledb"],
             keywords: ["compression", "chunks", "TimescaleDB"],
-            excerpt: "Manually compress data chunks",
+            excerpt: "Enable compression and manually or automatically compress your data",
           },
           {
             title: "Decompress chunks",
@@ -355,6 +355,13 @@ module.exports = [
             tags: ["compression", "chunks", "data", "timescaledb"],
             keywords: ["compression", "chunks", "TimescaleDB"],
             excerpt: "Change the data schema in compressed chunks",
+          },
+          {
+            title: "Improve compression performance",
+            href: "improve-compression",
+            tags: ["compression", "timescaledb", "performance"],
+            keywords: ["compression", "TimescaleDB", "performance"],
+            excerpt: "Improve compression performance for you data",
           },
         ],
       },
