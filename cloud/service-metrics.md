@@ -24,7 +24,6 @@ In some cases, gray vertical bars display on the metrics dashboard, like this:
 This indicates that metrics have not been collected for the period shown. It
 does not mean that your Timescale Cloud service was down.
 
-
 ## Continuous storage monitoring
 Timescale Cloud continuously monitors the health and resource consumption of all
 database services. You can check your health data by navigating to the `metrics`
