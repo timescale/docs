@@ -1,4 +1,4 @@
-# Customize database configuration in Timescale Cloud
+# Service Settings - Database configuration
 Timescale Cloud allows you to customize many TimescaleDB and PostgreSQL
 configuration options for each Service individually. Most configuration values
 for a Service are initially set in accordance with best practices given the
