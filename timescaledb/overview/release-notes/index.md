@@ -57,9 +57,9 @@ hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
 
 
-We’re committed to developing these experiments, giving the community a chance to
-provide early feedback and influence the direction of TimescaleDB’s development.
- We’ll travel faster with your input!
+We're committed to developing these experiments, giving the community a chance to
+provide early feedback and influence the direction of TimescaleDB's development.
+ We'll travel faster with your input!
 
 Please [create your feedback as a GitHub issue][github-issue], and add the
 `experimental-schema` label. Describe what you found, and tell us the steps or
@@ -144,7 +144,7 @@ upgrade as soon as possible.
 * #4024 Fix premature cache release call
 * #4037 Fix status for dropped chunks that have catalog entries
 * #4069 Fix riinfo NULL handling in ANY construct
-* #4071 Fix extension installation privilege escalation
+* #4071 Fix extension installation privilege escalation (CVE-2022-24128)
 
 **Thanks**
 * @carlocperez for reporting crash with NULL handling in ANY construct
@@ -1326,7 +1326,7 @@ aggregates do not need to be refreshed manually; the view is refreshed
 automatically in the background as new data is added, or old data is
 modified. Additionally, it does not need to re-calculate all of the data on
 every refresh. Only new and/or invalidated data is calculated.  Since this
-re-aggregation is automatic, it doesn’t add any maintenance burden to your
+re-aggregation is automatic, it doesn't add any maintenance burden to your
 database.
 
 Our continuous aggregate approach supports high-ingest rates by avoiding the
@@ -1485,7 +1485,7 @@ This release contains bugfixes.
 Our 1.1 release introduces beta support for PG 11, as well as several performance optimizations aimed at improving chunk exclusion for read queries. We are also packaging our new timescale-tune tool (currently in beta) with our Debian and Linux releases. If you encounter any issues with our beta features, please file a GitHub issue.
 
 **Potential breaking changes**
-- In addition to optimizing first() / last() to utilize indices for non-group-by queries, we adjusted its sorting behavior to match that of PostgreSQL’s max() and min() functions. Previously, if the column being sorted had NULL values, a NULL would be returned. First() and last() now instead ignore NULL values.
+- In addition to optimizing first() / last() to utilize indices for non-group-by queries, we adjusted its sorting behavior to match that of PostgreSQL's max() and min() functions. Previously, if the column being sorted had NULL values, a NULL would be returned. First() and last() now instead ignore NULL values.
 
 **Notable commits**
 

@@ -7,7 +7,7 @@ the average temperature in each location, you can calculate the average as a
 one-off, with a query like this:
 
 ```sql
-SELECT time_bucket(‘1 day’, time) as day,
+SELECT time_bucket('1 day', time) as day,
        location,
        avg(temperature)
 FROM temperatures
@@ -26,7 +26,7 @@ continuous aggregate view like this:
 
 ```sql
 CREATE MATERIALIZED VIEW daily_average WITH (timescaledb.continuous)
-    AS SELECT time_bucket(‘1 day’, time) as Day,
+    AS SELECT time_bucket('1 day', time) as Day,
               location,
               avg(temperature)
        FROM temperatures

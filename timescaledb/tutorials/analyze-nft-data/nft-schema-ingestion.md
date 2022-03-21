@@ -6,7 +6,7 @@ relational tables.
 To help you get familiar with NFT data, here are some of the questions that
 could be answered with this dataset:
 * Which collections have the highest trading volume?
-* What’s the number of daily transactions of a given collection or asset?
+* What's the number of daily transactions of a given collection or asset?
 * Which collections have the most trading volume in Ether (ETH)?
 * Which account made the most NFT trades?
 * How are the mean and median sale prices correlated?
@@ -100,8 +100,8 @@ The `accounts` table includes the accounts that have participated in at least
 one transaction from the nft_sales table.
 One row represents one unique account on the OpenSea platform.
 
-* `address` is never NULL and it’s unique
-* `user_name` is NULL unless it’s been submitted on the OpenSea profile by the user
+* `address` is never NULL and it's unique
+* `user_name` is NULL unless it's been submitted on the OpenSea profile by the user
 
 | Data field | Description |
 |---|---|
@@ -171,8 +171,8 @@ CREATE INDEX idx_payment_symbol ON nft_sales (payment_symbol);
 
 ### Schema design
 The `id` field in each table is `BIGINT` because its storage size is 8 bytes in
-PostgreSQL (as opposed to `INT`’s 4 bytes) which is needed to make sure this
-value doesn’t overflow.
+PostgreSQL (as opposed to `INT`'s 4 bytes) which is needed to make sure this
+value doesn't overflow.
 
 For the `quantity` field we suggest using numeric or decimal (which works the
 same way in PostgreSQL) as the data type, because in some edge cases we
