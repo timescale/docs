@@ -94,6 +94,23 @@ that you plan ahead, and upgrade during a time with low usage. You can also
 reduce downtime for upgrades by enabling replicas.
 </highlight>
 
+### Recommended practices for upgrading
+Follow these optional recommendations for a smooth upgrade experience.
+
+*   Fork your database, and try out the upgrade on the fork before running it on
+    your production system. This gives you a good idea of what happens during
+    the upgrade, and how long it might take. For more information about forking,
+    see the section on [forking][operations-forking].
+*   Keep a copy of your database with your old version and data, if you're
+    worried about losing it. You can fork your database without upgrading the
+    fork to keep a duplicate Timescale Cloud service.
+*   Enable replicas for near zero-downtime-upgrades. If you have replicas
+    enabled on Timescale Cloud, the upgrade process upgrades your nodes one by
+    one. Thus, one node is always available. The only downtime is the time
+    needed for failover, which usually takes several seconds. For more
+    information about replicas in Timescale Cloud, see the section on
+    [replicas][replicas].
+
 <procedure>
 
 ### Upgrading to a new PostgreSQL version
@@ -108,26 +125,6 @@ reduce downtime for upgrades by enabling replicas.
     it was in before you started the upgrade.
 
 </procedure>
-
-### Best practices for upgrading
-Follow some best practices for a smooth upgrade experience.
-
-#### Create a fork
-Fork your database before you upgrade. This allows you to:
-*   Try out the upgrade on the fork before running it on your production system.
-    This gives you a good idea of what happens during the upgrade, and how long it
-    might take.
-*   Keep a copy of your old database version if you're worried about losing it
-    after an upgrade
-
-#### Enable replicas for near-zero-downtime upgrades
-If you have replicas enabled on Timescale Cloud, you can get near-zero-downtime
-major upgrades. The upgrade process upgrades your nodes one by one, so one node
-is always available. The only downtime is the time needed for failover, which
-usually takes several seconds.
-
-To learn more about replicas in Timescale Cloud, see the section on
-[replicas][replicas].
 
 [cloud-login]: https://cloud.timescale.com
 [operations-forking]: cloud/:currentVersion:/operations/#fork-a-service
