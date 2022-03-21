@@ -5,7 +5,6 @@ you can see your monthly usage, past payments you have made, the estimated cost
 of your next payment confirmation, and your current payment method.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-billing-details.png" alt="Timescale Cloud Billing"/>
-You can
 
 ## About Timescale Cloud billing
 Timescale Cloud payment confirmations are issued on the first day of every

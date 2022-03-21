@@ -1,32 +1,16 @@
 # Service operation - Resources
-If you run intensive queries on your Timescale Cloud services, you might
-encounter out of memory (OOM) errors. This occurs if your query consumes more
-memory than is available.
+Timescale Cloud contains several mechanisms for managing disk space on your
+services. There are four key tasks that Cloud performs to handle disk space:
+1.  Detect if storage capacity begins to fill up
+1.  Notify you about the growth of storage consumption
+1.  Automatically activate overload protections
+1.  Allow you to return your database to a normal state
 
-When this happens, an `OOM killer` process shuts down PostgreSQL processes using
-`SIGKILL` commands, until the memory usage falls below the upper limit. Because
-this kills the entire server process, it usually requires a restart. To
-prevent service disruption caused by OOM errors, Timescale Cloud attempts to
-shut down only the query that caused the problem. This means that the
-problematic query does not run, but that your PostgreSQL service continues to
-operate normally.
-
-If the normal OOM killer is triggered, the error log looks like this:
-```yml
-2021-09-09 18:15:08 UTC [560567]:TimescaleDB: LOG: server process (PID 2351983) was terminated by signal 9: Killed
-```
-
-Wait for the entire service to come back online before reconnecting.
-
-If Timescale Cloud successfully guards the service against the OOM killer, it shuts
-down only the client connection that was using too much memory. This prevents
-the entire PostgreSQL service from shutting down, so you can reconnect
-immediately. The error log looks like this:
-```yml
-2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
-```
-
-
+By default, Timescale Cloud services have autoscaling enabled. Autoscaling
+automatically increases your disk size, up to a maximum amount, as you fill the
+disk. For more information about autoscaling, including instructions for setting
+the maximum limit, or turning autoscaling off, see the
+[autoscaling][autoscaling] section.
 
 ## Online storage resizing
 You can increase your storage size in the Timescale Cloud console.
@@ -95,3 +79,33 @@ leaving the database in read-only mode.
 
 As soon as the storage consumption drops below the threshold, the read-only
 protection is automatically removed, and you can start writing data again.
+
+## Out of memory errors
+If you run intensive queries on your Timescale Cloud services, you might
+encounter out of memory (OOM) errors. This occurs if your query consumes more
+memory than is available.
+
+When this happens, an `OOM killer` process shuts down PostgreSQL processes using
+`SIGKILL` commands, until the memory usage falls below the upper limit. Because
+this kills the entire server process, it usually requires a restart. To
+prevent service disruption caused by OOM errors, Timescale Cloud attempts to
+shut down only the query that caused the problem. This means that the
+problematic query does not run, but that your PostgreSQL service continues to
+operate normally.
+
+If the normal OOM killer is triggered, the error log looks like this:
+```yml
+2021-09-09 18:15:08 UTC [560567]:TimescaleDB: LOG: server process (PID 2351983) was terminated by signal 9: Killed
+```
+
+Wait for the entire service to come back online before reconnecting.
+
+If Timescale Cloud successfully guards the service against the OOM killer, it shuts
+down only the client connection that was using too much memory. This prevents
+the entire PostgreSQL service from shutting down, so you can reconnect
+immediately. The error log looks like this:
+```yml
+2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
+```
+
+[autoscaling]: cloud/:currentVersion:/service-operations/autoscaling/

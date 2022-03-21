@@ -1,24 +1,4 @@
 # Services operations - General
-Timescale Cloud contains several mechanisms for managing disk space on your
-services. There are four key tasks that Cloud performs to handle disk space:
-1.  Detect if storage capacity begins to fill up
-1.  Notify you about the growth of storage consumption
-1.  Automatically activate overload protections
-1.  Allow you to return your database to a normal state
-
-This section explains what the various mechanisms are, and how to best make use
-of them.
-
-By default, Timescale Cloud services have autoscaling enabled. Autoscaling
-automatically increases your disk size, up to a maximum amount, as you fill the
-disk. For more information about autoscaling, including instructions for setting
-the maximum limit, or turning autoscaling off, see the
-[scaling a service][scaling] section.
-
-For more information about memory management, including out of memory (OOM)
-errors, see the [memory management][memory-mgmt] section.
-
-## General
 In the `General` section of the Operations dashboard, you can fork your service,
 reset the password, pause, or terminate the service.
 
@@ -75,11 +55,3 @@ be restarted at any time.
 You can terminate a service to delete it completely. This removes the service
 and its underlying data from the server. You cannot recover a terminated
 service.
-
-
-
-
-
-
-[scaling]: cloud/:currentVersion:/scaling-a-service/
-[memory-mgmt]: cloud/:currentVersion:/memory-management/
