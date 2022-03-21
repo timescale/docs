@@ -82,7 +82,7 @@ module.exports = [
         children: [
           {
             title: "User management",
-            href: "members-users",
+            href: "members-list",
           },
         ]
       },
