@@ -1,4 +1,4 @@
-# Metrics
+# Service metrics
 Timescale Cloud provides a Metrics dashboard for managing your services. You can
 see the Metrics dashboard in your Timescale Cloud account by navigating to the
 `Services` section, clicking the service you want to explore, and selecting the

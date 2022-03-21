@@ -56,7 +56,7 @@ module.exports = [
       },
       {
         title: "Service metrics",
-        href: "metrics",
+        href: "service-metrics",
       },
       {
         title: "Service logs",
