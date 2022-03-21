@@ -26,7 +26,7 @@ module.exports = [
       },
       {
         title: "Service explorer",
-        href: "explorer",
+        href: "service-explorer",
       },
       {
         title: "Service operations",
