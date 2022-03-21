@@ -5,7 +5,8 @@ quickly spin up new TimescaleDB instances. You can
 
 A good way to get started with your first service is to use our demo dataset.
 Make sure you have created your [Timescale Cloud account][sign-up], and launch
-your first service with the `Allmilk Factory` interactive demo.
+your first service with the `Allmilk Factory` interactive demo to learn more
+about how TimescaleDB works with your time series data.
 
 For installation instructions, and help getting your first service up and
 running, see the [Timescale Cloud installation section][cloud-install].
