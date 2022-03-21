@@ -2,21 +2,21 @@
 
 TimescaleDB comes with native compression capabilities, which enable you to
 analyze and query massive amounts of historical time-series data inside a
-database while also saving on storage costs. **AND** all PostgreSQL data 
+database while also saving on storage costs. Additionally, all PostgreSQL data 
 types can be used in compression.
 
-In the next step, you will enable compression on your hypertable and learn 
+In the next step, you enable compression on your hypertable and learn 
 two ways of compressing data: 
 1. Using an automatic policy
 2. Manually compressing chunks
 
-But, before you can start compressing data, you will need to enable compression
+But, before you can start compressing data, you need to enable compression
 on the `stocks_real_time` hypertable. 
 
 ## Enable TimescaleDB compression on the hypertable
 
 To enable compression, you need to [`ALTER` the `stocks_real_time` hypertable][alter-table-compression]. There
-are three parameters you can specify when enableing compression:
+are three parameters you can specify when enabling compression:
 * `timescaledb.compress` (required): this turns on compression
 * `timescaledb.compress_orderby` (optional): this uses the specified column to order 
 compression by
@@ -49,32 +49,31 @@ SELECT * FROM timescaledb_information.compression_settings;
 ```
 
 ## Automatic compression
-
-Now that compression is enabled, you can schedule a [policy to automatically compress][compress-automatic]
+When you have enabled compression, you can schedule a [policy to automatically compress][compress-automatic]
 data according to the settings defined above. 
 
-Let's say that you want to compress data on your hypertable that has existed more than a month
-in the past. You could use the following code to do this:
+For example, if you want to compress data on your hypertable that has existed more than a month
+in the past, you could use this code:
 
 ```sql
 SELECT add_compression_policy('stocks_real_time', INTERVAL '1 month');
 ```
 
-Similar to the continuous aggregates policy and retention policies, once you run this code, all data 
-from one month prior will be compressed in `stocks_real_time`, and a recurring compression
+Similar to the continuous aggregates policy and retention policies, when you run this code, all data 
+from one month prior is compressed in `stocks_real_time`, and a recurring compression
 policy is created. 
 
-<highlight type="note">
-You may be wondering, "Why not compress all your data? Why only compress data older than one month?".
-A compressed chunk cannot be updated and could block the addition or removal 
-of data. Since we will likely be adding data for more recent time periods, it is best  
-only to compress data you believe will not be updated. 
- 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-refresh-compression.jpg" alt="Continuous aggregate with refresh and compression policies"/>
-</highlight>
+It is important that you don't try to compress all your data. It is best to 
+only compress data when it has aged, which is why the examples here 
+compress data older than one month. You can't updated a compressed 
+chunk, and this could block the addition or removal of data. Since you 
+are likely to be adding data for more recent time periods, it is best only 
+to compress data that is less likely to require updating. 
 
-Just like for automated policies for continuous aggregates, we can view information and statistics 
-about our compression background job in the following two information views:
+ <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-refresh-compression.jpg" alt="Continuous aggregate with refresh and compression policies"/>
+
+Just like for automated policies for continuous aggregates, you can view information and statistics 
+about your compression background job in these two information views:
 
 ```sql
 -- Informational view for policy details
