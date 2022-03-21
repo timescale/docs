@@ -45,6 +45,10 @@ module.exports = [
             href: "autoscaling",
           },
           {
+            title: "Replicas",
+            href: "replicas",
+          },
+          {
             title: "Maintenance",
             href: "maintenance",
           },
