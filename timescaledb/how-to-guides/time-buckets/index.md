@@ -72,8 +72,8 @@ The origin time depends on the data type of your time values.
 
 If you use `TIMESTAMP`, by default, bucket start times are aligned with
 `00:00:00`. Daily and weekly buckets start at `00:00:00`. Shorter buckets start
-at a time that you can get to by counting in increments from `00:00:00` on
-January 3, 2000.
+at a time that you can get to by counting in bucket increments from `00:00:00`
+on January 3, 2000.
 
 If you use `TIMESTAMPTZ`, by default, bucket start times are aligned with
 `00:00:00 UTC`. To get buckets aligned to local time, cast the `TIMESTAMPTZ` to
