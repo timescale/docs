@@ -34,11 +34,11 @@ module.exports = [
         children: [
           {
             title: "General",
-            href: "disk-management",
+            href: "general",
           },
           {
             title: "Resources",
-            href: "memory-management",
+            href: "resources",
           },
           {
             title: "Autoscaling",
