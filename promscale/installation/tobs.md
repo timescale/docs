@@ -35,10 +35,6 @@ cluster. Follow the prompts to complete set up.
 
 ## Install tracing support
 
-<highlight type="important">
-Support for OpenTelemetry traces is currently in beta and is disabled by default.
-</highlight>
-
 In tobs version 0.7.0 and later, tracing components are included in the stack.
 To install the tracing components, use this command:
 ```bash
