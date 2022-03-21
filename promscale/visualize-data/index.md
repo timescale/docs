@@ -1,11 +1,17 @@
 # Visualize data in Promscale
-Promscale can be used to visualize the data in tools like
+You can visualize data in Promscale using tools like
 [Grafana][grafana-homepage] and [Jaeger][jaeger-homepage]
 
 *   **Grafana**: [use Grafana to visualize metrics and traces][grafana-promscale].
-*   **Jaeger**: [use Jaeger Query to visualize traces][jaeger-promscale].
+    * [Promscale as Prometheus data source][promscale-as-prometheus]. 
+    * [Promscale as Jaeger data source][promscale-as-jaeger].
+    * [Promscale as PostgreSQL data source][promscale-as-postgresql]. 
+*   **Jaeger**: [use Jaeger to visualize traces][jaeger-promscale].
 
 [grafana-promscale]: /visualize-data/grafana
 [jaeger-promscale]: /visualize-data/jaeger
 [grafana-homepage]:https://grafana.com
 [jaeger-homepage]: https://www.jaegertracing.io/
+[promscale-as-prometheus]: /visualize-data/grafana/#promscale-as-prometheus-datasource
+[promscale-as-jaeger]: /visualize-data/grafana/#promscale-as-jaeger-datasource
+[promscale-as-postgresql]: /visualize-data/grafana/#promscale-as-postgresql-datasource
