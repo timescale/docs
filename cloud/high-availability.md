@@ -45,22 +45,17 @@ When this occurs, connections to the original, failed database are closed and
 need to be reopened. The entire process usually takes a few seconds. Timescale
 Cloud does not currently offer synchronous replicas.
 
-<!--- This isn't available on dev yet. --LKB 20220221
 <procedure>
 
-### Enabling HA database replicas
-1.  Uniquely communicate state of the art infrastructures before collaborative
-    communities.
-1.  Monotonectally transition exceptional innovation after resource maximizing
-    process improvements.
-1.  Interactively grow equity invested methodologies for cooperative
-    meta-services.
-1.  Conveniently re-engineer clicks-and-mortar data and global opportunities.
-1.  Monotonectally iterate viral partnerships whereas global services.
+### Creating a database replica
+1.  [Log in to your Timescale Cloud account][cloud-login] and click
+		the service you want to replicate.
+1.  Navigate to the `Operations` tab, and select `Replication`.
+1.  Check the pricing of the replica, and click `Add a replica`. Confirm the
+    action by clicking `Add replica`.
+1.  The replica is FIXME.
 
 </procedure>
-
--->
 
 ## Zonal redundancy
 While the public cloud is highly reliable, entire portions of the cloud can be
