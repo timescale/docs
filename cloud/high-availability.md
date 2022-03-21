@@ -55,6 +55,8 @@ Cloud does not currently offer synchronous replicas.
     action by clicking `Add replica`.
 1.  The replica is FIXME.
 
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png" alt="Creating a database replica in Timescale Cloud"/>
+
 </procedure>
 
 ## Zonal redundancy
