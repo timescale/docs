@@ -1,28 +1,49 @@
 # Timescale Cloud Services
-Holisticly drive error-free users whereas premier infrastructures.
-Collaboratively engage equity invested leadership skills with premier customer
-service. Enthusiastically fashion interdependent total linkage and economically
-sound value. Rapidiously reconceptualize cutting-edge deliverables via fully
-tested technologies. Completely cultivate enabled systems rather than state of
-the art web services.
+Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB as a
+service that is easy to get started and powerful enough for the most demanding
+scenarios.
 
-Authoritatively brand end-to-end internal or "organic" sources after team
-building communities. Collaboratively reintermediate interoperable partnerships
-rather than e-business metrics. Assertively provide access to long-term
-high-impact testing procedures before premium web services. Efficiently matrix
-flexible alignments whereas multifunctional methods of empowerment.
-Phosfluorescently implement viral solutions whereas transparent collaboration
-and idea-sharing.
+For installation instructions, and help getting your first service up and
+running, see the [Timescale Cloud installation section][cloud-install].
 
-Dramatically enhance timely networks whereas standardized results.
-Monotonectally communicate robust scenarios after low-risk high-yield
-information. Monotonectally empower leading-edge resources without inexpensive
-interfaces. Quickly brand cross-media potentialities after extensible data.
-Seamlessly network covalent mindshare after just in time e-business.
+### Learn more about TimescaleDB
+Read about TimescaleDB features in our documentation:
 
-Authoritatively repurpose resource-leveling methodologies through sticky
-experiences. Intrinsicly customize front-end sources via e-business sources.
-Assertively syndicate resource-leveling innovation vis-a-vis premier
-communities. Synergistically develop B2B communities rather than cross
-functional web services. Competently exploit interactive convergence for
-multidisciplinary ROI.
+-   Create your first [hypertable][hypertable-info].
+-   Run your first query using [time_bucket()][time-bucket-info].
+-   Trying more advanced time-series functions, starting with
+    [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
+
+### Keep testing during your free trial
+You're now on your way to a great start with Timescale!
+
+You have an unthrottled, 30-day free trial with Timescale Cloud to
+continue to test your use case. Before the end of your trial, we encourage you
+to add your credit card information. This ensures a smooth transition after
+your trial period concludes.
+
+### Summary
+We're excited to play a small part in helping you build a best-in-class
+time-series application or monitoring tool. If you have any questions, please
+feel free to [join our community Slack group][slack-info]
+or [contact us][contact-timescale] directly.
+
+## Advanced configuration and multi-node setup
+Timescale Cloud is a versatile hosting service that provides a growing list of
+advanced features for your PostgreSQL and time-series data workloads.
+
+For additional documentation on how to:
+*   [Resize compute and storage][resize] at any time
+*   [Customize your database configuration][configuration] easily
+*   [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud
+
+[slack-info]: https://slack-login.timescale.com
+[contact-timescale]: https://www.timescale.com/contact
+[hypertable-info]: /timescaledb/latest/how-to-guides/hypertables
+[time-bucket-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket
+[gap-filling-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[aggregates-info]: /timescaledb/latest/getting-started/create-cagg
+[resize]: /scaling-a-service/
+[configuration]: /customize-configuration/
+[multi-node]: /cloud-multi-node/
+[cloud-install]: install/:currentVersion:/installation-cloud/

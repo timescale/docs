@@ -1,49 +1,29 @@
-# Exploring Timescale Cloud
-Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB as a
-service that is easy to get started and powerful enough for the most demanding
-scenarios.
+# Install Timescale Cloud
+Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
+quickly spin up new TimescaleDB instances. You can
+[try Timescale Cloud for free][sign-up], no credit card required.
 
 For installation instructions, and help getting your first service up and
 running, see the [Timescale Cloud installation section][cloud-install].
 
-### Learn more about TimescaleDB
-Read about TimescaleDB features in our documentation:
+## Where to next
+Now that you have your first service up and running, you can check out the
+[Timescale Cloud][tsc-docs] section in our documentation, and
+find out what you can do with it.
 
--   Create your first [hypertable][hypertable-info].
--   Run your first query using [time_bucket()][time-bucket-info].
--   Trying more advanced time-series functions, starting with
-    [gap filling][gap-filling-info] or [real-time aggregates][aggregates-info].
+If you want to work through some tutorials to help you get up and running with
+TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 
-### Keep testing during your free trial
-You're now on your way to a great start with Timescale!
+If you're interested in learning more about pricing for Timescale Cloud, visit
+the [TimescaleDB pricing calculator][timescale-pricing].
 
-You have an unthrottled, 30-day free trial with Timescale Cloud to
-continue to test your use case. Before the end of your trial, we encourage you
-to add your credit card information. This ensures a smooth transition after
-your trial period concludes.
+You can always [contact us][contact] if you need help working something out, or
+if you want to have a chat.
 
-### Summary
-We're excited to play a small part in helping you build a best-in-class
-time-series application or monitoring tool. If you have any questions, please
-feel free to [join our community Slack group][slack-info]
-or [contact us][contact-timescale] directly.
 
-## Advanced configuration and multi-node setup
-Timescale Cloud is a versatile hosting service that provides a growing list of
-advanced features for your PostgreSQL and time-series data workloads.
-
-For additional documentation on how to:
-*   [Resize compute and storage][resize] at any time
-*   [Customize your database configuration][configuration] easily
-*   [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud
-
-[slack-info]: https://slack-login.timescale.com
-[contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: /timescaledb/latest/how-to-guides/hypertables
-[time-bucket-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket
-[gap-filling-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#gap-filling
-[aggregates-info]: /timescaledb/latest/getting-started/create-cagg
-[resize]: /scaling-a-service/
-[configuration]: /customize-configuration/
-[multi-node]: /cloud-multi-node/
+[sign-up]: https://www.timescale.com/timescale-signup
+[timescale-pricing]: https://www.timescale.com/products#cloud-pricing
+[contact]: https://www.timescale.com/contact
+[tsc-docs]: cloud/:currentVersion:/index/
+[tutorials]: /timescaledb/:currentVersion:/tutorials/
 [cloud-install]: install/:currentVersion:/installation-cloud/
