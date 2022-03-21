@@ -42,7 +42,7 @@ For more information about `pg_stat_statements`, see the
 [PostgreSQL documentation](https://www.postgresql.org/docs/current/pgstatstatements.html).
 </highlight>
 
-<highlight type="note">
+<highlight type="important">
 You cannot currently enable `track_io_timing` for your database. Statistics that
 depend on `track_io_timing`, such as `blk_read_time` and `blk_write_time`, are
 not collected.
