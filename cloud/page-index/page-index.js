@@ -42,7 +42,7 @@ module.exports = [
           },
           {
             title: "Autoscaling",
-            href: "scaling-a-service",
+            href: "autoscaling",
           },
           {
             title: "Maintenance",
@@ -50,7 +50,7 @@ module.exports = [
           },
           {
             title: "VPC",
-            href: "vpc-peering",
+            href: "vpc",
           }
         ],
       },
