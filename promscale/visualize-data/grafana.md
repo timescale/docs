@@ -1,34 +1,14 @@
 # Connect Promscale and Grafana
-This section shows you how to connect Promscale as a Prometheus and Jaeger data sources in
+
+To connect Grafana with Promscale, you should have Grafana running. If you do not have Grafana installed, follow the [Grafana installation docs][grafana-install].
+
+This section shows you how to connect Promscale as a Prometheus, Jaeger and PostgreSQL data sources in
 [Grafana][grafana-homepage].
-
-Before you begin, you need the IP address of your Promscale instance. You can
-find this at the command prompt, using this command:
-```bash
-docker inspect <PROMSCALE_CONTAINER_NAME>
-```
-
-The IP address is listed in the `NetworkSettings → Networks → IPAddress`
-section.
-
-Alternatively, you can set the URL as `http://promscale:9201`, where `promscale` is the name of the container.
 
 <procedure>
 
-## Connecting Promscale and Grafana
-1.  Install Grafana from the [official Docker image][grafana-docker]:
-    ``` bash
-    docker run -d \
-      -p 3000:3000 \
-      --network promscale \
-      --name=grafana \
-      -e "GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource" \
-      grafana/grafana
-    ```
-1.  Navigate to `localhost:3000` in your browser and log in to Grafana with
-    username `admin`, and password `admin`. You are prompted set a new password.
+## Promscale as Prometheus datasource
 
-### Promscale as Prometheus datasource
 1.  Navigate to `Configuration → Data Sources → Add data source → Prometheus`.
 1.  Configure the data source settings:
     *   In the `Name` field, type `Promscale-metrics`.
@@ -36,26 +16,52 @@ Alternatively, you can set the URL as `http://promscale:9201`, where `promscale`
         address of your Promscale instance.
     *   Use the default values for all other settings.
 
-### Promscale as Jaeger datasource
+</procedure>
+
+Once you have configured Promscale as a Prometheus data source in Grafana, you can create panels that are populated with data using PromQL
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/getting-started-with-promscale-grafana-dashboard.png" alt="Sample output for PromQl query"/>
+
+<procedure>
+
+## Promscale as Jaeger datasource
+
 1.  Navigate to `Configuration → Data Sources → Add data source → Jaeger`.
 1.  Configure the data source settings:
     *   In the `Name` field, type `Promscale-traces`.
     *   In the `URL` field, type `http://<PROMSCALE-IP-ADDR>:9201`, using the IP
         address of your Promscale instance.
     *   Use the default values for all other settings.
+
 </procedure>
 
-When you configured Promscale as a data source in Grafana, you can create a
-Grafana panel using `Promscale` as the data source. 
-
-The query powering the panel
-is written in PromQL.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/getting-started-with-promscale-grafana-dashboard.png" alt="Sample output for PromQl query"/>
-
-The query powering the trace results is using Jaeger Query filter options. In Grafana you can query traces through explore option from the menu bar. 
+You can now filter and view traces stored in Promscale using Grafana. To visualize your traces, go to the “Explore” section of Grafana. You will be taken to the traces filtering panel.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/grafana-jaeger-query-results.png" alt="Sample output for Jaeger query filter in Grafana"/>
 
+<procedure>
+
+## Promscale as PostgreSQL datasource
+
+1.  Navigate to `Configuration → Data Sources → Add data source → PostgreSQL`.
+1.  Configure the data source settings:
+    *   In the `Name` field, type `Promscale-SQL`.
+    *   In the Host field, type `<host>:<port>`, where host and port need to be 
+        obtained from the service url you copied when you created the Timescale cloud service. The format of that url is `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`
+    *   In the `Database` field, type the dbname from the service url.
+    *   In the User and Password fields, type the user and password from the service.
+    *   Change the `TLS/SSL Mode` to require as the service url by default contains 
+        the TLS mode as required.
+    *   Change the `TLS/SSL Method` File system path.
+    *   Use the default values for all other settings.
+    *   In the PostgreSQL details section enable the TimescaleDB option.
+
+</procedure>
+
+You can now create panels that use Promscale as a PostgreSQL data source, using SQL queries to feed the chart
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/grafana-sql-query-results.png" alt="Sample output for SQL query in Grafana"/>
+
 [grafana-homepage]: https://grafana.com/
 [grafana-docker]: https://grafana.com/docs/grafana/latest/installation/docker/#install-official-and-community-grafana-plugins
+[grafana-install]: https://grafana.com/docs/grafana/latest/installation/
