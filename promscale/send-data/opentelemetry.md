@@ -4,13 +4,6 @@ traces. You can use any of the OpenTelemetry client SDKs,
 instrumentation libraries or the OpenTelemetry Collector to send traces to
 Promscale using OTLP. Currently, only gRPC is supported.
 
-<highlight type="important">
-Support for OpenTelemetry traces is currently in beta and is disabled by default.
-If you want to send your OpenTelemetry traces to Promscale, see the
-instructions in the
-[tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing.md).
-</highlight>
-
 # Configure the OpenTelemetry Collector
 You can configure the OpenTelemetry collector to forward traces to Promscale. Promscale listens
 to OTLP data on the port you specified with the `otlp-grpc-server-listen-address`

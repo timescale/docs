@@ -25,13 +25,6 @@ When you have Promscale installed, you can configure
 [Prometheus][config-prometheus] and
 [OpenTelemetry][config-otel] to send data to Promscale.
 
-<highlight type="important">
-Support for OpenTelemetry traces is currently in beta and is disabled by default.
-If you want to send your OpenTelemetry traces to Promscale, see the
-instructions in the
-[tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing.md).
-</highlight>
-
 ## Install Promscale with instrumentation
 If you have a Kubernetes environment, you can install a complete, pre-configured
 observability stack with Promscale. The observability stack (tobs) for
