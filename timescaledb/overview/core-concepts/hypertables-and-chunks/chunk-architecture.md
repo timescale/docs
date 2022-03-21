@@ -30,7 +30,7 @@ choose from one of these two methods:
     partitioning, where all the values in a specified range fall into the same
     partition.
 
-Like time partitions, space partitions are always non-overlapping.
+Like time partitions, space partitions never overlap.
 
 ## Chunk local indexes
 Rather than building a global index over an entire hypertable, TimescaleDB

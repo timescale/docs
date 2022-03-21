@@ -14,7 +14,7 @@ memory. This improves operation speed, since data doesn't need to be loaded from
 disk.
 
 <highlight type="note">
-To learn about chunk sizing for improved performance, see the section on 
+For more information about chunk sizing for improved performance, see the section on 
 [chunk sizing](timescaledb/latest/how-to-guides/hypertables/best-practices/#time-intervals).
 </highlight>
 

@@ -41,7 +41,7 @@ partitioning](#hypertables-can-also-be-partitioned-by-space).
 This section uses the example of 1-day chunks to explain how hypertables work.
 The default chunk time interval is actually 7 days, and you can change it to
 optimize partitioning for your data. To learn about best practices for chunk 
-time intervals, see the documentation on [chunk sizing](FIXME).
+time intervals, see the documentation on [chunk sizing](timescaledb/latest/how-to-guides/hypertables/best-practices/#time-intervals).
 </highlight>
 
 ### Chunks improve time-series performance
