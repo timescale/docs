@@ -76,34 +76,8 @@ These instructions use the `apt` package manager on Debian and Ubuntu.
 </procedure>
 
 ### Build Toolkit from source
-
 You can build Toolkit from source. For more information, see the [Toolkit
 developer documentation][toolkit-gh-docs] .
-
-<procedure>
-
-#### Building Toolkit from source
-1.  The extension requires `rust`, `rustfmt`, `clang`, and `pgx` packages, as
-    well as the PostgreSQL headers for your installed version of PostgreSQL.
-    Install these using your native package manager. For instructions on how to
-    install Rust, see the [Rust installation instructions][rust-install].
-1.  Install the TimescaleDB `pgx` package using Cargo:
-    ```bash
-    cargo install --git https://github.com/JLockerman/pgx.git --branch timescale2 cargo-pgx && \
-    cargo pgx init --pg13 pg_config
-    ```
-1.  Clone the Toolkit repository, and change into the new directory:
-    ```bash
-    git clone https://github.com/timescale/timescaledb-toolkit && \
-    cd timescaledb-toolkit/extension
-    ```
-1.  Use Cargo to complete installation:
-    ```bash
-    cargo pgx install --release && \
-    cargo run --manifest-path ../tools/post-install/Cargo.toml -- pg_config
-    ```
-
-</procedure>
 
 [cloud]: /cloud/:currentVersion:/
 [debian-install]: /install/:currentVersion:/self-hosted/installation-debian/
