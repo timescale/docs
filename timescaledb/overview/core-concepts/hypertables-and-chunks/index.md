@@ -34,8 +34,8 @@ This happens behind the scenes. You run regular inserts and queries to your
 database, and TimescaleDB automatically handles the partitioning.
 
 In addition to time, you can also partition a hypertable by space parameters.
-For more information, see the section on [time-and-space
-partitioning](#hypertables-can-also-be-partitioned-by-space).
+For more information, see the section on 
+[time-and-space partitioning](#hypertables-can-also-be-partitioned-by-space).
 
 <highlight type="note">
 This section uses the example of 1-day chunks to explain how hypertables work.
@@ -45,8 +45,9 @@ time intervals, see the documentation on [chunk sizing](timescaledb/latest/how-t
 </highlight>
 
 ### Chunks improve time-series performance
-Chunks help TimescaleDB achieve [high time-series
-performance][performance-benchmark] and offer improved time-series workflows.
+Chunks help TimescaleDB achieve 
+[high time-series performance][performance-benchmark] and offer improved 
+time-series workflows.
 Benefits include:
 
 *   Faster inserts and queries because recent data fits in memory
@@ -57,8 +58,8 @@ Benefits include:
 *   Instant multi-node elasticity for quick scaling
 *   Data replication for high availability
 
-For more information, see the section on the [benefits of
-hypertables][hypertable-benefits].
+For more information, see the section on the 
+[benefits of hypertables][hypertable-benefits].
 
 ## Hypertables can also be partitioned by space
 All TimescaleDB hypertables are partitioned by time. They can also be

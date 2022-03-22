@@ -36,8 +36,8 @@ Like time partitions, space partitions never overlap.
 Rather than building a global index over an entire hypertable, TimescaleDB
 builds local indexes on each chunk. In other words, each chunk has its own index
 that only indexes data within that chunk. This optimization improves insert
-speed for recent data. For more information, see the section on the [benefits of
-local indexes][hypertable-benefits-indexes].
+speed for recent data. For more information, see the section on the 
+[benefits of local indexes][hypertable-benefits-indexes].
 
 <!-- TODO: insert local indexes diagram -->
 
@@ -65,8 +65,8 @@ command, and the correct index is automatically updated.
 
 <highlight type="note">
 To see examples of the partitioning column and unique index constraint in
-practice, see the section on [hypertables and unique 
-indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
+practice, see the section on
+[hypertables and unique indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
 </highlight>
 
 [hypertable-benefits-indexes]: /overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/#faster-index-updates
