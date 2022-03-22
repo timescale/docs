@@ -7,17 +7,18 @@ recompress_chunk(
 )
 ```
 
-You can also recompress chunks by [running the job associated with your
-compression policy][run-job]. `recompress_chunk` gives you more fine-grained
-control by allowing you to target a specific chunk.
+You can also recompress chunks by 
+[running the job associated with your compression policy][run-job]. 
+`recompress_chunk` gives you more fine-grained control by 
+allowing you to target a specific chunk.
 
 <highlight type="important">
-`recompress_chunk` is implemented as a SQL procedure and not a function. Call
-the procedure with `CALL` rather than using a `SELECT` statement.
+`recompress_chunk` is implemented as an SQL procedure and not a function. Call
+the procedure with `CALL`. Don't use a `SELECT` statement.
 </highlight>
 
 <highlight type="note">
-`recompress_chunk` only works on previously compressed chunks. To compress a
+`recompress_chunk` only works on chunks that have previously been compressed. To compress a
 chunk for the first time, use [`compress_chunk`](/compression/compress_chunk/).
 </highlight>
 
@@ -40,16 +41,16 @@ CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 ```
 
 ## Troubleshooting
-Since TimescaleDB 2.6.0, `recompress_chunk` is implemented as a procedure.
+In TimescaleDB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
 Previously, it was implemented as a function. If you are upgrading to
-TimescaleDB 2.6.0 or later, older code that uses `recompress_chunk` as a
-function may cause an error. For example, trying to run `SELECT
+TimescaleDB 2.6.0 or above, the`recompress_chunk` 
+function could cause an error. For example, trying to run `SELECT
 recompress_chunk(i.show_chunks, true) FROM...` gives the following error:
 ```sql
 ERROR:  recompress_chunk(regclass, boolean) is a procedure
 ```
 
-To fix the error, use `CALL` instead of `SELECT`. You may need to write a
+To fix the error, use `CALL` instead of `SELECT`. You might also need to write a
 procedure to replace the full functionality in your `SELECT` statement. For
 example:
 ```sql
