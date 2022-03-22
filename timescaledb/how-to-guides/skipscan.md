@@ -1,95 +1,81 @@
-# Ingesting data
-By default, TimescaleDB supports standard SQL inserts. Additionally, you can use
-third party tools to build data ingest pipelines. A data ingest pipeline can
-increase your data ingest rates by using batch writes, instead of inserting data
-one row or metric at a time. Any tool that can read or write to PostgreSQL also
-works with TimescaleDB.
+# SkipScan
+SkipScan is a feature intended to vastly improve query times for `DISTINCT`
+queries. Skip Scan works on PostgreSQL tables, TimescaleDB hypertables, and
+TimescaleDB distributed hypertables. SkipScan is included in TimescaleDB 2.2.1
+and above.
 
-This section covers some popular frameworks and systems used in conjunction with
-TimescaleDB.
+## About SkipScan
+When you query your database to find the most recent value of an item, you
+usually use a `DISTINCT` query. For example, if you wanted to find the latest
+stock or cryptocurrency price for each of your investments, or you have graphs
+and alarms that repeatedly query the most recent values for every device or
+service.
 
-For more information about how to use standard SQL insert queries to write data
-into TimescaleDB, see the [Writing Data][writing-data] section.
+As your tables get larger, `DISTINCT` queries tend to get slower. This is
+because PostgreSQL does not currently have a good mechanism for pulling a list
+of unique values from an ordered index. Even when you have an index that matches
+the exact order and columns for these kinds of queries, PostgreSQL scans the
+entire index to find all unique values. As a table grows, this operation keeps
+getting slower.
 
-## Prometheus
-Prometheus is used to monitor infrastructure metrics. It scrapes any endpoints
-that expose metrics in a compatible format. The metrics are stored in
-Prometheus, and you can query them using PromQL (Prometheus Query Language). Prometheus
-is not intended for long-term metrics storage, but it supports a
-variety of remote storage solutions for that purpose.
+SkipScan allows queries to incrementally jump from one ordered value to the next
+without reading all of the rows in between. Without support for this feature,
+the database engine has to scan the entire ordered index and then de-duplicate
+at the end, which is a much slower process.
 
-TimescaleDB can use Prometheus as a remote store for long-term metrics, by using
-[Promscale][promscale]. Promscale supports both PromQL and SQL queries. PromQL
-queries are directed to the Promscale endpoint or the Prometheus instance. SQL
-queries are handled directly by TimescaleDB. Promscale also offers other native
-time-series capabilities, such as automatically
-[compressing your data][timescale-compression], retention policies, continuous
-aggregate views, downsampling, data gap-filling, and interpolation.
-Additionally, Promscale supports Grafana using [Prometheus][prometheus-grafana]
-and [PostgreSQL][postgres-grafana] data sources.
+<highlight type="note">
+PostgreSQL has plans to implement a native feature like SkipScan, but it is
+unlikely to be included until at least PostgreSQL&nbsp;15. This section
+documents TimescaleDB SkipScan, which is not a native PostgreSQL feature.
+</highlight>
 
-## Telegraf
-Telegraf collects, processes, aggregates, and writes metrics. Telegraf is highly
-extensible, and has over 200 plugins for gathering and writing different
-types of data.
+SkipScan is an optimization for queries of the form `SELECT DISTINCT ON
+<column>`. Conceptually, SkipScan is a regular IndexScan that skips across an
+index looking for the next value that is greater than the current value.
 
-Timescale provides a downloadable Telegraf binary that includes an output
-plugin. This TimescaleDB output plugin is used to send data from Telegraf to a
-TimescaleDB hypertable. Telegraf batches, processes, and aggregates the
-collected data, and then ingests the data into TimescaleDB.
+When you use a query with SkipScan, the `EXPLAIN` output includes a new node
+that can quickly return distinct items from a properly ordered index. With an
+IndexOnly scan, you have to scan the entire index, but SkipScan incrementally
+searches for each successive item in the ordered index. As it locates one item,
+the SkipScan node quickly restarts the search for the next item. This is a much
+more efficient way of finding distinct items in an ordered index.
 
-The output plugin handles schema generation and modification. As metrics are
-collected by Telegraf, the plugin checks to see if a table exists, creates it
-if necessary, and alters the table if the schema changes.
+For benchmarking information on how SkipScan compares to regular `DISTINCT`
+queries, see our [SkipScan blog post][blog-skipscan].
 
-By default, the plugin uses a [wide data model][wide-model], which is the most
-common data model for storing metrics. Alternatively, you can specify a narrow
-data model with a separate metadata table and foreign keys, or JSONB, if that
-works better for your environment.
+## Use SkipScan queries
+SkipScan is included in TimescaleDB 2.2.1 and above. This section describes how
+to set up your database index and query to use a SkipScan node.
 
-For more information about installing the Timescale Telegraf binaries with the
-plugin, see the [telegraf-tutorial][telegraf-tutorial].
+Your index must:
+* Contain the `DISTINCT` column as the first column.
+* Be a `BTREE` index.
+* Match the `ORDER BY` used by your query.
 
-## PostgreSQL Kafka connector
-You can ingest data into TimescaleDB using the Kafka Connect JDBC Sink
-connector. The connector  is deployed to a Kafka Connect runtime service, and
-ingests change events from  PostgreSQL databases, such as TimescaleDB.
+Your query must:
+* Use the `DISTINCT` keyword on a single column.
 
-The deployed connector monitors one or more schemas within a TimescaleDB server
-and writes all change events to Kafka topics, which can be independently consumed
-by one or more clients. Kafka Connect can be distributed to provide fault
-tolerance to ensure the connectors are running and continually keeping up with
-changes in the database.
-
-You can also use the PostgreSQL connector as a library without Kafka, which
-allows applications and services to connect directly to TimescaleDB and retrieve
-change events. This approach requires the application to record the progress of
-the connector so that if the connection is reset, it can continue where it left
-off. This approach is useful for less critical use cases. However, for
-production installations, we recommended that you use the Kafka Connect JDBC
-Sink connector.
-
-For more information about the Kafka Connect JDBC Sink connector, see the
-[Kafka connector GitHub page][postgresql-connector-kafka].
-
-## TimescaleDB parallel copy
-For bulk inserting historical data, you can use the TimescaleDB parallel copy
-tool, called `timescaledb-parallel-copy`. Install the tool from our repository
-with this command:
-```bash
-go get github.com/timescale/timescaledb-parallel-copy/cmd/timescaledb-parallel-copy
+If the `DISTINCT` column is not the first column of the index, ensure any
+leading columns are used as constraints in your query. This means that if you
+are asking a question such as "retrieve a list of unique IDs in order" and
+"retrieve the last reading of each ID", you need at least one index like this:
+```sql
+"cpu_tags_id_time_idx" btree (tags_id, "time" DESC)
 ```
 
-For more information about the parallel copy tool, see the
-[developer documentation][gh-parallel-copy].
+With your index set up correctly, you should start to see immediate benefit for `DISTINCT` queries. When SkipScan is chosen for your query, the `EXPLAIN ANALYZE` output shows one or more `Custom Scan (SkipScan)` nodes, like this:
 
+```sql
+->  Unique
+  ->  Merge Append
+    Sort Key: _hyper_8_79_chunk.tags_id, _hyper_8_79_chunk."time" DESC
+     ->  Custom Scan (SkipScan) on _hyper_8_79_chunk
+      ->  Index Only Scan using _hyper_8_79_chunk_cpu_tags_id_time_idx on _hyper_8_79_chunk
+          Index Cond: (tags_id > NULL::integer)
+     ->  Custom Scan (SkipScan) on _hyper_8_80_chunk
+      ->  Index Only Scan using _hyper_8_80_chunk_cpu_tags_id_time_idx on _hyper_8_80_chunk
+         Index Cond: (tags_id > NULL::integer)
+```
+    
 
-[writing-data]: /how-to-guides/write-data/
-[prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
-[postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/
-[promscale]: /promscale/:currentVersion:/
-[timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
-[wide-model]: /overview/data-model-flexibility/wide-data-model/
-[telegraf-tutorial]: /timescaledb/:currentVersion:/tutorials/telegraf-output-plugin/
-[postgresql-connector-kafka]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
-[gh-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql/
