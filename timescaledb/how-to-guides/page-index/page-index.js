@@ -226,7 +226,7 @@ module.exports = [
             tags: ['multi-node', 'management', 'administration', 'distributed', 'nodes'],
             keywords: ['multi-node', 'management', 'administration'],
             excerpt: 'Administer a multi-node cluster'
-          },			
+          },
           {
             title: "Grow and shrink a multi-node cluster",
             href: "multinode-grow-shrink",
@@ -308,7 +308,7 @@ module.exports = [
             tags: ["caggs", "compression", "timescaledb"],
             keywords: ["caggs", "compression", "TimescaleDB"],
             excerpt: "Compress continuous aggregates",
-          },          
+          },
           {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
@@ -773,6 +773,13 @@ module.exports = [
             ],
           },
         ],
+      },
+      {
+        title: "SkipScan",
+        href: "skipscan",
+        tags: ["skipscan", "query", "timescaledb"],
+        keywords: ["SkipScan", "query", "timescaledb"],
+        excerpt: "Use SkipScan to speed up your TimescaleDB queries",
       },
       {
         title: "Alerting",

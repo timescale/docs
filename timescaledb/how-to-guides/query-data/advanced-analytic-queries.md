@@ -345,4 +345,4 @@ DISTINCT` queries.
 [last]: /api/:currentVersion:/hyperfunctions/last
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
-[skipscan]: FIXME
+[skipscan]: /how-to-guides/skipscan/
