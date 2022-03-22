@@ -69,7 +69,7 @@ into your TimescaleDB instance.
 <procedure>
 
 ### Inserting sample data
-1. Download the sample `.csv` files: <tag type="download">[crypto_sample.csv](https://assets.timescale.com/docs/downloads/crypto_sample.zip)</tag>
+1. Download the sample `.csv` files (provided by [Twelve Data][twelve-data]): <tag type="download">[crypto_sample.csv](https://assets.timescale.com/docs/downloads/crypto_sample.zip)</tag>
     ```bash
     wget https://assets.timescale.com/docs/downloads/crypto_sample.zip
     ```
@@ -91,3 +91,4 @@ into your TimescaleDB instance.
 
 [hypertable]: /how-to-guides/hypertables/
 [sample-download]: https://assets.timescale.com/docs/downloads/crypto_sample.zip
+[twelve-data]: https://twelvedata.com/
