@@ -330,9 +330,12 @@ CREATE TRIGGER create_vehicle_trigger
   BEFORE INSERT OR UPDATE ON location
   FOR EACH ROW EXECUTE PROCEDURE create_vehicle_trigger_fn();
 ```
+
 You could also implement this functionality without a separate metadata table by
 performing a [loose index scan][loose-index-scan] over the `location`
-hypertable, although this requires more compute resources.
+hypertable, although this requires more compute resources. Alternatively, you
+can use the TimescaleDB [SkipScan][skipscan] feature to speed up your `SELECT
+DISTINCT` queries.
 
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
@@ -342,3 +345,4 @@ hypertable, although this requires more compute resources.
 [last]: /api/:currentVersion:/hyperfunctions/last
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
+[skipscan]: FIXME
