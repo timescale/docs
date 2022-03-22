@@ -154,7 +154,7 @@ module.exports = [
             href: 'grafana',
             tags: ['promscale', 'configure', 'prometheus', 'metrics'],
             keywords: ['Promscale', 'Grafana'],
-            excerpt: 'Grafana to visualise data in Promscale',
+            excerpt: 'Grafana to visualize data in Promscale',
           },
           {
             title: 'Jaeger',
