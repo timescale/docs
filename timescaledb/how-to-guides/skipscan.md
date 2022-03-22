@@ -50,7 +50,7 @@ to set up your database index and query to use a SkipScan node.
 Your index must:
 * Contain the `DISTINCT` column as the first column.
 * Be a `BTREE` index.
-* Match the `ORDER BY` used by your query.
+* Match the `ORDER BY` used in your query.
 
 Your query must:
 * Use the `DISTINCT` keyword on a single column.
@@ -58,12 +58,14 @@ Your query must:
 If the `DISTINCT` column is not the first column of the index, ensure any
 leading columns are used as constraints in your query. This means that if you
 are asking a question such as "retrieve a list of unique IDs in order" and
-"retrieve the last reading of each ID", you need at least one index like this:
+"retrieve the last reading of each ID," you need at least one index like this:
 ```sql
 "cpu_tags_id_time_idx" btree (tags_id, "time" DESC)
 ```
 
-With your index set up correctly, you should start to see immediate benefit for `DISTINCT` queries. When SkipScan is chosen for your query, the `EXPLAIN ANALYZE` output shows one or more `Custom Scan (SkipScan)` nodes, like this:
+With your index set up correctly, you should start to see immediate benefit for
+`DISTINCT` queries. When SkipScan is chosen for your query, the `EXPLAIN
+ANALYZE` output shows one or more `Custom Scan (SkipScan)` nodes, like this:
 
 ```sql
 ->  Unique
@@ -76,6 +78,6 @@ With your index set up correctly, you should start to see immediate benefit for 
       ->  Index Only Scan using _hyper_8_80_chunk_cpu_tags_id_time_idx on _hyper_8_80_chunk
          Index Cond: (tags_id > NULL::integer)
 ```
-    
+
 
 [blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql/
