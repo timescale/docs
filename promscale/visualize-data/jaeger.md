@@ -1,17 +1,17 @@
-# Visualise Promscale traces in Jaeger
+# Visualize Promscale traces in Jaeger
 This section shows you how to integrate
 [Jaeger][jaeger-ui] with Promscale.
 
-To visualize traces in Jaeger with Promscale, you need to have Jaeger query component running that queries and visualizes traces from Promscale. 
+To visualize traces in Jaeger with Promscale, you need to have the Jaeger query component running. The Jaeger component queries and visualizes traces from Promscale. 
+
+Before you begin, make sure the Jaeger query you are running is of version `1.30` or above. 
 
 <procedure>
 
-## Connect Jaeger query with Promscale
+## Connecting a Jaeger query with Promscale
 
 1.  Deploy the Jaeger Query component from the Jaeger 
     [deployments page][jaeger-deployments], if you aren't already running the Jaeger query.
-    
-    **Note**: For Jaeger to visualize traces in Promscale. We need Jaeger Query of version `1.30` or above. 
     
 1.  Set the Jaeger query configuration through environment variables 
     as `SPAN_STORAGE_TYPE`  to `grpc-plugin` and 
@@ -28,7 +28,7 @@ To visualize traces in Jaeger with Promscale, you need to have Jaeger query comp
 
 </procedure>
 
-Visualising traces from Promscale in Jaeger query using the filters offered on the left search menu
+Visualizing traces from Promscale in Jaeger query using the filters offered on the left search menu
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/jaeger-homepage-query-results.png" alt="Sample output for Jaeger query results"/>
 
@@ -47,7 +47,7 @@ Alternatively, you can set the URL as `promscale:9202` (here `9202` is the gRPC 
 
 <procedure>
 
-### Connecting Promscale and Jaeger Query
+### Connecting Promscale and a Jaeger query
 1.  Install Jaeger from the [official Docker image][jaeger-docker]:
     ``` bash
     docker run -d \
