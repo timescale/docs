@@ -5,25 +5,23 @@ stock trade data (also known as "tick data") from [twelvedata][twelve-data].
 
 ## About the dataset
 
-The dataset contains second-by second stock-trade data for the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It also
-includes a separate table of company symbols and company names, in a table named `company`. `company` is not a hypertable.
+The dataset contains second-by second stock-trade data for the top 100 most-traded symbols, in a 
+hypertable named `stocks_real_time`. It also includes a separate table of company symbols and company 
+names, in a table named `company`. `company` is not a hypertable.
 
 ### Table details
-`stocks_real_time`: Stock data. Includes stock price quotes at every second during trading hours.
 
-```bash
+`stocks_real_time`: Stock data. Includes stock price quotes at every second during trading hours.
     * time (timestamptz): timestamp column incrementing second by second
     * symbol (text): symbols representing a company, mapped to company names in the `company` table
     * price (double precision): stock quote price for a company at the given timestamp
     * day_volume (int): number of shares traded each day, NULL values indicate the market is closed
-```
+
 
 `company`: mapping for symbols to company names
-
-```bash
     * symbol (text): the symbol representing a company name
     * name (text): corresponding company name
-```
+
 
 ## Access the dataset
 
@@ -40,17 +38,27 @@ includes a separate table of company symbols and company names, in a table named
     );
     ```
 
-1.  Download the following `.zip` file. The file contains two `.csv` files: one with company information, and one with real-time stock trades for one month.
+1.  Download the following `.zip` file. The file contains two `.csv` files: one with company 
+information, and one with real-time stock trades for one month.
 
-    Download: <tag type="download">[stock_data_real_time.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
+    Download: <tag type="download">[real_time_stock_data.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
 
-1.  At the command prompt, unzip the `.csv` files:
+1.  In a new terminal window, run this code to unzip the `.csv` files:
     ```bash
     unzip stock_data_real_time.zip
     ```
 
-1.  At the `psql` prompt, insert the data into your 
-    TimescleDB instance. If the `.csv` files aren't in your current directory, replace the file paths as needed:
+1.  For folks using Docker containers, you will have to add the data files to your container before 
+copying them into your database:
+    ```bash
+    docker cp stocks_real_time.csv timescaledb:/stocks_real_time.csv
+
+    docker cp company.csv timescaledb:/company.csv
+    ```
+
+
+1. At the `psql` prompt, insert the data into your TimescleDB instance. If the `.csv` files aren't in 
+your current directory, replace the file paths as needed:
 
     ```sql
     \COPY stocks_real_time from './stocks_real_time.csv' DELIMITER ',' CSV;
