@@ -1,13 +1,13 @@
 # SkipScan
-SkipScan is a feature intended to vastly improve query times for `DISTINCT`
-queries. Skip Scan works on PostgreSQL tables, TimescaleDB hypertables, and
+SkipScan improves query times for `DISTINCT`
+queries. It works on PostgreSQL tables, TimescaleDB hypertables, and
 TimescaleDB distributed hypertables. SkipScan is included in TimescaleDB 2.2.1
 and above.
 
 ## About SkipScan
 When you query your database to find the most recent value of an item, you
-usually use a `DISTINCT` query. For example, if you wanted to find the latest
-stock or cryptocurrency price for each of your investments, or you have graphs
+usually use a `DISTINCT` query. For example, you might want to find the latest
+stock or cryptocurrency price for each of your investments. Or you might have graphs
 and alarms that repeatedly query the most recent values for every device or
 service.
 
@@ -30,7 +30,7 @@ documents TimescaleDB SkipScan, which is not a native PostgreSQL feature.
 </highlight>
 
 SkipScan is an optimization for queries of the form `SELECT DISTINCT ON
-<column>`. Conceptually, SkipScan is a regular IndexScan that skips across an
+column_name`. Conceptually, SkipScan is a regular IndexScan that skips across an
 index looking for the next value that is greater than the current value.
 
 When you use a query with SkipScan, the `EXPLAIN` output includes a new node
