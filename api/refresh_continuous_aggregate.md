@@ -23,15 +23,15 @@ any time zone shift relative UTC needs to be accounted for when
 refreshing in order to align with bucket boundaries.
 
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `continuous_aggregate` | REGCLASS | The continuous aggregate to refresh. |
-| `window_start` | INTERVAL | Start of the window to refresh, has to be before `window_end`. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable. |
-| `window_end` | INTERVAL | End of the window to refresh, has to be after `window_start`. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable. |
+|-|-|-|
+|`continuous_aggregate`|REGCLASS|The continuous aggregate to refresh.|
+|`window_start`|INTERVAL|Start of the window to refresh, has to be before `window_end`. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable.|
+|`window_end`|INTERVAL|End of the window to refresh, has to be after `window_start`. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable.|
 
-### Sample Usage
+### Sample usage
 
 Refresh the continuous aggregate `conditions` between `2020-01-01` and
 `2020-02-01` exclusive.

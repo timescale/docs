@@ -10,7 +10,7 @@ anyone can take this code and offer it as-a-service.
 
 - _Can I install TimescaleDB Apache 2 Edition in my own on-premises or cloud infrastructure and run it for free?_ <br/>
   Yes.
-- _Can I sell TimescaleDB Apache 2 Edition as a service, even if I’m not the main contributor?_ <br/>
+- _Can I sell TimescaleDB Apache 2 Edition as a service, even if I'm not the main contributor?_ <br/>
   Yes.
 - _Can I modify the TimescaleDB Apache 2 Edition source code and run it for production use?_ <br/>
   Yes.
@@ -25,7 +25,7 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
 
 - _Can I install TimescaleDB Community Edition in my own on-premises or cloud infrastructure and run it for free?_ <br/>
   Yes. TimescaleDB Community Edition is completely free if you manage your own service.
-- _Can I sell TimescaleDB Community Edition as a service, even if I’m not the main contributor?_ <br/>
+- _Can I sell TimescaleDB Community Edition as a service, even if I'm not the main contributor?_ <br/>
   No.
 - _Can I modify the TimescaleDB Community Edition source code and run it for production use?_ <br/>
   Yes. Developers using TimescaleDB Community Edition have the “right to repair” and make modifications to the source code and run it in their own on-premises or cloud infrastructure. However, consistent with the previous question, users may not make modifications to the TimescaleDB Community Edition source code and offer it as a service.

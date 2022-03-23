@@ -8,9 +8,9 @@ You can view metrics for your services for any of these time ranges:
 *   Last hour, with one minute granularity
 *   Last 24 hours, with one minute granularity
 *   Last seven days, with one hour granularity
-*   Last thirty days, with one hour granularity
+*   Last 30 days, with one hour granularity
 
-To change the view, select the time range from the drop down menu.
+To change the view, select the time range from the drop-down menu.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-metrics_lastmonth.png" alt="Timescale Cloud Metrics dashboard"/>
 

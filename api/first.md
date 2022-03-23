@@ -4,14 +4,14 @@ The `first` aggregate allows you to get the value of one column
 as ordered by another. For example, `first(temperature, time)` returns the
 earliest temperature value based on time within an aggregate group.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 |`value`|TEXT|The value to return|
 |`time`|TIMESTAMP or INTEGER|The timestamp to use for comparison|
 
-### Sample Usage
+### Sample usage
 
 Get the earliest temperature by device_id:
 ```sql

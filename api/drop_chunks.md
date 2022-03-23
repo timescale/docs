@@ -1,11 +1,11 @@
 ## drop_chunks()
 
 Removes data chunks whose time range falls completely before (or
-after) a specified time.  Shows a list of the chunks that were
+after) a specified time. Shows a list of the chunks that were
 dropped, in the same style as the `show_chunks` [function](/hypertable/show_chunks).
 
 Chunks are constrained by a start and end time and the start time is
-always before the end time.  A chunk is dropped if its end time is
+always before the end time. A chunk is dropped if its end time is
 older than the `older_than` timestamp or, if `newer_than` is given,
 its start time is newer than the `newer_than` timestamp.
 
@@ -14,14 +14,17 @@ falls fully before (or after) the specified timestamp, the remaining
 data may still contain timestamps that are before (or after) the
 specified one.
 
-### Required Arguments
+Chunks can only be dropped based on their time intervals. They cannot be dropped
+based on a space partition.
+
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `relation` | REGCLASS | Hypertable or continuous aggregate from which to drop chunks. |
 | `older_than` | INTERVAL | Specification of cut-off point where any full chunks older than this timestamp should be removed. |
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -44,7 +47,7 @@ The `older_than` and `newer_than` parameters can be specified in two ways:
 <highlight type="warning">
 When using just an interval type, the function assumes that
 you are are removing things _in the past_. If you want to remove data
-in the future (i.e., erroneous entries), use a timestamp.
+in the future, for example to delete erroneous entries, use a timestamp.
 </highlight>
 
 When both arguments are used, the function returns the intersection of the resulting two ranges. For example,
@@ -53,7 +56,7 @@ specifying `newer_than => 4 months` and `older_than => 3 months` drops all full 
 all full chunks between '2017-01-01' and '2017-02-01'. Specifying parameters that do not result in an overlapping
 intersection between two ranges results in an error.
 
-### Sample Usage
+### Sample usage
 
 Drop all chunks from hypertable `conditions` older than 3 months:
 ```sql

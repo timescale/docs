@@ -12,7 +12,7 @@ detached tablespace since existing data is not cleared from a detached
 tablespace. A detached tablespace can be reattached if desired to once
 again be considered for chunk placement.
 
-### Required Arguments
+### Required arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -25,7 +25,7 @@ the tablespace may still receive new chunks after this command
 is issued.
 
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
@@ -37,7 +37,7 @@ When specifying a specific hypertable, the tablespace is only
 detached from the given hypertable and thus may remain attached to
 other hypertables.
 
-### Sample Usage
+### Sample usage
 
 Detach the tablespace `disk1` from the hypertable `conditions`:
 

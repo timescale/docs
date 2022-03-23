@@ -8,7 +8,7 @@ Register an action for scheduling by the automation framework. For more informat
 |`proc`|REGPROC|Name of the function or procedure to register as job|
 |`schedule_interval`|INTERVAL|Interval between executions of this job. Defaults to 24 hours|
 
-### Optional Arguments
+### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|

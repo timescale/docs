@@ -1,6 +1,6 @@
 # Creating a Grafana dashboard and panel
 
-Grafana is organized into ‘Dashboards' and ‘Panels'. A dashboard represents a view
+Grafana is organized into 'Dashboards' and 'Panels'. A dashboard represents a view
 onto the performance of a system, and each dashboard consists of one or more panels,
 which represents information about a specific metric related to that system.
 

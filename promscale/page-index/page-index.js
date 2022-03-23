@@ -50,6 +50,13 @@ module.exports = [
             excerpt: 'Install Promscale on bare metal',
           },
           {
+            title: 'Resource recommendation guide',
+            href: 'recomm-guide',
+            tags: ['promscale', 'install', 'analytics'],
+            keywords: ['Promscale', 'analytics'],
+            excerpt: 'Recommended resources for Promscale',
+          },
+          {
             title: 'Migrate existing data',
             href: 'prom-migrator',
             tags: ['promscale', 'install', 'data', 'migration', 'prometheus'],
@@ -205,7 +212,14 @@ module.exports = [
         keywords: ['Promscale', 'analytics', 'permissions', 'roles'],
         excerpt: 'Learn about the different database roles and permissions Promscale defines'
       },
-     {
+      {
+        title: 'Troubleshooting Promscale',
+        href: 'troubleshooting',
+        tags: ['promscale', 'learn', 'troubleshooting', 'prometheus'],
+        keywords: ['Promscale', 'troubleshooting'],
+        excerpt: 'Troubleshooting Promscale'
+      },
+      {
         title: 'Promscale CLI reference',
         href: 'cli',
         tags: ['promscale', 'cli', 'reference'],

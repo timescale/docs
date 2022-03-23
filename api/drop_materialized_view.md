@@ -2,7 +2,8 @@
 Continuous aggregate views can be dropped using the `DROP MATERIALIZED VIEW` statement.
 
 This statement deletes the continuous aggregate and all its internal
-objects. To also delete other dependent objects, such as a view
+objects. It also removes refresh policies for that
+aggregate. To delete other dependent objects, such as a view
 defined on the continuous aggregate, add the `CASCADE`
 option. Dropping a continuous aggregate does not affect the data in
 the underlying hypertable from which the continuous aggregate is
@@ -16,7 +17,7 @@ DROP MATERIALIZED VIEW <view_name>;
 |---|---|---|
 | `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 
-### Sample Usage 
+### Sample usage 
 Drop existing continuous aggregate.
 
 ```sql
