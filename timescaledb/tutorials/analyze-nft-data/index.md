@@ -39,7 +39,7 @@ can earn a limited edition NFT from
 the collection, for free!
 
 Claiming your NFT is simple. All you need to do is complete the tutorial below,
-answer the questions in [this form][nft-form], and we’ll send one of the
+answer the questions in [this form][nft-form], and we'll send one of the
 limited-edition Eon NFTs to your ETH address (at no cost to you!).
 
 You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-collection].
