@@ -11,7 +11,6 @@ container provided here, you could encounter errors following these
 instructions. It is safest to remove any existing PostgreSQL installations
 before you begin. If you want to keep your current PostgreSQL installation, do
 not install TimescaleDB using this method.
-TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
 </highlight>
