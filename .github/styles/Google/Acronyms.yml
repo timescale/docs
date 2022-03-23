@@ -19,6 +19,7 @@ exceptions:
   - DOM
   - DPI
   - FAQ
+  - FIXME
   - GCC
   - GDB
   - GET
