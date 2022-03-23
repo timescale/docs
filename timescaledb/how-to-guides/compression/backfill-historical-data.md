@@ -73,7 +73,7 @@ SELECT decompress_chunk(i) from show_chunks('conditions', newer_than, older_than
 ```
 
 <highlight type="tip">
-You need to run 'decompress_chunk' for each chunk that is impacted
+You need to run 'decompress\_chunk' for each chunk that is impacted
 by your INSERT or UPDATE statement in backfilling data. Once your needed chunks
 are decompressed you can proceed with your data backfill operations.
 </highlight>
