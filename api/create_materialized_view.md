@@ -26,7 +26,7 @@ The continuous aggregate view defaults to `WITH DATA`. This means that when the
 view is created, it refreshes using all the current data in its underlying
 hypertable. This occurs once when the view is created. If you want the view to
 be refreshed regularly, you can use a refresh policy. If you do not want the
-view to update at all, even when it is first created, use the `WITH NO DATA`
+view to update when it is first created, use the `WITH NO DATA`
 parameter. For more information, see
 [`refresh_continuous_aggregate`][refresh-cagg].
 
