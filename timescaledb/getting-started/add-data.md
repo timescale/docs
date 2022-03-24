@@ -11,11 +11,11 @@ names, in an ordinary PostgreSQL table named `company`.
 
 ### Table details
 
-`stocks_real_time`: Stock data. Includes stock price quotes at every second during trading hours.
-- time (timestamptz): timestamp column incrementing second by second
-- symbol (text): symbols representing a company, mapped to company names in the `company` table
-- price (double precision): stock quote price for a company at the given timestamp
-- day_volume (int): number of shares traded each day, NULL values indicate the market is closed
+* **`stocks_real_time`**: Stock data. Includes stock price quotes at every second during trading hours.
+   *  time (timestamptz): timestamp column incrementing second by second
+   *  symbol (text): symbols representing a company, mapped to company names in the `company` table
+   * price (double precision): stock quote price for a company at the given timestamp
+   * day_volume (int): number of shares traded each day, NULL values indicate the market is closed
 
 
 `company`: mapping for symbols to company names
