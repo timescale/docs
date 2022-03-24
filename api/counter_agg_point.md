@@ -46,7 +46,7 @@ extrapolation, but not for other accessor functions.
 
 ## Sample usage
 This example produces a CounterSummary from timestamps and associated values,
-then computes the [`irate_right`][irate] acessor:
+then computes the [`irate_right`][irate] accessor:
 
 ``` sql
 WITH t as (
