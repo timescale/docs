@@ -63,7 +63,7 @@ For more information, see the API reference for [`ALTER TABLE
 [`add_compression_policy`][add_compression_policy].
 
 ## View current compression policy
-To view the compression policy that you've set, run:
+To view the compression policy that you've set:
 ```sql
 SELECT * FROM timescaledb_information.jobs
   WHERE proc_name='policy_compression';
@@ -72,8 +72,8 @@ SELECT * FROM timescaledb_information.jobs
 For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
 
 ## Remove compression policy
-To remove a compression policy, use `remove_compression_policy`. For example, given a
-hypertable named `cpu`, run:
+To remove a compression policy, use `remove_compression_policy`. For example, to remove a compression policy for a
+for a hypertable named `cpu`:
 ```sql
 SELECT remove_compression_policy('cpu');
 ```
@@ -82,7 +82,7 @@ For more information, see the API reference for
 [`remove_compression_policy`][remove_compression_policy].
 
 ## Compression policy intervals
-Data is usually compressed after an interval of time has elapsed, and not
+Data is usually compressed after an interval of time, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
 compression interval. Choosing a good compression interval can make your queries
 more efficient, and also allow you to handle data that is out of order.
