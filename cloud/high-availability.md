@@ -33,6 +33,13 @@ Instance redundancy refers to having replicas of your database running
 simultaneously. In the case of a database failure, a replica is an up-to-date,
 running database that can take over immediately.
 
+<highlight type="warning">
+Creating database replicas in Timescale Cloud is an early access feature. Early
+access features could have bugs! They might not be backwards compatible, and
+could be removed in future releases. Use these features at your own risk, and do
+not use any experimental features in production.
+</highlight>
+
 You can enable a replica for your single-node services. The
 replicas are asynchronous, and if your primary database fails, the replica
 automatically assumes the role of primary, and a new standby replica is created.
@@ -59,7 +66,7 @@ Cloud does not currently offer synchronous replicas.
 1.  You can see connection information for the replica by navigating to the
     `Overview` tab. In the `Connection info` section, select the replica from
     the `Role` drop down menu to populate the section with the replica's
-    connection details. 
+    connection details.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-replication-add.png" alt="Creating a database replica in Timescale Cloud"/>
 
