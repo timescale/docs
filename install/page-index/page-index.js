@@ -18,7 +18,6 @@ module.exports = [
       {
         title: "Self hosted",
         href: "self-hosted",
-        type: "react-page",
         component: "InstallationPage",
         showNewsletterForm: true,
         tags: ["install", "timescaledb"],
