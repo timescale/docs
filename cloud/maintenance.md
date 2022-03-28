@@ -71,11 +71,13 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, and 14. You can see
 your PostgreSQL and TimescaleDB versions from the Timescale Cloud dashboard. 
 
+<!-- TODO: Add screenshot
 <img class="main-content__illustration"
     src="FIXME"
     alt="The Timescale Cloud dashboard, showing the PostgreSQL and TimescaleDB
     versions"
 />
+-->
 
 You can also manually upgrade to the next PostgreSQL version from the dashboard.
 
