@@ -8,7 +8,8 @@ This section shows you how to connect Promscale to Prometheus, Jaeger, and Postg
 
 ## Configuring Promscale as Prometheus datasource
 
-1.  Navigate to **Configuration** > **Data Sources** > **Add data source** > **Prometheus**.
+1.  Navigate to **Configuration** > **Data sources**.
+1.  Type *Prometheus* in the search field and click **Add data source**.
 1.  Configure the data source:
     *   In the **Name** field, type *Promscale-metrics*.
     *   In the **URL** field, type *http://<PROMSCALE-IP-ADDR>:9201*, where *<PROMSCALE-IP-ADDR>* is the IP address of the Promscale instance.
@@ -24,7 +25,8 @@ When you have configured Promscale as a Prometheus data source in Grafana, you c
 
 ## Configuring Promscale as Jaeger datasource
 
-1.  Navigate to **Configuration** > **Data Sources** > **Add data source** > **Jaeger**.
+1.  Navigate to **Configuration** > **Data sources**.
+1.  Type *Jaeger* in the search field and click **Add data source**.
 1.  Configure the data source settings:
     *   In the **Name** field, type *Promscale-traces*.
     *   In the **URL** field, type *http://<PROMSCALE-IP-ADDR>:9201*, where *<PROMSCALE-IP-ADDR>* is the IP address of the Promscale instance.
@@ -40,7 +42,8 @@ You can now filter and view traces stored in Promscale using Grafana. To visuali
 
 ## Configuring Promscale as PostgreSQL datasource
 
-1.  Navigate to **Configuration** > **Data Sources** > **Add data source** > **PostgreSQL**..
+1.  Navigate to **Configuration** > **Data sources**.
+1.  Type *PostgreSQL* in the search field and click **Add data source**. 
 1.  Configure the data source settings:
     *   In the **Name** field, type *Promscale-SQL*.
     *   In the **Host** field, type *<host>:<port>*, where host and port need to be obtained from the service URL that you copied when you created the Timescale cloud service. The format of that URL is `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`
