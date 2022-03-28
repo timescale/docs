@@ -46,7 +46,7 @@ extrapolation, but not for other accessor functions.
 
 ## Sample usage
 This example produces a CounterSummary from timestamps and associated values,
-then computes the [`irate_right` accessor][irate_right]:
+then computes the [`irate_right`][irate] accessor:
 
 ``` sql
 WITH t as (
@@ -65,4 +65,4 @@ FROM t;
 
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
-[irate-right]: /hyperfunctions/counter_aggs/irate/
+[irate]: /hyperfunctions/counter_aggs/irate/
