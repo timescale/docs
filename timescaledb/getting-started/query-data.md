@@ -34,13 +34,14 @@ popular TimescaleDB functions.
 ### Calculate the average trade price for Apple from the last day
 
    This query uses the [`avg()`][average] function along with [`FILTER`][filter] and `WHERE` 
-   to include only 'AAPL' (Apple) trades made within the 
-   last day. 
+   to include only Apple trades made within the last day. Instead of using Apple's symbol, 
+   the [`JOIN`][join] operator allows you to use the company name.  
 
    ```sql
    SELECT
-   avg(price) FILTER (WHERE symbol = 'AAPL')
+   avg(price) FILTER (WHERE c.name = 'Apple')
    FROM stocks_real_time srt
+   JOIN company c ON c.symbol = srt.symbol
    WHERE time > now() - INTERVAL '2 day';
    ```
 
@@ -131,3 +132,4 @@ continuous aggregates in the [next section][create-cagg].
 [first]: /api/:currentVersion:/hyperfunctions/first
 [date-trunc]: https://www.postgresql.org/docs/current/functions-datetime.html
 [create-cagg]: /getting-started/create-cagg/
+[join]: https://www.postgresql.org/docs/current/tutorial-join.html
