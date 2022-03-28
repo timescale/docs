@@ -163,15 +163,15 @@ from a base backup of the primary instance.
     ```
     The -W flag prompts you for a password. If you are using this command in an
     automated setup, you might need to use a [pgpass file][pgpass-file].
-1.  When the backup is complete, create a
-    [recovery.conf][postgres-recovery-docs] file in your data directory,
-    and set the appropriate permissions. When PostgreSQL finds a `recovery.conf`
-    file in its data directory, it starts in recovery mode and streams the WAL
-    through the replication protocol:
+1.  When the backup is complete, create a [recovery.conf][postgres-recovery-docs]
+    file in your data directory, and set the appropriate permissions. 
+    When PostgreSQL finds a `recovery.conf` file in its data directory, 
+    it starts in recovery mode and streams the WAL through the replication protocol:
     ```bash
     touch <DATA_DIRECTORY>/recovery.conf
     chmod 0600 <DATA_DIRECTORY>/recovery.conf
     ```
+
 </procedure>
 
 ## Configure replication and recovery settings
