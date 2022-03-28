@@ -6,6 +6,10 @@ the PostgreSQL file system and TimescaleDB extension that you already have.
 Compressing time-series data can significantly reduce its storage size. In many
 cases, it also speeds up queries on compressed data.
 
+The user interface remains the same after your data is converted to a columnar
+format. You continue to query your data as usual, and the database retrieves and
+decompresses columns as needed.
+
 ## Compression and column-based storage
 TimescaleDB implements compression by storing older, historical data in a hybrid
 row-columnar format. It stores newer, frequently updated data in the standard
@@ -13,10 +17,6 @@ PostgreSQL row format. This combination achieves good performance for the insert
 and query patterns usually seen with time-series data. To learn more about
 TimescaleDB's compression architecture, see the
 [architecture section][compression-architecture].
-
-User interactions remain the same even after your data is converted to a
-columnar format. You continue to query your data as usual, and the database
-retrieves and decompresses columns as needed.
 
 ## Benefits and trade-offs of compression
 ### Benefits of column-based storage
