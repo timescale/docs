@@ -80,3 +80,4 @@ multi-cloud solutions or protection from an AWS Regional failure.
 
 
 [cloud-backup]: cloud/backup-restore-cloud/
+[cloud-login]: https://console.cloud.timescale.com

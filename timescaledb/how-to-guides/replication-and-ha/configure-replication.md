@@ -372,21 +372,23 @@ not provide support for automatic failover. For more information, see the
 configurable high availability solution with automatic failover functionality,
 check out [Patroni][patroni-github].
 
+[configure-params]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-parameters
+[configure-pghba]: /how-to-guides/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
+[configure-primary-db]: /how-to-guides/replication-and-ha/configure-replication#configure-the-primary-database
+[configure-replication]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
+[create-base-backup]: /how-to-guides/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
+[create-replication-slots]: /how-to-guides/replication-and-ha/configure-replication#create-replication-slots
 [docker-postgres-scripts]: https://docs.docker.com/samples/library/postgres/#how-to-extend-this-image
-[timescale-streamrep-docker]: https://github.com/timescale/streaming-replication-docker
-[postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
-[postgres-archive-docs]: https://www.postgresql.org/docs/current/static/continuous-archiving.html
-[postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/10/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW
-[pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
 [pg-hba-docs]: https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
-[configure-primary-db]: /how-to-guides/replication-and-ha/configure-replication#configure-the-primary-database
-[configure-params]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-parameters
-[create-replication-slots]: /how-to-guides/replication-and-ha/configure-replication#create-replication-slots
-[configure-pghba]: /how-to-guides/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
-[create-base-backup]: /how-to-guides/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
-[configure-replication]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
-[verify-replica]: /how-to-guides/replication-and-ha/configure-replication#verify-that-the-replica-is-working
+[pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
+[pgpass-file]: https://www.postgresql.org/docs/current/libpq-pgpass.html
+[postgres-archive-docs]: https://www.postgresql.org/docs/current/static/continuous-archiving.html
+[postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/10/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW
+[postgres-recovery-docs]: https://www.postgresql.org/docs/11/recovery-config.html
+[postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
+[postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [replication-modes]: /how-to-guides/replication-and-ha/configure-replication#replication-modes
+[timescale-streamrep-docker]: https://github.com/timescale/streaming-replication-docker
+[verify-replica]: /how-to-guides/replication-and-ha/configure-replication#verify-that-the-replica-is-working
