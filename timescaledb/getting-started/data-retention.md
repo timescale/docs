@@ -32,11 +32,11 @@ These policies are "set it and forget it" in nature, meaning less hassle
 for maintenance and upkeep.
 
 For example, you may want to continually remove stock data in the underlying hypertable 
-`stocks_real_time` for time periods greater than two months ago. You can use this code with 
+`stocks_real_time` for time periods greater than three months ago. You can use this code with 
 the [`add_retention_policy()`][retention-policy] function to set up the automatic retention policy for this:
 
 ```sql
-SELECT add_retention_policy('stocks_real_time', INTERVAL '2 months');
+SELECT add_retention_policy('stocks_real_time', INTERVAL '3 months');
 ```
 Similar to the continuous aggregates policy, once you run this code, all data 
 from two months prior will be dropped in `stocks_real_time`, and a recurring retention
@@ -62,13 +62,13 @@ setting an interval for when to drop data after, you can also specify a
 parameter to drop data before. This means that you can drop all data after a particular 
 time **or** specify to drop data within an interval of time. 
 
-Use this code for dropping all data older than two months:
+Use this code for dropping all data older than three months:
 ```sql
-SELECT drop_chunks('stocks_real_time', INTERVAL '2 months');
+SELECT drop_chunks('stocks_real_time', INTERVAL '3 months');
 ```
-Use this code for dropping data older than one month but earlier than two months old:
+Use this code for dropping data older than two months but earlier than three months old:
 ```sql
-SELECT drop_chunks('stocks_real_time', older_than => INTERVAL '1 month', newer_than => INTERVAL '2 months')
+SELECT drop_chunks('stocks_real_time', older_than => INTERVAL '2 month', newer_than => INTERVAL '3 months')
 ```
 
 ## Learn more about data retention
