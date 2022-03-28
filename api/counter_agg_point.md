@@ -19,10 +19,8 @@ as a different numeric type you can cast to DOUBLE PRECISION on input to the
 function.
 
 <highlight type="note">
-Note that both `ts` and `value` can be NULL, but the aggregate is not evaluated
-on NULL values. This means that if the aggregate receives only a NULL value, it
-returns NULL, it does not return an error. If non-NULL values are also received, the NULL 
-values are ignored. Both `ts` and `value` must be non-NULL for the row to be included.
+If there are `NULL` values in your data, the aggregate ignores them. At least
+some of the values must be non-`NULL`. Otherwise, you get an error.
 </highlight>
 
 ### Optional arguments

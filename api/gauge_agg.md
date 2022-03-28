@@ -29,10 +29,8 @@ data stored as other numeric types, cast it to `DOUBLE PRECISION` when using the
 function.
 
 <highlight type="note">
-Both `ts` and `value` can be `NULL`, but the aggregate is not evaluated on
-`NULL` values. If the aggregate receives only a `NULL` value, it returns
-`NULL`. If it receives both non-`NULL` and `NULL` values, it ignores the `NULL`
-values. Both `ts` and `value` must be non-`NULL` for the row to be included.
+If there are `NULL` values in your data, the aggregate ignores them. At least
+some of the values must be non-`NULL`. Otherwise, you get an error.
 </highlight>
 
 ## Optional arguments
