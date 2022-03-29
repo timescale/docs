@@ -176,7 +176,7 @@ SELECT
   FROM t;
 ```
 
-You cannot create a continuous aggregate using this query, because it contains
+You can't create a continuous aggregate using this query, because it contains
 the `lag` function. But you can create a continuous aggregate by excluding the
 `lag` function:
 
