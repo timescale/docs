@@ -1,5 +1,5 @@
 # Visualize data in Promscale
-You can visualize data in Promscale using tools such as [Grafana][grafana-homepage] and [Jaeger][jaeger-homepage]
+You can visualize data in Promscale using tools such as [Grafana][grafana-homepage] and [Jaeger][jaeger-homepage].
 
 *   **Grafana**: [to visualize metrics and traces][grafana-promscale].
     * [Promscale as Prometheus data source][promscale-as-prometheus]. 
