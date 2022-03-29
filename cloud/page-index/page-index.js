@@ -69,6 +69,10 @@ module.exports = [
         href: "backup-restore-cloud"
       },
       {
+        title: "High availability",
+        href: "high-availability"
+      },
+      {
         title: "Account management",
         href: "account-management"
       },
