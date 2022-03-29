@@ -59,8 +59,10 @@ For comparison, a compressed file system, such as ZFS or BTRFS, usually achieves
 Compression can also improve query performance for some queries, when data needs
 to be read from disk. In tests using disk-bound, "cold" data, TimescaleDB
 compression improves query speed by 1.15 to 70.45 times for example queries.
-However, not all queries on compressed data have improved performance. To
-optimize your data storage for your query patterns, see the section on
+However, not all queries on compressed data have improved performance. For more
+information about query performance, see the section on 
+[queries on compressed data][compressed-queries]. To optimize your data storage 
+for your query patterns, see the section on 
 [improving compression performance][improving-compression].
 
 ## More resources
@@ -75,4 +77,5 @@ Learn more about compression from several resources:
 [compression-architecture]: /overview/core-concepts/compression/architecture/
 [compression-blog-post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
 [compression-how-to]: /how-to-guides/compression/
+[compressed-queries]: /overview/core-concepts/compression/architecture/#queries
 [improving-compression]: /how-to-guides/compression/improve-compression/
