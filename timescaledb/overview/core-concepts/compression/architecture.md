@@ -98,19 +98,19 @@ Here are the algorithms used for each data type:
 |Columns with low cardinality (a few possible values that repeat often)|Whole-row dictionary compression and LZ compression|
 |Other data types|LZ-based array compression|
 
-To learn more about the compression algorithms used, see the [compression
-algorithms blog post][compression-algorithms].
+To learn more about the compression algorithms used, see the 
+[compression algorithms blog post][compression-algorithms].
 
 ## Interacting with compressed chunks
 In many ways, you interact with compressed chunks just as you interact with
 uncompressed chunks. But there are some differences.
 
 ### Inserts, updates, and deletes
-Since TimescaleDB 2.3, you can insert data into compressed chunks.
+With TimescaleDB 2.3 and above, you can insert data into compressed chunks.
 
-You cannot currently update or delete data in compressed chunks. Work around
+You can't update or delete data in compressed chunks. Work around
 this by decompressing the chunk, making your changes, and recompressing. You can
-also delete an entire chunk at once without decompressing it. To learn more, see
+delete an entire chunk at once without decompressing it. For more information, see
 the section on [decompressing chunks][decompress].
 
 To minimize the amount of decompressing and recompressing you need to do, set
