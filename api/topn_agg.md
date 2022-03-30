@@ -24,7 +24,7 @@ and do not use any experimental features in production.
 ## Optional arguments
 |Name|Type|Description|
 |-|-|-|
-|`skew`|`DOUBLE PRECISION`|The estimated skew of the data, defined as the `s` parameter of a zeta distribution. Defaults to `1.1`.|
+|`skew`|`DOUBLE PRECISION`|The estimated skew of the data, defined as the `s` parameter of a zeta distribution. Must be greater than `1.0`. Defaults to `1.1`.|
 
 `topn_agg` assumes that the data is skewed. In other words, some values are more
 frequent than others. The degree of skew is defined by the `s` parameter of a
