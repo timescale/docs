@@ -1,3 +1,13 @@
+---
+api_name: 'sum | sum_y | sum_x'
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'statistical aggregates'
+hyperfunction_subfamily: 'statistical aggregates'
+hyperfunction_type: accessor-1d
+---
+
 # sum(), sum_y(), and sum_x() <tag type="toolkit">Toolkit</tag>
 
 ```SQL

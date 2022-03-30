@@ -1,3 +1,13 @@
+---
+api_name: lttb
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'downsample'
+hyperfunction_subfamily: 'downsample'
+hyperfunction_type: other
+---
+
 # lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 [Largest Triangle Three Buckets][gh-lttb] is a downsampling method that 
 tries to retain visual similarity between the downsampled data and the 
