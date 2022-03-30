@@ -1,6 +1,17 @@
 # About hyperfunctions
 
-## Why hyperfunctions?
+<!--
+Why Hyperfunctions
+*	Simplify data analysis
+*	Simpler query syntax built on top of SQL
+*	Analysis within your database (no I/O required for import to application)
+*	Includes:
+	*	Hyperfunctions
+		*	Hyperfunction families
+		*	Two-step hyperfunction structure
+	*	Function pipelines
+-->
+
 Timescale hyperfunctions are a specialized set of functions that allow you to
 analyze time-series data. You can use hyperfunctions to analyze anything you
 have stored as time-series data, including IoT devices, IT systems, marketing
@@ -14,6 +25,17 @@ time-series analysis into a single extension.
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
+
+## Hyperfunction families
+
+|Hyperfunction family|Description|
+|-|-|
+|[Approximate count distinct][approx-count-distinct]||
+|[Statistical aggregate][statistical-aggregate]||
+|[Time-weighted averages][time-weighted-average]||
+|[Gapfilling and interpolation][gapfilling-and-interpolation]||
+|[Percentile approximation][percentile-approximation]||
+|[Counter aggregation][counter-aggregation]||
 
 ## Function pipelines
 Function pipelines are an experimental feature, designed to radically improve
@@ -70,11 +92,16 @@ community-wide problems and incorporate as much feedback as possible.
 *   Explore the current [feature requests][gh-requests].
 *   Add your own [feature request][gh-newissue].
 
-
+[approx-count-distinct]: /how-to-guides/hyperfunctions/approx-count-distincts/
+[counter-aggregation]: /how-to-guides/hyperfunctions/counter-aggregation/
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
 [blog-function-pipelines]: http://tsdb.co/function-pipelines
+[gapfilling-and-interpolation]: /how-to-guides/hyperfunctions/gapfilling-interpolation/
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
 [gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
+[percentile-approximation]: /how-to-guides/hyperfunctions/percentile-approx/
+[statistical-aggregate]: /how-to-guides/hyperfunctions/stats-aggs/
+[time-weighted-average]: /how-to-guides/hyperfunctions/time-weighted-averages/
