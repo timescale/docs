@@ -1,4 +1,6 @@
-# About Timescale hyperfunctions
+# About hyperfunctions
+
+## Why hyperfunctions?
 Timescale hyperfunctions are a specialized set of functions that allow you to
 analyze time-series data. You can use hyperfunctions to analyze anything you
 have stored as time-series data, including IoT devices, IT systems, marketing
@@ -12,67 +14,6 @@ time-series analysis into a single extension.
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
-
-|Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
-|-|-|-|-|-|
-|Approximate count distincts|Hyperloglog|`hyperloglog`|❌|✅|
-|||`rollup`|❌|✅|
-|||`distinct_count`|❌|✅|
-|||`stderror`|❌|✅|
-|Statistical aggregates|Statistical functions|`average`|❌|✅|
-|||`stats_agg`|❌|✅|
-|||`rollup`|❌|✅|
-|||`rolling`|❌|✅|
-|||`sum`|❌|✅|
-|||`num_vals`|❌|✅|
-|||`stddev`|❌|✅|
-|||`variance`|❌|✅|
-|||`skewness`|❌|✅|
-|||`kurtosis`|❌|✅|
-||Regression functions|`slope`|❌|✅|
-|||`intercept`|❌|✅|
-|||`x_intercept`|❌|✅|
-|||`corr`|❌|✅|
-|||`covariance`|❌|✅|
-|||`skewness`|❌|✅|
-|||`kurtosis`|❌|✅|
-|||`determination_coeff`|❌|✅|
-|Gapfilling and interpolation|Time bucket gapfill|`time_bucket_gapfill`|❌|✅|
-||Last observation carried forward|`locf`|✅|❌|
-|||`interpolate`|✅|❌|
-|Percentile approximation|Approximate percentile|`percentile_agg`|❌|✅|
-|||`approx_percentile`|❌|✅|
-|||`approx_percentile_rank`|❌|✅|
-|||`rollup`|❌|✅|
-|||`max_val`|✅|❌|
-|||`mean`|✅|❌|
-|||`error`|✅|❌|
-|||`min_val`|✅|❌|
-|||`num_vals`|✅|❌|
-||Advanced aggregation methods|`uddsketch`|❌|✅|
-|||`tdigest`|❌|✅|
-|Counter aggregation|Counter aggregates|`counter_agg`|❌|✅|
-|||`rollup`|❌|✅|
-|||`corr`|❌|✅|
-|||`counter_zero_time`|❌|✅|
-|||`delta`|❌|✅|
-|||`extrapolated_delta`|❌|✅|
-|||`extrapolated_rate`|❌|✅|
-|||`idelta`|❌|✅|
-|||`intercept`|❌|✅|
-|||`irate`|❌|✅|
-|||`num_changes`|❌|✅|
-|||`num_elements`|❌|✅|
-|||`num_resets`|❌|✅|
-|||`rate`|❌|✅|
-|||`slope`|❌|✅|
-|||`time_delta`|❌|✅|
-|||`with_bounds`|❌|✅|
-|Time-weighted averages|Time-weighted averages|`time_weight`|❌|✅|
-|||`rollup`|❌|✅|
-|||`average`|❌|✅|
-
-For more information about each of the API calls listed in this table, see our [hyperfunction API documentation][api-hyperfunctions].
 
 ## Function pipelines
 Function pipelines are an experimental feature, designed to radically improve
@@ -131,7 +72,6 @@ community-wide problems and incorporate as much feedback as possible.
 
 
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
-[api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
 [blog-function-pipelines]: http://tsdb.co/function-pipelines
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions

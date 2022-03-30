@@ -177,6 +177,135 @@ module.exports = [
         ],
       },
       {
+        title: "Data analysis and hyperfunctions",
+        href: "hyperfunctions",
+        children: [
+          {
+            title: "About hyperfunctions",
+            href: "about-hyperfunctions",
+            tags: ["hyperfunctions", "toolkit", "timescaledb"],
+            keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+            excerpt:
+              "Learn about TimescaleDB hyperfunctions for data analysis",
+          },
+          {
+            title: "List of hyperfunctions",
+            href: "list-of-hyperfunctions",
+            tags: ["hyperfunctions", "toolkit", "timescaledb"],
+            keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+            excerpt:
+              "A list of all hyperfunctions and whether they're included in default TimescaleDB or Timescale Toolkit",
+          },
+          {
+            title: "Install TimescaleDB Toolkit",
+            href: "install-toolkit",
+            tags: ["toolkit", "install", "hyperfunctions", "timescaledb"],
+            keywords: ["TimescaleDB", "install", "Toolkit"],
+            excerpt: "Install the TimescaleDB Toolkit to access all hyperfunctions",
+          },
+          {
+            title: "Function pipelines",
+            href: "function-pipelines",
+            tags: ["toolkit", "hyperfunctions", "query", "timescaledb"],
+            keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+            excerpt: "Learn about function pipelines",
+          },
+          {
+            title: "Approximate count distincts",
+            href: "approx-count-distincts",
+            type: "directory",
+            children: [
+              {
+                title: "Hyperloglog",
+                href: "hyperloglog",
+                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+                excerpt: "Learn about the hyperloglog hyperfunction",
+              },
+            ],
+          },
+          {
+            title: "Statistical aggregates",
+            href: "stats-aggs",
+            tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+            keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+            excerpt: "Learn about the statistical aggregates hyperfunction",
+          },
+          {
+            title: "Time-weighted averages",
+            href: "time-weighted-averages",
+            type: "directory",
+            children: [
+              {
+                title: "Time-weighted averages",
+                href: "time-weighted-average",
+                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+                excerpt: "Learn about the time-weighted averages hyperfunction",
+              },
+            ],
+          },
+          {
+            title: "Gapfilling and interpolation",
+            href: "gapfilling-interpolation",
+            type: "directory",
+            children: [
+              {
+                title: "Time bucket gapfill",
+                href: "time-bucket-gapfill",
+                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+                excerpt:
+                  "Learn about the time bucket gapfillling hyperfunction",
+              },
+              {
+                title: "Last observation carried forward",
+                href: "locf",
+                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+                excerpt: "Learn about the locf hyperfunction",
+              },
+            ],
+          },
+          {
+            title: "Percentile approximation",
+            href: "percentile-approx",
+            type: "directory",
+            children: [
+              {
+                title: "Approximate percentile",
+                href: "approximate-percentile",
+                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+                excerpt: "Learn about the approximate percentile hyperfunction",
+              },
+              {
+                title: "Advanced aggregation methods",
+                href: "advanced-agg",
+                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+                excerpt:
+                  "Learn about advanced aggregation methods for hyperfunctions",
+              },
+            ],
+          },
+          {
+            title: "Counter aggregation",
+            href: "counter-aggregation",
+            type: "directory",
+            children: [
+              {
+                title: "Counter aggregates",
+                href: "counter-aggs",
+                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
+                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
+                excerpt: "Learn about the counter aggregate hyperfunction",
+              },
+            ],
+          },
+        ],
+      },
+      {
         title: "Multi-node",
         href: "multinode-timescaledb",
         children: [
@@ -657,127 +786,6 @@ module.exports = [
             tags: ["configure", "telemetry", "timescaledb"],
             keywords: ["configure", "telemetry", "timescaledb"],
             excerpt: "Configure telemetry gathered by TimescaleDB",
-          },
-        ],
-      },
-      {
-        title: "Hyperfunctions",
-        href: "hyperfunctions",
-        children: [
-          {
-            title: "About hyperfunctions",
-            href: "about-hyperfunctions",
-            tags: ["hyperfunctions", "toolkit", "timescaledb"],
-            keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt:
-              "Learn about TimescaleDB hyperfunctions for additional analysis",
-          },
-          {
-            title: "Install TimescaleDB Toolkit",
-            href: "install-toolkit",
-            tags: ["toolkit", "install", "hyperfunctions", "timescaledb"],
-            keywords: ["TimescaleDB", "install", "toolkit"],
-            excerpt: "Install the TimescaleDB toolkit",
-          },
-          {
-            title: "Function pipelines",
-            href: "function-pipelines",
-            tags: ["toolkit", "hyperfunctions", "query", "timescaledb"],
-            keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt: "Learn about function pipelines",
-          },
-          {
-            title: "Approximate count distincts",
-            href: "approx-count-distincts",
-            type: "directory",
-            children: [
-              {
-                title: "Hyperloglog",
-                href: "hyperloglog",
-                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-                excerpt: "Learn about the hyperloglog hyperfunction",
-              },
-            ],
-          },
-          {
-            title: "Statistical aggregates",
-            href: "stats-aggs",
-            tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-            keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt: "Learn about the statistical aggregates hyperfunction",
-          },
-          {
-            title: "Gapfilling and interpolation",
-            href: "gapfilling-interpolation",
-            type: "directory",
-            children: [
-              {
-                title: "Time bucket gapfill",
-                href: "time-bucket-gapfill",
-                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-                excerpt:
-                  "Learn about the time bucket gapfillling hyperfunction",
-              },
-              {
-                title: "Last observation carried forward",
-                href: "locf",
-                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-                excerpt: "Learn about the locf hyperfunction",
-              },
-            ],
-          },
-          {
-            title: "Percentile approximation",
-            href: "percentile-approx",
-            type: "directory",
-            children: [
-              {
-                title: "Approximate percentile",
-                href: "approximate-percentile",
-                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-                excerpt: "Learn about the approximate percentile hyperfunction",
-              },
-              {
-                title: "Advanced aggregation methods",
-                href: "advanced-agg",
-                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-                excerpt:
-                  "Learn about advanced aggregation methods for hyperfunctions",
-              },
-            ],
-          },
-          {
-            title: "Counter aggregation",
-            href: "counter-aggregation",
-            type: "directory",
-            children: [
-              {
-                title: "Counter aggregates",
-                href: "counter-aggs",
-                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-                excerpt: "Learn about the counter aggregate hyperfunction",
-              },
-            ],
-          },
-          {
-            title: "Time-weighted averages",
-            href: "time-weighted-averages",
-            type: "directory",
-            children: [
-              {
-                title: "Time-weighted averages",
-                href: "time-weighted-average",
-                tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
-                keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-                excerpt: "Learn about the time-weighted averages hyperfunction",
-              },
-            ],
           },
         ],
       },
