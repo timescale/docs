@@ -292,28 +292,28 @@ For more information about partitioning distributed hypertables, see the
 [About multi-node section][about-multinode].
 
 ## Repartitioning distributed hypertables
-You can expand distributed hypertables by adding additional data nodes. To make
-use of the extra data nodes, you might need to repartition your distributed
-hypertable, to increase the number of space partitions. The new partitioning
-configuration only affects new chunks, which means the planner needs to work a
-bit differently to ensure that queries on your data nodes still produce the
-correct results. In this diagram, an extra data node was added during the third
-time interval, which means that the fourth time interval now includes four
-chunks instead of three:
+You can expand distributed hypertables by adding additional data nodes. If you 
+now have fewer space partitions than data nodes, you need to increase the
+number of space partitions to make use of your new nodes. The new partitioning
+configuration only affects new chunks. In this diagram, an extra data node 
+was added during the third time interval. The fourth time interval now includes 
+four chunks, while the previous time intervals still include three:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/FIXME.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
 
-The highlighted area, marked as `chunks queried` represents a query that
-includes overlapping chunks from two distinct partitioning configurations. So
-this query could include data for a particular hostname, that might exist on
-more than one data node. This can prohibit full aggregations on data nodes, as
-it would otherwise produce the wrong result.
+This can affect queries that span the two different partitioning configurations. In
+the diagram, the highlighted area, marked as `chunks queried`, represents such
+a query. In the older configuration, the query only requires data from two chunks,
+but in the newer configuration, it requires data from three. For example, the query
+might include data for a particular hostname that now exists on more than one data
+node. Because the data spans data nodes, it cannot be fully aggregated on the data
+node. Some operations need to be performed on the access node instead.
 
-The TimescaleDB query planner can dynamically detect overlapping chunks and
-revert to the appropriate partial aggregation plan. This means that you can add
-data nodes and repartition your data to achieve elasticity without having to
-worry about query results. In some cases, your query could be slightly less
-performant, but this is rare and the affected chunks usually move quickly or
+The TimescaleDB query planner dynamically detects such overlapping chunks and
+reverts to the appropriate partial aggregation plan. This means that you can add
+data nodes and repartition your data to achieve elasticity without worrying
+about query results. In some cases, your query could be slightly less
+performant, but this is rare and the affected chunks usually move quickly out of your
 retention window. 
 
 ## Foreign key handling in distributed hypertables
