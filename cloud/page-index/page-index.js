@@ -109,6 +109,10 @@ module.exports = [
         href: "backup-restore-cloud",
       },
       {
+        title: "High availability",
+        href: "high-availability",
+      },
+      {
         title: "Migrate a TimescaleDB database to Cloud",
         href: "migrate-to-cloud",
         children: [
@@ -121,7 +125,7 @@ module.exports = [
             href: "schema-then-data",
           },
         ],
-      }
+      },
     ]
   }
 ]
