@@ -20,7 +20,7 @@ do not use any experimental features in production.
 ## Returns
 |Column|Type|Description|
 |-|-|-|
-|`frequencyaggregate`|`FrequencyAggregate`|An object storing the most common elements of the given table and their estimated frequency.|
+|`agg`|`SpaceSavingAggregate`|An object storing the most common elements of the given table and their estimated frequency.|
 
 ## Sample usage
 This example creates frequency aggregate over a field `ZIP` in a `HomeSales`

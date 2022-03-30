@@ -3,9 +3,9 @@ Produces an aggregate that can be passed to the [`topn` function][topn] to
 calculate the `n` most-frequent values in a column.
 ```sql
 topn_agg (
-    FIXME INTEGER,
+    n INTEGER,
     value AnyElement
-) RETURNS TopnAggregate
+) RETURNS SpaceSavingAggregate
 ```
 
 <highlight type="warning">
@@ -18,13 +18,13 @@ and do not use any experimental features in production.
 
 |Name|Type|Description|
 |-|-|-|
-|`FIXME`|`INTEGER`|The target number of most-frequent values|
+|`n`|`INTEGER`|The target number of most-frequent values|
 |`value`|`AnyElement`|Column to aggregate|
 
 ## Optional arguments
 |Name|Type|Description|
 |-|-|-|
-|`skew`|`FIXME`|The estimated skew of the data, defined as the `s` parameter of a zeta distribution. Defaults to `1.1`.|
+|`skew`|`DOUBLE PRECISION`|The estimated skew of the data, defined as the `s` parameter of a zeta distribution. Defaults to `1.1`.|
 
 `topn_agg` assumes that the data is skewed. In other words, some values are more
 frequent than others. The degree of skew is defined by the `s` parameter of a
@@ -45,24 +45,24 @@ distribution:
 
 |Column|Type|Description|
 |-|-|-|
-|`topnaggregate`|`TopnAggregate`|An object storing the most-frequent values of the given column and their estimated frequency.|
+|`agg`|`SpaceSavingAggregate`|An object storing the most-frequent values of the given column and their estimated frequency.|
 
 ## Sample usage
-Create a topN aggregate over the `country` column of the `users` table. Stores
+Create a topN aggregate over the `country` column of the `users` table. Targets
 the top 10 most-frequent values:
 ```sql
 CREATE toolkit_experimental.topn_agg(10, country) FROM users;
 ```
 
 Create a topN aggregate over the `type` column of the `devices` table. Estimates
-the skew of the data to be 1.05, and stores the 5 most-frequent values:
+the skew of the data to be 1.05, and targets the 5 most-frequent values:
 ```sql
 CREATE toolkit_experimental.topn_agg(5, 1.05, type) FROM devices;
 ```
 
 Get the 20 most frequent `zip_code` values of the `employees` table. Uses
-`topn_agg` as an intermediate step. It creates an aggregate for use in the
-`topn` function:
+`topn_agg` as an intermediate step. `topn_agg` creates an aggregate for use in
+the `topn` function:
 ```sql
 SELECT topn(topn_agg(20, zip_code)) FROM employees;
 ```
