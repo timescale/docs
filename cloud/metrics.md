@@ -100,5 +100,5 @@ LIMIT 5;
 For more examples and detailed explanations, see the [blog post on identifying
 performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 
-[blog-pg_stat_statements]: https://tsdb.co/pg-stat-statements-blogpost
+[blog-pg_stat_statements]: https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/
