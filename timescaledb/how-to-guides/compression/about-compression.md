@@ -58,6 +58,32 @@ compressed.
 
 </procedure>
 
+## Disable compression
+You can disable compression on individual hypertables. This command works only if you don't currently have any compressed chunks:
+
+```sql
+ALTER TABLE <TABLE_NAME> SET (timescaledb.compress=false);
+```
+
+If your hypertable contains compressed chunks, you need to
+[decompress each chunk][decompress-chunks] individually before you can disable
+compression.
+
+### Enabling compression
+1.  At the `psql` prompt, alter the table:
+    ```sql
+    ALTER TABLE example SET (
+      timescaledb.compress,
+      timescaledb.compress_segmentby = 'device_id'
+    );
+    ```
+2.  Add a compression policy to compress chunks that are older than seven days:
+    ```SQL
+    SELECT add_compression_policy('example', INTERVAL '7 days');
+    ```
+
+</procedure>
+
 ## Compression policy intervals
 Data is usually compressed after an interval of time has elapsed, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
