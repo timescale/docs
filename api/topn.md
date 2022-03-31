@@ -42,13 +42,15 @@ Because frequency aggregates and top N aggregates can operate over data of any
 type, `topn` uses the `ty` parameter to specify the data type of the output.
 `ty` must be an object, so it must be an actual example of the data type rather
 than the name of the type. For example, for integer output, use `0::INTEGER`.
+Don't use `NULL::<TYPE>` as the example value. The function doesn't work correctly
+with a `NULL` example.
 </highlight>
 
 ## Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`n`|`INTEGER`|The number of values to return. Optional only for top N aggregates, where it must be less than the target `n` of the aggregate itself|
+|`n`|`INTEGER`|The number of values to return. Optional only for top N aggregates, where it must be less than the target `n` of the aggregate itself. Defaults to the target `n` of the aggregate.|
 
 ## Returns
 
@@ -56,8 +58,16 @@ than the name of the type. For example, for integer output, use `0::INTEGER`.
 |-|-|-|
 |`topn`|`AnyElement`|The `n` most-frequent values in the aggregate.|
 
-If a frequency aggregate is used, and it contains fewer than `n` elements, the
-function returns fewer than `n` values.
+In some cases, the function might return fewer than `n` values. This happens if:
+* The underlying frequency aggregate doesn't contain `n` elements with the
+  minimum frequency
+* The data isn't skewed enough to support `n` values from a top N aggregate
+
+<highlight type="warning">
+Requesting more values from a top N aggregate than it was created for will return an
+error. To get more values, adjust the target `n` in
+[`topn_agg`](/api/latest/hyperfunctions/frequency-analysis/topn_agg).
+</highlight>
 
 ## Sample usage
 This test uses a table of randomly generated data. The values used are the 
