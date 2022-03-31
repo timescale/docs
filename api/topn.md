@@ -42,7 +42,7 @@ Because frequency aggregates and top N aggregates can operate over data of any
 type, `topn` uses the `ty` parameter to specify the data type of the output.
 `ty` must be an object, so it must be an actual example of the data type rather
 than the name of the type. For example, for integer output, use `0::INTEGER`.
-Don't use `NULL::<TYPE>` as the example value. The function doesn't work correctly
+Don't use `NULL::&lt;TYPE&gt;` as the example value. The function doesn't work correctly
 with a `NULL` example.
 </highlight>
 
