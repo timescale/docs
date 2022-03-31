@@ -21,6 +21,14 @@ fork services while they have a status of `In progress`. Wait for the service to
 complete the transition before you start forking.
 </highlight>
 
+<highlight type="warning">
+Forks only have data up to the point when the original service was forked. Any
+data written to the original service after the time of forking will not appear 
+in the fork. If you intend for the fork to assume operations from the original
+service, you may want to pause your main service before forking to avoid any
+data discrepancy between services.
+</highlight>
+
 <procedure>
 
 ### Forking a service
@@ -29,6 +37,8 @@ complete the transition before you start forking.
 1.  Navigate to the `Operations` tab.
 1.  In the `General` section, click `Fork service`. In the dialog, confirm by
     clicking `Fork service`. The forked service takes a few minutes to start.
+1.  If you would like to change the configuration of your fork, click the
+    `Advanced options` link in the dialog.
 1.  The forked service shows in the `Services` dashboard with a label stating
     which service it has been forked from.
 
