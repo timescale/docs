@@ -9,9 +9,9 @@ hyperfunction_type: accessor
 ---
 
 # into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
-This function returns the data accumulated in a 
-[frequency aggregate][freq_agg].  
-The aggregate operates over `AnyElement` types, so this method 
+This function returns the data accumulated in a
+[frequency aggregate][freq_agg] or [top N aggregate][topn_agg].
+The aggregate operates over `AnyElement` types, so this method
 requires a type parameter to determine the type of the output.
 
 <highlight type="warning">
@@ -68,3 +68,4 @@ The output for this query looks like this, with some variation due to randomness
 ```
 
 [freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/

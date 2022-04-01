@@ -18,15 +18,16 @@ max_frequency (
 ) RETURNS DOUBLE PRECISION
 ```
 
-`min_frequency` and `max_frequency` are accessors that operate on a [frequency
-aggregate][freq_agg]. Create a frequency aggregate over the original dataset,
-then call `min_frequency` and `max_frequency` on the aggregate.
+`min_frequency` and `max_frequency` are accessors that operate on a
+[frequency aggregate][freq_agg] or a top N aggregate[topn)agg]. Create a
+frequency or top N aggregate over the original dataset, then call
+`min_frequency` and `max_frequency` on the aggregate.
 
 ## Required arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`agg`|`SpaceSavingAggregate`|The frequency aggregate created over the original dataset|
+|`agg`|`SpaceSavingAggregate`|The frequency or top N aggregate created over the original dataset|
 |`value`|`AnyElement`|The value to find the frequency of|
 
 ## Returns
@@ -61,3 +62,4 @@ SELECT toolkit_experimental.max_freq(
 ```
 
 [freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
