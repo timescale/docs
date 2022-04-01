@@ -1,3 +1,13 @@
+---
+api_name: 'idelta_left | idelta_right'
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'counter aggregation'
+hyperfunction_subfamily: 'counter aggregation'
+hyperfunction_type: accessor
+---
+
 # idelta_left() and idelta_right() <tag type="toolkit" content="Toolkit" />
 The instantaneous change in the counter at the left (earlier) and right (later)
 side of the time range.

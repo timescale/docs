@@ -1,3 +1,13 @@
+---
+api_name: approx_percentile
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'percentile approximation'
+hyperfunction_type: accessor
+---
+
 ## approx_percentile()  <tag type="toolkit">Toolkit</tag>
 
 Get the approximate value at a percentile from a percentile estimate.
