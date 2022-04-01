@@ -19,7 +19,7 @@ max_frequency (
 ```
 
 `min_frequency` and `max_frequency` are accessors that operate on a
-[frequency aggregate][freq_agg] or a top N aggregate[topn)agg]. Create a
+[frequency aggregate][freq_agg] or a [top N aggregate][topn_agg]. Create a
 frequency or top N aggregate over the original dataset, then call
 `min_frequency` and `max_frequency` on the aggregate.
 
@@ -39,14 +39,14 @@ frequency or top N aggregate over the original dataset, then call
 <highlight type="note">
 When you create a frequency aggregate, you set a threshold frequency. Values
 that appear with lower-than-threshold frequency are not tracked. Calling
-`min_freq` or `max_freq` with such values returns a frequency of `0`.
+`min_frequency` or `max_frequency` with such values returns a frequency of `0`.
 </highlight>
 
 ## Sample usage
 Find the minimum frequency of the value `3` in a column named `value` within the
 table `value_test`:
 ```sql
-SELECT toolkit_experimental.min_freq(
+SELECT toolkit_experimental.min_frequency(
     (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),
     3
 );
@@ -55,7 +55,7 @@ SELECT toolkit_experimental.min_freq(
 Find the maximum frequency of the value `foo` in a column named `value` within
 the table `value_test`:
 ```sql
-SELECT toolkit_experimental.max_freq(
+SELECT toolkit_experimental.max_frequency(
     (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),
     'foo'
 );
