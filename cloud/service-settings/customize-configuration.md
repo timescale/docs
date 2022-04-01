@@ -1,21 +1,21 @@
 # Service Settings - Database configuration
 Timescale Cloud allows you to customize many TimescaleDB and PostgreSQL
 configuration options for each Service individually. Most configuration values
-for a Service are initially set in accordance with best practices given the
-compute and storage settings of the Service. Any time you increase or decrease
-the compute for a Service the most essential values are set to reflect the size
-of the new Service.
+for a service are initially set in accordance with best practices given the
+compute and storage settings of the service. Any time you increase or decrease
+the compute for a Service, the most essential values are set to reflect the size
+of the new service.
 
-There are times, however, when your specific workload may require tuning some
+There are times, however, when your specific workload could require tuning some
 of the many available TimescaleDB and PostgreSQL parameters. By providing the
 ability to tune various runtime settings, Timescale Cloud provides the balance
 and flexibility you need when running your workloads in our hosted environment.
 
 <highlight type="warning">
-Modifications of most parameters can be applied without restarting
-the Timescale Cloud Service. However, as when modifying the compute resources
-of a running Service, some settings require a restart,
-resulting in some brief downtime (usually about 30 seconds).
+You can modify most parameters without restarting the Timescale Cloud Service.
+However, some changes do require a restart, resulting in some brief downtime
+(usually about 30 seconds). An example of a change that needs a restart is modifying
+the compute resources of a running service.
 </highlight>
 
 ### View service operation details

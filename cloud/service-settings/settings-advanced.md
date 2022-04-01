@@ -1,4 +1,4 @@
-# Service Settings - Advanced parameters
+# Service settings - advanced parameters
 It is also possible to configure a wide variety of Service database parameters
 by toggling `Show advanced parameters` in the upper-right corner of the
 `Settings` tab.
