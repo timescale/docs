@@ -1,3 +1,13 @@
+---
+api_name: topn_agg
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: SpaceSavingAggregate
+hyperfunction_type: aggregate
+---
+
 # topn_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 Produces an aggregate that can be passed to the [`topn` function][topn] to
 calculate the `n` most-frequent values in a column.

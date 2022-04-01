@@ -1,3 +1,13 @@
+---
+api_name: gauge_agg
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'counter aggregation'
+hyperfunction_subfamily: FrequencyAggregate
+hyperfunction_type: accessor
+---
+
 # gauge_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 Produces a `GaugeSummary` that can be used to accumulate gauge data for further
 calculations. 

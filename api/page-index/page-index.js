@@ -455,7 +455,7 @@ module.exports = [
             ],
           },
           {
-            title: 'Counter aggregation',
+            title: 'Counter and gauge aggregation',
             type: 'directory',
             href: 'counter_aggs',
             children: [

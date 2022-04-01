@@ -4,7 +4,7 @@ api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: FrequencyAggregate
+hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: aggregate
 ---
 
