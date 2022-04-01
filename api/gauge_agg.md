@@ -4,7 +4,7 @@ api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'counter aggregation'
-hyperfunction_subfamily: FrequencyAggregate
+hyperfunction_subfamily: 'gauge aggregation'
 hyperfunction_type: accessor
 ---
 
@@ -59,8 +59,12 @@ Bounds are required for extrapolation, but not for other accessor functions.
 |-|-|-|
 |`gauge_agg`|`GaugeSummary`|A `GaugeSummary` object that can be passed to accessor functions or other objects in the gauge aggregate API|
 
-The returned `GaugeSummary` can be used as an input to the same accessor
-functions as `CounterSummary`, except for `num_resets`.
+<highlight type="important">
+The returned `GaugeSummary` can be used as an input the accessor functions
+`delta`, `idelta_left`, and `idelta_right`. When this feature is mature, it will support
+all the same accessor functions as `CounterSummary`, with the exception of
+`num_resets`.
+</highlight>
 
 ## Sample usage
 Create a gauge summary from time-series data that has a timestamp, `ts`, and a
