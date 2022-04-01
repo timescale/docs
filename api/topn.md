@@ -1,3 +1,13 @@
+---
+api_name: topn
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: FrequencyAggregate
+hyperfunction_type: accessor
+---
+
 # topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Returns the most common values accumulated in a [frequency aggregate][freq_agg]
 or [top N aggregate][topn_agg].
