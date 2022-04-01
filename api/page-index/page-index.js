@@ -581,20 +581,28 @@ module.exports = [
                 href: 'topn_agg',
               },
               {
-                title: 'state_agg',
-                href: 'state_agg',
+                title: 'topn',
+                href: 'topn',
               },
               {
                 title: 'into_values (for freq_agg)',
                 href: 'into_values-freq_agg',
               },
               {
-                title: 'topn',
-                href: 'topn',
+                title: 'min_frequency / max_frequency',
+                href: 'min_frequency-max_frequency',
+              },
+              {
+                title: 'state_agg',
+                href: 'state_agg',
               },
               {
                 title: 'duration_in',
                 href: 'duration_in',
+              },
+              {
+                title: 'into_values (for state_agg)',
+                href: 'into_values-state_agg',
               },
             ],
           },
