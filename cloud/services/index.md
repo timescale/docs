@@ -1,4 +1,4 @@
-# Timescale Cloud Services
+# Timescale Cloud services
 Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB as a
 service that is easy to get started and powerful enough for the most demanding
 scenarios.

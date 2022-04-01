@@ -40,7 +40,7 @@ like to change, click `Apply Changes`. For some changes, such as
 `timescaledb.max_background_workers` (pictured below), the Service needs to be
 restarted. In this case, the button reads `Restart and apply changes`.
 
-Regardless of whether the Service needs to be restarted or not, a confirmation
+Regardless of whether the service needs to be restarted or not, a confirmation
 dialog is displayed which lists the parameters that are being modified. Click
 `Confirm` to apply the changes (and restart if necessary).
 
