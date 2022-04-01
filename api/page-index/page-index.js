@@ -585,8 +585,8 @@ module.exports = [
                 href: 'state_agg',
               },
               {
-                title: 'values',
-                href: 'values-freq_agg',
+                title: 'into_values (for freq_agg)',
+                href: 'into_values-freq_agg',
               },
               {
                 title: 'topn',

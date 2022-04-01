@@ -1,5 +1,5 @@
 ---
-api_name: values
+api_name: into_values
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -8,7 +8,7 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
-# values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 This function returns the data accumulated in a 
 [frequency aggregate][freq_agg].  
 The aggregate operates over `AnyElement` types, so this method 
@@ -46,7 +46,7 @@ INSERT INTO value_test SELECT floor(sqrt(random() * 400)) FROM generate_series(1
 This returns values representing more than 5% of the input:
 ```sql
 SELECT value, min_freq, max_freq
-FROM toolkit_experimental.values(
+FROM toolkit_experimental.into_values(
     (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),
     0::INTEGER);
 ```
