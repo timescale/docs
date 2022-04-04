@@ -58,6 +58,17 @@ compressed.
 
 </procedure>
 
+## Disable compression
+You can disable compression on individual hypertables. This command works only if you don't currently have any compressed chunks:
+
+```sql
+ALTER TABLE <TABLE_NAME> SET (timescaledb.compress=false);
+```
+
+If your hypertable contains compressed chunks, you need to
+[decompress each chunk][decompress-chunks] individually before you can disable
+compression.
+
 ## Compression policy intervals
 Data is usually compressed after an interval of time has elapsed, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
