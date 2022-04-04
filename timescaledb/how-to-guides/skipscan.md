@@ -1,10 +1,9 @@
 # SkipScan
-SkipScan improves query times for `DISTINCT`
-queries. It works on PostgreSQL tables, TimescaleDB hypertables, and
-TimescaleDB distributed hypertables. SkipScan is included in TimescaleDB 2.2.1
-and above.
+SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
+tables, TimescaleDB hypertables, and TimescaleDB distributed hypertables.
+SkipScan is included in TimescaleDB 2.2.1 and above.
 
-## About SkipScan
+## Faster DISTINCT queries using SkipScan
 When you query your database to find the most recent value of an item, you
 usually use a `DISTINCT` query. For example, you might want to find the latest
 stock or cryptocurrency price for each of your investments. Or you might have graphs
@@ -33,12 +32,13 @@ SkipScan is an optimization for queries of the form `SELECT DISTINCT ON
 column_name`. Conceptually, SkipScan is a regular IndexScan that skips across an
 index looking for the next value that is greater than the current value.
 
-When you use a query with SkipScan, the `EXPLAIN` output includes a new node
-that can quickly return distinct items from a properly ordered index. With an
-IndexOnly scan, you have to scan the entire index, but SkipScan incrementally
-searches for each successive item in the ordered index. As it locates one item,
-the SkipScan node quickly restarts the search for the next item. This is a much
-more efficient way of finding distinct items in an ordered index.
+When you issue a query that uses SkipScan, the `EXPLAIN` output includes a new
+operator, or node, that can quickly return distinct items from a properly
+ordered index. With an IndexOnly scan, PostgreSQL has to scan the entire index,
+but SkipScan incrementally searches for each successive item in the ordered
+index. As it locates one item, the SkipScan node quickly restarts the search for
+the next item. This is a much more efficient way of finding distinct items in an
+ordered index.
 
 For benchmarking information on how SkipScan compares to regular `DISTINCT`
 queries, see our [SkipScan blog post][blog-skipscan].
