@@ -1,3 +1,13 @@
+---
+api_name: values
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: FrequencyAggregate
+hyperfunction_type: accessor
+---
+
 # values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 This function returns the data accumulated in a 
 [frequency aggregate][freq_agg].  
