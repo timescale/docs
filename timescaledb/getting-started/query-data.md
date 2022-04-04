@@ -122,6 +122,11 @@ Now that you're familiar with some TimescaleDB queries and functions, like `time
 continuous aggregates in the [next section][create-cagg].
 
 
+<!--  had to make a change to create the pr -->
+
+
+
+
 [average]: https://www.postgresql.org/docs/14/functions-aggregate.html
 [filter]: https://www.postgresql.org/docs/14/sql-expressions.html#SYNTAX-AGGREGATES
 [order-by]: https://www.postgresql.org/docs/current/queries-order.html
