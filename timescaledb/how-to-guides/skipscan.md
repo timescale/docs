@@ -60,7 +60,8 @@ leading columns are used as constraints in your query. This means that if you
 are asking a question such as "retrieve a list of unique IDs in order" and
 "retrieve the last reading of each ID," you need at least one index like this:
 ```sql
-"cpu_tags_id_time_idx" btree (tags_id, "time" DESC)
+CREATE INDEX "cpu_customer_tags_id_time_idx" \
+ON readings (customer_id, tags_id, time DESC)
 ```
 
 With your index set up correctly, you should start to see immediate benefit for
