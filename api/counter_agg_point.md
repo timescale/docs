@@ -1,3 +1,13 @@
+---
+api_name: counter_agg
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'counter aggregation'
+hyperfunction_subfamily: 'counter aggregation'
+hyperfunction_type: aggregate
+---
+
 # counter_agg() <tag type="toolkit" content="Toolkit" />
 An aggregate that produces a CounterSummary from timestamps and associated
 values.
