@@ -334,8 +334,8 @@ CREATE TRIGGER create_vehicle_trigger
 You could also implement this functionality without a separate metadata table by
 performing a [loose index scan][loose-index-scan] over the `location`
 hypertable, although this requires more compute resources. Alternatively, you
-can use the TimescaleDB [SkipScan][skipscan] feature to speed up your `SELECT
-DISTINCT` queries.
+speed up your `SELECT DISTINCT` queries by structuring them so that TimescaleDB can 
+use its [SkipScan][skipscan] feature.
 
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
