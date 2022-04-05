@@ -1,3 +1,13 @@
+---
+api_name: asap_smooth
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'downsample'
+hyperfunction_subfamily: 'downsample'
+hyperfunction_type: other
+---
+
 # asap_smooth()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 The [ASAP smoothing alogrithm][asap-algorithm] is designed to create 
 human-readable graphs that preserve the rough shape and larger trends 
