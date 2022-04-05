@@ -4,10 +4,6 @@ You can install a TimescaleDB instance on any Kubernetes deployment. Use the
 database, and `timescaledb-multinode` to deploy a multi-node distributed
 TimescaleDB database. For more information about the components that are
 deployed with these charts, see [TimescaleDB on Kubernetes][timescaledb-k8s].
-You can install TimescaleDB on Kubernetes deployed on:
-* [AWS Elastic Kubernetes Service][aws-eks]
-* [MicroK8s][microk8s-install]
-* [minikube][minikube-install]
 
 Before you begin installing TimescaleDB on a Kubernetes deployment, make sure
 you have installed:
@@ -42,14 +38,14 @@ This section provides instructions to deploy TimescaleDB using the
     ```bash
     helm repo update
     ```
-1.  Install the TimescaleDB Helm chart, by replacing `<my_name>` with a name of
+1.  Install the TimescaleDB Helm chart, by replacing `<MY_NAME>` with a name of
     your choice:
     ```bash
-    helm install <my_name> timescale/timescaledb-single
+    helm install <MY_NAME> timescale/timescaledb-single
     ```
-    If you created a `<myvalues.yaml>` file, use this command instead:
+    If you created a `<MY_VALUES.yaml>` file, use this command instead:
     ```bash
-    helm install <my_name> -f <myvalues.yaml> charts/timescaledb-single
+    helm install <MY_NAME> -f <MY_VALUES.yaml> charts/timescaledb-single
     ```
 
 </procedure> 
@@ -64,32 +60,32 @@ cluster.
 
 <highlight type="note">
 If you configured the user credentials in the `my_values.yaml` file, you don't
-need to decode the passwords. In the following section replace `<my_name>` with
+need to decode the passwords. In the following section replace `<MY_NAME>` with
 the name that you provided during the installation.
 </highlight>
 
 1. Get the name of the host to connect to:
     ```bash
-    kubectl get service/<my_name>
+    kubectl get service/<MY_NAME>
     ```
 1. Decode the `admin` user password `PGPASSWORD_ADMIN` that was generated during
    the Helm installation:
     ```bash
     PGPASSWORD_ADMIN=$(kubectl get secret --namespace default 
-    <my_name>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
+    <MY_NAME>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
     ``` 
 1. **OPTIONAL** Decode the super user password `PGPOSTGRESPASSWORD` that was
    generated during the Helm installation:
     ```bash
     PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default 
-    <my_name>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
+    <MY_NAME>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 1. Connect with psql as `admin` user:
     ```bash
     kubectl run -i --tty --rm psql --image=postgres \
       --env "PGPASSWORD=$PGPASSWORD_ADMIN" \
       --command -- psql -U admin \
-      -h <my_name>.default.svc.cluster.local postgres
+      -h <MY_NAME>.default.svc.cluster.local postgres
     ```
     
 </procedure>
@@ -149,7 +145,7 @@ the Pods, Persistent Volume Claims (PVC), S3 backups, and more.
 ### Cleaning up
 To remove the spawned Pods:
 ```bash
-helm delete <my_name>
+helm delete <MY_NAME>
 ```
 Some items such as Persistent Volume Claims (PVC) and S3 backups are not removed
 immediately. For more information about purging these items, see the
