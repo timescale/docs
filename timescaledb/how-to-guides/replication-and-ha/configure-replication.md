@@ -164,7 +164,7 @@ from a base backup of the primary instance.
     The -W flag prompts you for a password. If you are using this command in an
     automated setup, you might need to use a [pgpass file][pgpass-file].
 1.  When the backup is complete, create a [standby.signal][postgres-recovery-docs]
-    file in your data directory, and set the appropriate permissions. 
+    file in your data directory, and set user read and write permissions. 
     When PostgreSQL finds a `standby.signal` file in its data directory, 
     it starts in recovery mode and streams the WAL through the replication protocol:
     ```bash
