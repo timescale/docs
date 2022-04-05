@@ -1,5 +1,6 @@
 # Resource recommendations
-This section describes the compute and disk requirements that are recommended for Promscale, based on the ingest rate and retention.
+This section describes the compute and disk requirements that are 
+recommended for Promscale, based on the ingest rate and retention.
 
 **Disk size per day**: disk consumption per day based on the ingest rate.
 
@@ -8,7 +9,7 @@ This section describes the compute and disk requirements that are recommended fo
 **Total disk size**: size of disk required to store the data based on the ingest rate and retention. 
 
 <highlight type="note">
-You can calculate the `total disk size` based on rentention and ingest rate using the following formula:
+You can calculate the `total disk size` based on retention and ingest rates with this formula:
 
 Total disk size = (Disk size per day based on the ingest rate * Retention in days) + 
 Uncompressed buffer based on the ingest rate.
@@ -43,7 +44,9 @@ Resource recommendation for ingestion through OTLP (OpenTelemetry Line Procotol)
 
 ### OpenTelemetry Line Protocol
 
-We recommend using the OpenTelemetry collector for ingesting the spans to Promscale by configureing the OTLP exporter and batch processor with below provided configuration this helps in retries for failed writes and in batching the write requests to Promscale:
+We recommend using the OpenTelemetry collector for ingesting the spans to 
+Promscale. Use this configuration with the OTLP exporter and batch processor 
+to help with retries for failed writes, and to batch the write requests to Promscale:
 
 ```yaml
 exporters:
