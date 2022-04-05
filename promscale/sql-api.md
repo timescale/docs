@@ -21,7 +21,8 @@ ORDER BY 1, 2, 4;
  --- | --- | --- | ---
  add_prom_node | node_name text, attach_to_existing_metrics boolean DEFAULT true |  |
  config_maintenance_jobs | number_jobs integer, new_schedule_interval interval, new_config jsonb DEFAULT NULL::jsonb| boolean | Configure the number of maintence jobs run by the job scheduler, as well as their scheduled interval.
- drop_metric | metric_name_to_be_dropped text | void |                
+ drop_metric | metric_name_to_be_dropped text | void |
+ delete_series_from_metric | metric_name text, series_ids| boolean | deletes the series from the metric               
  eq | labels label_array, json_labels jsonb | boolean | eq returns true if the labels and jsonb are equal, ignoring the metric name.
  eq | labels1 label_array, labels2 label_array | boolean | eq returns true if two label arrays are equal, ignoring the metric name.
  eq | labels1 label_array, matchers matcher_positive | boolean | eq returns true if the label array and matchers are equal, there should not be a matcher for the metric name.
