@@ -10,7 +10,8 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Frequency|FrequencyAggregate|[`freq_agg`](/hyperfunctions/frequency-analysis/freq_agg/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`freq_agg`](/hyperfunctions/frequency-analysis/freq_agg/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`topn_agg`](/hyperfunctions/frequency-analysis/topn_agg/)|❌|✅|
 |Frequency||[`values`](/hyperfunctions/frequency-analysis/values-freq_agg/)|❌|✅|
 |Frequency||[`topn`](/hyperfunctions/frequency-analysis/topn/)|❌|✅|
 |Frequency|StateAgg|[`state_agg`](/hyperfunctions/frequency-analysis/state_agg/)|❌|✅|

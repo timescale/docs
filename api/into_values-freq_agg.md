@@ -1,17 +1,17 @@
 ---
-api_name: values
+api_name: into_values
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: FrequencyAggregate
+hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
-# values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
-This function returns the data accumulated in a 
-[frequency aggregate][freq_agg].  
-The aggregate operates over `AnyElement` types, so this method 
+# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+This function returns the data accumulated in a
+[frequency aggregate][freq_agg] or [top N aggregate][topn_agg].
+The aggregate operates over `AnyElement` types, so this method
 requires a type parameter to determine the type of the output.
 
 <highlight type="warning">
@@ -46,7 +46,7 @@ INSERT INTO value_test SELECT floor(sqrt(random() * 400)) FROM generate_series(1
 This returns values representing more than 5% of the input:
 ```sql
 SELECT value, min_freq, max_freq
-FROM toolkit_experimental.values(
+FROM toolkit_experimental.into_values(
     (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),
     0::INTEGER);
 ```
@@ -68,3 +68,4 @@ The output for this query looks like this, with some variation due to randomness
 ```
 
 [freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
