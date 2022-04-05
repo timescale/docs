@@ -3,7 +3,7 @@ api_name: extrapolated_delta
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
-hyperfunction_family: 'counter aggregation'
+hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter aggregation'
 hyperfunction_type: accessor
 ---
