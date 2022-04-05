@@ -37,9 +37,7 @@ table.
     ```sql
     CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM cpu WITH NO DATA;
     ```
-
 1.  Insert your data into the backfill table.
-
 1.  Call the supplied backfill function. This function:
       * Halts the compression policy
       * Identifies the chunks where the backfilled data belongs
@@ -53,9 +51,9 @@ table.
 </procedure>
 
 ## Backfill manually
-If you prefer not to use the `decompress_backfill` function, you can perform its
-steps manually. In this procedure, you turn off your compression policy and
-identify your compressed chunks before inserting your backfilled data.
+If you prefer not to use the `decompress_backfill` function, you can perform the
+steps manually. In this procedure, you turn off the compression policy and
+identify your compressed chunks before inserting the backfilled data.
 
 <procedure>
 
@@ -101,7 +99,6 @@ identify your compressed chunks before inserting your backfilled data.
 </procedure>
 
 ## Future Work [](future-work)
-
 One of the current limitations of TimescaleDB is that once chunks are converted
 into compressed column form, we do not allow updates and deletes of the data
 or changes to the schema without manual decompression, except as noted [above][compression-schema-changes].
