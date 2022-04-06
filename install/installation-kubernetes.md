@@ -60,7 +60,7 @@ cluster.
 
 <highlight type="note">
 If you configured the user credentials in the `my_values.yaml` file, you don't
-need to decode the passwords. In the following section replace `\<MY_NAME\>` with
+need to decode the passwords. In the following section replace `MY_NAME` with
 the name that you provided during the installation.
 </highlight>
 
