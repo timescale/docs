@@ -146,7 +146,7 @@ To remove the spawned Pods:
 ```bash
 helm delete <MY_NAME>
 ```
-Some items such as Persistent Volume Claims (PVC) and S3 backups are not removed
+Some items, such as persistent volume claims (PVC) and S3 backups, are not removed
 immediately. For more information about purging these items, see the
 [Administrator Guide][admin-guide].
 
