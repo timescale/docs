@@ -76,6 +76,16 @@ instead.
     apt install timescaledb-2-postgresql-14
     ```
 
+    <highlight type="note">
+    If you want to install a specific version of TimescaleDB, instead of the
+    most recent, you can specify the version like this:
+    ```bash
+    apt-get install timescaledb-2-2.6.0-postgresql-12
+    ```
+    You can see the full list of TimescaleDB releases by visiting our
+    [releases page][https://packagecloud.io/timescale/timescaledb]
+    </highlight>
+
 </procedure>
 
 When you have completed the installation, you need to configure your database so
