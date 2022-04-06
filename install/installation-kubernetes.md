@@ -121,10 +121,8 @@ the name that you provided during the installation.
     \c tsdb
     ```
 1.  Verify that the TimescaleDB extension is installed by using the `\dx`
-    command at the command prompt. It looks like this:
+    command at the command prompt. The output looks like this:
     ```sql
-    tsdb=# \dx
-
                                       List of installed extensions
     Name     | Version |   Schema   |                            Description                            
     -------------+---------+------------+-------------------------------------------------------------------
