@@ -90,6 +90,7 @@ the name that you provided during the installation.
     
 </procedure>
 
+<procedure >
 
 ### Connecting to TimescaleDB from inside the cluster
 1. Get the Pod on which TimescaleDB is installed:
@@ -107,7 +108,7 @@ the name that you provided during the installation.
  After installing and connecting to TimescaleDB you can create a database,
  connect to the database, and also verify that the TimescaleDB extension is
  installed.
- 
+
 <procedure>
 
 ### Creating a database
@@ -120,8 +121,8 @@ the name that you provided during the installation.
     ```sql
     \c tsdb
     ```
-1. Verify that the TimescaleDB extension is installed by using the `\dx`
-command at the command prompt. It looks like this:
+1.  Verify that the TimescaleDB extension is installed by using the `\dx`
+    command at the command prompt. It looks like this:
     ```sql
     tsdb=# \dx
 
