@@ -90,7 +90,6 @@ the name that you provided during the installation.
     
 </procedure>
 
-<procedure>
 
 ### Connecting to TimescaleDB from inside the cluster
 1. Get the Pod on which TimescaleDB is installed:
@@ -104,12 +103,12 @@ the name that you provided during the installation.
 
 </procedure>
 
-<procedure>
-
 ## Create a database
  After installing and connecting to TimescaleDB you can create a database,
  connect to the database, and also verify that the TimescaleDB extension is
  installed.
+ 
+<procedure>
 
 ### Creating a database
 1.  At the prompt, create an empty database. For example, to create a database
