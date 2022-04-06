@@ -90,7 +90,7 @@ the name that you provided during the installation.
     
 </procedure>
 
-
+<procedure>
 ### Connecting to TimescaleDB from inside the cluster
 1. Get the Pod on which TimescaleDB is installed:
    ```bash
