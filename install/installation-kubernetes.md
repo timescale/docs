@@ -91,6 +91,7 @@ the name that you provided during the installation.
 </procedure>
 
 <procedure>
+
 ### Connecting to TimescaleDB from inside the cluster
 1. Get the Pod on which TimescaleDB is installed:
    ```bash
@@ -98,7 +99,7 @@ the name that you provided during the installation.
    ```
 2. Run `psql` inside the Pod containing the primary:
    ```bash
-   kubectl exec -i --tty --namespace default &lbrace;MASTERPOD&rbrace; -- psql -U postgres
+   kubectl exec -i --tty --namespace default {MASTERPOD} -- psql -U postgres
    ```
 
 </procedure>
