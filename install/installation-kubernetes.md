@@ -138,7 +138,7 @@ the name that you provided during the installation.
 
 ## Clean up
 You can use Helm to uninstall TimescaleDB on the Kubernetes cluster and clean up
-the Pods, PersistentVolumeClaims(PVC), S3 backups, and more.
+the Pods, PersistentVolumeClaim(PVC), S3 backups, and more.
 
 ### Cleaning up
 To remove the spawned Pods:
