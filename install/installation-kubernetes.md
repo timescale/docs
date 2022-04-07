@@ -80,7 +80,7 @@ the name that you provided during the installation.
     PGPASSWORD_POSTGRES=$(kubectl get secret --namespace default 
     <MY_NAME>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
-1. Connect with psql as `admin` user:
+1. Connect to psql as `admin` user:
     ```bash
     kubectl run -i --tty --rm psql --image=postgres \
       --env "PGPASSWORD=$PGPASSWORD_ADMIN" \
@@ -138,14 +138,14 @@ the name that you provided during the installation.
 
 ## Clean up
 You can use Helm to uninstall TimescaleDB on the Kubernetes cluster and clean up
-the Pods, Persistent Volume Claims (PVC), S3 backups, and more.
+the Pods, PersistentVolumeClaims(PVC), S3 backups, and more.
 
 ### Cleaning up
 To remove the spawned Pods:
 ```bash
 helm delete <MY_NAME>
 ```
-Some items, such as persistent volume claims (PVC) and S3 backups, are not removed
+Some items, such as PVCs and S3 backups, are not removed
 immediately. For more information about purging these items, see the
 [Administrator Guide][admin-guide].
 
