@@ -194,6 +194,6 @@ Always write in simple present tense.
 ### Z [](#Z)
 
 [github-docs]: https://github.com/timescale/docs
-[contributors]: https://github.com/timescale/docs/CONTRIBUTING.md
-[readme]: https://github.com/timescale/docs/README.md
+[contributors]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
+[readme]: https://github.com/timescale/docs#readme
 [google-style]: https://developers.google.com/style
