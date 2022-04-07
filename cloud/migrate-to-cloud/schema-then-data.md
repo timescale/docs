@@ -113,7 +113,7 @@ pg_restore: error: could not execute query: ERROR:  relation "_timescaledb_inter
 ```
 
 ```bash
-​​pg_restore: WARNING:  no privileges were granted for "<..>"
+  pg_restore: WARNING:  no privileges were granted for "<..>"
 ```
 
 ## Restore hypertables in Timescale Cloud
