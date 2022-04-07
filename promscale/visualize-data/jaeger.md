@@ -1,49 +1,53 @@
 # Visualize Promscale traces in Jaeger
-This section shows you how to integrate
-[Jaeger][jaeger-ui] with Promscale.
 
-To visualize traces in Jaeger with Promscale, you need to have the Jaeger query component running. The Jaeger component queries and visualizes traces from Promscale. 
+Jaeger, is an open source distributed tracing system used for monitoring and troubleshooting microservices-based distributed systems.
 
-Before you begin, make sure the Jaeger query you are running is of version `1.30` or above. 
+This section shows you how to integrate [Jaeger][jaeger-ui] with Promscale.
+
+To visualize traces in Jaeger with Promscale, you need to have the Jaeger component `jaeger-query` running. This Jaeger component queries and visualizes traces from Promscale. 
+
+Before you begin, deploy the component `jaeger-query` from the Jaeger [deploymentspage][jaeger-deployments]. Ensure that the version of the component is `1.30` or later. 
 
 <procedure>
 
 ## Connecting a Jaeger query with Promscale
-
-1.  Deploy the Jaeger Query component from the Jaeger 
-    [deployments page][jaeger-deployments], if you aren't already running the Jaeger query.
     
-1.  Set the Jaeger query configuration through environment variables 
-    as `SPAN_STORAGE_TYPE`  to `grpc-plugin` and 
-    `GRPC_STORAGE_SERVER` to Promscale gRPC endpoint `<PROMSCALE_HOST>:9202` before 
-    Jaeger query startup, with this the Jaeger query configures the 
-    span storage type as gRPC server and gRPC storage server endpoint as Promscale.
+1.  Configure the following options for `jaeger-query` using the environment
+    variables:
+    * `SPAN_STORAGE_TYPE`  to `grpc-plugin`
+    * `GRPC_STORAGE_SERVER` to Promscale gRPC endpoint `<PROMSCALE_HOST>:9202` 
+
     ```
     SPAN_STORAGE_TYPE=grpc-plugin
     GRPC_STORAGE_SERVER=<PROMSCALE_HOST>:9202
     ```
-    Here `9202` is the default gRPC server port in Promscale.
-1.  Now on Jaeger query startup, it should be successfully connected with 
+    The port `9202` is the default gRPC server port in Promscale.
+
+1.  Start the `jaegar-query` component, it should be successfully connected with
     Promscale to visualize the traces. 
 
 </procedure>
 
-Visualizing traces from Promscale in Jaeger query using the filters offered on the left search menu
+You can visualize traces from Promscale in `jaeger-query` home page. Use the
+`Search` panel on the left to filter and query traces from Promscale. 
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/jaeger-homepage-query-results.png" alt="Sample output for Jaeger query results"/>
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/images/misc/jaeger-homepage-query-results.png"
+alt="Sample output for Jaeger query results"/>
 
 ## Using Docker for setting up Jaeger Query with Promscale
 
-You need the IP address of your Promscale container. You can
-find this at the command prompt, using this command:
+To set up `jaeger-query` with Promscale using Docker you need the IP address of the Promscale container or the URL. 
+
+You can find the IP address of the container using:
 ```bash
 docker inspect <PROMSCALE_CONTAINER_NAME>
 ```
+In the output the IP address is listed under `NetworkSettings` → `Networks` → `IPAddress` section.
 
-The IP address is listed in the `NetworkSettings → Networks → IPAddress`
-section.
-
-Alternatively, you can set the URL as `promscale:9202` (here `9202` is the gRPC endpoint of Promscale), where `promscale` is the name of the container.
+You can set the URL as `<PROMSCALE>:9202` where:
+- `9202` is the gRPC endpoint of Promscale
+- `<PROMSCALE>` is the name of the container
 
 <procedure>
 
@@ -57,11 +61,13 @@ Alternatively, you can set the URL as `promscale:9202` (here `9202` is the gRPC 
       -e "SPAN_STORAGE_TYPE=grpc-plugin" -e "GRPC_STORAGE_SERVER=promscale:9202" \
       jaegertracing/jaeger-query:1.30
     ```
-1.  Navigate to `localhost:16686` in your browser, you will able to access the Jaeger query homepage.
-1.  On the left side of Jaeger query homepage you can find the filters to start querying traces from Promscale.
+1.  Navigate to `localhost:16686` in your browser, to access the `jaeger-query` homepage.
+
+1.  Use the `Search` panel on the left to filter and start querying traces from
+    Promscale.
 
 </procedure>
 
 [jaeger-ui]: https://github.com/jaegertracing/jaeger-ui#jaeger-ui
-[jaeger-docker]: https://www.jaegertracing.io/docs/1.32/deployment/
-[jaeger-deployments]: https://www.jaegertracing.io/docs/1.32/deployment/
+[jaeger-docker]: https://www.jaegertracing.io/docs/latest/deployment/
+[jaeger-deployments]: https://www.jaegertracing.io/docs/latest/deployment/
