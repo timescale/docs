@@ -20,27 +20,14 @@ method](https://docs.timescale.com/cloud/latest/migrate-to-cloud/).
 </highlight>
 
 The procedure to migrate your database requires these steps:
-- [Migrate schema and data separately](#migrate-schema-and-data-separately)
-  - [Prerequisites](#prerequisites)
-  - [Migrate schema pre-data](#migrate-schema-pre-data)
-    - [Migrating schema pre-data](#migrating-schema-pre-data)
-    - [Troubleshooting](#troubleshooting)
-  - [Restore hypertables in Timescale Cloud](#restore-hypertables-in-timescale-cloud)
-    - [Restoring hypertables in Timescale Cloud](#restoring-hypertables-in-timescale-cloud)
-  - [Copy data from the source database](#copy-data-from-the-source-database)
-    - [Copying data from your source database](#copying-data-from-your-source-database)
-  - [Restore data into Timescale Cloud](#restore-data-into-timescale-cloud)
-    - [Restoring data into Timescale Cloud with timescaledb-parallel-copy](#restoring-data-into-timescale-cloud-with-timescaledb-parallel-copy)
-    - [Restoring data into Timescale Cloud with COPY](#restoring-data-into-timescale-cloud-with-copy)
-  - [Migrate schema post-data](#migrate-schema-post-data)
-    - [Migrating schema post-data](#migrating-schema-post-data)
-    - [Troubleshooting](#troubleshooting-1)
-  - [Recreate continuous aggregates](#recreate-continuous-aggregates)
-    - [Recreating continuous aggregates](#recreating-continuous-aggregates)
-  - [Recreate policies](#recreate-policies)
-    - [Recreating policies](#recreating-policies)
-  - [Update table statistics](#update-table-statistics)
-    - [Troubleshooting](#troubleshooting-2)
+*   [Migrate schema pre-data](#migrate-schema-pre-data)
+*   [Restore hypertables in Timescale Cloud](#restore-hypertables-in-timescale-cloud)
+*   [Copy data from the source database](#copy-data-from-the-source-database)
+*   [Restore data into Timescale Cloud](#restore-data-into-timescale-cloud)
+*   [Migrate schema post-data](#migrate-schema-post-data)
+*   [Recreate continuous aggregates](#recreate-continuous-aggregates) (optional)
+*   [Recreate policies](#recreate-policies) (optional)
+*   [Update table statistics](#update-table-statistics)
 
 <highlight type="warning">
 Depending on your database size and network speed, steps that involve copying
