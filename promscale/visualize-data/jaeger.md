@@ -6,22 +6,18 @@ This section shows you how to integrate [Jaeger][jaeger-ui] with Promscale.
 
 To visualize traces in Jaeger with Promscale, you need to have the Jaeger component `jaeger-query` running. This Jaeger component queries and visualizes traces from Promscale. 
 
-Before you begin, deploy the component `jaeger-query` from the Jaeger [deploymentspage][jaeger-deployments]. Ensure that the version of the component is `1.30` or later. 
+Before you begin, deploy the component `jaeger-query` from the Jaeger [deploymentspage][jaeger-deployments]. Ensure that the version of the component is 1.30 or later. 
 
 <procedure>
 
 ## Connecting a Jaeger query with Promscale
     
-1.  Configure the following options for `jaeger-query` using the environment
-    variables:
-    * `SPAN_STORAGE_TYPE`  to `grpc-plugin`
-    * `GRPC_STORAGE_SERVER` to Promscale gRPC endpoint `<PROMSCALE_HOST>:9202` 
-
+1.  Configure the `SPAN_STORAGE_TYPE`, and `GRPC_STORAGE_SERVER` options for `jaeger-query` using the environment variables: 
     ```
     SPAN_STORAGE_TYPE=grpc-plugin
     GRPC_STORAGE_SERVER=<PROMSCALE_HOST>:9202
     ```
-    The port `9202` is the default gRPC server port in Promscale.
+    where: `<PROMSCALE_HOST>:9202` is the Promscale gRPC endpoint.
 
 1.  Start the `jaegar-query` component, it should be successfully connected with
     Promscale to visualize the traces. 
@@ -39,7 +35,7 @@ alt="Sample output for Jaeger query results"/>
 
 To set up `jaeger-query` with Promscale using Docker you need the IP address of the Promscale container or the URL. 
 
-You can find the IP address of the container using:
+You can find the IP address of the Promscale container using:
 ```bash
 docker inspect <PROMSCALE_CONTAINER_NAME>
 ```
@@ -58,7 +54,7 @@ You can set the URL as `<PROMSCALE>:9202` where:
       -p 16686:16686 \
       --network opentelemetry-demo_default \
       --name=jaeger \
-      -e "SPAN_STORAGE_TYPE=grpc-plugin" -e "GRPC_STORAGE_SERVER=promscale:9202" \
+      -e "SPAN_STORAGE_TYPE=grpc-plugin" -e "GRPC_STORAGE_SERVER=<PROMSCALE>:9202" \
       jaegertracing/jaeger-query:1.30
     ```
 1.  Navigate to `localhost:16686` in your browser, to access the `jaeger-query` homepage.
