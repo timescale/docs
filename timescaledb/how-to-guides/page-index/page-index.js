@@ -175,7 +175,7 @@ module.exports = [
             excerpt: "Use advanced analytics queries",
           },
           {
-            title: "Faster queries with SkipScan",
+            title: "DISTINCT queries with SkipScan",
             href: "skipscan",
             tags: ["skipscan", "distinct", "query", "timescaledb"],
             keywords: ["SkipScan", "query", "timescaledb"],
