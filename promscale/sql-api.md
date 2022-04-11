@@ -32,11 +32,11 @@ ORDER BY 1, 2, 4;
  is_normal_nan|value double precision|boolean|is_normal_nan returns true if the value is a NaN.
  is_stale_marker|value double precision|boolean|is_stale_marker returns true if the value is a Prometheus stale marker.
  jsonb|labels label_array|jsonb|jsonb converts a labels array to a JSONB object.
- key_value_array|labels label_array, OUT keys text[], OUT vals text[]|record| key_value_array converts a labels array to two arrays: one for keys and another for values.
+ key_value_array|labels label_array, OUT keys text[], OUT vals text[]|record|key_value_array converts a labels array to two arrays: one for keys and another for values.
  label_cardinality|label_id integer|integer
  label_key_position|metric_name text, key text|integer|
  labels|series_id bigint|label_array|labels fetches labels array for the given series id.
- labels_info|INOUT labels integer[], OUT keys text[], OUT vals text[]|record| labels_info converts an array of label ids to three arrays: one for ids, one for keys and another for values.
+ labels_info|INOUT labels integer[], OUT keys text[], OUT vals text[]|record|labels_info converts an array of label ids to three arrays: one for ids, one for keys and another for values.
  matcher|labels jsonb|matcher_positive|matcher returns a matcher for the JSONB, name is ignored. The matcher can be used to match against a label array using @> or ? operators.
  register_metric_view|schema_name text, view_name text, if_not_exists boolean|boolean|Register metric view with Promscale. This enables you to query the data with PromQL and set data retention policies through Promscale. Schema name and view name should be set to the desired schema and view you want to use. Note: underlying view needs to be based on an existing metric in Promscale (should use its table in the FROM clause). 
  reset_metric_chunk_interval|metric_name text|boolean|reset_metric_chunk_interval resets the chunk interval for a specific metric to using the default.
