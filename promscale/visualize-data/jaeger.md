@@ -1,12 +1,14 @@
 # Visualize Promscale traces in Jaeger
-
-Jaeger, is an open source distributed tracing system used for monitoring and troubleshooting microservices-based distributed systems.
+Jaeger is an open source distributed tracing system used for monitoring and 
+troubleshooting microservices-based distributed systems. To visualize traces 
+in Jaeger with Promscale, you need to have the `jaeger-query` component 
+running. This Jaeger component queries and visualizes traces from Promscale. 
 
 This section shows you how to integrate [Jaeger][jaeger-ui] with Promscale.
 
-To visualize traces in Jaeger with Promscale, you need to have the Jaeger component `jaeger-query` running. This Jaeger component queries and visualizes traces from Promscale. 
-
-Before you begin, deploy the component `jaeger-query` from the Jaeger [deploymentspage][jaeger-deployments]. Ensure that the version of the component is 1.30 or later. 
+Before you begin, deploy the jaeger-query` component from the Jaeger 
+[deployments page][jaeger-deployments]. Ensure that you are using `jaeger-query`
+version 1.30 or later. 
 
 <procedure>
 
