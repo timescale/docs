@@ -5,8 +5,8 @@ To add a data source in Grafana you must be signed as a user with organization
 adminatration role privileges.
 
 To connect Grafana with Promscale, install and run Grafana version 5.3 or later.
-For information about installing Grafana, see [Grafana installation
-docs][grafana-install].
+For information about installing Grafana, see the
+[Grafana installation documentation][grafana-install].
 
 This section shows you how to connect Promscale to Prometheus, Jaeger, and
 PostgreSQL data sources in [Grafana][grafana-homepage].
