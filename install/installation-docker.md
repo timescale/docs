@@ -103,11 +103,17 @@ on PostgreSQL 14. To find other Docker tags you can use, see the
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
-installed it yet, check out our [installing psql][install-psql] section.
+installed it yet, check out the [installing psql][install-psql] section.
 
 <procedure>
 
 ### Setting up the TimescaleDB extension
+
+<highlight type="important"> 
+If you installed TimescaleDB from the pre-built Docker container, then you
+probably already have the TimescaleDB extension, and you can skip this procedure.
+</highlight>
+
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
     ```bash
