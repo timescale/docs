@@ -42,12 +42,12 @@ ORDER BY 1, 2, 4;
  reset_metric_chunk_interval|metric_name text|boolean|reset_metric_chunk_interval resets the chunk interval for a specific metric to using the default.
  reset_metric_compression_setting|metric_name text|boolean|reset_metric_compression_setting resets the compression setting for a specific metric to using the default.
  reset_metric_retention_period|metric_name text|boolean|reset_metric_retention_period resets the retention period for a specific metric to using the default.
- set_compression_on_metric_table|metric_table_name text, compression_setting boolean| void|set_compression_on_metric_table set a compression for a specific metric table.
+ set_compression_on_metric_table|metric_table_name text, compression_setting boolean|void|set_compression_on_metric_table set a compression for a specific metric table.
  set_default_chunk_interval|chunk_interval interval|boolean|set_default_chunk_interval set the chunk interval for any metrics (existing and new) without an explicit override.
  set_default_compression_setting|compression_setting boolean|boolean|set_default_compression_setting set the compression setting for any existing and new metrics without an explicit override.
  set_default_retention_period|retention_period interval|boolean|set_default_retention_period set the retention period for any metrics (existing and new) without an explicit override.
  set_metric_chunk_interval|metric_name text, chunk_interval interval|boolean|set_metric_chunk_interval set a chunk interval for a specific metric (this overrides the default).
- set_metric_compression_setting|metric_name text, new_compression_setting boolean| boolean|set_metric_compression_setting set a compression setting for a specific metric and this overrides the default.
+ set_metric_compression_setting|metric_name text, new_compression_setting boolean|boolean|set_metric_compression_setting set a compression setting for a specific metric and this overrides the default.
  set_metric_retention_period|metric_name text, new_retention_period interval|boolean|set_metric_retention_period set a retention period for a specific metric (this overrides the default).
  unregister_metric_view|schema_name text, view_name text, if_not_exists boolean|boolean|Unregister metric view with Promscale. Schema name and view name should be set to the metric view already registered in Promscale. 
  val|label_id integer|text|val returns the label value from a label id.
