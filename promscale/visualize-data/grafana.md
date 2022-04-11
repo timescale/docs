@@ -34,12 +34,11 @@ can create panels that are populated with data using PromQL.
 src="https://s3.amazonaws.com/assets.timescale.com/images/misc/getting-started-with-promscale-grafana-dashboard.png"
 alt="Sample output for PromQl query"/>
 
+Grafana ships with built-in support for Jaeger, which provides open source,
+end-to-end distributed tracing.
 <procedure>
 
 ## Configuring Promscale as Jaeger data source
-
-Grafana ships with built-in support for Jaeger, which provides open source,
-end-to-end distributed tracing.
 
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
     previously configured data sources for the Grafana instance.
@@ -63,10 +62,10 @@ alt="Sample output for Jaeger query filter in Grafana"/>
 
 <procedure>
 
-## Configuring Promscale as PostgreSQL data source
-
 To configure Promscale as PostgreSQL data source you need details such as host,
 port, database, user, and password. These are available in the PostgreSQL service. The format of that URL is `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`
+
+## Configuring Promscale as PostgreSQL data source
 
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
     previously configured data sources for the Grafana instance.
