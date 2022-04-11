@@ -1,9 +1,8 @@
 # Connect Promscale and Grafana
-
-Grafana ships with a built-in Prometheus, PostgreSQL, and other data source
-plugins that allows you to query and visualize data from a compatible database.
-To Add a data source in Grafana you need to be a user with oraganization admin
-role previleges.
+Grafana ships with built-in Prometheus, PostgreSQL, and other data source
+plugins that allow you to query and visualize data from a compatible database.
+To add a data source in Grafana you must be signed as a user with organization 
+adminatration role privileges.
 
 To connect Grafana with Promscale, install and run Grafana version 5.3 or later.
 For information about installing Grafana, see [Grafana installation
