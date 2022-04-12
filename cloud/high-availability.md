@@ -33,11 +33,11 @@ Instance redundancy refers to having replicas of your database running
 simultaneously. In the case of a database failure, a replica is an up-to-date,
 running database that can take over immediately.
 
-<highlight type="warning">
+<highlight type="note">
 Creating database replicas in Timescale Cloud is an early access feature. Early
-access features could have bugs! They might not be backwards compatible, and
-could be removed in future releases. Use these features at your own risk, and do
-not use any experimental features in production.
+access features are still under active development. You can start enjoying the
+benefits of database replication now, while we continue to develop extended 
+capabilities, such as offering replicas in different availability zones.
 </highlight>
 
 You can enable a replica for your single-node services. The
