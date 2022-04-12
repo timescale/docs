@@ -58,4 +58,4 @@ create one.
 </procedure>
 
 
-[cloud-login]: https://cloud.timescale.com
+[cloud-login]: https://console.cloud.timescale.com/

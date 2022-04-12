@@ -16,4 +16,4 @@ and have the ability to add and delete other users, as well as change the
 project name. If you have been added to a project, you are assigned a `Member`
 role.
 
-[cloud-login]: https://cloud.timescale.com
+[cloud-login]: https://console.cloud.timescale.com/

@@ -6,4 +6,4 @@ an overview of the configuration and resource usage for the service.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-services-overview.png" alt="Timescale Cloud Services Overview"/>
 
-[cloud-login]: https://cloud.timescale.com
+[cloud-login]: https://console.cloud.timescale.com/
