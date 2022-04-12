@@ -1,4 +1,4 @@
-# SQL function API Reference
+# SQL functions API Reference
 
 This page is a reference for the functions available in Promscale.
 
