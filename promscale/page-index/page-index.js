@@ -26,6 +26,7 @@ module.exports = [
         href: 'installation',
         tags: ['promscale', 'learn', 'analytics', 'prometheus'],
         keywords: ['Promscale', 'analytics'],
+        relatedPages: ['recomm-guide', 'send-data'],
         excerpt: 'Install Promscale on Kubernetes, Docker, virtual machine, or bare metal',
         children: [
           {
@@ -33,6 +34,7 @@ module.exports = [
             href: 'kubernetes',
             tags: ['promscale', 'install', 'kubernetes', 'analytics', 'helm'],
             keywords: ['Promscale', 'Kubernetes', 'analytics', 'Helm'],
+            relatedPages: ['recomm-guide', 'send-data'],
             excerpt: 'Install Promscale on a Kubernetes cluster',
           },
           {
@@ -40,6 +42,7 @@ module.exports = [
             href: 'docker',
             tags: ['promscale', 'install', 'analytics', 'docker'],
             keywords: ['Promscale', 'analytics', 'Docker'],
+            relatedPages: ['recomm-guide', 'send-data'],
             excerpt: 'Install Docker for Promscale',
           },
           {
@@ -47,6 +50,7 @@ module.exports = [
             href: 'source',
             tags: ['promscale', 'install', 'analytics'],
             keywords: ['Promscale', 'analytics'],
+            relatedPages: ['recomm-guide', 'send-data'],
             excerpt: 'Install Promscale on bare metal',
           },
           {
@@ -68,7 +72,30 @@ module.exports = [
             href: 'tobs',
             tags: ['promscale', 'install', 'analytics', 'k8s'],
             keywords: ['Promscale', 'analytics', 'Kubernetes,'],
+            relatedPages: ['recomm-guide', 'send-data'],
             excerpt: "Install tobs",
+          },
+        ],
+      },
+      {
+        title: 'Send data to Promscale',
+        href: 'send-data',
+        excerpt: 'Send data to Promscale from Prometheus, OpenTelemetry and other tools',
+        children: [
+          {
+            title: 'Prometheus',
+            href: 'prometheus',
+            tags: ['promscale', 'configure', 'prometheus', 'metrics'],
+            keywords: ['Promscale', 'Prometheus'],
+            relatedPages: ['installation'],
+            excerpt: 'Send Prometheus metrics to Promscale',
+          },
+          {
+            title: 'OpenTelemetry',
+            href: 'opentelemetry',
+            tags: ['promscale', 'configure', 'opentelemetry', 'traces'],
+            keywords: ['Promscale', 'OpenTelemetry'],
+            excerpt: 'Send OpenTelemetry data to Promscale',
           },
         ],
       },
@@ -118,27 +145,6 @@ module.exports = [
             tags: ['promscale', 'multi-tenancy', 'scale', 'prometheus', 'timescaledb'],
             keywords: ['promscale', 'multi-tenancy', 'scale', 'prometheus', 'timescaledb'],
             excerpt: 'Configure Promscale multi-tenancy for Prometheus',
-          },
-        ],
-      },
-      {
-        title: 'Send data to Promscale',
-        href: 'send-data',
-        excerpt: 'Send data to Promscale from Prometheus, OpenTelemetry and other tools',
-        children: [
-          {
-            title: 'Prometheus',
-            href: 'prometheus',
-            tags: ['promscale', 'configure', 'prometheus', 'metrics'],
-            keywords: ['Promscale', 'Prometheus'],
-            excerpt: 'Send Prometheus metrics to Promscale',
-          },
-          {
-            title: 'OpenTelemetry',
-            href: 'opentelemetry',
-            tags: ['promscale', 'configure', 'opentelemetry', 'traces'],
-            keywords: ['Promscale', 'OpenTelemetry'],
-            excerpt: 'Send OpenTelemetry data to Promscale',
           },
         ],
       },
