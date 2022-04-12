@@ -89,7 +89,7 @@ specific functionality is required, it may be necessary to inquire about other p
 
  - **keywords**: An array of keywords to be displayed at the bottom of the given page.
 
- - **relatedPages**: An array of hrefs will be displayed in the related content section of the given page.
+ - **relatedPages**: An array of pathnames will be displayed in the related content section of the given page. Follow this example format: "/promscale/:currentVersion:/installation/". Note the starting abd ending slashes, and the use of :currentVersion:.
  
  - **"NEW" label**: To add a "NEW" label to content in the sidebar, include the key newLabel and the value 
  of a date string when the "NEW" label is set to expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.
