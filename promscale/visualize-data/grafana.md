@@ -36,6 +36,7 @@ alt="Sample output for PromQl query"/>
 
 Grafana ships with built-in support for Jaeger, which provides open source,
 end-to-end distributed tracing.
+
 <procedure>
 
 ## Configuring Promscale as Jaeger data source
