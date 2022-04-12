@@ -130,8 +130,6 @@ community-wide problems and incorporate as much feedback as possible.
 *   Add your own [feature request][gh-newissue].
 
 
-<hyperfunctionTable includeExperimental sortByType />
-
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
