@@ -97,11 +97,11 @@ In OpenTelemetry SDKs, you can send OpenTelemetry traces using OTLP to gRPC
 endpoint by configuring the exporter backend. Set the  exporter backed using the
 `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` environment variable on your application.
 Ensure that the SDK you are using on the application supports gRPC. If the SDK
-does not support gRPC then use the OpenTelmetry Collector to convert OTLP http
-to gRPC. Use the OTLP `http receiver` and OTLP `gRPC exporter` collector
-configuration to convert OTLP http to gRPC.   
+does not support gRPC then use the OpenTelmetry Collector. Use the OTLP `http
+receiver` and OTLP `gRPC exporter` collector configuration to convert OTLP http
+to gRPC.   
 
-The specifics of the configuration are different for each SDK and library. For more
-information, see[OpenTelemetry documentation][otel-docs].
+The specifics of the configuration are different for each SDK and library. For
+more information, see[OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
