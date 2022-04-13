@@ -1,6 +1,6 @@
 # Install TimescaleDB on Kubernetes
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the
-`timescaledb-single` Helm chart to deploy a highly-available TimescaleDB
+`timescaledb-single` Helm chart to deploy a highly available TimescaleDB
 database, and `timescaledb-multinode` to deploy a multi-node distributed
 TimescaleDB database. For more information about the components that are
 deployed with these charts, see [TimescaleDB on Kubernetes][timescaledb-k8s].
@@ -138,7 +138,7 @@ the name that you provided during the installation.
 
 ## Clean up
 You can use Helm to uninstall TimescaleDB on the Kubernetes cluster and clean up
-the Pods, PersistentVolumeClaim(PVC), S3 backups, and more.
+the Pods, persistent volume claim (PVC), S3 backups, and more.
 
 ### Cleaning up
 To remove the spawned Pods:
@@ -151,13 +151,12 @@ immediately. For more information about purging these items, see the
 
 ## Where to next
 Now that you have your first TimescaleDB database up and running, see
-the [TimescaleDB][tsdb-docs] section in our documentation to learn what
-you can do with it.
+the [TimescaleDB][tsdb-docs] section to learn what you can do with it.
 
 To work through some tutorials that help you get started with
-TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
+TimescaleDB and time-series data, check out the [tutorials][tutorials] section.
 
-To get help or chat with the Timescale team, [contact us][contact].
+To get help or chat with the Timescale team, [get in contact][contact].
 
 
 [kubectl-install]: https://kubernetes.io/docs/tasks/tools/
