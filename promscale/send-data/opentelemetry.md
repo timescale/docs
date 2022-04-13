@@ -30,9 +30,9 @@ Configure the following in OpenTelemetry Collector configuration file:
     exports the OTLP metrics to the Prometheus remote storage backend. Configure
     the Promscale http endpoint to ingest the metrics. 
   * **Processors**: to run on data between being received and being
-    exported.Batch processor is to batch, compress the data, and to control the
+    exported. Batch processor is to batch, compress the data, and to control the
     number of outgoing connections, configured with `send_max_batch_size` and
-    `timeout` to send data, Promscale recommends 10s.
+    `timeout` to send data, Promscale recommends 10 seconds.
   * **Service**: to configure what components are enabled in the Collector based
     on the configuration found in the receivers, processors, exporters, and
     extensions sections. Pipeline to receive the traces and metrics from OTLP,
