@@ -23,7 +23,7 @@ which defaults to port `:9201` when you start the Promscale connector.
 Configure the following in OpenTelemetry Collector configuration file:
   * **Receivers**: to push or pull data into the Collector. OpenTelemetry line
     protocol (gRPC, http)
-  * **Exporters**: to push or pull data to one or more backends. OpenTelemetry
+  * **Exporters**: to send data to one or more backends. OpenTelemetry
     line protocol to configure the Promscale gRPC server to export the data to
     Promscale. Use `queue_size` to hold the data before dropping, and `timeout`
     is timeout for the write request to the backend, Prometheus remote write
