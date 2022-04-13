@@ -17,7 +17,7 @@ WHERE n.nspname OPERATOR(pg_catalog.~) '^(prom)$' COLLATE pg_catalog.default
 ORDER BY 1, 2, 4;
 -->
 
- |Name|Arguments|Type|Description|
+|Name|Arguments|Type|Description|
 |-|:-:|:-:|:-|
  |`add_prom_node`|node_name text, attach_to_existing_metrics DEFAULT true|boolean||
  |`config_maintenance_jobs`|number_jobs integer, new_schedule_interval interval, new_config jsonb DEFAULT NULL::jsonb|boolean|Configure the number of maintenance jobs run by the job scheduler, as well as their scheduled interval.|
