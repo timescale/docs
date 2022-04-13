@@ -95,7 +95,7 @@ on a Kubernetes cluster the endpoint parameter is similar to `endpoint:
 With Opentelemetry SDKs you can send OpenTelemetry traces using OTLP gRPC
 endpoint by configuring the exporter backend using the
 `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` environment variable on your application.
-The SDK that you are using on the spplication should support gRPC. If the SDK
+The SDK that you are using on the application should support gRPC. If the SDK
 does not support gRPC then use the OpenTelmetry Collector to convert OTLP http
 to gRPC using the OTLP `http receiver` and OTLP `gRPC exporter` collector
 configuration.   
