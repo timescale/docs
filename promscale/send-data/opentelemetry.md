@@ -3,9 +3,9 @@ Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for traces
 and Prometheus remote write protocol for metrics. You can use any
 of the OpenTelemetry client SDKs, instrumentation libraries, or the
 OpenTelemetry Collector to send traces to Promscale using OTLP.
-Currently, Promscale only supports **gRPC** for traces. OpenTelemetry
-metrics are converted into Prometheus remote write format in OpenTelemetry
-Collector and exported to Promscale **HTTP** endpoint.
+Currently, Promscale only supports **gRPC** for traces. To send OpenTelemetry
+metrics to Promscale you can use the OpenTelemetry Collector to convert OTLP 
+metrics to Prometheus metrics.
 
 ## Send data using the OpenTelemetry Collector
 We recommend that you use the OpenTelemetry Collector to export data to an
@@ -50,7 +50,6 @@ receivers:
       http:
 
 exporters:
-  logging:
   otlp:
     endpoint: "<PROMSCALE_HOST>:<gRPC_PORT>"
     tls:
@@ -74,7 +73,7 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [logging, otlp]
+      exporters: [otlp]
       processors: [batch]
     metrics:
       receivers: [otlp]
@@ -85,7 +84,7 @@ service:
 Where: 
 `<PROMSCALE_HOST>`: hostname of Promscale
 `<gRPC_PORT>`: gRPC port of Promscale. By default, Promscale listens on port 9202 for gRPC connections.  
-`<HTTP_PORT>` : HTTP port of Promscale
+`<HTTP_PORT>` : HTTP port of Promscale. By default, Promscale listens on port 9201 for HTTP connections.
  
 For example, if you are running the OTLP Collector and the Promscale Connector
 on a Kubernetes cluster the endpoint parameter is similar to `endpoint:
