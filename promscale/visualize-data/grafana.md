@@ -77,7 +77,7 @@ port, database, user, and password of the underlying TimescaleDB / PostgreSQL da
     *   In the `Host`field, type the IP address or hostname and optional port of
         your TimescaleDB / PostgreSQL instance. 
     *   In the `Database` field, type the name of the PostgreSQL database.
-    *   In the `User`and `Password`fields, type the `user name` and the
+    *   In the `User`and `Password` fields, type the `user name` and the
         `password` for the database.
     *   In the `TLS/SSL Mode` select `require`. This determines whether or with
         what priority a secure SSL TCP/IP connection is negotiated with the
