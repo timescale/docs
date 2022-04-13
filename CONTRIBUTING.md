@@ -293,7 +293,7 @@ Each page listed in `page-index.js` can have the following properties:
 |`children`|Optional|An array containing the child pages for the page. Child-page properties are defined in the same way as parent-page properties. Child pages can be nested inside other child pages to form multiple levels. The filenames provided in `href` should be located in a sub-folder with the same name as the parent page.|
 |`keywords`|Optional|An array of keywords to be displayed at the bottom of the page.|
 |`excerpt`|Optional|A short description of the page. Excerpts are displayed within Related Content cards at the bottom of each page.|
-|`relatedPages`|Optional|An array of `href`s to be displayed as Related Content at the bottom of the page.|
+|`relatedPages`|Optional|An array of pathnames to be displayed as Related Content at the bottom of the page. For example, `["/promscale/:currentVersion:/installation/"]`|
 |`pageComponents`|Optional|If provided, child pages are listed below any other content in the parent page. Takes two possible values, `['featured-cards']` and `['content-list']`, corresponding to the two list styles.|
 |`type`|Optional|Associates the page with a specific page type that has special features or layout. Rarely used.|
 |`newLabel`|Optional|Adds a `NEW` label to content in the navigation menu. Set the value of `newLabel` to the date when the label should expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.|
