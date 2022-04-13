@@ -25,7 +25,7 @@ balancer (ELB) is configured to handle routing incoming traffic to the master
 Pod.
 
 <highlight type="note">
-The backup to S3 is disabled by default. To configure backup location,
+The backup to S3 is turned off by default. To configure backup location,
 credentials, schedules, and more, see the [Administrator
 Guide](https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/admin-guide.md/).
 </highlight>
