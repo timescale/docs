@@ -7,7 +7,7 @@ Currently, Promscale supports only **gRPC** for traces. The OpenTelemetry
 metrics are converted into Prometheus remote write format in OpenTelemetry
 Collector and exported to Promscale **HTTP** endpoint.
 
-## Send data using OpenTelemetry Collector
+## Send data using the OpenTelemetry Collector
 We recommend that you use the OpenTelemetry Collector to export data to an
 observability backend in a production environment. OpenTelemetry Collector
 offers batching, queued retries, and many other functions that can be configured
