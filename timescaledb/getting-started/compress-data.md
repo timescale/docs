@@ -5,34 +5,34 @@ analyze and query massive amounts of historical time-series data inside a
 database while also saving on storage costs. Additionally, all PostgreSQL data 
 types can be used in compression.
 
-In the next step, you enable compression on your hypertable and learn 
-two ways of compressing data: 
+Compressing time-series data in a hypertable is a two-step process. First, you 
+need to enable compression on a hypertable by telling TimescaleDB how to compress 
+and order the data as it is compressed. Once compression is enabled, the data can 
+then be compressed in one of two ways:
 1. Using an automatic policy
 2. Manually compressing chunks
 
-But, before you can start compressing data, you need to enable compression
-on the `stocks_real_time` hypertable. 
 
 ## Enable TimescaleDB compression on the hypertable
 
 To enable compression, you need to [`ALTER` the `stocks_real_time` hypertable][alter-table-compression]. There
 are three parameters you can specify when enabling compression:
-* `timescaledb.compress` (required): this turns on compression
-* `timescaledb.compress_orderby` (optional): this uses the specified column to order 
-compression by
-* `timescaledb.compress_segmentby` (optional): this uses the specified column to key 
-compressed segments by
+* `timescaledb.compress` (required): enable TimescaleDB compression on the hypertable
+* `timescaledb.compress_orderby` (optional): column(s) used to order compressed data
+* `timescaledb.compress_segmentby` (optional): column(s) used to group compressed data
+
+If you do not specify `compress_orderby` or `compress_segmentby` column(s), the compressed data will automatically be ordered by the hypertable time column.
 
 ```sql
 -- Enable compression
 ALTER TABLE stocks_real_time SET (
  timescaledb.compress,
- timescaledb.compress_orderby = 'time DESC'
+ timescaledb.compress_orderby = 'time DESC',
  timescaledb.compress_segmentby = 'symbol'
 );
 ```
 
-Once running this code, you enable compression on `stocks_real_time`.
+Running this SQL code enables compression on the `stocks_real_time` hypertable.
 
 <highlight type="note">
  To learn more about the `segmentby` and `orderby` options for compression in TimescaleDB and how 
@@ -48,6 +48,14 @@ compression option and its `orderby` and `segmentby` attributes:
 SELECT * FROM timescaledb_information.compression_settings;
 ```
 
+Sample results:
+```
+hypertable_schema|hypertable_name |attname|segmentby_column_index|orderby_column_index|orderby_asc|orderby_nullsfirst|
+-----------------+----------------+-------+----------------------+--------------------+-----------+------------------+
+public           |stocks_real_time|symbol |                     1|                    |           |                  |
+public           |stocks_real_time|time   |                      |                   1|false      |true              |
+```
+
 ## Automatic compression
 When you have enabled compression, you can schedule a [policy to automatically compress][compress-automatic]
 data according to the settings defined above. 
@@ -56,21 +64,16 @@ For example, if you want to compress data on your hypertable that has existed mo
 in the past, you could use this code:
 
 ```sql
-SELECT add_compression_policy('stocks_real_time', INTERVAL '1 month');
+SELECT add_compression_policy('stocks_real_time', INTERVAL '2 weeks');
 ```
 
-Similar to the continuous aggregates policy and retention policies, when you run this code, all data 
-from one month prior is compressed in `stocks_real_time`, and a recurring compression
-policy is created. 
+Similar to the continuous aggregates policy and retention policies, when you run this SQL, all 
+chunks that contain data that is at least two old are compressed in `stocks_real_time`, 
+and a recurring compression policy is created. 
 
-It is important that you don't try to compress all your data. It is best to 
-only compress data when it has aged, which is why the examples here 
-compress data older than one month. You can't updated a compressed 
-chunk, and this could block the addition or removal of data. Since you 
-are likely to be adding data for more recent time periods, it is best only 
-to compress data that is less likely to require updating. 
-
- <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-refresh-compression.jpg" alt="Continuous aggregate with refresh and compression policies"/>
+It is important that you don't try to compress all your data. Although you can insert
+new data into compressed chunks, compressed rows can't be updated or deleted. Therefore,
+it is best to only compress data after it has aged, once data is less likely to require updating.  
 
 Just like for automated policies for continuous aggregates, you can view information and statistics 
 about your compression background job in these two information views:
@@ -89,11 +92,21 @@ While we recommend using compression policies to compress data automatically,
 there might be situations where you need to [manually compress chunks][compress-manual]. 
 
 Use this query to manually compress chunks that consist of data older than
-1 month:
+2 weeks:
 
 ```sql
 SELECT compress_chunk(i)
-FROM show_chunks('stocks_real_time', older_than => INTERVAL ' 1 month') i;
+FROM show_chunks('stocks_real_time', older_than => INTERVAL ' 2 weeks') i;
+```
+
+## Verify your compression
+
+Use this query to view the size of your compressed chunks before and after applying compression:
+
+```sql
+SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
+  pg_size_pretty(after_compression_total_bytes) as "after compression"
+  FROM hypertable_compression_stats('stocks_real_time');
 ```
 
 ## Learn more about compression

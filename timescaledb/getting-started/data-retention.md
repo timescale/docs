@@ -16,9 +16,7 @@ for time periods where you dropped data.
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy-retention.jpg" alt="Continuous aggregate with refresh and retention policies"/>
 
-So you have a continuous aggregate with a refresh policy, but you now may want to remove 
-old data in the underlying hypertable. There are two ways to drop data from the 
-underlaying hypertable: 
+There are two ways to drop historic data from a hypertable: 
 1. Automatic data retention policy
 2. Manually dropping chunks
 
@@ -32,14 +30,14 @@ These policies are "set it and forget it" in nature, meaning less hassle
 for maintenance and upkeep.
 
 For example, you may want to continually remove stock data in the underlying hypertable 
-`stocks_real_time` for time periods greater than three months ago. You can use this code with 
+`stocks_real_time` for time periods greater than three weeks ago. You can use this code with 
 the [`add_retention_policy()`][retention-policy] function to set up the automatic retention policy for this:
 
 ```sql
-SELECT add_retention_policy('stocks_real_time', INTERVAL '3 months');
+SELECT add_retention_policy('stocks_real_time', INTERVAL '3 weeks');
 ```
 Similar to the continuous aggregates policy, once you run this code, all data 
-from two months prior will be dropped in `stocks_real_time`, and a recurring retention
+from three weeks prior will be dropped in `stocks_real_time`, and a recurring retention
 policy is created. 
 
 To see information about your retention policies and their job statistics, use the
