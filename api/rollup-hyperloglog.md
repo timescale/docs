@@ -1,3 +1,13 @@
+---
+api_name: rollup
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'approximate count distinct'
+hyperfunction_subfamily: hyperloglog
+hyperfunction_type: rollup
+---
+
 # rollup()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL

@@ -1,8 +1,10 @@
-# Counter aggregation
-This section contains functions related to counter aggregation. Counter
-aggregation functions are used to continue accumulating data while ignoring any
-interruptions or resets. For more information about counter aggregation
-functions, see the [hyperfunctions documentation][hyperfunctions-counter-agg].
+# Counter and gauge aggregation
+This section contains functions related to counter and gauge aggregation.
+Counter aggregation functions are used to accumulate monotonically increasing data 
+by treating any decrements as resets. Gauge aggregates are similar, but are used to
+track data which can decrease as well as increase. For more information about counter
+aggregation functions, see the
+[hyperfunctions documentation][hyperfunctions-counter-agg].
 
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
@@ -10,9 +12,10 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Counter aggregation|Counter aggregates|[`counter_agg`](/hyperfunctions/counter_aggs/counter_agg_point/)|❌|✅|
-|||[`rollup`](/hyperfunctions/counter_aggs/rollup-counter/)|❌|✅|
-|Counter aggregation|Counter aggregate accessors|[`corr`](/hyperfunctions/counter_aggs/corr-stats/)|❌|✅|
+|Counter and gauge aggregation|Counter aggregate|[`counter_agg`](/hyperfunctions/counter_aggs/counter_agg_point/)|❌|✅|
+||Gauge aggregate|[`gauge_agg`](/hyperfunctions/counter_aggs/gauge_agg/)|❌|✅|
+||Rollup|[`rollup`](/hyperfunctions/counter_aggs/rollup-counter/)|❌|✅|
+||Accessor|[`corr`](/hyperfunctions/counter_aggs/corr-stats/)|❌|✅|
 |||[`counter_zero_time`](/hyperfunctions/counter_aggs/counter_zero_time/)|❌|✅|
 |||[`delta`](/hyperfunctions/counter_aggs/delta/)|❌|✅|
 |||[`extrapolated_delta`](/hyperfunctions/counter_aggs/extrapolated_delta/)|❌|✅|
@@ -26,7 +29,14 @@ additional hyperfunctions, you need to install the
 |||[`rate`](/hyperfunctions/counter_aggs/rate/)|❌|✅|
 |||[`slope`](/hyperfunctions/counter_aggs/slope-counter/)|❌|✅|
 |||[`time_delta`](/hyperfunctions/counter_aggs/time_delta/)|❌|✅|
-|Counter aggregation|Counter aggregate mutators|[`with_bounds`](/hyperfunctions/counter_aggs/with_bounds/)|❌|✅|
+||Mutator|[`with_bounds`](/hyperfunctions/counter_aggs/with_bounds/)|❌|✅|
+
+<highlight type="important">
+All accessors can be used with `CounterSummary`. The accessors `delta`,
+`idelta_left`, and `idelta_right` can be used with `GaugeSummary`.
+`GaugeSummary` will eventually support all the accessors, with the exception
+of `num_resets`.
+</highlight>
 
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

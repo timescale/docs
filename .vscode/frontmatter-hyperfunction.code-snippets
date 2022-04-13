@@ -1,0 +1,18 @@
+{
+	 "Hyperfunction frontmatter": {
+	 	"scope": "markdown",
+	 	"prefix": ["hyperfm"],
+	 	"body": [
+            "---",
+            "api_name: $1",
+            "api_category: hyperfunction",
+            "api_experimental: ${2:true|false}",
+            "hyperfunction_toolkit: ${3:true|false}",
+            "hyperfunction_family: '${4:approximate count distinct|statistical aggregates|gapfilling and interpolation|percentile approximation|metric aggregation|time-weighted averages|downsample|frequency analysis}'",
+            "hyperfunction_subfamily: $5",
+            "hyperfunction_type: ${6:aggregate|accessor|accessor-1d|accessor-2d|rollup|mutator|other}",
+            "---"
+	 	],
+	 	"description": "Insert hyperfunction frontmatter"
+	 }
+}
