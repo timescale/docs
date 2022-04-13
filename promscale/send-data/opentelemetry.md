@@ -39,8 +39,8 @@ Set the following in OpenTelemetry Collector configuration file:
   * **Service**: to configure what components are enabled in the Collector based
     on the settings in the `receivers`, `processors`, `exporters`, and
     `extensions` sections. Pipeline to receive the traces and metrics from OTLP,
-    batch process them, and export the data in logs and OTLP to backends
-    supported in Prometheus.
+    batch process them, and export the data to OTLP gRPC, Prometheus remote-write
+    supported backends.
 
 Use the following configuration to send traces from OpenTelemetry applications
 to the Collector and export them to Promscale.
