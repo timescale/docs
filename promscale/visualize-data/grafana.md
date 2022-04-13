@@ -46,7 +46,7 @@ end-to-end distributed tracing.
 1.  Click `Add data source`to see a list of all supported data sources.
 1.  Type `Jaeger` in the search field and click `Select`.
 1.  Configure the data source settings:
-    *   In the `Name`field, type `Promscale-traces`.
+    *   In the `Name`field, type `Promscale-Jaeger`.
     *   In the `URL`field, type `http://<PROMSCALE-IP-ADDR>:9201`, where
         `<PROMSCALE-IP-ADDR>`is the IP address of the Promscale instance.
     *   Use the default values for all other settings.
