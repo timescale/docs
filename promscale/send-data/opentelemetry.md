@@ -9,10 +9,10 @@ Collector and exported to Promscale **HTTP** endpoint.
 
 ## Send data using OpenTelemetry Collector
 We recommend that you use the OpenTelemetry Collector to export data to an
-observability backend in a production environment because it offers batching,
-queued retries, and many other functions that can be configured in the
-processors. However, you can also send data from OpenTelemetry instrumentation
-libraries and SDKs directly to Promscale using OTLP.
+observability backend in a production environment. OpenTelemetry Collector
+offers batching, queued retries, and many other functions that can be configured
+in the processors. However, you can also send data from OpenTelemetry
+instrumentation libraries and SDKs directly to Promscale using OTLP.
 
 You can configure the OpenTelemetry Collector to forward traces and metrics to
 Promscale. Promscale listens to OTLP data on the port you specified in the
