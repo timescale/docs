@@ -1,5 +1,6 @@
 # Send OpenTelemetry data to Promscale
 Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for traces
+<<<<<<< HEAD
 and Prometheus remote write protocol for metrics.
 You can send traces to Promscale using OTLP with any of the OpenTelemetry client
 SDKs, instrumentation libraries, or the OpenTelemetry Collector. Currently,
@@ -7,6 +8,14 @@ Promscale only supports **gRPC** endpoint for traces.
 You can send OpenTelemetry metrics to Promscale **HTTP** endpoint using
 Prometheus remote write protocol with the OpenTelemetry Collector. OpenTelemetry
 Collector converts OTLP metrics to Prometheus remote write protocol metrics.
+=======
+and Prometheus remote write protocol for metrics. You can use any
+of the OpenTelemetry client SDKs, instrumentation libraries, or the
+OpenTelemetry Collector to send traces to Promscale using OTLP.
+Currently, Promscale only supports **gRPC** for traces. To send OpenTelemetry
+metrics to Promscale you can use the OpenTelemetry Collector to convert OTLP 
+metrics to Prometheus metrics.
+>>>>>>> 1539e409052c7447958f17acef2ff5dfec10c0d1
 
 ## Send data using the OpenTelemetry Collector
 Although you can also send data from OpenTelemetry instrumentation libraries and
@@ -53,7 +62,6 @@ receivers:
       http:
 
 exporters:
-  logging:
   otlp:
     endpoint: "<PROMSCALE_HOST>:<gRPC_PORT>"
     tls:
@@ -77,7 +85,7 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [logging, otlp]
+      exporters: [otlp]
       processors: [batch]
     metrics:
       receivers: [otlp]
@@ -87,8 +95,13 @@ service:
 
 Where: 
 `<PROMSCALE_HOST>`: hostname of Promscale
+<<<<<<< HEAD
 `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
 `<HTTP_PORT>` : HTTP port of Promscale. The default port is 9201.
+=======
+`<gRPC_PORT>`: gRPC port of Promscale. By default, Promscale listens on port 9202 for gRPC connections.  
+`<HTTP_PORT>` : HTTP port of Promscale. By default, Promscale listens on port 9201 for HTTP connections.
+>>>>>>> 1539e409052c7447958f17acef2ff5dfec10c0d1
  
 If you are running the OTLP Collector and the Promscale Connector
 on a Kubernetes cluster the endpoint parameter is similar to `endpoint:
