@@ -3,7 +3,7 @@ Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for traces
 and Prometheus remote write protocol for metrics. You can use any
 of the OpenTelemetry client SDKs, instrumentation libraries, or the
 OpenTelemetry Collector to send traces to Promscale using OTLP.
-Currently, Promscale supports only **gRPC** for traces. The OpenTelemetry
+Currently, Promscale only supports **gRPC** for traces. OpenTelemetry
 metrics are converted into Prometheus remote write format in OpenTelemetry
 Collector and exported to Promscale **HTTP** endpoint.
 
