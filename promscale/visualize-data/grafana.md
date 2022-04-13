@@ -75,7 +75,7 @@ port, database, user, and password of the underlying TimescaleDB / PostgreSQL da
 1.  Configure the data source settings:
     *   In the `Name`field, type `Promscale-SQL`.
     *   In the `Host`field, type the IP address or hostname and optional port of
-        your PostgreSQL instance. 
+        your TimescaleDB / PostgreSQL instance. 
     *   In the `Database` field, type the name of the PostgreSQL database.
     *   In the `User`and `Password`fields, type the `user name` and the
         `password for the database`.
