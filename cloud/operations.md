@@ -25,7 +25,7 @@ complete the transition before you start forking.
 Forks only have data up to the point when the original service was forked. Any
 data written to the original service after the time of forking does not appear 
 in the fork. If you intend for the fork to assume operations from the original
-service, you may want to pause your main service before forking to avoid any
+service, pause your main service before forking to avoid any
 data discrepancy between services.
 </highlight>
 
