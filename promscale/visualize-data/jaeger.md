@@ -33,7 +33,7 @@ You can visualize traces from Promscale in `jaeger-query` home page. Use the
 src="https://s3.amazonaws.com/assets.timescale.com/images/misc/jaeger-homepage-query-results.png"
 alt="Sample output for Jaeger query results"/>
 
-## Using Docker for setting up Jaeger Query with Promscale
+## Use Docker for setting up Jaeger Query with Promscale
 
 To set up `jaeger-query` with Promscale using Docker you need the IP address of the Promscale container or the URL. 
 
