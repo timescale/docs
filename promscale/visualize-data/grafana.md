@@ -64,7 +64,7 @@ alt="Sample output for Jaeger query filter in Grafana"/>
 <procedure>
 
 To configure Promscale as PostgreSQL data source you need details such as host,
-port, database, user, and password. These are available in the PostgreSQL service. The format of that URL is `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`
+port, database, user, and password of the underlying TimescaleDB / PostgreSQL database used by Promscale.
 
 ## Configuring Promscale as PostgreSQL data source
 
