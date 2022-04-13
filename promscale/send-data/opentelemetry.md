@@ -84,7 +84,7 @@ service:
 
 Where: 
 `<PROMSCALE_HOST>`: hostname of Promscale
-`<gRPC_PORT>`: gRPC port of Promscale
+`<gRPC_PORT>`: gRPC port of Promscale. By default, Promscale listens on port 9202 for gRPC connections.  
 `<HTTP_PORT>` : HTTP port of Promscale
  
 For example, if you are running the OTLP Collector and the Promscale Connector
