@@ -38,21 +38,21 @@ With this refresh policy, the data can be incorporated into your continuous aggr
 
 
 Using the automated [continuous aggregate policy][auto-refresh] to update continuous 
-aggregate data allows you to "set it, and forget it" and guaruntees new data will be 
+aggregate data allows you to "set it, and forget it" and guarantees new data will be 
 materialized over time.
 
 In the next command, create an auto-updating policy for the continuous aggregate `stock_candlestick_daily`. 
-The refresh job runs every 3 days, and refreshes aggregated data from the past week:
+The refresh job runs everyday, and refreshes aggregated data from the past three days:
 
 ```sql
 SELECT add_continuous_aggregate_policy('stock_candlestick_daily',
-  start_offset => INTERVAL '1 week',
+  start_offset => INTERVAL '3 days',
   end_offset => INTERVAL '1 hour',
-  schedule_interval => INTERVAL '3 days');
+  schedule_interval => INTERVAL '1 days');
 ```
 
-This policy will run every 3 days (`schedule_interval`). When it runs, it
-materializes data from between 1 week (`start_offset`) and 1 hour (`end_offset`)
+This policy will run once a day (`schedule_interval`). When it runs, it
+materializes data from between 3 days ago (`start_offset`) and 1 hour ago (`end_offset`)
 from the time it executes, according to the query which defined the continuous
 aggregate `stock_candlestick_daily`.
 

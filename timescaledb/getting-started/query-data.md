@@ -20,15 +20,15 @@ popular TimescaleDB functions.
    WHERE time > now() - INTERVAL '1 day';
    ```
 
-### Select the top 10 stock values by price.
+### Select the top 10 stock trades by price for the latest time period.
 
-   This query uses the [`ORDER BY`][order-by] keyword to order the results by descending price
+   This query uses the [`ORDER BY`][order-by] keyword to order the results by descending time then price
    and limit the number of results shown to 10. 
 
    ```sql
    SELECT * FROM stocks_real_time srt
-   ORDER BY price DESC
-   LIMIT 10;   
+   ORDER BY time DESC, price DESC
+   LIMIT 10;  
    ```
 
 ### Calculate the average trade price for Apple from the last day
@@ -39,10 +39,10 @@ popular TimescaleDB functions.
 
    ```sql
    SELECT
-   avg(price) FILTER (WHERE c.name = 'Apple')
+   avg(price)
    FROM stocks_real_time srt
-   JOIN company c ON c.symbol = srt.symbol
-   WHERE time > now() - INTERVAL '2 day';
+      JOIN company c ON c.symbol = srt.symbol
+   WHERE c.name = 'Apple' AND time > now() - INTERVAL '2 day';
    ```
 
 

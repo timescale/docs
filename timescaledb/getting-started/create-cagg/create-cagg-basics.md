@@ -5,16 +5,17 @@ aggregate from your data.
 
 ## Step 1: Create an aggregate query to use in your continuous aggregate
 
-For this tutorial, you have stock price data. A popular aggregate pattern used
-for analyzing stock data is called a [candlestick][candlestick]. Generally, candlestick 
-charts use 4 different aggregations over a 1-day period:
+The data we are using for this tutorial is second-by-second (tick) data for stock trades. 
+A popular aggregate pattern used for analyzing stock data is called a [candlestick][candlestick]. 
+Generally, candlestick charts use 4 different aggregations over a specific interval 
+of time (ie. 1-minute, 5-minute, or 1-day aggregates):
 
-* `high`: highest stock price of the day
-* `open`: opening stock price of the day
-* `close`: closing stock price of the day
-* `low`: lowest stock price of the day 
+* `high`: highest stock price per interval
+* `open`: opening stock price per interval
+* `close`: closing stock price per interval
+* `low`: lowest stock price per interval 
 
-For this use case, the [`time_bucket()`][time-bucket] function interval will be 1 day. The 
+For this exmaple query, the [`time_bucket()`][time-bucket] function interval will be 1 day. The 
 `high` and `low` values can be found by using the PostgreSQL [`MAX()`][max] and [`MIN()`][min] 
 functions. Finally, the `open` and `close` values can be found by using the [`first()`][first] 
 and [`last()`][last] functions.  
@@ -67,8 +68,8 @@ your existing hypertable data.
 The query may take some time to run because it needs to perform these calculations. 
 After the calculation results are stored, querying the data from the 
 continuous aggregate is much faster. Run the following query to get all the data in your 
-continuous aggregate, and note how much faster this is than Step 1, where the `SELECT` statement
-queries and aggregates the raw data.
+continuous aggregate, and note how much faster this is than running the aggregate `SELECT` 
+query on the raw hypertable data.
 
 ```sql
 SELECT * FROM stock_candlestick_daily
@@ -84,10 +85,16 @@ SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
 </highlight>
 
-Now that you have your continuous aggregate, set up a [continuous aggregate refresh policy][cagg-policy].
-Without a policy, your continuous aggregate won't materialize new data inserted into the `stocks_real_time`
-table. Over time, querying your aggregate gets slower as more data needs to be aggregated on-the-fly from
-the raw data table.
+Now that you have your continuous aggregate set up a [continuous aggregate refresh policy][cagg-policy].
+Without a policy, your continuous aggregate won't materialize new data as it is 
+inserted into the `stocks_real_time` hypertable. TimescaleDB will perform real-time 
+aggregation for continuous aggregates on time-buckets that have not been materialized. 
+If you add new data to your underlying hypertable, like `stocks_real_time`, without 
+running a refresh policy, TimescaleDB aggregates the new data on-the-fly. This 
+real-time aggregation of un-materialized data could cause queries from your continuous 
+aggregate to slow down. Setting up an automatic refresh policy that materializes your 
+data and prevents unnecessary real-time aggregation is crucial. 
+
 
 ## Learn more about continuous aggregates
 

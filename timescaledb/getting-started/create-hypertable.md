@@ -1,7 +1,9 @@
 # Create a hypertable
-Now that you've launched your first TimescaleDB instance and accessed your database,
-you can create your first hypertable. Hypertables are the heart of TimescaleDB functionality
-and allow TimescaleDB to work efficiently with time-series data.
+Hypertables are the heart of TimescaleDB functionality and allows TimescaleDB to 
+work efficiently with time-series data. It's good to remember that since TimescaleDB 
+is PostgreSQL, all the regular PostgreSQL tables, indexes, etc. can be created right 
+alongside your TimescaleDB hypertables. This makes creating and working with TimescaleDB 
+tables fairly similar to how you would with just vanilla PostgreSQL. 
 
 ## Hypertables and chunks
 Hypertables and chunks make storing and querying times-series data fast at petabyte 
@@ -32,18 +34,13 @@ For more detailed information, check out the [Overview page on 'Hypertables and 
 **Create your first hypertable**
 
 ```sql
-----------------------------------------
--- Hypertable to store real-time stock trades
-----------------------------------------
--- Step 1: Define regular table
-CREATE TABLE IF NOT EXISTS stocks_real_time (
+CREATE TABLE stocks_real_time (
    time TIMESTAMPTZ NOT NULL,
    symbol TEXT NOT NULL,
    price DOUBLE PRECISION NULL,
    day_volume INT NULL
 );
 
--- Step 2: Turn into hypertable
 SELECT create_hypertable('stocks_real_time','time');
 ```
 
@@ -53,31 +50,22 @@ Creating a hypertable is a two-step process:
 the table into a hypertable. The `create_hypertable()` function requires two 
 input parameters - the name of the table, and the name of the time column.
 
-<!-- 
-## How hypertables help with times-series data
-**Hypertables speed up ingest rates:** Because data is only inserted into
-the current chunk, data in the other chunks remains untouched. If you use a
-single table, every time you ingest data into the table, it becomes bigger and
-more bloated.
+## Create regular PostgreSQL tables for relational data
+TimescaleDB isn't just for hypertables. Remember, TimescaleDB _is_ PostgreSQL. When 
+you have other relational data that enhances your time-series data, you can create 
+regular PostgreSQL tables just like you would normally. For this dataset, we have one 
+other table of data called `company`. 
 
-**Hypertables speed up queries:** Because only specific chunks are queried
-thanks to the automatic indexing by time or space.
+To add this table to your data base, run the following command:
 
-The value of hypertables is in how data is partitioned on disk. The index value
-is automatically augmented by the time dependency of the data to allow more
-focused use of memory and query planning resources. In PostgreSQL (and other
-relational database management systems), you can build indexes on one or more
-values, but the data must still be retrieved. Retrieval is in most cases, from
-portions of the physical layer (memory or disk), which doesn't always result in
-effective use of memory and disk resources. By automatically and transparently
-partitioning on time, hypertables improve resource use. Queries and
-data-stores become more efficient.
+```sql
+CREATE TABLE IF NOT EXISTS company (
+   symbol text NOT NULL,
+   name text NOT NULL
+);
+```
 
-   COMMENT:
-   I feel like we probably don't need this section but wherever this section is, 
-   I think it would be cool to include a graphic that shows these benefits 
-   https://iobeam.slack.com/archives/C0J94TE4F/p1646682667481189?thread_ts=1646682487.374619&cid=C0J94TE4F
--->
+Once run, you will then officially have two tables within your TimescaleDB database. One hypertable named `stocks_real_time`, and a normal PostgreSQL table named `company`. 
 
 ## Learn more about hypertables and chunks
 To learn more about hypertables and best practices for configuring chunks, see 
@@ -86,7 +74,7 @@ help with storing and querying data, seethe [hypertables and chunks core concept
 
 ## Next steps
 Next, ingest some sample stock trade data into TimescaleDB! Step 4, ['Add time-series data' section][add-data], 
-will show you how to populate the hypertable you just created. 
+will show you how to populate the tables you just created. 
 
 [core-concepts-hypertables]: /getting-started/add-data/
 [add-data]: /overview/core-concepts/hypertables-and-chunks/

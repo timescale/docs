@@ -13,7 +13,7 @@ Calculating aggregates on time-series data can be computationally intensive. Rea
 and aggregation speed. 
 
 TimescaleDB's continuous aggregates solve both of these problems. Continuous aggregates 
-are automatically refreshed [materialized views][material-view]. They massively speed up 
+are automatically refreshed [materialized views][material-view]. They speed up 
 workloads for large amounts of data because:
 
 
@@ -32,7 +32,7 @@ For more information on the benefits of continuous aggregates, see the
 ['Overview' page on 'Continuous aggregates'][cagg-overview].
 
 <highlight type="note">
-Materialized views in PostgreSQL are essentially table-like objects within your database. For more 
+Materialized views in PostgreSQL are table-like objects within your database. For more 
 information on materialized views, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/rules-materializedviews.html).
 </highlight>
 
