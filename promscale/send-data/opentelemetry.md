@@ -15,7 +15,7 @@ in the processors. However, you can also send data from OpenTelemetry
 instrumentation libraries and SDKs directly to Promscale using OTLP.
 
 You can configure the OpenTelemetry Collector to forward traces and metrics to
-Promscale. Promscale listens to OTLP data on the port you specified in the
+Promscale. Promscale listens to OTLP traces on the port you specified in the
 `otlp-grpc-server-listen-address` parameter, which defaults to port `:9202`.
 Promscale listens to Prometheus data on the port you specified in the `ee`,
 which defaults to port `:9201` when you start the Promscale connector.
