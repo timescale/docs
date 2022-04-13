@@ -56,7 +56,8 @@ Set with the `capacity:` field in `queue_config`.
 
 This parameter sets the maximum number of samples that each queue in a
 remote-write shard can hold. If you have higher throughput, set the capacity of
-queues to at least `capacity: 100000`. Based on Prometheus recommendations this should be around 10X of `max_samples_per_send`.
+queues to at least `capacity: 100000`. Based on Prometheus recommendations this 
+should be around 10 times `max_samples_per_send`.
 
 ### Maximum samples per send
 Set with the `max_samples_per_send:` field in `queue_config`.
