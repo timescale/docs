@@ -1,45 +1,48 @@
 # Send OpenTelemetry data to Promscale
 Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for traces
-and Prometheus remote write protocol for metrics. You can use any
-of the OpenTelemetry client SDKs, instrumentation libraries, or the
-OpenTelemetry Collector to send traces to Promscale using OTLP.
-Currently, Promscale only supports **gRPC** for traces. OpenTelemetry
-metrics are converted into Prometheus remote write format in OpenTelemetry
-Collector and exported to Promscale **HTTP** endpoint.
+and Prometheus remote write protocol for metrics.
+You can send traces to Promscale using OTLP with any of the OpenTelemetry client
+SDKs, instrumentation libraries, or the OpenTelemetry Collector. Currently,
+Promscale only supports **gRPC** endpoint for traces. 
+You can send OpenTelemetry metrics to Promscale **HTTP** endpoint using
+Prometheus remote write protocol with the OpenTelemetry Collector. OpenTelemetry
+Collector converts OTLP metrics to Prometheus remote write protocol metrics.
 
 ## Send data using the OpenTelemetry Collector
-We recommend that you use the OpenTelemetry Collector to export data to an
-observability backend in a production environment. OpenTelemetry Collector
-offers batching, queued retries, and many other functions that can be configured
-in the processors. However, you can also send data from OpenTelemetry
-instrumentation libraries and SDKs directly to Promscale using OTLP.
+Although you can also send data from OpenTelemetry instrumentation libraries and
+SDKs directly to Promscale using OTLP. We recommend that you use OpenTelemetry
+Collector to export data to an observability backend in a production
+environment. OpenTelemetry Collector offers batching, queued retries, and many
+other functions that can be configured in the `Processors`.
 
-You can configure the OpenTelemetry Collector to forward traces and metrics to
-Promscale. Promscale listens to OTLP traces on the port you specified in the
-`tracing.otlp.server-address` parameter, which defaults to port `:9202`.
-Promscale listens to Prometheus metrics on the port you specified in the `web.listen-address` parameter,
-which defaults to port `:9201` when you start the Promscale connector.
+You can configure OpenTelemetry Collector to forward traces and metrics to
+Promscale. Promscale listens to OTLP traces on the port you specify in the
+`tracing.otlp.server-address` parameter, the default port is`:9202`. Promscale
+listens to Prometheus metrics on the port you specify in the
+`web.listen-address` parameter, the default port is `:9201` when you start the
+Promscale connector.
 
 Configure the following in OpenTelemetry Collector configuration file:
-  * **Receivers**: to push or pull data into the Collector. OpenTelemetry line
-    protocol (gRPC, http)
-  * **Exporters**: to send data to one or more backends. OpenTelemetry
-    line protocol to configure the Promscale gRPC server to export the data to
-    Promscale. Use `queue_size` to hold the data before dropping, and `timeout`
-    is timeout for the write request to the backend, Prometheus remote write
-    exports the OTLP metrics to the Prometheus remote storage backend. Configure
-    the Promscale http endpoint to ingest the metrics. 
-  * **Processors**: to run on data between being received and being
-    exported. Batch processor is to batch, compress the data, and to control the
-    number of outgoing connections, configured with `send_max_batch_size` and
-    `timeout` to send data, Promscale recommends 10 seconds.
+  * **Receivers**: to push or pull data into OpenTelemetry Collector using OTLP
+    on gRPC and http endpoints.
+  * **Exporters**: to send data to one or more backends. OTLP to configure the
+    Promscale gRPC server to export the data to Promscale. Use `queue_size` to
+    hold the data before dropping, and `timeout` to set the timeout for the
+    write request to the backend. Prometheus remote write exports the OTLP
+    metrics to the Prometheus remote storage backend. Configure the Promscale
+    http endpoint to ingest the metrics. 
+  * **Processors**: to run on data between being received and being exported.
+    Use batch processor is to batch, compress the data, and to control the
+    number of outgoing connections. Configure the `send_max_batch_size` to set
+    the maximum size of the batch, and `timeout` to set the timeout to send data.
+    Promscale recommends 10 seconds.
   * **Service**: to configure what components are enabled in the Collector based
-    on the configuration found in the receivers, processors, exporters, and
-    extensions sections. Pipeline to receive the traces and metrics from OTLP,
-    batch process them, and to export the data in logs and OTLP,
-    Prometheus-supported backends.
+    on the settings in the `receivers`, `processors`, `exporters`, and `extensions`
+    sections. Pipeline to receive the traces and metrics from OTLP, batch
+    process them, and to export the data in logs and OTLP to backends supported
+    in Prometheus.
 
-With this configuration you can send the traces from OpenTelemetry applications
+With the following configuration you can send the traces from OpenTelemetry applications
 to the Collector and export them to Promscale.
 
 ```yaml
@@ -84,23 +87,23 @@ service:
 
 Where: 
 `<PROMSCALE_HOST>`: hostname of Promscale
-`<gRPC_PORT>`: gRPC port of Promscale. By default, Promscale listens on port 9202 for gRPC connections.  
-`<HTTP_PORT>` : HTTP port of Promscale
+`<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
+`<HTTP_PORT>` : HTTP port of Promscale. The default port is 9201.
  
-For example, if you are running the OTLP Collector and the Promscale Connector
+If you are running the OTLP Collector and the Promscale Connector
 on a Kubernetes cluster the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
 ## Send data using OpenTelemetry Instrumentation SDKs
-With Opentelemetry SDKs you can send OpenTelemetry traces using OTLP gRPC
-endpoint by configuring the exporter backend using the
+In OpenTelemetry SDKs you can send OpenTelemetry traces using OTLP to gRPC
+endpoint by configuring the exporter backend. Set the  exporter backed using the
 `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` environment variable on your application.
-The SDK that you are using on the application should support gRPC. If the SDK
-does not support gRPC then use the OpenTelmetry Collector to convert OTLP http
-to gRPC using the OTLP `http receiver` and OTLP `gRPC exporter` collector
-configuration.   
+Ensure that the SDK you are using on the application supports gRPC.
+If the SDK does not support gRPC then use the OpenTelmetry Collector to convert
+OTLP http to gRPC. Use the OTLP `http receiver` and OTLP `gRPC exporter`
+collector configuration to convert OTLP http to gRPC.   
 
-The specifics of the configuration depend on each SDK and library. For more
+The specifics of the configuration varies for each SDK and library. For more
 information, see[OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
