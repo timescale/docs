@@ -65,7 +65,7 @@ Set with the `max_samples_per_send:` field in `queue_config`.
 This parameter is the maximum number of samples that can fit in a single write
 request to the remote storage system. Samples batch less than
 `max_samples_per_send:` are sent only when `batch_send_deadline:` expires.
-Promscale performs better with larger batches, so setting the default to 
+Promscale performs better with larger batches, so set the default to 
 `max_samples_per_send: 10000`.
 
 ### Batch send deadline
