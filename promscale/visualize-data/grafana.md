@@ -20,7 +20,7 @@ PostgreSQL data sources in [Grafana][grafana-homepage].
 1.  Click `Add data source`to see a list of all supported data sources.
 1.  Type `Prometheus` in the search field and click `Select`.
 1.  Configure the data source:
-    *   In the `Name`field, type `Promscale-metrics`.
+    *   In the `Name`field, type `Promscale-PromQL`.
     *   In the `URL` field, type `http://<PROMSCALE-IP-ADDR>:9201`, where
         `<PROMSCALE-IP-ADDR>` is the IP address of the Promscale instance.
     *   Use the default values for all other settings.
