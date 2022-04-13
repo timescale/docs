@@ -31,3 +31,6 @@ discount applied to bring the payment confirmation total to $0.00. If the
 entirety of your consumption for the month was within the trial, you do not
 receive an emailed payment confirmation, but the payment confirmation is
 available to download in the `Past Payments` section.
+
+
+[cloud-login]: https://console.cloud.timescale.com/
