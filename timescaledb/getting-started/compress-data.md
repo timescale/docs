@@ -60,15 +60,14 @@ public           |stocks_real_time|time   |                      |              
 When you have enabled compression, you can schedule a [policy to automatically compress][compress-automatic]
 data according to the settings defined above. 
 
-For example, if you want to compress data on your hypertable that has existed more than a month
-in the past, you could use this code:
+For example, if you want to compress data on your hypertable that is older than two weeks, run the following SQL:
 
 ```sql
 SELECT add_compression_policy('stocks_real_time', INTERVAL '2 weeks');
 ```
 
 Similar to the continuous aggregates policy and retention policies, when you run this SQL, all 
-chunks that contain data that is at least two old are compressed in `stocks_real_time`, 
+chunks that contain data that is at least two weeks old are compressed in `stocks_real_time`, 
 and a recurring compression policy is created. 
 
 It is important that you don't try to compress all your data. Although you can insert

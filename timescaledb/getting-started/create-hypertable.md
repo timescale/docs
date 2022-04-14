@@ -3,7 +3,7 @@ Hypertables are the heart of TimescaleDB functionality and allows TimescaleDB to
 work efficiently with time-series data. It's good to remember that since TimescaleDB 
 is PostgreSQL, all the regular PostgreSQL tables, indexes, etc. can be created right 
 alongside your TimescaleDB hypertables. This makes creating and working with TimescaleDB 
-tables fairly similar to how you would with just vanilla PostgreSQL. 
+tables similar to how you would with just vanilla PostgreSQL. 
 
 ## Hypertables and chunks
 Hypertables and chunks make storing and querying times-series data fast at petabyte 
@@ -73,7 +73,7 @@ To learn more about hypertables and best practices for configuring chunks, see
 help with storing and querying data, seethe [hypertables and chunks core concepts page][core-concepts-hypertables].
 
 ## Next steps
-Next, ingest some sample stock trade data into TimescaleDB! Step 4, ['Add time-series data' section][add-data], 
+Next, ingest some sample stock trade data into TimescaleDB! Step 2, ['Add time-series data' section][add-data], 
 will show you how to populate the tables you just created. 
 
 [core-concepts-hypertables]: /getting-started/add-data/

@@ -1,6 +1,6 @@
 # Getting started with TimescaleDB
 
-**Congratulations!** You're likely here because you have successfully spun 
+**Congratulations!** You're here because you have successfully spun 
 up your first instance of TimescaleDB, can connect to it, and are ready to 
 explore some of the most popular TimescaleDB feautures. If you have not yet 
 created a TimescaleDB instance or learned how to connect to it, make sure to 
@@ -10,10 +10,10 @@ first check out these two sections within the docs:
 
 
 ## What is TimescaleDB?
-As you likely know already, TimescaleDB is an extension on top of the PostgreSQL. 
+TimescaleDB is an extension on top of PostgreSQL. 
 When you use TimescaleDB, you get all the time-series optimizations and special 
 functionality that TimescaleDB provides, along with all the features available 
-in vanilla PostgreSQL. Developers often refer to TimescaleDB as PostgreSQL with 
+in regular PostgreSQL. Developers refer to TimescaleDB as PostgreSQL with 
 superpowers.
 
 TimescaleDB supports the full SQL language and you can use TimescaleDB with
@@ -28,7 +28,7 @@ features like continuous aggregation,
 data retention, and compression. 
 
 The data you ingest and use for this tutorial is real-time stock trading data 
-from the company [Twelve Data][twelve-data]. The dataset consists of two tables, 
+provided by [Twelve Data][twelve-data]. The dataset consists of two tables, 
 one with second-by-second stock-trade data for the top 100 most-traded symbols, 
 and the other containing company information which maps to the symbols.   
 

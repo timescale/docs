@@ -29,7 +29,7 @@ changes in the raw data rather then recomputing everything.
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>
 
 For more information on the benefits of continuous aggregates, see the 
-['Overview' page on 'Continuous aggregates'][cagg-overview].
+[Overview page on Continuous aggregates][cagg-overview].
 
 <highlight type="note">
 Materialized views in PostgreSQL are table-like objects within your database. For more 

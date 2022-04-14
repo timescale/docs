@@ -29,8 +29,8 @@ SELECT
 	last(price, time) AS close,
 	min(price) AS low
 FROM stocks_real_time srt
-GROUP BY day, symbol;
-```
+GROUP BY day, symbol
+ORDER BY day DESC, symbol;
 
 ## Step 2: Create continuous aggregate from aggregate query
 
@@ -58,7 +58,7 @@ FROM stocks_real_time srt
 GROUP BY day, symbol;
 ```
 
-Notice that the `SELECT` statement is the same query you wrote earlier.
+Notice that the `SELECT` statement is the same query you wrote earlier without the `ORDER BY` clause.
 By default, this code both creates the aggregate *and* materializes the aggregated data.
 That means the view is created *and* populated with the aggregate calculations from
 your existing hypertable data. 
@@ -73,6 +73,7 @@ query on the raw hypertable data.
 
 ```sql
 SELECT * FROM stock_candlestick_daily
+ORDER BY day DESC, symbol;
 ```
 
 <highlight type="note">
@@ -85,7 +86,7 @@ SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
 </highlight>
 
-Now that you have your continuous aggregate set up a [continuous aggregate refresh policy][cagg-policy].
+Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
 Without a policy, your continuous aggregate won't materialize new data as it is 
 inserted into the `stocks_real_time` hypertable. TimescaleDB will perform real-time 
 aggregation for continuous aggregates on time-buckets that have not been materialized. 

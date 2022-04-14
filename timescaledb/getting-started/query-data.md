@@ -22,7 +22,7 @@ popular TimescaleDB functions.
 
 ### Select the top 10 stock trades by price for the latest time period.
 
-   This query uses the [`ORDER BY`][order-by] keyword to order the results by descending time then price
+   This query uses the [`ORDER BY`][order-by] clause to order the results by descending time then price
    and limit the number of results shown to 10. 
 
    ```sql
@@ -33,7 +33,7 @@ popular TimescaleDB functions.
 
 ### Calculate the average trade price for Apple from the last day
 
-   This query uses the [`avg()`][average] function along with [`FILTER`][filter] and `WHERE` 
+   This query uses the [`avg()`][average] function with a `WHERE` clause
    to include only Apple trades made within the last day. Instead of using Apple's symbol, 
    the [`JOIN`][join] operator allows you to use the company name.  
 
@@ -99,7 +99,7 @@ analysis in fewer lines of code. Here's how to use three of these functions:
    the `avg()` function on price, and include `symbol` so you can group the average 
    price calculations by company. The `WHERE` limits the results to
    days within the last week. The [`GROUP BY`][clause-expressions] clause is necessary 
-   for aggregation and allows you to group the results by the day and company. Finally the `order by` 
+   for aggregation and allows you to group the results by the day and company. Finally the `ORDER BY` 
    clause orders the results first on the bucketed date, then by symbol. 
 
    ```sql
@@ -122,7 +122,6 @@ Now that you're familiar with some TimescaleDB queries and functions, like `time
 continuous aggregates in the [next section][create-cagg].
 
 
-<!--  had to make a change to create the pr -->
 
 
 
