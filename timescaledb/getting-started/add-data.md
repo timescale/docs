@@ -54,9 +54,9 @@ For all the following steps, you may need to specify file path.
 1.  If you're using a Docker container, add the data files to your container before 
     copying them into your database:
     ```bash
-    docker cp stocks_real_time.csv timescaledb:/tutorial_sample_tick.csv
+    docker cp tutorial_sample_tick.csv timescaledb:/tutorial_sample_tick.csv
 
-    docker cp company.csv timescaledb:/tutorial_sample_company.csv
+    docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
     ```
 
 
