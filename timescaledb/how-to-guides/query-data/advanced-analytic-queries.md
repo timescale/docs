@@ -345,4 +345,4 @@ use its [SkipScan][skipscan] feature.
 [last]: /api/:currentVersion:/hyperfunctions/last
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
-[skipscan]: /how-to-guides/skipscan/
+[skipscan]: /how-to-guides/query-data/skipscan/
