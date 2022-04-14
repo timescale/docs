@@ -32,13 +32,13 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.6:
+### What's new in TimescaleDB 2.6.1:
 
 - Continuous aggregates with compression
 - `time_bucket_ng` support for N months, years and timezones on continuous aggregates
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-6).
-This release also contains bug fixes since the 2.5.0 release.
+This release also contains bug fixes since the 2.6.0 release.
 
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
@@ -57,9 +57,9 @@ hypertable setup. This includes the ability to add a data node and move
 chunks to the new data node for cluster rebalancing.
 
 
-We’re committed to developing these experiments, giving the community a chance to
-provide early feedback and influence the direction of TimescaleDB’s development.
- We’ll travel faster with your input!
+We're committed to developing these experiments, giving the community a chance to
+provide early feedback and influence the direction of TimescaleDB's development.
+ We'll travel faster with your input!
 
 Please [create your feedback as a GitHub issue][github-issue], and add the
 `experimental-schema` label. Describe what you found, and tell us the steps or
@@ -76,7 +76,7 @@ For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 rel
 For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
-TimescaleDB 2.6 is now available, and we encourage
+TimescaleDB 2.6.1 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -86,6 +86,29 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+
+## 2.6.1 (2022-04-11)
+
+This release contains bug fixes since the 2.6.0 release.
+This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. 
+
+**Bug fixes**
+* #4121 Fix RENAME TO/SET SCHEMA on distributed hypertable
+* #4122 Fix segfault on INSERT into distributed hypertable
+* #4142 Ignore invalid relid when deleting hypertable
+* #4159 Fix ADD COLUMN IF NOT EXISTS error on compressed hypertable
+* #4161 Fix memory handling during scans
+* #4176 Fix remote EXPLAIN with parameterized queries
+* #4181 Fix spelling errors and omissions
+* #4186 Fix owner change for distributed hypertable
+* #4192 Abort sessions after extension reload
+* #4193 Fix relcache callback handling causing crashes
+* #4199 Remove signal-unsafe calls from signal handlers
+* #4219 Do not modify aggregation state in finalize
+
+**Thanks**
+* @abrownsword for reporting a crash in the telemetry reporter
+* @daydayup863 for reporting issue with remote explain
 
 ## 2.6.0 (2022-02-16)
 This release adds major new features since the 2.5.2 release, including:
@@ -144,7 +167,7 @@ upgrade as soon as possible.
 * #4024 Fix premature cache release call
 * #4037 Fix status for dropped chunks that have catalog entries
 * #4069 Fix riinfo NULL handling in ANY construct
-* #4071 Fix extension installation privilege escalation
+* #4071 Fix extension installation privilege escalation (CVE-2022-24128)
 
 **Thanks**
 * @carlocperez for reporting crash with NULL handling in ANY construct
@@ -1326,7 +1349,7 @@ aggregates do not need to be refreshed manually; the view is refreshed
 automatically in the background as new data is added, or old data is
 modified. Additionally, it does not need to re-calculate all of the data on
 every refresh. Only new and/or invalidated data is calculated.  Since this
-re-aggregation is automatic, it doesn’t add any maintenance burden to your
+re-aggregation is automatic, it doesn't add any maintenance burden to your
 database.
 
 Our continuous aggregate approach supports high-ingest rates by avoiding the
@@ -1485,7 +1508,7 @@ This release contains bugfixes.
 Our 1.1 release introduces beta support for PG 11, as well as several performance optimizations aimed at improving chunk exclusion for read queries. We are also packaging our new timescale-tune tool (currently in beta) with our Debian and Linux releases. If you encounter any issues with our beta features, please file a GitHub issue.
 
 **Potential breaking changes**
-- In addition to optimizing first() / last() to utilize indices for non-group-by queries, we adjusted its sorting behavior to match that of PostgreSQL’s max() and min() functions. Previously, if the column being sorted had NULL values, a NULL would be returned. First() and last() now instead ignore NULL values.
+- In addition to optimizing first() / last() to utilize indices for non-group-by queries, we adjusted its sorting behavior to match that of PostgreSQL's max() and min() functions. Previously, if the column being sorted had NULL values, a NULL would be returned. First() and last() now instead ignore NULL values.
 
 **Notable commits**
 

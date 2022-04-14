@@ -7,7 +7,7 @@ the average temperature in each location, you can calculate the average as a
 one-off, with a query like this:
 
 ```sql
-SELECT time_bucket(‘1 day’, time) as day,
+SELECT time_bucket('1 day', time) as day,
        location,
        avg(temperature)
 FROM temperatures
@@ -26,7 +26,7 @@ continuous aggregate view like this:
 
 ```sql
 CREATE MATERIALIZED VIEW daily_average WITH (timescaledb.continuous)
-    AS SELECT time_bucket(‘1 day’, time) as Day,
+    AS SELECT time_bucket('1 day', time) as Day,
               location,
               avg(temperature)
        FROM temperatures
@@ -54,7 +54,8 @@ top of the aggregate functions, for example `max(temperature)-min(temperature)`.
 However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
 continuous aggregates since they are not possible to parallelize with
 PostgreSQL. TimescaleDB does not currently support `FILTER` or `JOIN` clauses,
-or window functions in continuous aggregates.
+or window functions in continuous aggregates. You can work around this by
+[aggregating the other parts of your query beforehand, then using the window function at query time][cagg-window-functions].
 
 To test out continuous aggregates, follow
 the [continuous aggregate tutorial][tutorial-caggs].
@@ -163,7 +164,8 @@ Make sure you are maintaining your invalidation log size to avoid this, for exam
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
+[cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
+[cagg-window-functions]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
+[multi-node]: /how-to-guides/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [tutorial-caggs]: /getting-started/create-cagg
-[cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
-[multi-node]: /how-to-guides/multinode-timescaledb/

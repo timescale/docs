@@ -91,6 +91,13 @@ module.exports = [
             excerpt: "Learn about distributed hypertables",
           },
           {
+            title: "Hypertables and unique indexes",
+            href: "hypertables-and-unique-indexes",
+            tags: ["hypertables", "create", "timescaledb", "index"],
+            keywords: ["hypertables", "TimescaleDB", "index"],
+            excerpt: "Learn how unique indexes work with hypertables.",
+          },
+          {
             title: "Best practices",
             href: "best-practices",
             tags: [
@@ -102,6 +109,12 @@ module.exports = [
             ],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Best practices for managing hypertables",
+          },
+          {
+            href: "troubleshooting",
+            tags: ["hypertables", "tshoot", "timescaledb"],
+            keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
+            excerpt: "Troubleshooting and error fixes for hypertables",
           },
         ],
       },
@@ -161,6 +174,13 @@ module.exports = [
             keywords: ["hypertables", "hyperfunctions", "TimescaleDB"],
             excerpt: "Use advanced analytics queries",
           },
+          {
+            title: "DISTINCT queries with SkipScan",
+            href: "skipscan",
+            tags: ["skipscan", "distinct", "query", "timescaledb"],
+            keywords: ["SkipScan", "query", "timescaledb"],
+            excerpt: "Get faster DISTINCT queries with SkipScan",
+          },
         ],
       },
       {
@@ -213,7 +233,7 @@ module.exports = [
             tags: ['multi-node', 'management', 'administration', 'distributed', 'nodes'],
             keywords: ['multi-node', 'management', 'administration'],
             excerpt: 'Administer a multi-node cluster'
-          },			
+          },
           {
             title: "Grow and shrink a multi-node cluster",
             href: "multinode-grow-shrink",
@@ -295,7 +315,7 @@ module.exports = [
             tags: ["caggs", "compression", "timescaledb"],
             keywords: ["caggs", "compression", "TimescaleDB"],
             excerpt: "Compress continuous aggregates",
-          },          
+          },
           {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
@@ -437,12 +457,19 @@ module.exports = [
         href: "replication-and-ha",
         children: [
           {
-            title: "Replication and HA",
-            href: "replication",
+            title: "About high availability",
+            href: "about-ha",
             tags: ["ha", "replicate", "timescaledb"],
             keywords: ["ha", "replicate", "TimescaleDB"],
-            excerpt: "Replication and high availability",
+            excerpt: "High availability in TimescaleDB",
           },
+          {
+            title: "Configure replication",
+            href: "configure-replication",
+            tags: ["ha", "replicate", "timescaledb"],
+            keywords: ["replicate", "configure", "TimescaleDB"],
+            excerpt: "Configure replication",
+          }
         ],
       },
       {

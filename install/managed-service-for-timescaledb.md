@@ -66,7 +66,7 @@ utility for configuring and maintaining PostgreSQL. We recommend
 You can see a green `Running` label and a green dot under the "Nodes" column when
 your instance is ready for use.
 
-Once your instance is ready, navigate to the ‘Overview Tab’ of your Timescale
+Once your instance is ready, navigate to the 'Overview Tab' of your Timescale
 Cloud dashboard and locate your `host`, `port`, and `password`, as highlighted below.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/docs.timescale.com/hello-timescale/NYC_figure1_1.png" alt="NYC Taxis"/>

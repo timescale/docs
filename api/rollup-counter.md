@@ -1,3 +1,13 @@
+---
+api_name: counter
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter | gauge aggregation'
+hyperfunction_type: rollup
+---
+
 # rollup(CounterSummary) <tag type="toolkit">Toolkit</tag>
 
 ```SQL
