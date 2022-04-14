@@ -18,6 +18,7 @@ you should see data from within the last day.
 * `company`: mapping for symbols to company names
 
 `stocks_real_time`:
+
 | Field | Description |
 |-|-|
 | time | (timestamptz) timestamp column incrementing second by second | 
@@ -26,6 +27,7 @@ you should see data from within the last day.
 | day_volume | (int) number of shares traded each day, NULL values indicate the market is closed | 
 
 `company`:
+
 | Field | Description |
 |-|-|
 | symbol | (text) the symbol representing a company name |
@@ -46,23 +48,25 @@ For all the following steps, you may need to specify file path.
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
     ```bash
-    unzip stock_data_real_time.zip
+    unzip real_time_stock_data.zip
     ```
 
 1.  If you're using a Docker container, add the data files to your container before 
-copying them into your database:
+    copying them into your database:
     ```bash
-    docker cp stocks_real_time.csv timescaledb:/stocks_real_time.csv
+    docker cp stocks_real_time.csv timescaledb:/tutorial_sample_tick.csv
 
-    docker cp company.csv timescaledb:/company.csv
+    docker cp company.csv timescaledb:/tutorial_sample_company.csv
     ```
 
 
-1. At the `psql` prompt, insert the data into your TimescleDB instance using the `COPY` command for efficient data transfer. If the `.csv` files aren't in your current directory, replace the file paths as needed:
+1.  At the `psql` prompt, insert the data into your TimescleDB instance using the `COPY` command 
+    for efficient data transfer. If the `.csv` files aren't in your current directory, replace 
+    the file paths as needed:
 
     ```sql
-    \COPY stocks_real_time from './stocks_real_time.csv' DELIMITER ',' CSV;
-    \COPY company from './company.csv' DELIMITER ',' CSV;
+    \COPY stocks_real_time from './ tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+    \COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
     ```
 
 </procedure>

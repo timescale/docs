@@ -32,12 +32,10 @@ provided by [Twelve Data][twelve-data]. The dataset consists of two tables,
 one with second-by-second stock-trade data for the top 100 most-traded symbols, 
 and the other containing company information which maps to the symbols.   
 
-As you work thorugh this tutorial and learn how to use some of TimescaleDB's most 
-popular features, keep in mind that there are many more you can explore further 
-throughout the docs. For more details on this check out the [next steps][next-steps] page. 
+Let's jump right in!
 
 If you have any questions or concerns as you go through the tutorial, make sure to 
-check out the Timescale community [Slack][slack] and [Timescale Forum][forum] where 
+check out the Timescale community [Slack][slack] and [Timescale Forum][forum], where 
 you can find help from the Timescale community and Timescale team. 
 
 

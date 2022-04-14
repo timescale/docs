@@ -8,14 +8,14 @@ aggregate from your data.
 The data we are using for this tutorial is second-by-second (tick) data for stock trades. 
 A popular aggregate pattern used for analyzing stock data is called a [candlestick][candlestick]. 
 Generally, candlestick charts use 4 different aggregations over a specific interval 
-of time (ie. 1-minute, 5-minute, or 1-day aggregates):
+of time (for example, 1-minute, 5-minute, or 1-day aggregates):
 
 * `high`: highest stock price per interval
 * `open`: opening stock price per interval
 * `close`: closing stock price per interval
 * `low`: lowest stock price per interval 
 
-For this exmaple query, the [`time_bucket()`][time-bucket] function interval will be 1 day. The 
+For this example query, the [`time_bucket()`][time-bucket] interval is 1 day. The 
 `high` and `low` values can be found by using the PostgreSQL [`MAX()`][max] and [`MIN()`][min] 
 functions. Finally, the `open` and `close` values can be found by using the [`first()`][first] 
 and [`last()`][last] functions.  
@@ -31,6 +31,7 @@ SELECT
 FROM stocks_real_time srt
 GROUP BY day, symbol
 ORDER BY day DESC, symbol;
+```
 
 ## Step 2: Create continuous aggregate from aggregate query
 
@@ -76,6 +77,11 @@ SELECT * FROM stock_candlestick_daily
 ORDER BY day DESC, symbol;
 ```
 
+By default, when you query a continuous aggregate, TimescaleDB also includes recent
+data that hasn't yet been materialized. In the diagram above, that corresponds to the last
+three points of raw data, which belong to an incomplete bucket. This unmaterialized data
+is aggregated in real time to provide the most up-to-date results for your query.
+
 <highlight type="note">
 To inspect details about a continuous aggregate, such as its 
 configuration or the query used to define it, use the following 
@@ -84,17 +90,23 @@ informational view:
 ```sql
 SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
+Results:
+
+|hypertable_schema|hypertable_name |view_schema|view_name              |view_owner|materialized_only|compression_enabled|materialization_hypertable_schema|materialization_hypertable_name|view_definition |
+|--|--|--|--|--|--|--|--|--|--|
+|public           |stocks_real_time|public     |stock_candlestick_daily|tsdbadmin |false            |false              |_timescaledb_internal            |_materialized_hypertable_11    | SELECT time_bucket('1 day'::interval, srt."time") AS day,¶    srt.symbol,¶    max(srt.price) AS high,¶    first(srt.price, srt."time") AS open,¶    last(srt.price, srt."time") AS close,¶    min(srt.price) AS low¶   FROM stocks_real_time srt¶  GROUP BY (t|
+
 </highlight>
 
 Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
-Without a policy, your continuous aggregate won't materialize new data as it is 
-inserted into the `stocks_real_time` hypertable. TimescaleDB will perform real-time 
-aggregation for continuous aggregates on time-buckets that have not been materialized. 
-If you add new data to your underlying hypertable, like `stocks_real_time`, without 
-running a refresh policy, TimescaleDB aggregates the new data on-the-fly. This 
-real-time aggregation of un-materialized data could cause queries from your continuous 
-aggregate to slow down. Setting up an automatic refresh policy that materializes your 
-data and prevents unnecessary real-time aggregation is crucial. 
+
+Without an automatic refresh policy, your continuous aggregate won't materialize new data as it is 
+inserted into the `stocks_real_time` hypertable. As mentioned before, when you query your continuous
+aggregate, TimescaleDB performs real-time aggregation to include any unmaterialized
+data. As the amount of unmaterialized data grows, this can slow down your queries.
+
+With a continuous aggregate policy, your new data automatically materializes into your continuous aggregate,
+keeping the need for real-time computations low and your continuous aggregate queries efficient.
 
 
 ## Learn more about continuous aggregates

@@ -82,8 +82,8 @@ analysis in fewer lines of code. Here's how to use three of these functions:
    an aggregation over the chosen interval. 
    
    For example, say `time` is a timestamp column that shows values incrementing every hour 
-   and `value` is a numeric column. You would like to aggregate `value` using the `sum()` 
-   function so that you get summed values over each day. To accomplish this you can
+   and `value` is a numeric column. You want to aggregate `value` using the `sum()` 
+   function so that you get summed values over each day. To do this, you can
    use the `time_bucket()` function on the `time` column to “bucket” the hourly data into daily data, 
    then perform the `sum()` function on the `value` column to get the sum of your values across each day. 
 

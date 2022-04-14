@@ -21,18 +21,17 @@ are three parameters you can specify when enabling compression:
 * `timescaledb.compress_orderby` (optional): column(s) used to order compressed data
 * `timescaledb.compress_segmentby` (optional): column(s) used to group compressed data
 
-If you do not specify `compress_orderby` or `compress_segmentby` column(s), the compressed data will automatically be ordered by the hypertable time column.
+If you do not specify `compress_orderby` or `compress_segmentby` column(s), the compressed data is automatically ordered by the hypertable time column.
 
+
+To enable compression on the `stocks_real_time` hypertable, run:
 ```sql
--- Enable compression
 ALTER TABLE stocks_real_time SET (
  timescaledb.compress,
  timescaledb.compress_orderby = 'time DESC',
  timescaledb.compress_segmentby = 'symbol'
 );
 ```
-
-Running this SQL code enables compression on the `stocks_real_time` hypertable.
 
 <highlight type="note">
  To learn more about the `segmentby` and `orderby` options for compression in TimescaleDB and how 
@@ -77,15 +76,17 @@ it is best to only compress data after it has aged, once data is less likely to 
 Just like for automated policies for continuous aggregates, you can view information and statistics 
 about your compression background job in these two information views:
 
+Policy details:
 ```sql
--- Informational view for policy details
 SELECT * FROM timescaledb_information.jobs;
+```
 
--- Informational view for stats from run jobs
+Policy job statistics:
+```sql
 SELECT * FROM timescaledb_information.job_stats;
 ```
 
-**Manual Compression**
+## Manual Compression
 
 While we recommend using compression policies to compress data automatically,
 there might be situations where you need to [manually compress chunks][compress-manual]. 
@@ -108,10 +109,16 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
   FROM hypertable_compression_stats('stocks_real_time');
 ```
 
+Results:
+
+|before compression|after compression|
+|------------------|-----------------|
+|667 MB            |60 MB            |
+
 ## Learn more about compression
 
 For more information on how native compression in TimescaleDB works, as well as
-the compression algorithms involved, see this in depth blog post on the topic:
+the compression algorithms involved, see this in-depth blog post on the topic:
 [Building columnar compression in a row-oriented database][columnar-compression].
 
 For an introduction to compression algorithms, see this blog post: 
