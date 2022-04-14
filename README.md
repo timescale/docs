@@ -19,4 +19,4 @@ submitting a pull request. For pull request guidelines, see:
 All contributors must sign the [Contributor License
 Agreement](https://cla-assistant.io/timescale/docs) (CLA). This allows the
 community to use your contributions. When you submit a pull request for the
-first time, you receive a prompt to sing the CLA.
+first time, you receive a prompt to sign the CLA.
