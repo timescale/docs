@@ -118,7 +118,7 @@ This release adds major new features since the 2.5.2 release, including:
 
 It also includes several bug fixes. Telemetry reports are switched to a new
 format, and now include more detailed statistics on compression, distributed
-hypertables and indexes.  We deem this release to be moderate priority for
+hypertables and indexes. We deem this release to be moderate priority for
 upgrading.
 
 **Features**
