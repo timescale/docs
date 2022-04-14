@@ -8,14 +8,6 @@ libraries, or the OpenTelemetry Collector. Currently, Promscale only supports
 Collector. OpenTelemetry Collector converts OTLP metrics to Prometheus remote
 write protocol metrics.
 
-## Configure Promscale Connector
-Promscale listens to OTLP traces on the port you specify in the
-`tracing.otlp.server-address` parameter, the default port is `9202`. Promscale
-listens to Prometheus metrics on the port you specify in the
-`web.listen-address` parameter, the default port is `9201` when you start the
-Promscale Connector. For more information about configuring Promscale Connector,
-see [Promscale CLI reference][promscale-cli].
-
 ## Send data using the OpenTelemetry Collector
 Although you can also send data from OpenTelemetry instrumentation libraries and
 SDKs directly to Promscale using OTLP. We recommend that you use OpenTelemetry
@@ -89,22 +81,15 @@ Where:
 * `<PROMSCALE_HOST>`: hostname of Promscale
 * `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
 * `<HTTP_PORT>` : HTTP port of Promscale. The default port is 9201.
- 
+
 If you are running the OTLP Collector and the Promscale Connector on a
 Kubernetes cluster the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
 ## Send data using OpenTelemetry Instrumentation SDKs
-In OpenTelemetry SDKs, you can send OpenTelemetry traces using OTLP to gRPC
-endpoint by configuring the exporter backend. Set the  exporter backed using the
-`OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` environment variable on your application.
-Ensure that the SDK you are using on the application supports gRPC. If the SDK
-does not support gRPC then use the OpenTelmetry Collector. Use the OTLP `http
-receiver` and OTLP `gRPC exporter` collector configuration to convert OTLP http
-to gRPC.   
 
 The specifics of the configuration are different for each SDK and library. For
 more information, see [OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
-[promscale-cli]: promscale/:currentVersion:/cli/#promscale-command-line-interface-cli-reference
+
