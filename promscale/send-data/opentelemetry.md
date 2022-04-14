@@ -9,11 +9,10 @@ Collector. OpenTelemetry Collector converts OTLP metrics to Prometheus remote
 write protocol metrics.
 
 ## Send data using the OpenTelemetry Collector
-Although you can also send data from OpenTelemetry instrumentation libraries and
-SDKs directly to Promscale using OTLP. We recommend that you use OpenTelemetry
-Collector to export data to an observability backend in a production
-environment. OpenTelemetry Collector offers batch, queued retries, and many
-other functions that can be configured in the `Processors`.
+Although you can send data from OpenTelemetry instrumentation libraries and
+SDKs directly to Promscale using OTLP, we recommend that you use OpenTelemetry
+Collector in a production environment. OpenTelemetry Collector offers batch,
+queued retries, and many other functions that can be configured in the `Processors`.
 
 Set the following in OpenTelemetry Collector components in the configuration file:
   * **Receivers**: to push or pull data into OpenTelemetry Collector using OTLP
