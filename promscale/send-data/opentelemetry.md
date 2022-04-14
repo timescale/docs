@@ -104,7 +104,7 @@ receiver` and OTLP `gRPC exporter` collector configuration to convert OTLP http
 to gRPC.   
 
 The specifics of the configuration are different for each SDK and library. For
-more information, see[OpenTelemetry documentation][otel-docs].
+more information, see [OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
 [promscale-cli]: promscale/:currentVersion:/cli/#promscale-command-line-interface-cli-reference
