@@ -8,6 +8,14 @@ libraries, or the OpenTelemetry Collector. Currently, Promscale only supports
 Collector. OpenTelemetry Collector converts OTLP metrics to Prometheus remote
 write protocol metrics.
 
+## Configure Promscale Connector
+Promscale listens to OTLP traces on the port you specify in the
+`tracing.otlp.server-address` parameter, the default port is `9202`. Promscale
+listens to Prometheus metrics on the port you specify in the
+`web.listen-address` parameter, the default port is `9201` when you start the
+Promscale Connector. For more information about configuring Promscale Connector,
+see [Promscale CLI reference][promscale-cli].
+
 ## Send data using the OpenTelemetry Collector
 Although you can also send data from OpenTelemetry instrumentation libraries and
 SDKs directly to Promscale using OTLP. We recommend that you use OpenTelemetry
@@ -15,14 +23,7 @@ Collector to export data to an observability backend in a production
 environment. OpenTelemetry Collector offers batch, queued retries, and many
 other functions that can be configured in the `Processors`.
 
-You can configure OpenTelemetry Collector to forward traces and metrics to
-Promscale. Promscale listens to OTLP traces on the port you specify in the
-`tracing.otlp.server-address` parameter, the default port is `9202`. Promscale
-listens to Prometheus metrics on the port you specify in the
-`web.listen-address` parameter, the default port is `9201` when you start the
-Promscale connector.
-
-Set the following in OpenTelemetry Collector configuration file:
+Set the following in OpenTelemetry Collector components in the configuration file:
   * **Receivers**: to push or pull data into OpenTelemetry Collector using OTLP
     on gRPC and http endpoints.
   * **Exporters**: to send data to one or more backends. OTLP to configure the
@@ -38,7 +39,7 @@ Set the following in OpenTelemetry Collector configuration file:
     recommends 10 seconds.
   * **Service**: to configure what components are enabled in the Collector based
     on the settings in the `receivers`, `processors`, `exporters`, and
-    `extensions` sections. Pipeline to receive the traces and metrics from OTLP,
+    `extensions` sections. Pipelines to receive the traces and metrics from OTLP,
     batch process them, and export the data in logs and OTLP to backends
     supported in Prometheus.
 
@@ -84,9 +85,10 @@ service:
       exporters: [prometheusremotewrite]
 ```
 
-Where: `<PROMSCALE_HOST>`: hostname of Promscale `<gRPC_PORT>`: gRPC port of
-Promscale. The default port is 9202.  
-`<HTTP_PORT>` : HTTP port of Promscale. The default port is 9201.
+Where: 
+* `<PROMSCALE_HOST>`: hostname of Promscale
+* `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
+* `<HTTP_PORT>` : HTTP port of Promscale. The default port is 9201.
  
 If you are running the OTLP Collector and the Promscale Connector on a
 Kubernetes cluster the endpoint parameter is similar to `endpoint:
@@ -105,3 +107,4 @@ The specifics of the configuration are different for each SDK and library. For
 more information, see[OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
+[promscale-cli]: promscale/:currentVersion:/cli/#promscale-command-line-interface-cli-reference
