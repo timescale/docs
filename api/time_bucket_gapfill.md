@@ -1,3 +1,13 @@
+---
+api_name: time_bucket_gapfill
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'gapfilling and interpolation'
+hyperfunction_subfamily: gapfill
+hyperfunction_type: other
+---
+
 # time_bucket_gapfill() <tag type="community">Community</tag>
 The `time_bucket_gapfill` function works similar to `time_bucket` but also
 activates gap filling for the interval between `start` and `finish`. It can only

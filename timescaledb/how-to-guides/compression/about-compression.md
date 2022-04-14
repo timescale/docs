@@ -81,6 +81,17 @@ SELECT remove_compression_policy('cpu');
 For more information, see the API reference for
 [`remove_compression_policy`][remove_compression_policy].
 
+## Disable compression
+You can disable compression entirely on individual hypertables. This command works only if you don't currently have any compressed chunks:
+
+```sql
+ALTER TABLE <TABLE_NAME> SET (timescaledb.compress=false);
+```
+
+If your hypertable contains compressed chunks, you need to
+[decompress each chunk][decompress-chunks] individually before you can disable
+compression.
+
 ## Compression policy intervals
 Data is usually compressed after an interval of time, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
