@@ -2,11 +2,11 @@
 You can visualize data in Promscale using tools such as
 [Grafana][grafana-homepage] and [Jaeger][jaeger-homepage].
 
-* **Grafana** is a complete observability stack that allows you to monitor and
+* **Grafana** is a interactive visualization web application that allows you to monitor and
   analyze metrics, logs, and traces. It allows you to query, visualize, alert on
   and understand your data no matter where it is stored. You can connect
-  Promscale to Grafana [to visualize metrics and traces][grafana-promscale]. You
-  can also configure Promscale as:
+  Promscale to Grafana [to visualize metrics and traces][grafana-promscale].
+  By configuring Promscale as:
     * [Prometheus data source][promscale-as-prometheus]. 
     * [Jaeger data source][promscale-as-jaeger].
     * [PostgreSQL data source][promscale-as-postgresql]. 
