@@ -11,8 +11,6 @@ during low query-load times on your database.
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>
 
-In this section, learn how to perform a manual refresh and set up a policy.
-
 ## Automatic continuous aggregate refresh policy
 
 To refresh your continuous aggregate on a schedule, set up an automatic refresh policy. Automatic 
