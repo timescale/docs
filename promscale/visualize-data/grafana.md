@@ -43,7 +43,7 @@ alt="Sample output for PromQl query"/>
 ## Configure Promscale as Jaeger data source
 Jaeger is an open source distributed tracing system used for monitoring and
 troubleshooting microservices-based distributed systems. To configure Promscale
-as PostgreSQL data source you need the IP address of the Promscale instance. 
+as Jaeger data source you need the IP address of the Promscale instance. 
 
 <procedure>
 
