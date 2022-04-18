@@ -1,3 +1,13 @@
+---
+api_name: tdigest
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'advanced aggregation'
+hyperfunction_type: aggregate
+---
+
 # tdigest() <tag type="toolkit">Toolkit</tag>
 ```SQL
 tdigest(
