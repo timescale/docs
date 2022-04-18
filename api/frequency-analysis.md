@@ -10,10 +10,14 @@ additional hyperfunctions, you need to install the
 
 |Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
 |-|-|-|-|-|
-|Frequency|FrequencyAggregate|[`freq_agg`](/hyperfunctions/frequency-analysis/freq_agg/)|❌|✅|
-|Frequency||[`values`](/hyperfunctions/frequency-analysis/values-freq_agg/)|❌|✅|
-|Frequency||[`topn`](/hyperfunctions/frequency-analysis/topn/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`freq_agg`](/hyperfunctions/frequency-analysis/freq_agg/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`topn_agg`](/hyperfunctions/frequency-analysis/topn_agg/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`into_values`](/hyperfunctions/frequency-analysis/into_values-freq_agg/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`topn`](/hyperfunctions/frequency-analysis/topn/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`min_frequency`](/hyperfunctions/frequency-analysis/min_frequency-max_frequency/)|❌|✅|
+|Frequency|SpaceSavingAggregate|[`max_frequency`](/hyperfunctions/frequency-analysis/min_frequency-max_frequency/)|❌|✅|
 |Frequency|StateAgg|[`state_agg`](/hyperfunctions/frequency-analysis/state_agg/)|❌|✅|
-|Frequency||[`duration_in`](/hyperfunctions/frequency-analysis/duration_in/)|❌|✅|
+|Frequency|StateAgg|[`duration_in`](/hyperfunctions/frequency-analysis/duration_in/)|❌|✅|
+|Frequency|StateAgg|[`into_values`](/hyperfunctions/frequency-analysis/into_vals-state-agg/)|❌|✅|
 
 [install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
