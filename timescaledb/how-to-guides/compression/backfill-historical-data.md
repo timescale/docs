@@ -1,7 +1,7 @@
 # Backfill historical data on compressed chunks
 You can backfill historical data by temporarily decompressing any compressed
-chunks. Backfilling means inserting data with an older timestamps, beyond the
-recent past. Depending on your compression policies, the chunks corresponding to
+chunks. Backfilling means inserting data with older timestamps, beyond the
+recent past. Depending on your compression policy, the chunks corresponding to
 these timestamps might already be compressed.
 
 For help with backfilling on compressed chunks, you can use the backfilling
@@ -15,8 +15,15 @@ compression behind the scenes](https://www.timescale.com/blog/timescaledb-2-3-im
 </highlight>
 
 ## Backfill with the backfilling function
-You can backfill data by using the `decompress_backfill` function. Before you
-begin, add the [`decompress_backfill` function and its supporting
+You can backfill data by using the `decompress_backfill` function. This
+function:
+    * Halts the compression policy
+    * Identifies the chunks where the backfilled data belongs
+    * Decompresses the chunks
+    * Inserts data from the temporary table into the hypertable
+    * Re-enables the compression policy
+
+Before you begin, add the [`decompress_backfill` function and its supporting
 functions][timescaledb-extras-backfill] to your database.
 
 <procedure>
@@ -25,11 +32,10 @@ functions][timescaledb-extras-backfill] to your database.
 
 <highlight type="note">
 Backfill data by first inserting it into a temporary table. Temporary tables are
-short-lived. They are automatically dropped when the database session ends. No
-clean-up is required. If you backfill regularly, you can choose to use a normal
-table instead. This allows multiple writers to insert data into the table at the
-same time. When backfilling is complete, clean up by truncating or dropping your
-table.
+automatically dropped when the database session ends. No clean-up is required.
+If you backfill regularly, you can choose to use a normal table instead. This
+allows multiple writers to insert data into the table at the same time. When
+backfilling is complete, clean up by truncating or dropping your table.
 </highlight>
 
 1.  At the `psql` prompt, create a table with the same schema as the hypertable
@@ -38,12 +44,7 @@ table.
     CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM cpu WITH NO DATA;
     ```
 1.  Insert your data into the backfill table.
-1.  Call the supplied backfill function. This function:
-      * Halts the compression policy
-      * Identifies the chunks where the backfilled data belongs
-      * Decompresses the chunks
-      * Inserts data from the temporary table into the hypertable
-      * Re-enables the compression policy
+1.  Call the supplied backfill function.
     ```sql
     CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'cpu');
     ```
@@ -52,8 +53,8 @@ table.
 
 ## Backfill manually
 If you prefer not to use the `decompress_backfill` function, you can perform the
-steps manually. In this procedure, you turn off the compression policy and
-identify your compressed chunks before inserting the backfilled data.
+steps manually. In this procedure, turn off the compression policy and identify
+your compressed chunks before inserting the backfilled data.
 
 <procedure>
 
@@ -74,13 +75,14 @@ identify your compressed chunks before inserting the backfilled data.
     ``` sql
     SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
     ```
-    Repeat for each chunk. Alternatively, you can decompress a set of chunks
-    based on a time range using [`show_chunks`][show_chunks]:
+    Repeat for each chunk.
+1.  *(optional)* Alternatively, decompress a set of chunks based on a time range
+    using [`show_chunks`][show_chunks]:
     ``` sql
-    SELECT decompress_chunk(i) 
+    SELECT decompress_chunk(i)
       FROM show_chunks(
-        '<TARGET_TABLE>', 
-        newer_than => '<NEWER_THAN_DATE>', 
+        '<TARGET_TABLE>',
+        newer_than => '<NEWER_THAN_DATE>',
         older_than => '<OLDER_THAN_DATE>'
       ) i;
     ```
