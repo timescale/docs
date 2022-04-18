@@ -26,7 +26,7 @@ chunk for the first time, use [`compress_chunk`](/compression/compress_chunk/).
 
 |Name|Type|Description|
 |-|-|-|
-|`chunk`|`REGCLASS`|The chunk to be recompressed. Must preface with the schema, `_timescaledb_internal`.|
+|`chunk`|`REGCLASS`|The chunk to be recompressed. Must include the schema, for example `_timescaledb_internal`, if it is not in the search path.|
 
 ## Optional arguments
 
