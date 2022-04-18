@@ -1,3 +1,13 @@
+---
+api_name: percentile_agg
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'percentile approximation'
+hyperfunction_type: aggregate
+---
+
 # percentile_agg()  <tag type="toolkit">Toolkit</tag>
 
 ```sql

@@ -1,3 +1,13 @@
+---
+api_name: 'stddev | stddev_y | stddev_x'
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'statistical aggregates'
+hyperfunction_subfamily: 'statistical aggregates'
+hyperfunction_type: accessor-1d
+---
+
 # stddev() / stddev_y() / stddev_x() <tag type="toolkit">Toolkit</tag>
 
 ```SQL
