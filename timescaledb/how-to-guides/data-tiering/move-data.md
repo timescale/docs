@@ -64,6 +64,17 @@ This can be used to make your queries faster, and works in a similar way to the
 
 </procedure>
 
+## Move data in bulk
+To move several chunks at once, select the chunks you want to move by using
+`FROM show_chunks(...)`. For example, to move chunks containing data between 1
+and 3 weeks old, in a hypertable named `example`:
+```sql
+SELECT move_chunk(
+  chunk => i, 
+  destination_tablespace => '<TABLESPACE>') 
+FROM show_chunks('example', now() - INTERVAL '1 week', now() - INTERVAL '3 weeks') i;
+```
+
 ## Examples
 After moving a chunk to a slower tablespace, you can move it back to the
 default, faster tablespace:
