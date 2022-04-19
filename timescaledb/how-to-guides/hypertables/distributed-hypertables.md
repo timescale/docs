@@ -299,7 +299,7 @@ configuration only affects new chunks. In this diagram, an extra data node
 was added during the third time interval. The fourth time interval now includes 
 four chunks, while the previous time intervals still include three:
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/FIXME.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
 
 This can affect queries that span the two different partitioning configurations. In
 the diagram, the highlighted area, marked as `chunks queried`, represents such
