@@ -24,7 +24,11 @@ days, or weeks.
 For example, you can calculate the average, maximum, or minimum value within a
 bucket.
 
-<!-- TODO: insert time bucket and data diagram -->
+<img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/time-bucket.jpg"
+    alt="Diagram showing time bucket aggregating data into daily buckets and
+    calculating the  daily sum of a value"
+/>
 
 <highlight type="note"> 
 `time_bucket` doesn't support months, years, and timezones. The experimental
