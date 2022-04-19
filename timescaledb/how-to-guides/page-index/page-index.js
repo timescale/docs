@@ -453,7 +453,7 @@ module.exports = [
         ],
       },
       {
-        title: "Replication and HA",
+        title: "Replication and High Availability",
         href: "replication-and-ha",
         children: [
           {
