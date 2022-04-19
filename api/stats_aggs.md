@@ -16,26 +16,11 @@ or `_x` following the name.
 For more information about statistical aggregate functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-aggs].
 
-|Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
-|-|-|-|-|-|
-|Statistical Aggregates|Statistical Aggregates|[`stats_agg`](/hyperfunctions/stats_aggs/stats_agg/)|❌|✅|
-|||[`rollup`](/hyperfunctions/stats_aggs/rollup-stats/)|❌|✅|
-|||[`rolling`](/hyperfunctions/stats_aggs/rolling-stats/)|❌|✅|
-|Statistical aggregation|Stats Agg 1D Accessors|[`average` / `average_y` / `average_x`](/hyperfunctions/stats_aggs/average-stats/)|❌|✅|
-|||[`kurtosis` / `kurtosis_y` / `kurtosis_x`](/hyperfunctions/stats_aggs/kurtosis/)|❌|✅|
-|||[`num_vals`](/hyperfunctions/stats_aggs/num_vals-stats/)|❌|✅|
-|||[`skewness` / `skewness_y` / `skewness_x`](/hyperfunctions/stats_aggs/skewness/)|❌|✅|
-|||[`stddev` / `stddev_y` / `stddev_x`](/hyperfunctions/stats_aggs/stddev/)|❌|✅|
-|||[`sum` / `sum_y` / `sum_x`](/hyperfunctions/stats_aggs/sum-stats/)|❌|✅|
-|||[`variance` / `variance_y` / `variance_x`](/hyperfunctions/stats_aggs/variance/)|❌|✅|
-|Statistical aggregation|Stats Agg 2D Accessors|[`corr`](/hyperfunctions/stats_aggs/corr-stats/)|❌|✅|
-|||[`covariance`](/hyperfunctions/stats_aggs/covariance/)|❌|✅|
-|||[`determination_coeff`](/hyperfunctions/stats_aggs/determination_coeff/)|❌|✅|
-|||[`intercept`](/hyperfunctions/stats_aggs/intercept-stats/)|❌|✅|
-|||[`slope`](/hyperfunctions/stats_aggs/slope-stats/)|❌|✅|
-|||[`x_intercept`](/hyperfunctions/stats_aggs/x_intercept/)|❌|✅|
-
-
+<hyperfunctionTable
+    hyperfunctionFamily='statistical aggregates'
+    includeExperimental
+    sortByType
+/>
 
 [hyperfunctions-stats-aggs]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
