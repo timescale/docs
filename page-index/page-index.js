@@ -4,9 +4,11 @@ const timescaleCloudPageIndex = require("../cloud/page-index/page-index");
 const timescaleMSTPageIndex = require("../mst/page-index/page-index");
 const promscalePageIndex = require("../promscale/page-index/page-index");
 const installPageIndex = require("../install/page-index/page-index");
+const functionsPageIndex = require("../functions/page-index/page-index");
 
 module.exports = [
   ...installPageIndex,
+  ...functionsPageIndex,
   ...timescaleDbPageIndex,
   ...apiReferencePageIndex,
   ...timescaleCloudPageIndex,
