@@ -107,7 +107,7 @@ This release is medium priority for upgrade. We recommend that you upgrade at th
 * #4219 Do not modify aggregation state in finalize
 
 **Thanks**
-* @abrownsword for reporting a crash in the telemetry reporter
+* @abrownsword for reporting a crash in the telemetry reporter (fixed with #4161)
 * @daydayup863 for reporting issue with remote explain
 
 ## 2.6.0 (2022-02-16)
