@@ -174,6 +174,13 @@ module.exports = [
             keywords: ["hypertables", "hyperfunctions", "TimescaleDB"],
             excerpt: "Use advanced analytics queries",
           },
+          {
+            title: "DISTINCT queries with SkipScan",
+            href: "skipscan",
+            tags: ["skipscan", "distinct", "query", "timescaledb"],
+            keywords: ["SkipScan", "query", "timescaledb"],
+            excerpt: "Get faster DISTINCT queries with SkipScan",
+          },
         ],
       },
       {
@@ -446,7 +453,7 @@ module.exports = [
         ],
       },
       {
-        title: "Replication and HA",
+        title: "Replication and High Availability",
         href: "replication-and-ha",
         children: [
           {
