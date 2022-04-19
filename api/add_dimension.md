@@ -88,8 +88,8 @@ queries.
 |Column|Type|Description|
 |-|-|-|
 |`dimension_id`|INTEGER|ID of the dimension in the TimescaleDB internal catalog|
-|`schema_name`|TEXT|Schema name of the hypertable|
-|`table_name`|TEXT|Table name of the hypertable|
+|`hypertable_schema`|TEXT|Schema name of the hypertable|
+|`hypertable_name`|TEXT|Table name of the hypertable|
 |`column_name`|TEXT|Column name of the column to partition by|
 |`created`|BOOLEAN|True if the dimension was added, false when `if_not_exists` is true and no dimension was added|
 
