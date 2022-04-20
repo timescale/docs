@@ -304,7 +304,7 @@ four chunks, while the previous time intervals still include three:
 This can affect queries that span the two different partitioning configurations.
 In the diagram, the highlighted area, marked as `chunks queried`, represents
 such a query. In the older configuration, the query requires data from four
-chunks, but in the newer configuration, it requires data from three. For
+chunks, but in the newer configuration, it requires data from two. For
 example, the query might include data for a particular hostname that now exists
 on more than one data node. Because the data spans data nodes, it cannot be
 fully aggregated on the data node. Some operations need to be performed on the
