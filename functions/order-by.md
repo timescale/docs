@@ -131,7 +131,7 @@ station location alphabetically.
 
 ## Next steps
 For more information about the `ORDER BY` clause and how to use it within
-PostgreSQL. Make sure to check out [the PostgreSQL documentation][postgres-docs].
+PostgreSQL, see the [PostgreSQL documentation][[orderby-postgres]].
 Additionally, for more examples of how to use `ORDER BY` in your queries, check
 out these Timescale documentation sections:
 
@@ -140,4 +140,3 @@ Include links to examples in docs here
 -->
 
 [orderby-postgres]: https://www.postgresql.org/docs/current/queries-order.html
-[postgres-docs]: https://www.postgresql.org/docs/currentqueries-order.html
