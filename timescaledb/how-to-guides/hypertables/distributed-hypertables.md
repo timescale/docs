@@ -301,13 +301,14 @@ four chunks, while the previous time intervals still include three:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
 
-This can affect queries that span the two different partitioning configurations. In
-the diagram, the highlighted area, marked as `chunks queried`, represents such
-a query. In the older configuration, the query only requires data from two chunks,
-but in the newer configuration, it requires data from three. For example, the query
-might include data for a particular hostname that now exists on more than one data
-node. Because the data spans data nodes, it cannot be fully aggregated on the data
-node. Some operations need to be performed on the access node instead.
+This can affect queries that span the two different partitioning configurations.
+In the diagram, the highlighted area, marked as `chunks queried`, represents
+such a query. In the older configuration, the query requires data from four
+chunks, but in the newer configuration, it requires data from three. For
+example, the query might include data for a particular hostname that now exists
+on more than one data node. Because the data spans data nodes, it cannot be
+fully aggregated on the data node. Some operations need to be performed on the
+access node instead.
 
 The TimescaleDB query planner dynamically detects such overlapping chunks and
 reverts to the appropriate partial aggregation plan. This means that you can add
