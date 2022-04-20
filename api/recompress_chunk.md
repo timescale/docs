@@ -1,5 +1,5 @@
 # recompress_chunk() <tag type="community" content="Community" />
-Recompresses a chunk that was previously compressed and decompressed.
+Recompresses a compressed chunk that had more data inserted after compression.
 ```sql
 recompress_chunk(
     chunk REGCLASS,
