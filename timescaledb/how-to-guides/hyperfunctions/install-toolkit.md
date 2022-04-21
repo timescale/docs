@@ -142,7 +142,7 @@ sessions.
 
 ### Build Toolkit from source
 You can build Toolkit from source. For more information, see the [Toolkit
-developer documentation][toolkit-gh-docs] .
+developer documentation][toolkit-gh-docs].
 
 [cloud]: /cloud/:currentVersion:/
 [debian-install]: /install/:currentVersion:/self-hosted/installation-debian/
