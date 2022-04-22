@@ -1,6 +1,7 @@
 # Benefits of hypertables
-Hypertables help TimescaleDB achieve [high time-series
-performance][performance-benchmark] and improved time-series workflows.
+Hypertables help TimescaleDB achieve
+[high time-series performance][performance-benchmark] and improved time-series
+workflows.
 
 ## Faster inserts and queries
 In time-series workflows, many inserts and queries are performed on recent data.
@@ -42,8 +43,8 @@ column-oriented form. This allows:
     ranges. Such queries are more common with historical time series data than
     with recent data. Thus, compression serves best for older chunks.
 
-Another way to speed up "deep and narrow" queries is to reorder data within a
-chunk. Most time-series data is inserted in approximate order of time value.
+TimescaleDB can also speed up "deep and narrow" queries by reordering data
+within a chunk. Most time-series data is inserted in approximate time order.
 This makes time-based chunks very efficient for insertion of recent data. But
 this order might be less efficient for some analytical queries of older data.
 You can reorder chunks to better match your application query patterns.
@@ -83,14 +84,15 @@ data must be migrated to the new server when you expand a cluster.
 Instead, TimescaleDB keeps existing chunks at their current locations. When it
 adds new chunks for new time intervals, it partitions them across the new set of
 servers. This eventually balances out inserts without incurring the costs of
-immediate data migration. The TimescaleDB planner handles queries seamlessly as
-partitions change. Behind the scenes, it keeps track of where each chunk is
-stored.
+immediate data migration.
+
+The TimescaleDB planner handles queries seamlessly as partitions change. Behind
+the scenes, it keeps track of where each chunk is stored.
 
 To fine-tune server rebalancing, you can asynchronously migrate chunks. Or, you
 can delete older data by using data retention policies. Older data is
 partitioned according to the older server setup, while newer data is partitioned
-according to the newer setup. So data retention eventually rebalances data
+according to the newer setup. Thus, data retention eventually rebalances data
 across your servers. 
 
 For more information, see the [chunk migration][chunk-migration] and

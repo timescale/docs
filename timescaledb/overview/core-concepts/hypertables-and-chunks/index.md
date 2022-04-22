@@ -2,7 +2,7 @@
 Hypertables are PostgreSQL tables with special features that make it easy to
 handle time-series data. Anything you can do with a regular PostgreSQL table,
 you can do with a hypertable. In addition, you get the benefits of improved
-performance and user experience for time series.
+performance and user experience for time-series data.
 
 With hypertables, TimescaleDB makes it easy to [improve insert and query
 performance][performance-benchmark] by partitioning time-series data on its time
@@ -33,6 +33,14 @@ For example, you might have:
     record ticker symbols and names for each asset
 *   A hypertable to record truck GPS coordinates over time, and a regular table
     to record the make, model, and age of each truck
+
+## Why can't you partition your time-series data yourself?
+You can! You can plan and write all the partitioning logic yourself on regular
+PostgreSQL. But handling child tables, constraints, chunk indexes, and other
+details gets complex. And that's before you get into more advanced features such
+as compression, continuous aggregates, and retention policies.
+
+TimescaleDB handles all this for you so you can focus on your application.
 
 [hypertable-architecture]: /overview/core-concepts/hypertables-and-chunks/hypertable-architecture/
 [hypertable-benefits]: /overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/
