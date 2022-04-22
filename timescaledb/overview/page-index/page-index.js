@@ -33,11 +33,12 @@ module.exports = [
                     excerpt: "How hypertables can improve your time-series workflows",
                   },
                   {
-                    title: "Chunk architecture",
-                    href: "chunk-architecture",
+                    title: "Hypertable architecture",
+                    href: "hypertable-architecture",
                     tags: ['hypertables', 'chunks', 'timescaledb'],
                     keywords: ['hypertables', 'chunks', 'TimescaleDB'],
-                    excerpt: "Chunnk architecture and how indexes work in hypertables",
+                    excerpt:
+                      "Hypertable architecture, and how chunks and indexes work in hypertables",
                   }
                 ]
               },
