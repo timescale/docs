@@ -1,6 +1,6 @@
 # Benefits of hypertables
 Hypertables help TimescaleDB achieve [high time-series
-performance][performance-benchmark] and offer improved time-series workflows.
+performance][performance-benchmark] and improved time-series workflows.
 
 ## Faster inserts and queries
 In time-series workflows, many inserts and queries are performed on recent data.
@@ -14,14 +14,14 @@ memory. This improves operation speed, since data doesn't need to be loaded from
 disk.
 
 <highlight type="note">
-For more information about chunk sizing for improved performance, see the section on 
+For more information about chunk sizing for improved performance, see the
+section on
 [chunk sizing](timescaledb/latest/how-to-guides/hypertables/best-practices/#time-intervals).
 </highlight>
 
 Though fitting chunks in memory gives the best performance, TimescaleDB doesn't
-*require* this setup. It still works with larger chunks. To choose which indexes
-and data to keep in memory, it uses Least Recently Used (LRU) caching on disk
-pages.
+*require* this setup. It still works with larger chunks. It uses Least Recently
+Used (LRU) caching to choose which indexes and data to keep in memory.
 
 ## Faster index updates
 TimescaleDB builds local indexes on each chunk, rather than global indexes
@@ -31,10 +31,10 @@ databases.
 
 To learn more, see the section on [chunk local indexes][local-indexes].
 
-## Age-based data compression and reordering 
-As data ages, you can compress it to save on storage. TimescaleDB's native
-compression converts chunks from a row-oriented form to a more column-oriented
-form. This allows:
+## Age-based data compression and reordering
+To save on storage, TimescaleDB can compress chunks as they age. Its native
+compression feature converts chunks from a row-oriented form to a more
+column-oriented form. This allows:
 *   Type-specific compression for each column. Type-specific algorithms can
     compress more efficiently than generic compression algorithms.
 *   Efficient "deep and narrow" queries. Compared to "wide and shallow" queries,
@@ -42,15 +42,15 @@ form. This allows:
     ranges. Such queries are more common with historical time series data than
     with recent data. Thus, compression serves best for older chunks.
 
-Another way to speed up "deep and narrow" queries is to reorder data.
-TimescaleDB inserts recent data ordered by time value. While this is efficient
-for rapid inserts of real-time data, it can be less efficient for some
-analytical queries of older data. You can reorder chunks to better match your
-application query patterns.
+Another way to speed up "deep and narrow" queries is to reorder data within a
+chunk. Most time-series data is inserted in approximate order of time value.
+This makes time-based chunks very efficient for insertion of recent data. But
+this order might be less efficient for some analytical queries of older data.
+You can reorder chunks to better match your application query patterns.
 
-For example, if you frequently query older data for a specific device, you can
-reorder the data by `(device_id, timestamp)`. For each device, all the device's
-data is written together, making "deep and narrow" scans faster.
+For example, if you often query older data for a specific device, you can
+reorder the data by `(device_id, timestamp)`. Each device's data is written
+contiguously, making "deep and narrow" scans faster.
 
 ## Easy data retention and tiering
 In many time series applications, you only want to store raw data for a period
