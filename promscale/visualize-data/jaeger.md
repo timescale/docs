@@ -6,7 +6,7 @@ To visualize traces in Jaeger with Promscale, you need to have Jaeger query comp
 
 <procedure>
 
-## Connect Jaeger query with Promscale
+## Connecting Jaeger query with Promscale
 
 1.  Deploy the Jaeger Query component from the Jaeger 
     [deployments page][jaeger-deployments], if you aren't already running the Jaeger query.
