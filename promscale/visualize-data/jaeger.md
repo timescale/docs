@@ -2,16 +2,18 @@
 This section shows you how to integrate
 [Jaeger][jaeger-ui] with Promscale.
 
-To visualize traces in Jaeger with Promscale, you need to have Jaeger query component running that queries and visualizes traces from Promscale. 
+To visualize traces in Jaeger with Promscale, you need to have Jaeger query component running that queries and visualizes traces from Promscale.
+
+<highlight type="note">
+For Jaeger to visualize traces in Promscale. You need Jaeger Query of version `1.30` or above.
+</highlight>
 
 <procedure>
 
-## Connecting Jaeger query with Promscale
+## Connecting Jaeger query with Promscale 
 
 1.  Deploy the Jaeger Query component from the Jaeger 
     [deployments page][jaeger-deployments], if you aren't already running the Jaeger query.
-    
-    **Note**: For Jaeger to visualize traces in Promscale. We need Jaeger Query of version `1.30` or above. 
     
 1.  Set the Jaeger query configuration through environment variables 
     as `SPAN_STORAGE_TYPE`  to `grpc-plugin` and 
