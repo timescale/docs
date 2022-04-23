@@ -41,7 +41,7 @@ You can now filter and view traces stored in Promscale using Grafana. To visuali
 
 <procedure>
 
-## Promscale as PostgreSQL datasource
+## Configuring Promscale as a PostgreSQL data source
 
 1.  Navigate to `Configuration → Data Sources → Add data source → PostgreSQL`.
 1.  Configure the data source settings:
