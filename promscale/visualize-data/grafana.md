@@ -18,7 +18,7 @@ This section shows you how to connect Promscale as a Prometheus, Jaeger and Post
 
 </procedure>
 
-Once you have configured Promscale as a Prometheus data source in Grafana, you can create panels that are populated with data using PromQL
+When you have configured Promscale as a Prometheus data source in Grafana, you can create panels that are populated with data using PromQL
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/getting-started-with-promscale-grafana-dashboard.png" alt="Sample output for PromQl query"/>
 
