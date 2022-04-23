@@ -49,12 +49,11 @@ You can now filter and view traces stored in Promscale using Grafana. To visuali
     *   In the Host field, type `<host>:<port>`, where host and port need to be 
         obtained from the service url you copied when you created the Timescale cloud service. The format of that url is `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`
     *   In the `Database` field, type the dbname from the service url.
-    *   In the User and Password fields, type the user and password from the service.
-    *   Change the `TLS/SSL Mode` to require as the service url by default contains 
-        the TLS mode as required.
-    *   Change the `TLS/SSL Method` File system path.
+    *   In the `User` and `Password` fields, type the user and password from the service.
+    *   Change the `TLS/SSL Mode` to `require`. By default, the service URL requires TLS mode.
+    *   Change the `TLS/SSL Method` file system path.
     *   Use the default values for all other settings.
-    *   In the PostgreSQL details section enable the TimescaleDB option.
+    *   In the PostgreSQL details section, enable the TimescaleDB option.
 
 </procedure>
 
