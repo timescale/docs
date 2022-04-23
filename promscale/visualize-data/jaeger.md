@@ -32,7 +32,7 @@ This sample output shows traces from Promscale visualized in a Jaeger query, usi
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/jaeger-homepage-query-results.png" alt="Sample output for Jaeger query results"/>
 
-## Using Docker for setting up Jaeger Query with Promscale
+## Use Docker to set up a Jaeger query with Promscale
 
 You need the IP address of your Promscale container. You can
 find this at the command prompt, using this command:
