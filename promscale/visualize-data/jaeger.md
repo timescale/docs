@@ -1,4 +1,4 @@
-# Visualise Promscale traces in Jaeger
+# Visualize Promscale traces in Jaeger
 This section shows you how to integrate
 [Jaeger][jaeger-ui] with Promscale.
 
