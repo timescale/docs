@@ -33,6 +33,11 @@ docker pull timescale/timescaledb-ha:pg14-latest
 See [Pre-built containers][docker-install] for more information on running
 TimescaleDB via Docker.
 
+<highlight type="tip">
+For ARM64 deployment, use the `timescaledb` Docker image documented in the
+aforementioned [Pre-built containers][docker-install] instructions.
+</highlight>
+
 ### Install Toolkit on Red Hat-based systems
 
 These instructions use the `dnf` package manager on RHEL, CentOS, and Fedora.
