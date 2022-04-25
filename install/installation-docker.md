@@ -25,6 +25,15 @@ instead.
     docker pull timescale/timescaledb:latest-pg14
     ```
 
+<highlight type="important">
+The `timescaledb` image is a lightweight image recommended for most TimescaleDB
+users. If you need to use
+[TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
+PostGIS, or Patroni for high availability, use the
+[`timescaledb-ha`](https://hub.docker.com/r/timescale/timescaledb-ha) image
+instead.
+</highlight>
+
 </procedure>
 
 <highlight type="warning">
