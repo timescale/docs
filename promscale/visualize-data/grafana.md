@@ -1,9 +1,12 @@
 # Connect Promscale and Grafana
+This section shows you how to connect Promscale as a Prometheus, Jaeger, 
+or PostgreSQL data source in [Grafana][grafana-homepage].
 
-To connect Grafana with Promscale, you should have Grafana running. If you do not have Grafana installed, follow the [Grafana installation docs][grafana-install].
+To connect Grafana with Promscale, you must have Grafana running. If you 
+do not have Grafana installed, follow the 
+[Grafana installation documentation][grafana-install].
 
-This section shows you how to connect Promscale as a Prometheus, Jaeger and PostgreSQL data sources in
-[Grafana][grafana-homepage].
+
 
 <procedure>
 
