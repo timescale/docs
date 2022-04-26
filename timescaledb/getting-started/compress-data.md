@@ -92,7 +92,7 @@ While we recommend using compression policies to compress data automatically,
 there might be situations where you need to [manually compress chunks][compress-manual]. 
 
 Use this query to manually compress chunks that consist of data older than
-2 weeks:
+2 weeks. Note that if you created the compression policy above, you will receive an error because the chunks are already compressed unless you add the `if_not_compressed` parameter shown below.
 
 ```sql
 SELECT compress_chunk(i)
