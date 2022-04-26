@@ -46,9 +46,9 @@ docker inspect <PROMSCALE_CONTAINER_NAME>
 ```
 
 The IP address is listed in the `NetworkSettings → Networks → IPAddress`
-section.
-
-Alternatively, you can set the URL as `promscale:9202` (here `9202` is the gRPC endpoint of Promscale), where `promscale` is the name of the container.
+section. Alternatively, you can set the URL as `promscale:9202`. In this
+example, `9202` is the gRPC endpoint of Promscale, and `promscale` 
+is the name of the container.
 
 <procedure>
 
