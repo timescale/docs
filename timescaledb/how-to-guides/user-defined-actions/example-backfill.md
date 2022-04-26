@@ -1,7 +1,19 @@
 # Schedule backfill
-Create a procedure to regularly backfill data into a compressed hypertable.
-Requires the [`decompress_backfill`][decompress_backfill] function from the
-TimescaleDB extras repository.
+Regularly backfill data into a compressed hypertable. For this action, you
+create a procedure that:
+*   Decompresses compressed chunks
+*   Inserts batched data from a staging table into the decompressed chunks
+*   Recompresses the chunks
+
+You can then schedule the procedure to occur at regular intervals.
+
+<highlight type="note">
+This action requires the
+[`decompress_backfill`](https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql)
+function from the TimescaleDB extras repository.
+</highlight>
+
+Create the procedure:
 ```sql
 CREATE OR REPLACE PROCEDURE backfill_on_schedule (job_id int, config jsonb)
 LANGUAGE PLPGSQL
@@ -33,5 +45,3 @@ SELECT add_job(
   NOW()
 );
 ```
-
-[decompress_backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
