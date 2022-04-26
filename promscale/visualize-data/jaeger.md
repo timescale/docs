@@ -32,7 +32,8 @@ Jaeger Query version 1.30 or higher.
 
 </procedure>
 
-This sample output shows traces from Promscale visualized in a Jaeger query, using the filters from the left search menu:
+This sample output shows traces from Promscale visualized in a 
+Jaeger query, using the filters from the left search menu:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/jaeger-homepage-query-results.png" alt="Sample output for Jaeger query results"/>
 
