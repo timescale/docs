@@ -34,8 +34,8 @@ intervals, see the documentation on
 
 ## Time-and-space partitioning
 All TimescaleDB hypertables are partitioned by time. In addition, they might
-also be partitioned by other columns. This is called "time-and-space
-partitioning."
+also be partitioned by other columns. This is called time-and-space
+partitioning.
 
 For example, say that you are collecting sensor data from multiple devices and
 storing it in a hypertable. You can choose to partition the data by both time

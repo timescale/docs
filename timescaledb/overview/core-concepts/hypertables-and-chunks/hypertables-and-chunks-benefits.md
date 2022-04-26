@@ -92,7 +92,7 @@ the scenes, it keeps track of where each chunk is stored.
 To fine-tune server rebalancing, you can asynchronously migrate chunks. Or, you
 can delete older data by using data retention policies. Older data is
 partitioned according to the older server setup, while newer data is partitioned
-according to the newer setup. Thus, data retention eventually rebalances data
+according to the newer setup. So data retention eventually rebalances data
 across your servers. 
 
 For more information, see the [chunk migration][chunk-migration] and

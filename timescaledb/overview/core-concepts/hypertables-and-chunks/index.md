@@ -21,7 +21,16 @@ Learn more about:
     chunks work behind the scenes
 *   [How to work with hypertables][hypertable-how-to]
 
-## When to use a hypertable
+## Hypertables compared to partitioning in regular PostgreSQL
+If you use regular PostgreSQL, you can also partition your time-series data by
+writing the partitioning logic yourself. But handling child tables, constraints,
+chunk indexes, and other details gets complex. And that's before you get into
+more advanced features such as compression, continuous aggregates, and retention
+policies.
+
+TimescaleDB handles all this for you so you can focus on your application.
+
+## When to use a hypertable in TimescaleDB
 You can have both hypertables and regular PostgreSQL tables in the same
 database. Choose a hypertable for time-series data, and choose a regular
 PostgreSQL table for relational data.
@@ -33,14 +42,6 @@ For example, you might have:
     record ticker symbols and names for each asset
 *   A hypertable to record truck GPS coordinates over time, and a regular table
     to record the make, model, and age of each truck
-
-## Why can't you partition your time-series data yourself?
-You can! You can plan and write all the partitioning logic yourself on regular
-PostgreSQL. But handling child tables, constraints, chunk indexes, and other
-details gets complex. And that's before you get into more advanced features such
-as compression, continuous aggregates, and retention policies.
-
-TimescaleDB handles all this for you so you can focus on your application.
 
 [hypertable-architecture]: /overview/core-concepts/hypertables-and-chunks/hypertable-architecture/
 [hypertable-benefits]: /overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/
