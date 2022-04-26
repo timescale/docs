@@ -52,19 +52,20 @@ module.exports = [
               ]
           },
           {
-            title: "5. Learn about data retention",
-            href: "data-retention",
-            tags: ['data', 'manage', 'learn', 'timescaledb'],
-            keywords: ['data', 'tutorial', 'TimescaleDB'],
-            excerpt: "Create a database retention policy for your TimescaleDB instance"
-          },
-          {
-            title: "6. Save space with compression",
+            title: "5. Save space with compression",
             href: "compress-data",
             tags: ['compression', 'data', 'learn', 'timescaledb'],
             keywords: ['compression', 'tutorial', 'TimescaleDB'],
             excerpt: "Use TimescaleDB's native compression to save space"
           },
+          {
+            title: "6. Learn about data retention",
+            href: "data-retention",
+            tags: ['data', 'manage', 'learn', 'timescaledb'],
+            keywords: ['data', 'tutorial', 'TimescaleDB'],
+            excerpt: "Create a database retention policy for your TimescaleDB instance"
+          },
+
           {
             title: "7. Next steps",
             href: "next-steps",
