@@ -27,15 +27,15 @@ If you're hosting your own TimescaleDB database, you can install Toolkit by:
 
 The recommended way to install the Toolkit is to use the
 [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
-To get Toolkit, pull the high availability image, `timescaledb-ha`:
+To get Toolkit, use the high availability image, `timescaledb-ha`:
 ```bash
 docker pull timescale/timescaledb-ha:pg14-latest
 ```
 
 <highlight type="important">
-The `timescaledb-ha` image does not support ARM64. For AM64 deployment, use the
-`timescaledb` Docker image, which does not contain Toolkit by default. Then add
-Toolkit using the package or build-from-source methods.
+The `timescaledb-ha` image does not support ARM64. For ARM64 environments, use the
+`timescaledb` Docker image. By default, this image does not contain Toolkit. You can add
+Toolkit using the package installation method, or by building from source.
 </highlight>
 
 For more information on running TimescaleDB using Docker, see the section on
