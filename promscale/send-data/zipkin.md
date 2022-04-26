@@ -9,7 +9,7 @@ Promscale using [Zipkin receiver][zipkin-receiver] and OpenTelemetry
 exporter.
 
 Here's an example configuration file for OpenTelemetry Collector to forward
-traces to Promscale after batch processing the data.
+traces to Promscale after batch processing the data:
 
 ```yaml
 receivers:
