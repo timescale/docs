@@ -95,7 +95,7 @@ Use this query to manually compress chunks that consist of data older than
 2 weeks. Note that if you created the compression policy above, you will receive an error because the chunks are already compressed unless you add the `if_not_compressed` parameter shown below.
 
 ```sql
-SELECT compress_chunk(i)
+SELECT compress_chunk(i, if_not_compressed=>true)
 FROM show_chunks('stocks_real_time', older_than => INTERVAL ' 2 weeks') i;
 ```
 
