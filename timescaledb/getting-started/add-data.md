@@ -44,7 +44,7 @@ For all the following steps, you may need to specify file path.
 1.  Download this `.zip` file. The file contains two `.csv` files: one with company 
     information, and one with real-time stock trades for one month.
 
-    Download: <tag type="download">[real_time_stock_data.zip](https://s3.amazonaws.com/assets.timescale.com/docs/downloads/)</tag>
+    Download: <tag type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)</tag>
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
     ```bash
