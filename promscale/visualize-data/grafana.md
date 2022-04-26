@@ -63,7 +63,7 @@ of Grafana, to the traces filtering panel.
 
 </procedure>
 
-You can now create panels that use Promscale as a PostgreSQL data source, using SQL queries to feed the chart
+You can now create panels that use Promscale as a PostgreSQL data source, using SQL queries to feed the chart:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/grafana-sql-query-results.png" alt="Sample output for SQL query in Grafana"/>
 
