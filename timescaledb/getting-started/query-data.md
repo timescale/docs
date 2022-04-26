@@ -42,7 +42,7 @@ popular TimescaleDB functions.
    avg(price)
    FROM stocks_real_time srt
       JOIN company c ON c.symbol = srt.symbol
-   WHERE c.name = 'Apple' AND time > now() - INTERVAL '2 day';
+   WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
    ```
 
 
