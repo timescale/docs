@@ -63,7 +63,7 @@ For all the following steps, you may need to specify file path.
     the file paths as needed:
 
     ```sql
-    \COPY stocks_real_time from './ tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+    \COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
     \COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
     ```
 
