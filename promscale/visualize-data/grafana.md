@@ -28,7 +28,7 @@ Grafana, you can create panels that are populated with data using PromQL:
 
 <procedure>
 
-## Promscale as Jaeger datasource
+## Using Promscale as a Jaeger data source
 
 1.  Navigate to `Configuration → Data Sources → Add data source → Jaeger`.
 1.  Configure the data source settings:
