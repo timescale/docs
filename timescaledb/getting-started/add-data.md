@@ -14,10 +14,8 @@ you should see data from within the last day.
 
 ### Table details
 
-* `stocks_real_time`: Stock data. Includes stock price quotes at every second during trading hours.
-* `company`: mapping for symbols to company names
 
-`stocks_real_time`:
+`stocks_real_time`: Stock data. Includes stock price quotes at every second during trading hours.
 
 | Field | Description |
 |-|-|
@@ -26,7 +24,7 @@ you should see data from within the last day.
 | price | (double precision) stock quote price for a company at the given timestamp |
 | day_volume | (int) number of shares traded each day, NULL values indicate the market is closed | 
 
-`company`:
+`company`: mapping for symbols to company names
 
 | Field | Description |
 |-|-|
