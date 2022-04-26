@@ -94,9 +94,9 @@ SELECT * FROM timescaledb_information.continuous_aggregates;
 
 Results:
 
-|hypertable_schema|hypertable_name |view_schema|view_name              |view_owner|materialized_only|compression_enabled|materialization_hypertable_schema|materialization_hypertable_name|view_definition                                    |
-|--|--|--|--|--|--|--|--|--|-----------------------------------------------------|
-|public           |stocks_real_time|public     |stock_candlestick_daily|tsdbadmin |false            |false              |_timescaledb_internal            |_materialized_hypertable_11    | SELECT time_bucket('1 day'::interval, srt."time") AS day,srt.symbol, max(srt.price) AS high, first(srt.price, srt."time") AS open, last(srt.price, srt."time") AS close, min(srt.price) AS low FROM stocks_real_time srt GROUP BY day, srt.symbol|
+|hypertable_schema|hypertable_name |view_schema|view_name              |view_owner|materialized_only|compression_enabled|materialization_hypertable_schema|materialization_hypertable_name|view_definition|
+|-|-|-|-|-|-|-|-|-|-|
+|public|stocks_real_time|public|stock_candlestick_daily|tsdbadmin |false|false|_timescaledb_internal        |_materialized_hypertable_11|SELECT time_bucket('1 day'::interval, srt."time") AS day,srt.symbol, max(srt.price) AS high, first(srt.price, srt."time") AS open, last(srt.price, srt."time") AS close, min(srt.price) AS low FROM stocks_real_time srt GROUP BY day, srt.symbol|
 
 
 Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
