@@ -4,7 +4,7 @@ To ingest Jaeger traces to Promscale, use the OpenTelemetry Collector.
 OpenTelemetry Collector converts the Jaeger traces to OpenTelemetry traces.
 
 # Send data using the OpenTelemetry Collector
-You can configure OpenTelemetry Collector to forward Jaeger traces to Promscale
+You can configure the OpenTelemetry Collector to forward Jaeger traces to Promscale
 using [Jaeger receiver][jaeger-receiver] and OpenTelemetry exporter.
 
 Here's an example configuration file for OpenTelemetry Collector to forward
