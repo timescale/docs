@@ -57,7 +57,7 @@ analysis in fewer lines of code. Here's how to use three of these functions:
 
 ### Get the first and last value with first() and last()
 
-   The `first()` and `last()` functions gets you the first and last value 
+   The `first()` and `last()` functions retrives the first and last value 
    within a column when ordered by another column. 
    
    For example, say you have a table with timestamp column `time` and numeric column `value`. If you 
