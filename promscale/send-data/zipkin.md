@@ -39,8 +39,8 @@ Where:
 * `<PROMSCALE_HOST>`: hostname of Promscale.
 * `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
 
-For more information about OpenTelemetry Collector, see [OpenTelemetry
-documentation][otelcol-docs].
+For more information about OpenTelemetry Collector, see the 
+[OpenTelemetry documentation][otelcol-docs].
 
 [otelcol-docs]: https://opentelemetry.io/docs/collector/
 [zipkin-receiver]: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver/zipkinreceiver#zipkin-receiver
