@@ -72,7 +72,8 @@ analysis in fewer lines of code. Here's how to use three of these functions:
    SELECT symbol, first(price,time), last(price, time)
    FROM stocks_real_time srt
    WHERE time > now() - INTERVAL '3 days'
-   GROUP BY symbol;
+   GROUP BY symbol
+   ORDER BY symbol;
    ```
 
 ### Aggregate by an arbitrary length of time using time_bucket
