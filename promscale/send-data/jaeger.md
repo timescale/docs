@@ -8,7 +8,7 @@ You can configure the OpenTelemetry Collector to forward Jaeger traces to Promsc
 using [Jaeger receiver][jaeger-receiver] and OpenTelemetry exporter.
 
 Here's an example configuration file for OpenTelemetry Collector to forward
-traces to Promscale after batch processing the data.
+traces to Promscale after batch processing the data:
 
 ```yaml
 receivers:
