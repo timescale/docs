@@ -17,7 +17,6 @@ Jaeger Query version 1.30 or higher.
 
 1.  Deploy the Jaeger Query component from the Jaeger 
     [deployments page][jaeger-deployments], if you aren't already running the Jaeger query.
-    
 1.  Set the Jaeger query configuration through environment variables 
     as `SPAN_STORAGE_TYPE`  to `grpc-plugin` and 
     `GRPC_STORAGE_SERVER` to Promscale gRPC endpoint `<PROMSCALE_HOST>:9202` before 
