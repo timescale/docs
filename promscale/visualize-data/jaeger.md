@@ -7,7 +7,8 @@ Jaeger query component running. This component queries
 and visualizes traces from Promscale.
 
 <highlight type="note">
-For Jaeger to visualize traces in Promscale. You need Jaeger Query of version `1.30` or above.
+For Jaeger to visualize traces in Promscale. you must be running 
+Jaeger Query version 1.30 or higher.
 </highlight>
 
 <procedure>
