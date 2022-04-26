@@ -39,7 +39,9 @@ Grafana, you can create panels that are populated with data using PromQL:
 
 </procedure>
 
-You can now filter and view traces stored in Promscale using Grafana. To visualize your traces, go to the “Explore” section of Grafana. You will be taken to the traces filtering panel.
+You can now filter and view traces stored in Promscale using 
+Grafana. To visualize your traces, go to the `Explore` section 
+of Grafana, to the traces filtering panel.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/images/misc/grafana-jaeger-query-results.png" alt="Sample output for Jaeger query filter in Grafana"/>
 
