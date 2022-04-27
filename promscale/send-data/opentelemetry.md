@@ -88,7 +88,7 @@ Kubernetes cluster the endpoint parameter is similar to `endpoint:
 ## Send data using OpenTelemetry Instrumentation SDKs
 
 The specifics of the configuration are different for each SDK and library. For
-more information, see [OpenTelemetry documentation][otel-docs].
+more information, see the [OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
 
