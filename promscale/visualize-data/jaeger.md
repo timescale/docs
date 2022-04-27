@@ -50,7 +50,7 @@ You can set the URL as `<PROMSCALE>:9202` where:
 <procedure>
 
 ### Connecting Promscale and a Jaeger query
-1.  Install Jaeger from the [official Docker image][jaeger-docker]:
+1.  Run Jaeger query using the [official Docker image][jaeger-docker]:
     ``` bash
     docker run -d \
       -p 16686:16686 \
