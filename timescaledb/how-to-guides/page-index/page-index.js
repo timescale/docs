@@ -696,11 +696,17 @@ module.exports = [
               "Learn about TimescaleDB hyperfunctions for additional analysis",
           },
           {
-            title: "Install TimescaleDB Toolkit",
+            title: "Install and update TimescaleDB Toolkit",
             href: "install-toolkit",
-            tags: ["toolkit", "install", "hyperfunctions", "timescaledb"],
-            keywords: ["TimescaleDB", "install", "toolkit"],
-            excerpt: "Install the TimescaleDB toolkit",
+            tags: [
+              "toolkit",
+              "install",
+              "update",
+              "hyperfunctions",
+              "timescaledb"
+            ],
+            keywords: ["TimescaleDB", "install", "update", "Toolkit"],
+            excerpt: "Install and update the TimescaleDB Toolkit",
           },
           {
             title: "Function pipelines",
