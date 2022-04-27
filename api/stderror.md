@@ -1,3 +1,13 @@
+---
+api_name: stderror
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'approximate count distinct'
+hyperfunction_subfamily: hyperloglog
+hyperfunction_type: accessor
+---
+
 # stderror()  <tag type="toolkit">Toolkit</tag>
 The `stderror` function returns an estimate of the relative standard error of the hyperloglog, based on the hyperloglog error formula. Approximate results are:
 

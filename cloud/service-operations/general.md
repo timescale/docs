@@ -1,10 +1,4 @@
-# Operations
-Timescale Cloud provides an operations dashboard for managing your services. You
-can see the Operations dashboard in your Timescale Cloud account by navigating
-to the `Services` section, clicking the service you want to explore, and
-selecting the `Operations` tab.
-
-## General
+# Services operations - General
 In the `General` section of the Operations dashboard, you can fork your service,
 reset the password, pause, or terminate the service.
 
@@ -13,12 +7,20 @@ When you a fork a service, you create an exact copy of the service, including
 the underlying database. This allows you to create a copy that you can use for
 testing purposes, or to prepare for a major version upgrade. The only difference
 between the original and the forked service is that the `tsdbadmin` user has a
-different password. 
+different password.
 
 <highlight type="important">
 You can fork services that have a status of `Running` or `Paused`. You cannot
 fork services while they have a status of `In progress`. Wait for the service to
 complete the transition before you start forking.
+</highlight>
+
+<highlight type="warning">
+Forks only have data up to the point when the original service was forked. Any
+data written to the original service after the time of forking does not appear 
+in the fork. If you want the fork to assume operations from the original
+service, pause your main service before forking to avoid any
+data discrepancy between services.
 </highlight>
 
 <procedure>
@@ -29,6 +31,9 @@ complete the transition before you start forking.
 1.  Navigate to the `Operations` tab.
 1.  In the `General` section, click `Fork service`. In the dialog, confirm by
     clicking `Fork service`. The forked service takes a few minutes to start.
+1.  To change the configuration of your fork, click
+    `Advanced options`. You can set different compute and
+    storage options, separate from your original database.
 1.  The forked service shows in the `Services` dashboard with a label stating
     which service it has been forked from.
 
@@ -40,7 +45,7 @@ complete the transition before you start forking.
 You can reset your service password from the `Operations` dashboard. This is the
 password you use to connect to your database, not the password to your Timescale
 Cloud account. To reset your Timescale Cloud password, navigate to the `Account`
-page. 
+page.
 
 When you reset your service password, you are prompted for your Timescale
 Cloud password. When you have authenticated, you can create a new service password,

@@ -58,8 +58,42 @@ compressed.
 
 </procedure>
 
+For more information, see the API reference for [`ALTER TABLE
+(compression)`][alter-table-compression] and
+[`add_compression_policy`][add_compression_policy].
+
+## View current compression policy
+To view the compression policy that you've set:
+```sql
+SELECT * FROM timescaledb_information.jobs
+  WHERE proc_name='policy_compression';
+```
+
+For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
+
+## Remove compression policy
+To remove a compression policy, use `remove_compression_policy`. For example, to remove a compression policy for a
+for a hypertable named `cpu`:
+```sql
+SELECT remove_compression_policy('cpu');
+```
+
+For more information, see the API reference for
+[`remove_compression_policy`][remove_compression_policy].
+
+## Disable compression
+You can disable compression entirely on individual hypertables. This command works only if you don't currently have any compressed chunks:
+
+```sql
+ALTER TABLE <TABLE_NAME> SET (timescaledb.compress=false);
+```
+
+If your hypertable contains compressed chunks, you need to
+[decompress each chunk][decompress-chunks] individually before you can disable
+compression.
+
 ## Compression policy intervals
-Data is usually compressed after an interval of time has elapsed, and not
+Data is usually compressed after an interval of time, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
 compression interval. Choosing a good compression interval can make your queries
 more efficient, and also allow you to handle data that is out of order.
@@ -213,5 +247,8 @@ column that specifies the range of values in the compressed column, without
 first performing any decompression, in order to determine whether the row could
 possibly match a time predicate specified by the query.
 
-
+[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
+[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [decompress-chunks]: /how-to-guides/compression/decompress-chunks
+[remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
+[timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/

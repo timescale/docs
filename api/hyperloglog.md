@@ -1,3 +1,13 @@
+---
+api_name: hyperloglog
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'approximate count distinct'
+hyperfunction_subfamily: hyperloglog
+hyperfunction_type: aggregate
+---
+
 # hyperloglog()  <tag type="toolkit">Toolkit</tag>
 The `hyperloglog` function constructs and returns a hyperloglog with at least
 the specified number of buckets over the given values.

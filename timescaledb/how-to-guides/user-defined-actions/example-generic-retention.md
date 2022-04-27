@@ -18,7 +18,7 @@ BEGIN
     RAISE EXCEPTION 'Config must have drop_after';
   END IF;
 
-  PERFORM drop_chunks(format('%I.%I', table_schema, table_name), older_than => drop_after)
+  PERFORM drop_chunks(format('%I.%I', hypertable_schema, hypertable_name), older_than => drop_after)
     FROM timescaledb_information.hypertables;
 END
 $$;

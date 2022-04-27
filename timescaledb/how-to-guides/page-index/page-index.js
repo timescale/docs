@@ -174,6 +174,13 @@ module.exports = [
             keywords: ["hypertables", "hyperfunctions", "TimescaleDB"],
             excerpt: "Use advanced analytics queries",
           },
+          {
+            title: "DISTINCT queries with SkipScan",
+            href: "skipscan",
+            tags: ["skipscan", "distinct", "query", "timescaledb"],
+            keywords: ["SkipScan", "query", "timescaledb"],
+            excerpt: "Get faster DISTINCT queries with SkipScan",
+          },
         ],
       },
       {
@@ -226,7 +233,7 @@ module.exports = [
             tags: ['multi-node', 'management', 'administration', 'distributed', 'nodes'],
             keywords: ['multi-node', 'management', 'administration'],
             excerpt: 'Administer a multi-node cluster'
-          },			
+          },
           {
             title: "Grow and shrink a multi-node cluster",
             href: "multinode-grow-shrink",
@@ -247,6 +254,22 @@ module.exports = [
             tags: ["multi-node", "maintain", "distributed", "nodes", "manage"],
             keywords: ["multi-node", "maintain"],
             excerpt: "Maintain a multi-node environment",
+          },
+        ],
+      },
+      {
+        title: "Time buckets",
+        href: "time-buckets",
+        tags: ["time bucket", "timescaledb"],
+        keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
+        excerpt: "Learn how time buckets work in TimescaleDB.",
+        children: [
+          {
+            title: "Use time buckets to group time-series data",
+            href: "use-time-buckets",
+            tags: ["time bucket", "timescaledb"],
+            keywords: ["time bucket", "TimescaleDB", "hyperfunctions"],
+            excerpt: "How to group time series data with the time_bucket function."
           },
         ],
       },
@@ -308,7 +331,7 @@ module.exports = [
             tags: ["caggs", "compression", "timescaledb"],
             keywords: ["caggs", "compression", "TimescaleDB"],
             excerpt: "Compress continuous aggregates",
-          },          
+          },
           {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
@@ -446,16 +469,23 @@ module.exports = [
         ],
       },
       {
-        title: "Replication and HA",
+        title: "Replication and High Availability",
         href: "replication-and-ha",
         children: [
           {
-            title: "Replication and HA",
-            href: "replication",
+            title: "About high availability",
+            href: "about-ha",
             tags: ["ha", "replicate", "timescaledb"],
             keywords: ["ha", "replicate", "TimescaleDB"],
-            excerpt: "Replication and high availability",
+            excerpt: "High availability in TimescaleDB",
           },
+          {
+            title: "Configure replication",
+            href: "configure-replication",
+            tags: ["ha", "replicate", "timescaledb"],
+            keywords: ["replicate", "configure", "TimescaleDB"],
+            excerpt: "Configure replication",
+          }
         ],
       },
       {
@@ -666,11 +696,17 @@ module.exports = [
               "Learn about TimescaleDB hyperfunctions for additional analysis",
           },
           {
-            title: "Install TimescaleDB Toolkit",
+            title: "Install and update TimescaleDB Toolkit",
             href: "install-toolkit",
-            tags: ["toolkit", "install", "hyperfunctions", "timescaledb"],
-            keywords: ["TimescaleDB", "install", "toolkit"],
-            excerpt: "Install the TimescaleDB toolkit",
+            tags: [
+              "toolkit",
+              "install",
+              "update",
+              "hyperfunctions",
+              "timescaledb"
+            ],
+            keywords: ["TimescaleDB", "install", "update", "Toolkit"],
+            excerpt: "Install and update the TimescaleDB Toolkit",
           },
           {
             title: "Function pipelines",
