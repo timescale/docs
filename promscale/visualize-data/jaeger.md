@@ -6,7 +6,7 @@ running. This Jaeger component queries and visualizes traces from Promscale.
 
 This section shows you how to integrate [Jaeger][jaeger-ui] with Promscale.
 
-Before you begin, deploy the jaeger-query` component from the Jaeger 
+Before you begin, deploy the `jaeger-query` component from the Jaeger 
 [deployments page][jaeger-deployments]. Ensure that you are using `jaeger-query`
 version 1.30 or later. 
 
