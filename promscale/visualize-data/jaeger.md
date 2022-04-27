@@ -12,7 +12,7 @@ version 1.30 or later.
 
 <procedure>
 
-## Connecting a Jaeger query with Promscale
+## Connecting Jaeger Query with Promscale
     
 1.  Configure the `SPAN_STORAGE_TYPE`, and `GRPC_STORAGE_SERVER` options for `jaeger-query` using the environment variables: 
     ```
