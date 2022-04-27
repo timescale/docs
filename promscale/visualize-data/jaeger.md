@@ -21,7 +21,7 @@ version 1.30 or later.
     ```
     where: `<PROMSCALE_HOST>:9202` is the Promscale gRPC endpoint.
 
-1.  Start the `jaegar-query` component, it should be successfully connected with
+1.  Start the `jaeger-query` component, it should be successfully connected with
     Promscale to visualize the traces. 
 
 </procedure>
