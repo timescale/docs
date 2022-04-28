@@ -89,7 +89,7 @@ TimescaleDB or PostgreSQL database used by Promscale.
     *   In the `Host` field, type the IP address or hostname and optional port of
         your TimescaleDB or PostgreSQL instance. 
     *   In the `Database` field, type the name of the PostgreSQL database. The
-        default database is `tstb`.
+        default database is `tsdb`.
     *   In the `User`and `Password` fields, type the `user name` and the
         `password` for the database.
     *   In the `TLS/SSL Mode` select `require`. This determines whether or with
