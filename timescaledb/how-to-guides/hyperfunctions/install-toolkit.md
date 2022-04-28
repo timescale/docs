@@ -18,8 +18,28 @@ ALTER EXTENSION timescaledb_toolkit UPDATE;
 ```
 
 ## Install Toolkit on self-hosted TimescaleDB
-If you're hosting your own TimescaleDB database, you can install Toolkit as an
-RPM, Debian, or Ubuntu package. You can also build Toolkit from source.
+If you're hosting your own TimescaleDB database, you can install Toolkit by:
+*   Using the TimescaleDB high-availability Docker image
+*   Using the RPM, Debian, or Ubuntu package
+*   Building from source
+
+### Install Docker image
+
+The recommended way to install the Toolkit is to use the
+[TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
+To get Toolkit, use the high availability image, `timescaledb-ha`:
+```bash
+docker pull timescale/timescaledb-ha:pg14-latest
+```
+
+<highlight type="important">
+The `timescaledb-ha` image does not support ARM64. For ARM64 environments, use the
+`timescaledb` Docker image. By default, this image does not contain Toolkit. You can add
+Toolkit using the package installation method, or by building from source.
+</highlight>
+
+For more information on running TimescaleDB using Docker, see the section on
+[pre-built containers][docker-install].
 
 ### Install Toolkit on Red Hat-based systems
 
@@ -146,6 +166,7 @@ developer documentation][toolkit-gh-docs].
 
 [cloud]: /cloud/:currentVersion:/
 [debian-install]: /install/:currentVersion:/self-hosted/installation-debian/
+[docker-install]: /install/:currentVersion:/installation-docker/
 [mst]: /mst/:currentVersion:/
 [red-hat-install]: /install/:currentVersion:/self-hosted/installation-redhat/
 [rust-install]: https://www.rust-lang.org/tools/install
