@@ -4,12 +4,20 @@ it also speeds up query time, because fewer bytes need to be read from disk.
 
 TimescaleDB supports native compression for storage and time savings.
 
-<!-- TODO: add this section when improving compression page is done
-<highlight type="note"> Your insert and query patterns affect how much benefit
-you get from compression. To learn best practices for setting up compression,
-see the section on [improving
+## When to compress data
+It's best to compress chunks that:
+*   Don't have frequent inserts and updates
+*   Are queried for only a few columns at a time, rather than for all columns
+    at once (`SELECT * FROM ...`)
+*   Often reside on disk rather than in memory
+
+For time-series data, these conditions usually apply to older data. The exact
+age depends on your application insert and query patterns. To learn more, see
+the section on [benefits and trade-offs of compression][benefits-trade-offs]. 
+
+<!-- TODO: add this link as well when section is complete
+[improving
 compression](/timescaledb/latest/how-to-guides/compression/improve-compression/).
-</highlight>
 -->
 
 ## Native compression to column-based storage
@@ -17,10 +25,9 @@ TimescaleDB uses native compression for hypertable data. That means it doesn't
 need a specific file system or extra software. Compression works out-of-the-box.
 
 Compressed data is stored in a hybrid row-columnar format. This format works
-best for older data, which is queried but rarely changed. Newer,
-often-changed data should be stored in uncompressed row format. This combination
-performs well for time-series use cases. To learn more about TimescaleDB's
-compression architecture, see the [architecture
+best for older data, which is queried but rarely changed. Newer, often-changed
+data should be stored in uncompressed row format. To learn more about
+TimescaleDB's compression architecture, see the [architecture
 section][compression-architecture].
 
 The user interface remains the same after your data is compressed. You continue
@@ -28,7 +35,7 @@ to query your data as normal, and the database decompresses data as needed.
 
 <highlight type="important"> Inserts and queries work as usual, but there are
 limitations on updates and deletes. For more information, see the section on
-[trade-offs](#trade-offs-of-column-based-storage).</highlight>
+[trade-offs](#benefits-and-trade-offs-of-compression).</highlight>
 
 ## Compression performance
 In tests, TimescaleDB achieves 91-96% storage savings with lossless compression.
@@ -41,9 +48,12 @@ compression improves query speed by 1.15 to 70.45 times. But not all queries on
 compressed data have improved performance.
 
 For more information about query performance, see the section on [queries
-on compressed data][compressed-queries]. To optimize compression for your query
-patterns, see the section on [improving compression
-performance][improving-compression].
+on compressed data][compressed-queries]. 
+
+<!-- TODO: add after improving compression page is done
+To optimize compression for your query patterns, see the section on [improving
+compression performance][improving-compression].
+-->
 
 ## Benefits and trade-offs of compression
 Compression has both benefits and trade-offs. To decide whether to use
@@ -91,8 +101,9 @@ Learn more about compression from several resources:
 *   For a deep dive on the design motivations, see the [compression blog
     post][compression-blog-post].
 
+[benefits-trade-offs]: #benefits-and-trade-offs-of-compression
 [compression-architecture]: /overview/core-concepts/compression/architecture/
 [compression-blog-post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
 [compression-how-to]: /how-to-guides/compression/
-[compressed-queries]: /overview/core-concepts/compression/architecture/#queries
+[compressed-queries]: /overview/core-concepts/compression/architecture/#interacting-with-compressed-chunks
 [improving-compression]: /how-to-guides/compression/improve-compression/
