@@ -4,11 +4,13 @@ it also speeds up query time, because fewer bytes need to be read from disk.
 
 TimescaleDB supports native compression for storage and time savings.
 
+<!-- TODO: add this section when improving compression page is done
 <highlight type="note"> Your insert and query patterns affect how much benefit
 you get from compression. To learn best practices for setting up compression,
 see the section on [improving
 compression](/timescaledb/latest/how-to-guides/compression/improve-compression/).
 </highlight>
+-->
 
 ## Native compression to column-based storage
 TimescaleDB uses native compression for hypertable data. That means it doesn't
