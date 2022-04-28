@@ -105,6 +105,15 @@ module.exports = [
           "Install self-hosted TimescaleDB with a pre-built Docker container",
       },
       {
+        title: "Kubernetes",
+        href: "installation-kubernetes",
+        title: "Kubernetes",
+        href: "installation-kubernetes",
+        tags: ["timescaledb", "install", "self-hosted", "kubernetes", "helm"],
+        keywords: ["install", "TimescaleDB", "self-hosted", "Kubernetes"],
+        excerpt: "Install TimescaleDB on Kubernetes",
+      },
+      {
         title: "Pre-built cloud images",
         href: "installation-cloud-image",
         tags: ["install", "aws", "ami", "ubuntu", "Timescaledb", "cloud images"],

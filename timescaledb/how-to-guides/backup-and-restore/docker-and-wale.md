@@ -29,7 +29,7 @@ started TimescaleDB, you can log in and create tables and data.
     ```
 1.  Launch TimescaleDB, with archiving turned on:
     ```bash
-    docker run​ \
+    docker run \
       --name timescaledb \
       --network timescaledb-net \
       -e POSTGRES_PASSWORD=insecure \
@@ -72,7 +72,7 @@ backups to `~/backups` on the Docker host.
 1.  Start the WAL-E container with the required information about the container.
     In this example, the container is called `timescaledb-wale`:
     ```bash
-    docker run​ \
+    docker run \
       --name wale \
       --network timescaledb-net \
       --volumes-from timescaledb \

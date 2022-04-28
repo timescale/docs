@@ -455,13 +455,17 @@ module.exports = [
             ],
           },
           {
-            title: 'Counter aggregation',
+            title: 'Metric aggregation (counters and gauges)',
             type: 'directory',
             href: 'counter_aggs',
             children: [
               {
                 title: 'counter_agg (point form)',
                 href: 'counter_agg_point',
+              },
+              {
+                title: 'gauge_agg',
+                href: 'gauge_agg',
               },
               {
                 title: 'rollup',
@@ -573,12 +577,20 @@ module.exports = [
                 href: 'freq_agg',
               },
               {
-                title: 'values',
-                href: 'values-freq_agg',
+                title: 'topn_agg',
+                href: 'topn_agg',
               },
               {
                 title: 'topn',
                 href: 'topn',
+              },
+              {
+                title: 'into_values (for freq_agg)',
+                href: 'into_values-freq_agg',
+              },
+              {
+                title: 'min_frequency / max_frequency',
+                href: 'min_frequency-max_frequency',
               },
               {
                 title: 'state_agg',
@@ -587,6 +599,10 @@ module.exports = [
               {
                 title: 'duration_in',
                 href: 'duration_in',
+              },
+              {
+                title: 'into_values (for state_agg)',
+                href: 'into_values-state_agg',
               },
             ],
           },

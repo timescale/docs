@@ -232,7 +232,7 @@ most recent packages.
 1.  If you are using Kubernetes, some additional set up is required. Create a
     ConfigMap, like this:
     ```yaml
-    ​​apiVersion: v1
+    apiVersion: v1
     kind: ConfigMap
     metadata:
       name: promscale-jaeger
