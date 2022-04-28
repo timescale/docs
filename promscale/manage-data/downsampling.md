@@ -138,7 +138,7 @@ aggregated metric stores the data for `min`, `max`, and `avg` in different
 columns, which is not supported by Prometheus, because Prometheus stores all
 metrics independently. Promscale uses the `__column__` label to identify which
 column to return. If no `__column__` label is specified, Promscale returns the
-`value` column by default.  To query the average in the new aggregated metric
+`value` column by default. To query the average in the new aggregated metric
 with PromQL, use this query:
 ```promql
 node_memfree_1hour{__column__="avg"}
