@@ -56,7 +56,7 @@ To install the tracing components, run the Promscale Connector with tracing
 enabled:
 ```bash
 docker run --name promscale -d -p 9201:9201 -p 9202:9202 \
---network promscale-timescaledb timescale/promscale:latest \
+--network promscale timescale/promscale:latest \
 -db-password=<PASSWORD> -db-port=5432 -db-name=postgres \
 -db-host=timescaledb -db-ssl-mode=allow -enable-feature=tracing \
 -otlp-grpc-server-listen-address=:9202

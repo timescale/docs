@@ -193,7 +193,7 @@ most recent packages.
     docker run --name promscale-jaeger -d \
     -p 16686:16686 \
     -v <PATH_TO_PLUGIN_CONFIG_FILE>:/configs/jaeger-promscale-query.yaml \
-    --network promscale-timescaledb \
+    --network promscale \
     timescale/jaeger-query-proxy:latest
     ```
 1.  The Jaeger UI can be accessed on port 16686.
