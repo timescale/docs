@@ -1,14 +1,14 @@
 # Send Zipkin traces to Promscale
-Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for 
+Promscale natively supports the OpenTelemetry Protocol (OTLP) for 
 traces. To ingest Zipkin traces to Promscale, use the OpenTelemetry Collector.
-OpenTelemetry Collector converts the Zipkin traces to OpenTelemetry traces.
+The OpenTelemetry Collector converts the Zipkin traces to OpenTelemetry traces.
 
 # Send data using the OpenTelemetry Collector
-You can configure OpenTelemetry Collector to forward Zipkin traces to
-Promscale using [Zipkin receiver][zipkin-receiver] and OpenTelemetry 
+You can configure the OpenTelemetry Collector to forward Zipkin traces to
+Promscale using [Zipkin receiver][zipkin-receiver] and the OpenTelemetry 
 exporter.
 
-Here's an example configuration file for OpenTelemetry Collector to forward
+Here's an example configuration file for the OpenTelemetry Collector to forward
 traces to Promscale after batch processing the data:
 
 ```yaml
