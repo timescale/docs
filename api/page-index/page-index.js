@@ -176,6 +176,10 @@ module.exports = [
             href: 'decompress_chunk',
           },
           {
+            title: 'recompress_chunk',
+            href: 'recompress_chunk',
+          },
+          {
             title: 'hypertable_compression_stats',
             href: 'hypertable_compression_stats',
           },
@@ -646,6 +650,10 @@ module.exports = [
             href: 'job_stats',
           },
         ],
+      },
+      {
+        href: 'configuration',
+        excerpt: 'Configure PostgreSQL and TimescaleDB',
       },
       {
         title: 'Administration Functions',
