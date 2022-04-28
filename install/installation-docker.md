@@ -30,7 +30,7 @@ The [`timescaledb-ha`](https://hub.docker.com/r/timescale/timescaledb-ha) image
 offers the most complete TimescaleDB experience. It
 includes the [TimescaleDB
 Toolkit](https://github.com/timescale/timescaledb-toolkit), and support
-for PostGIS and Patroni.  If you need the smallest possible image, use
+for PostGIS and Patroni. If you need the smallest possible image, use
 the `timescale/timescaledb:latest-pg14` image instead.
 </highlight>
 
