@@ -1,3 +1,13 @@
+---
+api_name: corr
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'statistical aggregates'
+hyperfunction_subfamily: 'statistical aggregates'
+hyperfunction_type: accessor-2d
+---
+
 # corr() <tag type="toolkit" content="Toolkit" />
 
 ```sql

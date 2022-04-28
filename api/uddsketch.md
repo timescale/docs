@@ -1,3 +1,13 @@
+---
+api_name: uddsketch
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'advanced aggregation'
+hyperfunction_type: aggregate
+---
+
 # uddsketch() <tag type="toolkit">Toolkit</tag>
 
 ```SQL ,ignore

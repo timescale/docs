@@ -32,13 +32,13 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.6:
+### What's new in TimescaleDB 2.6.1:
 
 - Continuous aggregates with compression
 - `time_bucket_ng` support for N months, years and timezones on continuous aggregates
 
 You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-6).
-This release also contains bug fixes since the 2.5.0 release.
+This release also contains bug fixes since the 2.6.0 release.
 
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
@@ -76,7 +76,7 @@ For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 rel
 For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
 
 <highlight type="tip">
-TimescaleDB 2.6 is now available, and we encourage
+TimescaleDB 2.6.1 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -87,6 +87,29 @@ for more information and links to installation instructions when upgrading from 
 
 ## Release notes
 
+## 2.6.1 (2022-04-11)
+
+This release contains bug fixes since the 2.6.0 release.
+This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. 
+
+**Bug fixes**
+* #4121 Fix RENAME TO/SET SCHEMA on distributed hypertable
+* #4122 Fix segfault on INSERT into distributed hypertable
+* #4142 Ignore invalid relid when deleting hypertable
+* #4159 Fix ADD COLUMN IF NOT EXISTS error on compressed hypertable
+* #4161 Fix memory handling during scans
+* #4176 Fix remote EXPLAIN with parameterized queries
+* #4181 Fix spelling errors and omissions
+* #4186 Fix owner change for distributed hypertable
+* #4192 Abort sessions after extension reload
+* #4193 Fix relcache callback handling causing crashes
+* #4199 Remove signal-unsafe calls from signal handlers
+* #4219 Do not modify aggregation state in finalize
+
+**Thanks**
+* @abrownsword for reporting a crash in the telemetry reporter
+* @daydayup863 for reporting issue with remote explain
+
 ## 2.6.0 (2022-02-16)
 This release adds major new features since the 2.5.2 release, including:
 * Compression in continuous aggregates
@@ -95,7 +118,7 @@ This release adds major new features since the 2.5.2 release, including:
 
 It also includes several bug fixes. Telemetry reports are switched to a new
 format, and now include more detailed statistics on compression, distributed
-hypertables and indexes.  We deem this release to be moderate priority for
+hypertables and indexes. We deem this release to be moderate priority for
 upgrading.
 
 **Features**
@@ -144,7 +167,7 @@ upgrade as soon as possible.
 * #4024 Fix premature cache release call
 * #4037 Fix status for dropped chunks that have catalog entries
 * #4069 Fix riinfo NULL handling in ANY construct
-* #4071 Fix extension installation privilege escalation
+* #4071 Fix extension installation privilege escalation (CVE-2022-24128)
 
 **Thanks**
 * @carlocperez for reporting crash with NULL handling in ANY construct

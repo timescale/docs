@@ -26,10 +26,10 @@ refreshing in order to align with bucket boundaries.
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `continuous_aggregate` | REGCLASS | The continuous aggregate to refresh. |
-| `window_start` | INTERVAL | Start of the window to refresh, has to be before `window_end`. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable. |
-| `window_end` | INTERVAL | End of the window to refresh, has to be after `window_start`. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable. |
+|-|-|-|
+|`continuous_aggregate`|REGCLASS|The continuous aggregate to refresh.|
+|`window_start`|INTERVAL|Start of the window to refresh, has to be before `window_end`. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable.|
+|`window_end`|INTERVAL|End of the window to refresh, has to be after `window_start`. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable.|
 
 ### Sample usage
 
