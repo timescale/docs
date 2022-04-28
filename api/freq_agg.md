@@ -1,3 +1,13 @@
+---
+api_name: freq_agg
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: SpaceSavingAggregate
+hyperfunction_type: aggregate
+---
+
 # freq_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 The `freq_agg` aggregate uses the [SpaceSaving][spacesaving-algorithm] algorithm 
 to estimate the most common elements of a set. This API takes a sizing parameter and 
@@ -20,7 +30,7 @@ do not use any experimental features in production.
 ## Returns
 |Column|Type|Description|
 |-|-|-|
-|`frequencyaggregate`|`FrequencyAggregate`|An object storing the most common elements of the given table and their estimated frequency.|
+|`agg`|`SpaceSavingAggregate`|An object storing the most common elements of the given table and their estimated frequency.|
 
 ## Sample usage
 This example creates frequency aggregate over a field `ZIP` in a `HomeSales`

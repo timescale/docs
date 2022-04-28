@@ -1,3 +1,13 @@
+---
+api_name: duration_in
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: StateAgg
+hyperfunction_type: accessor
+---
+
 # duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Use this function to report the total duration for a given state in a [state aggregate][state_agg].
 

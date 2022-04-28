@@ -29,6 +29,43 @@ module.exports = [
         excerpt: 'Use TimescaleDB to analyze cryptocurrency data',
       },
       {
+        title: 'Store financial tick data in TimescaleDB',
+        href: 'financial-candlestick-tick-data',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+        excerpt: 'Use TimescaleDB to store financial tick data',
+        children: [
+          {
+            title: 'Design schema and ingest tick data',
+            href: 'design-tick-schema',
+        tags: ['tick', 'schema', 'candlestick', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Design a relational schema for real-time tick data',
+          },
+          {
+            title: 'Create candlestick aggregates',
+            href: 'create-candlestick-aggregates',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Use continuous aggregates to create candlestick views',
+          },
+          {
+            title: 'Query the candlestick views',
+            href: 'query-candlestick-views',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Query the continuous aggregates for candlestick data',
+          },
+          {
+            title: 'Advanced data management',
+            href: 'advanced-data-management',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Advanced data management techniques',
+          }
+        ],
+      },
+      {
         title: 'Analyze NFT sales data',
         href: 'analyze-nft-data',
         tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb'],
