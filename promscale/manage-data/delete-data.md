@@ -2,8 +2,10 @@
 Promscale provides several methods for deleting data. You can delete metric data
 by series, by metric name, or by time. You can also delete trace data.
 
+<highlight type="warning">
 There is no way to undo data deletion. If you need to restore your data,
 you must restore from backup.
+</highlight>
 
 Additionally, you can have data automatically deleted by setting retention
 policies. For more information about Promscale retention policies, see the
