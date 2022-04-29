@@ -83,7 +83,7 @@ curl -X POST -g http://localhost:9201/delete_series?match[]=container_cpu_load_a
 ```
 
 ### Deletion by time
-You can delete of metric data points based on time, using an SQL query. Any compressed
+You can delete metric data points based on time, using an SQL query. Any compressed
 data needs to be decompressed before performing the deletion. You can
 recompress the chunks later on, if necessary.
 
