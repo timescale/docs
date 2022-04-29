@@ -258,6 +258,22 @@ module.exports = [
         ],
       },
       {
+        title: "Time buckets",
+        href: "time-buckets",
+        tags: ["time bucket", "timescaledb"],
+        keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
+        excerpt: "Learn how time buckets work in TimescaleDB.",
+        children: [
+          {
+            title: "Use time buckets to group time-series data",
+            href: "use-time-buckets",
+            tags: ["time bucket", "timescaledb"],
+            keywords: ["time bucket", "TimescaleDB", "hyperfunctions"],
+            excerpt: "How to group time series data with the time_bucket function."
+          },
+        ],
+      },
+      {
         href: "continuous-aggregates",
         children: [
           {
@@ -453,7 +469,7 @@ module.exports = [
         ],
       },
       {
-        title: "Replication and HA",
+        title: "Replication and High Availability",
         href: "replication-and-ha",
         children: [
           {
@@ -680,11 +696,17 @@ module.exports = [
               "Learn about TimescaleDB hyperfunctions for additional analysis",
           },
           {
-            title: "Install TimescaleDB Toolkit",
+            title: "Install and update TimescaleDB Toolkit",
             href: "install-toolkit",
-            tags: ["toolkit", "install", "hyperfunctions", "timescaledb"],
-            keywords: ["TimescaleDB", "install", "toolkit"],
-            excerpt: "Install the TimescaleDB toolkit",
+            tags: [
+              "toolkit",
+              "install",
+              "update",
+              "hyperfunctions",
+              "timescaledb"
+            ],
+            keywords: ["TimescaleDB", "install", "update", "Toolkit"],
+            excerpt: "Install and update the TimescaleDB Toolkit",
           },
           {
             title: "Function pipelines",
