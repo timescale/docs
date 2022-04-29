@@ -44,9 +44,8 @@ SELECT ps_trace.get_trace_retention_period();
 ```
 
 You can change the retention period by adjusting the `trace_retention_period`
-parameter of the
-`ps_trace.set_trace_retention_period(trace_retention_period INTERVAL)`
-function:
+parameter of the function
+`ps_trace.set_trace_retention_period(trace_retention_period INTERVAL)`:
 ```sql
 SELECT ps_trace.set_trace_retention_period(30 * INTERVAL '1 day');
 ```
