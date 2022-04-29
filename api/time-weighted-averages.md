@@ -9,11 +9,11 @@ Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-|Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
-|-|-|-|-|-|
-|Time-weighted averages|Time-weighted averages|[`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/)|❌|✅|
-|||[`rollup`](/hyperfunctions/time-weighted-averages/rollup-timeweight/)|❌|✅|
-|||[`average`](/hyperfunctions/time-weighted-averages/average-time-weight/)|❌|✅|
+<hyperfunctionTable
+    hyperfunctionFamily='time-weighted averages'
+    includeExperimental
+    sortByType
+/>
 
 [hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
 [install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

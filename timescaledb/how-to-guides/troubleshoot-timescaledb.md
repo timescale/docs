@@ -60,6 +60,12 @@ the database will be looking for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.
 
+### Scheduled jobs stop running
+If your scheduled jobs stop running, try restarting the background workers:
+```
+SELECT _timescaledb_internal.start_background_workers();
+```
+
 ## Getting more information
 
 ###  EXPLAINing query performance [](explain)

@@ -55,13 +55,13 @@ Let's take a closer look at `time_bucket`.
 
 ### time_bucket()
 
-Here's an example of how to use [`time_bucket()`] to find the average temperature per 15 day period, for each city, in the past 6 months:
+Here's an example of how to use [`time_bucket()`] to find the average temperature per 15 day period, for each city, in the past 12 months:
 
 ```sql
 -----------------------------------
 -- time_bucket
 -- Average temp per 15 day period
--- for past 6 months, per city
+-- for past 12 months, per city
 -----------------------------------
 SELECT time_bucket('15 days', time) as "bucket"
    ,city_name, avg(temp_c)

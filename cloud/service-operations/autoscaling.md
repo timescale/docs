@@ -1,4 +1,4 @@
-# Resizing compute and storage in Timescale Cloud
+# Service operations - Autoscaling
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is useful when you need to do something like increasing your
 storage capacity, but not your compute size. You can resize compute and storage
