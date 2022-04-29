@@ -14,9 +14,8 @@ You can set a default data retention period for metrics, and override the
 default on a per-metric basis.
 
 Change the default retention period for metrics by adjusting the 
-`retention_period` parameter of the
-`prom_api.set_default_retention_period(retention_period INTERVAL)`
-function:
+`retention_period` parameter of the function
+`prom_api.set_default_retention_period(retention_period INTERVAL)`:
 ```sql
 SELECT prom_api.set_default_retention_period(30 * INTERVAL '1 day')
 ```
