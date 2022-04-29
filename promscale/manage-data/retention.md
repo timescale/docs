@@ -1,5 +1,5 @@
 # Configure data retention policies in Promscale
-You can control for how long metric and trace data is retained in Promscale. 
+You can control how long metric and trace data is retained in Promscale. 
 
 A maintenance job periodically removes metric and trace data that is outside
 the defined retention period. The maintenance job is automatically scheduled
