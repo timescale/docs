@@ -36,7 +36,6 @@ Set the following in OpenTelemetry Collector components in the configuration fil
 
 Use the following configuration to send traces from OpenTelemetry applications
 to the Collector and export them to Promscale.
-
 ```yaml
 receivers:
   otlp:

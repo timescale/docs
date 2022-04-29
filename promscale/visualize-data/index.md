@@ -15,10 +15,10 @@ You can visualize data in Promscale using tools such as
 and troubleshooting microservices-based distributed systems. You can connect
 Promscale to `jaeger-query` component [to visualize traces][jaeger-promscale].
 
-[grafana-promscale]: /visualize-data/grafana
-[jaeger-promscale]: /visualize-data/jaeger
 [grafana-homepage]:https://grafana.com
 [jaeger-homepage]: https://www.jaegertracing.io/
+[grafana-promscale]: /visualize-data/grafana
+[jaeger-promscale]: /visualize-data/jaeger
 [promscale-as-prometheus]:
     /visualize-data/grafana/#promscale-as-prometheus-datasource
 [promscale-as-jaeger]: /visualize-data/grafana/#promscale-as-jaeger-datasource
