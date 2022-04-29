@@ -13,7 +13,7 @@ details.
 You can set a default data retention period for metrics, and override the
 default on a per-metric basis.
 
-You can change the default retention period for metrics by adjusting the 
+Change the default retention period for metrics by adjusting the 
 `retention_period` parameter of the
 `prom_api.set_default_retention_period(retention_period INTERVAL)`
 function:
