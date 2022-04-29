@@ -2,8 +2,8 @@
 You can control how long metric and trace data is retained in Promscale. 
 
 A maintenance job periodically removes metric and trace data that is outside
-the defined retention period. The maintenance job is automatically scheduled
-in TimescaleDB version 2.0 and higher using the job scheduling function. If 
+the defined retention period. In TimescaleDB 2.0 and above, the maintenance
+job is automatically scheduled using the job scheduling function. If 
 you are using an earlier version of TimescaleDB, you can use `cron` or a 
 similar scheduling tool to schedule the maintenance task. See the
 [installation instructions][promscale-install] for your platform for more
