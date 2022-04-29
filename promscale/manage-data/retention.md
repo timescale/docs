@@ -28,9 +28,8 @@ function:
 SELECT prom_api.set_metric_retention_period('container_cpu_usage_seconds_total', 180 * INTERVAL '1 day')
 ```
 
-Finally, you can reset a specific metric retention to the default metric 
-retention by using the `prom_api.reset_metric_retention_period(metric_name TEXT)`
-function:
+Reset an overridden metric retention period to the default
+by using the function `prom_api.reset_metric_retention_period(metric_name TEXT)`
 ```sql
 SELECT prom_api.reset_metric_retention_period('container_cpu_usage_seconds_total')
 ```
