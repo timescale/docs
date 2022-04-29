@@ -21,7 +21,7 @@ function:
 SELECT prom_api.set_default_retention_period(30 * INTERVAL '1 day')
 ```
 
-If you have specific metrics you need to retain for longer you can use
+If you have specific metrics you need to retain for longer, use
 the `prom_api.set_metric_retention_period(metric_name TEXT, new_retention_period INTERVAL)`
 function:
 ```sql
