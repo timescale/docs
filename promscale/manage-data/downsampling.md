@@ -1,4 +1,4 @@
-# Downsample data in Promscale
+# Downsample metric data in Promscale
 Downsampling is the term used when reducing the rate of a signal. When you
 downsample data, the size of the data on disk is reduced, but so is the
 resolution of the data. This means that you have fewer entries in your source
