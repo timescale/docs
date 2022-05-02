@@ -36,11 +36,10 @@ ALTER TABLE conditions
     UNIQUE (time, location);
 ```
 
-<highlight type="note">
-A unique constraint prevents you from inserting data that violates the
-constraint. In other words, if your inserted data has identical values to an
-existing row, for the columns covered by the constraint, you get an error.
-</highlight>
+When you add a unique constraint to a table, you can't insert data that violates
+the constraint. In other words, if you try to insert data that has identical
+values to another row, within the columns covered by the constraint, you get an
+error.
 
 <highlight type="note">
 Unique constraints must include all partitioning columns. That means unique

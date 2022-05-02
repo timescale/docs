@@ -24,10 +24,12 @@ INSERT INTO conditions
     (NOW(), 'garage', 77.0, 65.2);
 ```
 
-<highlight type="note">You can insert multiple rows belonging to different
+<highlight type="note">
+You can insert multiple rows belonging to different
 chunks within the same `INSERT` statement. Behind the scenes, the TimescaleDB
 engine batches the rows by chunk, and writes to each chunk in a single
-transaction.</highlight>
+transaction.
+</highlight>
 
 ## Insert and return data
 In the same `INSERT` command, you can return some or all of the inserted data by

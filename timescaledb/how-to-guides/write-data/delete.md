@@ -13,9 +13,9 @@ DELETE FROM conditions WHERE temperature < 35 OR humidity < 60;
 ```
 
 <highlight type="important">
-After deleting a lot of data, run
+If you delete a lot of data, run
 [`VACUUM`](https://www.postgresql.org/docs/current/static/sql-vacuum.html) or
-`VACUUM FULL` to reclaim storage from deleted or obsolete rows.
+`VACUUM FULL` to reclaim storage from the deleted or obsolete rows.
 </highlight>
 
 ## Delete data by dropping chunks

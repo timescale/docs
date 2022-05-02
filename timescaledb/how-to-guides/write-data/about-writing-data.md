@@ -7,6 +7,6 @@ Because TimescaleDB is a time-series database, hypertables are optimized for
 inserts to the most recent time intervals. Inserting data with recent time
 values gives
 [excellent performance](https://www.timescale.com/blog/timescaledb-vs-6a696248104e/).
-If instead your workload involves frequent updates to old time intervals, you
-may see lower write throughput.
+However, if you need to make frequent updates to older time intervals, you
+might see lower write throughput.
 </highlight>
