@@ -21,13 +21,13 @@ to use the `move_chunk()` call.
 |Name|Type|Description|
 |-|-|-|
 |`chunk`|REGCLASS|Name of chunk to be moved|
-|`destination_tablespace`|TEXT|Target tablespace for chunk being moved|
-|`index_destination_tablespace`|TEXT|Target tablespace for index associated with the chunk you are moving|
+|`destination_tablespace`|NAME|Target tablespace for chunk being moved|
 
 ### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
+|`index_destination_tablespace`|NAME|Target tablespace for index associated with the chunk you are moving|
 |`reorder_index`|REGCLASS|The name of the index (on either the hypertable or chunk) to order by|
 |`verbose`|BOOLEAN|Setting to true displays messages about the progress of the move_chunk command. Defaults to false.|
 
