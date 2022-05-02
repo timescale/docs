@@ -15,5 +15,6 @@ scaled by spreading the read query volume across multiple nodes.
 
 
 [about-ha]: /how-to-guides/replication-and-ha/about-ha/
+[ha-enable]: /how-to-guides/replication-and-ha/configure-ha/
 [replication-enable]: /how-to-guides/replication-and-ha/configure-replication/
 [cloud-ha]: cloud/:currentVersion:/high-availability/
