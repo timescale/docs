@@ -10,8 +10,8 @@
 	 	"scope": "markdown,html",
 	 	"prefix": ["img"],
 	 	"body": [
-	 		"<img class=\"main-content__illustration\""
-            "src=\"$1\""
+	 		"<img class=\"main-content__illustration\"",
+            "src=\"$1\"",
              "alt=\"$2\" />"
 	 	],
 	 	"description": "Inserts an image"
