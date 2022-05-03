@@ -7,11 +7,11 @@ flexibility in bucket size and start time.
 Time bucketing is essential to working with time-series data. You can use it to
 roll up data for analysis or downsampling. For example, you can calculate
 5-minute averages for a sensor reading over the last day. You can perform these
-rollups as needed or pre-calculate them in [continuous aggregates][caggs].
+rollups as needed, or pre-calculate them in [continuous aggregates][caggs].
 
 This section explains how time bucketing works. For examples of the
-`time_bucket` function, see the section on [using time
-buckets][use-time-buckets].
+`time_bucket` function, see the section on 
+[using time buckets][use-time-buckets].
 
 ## How time bucketing works
 Time bucketing groups data into time intervals. With `time_bucket`, the interval
@@ -28,7 +28,7 @@ within a bucket.
 />
 
 <highlight type="note"> 
-`time_bucket` doesn't support months, years, and timezones. The experimental
+`time_bucket` doesn't support months, years, or timezones. The experimental
 function `time_bucket_ng` adds support for these intervals and parameters. To
 learn more, see the section on
 [`time_bucket_ng`](#experimental-function-time-bucket-ng).
@@ -38,12 +38,12 @@ learn more, see the section on
 Bucket start and end times are calculated based on an origin time. For a
 week-based bucket, `time_bucket` needs some way to determine when to start
 counting weeks. For a day-based bucket, it needs some way to determine when to
-start counting days, and so on.
+start counting days, and so on. This is done with the `origin` date and time. 
 
-It uses the `origin` date and time. The default origin for `time_bucket` is
-January 3, 2000. Counting from the origin, the first possible start date for a
-two-week time bucket is January 3, 2000. The next possible start date is two
-weeks from then, on January 17, 2000, and so on.
+The default origin for `time_bucket` is January 3, 2000. Counting from the 
+origin, the first possible start date for a two-week time bucket is January 3, 
+2000. The next possible start date is two weeks from then, on January 17, 
+2000, and so on.
 
 For example, say that your data's earliest timestamp is April 24, 2020. If you
 bucket by an interval of two weeks, the first bucket doesn't start on April 24,
@@ -57,7 +57,7 @@ For integer time values, time buckets align to an origin of 0.
 
 #### Choice of origin
 In TimescaleDB 1.0 and above, the default origin for `time_bucket` is January 3,
-2020. That date is a Monday, which allows week-based buckets to begin on Monday
+2000. That date is a Monday, which allows week-based buckets to begin on Monday
 by default. This behavior is compliant with the ISO standard for Monday as the
 start of a week.
 
