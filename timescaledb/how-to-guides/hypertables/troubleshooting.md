@@ -1,19 +1,17 @@
 # Troubleshooting for hypertables
 
 ## Unique indexes and primary keys
-
-You can get a unique index and partitioning column error in two situations:
+You might get a unique index and partitioning column error in 2 situations:
 *   When creating a primary key or unique index on a hypertable
 *   When creating a hypertable from a table that already has a unique index or
     primary key
 
 The error looks like this:
 ```
- ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in
-partitioning) 
+ ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in partitioning) 
 ```
 
 For more information on how to fix this problem, see the
-[hypertables and unique indexes][unique-indexes] section.
+[section on creating unique indexes on hypertables][unique-indexes].
 
 [unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
