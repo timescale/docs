@@ -1,7 +1,7 @@
 # Add time-series data
 
 To explore TimescaleDB's features, you need some sample data. This tutorial
-provides real-time stock trade data also known as `tick data` from [Twelve
+provides real-time stock trade data, also known as `tick data`, from [Twelve
 Data][twelve-data]. 
 
 ## About the dataset

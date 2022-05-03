@@ -32,9 +32,10 @@ SELECT add_continuous_aggregate_policy('stock_candlestick_daily',
   schedule_interval => INTERVAL '1 days');
 ```
 
-This policy will run once a day (`schedule_interval`). When it runs, it
-materializes data from between 3 days ago (`start_offset`) and 1 hour ago (`end_offset`)
-from the time it executes, according to the query which defined the continuous
+This policy runs once a day, as set by `schedule_interval`. When it runs, it
+materializes data from between 3 days ago and 1 hour ago, as set by `start_offset`
+and `end_offset`. Offset times are calculated relative to query execution time.
+The executed query is the one defined in the continuous
 aggregate `stock_candlestick_daily`.
 
 
@@ -51,7 +52,7 @@ for data within the past week:
 CALL refresh_continuous_aggregate('stock_candlestick_daily',now() - interval '1 week', now());
 ```
 This manual refresh updates your continuous aggregate once only. It doesn't keep the aggregate
-up to date automatically. To set up an automatic refresh policy, see the following section on continuous
+up to date automatically. To set up an automatic refresh policy, see the preceding section on continuous
 aggregate refresh policies.
 
 
@@ -62,8 +63,8 @@ See how real TimescaleDB users leverage continuous aggregates in the blog posts
 TimescaleDB and Grafana][flightaware] and [How I power a (successful) crypto
 trading bot with TimescaleDB][crypto-bot].
 
-Detailed information on continuous aggregates and real-time aggregation can be
-found in the [continuous aggregates docs][continuous-aggregates].
+For detailed information on continuous aggregates and real-time aggregation,
+see the [continuous aggregates section][continuous-aggregates].
 
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/

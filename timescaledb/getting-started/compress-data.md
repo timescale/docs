@@ -35,7 +35,7 @@ ALTER TABLE stocks_real_time SET (
 
 <highlight type="note">
  To learn more about the `segmentby` and `orderby` options for compression in TimescaleDB and how 
- to pick the right columns, see this detailed explanation in the [TimescaleDB compression docs](https://docs.timescale.com/::currentVersion/hot-to-guides/compression/).
+ to pick the right columns, see this detailed explanation in the [TimescaleDB compression docs](/timescaledb/latest/how-to-guides/compression/).
 </highlight>
 
 You can view the compression settings for your hypertables by using the
@@ -92,7 +92,7 @@ While we recommend using compression policies to compress data automatically,
 there might be situations where you need to [manually compress chunks][compress-manual]. 
 
 Use this query to manually compress chunks that consist of data older than
-2 weeks. Note that if you created the compression policy above, you will receive an error because the chunks are already compressed unless you add the `if_not_compressed` parameter shown below.
+2 weeks. If you create the compression policy above, you receive an error. This is because the chunks are already compressed unless you add the `if_not_compressed` parameter.
 
 ```sql
 SELECT compress_chunk(i, if_not_compressed=>true)

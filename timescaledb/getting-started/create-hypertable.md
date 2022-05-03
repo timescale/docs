@@ -1,9 +1,9 @@
 # Create a hypertable
-Hypertables are the heart of TimescaleDB functionality. They allow TimescaleDB to 
-work efficiently with time-series data. It's good to remember that since TimescaleDB 
-is PostgreSQL, all the regular PostgreSQL tables, indexes, etc. can be created right 
+Hypertables are the core of TimescaleDB functionality that enable TimescaleDB to 
+work efficiently with time-series data. Because TimescaleDB 
+is PostgreSQL, all the regular PostgreSQL tables, indexes, stored procedures and other objects can be created
 alongside your TimescaleDB hypertables. This makes creating and working with TimescaleDB 
-tables similar to how you would with just regular PostgreSQL. 
+tables similar to regular PostgreSQL. 
 
 ## Hypertables and chunks
 Hypertables and chunks make storing and querying times-series data fast at petabyte 
@@ -14,7 +14,7 @@ based on time and space. You can configure chunk size so that recent chunks fit 
 for faster queries. 
 
 A **hypertable** is an abstraction layer over chunks that hold the time-series data.
-Hypertables allow you to query and access data from all the chunks within the hypertable.
+Hypertables enable you to query and access data from all the chunks within the hypertable.
 You get all the benefits of automatic chunking for time-series data, alongside the simplicity
 of working with what looks like a standard, single PostgreSQL table.
 
@@ -26,9 +26,7 @@ queries, like those used in time-series analysis.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png" 
 alt="hypertable and chunks"/>
 
-<highlight type="note">
-For more detailed information, check out the [Overview page on 'Hypertables and chunks'](/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/).
-</highlight>
+For more information, see [ Hypertables and chunks](/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/).
 
 
 ### Create your first hypertable
@@ -44,12 +42,12 @@ CREATE TABLE stocks_real_time (
 SELECT create_hypertable('stocks_real_time','time');
 ```
 
-When you create a hypertable partitioned on time, TimescaleDB automatically creates an 
+When you create a hypertable, it is automatically partitioned on time. Also, TimescaleDB automatically creates an 
 index on the time column. However, you'll often filter your time-series data on other 
-columns as well. Using indexes appropriately will help your queries perform better.
+columns as well. Using indexes appropriately helps your queries perform better.
 
-Since we will often be querying the stock trade data by the company symbol, we should add 
-an index for it. We'll include the time column because time-series data often looks for 
+Because you will often be querying the stock trade data by the company symbol, you should add 
+an index for it. Include the time column because time-series data often looks for 
 data in a specific period of time.
 
 ```sql
