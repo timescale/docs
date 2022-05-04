@@ -2,20 +2,20 @@
 
 To explore TimescaleDB's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as `tick data`, from [Twelve
-Data][twelve-data]. 
+Data][twelve-data].
 
 ## About the dataset
-
 The dataset contains second-by-second stock-trade data for the top 100
 most-traded symbols, in a hypertable named `stocks_real_time`. It also includes
 a separate table of company symbols and company names, in a regular PostgreSQL
 table named `company`. 
 
-The dataset contains data from the last four weeks. The downloaded file is
-updated everyday, so you should see data from within the last day. 
+The dataset is updated on a nightly basis and contains data from the last four 
+weeks, typically ~8 million rows of data. Stock trades are recorded in real-time
+Monday thru Friday, typically during normal trading hours of the New York Stock 
+Exchange (9:30AM - 4:00PM EST).
 
 ### Table details
-
 
 `stocks_real_time`: contains stock data. Includes stock price quotes at every second
 during trading hours.
@@ -27,7 +27,7 @@ during trading hours.
 | price | (double precision) stock quote price for a company at the given timestamp |
 | day_volume | (int) number of shares traded each day, NULL values indicate the market is closed | 
 
-`company`: contains mapping for symbols to company names.
+`company`: contains a mapping for symbols to company names.
 
 | Field | Description |
 |-|-|
@@ -59,6 +59,9 @@ dataset and copy the data to your database.
     \COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
     \COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
     ```
+
+    Because there are millions of rows of data, the `COPY` process may take a few
+    minutes dependent on your internet connection and local client resources.
 
     <highlight type="note">
     If you're using a Docker container, add the data files to your container before 

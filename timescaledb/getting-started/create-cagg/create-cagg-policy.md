@@ -11,26 +11,26 @@ during low query-load times on your database.
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>
 
-## Automatic continuous aggregate refresh policy
+## Creating a continuous aggregate refresh policy
 
 To refresh your continuous aggregate on a schedule, set up an automatic refresh policy. Automatic 
-refresh policies are useful for continuous aggregates where data is continually being added to 
-the underlying hypertable. For example, stock data often has new records continually added. 
-With this refresh policy, the data can be incorporated into your continuous aggregate automatically. 
+refresh policies are considered a best practice in TimescaleDB and should be created
+for most continuous aggregates. Using the automated [continuous aggregate policy][auto-refresh] to update continuous 
+aggregate data allows you to "set it and forget it.", ensuring that new hypertable data
+will be materialized over time as it is inserted into the database.
 
+<procedure>
 
-Using the automated [continuous aggregate policy][auto-refresh] to update continuous 
-aggregate data allows you to "set it and forget it." It guarantees that new data will be 
-materialized over time.
+### Create a continuous aggregate refresh policy
+1. Using the following SQL, create an auto-updating policy for the continuous 
+   aggregate `stock_candlestick_daily`:
 
-In the next command, create an auto-updating policy for the continuous aggregate `stock_candlestick_daily`:
-
-```sql
-SELECT add_continuous_aggregate_policy('stock_candlestick_daily',
-  start_offset => INTERVAL '3 days',
-  end_offset => INTERVAL '1 hour',
-  schedule_interval => INTERVAL '1 days');
-```
+  ```sql
+  SELECT add_continuous_aggregate_policy('stock_candlestick_daily',
+    start_offset => INTERVAL '3 days',
+    end_offset => INTERVAL '1 hour',
+    schedule_interval => INTERVAL '1 days');
+  ```
 
 This policy runs once a day, as set by `schedule_interval`. When it runs, it
 materializes data from between 3 days ago and 1 hour ago, as set by `start_offset`
@@ -38,23 +38,34 @@ and `end_offset`. Offset times are calculated relative to query execution time.
 The executed query is the one defined in the continuous
 aggregate `stock_candlestick_daily`.
 
+</procedure>
 
-## Manual refresh
+## Manually refresh a continuous aggregate
 
 You can [manually refresh a continuous aggregate][manual-refresh] using a one-time refresh.
-You might want to do so if you only need to refresh data for a specific time
-period in the past, or if you want to materialize a lot of data at once on a once-off basis.
+This is most useful when data is inserted or modified that is outside of the
+refresh policy `start_offset` and `end_offset` interval. This is common in edge
+IoT systems where devices lose their internet connection for long periods of time
+and eventually send historical readings once they are reconnected.
 
-The example below refreshes the continuous aggregate `stock_candlestick_daily` 
-for data within the past week:
+<procedure>
 
-```sql
-CALL refresh_continuous_aggregate('stock_candlestick_daily',now() - interval '1 week', now());
-```
-This manual refresh updates your continuous aggregate once only. It doesn't keep the aggregate
+### Perform a manual refresh of a continuous aggregate
+1. Refresh the continuous aggregate `stock_candlestick_daily` for data within the past week:
+  ```sql
+  CALL refresh_continuous_aggregate('stock_candlestick_daily',now() - interval '1 week', now());
+  ```
+
+This manual refresh updates your continuous aggregate only once. It doesn't keep the aggregate
 up to date automatically. To set up an automatic refresh policy, see the preceding section on continuous
 aggregate refresh policies.
 
+</procedure>
+
+## Next Steps
+Now that you have a continuous aggregates setup and refreshing automatically, see how
+TimescaleDB can save you up to 96% on storage costs while speeding up historical queries
+using [native compression][getting-started-compression].
 
 ## Learn more about continuous aggregates
 
@@ -66,6 +77,8 @@ trading bot with TimescaleDB][crypto-bot].
 For detailed information on continuous aggregates and real-time aggregation,
 see the [continuous aggregates section][continuous-aggregates].
 
+
+[getting-started-compression]:/getting-started/compress-data/
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [continuous-aggregates]: /how-to-guides/continuous-aggregates

@@ -2,7 +2,7 @@
 
 **Congratulations!** You're here because you have successfully spun 
 up your first instance of TimescaleDB, can connect to it, and are ready to 
-explore some of the most popular TimescaleDB feautures. If you have not yet 
+explore some of the most popular TimescaleDB features. If you have not yet 
 created a TimescaleDB instance or learned how to connect to it, make sure to 
 check out these two sections:
  * [Install TimescaleDB][install]
@@ -20,16 +20,15 @@ TimescaleDB supports the full SQL language and you can use TimescaleDB with
 all the tools and connectors within the PostgreSQL ecosystem. If it works with
 PostgreSQL, it works with TimescaleDB!
 
-## What you do in this Getting Started section
+## About the Getting Started tutorial
 This Getting Started section gives you a hands-on introduction to the 
 fundamentals of TimescaleDB. You'll learn definitions
 of key terms like hypertables and chunks, and use some of TimescaleDB's key 
-features like continuous aggregation,
-data retention, and compression. 
+features like continuous aggregation, compression, and data retention. 
 
 The data you ingest and use for this tutorial is real-time stock trading data 
 provided by [Twelve Data][twelve-data]. The dataset consists of two tables, 
-one with second-by-second stock-trade data for the top 100 most-traded symbols, 
+one with second-by-second stock-trade data for the top 100 most-traded symbols 
 and the other containing company information which maps to the symbols.   
 
 Let's jump right in!

@@ -7,23 +7,24 @@ of time. Some examples of aggregates include the average stock price per day, th
 CPU utilization per 5 minutes, or the number of visitors on a website per week.
 
 Calculating aggregates on time-series data can be computationally intensive. Reasons include:
-1. Aggregating large amounts of data often requires a lot of calulation time. 
+1. Aggregating large amounts of data often requires a lot of calculation time. 
 
 2. Ingesting new data requires new aggregation calculations which can affect ingest rate 
 and aggregation speed. 
 
 TimescaleDB's continuous aggregates solve both of these problems. Continuous aggregates 
-are automatically refreshed [materialized views][material-view]. They speed up 
-workloads for large amounts of data because:
+are automatically refreshed [materialized views][material-view] that speed up 
+query workloads for large amounts of data. They solve some of the main pain points
+with materialized views and home-grown aggregate solutions in a couple of ways.
 
-
-1. The database processes the aggregation calculations when the aggregate is created. 
-It then stores the aggregation results to minimize re-calculation when new raw data is added. 
+First, TimescaleDB processes the aggregation calculations when the aggregate is created  
+and then stores the aggregation results to minimize re-calculation when new raw data is added. 
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
 
-2. You can set up an automatic continuous aggregate refresh policy. This schedules an automatic job 
-that re-calculates new data only for specific time periods. Thus, the policy only recomputes the newest 
+Second, TimescaleDB provides ongoing updates to continuous aggregate data with automatic 
+continuous aggregate refresh policy. This schedules an automatic job that re-calculates
+new data for a specific interval of time. Thus, the policy only recomputes the newest 
 changes in the raw data rather then recomputing everything. 
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>

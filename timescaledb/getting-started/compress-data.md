@@ -1,6 +1,6 @@
 # Compression policies
 
-TimescaleDB comes with native compression capabilities, which enable you to
+TimescaleDB includes native compression capabilities which enable you to
 analyze and query massive amounts of historical time-series data inside a
 database while also saving on storage costs. Additionally, all PostgreSQL data 
 types can be used in compression.
@@ -13,7 +13,7 @@ then be compressed in one of two ways:
 2. Manually compressing chunks
 
 
-## Enable TimescaleDB compression on the hypertable
+## Enabling TimescaleDB compression on the hypertable
 
 To enable compression, you need to [`ALTER` the `stocks_real_time` hypertable][alter-table-compression]. There
 are three parameters you can specify when enabling compression:
@@ -23,37 +23,39 @@ are three parameters you can specify when enabling compression:
 
 If you do not specify `compress_orderby` or `compress_segmentby` column(s), the compressed data is automatically ordered by the hypertable time column.
 
+<procedure>
 
-To enable compression on the `stocks_real_time` hypertable, run:
-```sql
-ALTER TABLE stocks_real_time SET (
- timescaledb.compress,
- timescaledb.compress_orderby = 'time DESC',
- timescaledb.compress_segmentby = 'symbol'
-);
-```
+### Enable compression on a hypertable
+1. Use the following SQL to enable compression on the `stocks_real_time` hypertable:
+  ```sql
+  ALTER TABLE stocks_real_time SET (
+  timescaledb.compress,
+  timescaledb.compress_orderby = 'time DESC',
+  timescaledb.compress_segmentby = 'symbol'
+  );
+  ```
 
-<highlight type="note">
- To learn more about the `segmentby` and `orderby` options for compression in TimescaleDB and how 
- to pick the right columns, see this detailed explanation in the [TimescaleDB compression docs](/timescaledb/latest/how-to-guides/compression/).
-</highlight>
+  <highlight type="note">
+  To learn more about the `segmentby` and `orderby` options for compression in TimescaleDB and how 
+  to pick the right columns, see this detailed explanation in the [TimescaleDB compression docs](/timescaledb/latest/how-to-guides/compression/).
+  </highlight>
+1. View and verify the compression settings for your hypertables by using the
+  `compression_settings` informational view, which returns information about each
+  compression option and its `orderby` and `segmentby` attributes:
+  ```sql
+  -- See info about compression
+  SELECT * FROM timescaledb_information.compression_settings;
+  ```
 
-You can view the compression settings for your hypertables by using the
-`compression_settings` informational view, which returns information about each
-compression option and its `orderby` and `segmentby` attributes:
+  **Sample results:**
+  ```bash
+  hypertable_schema|hypertable_name |attname|segmentby_column_index|orderby_column_index|orderby_asc|orderby_nullsfirst|
+  -----------------+----------------+-------+----------------------+--------------------+-----------+------------------+
+  public           |stocks_real_time|symbol |                     1|                    |           |                  |
+  public           |stocks_real_time|time   |                      |                   1|false      |true              |
+  ```
 
-```sql
--- See info about compression
-SELECT * FROM timescaledb_information.compression_settings;
-```
-
-Sample results:
-```
-hypertable_schema|hypertable_name |attname|segmentby_column_index|orderby_column_index|orderby_asc|orderby_nullsfirst|
------------------+----------------+-------+----------------------+--------------------+-----------+------------------+
-public           |stocks_real_time|symbol |                     1|                    |           |                  |
-public           |stocks_real_time|time   |                      |                   1|false      |true              |
-```
+</procedure>
 
 ## Automatic compression
 When you have enabled compression, you can schedule a [policy to automatically compress][compress-automatic]
@@ -92,7 +94,9 @@ While we recommend using compression policies to compress data automatically,
 there might be situations where you need to [manually compress chunks][compress-manual]. 
 
 Use this query to manually compress chunks that consist of data older than
-2 weeks. If you create the compression policy above, you receive an error. This is because the chunks are already compressed unless you add the `if_not_compressed` parameter.
+2 weeks. If you manually compress hypertable chunks, consider adding `if_not_compressed=>true`
+to the `compress_chunk()` function. Otherwise, you will receive an error when TimescaleDB
+tries to compress a chunks that is already compressed.
 
 ```sql
 SELECT compress_chunk(i, if_not_compressed=>true)
@@ -101,7 +105,8 @@ FROM show_chunks('stocks_real_time', older_than => INTERVAL ' 2 weeks') i;
 
 ## Verify your compression
 
-Use this query to view the size of your compressed chunks before and after applying compression:
+You can check the overall compression rate of your hypertables using this query 
+to view the size of your compressed chunks before and after applying compression:
 
 ```sql
 SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
@@ -109,12 +114,17 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
   FROM hypertable_compression_stats('stocks_real_time');
 ```
 
-Results:
-
+**Results:**
+```bash
 |before compression|after compression|
 |------------------|-----------------|
 |667 MB            |60 MB            |
+```
 
+## Next Steps
+Your overview of TimescaleDB is almost complete. The last feature that we want to 
+explore is [data retention][data-retention], which allows you to drop older raw data from a hypertable
+quickly without deleting data from the precalculated continuous aggregate.
 ## Learn more about compression
 
 For more information on how native compression in TimescaleDB works, as well as
@@ -126,6 +136,8 @@ For an introduction to compression algorithms, see this blog post:
 
 For more information, see the [compression docs][compression-docs].
 
+
+[data-retention]: /getting-started/data-retention/
 [columnar-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
 [compression-algorithms]: https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
 [compression-docs]: /how-to-guides/compression
