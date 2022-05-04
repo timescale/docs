@@ -59,4 +59,4 @@ For more information about Prom-migrator and it command line options, see our
 [promscale-install-docker]: promscale/:currentVersion:/installation/docker/
 [promscale-install-source]: promscale/:currentVersion:/installation/source/
 [promscale-gh-releases]: https://github.com/timescale/promscale/releases
-[gh-prom-migrator]: https://github.com/timescale/promscale/tree/master/cmd/prom-migrator
+[gh-prom-migrator]: https://github.com/timescale/promscale/tree/master/migration-tool/cmd/prom-migrator
