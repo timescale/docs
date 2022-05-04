@@ -1,6 +1,6 @@
 # Install self-hosted TimescaleDB on Red Hat-based systems
 You can host TimescaleDB yourself on your Red Hat, CentOS, or Fedora system.
-These instructions use the `dnf` package manager on these
+These instructions use the `yum` package manager on these
 distributions:
 *   Red Hat Enterprise Linux 7
 *   Red Hat Enterprise Linux 8
@@ -9,11 +9,6 @@ distributions:
 *   Fedora 33
 *   Fedora 34
 *   Fedora 35
-
-<highlight type="important">
-Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
-version 12 or later.
-</highlight>
 
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `yum` or
@@ -35,7 +30,7 @@ instead.
     <tab label='Red Hat'>
 
     ```bash
-    dnf install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{rhel})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{rhel})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     ```
 
     </tab>
@@ -43,7 +38,7 @@ instead.
     <tab label="Fedora">
 
     ```bash
-    dnf install https://download.postgresql.org/pub/repos/yum/reporpms/F-$(rpm -E %{fedora})-x86_64/pgdg-fedora-repo-latest.noarch.rpm
+    yum install https://download.postgresql.org/pub/repos/yum/reporpms/F-$(rpm -E %{fedora})-x86_64/pgdg-fedora-repo-latest.noarch.rpm
     ```
 
     </tab>
@@ -51,7 +46,7 @@ instead.
     <tab label="CentOS">
 
     ```bash
-    dnf install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{centos})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{centos})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     ```
 
     </tab>
@@ -120,11 +115,11 @@ instead.
     </terminal>
 1.  Update your local repository list:
     ```bash
-    dnf update
+    yum update
     ```
 1.  Install TimescaleDB:
     ```bash
-    dnf install timescaledb-2-postgresql-14
+    yum install timescaledb-2-postgresql-14
     ```
 
 </procedure>
@@ -143,12 +138,21 @@ installed it yet, check out our [installing psql][install-psql] section.
 <procedure>
 
 ### Setting up the TimescaleDB extension
-1.  On your local system, at the command prompt, connect to the PostgreSQL
-    instance as the `postgres` superuser:
+1.  Initialize the database:
     ```bash
-    psql -U postgres -h localhost
+    /usr/pgsql-14/bin/postgresql-14-setup initdb
     ```
-    If your connection is successful, you'll see a message like this, followed
+1. Enable and start the service:
+    ```
+    systemctl enable postgresql-14
+    systemctl start postgresql-14
+    ```
+
+1.  Connect to the PostgreSQL instance as the `postgres` superuser:
+    ```bash
+    su postgres -c psql
+    ```
+    If your connection is successful, you see a message like this, followed
     by the `psql` prompt:
     ```
     psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
@@ -171,7 +175,7 @@ installed it yet, check out our [installing psql][install-psql] section.
     ```
 1.  You can now connect to your database using this command:
     ```bash
-    psql -U postgres -h localhost -d example
+    su postgres -c 'psql -d example'
     ```
 
 </procedure>
