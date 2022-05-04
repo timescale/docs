@@ -272,11 +272,18 @@ module.exports = [
         excerpt: "Learn how time buckets work in TimescaleDB.",
         children: [
           {
-            title: "Use time buckets to group time-series data",
+            title: "About time buckets",
+            href: "about-time-buckets",
+            tags: ["time bucket", "timescaledb"],
+            keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
+            excerpt: "About time buckets",
+          },
+          {
+            title: "Aggregate data with time buckets",
             href: "use-time-buckets",
             tags: ["time bucket", "timescaledb"],
             keywords: ["time bucket", "TimescaleDB", "hyperfunctions"],
-            excerpt: "How to group time series data with the time_bucket function."
+            excerpt: "Aggregate time-series data with the time_bucket function."
           },
         ],
       },
