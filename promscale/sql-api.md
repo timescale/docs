@@ -16,14 +16,12 @@ FROM pg_catalog.pg_proc p
 WHERE n.nspname OPERATOR(pg_catalog.~) '^(prom)$' COLLATE pg_catalog.default
 ORDER BY 1, 2, 4;
 -->
-## Generic
+## General
 |Name|Arguments|Type|Description|
 |-|:-:|:-:|:-|
  |`add_prom_node`|node_name text, attach_to_existing_metrics DEFAULT true|boolean||
  |`config_maintenance_jobs`|number_jobs integer, new_schedule_interval interval, new_config jsonb DEFAULT NULL::jsonb|boolean|Configure the number of maintenance jobs run by the job scheduler, as well as their scheduled interval.|
  |`execute_maintenance`|||Execute maintenance tasks like dropping data according to retention policy. This procedure should be run regularly in a cron job.|
- |`is_normal_nan`|value double precision|boolean|is_normal_nan returns true if the value is a NaN.|
- |`is_stale_marker`|value double precision|boolean|is_stale_marker returns true if the value is a Prometheus stale marker.|
  
 ## Labels
 |Name|Arguments|Type|Description|
@@ -47,6 +45,8 @@ ORDER BY 1, 2, 4;
  |`delete_series_from_metric`|metric_name text, series_ids|boolean|deletes the series from the metric.|               
  |`get_metric_metadata`|metric_family_nametext|TABLE(metric_family text, type text, unit text, help text)|
  |`get_multiple_metric_metadata`|metric_families text[]|TABLE(metric_family text, type text, unit text, help text)|
+ |`is_normal_nan`|value double precision|boolean|is_normal_nan returns true if the value is a NaN.|
+ |`is_stale_marker`|value double precision|boolean|is_stale_marker returns true if the value is a Prometheus stale marker.|
  |`register_metric_view`|schema_name text, view_name text, if_not_exists boolean|boolean|Register metric view with Promscale. This enables you to query the data with PromQL and set data retention policies through Promscale. Schema name and view name should be set to the desired schema and view you want to use. Note: underlying view needs to be based on an existing metric in Promscale (should use its table in the FROM clause).| 
  |`reset_metric_chunk_interval`|metric_name text|boolean|reset_metric_chunk_interval resets the chunk interval for a specific metric to using the default.|
  |`reset_metric_compression_setting`|metric_name text|boolean|reset_metric_compression_setting resets the compression setting for a specific metric to using the default.|
