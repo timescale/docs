@@ -141,25 +141,15 @@ command at the `psql` prompt. It looks like this:
 tsdb=> \dx
 List of installed extensions
 -[ RECORD 1 ]------------------------------------------------------------------
-Name        | pg_stat_statements
-Version     | 1.7
-Schema      | public
-Description | track execution statistics of all SQL statements executed
--[ RECORD 2 ]------------------------------------------------------------------
 Name        | plpgsql
 Version     | 1.0
 Schema      | pg_catalog
 Description | PL/pgSQL procedural language
--[ RECORD 3 ]------------------------------------------------------------------
+-[ RECORD 2 ]------------------------------------------------------------------
 Name        | timescaledb
-Version     | 2.5.1
+Version     | 2.6.1
 Schema      | public
 Description | Enables scalable inserts and complex queries for time-series data
--[ RECORD 4 ]------------------------------------------------------------------
-Name        | timescaledb_toolkit
-Version     | 1.3.1
-Schema      | public
-Description | timescaledb_toolkit
 
 tsdb=>
 ```
