@@ -5,8 +5,8 @@ data can diminish over time. New data accumulates, and old data
 is rarely, if ever, updated. Thus, you often want to delete old raw
 data to save disk space.
 
-In practice, continuous aggregates downsample the data and then
-data retention policies discard historic raw data points.
+You can use continuous aggregates to downsample the data, combined with
+data retention policies to discard historic raw data points.
 
 <highlight type="note">
 In the following image, dropping data on the underlying hypertable doesn't 
@@ -20,7 +20,7 @@ There are two ways to drop historic data from a hypertable:
 1. Automatic data retention policy
 2. Manually dropping chunks
 
-In this first section, we look at the automatic refresh policy, which removes data 
+This first section describes the automatic refresh policy, which removes data 
 on a schedule. 
 
 ## Automatic data retention policies
@@ -65,7 +65,11 @@ SELECT drop_chunks('stocks_real_time', INTERVAL '3 months');
 ```
 To drop all data older than two months but newer than three months old:
 ```sql
-SELECT drop_chunks('stocks_real_time', older_than => INTERVAL '2 month', newer_than => INTERVAL '3 months')
+SELECT drop_chunks(
+  'stocks_real_time',
+  older_than => INTERVAL '2 month',
+  newer_than => INTERVAL '3 months'
+)
 ```
 
 ## Learn more about data retention

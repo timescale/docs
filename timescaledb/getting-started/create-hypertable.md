@@ -61,17 +61,17 @@ the table into a hypertable. The `create_hypertable()` function requires two
 input parameters: the name of the table and the name of the time column.
 
 ## Create regular PostgreSQL tables for relational data
-TimescaleDB isn't just for hypertables. Remember, TimescaleDB _is_ PostgreSQL. When 
+TimescaleDB isn't just for hypertables. Remember, TimescaleDB *is* PostgreSQL. When 
 you have other relational data that enhances your time-series data, you can create 
-regular PostgreSQL tables just as you would normally. For this dataset, we have one 
+regular PostgreSQL tables just as you would normally. For this dataset, there is one 
 other table of data called `company`. 
 
 To add this table to your database, run the following command:
 
 ```sql
 CREATE TABLE IF NOT EXISTS company (
-   symbol text NOT NULL,
-   name text NOT NULL
+   symbol TEXT NOT NULL,
+   name TEXT NOT NULL
 );
 ```
 
@@ -79,13 +79,13 @@ You now have two tables within your TimescaleDB database: one hypertable named `
 
 ## Learn more about hypertables and chunks
 To learn more about hypertables and best practices for configuring chunks, see 
-[Hypertable How-To](/how-to-guides/hypertables). To learn more about why hypertables 
+[Hypertable How-To](/how-to-guides/hypertables). For information about how hypertables 
 help with storing and querying data, see the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
 ## Next steps
-Next, ingest some sample stock trade data into TimescaleDB! Step 2, ['Add time-series data' section][add-data], 
+Ingest some sample stock trade data into TimescaleDB. ['Add time-series data' section][add-data], 
 shows you how to populate the tables you just created. 
 
-[core-concepts-hypertables]: /getting-started/add-data/
-[add-data]: /overview/core-concepts/hypertables-and-chunks/
+[add-data]: /getting-started/add-data/
+[core-concepts-hypertables]: /overview/core-concepts/hypertables-and-chunks/
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable

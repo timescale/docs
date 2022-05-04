@@ -4,9 +4,9 @@
 up your first instance of TimescaleDB, can connect to it, and are ready to 
 explore some of the most popular TimescaleDB feautures. If you have not yet 
 created a TimescaleDB instance or learned how to connect to it, make sure to 
-first check out these two sections within the docs:
+check out these two sections:
  * [Install TimescaleDB][install]
- * [Connecting to TimescaleDB][connecting]
+ * [Connect to TimescaleDB][connecting]
 
 
 ## What is TimescaleDB?
@@ -34,9 +34,9 @@ and the other containing company information which maps to the symbols.
 
 Let's jump right in!
 
-If you have any questions or concerns as you go through the tutorial, make sure to 
+If you have any questions or concerns as you go through the tutorial,
 check out the Timescale community [Slack][slack] and [Timescale Forum][forum], where 
-you can find help from the Timescale community and Timescale team. 
+you can find help from the Timescale community and team. 
 
 
 [install]: /install/:currentVersion:/

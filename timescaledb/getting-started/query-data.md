@@ -12,17 +12,17 @@ popular TimescaleDB functions.
 ## Basic SQL queries
 ### Select all stock data from the last day.
 
-   This query uses the [`WHERE`][clause-expressions] clause to only show results for
+   To select all the stock data from the previous day use the [`WHERE`][clause-expressions] clause to only fetch results for
    timestamps within the last day. 
 
    ```sql
    SELECT * FROM stocks_real_time srt
-   WHERE time > now() - INTERVAL '1 day';
+   WHERE time > now() - INTERVAL '4 days';
    ```
 
 ### Select the top 10 stock trades by price for the latest time period.
 
-   This query uses the [`ORDER BY`][order-by] clause to order the results by descending time then price
+   Use the [`ORDER BY`][order-by] clause to display the results in  descending time, then the price
    and limit the number of results shown to 10. 
 
    ```sql
@@ -33,15 +33,15 @@ popular TimescaleDB functions.
 
 ### Calculate the average trade price for Apple from the last day
 
-   This query uses the [`avg()`][average] function with a `WHERE` clause
-   to include only Apple trades made within the last day. Instead of using Apple's symbol, 
-   the [`JOIN`][join] operator allows you to use the company name.  
+   Use the [`avg()`][average] function with a `WHERE` clause
+   to include only trades made for Apple within the last 4 days. 
+   You can use the [`JOIN`][join] operator to fetch results based on the name of a company instead of the symbol.
 
    ```sql
    SELECT
-   avg(price)
+       avg(price)
    FROM stocks_real_time srt
-      JOIN company c ON c.symbol = srt.symbol
+JOIN company c ON c.symbol = srt.symbol
    WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
    ```
 
@@ -55,9 +55,9 @@ analysis in fewer lines of code. Here's how to use three of these functions:
  * [last()][last]: find the latest value based on time within an aggregate group
  * [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate aggregates over those intervals
 
-### Get the first and last value with first() and last()
+### Get the first and last value with first() and last() functions
 
-   The `first()` and `last()` functions retrives the first and last value 
+   The `first()` and `last()` functions retrieve the first and last value 
    within a column when ordered by another column. 
    
    For example, say you have a table with timestamp column `time` and numeric column `value`. If you 
@@ -65,8 +65,8 @@ analysis in fewer lines of code. Here's how to use three of these functions:
    with respect to an increasing `time` column. 
 
    In this query, you use both the `first()` and `last()` functions to find the 
-   first and last trading price for each company. With the `WHERE` clause, the interval of time is 
-   limited to the last three days. 
+   first and last trading price for each company. Use the `WHERE` clause to limit the interval of time to 
+   the last three days. 
 
    ```sql
    SELECT symbol, first(price,time), last(price, time)
@@ -78,13 +78,13 @@ analysis in fewer lines of code. Here's how to use three of these functions:
 
 ### Aggregate by an arbitrary length of time using time_bucket
 
-   The `time_bucket()` function allows you to take a time column and “bucket” the values 
-   based on an interval of your choice. Often you "bucket" time so that you can perform
+   The `time_bucket()` function enables you to take a time column and “bucket” the values 
+   based on an interval of your choice. Typically you "bucket" time so that you can perform
    an aggregation over the chosen interval. 
    
-   For example, say `time` is a timestamp column that shows values incrementing every hour 
-   and `value` is a numeric column. You want to aggregate `value` using the `sum()` 
-   function so that you get summed values over each day. To do this, you can
+   For example, if `time` is a timestamp column that shows values incrementing every hour 
+   and `value` is a numeric column. You might want to aggregate `value` using the `sum()` 
+   function to get summed values over each day. To do this, you can
    use the `time_bucket()` function on the `time` column to “bucket” the hourly data into daily data, 
    then perform the `sum()` function on the `value` column to get the sum of your values across each day. 
 
