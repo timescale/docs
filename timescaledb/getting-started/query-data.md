@@ -12,12 +12,12 @@ popular TimescaleDB functions.
 
 <highlight type="tip">
 Many of the queries below show a filter for the last four days of data. This 
-accountS for the nuance of stock trade data which only occurs Monday thru Friday
+accounts for the nuance of stock trade data which only occurs Monday-Friday
 on the New York Stock Exchange.
 
-If you load the data on a Monday, the most recent data that we can provide you
-is from Friday afternoon. Therefore, selecting data for the last day would return
-no data.
+If you load the provided data on a Monday, the most recent data that we can provide 
+is from Friday afternoon. Therefore, selecting data for the last day or two would return
+no results.
 
 Feel free to adjust the time frame based on the data that you downloaded and to
 explore other time-ranges in the data that we provide.
@@ -39,9 +39,9 @@ explore other time-ranges in the data that we provide.
    Use the [`ORDER BY`][order-by] clause to define the order of results from your
    query. With stock trade data, there are often multiple trades each second for
    popular stocks like Amazon. Therefore, we cannot order data descending
-   by the `time` alone. This is a common problem with high-frequency data like stocks,
-   crypto, and IoT metrics. Therefore, we need to order by additional information to correctly display
-   the order in which trades were made with the exchange.
+   by the `time` alone. _This is a common problem with high-frequency data like stocks,
+   crypto, and IoT metrics_. Therefore, we need to order the results by additional information 
+   to correctly display the order in which trades were made with the exchange.
    
    For the `stocks_real_time` data, the `day_volume` column serves as additional
    information to help us order the trades correctly, even when there are multiple
