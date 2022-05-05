@@ -83,16 +83,16 @@ addition to letting you drop data older than a particular interval, it also lets
 drop data that is newer than a particular interval. This means you can drop data
 from an interval that is bounded on both ends.
 
-To drop all data older than three months, run:
+To drop all data older than three weeks, run:
 ```sql
-SELECT drop_chunks('stocks_real_time', INTERVAL '3 months');
+SELECT drop_chunks('stocks_real_time', INTERVAL '3 weeks');
 ```
-To drop all data older than two months but newer than three months old:
+To drop all data older than two weeks but newer than three weeks old:
 ```sql
 SELECT drop_chunks(
   'stocks_real_time',
-  older_than => INTERVAL '2 month',
-  newer_than => INTERVAL '3 months'
+  older_than => INTERVAL '2 weeks',
+  newer_than => INTERVAL '3 weeks'
 )
 ```
 
