@@ -9,6 +9,7 @@ instructions use the `apt` package manager on these distributions:
 *   Ubuntu 20.04 LTS Focal Fossa
 *   Ubuntu 21.04 Hirsute Hippo
 *   Ubuntu 21.10 Impish Indri
+*   Ubuntu 22.04 LTS Jammy Jellyfish
 
 <highlight type="important">
 Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
