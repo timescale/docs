@@ -4,12 +4,12 @@ organized. Using a schema that is appropriate for your workload can result in
 significant performance improvements. Conversely, using a poorly suited schema
 can result in significant performance degradation.
 
-TimescaleDB supports all table objects supported within PostgreSQL, including
-data types, indexes, and triggers.
-
 If you are working with semi-structured data, such as readings from IoT sensors
 that collect varying measurements, you might need a flexible chema. In this
 case, you can PostgreSQL JSON and JSONB data types.
+
+TimescaleDB supports all table objects supported within PostgreSQL, including
+data types, indexes, and triggers.
 
 This section explains how to design your schema, how indexing and tablespaces
 work, and how to use PostreSQL contraint types. It also includes examples to
