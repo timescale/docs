@@ -37,10 +37,6 @@ instead.
     ```bash
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
     ```
-1.  Add the Timescale GPG key:
-    ```bash
-    curl -L https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
-    ```
 1.  Add the TimescaleDB third party repository:
 
     <terminal>
