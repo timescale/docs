@@ -1,26 +1,24 @@
-# Table management
+# Schema management
+A database schema defines how the tables and indexes in your database are
+organized. Using a schema that is appropriate for your workload can result in
+significant performance improvements.
 
-Designing proper table objects is a key part of using PostgreSQL. Creating the
-appropriate indexes and table schema for a given workload can result in
-significant performance improvements (and conversely, designing the wrong schema
-can result in significant performance degradation).
+*   [Learn about schema management][about-schema] to understand how it works
+    before you begin using it.
+*   [Learn about indexing][about-indexing] to understand how it works before you 
+    begin using it.
+*   [Learn about tablespaces][about-tablespaces] to understand how it works before
+    you begin using it.
+*   [Learn about constraints][about-constraints] to understand how it works before 
+    you begin using it.
+*   [Alter a hypertable][schema-alter] to modify your schema.
+*   [Create triggers][schema-triggers] to propogate your schema changes to chunks.
+*   [Use JSON and JSONB][schema-json] for semi-structured data.
 
-TimescaleDB supports all table objects supported within PostgreSQL, including
-data types, indexes, and triggers.
-
-Note that sometimes it is useful to have a flexible schema, in particular when storing
-semi-structured data (e.g., storing readings from IoT sensors collecting
-varying measurements). For these cases, TimescaleDB also supports the
-PostgreSQL JSON and JSONB datatypes.
-
-In this section, we provide detailed examples and best practices of how to
-create appropriate indexes, triggers, constraints, and tablespaces on your tables,
-as well as how to appropriately utilize the JSON and JSONB datatypes.
-
-<highlight type="tip">
-One of the most common ways of getting information about various aspects
-of your database is through `psql`, the interactive terminal.  See the
-[PostgreSQL docs](https://www.postgresql.org/docs/current/static/app-psql.html) for more information.
-</highlight>
-
-
+[about-schema]: /schema-management/about-schemas
+[about-indexing]: /schema-management/indexing
+[about-constraints]: /schema-management/constraints
+[about-tablespaces]: /schema-management/tablespaces
+[schema-alter]: /schema-management/alter
+[schema-triggers]: /schema-management/triggers
+[schema-json]: /schema-management/json
