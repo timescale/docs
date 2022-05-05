@@ -57,6 +57,8 @@ dataset and copy the data to your database.
     the file paths in the following commands:
     ```sql
     \COPY stocks_real_time from './tutorial_sample_tick.csv' DELIMITER ',' CSV HEADER;
+    ```
+    ```sql
     \COPY company from './tutorial_sample_company.csv' DELIMITER ',' CSV HEADER;
     ```
 

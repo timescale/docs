@@ -83,7 +83,7 @@ other table of data called `company`.
 
 1. Add a table to store the company name and symbol for the stock trade data:
    ```sql
-   CREATE TABLE IF NOT EXISTS company (
+   CREATE TABLE company (
       symbol TEXT NOT NULL,
       name TEXT NOT NULL
    );
