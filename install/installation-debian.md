@@ -20,7 +20,7 @@ If you have already installed PostgreSQL using a method other than the `apt`
 package manager, you could encounter errors following these instructions. It is
 safest to remove any existing PostgreSQL installations before you begin. If you
 want to keep your current PostgreSQL installation, do not install TimescaleDB
-TimescaleDB using this method.
+using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
 </highlight>
@@ -75,11 +75,10 @@ instead.
     <highlight type="note">
     If you want to install a specific version of TimescaleDB, instead of the
     most recent, you can specify the version like this:
-    ```bash
-    apt-get install timescaledb-2-2.6.0-postgresql-12
-    ```
+    `apt-get install timescaledb-2-2.6.0-postgresql-12`
+    
     You can see the full list of TimescaleDB releases by visiting our
-    [releases page][https://packagecloud.io/timescale/timescaledb]
+    [releases page][releases-page]
     </highlight>
 
 </procedure>
@@ -167,3 +166,4 @@ if you want to have a chat.
 [tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: timescaledb/latest/how-to-guides/configuration/
+[releases-page]: https://packagecloud.io/timescale/timescaledb
