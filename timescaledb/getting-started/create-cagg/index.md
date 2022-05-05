@@ -22,7 +22,7 @@ and then stores the aggregation results to minimize re-calculation when new raw 
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
 
-Second, TimescaleDB provides ongoing updates to continuous aggregate data with automatic 
+Second, TimescaleDB provides ongoing updates to continuous aggregate data with an automatic 
 continuous aggregate refresh policy. This schedules an automatic job that re-calculates
 new data for a specific interval of time. Thus, the policy only recomputes the newest 
 changes in the raw data rather then recomputing everything. 

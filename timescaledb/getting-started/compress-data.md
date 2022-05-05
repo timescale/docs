@@ -13,7 +13,7 @@ then be compressed in one of two ways:
 2. Manually compressing chunks
 
 
-## Enabling TimescaleDB compression on the hypertable
+## Enable TimescaleDB compression on the hypertable
 
 To enable compression, you need to [`ALTER` the `stocks_real_time` hypertable][alter-table-compression]. There
 are three parameters you can specify when enabling compression:
@@ -25,7 +25,7 @@ If you do not specify `compress_orderby` or `compress_segmentby` column(s), the 
 
 <procedure>
 
-### Enable compression on a hypertable
+### Enabling compression on a hypertable
 1. Use the following SQL to enable compression on the `stocks_real_time` hypertable:
   ```sql
   ALTER TABLE stocks_real_time SET (

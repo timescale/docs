@@ -26,8 +26,8 @@ explore other time-ranges in the data that we provide.
 ### Select all stock data from the last four days
 
    To select all the stock data from the previous four days, use the [`WHERE`][clause-expressions] 
-   clause to filter the result using a relative time interval. We use an interval of
-   four days below in case the
+   clause to filter the result using a relative time interval. This example uses an interval of
+   four days, so data is displayed even if you run this on a weekend or a Monday.
 
    ```sql
    SELECT * FROM stocks_real_time srt
@@ -178,8 +178,8 @@ analysis in fewer lines of code. Here's how to use three of these functions:
    
    In the results above, you may notice that the `bucket` column, which represents
    a `time_bucket()` or one week, starts on the beginning date of the bucket, not
-   the current time that you run the query. We provide more details on how buckets
-   are calculated in the hyperfunction API documentation.
+   the current time that you run the query. To learn more about how time buckets are
+   calculated, see the [how-to guide for time buckets][time-bucket-how-to].
 
 ## Next steps
 Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, learn about
@@ -198,6 +198,7 @@ see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions)
 [select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
 [clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[time-bucket-how-to]: /how-to-guides/time-buckets/
 [last]: /api/:currentVersion:/hyperfunctions/last
 [first]: /api/:currentVersion:/hyperfunctions/first
 [date-trunc]: https://www.postgresql.org/docs/current/functions-datetime.html

@@ -11,17 +11,17 @@ during low query-load times on your database.
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate-policy.jpg" alt="Continuous aggregate with refresh policy"/>
 
-## Creating a continuous aggregate refresh policy
+## Create a continuous aggregate refresh policy
 
 To refresh your continuous aggregate on a schedule, set up an automatic refresh policy. Automatic 
 refresh policies are considered a best practice in TimescaleDB and should be created
 for most continuous aggregates. Using the automated [continuous aggregate policy][auto-refresh] to update continuous 
-aggregate data allows you to "set it and forget it.", ensuring that new hypertable data
+aggregate data allows you to "set it and forget it," ensuring that new hypertable data
 will be materialized over time as it is inserted into the database.
 
 <procedure>
 
-### Create a continuous aggregate refresh policy
+### Creating a continuous aggregate refresh policy
 1. Using the following SQL, create an auto-updating policy for the continuous 
    aggregate `stock_candlestick_daily`:
 
@@ -50,7 +50,7 @@ and eventually send historical readings once they are reconnected.
 
 <procedure>
 
-### Perform a manual refresh of a continuous aggregate
+### Manually refreshing a continuous aggregate
 1. Refresh the continuous aggregate `stock_candlestick_daily` for data within the past week:
   ```sql
   CALL refresh_continuous_aggregate('stock_candlestick_daily',now() - interval '1 week', now());

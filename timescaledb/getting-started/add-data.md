@@ -12,7 +12,7 @@ table named `company`.
 
 The dataset is updated on a nightly basis and contains data from the last four 
 weeks, typically ~8 million rows of data. Stock trades are recorded in real-time
-Monday thru Friday, typically during normal trading hours of the New York Stock 
+Monday through Friday, typically during normal trading hours of the New York Stock 
 Exchange (9:30AM - 4:00PM EST).
 
 ### Table details

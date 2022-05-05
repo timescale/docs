@@ -96,7 +96,7 @@ You now have two tables within your TimescaleDB database:
  * one normal PostgreSQL table named `company`
 
 ## Next steps
-Ingest some sample stock trade data into TimescaleDB. ['Add time-series data' section][add-data], 
+Ingest some sample stock trade data into TimescaleDB. The next section, ['Add time-series data'][add-data], 
 shows you how to populate the tables you just created. 
 
 ## Learn more about hypertables and chunks

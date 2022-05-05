@@ -22,6 +22,8 @@ and [`last()`][last] functions.
 
 <procedure>
 
+### Creating an aggregate query
+
 1. SELECT the daily candlestick values for each stock the entire 1-month dataset. This 
 	may take a few seconds to process all of the raw data into 1-day buckets.
 	```sql
@@ -61,6 +63,8 @@ aggregate and not just a generic materialized view. Finally, the query from abov
 is added after the `AS` keyword. 
 
 <procedure>
+
+### Creating a continuous aggregate from an aggregate query
 
 1. Using the aggregate query from above, create a continuous aggregate for daily
    candlestick data.
