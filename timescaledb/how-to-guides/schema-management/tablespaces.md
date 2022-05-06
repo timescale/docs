@@ -1,48 +1,40 @@
-## Storage management with tablespaces [](tablespaces)
+# About tablespaces
+Tablespaces are used to determine the physical location of the tables and indexes in your database. In most
+cases, you want to use faster storage to store data that is accessed frequently,
+and slower storage for data that is accessed less often.
 
-An administrator can use tablespaces to manage storage for a
-hypertable. A tablespace is a location on a file system where database
-objects (e.g., tables and indexes) are stored. Review the standard
-PostgreSQL [documentation on tablespaces][postgres-tablespaces] for
-more information, including how to create tablespaces.
+Hypertables consist of a number of chunks, and each chunk can be
+located in a specific tablespace. This allows you to grow your hypertables across many disks. When you create a new chunk, a tablespace is automatically selected to store the chunk's data.
 
-Since a hypertable comprises a number of chunks, each chunk can be
-placed in a specific tablespace, allowing the hypertable to grow
-across many disks. To this end, TimescaleDB allows
-[attaching][attach_tablespace] and [detaching][detach_tablespace]
-tablespaces on a hypertable. When new chunks are created, one of the
-hypertable's attached tablespaces is picked by the runtime to store
-the chunk's data. Thus, a typical use case is to detach a tablespace
-from a hypertable when the tablespace runs out of disk space and
-attach a new one that has free space. A hypertable's attached
-tablespaces can be viewed with the
-[`show_tablespaces`][show_tablespaces] command.
+You can attach and detach tablespaces on a hypertable. When a disk runs
+out of space, you can [detach][detach_tablespace] the full tablespace from the
+hypertable, and than [attach][attach_tablespace] a tablespace associated with a
+new disk. To see the tablespaces for you hypertable, use the
+[`show_tablespaces`][show_tablespaces]
+command.
 
-### How hypertable chunks are assigned tablespaces
+## How hypertable chunks are assigned tablespaces
+A hypertable can be partitioned in multiple dimensions, but only one of the
+dimensions is used to determine the tablespace assigned to a particular
+hypertable chunk. If a hypertable has one or more hash-partitioned, or space,
+dimensions, it uses the first hash-partitioned dimension. Otherwise, it uses the
+first time dimension.
 
-A hypertable can be partitioned in multiple dimensions, but only one
-of the dimensions is used to determine the tablespace assigned to a
-particular hypertable chunk. If a hypertable has one or more hash-partitioned
-("space") dimensions, then the first hash-partitioned dimension
-is used. Otherwise, the first time dimension is used. This assignment
-strategy ensures that hash-partitioned hypertables have chunks
-colocated according to hash partition, as long as the list of
-tablespaces attached to the hypertable remains the same. Modulo
-calculation is used to pick a tablespace, so there can be more partitions
-than tablespaces (e.g., if there are two tablespaces, partition number
-three uses the first tablespace).
+This strategy ensures that hash-partitioned hypertables have chunks co-located
+according to hash partition, as long as the list of tablespaces attached to the
+hypertable remains the same. Modulo calculation is used to pick a tablespace, so
+there can be more partitions than tablespaces. For example, if there are two
+tablespaces, partition number three uses the first tablespace.
 
-<highlight type="tip">
-Note that attaching more tablespaces than there are partitions for the
-hypertable might leave some tablespaces unused until some of them are detached
-or additional partitions are added. This is especially true for
-hash-partitioned tables.
+Hypertables that are only time-partitioned add new partitions continuously, and
+therefore have chunks assigned to tablespaces in a way similar to round-robin.
+
+<highlight type="note">
+It is possible to attach more tablespaces than there are partitions for the
+hypertable. In this case, some tablespaces remain unused until others are detached
+or additional partitions are added. This is especially true for hash-partitioned
+tables.
 </highlight>
-
-Hypertables that are only time-partitioned add new
-partitions continuously, and therefore have chunks assigned to
-tablespaces in a way similar to round-robin.
-
 
 
 [postgres-tablespaces]: https://www.postgresql.org/docs/current/static/manage-ag-tablespaces.html
