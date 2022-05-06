@@ -216,6 +216,13 @@ You need an OpenSEA API key to fetch data from the OpenSea API. To request your
 key, see the [OpenSea API documentation](https://docs.opensea.io/reference/request-an-api-key).
 </highlight>
 
+<highlight type="warning">
+The outlined process below only works if the OpenSea API works. This is
+outside of our control. If you want to make sure you can complete this
+tutorial smoothly we recommend [downloading the sample data](https://assets.timescale.com/docs/downloads/nft_sample.zip)
+and importing it.
+</highlight>
+
 <procedure>
 
 ### Fetching data directly from the OpenSea API
