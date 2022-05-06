@@ -217,10 +217,12 @@ key, see the [OpenSea API documentation](https://docs.opensea.io/reference/reque
 </highlight>
 
 <highlight type="warning">
-The outlined process below only works if the OpenSea API works. This is
-outside of our control. If you want to make sure you can complete this
-tutorial smoothly we recommend [downloading the sample data](https://assets.timescale.com/docs/downloads/nft_sample.zip)
-and importing it.
+The following procedure relies on the OpenSea API provided and maintained by OpenSea. Unfortunately,
+there have recently been extended periods of time when the API is not functioning, something that is
+outside of our control. 
+
+If the API has changed or is not accessible when you attempt to run the `opensea_ingest.py` script, we suggest following the second procedure to download a historical data file and importing it. You will be able to successfully 
+complete the tutorial with that data alone.
 </highlight>
 
 <procedure>
