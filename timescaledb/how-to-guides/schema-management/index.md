@@ -5,13 +5,14 @@ significant performance improvements.
 
 *   [Learn about schema management][about-schema] to understand how it works
     before you begin using it.
-*   [Learn about indexing][about-indexing] to understand how it works before you 
+*   [Learn about indexing][about-indexing] to understand how it works before you
     begin using it.
 *   [Learn about tablespaces][about-tablespaces] to understand how it works before
     you begin using it.
-*   [Learn about constraints][about-constraints] to understand how it works before 
+*   [Learn about constraints][about-constraints] to understand how it works before
     you begin using it.
 *   [Alter a hypertable][schema-alter] to modify your schema.
+*   [Create an index][schema-indexing] to speed up ytour queries.
 *   [Create triggers][schema-triggers] to propogate your schema changes to chunks.
 *   [Use JSON and JSONB][schema-json] for semi-structured data.
 
@@ -22,3 +23,4 @@ significant performance improvements.
 [schema-alter]: /schema-management/alter
 [schema-triggers]: /schema-management/triggers
 [schema-json]: /schema-management/json
+[schema-indexing]: timescaledb/how-to-guides/schema-management/indexing.md
