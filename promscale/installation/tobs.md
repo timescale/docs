@@ -33,17 +33,6 @@ tobs install
 This command deploys all of the tobs component into your
 cluster. Follow the prompts to complete set up.
 
-## Install tracing support
-
-In tobs version 0.7.0 and later, tracing components are included in the stack.
-To install the tracing components, use this command:
-```bash
-tobs install --tracing
-```
-
-For more information about Promscale tracing, see the
-[distributed tracing section][promscale-tracing].
-
 ## Compatibility
 If you are having trouble with tobs, check that you are using a compatible
 version of tobs and Kubernetes:
@@ -55,4 +44,3 @@ version of tobs and Kubernetes:
 
 
 [download-tobs]: https://github.com/timescale/tobs/releases/latest
-[promscale-tracing]: promscale/:currentVersion:/distributed-tracing/

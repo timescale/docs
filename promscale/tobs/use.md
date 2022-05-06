@@ -22,7 +22,6 @@ This section covers the primary tobs commands.
 |||`--timescaledb-tls-cert`|Provide your own TLS certificate for TimescaleDB|
 |||`--timescaledb-tls-key`|Provide your own TLS key for TimescaleDB|
 |||`--version`|Provide tobs Helm chart version, if not provided, installs the most recent available tobs Helm chart|
-|||`--tracing`|Enable tracing components|
 |`tobs uninstall`|Alias for `tobs Helm uninstall`|`--delete-data`|Delete persistent volume claims|
 |`tobs port-forward`|Port forward TimescaleDB, Grafana, and Prometheus to `localhost`|`--timescaledb`, `-t`|Port for TimescaleDB|
 |||`--grafana`, `-g`|Port for Grafana|

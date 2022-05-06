@@ -49,24 +49,7 @@ packages and instructions, see the
 
 </procedure>
 
-## Install tracing support
-
-In tobs version 0.7.0 and later, tracing components are included in the stack.
-To install the tracing components, run the Promscale Connector with tracing
-enabled:
-```bash
-docker run --name promscale -d -p 9201:9201 -p 9202:9202 \
---network promscale timescale/promscale:latest \
--db-password=<PASSWORD> -db-port=5432 -db-name=postgres \
--db-host=timescaledb -db-ssl-mode=allow -enable-feature=tracing \
--otlp-grpc-server-listen-address=:9202
-```
-
-For more information about Promscale tracing, see the
-[distributed tracing section][promscale-tracing].
-
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescaledev/promscale-extension/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
-[promscale-tracing]: promscale/:currentVersion:/distributed-tracing/

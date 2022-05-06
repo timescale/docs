@@ -266,14 +266,6 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed tracing with Promscale",
-        href: "distributed-tracing",
-        tags: ["promscale", "tracing", "opentelemetry", "jaeger", "grafana"],
-        keywords: ["Promscale", "opentelemetry", "tracing", "jaeger"],
-        excerpt:
-          "Use Promscale for troubleshooting applications with distributed tracing",
-      },
-      {
         title: "Alert in Promscale",
         href: "alert",
         tags: ["promscale", "prometheus", "alert"],
