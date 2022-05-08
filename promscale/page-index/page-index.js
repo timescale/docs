@@ -228,6 +228,13 @@ module.exports = [
             keywords: ['Promscale', 'Jaeger'],
             excerpt: 'Jaeger to visualize data in Promscale',
           },
+          {
+            title: 'APM Experience with traces',
+            href: 'apm-experience',
+            tags: ['promscale', 'configure', 'jaeger', 'opentelemetry', 'traces', 'apm'],
+            keywords: ['Promscale', 'Jaeger', 'APM'],
+            excerpt: 'APM dashboards with Promscale by leveraging SQL on top of traces',
+          },
         ],
       },
       {
