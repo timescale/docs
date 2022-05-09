@@ -5,8 +5,8 @@ recent past. Depending on your compression policy, the chunks corresponding to
 these timestamps might already be compressed.
 
 For help with backfilling on compressed chunks, you can use the backfilling
-function in the [TimescaleDB extras][timescaledb-extras] repository. You can
-also manually backfill without the function.
+procedure in the [TimescaleDB extras][timescaledb-extras] repository. You can
+also manually backfill without the procedure.
 
 <highlight type="note">
 Backfilling is useful for inserting batches of data, rather than individual
@@ -14,13 +14,13 @@ rows. For individual rows, use a normal `INSERT`. TimescaleDB [handles the
 compression behind the scenes](https://www.timescale.com/blog/timescaledb-2-3-improving-columnar-compression-for-time-series-on-postgresql/).
 </highlight>
 
-## Backfill with the backfilling function
+## Backfill with the backfilling procedure
 You can backfill data by using the `decompress_backfill` stored procedure. This
-function:
+procedure:
 1.   Halts the compression policy
 1.   Identifies the chunks where the backfilled data belongs
 1.   Decompresses the chunks
-1.   Inserts data from the temporary table into the hypertable
+1.   Inserts data from a temporary table into the hypertable
 1.   Re-enables the compression policy
 
 Before you begin, add the [`decompress_backfill` stored procedure and its supporting
@@ -28,7 +28,7 @@ functions][timescaledb-extras-backfill] to your database.
 
 <procedure>
 
-## Backfilling with the backfilling function
+## Backfilling with the backfilling procedure
 
 <highlight type="note">
 Backfill data by first inserting it into a temporary table. Temporary tables are
@@ -44,7 +44,7 @@ backfilling is complete, clean up by truncating or dropping your table.
     CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM cpu WITH NO DATA;
     ```
 1.  Insert your data into the backfill table.
-1.  Call the supplied backfill function.
+1.  Call the supplied backfill procedure.
     ```sql
     CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'cpu');
     ```
@@ -52,9 +52,9 @@ backfilling is complete, clean up by truncating or dropping your table.
 </procedure>
 
 ## Backfill manually
-If you prefer not to use the `decompress_backfill` function, you can perform the
-steps manually. In this procedure, turn off the compression policy and identify
-your compressed chunks before inserting the backfilled data.
+If you prefer not to use the `decompress_backfill` stored procedure, you can
+perform the steps manually. To do so, turn off the compression policy and
+identify your compressed chunks before inserting the backfilled data.
 
 <procedure>
 
