@@ -217,12 +217,12 @@ key, see the [OpenSea API documentation](https://docs.opensea.io/reference/reque
 </highlight>
 
 <highlight type="warning">
-The following procedure relies on the OpenSea API provided and maintained by OpenSea. Unfortunately,
-there have recently been extended periods of time when the API is not functioning, something that is
-outside of our control. 
-
-If the API has changed or is not accessible when you attempt to run the `opensea_ingest.py` script, we suggest following the second procedure to download a historical data file and importing it. You will be able to successfully 
-complete the tutorial with that data alone.
+This procedure relies on the OpenSea API. The OpenSea API is provided and 
+maintained by OpenSea. Recently, the API has stopped functioning for extended 
+periods of time. If the API has changed or is not accessible when you attempt 
+to run the `opensea_ingest.py` script, try following the procedure to download 
+a historical data file and import it. You can use this data file to complete the 
+tutorial.
 </highlight>
 
 <procedure>
