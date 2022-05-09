@@ -1,102 +1,107 @@
 # Creating continuous aggregates
-
-Now that you've been introduced to continuous aggregates, create your own continuous
-aggregate from your data. 
+Now that you've been introduced to continuous aggregates, create your own
+continuous aggregate from your data.
 
 ## Create an aggregate query to use in your continuous aggregate
-
-The data we are using for this tutorial is second-by-second (tick) data for stock trades. 
-A popular aggregate pattern used for analyzing stock data is called a [candlestick][candlestick]. 
-Generally, candlestick charts use 4 different aggregations over a specific interval 
-of time (for example, 1-minute, 5-minute, or 1-day aggregates):
+The data used in this tutorial is second-by-second, or tick, data for stock trades.
+A popular aggregate pattern used for analyzing stock data is called a
+[candlestick][candlestick]. Generally, candlestick charts use 4 different
+aggregations over a specific interval of time (for example, 1-minute, 5-minute,
+or 1-day aggregates):
 
 * `high`: highest stock price per interval
 * `open`: opening stock price per interval
 * `close`: closing stock price per interval
-* `low`: lowest stock price per interval 
+* `low`: lowest stock price per interval
 
-For this example query, the [`time_bucket()`][time-bucket] interval is 1 day. The 
-`high` and `low` values can be found by using the PostgreSQL [`MAX()`][max] and [`MIN()`][min] 
-functions. Finally, the `open` and `close` values can be found by using the [`first()`][first] 
-and [`last()`][last] functions.  
+For this example query, the [`time_bucket()`][time-bucket] interval is 1 day.
+The `high` and `low` values can be found by using the PostgreSQL [`MAX()`][max]
+and [`MIN()`][min] functions. Finally, the `open` and `close` values can be
+found by using the [`first()`][first] and [`last()`][last] functions.
 
 <procedure>
 
 ### Creating an aggregate query
 
-1. SELECT the daily candlestick values for each stock the entire 1-month dataset. This 
-	may take a few seconds to process all of the raw data into 1-day buckets.
-	```sql
-	SELECT
-		time_bucket('1 day', "time") AS day,
-		symbol,
-		max(price) AS high,
-		first(price, time) AS open,
-		last(price, time) AS close,
-		min(price) AS low
-	FROM stocks_real_time srt
-	GROUP BY day, symbol
-	ORDER BY day DESC, symbol;
-	```
-	**Results:**
-	```bash
-	day                          |symbol|high    |open    |close   |low     |
-	-----------------------------+------+--------+--------+--------+--------+
-	2022-05-03 20:00:00.000 -0400|AAPL  |164.9799|  159.32| 164.545|  159.25|
-	2022-05-03 20:00:00.000 -0400|ABBV  |   151.7|  150.99|  151.32|  147.59|
-	2022-05-03 20:00:00.000 -0400|ABNB  |158.7158|  148.84|  153.58|  145.88|
-	2022-05-03 20:00:00.000 -0400|ABT   |   115.2|  111.64|  115.08|  111.14|
-	2022-05-03 20:00:00.000 -0400|ADBE  |  421.93|  407.61|  419.53|  395.06|
-	2022-05-03 20:00:00.000 -0400|AMAT  |  118.47| 114.279|  117.95|  112.04|
-	```
+1.  Use a `SELECT` command to find the daily candlestick values for each stock
+    the entire 1-month dataset. This may take a few seconds to process all of
+    the raw data into 1-day buckets:
+
+    ```sql
+    SELECT
+      time_bucket('1 day', "time") AS day,
+      symbol,
+      max(price) AS high,
+      first(price, time) AS open,
+      last(price, time) AS close,
+      min(price) AS low
+    FROM stocks_real_time srt
+    GROUP BY day, symbol
+    ORDER BY day DESC, symbol;
+    ```
+
+1.  The results of the command look like this:
+
+    ```bash
+    day                          |symbol|high    |open    |close   |low     |
+    -----------------------------+------+--------+--------+--------+--------+
+    2022-05-03 20:00:00.000 -0400|AAPL  |164.9799|  159.32| 164.545|  159.25|
+    2022-05-03 20:00:00.000 -0400|ABBV  |   151.7|  150.99|  151.32|  147.59|
+    2022-05-03 20:00:00.000 -0400|ABNB  |158.7158|  148.84|  153.58|  145.88|
+    2022-05-03 20:00:00.000 -0400|ABT   |   115.2|  111.64|  115.08|  111.14|
+    2022-05-03 20:00:00.000 -0400|ADBE  |  421.93|  407.61|  419.53|  395.06|
+    2022-05-03 20:00:00.000 -0400|AMAT  |  118.47| 114.279|  117.95|  112.04|
+    ```
 
 </procedure>
 
-## Create continuous aggregate from aggregate query
+## Create a continuous aggregate from aggregate query
+Now that you have the aggregation query, you can use it to create a continuous
+aggregate.
 
-Now that you have the aggregation query, you can use it to create a continuous aggregate. 
-
-The `CREATE MATERIALIZED VIEW` command triggers the database to create a materialized view with 
-the given name, in this case `stock_candlestick_daily`. In the next line, 
-`WITH (timescaledb.continuous)` instructs TimescaleDB to create a continuous 
-aggregate and not just a generic materialized view. Finally, the query from above
-is added after the `AS` keyword. 
+The `CREATE MATERIALIZED VIEW` command triggers the database to create a
+materialized view with the given name, in this case `stock_candlestick_daily`.
+In the next line, `WITH (timescaledb.continuous)` instructs TimescaleDB to
+create a continuous aggregate and not just a generic materialized view. Finally,
+the query from earlier is added after the `AS` keyword.
 
 <procedure>
 
 ### Creating a continuous aggregate from an aggregate query
 
-1. Using the aggregate query from above, create a continuous aggregate for daily
-   candlestick data.
-	```sql
-	CREATE MATERIALIZED VIEW stock_candlestick_daily
-	WITH (timescaledb.continuous) AS
-	SELECT
-		time_bucket('1 day', "time") AS day,
-		symbol,
-		max(price) AS high,
-		first(price, time) AS open,
-		last(price, time) AS close,
-		min(price) AS low
-	FROM stocks_real_time srt
-	GROUP BY day, symbol;
-	```
+1.  Using the aggregate query from the previous procedure, create a continuous
+    aggregate for daily candlestick data:
+
+    ```sql
+    CREATE MATERIALIZED VIEW stock_candlestick_daily
+    WITH (timescaledb.continuous) AS
+    SELECT
+      time_bucket('1 day', "time") AS day,
+      symbol,
+      max(price) AS high,
+      first(price, time) AS open,
+      last(price, time) AS close,
+      min(price) AS low
+    FROM stocks_real_time srt
+    GROUP BY day, symbol;
+    ```
+
+1.  The query might take some time to run because it needs to perform these
+    calculations across all of your stock trade data the first time. After the
+    calculation results are stored, querying the data from the continuous
+    aggregate is much faster.
 
 </procedure>
 
-Notice that the `SELECT` statement is the same query you wrote earlier without the 
-`ORDER BY` clause. By default, this code both creates the aggregate 
-*and* materializes the aggregated data. That means the view is created *and* populated 
+The `SELECT` statement is the same query you wrote earlier, without the
+`ORDER BY` clause. By default, this code both creates the aggregate and
+materializes the aggregated data. That means the view is created *and* populated
 with the aggregate calculations from your existing hypertable data.
 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
 
-The query may take some time to run because it needs to perform these calculations
-across all of your stock trade data the first time. After the calculation results 
-are stored, querying the data from the continuous aggregate is much faster. 
-
-Run the following query to get all the data in your continuous aggregate, and note 
-how much faster this is than running the aggregate `SELECT` query on the raw hypertable data.
+Run thsi query to get all the data in your continuous aggregate, and note
+how much faster this is than running the aggregate `SELECT` query on the raw hypertable data:
 
 ```sql
 SELECT * FROM stock_candlestick_daily
@@ -104,32 +109,32 @@ ORDER BY day DESC, symbol;
 ```
 
 ## Real-time continuous aggregates
-By default, all continuous aggregates are created as *real-time* aggregates. This
-means that TimescaleDB always appends (or `UNION`) recent data that has not yet been materialized
-through a refresh policy to the output of the continuous aggregate. In the diagram 
-above that corresponds to the last three points of raw data, which belong to an 
-incomplete bucket. 
+By default, all continuous aggregates are created as *real-time* aggregates.
+This means that TimescaleDB always appends (or `UNION`) recent data that has not
+yet been materialized through a refresh policy to the output of the continuous
+aggregate. In this diagram, that corresponds to the last three points of raw
+data, which belong to an incomplete bucket.
 
-<highlight type="note">
-To inspect details about a continuous aggregate, such as its 
-configuration or the query used to define it, use the following 
+To inspect details about a continuous aggregate, such as its
+configuration or the query used to define it, use the following
 informational view:
 
 ```sql
 SELECT * FROM timescaledb_information.continuous_aggregates;
 ```
+
 **Results:**
+
 ```bash
 hypertable_schema|hypertable_name |view_schema|view_name     |view_owner|materialized_only|compression_enabled|materialization_hypertable_schema|materialization_hypertable_name|view_definition                                                                                                                                                                                                                                                |
 -----------------+----------------+-----------+--------------+----------+-----------------+-------------------+---------------------------------+-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 public           |stocks_real_time|public     |candle_one_min|tsdbadmin |false            |false              |_timescaledb_internal            |_materialized_hypertable_3     | SELECT time_bucket('00:01:00'::interval, stocks_real_time."time") AS bucket,¶    stocks_real_time.symbol,¶    first(stocks_real_time.price, stocks_real_time."time") AS open,¶    max(stocks_real_time.price) AS high,¶    min(stocks_real_time.price) AS low,|
 ```
-</highlight>
 
-## Next Steps
+## Next steps
 Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
 
-Without an automatic refresh policy, your continuous aggregate won't materialize new data as it is 
+Without an automatic refresh policy, your continuous aggregate won't materialize new data as it is
 inserted into the `stocks_real_time` hypertable. As mentioned before, when you query your continuous
 aggregate, TimescaleDB performs real-time aggregation to include any unmaterialized
 data. As the amount of unmaterialized data grows, this can slow down your queries.
