@@ -14,15 +14,13 @@ or [top N aggregate][topn_agg].
 ```sql
 topn (
     agg FrequencyAggregate,
-    n INTEGER,
-    ty AnyElement
+    n INTEGER
 ) RETURNS topn AnyElement
 ```
 ```sql
 topn (
     agg TopnAggregate,
-    n INTEGER,
-    ty AnyElement
+    n INTEGER
 ) RETURNS topn AnyElement
 ```
 
@@ -45,16 +43,6 @@ do not use any experimental features in production.
 |-|-|-|
 |`agg`|`FrequencyAggregate` or `TopnAggregate`|The aggregate to display values for|
 |`n`|`INTEGER`|The number of values to return. Required only for frequency aggregates. For top N aggregates, defaults to target `n` of the aggregate itself|
-|`ty`|`AnyElement`|A value that provides an example of the output type|
-
-<highlight type="important">
-Because frequency aggregates and top N aggregates can operate over data of any
-type, `topn` uses the `ty` parameter to specify the data type of the output.
-`ty` must be an object, so it must be an actual example of the data type rather
-than the name of the type. For example, for integer output, use `0::INTEGER`.
-Don't use `NULL::&lt;TYPE&gt;` as the example value. The function doesn't work correctly
-with a `NULL` example.
-</highlight>
 
 ## Optional arguments
 
@@ -91,8 +79,7 @@ This returns the 5 most common values seen in the table:
 ```sql
 SELECT toolkit_experimental.topn(
     toolkit_experimental.freq_agg(0.05, value), 
-    5, 
-    0::INTEGER) 
+    5) 
 FROM value_test;
 ```
 

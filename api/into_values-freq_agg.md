@@ -25,7 +25,6 @@ do not use any experimental features in production.
 |Name|Type|Description|
 |-|-|-|
 |`agg`|`FrequencyAggregate`|The aggregate to display the values for|
-|`ty`|`AnyElement`|A value matching the type to output from the aggregate|
 
 ## Returns
 
@@ -47,8 +46,7 @@ This returns values representing more than 5% of the input:
 ```sql
 SELECT value, min_freq, max_freq
 FROM toolkit_experimental.into_values(
-    (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),
-    0::INTEGER);
+    (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test));
 ```
 
 The output for this query looks like this, with some variation due to randomness:
