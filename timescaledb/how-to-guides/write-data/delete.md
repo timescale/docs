@@ -1,26 +1,28 @@
-# DELETE
+# Delete data
+You can delete data from a hypertable using a standard
+[`DELETE`][postgres-delete] SQL command. If you want to delete old data once it
+reaches a certain age, you can also drop entire chunks or set up a data
+retention policy.
 
-Delete data from a hypertable using the standard [`DELETE`][postgres-delete] SQL
-command.
-
+## Delete data with DELETE command
+To delete data from a table, use the syntax `DELETE FROM ...`. In this example,
+data is deleted from the table `conditions`, if the row's `temperature` or
+`humidity` is below a certain level:
 ```sql
 DELETE FROM conditions WHERE temperature < 35 OR humidity < 60;
-
-DELETE FROM conditions WHERE time < NOW() - INTERVAL '1 month';
 ```
 
-After running a large `DELETE` operation, [`VACUUM`][postgres-vacuum] or `VACUUM
-FULL` the hypertable to reclaim storage from deleted or obsolete rows.
-
-<highlight type="tip"> 
-To delete old data, use
-[`drop_chunks`](https://docs.timescale.com/api/latest/hypertable/drop_chunks/)
-instead. `drop-chunks` is more performant because it deletes entire chunks by
-removing files, rather than deleting individual rows that need vacuuming. To
-learn more, see the [data retention 
-section](https://docs.timescale.com/timescaledb/latest/how-to-guides/data-retention/).
+<highlight type="important">
+If you delete a lot of data, run
+[`VACUUM`](https://www.postgresql.org/docs/current/static/sql-vacuum.html) or
+`VACUUM FULL` to reclaim storage from the deleted or obsolete rows.
 </highlight>
 
+## Delete data by dropping chunks
+TimescaleDB allows you to delete data by age, by dropping chunks from a
+hypertable. You can do so either manually or by data retention policy.
+
+To learn more, see the [data retention section][data-retention].
 
 [postgres-delete]: https://www.postgresql.org/docs/current/static/sql-delete.html
-[postgres-vacuum]: https://www.postgresql.org/docs/current/static/sql-vacuum.html
+[data-retention]: /how-to-guides/data-retention/
