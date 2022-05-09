@@ -34,7 +34,7 @@ saves the value to be applied.
 
 <highlight type="note">
 The range for some of the parameters vary depending on the plan. For example,
-the range for `max connections` is 0 to 25 in the smallest compute tier, but 25
+the range for `max_connections` is 0 to 25 in the smallest compute tier, but 25
 to 500 in the next tier.
 </highlight>
 
