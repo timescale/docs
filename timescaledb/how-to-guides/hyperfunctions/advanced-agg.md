@@ -70,6 +70,5 @@ see the developer documentation for [uddsketch][gh-uddsketch] and
 [tdigest][gh-tdigest].
 
 [pg-percentile]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[`percentile_cont`](https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE)
-[gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/`tdigest`.md
-[gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/`uddsketch`.md
+[gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md
+[gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md

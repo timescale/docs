@@ -216,6 +216,15 @@ You need an OpenSEA API key to fetch data from the OpenSea API. To request your
 key, see the [OpenSea API documentation](https://docs.opensea.io/reference/request-an-api-key).
 </highlight>
 
+<highlight type="warning">
+This procedure relies on the OpenSea API. The OpenSea API is provided and 
+maintained by OpenSea. Recently, the API has stopped functioning for extended 
+periods of time. If the API has changed or is not accessible when you attempt 
+to run the `opensea_ingest.py` script, try following the procedure to download 
+a historical data file and import it. You can use this data file to complete the 
+tutorial.
+</highlight>
+
 <procedure>
 
 ### Fetching data directly from the OpenSea API
