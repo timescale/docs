@@ -78,9 +78,9 @@ Required `WITH` clause options:
 Optional `WITH` clause options:
 
 |Name|Type|Description|Default value|
-|-|-|-|
-|`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view.|`FALSE`|
-|`timescaledb.create_group_indexes`|BOOLEAN|Create indexes on the materialization table for the group by columns specified by the `GROUP BY` clause of the `SELECT` query|Created by default for every group by expression/time_bucket expression pair|
+|-|-|-|-|
+|`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view|`FALSE`|
+|`timescaledb.create_group_indexes`|BOOLEAN|Create indexes on the continuous aggregate for columns in its `GROUP BY` clause. Indexes are in the form `(<GROUP_BY_COLUMN>, time_bucket)`|`TRUE`|
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
