@@ -15,7 +15,7 @@ compression behind the scenes](https://www.timescale.com/blog/timescaledb-2-3-im
 </highlight>
 
 ## Backfill with the backfilling function
-You can backfill data by using the `decompress_backfill` function. This
+You can backfill data by using the `decompress_backfill` stored procedure. This
 function:
 1.   Halts the compression policy
 1.   Identifies the chunks where the backfilled data belongs
@@ -23,7 +23,7 @@ function:
 1.   Inserts data from the temporary table into the hypertable
 1.   Re-enables the compression policy
 
-Before you begin, add the [`decompress_backfill` function and its supporting
+Before you begin, add the [`decompress_backfill` stored procedure and its supporting
 functions][timescaledb-extras-backfill] to your database.
 
 <procedure>
