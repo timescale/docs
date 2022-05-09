@@ -1,90 +1,110 @@
-# 3.Create a hypertable
-When you've launched your first TimescaleDB instance and accessed your database,
-you can create your first hypertable. Hypertables are the heart of TimescaleDB
-and are what allows TimescaleDB to work so effectively with time-series data.
+# Create a hypertable
+Hypertables are the core of TimescaleDB functionality that enable TimescaleDB to 
+work efficiently with time-series data. Because TimescaleDB 
+is PostgreSQL, all the regular PostgreSQL tables, indexes, stored procedures and other objects can be created
+alongside your TimescaleDB hypertables. This makes creating and working with TimescaleDB 
+tables similar to regular PostgreSQL. 
 
-## Chunks and hypertables
-Chunks and hypertables make storing and querying times-series data blazingly
-fast at peta-byte scale. TimescaleDB automatically partitions time-series data
-into chunks, or sub-tables, based on time and space. For example, chunks can be
-based on hash key, device ID, location or some other distinct key. You can
-configure chunk size so that recent chunks fit in memory for faster queries.
+## Hypertables and chunks
+Hypertables and chunks make storing and querying times-series data fast at petabyte 
+scale. 
 
-A hypertable is an abstraction layer over chunks that hold time-series data.
-Hypertables allow you to query and access data from all the chunks as if they
-were in a single table. This is because commands issued to the hypertable are
-applied to all of the chunks that belong to that hypertable.
+TimescaleDB automatically partitions time-series data into **chunks**, or sub-tables, 
+based on time and space. You can configure chunk size so that recent chunks fit in memory 
+for faster queries. 
+
+A **hypertable** is an abstraction layer over chunks that hold the time-series data.
+Hypertables enable you to query and access data from all the chunks within the hypertable.
+You get all the benefits of automatic chunking for time-series data, alongside the simplicity
+of working with what looks like a standard, single PostgreSQL table.
 
 Hypertables and chunks enable superior performance for shallow and wide queries,
 like those used in real-time monitoring. They are also good for deep and narrow
 queries, like those used in time-series analysis.
 
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/illustration-hypertable-chunk.png" alt="hypertable and chunks"/>
+<img class="main-content__illustration" 
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png" 
+alt="hypertable and chunks"/>
 
-You can interact with chunks individually if you need to, but chunks are created
-automatically based on the `chunk_time` and `chunk_size` parameters you specify.
+For more information, see [ Hypertables and chunks](/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/).
 
-**Create your first hypertable**
 
-```sql
-----------------------------------------
--- Hypertable to store weather metrics
-----------------------------------------
--- Step 1: Define regular table
-CREATE TABLE IF NOT EXISTS weather_metrics (
+<procedure>
 
-   time TIMESTAMP WITHOUT TIME ZONE NOT NULL,
-   timezone_shift int NULL,
-   city_name text NULL,
-   temp_c double PRECISION NULL,
-   feels_like_c double PRECISION NULL,
-   temp_min_c double PRECISION NULL,
-   temp_max_c double PRECISION NULL,
-   pressure_hpa double PRECISION NULL,
-   humidity_percent double PRECISION NULL,
-   wind_speed_ms double PRECISION NULL,
-   wind_deg int NULL,
-   rain_1h_mm double PRECISION NULL,
-   rain_3h_mm double PRECISION NULL,
-   snow_1h_mm double PRECISION NULL,
-   snow_3h_mm double PRECISION NULL,
-   clouds_percent int NULL,
-   weather_type_id int NULL
-);
+### Creating your first hypertable
 
--- Step 2: Turn into hypertable
-SELECT create_hypertable('weather_metrics','time');
-```
+Creating a hypertable is a two-step process in TimescaleDB.
 
-Creating a hypertable is a two-step process. Start by using a `CREATE TABLE`
-statement to create a regular relational table. Then, use a `SELECT`
-statement with the `create_hypertable` function to convert the table into a
-hypertable. The `SELECT` statement requires the name of the table to convert,
-and the name of the time column in that table.
+1. Create a regular PostgreSQL table to store the real-time stock trade data using
+   `CREATE TABLE`:
+   ```sql
+   CREATE TABLE stocks_real_time (
+      time TIMESTAMPTZ NOT NULL,
+      symbol TEXT NOT NULL,
+      price DOUBLE PRECISION NULL,
+      day_volume INT NULL
+   );
+   ```
+1. Convert the regular table into a hypertable partitioned on the `time` column 
+   using the `create_hypertable()` function provided by TimescaleDB. You must
+   provide the name of the table (`stocks_real_time`) and the column in that table
+   that holds the timestamp data to use for partitioning (`time`).
+   ```sql
+   SELECT create_hypertable('stocks_real_time','time');
+   ```
 
-## How hypertables help with times-series data
-**Hypertables speed up ingest rates:** Because data is only inserted into
-the current chunk, data in the other chunks remains untouched. If you use a
-single table, every time you ingest data into the table, it becomes bigger and
-more bloated.
+   <highlight type="tip">
+   When you create a hypertable, it is automatically partitioned on the time column
+   you provide as the second parameter to `create_hypertable()`. Also, TimescaleDB automatically creates an 
+   index on the time column. However, you'll often filter your time-series data on other 
+   columns as well. Using indexes appropriately helps your queries perform better.
 
-**Hypertables speed up queries:** Because only specific chunks are queried
-thanks to the automatic indexing by time or space.
+   Because you will often be querying the stock trade data by the company symbol, you should add 
+   an index for it. Include the time column because time-series data typically looks for 
+   data in a specific period of time.
+   </highlight>
 
-The value of hypertables is in how data is partitioned on disk. The index value
-is automatically augmented by the time dependency of the data to allow more
-focused use of memory and query planning resources. In PostgreSQL (and other
-relational database management systems), you can build indexes on one or more
-values, but the data must still be retrieved. Retrieval is in most cases, from
-portions of the physical layer (memory or disk), which doesn't always result in
-effective use of memory and disk resources. By automatically and transparently
-partitioning on time, hypertables improve resource use. Queries and
-data-stores become more efficient.
+1. Create an index to support efficient queries on the `symbol` and `time` columns.
+   ```sql
+   CREATE INDEX ix_symbol_time ON stocks_real_time (symbol, time DESC);
+   ```
+
+</procedure>
+
+## Create regular PostgreSQL tables for relational data
+TimescaleDB isn't just for hypertables. Remember, TimescaleDB *is* PostgreSQL. When 
+you have other relational data that enhances your time-series data, you can create 
+regular PostgreSQL tables just as you would normally. For this dataset, there is one 
+other table of data called `company`. 
+
+<procedure>
+
+### Creating regular PostgreSQL tables
+
+1. Add a table to store the company name and symbol for the stock trade data:
+   ```sql
+   CREATE TABLE company (
+      symbol TEXT NOT NULL,
+      name TEXT NOT NULL
+   );
+   ```
+
+</procedure>
+
+You now have two tables within your TimescaleDB database: 
+ * one hypertable named `stocks_real_time`
+ * one normal PostgreSQL table named `company`
+
+## Next steps
+Ingest some sample stock trade data into TimescaleDB. The next section, ['Add time-series data'][add-data], 
+shows you how to populate the tables you just created. 
 
 ## Learn more about hypertables and chunks
-See the [Hypertable How To](/how-to-guides/hypertables) to learn more about
-hypertables and best practices for configuring chunks.
+To learn more about hypertables and best practices for configuring chunks, see 
+[Hypertable How-To](/how-to-guides/hypertables). For information about how hypertables 
+help with storing and querying data, see the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
-Next, ingest some sample data into TimescaleDB. You can also use this 
-[sample dataset](/getting-started/add-data/#accessing-the-dataset) to 
-populate the table you just created. 
+
+[add-data]: /getting-started/add-data/
+[core-concepts-hypertables]: /overview/core-concepts/hypertables-and-chunks/
+[create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable

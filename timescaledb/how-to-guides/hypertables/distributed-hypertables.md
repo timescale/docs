@@ -291,15 +291,41 @@ the data over the data nodes, similar to traditional sharding.
 For more information about partitioning distributed hypertables, see the
 [About multi-node section][about-multinode].
 
+## Repartitioning distributed hypertables
+You can expand distributed hypertables by adding additional data nodes. If you 
+now have fewer space partitions than data nodes, you need to increase the
+number of space partitions to make use of your new nodes. The new partitioning
+configuration only affects new chunks. In this diagram, an extra data node 
+was added during the third time interval. The fourth time interval now includes 
+four chunks, while the previous time intervals still include three:
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
+
+This can affect queries that span the two different partitioning configurations.
+In the diagram, the highlighted area, marked as `chunks queried`, represents
+such a query. In the older configuration, the query requires data from four
+chunks, but in the newer configuration, it requires data from two. For
+example, the query might include data for a particular hostname that now exists
+on more than one data node. Because the data spans data nodes, it cannot be
+fully aggregated on the data node. Some operations need to be performed on the
+access node instead.
+
+The TimescaleDB query planner dynamically detects such overlapping chunks and
+reverts to the appropriate partial aggregation plan. This means that you can add
+data nodes and repartition your data to achieve elasticity without worrying
+about query results. In some cases, your query could be slightly less
+performant, but this is rare and the affected chunks usually move quickly out of your
+retention window. 
+
 ## Foreign key handling in distributed hypertables
 Tables referenced by foreign key constraints in a distributed
 hypertable must be present on the access node and all data
 nodes. This applies also to referenced values.
 
-You can use `distributed_exec` to create a table on all data 
-nodes and insert data into the table. Ensure that the table 
-exists on the access node first, and then update all the data 
-nodes with the correct data. You can then use a foreign key 
+You can use `distributed_exec` to create a table on all data
+nodes and insert data into the table. Ensure that the table
+exists on the access node first, and then update all the data
+nodes with the correct data. You can then use a foreign key
 in the distributed hypertable to that table.
 
 

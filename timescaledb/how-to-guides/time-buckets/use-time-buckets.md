@@ -1,4 +1,4 @@
-# Use time buckets to aggregate time-series data
+# Aggregate time-series data with time_bucket
 The `time_bucket` function helps you group your data, so you can perform
 aggregate calculations over arbitrary time intervals. It is usually used
 in combination with `GROUP BY` for this purpose.
@@ -6,16 +6,17 @@ in combination with `GROUP BY` for this purpose.
 This section shows examples of `time_bucket` use. To learn how time buckets
 work, see the section that explains [time buckets][time-buckets].
 
-## Calculate the average daily value
-Group data into daily buckets and calculate the average daily value of a column.
-For example, calculate the average daily temperature in a table named
+## Group data by time buckets and calculate a summary value
+Group data into time buckets and calculate a summary value for a column. For
+example, calculate the average daily temperature in a table named
 `weather_conditions`. The table has a time column named `time` and a
 `temperature` column.
 ```sql
 SELECT time_bucket('1 day', time) AS bucket,
-    avg(temperature) AS avg_temp
+  avg(temperature) AS avg_temp
 FROM weather_conditions
-GROUP BY bucket;
+GROUP BY bucket
+ORDER BY bucket ASC;
 ```
 
 `time_bucket` returns the start time of the bucket. In this example, the first
@@ -28,22 +29,41 @@ bucket                 |      avg_temp
 2016-11-16 00:00:00+00 | 67.0816684374999347
 ```
 
-## Calculate the max and min value within 5-minute intervals
-Group data into 5-minute buckets and calculate the maximum and minimum values of
-a column within each bucket. Report the end time of the bucket rather than the
-start time. For example, calculate the minimum and maximum CPU usage in a table
-named `metrics`. The table has a time column named `time` and a CPU usage column
-named `cpu`.
+## Group data by time buckets and show the end time of the bucket
+By default, the `time_bucket` column shows the start time of the bucket. If you
+prefer to show the end time, you can shift the displayed time using a
+mathematical operation on time.
+
+For example, calculate the minimum and maximum CPU usage for 5-minute intervals.
+Show the end of time of the interval. The example table is named `metrics`. It
+has a time column named `time` and a CPU usage column named `cpu`.
 ```sql
 SELECT time_bucket('5 min', time) + '5 min' AS bucket,
-    min(cpu),
-    max(cpu)
+  min(cpu),
+  max(cpu)
 FROM metrics
-GROUP BY bucket;
+GROUP BY bucket
+ORDER BY bucket DESC;
 ```
 
 The addition of `+ '5 min'` changes the displayed timestamp to the end of the
-bucket. It doesn't change the time spanned by the bucket.
+bucket. It doesn't change the range of times spanned by the bucket.
+
+## Group data by time buckets and change the time range of the bucket
+To change the time range spanned by the buckets, use the `offset` parameter,
+which takes an `INTERVAL` argument. A positive offset shifts the start and end
+time of the buckets later. A negative offset shifts the start and end time of
+the buckets earlier.
+
+For example, calculate the average CPU usage for 5-hour intervals. Shift the
+start and end times of all buckets 1 hour later:
+```sql
+SELECT time_bucket('5 hours', time, '1 hour'::INTERVAL) AS bucket,
+  avg(cpu)
+FROM metrics
+GROUP BY bucket
+ORDER BY bucket DESC;
+```
 
 ## Calculate the time bucket of a single value
 Time buckets are usually used together with `GROUP BY` to aggregate data. But
@@ -56,7 +76,7 @@ fall, run:
 SELECT time_bucket(INTERVAL '1 week', TIMESTAMP '2021-01-05');
 ```
 
-The function returns `2020-01-04 00:00:00`. That is the start time of the
+The function returns `2021-01-04 00:00:00`. That is the start time of the
 time bucket: the Monday of that week, at midnight.
 
 [time-buckets]: /how-to-guides/time-buckets/

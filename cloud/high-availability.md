@@ -42,5 +42,5 @@ failures unless the user is using HA replicas. We do not currently offer
 multi-cloud solutions or protection from an AWS Regional failure.
 
 
-[cloud-backup]: cloud/backup-restore-cloud/
-[db-replicas]: cloud/service-operations/replicas/
+[cloud-backup]: /backup-restore-cloud/
+[db-replicas]: /service-operations/replicas/
