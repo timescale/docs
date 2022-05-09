@@ -1,7 +1,7 @@
 # Query your data
 
 With TimescaleDB, there's no need to learn a custom query language. **TimescaleDB
-supports full SQL**. You can use your SQL knowledge along with the rich 
+supports full SQL**. You can use your SQL knowledge along with the rich
 ecosystem of PostgreSQL tools and add the extra features and performance of
 TimescaleDB.
 
@@ -11,11 +11,11 @@ popular TimescaleDB functions.
 ## Basic SQL queries
 
 <highlight type="tip">
-Many of the queries below show a filter for the last four days of data. This 
+Many of the queries below show a filter for the last four days of data. This
 accounts for the nuance of stock trade data which only occurs Monday-Friday
 on the New York Stock Exchange.
 
-If you load the provided data on a Monday, the most recent data that we can provide 
+If you load the provided data on a Monday, the most recent data that we can provide
 is from Friday afternoon. Therefore, selecting data for the last day or two would return
 no results.
 
@@ -25,7 +25,7 @@ explore other time-ranges in the data that we provide.
 
 ### Select all stock data from the last four days
 
-   To select all the stock data from the previous four days, use the [`WHERE`][clause-expressions] 
+   To select all the stock data from the previous four days, use the [`WHERE`][clause-expressions]
    clause to filter the result using a relative time interval. This example uses an interval of
    four days, so data is displayed even if you run this on a weekend or a Monday.
 
@@ -40,19 +40,19 @@ explore other time-ranges in the data that we provide.
    query. With stock trade data, there are often multiple trades each second for
    popular stocks like Amazon. Therefore, we cannot order data descending
    by the `time` alone. _This is a common problem with high-frequency data like stocks,
-   crypto, and IoT metrics_. Therefore, we need to order the results by additional information 
+   crypto, and IoT metrics_. Therefore, we need to order the results by additional information
    to correctly display the order in which trades were made with the exchange.
-   
+
    For the `stocks_real_time` data, the `day_volume` column serves as additional
    information to help us order the trades correctly, even when there are multiple
-   trades per second. The `day_volume` value increases by the number of stocks 
+   trades per second. The `day_volume` value increases by the number of stocks
    traded with each tick.
 
    ```sql
    SELECT * FROM stocks_real_time srt
    WHERE symbol='AMZN'
    ORDER BY time DESC, day_volume desc
-   LIMIT 10;  
+   LIMIT 10;
 
 
    time                         |symbol|price    |day_volume|
@@ -75,8 +75,8 @@ explore other time-ranges in the data that we provide.
 ### Calculate the average trade price for Apple from the four days
 
    Use the [`avg()`][average] function with a `WHERE` clause
-   to only include trades for Apple stock within the last 4 days. 
-   You can use the [`JOIN`][join] operator to fetch results based on the name of 
+   to only include trades for Apple stock within the last 4 days.
+   You can use the [`JOIN`][join] operator to fetch results based on the name of
    a company instead of the symbol.
 
    ```sql
@@ -100,13 +100,13 @@ analysis in fewer lines of code. Here's how to use three of these functions:
 ### Get the first and last value with first() and last() functions
 
    The `first()` and `last()` functions retrieve the first and last value of one
-   column when ordered by another. 
-   
-   For example, our stock data has a timestamp column `time` and numeric column `price`,
-   you can use `first(price, time)` to get the first value in the `price` column when ordered 
-   with respect to an increasing `time` column. 
+   column when ordered by another.
 
-   In this query, you use both the `first()` and `last()` functions to find the 
+   For example, our stock data has a timestamp column `time` and numeric column `price`,
+   you can use `first(price, time)` to get the first value in the `price` column when ordered
+   with respect to an increasing `time` column.
+
+   In this query, you use both the `first()` and `last()` functions to find the
    first and last trading price for each company for the last three days.
 
    ```sql
@@ -131,30 +131,30 @@ analysis in fewer lines of code. Here's how to use three of these functions:
 
 ### Aggregate by an arbitrary length of time using time_bucket
 
-   The `time_bucket()` function enables you to take a time column and “bucket” the values 
+   The `time_bucket()` function enables you to take a time column and "bucket" the values
    based on an interval of your choice. Typically, you _bucket_ time so that you can perform
-   an aggregation over the chosen interval. 
-   
+   an aggregation over the chosen interval.
+
    For example, consider a table that records incrementing values every hour. To
    aggregate the daily totals of the values, you can
-   use the `time_bucket()` function on the `time` column to _bucket_ the hourly 
-   data into daily data and then perform a `sum()` on the `value` column to get 
-   the total sum of your values across each day. 
+   use the `time_bucket()` function on the `time` column to _bucket_ the hourly
+   data into daily data and then perform a `sum()` on the `value` column to get
+   the total sum of your values across each day.
 
    <img class="main-content__illustration"
     src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/time-bucket.jpg"
     alt="time_bucket() Illustration"/>
 
-   For more information on the `time_bucket()` function, see the [API documentation][time-bucket]. 
+   For more information on the `time_bucket()` function, see the [API documentation][time-bucket].
 
    To see `time_bucket()` in action with the stock trade data, let's calculate
    the average daily price of each trading symbol over the last week.
-   
-   Use the `time_bucket()` function with an interval of `1-day`, the `avg()` 
+
+   Use the `time_bucket()` function with an interval of `1-day`, the `avg()`
    function on the price data, select the `symbol`, and finally [`GROUP BY`][clause-expressions]
-   the `bucket` and `symbol`. The `WHERE` limits the results to days within the 
-   last week. Finally the `ORDER BY` clause orders the results first on the bucketed date, 
-   then by symbol. 
+   the `bucket` and `symbol`. The `WHERE` limits the results to days within the
+   last week. Finally the `ORDER BY` clause orders the results first on the bucketed date,
+   then by symbol.
 
    ```sql
    SELECT
@@ -175,7 +175,7 @@ analysis in fewer lines of code. Here's how to use three of these functions:
    2022-04-26 20:00:00.000 -0400|ADBE  |398.63256560534745|
    2022-04-26 20:00:00.000 -0400|AMAT  |108.92946602133563|
    ```
-   
+
    In the results above, you may notice that the `bucket` column, which represents
    a `time_bucket()` or one week, starts on the beginning date of the bucket, not
    the current time that you run the query. To learn more about how time buckets are
