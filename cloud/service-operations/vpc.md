@@ -1,4 +1,4 @@
-# VPC peering in Timescale Cloud
+# Service operations - VPC
 Timescale Cloud allows you to create a virtual private cloud (VPC) network
 between an external cloud provider and your Timescale Cloud services. This
 allows you to isolate your Timescale Cloud services so that they are only

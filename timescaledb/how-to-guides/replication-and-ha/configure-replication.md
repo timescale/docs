@@ -163,37 +163,34 @@ from a base backup of the primary instance.
     ```
     The -W flag prompts you for a password. If you are using this command in an
     automated setup, you might need to use a [pgpass file][pgpass-file].
-1.  When the backup is complete, create a [recovery.conf][postgres-recovery-docs]
-    file in your data directory, and set the appropriate permissions. 
-    When PostgreSQL finds a `recovery.conf` file in its data directory, 
-    it starts in recovery mode and streams the WAL through the replication protocol:
+1.  When the backup is complete, create a
+    [standby.signal][postgres-recovery-docs] file in your data directory. When
+    PostgreSQL finds a `standby.signal` file in its data directory, it starts in
+    recovery mode and streams the WAL through the replication protocol:
     ```bash
-    touch <DATA_DIRECTORY>/recovery.conf
-    chmod 0600 <DATA_DIRECTORY>/recovery.conf
+    touch <DATA_DIRECTORY>/standby.signal
     ```
 
 </procedure>
 
 ## Configure replication and recovery settings
-When you have successfully created a base backup and a `recovery.conf` file, you
+When you have successfully created a base backup and a `standby.signal` file, you
 can configure the replication and recovery settings.
 
 <procedure>
 
 ## Configuring replication and recovery settings
-1.  In the `recovery.conf` file, add details for communicating with the
+1.  In the replica's `postgresql.conf` file, add details for communicating with the
     primary server. If you are using streaming replication, the
     `application_name` in `primary_conninfo` should be the same as the name used
     in the primary's `synchronous_standby_names` settings:
     ```yaml
-    standby_mode = on
     primary_conninfo = 'host=<PRIMARY_IP> port=5432 user=repuser
     password=<POSTGRES_USER_PASSWORD> application_name=r1'
     primary_slot_name = 'replica_1_slot'
     ```
-1.  In the `postgresql.conf` file, add details to mirror the configuration of
-    the primary database. If you are using asynchronous replication, use these
-    settings:
+1.  Add details to mirror the configuration of the primary database. If you are
+    using asynchronous replication, use these settings:
     ```yaml
     hot_standby = on
     wal_level = replica
@@ -385,8 +382,8 @@ check out [Patroni][patroni-github].
 [pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [pgpass-file]: https://www.postgresql.org/docs/current/libpq-pgpass.html
 [postgres-archive-docs]: https://www.postgresql.org/docs/current/static/continuous-archiving.html
-[postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/10/static/monitoring-stats.html#PG-STAT-REPLICATION-VIEW
-[postgres-recovery-docs]: https://www.postgresql.org/docs/11/recovery-config.html
+[postgres-pg-stat-replication-docs]: https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-REPLICATION-VIEW
+[postgres-recovery-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVE-RECOVERY
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [replication-modes]: /how-to-guides/replication-and-ha/configure-replication#replication-modes
