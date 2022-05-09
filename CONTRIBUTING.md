@@ -295,6 +295,7 @@ Each page listed in `page-index.js` can have the following properties:
 |`excerpt`|Optional|A short description of the page. Excerpts are displayed within Related Content cards at the bottom of each page.|
 |`relatedPages`|Optional|An array of path names to be displayed as Related Content at the bottom of the page. For example, `["/promscale/:currentVersion:/installation/"]`|
 |`pageComponents`|Optional|If provided, child pages are listed below any other content in the parent page. Takes two possible values, `['featured-cards']` and `['content-list']`, corresponding to the two list styles.|
+|`featuredChildren`|Optional|If the `pageComponents` option `featured-cards` is used, `featuredChildren` specifies which child pages to feature on the cards. Takes an array of pathnames, in the same format as `relatedPages`. Using `featured-cards` without specifying `featuredChildren` results in all child pages being displayed on cards.|
 |`type`|Optional|Associates the page with a specific page type that has special features or layout. Rarely used.|
 |`newLabel`|Optional|Adds a `NEW` label to content in the navigation menu. Set the value of `newLabel` to the date when the label should expire. Use the format `"Month Day Year"` or `"YYYY-MM-DD"`.|
 
