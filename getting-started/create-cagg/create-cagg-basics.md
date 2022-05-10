@@ -155,7 +155,7 @@ found in the [continuous aggregates docs][continuous-aggregates].
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 
-[continuous-aggregates]: /how-to-guides/continuous-aggregates
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 [candlestick]: https://en.wikipedia.org/wiki/Candlestick_chart
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [max]: https://www.postgresql.org/docs/current/tutorial-agg.html
