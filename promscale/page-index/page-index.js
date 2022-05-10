@@ -266,11 +266,11 @@ module.exports = [
         ],
       },
       {
-        title: "Alert in Promscale",
-        href: "alert",
+        title: "Alerting, Recording in Promscale",
+        href: "alerting-recording",
         tags: ["promscale", "prometheus", "alert"],
         keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
-        excerpt: "Learn about configuring alerts on Promscale data",
+        excerpt: "Learn about alerting, recording support in Promscale",
       },
       {
         title: "Database roles and permissions",
