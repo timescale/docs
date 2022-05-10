@@ -29,7 +29,7 @@ data from the same day. Data from different days is stored in different chunks.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png"
-alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains there containers, called chunks, each of which holds data for a separate day." />
+alt="A normal table compared to a hypertable. The normal table holds data for 3 different days in one container. The hypertable contains 3 containers, called chunks, each of which holds data for a separate day." />
 
 <highlight type="note">
 TimescaleDB divides time into potential chunk ranges, based on the
@@ -43,7 +43,7 @@ doesn't affect your usual interactions with your hypertable, but might affect
 the number of chunks you see when inspecting it.
 </highlight>
 
-#### Best practices for time partitioning
+### Best practices for time partitioning
 Chunk size affects insert and query performance. You want a chunk small enough
 to fit into memory. This allows you to insert and query recent data without
 reading from disk. But you don't want too many small and sparsely filled chunks.
@@ -66,10 +66,12 @@ For information on how to view and set your chunk time intervals, see the
 section on [changing hypertable chunk intervals][change-chunk-intervals].
 
 ### Space partitioning
-Space partitioning is optional. It is recommended for distributed hypertables,
-to balance inserts between nodes. It is not usually recommended for regular
-hypertables, except in very particular circumstances. For more information, see
-the section on [best practices for space partitioning][best-practices-space].
+Space partitioning is optional. It is not usually recommended for regular
+hypertables, except in very particular circumstances. It is recommended for
+distributed hypertables, to balance inserts between nodes. For more information,
+see the sections on [best practices for space
+partitioning][best-practices-space] and on [distributed
+hypertables][about-distributed-hypertables].
 
 When space partitioning is on, 2 dimensions are used to divide data into chunks:
 the time dimension and the space dimension. You can specify the number of
@@ -84,25 +86,12 @@ into the correct partition for that hash value.
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/hypertable-time-space-partition.png"
 alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
 
-In a distributed hypertable, each hash bucket in the space dimension corresponds
-to a data node. One data node may hold many buckets, but each bucket may belong
-to only one node. In a non-distributed hypertable, buckets can map to different
-disks, for example by using tablespaces.
-
-#### Best practices for space partitioning
-Space partitions are recommended for distributed hypertables, where they can
-balance inserts between data nodes. Without space partitioning, all data in the
-same time range would write to the same chunk on a single node. 
-
-By default, TimescaleDB creates as many space partitions as there are data
-nodes. You can change this number, but having too many space partitions degrades
-performance. It increases planning time for some queries, and leads to poorer
-balancing when mapping items to partitions.
-
+### Best practices for space partitioning
 Space partitioning is not usually recommended for non-distributed hypertables.
 It's only useful if you have multiple physical disks, each corresponding to a
-separate tablespace. Otherwise, you increase query planning complexity without
-increasing I/O performance.
+separate tablespace. Each disk can then store some of the space partitions. If
+you partition by space without this setup, you increase query planning
+complexity without increasing I/O performance.
 
 <highlight type="note">
 A more recommended way to increase I/O performance is to use RAID (redundant
@@ -131,7 +120,7 @@ indexes on a hypertable][hypertables-and-unique-indexes].
 *   Read about the
     [benefits and architecture of hypertables][hypertable-concepts]
 
-[about-distributed-hypertables]: /how-to-guides/hypertables/about-distributed-hypertables/
+[about-distributed-hypertables]: /how-to-guides/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
 [best-practices-time]: #best-practices-for-time-partitioning
 [create-hypertables]: /how-to-guides/hypertables/create/

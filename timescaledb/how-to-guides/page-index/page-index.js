@@ -70,13 +70,6 @@ module.exports = [
             excerpt: "Learn about hypertables in TimescaleDB",
           },
           {
-            title: "About distributed hypertables",
-            href: "distributed-hypertables",
-            tags: ["hypertables", "create", "distributed", "timescaledb"],
-            keywords: ["hypertables", "distributed", "TimescaleDB"],
-            excerpt: "Learn about distributed hypertables",
-          },
-          {
             title: "Create hypertables",
             href: "create",
             tags: ["hypertables", "create", "timescaledb"],
@@ -105,21 +98,6 @@ module.exports = [
             excerpt: "Create hypertables with unique indexes",
           },
           {
-            title: "Work with distributed hypertables",
-            href: "work-with-distributed-hypertables",
-            tags: [
-              "hypertables",
-              "distributed",
-              "edit",
-              "insert",
-              "query",
-              "timescaledb"
-            ],
-            keywords: ["hypertables", "distributed", "TimescaleDB"],
-            excerpt:
-              "Insert, copy, and query data on distributed hypertables. Set up foreign keys, triggers, and replication."
-          },
-          {
             title: "Drop hypertables",
             href: "drop",
             tags: ["hypertables", "delete", "timescaledb"],
@@ -131,6 +109,72 @@ module.exports = [
             tags: ["hypertables", "tshoot", "timescaledb"],
             keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
             excerpt: "Troubleshooting and error fixes for hypertables",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables",
+        href: "distributed-hypertables",
+        tags: ["hypertables", "distributed", "timescaledb"],
+        keywords: ["hypertables", "distributed", "TimescaleDB"],
+        excerpt: "Distributed hypertables for multi-node TimescaleDB",
+        children: [
+          {
+            title: "About distributed hypertables",
+            href: "about-distributed-hypertables",
+            tags: ["hypertables", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Learn about distributed hypertables",
+          },
+          {
+            title: "Create distributed hypertables",
+            href: "create-distributed-hypertables",
+            tags: ["hypertables", "create", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Create a distributed hypertable",
+          },
+          {
+            title: "Insert data",
+            href: "insert",
+            tags: ["hypertables", "ingest", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Insert data into a distributed hypertable",
+          },
+          {
+            title: "Query data",
+            href: "query",
+            tags: ["query", "distributed", "hypertables", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Query data in distributed hypertables",
+          },
+          {
+            title: "Alter and drop distributed hypertables",
+            href: "alter-drop-distributed-hypertables",
+            tags: [
+              "hypertables",
+              "distributed",
+              "edit",
+              "delete",
+              "timescaledb"
+            ],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Alter schema for and drop distributed hypertables"
+          },
+          {
+            title: "Create foreign keys on distributed hypertables",
+            href: "foreign-keys",
+            tags: ["distributed", "hypertables", "timescaledb", "foreign keys"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt:
+              "Create foreign keys from distributed hypertables to other tables"
+          },
+          {
+            title: "Use triggers in distributed hypertables",
+            href: "triggers",
+            tags: ["triggers", "distributed", "hypertables", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt:
+              "Use row- and statement-level triggers in distributed hypertables",
           },
         ],
       },
