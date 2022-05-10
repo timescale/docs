@@ -9,6 +9,13 @@ module.exports = [
       "Promscale is the open source observability backend for metrics and traces powered by SQL, built on top of TimescaleDB.",
     children: [
       {
+        title: "Getting Started",
+        href: "getting-started",
+        tags: ["promscale", "learn", "analytics", "prometheus"],
+        keywords: ["Promscale", "analytics"],
+        excerpt: "Getting Started with Promscale",
+      },
+      {
         title: "About Promscale",
         href: "about-promscale",
         tags: ["promscale", "learn", "analytics", "prometheus"],
