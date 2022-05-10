@@ -1,5 +1,5 @@
-# Explorer
-Timescale Cloud Explorer provides a rich administrative dashboard for
+# Service Explorer
+Timescale Cloud Service Explorer provides a rich administrative dashboard for
 understanding the state of your database instance. The Explorer gives you
 insight into the performance of your database, giving you greater confidence and
 control over your data.
