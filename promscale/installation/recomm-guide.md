@@ -19,6 +19,22 @@ Uncompressed buffer based on the ingest rate.
 Resource recommendation for ingestion through Prometheus remote-write. 
 
 ### Prometheus remote write
+We recommend using below provided Prometheus `remote_write` configuration for optimal
+performance of writes to Promscale from Prometheus:
+
+```yaml
+remote_write:
+  remote_timeout: 100s
+  queue_config:
+    capapcity: 100000
+    max_samples_per_second: 10000
+    batch_send_deadline: 30s
+    min_shards: 20
+    max_shards: 20
+    min_backoff: 100ms
+    max_backoff: 10s
+```
+
 Compute recommendations for the Promscale connector and TimescaleDB are:
 
 |Ingestion Rate|Connector CPU|Connector Memory|DB CPU|DB Memory|DB connections|
@@ -85,3 +101,20 @@ The default chunk interval is `1h`
 |50k spans/sec = ~5 MB/sec|30 days|~60 GB|~175 GB|~2 TB|-|
 |100k spans/sec= ~10 MB/sec|30 days|~150 GB|~350 GB|~5 TB|-|
 |200k spans/sec= ~20 MB/sec|30 days|~300 GB|~700 GB|~10 TB|-|
+
+## Database Configuration
+
+To make sure PostgreSQL instance is configured in optimal way users should run [timescaledb-tune][timescale-tune]. There are few other PostgreSQL parameters worth tuning:
+
+* `checkpoint_timeout=15min` - when a lot of data is ingested increasing checkpoint timeout can help with reducing i/o pressure.
+* `bgwriter_delay=10ms` - we want background writer to be really active so we reduce the delay
+* `bgwriter_lru_maxpages=100000` - increasing the amount of pages a background writer handles makes it more efficient.
+* `max_wal_size=(around 25% of total disk volume)` - the idea here is that checkpointing is trigger by timeout setting and not by reaching maximum wal size.
+* `synchronous_commit=off` - this will not cause data corruption or inconsistency but may cause some of the last data points to be lost in case of a crash. For a monitoring observability use case, it’s a reasonable tradeoff to increase ingest performance. 
+
+<highlight type="important">
+Make sure that the maximum latency between the Promscale connector and the 
+database is no more than `100ms`. 
+</highlight>
+
+[timescale-tune]: https://github.com/timescale/timescaledb-tune
