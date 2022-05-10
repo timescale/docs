@@ -410,13 +410,6 @@ module.exports = [
             keywords: ["retention", "data", "caggs", "TimescaleDB"],
             excerpt: "Using data retention policies with continuous aggregates",
           },
-          {
-            title: "Aggregate data with time buckets",
-            href: "use-time-buckets",
-            tags: ["time bucket", "timescaledb"],
-            keywords: ["time bucket", "TimescaleDB", "hyperfunctions"],
-            excerpt: "Aggregate time-series data with the time_bucket function."
-          },
         ],
       },
       {
