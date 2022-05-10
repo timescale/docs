@@ -46,6 +46,20 @@ Data is assigned to space partitions by hashing. Each hash bucket in the space
 dimension corresponds to a data node. One data node may hold many buckets, but
 each bucket may belong to only one node for each time interval.
 
+### Repartitioning distributed hypertables
+You can expand distributed hypertables by adding additional data nodes. If you 
+now have fewer space partitions than data nodes, you need to increase the
+number of space partitions to make use of your new nodes. The new partitioning
+configuration only affects new chunks. In this diagram, an extra data node 
+was added during the third time interval. The fourth time interval now includes 
+four chunks, while the previous time intervals still include three:
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
+
+This can affect queries that span the two different partitioning configurations.
+For more information, see the section on [limitations of query push
+down][limitations-pushing-down].
+
 ## Performance of distributed hypertables
 A distributed hypertable horizontally scales your data storage, so you're not
 limited by the storage of any single machine. It also increases performance for
@@ -117,7 +131,6 @@ Distributed hypertables get improved performance when they can push down queries
 to the data nodes. But the query planner might not be able to push down every
 query. Or it might only be able to partially push down a query. This can occur
 for several reasons:
-
 *	You changed the partitioning configuration. For example, you added new data
 	nodes and increased the number of space partitions to match. This can cause
 	chunks for the same space value to be stored on different nodes. For
@@ -126,14 +139,18 @@ for several reasons:
 	New chunks for `device_B` are now stored on node 4. If you query across the
 	repartitioning boundary, a final aggregate for `device_B` cannot be
 	calculated on node 3 or node 4 alone. Partially processed data must be sent
-	to the access node for final aggregation. 
-
+	to the access node for final aggregation. The TimescaleDB query planner
+	dynamically detects such overlapping chunks and reverts to the appropriate
+	partial aggregation plan. This means that you can add data nodes and
+	repartition your data to achieve elasticity without worrying about query
+	results. In some cases, your query could be slightly less performant, but
+	this is rare and the affected chunks usually move quickly out of your
+	retention window. 
 *	The query includes [non-immutable functions][volatility] and expressions.
 	The function cannot be pushed down to the data node, because by definition,
 	it isn't guaranteed to have a consistent result across each node. An example
 	non-immutable function is [`random()`][random-func], which depends on the
 	current seed.
-
 *	The query includes a user-defined function. The access node assumes the
 	function doesn't exist on the data nodes, and doesn't push it down.
 
