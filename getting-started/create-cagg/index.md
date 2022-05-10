@@ -49,6 +49,6 @@ aggregate itself and its policy. Follow both sections to add the full value of
 aggregates to your time-series database.
 
 [material-view]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[cagg-overview]: /overview/core-concepts/continuous-aggregates/
-[create-cagg-basics]: /getting-started/create-cagg/create-cagg-basics/
-[create-cagg-policy]: /getting-started/create-cagg/create-cagg-policy/
+[cagg-overview]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
+[create-cagg-basics]: /create-cagg/create-cagg-basics/
+[create-cagg-policy]: /create-cagg/create-cagg-policy/

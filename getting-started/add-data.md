@@ -1,6 +1,6 @@
 # Add time-series data
 To explore TimescaleDB's features, you need some sample data. This tutorial
-provides real-time stock trade data, also known as `tick data`, from
+provides real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
 
 ## About the dataset
@@ -43,7 +43,7 @@ dataset and copy the data to your database.
 
 1.  Download the `real_time_stock_data.zip` file. The file contains two `.csv`
     files; one with company information, and one with real-time stock trades for
-    the past month. Download
+    the past month. Download:
     <tag
     type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)
     </tag>
@@ -67,7 +67,7 @@ dataset and copy the data to your database.
     ```
 
     Because there are millions of rows of data, the `COPY` process may take a few
-    minutes dependent on your internet connection and local client resources.
+    minutes depending on your internet connection and local client resources.
 
 <highlight type="note">
 If you're using a Docker container, add the data files to your container before
@@ -89,4 +89,4 @@ Now that you have data in your TimescaleDB instance, learn how to [query the
 data][query-data].
 
 [twelve-data]: https://twelvedata.com/
-[query-data]: /getting-started/query-data/
+[query-data]: /query-data/

@@ -38,8 +38,7 @@ check out the Timescale community [Slack][slack] and [Timescale Forum][forum], w
 you can find help from the Timescale community and team.
 
 [install]: /install/:currentVersion:/
-[connecting]: /how-to-guides/connecting/
+[connecting]: /timescaledb/:currentVersion:/how-to-guides/connecting/
 [twelve-data]: https://twelvedata.com/
-[connecting]: /getting-started/next-steps/
 [slack]: https://slack.timescale.com/
 [forum]: https://www.timescale.com/forum

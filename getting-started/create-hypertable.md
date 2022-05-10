@@ -105,9 +105,10 @@ shows you how to populate the tables you just created.
 
 ## Learn more about hypertables and chunks
 To learn more about hypertables and best practices for configuring chunks, see
-[Hypertable How-To](/how-to-guides/hypertables). For information about how hypertables
+[Hypertable How-To][hypertable-how-to]. For information about how hypertables
 help with storing and querying data, see the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
-[add-data]: /getting-started/add-data/
-[core-concepts-hypertables]: /overview/core-concepts/hypertables-and-chunks/
+[add-data]: /add-data/
+[core-concepts-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[hypertable-how-to]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable

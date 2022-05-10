@@ -1,6 +1,6 @@
 # Create a data retention policy
 An intrinsic part of working with time-series data is that the relevance of data
-can diminish over time. As new data accumulates old data becomes less value and
+can diminish over time. As new data accumulates, old data becomes less valuable and
 is rarely, if ever, updated. So, you often want to delete old raw data to save
 disk space.
 
@@ -35,8 +35,8 @@ weeks ago.
 
 ### Creating an automated data retention policy
 
-1.  Use the [`add_retention_policy()`][retention-policy] function to an
-    automatic retention policy on the `stocks_real_time` table:
+1.  Use the [`add_retention_policy()`][retention-policy] function to add an
+    automatic retention policy to the `stocks_real_time` table:
 
     ```sql
     SELECT add_retention_policy('stocks_real_time', INTERVAL '3 weeks');
@@ -46,7 +46,7 @@ weeks ago.
   `stocks_real_time`, and a recurring retention policy is created. No data is
   dropped from your continuous aggregate, `stocks_real_time_daily`.
 
-1.  To see information about your retention policies verify job statistics,
+1.  To see information about your retention policies and verify job statistics,
     query the TimescaleDB informational views:
 
     ```sql
@@ -109,6 +109,6 @@ SELECT drop_chunks(
 For more details and best practices on data retention and automated data retention
 policies, see the [Data Retention docs][data-retention].
 
-[data-retention]: /how-to-guides/data-retention/
+[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/
 [retention-policy]: /api/:currentVersion:/data-retention/add_retention_policy/

@@ -14,7 +14,7 @@ then be compressed in one of two ways:
 
 ## Enable TimescaleDB compression on the hypertable
 
-To enable compression, you need to [`ALTER` the `stocks_real_time` hypertable][alter-table-compression]. There
+To enable compression, you need to [`ALTER`][alter-table-compression] the `stocks_real_time` hypertable. There
 are three parameters you can specify when enabling compression:
 
 *  `timescaledb.compress` (required): enable TimescaleDB compression on the
@@ -34,9 +34,9 @@ If you do not specify `compress_orderby` or `compress_segmentby` columns, the co
 
     ```sql
     ALTER TABLE stocks_real_time SET (
-    timescaledb.compress,
-    timescaledb.compress_orderby = 'time DESC',
-    timescaledb.compress_segmentby = 'symbol'
+      timescaledb.compress,
+      timescaledb.compress_orderby = 'time DESC',
+      timescaledb.compress_segmentby = 'symbol'
     );
     ```
 
@@ -45,11 +45,10 @@ If you do not specify `compress_orderby` or `compress_segmentby` columns, the co
     each compression option and its `orderby` and `segmentby` attributes:
 
     ```sql
-    -- See info about compression
     SELECT * FROM timescaledb_information.compression_settings;
     ```
 
-1.  The results look a bit like this:
+1.  The results look like this:
 
     ```bash
     hypertable_schema|hypertable_name |attname|segmentby_column_index|orderby_column_index|orderby_asc|orderby_nullsfirst|
@@ -68,7 +67,7 @@ this detailed explanation in the
 
 ## Automatic compression
 When you have enabled compression, you can schedule a
-policy to automatically compress][compress-automatic] data according to the
+policy to [automatically compress][compress-automatic] data according to the
 settings you defined earlier.
 
 For example, if you want to compress data on your hypertable that is older than
@@ -116,7 +115,7 @@ compressed:
 
 ```sql
 SELECT compress_chunk(i, if_not_compressed=>true)
-FROM show_chunks('stocks_real_time', older_than => INTERVAL ' 2 weeks') i;
+  FROM show_chunks('stocks_real_time', older_than => INTERVAL ' 2 weeks') i;
 ```
 
 ## Verify your compression
@@ -141,8 +140,10 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
 ## Next steps
 Your overview of TimescaleDB is almost complete. The final thing to explore is [data retention][data-retention],
 which allows you to drop older raw data from a hypertable quickly without
-deleting data from the precalculated continuous aggregate. ## Learn more about
-compression For more information on how native compression in TimescaleDB works,
+deleting data from the precalculated continuous aggregate.
+
+## Learn more about compression
+For more information on how native compression in TimescaleDB works,
 as well as the compression algorithms involved, see this in-depth blog post on
 the topic:
 [Building columnar compression in a row-oriented database][columnar-compression].
@@ -152,10 +153,10 @@ For an introduction to compression algorithms, see this blog post:
 
 For more information, see the [compression docs][compression-docs].
 
-[data-retention]: /getting-started/data-retention/
+[data-retention]: /data-retention/
 [columnar-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
 [compression-algorithms]: https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
-[compression-docs]: /how-to-guides/compression
+[compression-docs]: /timescaledb/:currentVersion:/how-to-guides/compression
 [alter-table-compression]:  /api/:currentVersion:/compression/alter_table_compression/
 [compress-automatic]: /api/:currentVersion:/compression/add_compression_policy/
 [compress-manual]: /api/:currentVersion:/compression/compress_chunk/

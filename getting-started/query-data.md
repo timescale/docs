@@ -1,7 +1,7 @@
 # Query your data
 With TimescaleDB, there's no need to learn a custom query language, because
 TimescaleDB supports full SQL. You can use your SQL knowledge along with the
-rich ecosystem of PostgreSQL tools and add the extra features and performance of
+rich ecosystem of PostgreSQL tools, and add the extra features and performance of
 TimescaleDB.
 
 Here are some query examples so you can get familiar with using SQL alongside
@@ -68,7 +68,7 @@ time                         |symbol|price    |day_volume|
 There are multiple trades every second, but you know that the order of trades is
 correct because the `day_volume` column is ordered correctly.
 
-### Calculate the average trade price for Apple from the four days
+### Calculate the average trade price for Apple from the last four days
 
    Use the [`avg()`][average] function with a `WHERE` clause
    to only include trades for Apple stock within the last 4 days.
@@ -97,7 +97,7 @@ The `first()` and `last()` functions retrieve the first and last value of one
 column when ordered by another.
 
 For example, the stock data has a timestamp column `time` and numeric column
-`price`, you can use `first(price, time)` to get the first value in the `price`
+`price`. You can use `first(price, time)` to get the first value in the `price`
 column when ordered with respect to an increasing `time` column.
 
 In this query, you use both the `first()` and `last()` functions to find the
@@ -141,13 +141,13 @@ alt="time_bucket() Illustration"/>
 For more information on the `time_bucket()` function, see the
 [API documentation][time-bucket].
 
-To see `time_bucket()` in action with the stock trade data, lyou can calculate
+To see `time_bucket()` in action with the stock trade data, you can calculate
 the average daily price of each trading symbol over the last week.
 
 Use the `time_bucket()` function with an interval of `1-day`, the `avg()`
 function on the price data, select the `symbol`, and finally [`GROUP BY`][clause-expressions]
 the `bucket` and `symbol`. The `WHERE` limits the results to days within the
-last week. Finally the `ORDER BY` clause orders the results first on the
+last week. Finally, the `ORDER BY` clause orders the results first on the
 bucketed date, then by symbol.
 
 ```sql
@@ -189,9 +189,9 @@ see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions)
 [select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
 [clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[time-bucket-how-to]: /how-to-guides/time-buckets/
+[time-bucket-how-to]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/
 [last]: /api/:currentVersion:/hyperfunctions/last
 [first]: /api/:currentVersion:/hyperfunctions/first
 [date-trunc]: https://www.postgresql.org/docs/current/functions-datetime.html
-[create-cagg]: /getting-started/create-cagg/
+[create-cagg]: /create-cagg/
 [join]: https://www.postgresql.org/docs/current/tutorial-join.html

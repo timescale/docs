@@ -59,7 +59,11 @@ and eventually send historical readings once they are reconnected.
     the past week:
 
     ```sql
-    CALL refresh_continuous_aggregate('stock_candlestick_daily',now() - interval '1 week', now());
+    CALL refresh_continuous_aggregate(
+      'stock_candlestick_daily',
+      now() - INTERVAL '1 week',
+      now()
+    );
     ```
 
 1.  This manual refresh updates your continuous aggregate only once. It doesn't
@@ -69,7 +73,7 @@ and eventually send historical readings once they are reconnected.
 </procedure>
 
 ## Next steps
-Now that you have a continuous aggregates setup and refreshing automatically,
+Now that you have a continuous aggregate set up and refreshing automatically,
 see how TimescaleDB can save you up to 96% on storage costs while speeding up
 historical queries using [native compression][getting-started-compression].
 
@@ -82,10 +86,10 @@ trading bot with TimescaleDB][crypto-bot].
 For detailed information on continuous aggregates and real-time aggregation,
 see the [continuous aggregates section][continuous-aggregates].
 
-[getting-started-compression]:/getting-started/compress-data/
+[getting-started-compression]: /compress-data/
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[continuous-aggregates]: /how-to-guides/continuous-aggregates
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 
 [manual-refresh]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
 [auto-refresh]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/

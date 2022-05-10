@@ -24,7 +24,7 @@ found by using the [`first()`][first] and [`last()`][last] functions.
 ### Creating an aggregate query
 
 1.  Use a `SELECT` command to find the daily candlestick values for each stock
-    the entire 1-month dataset. This may take a few seconds to process all of
+    in the entire 1-month dataset. This may take a few seconds to process all of
     the raw data into 1-day buckets:
 
     ```sql
@@ -100,12 +100,12 @@ with the aggregate calculations from your existing hypertable data.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/continuous-aggregate.jpg" alt="Continuous aggregate upon creation"/>
 
-Run thsi query to get all the data in your continuous aggregate, and note
+Run this query to get all the data in your continuous aggregate, and note
 how much faster this is than running the aggregate `SELECT` query on the raw hypertable data:
 
 ```sql
 SELECT * FROM stock_candlestick_daily
-ORDER BY day DESC, symbol;
+  ORDER BY day DESC, symbol;
 ```
 
 ## Real-time continuous aggregates
