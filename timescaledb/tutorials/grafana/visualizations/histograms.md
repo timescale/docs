@@ -1,9 +1,9 @@
 # How to build a histogram in Grafana
 
 Histograms are a great way to graphically represent a distribution of discrete or  continuous data at a specific time or interval. However, they are unable to represent the change of data overtime (See [heatmaps](https://grafana.com/docs/grafana/latest/visualizations/heatmap/)). Histograms are very often used to analyze the spread/distribution of financial instruments and answer questions like:
-- *“What is the distribution of the Meta stock price today?”*
-- *“What was the transaction volume distribution of AMD stock last week?”* 
-- *“What was the distribution of daily returns of the S&P in the past year?”*
+- *"What is the distribution of the Meta stock price today?"*
+- *"What was the transaction volume distribution of AMD stock last week?"* 
+- *""What was the distribution of daily returns of the S&P in the past year?"*
 
 Grafana has the ability to convert 3 distinct formats of data delivery into histograms.
 Each comes with its own benefits and challenges.
@@ -12,14 +12,14 @@ Each comes with its own benefits and challenges.
 This method involves not pre-bucketing or aggregating data but instead returning all raw data points in a certain window. While this will increase the accuracy of the histogram, it requires more CPU and memory and network usage as all bucketing is done in the browser. This could lead to severe performance issues. 
 
 2. **Pre-bucketed data**
-This format contains data that has been pre-bucketed by the data-source. The grafana documentation refers to functionality built into Elasticsearch’s histogram bucket aggregation or Prometheus’ histogram metric as examples. The grafana documentation states that any data-source can output pre-bucketed data as long as it meets the data format requirements. 
+This format contains data that has been pre-bucketed by the data-source. The grafana documentation refers to features built into Elasticsearch's histogram bucket aggregation or Prometheus' histogram metric as examples. The grafana documentation states that any data-source can output pre-bucketed data as long as it meets the data format requirements. 
 
 <highlight type="important">
  Unfortunately, because the histogram panel is still in Beta, the documentation on what the data format looks like is currently unclear.
 </highlight>
 
 3. **Aggregated data**
-Grafana also accepts aggregated time bucket data. Such data can be easily queried using Timescales time_bucket() hyperfunction. But it’s worth noting this will also work with the date_trunc postgres function. Grafana will automatically select a bucket size (~10% of the total range of data) and bucket the aggregated data appropriately. 
+Grafana also accepts aggregated time bucket data. Such data can be easily queried using Timescales time_bucket() hyperfunction. But it's worth noting this will also work with the date_trunc postgres function. Grafana will automatically select a bucket size (~10% of the total range of data) and bucket the aggregated data appropriately. 
 
 ## Prerequisites
 In order to follow along with the examples below, you will need the following tools and datasets, all freely available with the provided links.
@@ -65,7 +65,7 @@ time                         |price   |
 ```
 The key feature with any time-series data used by Grafana is that it must have a column named `time` with timestamp data. The other columns used for graphing data can have different names, but each time-series chart must have a `time` column in the results. For the Histogram visualization, the timestamp values must be in ascending order or you will receive an error.
 
-Make sure to select “Histogram” as your visualization type.
+Make sure to select "Histogram" as your visualization type.
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/histogram_panel_selection.png" alt="histogram panel selection"/>
 Then Grafana should turn the query into a histogram similar to the one below:
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/simple_histogram.png" alt="simple histogram"/>
@@ -79,7 +79,7 @@ The histogram resembles the one with a bucket size of 2, but with much greater d
 
 ## Price/Transactions Histogram with aggregated data
 
-In the previous example we queried raw data for Apple stock, which often trades ~40K times a day. This means our query returns more than 40k rows of data for Grafana to bucket every 30 seconds (the default Grafana refresh interval). This uses excessive CPU, memory and network bandwidth. In extreme cases Grafana will show you the following message.
+In the previous example we queried raw data for Apple stock, which often trades ~40K times a day. This means our query returns more than 40k rows of data for Grafana to bucket every 30 seconds (the default Grafana refresh interval). This uses excessive CPU, memory, and network bandwidth. In extreme cases Grafana will show you the following message.
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/results_have_been_limited.png" alt="results have been limited"/>
 This means Grafana has decided not to display all rows returned by the query. To solve this problem we can aggregate the time series data using the TimescaleDB `time_bucket()` hyperfunction. Notice that we need to add a new variable called `$bucket_interval` of type interval. 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/bucket_interval_variable_options.png" alt="bucket interval variable options"/>
@@ -123,7 +123,7 @@ GROUP BY time_bucket('$bucket_interval',time), symbol;
 ```
 When we visualize this query, we get the following histogram:
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/multiple_histograms.png" alt="multiple histograms"/>
-We can clearly see the 3 distinct histograms but it’s impossible to tell them apart from each
+We can clearly see the 3 distinct histograms but it's impossible to tell them apart from each
 other. Click on the green line left of the legend and pick a color.
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/color_options.png" alt="color options"/>
 Doing so results in the following panel:
@@ -139,7 +139,7 @@ value for the symbol and then subtract each value from the previous bucket maxim
 The difference of these two rows produces the volume within the bucket of time.
 We can accomplish this with a slightly more complex query that pre-aggregates our data using
 the TimescaleDB `time_bucket()` hyperfunction and the standard PostgreSQL `MAX()` function,
-and then use the Postgres `LAG()` window function to subtract each row from the previous,
+and then use the PostgresSQL `LAG()` window function to subtract each row from the previous,
 ordered by `time` descending.
 ```sql
 WITH buckets AS (
