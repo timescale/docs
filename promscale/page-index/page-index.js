@@ -152,11 +152,11 @@ module.exports = [
         excerpt: "Configure Promscale for scaling and high availability",
         children: [
           {
-            title: "High availability",
+            title: "Prometheus High availability",
             href: "high-availability",
             tags: ["promscale", "ha", "timescaledb"],
             keywords: ["promscale", "HA", "prometheus", "timescaledb"],
-            excerpt: "Configure Promscale for high availability",
+            excerpt: "Configure Promscale and Prometheus high availability",
           },
           {
             title: "Multi-node",
@@ -208,6 +208,41 @@ module.exports = [
           "Learn about data visualization tools you can use with Promscale",
       },
       {
+        title: 'Manage data in Promscale',
+        href: 'manage-data',
+        excerpt: 'Manage the data stored in Promscale',
+        children: [
+          {
+            title: 'Retention',
+            href: 'retention',
+            tags: ['promscale', 'configure', 'retention', 'metrics', 'storage'],
+            keywords: ['Promscale', 'retention'],
+            excerpt: 'Configure data retention policies in Promscale',
+          },
+          {
+            title: 'Downsampling',
+            href: 'downsampling',
+            tags: ['promscale', 'downsample', 'continuous aggregates', 'metrics', 'recording rules'],
+            keywords: ['Promscale', 'Prometheus', 'downsampling'],
+            excerpt: 'Configure downsampling in Promscale',
+          },
+          {
+            title: 'Compression',
+            href: 'compression',
+            tags: ['promscale', 'configure', 'compression', 'metrics', 'storage'],
+            keywords: ['Promscale', 'compression'],
+            excerpt: 'Configure data compression in Promscale',
+          },
+          {
+            title: 'Delete data',
+            href: 'delete-data',
+            tags: ['promscale', 'delete', 'metrics'],
+            keywords: ['Promscale', 'Prometheus', 'delete'],
+            excerpt: 'Delete data in Promscale',
+          },
+        ],
+      },
+      {
         title: "Distributed tracing with Promscale",
         href: "distributed-tracing",
         tags: ["promscale", "tracing", "opentelemetry", "jaeger", "grafana"],
@@ -238,19 +273,20 @@ module.exports = [
         excerpt: "Troubleshooting Promscale",
       },
       {
-        title: "Promscale CLI reference",
-        href: "cli",
-        tags: ["promscale", "cli", "reference"],
-        keywords: ["Promscale", "cli"],
-        excerpt: "Learn about all parameters accepted by the Promscale CLI",
+        title: 'Promscale CLI reference',
+        href: 'cli',
+        tags: ['promscale', 'CLI', 'reference'],
+        keywords: ['Promscale', 'CLI'],
+        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
       },
       {
-        title: "SQL API reference",
-        href: "sql-api",
-        tags: ["promscale", "sql", "api", "reference"],
-        keywords: ["Promscale", "sql", "api"],
-        excerpt: "Learn about all Promscale SQL API functions",
-      },
-    ],
-  },
-];
+        title: 'SQL API functions reference',
+        href: 'sql-api',
+        tags: ['promscale', 'Structured Query Language', 'API', 'reference', 'functions'],
+        keywords: ['Promscale', 'Structured Query Language', 'API','functions'],
+        excerpt: 'Learn about all Promscale SQL API functions'
+      }
+    ]
+  }
+]
+
