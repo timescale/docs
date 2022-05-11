@@ -7,6 +7,21 @@ This can be done by importing the Grafana dashboads published by the Promscale t
 Before you import the APM dashboards in Grafana, you need to add below data sources
     * [Jaeger data source][promscale-as-jaeger].
     * [PostgreSQL data source][promscale-as-postgresql].
+   
+You also need to make sure the timescaledb_toolkit PostgreSQL extension is installed.
+You can verify if it is installed by running the following SQL query:
+`SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';`
+
+If the query returns no results the extension is not installed. To install it, check 
+first if the extension is available:
+`SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';`
+
+If the query returns a result, the extension is available and can be installed with
+`CREATE EXTENSION timescaledb_toolkit;`
+
+If the query returns no results, the extension is not available for installation in
+your database. To make it available follow [these instructions](install-toolkit).
+
 </highlight>
  
 You can import APM dashboards in one of the following ways:
@@ -71,3 +86,4 @@ the directory thats mounted in Grafana configuration.
 [promscale-as-jaeger]: /visualize-data/grafana/#promscale-as-jaeger-datasource
 [promscale-as-postgresql]:
     /visualize-data/grafana/#promscale-as-postgresql-datasource
+[install-toolkit]:/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit
