@@ -24,11 +24,11 @@ data over a period of time.
 
 To set up alerting rules and recording rules in Promscale:
 
-1. Create a `YAML` file that contains the configuration for each alert, record,
-   similar to:
+1.  Create a `YAML` file that contains the configuration for each alert, record,
+    similar to:
     ```yaml
-   groups:
-  - name: <alert-group-name>
+    groups:
+    - name: <alert-group-name>
     rules:
     - alert: <alert-name>
       expr: <promql_expression>
@@ -38,14 +38,15 @@ To set up alerting rules and recording rules in Promscale:
       annotations:
         summary: <text>
         description: <description on alert>
-  - name: <record-group-name>
+    - name: <record-group-name>
     rules:
     - record: <record-name>
       expr: <promql_expression>
-   ```
-1. Load the rules `YAML` file to Promscale by specifying this file in Prometheus
-configuration format along with `global` and `alertmanagers` configuration:
-   ```yaml
+    ```
+1.  Load the rules `YAML` file to Promscale by specifying this file in
+    Prometheus configuration format along with `global` and `alertmanagers`
+    configuration:
+    ```yaml
     global:
       evaluation_interval: 10s
 
@@ -57,10 +58,9 @@ configuration format along with `global` and `alertmanagers` configuration:
       - static_configs:
         - targets:
           - localhost:9093
-```
-
-3. Pass this configuration file to Promscale using the `-metrics.rules.config`
-flag at start.
+     ```
+1.  Pass this configuration file to Promscale using the `-metrics.rules.config`
+    flag at start.
 
 </procedure>
 
