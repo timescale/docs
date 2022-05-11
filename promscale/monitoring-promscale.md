@@ -1,12 +1,13 @@
-# Alerts, Dashboards and Runbooks
-
-This sections describes how one can monitor Promscale using dashboards, alerts and
-runbooks to troubleshoot Promscale.
+# Monitoring Promscale
+Promscale includes a set of out-of-the-box alerts, runbooks and a Grafana dashboard that you can use to monitor it.
 
 <highlight type="note">
-To use Promscale dashboard make sure to configure Promscale as Prometheus data source 
-as mentioned [here](/visualize-data/grafana/#promscale-as-prometheus-datasource) to 
-query the Promscale metrics from promscale.
+To monitor Promscale make sure that Prometheus instance is scraping Promscale
+http endpoint i.e. default to `9201` port, `/metrics` API. Use Prometheus to 
+evaluate the Promscale alerting rules and also configure Prometheus as data source
+in Grafana to visulaize the Promscale dashboard. This helps to troubleshhot the
+issues when Promscale isn't working as expected, again you don't want your monitoring
+tool monitoring itself.
 </highlight>
 
 ## Dashboards
@@ -36,7 +37,9 @@ Import Promscale dashboard by following below instructions
 1.  On importing the dashboard select the `folder` to which you want to add the imported
     dashboard.
 1.  Select the data source from which you want the dashboard to query the data.
-    * For Promscale metrics select the `Prometheus` data source as `Promscale-PromQL`.
+    * To visualize Promscale metrics select the `Prometheus` data source as `Prometheus` query endpoint
+      we do not want to query Promsale own dashboard using Promscale query endpoint. With this practice
+      we can avoid the single point of failure when Promscale isn't working as expected.
 
 </procedure>
 
@@ -46,13 +49,13 @@ You can configure alerting rules for Promscale to fire alerts
 when something doesn't work as expected in Promscale.
 
 [Here](promscale-alerting-rules) are the alerting rules for Promscale. These 
-alerting rules can be configured on Prometheus end or on Promscale end to evaluate
-the alerting rules.
+alerting rules should be configured on Prometheus end to evaluate the alerting rules.
 
 ## Runbooks
 
-The runbooks are to troubleshoot the most common issues noticed while running 
-Promscale at scale. The runbooks are published and
+When an alert is fired, the alert message references the relevant runbook
+to troubleshoot and mitigate the issue noticed while running 
+Promscale. These runbooks are published and
 maintained in [Promscale Github repository](promscale-runbooks).
 
 [grafana-promscale-dashboard]: https://grafana.com/grafana/dashboards/16241

@@ -231,11 +231,11 @@ module.exports = [
         ],
       },
       {
-        title: "Alerts, Dashboards and Runbooks",
-        href: "alerts-dashboards-runbooks",
+        title: "Monitoring Promscale",
+        href: "monitoring-promscale",
         tags: ["promscale", "prometheus", "alert"],
         keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
-        excerpt: "Learn about alerts, dashboards and runbooks for Promscale",
+        excerpt: "Learn about how to monitor Promscale",
       },
       {
         title: 'Manage data in Promscale',
