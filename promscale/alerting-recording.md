@@ -1,13 +1,12 @@
 # Alerting rules and recording reules in Promscale
-Promscale supports altering rules and recording rules. It evaluates these rules
-at regular intervals. The Promscale connector is the default ruler when
+Promscale supports alerting rules and recording rules. It evaluates these rules
+at regular intervals. The Promscale connector can be used as the ruler while
 ingesting and querying the data. In Promscale, you can set the alerting rules
-and recording rules using the configurations, similar to Prometheus
-configuration.
+and recording rules similar to Prometheus rules configuration.
 
 <procedure>
 
-## Set altering rules and recording rules
+## Set alerting rules and recording rules
 
 Promscale alerting rules and recording rules are built on top of Prometheus
 alerting rules and recording rules capabilities. Alerting rules and recording
@@ -20,7 +19,7 @@ these alerts.
 their result as a new set of time series data. These help in visualisation of
 data over a period of time. 
 
-### Setting altering rules and recording rules
+### Setting alerting rules and recording rules
 1.  Create a `YAML` file that contains the configuration for each alert and record,
     similar to:
     ```yaml
@@ -41,8 +40,8 @@ data over a period of time.
         expr: <promql_expression>
     ```
 1.  Load the rules `YAML` file to Promscale by specifying this file in
-    Prometheus configuration format along with `global` and `alertmanagers`
-    configuration:
+    Prometheus configuration format along with `global evaluation interval` 
+    , `rules files`, and `alerting` configuration:
     ```yaml
      global:
        evaluation_interval: 10s
