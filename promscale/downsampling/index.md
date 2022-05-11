@@ -6,10 +6,12 @@ data, to take up less space on disk. The main reasons for downsampling are to
 reduce cost and increase performance. Querying downsampled data gets faster as
 the size of the data decreases.
 
-## Choose a downsampling method
-There are two downsampling methods available for use with Promscale: continuous
-aggregates, and Prometheus recording rules.
+The two downsampling methods are
 
+1. [PromQL based recording rules](recording) offered by Prometheus
+2. [Continuous aggregates](caggs) offered by TimescaleDB
+
+## Choose a downsampling method
 There are a few things to take into account when deciding on a downsampling
 method.
 
@@ -33,11 +35,6 @@ method.
     soon as downsampling for a metric is configured, choose continuous
     aggregates. This is especially important if it is something you do often,
     because backfilling old data with recording rules requires additional steps.
-
-The two downsampling methods are
-
-1. [PromQL based recording rules](recording) offered by Promscale Connector and based on the Prometheus implementation
-2. [Continuous aggregates](caggs) offered by TimescaleDB
 
 [recording]: /downsampling/recording/
 [caggs]: /downsampling/caggs/
