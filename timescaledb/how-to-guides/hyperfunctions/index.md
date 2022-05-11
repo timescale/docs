@@ -6,26 +6,15 @@ Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-*   [Learn about hyperfunctions][about-hyperfunctions] to understand how it works
-    before you begin using it.
+For more information, read the [hyperfunctions blog post][hyperfunctions-blog].
+
+## Learn hyperfunction basics and install Timescale Toolkit
+*   [Learn about hyperfunctions][about-hyperfunctions] to understand how they
+    work before using them.
 *   Install the [Toolkit extension][install-toolkit] to access more
     hyperfunctions.
-*   Learn how to use [function pipelines][about-pipelines] to construct
-    hyperfunction queries.
-*   Use the [approximate count distinct][hyperfunctions-approx-count-distinct]
-    functions.
-*   Use the [statistical aggregate][hyperfunctions-stats-agg]
-    functions.
-*   Use the [gapfilling and interpolation][hyperfunctions-gapfilling]
-    functions.
-*   Use the [approximate percentile][hyperfunctions-approximate-percentile]
-    functions.
-*   Use the [counter aggregation][hyperfunctions-counteragg] functions.
-*   Use the [time-weighted average][hyperfunctions-time-weighted-averages]
-    functions.
 
-For more information about hyperfunctions, read our [blog post][hyperfunctions-blog].
-
+## Browse hyperfunctions and Toolkit features by category
 
 [about-hyperfunctions]: /how-to-guides/hyperfunctions/about-hyperfunctions
 [install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
