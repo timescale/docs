@@ -36,7 +36,7 @@ method.
 
 The two downsampling methods are
 
-1. [PromQL based recording rules](recording) offered by Prometheus
+1. [PromQL based recording rules](recording) offered by Promscale Connector and based on the Prometheus implementation
 2. [Continuous aggregates](caggs) offered by TimescaleDB
 
 [recording]: /downsampling/recording/
