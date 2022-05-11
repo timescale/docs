@@ -1,20 +1,27 @@
-# Alerting, Recording in Promscale
-Alerting, Recording is natively supported in Promscale. The Promscale connector
-works as a ruler by default while ingesting and querying the data. To use alerting,
-recoridng rules capabilities in Promscale you can use the same Prometheus rules
-configuration with Promscale.
+# Alerting rules and  recording reules in Promscale
+Promscale supports altering rules and recording rules. It evaluates these rules at regular
+intervals. The Promscale connector is the default ruler when ingesting and
+querying the data. In Promscale, you can set the alerting rules and recording rules using the configurations, similar to Prometheus configuration.
 
-Promscale alerting, recording offering is built on top of Prometheus alerting, 
-recording rules capabilities. Promscale alerting rules are used to trigger 
-alerts based on the violation of conditions, Promscale recording rules are used
-for computationally expensive expressions and save their result as a new set
-of time series.s for easy visualisation of data over a period. Alerts can be 
-configured to send to external services such as Slack or email. Alerting, Recording 
-rules are written in a YAML file and specified in the Promscale configuration 
-file. These  conditional rules are evaluated by Promscale.
+<procedure>
 
-Set up alerting, recording by creating a YAML file containing configuration like
-this for each alert, record you want to add:
+## Set altering rules and recording rules
+
+Promscale alerting rules and recording rules are built on top of Prometheus
+alerting rules and recording rules capabilities. Alerting rules and recording
+rules are written in a `YAML` file and specified in the Promscale configuration
+file. Promscale evaluates these conditional rules.
+* `alerting rules` are used to trigger alerts when there is a violation of
+pre-defined conditions. External services such as Slack or email can receive these alerts.
+* `recording rules` are used for computationally expensive expressions and save
+their result as a new set of time series data. These help in visualisation of data over a period of time. 
+
+### Setting altering rules and recording rules
+
+To set up alerting rules and recording rules in Promscale:
+
+1. Create a `YAML` file that contains the configuration for each alert, record,
+   similar to:
 ```yaml
 groups:
   - name: <alert-group-name>
@@ -33,9 +40,9 @@ groups:
       expr: <promql_expression>
 ```
 
-Load the newly created rules file to Promscale by adding this in
-Prometheus configuration format along with global evaluation interval and
-alert manager client configuration:
+1. Load the rules `YAML` file to Promscale by specifying this file in Prometheus
+configuration format along with `global` and `alertmanagers`
+configuration:
 ```yaml
 global:
   evaluation_interval: 10s
@@ -50,21 +57,21 @@ alerting:
       - localhost:9093
 ```
 
-Now pass the above configuration file to Promscale
-using `-metrics.rules.config` flag.
+1. Pass this configuration file to Promscale using the `-metrics.rules.config`
+flag at start.
 
-For more information about Promscale alerting, recording, refer to
-Prometheus docs, as Promscale alerting and recording rules are built inline to
-Prometheus alerting, recording offerings.
-For sepcifc information on alerting, see [the Prometheus alerting documentation][prometheus-alerting]. 
-For specific information about alerting rules, see
-[the Prometheus alerting rules documentation][prometheus-alert-rules].
-For specifc information about recording, see
-[the Prometheus recording documentation][prometheus-recording].
-For specifc information about recording, see
-[the Prometheus recording rules documentation][prometheus-recording-rules].
+</procedure>
+
+For information about alerting, see [Prometheus alerting][prometheus-alerting]. For specific
+information about alerting rules, see [the Prometheus alerting rules
+documentation][prometheus-alert-rules]. 
+For information about recording,
+see [Prometheus recording][prometheus-recording]. For specifc
+information about recording rules, see [Prometheus recording rules][prometheus-recording-rules].
 
 [prometheus-alerting]: https://prometheus.io/docs/alerting/latest/overview/
-[prometheus-alert-rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+[prometheus-alert-rules]:
+    https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
 [prometheus-recording]: https://prometheus.io/docs/practices/rules/
-[prometheus-recording-rules]: https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/
+[prometheus-recording-rules]:
+    https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/
