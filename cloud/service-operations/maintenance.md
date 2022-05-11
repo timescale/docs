@@ -1,4 +1,4 @@
-# Maintenance
+# Service operations - Maintenance
 On Timescale Cloud, minor software updates are handled automatically by us, and
 you do not need to perform any actions.
 
