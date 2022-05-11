@@ -119,7 +119,7 @@ there are a few other PostgreSQL parameters worth tuning:
   by the timeout setting and not when the `maximum_wal_size` is reached.
 * `synchronous_commit=off` - this does not cause data corruption or
   inconsistency. However, in case of a crash, some of the last data points may be
-  lost. For a monitoring observability use case, it’s a reasonable tradeoff to
+  lost. For a monitoring observability use case, it's a reasonable tradeoff to
   increase ingest performance. 
 
 <highlight type="important"> Make sure that the maximum latency between the
