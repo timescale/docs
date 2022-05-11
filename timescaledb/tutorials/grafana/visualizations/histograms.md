@@ -3,26 +3,26 @@ You can use a histogram to graphically represent a distribution of discrete or
 continuous data at a specific time or interval. Histograms are often used to
 analyze the spread or distribution of financial instruments.
 
-You can use a histogram to answer questions like:
+Histograms are used to answer questions like:
 
 * What is the distribution of the Meta stock price today?
 * What was the transaction volume distribution of AMD stock last week?
 * What was the distribution of daily returns of the S&P in the past year?
 
-You can use Grafana to convert 3 distinct formats of data delivery into
+Grafana has the ability to convert 3 distinct formats of data delivery into
 histograms. Each comes with its own benefits and challenges:
 
-* Raw data: This method does not require pre-bucketing or aggregating of data.
+* **Raw data**: This method does not require pre-bucketing or aggregating of data.
   Instead, it returns all raw data points in a certain window. This increases
   the accuracy of the histogram, but requires more CPU, memory, and network
   usage, because all bucketing is done in the browser. This could lead to severe
   performance issues.
-* Pre-bucketed data: This format contains data that has been pre-bucketed by the
+* **Pre-bucketed data**: This format contains data that has been pre-bucketed by the
   data source. The Grafana documentation refers to features built into Elastic
   Search's histogram bucket aggregation, or Prometheus' histogram metric as
   examples. The Grafana documentation states that any data source can output
   pre-bucketed data as long as it meets the data format requirements.
-* Aggregated data: Grafana also accepts aggregated time bucket data. Such data
+* **Aggregated data**: Grafana also accepts aggregated time bucket data. Such data
   can be easily queried using Timescale's `time_bucket()` hyperfunction. 
   However, this also works with the `date_trunc` postgres function. Grafana 
   will automatically select a bucket size (~10% of the total range of data) and 
@@ -42,7 +42,7 @@ Before you begin, make sure you have:
 * Installed [TimescaleDB][install-timescale]
 * Imported the stock trade data from the [Getting Started Tutorial][gsg-data](https://docs.timescale.com/timescaledb/latest/getting-started/)
 
-The examples in this section use these Grafana features and functions:
+The examples in this section use these variables and Grafana functions:
 * `$symbol` is a variable to filter results by a selected set of stock symbols.
 * `$bucket_interval` is the interval size to pass to the `time_bucket()`
   function when aggregating data.
