@@ -16,7 +16,7 @@ Recording rules are written in a `YAML` file and specified in the Promscale conf
 file.
 * `recording rules` are used for computationally expensive expressions and save
 their result as a new set of time series data. These help in visualisation of
-data over a period of time. 
+data over a long period of time. 
 
 ### Setting example recording rules
 1.  Create a `YAML` file that contains the configuration for each record,
