@@ -21,34 +21,31 @@ their result as a new set of time series data. These help in visualisation of
 data over a period of time. 
 
 ### Setting altering rules and recording rules
-
-To set up alerting rules and recording rules in Promscale:
-
-1.  Create a `YAML` file that contains the configuration for each alert, record,
+1.  Create a `YAML` file that contains the configuration for each alert and record,
     similar to:
     ```yaml
-    groups:
-    - name: <alert-group-name>
-    rules:
-    - alert: <alert-name>
-      expr: <promql_expression>
-      for: <time-interval for how long this to happen to happen to fire an alert>
-      labels:
-        <key>:<value>
-      annotations:
-        summary: <text>
-        description: <description on alert>
-    - name: <record-group-name>
-    rules:
-    - record: <record-name>
-      expr: <promql_expression>
+       groups:
+      - name: <alert-group-name>
+        rules:
+      - alert: <alert-name>
+        expr: <promql_expression>
+        for: <time-interval for how long this to happen to happen to fire an alert>
+       labels:
+         <key>:<value>
+       annotations:
+         summary: <text>
+         description: <description on alert>
+     - name: <record-group-name>
+       rules:
+      - record: <record-name>
+        expr: <promql_expression>
     ```
 1.  Load the rules `YAML` file to Promscale by specifying this file in
     Prometheus configuration format along with `global` and `alertmanagers`
     configuration:
     ```yaml
-    global:
-      evaluation_interval: 10s
+     global:
+       evaluation_interval: 10s
 
     rule_files:
       - "<alert-rules-file>"
@@ -57,11 +54,11 @@ To set up alerting rules and recording rules in Promscale:
       alertmanagers:
       - static_configs:
         - targets:
-          - localhost:9093
-     ```
+        - localhost:9093
+    ```
 1.  Pass this configuration file to Promscale using the `-metrics.rules.config`
     flag at start.
-
+    
 </procedure>
 
 For information about alerting, see [Prometheus alerting][prometheus-alerting].
