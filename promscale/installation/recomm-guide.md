@@ -16,11 +16,11 @@ Uncompressed buffer based on the ingest rate.
 </highlight>
 
 ## Metrics
-Resource recommendation for ingestion through Prometheus remote-write. 
+Resource recommendation for ingestion using Prometheus `remote-write`. 
 
 ### Prometheus remote write
-We recommend using below provided Prometheus `remote_write` configuration for optimal
-performance of writes to Promscale from Prometheus:
+For optimal performance of `remote_write` to Promscale, use this Prometheus
+`remote_write` configuration:
 
 ```yaml
 remote_write:
@@ -104,17 +104,26 @@ The default chunk interval is `1h`
 
 ## Database Configuration
 
-To make sure PostgreSQL instance is configured in optimal way users should run [timescaledb-tune][timescale-tune]. There are few other PostgreSQL parameters worth tuning:
+To set the most common parameters to optimal values based on your system run the
+`timescaledb-tune`. It accounts for memory, CPU, and PostgreSQL version. For
+more information, see [configuration][timescale-tune-configuration]. However,
+there are a few other PostgreSQL parameters worth tuning:
 
-* `checkpoint_timeout=15min` - when a lot of data is ingested increasing checkpoint timeout can help with reducing i/o pressure.
-* `bgwriter_delay=10ms` - we want background writer to be really active so we reduce the delay
-* `bgwriter_lru_maxpages=100000` - increasing the amount of pages a background writer handles makes it more efficient.
-* `max_wal_size=(around 25% of total disk volume)` - the idea here is that checkpointing is trigger by timeout setting and not by reaching maximum wal size.
-* `synchronous_commit=off` - this will not cause data corruption or inconsistency but may cause some of the last data points to be lost in case of a crash. For a monitoring observability use case, it’s a reasonable tradeoff to increase ingest performance. 
+* `checkpoint_timeout=15min` - when a lot of data is ingested increase the
+  checkpoint timeout to reduce the input/output pressure.
+* `bgwriter_delay=10ms` - the background writer needs to be active to reduce the
+  delay
+* `bgwriter_lru_maxpages=100000` - increase the number of pages a background
+  writer handles to make it more efficient.
+* `max_wal_size=(around 25% of total disk volume)` - the checkpoint is triggered
+  by the timeout setting and not when the `maximum_wal_size` is reached.
+* `synchronous_commit=off` - this does not cause data corruption or
+  inconsistency. However, in case of a crash, some of the last data points may be
+  lost. For a monitoring observability use case, it’s a reasonable tradeoff to
+  increase ingest performance. 
 
-<highlight type="important">
-Make sure that the maximum latency between the Promscale connector and the 
-database is no more than `100ms`. 
-</highlight>
+<highlight type="important"> Make sure that the maximum latency between the
+Promscale connector and the database is no more than `100ms`. </highlight>
 
-[timescale-tune]: https://github.com/timescale/timescaledb-tune
+[timescale-tune-configuration]:
+    timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune/
