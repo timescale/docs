@@ -14,7 +14,7 @@ You can verify if it is installed by running the following SQL query:
 
 If the query returns no results the extension is not installed. To install it, check 
 first if the extension is available:
-`SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';`
+`SELECT * FROM pg_available_extensions WHERE name='timescaledb_toolkit';`
 
 If the query returns a result, the extension is available and can be installed with
 `CREATE EXTENSION timescaledb_toolkit;`
