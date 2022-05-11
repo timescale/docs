@@ -44,7 +44,7 @@ groups:
       expr: <promql_expression>
 ```
 
-1. Load the rules `YAML` file to Promscale by specifying this file in Prometheus
+2. Load the rules `YAML` file to Promscale by specifying this file in Prometheus
 configuration format along with `global` and `alertmanagers` configuration:
 ```yaml
 global:
@@ -60,14 +60,14 @@ alerting:
       - localhost:9093
 ```
 
-1. Pass this configuration file to Promscale using the `-metrics.rules.config`
+3. Pass this configuration file to Promscale using the `-metrics.rules.config`
 flag at start.
 
 </procedure>
 
 For information about alerting, see [Prometheus alerting][prometheus-alerting].
-For specific information about alerting rules, see [the Prometheus alerting
-rules documentation][prometheus-alert-rules]. For information about recording,
+For specific information about alerting rules, see [Prometheus alerting
+rules][prometheus-alert-rules]. For information about recording,
 see [Prometheus recording][prometheus-recording]. For specifc information about
 recording rules, see [Prometheus recording rules][prometheus-recording-rules].
 
