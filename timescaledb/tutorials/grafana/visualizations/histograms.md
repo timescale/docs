@@ -50,7 +50,12 @@ Before you begin, make sure you have:
 
 * Installed Grafana version&nbsp;8.5 or higher
 * Installed [TimescaleDB][install-timescale]
-* Imported the stock trade data from the [Getting Started Tutorial][gsg-data](https://docs.timescale.com/timescaledb/latest/getting-started/)
+* Imported the stock trade data from the [Getting Started Tutorial][gsg-data]
+
+If you are new to Grafana, see the
+[Grafana tutorials][grafana-tutorials]
+to get familiar with creating your first dashboard and visualizations before you
+start.
 
 The examples in this section use these variables and Grafana functions:
 * `$symbol`: a variable used to filter results by stock symbols.
@@ -60,10 +65,6 @@ The examples in this section use these variables and Grafana functions:
   Grafana variables. You change the values of these variables by
   using the dashboard's date chooser when viewing your graph.
 
-If you are new to Grafana, see the
-[Grafana tutorials][grafana-tutorials]
-to get familiar with creating your first dashboard and visualizations before you
-start.
 
 ## Create a price/transaction histogram with raw data
 A common histogram for evaluating stock trade data is a price/transaction volume
@@ -136,7 +137,8 @@ In the previous example, we queried raw data for Apple stock, which often trades
 ~40 000 times a day. The query returns more than 40 000 rows of data for 
 Grafana to bucket every refresh interval, which is 30 seconds by default. 
 This uses a lot of CPU, memory, and network bandwidth. In extreme cases, Grafana
-will show you the message: `Results have been limited to 1000000 because the SQL row limit was reached`
+will show you the message: 
+`Results have been limited to 1000000 because the SQL row limit was reached`
 
 This means Grafana has decided not to display all rows returned by the query. To solve this problem,
 pre-aggregate the data in your query using TimescaleDB's `time_bucket` function. With `time_bucket`,
@@ -188,7 +190,7 @@ To compare the distributions of 2 or more different stocks, create a panel with 
 
 1.  Create a new dashboard variable with the previous query: 
 
-        <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/symbol_variable_query.png" alt="Screenshot of Grafana showing the Variables > Edit dialog. The variable name is 'symbol', and its type is 'Query'. The Query input field has been filled out with the query from Step 1."/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/symbol_variable_query.png" alt="Screenshot of Grafana showing the Variables > Edit dialog. The variable name is 'symbol', and its type is 'Query'. The Query input field has been filled out with the query from Step 1."/>
   
 1.  Update the main query to the following:  
 
@@ -231,9 +233,9 @@ each maximum from the previous bucket's maximum. The difference equals the
 volume for that bucket.
 
 You can do this with a pre-aggregation query, using:
-*   TimescaleDB's `time_bucket` function.
-*   PostgreSQL's `max` function.
-*   PostgreSQL's `lag` function. Use this to subtract each from from the previous,
+*   TimescaleDB's [`time_bucket`][time_bucket] function.
+*   PostgreSQL's [`max`][max] function.
+*   PostgreSQL's [`lag`][lag] function. Use this to subtract each from from the previous,
     when the rows are ordered by descending `time`.
 
 <procedure>
@@ -261,7 +263,7 @@ You can do this with a pre-aggregation query, using:
     FROM buckets;
     ```
 
-2. This query results in the following histogram:
+1. This query results in the following histogram:
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/volume_distribution.png" alt="Screenshot of Grafana histogram showing the stock volume distribution for $AMZN."/>
     
@@ -275,5 +277,8 @@ You can do this with a pre-aggregation query, using:
 </procedure>
 
 [install-timescale]: /install/:currentVersion:/
-[gsg-data]: /getting-started/:currentVersion:/
+[gsg-data]: /timescaledb/:currentVersion:/getting-started/
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
+[max]: https://www.postgresql.org/docs/current/tutorial-agg.html
+[lag]: https://www.postgresql.org/docs/14/functions-window.html
+[time_bucket]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
