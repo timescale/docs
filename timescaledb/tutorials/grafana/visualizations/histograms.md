@@ -1,32 +1,36 @@
 # Build a histogram in Grafana
-You can use a histogram to graphically represent a distribution of discrete or
-continuous data at a specific time or interval. Histograms are often used to
-analyze the spread or distribution of financial instruments.
+Histograms show how data is distributed. You can use one to graph the number of data points that fall into buckets on some scale. For
+example, histograms are often used to show the spread of financial
+instruments.
 
-Histograms are used to answer questions like:
+They can answer questions like:
 
 * What is the distribution of the Meta stock price today?
 * What was the transaction volume distribution of AMD stock last week?
 * What was the distribution of daily returns of the S&P in the past year?
 
-Grafana has the ability to convert 3 distinct formats of data delivery into
-histograms. Each comes with its own benefits and challenges:
+## Data for Grafana histograms
+With Grafana, you can plot a histogram by providing data in 1 of 3
+formats. Each comes with its own benefits and challenges:
 
-* **Raw data**: This method does not require pre-bucketing or aggregating of data.
-  Instead, it returns all raw data points in a certain window. This increases
-  the accuracy of the histogram, but requires more CPU, memory, and network
-  usage, because all bucketing is done in the browser. This could lead to severe
+* **Raw data**: This method does not require you to pre-bucket
+  or pre-aggregate the data.
+  It increases histogram accuracy. But it requires more CPU,
+  memory, and network usage, because all bucketing is done in the 
+  browser. This could lead to severe
   performance issues.
-* **Pre-bucketed data**: This format contains data that has been pre-bucketed by the
-  data source. The Grafana documentation refers to features built into Elastic
-  Search's histogram bucket aggregation, or Prometheus' histogram metric as
-  examples. The Grafana documentation states that any data source can output
-  pre-bucketed data as long as it meets the data format requirements.
-* **Aggregated data**: Grafana also accepts aggregated time bucket data. Such data
-  can be easily queried using Timescale's `time_bucket()` hyperfunction. 
-  However, this also works with the `date_trunc` postgres function. Grafana 
-  will automatically select a bucket size (~10% of the total range of data) and 
-  bucket the aggregated data appropriately.
+* **Pre-bucketed data**: You need to configure the data source to
+  pre-bucket your data. According to the Grafana documentation, any
+  source can output pre-bucketed data for a histogram, as long as it
+  meets the data format requirements. For example, it suggests that you
+  can use Elastic Search's histogram bucket aggregation or
+  Prometheus' histogram metric.
+* **Aggregated data**: Grafana also accepts pre-aggregated
+  time-bucket data. You can aggregate your data using
+  TimescaleDB's `time_bucket` function or PostgreSQL's
+  `date_trunc` function. To create the histogram, Grafana further
+  buckets the aggregated data. It automatically selects a bucket size,
+  which is about 10% of your data's total range.
 
 <highlight type="note">
 Histograms are great for analyzing the spread or distribution of data, but they
@@ -35,6 +39,12 @@ don't show the change of data over time. If you need to see the distribution of 
 instead.
 </highlight>
 
+## What you'll learn
+This tutorial shows you how to:
+*   [Create a price/transaction histogram from raw data](#create-a-price-transaction-histogram-with-raw-data)
+*   [Create a price/transaction histogram from pre-aggregated data](#create-a-price-transaction-histogram-with-aggregated-data)
+*   [Create a panel showing multiple histograms](#create-a-panel-with-multiple-price-transaction-histograms)
+*   [Create a price/volume histogram](#create-a-price-volume-histogram)
 ## Prerequisites
 Before you begin, make sure you have:
 
@@ -43,12 +53,12 @@ Before you begin, make sure you have:
 * Imported the stock trade data from the [Getting Started Tutorial][gsg-data](https://docs.timescale.com/timescaledb/latest/getting-started/)
 
 The examples in this section use these variables and Grafana functions:
-* `$symbol` is a variable to filter results by a selected set of stock symbols.
-* `$bucket_interval` is the interval size to pass to the `time_bucket()`
+* `$symbol`: a variable used to filter results by stock symbols.
+* `$bucket_interval`: the interval size to pass to the `time_bucket`
   function when aggregating data.
-* `$__timeFrom()::timestamptz` & `$__timeTo()::timestamptz` are Grafana
-  variables bound to the date chooser of a dashboard used to filter the overall
-  results.
+* `$__timeFrom()::timestamptz` & `$__timeTo()::timestamptz`:
+  Grafana variables. You change the values of these variables by
+  using the dashboard's date chooser when viewing your graph.
 
 If you are new to Grafana, see the
 [Grafana tutorials][grafana-tutorials]
@@ -57,17 +67,16 @@ start.
 
 ## Create a price/transaction histogram with raw data
 A common histogram for evaluating stock trade data is a price/transaction volume
-histogram. This helps you visualize the number of trades that occurred at a
-given price, within a given time interval. You can do this by selecting the raw
+histogram. This shows the number of trades occurring at a
+given price range, within some time interval. To make this
+histogram, select the raw
 transactions data from the `stocks_real_time` hypertable.
 
 <procedure>
 
 ### Creating a price/transaction histogram with raw data
 
-1.  Add the following query to a Grafana dashboard and select a specific stock from the 
-    dashboard variable, using the specified time range of the dashboard:
-
+1.  Add this query to a Grafana dashboard:
     ```sql
     SELECT time,
         price
@@ -77,7 +86,10 @@ transactions data from the `stocks_real_time` hypertable.
     ORDER BY time;
     ```
 
-2.  The returned data look like this:
+1.  Select a stock from the dashboard variable. Adjust the time range of
+    your dashboard if desired.
+
+1.  The returned data looks like this:
 
     ```bash
     time                         |price   |
@@ -97,56 +109,52 @@ transactions data from the `stocks_real_time` hypertable.
     a `time` column in the results. For the Histogram visualization,
     the timestamp values must be in ascending order or you will receive an error.
 
-3. Make sure to select "Histogram" as your visualization type.
+1. Select "Histogram" as your visualization type.
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/histogram_panel_selection.png" alt="histogram panel selection"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/histogram_panel_selection.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Histogram' shows as a visualization type."/>
 
-4. Then Grafana should turn the query into a histogram similar to the one below:
+1. Grafana turns the query into a histogram that looks like this:
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/simple_histogram.png" alt="simple histogram"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/simple_histogram.png" alt="Screenshot of a histogram in Grafana, showing the price distribution of $AAPL."/>
 
-    As you can see, the price of $AAPL ranges between $154 and $176 in this histogram.
+    The histogram shows that the price of $AAPL ranges between $154 and $176.
     Grafana automatically picks a bucket size for us, in this case $2.
-    What if we want to increase the granularity of our histogram? We can do that 
-    very easily by decreasing the bucket size in the panel options.
 
-5. Change the bucket size from 2 to 0.1
+1. To increase the granularity of the histogram, change the bucket size from 2 to 0.1.
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/bucket_size_option.png" alt="bucket size option"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/bucket_size_option.png" alt="Screenshot of the histogram drop-down menu in Grafana. The 'bucket size' input field has a value of 0.1."/>
 
-6.  The histogram resembles the one with a bucket size of 2, but with much greater detail.
+1.  The histogram now looks similar, but shows more detail.
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/simple_histogram_with_bucket_size.png" alt="simple histogram with bucket size"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/simple_histogram_with_bucket_size.png" alt="Screenshot of a histogram in Grafana, showing the price distribution of $AAPL in buckets of $1."/>
    
 </procedure>
 
-## Price/Transactions Histogram with aggregated data
+## Create a price/transaction histogram with aggregated data
 
-In the previous example we queried raw data for Apple stock, which often trades 
-~40K times a day. This means our query returns more than 40k rows of data for 
-Grafana to bucket every 30 seconds (the default Grafana refresh interval). 
-This uses excessive CPU, memory, and network bandwidth. In extreme cases Grafana
- will show you the following message.
+In the previous example, we queried raw data for Apple stock, which often trades 
+~40 000 times a day. The query returns more than 40 000 rows of data for 
+Grafana to bucket every refresh interval, which is 30 seconds by default. 
+This uses a lot of CPU, memory, and network bandwidth. In extreme cases, Grafana
+will show you the message: `Results have been limited to 1000000 because the SQL row limit was reached`
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/results_have_been_limited.png" alt="results have been limited"/>
-
-This means Grafana has decided not to display all rows returned by the query. 
+This means Grafana has decided not to display all rows returned by the query. To solve this problem,
+pre-aggregate the data in your query using TimescaleDB's `time_bucket` function. With `time_bucket`,
+you need to add a new variable called `bucket_interval`.
 
 <procedure>
 
-### Pre-aggregating our data
+### Creating a price/transaction histogram with pre-aggregated data
 
-1.  To solve this problem we can aggregate the time series data using the 
-    TimescaleDB `time_bucket()` hyperfunction. Notice that we need to add 
-    a new variable called `$bucket_interval` of type interval.
+1.  In Grafana, add a new variable called `$bucket_interval`, of type `INTERVAL`.
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/bucket_interval_variable_options.png" alt="bucket interval variable options"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/bucket_interval_variable_options.png" alt="Grafana screenshot showing the Variables > Edit dialog. The variable name is 'bucket_interval', the type is 'interval', and values for interval options have been given from 10s to 30d."/>
 
-2.  This query uses the `$bucket_interval` variable to aggregate the price for 
+1.  Use the `$bucket_interval` variable to aggregate the price for 
     the selected interval:
 
     ```sql
-    SELECT time_bucket('$bucket_interval',time) as time,
+    SELECT time_bucket('$bucket_interval', time) as time,
         AVG(price) avg_price
     FROM stocks_real_time srt
     WHERE symbol = '$symbol'
@@ -154,81 +162,83 @@ This means Grafana has decided not to display all rows returned by the query.
     GROUP BY time_bucket('$date_range',time);
     ```
 
-3.  This query yields the following histogram:
+1.  This query yields the following histogram:
     
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/time_bucket_histogram.png" alt="time bucket histogram"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/time_bucket_histogram.png" alt="Screenshot of a histogram in Grafana, showing the price distribution of $AAPL."/>
 
-    The second histogram looks similar in shape to the example that uses raw 
-    transaction data, but the query returns only around ~1k rows of data with
-    each request. This reduces the amount of data over the network and
-    processing time in Grafana.
+    This second histogram looks similar to the example that uses raw 
+    transaction data. But the query returns only around 1000 rows of data with
+    each request. This reduces the network load and Grafana processing time.
 
 </procedure>
 
-## Price/Transactions Multiple histograms in one panel
-In this example we want to compare the distributions of two or more different stocks.
-To get the desired effect we need to change our symbol variable from a text variable to a query variable with the multi-value option enabled.
+## Create a panel with multiple price/transaction histograms
+To compare the distributions of 2 or more different stocks, create a panel with multiple histograms. Change the
+`$symbol` variable from a text variable to a query variable, and enable the multi-value option. This allows you to select more than one value for `$symbol`. The database returns the transactions for all selected values, and Grafana buckets them in separate histograms.
 
 <procedure>
 
-1.  We use this query to fetch all companies in our dataset:
+### Creating a panel with multiple price/transaction histograms
+
+1.  Fetch all company symbols from the dataset:
 
     ```sql
     SELECT DISTINCT symbol FROM company ORDER BY asc;
     ```
 
-2.  Create a new dashboard variable with the previous query: 
+1.  Create a new dashboard variable with the previous query: 
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/symbol_variable_query.png" alt="symbol variable query"/>
-    If we select more than one value, TimescaleDB returns the transactions for 
-    all selected values. Grafana buckets those in separate histograms.
+        <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/symbol_variable_query.png" alt="Screenshot of Grafana showing the Variables > Edit dialog. The variable name is 'symbol', and its type is 'Query'. The Query input field has been filled out with the query from Step 1."/>
   
-3.  Update our main query to use the following query:  
+1.  Update the main query to the following:  
 
     ```sql
-    SELECT time_bucket('$bucket_interval',time) AS time,
+    SELECT time_bucket('$bucket_interval', time) AS time,
         symbol,
         AVG(price) AS avg_price
     FROM stocks_real_time srt
     WHERE symbol in ($symbol)
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
-    GROUP BY time_bucket('$bucket_interval',time), symbol;
+    GROUP BY time_bucket('$bucket_interval', time), symbol;
     ```
 
-4.  When we visualize this query, we get the following histogram:
+1.  This query results in the following histograms:
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/multiple_histograms.png" alt="multiple histograms"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/multiple_histograms.png" alt="Screenshot of overlaid Grafana histograms, showing the price distributions of 3 stocks. All 3 histograms are in green."/>
 
     We can clearly see the 3 distinct histograms but it's impossible to tell 
     them apart from each other. 
     
-5.  Click on the green line left of the legend and pick a color:
+1.  Click on the green line at the left side of the legend and pick a color:
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/color_options.png" alt="color options"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/color_options.png" alt="Screenshot of the Grafana color picker."/>
 
-6.  Doing so results in the following panel:
+1.  The plot clearly shows the 3 price distributions in different colors.
     
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/colored_in_histogram.png" alt="colored in histogram"/>
-
-    Here we can clearly see the 3 different price distributions for each stock.
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/colored_in_histogram.png" alt="Screenshot of Grafana plot, showing 3 histograms of stock values in blue, red, and green."/>
 
 </procedure>
 
-## Price/Volume Histogram
+## Create a price/volume histogram
 
-An interesting metric to investigate is the trade volume distribution. This 
-distribution gives us insight into the volume at which people buy a stock. 
-The dataset has a column with the daily cumulative volume which we can use to 
-determine the individual transaction volume. To calculate the volume of data for
-each bucket, we need to find the maximum `day_volume` value for the symbol and 
-then subtract each value from the previous bucket maximum value. The difference 
-of these two rows produces the volume within the bucket of time. We can 
-accomplish this with a slightly more complex query that pre-aggregates our data 
-using the TimescaleDB `time_bucket()` hyperfunction and the standard PostgreSQL 
-`MAX()` function, and then use the PostgresSQL `LAG()` window function to 
-subtract each row from the previous, ordered by `time` descending.
+Besides transaction price, you can also look at trade volumes. The distribution of
+trade volume shows you how often and how much people are buying a stock.
+
+The `stocks_real_time` hypertable contains a column with the daily cumulative
+volume. You can use this to calculate the volume of data for each bucket. First,
+find the maximum `day_volume` value for a symbol within a bucket. Then subtract
+each maximum from the previous bucket's maximum. The difference equals the
+volume for that bucket.
+
+You can do this with a pre-aggregation query, using:
+*   TimescaleDB's `time_bucket` function.
+*   PostgreSQL's `max` function.
+*   PostgreSQL's `lag` function. Use this to subtract each from from the previous,
+    when the rows are ordered by descending `time`.
 
 <procedure>
+
+### Creating a price/volume histogram
 
 1. Create a new histogram panel with the following query:
 
@@ -253,14 +263,14 @@ subtract each row from the previous, ordered by `time` descending.
 
 2. This query results in the following histogram:
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/volume_distribution.png" alt="volume distribution"/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/volume_distribution.png" alt="Screenshot of Grafana histogram showing the stock volume distribution for $AMZN."/>
     
-    As you can see, we get a left-skewed distribution for the AMZN symbol. In
-    many cases there will be outliers that represent a few very large volume 
-    transactions that distort the distribution. One solution to this problem is 
-    to only look at transactions with a volume less than a certain threshold.
-    Another solution would be to use a logarithmic scale, unfortunately this is 
-    not yet supported in histograms panels.
+    The plot shows a left-skewed distribution for the AMZN symbol. For many
+    symbols, you might see a distorted distribution, due to outliers representing
+    a few very large volume transactions. There are 2 solutions:
+    1.  Limit your query to transactions with volumes less than a certain threshold.
+    1.  Use a logarithmic scale. Unfortunately these are not yet supported in Grafana
+       histogram panels.
 
 </procedure>
 
