@@ -1,7 +1,7 @@
 # Build a histogram in Grafana
-Histograms show how data is distributed. You can use one to graph the number of data points that fall into buckets on some scale. For
-example, histograms are often used to show the spread of financial
-instruments.
+Histograms show how data is distributed. You can use one to graph the number of 
+data points that fall into buckets on some scale. For example, histograms are 
+often used to show the spread of financial instruments.
 
 They can answer questions like:
 
@@ -34,8 +34,8 @@ formats. Each comes with its own benefits and challenges:
 
 <highlight type="note">
 Histograms are great for analyzing the spread or distribution of data, but they
-don't show the change of data over time. If you need to see the distribution of your data over time, try a
-[heatmap](https://grafana.com/docs/grafana/latest/visualizations/heatmap/)
+don't show the change of data over time. If you need to see the distribution of 
+your data over time, try a [heatmap](https://grafana.com/docs/grafana/latest/visualizations/heatmap/)
 instead.
 </highlight>
 
@@ -175,8 +175,11 @@ you need to add a new variable called `bucket_interval`.
 </procedure>
 
 ## Create a panel with multiple price/transaction histograms
-To compare the distributions of 2 or more different stocks, create a panel with multiple histograms. Change the
-`$symbol` variable from a text variable to a query variable, and enable the multi-value option. This allows you to select more than one value for `$symbol`. The database returns the transactions for all selected values, and Grafana buckets them in separate histograms.
+To compare the distributions of 2 or more different stocks, create a panel with 
+multiple histograms. Change the `$symbol` variable from a text variable to a 
+query variable, and enable the multi-value option. This allows you to select
+more than one value for `$symbol`. The database returns the transactions for all
+selected values, and Grafana buckets them in separate histograms.
 
 <procedure>
 
@@ -235,8 +238,8 @@ volume for that bucket.
 You can do this with a pre-aggregation query, using:
 *   TimescaleDB's [`time_bucket`][time_bucket] function.
 *   PostgreSQL's [`max`][max] function.
-*   PostgreSQL's [`lag`][lag] function. Use this to subtract each from from the previous,
-    when the rows are ordered by descending `time`.
+*   PostgreSQL's [`lag`][lag] function. Use this to subtract each from from the 
+    previous, when the rows are ordered by descending `time`.
 
 <procedure>
 
