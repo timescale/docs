@@ -245,7 +245,7 @@ subtract each row from the previous, ordered by `time` descending.
     )
     SELECT TIME,
         symbol,
-        CASE WHEN lag(dv_max ,1) OVER (PARTITION BY symbol ORDER BY time) IS    NULL THEN dv_max
+        CASE WHEN lag(dv_max ,1) OVER (PARTITION BY symbol ORDER BY time) IS NULL THEN dv_max
         WHEN (dv_max - lag(dv_max, 1) OVER (PARTITION BY symbol ORDER BY time)) < 0 THEN dv_max
         ELSE (dv_max - lag(dv_max, 1) OVER (PARTITION BY symbol ORDER BY time)) END vol
     FROM buckets;
