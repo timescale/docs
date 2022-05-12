@@ -111,8 +111,8 @@ there are a few other PostgreSQL parameters worth tuning:
 
 * `checkpoint_timeout=15min` - when a lot of data is ingested, increase the
   checkpoint timeout to reduce the input/output pressure.
-* `bgwriter_delay=10ms` - the background writer needs to be active to reduce the
-  delay
+* `bgwriter_delay=10ms` - the background writer needs to be active to reduce
+  delays.
 * `bgwriter_lru_maxpages=100000` - increase the number of pages a background
   writer handles to make it more efficient.
 * `max_wal_size=(around 25% of total disk volume)` - the checkpoint is triggered
