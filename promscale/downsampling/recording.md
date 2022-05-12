@@ -9,7 +9,6 @@ rules similar to Prometheus rules configuration.
 
 
 ## Set recording rules
-
 Promscale recording rules are built on top of Prometheus recording rules capabilities.
 Recording rules are written in a `YAML` file and specified in the Promscale configuration
 file.
