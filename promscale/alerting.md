@@ -5,7 +5,7 @@ ingesting and querying the data. In Promscale, you can set the alerting rules
 similar to Prometheus rules configuration and publish the alerts to alertmanager. 
 
 ## Alert manager
-Alertmanager manages alerts, including silencing, inhibition,
+The alert manager manages alerts, including silencing, inhibition,
 aggregation and sending out notifications via methods such as email, 
 on-call notification systems, and chat platforms. The labels, 
 summary, and description described in the alerting rules file is forwarded
