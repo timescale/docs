@@ -21,11 +21,9 @@ To install the timescaledb_toolkit PostgreSQL extension:
    ```sql
    SELECT * FROM pg_available_extensions WHERE name='timescaledb_toolkit';
    ```
-   <highlight type="note"> 
-   If the query returns no results, the extension is not available for installation
-   in your database. To make it available follow [these
-   instructions](install-toolkit). 
-   </highlight>
+     If the query returns no results, the extension is not available for installation
+     in your database. To make it available follow 
+     [these instructions](install-toolkit). 
 1. Install the extension using:
    ```sql
    CREATE EXTENSION timescaledb_toolkit;
