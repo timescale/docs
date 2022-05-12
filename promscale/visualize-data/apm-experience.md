@@ -16,7 +16,6 @@ Before you begin importing APM dashboards:
 <procedure> 
 
 ## Installing the TimescaleDB toolkit extension
-To install the timescaledb_toolkit PostgreSQL extension:
 1. Check if the extension is available:
    ```sql
    SELECT * FROM pg_available_extensions WHERE name='timescaledb_toolkit';
