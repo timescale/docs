@@ -1,5 +1,5 @@
 # Monitoring Promscale
-Promscale includes a set of out-of-the-box alerts, runbooks and a Grafana dashboard that you can use to monitor it.
+Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana dashboard that you can use to monitor it.
 
 <highlight type="note">
 To monitor Promscale make sure that a Prometheus instance is scraping Promscale
