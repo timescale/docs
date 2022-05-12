@@ -8,8 +8,8 @@ the size of the data decreases.
 
 The two downsampling methods are
 
-1. [PromQL based recording rules](recording) offered by Prometheus
-2. [Continuous aggregates](caggs) offered by TimescaleDB
+* [PromQL based recording rules](recording) offered by Prometheus
+* [Continuous aggregates](caggs) offered by TimescaleDB
 
 ## Choose a downsampling method
 There are a few things to take into account when deciding on a downsampling
