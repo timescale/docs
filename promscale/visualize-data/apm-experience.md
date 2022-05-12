@@ -7,7 +7,7 @@ with traces.
 * Add these data sources in Grafana:
     * [Jaeger data source][promscale-as-jaeger].
     * [PostgreSQL data source][promscale-as-postgresql].   
-* Ensure that timescaledb_toolkit PostgreSQL extension is installed.
+* Check that the `timescaledb_toolkit` extension is installed.
   To verify if the extension is installed, run this SQL query:
   `SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';` 
   If the query returns no results the extension is not installed.
