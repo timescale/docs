@@ -1,153 +1,206 @@
-# 5. Query your data
+# Query your data
 
 With TimescaleDB, there's no need to learn a custom query language. **TimescaleDB
-supports full SQL**. This means you can put your SQL knowledge to good use and
-use the rich ecosystem of PostgreSQL tools you know and love.
+supports full SQL**. You can use your SQL knowledge along with the rich 
+ecosystem of PostgreSQL tools and add the extra features and performance of
+TimescaleDB.
 
-For example, here's how to find the average temperature for each city in the past 2 years:
+Here are some query examples so you can get familiar with using SQL alongside
+popular TimescaleDB functions.
 
-```sql
---------------------------------
--- Average temperature per city
--- in past 2 years
---------------------------------
-SELECT city_name, avg(temp_c)
-FROM weather_metrics
-WHERE time > now() - INTERVAL '2 years'
-GROUP BY city_name;
-```
-
-And here's how to find the total snowfall for each city in the past 5 years:
-
-```sql
---------------------------------
--- Total snowfall per city
--- in past 5 years
---------------------------------
-SELECT city_name, sum(snow_1h_mm)
-FROM weather_metrics
-WHERE time > now() - INTERVAL '5 years'
-GROUP BY city_name;
-```
-
+## Basic SQL queries
 
 <highlight type="tip">
-Fun fact: TimescaleDB adds important enhancements to the PostgreSQL query planner
-that improve query reusability for INTERVAL predicates, something PostgreSQL does
-not have.
+Many of the queries below show a filter for the last four days of data. This 
+accounts for the nuance of stock trade data which only occurs Monday-Friday
+on the New York Stock Exchange.
+
+If you load the provided data on a Monday, the most recent data that we can provide 
+is from Friday afternoon. Therefore, selecting data for the last day or two would return
+no results.
+
+Feel free to adjust the time frame based on the data that you downloaded and to
+explore other time-ranges in the data that we provide.
 </highlight>
 
-## Advanced SQL functions for time-series data
+### Select all stock data from the last four days
+
+   To select all the stock data from the previous four days, use the [`WHERE`][clause-expressions] 
+   clause to filter the result using a relative time interval. This example uses an interval of
+   four days, so data is displayed even if you run this on a weekend or a Monday.
+
+   ```sql
+   SELECT * FROM stocks_real_time srt
+   WHERE time > now() - INTERVAL '4 days';
+   ```
+
+### Select the most recent 10 trades for Amazon in order
+
+   Use the [`ORDER BY`][order-by] clause to define the order of results from your
+   query. With stock trade data, there are often multiple trades each second for
+   popular stocks like Amazon. Therefore, we cannot order data descending
+   by the `time` alone. _This is a common problem with high-frequency data like stocks,
+   crypto, and IoT metrics_. Therefore, we need to order the results by additional information 
+   to correctly display the order in which trades were made with the exchange.
+   
+   For the `stocks_real_time` data, the `day_volume` column serves as additional
+   information to help us order the trades correctly, even when there are multiple
+   trades per second. The `day_volume` value increases by the number of stocks 
+   traded with each tick.
+
+   ```sql
+   SELECT * FROM stocks_real_time srt
+   WHERE symbol='AMZN'
+   ORDER BY time DESC, day_volume desc
+   LIMIT 10;  
+
+
+   time                         |symbol|price    |day_volume|
+   -----------------------------+------+---------+----------+
+   2022-05-04 14:11:32.000 -0400|AMZN  |2429.1191|   3134115|
+   2022-05-04 14:11:28.000 -0400|AMZN  |  2428.53|   3133809|
+   2022-05-04 14:11:28.000 -0400|AMZN  |  2428.53|   3133644|
+   2022-05-04 14:11:28.000 -0400|AMZN  |  2428.53|   3133638|
+   2022-05-04 14:11:28.000 -0400|AMZN  |  2428.53|   3133602|
+   2022-05-04 14:11:18.000 -0400|AMZN  |  2426.83|   3132536|
+   2022-05-04 14:11:18.000 -0400|AMZN  |  2426.83|   3132009|
+   2022-05-04 14:11:18.000 -0400|AMZN  |  2426.83|   3131887|
+   2022-05-04 14:11:18.000 -0400|AMZN  |  2426.83|   3131848|
+   2022-05-04 14:11:18.000 -0400|AMZN  |  2426.83|   3131844|
+   ```
+
+   Notice that there are multiple trades every second, but we know that the order
+   of trades is correct because the `day_volume` column is ordered correctly.
+
+### Calculate the average trade price for Apple from the four days
+
+   Use the [`avg()`][average] function with a `WHERE` clause
+   to only include trades for Apple stock within the last 4 days. 
+   You can use the [`JOIN`][join] operator to fetch results based on the name of 
+   a company instead of the symbol.
+
+   ```sql
+   SELECT
+       avg(price)
+   FROM stocks_real_time srt
+   JOIN company c ON c.symbol = srt.symbol
+   WHERE c.name = 'Apple' AND time > now() - INTERVAL '4 days';
+   ```
+
+
+## Advanced TimescaleDB SQL functions
 
 Timescale has many custom-built SQL functions to help you perform time-series
-analysis in fewer lines of code.
+analysis in fewer lines of code. Here's how to use three of these functions:
 
-Examples of these functions include:
+ * [first()][first]: find the earliest value based on a time within an aggregate group
+ * [last()][last]: find the latest value based on time within an aggregate group
+ * [time_bucket()][time-bucket]: bucket data by arbitrary time intervals and calculate aggregates over those intervals
 
-* [`time_bucket()`] - used for analyzing data over arbitrary time intervals
-* [`first()`] - used for finding the earliest value based on a time within an aggregate group
-* [`last()`] - used for finding the latest value based on time within an aggregate group
-* [`time_bucket_gapfill()`] - used to analyze data over arbitrary time intervals and fill any gaps in the data
-* [`locf()`] - used to fill gaps in data by carrying the last observed value forward
-* [`interpolate()`] - used to fill gaps by linearly interpolating the missing values between known data points
+### Get the first and last value with first() and last() functions
 
-Let's take a closer look at `time_bucket`.
+   The `first()` and `last()` functions retrieve the first and last value of one
+   column when ordered by another. 
+   
+   For example, our stock data has a timestamp column `time` and numeric column `price`,
+   you can use `first(price, time)` to get the first value in the `price` column when ordered 
+   with respect to an increasing `time` column. 
 
-### time_bucket()
+   In this query, you use both the `first()` and `last()` functions to find the 
+   first and last trading price for each company for the last three days.
 
-Here's an example of how to use [`time_bucket()`] to find the average temperature per 15 day period, for each city, in the past 12 months:
+   ```sql
+   SELECT symbol, first(price,time), last(price, time)
+   FROM stocks_real_time srt
+   WHERE time > now() - INTERVAL '3 days'
+   GROUP BY symbol
+   ORDER BY symbol;
 
-```sql
------------------------------------
--- time_bucket
--- Average temp per 15 day period
--- for past 12 months, per city
------------------------------------
-SELECT time_bucket('15 days', time) as "bucket"
-   ,city_name, avg(temp_c)
-   FROM weather_metrics
-   WHERE time > now() - (12* INTERVAL '1 month')
-   GROUP BY bucket, city_name
-   ORDER BY bucket DESC;
-```
+   symbol|first   |last    |
+   ------+--------+--------+
+   AAPL  |  156.26|  160.79|
+   ABBV  |  145.38|  150.32|
+   ABNB  |  152.08|  148.05|
+   ABT   |   113.5|  112.88|
+   ADBE  |   391.2|  403.94|
+   AMAT  |  109.72|113.0464|
+   AMD   |  84.938|  93.585|
+   AMGN  |   233.3|  233.11|
+   ...   |   ...  |    ... |
+   ```
 
-With `time_bucket`, you can monitor, analyze, and visualize time-series data in
-the time intervals that matter most for your use case (for example, 10 seconds,
-15 minutes, 6 hours—whatever your time period of interest happens to be). This
-is because `time_bucket` enables you to segment data into arbitrary time
-intervals. Such intervals are often required when analyzing time-series data,
-but can sometimes be unwieldy depending on the constraints of the database,
-query language, or all-in-one tool that you use.
+### Aggregate by an arbitrary length of time using time_bucket
 
-For readers familiar with PostgreSQL, you can think of `time_bucket` as a more
-powerful version of the PostgreSQL `date_trunc` function. `time_bucket` allows
-for arbitrary time intervals, rather than the standard day, minute, and hour
-intervals provided by `date_trunc`.
+   The `time_bucket()` function enables you to take a time column and “bucket” the values 
+   based on an interval of your choice. Typically, you _bucket_ time so that you can perform
+   an aggregation over the chosen interval. 
+   
+   For example, consider a table that records incrementing values every hour. To
+   aggregate the daily totals of the values, you can
+   use the `time_bucket()` function on the `time` column to _bucket_ the hourly 
+   data into daily data and then perform a `sum()` on the `value` column to get 
+   the total sum of your values across each day. 
 
-`time_bucket` is just one of many TimescaleDB custom-built SQL functions to help
-you perform more insightful time-series analysis in fewer lines of code. Another
-powerful function for time-series analysis is `time_bucket_gapfill`.
+   <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/time-bucket.jpg"
+    alt="time_bucket() Illustration"/>
 
-### time_bucket_gapfill()
+   For more information on the `time_bucket()` function, see the [API documentation][time-bucket]. 
 
-Another common problem in time-series analysis is dealing with imperfect datasets.
-Some time-series analyses or visualizations want to display records for each
-selected time period, even if no data was recorded during that period. This is
-commonly termed "gap filling," and may involve performing such operations as
-recording a "0" for any missing data, interpolating missing values, or carrying
-the last observed value forward until new data is recorded.
+   To see `time_bucket()` in action with the stock trade data, let's calculate
+   the average daily price of each trading symbol over the last week.
+   
+   Use the `time_bucket()` function with an interval of `1-day`, the `avg()` 
+   function on the price data, select the `symbol`, and finally [`GROUP BY`][clause-expressions]
+   the `bucket` and `symbol`. The `WHERE` limits the results to days within the 
+   last week. Finally the `ORDER BY` clause orders the results first on the bucketed date, 
+   then by symbol. 
 
-Timescale provides [`time_bucket_gapfill()`],
-[`locf()`], and [`interpolate()`] to help perform analysis on data with gaps.
+   ```sql
+   SELECT
+      time_bucket('1 day', time) AS bucket,
+      symbol,
+      avg(price)
+   FROM stocks_real_time srt
+   WHERE time > now() - INTERVAL '1 week'
+   GROUP BY bucket, symbol
+   ORDER BY bucket, symbol;
 
-In the sample dataset, there are days with no rain or snow for some cities.
-However, you might still want to perform an analysis or graph a trend line about
-rain or snow for a particular time period.
+   bucket                       |symbol|avg               |
+   -----------------------------+------+------------------+
+   2022-04-26 20:00:00.000 -0400|AAPL  |157.16595920217668|
+   2022-04-26 20:00:00.000 -0400|ABBV  | 157.8470588235293|
+   2022-04-26 20:00:00.000 -0400|ABNB  |152.33858034970868|
+   2022-04-26 20:00:00.000 -0400|ABT   |117.13218965517241|
+   2022-04-26 20:00:00.000 -0400|ADBE  |398.63256560534745|
+   2022-04-26 20:00:00.000 -0400|AMAT  |108.92946602133563|
+   ```
+   
+   In the results above, you may notice that the `bucket` column, which represents
+   a `time_bucket()` or one week, starts on the beginning date of the bucket, not
+   the current time that you run the query. To learn more about how time buckets are
+   calculated, see the [how-to guide for time buckets][time-bucket-how-to].
 
-For example, here's a query which calculates the total snowfall for each city in
-30-day time periods for the past year:
+## Next steps
+Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, learn about
+continuous aggregates in the [next section][create-cagg].
 
-```sql
--- non-gapfill query
-SELECT time_bucket('30 days', time) as bucket,
-   city_name, sum(snow_1h_mm) as sum
-   FROM weather_metrics
-   WHERE time > now() - INTERVAL '1 year' AND time < now()
-   GROUP BY bucket, city_name
-   ORDER BY bucket DESC;
-```
-
-Notice that the results only include time periods for when cities have snowfall,
-rather than the specific time period of our analysis, which is one year.
-
-To generate data for all the time buckets in our analysis period, we can use
-time_bucket_gapfill instead:
-
-```sql
------------------------------------------
--- time_bucket_gapfill
--- total snow fall per city
--- in 30-day buckets for past 1 year
------------------------------------------
-SELECT time_bucket_gapfill('30 days', time) as bucket,
-   city_name, sum(snow_1h_mm) as sum
-   FROM weather_metrics
-   WHERE time > now() - INTERVAL '1 year' AND time < now()
-   GROUP BY bucket, city_name
-   ORDER BY bucket DESC;
-```
-
-TimescaleDB SQL functions like time_bucket and time_bucket_gapfill are helpful
-for historical analysis of your data and creating visuals with specific time periods.
-
-Now that you're equipped with the basics of `time_bucket`, let's learn about
-continuous aggregates in the next section.
+## Learn more about TimescaleDB hyperfunctions
+For more information about the functions provided by TimescaleDB and Timescale Toolkit extension,
+see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions).
 
 
 
-[`time_bucket()`]: /api/:currentVersion:/hyperfunctions/time_bucket
-[`time_bucket_gapfill()`]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill
-[`last()`]: /api/:currentVersion:/hyperfunctions/last
-[`first()`]: /api/:currentVersion:/hyperfunctions/first
-[`locf()`]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/locf
-[`interpolate()`]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/interpolate
+
+[average]: https://www.postgresql.org/docs/14/functions-aggregate.html
+[filter]: https://www.postgresql.org/docs/14/sql-expressions.html#SYNTAX-AGGREGATES
+[order-by]: https://www.postgresql.org/docs/current/queries-order.html
+[select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
+[clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[time-bucket-how-to]: /how-to-guides/time-buckets/
+[last]: /api/:currentVersion:/hyperfunctions/last
+[first]: /api/:currentVersion:/hyperfunctions/first
+[date-trunc]: https://www.postgresql.org/docs/current/functions-datetime.html
+[create-cagg]: /getting-started/create-cagg/
+[join]: https://www.postgresql.org/docs/current/tutorial-join.html

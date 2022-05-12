@@ -7,8 +7,8 @@ Promscale does not, by default, provide instrumentation to collect telemetry
 from your applications and infrastructure. It is expected that you use
 [Prometheus][prometheus-install] to collect metrics. You can also use
 [OpenTelemetry][otel] to collect traces. When you have the
-instrumentation set up, you can use Promscale to ingest the metrics and
-telemetry data.
+instrumentation set up, you can use Promscale to ingest the metric and
+trace data.
 
 ## Install Promscale without instrumentation
 If you have Prometheus or OpenTelemetry installed, you can install Promscale
