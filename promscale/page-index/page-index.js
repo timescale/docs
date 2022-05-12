@@ -149,6 +149,14 @@ module.exports = [
         ],
       },
       {
+        title: "Alert in Promscale",
+        href: "alert",
+        tags: ["promscale", "prometheus", "alert"],
+        keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
+        excerpt: "Configure alerting rules in Promscale",
+      },
+
+      {
         title: "tobs",
         href: "tobs",
         excerpt:
@@ -264,13 +272,6 @@ module.exports = [
             excerpt: 'Delete data in Promscale',
           },
         ],
-      },
-      {
-        title: "Alert in Promscale",
-        href: "alert",
-        tags: ["promscale", "prometheus", "alert"],
-        keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
-        excerpt: "Configure alerting rules in Promscale",
       },
       {
         title: 'Downsample data',
