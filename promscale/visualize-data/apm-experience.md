@@ -36,7 +36,6 @@ You can use one of these methods to import APM dashboards:
 *  When installing Grafana, mount APM dashboards as a snapshot.
 
 ### Importing APM dashboards from the Grafana community
-
 [Grafana community dashboards](promscale-grafana-dashboards) contains all the
 dashboards published by Promscale. 
 
