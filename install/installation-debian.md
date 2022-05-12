@@ -9,6 +9,7 @@ instructions use the `apt` package manager on these distributions:
 *   Ubuntu 20.04 LTS Focal Fossa
 *   Ubuntu 21.04 Hirsute Hippo
 *   Ubuntu 21.10 Impish Indri
+*   Ubuntu 22.04 LTS Jammy Jellyfish
 
 <highlight type="important">
 Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
@@ -20,7 +21,7 @@ If you have already installed PostgreSQL using a method other than the `apt`
 package manager, you could encounter errors following these instructions. It is
 safest to remove any existing PostgreSQL installations before you begin. If you
 want to keep your current PostgreSQL installation, do not install TimescaleDB
-TimescaleDB using this method.
+using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
 </highlight>
@@ -36,10 +37,6 @@ instead.
 1.  Run the PostgreSQL repository setup script:
     ```bash
     /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
-    ```
-1.  Add the Timescale GPG key:
-    ```bash
-    curl -L https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
     ```
 1.  Add the TimescaleDB third party repository:
 
@@ -79,11 +76,10 @@ instead.
     <highlight type="note">
     If you want to install a specific version of TimescaleDB, instead of the
     most recent, you can specify the version like this:
-    ```bash
-    apt-get install timescaledb-2-2.6.0-postgresql-12
-    ```
+    `apt-get install timescaledb-2-2.6.0-postgresql-12`
+    
     You can see the full list of TimescaleDB releases by visiting our
-    [releases page][https://packagecloud.io/timescale/timescaledb]
+    [releases page][releases-page]
     </highlight>
 
 </procedure>
@@ -141,25 +137,15 @@ command at the `psql` prompt. It looks like this:
 tsdb=> \dx
 List of installed extensions
 -[ RECORD 1 ]------------------------------------------------------------------
-Name        | pg_stat_statements
-Version     | 1.7
-Schema      | public
-Description | track execution statistics of all SQL statements executed
--[ RECORD 2 ]------------------------------------------------------------------
 Name        | plpgsql
 Version     | 1.0
 Schema      | pg_catalog
 Description | PL/pgSQL procedural language
--[ RECORD 3 ]------------------------------------------------------------------
+-[ RECORD 2 ]------------------------------------------------------------------
 Name        | timescaledb
-Version     | 2.5.1
+Version     | 2.6.1
 Schema      | public
 Description | Enables scalable inserts and complex queries for time-series data
--[ RECORD 4 ]------------------------------------------------------------------
-Name        | timescaledb_toolkit
-Version     | 1.3.1
-Schema      | public
-Description | timescaledb_toolkit
 
 tsdb=>
 ```
@@ -181,3 +167,4 @@ if you want to have a chat.
 [tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: timescaledb/latest/how-to-guides/configuration/
+[releases-page]: https://packagecloud.io/timescale/timescaledb

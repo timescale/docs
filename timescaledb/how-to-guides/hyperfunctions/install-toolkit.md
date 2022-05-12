@@ -41,24 +41,25 @@ Toolkit using the package installation method, or by building from source.
 For more information on running TimescaleDB using Docker, see the section on
 [pre-built containers][docker-install].
 
-### Install Toolkit on Red Hat-based systems
+### Install Toolkit on CentOS 7 and other Red Hat-based systems
 
-These instructions use the `dnf` package manager on RHEL, CentOS, and Fedora.
+These instructions use the `yum` package manager. They have been tested on CentOS 7
+and may also work on other Red Hat-based systems, such as Red Hat Enterprise Linux and Fedora.
 
 <procedure>
 
-#### Installing Toolkit on Red Hat-based systems
+#### Installing Toolkit on CentOS 7
 
 1.  Make sure you have installed TimescaleDB and created a TimescaleDB
     repository in your `yum` `repo.d` directory. For more information, see [the
     instructions for Red Hat-based systems][red-hat-install].
 1.  Update your local repository list:
     ```bash
-    dnf update
+    yum update
     ```
 1.  Install TimescaleDB Toolkit:
     ```bash
-    dnf install timescaledb-toolkit-postgresql-14
+    yum install timescaledb-toolkit-postgresql-14
     ```
 1.  Connect to the database where you want to use Toolkit.
 1.  Create the Toolkit extension in the database:
@@ -107,10 +108,10 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     <terminal>
 
-    <tab label='Red Hat'>
+    <tab label='CentOS 7'>
 
     ```bash
-    dnf update
+    yum update
     ```
 
     </tab>
@@ -129,10 +130,10 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     <terminal>
 
-    <tab label='Red Hat'>
+    <tab label='CentOS 7'>
 
     ```bash
-    dnf install timescaledb-toolkit-postgresql-14
+    yum install timescaledb-toolkit-postgresql-14
     ```
 
     </tab>

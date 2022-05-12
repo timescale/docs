@@ -1,171 +1,146 @@
-# 7. Compression policies
+# Compression policies
 
-TimescaleDB comes with native compression capabilities which enable you to
+TimescaleDB includes native compression capabilities which enable you to
 analyze and query massive amounts of historical time-series data inside a
-database, while also saving on storage costs.
+database while also saving on storage costs. Additionally, all PostgreSQL data 
+types can be used in compression.
 
-TimescaleDB uses best-in-class compression algorithms along with a novel method
-to create hybrid row/columnar storage. This gives up to 96% lossless compression
-rates and speeds up common queries on older data. Compressing data increases the
-amount of time that your data is "useful" (in other words, in a database and not
-in a low-performance object store), without the corresponding increase in
-storage usage and bill.
+Compressing time-series data in a hypertable is a two-step process. First, you 
+need to enable compression on a hypertable by telling TimescaleDB how to compress 
+and order the data as it is compressed. Once compression is enabled, the data can 
+then be compressed in one of two ways:
+1. Using an automatic policy
+2. Manually compressing chunks
 
-<highlight type="tip">
-All PostgreSQL data types can be used in compression.
-</highlight>
-
-At a high level, TimescaleDB's built-in job-scheduler framework asynchronously
-converts recent data from an uncompressed row-based form to a compressed
-columnar form across chunks of TimescaleDB hypertables.
-
-In the next step, enable compression on your hypertable and learn two ways of
-compressing data: with an automatic policy or manually.
 
 ## Enable TimescaleDB compression on the hypertable
 
-Just like with continuous aggregates, there are two ways to compress data in
-TimescaleDB: manually, via a one-time command, or using a compression policy to
-automatically compress data on a schedule.
+To enable compression, you need to [`ALTER` the `stocks_real_time` hypertable][alter-table-compression]. There
+are three parameters you can specify when enabling compression:
+* `timescaledb.compress` (required): enable TimescaleDB compression on the hypertable
+* `timescaledb.compress_orderby` (optional): column(s) used to order compressed data
+* `timescaledb.compress_segmentby` (optional): column(s) used to group compressed data
 
-The easiest method to compress data is by using a compression policy. Let's create a policy to compress all data older than 10 years.
+If you do not specify `compress_orderby` or `compress_segmentby` column(s), the compressed data is automatically ordered by the hypertable time column.
+
+<procedure>
+
+### Enabling compression on a hypertable
+1. Use the following SQL to enable compression on the `stocks_real_time` hypertable:
+  ```sql
+  ALTER TABLE stocks_real_time SET (
+  timescaledb.compress,
+  timescaledb.compress_orderby = 'time DESC',
+  timescaledb.compress_segmentby = 'symbol'
+  );
+  ```
+
+  <highlight type="note">
+  To learn more about the `segmentby` and `orderby` options for compression in TimescaleDB and how 
+  to pick the right columns, see this detailed explanation in the [TimescaleDB compression docs](/timescaledb/latest/how-to-guides/compression/).
+  </highlight>
+1. View and verify the compression settings for your hypertables by using the
+  `compression_settings` informational view, which returns information about each
+  compression option and its `orderby` and `segmentby` attributes:
+  ```sql
+  -- See info about compression
+  SELECT * FROM timescaledb_information.compression_settings;
+  ```
+
+  **Sample results:**
+  ```bash
+  hypertable_schema|hypertable_name |attname|segmentby_column_index|orderby_column_index|orderby_asc|orderby_nullsfirst|
+  -----------------+----------------+-------+----------------------+--------------------+-----------+------------------+
+  public           |stocks_real_time|symbol |                     1|                    |           |                  |
+  public           |stocks_real_time|time   |                      |                   1|false      |true              |
+  ```
+
+</procedure>
+
+## Automatic compression
+When you have enabled compression, you can schedule a [policy to automatically compress][compress-automatic]
+data according to the settings defined above. 
+
+For example, if you want to compress data on your hypertable that is older than two weeks, run the following SQL:
 
 ```sql
--- Enable compression
-ALTER TABLE weather_metrics SET (
- timescaledb.compress,
- timescaledb.compress_segmentby = 'city_name'
-);
+SELECT add_compression_policy('stocks_real_time', INTERVAL '2 weeks');
 ```
 
-This enables compression on the hypertable `weather_metrics`.
+Similar to the continuous aggregates policy and retention policies, when you run this SQL, all 
+chunks that contain data that is at least two weeks old are compressed in `stocks_real_time`, 
+and a recurring compression policy is created. 
 
-The `segmentby` option determines the main key by which compressed data is
-accessed. In particular, queries that reference the `segmentby` columns in the
-WHERE clause are very efficient. Thus, it is important to pick the correct set
-of `segmentby` columns. In this case, pick `city_name` for the `segmentby`
-option, since it is common to query older data for just a single city over a
-long period of time.
+It is important that you don't try to compress all your data. Although you can insert
+new data into compressed chunks, compressed rows can't be updated or deleted. Therefore,
+it is best to only compress data after it has aged, once data is less likely to require updating.  
 
-<highlight type="tip">
-> To learn more about the `segmentby` and `orderby` options for compression in TimescaleDB and how to pick the right columns, see this detailed explanation in the [TimescaleDB compression docs](https://docs.timescale.com/latest/using-timescaledb/compression#react-docs).
-</highlight>
+Just like for automated policies for continuous aggregates, you can view information and statistics 
+about your compression background job in these two information views:
 
-You can view the compression settings for our hypertables by using the
-`compression_settings` informational view, which returns information about each
-compression option and its `orderby` and `segmentby` attributes:
-
+Policy details:
 ```sql
--- See info about compression
-SELECT * FROM timescaledb_information.compression_settings;
-```
-
-Now that compression is enabled, schedule a policy to automatically compress
-data according to the settings defined above. Set a policy to compress data
-older than 10 years by using the following query:
-
-```sql
--- Add compression policy
-SELECT add_compression_policy('weather_metrics', INTERVAL '10 years');
-```
-
-Just like for automated policies for continuous aggregates, we can view information and statistics about our compression background job in the following two information views:
-
-```sql
--- Informational view for policy details
 SELECT * FROM timescaledb_information.jobs;
+```
 
--- Informational view for stats from run jobs
+Policy job statistics:
+```sql
 SELECT * FROM timescaledb_information.job_stats;
 ```
 
-**Manual Compression**
+## Manual Compression
 
-While we recommend using compression policies to automatically compress data,
-there might be situations where you need to manually compress chunks. Here's a
-query which manually compresses chunks that consist entirely of data older than
-10 years:
+While we recommend using compression policies to compress data automatically,
+there might be situations where you need to [manually compress chunks][compress-manual]. 
+
+Use this query to manually compress chunks that consist of data older than
+2 weeks. If you manually compress hypertable chunks, consider adding `if_not_compressed=>true`
+to the `compress_chunk()` function. Otherwise, you will receive an error when TimescaleDB
+tries to compress a chunks that is already compressed.
 
 ```sql
----------------------------------------------------
--- Manual compression
----------------------------------------------------
-SELECT compress_chunk(i)
-FROM show_chunks('weather_metrics', older_than => INTERVAL ' 10 years') i;
+SELECT compress_chunk(i, if_not_compressed=>true)
+FROM show_chunks('stocks_real_time', older_than => INTERVAL ' 2 weeks') i;
 ```
-View the size of the compressed chunks before and after applying compression by using the following query:
+
+## Verify your compression
+
+You can check the overall compression rate of your hypertables using this query 
+to view the size of your compressed chunks before and after applying compression:
 
 ```sql
--- See effect of compression
 SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
   pg_size_pretty(after_compression_total_bytes) as "after compression"
-  FROM hypertable_compression_stats('weather_metrics');
+  FROM hypertable_compression_stats('stocks_real_time');
 ```
 
-## Benefits of compression
-
-**Disk space savings**
-
-Compression allows you to you enjoy disk space savings, so you can store more
-data in a fixed amount of disk space than you would in other databases (for
-example, [TimescaleDB uses 10% of the disk space to store the same number of
-time-series metrics as
-MongoDB][mongodb-comparison]).
-
-This is especially beneficial when backups and high-availability replicas are
-taken into account, as you'd save disk space and storage costs on all databases.
-
-**Better query performance**
-
-In addition to saving storage space and costs, compressing data might increase
-query performance on certain kinds of queries. Compressed data tends to be older
-data and older data tends to have different query patterns than recent data.
-
-**Newer data tends to be queried in a shallow and wide fashion**. In this case,
-shallow refers to the length of time and wide refers to the range of columns
-queried. These are often debugging or "whole system" queries. For example, "Show
-me all the metrics for all cities in the last 2 days." In this case the
-uncompressed, row-based format that is native to PostgreSQL gives us the best
-query performance.
-
-**Older data tends to be queried in a deep and narrow fashion.** In this case,
-deep refers to the length of time and narrow refers to the range of columns
-queried. As data begins to age, queries tend to become more analytical in nature
-and involve fewer columns. For example, "Show me the average annual temperature
-for city A in the past 20 years." This type of query greatly benefits from the
-compressed, columnar format.
-
-TimescaleDB's compression design allows you to get the best of both worlds:
-recent data is ingested in an uncompressed, row format for efficient shallow and
-wide queries, and then automatically converted to a compressed, columnar format
-after it ages and is most often queried using deep and narrow queries.
-
-Here's an example of a deep and narrow query on the compressed data. It
-calculates the average temperature for New York City for all years in the
-dataset before 2010. Data for these years is compressed, since you compressed all
-data older than 10 years with either the policy or the manual compression method
-above.
-
-```sql
--- Deep and narrow query on compressed data
-SELECT avg(temp_c) FROM weather_metrics
-WHERE city_name LIKE 'New York'
-AND time < '2010-01-01';
+**Results:**
+```bash
+|before compression|after compression|
+|------------------|-----------------|
+|667 MB            |60 MB            |
 ```
 
+## Next Steps
+Your overview of TimescaleDB is almost complete. The last feature that we want to 
+explore is [data retention][data-retention], which allows you to drop older raw data from a hypertable
+quickly without deleting data from the precalculated continuous aggregate.
 ## Learn more about compression
 
 For more information on how native compression in TimescaleDB works, as well as
-the compression algorithms involved, see this in depth blog post on the topic:
-[Building columnar compression in a row-oriented
-database][columnar-compression].
+the compression algorithms involved, see this in-depth blog post on the topic:
+[Building columnar compression in a row-oriented database][columnar-compression].
 
-For an introduction to compression algorithms, see this blog post: [Time-series
-compression algorithms, explained][compression-algorithms].
+For an introduction to compression algorithms, see this blog post: 
+[Time-series compression algorithms, explained][compression-algorithms].
 
 For more information, see the [compression docs][compression-docs].
 
+
+[data-retention]: /getting-started/data-retention/
 [columnar-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
 [compression-algorithms]: https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
 [compression-docs]: /how-to-guides/compression
-[mongodb-comparison]: https://blog.timescale.com/blog/how-to-store-time-series-data-mongodb-vs-timescaledb-postgresql-a73939734016/
+[alter-table-compression]:  /api/:currentVersion:/compression/alter_table_compression/
+[compress-automatic]: /api/:currentVersion:/compression/add_compression_policy/
+[compress-manual]: /api/:currentVersion:/compression/compress_chunk/

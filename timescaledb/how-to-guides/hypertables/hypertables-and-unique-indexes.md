@@ -1,6 +1,12 @@
 # Hypertable partitioning and unique indexes
 Hypertable partitioning introduces some restrictions on unique indexes.
 
+<highlight type="note">
+This section pertains only to unique indexes, not to indexes in general. You
+can create a hypertable without any unique index, though you might want one to
+enforce constraints.
+</highlight>
+
 ## Partitioning columns
 Before you create a unique index, you need to determine what unique indexes are allowed on your
 hypertable. Begin by identifying your partitioning columns.

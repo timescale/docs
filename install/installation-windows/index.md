@@ -77,7 +77,7 @@ installed it yet, check out our [installing psql][install-psql] section.
     ```
 1.  Connect to the database you created:
     ```sql
-    \c tutorial
+    \c example
     ```
 1.  Add the TimescaleDB extension:
     ```sql
