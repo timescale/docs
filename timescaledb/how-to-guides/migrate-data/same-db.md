@@ -1,82 +1,75 @@
-# Migrate from the Same PostgreSQL Database
-<highlight type="tip">
-First make sure that you have properly [installed](/install/latest/)
-**AND [setup](/install/latest/)** TimescaleDB
+# Migrate data to TimescaleDB from the same PostgreSQL instance
+You can migrate data into a TimescaleDB hypertable from a regular PostgreSQL
+table. This method assumes that you have TimescaleDB set up in the same database
+instance as your existing table. To migrate between PostgreSQL instances, see
+the instructions for [migrating data from a different database][different-db].
+
+## Prerequisites
+Before beginning, make sure you have [installed and set up][install] TimescaleDB
 within your PostgreSQL instance.
-</highlight>
 
-For this example we'll assume that you have a table named `old_table` that you
-want to migrate to a table named `new_table`.  The steps are:
+You also need a table with existing data. In this example, the source table is
+named `old_table`. Replace the table name with your actual table name. The
+example also names the destination table `new_table`, but you might want to use
+a more descriptive name.
 
-1. Create a new empty table with the same table structure and other constraints
-as the old one, using `LIKE`.
-1. Convert the table to a hypertable and insert data from the old table.
-1. Add any additional indexes needed.
+## Migrate data
+Migrate your data into TimescaleDB from within the same database.
 
-### 1. Creating the New Empty Table
+<procedure>
 
-There are two ways to go about this step: one more convenient, the other faster.
+## Migrating data
+1.  Create a new table based on your existing table. You can create your indexes
+    at the same time, so you don't have to recreate them manually. Or you can
+    create the table without indexes, which makes data migration faster.
 
-#### Convenient Method
+    <terminal>
+    
+    <tab label="With indexes">
 
-This method recreates `old_table` indexes on `new_table` when it is created so that
-when we convert it to a hypertable in the next step, we don't have to make them
-ourselves.  It avoids a step, but slows down the data transfer due to the need to
-update the indexes for each migrated row.
+    ```bash
+    CREATE TABLE new_table (
+        LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES
+    );
+    ```
 
-```sql
-CREATE TABLE new_table (LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS INCLUDING INDEXES);
-```
+    </tab>
+    
+    <tab label="Without indexes">
 
-#### Faster Method
+    ```bash
+    CREATE TABLE new_table (
+        LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS EXCLUDING INDEXES
+    );
+    ```
 
-This method does not generate the indexes while making the table.  This makes the data
-transfer faster than the convenient method, but requires us to add the indexes as a
-final step.
+    </tab>
 
-```sql
-CREATE TABLE new_table (LIKE old_table INCLUDING DEFAULTS INCLUDING CONSTRAINTS EXCLUDING INDEXES);
-```
+    </terminal>
 
-### 2. Convert the New Table to a Hypertable
+1.  Convert the new table to a hypertable using the
+    [`create_hypertable`][create_hypertable] function. Replace `ts` with the
+    name of the column that holds time values in your table.
+    ```sql
+    SELECT create_hypertable('new_table', 'ts');
+    ```
+1.  Insert data from the old table to the new table.
+    ```sql
+    INSERT INTO new_table
+      SELECT * FROM old_table;
+    ```
+1.  If you created your new table without indexes in Step 1, recreate your
+    indexes.
 
-We use the TimescaleDB function [`create_hypertable`][create_hypertable] to
-convert `new_table` to a hypertable, then simply `INSERT` data from the old table:
+</procedure>
 
-```sql
--- Assuming 'time' is the time column for the dataset
-SELECT create_hypertable('new_table', 'time');
+## Troubleshooting
+If you have unique or primary indexes on your old table, you might get an error
+about indexes and partitioning. See the [hypertables and unique indexes
+section][unique-indexes] section for more information.
 
--- Insert everything from old_table
-INSERT INTO new_table SELECT * FROM old_table;
-```
-
-<highlight type="warning">
-`create_hypertable` may fail if invalid UNIQUE or PRIMARY
-KEY indexes existed on the old table (see this [note](/timescaledb/latest/how-to-guides/schema-management/indexing/#default-indexes)).
-In this case, you would have to reconfigure your indexes
-and/or schema.
-</highlight>
-
-### 3. Add Additional Indexes
-
-If you used the convenient method, whatever indexes were on `old_table` are now
-on `new_table` making this step optional. For the faster `CREATE TABLE` method
-or for adding any indexes not on `old_table`, you need to add indexes to
-this hypertable.
-
-```sql
-CREATE INDEX on new_table (column_name, <options>)
-```
-
-For more info on the best strategies for indexing, check out
-our [schema management][indexing] section.
-
-Now check out some common [hypertable commands][] for exploring your data.
-
-
-[installed]: /install/latest/
-[setup]: /install/latest/
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[indexing]: /how-to-guides/schema-management/indexing/#indexing-data
-[hypertable commands]: /how-to-guides/hypertables/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[different-db]: /how-to-guides/migrate-data/different-db/
+[install]: /install/:currentVersion:/
+[troubleshooting]: /how-to-guides/migrate-data/troubleshooting/
+[unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

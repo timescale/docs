@@ -1,94 +1,64 @@
 # Import data into TimescaleDB from .csv
+If you have data stored in an external `.csv` file, you can import it into TimescaleDB.
 
-<highlight type="tip">
-First make sure that you have properly [installed](/install/latest/)
-**AND [setup](/install/latest/)** TimescaleDB
+## Prerequisites
+Before beginning, make sure you have [installed and set up][install] TimescaleDB
 within your PostgreSQL instance.
+
+## Import data
+Import data form a `csv`.
+
+<procedure>
+
+### Importing data
+
+<highlight type="note">
+Timescale provides an open source [parallel
+importer](https://github.com/timescale/timescaledb-parallel-copy) program,
+`timescaledb-parallel-copy`, to speed up data copying. The program parallelizes
+migration by using several workers to run multiple `COPY`s concurrently. It also
+offers options to improve the copying experience. If you prefer not to download
+`timescaledb-parallel-copy`, you can also use regular PostgreSQL `COPY`. 
 </highlight>
 
-If you have data stored in an external `.csv` file, you can import it into TimescaleDB:
+1.  Connect to your database and create a new empty table. Use a schema that
+    matches the data in your `.csv` file. In this example, the `.csv` file
+    contains the columns `time`, `location`, and `temperature`.
+    ```sql
+    CREATE TABLE <TABLE_NAME> (
+        ts        TIMESTAMPTZ           NOT NULL,
+        location    TEXT                NOT NULL,
+        temperature DOUBLE PRECISION    NULL
+    );
+    ```
+1.  Convert the empty table to a hypertable using the
+    [`create_hypertable`][create_hypertable] function. Replace `ts` with the
+    name of the column storing time values in your table.
+    ```sql
+    SELECT create_hypertable('<TABLE_NAME>', 'ts')
+    ```
+1.  At the command line, insert data into the hypertable from your `csv`. Use
+    `timescaledb-parallel-copy` to speed up migration. Adjust the number of
+    workers as desired. Alternatively see the next step.
+    ```bash
+    timescaledb-parallel-copy --db-name <DATABASE_NAME> --table <TABLE_NAME> \
+        --file <FILENAME>.csv --workers 4 --copy-options "CSV"
+    ``` 
+1.  **(Alternative)** If you don't want to use `timescaledb-parallel-copy`,
+    insert data into the hypertable by using PostgreSQL's native `COPY`command.
+    At the command line, run:
+    ```bash
+    psql -d <DATABASE_NAME> -c "\COPY <TABLE_NAME> FROM <FILENAME>.csv CSV"
+    ```
 
-1. Create a new empty table with the same schema as the data file and convert the table to a hypertable.
-2. Insert the data from the file.
-
-### 1. Creating the new Empty Table
-
-Creating the empty table requires foreknowledge of the schema of the data in the file, but is otherwise the same as creating any new hypertable.  Our example is a database named `new_db` and a data file named `old_db.csv`.
-
-First create a new empty PostgreSQL table:
-
-```sql
--- Assuming the data file's columns are time, location, temperature
-CREATE TABLE conditions (
-    time        TIMESTAMPTZ         NOT NULL,
-    location    text                NOT NULL,
-    temperature DOUBLE PRECISION    NULL
-);
-```
-
-Then convert that table into a hypertable using [`create_hypertable`][create_hypertable]:
-
-```sql
-SELECT create_hypertable('conditions', 'time');
-```
-
-### 2. Inserting data into the hypertable [](csv-import)
-
-#### Recommended: Using `timescaledb-parallel-copy`
-
-To bulk insert data into the new table, we recommend using our
-[open sourced Go program][parallel importer] that can speed up large data migrations by running multiple `COPY`s
-concurrently. For example, to use 4 workers:
-```bash
-timescaledb-parallel-copy --db-name new_db --table conditions \
-    --file old_db.csv --workers 4 --copy-options "CSV"
-```
-
-In addition to parallelizing the workload, the tool also offers flags
-to improve the copy experience. [See the repo on GitHub][parallel importer] for full details.
-
-<highlight type="tip">
-We recommend not setting the number of workers higher than
-the number of available CPU cores on the machine.
-Above that, the workers tend to compete with each other for
+<highlight type="note">
+Don't set the number of workers for `timescaledb-parallel-copy` higher than the
+number of available CPU cores. Above that, workers compete with each other for
 resources and reduce the performance improvements.
 </highlight>
 
-#### Using PostgreSQL's `COPY`
+</procedure>
 
-Although we recommend our [open sourced Go program][parallel importer]
-for better bulk insert performance, we can also use PostgreSQL's bulk insert command `COPY` to copy data
-from the `.csv` into our new db:
-
-```bash
-psql -d new_db -c "\COPY conditions FROM old_db.csv CSV"
-```
-
-This method is straightforward and requires no extra tools, but for
-large datasets it can be impractical and time-consuming because
-`COPY` is single-threaded. For a faster method that can utilize more
-of the CPU, use the previous method.
-
-## Migration from InfluxDB to TimescaleDB using Outflux [](outflux)
-
-Outflux is an open-source tool that users can use to batch migrate data from
-InfluxDB to TimescaleDB. Anyone who is currently running an InfluxDB instance
-can migrate their workload to TimescaleDB with a single command: `outflux migrate`.
-You must also have [TimescaleDB installed][installed] and a means to connect to it.
-
-With Outflux, users can pipe exported data directly into TimescaleDB.
-Outflux manages schema discovery, validation, and creation.
-
-For more information on how to get started, please follow [this tutorial][outflux-tutorial].
-Now check out some common [hypertable commands][] for exploring your data.
-
-
-[installed]: /install/latest/
-[setup]: /install/latest/
-[outflux]: /how-to-guides/migrate-data/migrate-influxdb/
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[unique_indexes]: /how-to-guides/schema-management/indexing/#default-indexes
-[indexing]: /how-to-guides/schema-management/indexing/#indexing-data
+[install]: /install/:currentVersion:/
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
-[outflux-tutorial]: /how-to-guides/migrate-data/migrate-influxdb/
-[hypertable commands]: /how-to-guides/hypertables/
