@@ -68,7 +68,7 @@ to help with retries for failed writes, and to batch the write requests to Proms
 exporters:
   logging:
   otlp:
-    endpoint: {{ .Values.promscale | quote }}
+    endpoint: "<PROMSCALE_HOST>:<gRPC_PORT>"
     tls:
       insecure: true
     sending_queue:
@@ -80,7 +80,9 @@ processors:
     send_batch_max_size: 4000
     timeout: 10s
 ```
-
+Where: 
+* `<PROMSCALE_HOST>`: hostname of Promscale
+* `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
 
 Compute recommendations for the Promscale connector and TimescaleDB are:
 
