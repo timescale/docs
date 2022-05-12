@@ -146,6 +146,13 @@ module.exports = [
             keywords: ['Promscale', 'Jaeger'],
             excerpt: 'Jaeger to visualize data in Promscale',
           },
+          {
+           title: 'Application Performance Monitoring (APM)',
+           href: 'apm-experience',
+           tags: ['promscale', 'configure', 'jaeger', 'opentelemetry', 'traces', 'apm'],
+           keywords: ['Promscale', 'Jaeger', 'APM'],
+           excerpt: 'APM experience within Grafana using dashboards with SQL queries on traces',
+         },
         ],
       },
       {
