@@ -26,7 +26,7 @@ The Grafana dashboard consists of Promscale metrics grouped in several rows:
 
 Import the Promscale Grafana dashboard by following the instructions below
 
-1.  In the [Grafana community dashboards](grafana-promscale-dashboard), click
+1.  In the [Grafana community dashboards][grafana-promscale-dashboard], click
     the `Details` button to open the `Promscale metrics` dashboard published by
     Promscale
 1.  Click `Copy ID to Clipboard` to copy the dashboard UID.
@@ -47,7 +47,7 @@ Import the Promscale Grafana dashboard by following the instructions below
 You can configure alerting rules for Promscale to send alerts when something
 doesn't work as expected in Promscale.
 
-[Here](promscale-alerting-rules) are the alerting rules for Promscale. These
+[Here][promscale-alerting-rules] are the alerting rules for Promscale. These
 alerting rules should be configured on the Prometheus instance that you
 are using to monitor Promcsale.
 
@@ -55,10 +55,8 @@ are using to monitor Promcsale.
 
 When an alert is sent, the alert message references the relevant runbook to
 troubleshoot and mitigate the issue. These runbooks are published and maintained
-in the [Promscale Github repository](promscale-runbooks).
+in the [Promscale Github repository][promscale-runbooks].
 
 [grafana-promscale-dashboard]: https://grafana.com/grafana/dashboards/16241
-[promscale-alerting-rules]:
-    https://raw.githubusercontent.com/timescale/promscale/master/docs/mixin/alerts/alerts.yaml
-[promscale-runbooks]:
-    https://github.com/timescale/promscale/tree/master/docs/runbooks
+[promscale-alerting-rules]: https://raw.githubusercontent.com/timescale/promscale/master/docs/mixin/alerts/alerts.yaml
+[promscale-runbooks]: https://github.com/timescale/promscale/tree/master/docs/runbooks
