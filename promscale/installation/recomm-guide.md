@@ -117,7 +117,7 @@ there are a few other PostgreSQL parameters worth tuning:
   delays.
 * `bgwriter_lru_maxpages=100000` - increase the number of pages a background
   writer handles to make it more efficient.
-* `max_wal_size=(around 25% of total disk volume)` - the checkpoint is triggered
+* `max_wal_size` - set it to a high enough value so that the checkpoint is triggered
   by the timeout setting and not when the `maximum_wal_size` is reached.
 * `synchronous_commit=off` - this does not cause data corruption or
   inconsistency. However, in case of a crash, some of the last data points may be
