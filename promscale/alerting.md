@@ -63,8 +63,8 @@ these alerts.
         - targets:
         - localhost:9093
     ```
-1.  Pass this configuration file to Promscale using the `-metrics.rules.config`
-    flag at start.
+1.  Pass this configuration file to Promscale when you start the service, 
+     using the `-metrics.rules.config` flag.
     
 </procedure>
 
