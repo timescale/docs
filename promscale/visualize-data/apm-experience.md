@@ -88,7 +88,6 @@ dashboards published by Promscale.
 </procedure>
 
 ### Mounting dashboards as snapshots
-
 You can mount the dashboards in Grafana on startup using the configuration
 options in Grafana. For more information, see [Provisioning Grafana](grafana-dashboard-mounting).
 In the directory that is mounted to Grafana configuration, prefix `APM` to all
