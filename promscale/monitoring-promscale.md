@@ -1,23 +1,23 @@
 # Monitoring Promscale
-Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana dashboard that you can use to monitor it.
+Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana
+dashboard that you can use to monitor it.
 
-<highlight type="note">
-To monitor Promscale, make sure that a Prometheus instance is scraping the Promscale
-HTTP endpoint, which defaults to port `9201` port in the `/metrics` API. Use Prometheus to 
-to evaluate the Promscale alerting rules, and configure Prometheus as a data source
-in Grafana to visualize the Promscale dashboard. This helps to troubleshoot the
-issues when Promscale isn't working as expected. You don't want your monitoring
-tool monitoring itself.
+<highlight type="note"> To monitor Promscale, make sure that a Prometheus
+instance is scraping the Promscale HTTP endpoint, which defaults to port `9201`
+port in the `/metrics` API. Use Prometheus to evaluate the Promscale alerting
+rules, and configure Prometheus as a data source in Grafana to visualize the
+Promscale dashboard. This helps to troubleshoot the issues when Promscale isn't
+working as expected. You don't want your monitoring tool monitoring itself.
 </highlight>
 
 ## Dashboards
 
-The dashboard consists of Promscale metrics like
-    1. Overview
-    2. Ingest
-    3. Query
-    4. Database
-    5. Cache
+The dashboard consists of Promscale metrics such as:
+* Overview
+* Ingest
+* Query
+* Database
+* Cache
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/images/misc/grafana-promscale.jpeg"
@@ -25,39 +25,46 @@ alt="Promscale metrics dashboard"/>
 
 <procedure>
 
-## Import Promscale dashboard
+### Importing Promscale dashboard
 
 Import Promscale dashboard by following below instructions
 
-1.  Open the dashboard published by Promscale org from the [Grafana 
-    community dashboards](grafana-promscale-dashboard), select `Copy ID to Clipboard` to copy the dashboard UID.
-1.  In Grafana UI select `Create` from left side menu bar, igate to `Import`.
-1.  Now paste the dashbaord UID in `Import via grafana.com` textbox and click 
-    on `Load` to import the dashbaord into Grafana instance.
-1.  On importing the dashboard select the `folder` to which you want to add the imported
-    dashboard.
-1.  Select the data source from which you want the dashboard to query the data.
-    * To visualize Promscale metrics select the `Prometheus` data source and `Prometheus` query endpoint,
-      You do not want to query Promsale's own dashboard using the Promscale query endpoint. With this practice
-      this avoids a single point of failure if Promscale isn't working as expected.
+1.  In the [Grafana community dashboards](grafana-promscale-dashboard), click
+    the `Details` button to open the `Promscale metrics` dashboard published by
+    Promscale
+1.  Click `Copy ID to Clipboard` to copy the dashboard UID.
+1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
+    menu.
+1.  Paste the dashboard UID in the `Import via grafana.com` textbox, and click
+    `Load`. The `Importing dashboard from Grafana.com` page appears.
+1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
+    the dashboard..
+1.  Select the data source from which you want the dashboard to query the data:
+    * To visualize Promscale metrics select the `Promscale-PromQL` as the data
+    source in the `Prometheus` drop-down menu. You do not want to query
+    Promsale's own dashboard using the Promscale query endpoint. This avoids a
+    single point of failure if Promscale isn't working as expected.
+1.  Click `Import`.
 
 </procedure>
 
 ## Alerts
 
-You can configure alerting rules for Promscale to fire alerts 
-when something doesn't work as expected in Promscale.
+You can configure alerting rules for Promscale to send alerts when something
+doesn't work as expected in Promscale.
 
-[Here](promscale-alerting-rules) are the alerting rules for Promscale. These 
-alerting rules should be configured on the Prometheus end to evaluate the alerting rules.
+[Here](promscale-alerting-rules) are the alerting rules for Promscale. These
+alerting rules should be configured on the Prometheus end to evaluate the
+alerting rules.
 
 ## Runbooks
 
-When an alert is fired, the alert message references the relevant runbook
-to troubleshoot and mitigate the issue.
-These runbooks are published and
-maintained in the [Promscale Github repository](promscale-runbooks).
+When an alert is sent, the alert message references the relevant runbook to
+troubleshoot and mitigate the issue. These runbooks are published and maintained
+in the [Promscale Github repository](promscale-runbooks).
 
 [grafana-promscale-dashboard]: https://grafana.com/grafana/dashboards/16241
-[promscale-alerting-rules]: https://raw.githubusercontent.com/timescale/promscale/master/docs/mixin/alerts/alerts.yaml
-[promscale-runbooks]: https://github.com/timescale/promscale/tree/master/docs/runbooks
+[promscale-alerting-rules]:
+    https://raw.githubusercontent.com/timescale/promscale/master/docs/mixin/alerts/alerts.yaml
+[promscale-runbooks]:
+    https://github.com/timescale/promscale/tree/master/docs/runbooks
