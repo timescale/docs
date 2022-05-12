@@ -68,7 +68,7 @@ these alerts.
     
 </procedure>
 
-For information about alerting, see [Prometheus alerting][prometheus-alerting].
+For more information about alerting, see [Prometheus alerting][prometheus-alerting].
 For specific information about alerting rules, see [Prometheus alerting
 rules][prometheus-alert-rules].
 
