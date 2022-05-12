@@ -11,11 +11,11 @@ on-call notification systems, and chat platforms. The labels,
 summary, and description described in the alerting rules file is forwarded
 to the alert manager on meeting the PromQL alert expression.
 
-Setting up alerting and notifications are:
+To set up alerting and notifications, you need to:
 
-1. Setup and configure the Alertmanager
-2. Configure Promscale to talk to the Alertmanager
-3. Create alerting rules in Promscale
+1. Setup and configure the alert manager
+1. Configure Promscale to talk to the alert manager
+1. Create alerting rules in Promscale
 
 For more details on alertmanager, follow this [docs](am-docs).
 
