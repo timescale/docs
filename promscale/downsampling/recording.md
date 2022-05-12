@@ -7,7 +7,6 @@ The new metric series is stored in Promscale, and you can query it in the same
 way as any other Prometheus metric. In Promscale, you can set the recording 
 rules similar to Prometheus rules configuration.
 
-<procedure>
 
 ## Set recording rules
 
