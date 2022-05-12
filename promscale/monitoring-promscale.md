@@ -3,31 +3,28 @@ Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana
 dashboard that you can use to monitor it.
 
 <highlight type="note"> To monitor Promscale, make sure that a Prometheus
-instance is scraping the Promscale HTTP endpoint, which defaults to port `9201`
+instance is scraping the Promscale HTTP metrics endpoint, which defaults to port `9201`
 port in the `/metrics` API. Use Prometheus to evaluate the Promscale alerting
 rules, and configure Prometheus as a data source in Grafana to visualize the
-Promscale dashboard. This helps to troubleshoot the issues when Promscale isn't
-working as expected. You don't want your monitoring tool monitoring itself.
+Promscale dashboard. This helps to troubleshoot issues when Promscale isn't
+working as expected. You should be using a separate Prometheus instance and not Promscale.
+You don't want your monitoring tool monitoring itself.
 </highlight>
 
-## Dashboards
+## Dashboard
 
-The dashboard consists of Promscale metrics such as:
+The Grafana dashboard consists of Promscale metrics grouped in several rows:
 * Overview
 * Ingest
 * Query
 * Database
 * Cache
 
-<img class="main-content__illustration"
-src="https://s3.amazonaws.com/assets.timescale.com/images/misc/grafana-promscale.jpeg"
-alt="Promscale metrics dashboard"/>
-
 <procedure>
 
-### Importing Promscale dashboard
+### Importing the Promscale Grafana dashboard
 
-Import Promscale dashboard by following below instructions
+Import the Promscale Grafana dashboard by following the instructions below
 
 1.  In the [Grafana community dashboards](grafana-promscale-dashboard), click
     the `Details` button to open the `Promscale metrics` dashboard published by
@@ -39,11 +36,8 @@ Import Promscale dashboard by following below instructions
     `Load`. The `Importing dashboard from Grafana.com` page appears.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard..
-1.  Select the data source from which you want the dashboard to query the data:
-    * To visualize Promscale metrics select the `Promscale-PromQL` as the data
-    source in the `Prometheus` drop-down menu. You do not want to query
-    Promsale's own dashboard using the Promscale query endpoint. This avoids a
-    single point of failure if Promscale isn't working as expected.
+1.  Select the data source that corresponds to the Prometheus instance that you 
+    are using to monitor Promcsale in the `Prometheus` drop-down.
 1.  Click `Import`.
 
 </procedure>
@@ -54,8 +48,8 @@ You can configure alerting rules for Promscale to send alerts when something
 doesn't work as expected in Promscale.
 
 [Here](promscale-alerting-rules) are the alerting rules for Promscale. These
-alerting rules should be configured on the Prometheus end to evaluate the
-alerting rules.
+alerting rules should be configured on the Prometheus instance that you
+are using to monitor Promcsale.
 
 ## Runbooks
 
