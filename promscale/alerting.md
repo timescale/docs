@@ -1,8 +1,8 @@
 # Alerting rules in Promscale
-Promscale supports alerting rules. It evaluates these rules
-at regular intervals. The Promscale connector can be used as the ruler while
-ingesting and querying the data. In Promscale, you can set the alerting rules
-similar to Prometheus rules configuration and publish the alerts to alertmanager. 
+Promscale supports alerting rules. It evaluates these rules at regular
+intervals. The Promscale connector can be used as the ruler while ingesting and
+querying the data. In Promscale, you can set the alerting rules similar to
+Prometheus rules configuration and publish the alerts to alertmanager. 
 
 ## Alert manager
 The alert manager manages alerts, including silencing, inhibition,

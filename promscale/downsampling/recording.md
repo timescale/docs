@@ -8,9 +8,7 @@ way as any other Prometheus metric. In Promscale, you can set the recording
 rules similar to Prometheus rules configuration.
 
 ## Set recording rules
-Promscale recording rules are built on top of Prometheus recording rules capabilities.
-Recording rules are written in a `YAML` file and specified in the Promscale configuration
-file.
+Promscale recording rules are built on top of Prometheus recording rules capabilities.The recording rules are written in a `YAML` file and specified in the Promscale configuration file.
 The recording rules are used for computationally expensive expressions and save
 their result as a new set of time series data. These help in visualization of
 data over a long period of time. 
@@ -55,12 +53,10 @@ FROM "customer:api_requests:rate1day"
 ORDER BY time ASC
 ```
 
-For more information about recording,
-see [Prometheus recording][prometheus-recording]. 
+For more information about recording, see [Prometheus recording][prometheus-recording]. 
 
-For specific information about
-recording rules, see [Prometheus recording rules][prometheus-recording-rules].
+For specific information about recording rules, see [Prometheus recording
+rules][prometheus-recording-rules].
 
 [prometheus-recording]: https://prometheus.io/docs/practices/rules/
-[prometheus-recording-rules]:
-    https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/
+[prometheus-recording-rules]: https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/

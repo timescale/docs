@@ -6,7 +6,7 @@ data, to take up less space on disk. The main reasons for downsampling are to
 reduce cost and increase performance. Querying downsampled data gets faster as
 the size of the data decreases.
 
-The two downsampling methods are
+The two downsampling methods are:
 
 * [PromQL based recording rules](recording) offered by Prometheus
 * [Continuous aggregates](caggs) offered by TimescaleDB
