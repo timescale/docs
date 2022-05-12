@@ -613,6 +613,16 @@ module.exports = [
       {
         title: "Hyperfunctions",
         href: "hyperfunctions",
+        pageComponents: ["featured-cards"],
+        featuredChildren: [
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages",
+        ],
         children: [
           {
             title: "About hyperfunctions",
@@ -640,12 +650,13 @@ module.exports = [
             href: "function-pipelines",
             tags: ["toolkit", "hyperfunctions", "query", "timescaledb"],
             keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt: "Learn about function pipelines",
+            excerpt: "Use functional programming to simplify complex SQL queries",
           },
           {
             title: "Approximate count distincts",
             href: "approx-count-distincts",
             type: "directory",
+            excerpt: "Count the number of unique values in a dataset",
             children: [
               {
                 title: "Hyperloglog",
@@ -661,12 +672,14 @@ module.exports = [
             href: "stats-aggs",
             tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
             keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt: "Learn about the statistical aggregates hyperfunction",
+            excerpt:
+              "Calculate descriptive statistics and models, including averages, standard deviation, linear regression, and more",
           },
           {
             title: "Gapfilling and interpolation",
             href: "gapfilling-interpolation",
             type: "directory",
+            excerpt: "Fill in data collected at irregular time intervals",
             children: [
               {
                 title: "Time bucket gapfill",
@@ -689,6 +702,7 @@ module.exports = [
             title: "Percentile approximation",
             href: "percentile-approx",
             type: "directory",
+            excerpt: "Calculate percentiles",
             children: [
               {
                 title: "Approximate percentile",
@@ -711,6 +725,7 @@ module.exports = [
             title: "Counter aggregation",
             href: "counter-aggregation",
             type: "directory",
+            excerpt: "Calculate statistics from gauges and counters",
             children: [
               {
                 title: "Counter aggregates",
@@ -725,6 +740,7 @@ module.exports = [
             title: "Time-weighted averages",
             href: "time-weighted-averages",
             type: "directory",
+            excerpt: "Calculate time-weighted averages",
             children: [
               {
                 title: "Time-weighted averages",
