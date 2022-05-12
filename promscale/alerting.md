@@ -9,7 +9,7 @@ The alert manager manages alerts, including silencing, inhibition,
 and aggregation. It also sends out notifications using email, 
 on-call notification systems, and chat platforms. The labels, 
 summary, and description described in the alerting rules file is forwarded
-to the alertmanager on meeting the promQL alert expression.
+to the alert manager on meeting the PromQL alert expression.
 
 Setting up alerting and notifications are:
 
