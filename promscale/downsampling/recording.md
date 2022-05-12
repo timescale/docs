@@ -14,7 +14,7 @@ rules similar to Prometheus rules configuration.
 Promscale recording rules are built on top of Prometheus recording rules capabilities.
 Recording rules are written in a `YAML` file and specified in the Promscale configuration
 file.
-* `recording rules` are used for computationally expensive expressions and save
+The recording rules are used for computationally expensive expressions and save
 their result as a new set of time series data. These help in visualization of
 data over a long period of time. 
 
