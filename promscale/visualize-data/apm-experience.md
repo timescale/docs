@@ -41,8 +41,8 @@ dashboards published by Promscale.
 <procedure>
 
 ### Importing APM dashboards from the Grafana community
-1.  In the [Grafana community dashboard](promscale-grafana-dashboards), click
-    the `Details` button to open a dashboard. 
+1.  In the [Grafana community dashboard](promscale-grafana-dashboards) select 
+    the dashboard with `APM` prefix, click the `Details` button to open a dashboard. 
 1.  Click `Copy ID to Clipboard` to copy the UID of the dashboard.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
     menu.
@@ -67,7 +67,7 @@ dashboards published by Promscale.
 <procedure>
 
 ### Importing dashboards as JSON files.
-1.  Download all the `.json` files from the [Promscale
+1.  Download all the `.json` files with `APM` prefix from the [Promscale
     dashboards](promscle-github-dashboards) repository.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
     menu.
