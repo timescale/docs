@@ -1,5 +1,4 @@
 # Application Performance Management (APM) with traces
-
 Promscale provides an APM-like experience with traces data using SQL. Import the 
 Grafana dashboards that are published by the Promscale team to get the APM 
 with traces.
