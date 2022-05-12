@@ -104,7 +104,7 @@ The default chunk interval is `1h`
 
 ## Database Configuration
 
-To set the most common parameters to optimal values based on your system run the
+To set the most common parameters to optimal values based on your system, run
 `timescaledb-tune`. It accounts for memory, CPU, and PostgreSQL version. For
 more information, see [configuration][timescale-tune-configuration]. However,
 there are a few other PostgreSQL parameters worth tuning:
