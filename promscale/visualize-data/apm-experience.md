@@ -91,7 +91,7 @@ dashboards published by Promscale.
 
 You can mount the dashboards in Grafana on startup using the configuration
 options in Grafana. For more information, see [Provisioning Grafana](grafana-dashboard-mounting).
-In that directory that is mounted to Grafana configuration, prefix `APM` to all
+In the directory that is mounted to Grafana configuration, prefix `APM` to all
 the dashboards from [Promscale Github repository](promscale-github-dashboards). 
 
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
