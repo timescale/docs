@@ -1,4 +1,4 @@
-# Monitoring Promscale
+# Monitor Promscale
 Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana
 dashboard that you can use to monitor it.
 

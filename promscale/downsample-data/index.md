@@ -36,5 +36,5 @@ method:
     aggregates. This is especially important if it is something you do often,
     because backfilling old data with recording rules requires additional steps.
 
-[recording]: /downsampling/recording/
-[caggs]: /downsampling/caggs/
+[recording]: /downsample-data/recording/
+[caggs]: /downsample-data/caggs/
