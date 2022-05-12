@@ -6,8 +6,6 @@ with traces.
 You can use one of these methods to import APM dashboards:
 *  From the Grafana community the dashboards published by Promscale.
 *  From Promscale Github repository as JSON files.
-*  When installing Grafana, mount APM dashboards as a snapshot.
-
 
 Before you begin importing APM dashboards:
 
@@ -86,17 +84,7 @@ dashboards published by Promscale.
 
 </procedure>
 
-### Mounting dashboards as snapshots
-You can mount the dashboards in Grafana on startup using the configuration
-options in Grafana. For more information, see [Provisioning Grafana](grafana-dashboard-mounting).
-In the directory that is mounted to Grafana configuration, prefix `APM` to all
-the dashboards from [Promscale Github repository](promscale-github-dashboards). 
-
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
-[promscale-github-dashboards]:
-    https://github.com/timescale/promscale/tree/master/docs/mixin/dashboards
-[grafana-dashboard-mounting]:
-    https://grafana.com/docs/grafana/latest/administration/provisioning/#dashboards
 [promscale-as-prometheus]:
     /visualize-data/grafana/#promscale-as-prometheus-datasource
 [promscale-as-jaeger]: /visualize-data/grafana/#promscale-as-jaeger-datasource
