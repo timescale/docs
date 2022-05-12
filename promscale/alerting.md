@@ -22,7 +22,6 @@ For more details about the `alertmanager` tool, see the [alert manager documenta
 <procedure>
 
 ## Set alerting rules
-
 Promscale alerting rules are built on top of Prometheus
 alerting rules capabilities. Alerting rules are written in a `YAML` file
 and specified in the Promscale configuration
