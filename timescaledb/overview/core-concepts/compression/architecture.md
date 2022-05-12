@@ -1,5 +1,4 @@
 # Compression architecture
-<!-- TODO: Add more to reflect the loads and loads of content on this page-->
 TimescaleDB compresses data by:
 *   Converting it from a row-based format to a [hybrid row-columnar
     format][row-columnar-format]
