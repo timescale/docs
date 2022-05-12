@@ -13,8 +13,7 @@ Promscale provides an APM-like experience with traces data using SQL. Import the
     extension:
     1. Check if the extension is available: `SELECT * FROM
         pg_available_extensions WHERE name='timescaledb_toolkit';`
-        <highlight
-        type="note> If the query returns no results, the extension is not
+        <highlight type="note"> If the query returns no results, the extension is not
          available for installation in your database. To make it available
          follow [these instructions](install-toolkit). 
          </highlight>
