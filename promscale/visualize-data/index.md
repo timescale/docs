@@ -2,7 +2,7 @@
 You can visualize data in Promscale using tools such as
 [Grafana][grafana-homepage] and [Jaeger][jaeger-homepage].
 
-* **Grafana** is a interactive visualization web application that allows you to monitor and
+* **Grafana** is an interactive visualization web application that allows you to monitor and
   analyze metrics, logs, and traces. It allows you to query, visualize, alert on
   and understand your data no matter where it is stored. You can connect
   Promscale to Grafana [to visualize metrics and traces][grafana-promscale] by 
