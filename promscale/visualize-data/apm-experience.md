@@ -3,20 +3,22 @@
 Promscale provides an APM-like experience with traces data using SQL. Import the Grafana dashboards that are published by the Promscale team to get the APM with traces.
 
 ## Before you begin importing APM dashboards
-1. Add these data sources in Grafana:
+* Add these data sources in Grafana:
     * [Jaeger data source][promscale-as-jaeger].
     * [PostgreSQL data source][promscale-as-postgresql].   
-1. Ensure that timescaledb_toolkit PostgreSQL extension is installed. To verify
+* Ensure that timescaledb_toolkit PostgreSQL extension is installed. To verify
    if the extension is installed, run this SQL query: `SELECT * FROM
    pg_extension WHERE extname='timescaledb_toolkit';` If the query returns no
     results the extension is not installed. <procedure> To install the
     extension:
     1. Check if the extension is available: `SELECT * FROM
-        pg_available_extensions WHERE name='timescaledb_toolkit';` <highlight
+        pg_available_extensions WHERE name='timescaledb_toolkit';`
+        <highlight
         type="note> If the query returns no results, the extension is not
          available for installation in your database. To make it available
-         follow [these instructions](install-toolkit). </highlight>
-    1. Install the extension: `       CREATE EXTENSION timescaledb_toolkit;`
+         follow [these instructions](install-toolkit). 
+         </highlight>
+    1. Install the extension using: `CREATE EXTENSION timescaledb_toolkit;`
 </procedure>
 
 You can use one of these methods to import APM dashboards:
