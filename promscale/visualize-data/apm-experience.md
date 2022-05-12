@@ -50,7 +50,7 @@ dashboards published by Promscale.
     `Load`. The `Importing dashboard from Grafana.com` page appears.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard.
-1.  Select the data sources from which you want the dashboard to query the data.
+1.  Select the data sources from which you want the dashboard to query the data:
     * For APM dashboards select `TimescaleDB or PostgreSQL data source` as
       `Promscale-SQL`.
     * For APM dashboards select `Promscale Jaeger Tracing data source` as
