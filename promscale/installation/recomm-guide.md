@@ -109,7 +109,7 @@ To set the most common parameters to optimal values based on your system, run
 more information, see [configuration][timescale-tune-configuration]. However,
 there are a few other PostgreSQL parameters worth tuning:
 
-* `checkpoint_timeout=15min` - when a lot of data is ingested increase the
+* `checkpoint_timeout=15min` - when a lot of data is ingested, increase the
   checkpoint timeout to reduce the input/output pressure.
 * `bgwriter_delay=10ms` - the background writer needs to be active to reduce the
   delay
