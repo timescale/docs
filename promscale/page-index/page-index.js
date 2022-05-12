@@ -250,13 +250,6 @@ module.exports = [
             excerpt: 'Configure data retention policies in Promscale',
           },
           {
-            title: 'Downsampling',
-            href: 'downsampling',
-            tags: ['promscale', 'downsample', 'continuous aggregates', 'metrics', 'recording rules'],
-            keywords: ['Promscale', 'Prometheus', 'downsampling'],
-            excerpt: 'Configure downsampling in Promscale',
-          },
-          {
             title: 'Compression',
             href: 'compression',
             tags: ['promscale', 'configure', 'compression', 'metrics', 'storage'],
@@ -273,19 +266,34 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed tracing with Promscale",
-        href: "distributed-tracing",
-        tags: ["promscale", "tracing", "opentelemetry", "jaeger", "grafana"],
-        keywords: ["Promscale", "opentelemetry", "tracing", "jaeger"],
-        excerpt:
-          "Use Promscale for troubleshooting applications with distributed tracing",
-      },
-      {
-        title: "Alert in Promscale",
-        href: "alert",
+        title: "Alerting in Promscale",
+        href: "alerting",
         tags: ["promscale", "prometheus", "alert"],
         keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
-        excerpt: "Learn about configuring alerts on Promscale data",
+        excerpt: "Learn about alerting support in Promscale",
+      },
+      {
+        title: 'Downsampling',
+        href: 'downsampling',
+        tags: ['promscale', 'downsample', 'continuous aggregates', 'metrics', 'recording rules'],
+        keywords: ['Promscale', 'Prometheus', 'downsampling'],
+        excerpt: 'Configure downsampling in Promscale',
+        children: [
+          {
+            title: 'Continuous Aggregates',
+            href: 'caggs',
+            tags: ['promscale', 'downsampling', 'recording', 'caggs'],
+            keywords: ['Promscale', 'caggs', 'downsampling'],
+            excerpt: 'Continuous aggregates in Promscale',
+          },
+          {
+            title: 'Recording Rules',
+            href: 'recording',
+            tags: ['promscale', 'downsampling', 'recording rules'],
+            keywords: ['Promscale', 'Prometheus', 'downsampling'],
+            excerpt: 'Recording rules in Promscale',
+          },
+        ],
       },
       {
         title: "Database roles and permissions",
