@@ -2,8 +2,8 @@
 Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana dashboard that you can use to monitor it.
 
 <highlight type="note">
-To monitor Promscale make sure that a Prometheus instance is scraping Promscale
-http endpoint i.e. default to `9201` port, `/metrics` API. Use Prometheus to 
+To monitor Promscale, make sure that a Prometheus instance is scraping the Promscale
+HTTP endpoint, which defaults to port `9201` port in the `/metrics` API. Use Prometheus to 
 to evaluate the Promscale alerting rules, and configure Prometheus as a data source
 in Grafana to visualize the Promscale dashboard. This helps to troubleshoot the
 issues when Promscale isn't working as expected. You don't want your monitoring
