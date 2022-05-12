@@ -7,10 +7,7 @@ The new metric series is stored in Promscale, and you can query it in the same
 way as any other Prometheus metric. In Promscale, you can set the recording 
 rules similar to Prometheus rules configuration.
 
-<procedure>
-
 ## Set recording rules
-
 Promscale recording rules are built on top of Prometheus recording rules capabilities.
 Recording rules are written in a `YAML` file and specified in the Promscale configuration
 file.
@@ -19,6 +16,8 @@ their result as a new set of time series data. These help in visualization of
 data over a long period of time. 
 
 ### Setting example recording rules
+<procedure>
+
 1.  Create a `YAML` file that contains the configuration for each record,
     similar to:
     ```yaml

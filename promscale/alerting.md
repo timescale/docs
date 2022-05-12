@@ -17,17 +17,16 @@ To set up alerting and notifications, you need to:
 1. Configure Promscale to talk to the alert manager
 1. Create alerting rules in Promscale
 
-For more details on alertmanager, follow this [docs](am-docs).
+For more details about the `alertmanager` tool, see the [alert manager documentation](am-docs).
 
 <procedure>
 
 ## Set alerting rules
-
 Promscale alerting rules are built on top of Prometheus
 alerting rules capabilities. Alerting rules are written in a `YAML` file
 and specified in the Promscale configuration
 file. Promscale evaluates these conditional rules.
-* `alerting rules` are used to trigger alerts when there is a violation of
+The alerting rules are used to trigger alerts when there is a violation of
 pre-defined conditions. External services such as Slack or email can receive
 these alerts. 
 
@@ -64,12 +63,12 @@ these alerts.
         - targets:
         - localhost:9093
     ```
-1.  Pass this configuration file to Promscale using the `-metrics.rules.config`
-    flag at start.
+1.  Pass this configuration file to Promscale when you start the service, 
+    using the `-metrics.rules.config` flag.
     
 </procedure>
 
-For information about alerting, see [Prometheus alerting][prometheus-alerting].
+For more information about alerting, see [Prometheus alerting][prometheus-alerting].
 For specific information about alerting rules, see [Prometheus alerting
 rules][prometheus-alert-rules].
 
