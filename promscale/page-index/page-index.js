@@ -296,19 +296,20 @@ module.exports = [
         excerpt: "Troubleshooting Promscale",
       },
       {
-        title: "Promscale CLI reference",
-        href: "cli",
-        tags: ["promscale", "cli", "reference"],
-        keywords: ["Promscale", "cli"],
-        excerpt: "Learn about all parameters accepted by the Promscale CLI",
+        title: 'Promscale CLI reference',
+        href: 'cli',
+        tags: ['promscale', 'CLI', 'reference'],
+        keywords: ['Promscale', 'CLI'],
+        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
       },
       {
-        title: "SQL API reference",
-        href: "sql-api",
-        tags: ["promscale", "sql", "api", "reference"],
-        keywords: ["Promscale", "sql", "api"],
-        excerpt: "Learn about all Promscale SQL API functions",
-      },
-    ],
-  },
-];
+        title: 'SQL API functions reference',
+        href: 'sql-api',
+        tags: ['promscale', 'Structured Query Language', 'API', 'reference', 'functions'],
+        keywords: ['Promscale', 'Structured Query Language', 'API','functions'],
+        excerpt: 'Learn about all Promscale SQL API functions'
+      }
+    ]
+  }
+]
+

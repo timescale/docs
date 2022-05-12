@@ -1,69 +1,61 @@
-# UPSERT functionality
+# Upsert data
+Upserting is shorthand for:
+*   Inserting a new row if a matching row doesn't already exist
+*   Either updating the existing row, or doing nothing, if a matching row
+    already exists
 
-TimescaleDB supports UPSERTs in the same manner as PostgreSQL
-via the optional [`ON CONFLICT`][postgres-upsert] clause.
-If such a clause is provided, rather than cause an error,
-an inserted row that
-conflicts with another can either (a) do nothing or (b) result in a
-subsequent update of that existing row.
+Upserts only work when you have a unique index or constraint. A matching row is
+one that has identical values for the columns covered by the index or
+constraint.
 
-In order to create a conflict, an insert must be performed on
-identical value(s) in column(s) covered by a unique index or constraint. Such an
-index is created automatically when marking column(s) as `PRIMARY KEY`
-or with a `UNIQUE` constraint.
+<highlight type="note">
+In PostgreSQL, a primary key is a unique index with a `NOT NULL` constraint.
+If you have a primary key, you automatically have a unique index.
+</highlight>
 
-Following the examples given above, an `INSERT` with an identical
-timestamp and location as an existing row succeeds and create an
-additional row in the database.
-
-If, however, the `conditions` table had been created with a UNIQUE
-constraint defined on one or more of the columns (either at table
-creation time or via an `ALTER` command):
-
+## Create a table with a unique constraint
+The examples in this section use a `conditions` table with a unique constraint
+on the columns `(time, location)`. To create a unique constraint, use `UNIQUE
+(<COLUMNS>)` while defining your table:
 ```sql
 CREATE TABLE conditions (
-    time        TIMESTAMPTZ       NOT NULL,
-    location    TEXT              NOT NULL,
-    temperature DOUBLE PRECISION  NULL,
-    humidity    DOUBLE PRECISION  NULL,
-    UNIQUE (time, location)
+  time        TIMESTAMPTZ       NOT NULL,
+  location    TEXT              NOT NULL,
+  temperature DOUBLE PRECISION  NULL,
+  humidity    DOUBLE PRECISION  NULL,
+  UNIQUE (time, location)
 );
 ```
 
-then the second attempt to insert to this same time normally
-returns an error.
-
-The above `UNIQUE` statement during table creation internally is similar to:
-
+You can also create a unique constraint after the table is created. Use the
+syntax `ALTER TABLE ... ADD CONSTRAINT ... UNIQUE`. In this example, the
+constraint is named `conditions_time_location`:
 ```sql
-CREATE UNIQUE INDEX on conditions (time, location);
-```
-Both of these result in a unique index for the table:
-```sql
-# \d+ conditions;
-                              Table "public.conditions"
-   Column    |           Type           | Modifiers | Storage  | Stats target | Description
--------------+--------------------------+-----------+----------+--------------+-------------
- time        | timestamp with time zone | not null  | plain    |              |
- location    | text                     | not null  | extended |              |
- temperature | double precision         |           | plain    |              |
- humidity    | double precision         |           | plain    |              |
-Indexes:
-    "conditions_time_location_idx" UNIQUE, btree ("time", location)
+ALTER TABLE conditions
+  ADD CONSTRAINT conditions_time_location
+    UNIQUE (time, location);
 ```
 
-Now, however, the `INSERT` command can specify that nothing be done on
-a conflict. This is particularly important when writing many rows as
-one batch, as otherwise the entire transaction fails (as opposed
-to just skipping the row that conflicts).
+When you add a unique constraint to a table, you can't insert data that violates
+the constraint. In other words, if you try to insert data that has identical
+values to another row, within the columns covered by the constraint, you get an
+error.
 
-```sql
-INSERT INTO conditions
-  VALUES ('2017-07-28 11:42:42.846621+00', 'office', 70.1, 50.0)
-  ON CONFLICT DO NOTHING;
-```
+<highlight type="note">
+Unique constraints must include all partitioning columns. That means unique
+constraints on a hypertable must include the time column. If you added other
+partitioning columns to your hypertable, the constraint must include those as
+well. For more information, see the section on
+[hypertables and unique indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
+</highlight>
 
-Alternatively, one can specify how to update the existing data:
+## Insert or update data to a table with a unique constraint
+You can tell the database to insert new data if it doesn't violate the
+constraint, and to update the existing row if it does. Use the syntax `INSERT
+INTO ... VALUES ... ON CONFLICT ... DO UPDATE`.
+
+For example, to update the `temperature` and `humidity` values if a row with the
+specified `time` and `location` already exists, run: 
 ```sql
 INSERT INTO conditions
   VALUES ('2017-07-28 11:42:42.846621+00', 'office', 70.2, 50.1)
@@ -72,26 +64,38 @@ INSERT INTO conditions
         humidity = excluded.humidity;
 ```
 
-<highlight type="tip">
-Unique constraints must include all partitioning keys.
- For example, if the table just uses time partitioning,
- the system requires `time` as part of the
- constraint: `UNIQUE(time)`, `UNIQUE(time, location)`, `UNIQUE(location, time)`, etc.
- On the other hand, `UNIQUE(location)` is *not* a valid constraint.
+## Insert or do nothing to a table with a unique constraint
+You can also tell the database to do nothing if the constraint is violated. The
+new data is not inserted, and the old row is not updated. This is useful when
+writing many rows as one batch, to prevent the entire transaction from failing.
+The database engine skips the row and moves on.
 
-If the schema were to have an additional column like `device` that is used
- as an additional partition dimension, then the constraint would have
- to be `UNIQUE(time, device)` or `UNIQUE(time, device, location)`. In
- such scenarios then, `UNIQUE(time, location)` would *no longer* be
- a valid constraint.
+To insert or do nothing, use the syntax `INSERT INTO ... VALUES ... ON CONFLICT
+DO NOTHING`:
+```sql
+INSERT INTO conditions
+  VALUES ('2017-07-28 11:42:42.846621+00', 'office', 70.1, 50.0)
+  ON CONFLICT DO NOTHING;
+```
+
+<highlight type="note">
+You cannot specify a constraint by name when using `INSERT ... ON CONFLICT` on
+hypertables. Work around this by explicitly specifying the constrained columns.
+For example, instead of this:
+
+```sql
+-- This does not work
+INSERT INTO conditions
+  VALUES ('2017-07-28 11:42:42.846621+00', 'office', 70.1, 50.0)
+  ON CONFLICT ON CONSTRAINT conditions_time_location DO NOTHING;
+```
+
+Do this:
+```sql
+INSERT INTO conditions
+  VALUES ('2017-07-28 11:42:42.846621+00', 'office', 70.1, 50.0)
+  ON CONFLICT (time, location) DO NOTHING;
+```
 </highlight>
-
-<highlight type="warning">
-TimescaleDB does not yet support using `ON CONFLICT ON CONSTRAINT` with
- a named key (e.g., `conditions_time_location_idx`), but much of this
- functionality can be captured by specifying the same columns as above with
- a unique index/constraint. This limitation is expected to be removed in a future version.
-</highlight>
-
 
 [postgres-upsert]: https://www.postgresql.org/docs/current/static/sql-insert.html#SQL-ON-CONFLICT
