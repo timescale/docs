@@ -282,7 +282,7 @@ module.exports = [
           {
             title: 'Recording Rules',
             href: 'recording',
-            tags: ['promscale', 'downsampling', 'recording'],
+            tags: ['promscale', 'downsampling', 'recording rules'],
             keywords: ['Promscale', 'Prometheus', 'downsampling'],
             excerpt: 'Recording rules in Promscale',
           },
