@@ -13,7 +13,7 @@ The two downsampling methods are
 
 ## Choose a downsampling method
 There are a few things to take into account when deciding on a downsampling
-method.
+method:
 
 *   Access to recent data: if this materialization is being used in operational
     or real-time dashboards, choose continuous aggregates.
