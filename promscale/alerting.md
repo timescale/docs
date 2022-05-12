@@ -26,7 +26,7 @@ Promscale alerting rules are built on top of Prometheus
 alerting rules capabilities. Alerting rules are written in a `YAML` file
 and specified in the Promscale configuration
 file. Promscale evaluates these conditional rules.
-* `alerting rules` are used to trigger alerts when there is a violation of
+The alerting rules are used to trigger alerts when there is a violation of
 pre-defined conditions. External services such as Slack or email can receive
 these alerts. 
 
