@@ -49,7 +49,7 @@ You can configure alerting rules for Promscale to fire alerts
 when something doesn't work as expected in Promscale.
 
 [Here](promscale-alerting-rules) are the alerting rules for Promscale. These 
-alerting rules should be configured on Prometheus end to evaluate the alerting rules.
+alerting rules should be configured on the Prometheus end to evaluate the alerting rules.
 
 ## Runbooks
 
