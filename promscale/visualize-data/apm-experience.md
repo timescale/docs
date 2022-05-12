@@ -3,6 +3,12 @@ Promscale provides an APM-like experience with traces data using SQL. Import the
 Grafana dashboards that are published by the Promscale team to get the APM 
 with traces.
 
+You can use one of these methods to import APM dashboards:
+*  From the Grafana community the dashboards published by Promscale.
+*  From Promscale Github repository as JSON files.
+*  When installing Grafana, mount APM dashboards as a snapshot.
+
+
 Before you begin importing APM dashboards:
 
 * Add these data sources in Grafana:
@@ -30,12 +36,6 @@ Before you begin importing APM dashboards:
    ```
 </procedure>
 
-You can use one of these methods to import APM dashboards:
-
-*  From the Grafana community the dashboards published by Promscale.
-*  From Promscale Github repository as JSON files.
-*  When installing Grafana, mount APM dashboards as a snapshot.
-
 ## Import APM dashboards from the Grafana community
 [Grafana community dashboards](promscale-grafana-dashboards) contain all the
 dashboards published by Promscale. 
@@ -61,7 +61,7 @@ dashboards published by Promscale.
 
 </procedure>
 
-### Import dashboards as JSON files.
+## Import dashboards as JSON files.
 
 [Promscale dashboards](promscale-github-dashboards) repository contains all the
 dashboards published by Promscale. 
