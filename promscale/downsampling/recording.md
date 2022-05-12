@@ -57,7 +57,9 @@ ORDER BY time ASC
 ```
 
 For more information about recording,
-see [Prometheus recording][prometheus-recording]. For specifc information about
+see [Prometheus recording][prometheus-recording]. 
+
+For specific information about
 recording rules, see [Prometheus recording rules][prometheus-recording-rules].
 
 [prometheus-recording]: https://prometheus.io/docs/practices/rules/
