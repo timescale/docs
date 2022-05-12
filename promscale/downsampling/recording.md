@@ -56,7 +56,7 @@ FROM "customer:api_requests:rate1day"
 ORDER BY time ASC
 ```
 
-For information about recording,
+For more information about recording,
 see [Prometheus recording][prometheus-recording]. For specifc information about
 recording rules, see [Prometheus recording rules][prometheus-recording-rules].
 
