@@ -8,7 +8,7 @@ similar to Prometheus rules configuration and publish the alerts to alertmanager
 Alertmanager manages alerts, including silencing, inhibition,
 aggregation and sending out notifications via methods such as email, 
 on-call notification systems, and chat platforms. The labels, 
-summary and description described in alerting rules file is forwarded
+summary, and description described in the alerting rules file is forwarded
 to the alertmanager on meeting the promQL alert expression.
 
 Setting up alerting and notifications are:
