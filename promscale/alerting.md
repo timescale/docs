@@ -22,13 +22,12 @@ For more details about the `alertmanager` tool, see the [alert manager documenta
 <procedure>
 
 ## Set alerting rules
-Promscale alerting rules are built on top of Prometheus
-alerting rules capabilities. Alerting rules are written in a `YAML` file
-and specified in the Promscale configuration
-file. Promscale evaluates these conditional rules.
-The alerting rules are used to trigger alerts when there is a violation of
-pre-defined conditions. External services such as Slack or email can receive
-these alerts. 
+Promscale alerting rules are compatible with Prometheus
+alerting rules capabilities. Alerting rules are written in one or multiple
+`YAML` files. Promscale evaluates these conditional rules. The alerting rules
+are used to trigger alerts when there is a violation of pre-defined conditions.
+Alert notifications can be sent through different communication channels like Slack
+or email can receive these alerts.
 
 ### Setting alerting rules
 1.  Create a `YAML` file that contains the configuration for each alert
@@ -46,9 +45,8 @@ these alerts.
          summary: <text>
          description: <description on alert>
     ```
-1.  Load the rules `YAML` file to Promscale by specifying this file in
-    Prometheus configuration format along with `global evaluation interval` 
-    , `rules files`, and `alerting` configuration:
+1.  Create another file that lists all rules `YAML` files as well as global configuration
+    parameters:
     ```yaml
      global:
        evaluation_interval: 10s
