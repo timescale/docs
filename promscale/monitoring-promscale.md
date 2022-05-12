@@ -54,8 +54,8 @@ alerting rules should be configured on Prometheus end to evaluate the alerting r
 ## Runbooks
 
 When an alert is fired, the alert message references the relevant runbook
-to troubleshoot and mitigate the issue noticed while running 
-Promscale. These runbooks are published and
+to troubleshoot and mitigate the issue.
+These runbooks are published and
 maintained in the [Promscale Github repository](promscale-runbooks).
 
 [grafana-promscale-dashboard]: https://grafana.com/grafana/dashboards/16241
