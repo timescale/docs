@@ -32,22 +32,42 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.6.1:
+### What's new in TimescaleDB 2.7:
 
-- Continuous aggregates with compression
-- `time_bucket_ng` support for N months, years and timezones on continuous aggregates
+TODO: Product notes
+- Continuous aggregates without reaggregation
 
-You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-6).
-This release also contains bug fixes since the 2.6.0 release.
+Because we're not storing partials anymore and removed the
+re-aggregation, now is be possible to create indexes on aggregated
+columns in the materialization hypertable in order to improve the
+performance even more.
 
+Also removed restrictions on types of aggregates users can perform
+with Continuous Aggregates:
+
+* aggregates with DISTINCT
+* aggregates with FILTER
+* aggregates with FILTER in HAVING clause
+* aggregates without combine function
+* ordered-set aggregates
+* hypothetical-set aggregates
+By default the new Continuous Aggregates will be created using this new
+format, but the previous version (with partials) will be supported.
+
+Users can create the previous style by setting to false the storage
+paramater named timescaledb.finalized during the creation of the
+Continuous Aggregate.
+
+
+TODO: Priority selection
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
-<highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
+<!-- <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight> -->
 
 <!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
 
 
-The experimental features in the 2.6 release are:
+The experimental features in the 2.7 release are:
 
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, seconds, and timezones.
@@ -68,15 +88,8 @@ share the code snippet to recreate it.
 Several bugs fixed. See the [release notes](#release-notes) for more
 details.
 
-**PostgreSQL 11 deprecation announcement**
-
-Timescale is working hard on our next exciting features.
-To make that possible, we require functionality that is available in Postgres 12 and above.
-For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 release.
-For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
-
 <highlight type="tip">
-TimescaleDB 2.6.1 is now available, and we encourage
+TimescaleDB 2.7 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -86,6 +99,8 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+TODO:
+## 2.7 (2022-05-XX)
 
 ## 2.6.1 (2022-04-11)
 
