@@ -31,14 +31,14 @@ Import Promscale dashboard by following below instructions
 
 1.  Open the dashboard published by Promscale org from the [Grafana 
     community dashboards](grafana-promscale-dashboard), select `Copy ID to Clipboard` to copy the dashboard UID.
-1.  In Grafana UI select `Create` from left side menu bar, navigate to `Import`.
+1.  In Grafana UI select `Create` from left side menu bar, igate to `Import`.
 1.  Now paste the dashbaord UID in `Import via grafana.com` textbox and click 
     on `Load` to import the dashbaord into Grafana instance.
 1.  On importing the dashboard select the `folder` to which you want to add the imported
     dashboard.
 1.  Select the data source from which you want the dashboard to query the data.
     * To visualize Promscale metrics select the `Prometheus` data source as `Prometheus` query endpoint
-      we do not want to query Promsale own dashboard using Promscale query endpoint. With this practice
+      You do not want to query Promsale's own dashboard using the Promscale query endpoint. With this practice
       this avoids a single point of failure if Promscale isn't working as expected.
 
 </procedure>
