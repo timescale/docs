@@ -37,7 +37,7 @@ Import Promscale dashboard by following below instructions
 1.  On importing the dashboard select the `folder` to which you want to add the imported
     dashboard.
 1.  Select the data source from which you want the dashboard to query the data.
-    * To visualize Promscale metrics select the `Prometheus` data source as `Prometheus` query endpoint
+    * To visualize Promscale metrics select the `Prometheus` data source and `Prometheus` query endpoint.
       You do not want to query Promsale's own dashboard using the Promscale query endpoint.
       This avoids a single point of failure if Promscale isn't working as expected.
 
