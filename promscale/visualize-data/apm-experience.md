@@ -13,9 +13,10 @@ Before you begin importing APM dashboards:
   `SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';` 
   If the query returns no results the extension is not installed.
 
+## Install the TimescaleDB toolkit extension
 <procedure> 
 
-## Installing the TimescaleDB toolkit extension
+### Installing the TimescaleDB toolkit extension
 1. Check if the extension is available:
    ```sql
    SELECT * FROM pg_available_extensions WHERE name='timescaledb_toolkit';
@@ -35,14 +36,15 @@ You can use one of these methods to import APM dashboards:
 *  From Promscale Github repository as JSON files.
 *  When installing Grafana, mount APM dashboards as a snapshot.
 
-### Importing APM dashboards from the Grafana community
+## Import APM dashboards from the Grafana community
 [Grafana community dashboards](promscale-grafana-dashboards) contain all the
 dashboards published by Promscale. 
 
 <procedure>
 
-1.  Click the `Details` button to open a dashboard from [Grafana community
-    dashboard](promscale-grafana-dashboards). 
+### Importing APM dashboards from the Grafana community
+1.  In the [Grafana community dashboard](promscale-grafana-dashboards), click
+    the `Details` button to open a dashboard. 
 1.  Click `Copy ID to Clipboard` to copy the UID of the dashboard.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
     menu.
@@ -59,13 +61,14 @@ dashboards published by Promscale.
 
 </procedure>
 
-### Importing dashboards as JSON files.
+### Import dashboards as JSON files.
 
 [Promscale dashboards](promscale-github-dashboards) repository contains all the
 dashboards published by Promscale. 
 
 <procedure>
 
+### Importing dashboards as JSON files.
 1.  Download all the `.json` files from the [Promscale
     dashboards](promscle-github-dashboards) repository.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
