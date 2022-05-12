@@ -15,13 +15,18 @@ Promscale provides an APM-like experience with traces data using SQL. Import the
 <procedure> 
 To install the timescaledb_toolkit PostgreSQL extension:
 1. Check if the extension is available:
-   `SELECT * FROM pg_available_extensions WHERE name='timescaledb_toolkit';`
+   ```sql
+   SELECT * FROM pg_available_extensions WHERE name='timescaledb_toolkit';
+   ```
    <highlight type="note"> 
    If the query returns no results, the extension is not available for installation
    in your database. To make it available follow [these
    instructions](install-toolkit). 
    </highlight>
-1. Install the extension using: `CREATE EXTENSION timescaledb_toolkit;`
+1. Install the extension using:
+   ```sql
+   CREATE EXTENSION timescaledb_toolkit;
+   ```
 </procedure>
 
 You can use one of these methods to import APM dashboards:
