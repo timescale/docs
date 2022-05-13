@@ -229,20 +229,6 @@ module.exports = [
             ],
             excerpt: "Configure Promscale multi-tenancy for Prometheus",
           },
-          {
-            title: 'Jaeger',
-            href: 'jaeger',
-            tags: ['promscale', 'configure', 'jaeger', 'traces'],
-            keywords: ['Promscale', 'Jaeger'],
-            excerpt: 'Send Jaeger traces to Promscale',
-          },
-          {
-            title: 'Zipkin',
-            href: 'zipkin',
-            tags: ['promscale', 'configure', 'zipkin', 'traces'],
-            keywords: ['Promscale', 'Zipkin'],
-            excerpt: 'Send Zipkin traces to Promscale',
-          }
         ],
       },
       {

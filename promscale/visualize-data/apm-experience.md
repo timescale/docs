@@ -20,6 +20,7 @@ You can use one of these methods to import APM dashboards:
 *  From Promscale Github repository as JSON files.
 
 ## Install the TimescaleDB toolkit extension
+
 <procedure> 
 
 ### Installing the TimescaleDB toolkit extension
@@ -34,6 +35,7 @@ You can use one of these methods to import APM dashboards:
    ```sql
    CREATE EXTENSION timescaledb_toolkit;
    ```
+
 </procedure>
 
 ## Import APM dashboards from the Grafana community
