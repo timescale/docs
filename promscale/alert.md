@@ -17,7 +17,7 @@ To set up alerting and notifications, you need to:
 1. Configure Promscale to talk to the alert manager
 1. Create alerting rules in Promscale
 
-For more details about the `alertmanager` tool, see the [alert manager documentation](am-docs).
+For more details about the `alertmanager` tool, see the [alert manager documentation][am-docs].
 
 <procedure>
 
