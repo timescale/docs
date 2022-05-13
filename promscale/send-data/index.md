@@ -4,6 +4,8 @@ It also has APIs that you can use to send metrics in a variety of formats.
 
 *   [Configure Prometheus][configure-prometheus] to send metrics to Promscale.
 *   [Configure OpenTelemetry][configure-opentelemetry] to send data to Promscale.
+*   [Configure Jaeger] to send data to Promscale via the OpenTelemetry Collector
+*   [Configure Jaeger] to send data to Promscale via the OpenTelemetry Collector
 *   [Use Promscale's write api][promscale-write-api] to send metrics in 
     json, protobuf or text format.
 
