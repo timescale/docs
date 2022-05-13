@@ -9,7 +9,7 @@ you want to update your database frequently. With websockets, you need to
 connect to the server, subscribe to symbols, and you can start receiving data
 in real-time during market hours.
 
-Once you complete this tutorial, you’ll have a data pipeline set
+Once you complete this tutorial, you'll have a data pipeline set
 up that ingests real-time financial data into your TimescaleDB instance.
 
 This tutorial uses Python and the
@@ -20,7 +20,7 @@ by Twelve Data.
 - A TimescaleDB instance running locally or on the cloud. For more information,
 [see installation options][install-ts]
 - Python 3
-- Sign up for [Twelve Data][twelve-signup] (there’s a free tier!)
+- Sign up for [Twelve Data][twelve-signup] (there's a free tier!)
 
 ## Set up a new Python environment
 
@@ -30,7 +30,7 @@ the packages you need to complete for this tutorial will be installed in this en
 ### Setting up a new Python environment
 
 1. Create and activate a Python virtual environment
-```python
+```bash
 virtualenv env
 source env/bin/activate
 ```
@@ -49,7 +49,7 @@ pip install psycopg2-binary
 When you connect to the Twelve Data API through a websocket, you create a
 persistent connection between your computer and the websocket server. This
 persistent connection can then be used to receive data as long as you or the
-server doesn’t terminate the connection.
+server doesn't terminate the connection.
 
 ### Connecting to the websocket server
 1. Create a new Python file called `websocket_test.py` and connect to the
@@ -75,7 +75,7 @@ the websocket object:
 
 * **`on_event`**
     
-    This argument needs to be a function that gets invoked whenever there’s a
+    This argument needs to be a function that gets invoked whenever there's a
     new data record is received from the websocket.
     ```python
     def on_event(e):
@@ -83,7 +83,7 @@ the websocket object:
     ```
 
     This is where you want to implement the ingestion logic so whenever
-    there’s new data available you insert it into the database.
+    there's new data available you insert it into the database.
 * **`symbol`**
     This argument needs to be a list of stock ticker symbols (eg.: `MSFT`) or
     crypto trading pairs (eg.: `BTC/USD`). When using a websocket connection you
@@ -98,9 +98,9 @@ the websocket object:
     ws.subscribe(["USDT/USD", "USDC/USD"])
     ```
 
-You can also notice there’s a line in the code example to keep the connection
+You can also notice there's a line in the code example to keep the connection
 alive *forever:*  `ws.keep_alive()`. It makes sure the connection will stay
-active until it gets terminated. If you don’t add this line the connection
+active until it gets terminated. If you don't add this line the connection
 might break instantly.
 
 1. Now run the Python script:
@@ -146,7 +146,7 @@ transactional database, generally speaking, ingesting a thousand records in
 one transaction will be faster than ingesting them in a thousand transactions.
 
 TimescaleDB, being a transactional database, creates a new transaction
-whenever you try to insert a new record. Because of this behavior, it’s suggested to
+whenever you try to insert a new record. Because of this behavior, it's suggested to
 insert data records in a batch - multiple records in one transaction.
 Using this approach you can achieve higher ingest rates than if you were to
 insert data record-by-record.
@@ -159,13 +159,13 @@ ingestion becomes faster overall.
 
 A common practice to implement batching is to store new records in memory
 first, then after the batch reaches a certain size, insert all the records
-from memory into the database in one transaction. The perfect batch size isn’t
+from memory into the database in one transaction. The perfect batch size isn't
 universal, but you can experiment with different batch sizes
 (eg.: 100, 1000, 10000 etc...) and see which one fits your use case better.
 Using batching is a fairly common pattern when ingesting data into TimescaleDB
 from Kafka, Kinesis, or websocket connections.
 
-Now that you know you need to queue up your data before ingesting, let’s see
+Now that you know you need to queue up your data before ingesting, let's see
 how to implement a batching solution in Python with Psycopg2.
 
 ### Implement batching with Psycopg2
@@ -173,14 +173,14 @@ how to implement a batching solution in Python with Psycopg2.
 Remember to implement the ingestion logic within the `on_event` function that
 you then pass over to the websocket object.
 
-Let’s break down what this function needs to do:
+Let's break down what this function needs to do:
 
 1. Check if the item is a data item (and not some websocket metadata)
 2. Adjust the data so it fits the database schema (data types, order of columns)
 3. Add it to the in-memory batch (a list in Python)
 4. If the batch reaches a certain size, insert the data and reset/empty the list
 
-Here’s the full implementation:
+Here's the full implementation:
 
 ```python
 from psycopg2.extras import execute_values
