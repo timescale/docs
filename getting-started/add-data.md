@@ -24,7 +24,7 @@ second during trading hours.
 |time|timestamptz|Timestamp column incrementing second by second|
 |symbol|text|Symbols representing a company, mapped to company names in the `company` table|
 |price|double precision|Stock quote price for a company at the given timestamp|
-|day_volume|int|number of shares traded each day, NULL values indicate the market is closed|
+|day_volume|int|Number of shares traded each day, NULL values indicate the market is closed|
 
 `company`: contains a mapping for symbols to company names.
 

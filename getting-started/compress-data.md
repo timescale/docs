@@ -1,4 +1,4 @@
-# Compression policies
+# Compression 
 TimescaleDB includes native compression capabilities which enable you to
 analyze and query massive amounts of historical time-series data inside a
 database while also saving on storage costs. Additionally, all PostgreSQL data
@@ -129,12 +129,12 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
   FROM hypertable_compression_stats('stocks_real_time');
 ```
 
-**Results:**
+**Sample results:**
 
 ```bash
 |before compression|after compression|
 |------------------|-----------------|
-|667 MB            |60 MB            |
+|326 MB            |29 MB            |
 ```
 
 ## Next steps

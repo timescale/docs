@@ -110,7 +110,7 @@ SELECT * FROM stock_candlestick_daily
 
 ## Real-time continuous aggregates
 By default, all continuous aggregates are created as *real-time* aggregates.
-This means that TimescaleDB always appends (or `UNION`) recent data that has not
+This means that TimescaleDB will append (or `UNION`) recent data that has not
 yet been materialized through a refresh policy to the output of the continuous
 aggregate. In this diagram, that corresponds to the last three points of raw
 data, which belong to an incomplete bucket.
