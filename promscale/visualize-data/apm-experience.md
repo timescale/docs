@@ -20,6 +20,7 @@ You can use one of these methods to import APM dashboards:
 *  From Promscale Github repository as JSON files.
 
 ## Install the TimescaleDB toolkit extension
+
 <procedure> 
 
 ### Installing the TimescaleDB toolkit extension
@@ -29,21 +30,22 @@ You can use one of these methods to import APM dashboards:
    ```
      If the query returns no results, the extension is not available for installation
      in your database. To make it available follow 
-     [these instructions](install-toolkit). 
+     [these instructions][install-toolkit]. 
 1. Install the extension using:
    ```sql
    CREATE EXTENSION timescaledb_toolkit;
    ```
+
 </procedure>
 
 ## Import APM dashboards from the Grafana community
-[Grafana community dashboards](promscale-grafana-dashboards) contain all the
+[Grafana community dashboards][promscale-grafana-dashboards] contain all the
 dashboards published by Promscale. 
 
 <procedure>
 
 ### Importing APM dashboards from the Grafana community
-1.  In the [Grafana community dashboard](promscale-grafana-dashboards) select 
+1.  In the [Grafana community dashboard][promscale-grafana-dashboards] select 
     the dashboard with `APM` prefix, click the `Details` button to open a dashboard. 
 1.  Click `Copy ID to Clipboard` to copy the UID of the dashboard.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
@@ -63,14 +65,14 @@ dashboards published by Promscale.
 
 ## Import dashboards as JSON files.
 
-[Promscale dashboards](promscale-github-dashboards) repository contains all the
+[Promscale dashboards][promscale-github-dashboards] repository contains all the
 dashboards published by Promscale. 
 
 <procedure>
 
 ### Importing dashboards as JSON files.
 1.  Download all the `.json` files with `apm` prefix from the [Promscale
-    dashboards](promscle-github-dashboards) repository.
+    dashboards][promscle-github-dashboards] repository.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
     menu.
 1.  Select the `Upload JSON file` button, and select the downloaded `JSON` dashboard
