@@ -115,6 +115,12 @@ yet been materialized through a refresh policy to the output of the continuous
 aggregate. In this diagram, that corresponds to the last three points of raw
 data, which belong to an incomplete bucket.
 
+<highlight type="note">
+If you don't want real-time aggregation, you can disable it. Set the `materialized_only`
+parameter to true for your continuous aggregate. For more information, see the
+section on [real-time aggregation](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/#use-real-time-aggregates).
+</highlight>
+
 To inspect details about a continuous aggregate, such as its
 configuration or the query used to define it, use the following
 informational view:
