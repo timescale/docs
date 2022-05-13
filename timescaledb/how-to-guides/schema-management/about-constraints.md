@@ -4,13 +4,14 @@ from entering invalid data into your database. When you create, change, or
 delete constraints on your hypertables, the constraints are propogated to the
 underlying chunks, and to any indexes.
 
-Hypertables support all standard PostgreSQL constraint types, exceprt for
+Hypertables support all standard PostgreSQL constraint types, except for
 foreign key constraints on other tables that reference values in a hypertable.
 
 For example, you can create a table that only allows positive device IDs, and
 non-null temperature readings. You can also check that time values for all
 devices are unique. To create this table, with the constraints, use this
 command:
+
 ```sql
 CREATE TABLE conditions (
     time       TIMESTAMPTZ
@@ -23,7 +24,8 @@ CREATE TABLE conditions (
 SELECT create_hypertable('conditions', 'time');
 ```
 
-This example also references values in another `locations` table using a foreign key constraint.
+This example also references values in another `locations` table using a foreign
+key constraint.
 
 <highlight type="note">
 By default, time columns used for partitioning do not allow `NULL` values. A

@@ -5,7 +5,7 @@ significant performance improvements. Conversely, using a poorly suited schema
 can result in significant performance degradation.
 
 If you are working with semi-structured data, such as readings from IoT sensors
-that collect varying measurements, you might need a flexible chema. In this
+that collect varying measurements, you might need a flexible schema. In this
 case, you can PostgreSQL JSON and JSONB data types.
 
 TimescaleDB supports all table objects supported within PostgreSQL, including

@@ -94,7 +94,7 @@ insetad.
 SELECT * FROM devices WHERE device_id = M, time > 10
 ```
 
-The index in our example is useless for this query, because the data for
+The index in the example is useless for this query, because the data for
 `device M` is located in a completely different section of the list for each
 `store_id`.
 

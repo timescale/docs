@@ -1,10 +1,13 @@
 # About tablespaces
-Tablespaces are used to determine the physical location of the tables and indexes in your database. In most
-cases, you want to use faster storage to store data that is accessed frequently,
-and slower storage for data that is accessed less often.
+Tablespaces are used to determine the physical location of the tables and
+indexes in your database. In most cases, you want to use faster storage to store
+data that is accessed frequently, and slower storage for data that is accessed
+less often.
 
-Hypertables consist of a number of chunks, and each chunk can be
-located in a specific tablespace. This allows you to grow your hypertables across many disks. When you create a new chunk, a tablespace is automatically selected to store the chunk's data.
+Hypertables consist of a number of chunks, and each chunk can be located in a
+specific tablespace. This allows you to grow your hypertables across many disks.
+When you create a new chunk, a tablespace is automatically selected to store the
+chunk's data.
 
 You can attach and detach tablespaces on a hypertable. When a disk runs
 out of space, you can [detach][detach_tablespace] the full tablespace from the
