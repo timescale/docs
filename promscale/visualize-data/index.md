@@ -7,9 +7,9 @@ You can visualize data in Promscale using tools such as
   and understand your data no matter where it is stored. You can connect
   Promscale to Grafana [to visualize metrics and traces][grafana-promscale] by 
   configuring Promscale as:
-    * [Prometheus data source][promscale-as-prometheus]. 
-    * [Jaeger data source][promscale-as-jaeger].
-    * [PostgreSQL data source][promscale-as-postgresql]. 
+    * [Prometheus data source][promscale-as-prometheus] 
+    * [Jaeger data source][promscale-as-jaeger]
+    * [PostgreSQL data source][promscale-as-postgresql] 
 
 * **Jaeger** is an open source distributed tracing system used for monitoring
 and troubleshooting microservices-based distributed systems. You can connect
@@ -27,8 +27,8 @@ customize it to better meet your needs.
 [grafana-promscale]: /visualize-data/grafana
 [jaeger-promscale]: /visualize-data/jaeger
 [promscale-as-prometheus]:
-    /visualize-data/grafana/#promscale-as-prometheus-datasource
-[promscale-as-jaeger]: /visualize-data/grafana/#promscale-as-jaeger-datasource
+    /visualize-data/grafana/#configure-promscale-as-prometheus-data-source
+[promscale-as-jaeger]: /visualize-data/grafana/#configure-promscale-as-jaeger-data-source
 [promscale-as-postgresql]:
-    /visualize-data/grafana/#promscale-as-postgresql-datasource
+    /visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
 [apm-experience]:/visualize-data/apm-experience/
