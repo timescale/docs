@@ -27,23 +27,28 @@ by Twelve Data.
 Create a new Python virtual environment for this project and activate it. All
 the packages you need to complete for this tutorial will be installed in this environment.
 
+<procedure>
+
 ### Setting up a new Python environment
 
 1. Create and activate a Python virtual environment
-```bash
-virtualenv env
-source env/bin/activate
-```
+    ```bash
+    virtualenv env
+    source env/bin/activate
+    ``` 
 1. Install the Twelve Data Python [wrapper library](https://github.com/twelvedata/twelvedata-python) with websocket support:
-```bash
-pip install twelvedata websocket-client
-```
-This library makes it easy to make requests to the API and maintain a stable websocket connection.
-1. Install [Psycopg2][psycopg2] so that you can connect the TimescaleDB from your Python script:
+    ```bash
+    pip install twelvedata websocket-client
+    ```
+    This library makes it easy to make requests to the API and maintain a stable websocket connection.
+1. Install [Psycopg2][psycopg2] so that you can connect the
+    TimescaleDB from your Python script:
 
-```bash
-pip install psycopg2-binary
-```
+    ```bash
+    pip install psycopg2-binary
+    ```
+
+</procedure>
 
 ## Create the websocket connection
 When you connect to the Twelve Data API through a websocket, you create a
@@ -51,74 +56,80 @@ persistent connection between your computer and the websocket server. This
 persistent connection can then be used to receive data as long as you or the
 server doesn't terminate the connection.
 
+<procedure>
+
 ### Connecting to the websocket server
+
 1. Create a new Python file called `websocket_test.py` and connect to the
-Twelve Data servers using the wrapper library:
-
-```python
-# websocket_test.py:
-from twelvedata import TDClient
-
-def on_event(e):
-		print(e) # prints out the data record (dictionary)
-
-td = TDClient(apikey="TWELVE_DATA_APIKEY")
-ws = td.websocket(symbols=["BTC/USD", "ETH/USD"], on_event=on_event)
-ws.connect()
-ws.keep_alive()
-```
-
-Make sure to pass your API key as an argument for the `TDClient` object.
-
-As you can see in this code example, you need to pass two arguments to create
-the websocket object:
-
-* **`on_event`**
+    Twelve Data servers using the wrapper library:
     
-    This argument needs to be a function that gets invoked whenever there's a
-    new data record is received from the websocket.
     ```python
-    def on_event(e):
-    	print(e) # prints out the data record (dictionary)
-    ```
-
-    This is where you want to implement the ingestion logic so whenever
-    there's new data available you insert it into the database.
-* **`symbol`**
-    This argument needs to be a list of stock ticker symbols (eg.: `MSFT`) or
-    crypto trading pairs (eg.: `BTC/USD`). When using a websocket connection you
-    always need to subscribe to the events you want to receive. You can do this
-    by using the `symbols` argument shown above or if your connection is already
-    created you can also use the `subscribe()` function to get data for additional
-    symbols. Example of adding symbols after the connection is already created:
-    ```python
+    # websocket_test.py:
+    from twelvedata import TDClient
+    
+    def on_event(event):
+    	print(event) # prints out the data record (dictionary)
+    
+    td = TDClient(apikey="TWELVE_DATA_APIKEY")
     ws = td.websocket(symbols=["BTC/USD", "ETH/USD"], on_event=on_event)
     ws.connect()
     ws.keep_alive()
-    ws.subscribe(["USDT/USD", "USDC/USD"])
     ```
+    
+    Make sure to pass your API key as an argument for the `TDClient` object.
+    
+    As you can see in this code example, you need to pass two arguments to create
+    the websocket object:
+    
+    * **`on_event`**
 
-You can also notice there's a line in the code example to keep the connection
-alive *forever:*  `ws.keep_alive()`. It makes sure the connection will stay
-active until it gets terminated. If you don't add this line the connection
-might break instantly.
+        This argument needs to be a function that gets invoked whenever there's a
+        new data record is received from the websocket.
+        ```python
+        def on_event(event):
+        	print(event) # prints out the data record (dictionary)
+        ```
+    
+        This is where you want to implement the ingestion logic so whenever
+        there's new data available you insert it into the database.
+    * **`symbol`**
+
+        This argument needs to be a list of stock ticker symbols (eg.: `MSFT`) or
+        crypto trading pairs (eg.: `BTC/USD`). When using a websocket connection you
+        always need to subscribe to the events you want to receive. You can do this
+        by using the `symbols` argument shown above or if your connection is already
+        created you can also use the `subscribe()` function to get data for additional
+        symbols. Example of adding symbols after the connection is already created:
+        ```python
+        ws = td.websocket(symbols=["BTC/USD", "ETH/USD"], on_event=on_event)
+        ws.connect()
+        ws.keep_alive()
+        ws.subscribe(["USDT/USD", "USDC/USD"])
+        ```
+    
+    You can also notice there's a line in the code example to keep the connection
+    alive *forever:*  `ws.keep_alive()`. It makes sure the connection will stay
+    active until it gets terminated. If you don't add this line the connection
+    might break instantly.
 
 1. Now run the Python script:
-```bash
-python websocket_test.py
-```
+    ```bash
+    python websocket_test.py
+    ```
 1. After running the script, you immediately get a response from the server 
-about the status of your connection:
-```bash
-{'event': 'subscribe-status',
- 'status': 'ok',
- 'success': [
-        {'symbol': 'BTC/USD', 'exchange': 'Coinbase Pro', 'mic_code': 'Coinbase Pro', 'country': '', 'type': 'Digital Currency'},
-        {'symbol': 'ETH/USD', 'exchange': 'Huobi', 'mic_code': 'Huobi', 'country': '', 'type': 'Digital Currency'}
-    ],
- 'fails': None
-}
-```
+    about the status of your connection:
+    ```bash
+    {'event': 'subscribe-status',
+     'status': 'ok',
+     'success': [
+            {'symbol': 'BTC/USD', 'exchange': 'Coinbase Pro', 'mic_code': 'Coinbase Pro', 'country': '', 'type': 'Digital Currency'},
+            {'symbol': 'ETH/USD', 'exchange': 'Huobi', 'mic_code': 'Huobi', 'country': '', 'type': 'Digital Currency'}
+        ],
+     'fails': None
+    }
+    ```
+
+</procedure>
 
 Then, if you wait a few seconds you see actual data records printed out:
 
@@ -192,11 +203,11 @@ conn = psycopg2.connect(database="tsdb",
 columns = ["time", "symbol", "price", "day_volume"]
 current_batch = []
 MAX_BATCH_SIZE = 100
-def _on_event(self, e):
-    if e["event"] == "price":
+def _on_event(self, event):
+    if event["event"] == "price":
         # data record
-        timestamp = datetime.utcfromtimestamp(e["timestamp"])
-        data = (timestamp, e["symbol"], e["price"], e.get("day_volume"))
+        timestamp = datetime.utcfromtimestamp(event["timestamp"])
+        data = (timestamp, event["symbol"], event["price"], event.get("day_volume"))
 
         # add new data record to batch
         current_batch.append(data)
@@ -258,17 +269,17 @@ class WebsocketPipeline():
             execute_values(cursor, sql, data)
             self.conn.commit()
         
-    def _on_event(self, e):
+    def _on_event(self, event):
         """This function gets called whenever there's a new data record coming
         back from the server.
 
         Args:
-            e (dict): data record
+            event (dict): data record
         """
-        if e["event"] == "price":
+        if event["event"] == "price":
             # data record
-            timestamp = datetime.utcfromtimestamp(e["timestamp"])
-            data = (timestamp, e["symbol"], e["price"], e.get("day_volume"))
+            timestamp = datetime.utcfromtimestamp(event["timestamp"])
+            data = (timestamp, event["symbol"], event["price"], event.get("day_volume"))
 
             # add new data record to batch
             self.current_batch.append(data)
