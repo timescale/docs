@@ -1,6 +1,7 @@
 # Data migration
 You can migrate your existing data into TimescaleDB in several ways.
 
+*   [Learn about data migration][about-data-migration] before you start
 *   Migrate data when TimescaleDB is in the [same PostgreSQL instance][same-db]
     as your existing data
 *   Migrate data into TimescaleDB from a [different database or PostgreSQL
@@ -11,6 +12,7 @@ You can migrate your existing data into TimescaleDB in several ways.
 *   Migrate data [to Timescale Cloud from self-hosted TimescaleDB or Managed
     Service for TimescaleDB][mst-to-cloud]
 
+[about-data-migration]: /how-to-guides/migrate-data/about-migrate-data/
 [same-db]: /how-to-guides/migrate-data/same-db/
 [different-db]: /how-to-guides/migrate-data/different-db/
 [import-data]: /how-to-guides/migrate-data/import-csv/
