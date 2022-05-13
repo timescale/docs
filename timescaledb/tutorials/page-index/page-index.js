@@ -229,6 +229,22 @@ module.exports = [
             keywords: ['Grafana', 'tutorial', 'TimescaleDB'],
             excerpt: 'Setup alerts in Grafana with TimescaleDB',
           },
+          {
+            title: 'Visualizations',
+            href: 'visualizations',
+            tags: ['grafana', 'visualize', 'learn', 'timescaledb'],
+            keywords: ['Grafana', 'tutorial', 'visualization', 'TimescaleDB'],
+            excerpt: 'Grafana visualizations',
+            children: [
+              {
+                title: 'Histograms',
+                href: 'histograms',
+                tags: ['grafana', 'visualize', 'histograms', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'histogram'],
+                excerpt: 'How to build a histogram in Grafana',
+              }
+            ]
+          }
         ],
       },
       {
