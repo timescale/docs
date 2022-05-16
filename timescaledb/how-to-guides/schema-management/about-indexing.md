@@ -35,7 +35,7 @@ columns that you typically want to run equality operators on, such as
 `location = garage`. Then finish by choosing columns you want to use range
 operators on, such as `time > 0930`.
 
-As a more complex example, imagine you have a number of of devices tracking
+As a more complex example, imagine you have a number of devices tracking
 1,000 different retail stores. You have 100 devices per store, and 5 different
 types of devices. All of these devices report metrics as `float` values, and you
 decide to store all the metrics in the same table, like this:
@@ -63,10 +63,10 @@ time range, and add another index on `device_id` and `store_id`. This creates a
 composite index. A composite index on `(store_id, device_id, time)` orders by
 `store_id` first. Each unique `store_id`, will then be sorted by `device_id` in
 order. And each entry with the same `store_id` and `device_id` are then ordered
-by `time`.To create this index, use this command:
+by `time`. To create this index, use this command:
 
 ```sql
-CREATE INDEX ON devices (time, device_id, store_id DESC);
+CREATE INDEX ON devices (store_id, device_id, time DESC);
 ```
 
 When you have this composite index on your hypertable, you can run a range of

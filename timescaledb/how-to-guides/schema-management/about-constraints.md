@@ -1,7 +1,7 @@
 # About constraints
 Constraints are rules that apply to your database columns. This prevents you
 from entering invalid data into your database. When you create, change, or
-delete constraints on your hypertables, the constraints are propogated to the
+delete constraints on your hypertables, the constraints are propagated to the
 underlying chunks, and to any indexes.
 
 Hypertables support all standard PostgreSQL constraint types, except for

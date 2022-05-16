@@ -42,7 +42,7 @@ reading with a value that is greater than or equal to 1000.
 1.  All data is inserted into the `conditions` table, but rows that contain errors
     are also added to the `error_conditions` table.
 
-<procedure>
+</procedure>
 
 TimescaleDB supports the full range of triggers, including `BEFORE INSERT`,
 `AFTER INSERT`, `BEFORE UPDATE`, `AFTER UPDATE`, `BEFORE DELETE`, and

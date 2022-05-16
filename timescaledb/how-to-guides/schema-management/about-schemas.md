@@ -13,5 +13,5 @@ data types, indexes, and triggers.
 
 This section explains how to design your schema, how indexing and tablespaces
 work, and how to use PostreSQL contraint types. It also includes examples to
-help you create your own schema, and how to use JSON and JSONB for
+help you create your own schema, and learn how to use JSON and JSONB for
 semi-structured data.

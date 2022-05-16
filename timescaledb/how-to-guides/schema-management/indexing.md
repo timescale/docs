@@ -50,7 +50,7 @@ CREATE INDEX ON conditions (time DESC, humidity)
 To define an index as a `UNIQUE` or `PRIMARY KEY` index, the index must include
 the time column and the partitioning column, if you are using one. For example,
 a unique index must include at least the `(time, location)` columns, in addition
-to any other columns you want to use. we find UNIQUE indexes in Generally,
+to any other columns you want to use. Generally,
 time-series data uses `UNIQUE` indexes more rarely than relational data.
 
 

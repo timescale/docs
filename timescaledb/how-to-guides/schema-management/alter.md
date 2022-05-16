@@ -1,6 +1,6 @@
 # Altering and updating table schemas
 To modify the schema of an existing hypertable, you can use the `ALTER TABLE`
-command. When you change the hypertable schema, the changes are also propogated
+command. When you change the hypertable schema, the changes are also propagated
 to each underlying chunk.
 
 For example, to add a new column called `address` to a table called `distributors`:
