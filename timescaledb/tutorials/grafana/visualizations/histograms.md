@@ -192,7 +192,7 @@ selected values, and Grafana buckets them in separate histograms.
 1.  Fetch all company symbols from the dataset:
 
     ```sql
-    SELECT DISTINCT symbol FROM company ORDER BY asc;
+    SELECT DISTINCT symbol FROM company ORDER BY symbol ASC;
     ```
 
 1.  Create a new dashboard variable with the previous query: 

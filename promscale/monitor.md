@@ -49,7 +49,7 @@ doesn't work as expected in Promscale.
 
 [Here][promscale-alerting-rules] are the alerting rules for Promscale. These
 alerting rules should be configured on the Prometheus instance that you
-are using to monitor Promcsale.
+are using to monitor Promscale.
 
 ## Runbooks
 
