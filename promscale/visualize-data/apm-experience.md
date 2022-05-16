@@ -96,3 +96,4 @@ dashboards published by Promscale.
     /visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
 [install-toolkit]:/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit
 [promscale-github-dashboards]: https://github.com/timescale/promscale/tree/master/docs/mixin/dashboards
+[install-extension]: /promscale/latest/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension
