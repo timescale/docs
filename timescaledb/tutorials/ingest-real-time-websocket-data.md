@@ -1,42 +1,43 @@
 # Ingest real-time financial websocket data
-
 This tutorial shows you how to ingest real-time time-series data into
 TimescaleDB using a websocket connection. The tutorial sets up a data pipeline to
 ingest real-time data from our data partner, [Twelve Data][twelve-data].
 Twelve Data provides a number of different financial APIs, including stock,
-crypto, forex, ETFs, etc... It also supports websocket connections in case
+crypto, forex, ETFs, and more. It also supports websocket connections in case
 you want to update your database frequently. With websockets, you need to
 connect to the server, subscribe to symbols, and you can start receiving data
 in real-time during market hours.
 
-Once you complete this tutorial, you'll have a data pipeline set
+When you complete this tutorial, you'll have a data pipeline set
 up that ingests real-time financial data into your TimescaleDB instance.
 
-This tutorial uses Python and the
-API [wrapper library][twelve-wrapper] provided
-by Twelve Data.
+This tutorial uses Python and the API 
+[wrapper library][twelve-wrapper] provided by Twelve Data.
 
 ## Prerequisites
-- A TimescaleDB instance running locally or on the cloud. For more information,
-[see installation options][install-ts]
-- Python 3
-- Sign up for [Twelve Data][twelve-signup] (there's a free tier!)
+Before you begin, make sure you have:
+
+*  A TimescaleDB instance running locally or on the cloud. For more information,
+   [see installation options][install-ts]
+*  Installed Python 3
+*  Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for this tutorial.
 
 ## Set up a new Python environment
-
 Create a new Python virtual environment for this project and activate it. All
-the packages you need to complete for this tutorial will be installed in this environment.
+the packages you need to complete for this tutorial are installed in this environment.
 
 <procedure>
 
 ### Setting up a new Python environment
 
-1. Create and activate a Python virtual environment
+1. Create and activate a Python virtual environment:
     ```bash
     virtualenv env
     source env/bin/activate
     ``` 
-1. Install the Twelve Data Python [wrapper library](https://github.com/twelvedata/twelvedata-python) with websocket support:
+1. Install the Twelve Data Python 
+   [wrapper library][twelve-wrapper]
+   with websocket support:
     ```bash
     pip install twelvedata websocket-client
     ```
@@ -53,8 +54,8 @@ the packages you need to complete for this tutorial will be installed in this en
 ## Create the websocket connection
 When you connect to the Twelve Data API through a websocket, you create a
 persistent connection between your computer and the websocket server. This
-persistent connection can then be used to receive data as long as you or the
-server doesn't terminate the connection.
+persistent connection can then be used to receive data for as long as the
+connection is maintained.
 
 <procedure>
 
@@ -131,7 +132,8 @@ server doesn't terminate the connection.
 
 </procedure>
 
-Then, if you wait a few seconds you see actual data records printed out:
+When you have established a connection to the websocket server, 
+wait a few seconds, and you can see actual data records, like this:
 
 ```bash
 {'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438893, 'price': 30361.2, 'bid': 30361.2, 'ask': 30361.2, 'day_volume': 49153}
@@ -141,38 +143,36 @@ Then, if you wait a few seconds you see actual data records printed out:
 {'event': 'price', 'symbol': 'BTC/USD', 'currency_base': 'Bitcoin', 'currency_quote': 'US Dollar', 'exchange': 'Coinbase Pro', 'type': 'Digital Currency', 'timestamp': 1652438900, 'price': 30346.0, 'bid': 30346.0, 'ask': 30346.0, 'day_volume': 49167}
 ```
 
-Each price event gives you multiple data points about the given trading pair.
-For example, the name of the exchange, current price, etc... You will
-occasionally see `heartbeat` events in the response - these events signal
+Each price event gives you multiple data points about the given trading pair
+such as the name of the exchange, and the current price. You can also
+occasionally see `heartbeat` events in the response; these events signal
 the health of the connection over time.
 
 At this point the websocket connection works and data keeps flowing. You need
 to implement the `on_event` function so data gets ingested into TimescaleDB.
 
 ## Ingesting websocket data into TimescaleDB
+Now that the websocket connection is set up, you can use the `on_event` function
+to ingest data into the database. 
 
-Now that the websocket connection is set up, implement the `on_event` function
-so data gets inserted into the database. When ingestin data into a
-transactional database, generally speaking, ingesting a thousand records in
-one transaction will be faster than ingesting them in a thousand transactions.
-
-TimescaleDB, being a transactional database, creates a new transaction
-whenever you try to insert a new record. Because of this behavior, it's suggested to
-insert data records in a batch - multiple records in one transaction.
-Using this approach you can achieve higher ingest rates than if you were to
-insert data record-by-record.
+Usually, when you ingest data into a transactional database, ingesting a thousand 
+records in one transaction is faster than ingesting them in a thousand transactions.
+Because TimescaleDB is a transactional database, it creates a new transaction
+whenever you try to insert a new record. This means that it's better to insert 
+data records in a batch, so you can ingest multiple records in a single transaction.
+This approach means you can achieve higher ingest rates than if you were to
+insert data records one-by-one.
 
 When you insert data in batches, as opposed to one record at a time, the
-database spends less time managing the connection, transactions, etc... and
+database spends less time managing the connection, and transactions,  so
 ingestion becomes faster overall. 
 
 ### Batching in memory
-
 A common practice to implement batching is to store new records in memory
 first, then after the batch reaches a certain size, insert all the records
 from memory into the database in one transaction. The perfect batch size isn't
 universal, but you can experiment with different batch sizes
-(eg.: 100, 1000, 10000 etc...) and see which one fits your use case better.
+(for example, 100, 1000, 10000, and so on) and see which one fits your use case better.
 Using batching is a fairly common pattern when ingesting data into TimescaleDB
 from Kafka, Kinesis, or websocket connections.
 
@@ -180,16 +180,15 @@ Now that you know you need to queue up your data before ingesting, let's see
 how to implement a batching solution in Python with Psycopg2.
 
 ### Implement batching with Psycopg2
-
 Remember to implement the ingestion logic within the `on_event` function that
-you then pass over to the websocket object.
+you can then pass over to the websocket object.
 
-Let's break down what this function needs to do:
+This function needs to:
 
-1. Check if the item is a data item (and not some websocket metadata)
-2. Adjust the data so it fits the database schema (data types, order of columns)
-3. Add it to the in-memory batch (a list in Python)
-4. If the batch reaches a certain size, insert the data and reset/empty the list
+1. Check if the item is a data item, and not some websocket metadata.
+1. Adjust the data so that it fits the database schema, including the data types, and order of columns.
+1. Add it to the in-memory batch, which is a list in Python.
+1. If the batch reaches a certain size, insert the data and reset or empty the list.
 
 Here's the full implementation:
 
@@ -223,11 +222,11 @@ def _on_event(self, event):
             current_batch = []
 ```
 
-Make sure to use `execute_values()` or some other Psycopg2 function that
+Make sure you use `execute_values()` or some other Psycopg2 function that
 allows inserting multiple records in one transaction.
 
-After implementing the on_event function, your Python script can connect to
-the websocket server and ingest data real-time.
+After you have implemented the `on_event` function, your Python script can connect to
+the websocket server and ingest data in real time.
 
 ## Full code example
 Cleaned-up version of the Python script that prints out the current batch size,
@@ -323,7 +322,7 @@ python websocket_test.py
 ```
 
 You can even create separate Python scripts to start multiple websocket
-connections for different types of symbols (e.g.: one for stock, and
+connections for different types of symbols (for example, one for stock, and
 another one for crypto prices)
 
 If you see an error message similar to this:
@@ -332,8 +331,8 @@ If you see an error message similar to this:
 ```
 Then check that you use a proper API key received from Twelve Data.
 
-Continue with one of our complementing tutorials that show you how to
-efficiently store, and analyze your data after ingestion:
+Continue with one of our other tutorials that show you how to
+efficiently store and analyze your data after ingestion:
 
 - [Store financial tick data in TimescaleDB using the OHLCV (candlestick) format][candlestick-tutorial]
 - [Getting started with TimescaleDB][get-started]
