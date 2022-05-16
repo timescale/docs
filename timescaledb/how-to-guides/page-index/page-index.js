@@ -214,8 +214,8 @@ module.exports = [
             excerpt: "Migrate data from an existing InfluxDB database",
           },
           {
-            title: "Troubleshooting",
-            href: "troubleshooting",
+            title: "Troubleshoot data migration",
+            href: "troubleshoot-data-migration",
             tags: ["troubleshooting", "migrate", "data", "timescaledb"],
             keywords: ["troubleshooting", "migrate", "data", "TimescaleDB"],
             excerpt: "Troubleshoot problems that occur during  data migration",

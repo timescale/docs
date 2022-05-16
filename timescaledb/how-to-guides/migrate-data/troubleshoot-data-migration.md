@@ -1,4 +1,6 @@
-# Troubleshooting data migration problems
+# Troubleshooting data migration
+This section contains some ideas for troubleshooting common problems experienced
+with data migration.
 
 ## Problem creating hypertables, unique indexes, or primary keys
 You might get the following error when creating a hypertable, or when adding a
