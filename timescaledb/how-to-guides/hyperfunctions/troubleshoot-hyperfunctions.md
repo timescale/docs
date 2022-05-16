@@ -1,5 +1,6 @@
 # Troubleshooting hyperfunctions and TimescaleDB Toolkit
-Learn how to troubleshoot errors with hyperfunctions and TimescaleDB Toolkit.
+This section contains some ideas for troubleshooting common problems experienced
+with hyperfunctions and TimescaleDB Toolkit.
 
 ## Common errors
 Find solutions for common errors.

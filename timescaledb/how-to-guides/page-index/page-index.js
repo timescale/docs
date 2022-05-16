@@ -752,8 +752,8 @@ module.exports = [
             ],
           },
           {
-            title: "Troubleshooting",
-            href: "troubleshooting",
+            title: "Troubleshoot hyperfunctions",
+            href: "troubleshoot-hyperfunctions",
             tags: ["hyperfunctions", "toolkit", "tshoot", "timescaledb"],
             keywords: [
               "TimescaleDB",
