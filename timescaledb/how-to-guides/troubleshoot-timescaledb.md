@@ -99,7 +99,7 @@ query is immensely helpful.
 
 ### View logs in Docker
 If you have TimescaleDB installed in a Docker container, you can view your logs
-via Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
+using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
 information, see the [Docker documentation on logs][docker-logs].
 
 ## Dump TimescaleDB meta data [](dump-meta-data)
