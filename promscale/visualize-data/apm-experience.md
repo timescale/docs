@@ -11,7 +11,9 @@ Before you begin importing APM dashboards:
 * Check that the `timescaledb_toolkit` extension is installed.
   To verify if the extension is installed, run this SQL query:
   `SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';` 
-  If the query returns no results, then the extension is not installed. For instructions to install the extension, see *Install the TimescaleDB toolkit extension* section.
+  If the query returns no results, then the extension is not installed. For 
+  more information about installing the extension, see the 
+  [toolkit extension installation documentation][install-extension].
 
 You can use one of these methods to import APM dashboards:
 *  From the Grafana community the dashboards published by Promscale.
