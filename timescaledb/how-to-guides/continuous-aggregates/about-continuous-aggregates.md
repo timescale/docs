@@ -45,6 +45,12 @@ dataset, and automatically updates the view in the background. This does not add
 any maintenance burden to your database, and does not slow down `INSERT`
 operations.
 
+By default, querying continuous aggregates provides you with real-time data.
+Pre-aggregated data from the materialized view is combined with recent data that
+hasn't been aggregated yet. This gives you up-to-date results on every query. If
+you prefer not to see recent data, you can turn this setting off. For more
+information, see the section on [real-time aggregates][real-time-aggs]. 
+
 ## Unsupported functions
 Continuous aggregates are supported for most aggregate functions that can be
 [parallelized by PostgreSQL][postgres-parallel-agg], including the standard
@@ -168,4 +174,5 @@ For more information about setting up multi-node, see the
 [cagg-window-functions]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
 [multi-node]: /how-to-guides/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[real-time-aggs]: /how-to-guides/continuous-aggregates/real-time-aggregates/
 [tutorial-caggs]: /getting-started/create-cagg
