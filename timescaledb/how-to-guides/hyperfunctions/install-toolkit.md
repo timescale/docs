@@ -20,7 +20,7 @@ ALTER EXTENSION timescaledb_toolkit UPDATE;
 ## Install Toolkit on self-hosted TimescaleDB
 If you're hosting your own TimescaleDB database, you can install Toolkit by:
 *   Using the TimescaleDB high-availability Docker image
-*   Using the RPM, Debian, or Ubuntu package
+*   Using the RPM or DEB package
 *   Building from source
 
 ### Install Docker image
@@ -69,13 +69,14 @@ and may also work on other Red Hat-based systems, such as Red Hat Enterprise Lin
 
 </procedure>
 
-### Install Toolkit on Debian-based systems
+### Install Toolkit on Ubuntu and other Debian-based systems
 
-These instructions use the `apt` package manager on Debian and Ubuntu.
+These instructions use the `apt` package manager. They have been tested on Ubuntu 20.04
+and may also work on other Debian-based systems.
 
 <procedure>
 
-#### Installing Toolkit on Debian-based systems
+#### Installing Toolkit on Ubuntu 20.04
 
 1.  Make sure you have installed TimescaleDB and added the TimescaleDB
     repository and GPG key. For more information, see [the instructions for
