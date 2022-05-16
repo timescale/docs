@@ -58,8 +58,7 @@ Migrate your data into TimescaleDB from within the same database.
     INSERT INTO new_table
       SELECT * FROM old_table;
     ```
-1.  If you created your new table without indexes in Step 1, recreate your
-    indexes.
+1.  If you created your new table without indexes, recreate your indexes now.
 
 </procedure>
 

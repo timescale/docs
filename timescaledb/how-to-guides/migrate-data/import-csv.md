@@ -13,8 +13,8 @@ Import data form a `csv`.
 ### Importing data
 
 <highlight type="note">
-Timescale provides an open source [parallel
-importer](https://github.com/timescale/timescaledb-parallel-copy) program,
+Timescale provides an open source 
+[parallel importer](https://github.com/timescale/timescaledb-parallel-copy) program,
 `timescaledb-parallel-copy`, to speed up data copying. The program parallelizes
 migration by using several workers to run multiple `COPY`s concurrently. It also
 offers options to improve the copying experience. If you prefer not to download
@@ -44,7 +44,7 @@ offers options to improve the copying experience. If you prefer not to download
     timescaledb-parallel-copy --db-name <DATABASE_NAME> --table <TABLE_NAME> \
         --file <FILENAME>.csv --workers 4 --copy-options "CSV"
     ``` 
-1.  **(Alternative)** If you don't want to use `timescaledb-parallel-copy`,
+1.  **OPTIONAL** If you don't want to use `timescaledb-parallel-copy`,
     insert data into the hypertable by using PostgreSQL's native `COPY`command.
     At the command line, run:
     ```bash
