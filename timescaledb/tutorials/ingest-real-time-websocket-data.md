@@ -299,7 +299,7 @@ class WebsocketPipeline():
         Args:
             symbols (list of symbols): List of stock/crypto symbols
         """
-        td = TDClient(apikey="50b7918b9ced4255816cfa42ee8eb40e")
+        td = TDClient(apikey="TWELVE_DATA_APIKEY")
         ws = td.websocket(on_event=self._on_event)
         ws.subscribe(symbols)
         ws.connect()
