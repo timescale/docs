@@ -88,7 +88,13 @@ into your TimescaleDB instance.
 
 </procedure>
 
+If you want to ingest real-time market data, instead of sample data, check out
+our complementing tutorial
+[Ingest real-time financial websocket data][ingest-real-time] and
+ingest data driectly from the [Twelve Data][twelve-data] financial API.
+
 
 [hypertable]: /how-to-guides/hypertables/
 [sample-download]: https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip
 [twelve-data]: https://twelvedata.com/
+[ingest-real-time]: /tutorials/ingest-real-time-websocket-data

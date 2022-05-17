@@ -14,6 +14,13 @@ weeks, typically ~8 million rows of data. Stock trades are recorded in real-time
 Monday through Friday, typically during normal trading hours of the New York Stock
 Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 
+<highlight type="note">
+In case you want to ingest real-time data, instead of sample data,
+read the tutorial
+[Ingest real-time financial websocket data](/timescaledb/:currentVersion:/tutorials/ingest-real-time-websocket-data)
+and ingest data directly from the Twelve Data financial API.
+</highlight>
+
 ### Table details
 
 `stocks_real_time`: contains stock data. Includes stock price quotes at every
