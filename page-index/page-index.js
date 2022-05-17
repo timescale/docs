@@ -7,7 +7,6 @@ const installPageIndex = require("../install/page-index/page-index");
 const contributePageIndex = require("../contributing/page-index/page-index");
 const gsgPageIndex = require("../getting-started/page-index/page-index");
 
-
 module.exports = [
   ...installPageIndex,
   ...gsgPageIndex,
