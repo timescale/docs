@@ -9,7 +9,7 @@ testing purposes, or to prepare for a major version upgrade. The only difference
 between the original and the forked service is that the `tsdbadmin` user has a
 different password.
 
-The fork is created by restoring from backup and applying the Write-Ahead Log.
+The fork is created by restoring from backup and applying the write-ahead log.
 The data is fetched from Amazon S3, so forking doesn't tax the running instance.
 
 <highlight type="important">
