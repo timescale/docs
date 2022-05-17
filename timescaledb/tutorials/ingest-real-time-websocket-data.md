@@ -36,12 +36,12 @@ the packages you need to complete for this tutorial are installed in this enviro
     source env/bin/activate
     ``` 
 1. Install the Twelve Data Python 
-   [wrapper library][twelve-wrapper]
-   with websocket support:
+    [wrapper library][twelve-wrapper]
+    with websocket support. This library makes it easy to make requests to the
+    API and maintain a stable websocket connection.
     ```bash
     pip install twelvedata websocket-client
     ```
-    This library makes it easy to make requests to the API and maintain a stable websocket connection.
 1. Install [Psycopg2][psycopg2] so that you can connect the
     TimescaleDB from your Python script:
 
