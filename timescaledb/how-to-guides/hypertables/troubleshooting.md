@@ -1,4 +1,6 @@
-# Troubleshooting for hypertables
+# Troubleshoot hypertables
+This section contains some ideas for troubleshooting common problems experienced
+with hypertables.
 
 ## Unique indexes and primary keys
 You might get a unique index and partitioning column error in 2 situations:

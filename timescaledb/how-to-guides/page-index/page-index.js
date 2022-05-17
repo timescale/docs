@@ -105,6 +105,7 @@ module.exports = [
             excerpt: "Drop hypertables",
           },
           {
+            title: "Troubleshoot hypertables",
             href: "troubleshooting",
             tags: ["hypertables", "tshoot", "timescaledb"],
             keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
