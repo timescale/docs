@@ -550,11 +550,18 @@ module.exports = [
         excerpt: "Configure alerting within TimescaleDB",
       },
       {
-        title: "Data Tiering",
+        title: "Data tiering",
         href: "data-tiering",
         children: [
           {
-            title: "Move data",
+            title: "About data tiering",
+            href: "about-data-tiering",
+            tags: ["tiering", "data", "timescaledb"],
+            keywords: ["tiering", "data", "TimescaleDB"],
+            excerpt: "Learn about data tiering",
+          },
+          {
+            title: "Move data for data tiering",
             href: "move-data",
             tags: ["tiering", "data", "migrate", "chunks", "timescaledb"],
             keywords: ["tiering", "data", "TimescaleDB"],
