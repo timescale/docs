@@ -2,7 +2,7 @@ module.exports = [
     {
       title: "Contribute to TimescaleDB",
       filePath: "index.md",
-      href: "contribute-to-timescaledb",
+      href: "contributing",
       name: "Contribute to TimescaleDB",
       tags: ["contribute", "get started", "timescaledb"],
       keywords: ["contribute", "TimescaleDB"],
