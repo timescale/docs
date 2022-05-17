@@ -158,7 +158,7 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 #### Installing the Promscale Connector with a manifest
 1.  Download the [template manifest file][template-manifest]:
     ```bash
-    curl https://github.com/timescale/promscale/blob/0.10.0/deploy/static/deploy.yaml --output promscale-connector.yaml
+    curl https://raw.githubusercontent.com/timescale/promscale/0.10.0/deploy/static/deploy.yaml --output promscale-connector.yaml
     ```
 1.  Edit the manifest and configure the TimescaleDB database details using the
     parameters starting with <PROMSCALE_DB>.
