@@ -5,9 +5,12 @@ const timescaleMSTPageIndex = require("../mst/page-index/page-index");
 const promscalePageIndex = require("../promscale/page-index/page-index");
 const installPageIndex = require("../install/page-index/page-index");
 const contributePageIndex = require("../contribute-to-timescaledb/page-index/page-index");
+const gsgPageIndex = require("../getting-started/page-index/page-index");
+
 
 module.exports = [
   ...installPageIndex,
+  ...gsgPageIndex,
   ...timescaleDbPageIndex,
   ...apiReferencePageIndex,
   ...timescaleCloudPageIndex,
