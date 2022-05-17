@@ -155,17 +155,10 @@ to implement the `on_event` function so data gets ingested into TimescaleDB.
 Now that the websocket connection is set up, you can use the `on_event` function
 to ingest data into the database. 
 
-Usually, when you ingest data into a transactional database, ingesting a thousand 
-records in one transaction is faster than ingesting them in a thousand transactions.
-Because TimescaleDB is a transactional database, it creates a new transaction
-whenever you try to insert a new record. This means that it's better to insert 
-data records in a batch, so you can ingest multiple records in a single transaction.
-This approach means you can achieve higher ingest rates than if you were to
-insert data records one-by-one.
-
-When you insert data in batches, as opposed to one record at a time, the
-database spends less time managing the connection, and transactions,  so
-ingestion becomes faster overall. 
+When you ingest data into a transactional database like TimescaleDB, it is more efficient to
+insert data in batches rather than inserting data row-by-row. Using one transaction to
+insert multiple rows can significantly increase the overall ingest capacity and speed
+of your TimescaleDB instance.
 
 ### Batching in memory
 A common practice to implement batching is to store new records in memory
@@ -176,7 +169,7 @@ universal, but you can experiment with different batch sizes
 Using batching is a fairly common pattern when ingesting data into TimescaleDB
 from Kafka, Kinesis, or websocket connections.
 
-Now that you know you need to queue up your data before ingesting, let's see
+Now you can see
 how to implement a batching solution in Python with Psycopg2.
 
 ### Implement batching with Psycopg2
