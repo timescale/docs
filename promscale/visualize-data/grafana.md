@@ -69,14 +69,14 @@ panel.
 src="https://s3.amazonaws.com/assets.timescale.com/images/misc/grafana-jaeger-query-results.png"
 alt="Sample output for Jaeger query filter in Grafana"/>
 
-<procedure>
-
 ## Configure Promscale as a PostgreSQL data source
 
 PostgreSQL is an open source object-relational database system that uses and
 extends the SQL language. To configure Promscale as a PostgreSQL data source you
 need details such as host, port, database, user, and password of the underlying
 TimescaleDB or PostgreSQL database used by Promscale.
+
+<procedure>
 
 ### Configuring Promscale as a PostgreSQL data source
 
