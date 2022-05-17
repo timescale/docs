@@ -21,20 +21,6 @@ module.exports = [
       ...tutorialPageIndex,
       ...quickStartPageIndex,
       {
-        title: 'Contribute to TimescaleDB',
-        href: 'contribute-to-timescaledb',
-        tags: ["timescaledb", "overview", "get started", "learn"],
-        keywords: ["code", "GitHub", "git", "error"],
-        excerpt:"Learn more about how to contribute to TimescaleDB",
-      },
-      {
-        title: 'Contribute to documentation',
-        href: 'contribute-to-docs',
-        tags:["timescaledb", "get started", "learn", "contribute"],
-        keywords:["code", "docs", "markdown", "style guide"],
-        excerpt:"Learn more about how to contribute to TimescaleDB documentation",
-      },
-      {
         title: 'Compare TimescaleDB Editions',
         href: 'timescaledb-edition-comparison',
         tags:["timescaledb", "get started", "learn", "contribute"],
