@@ -211,6 +211,11 @@ procedures in one place for quick reference.
 
 ## N [](#N)
 
+*Next*
+: Avoid all directional words. You cannot guarantee that things will stay in the
+same position, or be in the position you expect on an individual reader's
+device.
+
 *Numbers* 
 : Write numbers as numerals rather than spelling them out, including
 single-digit numbers. For exceptions, see the Google Developer Documentation
@@ -222,6 +227,12 @@ Style Guide.
 
 *Please*
 : Do not use. Just state the required action.
+
+
+*Previous*
+: Avoid all directional words. You cannot guarantee that things will stay in the
+same position, or be in the position you expect on an individual reader's
+device.
 
 ## Q [](#Q)
 
@@ -247,7 +258,10 @@ Style Guide.
 
 &#10060; "TimescaleDB is hosting a virtual event."
 
-&#10060; "TimeScaleDB"
+&#10060; "I want to install TimeScaleDB"
+
+*Thus*
+: Do not use.
 
 ## U [](#U)
 

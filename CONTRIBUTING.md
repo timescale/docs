@@ -43,7 +43,8 @@ GitHub.
 
 ## Make a larger change
 For larger changes, such as new content and long edits, fork the repository and
-make changes on your local machine.
+make changes on your local machine. If you have write access to the repository,
+use a branch instead. Some of our automation will not work correctly on forks.
 
 ### Fork and clone the repository
 If this is your first contribution, start by forking the repository and cloning
@@ -142,11 +143,13 @@ and create a pull request to the Timescale docs repo.
 1.  Click `Compare and Create Pull Request`.
 1.  Write an informative commit message detailing your changes. 
 1.  Choose reviewers. Each documentation change needs a reviewer from the
-    [Timescale documentation team](#the-timescale-documentation-team). If you
-    made changes to any technical details, you also neeed a subject matter
-    expert (SME) to review. For help choosing an SME, see the [TimescaleDB
-    source code repository](https://github.com/timescale/timescaledb) for SMEs
-    who have worked on your topic.
+    [Timescale documentation team](#the-timescale-documentation-team). Ask the
+    documentation team for a review by adding the `timescale/documentation`
+    group as a reviewer. If you made changes to any technical details, you also
+    neeed a subject matter expert (SME) to review. For help choosing an SME, see
+    the [TimescaleDB source code
+    repository](https://github.com/timescale/timescaledb) for SMEs who have
+    worked on your topic.
 1.  If you've finished your work, submit a pull request by clicking `Create pull
     request`. If you haven't finished, create a draft PR by clicking the arrow
     beside `Create pull request`. This lets your reviewers know that you're
@@ -155,8 +158,11 @@ and create a pull request to the Timescale docs repo.
 1.  If this is your first contribution, you receive a comment asking you to sign
     the Contributor License Agreement. Sign the agreement so your contribution
     can be added to the documentation.
-1.  Review the auto-generated preview of your changes. A GiHub action produces
-    the preview and attaches the link to your PR.
+1.  A GiHub action produces a preview of your changes, and attaches the link to
+    your PR.
+1.  A member of the documentation team reviews your pull request for accuracy
+    and adherence to our standards. You can see a list of the things that
+    reviewers check for in the pull request template.
 
 </procedure>
 
