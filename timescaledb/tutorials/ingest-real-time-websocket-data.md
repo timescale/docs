@@ -55,7 +55,30 @@ the packages you need to complete for this tutorial are installed in this enviro
 When you connect to the Twelve Data API through a websocket, you create a
 persistent connection between your computer and the websocket server. This
 persistent connection can then be used to receive data for as long as the
-connection is maintained.
+connection is maintained. You need to pass two arguments to create a
+websocket object and establish connection.
+
+### Websocket arguments
+
+* **`on_event`**
+
+    This argument needs to be a function that gets invoked whenever there's a
+    new data record is received from the websocket.
+    ```python
+    def on_event(event):
+        print(event) # prints out the data record (dictionary)
+    ```
+    
+    This is where you want to implement the ingestion logic so whenever
+    there's new data available you insert it into the database.
+* **`symbols`**
+
+    This argument needs to be a list of stock ticker symbols (eg.: `MSFT`) or
+    crypto trading pairs (eg.: `BTC/USD`). When using a websocket connection you
+    always need to subscribe to the events you want to receive. You can do this
+    by using the `symbols` argument or if your connection is already
+    created you can also use the `subscribe()` function to get data for additional
+    symbols.
 
 <procedure>
 
@@ -78,40 +101,6 @@ connection is maintained.
     ```
     
     Make sure to pass your API key as an argument for the `TDClient` object.
-    
-    As you can see in this code example, you need to pass two arguments to create
-    the websocket object:
-    
-    * **`on_event`**
-
-        This argument needs to be a function that gets invoked whenever there's a
-        new data record is received from the websocket.
-        ```python
-        def on_event(event):
-        	print(event) # prints out the data record (dictionary)
-        ```
-    
-        This is where you want to implement the ingestion logic so whenever
-        there's new data available you insert it into the database.
-    * **`symbol`**
-
-        This argument needs to be a list of stock ticker symbols (eg.: `MSFT`) or
-        crypto trading pairs (eg.: `BTC/USD`). When using a websocket connection you
-        always need to subscribe to the events you want to receive. You can do this
-        by using the `symbols` argument shown above or if your connection is already
-        created you can also use the `subscribe()` function to get data for additional
-        symbols. Example of adding symbols after the connection is already created:
-        ```python
-        ws = td.websocket(symbols=["BTC/USD", "ETH/USD"], on_event=on_event)
-        ws.connect()
-        ws.keep_alive()
-        ws.subscribe(["USDT/USD", "USDC/USD"])
-        ```
-    
-    You can also notice there's a line in the code example to keep the connection
-    alive *forever:*  `ws.keep_alive()`. It makes sure the connection will stay
-    active until it gets terminated. If you don't add this line the connection
-    might break instantly.
 
 1. Now run the Python script:
     ```bash
@@ -131,6 +120,13 @@ connection is maintained.
     ```
 
 </procedure>
+
+<highlight type="note">
+To keep the websocket connection alive *forever*, use the `keep_alive()`
+function of the wrapper library. It makes sure the connection will
+stay active until it gets terminated. If you don't add this line the
+connection might break instantly.
+</highlight>
 
 When you have established a connection to the websocket server, 
 wait a few seconds, and you can see actual data records, like this:
