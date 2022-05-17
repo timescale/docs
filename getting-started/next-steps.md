@@ -20,7 +20,7 @@ Working with sample data can teach you a lot about TimescaleDB, but you might
 be interested to ingest market data real-time. Check out our
 complementing tutorial
 [Ingest real-time financial websocket data][ingest-real-time] and continue
-ingesting data driectly from the [Twelve Data][twelve-data] financial API.
+ingesting data directly from the [Twelve Data][twelve-data] financial API.
 
 ## Visualize your data
 Time-series data is perfectly suited for viewing with tools like Grafana,
