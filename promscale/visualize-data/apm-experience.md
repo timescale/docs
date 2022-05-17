@@ -6,14 +6,14 @@ with traces.
 Before you begin importing APM dashboards:
 
 * Add these data sources in Grafana:
-    * [Jaeger data source][promscale-as-jaeger].
-    * [PostgreSQL data source][promscale-as-postgresql].   
+    * [Jaeger data source][promscale-as-jaeger]
+    * [PostgreSQL data source][promscale-as-postgresql]  
 * Check that the `timescaledb_toolkit` extension is installed.
   To verify if the extension is installed, run this SQL query:
   `SELECT * FROM pg_extension WHERE extname='timescaledb_toolkit';` 
-  If the query returns no results, then the extension is not installed. The
-  *Install the TimescaleDB toolkit extension* section provides the instructions
-  to install the extension.
+  If the query returns no results, then the extension is not installed. For 
+  more information about installing the extension, see the 
+  [toolkit extension installation documentation][install-extension].
 
 You can use one of these methods to import APM dashboards:
 *  From the Grafana community the dashboards published by Promscale.
@@ -63,14 +63,14 @@ dashboards published by Promscale.
 
 </procedure>
 
-## Import dashboards as JSON files.
+## Import dashboards as JSON files
 
 [Promscale dashboards][promscale-github-dashboards] repository contains all the
 dashboards published by Promscale. 
 
 <procedure>
 
-### Importing dashboards as JSON files.
+### Importing dashboards as JSON files
 1.  Download all the `.json` files with `apm` prefix from the [Promscale
     dashboards][promscle-github-dashboards] repository.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
@@ -91,7 +91,9 @@ dashboards published by Promscale.
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
 [promscale-as-prometheus]:
     /visualize-data/grafana/#promscale-as-prometheus-datasource
-[promscale-as-jaeger]: /visualize-data/grafana/#promscale-as-jaeger-datasource
+[promscale-as-jaeger]: /visualize-data/grafana/#configure-promscale-as-jaeger-data-source 
 [promscale-as-postgresql]:
-    /visualize-data/grafana/#promscale-as-postgresql-datasource
+    /visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
 [install-toolkit]:/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit
+[promscale-github-dashboards]: https://github.com/timescale/promscale/tree/master/docs/mixin/dashboards
+[install-extension]: /promscale/latest/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension
