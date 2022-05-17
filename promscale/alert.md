@@ -19,8 +19,6 @@ To set up alerting and notifications, you need to:
 
 For more details about the `alertmanager` tool, see the [alert manager documentation][am-docs].
 
-<procedure>
-
 ## Set alerting rules
 Promscale alerting rules are compatible with Prometheus
 alerting rules capabilities. Alerting rules are written in one or multiple
@@ -28,6 +26,8 @@ alerting rules capabilities. Alerting rules are written in one or multiple
 are used to trigger alerts when there is a violation of pre-defined conditions.
 Alert notifications can be sent through different communication channels like Slack
 or email can receive these alerts.
+
+<procedure>
 
 ### Setting alerting rules
 1.  Create a `YAML` file that contains the configuration for each alert
