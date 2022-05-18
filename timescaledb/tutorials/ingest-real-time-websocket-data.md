@@ -62,7 +62,7 @@ websocket object and establish connection.
 
 * **`on_event`**
 
-    This argument needs to be a function that gets invoked whenever there's a
+    This argument needs to be a function that is invoked whenever there's a
     new data record is received from the websocket:
     ```python
     def on_event(event):
