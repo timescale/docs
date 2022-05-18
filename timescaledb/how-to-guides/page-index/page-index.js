@@ -175,9 +175,16 @@ module.exports = [
         ],
       },
       {
-        title: "Migrate existing data",
+        title: "Data migration",
         href: "migrate-data",
+        excerpt: "Migrate your data into TimescaleDB",
         children: [
+          {
+            title: "About data migration",
+            href: "about-migrate-data",
+            excerpt:
+              "Learn different ways of migrating your existing data into TimescaleDB"
+          },
           {
             title: "Migrate from the same database",
             href: "same-db",
@@ -206,6 +213,13 @@ module.exports = [
             keywords: ["migrate", "data", "influxdb", "TimescaleDB"],
             excerpt: "Migrate data from an existing InfluxDB database",
           },
+          {
+            title: "Troubleshoot data migration",
+            href: "troubleshoot-data-migration",
+            tags: ["troubleshooting", "migrate", "data", "timescaledb"],
+            keywords: ["troubleshooting", "migrate", "data", "TimescaleDB"],
+            excerpt: "Troubleshoot problems that occur during  data migration",
+          }
         ],
       },
       {
