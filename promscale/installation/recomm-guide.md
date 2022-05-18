@@ -16,9 +16,25 @@ Uncompressed buffer based on the ingest rate.
 </highlight>
 
 ## Metrics
-Resource recommendation for ingestion through Prometheus remote-write. 
+Resource recommendation for ingestion using Prometheus `remote-write`. 
 
 ### Prometheus remote write
+For optimal performance of `remote_write` to Promscale, use this Prometheus
+`remote_write` configuration:
+
+```yaml
+remote_write:
+  remote_timeout: 100s
+  queue_config:
+    capapcity: 100000
+    max_samples_per_second: 10000
+    batch_send_deadline: 30s
+    min_shards: 20
+    max_shards: 20
+    min_backoff: 100ms
+    max_backoff: 10s
+```
+
 Compute recommendations for the Promscale connector and TimescaleDB are:
 
 |Ingestion Rate|Connector CPU|Connector Memory|DB CPU|DB Memory|DB connections|
@@ -52,7 +68,7 @@ to help with retries for failed writes, and to batch the write requests to Proms
 exporters:
   logging:
   otlp:
-    endpoint: {{ .Values.promscale | quote }}
+    endpoint: "<PROMSCALE_HOST>:<gRPC_PORT>"
     tls:
       insecure: true
     sending_queue:
@@ -64,7 +80,9 @@ processors:
     send_batch_max_size: 4000
     timeout: 10s
 ```
-
+Where: 
+* `<PROMSCALE_HOST>`: hostname of Promscale
+* `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
 
 Compute recommendations for the Promscale connector and TimescaleDB are:
 
@@ -85,3 +103,30 @@ The default chunk interval is `1h`
 |50k spans/sec = ~5 MB/sec|30 days|~60 GB|~175 GB|~2 TB|-|
 |100k spans/sec= ~10 MB/sec|30 days|~150 GB|~350 GB|~5 TB|-|
 |200k spans/sec= ~20 MB/sec|30 days|~300 GB|~700 GB|~10 TB|-|
+
+## Database Configuration
+
+To set the most common parameters to optimal values based on your system, run
+`timescaledb-tune`. It accounts for memory, CPU, and PostgreSQL version. For
+more information, see [configuration][timescale-tune-configuration]. However,
+there are a few other PostgreSQL parameters worth tuning:
+
+* `checkpoint_timeout=15min` - when a lot of data is ingested, increase the
+  checkpoint timeout to reduce the input/output pressure.
+* `bgwriter_delay=10ms` - the background writer needs to be active to reduce
+  delays.
+* `bgwriter_lru_maxpages=100000` - increase the number of pages a background
+  writer handles to make it more efficient.
+* `max_wal_size` - set it to a high enough value so that the checkpoint is triggered
+  by the timeout setting and not when the `maximum_wal_size` is reached.
+* `synchronous_commit=off` - this does not cause data corruption or
+  inconsistency. However, in case of a crash, some of the last data points may be
+  lost. For a monitoring observability use case, it's a reasonable tradeoff to
+  increase ingest performance. 
+
+<highlight type="important"> 
+Make sure that the maximum latency between the
+Promscale connector and the database is no more than 100ms. 
+</highlight>
+
+[timescale-tune-configuration]: timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune/
