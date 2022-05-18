@@ -117,7 +117,7 @@ Finally, you must configure `max_worker_processes` to be at least the sum of
 background and parallel workers (as well as a handful of built-in PostgreSQL
 workers).
 
-By default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 8.
+By default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 16.
 In order to change this setting, use the `--max-bg-workers` flag or the
 `TS_TUNE_MAX_BG_WORKERS` docker environment variable. The `max_worker_processes`
 setting is automatically adjusted as well.
@@ -184,7 +184,7 @@ when starting PostgreSQL.
 
 Max background worker processes allocated to TimescaleDB.  Set to at
 least 1 + number of databases in Postgres instance to use background
-workers. Default value is 8.
+workers. Default value is 16.
 
 ### Distributed hypertables [](multinode)
 
