@@ -1,17 +1,24 @@
-# Data retention with continuous aggregates
+# About data retention with continuous aggregates
+You can downsample your data by combining a data retention policy with
+[continuous aggregates][continuous_aggregates]. If you set your refresh policies
+correctly, when you delete old data from a hypertable, data in continuous
+aggregates isn't deleted. This lets you save on raw data storage while keeping
+summarized data for historical analysis.
 
-Extra care must be taken when using retention policies or `drop_chunks` calls on
-hypertables which have [continuous aggregates][continuous_aggregates] defined on
-them. Similar to a refresh of a materialized view, a refresh on a continuous aggregate
-updates the aggregate to reflect changes in the underlying source data. This means
-that any chunks that are dropped in the region still being refreshed by the
-continuous aggregate causes the chunk data to disappear from the aggregate as
-well. If the intent is to keep the aggregate while dropping the underlying data,
-the interval being dropped should not overlap with the offsets for the continuous
-aggregate. For more information, see the [troubleshooting section][troubleshooting].
+<highlight type="warning">
+To keep your aggregates while dropping raw data, you must be careful about
+refreshing your aggregates. You can delete raw data from the underlying table
+without deleting data from continuous aggregates, so long as you don't refresh
+the aggregate over the deleted data. When you refresh a continuous aggregate,
+TimescaleDB updates the aggregate based on changes in the raw data for the
+refresh window. If it sees that the raw data was deleted, it also deletes the
+aggregate data. To prevent this, make sure that the aggregate's refresh window
+doesn't overlap with any deleted data. For more information, see the following
+example.
+</highlight>
 
-
-As an example, let's add a continuous aggregate to our `conditions` hypertable:
+As an example, say that you add a continuous aggregate to a `conditions`
+hypertable that stores device temperatures:
 ```sql
 CREATE MATERIALIZED VIEW conditions_summary_daily (day, device, temp)
 WITH (timescaledb.continuous) AS
@@ -22,31 +29,32 @@ WITH (timescaledb.continuous) AS
 SELECT add_continuous_aggregate_policy('conditions_summary_daily', '7 days', '1 day', '1 day');
 ```
 
-This creates the `conditions_summary_daily` aggregate which stores the daily
-temperature per device from our `conditions` table. However, we have a problem here
-if we're using our 24 hour retention policy from above, as our aggregate captures
-changes to the data for up to seven days. As a result, you update the aggregate
-when you drop the chunk from the table, and you'll ultimately end up with no data in the
+This creates a `conditions_summary_daily` aggregate which stores the daily
+temperature per device. The aggregate refreshes every day. Every time it
+refreshes, it updates with any data changes from 7 days ago to 1 day ago.
+
+You should **not** set a 24-hour retention policy on the `conditions`
+hypertable. If you do, chunks older than 1 day are dropped. Then the aggregate
+refreshes based on data changes. Since the data change was to delete data older
+than 1 day, the aggregate also deletes the data. You end up with no data in the
 `conditions_summary_daily` table.
 
-We can fix this by replacing the `conditions` retention policy with one having a more
-suitable interval:
+To fix this, set a longer retention policy, for example 30 days:
 ```sql
-SELECT remove_retention_policy('conditions');
 SELECT add_retention_policy('conditions', INTERVAL '30 days');
 ```
 
-It's worth noting that continuous aggregates are also valid targets for `drop_chunks`
-and retention policies. To continue our example, we now have our `conditions` table
-holding the last 30 days worth of data, and our `conditions_daily_summary` holding
-average daily values for an indefinite window after that. The following changes
-this to also drop the aggregate data after 600 days:
+Now, chunks older than 30 days are dropped. But when the aggregate refreshes, it
+doesn't look for changes older than 30 days. It only looks for changes between 7
+days and 1 day ago. The raw hypertable still contains data for that time period.
+So your aggregate retains the data.
 
-```sql
-SELECT add_retention_policy('conditions_summary_daily', INTERVAL '600 days');
-```
+## Data retention on a continuous aggregate itself
+You can also apply data retention on a continuous aggregate itself. For example,
+you can keep raw data for 30 days, as above. Meanwhile, you can keep daily data
+for 600 days, and no data beyond that.
 
-[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
 [continuous_aggregates]: /how-to-guides/continuous-aggregates
+[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
 [troubleshooting]: /how-to-guides/continuous-aggregates/troubleshooting/
