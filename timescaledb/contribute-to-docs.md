@@ -142,7 +142,7 @@ that case, feel free to ignore them.
 
 *Next*
 : Avoid all directional words. You cannot guarantee that things will stay in the
-same position, or be in the position you expect on an individual readers'
+same position, or be in the position you expect on an individual reader's
 device.
 
 ### O [](#O)
@@ -151,7 +151,7 @@ device.
 
 *Previous*
 : Avoid all directional words. You cannot guarantee that things will stay in the
-same position, or be in the position you expect on an individual readers'
+same position, or be in the position you expect on an individual reader's
 device.
 
 ### Q [](#Q)
