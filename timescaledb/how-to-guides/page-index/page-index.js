@@ -847,6 +847,18 @@ module.exports = [
               },
             ],
           },
+          {
+            title: "Troubleshoot hyperfunctions",
+            href: "troubleshoot-hyperfunctions",
+            tags: ["hyperfunctions", "toolkit", "tshoot", "timescaledb"],
+            keywords: [
+              "TimescaleDB",
+              "hyperfunctions",
+              "Toolkit",
+              "troubleshoot"
+            ],
+            excerpt: "Troubleshoot problems with hyperfunctions and TimescaleDB Toolkit",
+          },
         ],
       },
       {
