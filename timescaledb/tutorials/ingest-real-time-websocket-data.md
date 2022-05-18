@@ -60,7 +60,7 @@ websocket object and establish connection.
 
 ### Websocket arguments
 
-* **`on_event`**
+* `on_event`
 
     This argument needs to be a function that gets invoked whenever there's a
     new data record is received from the websocket.
@@ -71,7 +71,7 @@ websocket object and establish connection.
     
     This is where you want to implement the ingestion logic so whenever
     there's new data available you insert it into the database.
-* **`symbols`**
+* `symbols`
 
     This argument needs to be a list of stock ticker symbols (eg.: `MSFT`) or
     crypto trading pairs (eg.: `BTC/USD`). When using a websocket connection you
