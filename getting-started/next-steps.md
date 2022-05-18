@@ -17,8 +17,8 @@ suggestions of where to start.
 
 ## Ingest real-time data
 Working with sample data can teach you a lot about TimescaleDB, but you might
-be interested to ingest market data real-time. Check out our
-complementing tutorial
+like to try ingesting market data in real time. Check out our
+related tutorial
 [Ingest real-time financial websocket data][ingest-real-time] and continue
 ingesting data directly from the [Twelve Data][twelve-data] financial API.
 
