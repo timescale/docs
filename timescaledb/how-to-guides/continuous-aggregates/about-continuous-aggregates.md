@@ -51,20 +51,35 @@ hasn't been aggregated yet. This gives you up-to-date results on every query. If
 you prefer not to see recent data, you can turn this setting off. For more
 information, see the section on [real-time aggregates][real-time-aggs]. 
 
-## Unsupported functions
-Continuous aggregates are supported for most aggregate functions that can be
-[parallelized by PostgreSQL][postgres-parallel-agg], including the standard
-aggregates like `SUM` and `AVG`. You can also use more complex expressions on
-top of the aggregate functions, for example `max(temperature)-min(temperature)`.
+## Function support
+In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
+aggregate functions. This includes both parallelizable aggregates, such as `SUM`
+and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
-However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
-continuous aggregates since they are not possible to parallelize with
-PostgreSQL. TimescaleDB does not currently support `FILTER` or `JOIN` clauses,
-or window functions in continuous aggregates. You can work around this by
-[aggregating the other parts of your query beforehand, then using the window function at query time][cagg-window-functions].
+In older versions of PostgreSQL, continuous aggregates only support
+[aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
+They also don't support `FILTER` and `JOIN` clauses or window functions. You can
+work around this by aggregating the other parts of your query in the continuous
+aggregate, then
+[using the window function to query the aggregate][cagg-window-functions].
 
-To test out continuous aggregates, follow
-the [continuous aggregate tutorial][tutorial-caggs].
+The following table summarizes aggregate function support in continuous
+aggregates:
+
+|Function, clause, or feature|TimescaleDB 2.7 and above|Below TimescaleDB 2.7|
+|-|-|-|
+|Parallelizable aggregate functions|✅|✅|
+|Non-parallelizable aggregate functions|✅|❌|
+|Ordered-set aggregates|✅|❌|
+|Hypothetical-set aggregates|✅|❌|
+|Window functions|✅|❌|
+|`DISTINCT`|✅|❌|
+|`FILTER`|✅|❌|
+|`JOIN`|✅|❌|
+
+
+If you want the old behavior in TimescaleDB 2.7 and above, set the parameter
+`timescaledb.finalized` to false when creating your continuous aggregate.
 
 ## Components of a continuous aggregate
 Continuous aggregates consist of:
