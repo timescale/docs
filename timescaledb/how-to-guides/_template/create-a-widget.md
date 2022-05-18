@@ -15,7 +15,9 @@ the hypertable.
 ```
 
 <highlight type="note|important|warning">
-If there are prerequisites that apply to the entire section, if this is a pre-release or beta feature, or if there is a risk of data loss that could apply to this entire section, add the warning here in an admonition.
+If there are prerequisites that apply to the entire section, if this is a
+pre-release or beta feature, or if there is a risk of data loss that could apply
+to this entire section, add the warning here in an admonition.
 </highlight>
 
 ## Create a widget
@@ -53,7 +55,8 @@ hypertable. Additionally, all functions and their arguments included in
 1. Finish the procedure on the final step. Do not include a result statement.
 
 <highlight type="note|important|warning">
-Do not embed admonitions within steps. If you need an admonition in the procedure, add it before or after the steps, but inside the procedure tags,
+Do not embed admonitions within steps. If you need an admonition in the procedure,
+add it before or after the steps, but inside the procedure tags,
 </highlight>
 
 </procedure>
