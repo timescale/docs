@@ -1,6 +1,6 @@
 # About widgets
 This page collects all the concept information about the feature. It answers the
-question "What is it?". This page should not include any procedures, but it can
+question "What is it"? This page should not include any procedures, but it can
 contain code samples if they are being used to explain the feature. Break this
 page up in a way that is logical, starting from simpler concepts and moving to
 more complicated ones. Use diagrams and screenshots sparingly, and ensure they add
