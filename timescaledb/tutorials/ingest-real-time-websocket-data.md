@@ -63,7 +63,7 @@ websocket object and establish connection.
 * **`on_event`**
 
     This argument needs to be a function that gets invoked whenever there's a
-    new data record is received from the websocket.
+    new data record is received from the websocket:
     ```python
     def on_event(event):
         print(event) # prints out the data record (dictionary)
@@ -71,10 +71,11 @@ websocket object and establish connection.
     
     This is where you want to implement the ingestion logic so whenever
     there's new data available you insert it into the database.
+
 * **`symbols`**
 
-    This argument needs to be a list of stock ticker symbols (eg.: `MSFT`) or
-    crypto trading pairs (eg.: `BTC/USD`). When using a websocket connection you
+    This argument needs to be a list of stock ticker symbols (for example, `MSFT`) or
+    crypto trading pairs (for example, `BTC/USD`). When using a websocket connection you
     always need to subscribe to the events you want to receive. You can do this
     by using the `symbols` argument or if your connection is already
     created you can also use the `subscribe()` function to get data for additional
@@ -122,7 +123,7 @@ websocket object and establish connection.
 </procedure>
 
 <highlight type="note">
-To keep the websocket connection alive *forever*, use the `keep_alive()`
+To keep the websocket connection alive indefinitely, use the `keep_alive()`
 function of the wrapper library. It makes sure the connection will
 stay active until it gets terminated. If you don't add this line the
 connection might break instantly.
