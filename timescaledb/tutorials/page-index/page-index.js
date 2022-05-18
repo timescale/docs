@@ -66,6 +66,13 @@ module.exports = [
         ],
       },
       {
+        title: 'Ingest real-time financial websocket data',
+        href: 'ingest-real-time-websocket-data',
+        tags: ['websocket', 'finance', 'real-time', 'ingest', 'timescaledb'],
+        keywords: ['real-time', 'finance', 'websocket', 'tutorial', 'TimescaleDB'],
+        excerpt: 'Ingest real-time financial data with websocket',
+      },
+      {
         title: 'Analyze NFT sales data',
         href: 'analyze-nft-data',
         tags: ['nft', 'finance', 'analyze', 'learn', 'timescaledb'],

@@ -55,7 +55,7 @@ There are several replication settings that need to be added or edited in the
     connections from replicas or backup clients. As a minimum, this should equal
     the number of replicas you intend to have.
 1.  Set the `wal_level` parameter to the amount of information written to the
-    PostgreSQL Write-Ahead Log (WAL). For replication to work, there needs to be
+    PostgreSQL write-ahead log (WAL). For replication to work, there needs to be
     enough data in the WAL to support archiving and replication. The default
     value is usually appropriate.
 1.  Set the `max_replication_slots` parameter to the total number of replication
