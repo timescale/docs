@@ -106,4 +106,4 @@ If you are using Kubernetes instead of plain docker you should:
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
-[alpine-image](https://hub.docker.com/r/timescaledev/promscale-extension)
+[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
