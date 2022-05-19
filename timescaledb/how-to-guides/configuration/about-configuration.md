@@ -42,7 +42,11 @@ TimescaleDB background workers are configured with
 `timescaledb.max_background_workers`. Each database needs a background worker
 allocated to schedule jobs. Additional workers run background jobs as required.
 This setting should be the sum of the total number of databases and the total
-number of concurrent background workers you want running at any one time. By default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 16. You can change this setting directly, use the `--max-bg-workers` flag, or adjust the `TS_TUNE_MAX_BG_WORKERS` [Docker environment variable][docker-conf].
+number of concurrent background workers you want running at any one time. By 
+default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 16. 
+You can change this setting directly, use the `--max-bg-workers` flag, or adjust 
+the `TS_TUNE_MAX_BG_WORKERS` 
+[Docker environment variable][docker-conf].
 
 TimescaleDB parallel workers are configured with `max_parallel_workers`. For
 larger queries, PostgreSQL automatically uses parallel workers if they are
