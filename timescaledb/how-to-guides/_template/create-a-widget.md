@@ -1,3 +1,4 @@
+<!-- vale off -->
 # Create a widget
 This is the first page that contains procedures. It should cover the most
 important and first task a reader is going to need to do with this feature, which

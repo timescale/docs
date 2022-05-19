@@ -1,3 +1,4 @@
+<!-- vale off -->
 # Troubleshooting widgetsg
 This section contains some ideas for troubleshooting common problems experienced
 with widgets.
