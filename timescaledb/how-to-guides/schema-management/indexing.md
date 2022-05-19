@@ -1,130 +1,57 @@
 # Indexing data
+You can use an index on your database to speed up read operations. You can
+create an index on any combination of columns, as long as you include the `time`
+column, for time-series data. TimescaleDB supports all table objects supported
+within PostgreSQL, including data types, indexes, and triggers.
 
-TimescaleDB supports the range of PostgreSQL index types, and creating, altering,
-or dropping an index on the hypertable ([PostgreSQL docs][postgres-createindex])
-is similarly propagated to all its constituent chunks.
-
-Data is indexed via the SQL `CREATE INDEX` command. For instance,
+You can create an index using the `CREATE INDEX` command. For example, to create
+an index that sorts first by `location`, then by `time`, in descending order:
 ```sql
 CREATE INDEX ON conditions (location, time DESC);
 ```
-This can be done before or after converting the table to a hypertable.
 
-<highlight type="tip">
-For sparse data where a column is often NULL, we suggest adding
-a `WHERE column IS NOT NULL` clause to the index (unless you are often
-searching for missing data). For example,
+You can run this command before or after you convert a regular PostgreSQL table
+to a hypertable.
 
+## Default indexes
+Some indexes are created by default when you perform certain actions on your
+database.
+
+When you create a hypertable with the `create_hypertable` command, a time index
+is created on your data. If you want to manually create a time index, you can
+use this command:
+```sql
+CREATE INDEX ON conditions (time DESC);
+```
+
+When you create a hypertable with the `create_hypertable` command, and you specify an optional space partition in addition to time, such as a `location` column, an additional index is created on the optional column and time. For example:
+```sql
+CREATE INDEX ON conditions (location, time DESC);
+```
+
+If you do not want to create these default indexes, you can set
+`create_default_indexes` to `false` when you run the `create_hypertable` command.
+For example:
+```sql
+SELECT create_hypertable('conditions', 'time')
+  CREATE_DEFAULT_INDEXES false;
+```
+
+## Best practices for indexing
+If you have sparse data, with columns that are often NULL, you can add a clause
+to the index, saying `WHERE column IS NOT NULL`. This prevents the index from
+indexing NULL data, which can lead to a more compact and efficient index. For
+example:
 ```sql
 CREATE INDEX ON conditions (time DESC, humidity)
   WHERE humidity IS NOT NULL;
 ```
 
-this creates a more compact, and thus efficient, index.
-</highlight>
-
-## Best practices
-
-Our experience has shown that for time-series data, the most-useful index type
-varies depending on your data.
-
-For indexing columns with discrete (limited-cardinality) values (e.g., where you
-are most likely to use an "equals" or "not equals" comparator) we suggest using
-an index like this (using our hypertable `conditions` for the example):
-```sql
-CREATE INDEX ON conditions (location, time DESC);
-```
-For all other types of columns, i.e., columns with continuous values (e.g.,
-where you are most likely to use a
-"less than" or "greater than" comparator) the index should be in the form:
-```sql
-CREATE INDEX ON conditions (time DESC, temperature);
-```
-Having a `time DESC` column specification in the index allows for efficient
-queries by column-value and time. For example, the index defined above would
-optimize the following query:
-```sql
-SELECT * FROM conditions WHERE location = 'garage'
-  ORDER BY time DESC LIMIT 10
-```
-
-To understand why composite indexes should be defined in such a
-fashion, consider an example with two locations ("office" and "garage"), and
-various timestamps and temperatures:
-
-An index on `(location, time DESC)` would be organized in sorted order
-as follows:
-
-```
-garage-4
-garage-3
-garage-2
-garage-1
-office-3
-office-2
-office-1
-```
-
-An index on `(time DESC, location)` would be organized in sorted order
-as follows:
-
-```
-4-garage
-3-garage
-3-office
-2-garage
-2-office
-1-garage
-1-office
-```
-
-One can think of an index's btrees as being constructed from the most
-significant bit downwards, so it first matches on the first character,
-then second, etc., while in the above example they are conveniently shown
-as two separate tuples.
-
-Now, with a predicate like `WHERE location = 'garage' and time >= 1 and time < 4`,
-the top is much better to use: all readings from a given
-location are contiguous, so the first bit of the index precisely finds
-all metrics from "garage", and then we can use any additional time
-predicates to further narrow down the selected set.  With the latter,
-you would have to look over all of the time records [1,4), and then once
-again find the right device in each. Much less efficient.
-
-On the other hand, consider if our conditional was instead asking `temperature > 80`,
- particularly if that conditional matched a larger number of
-values.  You still need to search through all sets of time values
-matching your predicate, but in each one, your query also grabs a
-(potentially large) subset of the values, rather than just one
-distinct one.
-
-<highlight type="tip">
-To define an index as UNIQUE or PRIMARY KEY, the time column and, if it
-exists, the partitioning column **must** be part of the index.
-That is, using our running example, you can define a unique index on just the
-(time, location) fields, or to include additional columns (say, temperature).
-That said, we find UNIQUE indexes in time-series data to be much less prevalent than
-in traditional relational data models.
-</highlight>
-
-## Default indexes
-
-By default, TimescaleDB automatically creates a time index on your
-data when a hypertable is created.
-
-```sql
-CREATE INDEX ON conditions (time DESC);
-```
-
-Additionally, if the `create_hypertable` command specifies an optional
-"space partition" in addition to time (say, the `location` column),
-TimescaleDB automatically creates the following index:
-
-```sql
-CREATE INDEX ON conditions (location, time DESC);
-```
-
-This default behavior can be overridden when executing the [`create_hypertable`][create_hypertable] command.
+To define an index as a `UNIQUE` or `PRIMARY KEY` index, the index must include
+the time column and the partitioning column, if you are using one. For example,
+a unique index must include at least the `(time, location)` columns, in addition
+to any other columns you want to use. Generally,
+time-series data uses `UNIQUE` indexes more rarely than relational data.
 
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/

@@ -1,22 +1,19 @@
 # Alter a hypertable
-You can run standard [`ALTER TABLE`][postgres-altertable] commands against both
-regular and distributed hypertables.
+You can alter a hypertable, for example to add a column, by using a standard
+[`ALTER TABLE`][postgres-altertable] command. This works for both regular and
+distributed hypertables.
 
+In the following example, the hypertable is named `conditions` and the new
+column is named `humidity`:
 ```sql
-ALTER TABLE TABLE_NAME
+ALTER TABLE conditions
   ADD COLUMN humidity DOUBLE PRECISION NULL;
 ```
 
-TimescaleDB automatically propagates the table changes to the chunks
-of the hypertable. On distributed hypertables, the alter table
-commands are also propagated to the data nodes in the multi-node
-cluster.
-
 <highlight type="note">
-Altering a table's schema is quite efficient provided that the default value for
-any additional column is set to NULL.  If the default is set to a non-null
-value, TimescaleDB needs to fill in this value for all rows of all chunks
-belonging to the hypertable.
+Adding a column is efficient so long as you set its default value to `NULL`. If
+you set the default to a non-null value, it takes longer, because TimescaleDB
+needs to fill in this value for all existing rows of all existing chunks.
 </highlight>
 
 [postgres-altertable]: https://www.postgresql.org/docs/current/sql-altertable.html
