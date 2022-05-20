@@ -43,7 +43,7 @@ TimescaleDB background workers are configured with
 allocated to schedule jobs. Additional workers run background jobs as required.
 This setting should be the sum of the total number of databases and the total
 number of concurrent background workers you want running at any one time. By 
-default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 16. 
+default, `timescaledb-tune` sets `timescaledb.max_background_workers` to 8. 
 You can change this setting directly, use the `--max-bg-workers` flag, or adjust 
 the `TS_TUNE_MAX_BG_WORKERS` 
 [Docker environment variable][docker-conf].
