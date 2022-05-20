@@ -3,9 +3,9 @@ If you haven't yet added a payment method, you can add one in this section. You
 can also update to a new credit card here. 
 
 ## Add, update, or delete a payment method
-You can add up to three credit cards to the `Wallet` and set one of the cards
-as `primary` for payments. If you want to delete the last card in the `Wallet`,
-you have to first delete all the services and then schedule the last card to be
+You can add up to three credit cards to the `Wallet` and set one of the cards as
+`primary` for payments. If you want to delete the last card in the `Wallet`, you
+have to first delete all the services and then schedule the last card to be
 deleted at the end of the month.
 <procedure>
 
@@ -24,15 +24,16 @@ deleted at the end of the month.
       `Billing  address is the same as company address`, and click `Save`.
     * If your billing address is not the same as your company address, click
       `Continue`. Type your company address, and click `Save`.        
-1.  Confirm your new credit card is saved by checking the details on
-    the `Billing` page.
-    To update your billing address and company address, click the edit icon in
-    the saved payment method.
+1.  Confirm your new credit card is saved by checking the details on the
+    `Billing` page. To update your billing address and company address, click
+    the edit icon in the saved payment method.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/add_credit_card.png" alt="Adding a payment method in Timescale Cloud"/>
 
 <highlight type="note">
-The first credit card that you add to the payment method is set as the `Primary payment method`, by default. After you add other cards to the payment method, click `Set as primary` to set that card as primary for payments.
+The first credit card that you add to the payment method is set as the `Primary
+payment method`, by default. After you add other cards to the payment method,
+click `Set as primary` to set that card as primary for payments.
 </highlight>
 
 </procedure>
@@ -48,7 +49,9 @@ month.
 By default, your Timescale Cloud payment confirmations are sent to the email
 address that you used when you signed up. This is also the address that receives
 alerts about your Timescale Cloud services. If you want your payment
-confirmations to also go to a different email address, for example the email address for your finance department, you can add it in the `Billing` details section.
+confirmations to also go to a different email address, for example the email
+address for your finance department, you can add it in the `Billing` details
+section.
 
 <highlight type="note">
 When you add a billing email address, payment confirmations are sent to both the
