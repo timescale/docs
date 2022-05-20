@@ -1,8 +1,8 @@
 # About data retention with continuous aggregates
 You can downsample your data by combining a data retention policy with
 [continuous aggregates][continuous_aggregates]. If you set your refresh policies
-correctly, when you delete old data from a hypertable, data in continuous
-aggregates isn't deleted. This lets you save on raw data storage while keeping
+correctly, you can delete old data from a hypertable without deleting it from
+any continuous aggregates. This lets you save on raw data storage while keeping
 summarized data for historical analysis.
 
 <highlight type="warning">

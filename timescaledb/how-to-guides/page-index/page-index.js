@@ -482,6 +482,7 @@ module.exports = [
         excerpt: "Drop data by time value either automatically or manually",
         children: [
           {
+            title: "About data retention",
             href: "about-data-retention",
             tags: ["retention", "data", "timescaledb"],
             keywords: ["retention", "data", "TimescaleDB"],

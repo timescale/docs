@@ -5,18 +5,24 @@ background job to drop old chunks.
 
 ## Add a data retention policy
 Add a data retention policy by using the
-[`add_retention_policy`][add_retention_policy] function. Call the function with
-2 arguments:
-1.  The name of the hypertable you want to add the policy to.
-1.  An interval beyond which the data is dropped. For example, to delete chunks
-    older than 24 hours, use `INTERVAL '24 hours'`).
-```sql
-SELECT add_retention_policy('conditions', INTERVAL '24 hours');
-```
+[`add_retention_policy`][add_retention_policy] function.
+
+<procedure>
+
+### Adding a data retention policy
+1.  Choose which hypertable you want to add the policy to. Decide how long want
+    you want to keep data before dropping it. In this example, the hypertable
+    name is `conditions`, and data is kept for 24 hours.
+1.  Call `add_retention_policy`:
+    ```sql
+    SELECT add_retention_policy('conditions', INTERVAL '24 hours');
+    ```
+
+</procedure>
 
 <highlight type="note">
-A data retention poilcy only allows you to drop chunks based on how far in the
-past they are. To drop chunks based on how far they are in the future,
+A data retention poilcy only allows you to drop chunks based on how far they are
+in the past. To drop chunks based on how far they are in the future,
 [manually drop chunks](/timescaledb/latest/how-to-guides/data-retention/manually-drop-chunks).
 </highlight>
 

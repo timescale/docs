@@ -33,7 +33,7 @@ SELECT drop_chunks(
 
 ## Drop chunks in the future
 You can also drop chunks in the future, for example to correct data with the
-wrong timestamp. For example, to drop all chunks newer than 3 months in the
+wrong timestamp. For example, to drop all chunks more than 3 months in the
 future:
 ```sql
 SELECT drop_chunks(
