@@ -2,26 +2,40 @@
 If you haven't yet added a payment method, you can add one in this section. You
 can also update to a new credit card here. 
 
-## Add, change, or delete  a payment method
-You can add upto three credit cards to the `Wallet` and set one of the cards
+## Add, update, or delete a payment method
+You can add up to three credit cards to the `Wallet` and set one of the cards
 as `primary` for payments. If you want to delete the last card in the `Wallet`,
 you have to first delete all the services and then schedule the last card to be
 deleted at the end of the month.
 <procedure>
 
-### Adding or changing a payment method
+### Adding, updating, or deleting a payment method
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
 1.  In the `Wallet` section, click `Add a payment method`. If you already have
-    three credit cards saved in the payment methods, you need to delete atleast
+    three credit cards saved in the payment methods, you need to delete at least
     one of them before you start. Click the trash can icon to delete your saved
     credit card.
-1.  Type your credit card details, and click `Add billing address`.
-1.  Type your address, and click `Save payment method`.
+1.  Type your credit card details, and click `Continue`.
+    The `Add payment method: billing address` page appears.
+1.  Type you billing address and company address. The company address is
+    required to determine any applicable sales tax.
+    * If your billing address is the same as your company address, select
+      `Billing  address is the same as company address`, and click `Save`.
+    * If your billing address is not the same as your company address, click
+      `Continue`. Type your company address, and click `Save`.        
 1.  Confirm your new credit card is saved by checking the details on
     the `Billing` page.
+    To update your billing address and company address, click the edit icon in
+    the saved payment method.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/add_credit_card.png" alt="Adding a payment method in Timescale Cloud"/>
+
+<highlight type="note">
+The first credit card that you add to the payment method is set as the `Primary payment method`, by default. After you add other cards to the payment method, click `Set as primary` to set the card as primary for payments.
+</highlight>
+
+</procedure>
 
 <highlight type="note">
 The first charge on your new credit card is for the period from the date you
@@ -30,14 +44,11 @@ confirmations are for usage from the first of the month, to the last day of the
 month.
 </highlight>
 
-</procedure>
-
-## Add or change your billing email address
+## Add or update your billing email address
 By default, your Timescale Cloud payment confirmations are sent to the email
 address that you used when you signed up. This is also the address that receives
 alerts about your Timescale Cloud services. If you want your payment
-confirmations to also go to a different email address, for example the email address
-for your finance department, you can add it in the `Billing` details section.
+confirmations to also go to a different email address, for example the email address for your finance department, you can add it in the `Billing` details section.
 
 <highlight type="note">
 When you add a billing email address, payment confirmations are sent to both the
