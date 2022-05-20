@@ -15,6 +15,13 @@ or a .csv file.
 Look at the [how-to guide on Migrating Data][migrate-data] for more help and
 suggestions of where to start.
 
+## Ingest real-time data
+Working with sample data can teach you a lot about TimescaleDB, but you might
+like to try ingesting market data in real time. Check out our
+related tutorial
+[Ingest real-time financial websocket data][ingest-real-time] and continue
+ingesting data directly from the [Twelve Data][twelve-data] financial API.
+
 ## Visualize your data
 Time-series data is perfectly suited for viewing with tools like Grafana,
 Tableau, and Power BI, to name a few. Once you can see trends and query
@@ -45,3 +52,5 @@ deeper into time-series data and data analysis using TimescaleDB.
 [visualize-data]: /timescaledb/:currentVersion:/tutorials/grafana/
 [connect-with-code]: /timescaledb/:currentVersion:/quick-start/
 [sample-data]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[ingest-real-time]: /timescaledb/:currentVersion:/tutorials/ingest-real-time-websocket-data
+[twelve-data]: https://twelvedata.com/
