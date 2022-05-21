@@ -6,13 +6,13 @@ can also update to a new credit card here.
 You can add up to three credit cards to the `Wallet` and set one of the cards as
 `primary` for payments. If you want to delete the last card in the `Wallet`, you
 have to first delete all the services and then schedule the last card to be
-deleted at the end of the month.
+deleted at the end of the month. However, if you are still on trial, you can delete the card in the `Wallet` without deleting the services.
 <procedure>
 
 ### Adding, updating, or deleting a payment method
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
-1.  In the `Wallet` section, click `Add a payment method`. If you already have
+1.  In the `Wallet` section, click `Add payment method`. If you already have
     three credit cards saved in the payment methods, you need to delete at least
     one of them before you start. Click the trash can icon to delete your saved
     credit card.
@@ -25,8 +25,10 @@ deleted at the end of the month.
     * If your billing address is not the same as your company address, click
       `Continue`. Type your company address, and click `Save`.        
 1.  Confirm your new credit card is saved by checking the details on the
-    `Billing` page. To update your billing address and company address, click
-    the edit icon in the saved payment method.
+    `Billing` page.
+    You can update your billing address and company address by clicking the edit
+    icon in the `primary` payment method. However, you can only edit the billing
+    address on other payment methods.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/add_credit_card.png" alt="Adding a payment method in Timescale Cloud"/>
 
