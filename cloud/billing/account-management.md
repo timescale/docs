@@ -33,13 +33,11 @@ delete the card in the `Wallet` without deleting the services.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/add_credit_card.png" alt="Adding a payment method in Timescale Cloud"/>
 
-<highlight type="note">
+</procedure>
+
 The first credit card that you add to the payment method is set as the `Primary
 payment method`, by default. After you add other cards to the payment method,
 click `Set as primary` to set that card as primary for payments.
-</highlight>
-
-</procedure>
 
 <highlight type="note">
 The first charge on your new credit card is for the period from the date you
