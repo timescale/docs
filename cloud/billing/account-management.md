@@ -19,7 +19,7 @@ delete the card in the `Wallet` without deleting the services.
     credit card.
 1.  Type your credit card details, and click `Continue`.
     The `Add payment method: billing address` page appears.
-1.  Type you billing address and company address. The company address is
+1.  Type your billing and company addresses. The company address is
     required to determine any applicable sales tax.
     * If your billing address is the same as your company address, select
       `Billing  address is the same as company address`, and click `Save`.
