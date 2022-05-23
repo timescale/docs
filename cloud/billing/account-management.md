@@ -6,7 +6,8 @@ can also update to a new credit card here.
 You can add up to three credit cards to the `Wallet` and set one of the cards as
 `primary` for payments. If you want to delete the last card in the `Wallet`, you
 have to first delete all the services and then schedule the last card to be
-deleted at the end of the month. However, if you are still on trial, you can delete the card in the `Wallet` without deleting the services.
+deleted at the end of the month. However, if you are still on trial, you can 
+delete the card in the `Wallet` without deleting the services.
 <procedure>
 
 ### Adding, updating, or deleting a payment method
