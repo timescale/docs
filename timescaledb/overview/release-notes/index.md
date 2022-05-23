@@ -34,15 +34,16 @@ follow these [setup instructions][distributed-hypertables-setup].
 
 ### What's new in TimescaleDB 2.7:
 
-TODO: Product notes
+
+You can recreate a cagg to benefit from the improvement with the caveat that the original data need to exist  
+There will be a migration path
+
 - Continuous aggregates without reaggregation
 
-Because we're not storing partials anymore and removed the
-re-aggregation, now is be possible to create indexes on aggregated
-columns in the materialization hypertable in order to improve the
-performance even more.
-
-Also removed restrictions on types of aggregates users can perform
+Since Continuous aggregates are not storing partials anymore and with also removing re-aggregation, 
+now it is possible to create indexes on aggregated columns in the materialization hypertable 
+in order to improve the performance even more.
+We have also removed restrictions on types of aggregates users can perform
 with Continuous Aggregates:
 
 * aggregates with DISTINCT
@@ -51,13 +52,18 @@ with Continuous Aggregates:
 * aggregates without combine function
 * ordered-set aggregates
 * hypothetical-set aggregates
-By default the new continuous aggregates are created using this new
-format, but the previous version (with partials) is still supported.
 
-Users can create the previous style by setting to false the storage
-paramater named timescaledb.finalized during the creation of the
-Continuous Aggregate.
+The existing Continuous Aggregates are safe and will continue to work as before. 
+They are still supported however they will not take the performance advantages of the new format.
 
+By default the continuous aggregate format from TimescaleDB 2.7 onward is the new one.
+Users can still create in the previous format by setting to false the storage paramater 
+named `timescaledb.finalized` during the creation of the Continuous Aggregate.
+
+We recommend users that want to take advantage of these new improvements to recreate their Continuous Aggregates.
+You will need the original data to be able to achieve this.
+If you don't have the original data, we will provide in a later TimescaleDB version a migration path 
+from the previous Continuous Aggregate format to the new one.
 
 TODO: Priority selection
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
