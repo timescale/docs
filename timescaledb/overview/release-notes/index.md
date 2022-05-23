@@ -51,8 +51,8 @@ with Continuous Aggregates:
 * aggregates without combine function
 * ordered-set aggregates
 * hypothetical-set aggregates
-By default the new Continuous Aggregates will be created using this new
-format, but the previous version (with partials) will be supported.
+By default the new continuous aggregates are created using this new
+format, but the previous version (with partials) is still supported.
 
 Users can create the previous style by setting to false the storage
 paramater named timescaledb.finalized during the creation of the
