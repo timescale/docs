@@ -54,8 +54,9 @@ with Continuous Aggregates:
 * ordered-set aggregates
 * hypothetical-set aggregates
 
-The existing Continuous Aggregates are safe and will continue to work as before. 
-They are still supported however they will not take the performance advantages of the new format.
+The existing continuous aggregates are safe to use and continue to work as before. 
+They are still supported, however they do not benefit from the performance advantages 
+of the new format.
 
 By default the continuous aggregate format from TimescaleDB 2.7 onward is the new one.
 Users can still create in the previous format by setting to false the storage paramater 
