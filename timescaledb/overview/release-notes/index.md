@@ -58,9 +58,10 @@ The existing continuous aggregates are safe to use and continue to work as befor
 They are still supported, however they do not benefit from the performance advantages 
 of the new format.
 
-By default the continuous aggregate format from TimescaleDB 2.7 onward is the new one.
-Users can still create in the previous format by setting to false the storage paramater 
-named `timescaledb.finalized` during the creation of the Continuous Aggregate.
+By default, TimescaleDB 2.7 and later uses the new continuous aggregate format.
+You can still create continuous aggregates using the previous format by setting 
+the `timescaledb.finalized` storage parameter to `FALSE` when you create the 
+continuous aggregate.
 
 We recommend that you recreate you existing continuous aggregates to take advantage 
 of these improvements. To do this, you need the original data. A migration path for 
