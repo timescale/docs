@@ -38,7 +38,7 @@ follow these [setup instructions][distributed-hypertables-setup].
 You can recreate a continuous aggregate to benefit from the improvement, if the
 original data already exists.
 
-- Continuous aggregates without reaggregation
+- Improved continuous aggregates performances and lifted several limitations (by removing reaggregation)
 
 Because continuous aggregates no longer store partials, and re-aggregation is removed, 
 it is now possible to create indexes on aggregated columns in the materialization hypertable.
