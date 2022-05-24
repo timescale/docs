@@ -41,9 +41,9 @@ There will be a migration path
 
 - Continuous aggregates without reaggregation
 
-Since Continuous aggregates are not storing partials anymore and with also removing re-aggregation, 
-now it is possible to create indexes on aggregated columns in the materialization hypertable 
-in order to improve the performance even more.
+Because continuous aggregates no longer store partials, and re-aggregation is removed, 
+it is now possible to create indexes on aggregated columns in the materialization hypertable.
+This can further improve performance.
 We have also removed restrictions on types of aggregates users can perform
 with Continuous Aggregates:
 
