@@ -68,7 +68,6 @@ of these improvements. To do this, you need the original data. A migration path 
 migrating to the new continuous aggregate format without the original data is intended 
 in a future version of TimescaleDB.
 
-TODO: Priority selection
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
 <!-- <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight> -->
