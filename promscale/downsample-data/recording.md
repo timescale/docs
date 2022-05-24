@@ -13,9 +13,9 @@ The recording rules are used for computationally expensive expressions and save
 their result as a new set of time series data. These help in visualization of
 data over a long period of time. 
 
-### Setting example recording rules
 <procedure>
 
+### Setting example recording rules
 1.  Create a `YAML` file that contains the configuration for each record,
     similar to:
     ```yaml

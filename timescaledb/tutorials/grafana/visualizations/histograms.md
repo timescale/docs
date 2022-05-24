@@ -7,7 +7,7 @@ They can answer questions like:
 
 * What is the distribution of the Meta stock price today?
 * What was the transaction volume distribution of AMD stock last week?
-* What was the distribution of daily returns of the S&P in the past year?
+* What was the distribution of daily returns of the S&P500 in the past year?
 
 ## Data for Grafana histograms
 With Grafana, you can plot a histogram by providing data in 1 of 3
@@ -165,7 +165,7 @@ you need to add a new variable called `bucket_interval`.
     FROM stocks_real_time srt
     WHERE symbol = '$symbol'
         AND time >= $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
-    GROUP BY time_bucket('$date_range',time);
+    GROUP BY time_bucket('$bucket_interval', time);
     ```
 
 1.  This query yields the following histogram:
@@ -192,7 +192,7 @@ selected values, and Grafana buckets them in separate histograms.
 1.  Fetch all company symbols from the dataset:
 
     ```sql
-    SELECT DISTINCT symbol FROM company ORDER BY asc;
+    SELECT DISTINCT symbol FROM company ORDER BY symbol ASC;
     ```
 
 1.  Create a new dashboard variable with the previous query: 
