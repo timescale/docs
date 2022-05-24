@@ -118,6 +118,7 @@ This release includes these noteworthy features:
 * Optimize now() query planning time
 * Improve COPY insert performance
 * Improve performance of UPDATE/DELETE on PG14 by excluding chunks
+* Improve performance of reading from compressed hypertables, especially when using JIT.
 
 This release also includes several bug fixes.
 
