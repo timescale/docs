@@ -52,4 +52,4 @@ SELECT ps_trace.set_trace_retention_period(30 * INTERVAL '1 day');
 
 
 
-[promscale-install]: promscale/:currentVersion/installation/
+[promscale-install]: promscale/:currentVersion:/installation/
