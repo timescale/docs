@@ -44,8 +44,8 @@ There will be a migration path
 Because continuous aggregates no longer store partials, and re-aggregation is removed, 
 it is now possible to create indexes on aggregated columns in the materialization hypertable.
 This can further improve performance.
-We have also removed restrictions on types of aggregates users can perform
-with Continuous Aggregates:
+There are no longer any restrictions on which types of aggregates you can use
+with continuous aggregates. All of these are now available:
 
 * aggregates with DISTINCT
 * aggregates with FILTER
