@@ -62,10 +62,10 @@ By default the continuous aggregate format from TimescaleDB 2.7 onward is the ne
 Users can still create in the previous format by setting to false the storage paramater 
 named `timescaledb.finalized` during the creation of the Continuous Aggregate.
 
-We recommend users that want to take advantage of these new improvements to recreate their Continuous Aggregates.
-You will need the original data to be able to achieve this.
-If you don't have the original data, we will provide in a later TimescaleDB version a migration path 
-from the previous Continuous Aggregate format to the new one.
+We recommend that you recreate you existing continuous aggregates to take advantage 
+of these improvements. To do this, you need the original data. A migration path for 
+migrating to the new continuous aggregate format without the original data is intended 
+in a future version of TimescaleDB.
 
 TODO: Priority selection
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
