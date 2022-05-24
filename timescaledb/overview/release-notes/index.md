@@ -40,7 +40,8 @@ original data already exists.
 
 - Improved continuous aggregates performances and lifted several limitations (by removing reaggregation)
 
-Because continuous aggregates no longer store partials, and re-aggregation is removed, 
+This new continuous aggregate format is faster than the previous version and also
+because continuous aggregates no longer store partials, and re-aggregation is removed, 
 it is now possible to create indexes on continuous aggregates columns.
 This can further improve performance.
 There are no longer any restrictions on which types of aggregates you can use
