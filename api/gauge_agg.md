@@ -39,8 +39,9 @@ data stored as other numeric types, cast it to `DOUBLE PRECISION` when using the
 function.
 
 <highlight type="note">
-If there are `NULL` values in your data, the aggregate ignores them. At least
-some of the values must be non-`NULL`. Otherwise, you get an error.
+If there are `NULL` values in your data, the aggregate ignores them and
+aggregates only non-`NULL` values. If you only have `NULL` values, the aggregate
+returns `NULL`.
 </highlight>
 
 ## Optional arguments
