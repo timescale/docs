@@ -179,4 +179,4 @@ visit the [managed service for TimescaleDB Knowledge Base][mst-kb].
 [contact]: https://www.timescale.com/contact
 [using-timescale]: /overview/core-concepts/
 [hello-timescale]: /tutorials/tutorial-hello-timescale
-[install-psql]: /how-to-guides/connecting/psql/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
