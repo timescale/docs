@@ -21,7 +21,7 @@ You can also find information on flags with `promscale_<version> -help`.
 | enable-feature | string | "" | Enable one or more experimental promscale features (as a comma-separated list). Current experimental features are `tracing`, `promql-at-modifier`, and `promql-negative-offset`. For more information, please consult the following resources: [tracing](tracing.md), [promql-at-modifier](https://prometheus.io/docs/prometheus/latest/feature_flags/#modifier-in-promql), [promql-negative-offset](https://prometheus.io/docs/prometheus/latest/feature_flags/#negative-offset-in-promql). |
 | migrate | string | true | Update the Prometheus SQL schema to the latest version. Valid options are: [true, false, only]. |
 | thanos.store-api.server-address | string | "" (disabled) | Address to listen on for Thanos Store API endpoints. |
-| tracing.otlp.server-address string | string | "" (disabled) | Address to listen on for OTLP GRPC server. |
+| tracing.otlp.server-address| string | `:9202`| Address to listen on for OTLP GRPC server. |
 
 ## Auth flags
 

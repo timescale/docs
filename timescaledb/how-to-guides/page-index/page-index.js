@@ -63,58 +63,119 @@ module.exports = [
         href: "hypertables",
         children: [
           {
-            title: "CREATE",
+            title: "About hypertables",
+            href: "about-hypertables",
+            tags: ["hypertables", "timescaledb"],
+            keywords: ["hypertables", "TimescaleDB"],
+            excerpt: "Learn about hypertables in TimescaleDB",
+          },
+          {
+            title: "Create hypertables",
             href: "create",
             tags: ["hypertables", "create", "timescaledb"],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Create hypertables",
           },
           {
-            title: "ALTER",
+            title: "Change hypertable chunk intervals",
+            href: "change-chunk-intervals",
+            tags: ["hypertables", "chunks", "edit", "timescaledb"],
+            keywords: ["hypertables", "TimescaleDB"],
+            excerpt: "Change and view chunk time intervals for a hypertable",
+          },
+          {
+            title: "Alter hypertables",
             href: "alter",
             tags: ["hypertables", "edit", "timescaledb"],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Alter hypertables",
           },
           {
-            title: "DROP",
+            title: "Create unique indexes on hypertables",
+            href: "hypertables-and-unique-indexes",
+            tags: ["hypertables", "indexes", "create", "timescaledb"],
+            keywords: ["hypertables", "TimescaleDB", "indexes"],
+            excerpt: "Create hypertables with unique indexes",
+          },
+          {
+            title: "Drop hypertables",
             href: "drop",
             tags: ["hypertables", "delete", "timescaledb"],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Drop hypertables",
           },
           {
-            title: "Distributed hypertables",
-            href: "distributed-hypertables",
-            tags: ["hypertables", "create", "distributed", "timescaledb"],
-            keywords: ["hypertables", "distributed", "TimescaleDB"],
-            excerpt: "Learn about distributed hypertables",
-          },
-          {
-            title: "Hypertables and unique indexes",
-            href: "hypertables-and-unique-indexes",
-            tags: ["hypertables", "create", "timescaledb", "index"],
-            keywords: ["hypertables", "TimescaleDB", "index"],
-            excerpt: "Learn how unique indexes work with hypertables.",
-          },
-          {
-            title: "Best practices",
-            href: "best-practices",
-            tags: [
-              "hypertables",
-              "manage",
-              "configure",
-              "tshoot",
-              "timescaledb",
-            ],
-            keywords: ["hypertables", "TimescaleDB"],
-            excerpt: "Best practices for managing hypertables",
-          },
-          {
+            title: "Troubleshoot hypertables",
             href: "troubleshooting",
             tags: ["hypertables", "tshoot", "timescaledb"],
             keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
             excerpt: "Troubleshooting and error fixes for hypertables",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables",
+        href: "distributed-hypertables",
+        tags: ["hypertables", "distributed", "timescaledb"],
+        keywords: ["hypertables", "distributed", "TimescaleDB"],
+        excerpt: "Distributed hypertables for multi-node TimescaleDB",
+        children: [
+          {
+            title: "About distributed hypertables",
+            href: "about-distributed-hypertables",
+            tags: ["hypertables", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Learn about distributed hypertables",
+          },
+          {
+            title: "Create distributed hypertables",
+            href: "create-distributed-hypertables",
+            tags: ["hypertables", "create", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Create a distributed hypertable",
+          },
+          {
+            title: "Insert data",
+            href: "insert",
+            tags: ["hypertables", "ingest", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Insert data into a distributed hypertable",
+          },
+          {
+            title: "Query data",
+            href: "query",
+            tags: ["query", "distributed", "hypertables", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Query data in distributed hypertables",
+          },
+          {
+            title: "Alter and drop distributed hypertables",
+            href: "alter-drop-distributed-hypertables",
+            tags: [
+              "hypertables",
+              "distributed",
+              "edit",
+              "delete",
+              "timescaledb"
+            ],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Alter schema for and drop distributed hypertables"
+          },
+          {
+            title: "Create foreign keys on distributed hypertables",
+            href: "foreign-keys",
+            tags: ["distributed", "hypertables", "timescaledb", "foreign keys"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt:
+              "Create foreign keys from distributed hypertables to other tables"
+          },
+          {
+            title: "Use triggers in distributed hypertables",
+            href: "triggers",
+            tags: ["triggers", "distributed", "hypertables", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt:
+              "Use row- and statement-level triggers in distributed hypertables",
           },
         ],
       },
@@ -175,9 +236,16 @@ module.exports = [
         ],
       },
       {
-        title: "Migrate existing data",
+        title: "Data migration",
         href: "migrate-data",
+        excerpt: "Migrate your data into TimescaleDB",
         children: [
+          {
+            title: "About data migration",
+            href: "about-migrate-data",
+            excerpt:
+              "Learn different ways of migrating your existing data into TimescaleDB"
+          },
           {
             title: "Migrate from the same database",
             href: "same-db",
@@ -206,6 +274,13 @@ module.exports = [
             keywords: ["migrate", "data", "influxdb", "TimescaleDB"],
             excerpt: "Migrate data from an existing InfluxDB database",
           },
+          {
+            title: "Troubleshoot data migration",
+            href: "troubleshoot-data-migration",
+            tags: ["troubleshooting", "migrate", "data", "timescaledb"],
+            keywords: ["troubleshooting", "migrate", "data", "TimescaleDB"],
+            excerpt: "Troubleshoot problems that occur during  data migration",
+          }
         ],
       },
       {
@@ -303,17 +378,45 @@ module.exports = [
         href: "schema-management",
         children: [
           {
-            title: "ALTER hypertables",
+            title: "About schemas",
+            href: "about-schemas",
+            tags: ["schema", "hypertables", "learn", "timescaledb"],
+            keywords: ["schema", "hypertables", "TimescaleDB"],
+            excerpt: "About hypertable schemas",
+          },
+          {
+            title: "About indexing",
+            href: "about-indexing",
+            tags: ["schema", "index", "hypertables", "learn", "timescaledb"],
+            keywords: ["schema", "hypertables", "index", "TimescaleDB"],
+            excerpt: "About schema indexes",
+          },
+          {
+            title: "About tablespaces",
+            href: "about-tablespaces",
+            tags: ["schema", "hypertables", "learn", "timescaledb"],
+            keywords: ["schema", "hypertables", "TimescaleDB"],
+            excerpt: "About schema tablespaces",
+          },
+          {
+            title: "About constraints",
+            href: "about-constraints",
+            tags: ["schema", "hypertables", "learn", "timescaledb"],
+            keywords: ["schema", "hypertables", "TimescaleDB"],
+            excerpt: "About schema constraints",
+          },
+          {
+            title: "Alter hypertables",
             href: "alter",
             tags: ["schema", "hypertables", "edit", "timescaledb"],
             keywords: ["schema", "hypertables", "TimescaleDB"],
             excerpt: "Change the schema of a hypertable",
           },
           {
-            title: "Indexing",
+            title: "Index",
             href: "indexing",
             tags: ["schema", "hypertables", "index", "timescaledb"],
-            keywords: ["schema", "hypertables", "TimescaleDB"],
+            keywords: ["schema", "hypertables", "index", "TimescaleDB"],
             excerpt: "Create an index on a hypertable",
           },
           {
@@ -321,14 +424,7 @@ module.exports = [
             href: "triggers",
             tags: ["schema", "hypertables", "manage", "timescaledb"],
             keywords: ["schema", "hypertables", "TimescaleDB"],
-            excerpt: "Create an index on a hypertable",
-          },
-          {
-            title: "Constraints",
-            href: "constraints",
-            tags: ["schema", "hypertables", "manage", "timescaledb"],
-            keywords: ["schema", "hypertables", "TimescaleDB"],
-            excerpt: "Create constraints on a hypertable",
+            excerpt: "Create triggers on a hypertable",
           },
           {
             title: "JSON",
@@ -336,13 +432,6 @@ module.exports = [
             tags: ["schema", "hypertables", "json", "data", "timescaledb"],
             keywords: ["schema", "hypertables", "json", "TimescaleDB"],
             excerpt: "Using JSON data types in a hypertable",
-          },
-          {
-            title: "Tablespaces",
-            href: "tablespaces",
-            tags: ["schema", "hypertables", "manage", "data", "timescaledb"],
-            keywords: ["schema", "hypertables", "TimescaleDB"],
-            excerpt: "Create tablespaces on a hypertable",
           },
         ],
       },
@@ -536,11 +625,18 @@ module.exports = [
         excerpt: "Configure alerting within TimescaleDB",
       },
       {
-        title: "Data Tiering",
+        title: "Data tiering",
         href: "data-tiering",
         children: [
           {
-            title: "Move data",
+            title: "About data tiering",
+            href: "about-data-tiering",
+            tags: ["tiering", "data", "timescaledb"],
+            keywords: ["tiering", "data", "TimescaleDB"],
+            excerpt: "Learn about data tiering",
+          },
+          {
+            title: "Move data for data tiering",
             href: "move-data",
             tags: ["tiering", "data", "migrate", "chunks", "timescaledb"],
             keywords: ["tiering", "data", "TimescaleDB"],
@@ -613,6 +709,16 @@ module.exports = [
       {
         title: "Hyperfunctions",
         href: "hyperfunctions",
+        pageComponents: ["featured-cards"],
+        featuredChildren: [
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation",
+          "/timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages",
+        ],
         children: [
           {
             title: "About hyperfunctions",
@@ -640,12 +746,13 @@ module.exports = [
             href: "function-pipelines",
             tags: ["toolkit", "hyperfunctions", "query", "timescaledb"],
             keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt: "Learn about function pipelines",
+            excerpt: "Use functional programming to simplify complex SQL queries",
           },
           {
             title: "Approximate count distincts",
             href: "approx-count-distincts",
             type: "directory",
+            excerpt: "Count the number of unique values in a dataset",
             children: [
               {
                 title: "Hyperloglog",
@@ -661,12 +768,14 @@ module.exports = [
             href: "stats-aggs",
             tags: ["hyperfunctions", "toolkit", "query", "timescaledb"],
             keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt: "Learn about the statistical aggregates hyperfunction",
+            excerpt:
+              "Calculate descriptive statistics and models, including averages, standard deviation, linear regression, and more",
           },
           {
             title: "Gapfilling and interpolation",
             href: "gapfilling-interpolation",
             type: "directory",
+            excerpt: "Fill in data collected at irregular time intervals",
             children: [
               {
                 title: "Time bucket gapfill",
@@ -689,6 +798,7 @@ module.exports = [
             title: "Percentile approximation",
             href: "percentile-approx",
             type: "directory",
+            excerpt: "Calculate percentiles",
             children: [
               {
                 title: "Approximate percentile",
@@ -711,6 +821,7 @@ module.exports = [
             title: "Counter aggregation",
             href: "counter-aggregation",
             type: "directory",
+            excerpt: "Calculate statistics from gauges and counters",
             children: [
               {
                 title: "Counter aggregates",
@@ -725,6 +836,7 @@ module.exports = [
             title: "Time-weighted averages",
             href: "time-weighted-averages",
             type: "directory",
+            excerpt: "Calculate time-weighted averages",
             children: [
               {
                 title: "Time-weighted averages",
@@ -734,6 +846,18 @@ module.exports = [
                 excerpt: "Learn about the time-weighted averages hyperfunction",
               },
             ],
+          },
+          {
+            title: "Troubleshoot hyperfunctions",
+            href: "troubleshoot-hyperfunctions",
+            tags: ["hyperfunctions", "toolkit", "tshoot", "timescaledb"],
+            keywords: [
+              "TimescaleDB",
+              "hyperfunctions",
+              "Toolkit",
+              "troubleshoot"
+            ],
+            excerpt: "Troubleshoot problems with hyperfunctions and TimescaleDB Toolkit",
           },
         ],
       },
