@@ -72,14 +72,13 @@ aggregates:
 |Non-parallelizable aggregate functions|✅|❌|
 |Ordered-set aggregates|✅|❌|
 |Hypothetical-set aggregates|✅|❌|
-|Window functions|✅|❌|
-|`DISTINCT`|✅|❌|
-|`FILTER`|✅|❌|
-|`JOIN`|✅|❌|
+|`DISTINCT` in aggregate functions|✅|❌|
+|`FILTER` in aggregate functions|✅|❌|
+|`ORDER BY` in aggregate functions|✅|❌|
 
 
 If you want the old behavior in TimescaleDB 2.7 and above, set the parameter
-`timescaledb.finalized` to false when creating your continuous aggregate.
+`timescaledb.finalized` to `false` when creating your continuous aggregate.
 
 ## Components of a continuous aggregate
 Continuous aggregates consist of:
