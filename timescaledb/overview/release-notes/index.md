@@ -35,7 +35,8 @@ follow these [setup instructions][distributed-hypertables-setup].
 ### What's new in TimescaleDB 2.7:
 
 
-You can recreate a cagg to benefit from the improvement with the caveat that the original data need to exist  
+You can recreate a continuous aggregate to benefit from the improvement, if the
+original data already exists.
 There will be a migration path
 
 - Continuous aggregates without reaggregation
