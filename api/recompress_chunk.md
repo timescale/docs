@@ -19,7 +19,7 @@ the procedure with `CALL`. Don't use a `SELECT` statement.
 
 <highlight type="note">
 `recompress_chunk` only works on chunks that have previously been compressed. To compress a
-chunk for the first time, use [`compress_chunk`](/compression/compress_chunk/).
+chunk for the first time, use [`compress_chunk`](/api/latest/compression/compress_chunk/).
 </highlight>
 
 ## Required arguments

@@ -2,9 +2,10 @@
 
 <highlight type="deprecation">
 This section describes a feature that is deprecated on Managed Service for
-TimescaleDB. We strongly recommend that you do not use this feature in a
-production environment. If you need more information, please  
-[contact the support team](https://www.timescale.com/support).
+TimescaleDB. If you want to use multi-node, you can use
+[Timescale Cloud](/cloud/latest), our hosted, cloud-native TimescaleDB service.
+You can also [self-host](/install/latest/self-hosted) a TimescaleDB
+installation.
 </highlight>
 
 TimescaleDB 2.0 [introduces a number of new features][changes-in-tsdb2] to
