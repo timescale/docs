@@ -60,7 +60,7 @@ of the new format.
 
 By default, TimescaleDB 2.7 and later uses the new continuous aggregate format.
 
-We recommend that you recreate you existing continuous aggregates to take advantage 
+We recommend that you recreate your existing continuous aggregates to take advantage 
 of these improvements. To do this, you need the original data. A migration path for 
 migrating to the new continuous aggregate format without the original data is intended 
 in a future version of TimescaleDB.
