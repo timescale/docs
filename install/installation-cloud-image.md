@@ -109,7 +109,7 @@ if you want to have a chat.
 [aws-instance-config]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html
 [aws-connect]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timescaledb/:currentVersion:/index/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
