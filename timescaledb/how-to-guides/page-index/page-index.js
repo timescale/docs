@@ -63,58 +63,119 @@ module.exports = [
         href: "hypertables",
         children: [
           {
-            title: "CREATE",
+            title: "About hypertables",
+            href: "about-hypertables",
+            tags: ["hypertables", "timescaledb"],
+            keywords: ["hypertables", "TimescaleDB"],
+            excerpt: "Learn about hypertables in TimescaleDB",
+          },
+          {
+            title: "Create hypertables",
             href: "create",
             tags: ["hypertables", "create", "timescaledb"],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Create hypertables",
           },
           {
-            title: "ALTER",
+            title: "Change hypertable chunk intervals",
+            href: "change-chunk-intervals",
+            tags: ["hypertables", "chunks", "edit", "timescaledb"],
+            keywords: ["hypertables", "TimescaleDB"],
+            excerpt: "Change and view chunk time intervals for a hypertable",
+          },
+          {
+            title: "Alter hypertables",
             href: "alter",
             tags: ["hypertables", "edit", "timescaledb"],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Alter hypertables",
           },
           {
-            title: "DROP",
+            title: "Create unique indexes on hypertables",
+            href: "hypertables-and-unique-indexes",
+            tags: ["hypertables", "indexes", "create", "timescaledb"],
+            keywords: ["hypertables", "TimescaleDB", "indexes"],
+            excerpt: "Create hypertables with unique indexes",
+          },
+          {
+            title: "Drop hypertables",
             href: "drop",
             tags: ["hypertables", "delete", "timescaledb"],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Drop hypertables",
           },
           {
-            title: "Distributed hypertables",
-            href: "distributed-hypertables",
-            tags: ["hypertables", "create", "distributed", "timescaledb"],
-            keywords: ["hypertables", "distributed", "TimescaleDB"],
-            excerpt: "Learn about distributed hypertables",
-          },
-          {
-            title: "Hypertables and unique indexes",
-            href: "hypertables-and-unique-indexes",
-            tags: ["hypertables", "create", "timescaledb", "index"],
-            keywords: ["hypertables", "TimescaleDB", "index"],
-            excerpt: "Learn how unique indexes work with hypertables.",
-          },
-          {
-            title: "Best practices",
-            href: "best-practices",
-            tags: [
-              "hypertables",
-              "manage",
-              "configure",
-              "tshoot",
-              "timescaledb",
-            ],
-            keywords: ["hypertables", "TimescaleDB"],
-            excerpt: "Best practices for managing hypertables",
-          },
-          {
+            title: "Troubleshoot hypertables",
             href: "troubleshooting",
             tags: ["hypertables", "tshoot", "timescaledb"],
             keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
             excerpt: "Troubleshooting and error fixes for hypertables",
+          },
+        ],
+      },
+      {
+        title: "Distributed hypertables",
+        href: "distributed-hypertables",
+        tags: ["hypertables", "distributed", "timescaledb"],
+        keywords: ["hypertables", "distributed", "TimescaleDB"],
+        excerpt: "Distributed hypertables for multi-node TimescaleDB",
+        children: [
+          {
+            title: "About distributed hypertables",
+            href: "about-distributed-hypertables",
+            tags: ["hypertables", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Learn about distributed hypertables",
+          },
+          {
+            title: "Create distributed hypertables",
+            href: "create-distributed-hypertables",
+            tags: ["hypertables", "create", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Create a distributed hypertable",
+          },
+          {
+            title: "Insert data",
+            href: "insert",
+            tags: ["hypertables", "ingest", "distributed", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Insert data into a distributed hypertable",
+          },
+          {
+            title: "Query data",
+            href: "query",
+            tags: ["query", "distributed", "hypertables", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Query data in distributed hypertables",
+          },
+          {
+            title: "Alter and drop distributed hypertables",
+            href: "alter-drop-distributed-hypertables",
+            tags: [
+              "hypertables",
+              "distributed",
+              "edit",
+              "delete",
+              "timescaledb"
+            ],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt: "Alter schema for and drop distributed hypertables"
+          },
+          {
+            title: "Create foreign keys on distributed hypertables",
+            href: "foreign-keys",
+            tags: ["distributed", "hypertables", "timescaledb", "foreign keys"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt:
+              "Create foreign keys from distributed hypertables to other tables"
+          },
+          {
+            title: "Use triggers in distributed hypertables",
+            href: "triggers",
+            tags: ["triggers", "distributed", "hypertables", "timescaledb"],
+            keywords: ["hypertables", "distributed", "TimescaleDB"],
+            excerpt:
+              "Use row- and statement-level triggers in distributed hypertables",
           },
         ],
       },
@@ -416,7 +477,24 @@ module.exports = [
       },
       {
         href: "data-retention",
+        tags: ["retention", "data", "timescaledb"],
+        keywords: ["retention", "data", "TimescaleDB"],
+        excerpt: "Drop data by time value either automatically or manually",
         children: [
+          {
+            title: "About data retention",
+            href: "about-data-retention",
+            tags: ["retention", "data", "timescaledb"],
+            keywords: ["retention", "data", "TimescaleDB"],
+            excerpt: "Learn about data retention in TimescaleDB",
+          },
+          {
+            title: "About data retention with continuous aggregates",
+            href: "data-retention-with-continuous-aggregates",
+            tags: ["retention", "caggs", "data", "timescaledb"],
+            keywords: ["retention", "data", "caggs", "TimescaleDB"],
+            excerpt: "Using data retention policies with continuous aggregates",
+          },
           {
             title: "Create a retention policy",
             href: "create-a-retention-policy",
@@ -430,13 +508,6 @@ module.exports = [
             tags: ["retention", "data", "delete", "chunks", "timescaledb"],
             keywords: ["retention", "data", "TimescaleDB"],
             excerpt: "Manually drop chunks",
-          },
-          {
-            title: "Data retention with continuous aggregates",
-            href: "data-retention-with-continuous-aggregates",
-            tags: ["retention", "caggs", "data", "timescaledb"],
-            keywords: ["retention", "data", "caggs", "TimescaleDB"],
-            excerpt: "Using data retention policies with continuous aggregates",
           },
         ],
       },
@@ -564,11 +635,18 @@ module.exports = [
         excerpt: "Configure alerting within TimescaleDB",
       },
       {
-        title: "Data Tiering",
+        title: "Data tiering",
         href: "data-tiering",
         children: [
           {
-            title: "Move data",
+            title: "About data tiering",
+            href: "about-data-tiering",
+            tags: ["tiering", "data", "timescaledb"],
+            keywords: ["tiering", "data", "TimescaleDB"],
+            excerpt: "Learn about data tiering",
+          },
+          {
+            title: "Move data for data tiering",
             href: "move-data",
             tags: ["tiering", "data", "migrate", "chunks", "timescaledb"],
             keywords: ["tiering", "data", "TimescaleDB"],
@@ -778,6 +856,18 @@ module.exports = [
                 excerpt: "Learn about the time-weighted averages hyperfunction",
               },
             ],
+          },
+          {
+            title: "Troubleshoot hyperfunctions",
+            href: "troubleshoot-hyperfunctions",
+            tags: ["hyperfunctions", "toolkit", "tshoot", "timescaledb"],
+            keywords: [
+              "TimescaleDB",
+              "hyperfunctions",
+              "Toolkit",
+              "troubleshoot"
+            ],
+            excerpt: "Troubleshoot problems with hyperfunctions and TimescaleDB Toolkit",
           },
         ],
       },

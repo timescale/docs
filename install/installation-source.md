@@ -233,10 +233,10 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timescaledb/:currentVersion:/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: /timescaledb/latest/how-to-guides/configuration/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
