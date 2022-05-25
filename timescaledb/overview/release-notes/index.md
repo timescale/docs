@@ -65,6 +65,12 @@ of these improvements. To do this, you need the original data. A migration path 
 migrating to the new continuous aggregate format without the original data is intended 
 in a future version of TimescaleDB.
 
+This release also adds a new optimization for queries with now() constraints.
+Queries on hypertables with many chunks and a `now()` constraints that would
+exclude all but the most recent chunk were dominated by planning time.
+This new optimization enhances the planner to take the `now()` constraint into
+consideration when planning thereby reducing the work that needs to be done
+in the planner.
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
 <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
