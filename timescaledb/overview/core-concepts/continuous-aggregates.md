@@ -80,15 +80,16 @@ SELECT bucket, avg
 ORDER BY bucket;
 ```
 
-Continuous aggregates are supported for most aggregate functions that
-can be [parallelized by PostgreSQL][postgres-parallel-agg], which
-includes the normal aggregates like `SUM` and `AVG`. However,
-aggregates using `ORDER BY` and `DISTINCT` cannot be used with
-continuous aggregates since they are not possible to parallelize by
-PostgreSQL. In addition, TimescaleDB continuous aggregates do not
-currently support the `FILTER` clause (not to be confused with
-`WHERE`) even though it is possible to parallelize but we might add
-support for this in a future version.
+<highlight type="important">
+In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
+aggregate functions. They also support aggregates with keywords such as
+`DISTINCT`, `ORDER BY`, and `FILTER`. Older versions of TimescaleDB only support
+aggregate functions that can be
+[parallelized by PostgreSQL](https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION).
+They don't support `DISTINCT`, `ORDER BY`, and `FILTER`. For more information,
+see the
+[how-to guide on continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates/#unsupported-functions).
+</highlight>
 
 ## Real-time aggregation [](real-time-aggregates)
 
@@ -137,5 +138,4 @@ provides great control and flexibility!
 
 
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[postgres-parallel-agg]:https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [api-alter-cagg]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
