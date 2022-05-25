@@ -1,9 +1,17 @@
 # Data retention 
+Data retention helps you save on storage costs by deleting old data. You can
+combine data retention with [continuous aggregates][caggs] to downsample your
+data.
 
-An intrinsic part of time-series data is that new data is accumulated
-and old data is rarely, if ever, updated and the relevance of the data
-diminishes over time.  It is therefore often desirable to delete old
-data to save disk space.
+In this section:
+*   [Learn about data retention][about-data-retention] before you start using it
+*   [Learn about data retention with continuous aggregates][retention-with-caggs]
+    for downsampling data
+*   Create a [data retention policy][retention-policy]
+*   [Manually drop chunks][manually-drop] of data
 
-The following how-to's demonstrate how to drop old data and set automatic
-policies so that TimescaleDB maintains the data for you.
+[caggs]: /how-to-guides/continuous-aggregates/
+[about-data-retention]: /how-to-guides/data-retention/about-data-retention/
+[retention-with-caggs]: /how-to-guides/data-retention/data-retention-with-continuous-aggregates
+[retention-policy]: /how-to-guides/data-retention/create-a-retention-policy
+[manually-drop]: /how-to-guides/data-retention/manually-drop-chunks

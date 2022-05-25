@@ -477,7 +477,24 @@ module.exports = [
       },
       {
         href: "data-retention",
+        tags: ["retention", "data", "timescaledb"],
+        keywords: ["retention", "data", "TimescaleDB"],
+        excerpt: "Drop data by time value either automatically or manually",
         children: [
+          {
+            title: "About data retention",
+            href: "about-data-retention",
+            tags: ["retention", "data", "timescaledb"],
+            keywords: ["retention", "data", "TimescaleDB"],
+            excerpt: "Learn about data retention in TimescaleDB",
+          },
+          {
+            title: "About data retention with continuous aggregates",
+            href: "data-retention-with-continuous-aggregates",
+            tags: ["retention", "caggs", "data", "timescaledb"],
+            keywords: ["retention", "data", "caggs", "TimescaleDB"],
+            excerpt: "Using data retention policies with continuous aggregates",
+          },
           {
             title: "Create a retention policy",
             href: "create-a-retention-policy",
@@ -491,13 +508,6 @@ module.exports = [
             tags: ["retention", "data", "delete", "chunks", "timescaledb"],
             keywords: ["retention", "data", "TimescaleDB"],
             excerpt: "Manually drop chunks",
-          },
-          {
-            title: "Data retention with continuous aggregates",
-            href: "data-retention-with-continuous-aggregates",
-            tags: ["retention", "caggs", "data", "timescaledb"],
-            keywords: ["retention", "data", "caggs", "TimescaleDB"],
-            excerpt: "Using data retention policies with continuous aggregates",
           },
         ],
       },
