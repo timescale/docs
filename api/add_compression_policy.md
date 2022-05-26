@@ -3,12 +3,13 @@ Allows you to set a policy by which the system compresses a chunk
 automatically in the background after it reaches a given age.
 
 Note that compression policies can only be created on hypertables or continuous
-aggregates that already have compression enabled. Use the [`ALTER
-TABLE`][compression_alter-table] command to set `timescaledb.compress` and other
-configuration parameters for hypertables. Use [`ALTER MATERIALIZED
-VIEW`][compression_continuous-aggregate] command to enable compression on
-continuous aggregates. To view the policies that you set or the policies that
-already exist, see [informational views][informational-views].
+aggregates that already have compression enabled. Use the 
+[`ALTER TABLE`][compression_alter-table] command to set `timescaledb.compress` 
+and other configuration parameters for hypertables. Use 
+[`ALTER MATERIALIZED VIEW`][compression_continuous-aggregate] command to 
+enable compression on continuous aggregates. To view the policies that you set or 
+the policies that already exist, see 
+[informational views][informational-views].
 
 ### Required arguments
 
