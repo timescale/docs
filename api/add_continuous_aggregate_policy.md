@@ -1,7 +1,7 @@
 ## add_continuous_aggregate_policy() <tag type="community">Community</tag>
 Create a policy that automatically refreshes a continuous aggregate. To view the
-policies that you set or the policies that already exist, see [informational
-views][informational-views].
+policies that you set or the policies that already exist, see 
+[informational views][informational-views].
 
 ### Required arguments
 
