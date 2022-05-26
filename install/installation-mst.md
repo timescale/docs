@@ -133,5 +133,5 @@ if you want to have a chat.
 [timescale-features]: https://www.timescale.com/products/#Features
 [contact]: https://www.timescale.com/contact
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[mst-docs]: mst/:currentVersion:/
+[mst-docs]: /mst/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
