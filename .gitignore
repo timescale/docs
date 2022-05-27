@@ -2,3 +2,4 @@
 .DS_Store
 .idea
 .github/workflows/update-search.yml
+*.swp
