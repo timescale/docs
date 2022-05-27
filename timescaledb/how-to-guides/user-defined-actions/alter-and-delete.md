@@ -1,32 +1,45 @@
-# Altering and dropping actions
+# Alter and delete user-defined actions
+Alter an existing job by using [`alter_job`][api-alter_job]. You can change both
+the config and the schedule on which the job runs. Delete a job by using
+[`delete_job`][api-delete_job].
 
-You can alter the config or scheduling parameters with [`alter_job`][api-alter_job].
+<highlight type="note">
+To alter or delete a job, you need to know its `job_id`. Find the `job_id` by
+querying the `timescaledb_information.jobs` table.
 
-Replace the entire JSON config for job with id 1000 with the specified JSON:
+```sql
+SELECT * FROM timescaledb_information.jobs;
+```
+</highlight>
 
+## Change a job's config
+To replace the entire JSON config for a job, call `alter_job` with a new
+`config` object. For example, for a job with id `1000`:
 ```sql
 SELECT alter_job(1000, config => '{"hypertable":"metrics"}');
 ```
 
-Disable automatic scheduling of the job with id 1000. The job can still be run manually
-with `run_job`:
-
+## Turn off scheduling of a job
+To turn off automatic scheduling of a job, call `alter_job` and set `scheduled`
+to `false`. You can still run the job manually with `run_job`. For example,
+for a job with id `1000`:
 ```sql
 SELECT alter_job(1000, scheduled => false);
 ```
 
-Reenable automatic scheduling of the job with id 1000:
-
+## Re-enable automatic scheduling of a job
+To re-enable automatic scheduling of a job, call `alter_job` and set `scheduled`
+to `true`. For example, for a job with id `1000`:
 ```sql
 SELECT alter_job(1000, scheduled => true);
 ```
 
-Delete the job with id 1000 from the automation framework with [`delete_job`][api-delete_job]:
-
+## Delete a job
+Delete a job from the automation framework with [`delete_job`][api-delete_job].
+For example, for a job with id `1000`:
 ```sql
 SELECT delete_job(1000);
 ```
-
 
 [api-alter_job]: /api/:currentVersion:/actions/alter_job
 [api-delete_job]: /api/:currentVersion:/actions/delete_job

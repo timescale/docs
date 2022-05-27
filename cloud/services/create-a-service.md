@@ -24,6 +24,6 @@ if you want to have a chat.
 [sign-up]: https://www.timescale.com/timescale-signup
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[tsc-docs]: cloud/:currentVersion:/index/
+[tsc-docs]: cloud/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [cloud-install]: install/:currentVersion:/installation-cloud/

@@ -63,4 +63,4 @@ cluster. For more information, see the [configuration section][configuration].
 [install]: /install/latest/
 [setup]: /install/latest/
 [about-multi-node]: /how-to-guides/multinode-timescaledb/about-multinode/
-[caggs]: timescaledb/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment

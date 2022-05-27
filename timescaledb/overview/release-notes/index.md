@@ -32,14 +32,45 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.6.1:
+### What's new in TimescaleDB 2.7:
 
-- Continuous aggregates with compression
-- `time_bucket_ng` support for N months, years and timezones on continuous aggregates
 
-You can read more about this release on our [blog post](https://tsdb.co/timescaledb-2-6).
-This release also contains bug fixes since the 2.6.0 release.
+You can recreate a continuous aggregate to benefit from the improvement, if the
+original data already exists.
 
+- Improved continuous aggregates performances and lifted several limitations (by removing reaggregation)
+
+This new continuous aggregate format is faster than the previous version. 
+Because continuous aggregates no longer store partials, and re-aggregation is removed, 
+it is now possible to create indexes on continuous aggregates columns.
+This can further improve performance.
+There are no longer any restrictions on which types of aggregates you can use
+with continuous aggregates. All of these are now available:
+
+* aggregates with DISTINCT
+* aggregates with FILTER
+* aggregates with FILTER in HAVING clause
+* aggregates without combine function
+* ordered-set aggregates
+* hypothetical-set aggregates
+
+The existing continuous aggregates are safe to use and continue to work as before. 
+They are still supported, however they do not benefit from the performance advantages 
+of the new format.
+
+By default, TimescaleDB 2.7 and later uses the new continuous aggregate format.
+
+We recommend that you recreate your existing continuous aggregates to take advantage 
+of these improvements. To do this, you need the original data. A migration path for 
+migrating to the new continuous aggregate format without the original data is intended 
+in a future version of TimescaleDB.
+
+This release also adds a new optimization for queries with now() constraints.
+Queries on hypertables with many chunks and a `now()` constraints that would
+exclude all but the most recent chunk were dominated by planning time.
+This new optimization enhances the planner to take the `now()` constraint into
+consideration when planning thereby reducing the work that needs to be done
+in the planner.
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
 <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
@@ -47,7 +78,7 @@ This release also contains bug fixes since the 2.6.0 release.
 <!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
 
 
-The experimental features in the 2.6 release are:
+The experimental features in the 2.7 release are:
 
 * The `time_bucket_ng` function, a newer version of `time_bucket`. This function
 supports years, months, days, hours, minutes, seconds, and timezones.
@@ -68,15 +99,8 @@ share the code snippet to recreate it.
 Several bugs fixed. See the [release notes](#release-notes) for more
 details.
 
-**PostgreSQL 11 deprecation announcement**
-
-Timescale is working hard on our next exciting features.
-To make that possible, we require functionality that is available in Postgres 12 and above.
-For this reason, we removed support for PostgreSQL 11 in the TimescaleDB 2.4 release.
-For TimescaleDB 2.5 and onwards, PostgreSQL 12, 13 or 14 are required.
-
 <highlight type="tip">
-TimescaleDB 2.6.1 is now available, and we encourage
+TimescaleDB 2.7 is now available, and we encourage
 users to upgrade in testing environments to gain experience and provide feedback on
 new and updated features.
 
@@ -86,6 +110,62 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+## 2.7.0 (2022-05-24)
+
+This release adds major new features since the 2.6.1 release.
+We deem it moderate priority for upgrading.
+
+This release includes these noteworthy features:
+
+* Optimize continuous aggregate query performance and storage
+* The following query clauses and functions can now be used in a continuous
+  aggregate: FILTER, DISTINCT, ORDER BY as well as [Ordered-Set Aggregate](https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE)
+  and [Hypothetical-Set Aggregate](https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-HYPOTHETICAL-TABLE)
+* Optimize now() query planning time
+* Improve COPY insert performance
+* Improve performance of UPDATE/DELETE on PG14 by excluding chunks
+* Improve performance of reading from compressed hypertables, especially when using JIT.
+
+This release also includes several bug fixes.
+
+If you are upgrading from a previous version and were using compression
+with a non-default collation on a segmentby-column you should recompress
+those hypertables.
+
+**Features**
+* #4045 Custom origin's support in CAGGs
+* #4120 Add logging for retention policy
+* #4158 Allow ANALYZE command on a data node directly
+* #4169 Add support for chunk exclusion on DELETE to PG14
+* #4209 Add support for chunk exclusion on UPDATE to PG14
+* #4269 Continuous Aggregates finals form
+* #4301 Add support for bulk inserts in COPY operator
+* #4311 Support non-superuser move chunk operations
+* #4330 Add GUC "bgw_launcher_poll_time"
+* #4340 Enable now() usage in plan-time chunk exclusion
+
+**Bug fixes**
+* #3899 Fix segfault in Continuous Aggregates
+* #4225 Fix TRUNCATE error as non-owner on hypertable
+* #4236 Fix potential wrong order of results for compressed hypertable with a non-default collation
+* #4249 Fix option "timescaledb.create_group_indexes"
+* #4251 Fix INSERT into compressed chunks with dropped columns
+* #4255 Fix option "timescaledb.create_group_indexes"
+* #4259 Fix logic bug in extension update script
+* #4269 Fix bad Continuous Aggregate view definition reported in #4233
+* #4289 Support moving compressed chunks between data nodes
+* #4300 Fix refresh window cap for cagg refresh policy
+* #4315 Fix memory leak in scheduler
+* #4323 Remove printouts from signal handlers
+* #4342 Fix move chunk cleanup logic
+* #4349 Fix crashes in functions using AlterTableInternal
+* #4358 Fix crash and other issues in telemetry reporter
+
+**Thanks**
+* @abrownsword for reporting a bug in the telemetry reporter and testing the fix
+* @jsoref for fixing various misspellings in code, comments and documentation
+* @yalon for reporting an error with ALTER TABLE RENAME on distributed hypertables
+* @zhuizhuhaomeng for reporting and fixing a memory leak in our scheduler
 
 ## 2.6.1 (2022-04-11)
 
