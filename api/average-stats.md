@@ -1,5 +1,8 @@
 ---
-api_name: 'average | average_y | average_x'
+api_name: 'average() | average_y() | average_x()'
+excerpt: Calculate the average of values in a statistical aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -1,5 +1,8 @@
 ---
-api_name: interpolate
+api_name: interpolate()
+excerpt: Linearly interpolate missing values when gapfilling
+license: community
+toolkit: false
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

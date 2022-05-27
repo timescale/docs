@@ -1,5 +1,8 @@
 ---
-api_name: delta
+api_name: delta()
+excerpt: Calculate the change in a counter from values in a `CounterSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

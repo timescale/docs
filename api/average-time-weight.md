@@ -1,5 +1,8 @@
 ---
-api_name: average
+api_name: average()
+excerpt: Calculate the time-weighted average of values in a `TimeWeightSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

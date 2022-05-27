@@ -1,3 +1,9 @@
+---
+api_name: timescaledb_information.job_stats
+excerpt: Get information and statistics about automatically run jobs
+license: community
+---
+
 ## timescaledb_information.job_stats 
 
 Shows information and statistics about jobs run by the automation framework.

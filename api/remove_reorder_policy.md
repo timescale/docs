@@ -1,3 +1,9 @@
+---
+api_name: remove_reorder_policy()
+excerpt: Remove a reorder policy from a hypertable
+license: community
+---
+
 ## remove_reorder_policy() <tag type="community">Community</tag> 
 Remove a policy to reorder a particular hypertable.
 

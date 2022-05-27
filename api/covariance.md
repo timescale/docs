@@ -1,5 +1,8 @@
 ---
-api_name: covariance
+api_name: covariance()
+excerpt: Calculate the covariance from values in a 2-dimensional `StatsSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

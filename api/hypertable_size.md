@@ -1,3 +1,9 @@
+---
+api_name: hypertable_size()
+excerpt: Get the total disk space used by a hypertable
+license: apache
+---
+
 ## hypertable_size()  
 
 Get the total disk space used by a hypertable, i.e. the sum of the

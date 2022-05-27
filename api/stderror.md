@@ -1,5 +1,8 @@
 ---
-api_name: stderror
+api_name: stderror()
+excerpt: Estimate the relative standard error of a hyperloglog
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

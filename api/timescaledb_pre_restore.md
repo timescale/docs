@@ -1,3 +1,9 @@
+---
+api_name: timescaledb_pre_restore()
+excerpt: Prepare a database for data restoration
+license: apache
+---
+
 ## timescaledb_pre_restore() 
 
 Perform the proper operations to allow restoring of the database via `pg_restore` to commence.

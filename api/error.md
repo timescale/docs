@@ -1,5 +1,8 @@
 ---
-api_name: error
+api_name: error()
+excerpt: Get the maximum relative error for a percentile estimate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
