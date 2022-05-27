@@ -10,8 +10,7 @@ environment. Additionally, you need a
 ## Install TimescaleDB
 Installing TimescaleDB to use with Promscale requires the TimescaleDB database,
 as well as the Promscale extension. The Promscale  extension contains support
-functions to improve performance of Promscale.  While Promscale runs without it,
-it is strongly recommended that you install the Promscale extension.
+functions to improve performance of Promscale.
 
 <procedure>
 

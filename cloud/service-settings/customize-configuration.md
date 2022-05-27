@@ -32,6 +32,12 @@ configured value, click the value that you would like to change. This reveals
 an editable field to apply your change. Clicking anywhere outside of that field
 saves the value to be applied.
 
+<highlight type="note">
+The values for some of the parameters vary depending on the plan. For example,
+the value for `max_connections` is exactly 25 in the smallest compute tier, but
+ranges from 25 to 500 in higher compute tiers.
+</highlight>
+
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-change.png" alt="Change Timescale Cloud configuration parameters"/>
 
 ### Apply configuration changes
