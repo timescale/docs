@@ -11,7 +11,6 @@ container provided here, you could encounter errors following these
 instructions. It is safest to remove any existing PostgreSQL installations
 before you begin. If you want to keep your current PostgreSQL installation, do
 not install TimescaleDB using this method.
-TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/)
 instead.
 </highlight>
@@ -23,8 +22,17 @@ instead.
     instructions, see the [Docker installation documentation][docker-install].
 1.  At the command prompt, run the TimescaleDB Docker image:
     ```bash
-    docker pull timescale/timescaledb:latest-pg14
+    docker pull timescale/timescaledb-ha:pg14-latest
     ```
+
+<highlight type="important">
+The [`timescaledb-ha`](https://hub.docker.com/r/timescale/timescaledb-ha) image
+offers the most complete TimescaleDB experience. It
+includes the 
+[TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit), 
+and support for PostGIS and Patroni. If you need the smallest possible image, use
+the `timescale/timescaledb:latest-pg14` image instead.
+</highlight>
 
 </procedure>
 
@@ -104,11 +112,17 @@ on PostgreSQL 14. To find other Docker tags you can use, see the
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
-installed it yet, check out our [installing psql][install-psql] section.
+installed it yet, check out the [installing psql][install-psql] section.
 
 <procedure>
 
 ### Setting up the TimescaleDB extension
+
+<highlight type="important"> 
+If you installed TimescaleDB from the pre-built Docker container, then you
+probably already have the TimescaleDB extension, and you can skip this procedure.
+</highlight>
+
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
     ```bash
@@ -184,10 +198,10 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[tsdb-docs]: timescaledb/:currentVersion:/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: timescaledb/:currentVersion:/how-to-guides/configuration/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [docker-install]: https://docs.docker.com/get-docker/
 [official-image]: https://github.com/docker-library/postgres/
 [alpine Linux]: https://alpinelinux.org/

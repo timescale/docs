@@ -1,3 +1,13 @@
+---
+api_name: interpolate
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: false
+hyperfunction_family: 'gapfilling and interpolation'
+hyperfunction_subfamily: interpolation
+hyperfunction_type: other
+---
+
 # interpolate() <tag type="community">Community</tag>
 The `interpolate` function does linear interpolation for missing values. It can
 only be used in an aggregation query with

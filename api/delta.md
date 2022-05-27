@@ -1,3 +1,13 @@
+---
+api_name: delta
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # delta() <tag type="toolkit" content="Toolkit" />
 The change in the counter over the time period. This is the raw or simple delta
 computed by accounting for resets and subtracting the last seen value from the

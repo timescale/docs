@@ -38,7 +38,7 @@ source data node. To clean up these objects and metadata, use
 ### Sample usage
 
 ``` sql
-CALL timescaledb_experimental.move_chunk(‘_timescaledb_internal._dist_hyper_1_1_chunk’, ‘data_node_2’, ‘data_node_3’);
+CALL timescaledb_experimental.move_chunk('_timescaledb_internal._dist_hyper_1_1_chunk', 'data_node_2', 'data_node_3');
 ```
 
 [password-config]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/#v1-set-the-password-encryption-method-for-access-node-and-data-nodes

@@ -1,3 +1,13 @@
+---
+api_name: locf
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: false
+hyperfunction_family: 'gapfilling and interpolation'
+hyperfunction_subfamily: interpolation
+hyperfunction_type: other
+---
+
 # locf() <tag type="community">Community</tag>
 The `locf` (last observation carried forward) function allows you to carry the
 last seen value in an aggregation group forward. It can only be used in an

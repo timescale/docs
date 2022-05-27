@@ -76,7 +76,7 @@ Before you begin, make sure you have
     In this example, we are inserting the data using four workers:
     ```sql
     timescaledb-parallel-copy \
-    --connection '<service_url>’ \
+    --connection '<service_url>' \
     --table conditions \
     --file ~/Downloads/example.csv \
     --workers 4 \

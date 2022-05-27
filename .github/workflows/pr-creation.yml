@@ -19,4 +19,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
-            Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>
+            Please allow 10 minutes from last push for the staging site to build. For internal reviewers, check web-documentation repo actions for staging build status. Link to build for this PR: <a href="https://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}" target="_blank">http://docs-dev.timescale.com/docs-${{ steps.timescale.outputs.DEV_FOLDER }}</a>

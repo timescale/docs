@@ -1,3 +1,13 @@
+---
+api_name: counter_zero_time
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # counter_zero_time() <tag type="toolkit" content="Toolkit" />
 The time at which the counter value is predicted to have been zero based on the
 least squares fit line computed from the points in the CounterSummary.

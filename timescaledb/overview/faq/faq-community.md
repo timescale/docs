@@ -7,9 +7,6 @@ Apache 2.0.
 Yes!  We have a very active [online community in Slack][join_slack], and
 you can report any issues on our [GitHub][] page.
 
-## Can I get support or a commercial license?
-Yes. Please [contact us][contact] for more information.
-
 ## Where can I get TimescaleDB source code?
 See [GitHub][].
 

@@ -1,6 +1,6 @@
 # Install self-hosted TimescaleDB on macOS systems
 You can host TimescaleDB yourself on your Apple macOS system.
-These instructions use a Homebrew installer on these versions:
+These instructions use a Homebrew or MacPorts installer on these versions:
 *   Apple macOS 10.15 Catalina
 *   Apple macOS 11 Big Sur
 *   Apple macOS 12 Monterey
@@ -19,9 +19,12 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
 instead.
 </highlight>
 
+## Install self-hosted TimescaleDB using Homebrew
+You can use Homebrew to install TimescaleDB on macOS-based systems.
+
 <procedure>
 
-### Installing self-hosted TimescaleDB on macOS-based systems
+### Installing self-hosted TimescaleDB using Homebrew
 1.  Install Homebrew, if you don't already have it:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -40,6 +43,31 @@ instead.
     ```bash
     /usr/local/bin/timescaledb_move.sh
     ```
+
+</procedure>
+
+## Install self-hosted TimescaleDB using MacPorts
+You can use MacPorts to install TimescaleDB on macOS-based systems.
+
+<procedure>
+
+#### Installing self-hosted TimescaleDB using MacPorts
+1.  Install MacPorts by downloading and running the package installer.
+    For more information about MacPorts, including installation instructions,
+    see the [MacPorts documentation][macports].
+1.  Install TimescaleDB:
+    ```bash
+    sudo port install timescaledb
+    ```
+1.  **OPTIONAL** View the files that were installed:
+    ```bash
+    port contents timescaledb
+    ``` 
+     
+<highlight type="important">
+ MacPorts does not install the `timescaledb-tools` to run the `timescaledb-tune` script.
+ For more information about installing and using the tool, see [`timescaledb-tune`](/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool) section.
+ </highlight>
 
 </procedure>
 
@@ -132,8 +160,10 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /how-to-guides/connecting/psql/
-[tsdb-docs]: timescaledb/:currentVersion:/index/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: /how-to-guides/configuration/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [homebrew]: https://docs.brew.sh/Installation
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[macports]: https://guide.macports.org/#installing.macports
+[timescaledb-tune]: https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool

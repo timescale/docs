@@ -28,14 +28,13 @@ wmic
 
 </terminal>
 
-## Install psql on Apple macOS
+## Install psql on macOS
 The `psql` tool is installed by default on macOS systems when you install
-PostgreSQL, and this is the most effective way to install the tool. These
-instructions use the Homebrew package management tool.
+PostgreSQL, and this is the most effective way to install the tool. On macOS you can use Homebrew or MacPorts to install the PostgreSQL package or just the `psql` tool.
 
 <procedure>
 
-### Installing PostgreSQL on Apple macOS
+### Installing PostgreSQL package using Homebrew
 1.  Install Homebrew, if you don't already have it:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -54,11 +53,31 @@ instructions use the Homebrew package management tool.
 
 </procedure>
 
-If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own.
+<procedure>
+
+### Installing PostgreSQL package using MacPorts
+1.  Install MacPorts by downloading and running the package installer..
+    For more information about MacPorts, including installation instructions,
+    see the [MacPorts documentation][macports].
+1.  Install the latest version of Postgresql:
+    ```bash
+    sudo port install postgresql<xx>  
+    ```
+    For example, to install version *14* replace `postgresql<xx>` with `postgresql14`.
+1.  **OPTIONAL** View the files that were installed:
+    ```bash
+    port contents postgresql<xx>
+    ``` 
+
+</procedure>
+
+### Installing psql on macOS
+If you do not want to install the entire PostgreSQL package, you can install the `psql` tool on its own. `libpqxx` is the official C++ client API for PostgreSQL.
 
 <procedure>
 
-### Installing psql on Apple macOS
+ #### Installing psql using Homebrew
+
 1.  Install Homebrew, if you don't already have it:
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -83,13 +102,29 @@ If you do not want to install the entire PostgreSQL package, you can install the
 
 </procedure>
 
+<procedure>
+
+#### Installing psql using MacPorts
+1.  Install MacPorts by downloading and running the package installer.
+    For more information about MacPorts, including installation instructions, see the [MacPorts documentation][macports].
+1.  Install the latest version of libpqxx:
+    ```bash
+    sudo port install libpqxx 
+    ```
+1.  **OPTIONAL** View the files that were installed by libpqxx:
+    ```bash
+    port contents libpqxx
+    ``` 
+
+</procedure>
+
 ## Install psql on Debian and Ubuntu
 You can use the `apt` package manager on Debian and Ubuntu systems to install
 the `psql` tool.
 
 <procedure>
 
-### Installing psql on Debian and Ubuntu
+### Installing psql using the apt package manager
 1.  Make sure your `apt` repository is up to date:
     ```bash
     sudo apt-get update
@@ -119,5 +154,6 @@ EnterpriseDB.
 </procedure>
 
 
-[homebrew]: https://brew.sh/
+[homebrew]: https://docs.brew.sh/Installation
 [windows-installer]: https://www.postgresql.org/download/windows/
+[macports]: https://guide.macports.org/#installing.macports

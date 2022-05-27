@@ -1,3 +1,13 @@
+---
+api_name: extrapolated_delta
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # extrapolated_delta() <tag type="toolkit" content="Toolkit" />
 The change in the counter during the time period specified by the bounds in the
 CounterSummary. To calculate the extrapolated delta, any counter resets are

@@ -1,4 +1,4 @@
-# Migrating from a different PostgreSQL database
+# Migrating data to TimescaleDB from a different PostgreSQL database
 You can migrate your data into TimescaleDB from a different PostgreSQL database.
 
 <highlight type="note">

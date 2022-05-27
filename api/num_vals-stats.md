@@ -1,3 +1,13 @@
+---
+api_name: 'num_vals'
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'statistical aggregates'
+hyperfunction_subfamily: 'statistical aggregates'
+hyperfunction_type: accessor-1d
+---
+
 # num_vals()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL

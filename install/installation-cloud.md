@@ -145,5 +145,5 @@ if you want to have a chat.
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[tsc-docs]: cloud/:currentVersion:/index/
+[tsc-docs]: /cloud/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/

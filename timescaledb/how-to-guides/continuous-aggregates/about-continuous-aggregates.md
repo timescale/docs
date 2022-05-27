@@ -7,7 +7,7 @@ the average temperature in each location, you can calculate the average as a
 one-off, with a query like this:
 
 ```sql
-SELECT time_bucket(‘1 day’, time) as day,
+SELECT time_bucket('1 day', time) as day,
        location,
        avg(temperature)
 FROM temperatures
@@ -26,7 +26,7 @@ continuous aggregate view like this:
 
 ```sql
 CREATE MATERIALIZED VIEW daily_average WITH (timescaledb.continuous)
-    AS SELECT time_bucket(‘1 day’, time) as Day,
+    AS SELECT time_bucket('1 day', time) as Day,
               location,
               avg(temperature)
        FROM temperatures
@@ -45,19 +45,40 @@ dataset, and automatically updates the view in the background. This does not add
 any maintenance burden to your database, and does not slow down `INSERT`
 operations.
 
-## Unsupported functions
-Continuous aggregates are supported for most aggregate functions that can be
-[parallelized by PostgreSQL][postgres-parallel-agg], including the standard
-aggregates like `SUM` and `AVG`. You can also use more complex expressions on
-top of the aggregate functions, for example `max(temperature)-min(temperature)`.
+By default, querying continuous aggregates provides you with real-time data.
+Pre-aggregated data from the materialized view is combined with recent data that
+hasn't been aggregated yet. This gives you up-to-date results on every query. If
+you prefer not to see recent data, you can turn this setting off. For more
+information, see the section on [real-time aggregates][real-time-aggs]. 
 
-However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
-continuous aggregates since they are not possible to parallelize with
-PostgreSQL. TimescaleDB does not currently support `FILTER` or `JOIN` clauses,
-or window functions in continuous aggregates.
+## Function support
+In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
+aggregate functions. This includes both parallelizable aggregates, such as `SUM`
+and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
-To test out continuous aggregates, follow
-the [continuous aggregate tutorial][tutorial-caggs].
+In older versions of PostgreSQL, continuous aggregates only support
+[aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
+They also don't support `FILTER` and `ORDER BY` clauses, and the `DISTINCT` keyword. You can
+work around this by aggregating the other parts of your query in the continuous
+aggregate, then
+[using the window function to query the aggregate][cagg-window-functions].
+
+The following table summarizes aggregate function support in continuous
+aggregates:
+
+|Function, clause, or feature|TimescaleDB 2.7 and above|Below TimescaleDB 2.7|
+|-|-|-|
+|Parallelizable aggregate functions|✅|✅|
+|Non-parallelizable aggregate functions|✅|❌|
+|Ordered-set aggregates|✅|❌|
+|Hypothetical-set aggregates|✅|❌|
+|`DISTINCT` in aggregate functions|✅|❌|
+|`FILTER` in aggregate functions|✅|❌|
+|`ORDER BY` in aggregate functions|✅|❌|
+
+
+If you want the old behavior in TimescaleDB 2.7 and above, set the parameter
+`timescaledb.finalized` to `false` when creating your continuous aggregate.
 
 ## Components of a continuous aggregate
 Continuous aggregates consist of:
@@ -163,7 +184,9 @@ Make sure you are maintaining your invalidation log size to avoid this, for exam
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[tutorial-caggs]: /getting-started/create-cagg
 [cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
+[cagg-window-functions]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
 [multi-node]: /how-to-guides/multinode-timescaledb/
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[real-time-aggs]: /how-to-guides/continuous-aggregates/real-time-aggregates/
+[tutorial-caggs]: /getting-started/create-cagg

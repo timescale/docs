@@ -1,27 +1,28 @@
-## UPDATE commands [](update)
-
-Update data in a hypertable with the standard [`UPDATE`][postgres-update] SQL
+# Update data
+Update data in a hypertable with a standard [`UPDATE`][postgres-update] SQL
 command.
 
+## Update a single row
+Update a single row with the syntax `UPDATE ... SET ... WHERE`. For example, to
+update a row in the `conditions` hypertable with new `temperature` and
+`humidity` values, run the following. The `WHERE` clause specifies the row to be
+updated.
 ```sql
-UPDATE conditions SET temperature = 70.2, humidity = 50.0
-  WHERE time = '2017-07-28 11:42:42.846621+00' AND location = 'office';
+UPDATE conditions
+  SET temperature = 70.2, humidity = 50.0
+  WHERE time = '2017-07-28 11:42:42.846621+00'
+    AND location = 'office';
 ```
 
-An update command can touch many rows at once, i.e., the following
-modifies all rows found in a 10-minute block of data.
-
+## Update multiple rows at once
+You can also update multiple rows at once, by using a `WHERE` clause that
+filters for more than one row. For example, run the following to update
+all `temperature` values within the given 10-minute span:
 ```sql
-UPDATE conditions SET temperature = temperature + 0.1
-  WHERE time >= '2017-07-28 11:40' AND time < '2017-07-28 11:50';
+UPDATE conditions
+  SET temperature = temperature + 0.1
+  WHERE time >= '2017-07-28 11:40'
+    AND time < '2017-07-28 11:50';
 ```
-
-<highlight type="warning">
-TimescaleDB achieves much higher insert performance compared to
- vanilla PostgreSQL when inserts are localized to the most recent time
- interval (or two).  If your workload is heavily based on `UPDATE`s to old
- time intervals instead, you may observe significantly lower write
- throughput.
-</highlight>
 
 [postgres-update]: https://www.postgresql.org/docs/current/static/sql-update.html

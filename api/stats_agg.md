@@ -1,3 +1,13 @@
+---
+api_name: stats_agg
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'statistical aggregates'
+hyperfunction_subfamily: 'statistical aggregates'
+hyperfunction_type: aggregate
+---
+
 # stats_agg() <tag type="toolkit" content="Toolkit" />
 An aggregate that produces a StatsSummary from `DOUBLE PRECISION` values. 
 

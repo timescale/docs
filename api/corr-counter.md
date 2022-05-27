@@ -1,3 +1,13 @@
+---
+api_name: corr
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # corr() <tag type="toolkit" content="Toolkit" />
 The correlation coefficient of the least squares fit line of the adjusted
 counter value and epoch value of the time column. Given that the slope of a line for any counter value must be

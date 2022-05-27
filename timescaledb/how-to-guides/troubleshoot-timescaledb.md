@@ -60,6 +60,12 @@ the database will be looking for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.
 
+### Scheduled jobs stop running
+If your scheduled jobs stop running, try restarting the background workers:
+```
+SELECT _timescaledb_internal.start_background_workers();
+```
+
 ## Getting more information
 
 ###  EXPLAINing query performance [](explain)
@@ -91,7 +97,10 @@ When asking query-performance related questions in our [support portal][]
 or via [slack][], providing the EXPLAIN output of a
 query is immensely helpful.
 
----
+### View logs in Docker
+If you have TimescaleDB installed in a Docker container, you can view your logs
+using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
+information, see the [Docker documentation on logs][docker-logs].
 
 ## Dump TimescaleDB meta data [](dump-meta-data)
 
@@ -108,10 +117,11 @@ psql [your connect flags] -d your_timescale_db < dump_meta_data.sql > dumpfile.t
 
 and then inspect `dump_file.txt` before sending it together with a bug report or support question.
 
-[slack]: https://slack.timescale.com/
+[docker-logs]: https://docs.docker.com/config/containers/logging/
+[downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
 [github]: https://github.com/timescale/timescaledb/issues
+[slack]: https://slack.timescale.com/
+[support portal]: https://www.timescale.com/support
+[track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [update-db]: /how-to-guides/update-timescaledb/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
-[track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
-[downloaded separately]: https://raw.githubusercontent.com/timescale/timescaledb/master/scripts/dump_meta_data.sql
-[support portal]: https://www.timescale.com/support

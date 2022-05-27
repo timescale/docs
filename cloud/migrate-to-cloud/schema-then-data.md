@@ -113,7 +113,7 @@ pg_restore: error: could not execute query: ERROR:  relation "_timescaledb_inter
 ```
 
 ```bash
-​​pg_restore: WARNING:  no privileges were granted for "<..>"
+pg_restore: WARNING:  no privileges were granted for "<..>"
 ```
 
 ## Restore hypertables in Timescale Cloud
@@ -359,17 +359,17 @@ The skipped tables and indexes correspond to system catalogs that can't be
 accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
-[cagg-policy]: /how-to-guides/continuous-aggregates/refresh-policies/
+[cagg-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
-[compression]: /timescaledb/:currentVersion/how-to-guides/compression/
-[compression-policy]: /getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[compression-policy]: /timescaledb/:currentVersion:/getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
 [choosing-method]: /migrate-to-cloud/
 [extensions]: /customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
+[retention-policy]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade

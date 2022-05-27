@@ -1,3 +1,13 @@
+---
+api_name: distinct_count
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'approximate count distinct'
+hyperfunction_subfamily: hyperloglog
+hyperfunction_type: accessor
+---
+
 # distinct_count()  <tag type="toolkit">Toolkit</tag>
 The `distinct_count` function gets the number of distinct values from a
 hyperloglog.

@@ -1,3 +1,13 @@
+---
+api_name: intercept
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # intercept() <tag type="toolkit" content="Toolkit" />
 The intercept of the [least squares fit][least-squares] line computed from the adjusted counter
 values and times input in the CounterSummary. This corresponds to the projected

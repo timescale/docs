@@ -1,3 +1,13 @@
+---
+api_name: num_resets
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # num_resets() <tag type="toolkit" content="Toolkit" />
 The total number of times the counter is reset while calculating the
 CounterSummary.

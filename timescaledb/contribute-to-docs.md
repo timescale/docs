@@ -37,7 +37,11 @@ that are not covered in other resources
 spelling and definitions, consult the dictionary.
 
 ## Language
-We use standard US English, with an emphasis on plain (or classical) language, in simple present tense, using the second person singular ("you"). We prefer the active voice, but do not be afraid to use the passive voice if it serves a purpose. Always choose the simplest and clearest language, regardless of whether it's passive or active voice.
+We use standard US English, with an emphasis on plain (or classical) language,
+in simple present tense, using the second person singular ("you"). We prefer the
+active voice, but do not be afraid to use the passive voice if it serves a
+purpose. Always choose the simplest and clearest language, regardless of whether
+it's passive or active voice.
 
 For example, here are three ways of writing one sentence:
 *   Natural English: In order to perform X installation process, please ensure
@@ -136,9 +140,19 @@ that case, feel free to ignore them.
 
 ### N [](#N)
 
+*Next*
+: Avoid all directional words. You cannot guarantee that things will stay in the
+same position, or be in the position you expect on an individual reader's
+device.
+
 ### O [](#O)
 
 ### P [](#P)
+
+*Previous*
+: Avoid all directional words. You cannot guarantee that things will stay in the
+same position, or be in the position you expect on an individual reader's
+device.
 
 ### Q [](#Q)
 
@@ -147,6 +161,9 @@ that case, feel free to ignore them.
 ### S [](#S)
 
 ### T [](#T)
+
+*Thus*
+: Do not use.
 
 *Timescale*
 : The name of the company. Do not use camel case.
@@ -164,7 +181,7 @@ that case, feel free to ignore them.
 
 &#10060; "TimescaleDB is hosting a virtual event."
 
-&#10060; "TimeScaleDB"
+&#10060; "I want to install TimeScaleDB"
 
 ### U [](#U)
 
@@ -194,6 +211,6 @@ Always write in simple present tense.
 ### Z [](#Z)
 
 [github-docs]: https://github.com/timescale/docs
-[contributors]: https://github.com/timescale/docs/CONTRIBUTING.md
-[readme]: https://github.com/timescale/docs/README.md
+[contributors]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
+[readme]: https://github.com/timescale/docs#readme
 [google-style]: https://developers.google.com/style

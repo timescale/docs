@@ -1,3 +1,13 @@
+---
+api_name: approx_percentile_rank
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'percentile approximation'
+hyperfunction_type: accessor
+---
+
 # approx_percentile_rank()  <tag type="toolkit">Toolkit</tag>
 Estimate what percentile a given value would be located at in a `UddSketch`.
 

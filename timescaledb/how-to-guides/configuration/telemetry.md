@@ -10,39 +10,152 @@ This is an example of the JSON data file that is sent to our servers about a
 specific deployment:
 ```json
 {
-	"db_uuid": "26917841-2fc0-48fd-b096-ba19b3fda98f",
-	"license": {
-		"edition": "community"
-	},
-	"exported_db_uuid": "8dd4543c-f44e-43c9-a666-02d23bb09b90",
-	"installed_time": "2000-04-17 10:56:59.427738-04",
-	"last_tuned_time": "2001-02-03T04:05:06-0300",
-	"last_tuned_version": "1.0.0",
-	"install_method": "source",
-	"os_name": "Linux",
-	"os_release": "4.9.125-linuxkit",
-	"os_version": "#1 SMP Fri Sep 7 08:20:28 UTC 2018",
-	"os_name_pretty": "Debian GNU/Linux 8 (jessie)",
-	"postgresql_version": "12.4",
-	"timescaledb_version": "1.7.0",
-	"build_architecture": "x86_64",
-	"build_architecture_bit_size": "64",
-	"build_os_name": "Linux",
-	"build_os_version": "4.9.125-linuxkit",
-	"data_volume": "65982148",
-	"db_metadata":{
-			"promscale_version": "0.1.0",
-			"promscale_commit_hash": ""
+  "db_uuid": "860c2be4-59a3-43b5-b895-5d9e0dd44551",
+  "license": {
+    "edition": "community"
+  },
+  "os_name": "Linux",
+  "relations": {
+    "views": {
+      "num_relations": 0
     },
-	"num_hypertables": "3",
-	"num_continuous_aggs": "0",
-	"num_reorder_policies": "1",
-	"num_drop_chunks_policies": "2",
-	"related_extensions":{
-			"pg_prometheus": "false",
-			"PostGIS": "true",
-			"promscale": "true"
+    "tables": {
+      "heap_size": 32768,
+      "toast_size": 16384,
+      "indexes_size": 98304,
+      "num_relations": 4,
+      "num_reltuples": 12
+    },
+    "hypertables": {
+      "heap_size": 3522560,
+      "toast_size": 23379968,
+      "compression": {
+        "compressed_heap_size": 3522560,
+        "compressed_row_count": 4392,
+        "compressed_toast_size": 20365312,
+        "num_compressed_chunks": 366,
+        "uncompressed_heap_size": 41951232,
+        "uncompressed_row_count": 421368,
+        "compressed_indexes_size": 11993088,
+        "uncompressed_toast_size": 2998272,
+        "uncompressed_indexes_size": 42696704,
+        "num_compressed_hypertables": 1
+      },
+      "indexes_size": 18022400,
+      "num_children": 366,
+      "num_relations": 2,
+      "num_reltuples": 421368
+    },
+    "materialized_views": {
+      "heap_size": 0,
+      "toast_size": 0,
+      "indexes_size": 0,
+      "num_relations": 0,
+      "num_reltuples": 0
+    },
+    "partitioned_tables": {
+      "heap_size": 0,
+      "toast_size": 0,
+      "indexes_size": 0,
+      "num_children": 0,
+      "num_relations": 0,
+      "num_reltuples": 0
+    },
+    "continuous_aggregates": {
+      "heap_size": 122404864,
+      "toast_size": 6225920,
+      "compression": {
+        "compressed_heap_size": 0,
+        "compressed_row_count": 0,
+        "num_compressed_caggs": 0,
+        "compressed_toast_size": 0,
+        "num_compressed_chunks": 0,
+        "uncompressed_heap_size": 0,
+        "uncompressed_row_count": 0,
+        "compressed_indexes_size": 0,
+        "uncompressed_toast_size": 0,
+        "uncompressed_indexes_size": 0
+      },
+      "indexes_size": 165044224,
+      "num_children": 760,
+      "num_relations": 24,
+      "num_reltuples": 914704,
+      "num_caggs_on_distributed_hypertables": 0,
+      "num_caggs_using_real_time_aggregation": 24
+    },
+    "distributed_hypertables_data_node": {
+      "heap_size": 0,
+      "toast_size": 0,
+      "compression": {
+        "compressed_heap_size": 0,
+        "compressed_row_count": 0,
+        "compressed_toast_size": 0,
+        "num_compressed_chunks": 0,
+        "uncompressed_heap_size": 0,
+        "uncompressed_row_count": 0,
+        "compressed_indexes_size": 0,
+        "uncompressed_toast_size": 0,
+        "uncompressed_indexes_size": 0,
+        "num_compressed_hypertables": 0
+      },
+      "indexes_size": 0,
+      "num_children": 0,
+      "num_relations": 0,
+      "num_reltuples": 0
+    },
+    "distributed_hypertables_access_node": {
+      "heap_size": 0,
+      "toast_size": 0,
+      "compression": {
+        "compressed_heap_size": 0,
+        "compressed_row_count": 0,
+        "compressed_toast_size": 0,
+        "num_compressed_chunks": 0,
+        "uncompressed_heap_size": 0,
+        "uncompressed_row_count": 0,
+        "compressed_indexes_size": 0,
+        "uncompressed_toast_size": 0,
+        "uncompressed_indexes_size": 0,
+        "num_compressed_hypertables": 0
+      },
+      "indexes_size": 0,
+      "num_children": 0,
+      "num_relations": 0,
+      "num_reltuples": 0,
+      "num_replica_chunks": 0,
+      "num_replicated_distributed_hypertables": 0
     }
+  },
+  "os_release": "5.10.47-linuxkit",
+  "os_version": "#1 SMP Sat Jul 3 21:51:47 UTC 2021",
+  "data_volume": 381903727,
+  "db_metadata": {},
+  "build_os_name": "Linux",
+  "install_method": "docker",
+  "installed_time": "2022-02-17T19:55:14+00",
+  "os_name_pretty": "Alpine Linux v3.15",
+  "last_tuned_time": "2022-02-17T19:55:14Z",
+  "build_os_version": "5.11.0-1028-azure",
+  "exported_db_uuid": "5730161f-0d18-42fb-a800-45df33494c21",
+  "telemetry_version": 2,
+  "build_architecture": "x86_64",
+  "distributed_member": "none",
+  "last_tuned_version": "0.12.0",
+  "postgresql_version": "12.10",
+  "related_extensions": {
+    "postgis": false,
+    "promscale": false,
+    "pg_prometheus": false,
+    "timescale_analytics": false,
+    "timescaledb_toolkit": false
+  },
+  "timescaledb_version": "2.6.0",
+  "num_reorder_policies": 0,
+  "num_retention_policies": 0,
+  "num_compression_policies": 1,
+  "num_user_defined_actions": 1,
+  "build_architecture_bit_size": 64,
+  "num_continuous_aggs_policies": 24
 }
 ```
 

@@ -46,7 +46,7 @@ Ask more complex queries, and build more powerful applications faster.
 
 *   **Centralize storage** of time‑series, application, and sensor data
 *   **Correlate metrics** with business and system‑of‑record data
-*   **Unlimited metadata**, don’t worry about cardinality of labels
+*   **Unlimited metadata**, don't worry about cardinality of labels
 *   **Perform JOINs to understand relations** with time‑series data
 *   **Ensure clean, correct data** with foreign keys and constraints
 
@@ -69,7 +69,7 @@ Spend less with compression savings from best‑in‑class algorithms, including
 *   **Downsampling** keeps aggregated metrics without wasting disk space
 *   Optimize storage consumption with
     **[data retention policies][data-retention]**
-*   **Transparent pricing**, always know what you’ll pay
+*   **Transparent pricing**, always know what you'll pay
 *   **Dynamically scale compute and storage** based on changing needs
 
 This section describes the design and motivation around the TimescaleDB

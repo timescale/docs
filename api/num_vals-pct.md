@@ -1,3 +1,13 @@
+---
+api_name: num_vals
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: false
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'percentile approximation'
+hyperfunction_type: accessor
+---
+
 # num_vals()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL

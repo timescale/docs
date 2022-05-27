@@ -1,3 +1,13 @@
+---
+api_name: min_val
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: false
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'percentile approximation'
+hyperfunction_type: accessor
+---
+
 # min_val()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL

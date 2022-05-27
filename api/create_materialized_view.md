@@ -22,8 +22,12 @@ GROUP BY time_bucket( <const_value>, <partition_col_of_hypertable> ),
 [HAVING ...]
 ```
 
-The continuous aggregate view is automatically refreshed unless `WITH NO DATA`
-is given. This setting defaults to `WITH DATA`. For more information, see
+The continuous aggregate view defaults to `WITH DATA`. This means that when the
+view is created, it refreshes using all the current data in its underlying
+hypertable. This occurs once when the view is created. If you want the view to
+be refreshed regularly, you can use a refresh policy. If you do not want the
+view to update when it is first created, use the `WITH NO DATA`
+parameter. For more information, see
 [`refresh_continuous_aggregate`][refresh-cagg].
 
 Continuous aggregates have some limitations of what types of queries they can
@@ -45,7 +49,7 @@ Some important things to remember when constructing your `SELECT` query:
     aggregates, but you can run them in a `SELECT` query from the continuous
     aggregate view.
 *   You can usually use aggregates that are
-    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition, 
+    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition,
     including most aggregates distributed by PostgreSQL. However, the `ORDER BY`,
     `DISTINCT` and `FILTER` clauses are not supported.
 *   All functions and their arguments included in `SELECT`, `GROUP BY` and
@@ -74,9 +78,10 @@ Required `WITH` clause options:
 Optional `WITH` clause options:
 
 |Name|Type|Description|Default value|
-|-|-|-|
-|`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view.|`FALSE`|
-|`timescaledb.create_group_indexes`|BOOLEAN|Create indexes on the materialization table for the group by columns specified by the `GROUP BY` clause of the `SELECT` query|Created by default for every group by expression/time_bucket expression pair|
+|-|-|-|-|
+|`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view|`FALSE`|
+|`timescaledb.create_group_indexes`|BOOLEAN|Create indexes on the continuous aggregate for columns in its `GROUP BY` clause. Indexes are in the form `(<GROUP_BY_COLUMN>, time_bucket)`|`TRUE`|
+|`timescaledb.finalized`|BOOLEAN|In TimescaleDB 2.7 and above, use the new version of continuous aggregates, which stores finalized results for aggregate functions. Supports all aggregate functions, including ones that use `FILTER`, `ORDER BY`, and `DISTINCT` clauses.|`TRUE`|
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 

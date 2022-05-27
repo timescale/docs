@@ -7,26 +7,54 @@ match: $sentence
 indicators:
   - ':'
 exceptions:
+  - API
+  - AWS
   - Azure
+  - CentOS
   - CLI
+  - Cloud
   - Code
   - Cosmos
+  - DBeaver
+  - Debian
   - Docker
   - Emmet
+  - Go
+  - Grafana
   - gRPC
+  - Hat
   - I
+  - InfluxDB
+  - Java
+  - JavaScript
   - Kubernetes
+  - Lambda
   - Linux
   - macOS
+  - Managed
   - Marketplace
   - MongoDB
+  - Node
+  - NFT
+  - pgAdmin
+  - PostgreSQL
+  - Prometheus
   - Promscale
+  - Python
+  - Red
   - REPL
+  - Ruby
+  - Service
   - Studio
+  - Tableau
+  - Telegraf
   - Timescale
   - TimescaleDB
+  - Toolkit
   - TypeScript
+  - Ubuntu
   - URLs
   - Visual
+  - VPC
   - VS
   - Windows

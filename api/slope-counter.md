@@ -1,3 +1,13 @@
+---
+api_name: slope
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # slope() <tag type="toolkit" content="Toolkit" />
 The slope of the least squares fit line computed from the adjusted counter
 values and times input in the CounterSummary. Because the times are input as

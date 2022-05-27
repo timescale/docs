@@ -1,6 +1,9 @@
 module.exports = [
     {
         href: "overview",
+        tags: ["timescaledb", "get started", "learn", "contribute"],
+        keywords: ["TimescaleDB", "time-series", "data model", "deployment"],
+        excerpt: "Overview of TimescaleDB",
         children: [
           {
             title: "What is time-series data?",
@@ -8,7 +11,7 @@ module.exports = [
             pageComponents: ['featured-cards'],
             tags: ['data', 'timescaledb'],
             keywords: ['TimescaleDB', 'data'],
-            excerpt: "Learn about time-series data"
+            excerpt: "Learn about time-series data",
           },
           {
             title: "Core concepts",
@@ -78,6 +81,13 @@ module.exports = [
             href: "deployment-options",
             tags: ['install', 'timescaledb', 'tsc', 'mst', 'self-hosted'],
             keywords: ['install', 'TimescaleDB', 'Timescale Forge', 'Timescale Cloud', 'self-hosted'],
+            excerpt: "Deployment options for TimescaleDB",
+          },
+          {
+            title: "TimescaleDB on Kubernetes",
+            href: "timescale-kubernetes",
+            tags: ['install', 'timescaledb', 'self-hosted', 'Kubernetes', 'Helm Charts'],
+            keywords: ['install', 'TimescaleDB', 'self-hosted', 'Kubernetes'],
             excerpt: "Deployment options for TimescaleDB",
           },
           {

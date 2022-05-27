@@ -33,14 +33,14 @@ Locate the `host`, `port`, and `password` of your TimescaleDB instance.
 
 Connecting your TimescaleDB instance to Tableau takes just a few clicks, thanks
 to Tableau's  built-in Postgres connector. To connect to your database add a new
-connection and under the  ‘to a server' section, select PostgreSQL as the
+connection and under the  'to a server' section, select PostgreSQL as the
 connection type. Then enter your database  credentials.
 
 ### Step 2: Run a simple query in Tableau
 
 Let's use the built-in SQL editor in Tableau. To run a query, add custom SQL to your data source
 by dragging and dropping the “New Custom SQL” button (in the bottom left of the Tableau desktop
-user interface) to the place that says ‘Drag tables here'.
+user interface) to the place that says 'Drag tables here'.
 
 Type a query in the dialog box. In this case, use the first
 query from the [Cryptocurrency Tutorial][crypto-tutorial]:
@@ -68,7 +68,7 @@ step, let's take our output from the previous step and turn it into an interacti
 graph in Tableau.
 
 To do this, create a new worksheet (or dashboard) and then select your desired data source
-(in our case ‘btc_7_days'), as shown below.
+(in our case 'btc_7_days'), as shown below.
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-tableau-tutorial/tableau-new-worksheet.png" alt="New worksheet in Tableau to examine time-series data"/>
 

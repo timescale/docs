@@ -8,12 +8,10 @@ Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the
 [Timescale Toolkit][install-toolkit] PostgreSQL extension.
 
-|Hyperfunction family|Types|API Calls|Included by default|Toolkit required|
-|-|-|-|-|-|
-|Frequency|FrequencyAggregate|[`freq_agg`](/hyperfunctions/frequency-analysis/freq_agg/)|❌|✅|
-|Frequency||[`values`](/hyperfunctions/frequency-analysis/values-freq_agg/)|❌|✅|
-|Frequency||[`topn`](/hyperfunctions/frequency-analysis/topn/)|❌|✅|
-|Frequency|StateAgg|[`state_agg`](/hyperfunctions/frequency-analysis/state_agg/)|❌|✅|
-|Frequency||[`duration_in`](/hyperfunctions/frequency-analysis/duration_in/)|❌|✅|
+<hyperfunctionTable
+    hyperfunctionFamily='frequency analysis'
+    includeExperimental
+    sortByType
+/>
 
 [install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

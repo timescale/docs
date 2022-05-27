@@ -6,11 +6,8 @@ ignorecase: false
 action:
   name: replace
 swap:
-  '(?:API Console|dev|developer) key': API key
   '(?:BAK| bak)': .bak
-  '(?:cell ?phone|smart ?phone)': phone|mobile phone
   '(?:CSV| csv)': .csv
-  '(?:dev|developer|APIs) console': API console
   '(?:drop ?down) menu': drop-down menu
   '(?:e-mail|Email|E-mail)': email
   '(?:file ?path|path ?name)': path
@@ -19,68 +16,38 @@ swap:
   '(?:ok|Okay)': OK|okay
   '(?:PDF| pdf)': .pdf
   '(?:WiFi|wifi)': Wi-Fi
-  '[\.]+apk': APK
+  'Write[- ]Ahead Log': write-ahead log
   '3\-D': 3D
-  'Google (?:I\-O|IO)': Google I/O
-  'tap (?:&|and) hold': touch & hold
-  'un(?:check|select)': clear
   a SQL: an SQL
-  above: preceding
   account name: username
-  action bar: app bar
   admin: administrator
   Ajax: AJAX
-  Android device: Android-powered device
-  android: Android
-  API explorer: APIs Explorer
-  application: app
   approx\.: approximately
-  authN: authentication
-  authZ: authorization
   autoupdate: automatically update
-  cellular data: mobile data
-  cellular network: mobile network
-  chapter: documents|pages|sections
   check box: checkbox
-  check: select
   CLI: command-line tool
   click on: click|click in
-  Container Engine: Kubernetes Engine
-  content type: media type
-  curated roles: predefined roles
   data are: data is
   data set: dataset
-  Developers Console: Google API Console|API Console
   disabled?: turn off|off
-  ephemeral IP address: ephemeral external IP address
   fewer data: less data
   file name: filename
   firewalls: firewall rules
   functionality: capability|feature
-  Google account: Google Account
-  Google accounts: Google Accounts
-  Googling: search with Google
   grayed-out: unavailable
   HTTPs: HTTPS
   in order to: to
+  login to: log in to
   k8s: Kubernetes
-  long press: touch & hold
   network IP address: internal IP address
-  omnibox: address bar
   open-source: open source
   Postgres: PostgreSQL
   quickstart: quick start
   regex: regular expression
   SHA1: SHA-1|HAS-SHA1
   sign into: sign in to
-  sign-?on: single sign-on
   static IP address: static external IP address
-  stylesheet: style sheet
-  synch: sync
-  tablename: table name
-  tablet: device
   time weighted: time-weighted
-  touch: tap
   url:  URL
   user defined actions: user-defined actions
   vanilla: regular|standard

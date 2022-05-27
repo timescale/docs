@@ -1,3 +1,13 @@
+---
+api_name: extrapolated_rate
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # extrapolated_rate() <tag type="toolkit" content="Toolkit" />
 The rate of change in the counter computed over the time period specified by the
 bounds in the CounterSummary, extrapolating to the edges. It is an

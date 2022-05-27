@@ -1,3 +1,13 @@
+---
+api_name: 'variance | variance_y | variance_x'
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'statistical aggregates'
+hyperfunction_subfamily: 'statistical aggregates'
+hyperfunction_type: accessor-1d
+---
+
 # variance(), variance_y(), and variance_x() <tag type="toolkit">Toolkit</tag>
 
 ```SQL

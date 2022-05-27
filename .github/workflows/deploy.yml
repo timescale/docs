@@ -1,11 +1,7 @@
 name: Deploy docs to dev
 
 on:
-  pull_request_target:
-  push:
-    branches:
-      - "**"
-      - "!latest"
+  pull_request:
 
 jobs:
   trigger:

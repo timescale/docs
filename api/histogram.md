@@ -18,8 +18,8 @@ starting with `min`, but values equal to the `max` are in the last bucket.
 |Name|Type|Description|
 |---|---|---|
 | `value` | ANY VALUE | A set of values to partition into a histogram |
-| `min` | NUMERIC | The histogram’s lower bound used in bucketing (inclusive) |
-| `max` | NUMERIC | The histogram’s upper bound used in bucketing (exclusive) |
+| `min` | NUMERIC | The histogram's lower bound used in bucketing (inclusive) |
+| `max` | NUMERIC | The histogram's upper bound used in bucketing (exclusive) |
 | `nbuckets` | INTEGER | The integer value for the number of histogram buckets (partitions) |
 
 ### Sample usage 

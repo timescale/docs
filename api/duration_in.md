@@ -1,3 +1,13 @@
+---
+api_name: duration_in
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: StateAgg
+hyperfunction_type: accessor
+---
+
 # duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Use this function to report the total duration for a given state in a [state aggregate][state_agg].
 
@@ -17,7 +27,7 @@ do not use any experimental features in production.
 
 |Column|Type|Description|
 |-|-|-|
-|`duration_in`|`BIGINT`|An object storing the total time in microseconds spent in the target state.|
+|`duration_in`|`INTERVAL`|The total time spent in the target state. Displayed as `days`, `hh:mm:ss`, or a combination of the two.|
 
 ## Sample usage
 This example creates a simple test table:
@@ -35,14 +45,21 @@ INSERT INTO states VALUES
 
 You can query this table for the time spent in the running state, like this:
 ```sql
-SELECT toolkit_experimental.duration_in('running', toolkit_experimental.state_agg(time, state)) FROM states;
+SELECT toolkit_experimental.duration_in(
+  'running',
+  toolkit_experimental.state_agg(time, state)
+) FROM states;
 ```
 
 Which gives the result:
 ```sql
- duration_in  
---------------
- 338400000000
+duration_in  
+---------------
+3 days 22:00:00
 ```
 
+If you prefer to see the result in seconds, [`EXTRACT`][extract] the epoch from
+the returned result.
+
+[extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT
 [state_agg]: /hyperfunctions/frequency-analysis/state_agg/

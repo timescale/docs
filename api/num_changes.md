@@ -1,3 +1,13 @@
+---
+api_name: num_changes
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # num_changes() <tag type="toolkit" content="Toolkit" />
 The number of times the value changed within the period over which the
 CounterSummary is calculated. This is determined by evaluating consecutive

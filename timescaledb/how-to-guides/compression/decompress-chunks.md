@@ -23,9 +23,9 @@ There are several methods for selecting chunks and decompressing them.
 ### Decompress individual chunks
 To decompress a single chunk by name, run this command:
 ```sql
-SELECT decompress_chunk('chunk_name');
+SELECT decompress_chunk('_timescaledb_internal.<chunk_name>');
 ```
-
+In this example, `chunk_name` is the name of the chunk that you want to decompress.
 ### Decompress chunks by time
 To decompress a set of chunks based on a time range, you can use the output of
 `show_chunks` to decompress each one:

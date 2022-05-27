@@ -36,12 +36,12 @@ and architecture, see the
 1.  On the access node (AN), run this command and provide the hostname of the
     first data node (DN1) you want to add:
     ```sql
-    SELECT add_data_node(dn1.example.com)
+    SELECT add_data_node('dn1', 'dn1.example.com')
     ```
 1.  Repeat for all other data nodes:
     ```sql
-    SELECT add_data_node(dn2.example.com)
-    SELECT add_data_node(dn3.example.com)
+    SELECT add_data_node('dn2', 'dn2.example.com')
+    SELECT add_data_node('dn3', 'dn3.example.com')
     ```
 1.  On the access node, create the distributed hypertable with your chosen
     partitioning. In this example, the distributed hypertable is called
@@ -63,4 +63,4 @@ cluster. For more information, see the [configuration section][configuration].
 [install]: /install/latest/
 [setup]: /install/latest/
 [about-multi-node]: /how-to-guides/multinode-timescaledb/about-multinode/
-[caggs]: timescaledb/how-to-guides/continuous-aggregates/about-continuous-aggregates#using-continuous-aggregates-in-multi-node-environment/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment

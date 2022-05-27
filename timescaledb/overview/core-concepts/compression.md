@@ -6,13 +6,13 @@ software. Compressing time-series data can significantly reduce the storage requ
 of your data and, in many cases, speed up the responsiveness of queries on
 historical, compressed data.
 
-Compression is powered by TimescaleDB’s built-in job scheduler framework. We
+Compression is powered by TimescaleDB's built-in job scheduler framework. We
 leverage it to asynchronously convert individual chunks from an uncompressed
 row-based form to a compressed columnar form across a hypertable: Once a chunk
 is old enough, the chunk is transactionally converted from the row to columnar form.
 
 With native compression, even though a single hypertable in TimescaleDB
-stores data in both row and columnar forms, users don’t need to worry about
+stores data in both row and columnar forms, users don't need to worry about
 this: they continue to see a standard row-based schema when querying data.
 This is similar to building a view on the decompressed columnar data.
 

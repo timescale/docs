@@ -12,8 +12,8 @@ enable compression on continuous aggregates
 
 |Name|Type|Description|
 |---|---|---|
-| `hypertable` |REGCLASS| Name of the hypertable or continuous aggregate|
-| `compress_after` | INTERVAL or INTEGER | The age after which the policy job compresses chunks|
+|`hypertable`|REGCLASS|Name of the hypertable or continuous aggregate|
+|`compress_after`|INTERVAL or INTEGER|The age after which the policy job compresses chunks. `compress_after` is calculated relative to the current time, so chunks containing data older than `now - {compress_after}::interval` are compressed.|
 
 The `compress_after` parameter should be specified differently depending 
 on the type of the time column of the hypertable or continuous aggregate:

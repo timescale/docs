@@ -2,6 +2,9 @@ module.exports = [
   {
     title: 'Tutorials',
     href: 'tutorials',
+    tags: ["timescaledb", "overview", "get started", "learn"],
+    keywords: ["IoT", "analyze data", "monitor", "visualize"],
+    excerpt: "Learn about common scenarios and use cases for TimescaleDB",
     children: [
       {
         title: 'Introduction to IoT',
@@ -24,6 +27,50 @@ module.exports = [
         tags: ['cryptocurrency', 'finance', 'analyze', 'learn', 'timescaledb'],
         keywords: ['cryptocurrency', 'finance', 'tutorial', 'TimescaleDB'],
         excerpt: 'Use TimescaleDB to analyze cryptocurrency data',
+      },
+      {
+        title: 'Store financial tick data in TimescaleDB',
+        href: 'financial-candlestick-tick-data',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+        excerpt: 'Use TimescaleDB to store financial tick data',
+        children: [
+          {
+            title: 'Design schema and ingest tick data',
+            href: 'design-tick-schema',
+        tags: ['tick', 'schema', 'candlestick', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Design a relational schema for real-time tick data',
+          },
+          {
+            title: 'Create candlestick aggregates',
+            href: 'create-candlestick-aggregates',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Use continuous aggregates to create candlestick views',
+          },
+          {
+            title: 'Query the candlestick views',
+            href: 'query-candlestick-views',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Query the continuous aggregates for candlestick data',
+          },
+          {
+            title: 'Advanced data management',
+            href: 'advanced-data-management',
+        tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
+        keywords: ['candlestick', 'finance', 'tick', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Advanced data management techniques',
+          }
+        ],
+      },
+      {
+        title: 'Ingest real-time financial websocket data',
+        href: 'ingest-real-time-websocket-data',
+        tags: ['websocket', 'finance', 'real-time', 'ingest', 'timescaledb'],
+        keywords: ['real-time', 'finance', 'websocket', 'tutorial', 'TimescaleDB'],
+        excerpt: 'Ingest real-time financial data with websocket',
       },
       {
         title: 'Analyze NFT sales data',
@@ -189,6 +236,22 @@ module.exports = [
             keywords: ['Grafana', 'tutorial', 'TimescaleDB'],
             excerpt: 'Setup alerts in Grafana with TimescaleDB',
           },
+          {
+            title: 'Visualizations',
+            href: 'visualizations',
+            tags: ['grafana', 'visualize', 'learn', 'timescaledb'],
+            keywords: ['Grafana', 'tutorial', 'visualization', 'TimescaleDB'],
+            excerpt: 'Grafana visualizations',
+            children: [
+              {
+                title: 'Histograms',
+                href: 'histograms',
+                tags: ['grafana', 'visualize', 'histograms', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'histogram'],
+                excerpt: 'How to build a histogram in Grafana',
+              }
+            ]
+          }
         ],
       },
       {

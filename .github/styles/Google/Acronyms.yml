@@ -5,11 +5,12 @@ level: suggestion
 ignorecase: false
 # Ensures that the existence of 'first' implies the existence of 'second'.
 first: '\b([A-Z]{3,5})\b'
-second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
+second: '(?:\b[A-Z][a-z]+\s)+\(([A-Z]{3,5})\)'
 # ... with the exception of these:
 exceptions:
   - API
   - ASP
+  - AWS
   - CLI
   - CPU
   - CSS
@@ -18,6 +19,7 @@ exceptions:
   - DOM
   - DPI
   - FAQ
+  - FIXME
   - GCC
   - GDB
   - GET
@@ -34,6 +36,7 @@ exceptions:
   - LESS
   - LLDB
   - NET
+  - NFT
   - NOTE
   - NVDA
   - OSS

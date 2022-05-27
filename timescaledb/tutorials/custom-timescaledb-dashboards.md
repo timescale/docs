@@ -30,7 +30,7 @@ own cloud infrastructure.
 You can get the full code for this project from
 [this GitHub repo][repo-example].
 
-This project works on any TimescaleDB instance, but if you’re interested
+This project works on any TimescaleDB instance, but if you're interested
 in generating sample data to use, use our
 [Simulating IoT sensor data][iot-tutorial] tutorial.
 
@@ -75,7 +75,7 @@ tsdb=> SELECT chunk_name, range_start, range_end FROM timescaledb_information.ch
 ## Visualizing tables and chunks
 Hypertables that have data spanning massive time periods can have thousands of chunks, so visualizing them effectively is important. To provide a visual perspective of the table, the image area represents the total size of all table data before compression. Each circle represents a chunk, and the area of each circle represents the size of the chunk on disk.
 
-Here’s an example of what this visualization looks like:
+Here's an example of what this visualization looks like:
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizing-compression/compression-preview.png" alt="Hypertables compression preview"/>
 
@@ -189,7 +189,7 @@ is uncompressed.
 
 ### Building views for our TimescaleDB metrics
 Now that you know how to gather all of the data you need to drive the
-visualization, it’s time to join it together in a view that can be queried using
+visualization, it's time to join it together in a view that can be queried using
 SQL (and eventually, our application).
 
 ```sql
@@ -287,7 +287,7 @@ database and quickly exposes the tables, views, and functions you need. For
 more information about setting up a new data source on Hasura, check out their
 wizard.
 
-We’re going to use two types of operations:
+We're going to use two types of operations:
 
 *   Queries and subscriptions: watch a specific query and keep pulling data
     updates to the client. In this example, you subscribe to the chunks'

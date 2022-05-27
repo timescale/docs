@@ -115,7 +115,7 @@ them. The migration still occurs successfully.
     pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
     ```
 1.  ```bash
-    ​​pg_restore: WARNING:  no privileges were granted for "<..>"
+    pg_restore: WARNING:  no privileges were granted for "<..>"
     ```
 1.  ```bash
     pg_restore: warning: errors ignored on restore: 1

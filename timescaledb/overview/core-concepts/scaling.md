@@ -13,7 +13,7 @@ on a single machine is the significant cost/performance trade-off between memory
 and disk. Eventually, the entire dataset does not fit in memory, and you need
 to write your data and indexes to disk.
 
-Once the data is sufficiently large that we can’t fit all pages of our indexes
+Once the data is sufficiently large that we can't fit all pages of our indexes
 (e.g., B-trees) in memory, then updating a random part of the tree can involve
 swapping in data from disk.  And databases like PostgreSQL keep a B-tree (or
 other data structure) for each table index, in order for values in that
@@ -40,7 +40,7 @@ replication protocol.  The protocol works by streaming records of database
 modifications from the primary server to one or more replicas, which can then
 be used as read-only nodes (to scale queries) or as failover servers (for high availability).
 
-PostgreSQL streaming replication leverages the Write Ahead Log (WAL), which is
+PostgreSQL streaming replication leverages the write-ahead log (WAL), which is
 an append-only series of instructions that captures every atomic database change.
 The replication works by continuously shipping segments of the WAL from the primary
 to any connected replicas. Each replica then applies the WAL changes and makes them

@@ -8,7 +8,7 @@ cluster.
 ## Install the packages
 You can install tobs at the command prompt, using the `curl` command:
 ```bash
-curl --proto '=https' --tlsv1.2 -sSLf  https://tsdb.co/install-tobs-sh |sh
+curl --proto '=https' -A 'tobs' --tlsv1.2 -sSLf  https://tsdb.co/install-tobs-sh |sh
 ```
 
 Alternatively, you can download directly from our [repository][download-tobs] to
@@ -34,10 +34,6 @@ This command deploys all of the tobs component into your
 cluster. Follow the prompts to complete set up.
 
 ## Install tracing support
-
-<highlight type="important">
-Support for OpenTelemetry traces is currently in beta and is disabled by default.
-</highlight>
 
 In tobs version 0.7.0 and later, tracing components are included in the stack.
 To install the tracing components, use this command:

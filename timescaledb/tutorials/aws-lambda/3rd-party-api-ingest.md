@@ -109,7 +109,7 @@ pgcopy
 <highlight type="note">
 This example uses `psycopg2-binary` instead of `psycopg2` in the
 `requirements.txt` file. The binary version of the library contains all its
-dependencies, so that you don’t need to install them separately.
+dependencies, so that you don't need to install them separately.
 </highlight>
 
 ## Create the Dockerfile

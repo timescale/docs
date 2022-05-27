@@ -1,3 +1,13 @@
+---
+api_name: counter_agg
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: aggregate
+---
+
 # counter_agg() <tag type="toolkit" content="Toolkit" />
 An aggregate that produces a CounterSummary from timestamps and associated
 values.
@@ -19,10 +29,9 @@ as a different numeric type you can cast to DOUBLE PRECISION on input to the
 function.
 
 <highlight type="note">
-Note that both `ts` and `value` can be NULL, but the aggregate is not evaluated
-on NULL values. This means that if the aggregate receives only a NULL value, it
-returns NULL, it does not return an error. If non-NULL values are also received, the NULL 
-values are ignored. Both `ts` and `value` must be non-NULL for the row to be included.
+If there are `NULL` values in your data, the aggregate ignores them and
+aggregates only non-`NULL` values. If you only have `NULL` values, the aggregate
+returns `NULL`.
 </highlight>
 
 ### Optional arguments
@@ -46,7 +55,7 @@ extrapolation, but not for other accessor functions.
 
 ## Sample usage
 This example produces a CounterSummary from timestamps and associated values,
-then computes the [`irate_right` accessor][irate_right]:
+then computes the [`irate_right`][irate] accessor:
 
 ``` sql
 WITH t as (
@@ -65,4 +74,4 @@ FROM t;
 
 
 [hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
-[irate-right]: /hyperfunctions/counter_aggs/irate/
+[irate]: /hyperfunctions/counter_aggs/irate/

@@ -1,3 +1,13 @@
+---
+api_name: num_elements
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'metric aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
+hyperfunction_type: accessor
+---
+
 # num_elements() <tag type="toolkit" content="Toolkit" />
 The total number of points seen while calculating the CounterSummary. Only
 points with distinct times are counted, as duplicate times are usually discarded

@@ -1,3 +1,13 @@
+---
+api_name: error
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: false
+hyperfunction_family: 'percentile approximation'
+hyperfunction_subfamily: 'percentile approximation'
+hyperfunction_type: accessor
+---
+
 # error()  <tag type="toolkit">Toolkit</tag>
 
 ```SQL

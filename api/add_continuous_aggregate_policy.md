@@ -6,8 +6,8 @@ Create a policy that automatically refreshes a continuous aggregate.
 |Name|Type|Description|
 |-|-|-|
 |`continuous_aggregate`|REGCLASS|The continuous aggregate to add the policy for|
-|`start_offset`|INTERVAL or integer|Start of the refresh window as an interval relative to the time when the policy is executed|
-|`end_offset`|INTERVAL or integer|End of the refresh window as an interval relative to the time when the policy is executed|
+|`start_offset`|INTERVAL or integer|Start of the refresh window as an interval relative to the time when the policy is executed. `NULL` is eqivalent to `MIN(timestamp)` of the hypertable.|
+|`end_offset`|INTERVAL or integer|End of the refresh window as an interval relative to the time when the policy is executed. `NULL` is eqivalent to `MAX(timestamp)` of the hypertable.|
 |`schedule_interval`|INTERVAL|Interval between refresh executions in wall-clock time. Defaults to 24 hours|
 
 The `start_offset` should be greater than `end_offset`.
@@ -18,6 +18,13 @@ depending on the type of the time column of the hypertable:
     set the offset as an `INTERVAL` type
 *   For hypertables with integer-based timestamps, set the offset as an
     `INTEGER` type.
+
+<highlight type="warning">
+While setting `end_offset` to `NULL` is possible, it is not recommended. To 
+include the most recent data in your aggregates, use 
+[real-time aggregation](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/)
+instead.
+</highlight>
 
 ### Optional arguments
 

@@ -1,3 +1,13 @@
+---
+api_name: average
+api_category: hyperfunction
+api_experimental: false
+hyperfunction_toolkit: true
+hyperfunction_family: 'time-weighted averages'
+hyperfunction_subfamily: 'time-weighted averages'
+hyperfunction_type: accessor
+---
+
 # average() <tag type="toolkit">Toolkit</tag>
 
 ```SQL

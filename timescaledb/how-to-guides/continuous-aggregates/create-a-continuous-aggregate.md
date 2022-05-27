@@ -154,6 +154,54 @@ policies][postgres-rls] enabled.
 
 </procedure>
 
+## Use continuous aggregates with window functions
+Continuous aggregates don't currently support window functions. You can work
+around this by:
+1.  Creating a continuous aggregate for the other parts of your query, then
+1.  Using the window function on your continuous aggregate at query time
+
+For example, say you have a hypertable named `example` with a `time` column and
+a `value` column. You bucket your data by `time` and calculate the delta between
+time buckets using the `lag` window function:
+```sql
+WITH t AS (
+  SELECT
+    time_bucket('10 minutes', time) as bucket,
+    first(value, time) as value
+  FROM example GROUP BY bucket
+)
+SELECT
+  bucket,
+  value - lag(value, 1) OVER (ORDER BY bucket) delta
+  FROM t;
+```
+
+You can't create a continuous aggregate using this query, because it contains
+the `lag` function. But you can create a continuous aggregate by excluding the
+`lag` function:
+
+```sql
+CREATE MATERIALIZED VIEW example_aggregate
+  WITH (timescaledb.continuous) AS
+    SELECT
+      time_bucket('10 minutes', time) AS bucket,
+      first(value, time) AS value
+    FROM example GROUP BY bucket;
+```
+
+Then, at query time, calculate the delta by using `lag` on your continuous
+aggregate:
+
+```sql
+SELECT
+  bucket,
+  value - lag(value, 1) OVER (ORDER BY bucket) AS delta
+FROM example_aggregate;
+```
+
+This speeds up your query by calculating the aggregation ahead of time. The
+delta still needs to be calculated at query time.
+
 [api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
 [postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html

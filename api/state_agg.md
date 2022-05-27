@@ -1,3 +1,13 @@
+---
+api_name: state_agg
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: StateAgg
+hyperfunction_type: aggregate
+---
+
 # state_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 The `state_agg` aggregate measures the amount of time spent in each 
 distinct value of a state field. It is designed to work with a relatively small 
@@ -9,6 +19,7 @@ Experimental features could have bugs. They might not be backwards compatible,
 and could be removed in future releases. Use these features at your own risk, and
 do not use any experimental features in production.
 </highlight>
+
 ## Required arguments
 
 |Name|Type|Description|

@@ -1,4 +1,5 @@
-# Run Promscale in high availability mode
+# Promscale and Prometheus high availability
+Promscale supports high availability alongside Prometheus high availability.
 Promscale is a stateless service, so it can use multiple replicas to run in a
 high availability (HA) mode. In this mode, a load balancer routes Promscale
 requests to any available replica.

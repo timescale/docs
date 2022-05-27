@@ -6,7 +6,7 @@ relational tables.
 To help you get familiar with NFT data, here are some of the questions that
 could be answered with this dataset:
 * Which collections have the highest trading volume?
-* What’s the number of daily transactions of a given collection or asset?
+* What's the number of daily transactions of a given collection or asset?
 * Which collections have the most trading volume in Ether (ETH)?
 * Which account made the most NFT trades?
 * How are the mean and median sale prices correlated?
@@ -100,8 +100,8 @@ The `accounts` table includes the accounts that have participated in at least
 one transaction from the nft_sales table.
 One row represents one unique account on the OpenSea platform.
 
-* `address` is never NULL and it’s unique
-* `user_name` is NULL unless it’s been submitted on the OpenSea profile by the user
+* `address` is never NULL and it's unique
+* `user_name` is NULL unless it's been submitted on the OpenSea profile by the user
 
 | Data field | Description |
 |---|---|
@@ -171,8 +171,8 @@ CREATE INDEX idx_payment_symbol ON nft_sales (payment_symbol);
 
 ### Schema design
 The `id` field in each table is `BIGINT` because its storage size is 8 bytes in
-PostgreSQL (as opposed to `INT`’s 4 bytes) which is needed to make sure this
-value doesn’t overflow.
+PostgreSQL (as opposed to `INT`'s 4 bytes) which is needed to make sure this
+value doesn't overflow.
 
 For the `quantity` field we suggest using numeric or decimal (which works the
 same way in PostgreSQL) as the data type, because in some edge cases we
@@ -214,6 +214,15 @@ API `/events` endpoint, and fetches data from the specified time period.
 <highlight type="note">
 You need an OpenSEA API key to fetch data from the OpenSea API. To request your
 key, see the [OpenSea API documentation](https://docs.opensea.io/reference/request-an-api-key).
+</highlight>
+
+<highlight type="warning">
+This procedure relies on the OpenSea API. The OpenSea API is provided and 
+maintained by OpenSea. Recently, the API has stopped functioning for extended 
+periods of time. If the API has changed or is not accessible when you attempt 
+to run the `opensea_ingest.py` script, try following the procedure to download 
+a historical data file and import it. You can use this data file to complete the 
+tutorial.
 </highlight>
 
 <procedure>

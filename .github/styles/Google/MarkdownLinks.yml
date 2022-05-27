@@ -3,5 +3,5 @@ message: "Remember to include the link."
 level: error
 ignorecase: false
 # Ensures that the existence of 'first' implies the existence of 'second'.
-first: '(?:\[[\w\\`",.() -]+\])(\[[\w-]+\])'
-second: '(\[[\w-]+\])(?:: [\w\/.&#=:?-]+$)'
+first: '(?:\[[\w\\`",.()\s-]+\])(\[[\w\s.-]+\])'
+second: '(\[[\w\s.-]+\])(?:: [\w\/.&#=:?-]+$)'

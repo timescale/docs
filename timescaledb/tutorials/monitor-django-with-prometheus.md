@@ -110,14 +110,14 @@ MIDDLEWARE = [
 
 In `urls.py`, make sure you have this in the header:
 ```python
-from django.conf.urls import url
+from django.conf.urls import include, path
 ```
 
 Then add this under urlpatterns:
 ```python
 urlpatterns = [
     ...
-    url('', include('django_prometheus.urls')),
+    path('', include('django_prometheus.urls')),
 ]
 ```
 

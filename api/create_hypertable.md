@@ -2,7 +2,7 @@
 
 Creates a TimescaleDB hypertable from a PostgreSQL table (replacing
 the latter), partitioned on time and with the option to partition on
-one or more other columns (i.e., space). The PostgreSQL table cannot
+one or more other columns. The PostgreSQL table cannot
 be an already partitioned table (declarative partitioning or
 inheritance). In case of a non-empty table, it is possible to migrate
 the data during hypertable creation using the `migrate_data` option,
@@ -15,35 +15,35 @@ still work on the resulting hypertable.
 #### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `relation` | REGCLASS | Identifier of table to convert to hypertable. |
-| `time_column_name` | REGCLASS | Name of the column containing time values as well as the primary column to partition by. |
+|-|-|-|
+|`relation`|REGCLASS|Identifier of table to convert to hypertable.|
+|`time_column_name`|REGCLASS| Name of the column containing time values as well as the primary column to partition by.|
 
 ### Optional arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `partitioning_column` | REGCLASS | Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided. |
-| `number_partitions` | INTEGER | Number of [hash partitions][] to use for `partitioning_column`. Must be > 0. |
-| `chunk_time_interval` | INTERVAL | Event time that each chunk covers. Must be > 0. Default is 7 days. |
-| `create_default_indexes` | BOOLEAN | Whether to create default indexes on time/partitioning columns. Default is TRUE. |
-| `if_not_exists` | BOOLEAN | Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE. |
-| `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|
-| `associated_schema_name` | REGCLASS | Name of the schema for internal hypertable tables. Default is "_timescaledb_internal". |
-| `associated_table_prefix` | TEXT | Prefix for internal hypertable chunk names. Default is "_hyper". |
-| `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Defaults to FALSE. |
-| `time_partitioning_func` | REGCLASS | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
-| `replication_factor` | INTEGER | If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable/) in place of `create_hypertable`. |
-| `data_nodes` | ARRAY | This is the set of data nodes that are used for this table if it is distributed. This has no impact on non-distributed hypertables. If no data nodes are specified, a distributed hypertable uses all data nodes known by this instance. |
+|-|-|-|
+|`partitioning_column`|REGCLASS|Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided.|
+|`number_partitions`|INTEGER|Number of [hash partitions][] to use for `partitioning_column`. Must be > 0.|
+|`chunk_time_interval`|INTERVAL|Event time that each chunk covers. Must be > 0. Default is 7 days.|
+|`create_default_indexes`|BOOLEAN|Whether to create default indexes on time/partitioning columns. Default is TRUE.|
+|`if_not_exists`|BOOLEAN|Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE.|
+|`partitioning_func`|REGCLASS|The function to use for calculating a value's partition.|
+|`associated_schema_name`|REGCLASS|Name of the schema for internal hypertable tables. Default is `_timescaledb_internal`.|
+|`associated_table_prefix`|TEXT|Prefix for internal hypertable chunk names. Default is `_hyper`.|
+|`migrate_data`|BOOLEAN|Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Defaults to FALSE.|
+|`time_partitioning_func`|REGCLASS| Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`.|
+|`replication_factor`|INTEGER| If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable/) in place of `create_hypertable`.|
+|`data_nodes`|ARRAY|This is the set of data nodes that are used for this table if it is distributed. This has no impact on non-distributed hypertables. If no data nodes are specified, a distributed hypertable uses all data nodes known by this instance.|
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
-| `hypertable_id` | INTEGER | ID of the hypertable in TimescaleDB. |
-| `schema_name` | TEXT | Schema name of the table converted to hypertable. |
-| `table_name` | TEXT | Table name of the table converted to hypertable. |
-| `created` | BOOLEAN | TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created. |
+|-|-|-|
+|`hypertable_id`|INTEGER|ID of the hypertable in TimescaleDB.|
+|`schema_name`|TEXT|Schema name of the table converted to hypertable.|
+|`table_name`|TEXT|Table name of the table converted to hypertable.|
+|`created`|BOOLEAN|TRUE if the hypertable was created, FALSE when `if_not_exists` is true and no hypertable was created.|
 
 <highlight type="tip">
  If you use `SELECT * FROM create_hypertable(...)` you get the return value formatted as a table with column headings.
@@ -75,18 +75,18 @@ obtaining `SHARE ROW EXCLUSIVE` lock on the referenced tables before calling
 
 The 'time' column supports the following data types:
 
-| Types |
-|---|
-| Timestamp (TIMESTAMP, TIMESTAMPTZ) |
-| DATE |
-| Integer (SMALLINT, INT, BIGINT) |
+|Types|
+|-|
+|Timestamp (TIMESTAMP, TIMESTAMPTZ)|
+|DATE|
+|Integer (SMALLINT, INT, BIGINT)|
 
 <highlight type="tip"> The type flexibility of the 'time' column allows the use
 of non-time-based values as the primary chunk partitioning column, as long as
 those values can increment.
 </highlight>
 
-<highlight type="tip"> For incompatible data types (e.g. `jsonb`) you can
+<highlight type="tip"> For incompatible data types (for example, `jsonb`) you can
 specify a function to the `time_partitioning_func` argument which can extract
 a compatible data type
 </highlight>
@@ -105,7 +105,7 @@ of milliseconds since the UNIX epoch, and you wish to each chunk to
 cover 1 day, you should specify `chunk_time_interval => 86400000`.
 
 
-In case of hash partitioning (i.e., `number_partitions` is greater
+In case of hash partitioning (in other words, if `number_partitions` is greater
 than zero), it is possible to optionally specify a custom partitioning
 function. If no custom partitioning function is specified, the default
 partitioning function is used. The default partitioning function calls
@@ -190,14 +190,14 @@ configuring `chunk_time_interval`.
 
 **Time intervals:** The current release of TimescaleDB enables both
 the manual and automated adaption of its time intervals. With
-manually-set intervals, users should specify a `chunk_time_interval`
+manually set intervals, users should specify a `chunk_time_interval`
 when creating their hypertable (the default value is 1 week). The
 interval used for new chunks can be changed by calling [`set_chunk_time_interval()`](/hypertable/set_chunk_time_interval/).
 
 The key property of choosing the time interval is that the chunk (including indexes)
 belonging to the most recent interval (or chunks if using space
-partitions) fit into memory.  As such, we typically recommend setting
-the interval so that these chunk(s) comprise no more than 25% of main
+partitions) fit into memory. As such, we typically recommend setting
+the interval so that these chunks comprise no more than 25% of main
 memory.
 
 <highlight type="tip">
@@ -205,11 +205,11 @@ Make sure that you are planning for recent chunks from _all_ active hypertables
 to fit into 25% of main memory, rather than 25% per hypertable.
 </highlight>
 
-To determine this, you roughly need to understand your data rate.  If
+To determine this, you roughly need to understand your data rate. If
 you are writing roughly 2 GB of data per day and have 64 GB of memory,
-setting the time interval to a week would be good.  If you are writing
+setting the time interval to a week would be good. If you are writing
 10 GB per day on the same machine, setting the time interval to a day
-would be appropriate.  This interval would also hold if data is loaded
+would be appropriate. This interval would also hold if data is loaded
 more in batches - for example, you bulk load 70 GB of data per week, with data
 corresponding to records from throughout the week.
 
@@ -220,7 +220,7 @@ corresponds to increased planning latency for some types of queries.
 <highlight type="tip">
 One caveat is that the total chunk size is actually dependent on
 both the underlying data size *and* any indexes, so some care might be
-taken if you make heavy use of expensive index types (e.g., some
+taken if you make heavy use of expensive index types (for example, some
 PostGIS geospatial indexes).  During testing, you might check your
 total chunk sizes via the [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size/)
 function.

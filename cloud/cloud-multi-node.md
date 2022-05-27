@@ -58,5 +58,5 @@ For more information about how multi-node works, see the
 
 [multinode-timescaledb]: timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [multinode-mst]: /mst/:currentVersion:/mst-multi-node/
-[cloud-login]: https://cloud.timescale.com
+[cloud-login]: https://console.cloud.timescale.com/
 [cloud-signup]: https://www.timescale.com/timescale-signup

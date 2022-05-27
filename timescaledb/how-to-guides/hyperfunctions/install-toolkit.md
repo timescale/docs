@@ -1,44 +1,65 @@
-# Install TimescaleDB Toolkit
+# Install and update TimescaleDB Toolkit
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
 extension.
 
 If you're using [Timescale Cloud][cloud], the Toolkit is already installed.
 
-## Install Toolkit on Managed Service for TimescaleDB
+## Install and update Toolkit on Managed Service for TimescaleDB
 On [Managed Service for TimescaleDB][mst], run this command on each database you
 want to use the Toolkit with:
 ```sql
 CREATE EXTENSION timescaledb_toolkit;
 ```
 
-You can update an installed version of the Toolkit using this command:
+Update an installed version of the Toolkit using this command:
 ```sql
 ALTER EXTENSION timescaledb_toolkit UPDATE;
 ```
 
 ## Install Toolkit on self-hosted TimescaleDB
-If you're hosting your own TimescaleDB database, you can install Toolkit as an
-RPM, Debian, or Ubuntu package. You can also build Toolkit from source.
+If you're hosting your own TimescaleDB database, you can install Toolkit by:
+*   Using the TimescaleDB high-availability Docker image
+*   Using the RPM or DEB package
+*   Building from source
 
-### Install Toolkit on Red Hat-based systems
+### Install Docker image
 
-These instructions use the `dnf` package manager on RHEL, CentOS, and Fedora.
+The recommended way to install the Toolkit is to use the
+[TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
+To get Toolkit, use the high availability image, `timescaledb-ha`:
+```bash
+docker pull timescale/timescaledb-ha:pg14-latest
+```
+
+<highlight type="important">
+The `timescaledb-ha` image does not support ARM64. For ARM64 environments, use the
+`timescaledb` Docker image. By default, this image does not contain Toolkit. You can add
+Toolkit using the package installation method, or by building from source.
+</highlight>
+
+For more information on running TimescaleDB using Docker, see the section on
+[pre-built containers][docker-install].
+
+### Install Toolkit on CentOS 7 and other Red Hat-based systems
+
+These instructions use the `yum` package manager. They have been tested on CentOS 7
+and may also work on other Red Hat-based systems, such as Red Hat Enterprise Linux and Fedora.
 
 <procedure>
 
-#### Installing Toolkit on Red Hat-based systems
+#### Installing Toolkit on CentOS 7
 
 1.  Make sure you have installed TimescaleDB and created a TimescaleDB
     repository in your `yum` `repo.d` directory. For more information, see [the
     instructions for Red Hat-based systems][red-hat-install].
 1.  Update your local repository list:
     ```bash
-    dnf update
+    yum update
     ```
 1.  Install TimescaleDB Toolkit:
     ```bash
-    dnf install timescaledb-toolkit-postgresql-14
+    yum install timescaledb-toolkit-postgresql-14
     ```
 1.  Connect to the database where you want to use Toolkit.
 1.  Create the Toolkit extension in the database:
@@ -48,13 +69,14 @@ These instructions use the `dnf` package manager on RHEL, CentOS, and Fedora.
 
 </procedure>
 
-### Install Toolkit on Debian-based systems
+### Install Toolkit on Ubuntu and other Debian-based systems
 
-These instructions use the `apt` package manager on Debian and Ubuntu.
+These instructions use the `apt` package manager. They have been tested on Ubuntu 20.04
+and may also work on other Debian-based systems.
 
 <procedure>
 
-#### Installing Toolkit on Debian-based systems
+#### Installing Toolkit on Ubuntu 20.04
 
 1.  Make sure you have installed TimescaleDB and added the TimescaleDB
     repository and GPG key. For more information, see [the instructions for
@@ -75,38 +97,78 @@ These instructions use the `apt` package manager on Debian and Ubuntu.
 
 </procedure>
 
-### Build Toolkit from source
+## Update Toolkit on self-hosted TimescaleDB
 
-You can build Toolkit from source. For more information, see the [Toolkit
-developer documentation][toolkit-gh-docs] .
+Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
 <procedure>
 
-#### Building Toolkit from source
-1.  The extension requires `rust`, `rustfmt`, `clang`, and `pgx` packages, as
-    well as the PostgreSQL headers for your installed version of PostgreSQL.
-    Install these using your native package manager. For instructions on how to
-    install Rust, see the [Rust installation instructions][rust-install].
-1.  Install the TimescaleDB `pgx` package using Cargo:
+### Updating Toolkit on self-hosted TimescaleDB
+
+1.  Update your local repository list:
+
+    <terminal>
+
+    <tab label='CentOS 7'>
+
     ```bash
-    cargo install --git https://github.com/JLockerman/pgx.git --branch timescale2 cargo-pgx && \
-    cargo pgx init --pg13 pg_config
+    yum update
     ```
-1.  Clone the Toolkit repository, and change into the new directory:
+
+    </tab>
+
+    <tab label='Debian'>
+
     ```bash
-    git clone https://github.com/timescale/timescaledb-toolkit && \
-    cd timescaledb-toolkit/extension
+    apt update
     ```
-1.  Use Cargo to complete installation:
+
+    </tab>
+
+    </terminal>
+
+1.  Install the latest version of TimescaleDB Toolkit:
+
+    <terminal>
+
+    <tab label='CentOS 7'>
+
     ```bash
-    cargo pgx install --release && \
-    cargo run --manifest-path ../tools/post-install/Cargo.toml -- pg_config
+    yum install timescaledb-toolkit-postgresql-14
     ```
+
+    </tab>
+
+    <tab label='Debian'>
+
+    ```bash
+    apt install timescaledb-toolkit-postgresql-14
+    ```
+
+    </tab>
+
+    </terminal>
+    
+1.  Connect to the database where you want to use the new version of Toolkit.
+1.  Update the Toolkit extension in the database:
+    ```sql
+    ALTER EXTENSION timescaledb_toolkit UPDATE;
+    ```
+
+<highlight type="note">
+For some Toolkit versions, you might need to disconnect and reconnect active
+sessions.
+</highlight>
 
 </procedure>
 
+### Build Toolkit from source
+You can build Toolkit from source. For more information, see the [Toolkit
+developer documentation][toolkit-gh-docs].
+
 [cloud]: /cloud/:currentVersion:/
 [debian-install]: /install/:currentVersion:/self-hosted/installation-debian/
+[docker-install]: /install/:currentVersion:/installation-docker/
 [mst]: /mst/:currentVersion:/
 [red-hat-install]: /install/:currentVersion:/self-hosted/installation-redhat/
 [rust-install]: https://www.rust-lang.org/tools/install

@@ -50,7 +50,7 @@ of Telegraf with our plugin already included.
 </highlight>
 
 The PostgreSQL plugin extends the ease of use users get from leveraging Telegraf by handling schema generation and
-modification. This means that as metrics are collected by Telegraf, the plugin creates a table if it doesn’t exist and alters
+modification. This means that as metrics are collected by Telegraf, the plugin creates a table if it doesn't exist and alters
 the table if a schema has changed. By default, the plugin leverages a [wide model][wide-model], which is typically the schema
 model that TimescaleDB users tend to choose when storing metrics. However, you can specify that you want to store metrics in a
 narrow model with a separate metadata table and foreign keys. You can also choose to use JSONB.
@@ -62,7 +62,7 @@ To get started with the PostgreSQL and TimescaleDB output plugin, visit the [tut
 Another popular method of ingesting data into TimescaleDB is through the use of
 the [PostgreSQL connector with Kafka Connect][postgresql-connector-with-kafka-connect].
 The connector is designed to work with [Kafka Connect][kafka-connect] and to be
-deployed to a Kafka Connect runtime service. It’s purpose is to ingest change
+deployed to a Kafka Connect runtime service. It's purpose is to ingest change
 events from PostgreSQL databases (i.e. TimescaleDB).
 
 The deployed connector monitors one or more schemas within a TimescaleDB
@@ -77,7 +77,7 @@ Kafka Connect, enabling applications and services to directly connect to
 TimescaleDB and obtain the ordered change events. This approach requires the
 application to record the progress of the connector so that upon restart,
 the connect can continue where it left off. This approach may be useful for
-less critical use cases. However, for production use cases, it’s recommended
+less critical use cases. However, for production use cases, it's recommended
 that you use this connector with Kafka and Kafka Connect.
 </highlight>
 

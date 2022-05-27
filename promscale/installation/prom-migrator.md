@@ -38,18 +38,12 @@ environment to migrate. Additionally, you need a
 </procedure>
 
 When you have migrated the data into Promscale, you can drop the old data from
-Prometheus and any other remote storage system.
-
-When your data migration is complete, you can use Promscale directly to query
-using PromQL and TimescaleDB to query using SQL.
-
-<highlight type="important">
-Promscale does not currently support alerting or recording rules. If you need
-access to these features, you can configure them within Prometheus directly. We
-also recommend that you set the data retention setting in Prometheus to `1d`,
-but this is dependent on the alerting rules that you have configured in
-Prometheus.
-</highlight>
+Prometheus and any other remote storage system and use Promscale to query using
+in PromQL and TimescaleDB to query using SQL. You can also configure your existing
+Prometheus [alerting][promscale-alerting] and [recording][promscale-recording] 
+rules in Promscale. At that point, Prometheus is only useful for collecting data
+and we recommend you use the Prometheus Agent Mode to reduce resource consumption.
+At the very least you could set the data retention in Prometheus to `1d`.
 
 For more information about Prom-migrator and it command line options, see our
 [developer documentation][gh-prom-migrator].
@@ -59,4 +53,6 @@ For more information about Prom-migrator and it command line options, see our
 [promscale-install-docker]: promscale/:currentVersion:/installation/docker/
 [promscale-install-source]: promscale/:currentVersion:/installation/source/
 [promscale-gh-releases]: https://github.com/timescale/promscale/releases
-[gh-prom-migrator]: https://github.com/timescale/promscale/tree/master/cmd/prom-migrator
+[gh-prom-migrator]: https://github.com/timescale/promscale/tree/master/migration-tool/cmd/prom-migrator
+[promscale-recording]:promscale/:currentVersion:/downsample-data/recording/
+[promscale-alerting]:promscale/:currentVersion:/alert/

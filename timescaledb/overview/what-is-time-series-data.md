@@ -49,7 +49,7 @@ over time.**
 
 ## Characteristics of time-series data [](characteristics)
 
-If you look closely at how it’s produced and ingested, there are important
+If you look closely at how it's produced and ingested, there are important
 characteristics that time-series databases like TimescaleDB typically leverage:
 
 - **Time-centric**: Data records always have a timestamp.
