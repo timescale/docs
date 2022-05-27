@@ -34,7 +34,7 @@ function instead.
 
 |Name|Type|Description|
 |-|-|-|
-|`offset`|INTERVAL|The time interval to offset all buckets by|
+|`offset`|INTERVAL|The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in PostgreSQL.|
 |`origin`|TIMESTAMP|Buckets are aligned relative to this timestamp|
 
 ## Required arguments for integer time inputs
@@ -48,8 +48,7 @@ function instead.
 
 |Name|Type|Description|
 |-|-|-|
-|`offset`|INTEGER|The amount to offset all buckets by|
-
+|`offset`|INTEGER|The amount to offset all buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in PostgreSQL.|
 
 ## Sample usage
 

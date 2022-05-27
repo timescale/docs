@@ -4,7 +4,7 @@ api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
 hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter aggregation'
+hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: aggregate
 ---
 
@@ -29,8 +29,9 @@ as a different numeric type you can cast to DOUBLE PRECISION on input to the
 function.
 
 <highlight type="note">
-If there are `NULL` values in your data, the aggregate ignores them. At least
-some of the values must be non-`NULL`. Otherwise, you get an error.
+If there are `NULL` values in your data, the aggregate ignores them and
+aggregates only non-`NULL` values. If you only have `NULL` values, the aggregate
+returns `NULL`.
 </highlight>
 
 ### Optional arguments

@@ -652,6 +652,10 @@ module.exports = [
         ],
       },
       {
+        href: 'configuration',
+        excerpt: 'Configure PostgreSQL and TimescaleDB',
+      },
+      {
         title: 'Administration Functions',
         type: 'directory',
         href: 'administration',
