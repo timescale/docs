@@ -633,7 +633,7 @@ module.exports = [
             excerpt: "Example user-defined action for downsample and compress",
           },
           {
-            title: "Example of backfilling",
+            title: "Use an action to backfill data periodically",
             href: "example-backfill",
             tags: ["action", "example", "backfill", "timescaledb"],
             keywords: ["action", "example", "backfill", "TimescaleDB"],
