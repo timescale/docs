@@ -19,15 +19,15 @@ tdigest(
 This constructs and returns a `tdigest` with the specified number of buckets
 over the given values.
 
-TimescaleDB provides an implementation of the  `tdigest` data structure
-for quantile approximations. A `tdigest` is a space efficient aggregation which
+TimescaleDB provides an implementation of the `tdigest` data structure for
+quantile approximations. A `tdigest` is a space efficient aggregation which
 provides increased resolution at the edges of the distribution. This allows for
 more accurate estimates of extreme quantiles than traditional methods.
 
-Timescale's  `tdigest` is implemented as an aggregate function in PostgreSQL. It
-does not support moving-aggregate mode, and are not ordered-set aggregates. They
-are currently restricted to float values. They are parallelizable and are good
-candidates for continuous aggregation.
+Timescale's `tdigest` is implemented as an aggregate function in PostgreSQL. It
+does not support moving-aggregate mode and is not an ordered-set aggregate. It
+is parallelizable and is a good candidate for continuous
+aggregation. Aggregating with `tdigest` is currently restricted to float values.
 
 The `tdigest` function is somewhat dependent on the order of inputs. The
 percentile approximations should be nearly equal for the same underlying data,
@@ -73,4 +73,4 @@ CREATE VIEW digest AS
 
 
 [hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
-[gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/`uddsketch`.md
+[gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md
