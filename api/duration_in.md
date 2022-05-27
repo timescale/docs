@@ -1,5 +1,8 @@
 ---
-api_name: duration_in
+api_name: duration_in()
+excerpt: Calculate the total time spent in a given state from values in a `CounterSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

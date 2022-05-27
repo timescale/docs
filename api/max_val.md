@@ -1,5 +1,8 @@
 ---
-api_name: max_val
+api_name: max_val()
+excerpt: Calculate the maximum from values in a `tdigest`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

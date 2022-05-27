@@ -1,5 +1,8 @@
 ---
-api_name: asap_smooth
+api_name: asap_smooth()
+excerpt: Downsample a time series using the ASAP smoothing algorithm
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

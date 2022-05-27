@@ -1,3 +1,9 @@
+---
+api_name: show_chunks()
+excerpt: Show the chunks belonging to a hypertable
+license: apache
+---
+
 ## show_chunks()
 Get list of chunks associated with a hypertable.
 

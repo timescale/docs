@@ -1,5 +1,8 @@
 ---
-api_name: x_intercept
+api_name: x_intercept()
+excerpt: Calculate the x-intercept for values in a 2-dimensional statistical aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

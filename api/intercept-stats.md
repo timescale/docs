@@ -1,5 +1,8 @@
 ---
-api_name: intercept
+api_name: intercept()
+excerpt: Calculate the intercept from values in a 2-dimensional statistical aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -1,5 +1,8 @@
 ---
 api_name: hyperloglog
+excerpt: Aggregate data into a hyperloglog for approximate counting
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
