@@ -1,32 +1,49 @@
-# Generic retention
+# Use a user-defined action to create a generic retention policy
+TimescaleDB natively supports adding a
+[data retention policy][data-retention-policy] to a hypertable. If you want to
+add a generic data retention policy to _all_ hypertables, you can write a
+user-defined action.
 
-Create a generic data retention policy that applies to ALL hypertables, as opposed
-to just a single one as required by `add_retention_policy`.
-The policy could be further refined with additional filters, by adding a WHERE
-clause to the PERFORM query in the procedure definition.
+<procedure>
 
-```sql
-CREATE OR REPLACE PROCEDURE generic_retention (job_id int, config jsonb)
-LANGUAGE PLPGSQL
-AS $$
-DECLARE
-  drop_after interval;
-BEGIN
-  SELECT jsonb_object_field_text (config, 'drop_after')::interval INTO STRICT drop_after;
+## Using a user-defined action to create a generic retention policy
+1.  Create a procedure that drops chunks from any hypertable if they are older
+    than the `drop_after` parameter. To get all hypertables, the
+    `timescaledb_information.hypertables` table is queried.
+    ```sql
+    CREATE OR REPLACE PROCEDURE generic_retention (job_id int, config jsonb)
+    LANGUAGE PLPGSQL
+    AS $$
+    DECLARE
+      drop_after interval;
+    BEGIN
+      SELECT jsonb_object_field_text (config, 'drop_after')::interval
+        INTO STRICT drop_after;
 
-  IF drop_after IS NULL THEN
-    RAISE EXCEPTION 'Config must have drop_after';
-  END IF;
+      IF drop_after IS NULL THEN
+        RAISE EXCEPTION 'Config must have drop_after';
+      END IF;
 
-  PERFORM drop_chunks(format('%I.%I', hypertable_schema, hypertable_name), older_than => drop_after)
-    FROM timescaledb_information.hypertables;
-END
-$$;
-```
+      PERFORM drop_chunks(
+        format('%I.%I', hypertable_schema, hypertable_name),
+        older_than => drop_after
+      ) FROM timescaledb_information.hypertables;
+    END
+    $$;
+    ```
+1.  Register the job to run daily. In the `config`, set `drop_after` to 12 months
+    to drop chunks containing data older than 12 months.
+    ```sql
+    SELECT add_job('generic_retention','1d', config => '{"drop_after":"12 month"}');
+    ```
 
-Register job to run daily dropping chunks on all hypertables that are older
-than 12 months.
+<highlight type="note">
+You can further refine this policy by adding filters to your procedure. For
+example, add a `WHERE` clause to the `PERFORM` query to only drop chunks from
+particular hypertables.
+</highlight>
 
-```sql
-SELECT add_job('generic_retention','1d', config => '{"drop_after":"12 month"}');
-```
+</procedure>
+
+[data-retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
+
