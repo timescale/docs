@@ -163,8 +163,8 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /timescaledb/latest/how-to-guides/connecting/psql/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: timescaledb/latest/how-to-guides/configuration/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [releases-page]: https://packagecloud.io/timescale/timescaledb

@@ -1,4 +1,4 @@
-# Data tiering
+# Move data for data tiering
 PostgreSQL uses tablespaces to determine the physical location of your data. In
 most cases, you want to use faster storage to store data that is accessed
 frequently, and slower storage for data that is accessed less often.

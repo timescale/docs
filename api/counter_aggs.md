@@ -17,10 +17,8 @@ additional hyperfunctions, you need to install the
 />
 
 <highlight type="important">
-All accessors can be used with `CounterSummary`. The accessors `delta`,
-`idelta_left`, and `idelta_right` can be used with `GaugeSummary`.
-`GaugeSummary` will eventually support all the accessors, with the exception
-of `num_resets`.
+All accessors can be used with `CounterSummary`, and all but `num_resets`
+with `GaugeSummary`.
 </highlight>
 
 

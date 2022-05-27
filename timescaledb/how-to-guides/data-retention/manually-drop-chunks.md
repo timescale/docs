@@ -1,46 +1,45 @@
-# Dropping chunks manually
+# Manually drop chunks
+Drop chunks manually by time value. For example, drop chunks containing data
+older than 30 days.
 
-As an example, if you have a hypertable definition of `conditions`
-where you collect raw data into chunks of one day:
+<highlight type="note">
+Dropping chunks manually is a one-time operation. To automatically drop chunks
+as they age, set up a
+[data retention policy](/timescaledb/latest/how-to-guides/data-retention/create-a-retention-policy/).
+</highlight>
 
-```sql
-CREATE TABLE conditions(
-    time TIMESTAMPTZ NOT NULL,
-    device INTEGER,
-    temperature FLOAT
-);
+## Drop chunks older than a certain date
+To drop chunks older than a certain date, use the [`drop_chunks`][drop_chunks]
+function. Supply the name of the hypertable to drop chunks from, and a time
+interval beyond which to drop chunks.
 
-SELECT * FROM create_hypertable('conditions', 'time',
-       chunk_time_interval => INTERVAL '1 day');
-```
-
-If you collect a lot of data and realize that you never actually use
-raw data older than 30 days, you might want to delete data older than
-30 days from `conditions`.
-
-However, deleting large swaths of data from tables can be costly and
-slow if done row-by-row using the standard `DELETE` command. Instead,
-TimescaleDB provides a function `drop_chunks` that quickly drop data
-at the granularity of chunks without incurring the same overhead.
-
-For example:
-
+For example, to drop chunks with data older than 24 hours:
 ```sql
 SELECT drop_chunks('conditions', INTERVAL '24 hours');
 ```
 
-This drops all chunks from the hypertable `conditions` that _only_
-include data older than this duration, and does _not_ delete any
-individual rows of data in chunks.
+## Drop chunks between 2 dates
+You can also drop chunks between 2 dates. For example, drop chunks with data
+between 3 and 4 months old.
 
-For example, if one chunk has data more than 36 hours old, a second
-chunk has data between 12 and 36 hours old, and a third chunk has the
-most recent 12 hours of data, only the first chunk is dropped when
-executing `drop_chunks`. Thus, in this scenario,
-the `conditions` hypertable still has data stretching back 36 hours.
+Supply a second `INTERVAL` argument for the `newer_than` cutoff:
+```sql
+SELECT drop_chunks(
+  'conditions',
+  older_than => INTERVAL '3 months',
+  newer_than => INTERVAL '4 months'
+)
+```
 
-For more information on the `drop_chunks` function and related
-parameters, please review the [API documentation][drop_chunks].
-
+## Drop chunks in the future
+You can also drop chunks in the future, for example to correct data with the
+wrong timestamp. For example, to drop all chunks more than 3 months in the
+future:
+```sql
+SELECT drop_chunks(
+  'conditions',
+  newer_than => now() + INTERVAL '3 months'
+);
+```
 
 [drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks/
