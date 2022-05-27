@@ -11,11 +11,6 @@ instructions use the `apt` package manager on these distributions:
 *   Ubuntu 21.10 Impish Indri
 *   Ubuntu 22.04 LTS Jammy Jellyfish
 
-<highlight type="important">
-Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
-version 12 or later.
-</highlight>
-
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `apt`
 package manager, you could encounter errors following these instructions. It is
@@ -45,7 +40,7 @@ instead.
     <tab label='Debian'>
 
     ```bash
-    sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+    echo "deb https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main" > /etc/apt/sources.list.d/timescaledb.list
     ```
 
     </tab>
@@ -53,7 +48,7 @@ instead.
     <tab label="Ubuntu">
 
     ```bash
-    sh -c "echo 'deb https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main' > /etc/apt/sources.list.d/timescaledb.list"
+    echo "deb https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main" > /etc/apt/sources.list.d/timescaledb.list
     ```
 
     </tab>
@@ -98,10 +93,15 @@ installed it yet, check out our [installing psql][install-psql] section.
 <procedure>
 
 ### Setting up the TimescaleDB extension
+1.  Restart the service after enabling TimescaleDB with `timescaledb-tune`:
+    ```bash
+    systemctl restart postgresql
+    ```
+
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
     ```bash
-    psql -U postgres -h localhost
+    su postgres -c psql
     ```
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
@@ -126,7 +126,7 @@ installed it yet, check out our [installing psql][install-psql] section.
     ```
 1.  You can now connect to your database using this command:
     ```bash
-    psql -U postgres -h localhost -d example
+    su postgres -c 'psql -d example'
     ```
 
 </procedure>
@@ -163,8 +163,8 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[install-psql]: /timescaledb/latest/how-to-guides/connecting/psql/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: timescaledb/latest/how-to-guides/configuration/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [releases-page]: https://packagecloud.io/timescale/timescaledb

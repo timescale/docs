@@ -7,8 +7,8 @@ Promscale does not, by default, provide instrumentation to collect telemetry
 from your applications and infrastructure. It is expected that you use
 [Prometheus][prometheus-install] to collect metrics. You can also use
 [OpenTelemetry][otel] to collect traces. When you have the
-instrumentation set up, you can use Promscale to ingest the metrics and
-telemetry data.
+instrumentation set up, you can use Promscale to ingest the metric and
+trace data.
 
 ## Install Promscale without instrumentation
 If you have Prometheus or OpenTelemetry installed, you can install Promscale
@@ -24,13 +24,6 @@ migrate your existing Prometheus data into Promscale.
 When you have Promscale installed, you can configure
 [Prometheus][config-prometheus] and
 [OpenTelemetry][config-otel] to send data to Promscale.
-
-<highlight type="important">
-Support for OpenTelemetry traces is currently in beta and is disabled by default.
-If you want to send your OpenTelemetry traces to Promscale, see the
-instructions in the
-[tracing documentation](https://github.com/timescale/promscale/blob/master/docs/tracing.md).
-</highlight>
 
 ## Install Promscale with instrumentation
 If you have a Kubernetes environment, you can install a complete, pre-configured

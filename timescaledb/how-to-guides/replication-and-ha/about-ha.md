@@ -57,9 +57,9 @@ out-of-the-box support for automatic failover. Read more in the PostgreSQL
 [failover documentation][failover-docs]. [Patroni][patroni-github] offers a
 configurable high availability solution with automatic failover functionality.
 
-[cloud-ha]: cloud/:currentVersion:/high-availability/
-[db-backup]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
-[cloud-backup]: cloud/:currentVersion:/backup-restore-cloud.md
+[cloud-ha]: /cloud/:currentVersion:/high-availability/
+[db-backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
 [postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION
 [postgres-partition-limitations]: https://www.postgresql.org/docs/current/static/logical-replication-restrictions.html
 [postgres-logrep-docs]: https://www.postgresql.org/docs/current/static/logical-replication.html

@@ -131,10 +131,10 @@ You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
 
-[config]: timescaledb/:currentVersion:/how-to-guides/configuration/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
-[install-psql]: timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[tsdb-docs]: timescaledb/:currentVersion:/index/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
