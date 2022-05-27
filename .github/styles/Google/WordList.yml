@@ -16,9 +16,9 @@ swap:
   '(?:ok|Okay)': OK|okay
   '(?:PDF| pdf)': .pdf
   '(?:WiFi|wifi)': Wi-Fi
+  'Write[- ]Ahead Log': write-ahead log
   '3\-D': 3D
   a SQL: an SQL
-  above: preceding
   account name: username
   admin: administrator
   Ajax: AJAX

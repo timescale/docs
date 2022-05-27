@@ -40,7 +40,7 @@ replication protocol.  The protocol works by streaming records of database
 modifications from the primary server to one or more replicas, which can then
 be used as read-only nodes (to scale queries) or as failover servers (for high availability).
 
-PostgreSQL streaming replication leverages the Write Ahead Log (WAL), which is
+PostgreSQL streaming replication leverages the write-ahead log (WAL), which is
 an append-only series of instructions that captures every atomic database change.
 The replication works by continuously shipping segments of the WAL from the primary
 to any connected replicas. Each replica then applies the WAL changes and makes them

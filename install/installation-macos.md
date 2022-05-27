@@ -66,7 +66,7 @@ You can use MacPorts to install TimescaleDB on macOS-based systems.
      
 <highlight type="important">
  MacPorts does not install the `timescaledb-tools` to run the `timescaledb-tune` script.
- For more information about installing and using the tool, see [timescaledb-tune] section.
+ For more information about installing and using the tool, see [`timescaledb-tune`](/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool) section.
  </highlight>
 
 </procedure>
@@ -160,7 +160,7 @@ if you want to have a chat.
 
 
 [contact]: https://www.timescale.com/contact
-[tsdb-docs]: timescaledb/:currentVersion:/index/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [homebrew]: https://docs.brew.sh/Installation

@@ -116,8 +116,67 @@ module.exports = [
             keywords: ["Promscale", "OpenTelemetry"],
             excerpt: "Send OpenTelemetry data to Promscale",
           },
+          {
+            title: 'Jaeger',
+            href: 'jaeger',
+            tags: ['promscale', 'configure', 'jaeger', 'traces'],
+            keywords: ['Promscale', 'Jaeger'],
+            excerpt: 'Send Jaeger traces to Promscale',
+          },
+          {
+            title: 'Zipkin',
+            href: 'zipkin',
+            tags: ['promscale', 'configure', 'zipkin', 'traces'],
+            keywords: ['Promscale', 'Zipkin'],
+            excerpt: 'Send Zipkin traces to Promscale',
+          }
         ],
       },
+      {
+        title: "Query data in Promscale",
+        href: "query-data",
+        tags: ["promscale", "analytics", "sql", "promql", "prometheus"],
+        keywords: ["Promscale", "analytics"],
+        excerpt: "Learn how to query data in Promscale",
+      },
+      {
+        title: 'Visualize data in Promscale',
+        href: 'visualize-data',
+        tags: ['promscale', 'visualization', 'analytics', 'grafana', 'jaeger'],
+        keywords: ['Promscale', 'analytics', 'Grafana'],
+        excerpt: 'Learn about data visualization tools you can use with Promscale',
+        children: [
+          {
+            title: 'Grafana',
+            href: 'grafana',
+            tags: ['promscale', 'configure', 'prometheus', 'metrics'],
+            keywords: ['Promscale', 'Grafana'],
+            excerpt: 'Grafana to visualize data in Promscale',
+          },
+          {
+            title: 'Jaeger',
+            href: 'jaeger',
+            tags: ['promscale', 'configure', 'jaeger', 'opentelemetry', 'traces'],
+            keywords: ['Promscale', 'Jaeger'],
+            excerpt: 'Jaeger to visualize data in Promscale',
+          },
+          {
+           title: 'Application Performance Monitoring (APM)',
+           href: 'apm-experience',
+           tags: ['promscale', 'configure', 'jaeger', 'opentelemetry', 'traces', 'apm'],
+           keywords: ['Promscale', 'Jaeger', 'APM'],
+           excerpt: 'APM experience within Grafana using dashboards with SQL queries on traces',
+         },
+        ],
+      },
+      {
+        title: "Alert in Promscale",
+        href: "alert",
+        tags: ["promscale", "prometheus", "alert"],
+        keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
+        excerpt: "Configure alerting rules in Promscale",
+      },
+
       {
         title: "tobs",
         href: "tobs",
@@ -187,25 +246,11 @@ module.exports = [
         ],
       },
       {
-        title: "Query data in Promscale",
-        href: "query-data",
-        tags: ["promscale", "analytics", "sql", "promql", "prometheus"],
-        keywords: ["Promscale", "analytics"],
-        excerpt: "Learn how to query data in Promscale",
-      },
-      {
-        title: "Visualize data in Promscale",
-        href: "visualize-data",
-        tags: [
-          "promscale",
-          "visualization",
-          "analytics",
-          "grafana",
-          "prometheus",
-        ],
-        keywords: ["Promscale", "analytics", "Grafana"],
-        excerpt:
-          "Learn about data visualization tools you can use with Promscale",
+        title: "Monitor Promscale",
+        href: "monitor",
+        tags: ["promscale", "prometheus", "alert"],
+        keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
+        excerpt: "Monitor Promscale with out-of-the-box alerts, runbooks and dashboards",
       },
       {
         title: 'Manage data in Promscale',
@@ -218,13 +263,6 @@ module.exports = [
             tags: ['promscale', 'configure', 'retention', 'metrics', 'storage'],
             keywords: ['Promscale', 'retention'],
             excerpt: 'Configure data retention policies in Promscale',
-          },
-          {
-            title: 'Downsampling',
-            href: 'downsampling',
-            tags: ['promscale', 'downsample', 'continuous aggregates', 'metrics', 'recording rules'],
-            keywords: ['Promscale', 'Prometheus', 'downsampling'],
-            excerpt: 'Configure downsampling in Promscale',
           },
           {
             title: 'Compression',
@@ -243,19 +281,27 @@ module.exports = [
         ],
       },
       {
-        title: "Distributed tracing with Promscale",
-        href: "distributed-tracing",
-        tags: ["promscale", "tracing", "opentelemetry", "jaeger", "grafana"],
-        keywords: ["Promscale", "opentelemetry", "tracing", "jaeger"],
-        excerpt:
-          "Use Promscale for troubleshooting applications with distributed tracing",
-      },
-      {
-        title: "Alert in Promscale",
-        href: "alert",
-        tags: ["promscale", "prometheus", "alert"],
-        keywords: ["Promscale", "Prometheus", "alert", "Alert Manager"],
-        excerpt: "Learn about configuring alerts on Promscale data",
+        title: 'Downsample data',
+        href: 'downsample-data',
+        tags: ['promscale', 'downsample', 'continuous aggregates', 'metrics', 'recording rules'],
+        keywords: ['Promscale', 'Prometheus', 'downsampling'],
+        excerpt: 'Configure downsampling in Promscale',
+        children: [
+          {
+            title: 'Continuous Aggregates',
+            href: 'caggs',
+            tags: ['promscale', 'downsampling', 'recording', 'caggs'],
+            keywords: ['Promscale', 'caggs', 'downsampling'],
+            excerpt: 'Continuous aggregates in Promscale',
+          },
+          {
+            title: 'Recording Rules',
+            href: 'recording',
+            tags: ['promscale', 'downsampling', 'recording rules'],
+            keywords: ['Promscale', 'Prometheus', 'downsampling'],
+            excerpt: 'Configure recording rules in Promscale',
+          },
+        ],
       },
       {
         title: "Database roles and permissions",
@@ -273,19 +319,20 @@ module.exports = [
         excerpt: "Troubleshooting Promscale",
       },
       {
-        title: "Promscale CLI reference",
-        href: "cli",
-        tags: ["promscale", "cli", "reference"],
-        keywords: ["Promscale", "cli"],
-        excerpt: "Learn about all parameters accepted by the Promscale CLI",
+        title: 'Promscale CLI reference',
+        href: 'cli',
+        tags: ['promscale', 'CLI', 'reference'],
+        keywords: ['Promscale', 'CLI'],
+        excerpt: 'Learn about all parameters accepted by the Promscale CLI'
       },
       {
-        title: "SQL API reference",
-        href: "sql-api",
-        tags: ["promscale", "sql", "api", "reference"],
-        keywords: ["Promscale", "sql", "api"],
-        excerpt: "Learn about all Promscale SQL API functions",
-      },
-    ],
-  },
-];
+        title: 'SQL API functions reference',
+        href: 'sql-api',
+        tags: ['promscale', 'Structured Query Language', 'API', 'reference', 'functions'],
+        keywords: ['Promscale', 'Structured Query Language', 'API','functions'],
+        excerpt: 'Learn about all Promscale SQL API functions'
+      }
+    ]
+  }
+]
+

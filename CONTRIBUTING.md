@@ -5,7 +5,8 @@ review with GitHub.
 
 ## First contribution
 You can make contributions to the documentation by creating a fork of the
-repository.
+repository. However, if you have write access to the repository, use a branch
+instead. Some of our automation will not work correctly on forks.
 
 <procedure>
 
@@ -93,10 +94,12 @@ top-right corner, and select the account you want to use.
 
 </procedure>
 
-<highlight type="warning">Choose your reviewers carefully! If you have made changes to the technical
+<highlight type="important">
+Choose your reviewers carefully! If you have made changes to the technical
 detail of the documentation, choose an appropriate subject matter expert (SME)
 to review those changes. Additionally, every change requires at least one
-documentation team member to approve.</highlight>
+documentation team member to approve. Ask the documentation team for a review by adding the `timescale/documentation` group as a reviewer.
+</highlight>
 
 ## Second contribution
 Once you have checked out the repo and want to keep working on things, you need
@@ -134,19 +137,28 @@ this, you *will* end up with merge conflicts.
 
 </procedure>
 
-<highlight type="warning">Never leave branches lying around on your local system. Create your PR as soon
+<highlight type="warning">
+Never leave branches lying around on your local system. Create your PR as soon
 as possible, and make good use of the Draft feature. Commit to your feature
 branch early and often! Update your local copy from latest whenever you switch
-branches.</highlight>
+branches.
+</highlight>
+
+## Reviewing standards
+When you create a pull request, a member of the documentation team will review
+it for accuracy and adherance to our standards. You can see a list of the things
+that reviewers check for in the pull request template.
 
 ## Writing standards
-Timescale is in the process of creating comprehensive writing and style standards. For the current guidelines, see [contributing to documentation][docs-standards].
+Timescale has comprehensive writing and style standards, that are constantly
+being updated and improved. For the current guidelines, see
+[contributing to documentation][docs-standards].
 
 ## The Timescale documentation team
-*   Ryan Booz <https://github.com/ryanbooz>
 *   Lana Brindley <https://github.com/Loquacity>
-*   Hel Rabelo <https://github.com/helrabelo>
-*   Ted Sczelecki <https://github.com/tedsczelecki>
+*   Rajakavitha Kodhandapani <https://github.com/Rajakavitha1>
+*   Charis Lam <https://github.com/charislam>
+*   Jacob Prall <https://github.com/jacobprall>
 
 
 [docs-standards]: timescaledb/:currentVersion:/contribute-to-docs
