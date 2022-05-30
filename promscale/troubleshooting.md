@@ -29,7 +29,8 @@ You need to restart PostreSQL to pick up changes to the
 `max_locks_per_transaction` parameter.
 </highlight>
 
-You can use this query to calculate the new minimum value to use for `max_locks_per_transaction`:
+You can use this query to calculate the new minimum value to use for
+`max_locks_per_transaction`:
 
 ```SQL
 WITH max_objects_touched AS (
