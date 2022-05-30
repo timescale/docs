@@ -54,4 +54,4 @@ currently unsupported features might still work on individual data nodes,
 but such usage is neither tested nor officially supported. Future versions
 of TimescaleDB might remove some of these limitations.
 
-[native-replication]: /how-to-guides/hypertables/distributed-hypertables/#native-replication-in-distributed-hypertables
+[native-replication]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/
