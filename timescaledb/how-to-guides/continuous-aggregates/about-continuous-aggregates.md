@@ -56,7 +56,7 @@ In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
-In older versions of PostgreSQL, continuous aggregates only support
+In older versions of TimescaleDB, continuous aggregates only support
 [aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
 They also don't support `FILTER` and `ORDER BY` clauses, and the `DISTINCT` keyword. You can
 work around this by aggregating the other parts of your query in the continuous
