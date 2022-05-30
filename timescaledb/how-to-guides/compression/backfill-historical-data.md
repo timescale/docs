@@ -25,6 +25,8 @@ procedure:
 
 Before you begin, add the [`decompress_backfill` stored procedure and its supporting
 functions][timescaledb-extras-backfill] to your database.
+You can copy and paste the procedure and function declarations from `backfill.sql` and
+run them in your database.
 
 <procedure>
 
