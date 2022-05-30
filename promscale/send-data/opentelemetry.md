@@ -52,7 +52,7 @@ exporters:
       queue_size: 1000000
     timeout: 10s
   prometheusremotewrite:
-    endpoint: "<PROMSCALE_HOST>:<HTTP_PORT>/write"
+    endpoint: "http://<PROMSCALE_HOST>:<HTTP_PORT>/write"
     tls:
       insecure: true
 
