@@ -31,6 +31,10 @@ module.exports = [
         href: "viewing-service-logs"
       },
       {
+        title: "Logging integrations",
+        href: "logging-integrations"
+      },
+      {
         title: "VPC peering",
         href: "vpc-peering"
       },
