@@ -43,11 +43,11 @@ packages and instructions, see the
     ```bash
     docker run --name promscale -d -p 9201:9201 \
     --network promscale timescale/promscale:latest \
-    -db-password=<password> \
-    -db-port=5432 \
-    -db-name=postgres \
-    -db-host=timescaledb \
-    -db-ssl-mode=allow
+    -db.password=<password> \
+    -db.port=5432 \
+    -db.name=postgres \
+    -db.host=timescaledb \
+    -db.ssl-mode=allow
     ```
 
 </procedure>
