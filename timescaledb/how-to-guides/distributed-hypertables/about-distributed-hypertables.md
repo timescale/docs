@@ -60,6 +60,17 @@ This can affect queries that span the two different partitioning configurations.
 For more information, see the section on [limitations of query push
 down][limitations-pushing-down].
 
+## Replicating distributed hypertables
+To replicate distributed hypertables at the chuck level configure the
+hypertables to write each chunk to multiple data nodes. This native replication
+ensures that a distributed hypertable is protected against data node failures
+and provides an alternative to fully replicating each data node using streaming
+replication to provide high availability. Only the data nodes are replicated
+using this method. The access node is not replicated.
+
+For more information about replication and high availability, see the
+[multi-node HA section][multi-node-ha].
+
 ## Performance of distributed hypertables
 A distributed hypertable horizontally scales your data storage, so you're not
 limited by the storage of any single machine. It also increases performance for
@@ -174,3 +185,4 @@ the data nodes and perform the `JOIN` locally.
 [random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE
 [space-partitioning]: /how-to-guides/hypertables/about-hypertables#space-partitioning
 [volatility]: https://www.postgresql.org/docs/current/xfunc-volatility.html
+[multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
