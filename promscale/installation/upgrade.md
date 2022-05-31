@@ -7,11 +7,11 @@ The process for updating your Promscale installation is:
 
 1.  Check that the most recent required version of the Promscale extension is
     available.
-2.  Stop all Promscale Connector instances connected to the database.
-3.  Perform the upgrade.
-4.  Start the new version of the Promscale Connector, and wait for it to begin
+1.  Stop all Promscale Connector instances connected to the database.
+1.  Perform the upgrade.
+1.  Start the new version of the Promscale Connector, and wait for it to begin
     ingesting data.
-5.  Start all other Promscale Connector instances.
+1.  Start all other Promscale Connector instances.
 
 ## Upgrade to Promscale&nbsp;0.11.0
 Promscale&nbsp;0.11.0 contains significant changes, and the upgrade drops any
