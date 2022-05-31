@@ -61,7 +61,7 @@ For more information, see the section on [limitations of query push
 down][limitations-pushing-down].
 
 ## Replicating distributed hypertables
-To replicate distributed hypertables at the chuck level configure the
+To replicate distributed hypertables at the chunk level, configure the
 hypertables to write each chunk to multiple data nodes. This native replication
 ensures that a distributed hypertable is protected against data node failures
 and provides an alternative to fully replicating each data node using streaming
