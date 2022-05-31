@@ -1,9 +1,30 @@
 # Promscale command line interface (CLI) reference
 
-This document gives you information about the configuration flags and arguments supported by the Promscale Connector.
-You can also find information on flags with `promscale_<version> -help`.
+This document gives you information about the configuration flags and arguments
+supported by the Promscale Connector. You can also find information on flags
+with `promscale_<version> -help`.
 
-**Note:** Flags can be set as environment variables by converting `-` to `_` (if any), and prefixing with `PROMSCALE_`. For example, `db-host` can be set as an environment variable as `PROMSCALE_DB_HOST`.
+**Note:** Flags can be set as environment variables by converting lowercase to
+uppercase, `-` and `.`to `_` (if any), and prefixing with `PROMSCALE_`. For
+example, `db.host` can be set as an environment variable as `PROMSCALE_DB_HOST`.
+
+## Configuration file
+
+All CLI parameters can be configured with a YAML-formatted configuration file.
+The file must be a map of key-value pairs, with the keys being CLI flags.
+For example, the following config file sets some database parameters.
+
+```yaml
+# config.yml
+db.ssl-mode: disable
+db.user: postgres
+db.port: 5432
+db.password: password
+db.name: postgres
+```
+If the file is named `config.yml`, Promscale will pick it up
+automatically, otherwise you can specify the config file with `./promscale
+-config /path/to/your-config.yml`.
 
 ## Arguments
 
