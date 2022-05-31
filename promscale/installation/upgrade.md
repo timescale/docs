@@ -38,7 +38,7 @@ later. Before you start the upgrade, make sure that you have made the most
 recent version of the Promscale extension available to PostgresSQL. You must use
 the Promscale Connector to update the extension, do not use the
 `ALTER EXTENSION promscale UPDATE;` command. For more information on how to do
-this, see the [Promscale installation instructions](install-promscale) for your
+this, see the [Promscale installation instructions][install-promscale] for your
 preferred installation method.
 
 Upgrading to Promscale&nbsp;0.11.0 requires creating a lock on your tables. If
@@ -56,7 +56,7 @@ available to store locks on objects. You can increase the amount of shared
 memory available by increasing the `max_locks_per_transaction` parameter. When
 you have completed the upgrade, you can set the value back to what it was before
 the upgrade. For more information about tuning this parameter, see
-[troubleshooting Promscale][max_locks_config].
+[troubleshooting Promscale][max-locks-config].
 
 <procedure>
 

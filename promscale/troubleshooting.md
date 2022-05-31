@@ -25,7 +25,7 @@ PostgreSQL configuration file, so that `pg_dump` and `pg_restore` can create the
 required number of locks, and the backup or restore can continue.
 
 <highlight type="important">
-You need to restart PostreSQL to pick up changes to the
+You need to restart PostgreSQL to pick up changes to the
 `max_locks_per_transaction` parameter.
 </highlight>
 
