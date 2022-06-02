@@ -1,30 +1,45 @@
-A description of the span, event and link views.
-Examples of SQL queries: top 20 slowest traces, a timeseries with the request rate, a timeseries with latency, the most common errors in spans.
-Those are available the APM Grafana dashboards and in the tracing GA blog post
-Specific documentation about how to use resource and span tags in the SELECT, WHERE, JOINS, GROUP BY and ORDER BY.
+# Querying trace data
 
-Querying trace data
 TOC
-Querying trace data
+
 1. Trace data structure
+
 1.1. Single span
+
 1.1.1. `tag_map` type
+
 1.2. Views
+
 1.2.1. `span` view
+
 1.2.2. `event` view
+
 1.2.3. `link` view
+
 2. Examples of SQL queries
+
 2.1. Top 20 slowest traces
+
 2.2. Timeseries with the request rate per service
+
 2.3. Timeseries with average duration per service
+
 2.4. Most common errors in spans
+
 2.5. Timeseries with error ratio
+
 3. Querying resource and span tags
+
 3.1. Simple queries
+
 3.2. Filtering
+
 3.3. Joins
+
 3.4. Grouping
+
 3.5. Sorting
+
 
 # 1. Trace data structure
 
