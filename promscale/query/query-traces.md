@@ -2,83 +2,62 @@
 
 ## Table of contents
 
-1. [Trace data structure](#para-1)
-
-    1.1. [Single span](#para-1-1)
-
-        1.1.1. [`tag_map` type](#para-1-1-1)
-
-        1.1.2. [`trace_id` type](#para-1-1-2)
-
-        1.1.3. [`span_kind` enum](#para-1-1-3)
-
-        1.1.4. [`status_code` enum](#para-1-1-4)
-
-    1.2. [Views](#para-1-2)
-
-        1.2.1. [`span` view](#para-1-2-1)
-
-        1.2.2. [`event` view](#para-1-2-2)
-
-        1.2.3. [`link` view](#para-1-2-3)
-
-2. [Examples of SQL queries](#para-2)
-
-    2.1. [Top 20 slowest traces](#para-2-1)
-
-    2.2. [Timeseries with the request rate per service](#para-2-2)
-
-    2.3. [Timeseries with average duration per service](#para-2-3)
-
-    2.4. [Most common errors in spans](#para-2-4)
-
-    2.5. [Timeseries with error ratio](#para-2-5)
-
-3. [Querying resource and span tags](#para-3)
-
-    3.1. [Simple queries](#para-3-1)
-
-    3.2. [Filtering](#para-3-2)
-
-    3.3. [Joins](#para-3-3)
-
-    3.4. [Grouping](#para-3-4)
-
-    3.5. [Sorting](#para-3-5)
-
+1\. [Trace data structure](#para-1)  
+1\.1. [Single span](#para-1-1)  
+1\.1.1. [`tag_map` type](#para-1-1-1)  
+1\.1.2. [`trace_id` type](#para-1-1-2)  
+1\.1.3. [`span_kind` enum](#para-1-1-3)  
+1\.1.4. [`status_code` enum](#para-1-1-4)  
+1\.2. [Views](#para-1-2)  
+1\.2.1. [`span` view](#para-1-2-1)  
+1\.2.2. [`event` view](#para-1-2-2)  
+1\.2.3. [`link` view](#para-1-2-3)  
+2\. [Examples of SQL queries](#para-2)  
+2\.1. [Top 20 slowest traces](#para-2-1)  
+2\.2. [Timeseries with the request rate per service](#para-2-2)  
+2\.3. [Timeseries with average duration per service](#para-2-3)  
+2\.4. [Most common errors in spans](#para-2-4)  
+2\.5. [Timeseries with error ratio](#para-2-5)  
+3\. [Querying resource and span tags](#para-3)  
+3\.1. [Simple queries](#para-3-1)  
+3\.2. [Filtering](#para-3-2)  
+3\.3. [Joins](#para-3-3)  
+3\.4. [Grouping](#para-3-4)  
+3\.5. [Sorting](#para-3-5)  
 
 # 1. Trace data structure <a name="para-1"></a>
 
 ## 1.1. Single span <a name="para-1-1"></a>
 
 A single span is a record of the following structure:
-|Name                               | Type | Description |
-|-----------------------------------|------|-------------|
-|`trace_id`                         | `trace_id`| Trace identifier |
-|`span_id`                          | `int8` | Span Identifier |
-|`trace_state`                      | `text` | [Trace State](https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate)|
-|`parent_span_id`                   | `int8` | Reference to the Parent `trace_id` |
-|`is_root_span`                     | `bool` | Is the span a root span |
-|`service_name`                     | `text` | Name of the service |
-|`span_name`                        | `text` | Name of the span |
-|`span_kind`                        | `enum` | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
+
+|Name                               | Type          | Description |
+|-----------------------------------|---------------|-------------|
+|`trace_id`                         | `trace_id`    | Trace identifier |
+|`span_id`                          | `int8`        | Span Identifier |
+|`trace_state`                      | `text`        | [Trace State](https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate) |
+|`parent_span_id`                   | `int8`        | Reference to the Parent `trace_id` |
+|`is_root_span`                     | `bool`        | Is the span a root span |
+|`service_name`                     | `text`        | Name of the service |
+|`span_name`                        | `text`        | Name of the span |
+|`span_kind`                        | `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
 |`start_time`                       | `timestamptz` | Start date and time of the span |
 |`end_time`                         | `timestamptz` | Date and time of the span end|
-|`time_range`                       | `tstzrange` | A tstzrange representation of Start and End times of the span |
-|`duration_ms`                      | `float8` | Duration of the span in milliseconds |
-|`span_tags`                        | `tag_map` | Key-value pairs for span tags. See details on `tag_map` type below |
-|`dropped_tags_count`               | `int4` | Number of dropped tags |
-|`event_time`                       | `tstzrange` | Start and end time of the event |
-|`dropped_events_count`             | `int4` | Number of dropped events |
-|`dropped_link_count`               | `int4` | Number of dropped links |
-|`status_code`                      | `enum` | [Status Code](https://opentelemetry.io/docs/reference/specification/trace/api/#set-status) |
-|`status_message`                   | `text` | Status message |
-|`instrumentation_lib_name`         | `text` | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) name |
-|`instrumentation_lib_version`      | `text` | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) version |
-|`instrumentation_lib_schema_url`   | `text` | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) schema URL |
-|`resource_tags`                    | `tag_map` | [Resource](https://opentelemetry.io/docs/reference/specification/overview/#resources) tags |
-|`resource_dropped_tags_count`      | `int4` | Number of dropped resources |
-|`resource_schema_url`              | `text` | Resource's schema file URL |
+|`time_range`                       | `tstzrange`   | A tstzrange representation of Start and End times of the span |
+|`duration_ms`                      | `float8`      | Duration of the span in milliseconds |
+|`span_tags`                        | `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
+|`dropped_tags_count`               | `int4`        | Number of dropped tags |
+|`event_time`                       | `tstzrange`   | Start and end time of the event |
+|`dropped_events_count`             | `int4`        | Number of dropped events |
+|`dropped_link_count`               | `int4`        | Number of dropped links |
+|`status_code`                      | `enum`        | [Status Code](https://opentelemetry.io/docs/reference/specification/trace/api/#set-status) |
+|`status_message`                   | `text`        | Status message |
+|`instrumentation_lib_name`         | `text`        | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) name |
+|`instrumentation_lib_version`      | `text`        | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) version |
+|`instrumentation_lib_schema_url`   | `text`        | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) schema URL |
+|`resource_tags`                    | `tag_map`     | [Resource](https://opentelemetry.io/docs/reference/specification/overview/#resources) tags |
+|`resource_dropped_tags_count`      | `int4`        | Number of dropped resources |
+|`resource_schema_url`              | `text`        | Resource's schema file URL |
 
 ### 1.1.1. `tag_map` type <a name="para-1-1-1"></a>
 
@@ -137,26 +116,26 @@ select
 
 |Name                           | Type          | Description |
 |-------------------------------|---------------|-------------|
-| `trace_id`                    │ `trace_id`    | Trace identifier |
-| `span_id`                     │ `int8`        | Span identifier |
-| `time`                        │ `timestamptz` | Date and time when the even has occurred |
-| `event_name`                  │ `text`        | Name of the event |
-| `event_tags`                  │ `tag_map`     | Key-value pairs for event tags |
-| `dropped_tags_count`          │ `integer`     | Number of dropped event tags |
-| `trace_state`                 │ `text`        | [Trace State](https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate) |
-| `service_name`                │ `text`        | Name of the service |
-| `span_name`                   │ `text`        | Name of the span |
-| `span_kind`                   │ `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
-| `span_start_time`             │ `timestamptz` | Start date and time of the span |
-| `span_end_time`               │ `timestamptz` | Date and time of the span en |
-| `span_time_range`             │ `tstzrange`   | A tstzrange representation of Start and End times of the span |
-| `span_duration_ms`            │ `float8`      | Duration of the span in milliseconds |
-| `span_tags`                   │ `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
-| `dropped_span_tags_count`     │ `integer`     | Number of dropped span tags |
-| `resource_tags`               │ `tag_map`     | [Resource](https://opentelemetry.io/docs/reference/specification/overview/#resources) tags |
-| `resource_dropped_tags_count` │ `integer`     | Number of dropped resource tags |
-| `status_code`                 │ `enum`        | [Status Code](https://opentelemetry.io/docs/reference/specification/trace/api/#set-status) |
-| `status_message`              │ `text`        | Status message |
+| `trace_id`                    | `trace_id`    | Trace identifier |
+| `span_id`                     | `int8`        | Span identifier |
+| `time`                        | `timestamptz` | Date and time when the even has occurred |
+| `event_name`                  | `text`        | Name of the event |
+| `event_tags`                  | `tag_map`     | Key-value pairs for event tags |
+| `dropped_tags_count`          | `integer`     | Number of dropped event tags |
+| `trace_state`                 | `text`        | [Trace State](https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate) |
+| `service_name`                | `text`        | Name of the service |
+| `span_name`                   | `text`        | Name of the span |
+| `span_kind`                   | `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
+| `span_start_time`             | `timestamptz` | Start date and time of the span |
+| `span_end_time`               | `timestamptz` | Date and time of the span en |
+| `span_time_range`             | `tstzrange`   | A tstzrange representation of Start and End times of the span |
+| `span_duration_ms`            | `float8`      | Duration of the span in milliseconds |
+| `span_tags`                   | `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
+| `dropped_span_tags_count`     | `integer`     | Number of dropped span tags |
+| `resource_tags`               | `tag_map`     | [Resource](https://opentelemetry.io/docs/reference/specification/overview/#resources) tags |
+| `resource_dropped_tags_count` | `integer`     | Number of dropped resource tags |
+| `status_code`                 | `enum`        | [Status Code](https://opentelemetry.io/docs/reference/specification/trace/api/#set-status) |
+| `status_message`              | `text`        | Status message |
 
 Below is an example of a simple query on the `event` view:
 
