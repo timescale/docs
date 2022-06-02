@@ -158,7 +158,7 @@ select
 
 General notes on the queries:
 - When building timeseries graphs, cosinder using the [`$__interval`](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval) variable provided by Grafana
-- To make the bucketing configurable, we can rely on the `timescaledb` function `time_bucket` and the corresponding Grafana variable [`$bucket_interval`](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-raw-data)
+- To make the bucketing configurable, we can rely on the `timescaledb` function `time_bucket` and the corresponding Grafana variable [`$bucket_interval`](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/histograms/#prerequisites)
 - We limit the `start_time` using grafana time filter `$__timeFilter`
 
 Bigger windows come at a cost. We don't recommend completely removing `start_time` filters, as it will have significant performance impact.
@@ -246,3 +246,67 @@ select
     group by 1
     order by 1
 ```
+# 3. Querying resource and span tags <a name="para-3"></a>
+
+One of the major advantages of having SQL as the query language is the power and freedom it provides. Below we'll show some examples of techniques one can use to gain insights into complex systems and interactions within it.
+
+## 3.1. Simple queries <a name="para-3-1"></a>
+
+The simplest queries we can do would involve only a single table or [view](#para-1-2), for example:
+
+```SQL
+select 
+        trace_id,
+        span_id,
+        span_tags,
+        resource_tags,
+        status_message
+    from span
+    limit 50
+```
+This will return certain columns of the `span` view and up to 50 rows.
+
+```SQL
+select *
+    from link
+    limit 5
+```
+This one will return all columns of the `link` view and up to 50 rows as well.
+
+Such queries can be very useful first exploratory step into a new system. Typicall though the volume and diversity of trace data in modern systems is very high, at the very least we want to limit the scope of our query.
+
+## 3.2. Filtering <a name="para-3-2"></a>
+
+To filter the data we're interested in we're going to use the SQL `where` clause:
+
+```SQL
+select
+        trace_id,
+        span_id,
+        status_message
+    from span
+    where start_time >= now() - interval '30 minutes'
+```
+Here we limit our query to spans that happened within last 30 minutes. This type of query is far more efficient than those without any filters in the `where` clause, as it allows the optimizer do it's magic, namely eliminating unnecessary [chunks from the hypertable](https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks=) and using indexes to locate rows that satisfy our quals.
+
+When dealing with timeseries data it is very important to define the time window that is of interest, because the data is partitioned based on the time and thus omitting time filters can drastically hinder the performance of the queries.
+
+When dealing with traces it can be extremely important to pinpoint a particular trace tag. This can be done by using standard PostgreSQL [`json` operators](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE):
+
+```SQL
+select *
+    from span
+    where 
+            start_time >= now() - interval '30 minutes'
+        and span_tags -> 'pwlen' = '25'
+
+```
+
+Here we are limiting our scope to spans within last 30 minutes that have a tag `pwlen` with exact value `25`.
+
+
+## 3.3. Joins <a name="para-3-3"></a>
+
+## 3.4. Grouping <a name="para-3-4"></a>
+
+## 3.5. Sorting <a name="para-3-5"></a>
