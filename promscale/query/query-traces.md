@@ -1,49 +1,33 @@
 # Querying trace data
 
-TOC
+## Table of contents
 
-1. Trace data structure
+1. [Trace data structure](#para-1)
+    1.1. [Single span](#para-1-1)
+        1.1.1. [`tag_map` type](#para-1-1-1)
+        1.1.2. [`trace_id` type](#para-1-1-2)
+        1.1.3. [`span_kind` enum](#para-1-1-3)
+        1.1.4. [`status_code` enum](#para-1-1-4)
+    1.2. [Views](#para-1-2)
+        1.2.1. [`span` view](#para-1-2-1)
+        1.2.2. [`event` view](#para-1-2-2)
+        1.2.3. [`link` view](#para-1-2-3)
+2. [Examples of SQL queries](#para-2)
+    2.1. [Top 20 slowest traces](#para-2-1)
+    2.2. [Timeseries with the request rate per service](#para-2-2)
+    2.3. [Timeseries with average duration per service](#para-2-3)
+    2.4. [Most common errors in spans](#para-2-4)
+    2.5. [Timeseries with error ratio](#para-2-5)
+3. [Querying resource and span tags](#para-3)
+    3.1. [Simple queries](#para-3-1)
+    3.2. [Filtering](#para-3-2)
+    3.3. [Joins](#para-3-3)
+    3.4. [Grouping](#para-3-4)
+    3.5. [Sorting](#para-3-5)
 
-1.1. Single span
+# 1. Trace data structure <a name="para-1"></a>
 
-1.1.1. `tag_map` type
-
-1.2. Views
-
-1.2.1. `span` view
-
-1.2.2. `event` view
-
-1.2.3. `link` view
-
-2. Examples of SQL queries
-
-2.1. Top 20 slowest traces
-
-2.2. Timeseries with the request rate per service
-
-2.3. Timeseries with average duration per service
-
-2.4. Most common errors in spans
-
-2.5. Timeseries with error ratio
-
-3. Querying resource and span tags
-
-3.1. Simple queries
-
-3.2. Filtering
-
-3.3. Joins
-
-3.4. Grouping
-
-3.5. Sorting
-
-
-# 1. Trace data structure
-
-## 1.1. Single span
+## 1.1. Single span <a name="para-1-1"></a>
 
 A single span is a record of the following structure:
 |Name                               | Type | Description |
@@ -74,7 +58,7 @@ A single span is a record of the following structure:
 |`resource_dropped_tags_count`      | `int4` | Number of dropped resources |
 |`resource_schema_url`              | `text` | Resource's schema file URL |
 
-### 1.1.1. `tag_map` type
+### 1.1.1. `tag_map` type <a name="para-1-1-1"></a>
 
 The `tag_map` type is a storage optimization for spans. It can be queried as a regular [`jsonb` PostgreSQL type](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). Behind the scenes it normalizes the span data and thus significantly reduces the storage footprint. To further improve performance of the queries involving `tag_map` we're continuosly working on optimizing operators for our custom made type. So far we have optimized support for the following operators (meaning other operators will not perform well):
  - `->` -- get the value for the given key (for example: `span_tags -> 'pwlen'`)
@@ -82,11 +66,11 @@ The `tag_map` type is a storage optimization for spans. It can be queried as a r
  - `!=` -- value inequality for a key (for example: `span_tags -> 'pw_len' != '10'::jsonb`)
 We intend to support all the operators available for the native PostgreSQL `jsonb` type.
 
-### 1.1.2. `trace_id` type
+### 1.1.2. `trace_id` type <a name="para-1-2-3"></a>
 
 A `uuid`-like 16-byte type that represents the `trace_id` in compliance with [Open Telemetry requirements](https://opentelemetry.io/docs/reference/specification/trace/api/#spancontext)
 
-### 1.1.3. `span_kind` enum
+### 1.1.3. `span_kind` enum <a name="para-1-1-3"></a>
 Possible values:
 - `unspecified`
 - `internal`
@@ -95,20 +79,20 @@ Possible values:
 - `producer`
 - `consumer`
 
-### 1.1.4. `status_code` enum
+### 1.1.4. `status_code` enum <a name="para-1-1-4"></a>
 Possible values:
 - `unset`
 - `ok`
 - `error`
 
-## 1.2. Views
+## 1.2. Views <a name="para-1-2"></a>
 
 To provide a stable interface to the end users a set of views is provided in the `ps_trace` schema. These include:
  - `span`
  - `link`
  - `event`
 
-### 1.2.1. `span` view
+### 1.2.1. `span` view <a name="para-1-2-1"></a>
 
 This view joins several tables to present the user with an overview of the data relevant for a single span. We've already covered its structure in 1.1. What's worth mentioning is that physically the span is stored across multiple tables and data is split across several columns for better index support. The actual table with span data is a [`timescaledb` hypertable](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/) which enables seamless support for retention and compression out of the box.
 
@@ -125,7 +109,7 @@ select
         and span_kind = 'server'
 ```
 
-### 1.2.2. `event` view
+### 1.2.2. `event` view <a name="para-1-2-2"></a>
 
 `event` view provides access to the events and their corresponding spans. Further details on the events can be found [here](https://opentelemetry.io/docs/reference/specification/trace/api/#add-events) and [here](https://opentelemetry.io/docs/concepts/signals/traces/#span-events=).
 
@@ -165,11 +149,11 @@ select
         and event_tags -> 'signal' = '"🆘"'
 ```
 
-### 1.2.3. `link` view
+### 1.2.3. `link` view <a name="para-1-2-3"></a>
 
 !TODO: Find docs on linked_spans
 
-# Examples of SQL queries
+# 2. Examples of SQL queries <a name="para-2"></a>
 
 General notes on the queries:
 - When building timeseries graphs, cosinder using the [`$__interval`](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval) variable provided by Grafana
@@ -181,7 +165,7 @@ Bigger windows come at a cost. We don't recommend completely removing `start_tim
 - PostgreSQL has very versatile [`interval` type](https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT). Make sure to get familiar with it.
 
 
-## 2.1. Top 20 slowest traces
+## 2.1. Top 20 slowest traces <a name="para-2-1"></a>
 
 ```SQL
 select
@@ -197,7 +181,7 @@ select
     limit 20
 ```
 
-## 2.2. Timeseries with the request rate per service
+## 2.2. Timeseries with the request rate per service <a name="para-2-2"></a>
 
 ```SQL
 select
@@ -213,7 +197,7 @@ select
     order by 1
 ```
 
-## 2.3. Timeseries with average duration per service
+## 2.3. Timeseries with average duration per service <a name="para-2-3"></a>
 
 !TODO: Make sure this is the query
 
@@ -231,7 +215,7 @@ select
     order by 1 asc
 ```
 
-## 2.4. Most common errors in spans
+## 2.4. Most common errors in spans <a name="para-2-4"></a>
 
 ```SQL
 select
@@ -246,7 +230,7 @@ select
     order by 3
     limit 50
 ```
-## 2.5. Timeseries with error ratio
+## 2.5. Timeseries with error ratio <a name="para-2-5"></a>
 
 ```SQL
 select
