@@ -3,27 +3,49 @@
 ## Table of contents
 
 1. [Trace data structure](#para-1)
+
     1.1. [Single span](#para-1-1)
+
         1.1.1. [`tag_map` type](#para-1-1-1)
+
         1.1.2. [`trace_id` type](#para-1-1-2)
+
         1.1.3. [`span_kind` enum](#para-1-1-3)
+
         1.1.4. [`status_code` enum](#para-1-1-4)
+
     1.2. [Views](#para-1-2)
+
         1.2.1. [`span` view](#para-1-2-1)
+
         1.2.2. [`event` view](#para-1-2-2)
+
         1.2.3. [`link` view](#para-1-2-3)
+
 2. [Examples of SQL queries](#para-2)
+
     2.1. [Top 20 slowest traces](#para-2-1)
+
     2.2. [Timeseries with the request rate per service](#para-2-2)
+
     2.3. [Timeseries with average duration per service](#para-2-3)
+
     2.4. [Most common errors in spans](#para-2-4)
+
     2.5. [Timeseries with error ratio](#para-2-5)
+
 3. [Querying resource and span tags](#para-3)
+
     3.1. [Simple queries](#para-3-1)
+
     3.2. [Filtering](#para-3-2)
+
     3.3. [Joins](#para-3-3)
+
     3.4. [Grouping](#para-3-4)
+
     3.5. [Sorting](#para-3-5)
+
 
 # 1. Trace data structure <a name="para-1"></a>
 
