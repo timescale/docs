@@ -13,7 +13,9 @@ VPC peering attachments.
 
 To use Timescale Cloud VPC peering, you need your own cloud VPC, where your
 applications and infrastructure are already running. This section covers how to
-get your VPC peering set up in Amazon Web Services (AWS).
+get your VPC peering set up in Amazon Web Services (AWS). You can peer your VPC
+from any AWS region, though the Timescale Cloud VPC itself must be within one of
+the [Cloud-supported regions][tsc-regions].
 
 You need to have these permissions on your cloud provider account to set up
 VPC peering:
@@ -182,7 +184,8 @@ complete.
 </procedure>
 
 
+[aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [cloud-vpc]: cloud/vpc-peering/
 [cloud-login]: https://console.cloud.timescale.com/
 [timescale-support]: https://www.timescale.com/support
-[aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
+[tsc-regions]: /#available-in-multiple-aws-regions
