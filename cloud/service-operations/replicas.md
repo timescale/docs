@@ -4,13 +4,6 @@ primary database. If your primary database fails, the replica can take over
 within a few seconds. Having replicas of your database is also known as instance
 redundancy.
 
-<highlight type="note">
-Database replicas in Timescale Cloud are an early access feature. Early access
-features are stable, but under frequent and active development. You can start
-enjoying the benefits of database replication now, while we continue to add
-capabilities.
-</highlight>
-
 You can enable a replica for your single-node services. If your primary database
 fails, the replica automatically assumes the role of primary, and a new standby
 replica is created. Replicas are resilient to availability zone failure, because
@@ -64,6 +57,13 @@ to the databases usually takes a few seconds, meaning there is minimal downtime.
 To maintain a stable number of replicas, either the failed node recovers or a
 new one is created. This node becomes the new replica, while the promoted node
 remains the primary.
+
+### Multi-AZ
+By default, Timescale Cloud replicas are created in a different availability 
+zone (AZ) than the primary. This provides additional availability for Timescale 
+Cloud services with replicas, as it protects against entire AZ outages. If a 
+primary is in an AZ that experiences an outage, the service can easily fail 
+over to the replica.
 
 ## Create a database replica
 
