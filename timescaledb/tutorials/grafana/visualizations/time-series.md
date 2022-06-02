@@ -7,7 +7,7 @@ and is therefore the default panel type.
 They answer questions like:
 
 * What is the hourly stock price of AMD today?
-* How many users signed up to my website each day in the past week?
+* How many users visited a website page each day in the past week?
 * What was the temperature in yesterday?
 
 ## Data for Grafana time-series graphs 
@@ -50,3 +50,9 @@ The examples in this section use these variables and Grafana functions:
 * `$__timeFrom()::timestamptz` & `$__timeTo()::timestamptz`:
   Grafana variables. You change the values of these variables by
   using the dashboard's date chooser when viewing your graph.
+
+
+
+[install-timescale]: /install/:currentVersion:/
+[gsg-data]: /timescaledb/:currentVersion:/getting-started/
+[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
