@@ -15,7 +15,7 @@ To plot a time-series graph, Grafana requires you to provide a time column and
 the respective value column. To plot multiple time-series graphs at once you 
 need to provide multiple value columns.
 
-Below you find an example of valid time-series data:
+This is an example of valid time-series data:
 ```bash
        Time         | Value 1 | Value 2 |
 --------------------+---------+---------+
@@ -26,7 +26,6 @@ Below you find an example of valid time-series data:
 2022-02-08 07:34:01 |      30 |       5 |
 ```
 
-## What you'll learn
 This tutorial shows you how to:
 * Create a time-series graph from raw data
 * Create a time-series graph from pre-aggregated data
