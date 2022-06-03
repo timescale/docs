@@ -6,16 +6,14 @@ quickly spin up new TimescaleDB instances. You can
 For installation instructions, and help getting your first service up and
 running, see the [Timescale Cloud installation section][cloud-install].
 
-You can have one database on each of your Timescale Cloud services. If you try
-to create a second database on a service that already has one, you receive an
-error like this:
+Each Timescale Cloud service can have a single database named `tsdb`. If you try to create an additional database you receive an error like this:
 
 ```sql
 ERROR:  tsdb_admin: database <DB_NAME> is not an allowed database name
 HINT:  Contact your administrator to configure the "tsdb_admin.allowed_databases"
 ```
 
-To create a second database, you need to create a second service.
+If you need another database, you need to create a new service.
 
 
 ## Where to next
