@@ -1,3 +1,9 @@
+---
+api_name: copy_chunk()
+excerpt: Copy a chunk between data nodes in a distributed hypertable
+license: community
+---
+
 ## copy_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
 TimescaleDB allows you to copy existing chunks to a new location within a
 multi-node environment. This allows each data node to work both as a primary for

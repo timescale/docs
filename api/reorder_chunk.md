@@ -1,3 +1,9 @@
+---
+api_name: reorder_chunk()
+excerpt: Reorder rows in a chunk
+license: community
+---
+
 ## reorder_chunk() <tag type="community">Community</tag>
 
 Reorder a single chunk's heap to follow the order of an index. This function

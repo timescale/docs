@@ -1,5 +1,8 @@
 ---
-api_name: uddsketch
+api_name: uddsketch()
+excerpt: Aggregate data in a `uddsketch` for further calculation of percentile estimates
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

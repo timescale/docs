@@ -1,3 +1,9 @@
+---
+api_name: hypertable_compression_stats()
+excerpt: Get hypertable statistics related to compression
+license: community
+---
+
 ## hypertable_compression_stats() <tag type="community">Community</tag> 
 
 Get statistics related to hypertable compression.

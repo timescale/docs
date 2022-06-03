@@ -1,3 +1,9 @@
+---
+api_name: hypertable_detailed_size()
+excerpt: Get detailed information about disk space used by a hypertable
+license: apache
+---
+
 ## hypertable_detailed_size()  
 
 Get detailed information about disk space used by a hypertable,

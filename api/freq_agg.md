@@ -1,5 +1,8 @@
 ---
-api_name: freq_agg
+api_name: freq_agg()
+excerpt: Aggregate frequency data into a frequency aggregate for further analysis
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

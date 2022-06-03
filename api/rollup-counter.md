@@ -1,5 +1,8 @@
 ---
-api_name: rollup
+api_name: rollup()
+excerpt: Roll up multiple `CounterSummary` aggregates
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -1,3 +1,9 @@
+---
+api_name: compress_chunk()
+excerpt: Manually compress a given chunk
+license: community
+---
+
 ## compress_chunk() <tag type="community">Community</tag>
 
 The compress_chunk function is used to compress a specific chunk. This is

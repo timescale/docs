@@ -1,3 +1,9 @@
+---
+api_name: add_dimension()
+excerpt: Add a space-partitioning dimension to a hypertable
+license: apache
+---
+
 ## add_dimension()
 Add an additional partitioning dimension to a TimescaleDB hypertable.
 The column selected as the dimension can either use interval
