@@ -8,6 +8,9 @@ and cost-effective way to store and analyze your time-series data. Get started
 super fast with demo data, or your own dataset, and enjoy the security of
 automated upgrades and backups.
 
+You can have one database on each of your Timescale Cloud services. To create a
+second database, you need to create a second service.
+
 <procedure>
 
 ### Installing Timescale Cloud
