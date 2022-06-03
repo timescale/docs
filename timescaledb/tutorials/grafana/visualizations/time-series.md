@@ -99,7 +99,7 @@ stock is going up or down.
     have a column named `time` with timestamp data. The other columns used for 
     graphing data can have different names, but each time-series chart must have 
     a `time` column in the results. For the Histogram visualization,
-    the timestamp values must be in ascending order or you will receive an error.
+    the timestamp values must be in ascending order or you may receive an error.
 
 1.  Select 'time series' as your visualization type.
 
@@ -144,7 +144,7 @@ To solve this problem we pre-aggregate our data using TimescaleDB's
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/time-bucket-graph.png" alt="Screenshot of the time-series graph produced by Grafana using the `time_bucket` hyperfunction. The graph represents the price of AMD stock in the past 30 days with an interval of 30 minutes."/>
 
-    Because the stock market is only open from 9:30am to 4:00pm on weekdays, 
+    Because the stock market is only open from 9:30 AM to 4:00 PM on weekdays, 
     there are large gaps in our dataset where no data is present. Grafana 
     automatically connects the last non null to the nearest other non null value.
     In our case, the `time_bucket` hyperfunction doesn't return a row if there 
@@ -170,17 +170,17 @@ To solve this problem we pre-aggregate our data using TimescaleDB's
     values based on a threshold in Grafana.
 
 1.  Set `Connect null values` in the options panel to `Threshold` with a value
-    of <24h.
+    of `24h`.
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/connect-null-values.png" alt="Screenshot of the 'Connect null values' in the time-series options panel. The selected value is 'Threshold' and it has a value of <24h."/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/connect-null-values.png" alt="Screenshot of the 'Connect null values' in the time-series options panel. The selected value is 'Threshold' and it has a value of 24 h."/>
 
 1. Grafana returns this graph:
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/time-bucket-gapfill-graph.png" alt="Screenshot of the time-series graph produced by Grafana using the `time_bucket_gapfill` hyperfunction. The graph represents the price of AMD stock in the past 30 days with an interval of 30 minutes and null values for every gap larger than 24 hours"/>
 
-    This graph allows us to better visualize the stock price during the week where
-    it bridges the gap between 4pm and 9:30am, but doesn't connect the values in
-    the 48+ hour period during the weekend where there is no data present in our
+    This graph allows you to better visualize the stock price during the week where
+    it bridges the gap between 4 PM and 9:30 AM, but doesn't connect the values in
+    the 48+ hour period during the weekend where there is no data present in the
     dataset.
 
 
