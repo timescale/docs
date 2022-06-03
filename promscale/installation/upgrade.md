@@ -1,7 +1,7 @@
 # Upgrade Promscale
 Promscale consists of the Promscale Connector, and the Promscale Database. The Promscale Database
 is PostgreSQL with the TimescaleDB and the Promscale extensions. When you upgrade your Promscale installation, you need to check both
-components. This section contains important information about upgrading.
+the Connector and the Database. This section contains important information about upgrading.
 
 The process for updating your Promscale installation is:
 
