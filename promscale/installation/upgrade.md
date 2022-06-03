@@ -31,7 +31,7 @@ dropped. Make a backup of your installation, and test the new version
 before you upgrade.
 </highlight>
 
-You must have installed TimescaleDB&nbsp;2.6.1 or later.
+You must have installed PostgreSQL 12 or later and TimescaleDB 2.6.1 or later.
 
 The Promscale extension is now mandatory. You must be using version 0.5.0 or
 later. Before you start the upgrade, make sure that you have made the most
