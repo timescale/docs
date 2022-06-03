@@ -40,7 +40,7 @@ Before you begin, make sure you have:
 
 <highlight type="note">
     If you are new to Grafana, see the
-    [Grafana tutorials](https://docs.timescale.com/getting-started/latest)
+    [Grafana tutorials](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/)
     to get familiar with creating your first dashboard and visualizations before you
     start.
 </highlight>
@@ -113,13 +113,13 @@ stock is going up or down.
 
 ## Create a time-series graph from pre-aggregated data
 In the previous example, we queried for all transactions of AMD stock in a 6 
-hour period which resulted in ~3 800 data points. If we query for transactions 
-of AMD stock in a 3 month period, we get ~1 500 000 data points. It's not smart 
+hour period which resulted in ~3 800 data points. If you query for transactions 
+of AMD stock in a 3 month period, you get around 1,500,000 data points. It's not smart 
 to graph this amount of rows every 30 seconds, which is the refresh interval 
 default. This uses a lot of CPU, memory, and network bandwidth. In extreme cases
 Grafana will freeze and require a restart.
 
-To solve this problem we pre-aggregate our data using TimescaleDB's 
+To solve this problem you can pre-aggregate your data using TimescaleDB's 
 [`time_bucket`][time_bucket] hyperfunction.
 
 <procedure>
@@ -147,8 +147,8 @@ To solve this problem we pre-aggregate our data using TimescaleDB's
     Because the stock market is only open from 9:30 AM to 4:00 PM on weekdays, 
     there are large gaps in our dataset where no data is present. Grafana 
     automatically connects the last non null to the nearest other non null value.
-    In our case, the `time_bucket` hyperfunction doesn't return a row if there 
-    is no data in the bucket. This stops us from using the `Connect null values`
+    In this case, the `time_bucket` hyperfunction doesn't return a row if there 
+    is no data in the bucket. This stops you from using the `Connect null values`
     option in the options panel.
 
 1.  In your query, replace `time_bucket` with `time_bucket_gapfill`.
@@ -162,11 +162,11 @@ To solve this problem we pre-aggregate our data using TimescaleDB's
     GROUP BY time_bucket_gapfill('$bucket_interval', time);
     ```
 
-    We can use [`time_bucket_gapfill`][time-bucket-gapfill] to circumvent the 
+    You can use [`time_bucket_gapfill`][time-bucket-gapfill] to circumvent the 
     issue of `time_bucket` not returning rows when the bucket is empty. Usually,
     `time_bucket_gapfill` is used in combination with [`LOCF`][locf] 
-    ("Last Observation Carried Forward") but if we omit this function, 
-    `time_bucket_gapfill` returns a null value which we can use to connect 
+    ("Last Observation Carried Forward") but if you omit this function, 
+    `time_bucket_gapfill` returns a null value which you can use to connect 
     values based on a threshold in Grafana.
 
 1.  Set `Connect null values` in the options panel to `Threshold` with a value
