@@ -342,6 +342,7 @@ See special instructions for:
 *   [Procedures](#procedures)
 *   [Callout and highlight blocks](#callout-and-highlight-blocks)
 *   [Tags](#tags)
+*   [Partials](#partials)
 
 ## Links
 
@@ -487,7 +488,7 @@ avoid parsing problems.
 To create a callout, wrap the callout text in the custom `<highlight>`
 component, like this:
 
-```markdwon
+```markdown
 <highlight type="note">
 This is a note. It links to [an example link](https://example.com/).
 </highlight>
@@ -520,7 +521,28 @@ documentation:
     the following component next to the header:
     *   `<tag type="community" content="Community" />`
     *   `<tag type="experimental" content="Experimental" />`
-    *   `<tag type="toolkit" content="Toolkit" />` 
+    *   `<tag type="toolkit" content="Toolkit" />`
+
+## Partials
+
+Partials allow you to reuse snippets of content in multiple places. All partials
+live in the `_partials` top-level directory. To make a new partial, create a new
+`.mdx` file. The filename must start with an underscore.
+
+To insert the partial in another document, put an import statement in the
+document. The import statement goes before the content and after any
+frontmatter. For example:
+
+`import Component from '../../../_partials/_partial-name.mdx';`
+
+The path follows the site's directory structure, not the docs repo's
+directory structure. You can determine the site's directory structure from the
+page's URL. `Component` can be any CamelCased name. For consistency, make it
+the CamelCased version of your partial's filename.
+
+Where you need the partial to display, insert it as a self-closing tag:
+
+`<Component />`
 
 # Templates
 
