@@ -13,7 +13,7 @@ The process for updating your Promscale installation is:
     ingesting data.
 1.  Start all other Promscale Connector instances.
 
-## Upgrade to Promscale&nbsp;0.11.0
+## Upgrade to Promscale 0.11.0
 Promscale&nbsp;0.11.0 contains significant changes, and the upgrade drops any
 previous tracing data you have stored. Make a backup of your installation, and
 test the new version, before you go ahead with this upgrade.
