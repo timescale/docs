@@ -75,5 +75,5 @@ total_failures      | 0
 
 [add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
 [remove_retention_policy]: /api/:currentVersion:/data-retention/remove_retention_policy 
-[timescaledb_information.job]: /api/:currentVersion:/informational-views/jobs/
+[timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
 [timescaledb_information.job_stats]: /api/:currentVersion:/informational-views/job_stats/
