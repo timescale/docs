@@ -5,8 +5,8 @@ the Connector and the Database. This section contains important information abou
 
 The process for updating your Promscale installation is:
 
-1.  Check that the most recent required version of the Promscale extension is
-    available.
+1.  Check that the most recent required versions of PostgreSQL, TimescaleDB and the
+Promscale extension are available.
 1.  Stop all Promscale Connector instances connected to the database.
 1.  Perform the upgrade.
 1.  Start the new version of the Promscale Connector, and wait for it to begin
