@@ -65,7 +65,7 @@ The `tag_map` type is a storage optimization for spans. It can be queried as a r
  - `->` -- get the value for the given key (for example: `span_tags -> 'pwlen'`)
  - `=`  -- value equality for a key (for example: `span_tags -> 'pw_len' = '10'::jsonb`)
  - `!=` -- value inequality for a key (for example: `span_tags -> 'pw_len' != '10'::jsonb`)
-We intend to support all the operators available for the native PostgreSQL `jsonb` type.
+We intend to support optimization for all the operators available for the native PostgreSQL `jsonb` type.
 
 ### 1.1.2. `trace_id` type <a name="para-1-2-3"></a>
 
@@ -302,11 +302,124 @@ select *
 
 ```
 
-Here we are limiting our scope to spans within last 30 minutes that have a tag `pwlen` with exact value `25`.
+Here we are limiting our scope to spans within last 30 minutes that have a tag `pwlen` with exact value `25`. We can specify as many of these as we want combining them with logical operations:
+
+```SQL
+select *
+    from span
+    where 
+            start_time >= now() - interval '30 minutes'
+        and span_tags -> 'pwlen' = '25'
+        and resource_tags -> 'telemetry.sdk.name' = '"opentelemetry"'
+```
+
+Notice the single **and** double-quoted string `'"opentelemtry"'`. This is an artefact of PostgreSQL's `->` operator returning a `jsonb` and thus expecting a `jsonb` on the right side of the `=`. This can be worked around by using the more appropriate `->>` operator that returns text, but unfortunately that operator is not supported in the current implementation of `tag_map` type. It is planned for Promscale 1.0.0, so stay tuned!
 
 
 ## 3.3. Joins <a name="para-3-3"></a>
 
+One of the main reasons to use SQL database as a backbone of your observability stack is to be able to conduct correlational analysis of different types of data, namely metrics and spans. And Promscale enables you to do exactly that.
+
+Suppose we want to see how error rate of our service correlates with the overall memory consumption of a container. It's as easy as joining the corresponding metric table with the aforementioned `span` view:
+
+```SQL
+select
+        time_bucket('30 minutes', span.start_time) as "time",
+        max(mem.value) as "max_mem",
+        count(trace_id) as "num_errors"
+    from container_memory_working_set_bytes as mem
+        left join span on 
+                time_bucket('30 minutes', span.start_time) = time_bucket('30 minutes', mem.time)
+            and span.status_code = 'error'
+            and span.service_name = 'my_service'
+            and span.span_tags -> 'container_name' = '"my_container"'
+    where 
+            mem.value != 'NaN'
+        and mem.time >= now() - interval '1 week'
+        and span.start_time >= now() - interval '1 week'
+        and mem.container = 'my_container'
+        and mem.instance = 42
+    group by 1
+    order by 1
+```
+There's quite a bit going on in this query, so lets break it down.
+First lets have a look at our metric table and its filters:
+
+1. We want some actual memory usage values so we filter out some misses where the value was reported `NaN`
+2. We explicitly specify last week as the time window to allow planner to eliminate unecessary partitions on the planning stage. This should speed up our query significantly
+3. We explicitly limit the metrics to the container and instance we're interested in. This is also aimed at giving planner more freedom in dealing with the query.
+4. The join clause itself is matching only on the generated `time_bucket`. More on this later.
+
+The `span` view we approach slightly differently:
+
+1. The only qual in the `where` clause we specify is the `start_time` matching that of the metric for the same reason
+2. We specify a number of filters in the join condition instead for several reasons:
+ - We do need to filter out irrelevant rows from the `span` view
+ - We want to keep the entries from the metric table to have a good measure of memory consumption regardless if there were errors or not. If we instead put these quals into the `where` clause, all the rows without errors matching the quals would've been filtered out.
+
+Further we'll see how we can leverage full power of SQL by combining all these primitives together.
+
 ## 3.4. Grouping <a name="para-3-4"></a>
 
+One of the strengths of SQL in general and PostgreSQL in particular are aggregate functions which perform various operations on groups. We can group data on any set of columns, includinig fields of `tag_map` columns. Below is a simple example:
+
+```SQL
+select
+        time_bucket('30 minutes', start_time)   as "time",
+        span_tags -> 'pwlen'                    as "pwlen",
+        count(*)                                as "cnt"
+    from span
+    where 
+            start_time >= now() - interval'1 day'
+        and service_name = '${service}'
+    group by 1, 2
+```
+
+Here we use group by both time and the `pwlen` field of the `span_tags` column using their position in the `select` list. `count(*)` in this case is an [aggregate function](https://www.postgresql.org/docs/current/functions-aggregate.html) that counts the number of rows in the group, in our case a 30-minute window with the same value of `pwlen` field.
+
+Now we can build a more complicated query using both techniques. Lets see how error rate correlates with the memory usage:
+
+```SQL
+with joined as
+(
+    select
+            time_bucket('30 minutes', span.start_time)  as "time",
+            max(mem.value)::float8                      as "max_mem",
+            count(trace_id)::float8                     as "num_errors"
+        from container_memory_working_set_bytes as mem
+            left join span on 
+                    time_bucket('30 minutes', span.start_time) = time_bucket('30 minutes', mem.time)
+                and span.status_code = 'error'
+                and span.service_name = 'my_service'
+                and span.span_tags -> 'container_name' = '"my_container"'
+        where 
+                mem.value != 'NaN'
+            and mem.time >= now() - interval '1 week'
+            and span.start_time >= now() - interval '1 week'
+            and mem.container = 'my_container'
+            and mem.instance = 42
+        group by 1
+        order by 1
+)
+select 
+        corr(max_mem, num_errors) as correlation_factor
+    from joined
+```
+
+First we've put our [join-query from above](#para-3-3) into a [CTE](https://www.postgresql.org/docs/current/queries-with.html) to improve the readability. This is necessary because PostgreSQL doesn't allow to use nested aggregate functions, thus we need to use a subquery to do what we intended here. We've also added type casts because the `corr` aggregate function expects `float8` (`double precision`) values.
+
+
 ## 3.5. Sorting <a name="para-3-5"></a>
+
+Finally lets mention sorting the data based on `tag_map` column fields. No surprises here, since it behaves as standard PostgreSQL `jsonb` type, same rules apply when sorting. Namely, numeric fields will sort using numeric comparison: [1, 2, 10, 11] and text fields will sort using string comparison: ["1", "10", "11", "2"]
+
+For example:
+
+```SQL
+select * 
+    from span
+    where start_time >= now() - interval'1 hour'
+    order by span_tags -> 'pwlen'
+```
+
+The output will be sorted based on the value **and type** of `pwlen` 
