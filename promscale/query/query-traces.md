@@ -236,7 +236,7 @@ select
 ```SQL
 select
         time_bucket('$__interval', start_time) as "Time",
-        coalesce(count(*) filter (where status_code = 'error')::numeric / count(*), 0) as "Error ratio"
+        coalesce((count(*) filter (where status_code = 'error'))::numeric / count(*), 0::numeric) as "Error ratio"
     from ps_trace.span s
     where
             $__timeFilter(start_time)
