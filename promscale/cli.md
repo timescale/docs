@@ -90,7 +90,7 @@ automatically, otherwise you can specify the config file with `./promscale
 | metrics.cache.labels.size | unsigned-integer | 10000 | Maximum number of labels to cache.|
 | metrics.cache.metrics.size | unsigned-integer | 10000 | Maximum number of metric names to cache. |
 | metrics.cache.series.initial-size | unsigned-integer | 250000 | Initial number of elements in the series cache. |
-| metrics.cache.series.max-bytes | unsigned-integer or percentage | 50% | Target for amount of memory to use for the series cache. Specified in bytes or as a percentage of the memory-target. For example, 50%.|
+| metrics.cache.series.max-bytes | unsigned-integer or percentage | 50% | Target for amount of memory to use for the series cache. Specified in bytes or as a percentage of `memory-target`. For example, 50%.|
 | metrics.high-availability | boolean | false | Enable external_labels based HA.|
 | metrics.ignore-samples-written-to-compressed-chunks | boolean | false | Ignore/drop samples that are being written to compressed chunks. Setting this to false allows Promscale to ingest older data by decompressing chunks that were earlier compressed. However, setting this to true will save your resources that may be required during decompression. |
 | metrics.multi-tenancy | boolean | false | Use multi-tenancy mode in Promscale. |
