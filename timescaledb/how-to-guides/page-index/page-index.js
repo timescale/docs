@@ -986,6 +986,22 @@ module.exports = [
         tags: ["manage", "timescaledb"],
         keywords: ["manage", "timescaledb"],
         excerpt: "Additional tooling for managing TimescaleDB",
+        children: [
+          {
+            title: "About timescaledb-tune",
+            href: "about-timescaledb-tune",
+            tags: ["manage", "timescaledb"],
+            keywords: ["manage", "timescaledb"],
+            excerpt: "Automatically configure your TimescaleDB instance with `timescaledb-tune`",
+          },
+          {
+            title: "About timescaledb-parallel-copy",
+            href: "about-timescaledb-parallel-copy",
+            tags: ["manage", "timescaledb"],
+            keywords: ["manage", "timescaledb"],
+            excerpt: "Quickly insert bulk data by parallelizing `COPY` operations",
+          },
+        ]
       },
       {
         title: "Troubleshoot TimescaleDB",
