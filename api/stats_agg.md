@@ -4,14 +4,14 @@ excerpt: Aggregate statistical data into a statistical aggregate for further ana
 license: community
 toolkit: true
 api_category: hyperfunction
-api_experimental: false
+api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'statistical aggregates'
 hyperfunction_subfamily: 'statistical aggregates'
 hyperfunction_type: aggregate
 ---
 
-# stats_agg() <tag type="toolkit" content="Toolkit" />
+# stats_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 An aggregate that produces a StatsSummary from `DOUBLE PRECISION` values. 
 
 Statistical aggregates can be done on either one or two variables. 

@@ -4,14 +4,14 @@ excerpt: Aggregate data into a hyperloglog for approximate counting
 license: community
 toolkit: true
 api_category: hyperfunction
-api_experimental: false
+api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'approximate count distinct'
 hyperfunction_subfamily: hyperloglog
 hyperfunction_type: aggregate
 ---
 
-# hyperloglog()  <tag type="toolkit">Toolkit</tag>
+# hyperloglog()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental"</tag>
 The `hyperloglog` function constructs and returns a hyperloglog with at least
 the specified number of buckets over the given values.
 

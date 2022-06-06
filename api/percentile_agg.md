@@ -4,14 +4,14 @@ excerpt: Aggregate data into a percentile aggregate for further analysis
 license: community
 toolkit: true
 api_category: hyperfunction
-api_experimental: false
+api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: aggregate
 ---
 
-# percentile_agg()  <tag type="toolkit">Toolkit</tag>
+# percentile_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental></tag>
 
 ```sql
 percentile_agg(
