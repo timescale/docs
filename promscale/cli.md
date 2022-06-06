@@ -106,7 +106,7 @@ automatically, otherwise you can specify the config file with `./promscale
 | Flag | Type | Default | Description |
 |------|:-----:|:-------:|:-----------|
 | metrics.alertmanager.notification-queue-capacity | integer | 10000 | The capacity of the queue for pending Alertmanager notifications. |
-| metrics.rules.alert.for-grace-period | duration | 10 minutes | Minimum duration between alert and restored "for" state. This is maintained only for alerts with configured "for" time greater than grace period.|
+| metrics.rules.alert.for-grace-period | duration | 10 minutes | Minimum duration between alert and restored "for" state. This is maintained only for alerts with configured "for" time greater than the grace period.|
 | metrics.rules.alert.for-outage-tolerance | duration | 1 hour | Max time to tolerate Promscale outage for restoring "for" state of alert. |
 | metrics.rules.alert.resend-delay | duration |  1 minute  | Minimum amount of time to wait before resending an alert to Alertmanager. |
 | metrics.rules.config-file | string | "" | Path to configuration file in Prometheus-format, containing rule_files and optional `alerting`, `global` fields. For more details, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/. Note: If this is flag or `rule_files` is empty, Promscale rule-manager will not start. If `alertmanagers` is empty, alerting will not be initialized. |
