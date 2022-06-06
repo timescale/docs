@@ -78,7 +78,7 @@ automatically, otherwise you can specify the config file with `./promscale
 | telemetry.trace.otel-endpoint | string | "" (empty) | OpenTelemetry tracing collector GRPC URL endpoint to send telemetry to otel-collector:4317 |
 | telemetry.trace.otel-tls-cert-file | string | "" (empty) | TLS Certificate file used for client authentication against the OTEL tracing collector GRPC endpoint. Leave blank to disable TLS. |
 | telemetry.trace.otel-tls-key-file | string | "" (empty) | TLS Key file for client authentication against the OTEL tracing collector GRPC endpoint. Leave blank to disable TLS. |
-| telemetry.trace.jaeger-endpoint | string | "" (empty) | Jaeger tracing collector thrift HTTP URL endpoint to send telemetry to (e.g. https://jaeger-collector:14268/api/traces). |
+| telemetry.trace.jaeger-endpoint | string | "" (empty) | Jaeger tracing collector thrift HTTP URL endpoint to send telemetry to (for example: https://jaeger-collector:14268/api/traces). |
 | telemetry.trace.sample-ratio | float | 1.0 | Trace sampling ratio, amount of spans to send to collector. Valid values from 0.0 (none) to 1.0 (all). |
 
 ## Metrics specific flags flags
