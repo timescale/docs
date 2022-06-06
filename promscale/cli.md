@@ -4,7 +4,7 @@ This document gives you information about the configuration flags and arguments
 supported by the Promscale Connector. You can also find information on flags
 with `promscale_<version> -help`.
 
-<hightlight type="note"> Flags can be set as environment variables by converting lowercase to
+<highlight type="note"> Flags can be set as environment variables by converting lowercase to
 uppercase, `-` and `.`to `_` (if any), and prefixing with `PROMSCALE_`. For
 example, `db.host` can be set as an environment variable as `PROMSCALE_DB_HOST`.
 </highlight>
