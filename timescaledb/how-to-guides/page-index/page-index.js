@@ -544,6 +544,13 @@ module.exports = [
             excerpt: "Manage refresh policies for continuous aggregates",
           },
           {
+            title: "Create an index on a continuous aggregate",
+            href: "create-index",
+            tags: ["indexes", "caggs", "timescaledb"],
+            keywords: ["indexes", "caggs", "TimescaleDB"],
+            excerpt: "Manage automatic index creation and manually create additional indexes",
+          },
+          {
             title: "Time in continuous aggregates",
             href: "time",
             tags: ["caggs", "manage", "timescaledb"],
