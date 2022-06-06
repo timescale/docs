@@ -1,3 +1,9 @@
+---
+api_name: CREATE MATERIALIZED VIEW (Continuous Aggregate)
+excerpt: Create a continuous aggregate on a hypertable
+license: community
+---
+
 ## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
 The `CREATE MATERIALIZED VIEW` statement is used to create continuous
 aggregates.

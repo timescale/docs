@@ -1,5 +1,8 @@
 ---
-api_name: topn_agg
+api_name: topn_agg()
+excerpt: Aggregate data in a top N aggregate for further calculation of most frequent values
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

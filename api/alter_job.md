@@ -1,3 +1,9 @@
+---
+api_name: alter_job()
+excerpt: Alter a job that is scheduled to run automatically
+license: community
+---
+
 ## alter_job() <tag type="community">Community</tag>
 Actions scheduled using the TimescaleDB automation framework run periodically in
 a background worker. You can change the schedule of these jobs with the

@@ -1,3 +1,9 @@
+---
+api_name: chunk_compression_stats()
+excerpt: Get compression-related statistics for chunks
+license: community
+---
+
 ## chunk_compression_stats() <tag type="community">Community</tag> 
 
 Get chunk-specific statistics related to hypertable compression.

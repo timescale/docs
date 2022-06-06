@@ -1,3 +1,9 @@
+---
+api_name: timescaledb_information.hypertables
+excerpt: Get metadata about hypertables
+license: apache
+---
+
 ## timescaledb_information.hypertables 
 
 Get metadata information about hypertables.

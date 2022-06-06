@@ -1,5 +1,8 @@
 ---
-api_name: extrapolated_delta
+api_name: extrapolated_delta()
+excerpt: Calculate the extrapolated change in a counter from values in a `CounterSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

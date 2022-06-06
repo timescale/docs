@@ -1,5 +1,8 @@
 ---
-api_name: 'skewness | skewness_y | skewness_x'
+api_name: 'skewness() | skewness_y() | skewness_x()'
+excerpt: Calculate the skewness from values in a statistical aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

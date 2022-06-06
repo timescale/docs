@@ -9,7 +9,7 @@ similar scheduling tool to schedule the maintenance task. See the
 [installation instructions][promscale-install] for your platform for more
 details.
 
-## Configure data retention for metrics
+## Configure data retention for metrics
 You can set a default data retention period for metrics, and override the
 default on a per-metric basis.
 

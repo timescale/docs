@@ -1,3 +1,9 @@
+---
+api_name: dump_meta_data.sql
+excerpt: Output metadata for support requests and bug reports
+license: apache
+---
+
 ## Dump TimescaleDB meta data 
 
 To help when asking for support and reporting bugs,

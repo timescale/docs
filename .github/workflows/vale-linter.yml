@@ -9,7 +9,7 @@ jobs:
       uses: actions/checkout@master
 
     - name: Vale
-      uses: errata-ai/vale-action@v1.4.0
+      uses: errata-ai/vale-action@v2
       with:
         onlyAnnotateModifiedLines: true
         # config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini

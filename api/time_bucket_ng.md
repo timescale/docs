@@ -1,3 +1,9 @@
+---
+api_name: timescaledb_experimental.time_bucket_ng()
+excerpt: Bucket rows by time interval with support for time zones, months, and years
+license: apache
+---
+
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
 The `time_bucket_ng()` (next generation) experimental function is an updated
 version of  the original [`time_bucket()`][time_bucket] function. While

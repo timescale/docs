@@ -1,3 +1,9 @@
+---
+api_name: first()
+excerpt: Get the first value in one column when rows are ordered by another column
+license: apache
+---
+
 ## first()
 
 The `first` aggregate allows you to get the value of one column
