@@ -96,6 +96,13 @@ module.exports = [
         ],
       },
       {
+        title: "Backup and Restore Promscale",
+        href: "backup-restore",
+        tags: ["promscale", "backup", "restore"],
+        keywords: ["Promscale", "backup", "restore"],
+        excerpt: "Learn how to backup and restore a Promscale database"
+      },
+      {
         title: "Send data to Promscale",
         href: "send-data",
         excerpt:
