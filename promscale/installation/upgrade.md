@@ -51,8 +51,7 @@ TimescaleDB 2.6.1 or later, and Promscale extension version 0.5.0 or later.
    instructions][install-promscale] for various installation method.
    <highlight type="note"> Do not use the `ALTER EXTENSION promscale UPDATE;` command. to update the extension.
    </highlight>
-1. Start the latest version of the Promscale Connector, and wait for it to begin
-   ingesting data. The migration happens automatically. After the migration is completed, upgrade the remaining Promscale instances.
+1. Start one instance with the the latest version of the Promscale Connector. The migration happens automatically. After the migration is completed, upgrade the remaining Promscale Connector instances.
 1. Start the other instances of Promscale Connector.
 
 </procedure>
