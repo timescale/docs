@@ -45,9 +45,10 @@ psql -h localhost p 5432 -U tsdbadmin -d mydb -f dump.sql
 
 Do not use the `-v ON_ERROR_STOP=1` option with the above command. Some 
 statements during the restore will fail. For example, pg_dump adds a statement
-to set the comment on the timescaledb extension which will fail. This is 
-unfortunate, but unavoidable, expected, and does not impact the validity of the
-restored database.
+to set the comment on the timescaledb extension (e.g. 
+`COMMENT ON EXTENSION promscale IS 'tables, types and functions supporting Promscale';`
+) which will fail. This is unfortunate, but unavoidable, expected, and does not impact 
+the validity of the restored database.
 
 After the restore completes, run the following two commands to finalize the
 restore.
