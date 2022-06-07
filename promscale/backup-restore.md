@@ -50,7 +50,7 @@ unfortunate, but unavoidable, expected, and does not impact the validity of the
 restored database.
 
 After the restore completes, run the following two commands to finalize the
-the restore.
+restore.
 
 ```sql
 SELECT public.timescaledb_post_restore();
