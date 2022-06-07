@@ -184,8 +184,15 @@ module.exports = [
         href: "time-buckets",
         tags: ["time bucket", "timescaledb"],
         keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
-        excerpt: "Learn how time buckets work in TimescaleDB.",
+        excerpt: "Aggregate data by time interval with time buckets",
         children: [
+          {
+            title: "About time buckets",
+            href: "about-time-buckets",
+            tags: ["time bucket", "timescaledb"],
+            keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
+            excerpt: "Learn how time buckets work in TimescaleDB.",
+          },
           {
             title: "Use time buckets to group time-series data",
             href: "use-time-buckets",
@@ -512,6 +519,7 @@ module.exports = [
         ],
       },
       {
+        title: "Continuous aggregates",
         href: "continuous-aggregates",
         children: [
           {
