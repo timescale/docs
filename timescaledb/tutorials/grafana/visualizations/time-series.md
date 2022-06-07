@@ -1,19 +1,21 @@
 # Build a time-series graph in Grafana 
-A time-series graph is a line graph consisting of a series of data points in 
-order on cartesian coordinates, useful for visualizing trends and fluctuations 
-in the data. The X axis represents time and the Y axis represents the value of 
-the data point. They are  The time-series graph is the most common type of graph
-in Grafana and is therefore the default panel type.
+A time-series graph is a line graph that plots points changing over time. It
+allows you to see trends and fluctuations in your data. It's usually plotted in
+2 dimensions. The X axis represents time, and the Y axis represents the
+value of your data.
 
-Time series graphs are useful for answering questions like:
+Because the time-series graph is the most common graph in Grafana, it's also
+the default panel type.
+
+With a time-series graph, you can answer questions like:
 *   What is the hourly stock price of AMD today?
 *   How many users visited a website page each day in the past week?
-*   What was the temperature in yesterday?
+*   What was the temperature yesterday?
 
 ## Data for Grafana time-series graphs 
 To plot a time-series graph, Grafana requires you to provide a time column and 
-the respective value column. To plot multiple time-series graphs in a single 
-panel you need to provide multiple value columns.
+a value column. To plot multiple time-series graphs in a single 
+panel, you need to provide multiple value columns.
 
 This is an example of valid time-series data:
 ```bash
@@ -28,7 +30,7 @@ Time                | Value_1 | Value_2 |
 
 This tutorial shows you how to:
 *   [Create a time-series graph with raw data](#create-a-time-series-graph-with-raw-data)
-*   [Create a time-series graph with pre-aggregated data using Continuous Aggregates](#create-a-time-series-graph-from-pre-aggregated-data-using-continuous-aggregates)
+*   [Create a time-series graph with pre-aggregated data using continuous aggregates](#create-a-time-series-graph-from-pre-aggregated-data-using-continuous-aggregates)
 *   [Create multiple time-series graphs in a single panel](#create-multiple-time-series-graphs-in-a-single-panel)
 
 ## Prerequisites
@@ -56,10 +58,9 @@ The examples in this section use these variables and Grafana functions:
 
 ## Create a time-series graph with raw data
 
-A very common use-case of the time-series graph is displaying stock data. It 
-lends itself well to this use-case as no additional computation is required to 
-visualize the data. A time-series graph makes it easy to see if the value of a
-stock is going up or down. 
+A very common use case of the time-series graph is displaying stock data. The
+graph makes it easy to see if the value of a stock is going up or down. Also, no
+extra calculations are needed to make the graph.
 
 <procedure>
 
@@ -79,9 +80,9 @@ stock is going up or down.
     ```
 
 1.  Enter `AMD` in the `symbol` variable. Adjust the time range of your 
-    dashboard if desired. Keep in mind that we use a raw query, therefore long
-    time ranges could return a significant number of rows and be computationally
-    expensive for Grafana to display.
+    dashboard if desired. This plot uses a raw query, so if you set a large
+    time range, it might take a long time for Grafana to get all the rows and
+    display the data.
 
 1.  When 'Table view' is selected, the returned data looks like this:
 
@@ -95,11 +96,10 @@ stock is going up or down.
                 …       |   …   |
     ```
 
-    The key feature with any time-series data used by Grafana is that it must 
-    have a column named `time` with timestamp data. The other columns used for 
-    graphing data can have different names, but each time-series chart must have 
-    a `time` column in the results. For the time-series visualization,
-    the timestamp values must be in ascending order or you receive an error.
+    Check that your data meets Grafana's requirements for graphing time series.
+    The data must have a column named `time`, containing timestamps. Other
+    columns can be named as you like. For the time-series visualization, the
+    timestamps must be in ascending order. Otherwise, you get an error.
 
 1.  Select `Time series` as your visualization type.
 
@@ -112,23 +112,23 @@ stock is going up or down.
 </procedure>
 
 ## Create a time-series graph from pre-aggregated data using Continuous Aggregates
-In the previous example, we queried for all transactions of AMD stock in a 6 
-hour period which resulted in ~3 800 data points. If you query for transactions 
-of AMD stock in a 3 month period, you'll typically get around 1,500,000 data 
-points. Grafana, like many charting tools, don't perform well when they attempt 
-to plot millions of points on a graph. And, by default, Grafana refreshes 
-dashboards every 30 seconds which would further strain dashboard rendering while
-using a lot of CPU, memory, and network bandwidth. In extreme cases Grafana will
-freeze and require a restart.
+In the previous example, you queried for all transactions of AMD stock in a 6 -hour period.
+This returned approximately 3 800 data points. If you query for all transactions 
+of AMD stock in a 3-month period, you get approximately 1,500,000 data 
+points.
 
-To solve this problem you can pre-aggregate your data using TimescaleDB's 
+Grafana, like many charting tools, doesn't perform well when plotting millions of points.
+Also, by default, Grafana refreshes dashboards every 30 seconds. This further strains
+CPU, memory, and network bandwidth. In extreme cases, Grafana freezes.
+
+To solve this problem, you can pre-aggregate your data using TimescaleDB's 
 [`time_bucket`][time_bucket] hyperfunction.
 
 <procedure>
 
-## Create a time-series graph from pre-aggregated data using Continuous Aggregates
+## Create a time-series graph from pre-aggregated data using continuous aggregates
 
-1.  Add the `$bucket_interval` variable of type `Interval` to the Grafana dashboard
+1.  Add the `$bucket_interval` variable of type `Interval` to the Grafana dashboard.
 
 1.  In Grafana, create a new panel and add this query:
 
@@ -148,17 +148,17 @@ To solve this problem you can pre-aggregate your data using TimescaleDB's
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/time-bucket-graph.png" alt="Screenshot of the time-series graph produced by Grafana using the `time_bucket` hyperfunction. The graph represents the price of AMD stock in the past 30 days with an interval of 30 minutes."/>
 
     Because the stock market is only open from 9:30&nbsp;AM to 4:00&nbsp;PM on 
-    weekdays, there are large gaps in our dataset where no data is present. 
-    Grafana automatically connects the last non null to the nearest other 
-    non-null value. In this case, the `time_bucket` hyperfunction doesn't return
-    a row if there is no data in the bucket. This stops you from using the 
-    `Connect null values` option in the options panel.
+    weekdays, there are large gaps in our dataset where there is no data. 
+    Grafana automatically connects the last non-null value to the nearest other 
+    non-null value. This creates the long, straight, almost-horizontal lines you see
+    in the graph.
     
-1.  To circumvent this issue, you can use [`time_bucket_gapfill`](https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
-    Usually, this hyperfunction is used in combination with [`LOCF`](https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/locf/) 
-    ("Last Observation Carried Forward") but if you omit this function, 
-    `time_bucket_gapfill` returns a null value which you can use to connect 
-    values based on a threshold in Grafana.
+1.  To circumvent this issue, you can use Grafana's `Connect null values` settings. But first,
+    you need rows containing null values wherever you have no data. By default,
+    `time_bucket` doesn't return a row if there is no data. In your query, replace `time_bucket`
+    with [`time_bucket_gapfill`](https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
+    If you don't specify a gapfilling function, `time_bucket_gapfill` returns a row with a
+    null value wherever there is no data.
 
 1.  In your query, replace `time_bucket` with `time_bucket_gapfill`.
    
@@ -172,7 +172,7 @@ To solve this problem you can pre-aggregate your data using TimescaleDB's
     ORDER BY time;
     ```
 
-1.  Set `Connect null values` in the options panel to `Threshold` with a value
+1.  In the options panel, set `Connect null values` to `Threshold`. Give `Threshold` a value
     of `24h`.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/connect-null-values.png" alt="Screenshot of the 'Connect null values' in the time-series options panel. The selected value is 'Threshold' and it has a value of less than 24 hours."/>
@@ -181,20 +181,19 @@ To solve this problem you can pre-aggregate your data using TimescaleDB's
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/time-bucket-gapfill-graph.png" alt="Screenshot of the time-series graph produced by Grafana using the `time_bucket_gapfill` hyperfunction. The graph represents the price of AMD stock in the past 30 days with an interval of 30 minutes and null values for every gap larger than 24 hours"/>
 
-    This graph allows you to better visualize the stock price during the week 
-    where it bridges the gap between 4:00&nbsp;PM and 9:30&nbsp;AM, but doesn't 
-    connect the values in the 48+ hour period during the weekend where there is 
-    no data present in the dataset.
+    This graph allows you to better visualize the stock price during the week.
+    It bridges the less-than-24-hour gap between 4:00&nbsp;PM and 9:30&nbsp;AM,
+    but doesn't connect the values over the weekend.
 
 </procedure>
 
 ## Create multiple time-series graphs in a single panel
 
-In case you want to compare the price of 2 stocks to each other, you could make 
+If you want to compare the price of 2 stocks over time, you can make 
 2 separate panels with 2 separate symbol variables. A better alternative is to 
-combine the two time-series graphs into a single panel. This is easily done by 
-changing our `$symbol` variable to a multi-value answer and making a slight 
-change to our query. 
+combine the 2 time-series graphs into a single panel. To do this, 
+change the `$symbol` variable to a multi-value answer and make a slight 
+change to your query. 
 
 <procedure>
 
@@ -204,14 +203,13 @@ change to our query.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/symbol-query-type.png" alt="A screenshot of the 'symbol' variable settings. The variable type option has 'Query' selected."/>
 
-1.  Add the query to the query options and select `Multi-Value` in the selection 
-    options
+1.  In the query options, add the following query. In the selection options, select `Multi-Value`.
 
     ```SQL
     SELECT DISTINCT(symbol) FROM company ORDER BY symbol ASC;
     ```
 
-1.  Under 'Preview of values' you see a handful of company symbols ordered 
+1.  Under `Preview of values`, you see a handful of company symbols ordered 
     alphabetically.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/preview-values.png" alt="A screenshot of the 'Preview of values' in the 'symbol' variable settings. A handful of company symbols are displayed."/>`
@@ -231,7 +229,7 @@ change to our query.
 
 1.  Select multiple stocks from the symbol variables
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/select-stock.png" alt="A screenshot of the symbol variable selector. The symbols 'AAPL' and 'AMD' are ticked."/>
+    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/select-stock.png" alt="A screenshot of the symbol variable selector. The symbols 'AAPL' and 'AMD' are selected."/>
 
 
 1.  Grafana returns a graph similar to this one:
@@ -243,4 +241,4 @@ change to our query.
 
 [install-timescale]: /install/:currentVersion:/
 [gsg-data]: /timescaledb/:currentVersion:/getting-started/
-[time_bucket]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
