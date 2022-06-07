@@ -1,5 +1,8 @@
 ---
-api_name: into_values
+api_name: into_values()
+excerpt: Calculate all frequency estimates from a frequency aggregate or top N aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

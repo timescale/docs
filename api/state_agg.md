@@ -1,5 +1,8 @@
 ---
-api_name: state_agg
+api_name: state_agg()
+excerpt: Aggregate state data into a state aggregate for further analysis
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

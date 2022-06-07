@@ -1,5 +1,8 @@
 ---
-api_name: 'min_frequency | max_frequency'
+api_name: 'min_frequency() | max_frequency()'
+excerpt: Calculate the minimum or maximum estimated frequencies of a value from a frequency aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

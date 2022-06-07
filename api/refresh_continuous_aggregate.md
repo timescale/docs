@@ -1,3 +1,9 @@
+---
+api_name: refresh_continuous_aggregate()
+excerpt: Manually refresh a continuous aggregate
+license: community
+---
+
 ## refresh_continuous_aggregate() <tag type="community">Community</tag>
 
 Refresh all buckets of a continuous aggregate in the _refresh window_

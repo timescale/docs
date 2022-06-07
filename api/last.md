@@ -1,3 +1,9 @@
+---
+api_name: last()
+excerpt: Get the last value in one column when rows are ordered by another column
+license: apache
+---
+
 ## last()
 
 The `last` aggregate allows you to get the value of one column

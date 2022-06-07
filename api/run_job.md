@@ -1,3 +1,9 @@
+---
+api_name: run_job()
+excerpt: Manually run a job
+license: community
+---
+
 ## run_job() <tag type="community">Community</tag>
 
 Run a previously registered job in the current session.
