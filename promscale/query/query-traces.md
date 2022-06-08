@@ -36,7 +36,7 @@ A single span is a record of the following structure:
 |`trace_id`                         | `trace_id`    | Trace identifier |
 |`span_id`                          | `int8`        | Span Identifier |
 |`trace_state`                      | `text`        | [Trace State](https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate) |
-|`parent_span_id`                   | `int8`        | Reference to the Parent `trace_id` |
+|`parent_span_id`                   | `int8`        | Reference to the parent `trace_id` |
 |`is_root_span`                     | `bool`        | Is the span a root span |
 |`service_name`                     | `text`        | Name of the service |
 |`span_name`                        | `text`        | Name of the span |
