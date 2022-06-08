@@ -105,7 +105,7 @@ select
         duration_ms
     from spans
     where
-            start_time >= now() - interval'10 minutes'
+            start_time >= now() - interval '10 minutes'
         and span_tags -> 'os_name' = '"🐧"'
         and span_kind = 'server'
 ```
