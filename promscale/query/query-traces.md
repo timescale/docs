@@ -42,7 +42,7 @@ A single span is a record of the following structure:
 |`span_name`                        | `text`        | Name of the span |
 |`span_kind`                        | `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
 |`start_time`                       | `timestamptz` | Start date and time of the span |
-|`end_time`                         | `timestamptz` | Date and time of the span end|
+|`end_time`                         | `timestamptz` | End date and time of the span|
 |`time_range`                       | `tstzrange`   | A tstzrange representation of Start and End times of the span |
 |`duration_ms`                      | `float8`      | Duration of the span in milliseconds |
 |`span_tags`                        | `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
