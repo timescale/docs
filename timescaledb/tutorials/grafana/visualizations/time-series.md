@@ -1,7 +1,7 @@
 # Build a time-series graph in Grafana 
 A time-series graph is a line graph that plots points changing over time. It
 allows you to see trends and fluctuations in your data. It's usually plotted in
-2 dimensions. The X axis represents time, and the Y axis represents the
+two dimensions. The x-axis represents time, and the y-axis represents the
 value of your data.
 
 Because the time-series graph is the most common graph in Grafana, it's also
@@ -30,7 +30,7 @@ Time                | Value_1 | Value_2 |
 
 This tutorial shows you how to:
 *   [Create a time-series graph with raw data](#create-a-time-series-graph-with-raw-data)
-*   [Create a time-series graph with pre-aggregated data using continuous aggregates](#create-a-time-series-graph-from-pre-aggregated-data-using-continuous-aggregates)
+*   [Create a time-series graph with pre-aggregated data using time_bucket()](#create-a-time-series-graph-from-pre-aggregated-data-using-time_bucket())
 *   [Create multiple time-series graphs in a single panel](#create-multiple-time-series-graphs-in-a-single-panel)
 
 ## Prerequisites
@@ -111,7 +111,7 @@ extra calculations are needed to make the graph.
 
 </procedure>
 
-## Create a time-series graph from pre-aggregated data using Continuous Aggregates
+## Create a time-series graph from pre-aggregated data using time_bucket()
 In the previous example, you queried for all transactions of AMD stock in a 6 -hour period.
 This returned approximately 3 800 data points. If you query for all transactions 
 of AMD stock in a 3-month period, you get approximately 1,500,000 data 
@@ -126,7 +126,7 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
 
 <procedure>
 
-## Create a time-series graph from pre-aggregated data using continuous aggregates
+## Create a time-series graph from pre-aggregated data using time_bucket()
 
 1.  Add the `$bucket_interval` variable of type `Interval` to the Grafana dashboard.
 
@@ -189,9 +189,9 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
 
 ## Create multiple time-series graphs in a single panel
 
-If you want to compare the price of 2 stocks over time, you can make 
-2 separate panels with 2 separate symbol variables. A better alternative is to 
-combine the 2 time-series graphs into a single panel. To do this, 
+If you want to compare the price of two stocks over time, you could make 
+two separate panels with 2 separate symbol variables. A better alternative is to 
+combine the two time-series graphs into a single panel. To do this, 
 change the `$symbol` variable to a multi-value answer and make a slight 
 change to your query. 
 
