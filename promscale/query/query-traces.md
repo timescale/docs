@@ -103,7 +103,7 @@ Below is an example of a simple query on the `span` view:
 select
         service_name,
         duration_ms
-    from spans
+    from span
     where
             start_time >= now() - interval '10 minutes'
         and span_tags -> 'os_name' = '"🐧"'
