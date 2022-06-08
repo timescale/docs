@@ -24,7 +24,8 @@ Candlestick charts use 4 different aggregations over a specific time interval: o
 
 These values are used by the candlestick panel to visualize your data. 
 
-A candlestick chart shows a clear relationship between the opening and closing prices in a given time frame: 5-minute, 10-minute, 1-hour, etc.  Within a given time period, candlestick charts enable people to quickly identify patterns in the changing price of an asset. For example, candlestick charts can identify whether an asset is entering the bullish or bearish territory, if the market activity for an asset is topping or bottoming out, or other characteristics that can help traders identify trends.  
+A candlestick chart shows a clear relationship between the opening and closing prices in a given time frame: 5-minute, 10-minute, 1-hour, etc.  Within a given time period, candlestick charts enable people to quickly identify patterns in the changing price of an asset. 
+For example, candlestick charts can identify whether an asset is entering the bullish or bearish territory, if the market activity for an asset is topping or bottoming out, or other characteristics that can help traders identify trends.  
 
 ## What you will learn
 This tutorial shows you how to:
@@ -95,6 +96,7 @@ Once you have the data and completed the prerequisites, we can create a Candlest
 </procedure>
 
 Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications. 
+
  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
 
 <procedure>
@@ -166,4 +168,3 @@ If you want to see other examples of how you can use TimescaleDB and Grafana, ch
 [max]: https://www.postgresql.org/docs/current/tutorial-agg.html
 [lag]: https://www.postgresql.org/docs/14/functions-window.html
 [time_bucket]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
- 
