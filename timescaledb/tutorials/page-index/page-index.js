@@ -256,6 +256,13 @@ module.exports = [
                 tags: ['grafana', 'visualize', 'histograms', 'learn', 'timescaledb'],
                 keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'histogram'],
                 excerpt: 'How to build a histogram in Grafana',
+              },
+              {
+                title: 'Candlestick',
+                href: 'candlestick',
+                tags: ['grafana', 'visualize', 'candlestick', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'candlestick'],
+                excerpt: 'How to build a candlestick chart in Grafana',
               }
             ]
           }
