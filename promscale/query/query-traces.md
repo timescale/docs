@@ -313,7 +313,7 @@ select *
         and resource_tags -> 'telemetry.sdk.name' = '"opentelemetry"'
 ```
 
-Notice the single **and** double-quoted string `'"opentelemtry"'`. This is an artefact of PostgreSQL's `->` operator returning a `jsonb` and thus expecting a `jsonb` on the right side of the `=`. This can be worked around by using the more appropriate `->>` operator that returns text, but unfortunately that operator is not supported in the current implementation of `tag_map` type. It is planned for Promscale 1.0.0, so stay tuned!
+Notice the single **and** double-quoted string `'"opentelemtry"'`. This is an artefact of PostgreSQL's `->` operator returning a `jsonb` and thus expecting a `jsonb` on the right side of the `=`. This can be worked around by using the more appropriate `->>` operator that returns text, but unfortunately that operator is not supported in the current implementation of `tag_map` type. It is planned for a future version of Promscale, so stay tuned!
 
 
 ## 3.3. Joins <a name="para-3-3"></a>
