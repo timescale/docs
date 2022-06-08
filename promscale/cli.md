@@ -4,9 +4,10 @@ This document gives you information about the configuration flags and arguments
 supported by the Promscale Connector. You can also find information on flags
 with `promscale_<version> -help`.
 
-**Note:** Flags can be set as environment variables by converting lowercase to
+<highlight type="note"> Flags can be set as environment variables by converting lowercase to
 uppercase, `-` and `.`to `_` (if any), and prefixing with `PROMSCALE_`. For
 example, `db.host` can be set as an environment variable as `PROMSCALE_DB_HOST`.
+</highlight>
 
 ## Configuration file
 
@@ -74,11 +75,11 @@ automatically, otherwise you can specify the config file with `./promscale
 |------|:-----:|:-------:|:-----------|
 | telemetry.log.format | string | logfmt | Log format to use from [ "logfmt", "json" ]. |
 | telemetry.log.level | string | debug | Log level to use from [ "error", "warn", "info", "debug" ]. |
-| telemetry.log.throughput-report-interval | duration | 0 second | Duration interval at which throughput should be reported. Setting duration to `0` will disable reporting throughput, otherwise, an interval with unit must be provided, e.g. `10s` or `3m`. |
+| telemetry.log.throughput-report-interval | duration | 0 seconds | Interval at which throughput should be reported. Setting duration to `0` will disable throughput reporting. Otherwise, an interval with a unit must be provided, for example: `10s` or `3m`. |
 | telemetry.trace.otel-endpoint | string | "" (empty) | OpenTelemetry tracing collector GRPC URL endpoint to send telemetry to otel-collector:4317 |
-| telemetry.trace.otel-tls-cert-file | string | "" (empty) | TLS Certificate file used for client authentication against the OTEL tracing collector GRPC endpoint, leave blank to disable TLS. |
-| telemetry.trace.otel-tls-key-file | string | "" (empty) | TLS Key file for client authentication against the OTEL tracing collector GRPC endpoint, leave blank to disable TLS. |
-| telemetry.trace.jaeger-endpoint | string | "" (empty) | Jaeger tracing collector thrift HTTP URL endpoint to send telemetry to (e.g. https://jaeger-collector:14268/api/traces). |
+| telemetry.trace.otel-tls-cert-file | string | "" (empty) | TLS Certificate file used for client authentication against the OTEL tracing collector GRPC endpoint. Leave blank to disable TLS. |
+| telemetry.trace.otel-tls-key-file | string | "" (empty) | TLS Key file for client authentication against the OTEL tracing collector GRPC endpoint. Leave blank to disable TLS. |
+| telemetry.trace.jaeger-endpoint | string | "" (empty) | Jaeger tracing collector thrift HTTP URL endpoint to send telemetry to (for example: https://jaeger-collector:14268/api/traces). |
 | telemetry.trace.sample-ratio | float | 1.0 | Trace sampling ratio, amount of spans to send to collector. Valid values from 0.0 (none) to 1.0 (all). |
 
 ## Metrics specific flags flags
@@ -90,15 +91,15 @@ automatically, otherwise you can specify the config file with `./promscale
 | metrics.cache.labels.size | unsigned-integer | 10000 | Maximum number of labels to cache.|
 | metrics.cache.metrics.size | unsigned-integer | 10000 | Maximum number of metric names to cache. |
 | metrics.cache.series.initial-size | unsigned-integer | 250000 | Initial number of elements in the series cache. |
-| metrics.cache.series.max-bytes | unsigned-integer or percentage | 50% | Target for amount of memory to use for the series cache. Specified in bytes or as a percentage of the memory-target. For example, 50%.|
-| metrics.high-availability | boolean | false | Enable external_labels based HA.|
+| metrics.cache.series.max-bytes | unsigned-integer or percentage | 50% | Target for amount of memory to use for the series cache. Specified in bytes or as a percentage of `memory-target`. For example, 50%.|
+| metrics.high-availability | boolean | false | Enable external_labels-based HA.|
 | metrics.ignore-samples-written-to-compressed-chunks | boolean | false | Ignore/drop samples that are being written to compressed chunks. Setting this to false allows Promscale to ingest older data by decompressing chunks that were earlier compressed. However, setting this to true will save your resources that may be required during decompression. |
 | metrics.multi-tenancy | boolean | false | Use multi-tenancy mode in Promscale. |
 | metrics.multi-tenancy.allow-non-tenants | boolean | false | Allow Promscale to ingest/query all tenants as well as non-tenants. By setting this to true, Promscale will ingest data from non multi-tenant Prometheus instances as well. If this is false, only multi-tenants (tenants listed in 'multi-tenancy-valid-tenants') are allowed for ingesting and querying data. |
-| metrics.multi-tenancy.valid-tenants | string | allow-all | Sets valid tenants that are allowed to be ingested/queried from Promscale. This can be set as: 'allow-all' (default) or a comma separated tenant names. 'allow-all' makes Promscale ingest or query any tenant from itself. A comma separated list will indicate only those tenants that are authorized for operations from Promscale. |
+| metrics.multi-tenancy.valid-tenants | string | allow-all | Sets valid tenants that are allowed to be ingested/queried from Promscale. This can be set as 'allow-all' (default), or as comma separated tenant names. 'allow-all' makes Promscale ingest or query any tenant from itself. A comma separated list indicates only those tenants that are authorized for operations from Promscale. |
 | metrics.promql.default-subquery-step-interval | duration | 1 minute | Default step interval to be used for PromQL subquery evaluation. This value is used if the subquery does not specify the step value explicitly. Example: <metric_name>[30m:]. Note: in Prometheus this setting is set by the evaluation_interval option. |
 | metrics.promql.lookback-delta | duration | 5 minute | The maximum look-back duration for retrieving metrics during expression evaluations and federation. |
-| metrics.promql.max-points-per-ts | integer64 | 11000 | Maximum number of points per time-series in a query-range request. This calculation is an estimation, that happens as (start - end)/step where start and end are the 'start' and 'end' timestamps of the query_range. |
+| metrics.promql.max-points-per-ts | integer64 | 11000 | Maximum number of points per time-series in a query-range request. This calculation is an estimation, equal to (start - end)/step where start and end are the 'start' and 'end' timestamps of the query_range. |
 | metrics.promql.max-samples | integer64 | 50000000 | Maximum number of samples a single query can load into memory. Note that queries will fail if they try to load more samples than this into memory, so this also limits the number of samples a query can return. |
 | metrics.promql.query-timeout | duration | 2 minutes | Maximum time a query may take before being aborted. This option sets both the default and maximum value of the 'timeout' parameter in '/api/v1/query.*' endpoints. |
 
@@ -106,10 +107,10 @@ automatically, otherwise you can specify the config file with `./promscale
 | Flag | Type | Default | Description |
 |------|:-----:|:-------:|:-----------|
 | metrics.alertmanager.notification-queue-capacity | integer | 10000 | The capacity of the queue for pending Alertmanager notifications. |
-| metrics.rules.alert.for-grace-period | duration | 10 minutes | Minimum duration between alert and restored "for" state. This is maintained only for alerts with configured "for" time greater than grace period.|
+| metrics.rules.alert.for-grace-period | duration | 10 minutes | Minimum duration between alert and restored "for" state. This is maintained only for alerts with configured "for" time greater than the grace period.|
 | metrics.rules.alert.for-outage-tolerance | duration | 1 hour | Max time to tolerate Promscale outage for restoring "for" state of alert. |
 | metrics.rules.alert.resend-delay | duration |  1 minute  | Minimum amount of time to wait before resending an alert to Alertmanager. |
-| metrics.rules.config-file | string | "" | Path to configuration file in Prometheus-format, containing rule_files and optional `alerting`, `global` fields. For more details, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/. Note: If this is flag or `rule_files` is empty, Promscale rule-manager will not start. If `alertmanagers` is empty, alerting will not be initialized. |
+| metrics.rules.config-file | string | "" | Path to configuration file in Prometheus-format, containing rule_files and optional `alerting` and `global` fields. For more details, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/. Note: If this flag is missing or `rule_files` is empty, Promscale rule-manager does not start. If `alertmanagers` is empty, alerting is not initialized. |
 
 ## Startup process flags
 
