@@ -302,7 +302,7 @@ select *
 
 ```
 
-Here we are limiting our scope to spans within last 30 minutes that have a tag `pwlen` with exact value `25`. We can specify as many of these as we want combining them with logical operations:
+Here we are limiting our scope to spans within last 30 minutes that have a span tag `pwlen` with exact value `25`. We can specify as many of these as we want combining them with logical operations:
 
 ```SQL
 select *
