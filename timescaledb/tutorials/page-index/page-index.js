@@ -244,6 +244,13 @@ module.exports = [
             excerpt: 'Grafana visualizations',
             children: [
               {
+                title: 'Time-series',
+                href: 'time-series',
+                tags: ['grafana', 'visualize', 'time-series', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'time-series'],
+                excerpt: 'Graph time-series data in Grafana',
+              },
+              {
                 title: 'Histograms',
                 href: 'histograms',
                 tags: ['grafana', 'visualize', 'histograms', 'learn', 'timescaledb'],
