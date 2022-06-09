@@ -3,12 +3,12 @@ Candlestick charts show the opening, closing, high, and low prices
 of financial assets, such as stocks, currencies, and securities. 
 They are mainly used in technical analysis, to predict how prices will change.
 
-They can answer questions like 
+They can answer questions like:
 
-* What is the relationship between opening and closing prices of an asset in a given time frame?
-* How can one identify patterns in the changing price of an asset?
-* What is the open, close, high, and low price of an asset today? 
-* How to determine whether an asset is entering bearish or bullish territory?
+*   What are the open, close, high, and low prices of an asset on this day?
+*   What is the spread between opening and closing prices over this time?
+*   How is the price of this asset changing over time?
+*   Is this asset entering bearish or bullish territory?
 
    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Diagram of a candlestick. The open and close prices define the ending positions of a central box. Lines extend from the box to show the high and low prices. The distance between open and close prices is called the real body. The distance between the central box and the high price is the upper shadow, and the distance between the box and the low price is the lower shadow."/>
 
