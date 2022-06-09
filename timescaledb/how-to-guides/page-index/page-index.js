@@ -519,6 +519,7 @@ module.exports = [
         ],
       },
       {
+        title: "Continuous aggregates",
         href: "continuous-aggregates",
         children: [
           {
