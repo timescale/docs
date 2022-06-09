@@ -124,7 +124,7 @@ Firstly, you find the maximum `day_volume` value for a symbol within a bucket, t
 
 <procedure>
 
-### Include volume when querying from raw data
+### Showing transaction volumes in a candlestick plot
 
 1.  Create a new candlestick panel with the following query:
     ```sql
