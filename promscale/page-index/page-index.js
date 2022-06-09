@@ -297,6 +297,13 @@ module.exports = [
             keywords: ['Promscale', 'Prometheus', 'delete'],
             excerpt: 'Delete data in Promscale',
           },
+          {
+            title: 'Maintenance jobs',
+            href: 'maintenance-jobs',
+            tags: ['promscale', 'maintenance', 'data'],
+            keywords: ['Promscale', 'maintenance', 'data'],
+            excerpt: 'Understand and manage maintenance jobs',
+          },
         ],
       },
       {
