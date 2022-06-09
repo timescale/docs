@@ -12,20 +12,19 @@ They can answer questions like:
 
    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Diagram of a candlestick. The open and close prices define the ending positions of a central box. Lines extend from the box to show the high and low prices. The distance between open and close prices is called the real body. The distance between the central box and the high price is the upper shadow, and the distance between the box and the low price is the lower shadow."/>
 
-Candlestick charts use 4 different aggregations over a specific time interval: open, high, low, and close values. 
+The figure above shows the structure of a candlestick. A candlestick covers a
+specific time interval, for example 5 minutes, 10 minutes, or 1 hour. For this
+period, it plots four values:
 
-* **Open**: The starting value of a given period.
+* **Open**: The starting price
+* **Close**: The closing price
+* **High**: The highest price
+* **Low**: The lowest price
 
-* **High**: The highest value of a given period.
-
-* **Low**: The lowest value of a given period.
-
-* **Close**: The final value of a given period.
-
-These values are used by the candlestick panel to visualize your data. 
-
-A candlestick chart shows a clear relationship between the opening and closing prices in a given time frame: 5-minute, 10-minute, 1-hour, etc.  Within a given time period, candlestick charts enable people to quickly identify patterns in the changing price of an asset. 
-For example, candlestick charts can identify whether an asset is entering the bullish or bearish territory, if the market activity for an asset is topping or bottoming out, or other characteristics that can help traders identify trends.  
+A candlestick chart can show many candlesticks over time. This helps you see
+patterns in the changing price of an asset. For example, you can tell whether an
+asset is entering bullish or bearish territory, or whether its market activity is
+topping or bottoming out.
 
 ## What you will learn
 This tutorial shows you how to:
