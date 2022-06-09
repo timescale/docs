@@ -10,7 +10,7 @@ They can answer questions like
 * What is the open, close, high, and low price of an asset today? 
 * How to determine whether an asset is entering bearish or bullish territory?
 
-   <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Screenshot of candlestick description."/>
+   <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Diagram of a candlestick. The open and close prices define the ending positions of a central box. Lines extend from the box to show the high and low prices. The distance between open and close prices is called the real body. The distance between the central box and the high price is the upper shadow, and the distance between the box and the low price is the lower shadow."/>
 
 Candlestick charts use 4 different aggregations over a specific time interval: open, high, low, and close values. 
 
