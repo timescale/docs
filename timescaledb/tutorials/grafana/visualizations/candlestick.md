@@ -10,7 +10,7 @@ They can answer questions like
 * What is the open, close, high, and low price of an asset today? 
 * How to determine whether an asset is entering bearish or bullish territory?
 
-<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Screenshot of candlestick description."/>
+   <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Screenshot of candlestick description."/>
 
 Candlestick charts use 4 different aggregations over a specific time interval: open, high, low, and close values. 
 
@@ -31,8 +31,7 @@ For example, candlestick charts can identify whether an asset is entering the bu
 This tutorial shows you how to:
 
 *   [Create candlestick aggregates from raw data](#Create-candlestick-aggregates-from-raw-data)
-*   [Include volume when querying from raw data 
-](#Include-volume-when-querying-from-raw-data)
+*   [Include volume when querying from raw data](#Include-volume-when-querying-from-raw-data)
 
 ## Prerequisites
 Before you begin, make sure you have:
@@ -45,7 +44,6 @@ If you are new to Grafana, see the
 [Grafana tutorials][grafana-tutorials]
 to get familiar with creating your first dashboard and visualizations before you
 start.
-
 
 The examples in this section use these variables and Grafana functions:
 * `$symbol`: a variable used to filter results by stock symbols.
@@ -78,9 +76,8 @@ Once you have the data and completed the prerequisites, we can create a Candlest
     AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
     GROUP BY symbol;
     ```
-
-1.  Click outside of the query editor/the refresh icon to update the Grafana chart.
-
+1.  Click outside of the query editor/the refresh icon to 
+    update the Grafana chart.
 
 1.  Select the candlestick as your visualization type
     
