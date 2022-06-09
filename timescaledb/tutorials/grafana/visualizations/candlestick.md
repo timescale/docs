@@ -154,7 +154,9 @@ Firstly, you find the maximum `day_volume` value for a symbol within a bucket, t
 
 </procedure>
 
-Candlestick charts are a great way to visualize financial data. This tutorial showed you how to use TimescaleDB to generate the candlestick values (open, high, low, close) from the raw hypertable. Also, how you can query the traded volume of a particular time bucket. 
+Candlestick charts are a great way to visualize financial data. This tutorial shows you how to u
+se TimescaleDB to generate candlestick values (open, high, low, close) from raw data in a
+hypertable. It also shows you how to query the traded volume for each time interval. 
 
 To see other examples of how you can use TimescaleDB and Grafana, check out
 all the [Grafana tutorials][grafana-tutorials].
