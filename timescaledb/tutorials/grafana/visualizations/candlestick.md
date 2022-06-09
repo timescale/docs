@@ -39,10 +39,9 @@ Before you begin, make sure you have:
 * Installed [TimescaleDB][install-timescale]
 * Imported the stock trade data from the [Getting Started Tutorial][gsg-data]
 
-If you are new to Grafana, see the
-[Grafana tutorials][grafana-tutorials]
-to get familiar with creating your first dashboard and visualizations before you
-start.
+If you are new to Grafana, see the [Grafana tutorials][grafana-tutorials]
+to get familiar with creating your first dashboard and visualizations. Also
+see [this tutorial on adding variables to Grafana][variables-tutorial].
 
 The examples in this section use these variables and Grafana functions:
 * `$symbol`: a variable used to filter results by stock symbols.
