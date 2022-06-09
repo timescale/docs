@@ -91,6 +91,10 @@ docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
 
 </procedure>
 
+<video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YwidcyBFgAU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</video>
+
 ## Next steps
 Now that you have data in your TimescaleDB instance, learn how to [query the
 data][query-data].
