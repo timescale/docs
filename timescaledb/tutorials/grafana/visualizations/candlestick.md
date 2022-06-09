@@ -52,7 +52,7 @@ The examples in this section use these variables and Grafana functions:
   function when aggregating data.
 
 ## Create a candlestick with raw data
-Once you have the data and completed the prerequisites, we can create a Candlestick visualization using the raw stock tick data in the table `stocks_real_time`.
+Create a candlestick visualization using the raw data in the table `stocks_real_time`.
 
 <procedure>
 
