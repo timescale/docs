@@ -133,16 +133,19 @@ Firstly, you find the maximum `day_volume` value for a symbol within a bucket, t
 1.  Create a new candlestick panel with the following query:
     ```sql
     SELECT
-    time_bucket('$bucket_interval', time) AS time,
-    symbol,
-    FIRST(price, time) AS "open",
-    MAX(price) AS high,
-    MIN(price) AS low,
-    LAST(price, time) AS "close",
-    MAX(day_volume) - LAG(max(day_volume), 1) over (partition by symbol order by time_bucket('$bucket_interval', time)) AS bucket_volume
+      time_bucket('$bucket_interval', time) AS time,
+      symbol,
+      FIRST(price, time) AS "open",
+      MAX(price) AS high,
+      MIN(price) AS low,
+      LAST(price, time) AS "close",
+      MAX(day_volume) - LAG(max(day_volume), 1) OVER(
+        PARTITION BY symbol
+        ORDER BY time_bucket('$bucket_interval', time)
+      ) AS bucket_volume
     FROM stocks_real_time
     WHERE symbol =  $symbol
-    AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
+      AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
     GROUP BY time_bucket('$bucket_interval', time), symbol;
     ```
 
