@@ -110,7 +110,8 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
 ## Show transaction volumes in a candlestick plot
 
-In addition to querying the transaction price of each stock, you can look at the traded volumes of the stock. This shows you how much people are trading a stock in a specified period. 
+In addition to looking at the price changes for each stock, you can look at its traded volumes.
+This shows you how much the stock is being traded during the bucket interval. 
 
 The `stock_real_time` hypertable contains a column with the daily cumulative traded volume. You can use this to calculate the volume of data for each bucket. 
 
