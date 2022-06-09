@@ -108,12 +108,6 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
 </procedure>
 
-<highlight type="note">
-To add variables to Grafana and set up new panel, see this [tutorial](https://www.youtube.com/watch?v=h1eTIYOFplA)
-instead.
-</highlight>
-
-
 ## Show transaction volumes in a candlestick plot
 
 In addition to querying the transaction price of each stock, you can look at the traded volumes of the stock. This shows you how much people are trading a stock in a specified period. 
