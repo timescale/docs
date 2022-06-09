@@ -1,25 +1,27 @@
-# Maintenance Jobs
-
+# Maintenance jobs
 Promscale implements [retention][retention] and [compression][compression]
-through the use of maintenance jobs. These jobs are automatically created when
-Promscale is installed, and should suit basic requirements, but may require
-tuning.
+through maintenance jobs. These jobs are automatically created when you install 
+Promscale and meet the basic requirements, but may require tuning.
 
-## Inspecting the maintenance jobs
+## Inspect the maintenance jobs
+The Promscale maintenance jobs leverage the [user-defined
+actions][user-defined-actions] in the TimescaleDB framework so that you can use
+the TimescaleDB interfaces to inspect the maintenance jobs.
 
-The Promscale maintenance jobs leverage TimescaleDB's
-[User-Defined Actions][user-defined-actions] framework, so it's possible to use
-TimescaleDB's interfaces to inspect the maintenance jobs.
-
-The [`timescaledb_information.jobs`][timescaledb_information.jobs]
+* The [`timescaledb_information.jobs`][timescaledb_information.jobs]
 informational view provides information about the maintenance jobs, their
 schedule, and count.
+* The [`timescaledb_information.job_stats`][timescaledb_information.job_stats]
+informational view provides additional information about when the job last ran.
 
-When a job is currently running, the value in the `next_start` column will be
-`-infinity`.
-
+### Inspecting the maintenance
+To view the maintenance jobs:
+```sql
+SELECT * FROM timescaledb_information.jobs
+WHERE proc_schema IN ('_prom_catalog', '_ps_trace');
 ```
-postgres=# SELECT * FROM timescaledb_information.jobs WHERE proc_schema IN ('_prom_catalog', '_ps_trace');
+The output is simialr to:
+```sql
 
  job_id |      application_name      | schedule_interval | max_runtime | max_retries | retry_period |  proc_schema  |            proc_name            |  owner   | scheduled |                       config                       |          next_start           | hypertable_schema | hypertable_name
 --------+----------------------------+-------------------+-------------+-------------+--------------+---------------+---------------------------------+----------+-----------+----------------------------------------------------+-------------------------------+-------------------+-----------------
@@ -31,11 +33,29 @@ postgres=# SELECT * FROM timescaledb_information.jobs WHERE proc_schema IN ('_pr
 (5 rows)
 ```
 
-The [`timescaledb_information.job_stats`][timescaledb_information.job_stats]
-informational view provides additional information about when the job last ran. 
+In the sample output there are five maintenance jobs, two instances of
+`_prom_catalog.execute_maintenance_job`, and three instances of
+`_ps_trace.execute_tracing_compression_job`.
+
+ * The `execute_maintenance_job` performs metric retention, metric compression,
+   and trace retention.
+
+ * The `execute_tracing_compression_job` performs compression on one of the
+   trace hypertables `span`, `event`, and `link`. 
+
+ * When a job is currently running, the value in the `next_start` column is
+   `-infinity`.
+
+
+To view additional information about the jobs:
+```sql
+SELECT js.* FROM timescaledb_information.jobs j
+JOIN timescaledb_information.job_stats js USING (job_id)
+WHERE j.proc_schema IN ('_prom_catalog', '_ps_trace');
 
 ```
-postgres=# SELECT js.* FROM timescaledb_information.jobs j JOIN timescaledb_information.job_stats js USING (job_id) WHERE j.proc_schema IN ('_prom_catalog', '_ps_trace');
+The output is simialr to:
+```sql
  hypertable_schema | hypertable_name | job_id |      last_run_started_at      |    last_successful_finish     | last_run_status | job_status | last_run_duration |          next_start           | total_runs | total_successes | total_failures
 -------------------+-----------------+--------+-------------------------------+-------------------------------+-----------------+------------+-------------------+-------------------------------+------------+-----------------+----------------
                    |                 |   1000 | 2022-06-03 11:30:32.981935+00 | 2022-06-03 11:30:39.782075+00 | Success         | Scheduled  | 00:00:06.80014    | 2022-06-03 12:00:39.782075+00 |         74 |              74 |              0
@@ -46,51 +66,41 @@ postgres=# SELECT js.* FROM timescaledb_information.jobs j JOIN timescaledb_info
 (5 rows)
 ```
 
-## Understanding the different maintenance jobs
-
-The output above showed that we have five maintenance jobs, two instances of
-`_prom_catalog.execute_maintenance_job`, and three instances of
-`_ps_trace.execute_tracing_compression_job`. The `execute_maintenance_job`
-performs metric retention, metric compression, and trace retention. The three
-`execute_tracing_compression_job` instances each perform compression on one of
-the trace hypertables `span`, `event`, and `link`.
-
 ## Tuning the number of jobs
-
 As `execute_maintenance_job` is single-threaded, and runs in a single process,
-one maintenance job will use a maximum of one CPU. On systems with high
-throughput, it's possible that default of two maintenance jobs is not
-sufficient to keep up with the amount of data being ingested.
+one maintenance job uses a maximum of one CPU. On systems with high throughput,
+it's possible that the default of two maintenance jobs is not sufficient to keep
+up with the amount of data being ingested.
 
-You can determine if the maintenance jobs are lagging behind by comparing the
-duration of the last run with the interval. If the most recent run was larger
-than the interval at which it is being run, the job is lagging behind.
+To determine if the maintenance jobs are lagging behind, compare the duration of
+the last run with the interval. If the most recent run is larger than the
+interval, then the job is lagging behind.
 
+To compare the duration of the last run with the interval:
 ```sql
 SELECT job_id, schedule_interval, last_run_duration
 FROM timescaledb_information.jobs
 JOIN timescaledb_information.job_stats USING (job_id)
 WHERE proc_schema IN ('_ps_trace', '_prom_catalog')
-  AND last_run_duration > schedule_interval;
+AND last_run_duration > schedule_interval;
 ```
 
-In this case, the number of maintenance jobs can be increased through the
-`prom_api.config_maintenance_jobs(number_jobs integer, new_schedule_interval interval, new_config jsonb)`
+To increase the number of maintenance jobs use the
+`prom_api.config_maintenance_jobs(number_jobs integer, new_schedule_interval
+interval, new_config jsonb)` function. You can provide the number of jobs, the
+scheduled interval, and optionally a new configuration for the job in this
 function.
 
-This function takes the number of jobs, the scheduled interval, and optionally
-a new config for the job.
+For example, to increase the number of jobs to four, but retain the default
+interval use:
 
-For example, we could increase the number of jobs to four, but retain the
-default interval with:
-
-```
+```sql
 SELECT config_maintenance_jobs(4, '30 minutes'::INTERVAL);
 ```
 
 
 [compression]: /manage-data/compression/
 [retention]: /manage-data/retention/
-[user-defined-actions]: TODO
+[user-defined-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions/
 [timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
 [timescaledb_information.job_stats]: /api/:currentVersion:/informational-views/job_stats/
