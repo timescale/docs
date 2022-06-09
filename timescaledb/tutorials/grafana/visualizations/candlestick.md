@@ -1,7 +1,7 @@
 # Build a candlestick chart in Grafana
-Candlestick charts help you visualize the opening, closing, high, and low prices 
-of securities, currencies, and other financial assets for the given time period. 
-It is mainly used in technical analysis. 
+Candlestick charts show the opening, closing, high, and low prices 
+of financial assets, such as stocks, currencies, and securities. 
+They are mainly used in technical analysis, to predict how prices will change.
 
 They can answer questions like 
 
