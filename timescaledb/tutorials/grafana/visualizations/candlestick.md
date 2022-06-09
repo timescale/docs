@@ -115,7 +115,9 @@ This shows you how much the stock is being traded during the bucket interval.
 
 The `stock_real_time` hypertable contains a column with the daily cumulative traded volume. You can use this to calculate the volume of data for each bucket. 
 
-Firstly, you find the maximum `day_volume` value for a symbol within a bucket, then subtract each maximum from the previous bucket's maximum. The difference gives the traded volume for that bucket.
+First, find the maximum `day_volume` value for a symbol within a bucket.
+Then, subtract each maximum from the previous bucket's maximum. The
+difference gives the traded volume for that bucket.
 
 <procedure>
 
