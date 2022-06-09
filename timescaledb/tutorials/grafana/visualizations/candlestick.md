@@ -62,53 +62,53 @@ Once you have the data and completed the prerequisites, we can create a Candlest
 
 ### Create a candlestick with raw data
 
-1.  In the query editor, use this SQL to query a Candlestick dataset using specified bucket interval:
-     ```sql
-    SELECT
-    time_bucket($bucket_interval, time) AS time,
-    symbol,
-    FIRST(price, time) AS "open",
-    MAX(price) AS high,
-    MIN(price) AS low,
-    LAST(price, time) AS "close",
-    FROM stocks_real_time
-    WHERE symbol =  $symbol
-    AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
-    GROUP BY symbol;
-    ```
-1.  Click outside of the query editor/the refresh icon to 
-    update the Grafana chart.
+  1.  In the query editor, use this SQL to query a Candlestick dataset using specified bucket interval:
+      ```sql
+      SELECT
+      time_bucket($bucket_interval, time) AS time,
+      symbol,
+      FIRST(price, time) AS "open",
+      MAX(price) AS high,
+      MIN(price) AS low,
+      LAST(price, time) AS "close",
+      FROM stocks_real_time
+      WHERE symbol =  $symbol
+      AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
+      GROUP BY symbol;
+      ```
+  1.  Click outside of the query editor/the refresh icon to 
+      update the Grafana chart.
 
-1.  Select the candlestick as your visualization type
-    
-     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_visualization.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Candlestick' shows as a visualization type."/>
+  1.  Select the candlestick as your visualization type
+      
+      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_visualization.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Candlestick' shows as a visualization type."/>
 
+  1.  Grafana turns the query into a candlestick chart that 
+      looks like this:
 
-1.  Grafana turns the query into a candlestick chart that looks like this:
+      <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/1_min.png" alt="Screenshot of a candlestick chart in Grafana, showing the price distribution of $AMZN."/>
 
-    <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/1_min.png" alt="Screenshot of a candlestick chart in Grafana, showing the price distribution of $AMZN."/>
+      In this first example, we set the $bucket_interval to 1-min, you can see the price of AMZN ranges between $2120 and $2200. This chart uses hyperfunctions to query the `stock_real_time` table, with a bucket interval of 1 minute. 
 
-    In this first example, we set the $bucket_interval to 1-min, you can see the price of AMZN ranges between $2120 and $2200. This chart uses hyperfunctions to query the `stock_real_time` table, with a bucket interval of 1 minute. 
+  </procedure>
 
-</procedure>
+  Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications. 
 
-Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications. 
+  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
 
- <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
+  <procedure>
 
-<procedure>
+  With the use of the $bucket_interval variable, we are able to switch intervals. For example, switching to a 15-minute bucket interval gives you this data. 
 
-With the use of the $bucket_interval variable, we are able to switch intervals. For example, switching to a 15-minute bucket interval gives you this data. 
+  1.  Switch your bucket interval to 15-min from the dropdown
+      
+      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/timebucket_dropdown.png" alt="Screenshot of the Grafana variable dropdown."/>
 
- 1.  Switch your bucket interval to 15-min from the dropdown
-     
-     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/timebucket_dropdown.png" alt="Screenshot of the Grafana variable dropdown."/>
+  1.  Refresh the dashboard to get the updated chart
+      
+      <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/15_min.png" alt="Screenshot of the Grafana variable dropdown."/>
 
-1.  Refresh the dashboard to get the updated chart
-    
-     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/15_min.png" alt="Screenshot of the Grafana variable dropdown."/>
-
-These queries execution took about 6+ seconds, to decrease query execution time to sub-seconds it's suggested to use the continuous aggregates, which we will cover in a different section.
+  These queries execution took about 6+ seconds, to decrease query execution time to sub-seconds it's suggested to use the continuous aggregates, which we will cover in a different section.
 
 </procedure>
 
