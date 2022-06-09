@@ -158,10 +158,11 @@ Candlestick charts are a great way to visualize financial data. This tutorial sh
 
 If you want to see other examples of how you can use TimescaleDB and Grafana, check out our tutorials on [Grafana tutorials][grafana-tutorials].
 
-[install-grafana]: https://grafana.com/get/?plcmt=top-nav&cta=downloads
+[install-grafana]: https://grafana.com/get/
 [install-timescale]: /install/:currentVersion:/
-[gsg-data]: /timescaledb/:currentVersion:/getting-started/
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
+[gsg-data]: /getting-started/:currentVersion:/add-data/
+[grafana-tutorials]: /tutorials/grafana/
 [max]: https://www.postgresql.org/docs/current/tutorial-agg.html
-[lag]: https://www.postgresql.org/docs/14/functions-window.html
-[time_bucket]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
+[lag]: https://www.postgresql.org/docs/current/functions-window.html
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[variables-tutorial]: https://www.youtube.com/watch?v=h1eTIYOFplA
