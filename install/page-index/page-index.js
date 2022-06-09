@@ -122,6 +122,13 @@ module.exports = [
         keywords: ["install", "Managed Service for TimescaleDB", "AWS", "Azure","GCP", "create a service", "connect to service"],
         excerpt: "Install a managed service for TimescaleDB",
       },
+      {
+        title: "Troubleshoot installation",
+        href: "troubleshooting",
+        tags: ["install", "tshoot"],
+        keywords: ["instsall", "troubleshooting"],
+        excerpt: "Troubleshoot installation problems",
+      },
     ],
   },
 ];
