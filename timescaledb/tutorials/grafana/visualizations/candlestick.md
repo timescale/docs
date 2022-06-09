@@ -149,7 +149,7 @@ Firstly, you find the maximum `day_volume` value for a symbol within a bucket, t
     GROUP BY time_bucket('$bucket_interval', time), symbol;
     ```
 
-1.  Refresh the dashboard to get the updated chart
+1.  Refresh the dashboard to get the updated chart.
     
      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/volume_Distribution.png" alt="Screenshot of Grafana candlestick showing the stock volume distribution and price for $AMZN."/>
 
