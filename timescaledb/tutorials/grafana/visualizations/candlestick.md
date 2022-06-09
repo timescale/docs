@@ -30,8 +30,8 @@ For example, candlestick charts can identify whether an asset is entering the bu
 ## What you will learn
 This tutorial shows you how to:
 
-*   [Create candlestick aggregates with raw data](#Create-a-candlestick-with-raw-data)
-*   [Include volume when querying with raw data](#Include-volume-when-querying-from-raw-data)
+*   [Create candlestick aggregates with raw data](#create-a-candlestick-with-raw-data)
+*   [Include volume when querying with raw data](#include-volume-when-querying-from-raw-data)
 
 ## Prerequisites
 Before you begin, make sure you have:
