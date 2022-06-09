@@ -114,7 +114,7 @@ instead.
 </highlight>
 
 
-## Include volume when querying from raw data
+## Show transaction volumes in a candlestick plot
 
 In addition to querying the transaction price of each stock, you can look at the traded volumes of the stock. This shows you how much people are trading a stock in a specified period. 
 
