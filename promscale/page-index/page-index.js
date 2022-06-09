@@ -108,6 +108,13 @@ module.exports = [
         ],
       },
       {
+        title: "Backup and Restore Promscale",
+        href: "backup-restore",
+        tags: ["promscale", "backup", "restore"],
+        keywords: ["Promscale", "backup", "restore"],
+        excerpt: "Learn how to backup and restore a Promscale database"
+      },
+      {
         title: "Send data to Promscale",
         href: "send-data",
         excerpt:
@@ -289,6 +296,13 @@ module.exports = [
             tags: ['promscale', 'delete', 'metrics'],
             keywords: ['Promscale', 'Prometheus', 'delete'],
             excerpt: 'Delete data in Promscale',
+          },
+          {
+            title: 'Maintenance jobs',
+            href: 'maintenance-jobs',
+            tags: ['promscale', 'maintenance', 'data'],
+            keywords: ['Promscale', 'maintenance', 'data'],
+            excerpt: 'Understand and manage maintenance jobs',
           },
         ],
       },
