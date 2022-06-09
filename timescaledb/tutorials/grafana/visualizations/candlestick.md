@@ -150,7 +150,7 @@ Firstly, you find the maximum `day_volume` value for a symbol within a bucket, t
     
      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/volume_Distribution.png" alt="Screenshot of Grafana candlestick showing the stock volume distribution and price for $AMZN."/>
 
-    From the image, we can see the traded volume for this particular time bucket for AMZN stock.
+    At the bottom of the plot, you see the trade volume for each time bucket.
 
 </procedure>
 
