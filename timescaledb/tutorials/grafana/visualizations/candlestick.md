@@ -86,13 +86,13 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
       In this first example, we set the $bucket_interval to 1-min, you can see the price of AMZN ranges between $2120 and $2200. This chart uses hyperfunctions to query the `stock_real_time` table, with a bucket interval of 1 minute. 
 
-  </procedure>
+</procedure>
 
   Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications. 
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
 
-  <procedure>
+<procedure>
 
   With the use of the $bucket_interval variable, we are able to switch intervals. For example, switching to a 15-minute bucket interval gives you this data. 
 
