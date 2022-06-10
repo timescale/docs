@@ -1,5 +1,8 @@
 ---
 api_name: distinct_count
+excerpt: Estimate the number of distinct values from values in a hyperloglog
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
