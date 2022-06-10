@@ -31,7 +31,7 @@ This tutorial shows you how to:
 
 *   [Create candlestick aggregates with raw data](#create-a-candlestick-with-raw-data)
 *   [Show transaction volume when querying with raw data]
-(#showing-transaction-volumes-in-a-candlestick-plot)
+(#show-transaction-volumes-in-a-candlestick-plot)
 
 ## Prerequisites
 Before you begin, make sure you have:
@@ -106,7 +106,7 @@ Retrieving this data took about 7+ seconds, over two weeks of data which is prob
       
       <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/15_min.png" alt="Screenshot of the Grafana variable dropdown."/>
 
-  These queries execution took about 6+ seconds, to decrease query execution time to sub-seconds it's suggested to use the timescaledDB continuous aggregates, see our tutorial on [continuous-aggregrate][continuous-aggregrate].
+The query execution took more than 6 seconds. To decrease query execution time to sub-seconds, use continuous aggregates. See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more.
 
 </procedure>
 
@@ -168,4 +168,4 @@ all the [Grafana tutorials][grafana-tutorials].
 [lag]: https://www.postgresql.org/docs/current/functions-window.html
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [variables-tutorial]: https://www.youtube.com/watch?v=h1eTIYOFplA
-[continuous-aggregrate]: https://docs.timescale.com/timescaledb/latest/tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
+[continuous-aggregrate]: /tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
