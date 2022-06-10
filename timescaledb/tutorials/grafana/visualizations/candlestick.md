@@ -89,9 +89,9 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
 </procedure>
 
-  Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications. 
+Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications. 
 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
 
 <procedure>
 
