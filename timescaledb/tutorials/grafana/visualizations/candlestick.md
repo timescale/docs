@@ -167,4 +167,4 @@ all the [Grafana tutorials][grafana-tutorials].
 [lag]: https://www.postgresql.org/docs/current/functions-window.html
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [variables-tutorial]: https://www.youtube.com/watch?v=h1eTIYOFplA
-[continuous-aggregrate]: https://docs.timescale.com/timescaledb/latest/tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
+[continuous-aggregrate]: /tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
