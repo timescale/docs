@@ -120,7 +120,6 @@ GROUP BY bucket, block_id;
 Running this query, you create these aggregate columns within the continuous
 aggregate:
 
-Columns:
 * `tx_count`: Number of transactions per block
 * `block_fee_sat`: Transaction fee paid per block (in Sat)
 * `block_fee_usd`:  Transaction fee paid per block (in USD)

@@ -21,11 +21,6 @@ ingestion and analyics in TimescaleDB:
 * Ingest and query Bitcoin transactions
 * Analyze the blockchain with hyperfunctions
 
-Sourcing blockchain data can be difficult but don't worry in the next section
-we provide a sample
-file for you to download and ingest into your database so you can complete the
-tutorial.
-
 ## Prerequisites
 Before you begin, make sure you have:
 * A TimescaleDB instance running locally or on the cloud. For more information, see [installation options](/install/latest/)
