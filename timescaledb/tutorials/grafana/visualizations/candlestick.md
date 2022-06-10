@@ -59,21 +59,22 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
 ### Create a candlestick with raw data
 
-  1.  In the query editor, use this SQL to query a Candlestick dataset using specified bucket interval:
-        ```sql
-        SELECT
-        time_bucket($bucket_interval, time) AS time,
-        symbol,
-        FIRST(price, time) AS "open",
-        MAX(price) AS high,
-        MIN(price) AS low,
-        LAST(price, time) AS "close",
-        FROM stocks_real_time
-        WHERE symbol =  $symbol
-        AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
-        GROUP BY symbol;
-        ```
-  1.  Click outside of the query editor/the refresh icon to 
+  1.  In the query editor, use this SQL to query a Candlestick dataset. Use the variable `$bucket interval`
+      for the time period covered by each candlestick.
+      ```sql
+      SELECT
+          time_bucket($bucket_interval, time) AS time,
+          symbol,
+      FIRST(price, time) AS "open",
+          MAX(price) AS high,
+          MIN(price) AS low,
+          LAST(price, time) AS "close",
+      FROM stocks_real_time
+      WHERE symbol =  $symbol
+          AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
+      GROUP BY symbol;
+      ```
+  1.  Click outside of the query editor, or click the refresh icon to 
       update the Grafana chart.
 
   1.  Select the candlestick as your visualization type
@@ -125,8 +126,8 @@ difference gives the traded volume for that bucket.
 ### Showing transaction volumes in a candlestick plot
 
 1.  Create a new candlestick panel with the following query:
-      ```sql
-      SELECT
+    ```sql
+    SELECT
         time_bucket('$bucket_interval', time) AS time,
         symbol,
         FIRST(price, time) AS "open",
@@ -137,11 +138,11 @@ difference gives the traded volume for that bucket.
           PARTITION BY symbol
           ORDER BY time_bucket('$bucket_interval', time)
         ) AS bucket_volume
-      FROM stocks_real_time
-      WHERE symbol =  $symbol
+    FROM stocks_real_time
+    WHERE symbol =  $symbol
         AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
-      GROUP BY time_bucket('$bucket_interval', time), symbol;
-      ```
+    GROUP BY time_bucket('$bucket_interval', time), symbol;
+    ```
 
 1.  Refresh the dashboard to get the updated chart.
     
