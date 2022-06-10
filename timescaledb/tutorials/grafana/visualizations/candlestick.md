@@ -150,8 +150,8 @@ difference gives the traded volume for that bucket.
 
 </procedure>
 
-Candlestick charts are a great way to visualize financial data. This tutorial shows you how to u
-se TimescaleDB to generate candlestick values (open, high, low, close) from raw data in a
+Candlestick charts are a great way to visualize financial data. This tutorial shows you how to
+use TimescaleDB to generate candlestick values (open, high, low, close) from raw data in a
 hypertable. It also shows you how to query the traded volume for each time interval. 
 
 To see other examples of how you can use TimescaleDB and Grafana, check out
