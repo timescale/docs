@@ -1,7 +1,7 @@
 # Analyze the blockchain with hyperfunctions
 This section of the tutorial shows you different ways to analyze Bitcoin
 transactions with SQL. Before analyzing the data, it's recommended to create
-continuous aggregates for better query performance and experience.
+continuous aggregates for better query performance.
 
 ## Continuous aggregates for blockchain analytics
 Continuous aggregates are materialized views for time-series data. They make
@@ -10,7 +10,8 @@ also providing a simple gateway
 to real-time data from the underlying hypertable.
 
 Let's set up continuous aggregates that contain 1-hour time buckets. This means
-that 1-hour aggregations are used to create the view. There are more than ten
+that 1-hour time bucket aggregations are used to create the view. There are
+more than ten
 thousand Bitcoin transactions in an hour so it's essential to aggregate
 them into larger time buckets (1-hour, 12-hours, 1-day, etc) for analysis.
 
@@ -20,12 +21,12 @@ of the dataset:
 * Bitcoin blocks
 * Coinbase transactions (miner revenue)
 
-By using continuous aggregate from the beginning, your analytical and
+By using continuous aggregates, your analytical and
 time-series queries are vastly simplified and
 sped up going forward.
 
-This tutorial also shows you how to keep these continuous aggregate 
-views up-to-date automatically with refresh policies.
+This tutorial, in a later section, also shows you how to keep these continuous
+aggregate views up-to-date automatically with refresh policies.
 
 ## Hyperfunctions for simplified statistical queries
 In the following queries you can find custom SQL functions that are not part of
@@ -38,6 +39,8 @@ Enable Toolkit extension:
 ```sql
 CREATE EXTENSION timescaledb_toolkit;
 ```
+
+YOu have everything now to create the continuous aggregates and start analyzing!
 
 ### Continuous aggregate: transactions
 Create a continuous aggregate called `one_day_transactions`. This view holds

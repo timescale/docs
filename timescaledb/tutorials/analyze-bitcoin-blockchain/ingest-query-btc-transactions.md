@@ -70,7 +70,7 @@ When you create a hypertable, TimescaleDB automatically adds a B-tree index
 on the timestamp column of the table. This already improves the queries
 where you filter by the time column.
 
-Additonally, you let's speed up queries in which you're searching for
+Additonally, you can also speed up queries in which you're searching for
 individual transactions using the `hash` column, by adding a `HASH INDEX` to
 the column:
 ```sql
