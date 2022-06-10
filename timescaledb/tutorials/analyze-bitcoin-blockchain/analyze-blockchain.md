@@ -7,9 +7,7 @@ continuous aggregates for better query performance and experience.
 Continuous aggregates are materialized views for time-series data. They make
 queries faster by continuously materializing aggregated data while
 also providing a simple gateway
-to real-time data from the underlying hypertable. To achieve great time-series
-query performance with TimescaleDB, it's recommended to use
-continuous aggregates.
+to real-time data from the underlying hypertable.
 
 Let's set up continuous aggregates that contain 1-hour time buckets. This means
 that each row in the continuous aggregate will include Bitcoin transactions
