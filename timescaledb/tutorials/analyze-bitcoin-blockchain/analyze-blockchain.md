@@ -10,16 +10,15 @@ also providing a simple gateway
 to real-time data from the underlying hypertable.
 
 Let's set up continuous aggregates that contain 1-hour time buckets. This means
-that each row in the continuous aggregate will include Bitcoin transactions
-that happened within the given hour. There are more than ten thousand
-Bitcoin transactions in an hour so it's essential to aggregate them into
-larger time buckets for analysis.
+that 1-hour aggregations are used to create the view. There are more than ten
+thousand Bitcoin transactions in an hour so it's essential to aggregate
+them into larger time buckets (1-hour, 12-hours, 1-day, etc) for analysis.
 
 This tutorial creates three continuous aggregates, focusing on three aspects
-of the blockchain data:
-* transactions
-* blocks
-* coinbase transactions (miner revenue)
+of the dataset:
+* Bitcoin transactions
+* Bitcoin blocks
+* Coinbase transactions (miner revenue)
 
 By using continuous aggregate from the beginning, your analytical and
 time-series queries are vastly simplified and
