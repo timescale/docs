@@ -4,8 +4,8 @@ use to ingest and store Bitcoin blockchain data in TimescaleDB. The schema
 consists of only one table called `transactions`.
 
 ## Bitcoin transaction data fields
-Before you create the table and ingest our sample data, it's important to
-understand what data fields are available in a Bitcoin transaction:
+Before you create the table and ingest the sample data, it's important to
+learn what data fields are available in the dataset:
 
 | Field | Description |
 |---|---|
