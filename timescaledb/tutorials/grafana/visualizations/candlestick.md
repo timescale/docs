@@ -72,7 +72,7 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
       AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
       GROUP BY symbol;
       ```
-  1.  Click outside of the query editor/the refresh icon to 
+  1.  Click outside of the query editor, or click the refresh icon to 
       update the Grafana chart.
 
   1.  Select the candlestick as your visualization type
