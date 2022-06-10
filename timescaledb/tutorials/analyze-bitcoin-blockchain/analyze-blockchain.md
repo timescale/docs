@@ -323,8 +323,6 @@ block rewards and how on-chain fees will need to go up in the future to
 incentivize the miners and sustain the network. (Note that the left axis is
 logarithmic-scale, so it’s easier to see the green "fees" portion.)
 
-USING HYPERFUNCTION
-
 ### How does block weight affect miner fees?
 You’ve already seen that more transactions in a block mean it’s more expensive
 to mine. Is it the same with block weights? The more transactions a block has,
