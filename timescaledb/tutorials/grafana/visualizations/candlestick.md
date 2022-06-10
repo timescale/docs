@@ -105,7 +105,7 @@ Retrieving this data took about 7+ seconds, over two weeks of data which is prob
       
       <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/15_min.png" alt="Screenshot of the Grafana variable dropdown."/>
 
-  These queries execution took about 6+ seconds, to decrease query execution time to sub-seconds it's suggested to use the timescaledDB continuous aggregates, see our tutorial on [continuous-aggregrate][continuous-aggregrate].
+The query execution took more than 6 seconds. To decrease query execution time to sub-seconds, use continuous aggregates. See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more.
 
 </procedure>
 
