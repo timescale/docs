@@ -77,16 +77,16 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
   1.  Click outside of the query editor, or click the refresh icon to 
       update the Grafana chart.
 
-  1.  Select the candlestick as your visualization type
+  1.  Select "candlestick" as your visualization type:
       
-      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_visualization.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Candlestick' shows as a visualization type."/>
+       <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_visualization.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Candlestick' shows as a visualization type."/>
 
   1.  Grafana turns the query into a candlestick chart that 
       looks like this:
 
-      <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/1_min.png" alt="Screenshot of a candlestick chart in Grafana, showing the price distribution of $AMZN."/>
+       <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/1_min.png" alt="Screenshot of a candlestick chart in Grafana, showing the price distribution of $AMZN."/>
 
-      In this first example, we set the $bucket_interval to 1-min, you can see the price of AMZN ranges between $2120 and $2200. This chart uses hyperfunctions to query the `stock_real_time` table, with a bucket interval of 1 minute. 
+       In this first example, we set the $bucket_interval to 1-min, you can see the price of AMZN ranges between $2120 and $2200. This chart uses hyperfunctions to query the `stock_real_time` table, with a bucket interval of 1 minute. 
 
 </procedure>
 
