@@ -298,6 +298,7 @@ select *
     where 
             start_time >= now() - interval '30 minutes'
         and span_tags -> 'pwlen' = '25'
+    limit 50
 
 ```
 
