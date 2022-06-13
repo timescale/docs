@@ -122,12 +122,13 @@ requirements.
 </highlight>
 
 ## Limitations
-The labels API (/api/v1/labels) does not currently respect the
-`-multi-tenancy-valid-tenants` setting and returns data for all labels across
-all tenants. The main impact you will experience is that when writing PromQL 
-queries in Grafana, matching label names and values across all tenants will 
-be returned by the autocomplete feature. Other data like series and samples
-will only be returned in they belong to the configured tenants.
+
+Currently, the `labels` API (/api/v1/labels) returns data for all labels across
+all tenants even if you have configured `-multi-tenancy-valid-tenants`. Thus,
+when writing PromQL queries in Grafana, matching label names and values across
+all tenants are returned by the autocomplete feature. However, other data such
+as series and samples are returned only if they belong to the configured
+tenants.
 
 [This Github issue][labels-issue] tracks resolution for this problem and is
 currently in our backlog. Leave a comment in the issue if you are interested in
