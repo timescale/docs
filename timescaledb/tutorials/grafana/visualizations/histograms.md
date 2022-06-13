@@ -65,7 +65,6 @@ The examples in this section use these variables and Grafana functions:
   Grafana variables. You change the values of these variables by
   using the dashboard's date chooser when viewing your graph.
 
-
 ## Create a price/transaction histogram with raw data
 A common histogram for evaluating stock trade data is a price/transaction volume
 histogram. This shows the number of trades occurring at a
@@ -83,7 +82,7 @@ transactions data from the `stocks_real_time` hypertable.
         price
     FROM stocks_real_time srt
     WHERE symbol = '$symbol'
-        AND time >= $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
+        AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
     ORDER BY time;
     ```
 
@@ -140,9 +139,10 @@ This uses a lot of CPU, memory, and network bandwidth. In extreme cases, Grafana
 will show you the message: 
 `Results have been limited to 1000000 because the SQL row limit was reached`
 
-This means Grafana has decided not to display all rows returned by the query. To solve this problem,
-pre-aggregate the data in your query using TimescaleDB's `time_bucket` function. With `time_bucket`,
-you need to add a new variable called `bucket_interval`.
+This means Grafana has decided not to display all rows returned by the query. To
+solve this problem, pre-aggregate the data in your query using TimescaleDB's 
+`time_bucket` function. With `time_bucket`, you need to add a new variable 
+called `bucket_interval`.
 
 <procedure>
 
@@ -160,11 +160,11 @@ you need to add a new variable called `bucket_interval`.
     the selected interval:
 
     ```sql
-    SELECT time_bucket('$bucket_interval', time) as time,
+    SELECT time_bucket('$bucket_interval', time) AS time,
         AVG(price) avg_price
     FROM stocks_real_time srt
     WHERE symbol = '$symbol'
-        AND time >= $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
+        AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
     GROUP BY time_bucket('$bucket_interval', time);
     ```
 
@@ -206,7 +206,7 @@ selected values, and Grafana buckets them in separate histograms.
         symbol,
         AVG(price) AS avg_price
     FROM stocks_real_time srt
-    WHERE symbol in ($symbol)
+    WHERE symbol IN ($symbol)
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
     GROUP BY time_bucket('$bucket_interval', time), symbol;
     ```
@@ -230,8 +230,8 @@ selected values, and Grafana buckets them in separate histograms.
 
 ## Create a price/volume histogram
 
-Besides transaction price, you can also look at trade volumes. The distribution of
-trade volume shows you how often and how much people are buying a stock.
+Besides transaction price, you can also look at trade volumes. The distribution 
+of trade volume shows you how often and how much people are buying a stock.
 
 The `stocks_real_time` hypertable contains a column with the daily cumulative
 volume. You can use this to calculate the volume of data for each bucket. First,
@@ -259,7 +259,7 @@ You can do this with a pre-aggregation query, using:
         FROM stocks_real_time
         WHERE time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
             AND day_volume IS NOT NULL
-            AND symbol in ($symbol)
+            AND symbol IN ($symbol)
         GROUP BY time_bucket('$bucket_interval', time), symbol
     )
     SELECT TIME,
@@ -275,11 +275,12 @@ You can do this with a pre-aggregation query, using:
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/volume_distribution.png" alt="Screenshot of Grafana histogram showing the stock volume distribution for $AMZN."/>
     
     The plot shows a left-skewed distribution for the AMZN symbol. For many
-    symbols, you might see a distorted distribution, due to outliers representing
-    a few very large volume transactions. There are 2 solutions:
-    1.  Limit your query to transactions with volumes less than a certain threshold.
-    1.  Use a logarithmic scale. Unfortunately these are not yet supported in Grafana
-       histogram panels.
+    symbols, you might see a distorted distribution, due to outliers 
+    representing a few very large volume transactions. There are 2 solutions:
+    1.  Limit your query to transactions with volumes less than a certain 
+        threshold.
+    1.  Use a logarithmic scale. Unfortunately these are not yet supported in 
+        Grafana histogram panels.
 
 </procedure>
 
