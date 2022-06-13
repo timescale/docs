@@ -1,3 +1,11 @@
+---
+title: Drop a hypertable
+topic: hypertables
+section: do
+excerpt: Drop a hypertable from a database
+tags: [drop]
+---
+
 # Drop a hypertable
 Drop a hypertable using a standard PostgreSQL [`DROP TABLE`][postgres-droptable]
 command. This works for both regular and distributed hypertables:

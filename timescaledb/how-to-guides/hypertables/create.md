@@ -1,3 +1,11 @@
+---
+title: Create a hypertable
+topic: hypertables
+section: do
+excerpt: Create a hypertable.
+tags: [create]
+---
+
 # Create hypertables
 After [creating a TimescaleDB database][install], you're ready to create your
 first hypertable. Creating a hypertable is a 2-step process:

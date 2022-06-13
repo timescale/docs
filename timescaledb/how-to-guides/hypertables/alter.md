@@ -1,3 +1,11 @@
+---
+title: Alter a hypertable
+topic: hypertables
+section: do
+excerpt: Alter a hypertable schema
+tags: [columns, alter]
+---
+
 # Alter a hypertable
 You can alter a hypertable, for example to add a column, by using a standard
 [`ALTER TABLE`][postgres-altertable] command. This works for both regular and

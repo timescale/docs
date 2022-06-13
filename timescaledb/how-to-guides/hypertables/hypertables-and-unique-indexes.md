@@ -1,3 +1,12 @@
+---
+title: Create unique indexes on a hypertable
+topic: hypertables
+section: do
+excerpt: Create unique indexes on an existing hypertable. Or, create a hypertable from a table with existing unique indexes.
+keywords: [indexes]
+tags: [create, unique indexes, primary keys, unique constraints]
+---
+
 # Create unique indexes on a hypertable
 Hypertables have some restrictions on unique indexes, caused by partitioning.
 When you create a unique index, it must contain all the partitioning columns of

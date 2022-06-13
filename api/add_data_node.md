@@ -2,6 +2,7 @@
 api_name: add_data_node()
 excerpt: Add a new data node to a multi-node cluster
 license: community
+tags: [multi-node]
 ---
 
 ## add_data_node() <tag type="community">Community</tag>

@@ -1,3 +1,12 @@
+---
+title: Administer a multi-node cluster
+topic: multi-node
+section: do
+excerpt: Set up roles and manage your distributed databases
+keywords: [scaling, distributed hypertables, administration] 
+tags: [cluster, roles, management, schemas, tablespaces] 
+---
+
 # Multi-node administration
 Multi-node TimescaleDB allows you to administer your cluster directly
 from the access node. When your environment is set up, you do not

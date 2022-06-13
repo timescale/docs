@@ -1,3 +1,12 @@
+---
+title: Set up high availability with multi-node
+topic: multi-node
+section: learn
+excerpt: Set up your multi-node cluster for high availability.
+keywords: [scaling, high availability, replication]
+tags: [cluster] 
+---
+
 # High availability with multi-node
 A multi-node installation of TimescaleDB can be made highly available
 by setting up one or more standbys for each node in the cluster, or by 

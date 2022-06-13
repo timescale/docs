@@ -2,6 +2,7 @@
 api_name: create_hypertable()
 excerpt: Create a hypertable
 license: apache
+tags: [hypertables]
 ---
 
 # create_hypertable()

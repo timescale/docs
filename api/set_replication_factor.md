@@ -2,6 +2,7 @@
 api_name: set_replication_factor()
 excerpt: Set the replication factor for a distributed hypertable
 license: community
+tags: [multi-node]
 ---
 
 ## set_replication_factor() <tag type="community">Community</tag>

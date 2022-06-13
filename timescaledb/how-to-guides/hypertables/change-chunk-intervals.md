@@ -1,3 +1,11 @@
+---
+title: Change hypertable chunk intervals
+topic: hypertables
+section: do
+excerpt: Change the length of time spanned by each chunk of a hypertable.
+tags: [chunks]
+---
+
 # Change hypertable chunk intervals
 Adjusting your hypertable chunk interval can improve TimescaleDB performance.
 This applies to both regular and distributed hypertables. For more information,

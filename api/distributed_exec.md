@@ -1,3 +1,10 @@
+---
+api_name: distributed_exec()
+excerpt: Execute a command across all the data nodes of a distributed database.
+license: community
+tags: [multi-node]
+---
+
 ## distributed_exec() <tag type="community">Community</tag>
 
 This procedure is used on an access node to execute a SQL command

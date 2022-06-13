@@ -1,3 +1,11 @@
+---
+title: Multi-node on Timescale Cloud
+product: cloud
+topic: multi-node
+excerpt: Horizontally scale your database with a multi-node cluster on Timescale Cloud.
+keywords: [scaling]
+---
+
 # Multi-node on Timescale Cloud
 If you have a larger workload, you might need more than one TimescaleDB
 instance. TimescaleDB multi-node allows you to run and manage multiple

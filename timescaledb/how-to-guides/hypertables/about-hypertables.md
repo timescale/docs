@@ -1,3 +1,11 @@
+---
+title: About hypertables
+topic: hypertables
+section: learn
+excerpt: Learn how hypertables work in TimescaleDB.
+keywords: [partitioning, chunks] 
+---
+
 # About hypertables
 Hypertables are PostgreSQL tables with special features that make it easy to
 work with time-series data. You interact with them just as you would with

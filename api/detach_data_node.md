@@ -2,6 +2,7 @@
 api_name: detach_data_node()
 excerpt: Detach a data node from one or all hypertables
 license: community
+tags: [multi-node]
 ---
 
 ## detach_data_node() <tag type="community">Community</tag>

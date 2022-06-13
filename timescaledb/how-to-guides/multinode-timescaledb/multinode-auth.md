@@ -1,3 +1,12 @@
+---
+title: Set up multi-node authentication
+topic: multi-node
+section: do
+excerpt: Set up trust, password, or certificate-based authentication on a multi-node cluster.
+keywords: [scaling, distributed hypertables, authentication] 
+tags: [cluster, roles, certificates, SSL] 
+---
+
 # Multi-node authentication
 When you have your instances set up, you need to configure them to accept
 connections from the access node to the data nodes. The authentication mechanism

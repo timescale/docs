@@ -1,3 +1,12 @@
+---
+title: About high availability
+topic: high availability
+section: learn
+excerpt: Learn how availability works in TimescaleDB.
+keywords: [replication] 
+tags: [redundancy, backups, failover]
+---
+
 # High availability (HA)
 High availability (HA) is achieved by increasing redundancy and
 resilience. To increase redundancy, parts of the system are replicated, so that

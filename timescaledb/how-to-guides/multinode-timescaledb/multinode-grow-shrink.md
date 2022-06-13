@@ -1,3 +1,12 @@
+---
+title: Grow or shrink a multi-node cluster
+topic: multi-node
+section: do
+excerpt: Add or remove data nodes from a multi-node cluster.
+keywords: [scaling, distributed hypertables] 
+tags: [cluster, data nodes] 
+---
+
 # Grow and shrink multi-node
 When you are working within a multi-node environment, you might discover that
 you need more or fewer data nodes in your cluster over time. When you create a

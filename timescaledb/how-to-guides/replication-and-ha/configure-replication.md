@@ -1,3 +1,11 @@
+---
+title: Configure replication
+topic: high availability
+section: learn
+excerpt: Set up streaming replication to one or more replicas.
+keywords: [replication] 
+---
+
 # Configure replication
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.

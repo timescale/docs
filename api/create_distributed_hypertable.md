@@ -2,6 +2,7 @@
 api_name: create_distributed_hypertable()
 excerpt: Create a distributed hypertable in a multi-node cluster
 license: community
+tags: [multi-node]
 ---
 
 ## create_distributed_hypertable()  <tag type="community">Community</tag>

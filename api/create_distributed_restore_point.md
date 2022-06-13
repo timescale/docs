@@ -2,6 +2,7 @@
 api_name: create_distributed_restore_point()
 excerpt: Create a consistent restore point for all nodes in a multi-node cluster
 license: community
+tags: [multi-node]
 ---
 
 # create_distributed_restore_point()

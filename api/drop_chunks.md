@@ -1,3 +1,10 @@
+---
+api_name: drop_chunks()
+excerpt: Drop chunks by time range
+license: apache
+tags: [hypertables]
+---
+
 ## drop_chunks()
 
 Removes data chunks whose time range falls completely before (or

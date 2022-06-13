@@ -1,3 +1,12 @@
+---
+title: About multi-node
+topic: multi-node
+section: learn
+excerpt: Learn how multi-node works in TimescaleDB.
+keywords: [scaling, distributed hypertables] 
+tags: [cluster] 
+---
+
 # About multi-node
 If you have a larger petabyte-scale workload, you might need more than
 one TimescaleDB instance. TimescaleDB multi-node allows you to run and

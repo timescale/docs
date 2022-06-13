@@ -1,3 +1,12 @@
+---
+title: Maintain a multi-node cluster
+topic: multi-node
+section: do
+excerpt: Add custom maintenance jobs and view statistics for a multi-node cluster
+keywords: [scaling, maintenance, statistics, jobs] 
+tags: [cluster] 
+---
+
 # Multi-node maintenance tasks
 Various maintenance activities need to be carried out for effective
 upkeep of the distributed multi-node setup. You can use `cron` or

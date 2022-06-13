@@ -1,3 +1,12 @@
+---
+title: Set up multi-node on self-hosted TimescaleDB
+topic: multi-node
+section: do
+excerpt: Set up multi-node on a self-hosted TimescaleDB instance.
+keywords: [scaling, distributed hypertables, self-hosted] 
+tags: [cluster] 
+---
+
 # Set up multi-node on self-hosted TimescaleDB
 To set up multi-node on a self-hosted TimescaleDB instance, you need:
 *   A PostgreSQL instance to act as an access node (AN)

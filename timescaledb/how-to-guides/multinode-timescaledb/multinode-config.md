@@ -1,3 +1,11 @@
+---
+title: Configure a multi-node cluster
+topic: multi-node
+section: do
+excerpt: Configure a multi-node cluster for optimal performance.
+keywords: [scaling, configuration] 
+---
+
 # Multi-node configuration
 In addition to the
 [regular TimescaleDB configuration][timescaledb-configuration], we recommend

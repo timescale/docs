@@ -1,3 +1,12 @@
+---
+title: Service operations - Replicas
+product: cloud
+topic: high availability
+excerpt: Set up replicas for high availability in Timescale Cloud.
+keywords: [replication]
+tags: [failover]
+---
+
 # Service operations - Replicas
 Replicas are up-to-date, running databases that contain the same data as your
 primary database. If your primary database fails, the replica can take over
