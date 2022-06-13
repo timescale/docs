@@ -142,11 +142,12 @@ Below is an example of a simple query on the `event` view:
 select
         service_name,
         span_name,
-        status_message
+        status_message,
+        event_name
     from events
     where
             start_time >= now() - interval'10 minutes'
-        and event_tags -> 'signal' = '"🆘"'
+        and event_tags -> 'level' = '"error"'
 ```
 
 ### 1.2.3. `link` view <a name="para-1-2-3"></a>
