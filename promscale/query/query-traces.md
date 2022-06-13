@@ -158,7 +158,6 @@ select
 
 General notes on the queries:
 - When building timeseries graphs in Grafana, consider using the [`$__interval`](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval) variable provided by Grafana together with TimescaleDB `time_bucket` function.
-- To make the bucketing configurable, we can rely on the `timescaledb` function `time_bucket` and the corresponding Grafana variable [`$bucket_interval`](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/histograms/#prerequisites)
 - We limit the `start_time` using grafana time filter `$__timeFilter`
 
 Bigger windows come at a cost. We don't recommend completely removing `start_time` filters, as it will have significant performance impact.
