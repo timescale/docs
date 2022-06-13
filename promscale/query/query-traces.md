@@ -186,15 +186,14 @@ select
 ```SQL
 select
         time_bucket('$__interval', start_time) as "time",
+        service_name as "Service",
         coalesce(count(*)/date_part('epoch', '$__interval'::interval), 0) as "Request rate"
     from ps_trace.span s
     where
             $__timeFilter(start_time)
-        and (  span_kind = 'server'
-            or parent_span_id is null)
-        and service_name = '${service}'
-    group by 1
-    order by 1
+            and (  span_kind = 'server' or parent_span_id is null )
+    group by 1, 2
+    order by  1, 2
 ```
 
 ## 2.3. Timeseries with average duration per service <a name="para-2-3"></a>
