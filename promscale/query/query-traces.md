@@ -311,6 +311,7 @@ select *
             start_time >= now() - interval '30 minutes'
         and span_tags -> 'pwlen' = '25'
         and resource_tags -> 'telemetry.sdk.name' = '"opentelemetry"'
+    limit 50
 ```
 
 Notice the single **and** double-quoted string `'"opentelemtry"'`. This is an artefact of PostgreSQL's `->` operator returning a `jsonb` and thus expecting a `jsonb` on the right side of the `=`. This can be worked around by using the more appropriate `->>` operator that returns text, but unfortunately that operator is not supported in the current implementation of `tag_map` type. It is planned for a future version of Promscale, so stay tuned!
