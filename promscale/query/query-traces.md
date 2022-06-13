@@ -52,7 +52,7 @@ A single span is a record of the following structure:
 |`dropped_link_count`               | `int4`        | Number of dropped links |
 |`status_code`                      | `enum`        | [Status Code](https://opentelemetry.io/docs/reference/specification/trace/api/#set-status) |
 |`status_message`                   | `text`        | Status message |
-|`instrumentation_lib_name`         | `text`        | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) name |
+|`instrumentation_lib_name`         | `text`        | [Instrumentation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) name |
 |`instrumentation_lib_version`      | `text`        | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) version |
 |`instrumentation_lib_schema_url`   | `text`        | [Instrumenatation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) schema URL |
 |`resource_tags`                    | `tag_map`     | [Resource](https://opentelemetry.io/docs/reference/specification/overview/#resources) tags |
