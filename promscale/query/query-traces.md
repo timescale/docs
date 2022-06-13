@@ -65,7 +65,6 @@ The `tag_map` type is a storage optimization for spans. It can be queried as a r
  - `->` -- get the value for the given key (for example: `span_tags -> 'pwlen'`)
  - `=`  -- value equality for a key (for example: `span_tags -> 'pw_len' = '10'::jsonb`)
  - `!=` -- value inequality for a key (for example: `span_tags -> 'pw_len' != '10'::jsonb`)
-We intend to support optimization for all the operators available for the native PostgreSQL `jsonb` type.
 
 ### 1.1.2. `trace_id` type <a name="para-1-2-3"></a>
 
