@@ -111,7 +111,7 @@ select
 
 ### 1.2.2. `event` view <a name="para-1-2-2"></a>
 
-`event` view provides access to the events and their corresponding spans. Further details on the events can be found [here](https://opentelemetry.io/docs/reference/specification/trace/api/#add-events) and [here](https://opentelemetry.io/docs/concepts/signals/traces/#span-events=).
+`event` view provides access to the events and their corresponding spans. Further details on OpenTelemetry events can be found [here](https://opentelemetry.io/docs/reference/specification/trace/api/#add-events) and [here](https://opentelemetry.io/docs/concepts/signals/traces/#span-events=).
 
 |Name                           | Type          | Description |
 |-------------------------------|---------------|-------------|
