@@ -284,6 +284,7 @@ select
         status_message
     from span
     where start_time >= now() - interval '30 minutes'
+    limit 50
 ```
 Here we limit our query to spans that happened within last 30 minutes. This type of query is far more efficient than those without any filters in the `where` clause, as it allows the optimizer do it's magic, namely eliminating unnecessary [chunks from the hypertable](https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks=) and using indexes to locate rows that satisfy our quals.
 
