@@ -105,7 +105,7 @@ select
     from span
     where
             start_time >= now() - interval '10 minutes'
-        and span_tags -> 'os_name' = '"🐧"'
+        and span_tags -> 'os_name' = '"linux"'
         and span_kind = 'server'
 ```
 
