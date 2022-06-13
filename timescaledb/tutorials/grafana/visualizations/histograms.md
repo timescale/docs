@@ -65,6 +65,10 @@ The examples in this section use these variables and Grafana functions:
   Grafana variables. You change the values of these variables by
   using the dashboard's date chooser when viewing your graph.
 
+Check out the video below for a step-by-step walk through on how to create 
+histograms in Grafana.
+<video url="https://www.youtube-nocookie.com/embed/h1eTIYOFplA"/>
+
 ## Create a price/transaction histogram with raw data
 A common histogram for evaluating stock trade data is a price/transaction volume
 histogram. This shows the number of trades occurring at a
