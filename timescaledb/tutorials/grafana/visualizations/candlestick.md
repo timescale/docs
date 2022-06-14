@@ -95,7 +95,7 @@ Retrieving this data took about 7+ seconds, over two weeks of data which is prob
 
 <procedure>
 
-  With the use of the $bucket_interval variable, we are able to switch intervals. For example, switching to a 15-minute bucket interval gives you this data. 
+  With the use of the `$bucket_interval` variable, we are able to switch intervals. For example, switching to a 15-minute bucket interval gives you this data. 
 
   1.  Switch your bucket interval to 15-min from the dropdown
       
