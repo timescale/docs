@@ -64,7 +64,7 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
       SELECT
           time_bucket($bucket_interval, time) AS time,
           symbol,
-      FIRST(price, time) AS "open",
+          FIRST(price, time) AS "open",
           MAX(price) AS high,
           MIN(price) AS low,
           LAST(price, time) AS "close",
