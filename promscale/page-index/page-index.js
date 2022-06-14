@@ -86,14 +86,33 @@ module.exports = [
             title: "Install Promscale with tobs",
             href: "tobs",
             tags: ["promscale", "install", "analytics", "k8s"],
-            keywords: ["Promscale", "analytics", "Kubernetes,"],
+            keywords: ["Promscale", "analytics", "Kubernetes"],
             relatedPages: [
               "/promscale/:currentVersion:/installation/recomm-guide",
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Install tobs",
           },
+          {
+            title: "Upgrade Promscale",
+            href: "upgrade",
+            tags: ["promscale", "upgrade"],
+            keywords: ["Promscale", "upgrade"],
+            relatedPages: [
+              "/promscale/:currentVersion:/installation",
+              "/promscale/:currentVersion:/installation/recomm-guide",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Upgrade Promscale",
+          },
         ],
+      },
+      {
+        title: "Backup and Restore Promscale",
+        href: "backup-restore",
+        tags: ["promscale", "backup", "restore"],
+        keywords: ["Promscale", "backup", "restore"],
+        excerpt: "Learn how to backup and restore a Promscale database"
       },
       {
         title: "Send data to Promscale",
@@ -277,6 +296,13 @@ module.exports = [
             tags: ['promscale', 'delete', 'metrics'],
             keywords: ['Promscale', 'Prometheus', 'delete'],
             excerpt: 'Delete data in Promscale',
+          },
+          {
+            title: 'Maintenance jobs',
+            href: 'maintenance-jobs',
+            tags: ['promscale', 'maintenance', 'data'],
+            keywords: ['Promscale', 'maintenance', 'data'],
+            excerpt: 'Understand and manage maintenance jobs',
           },
         ],
       },

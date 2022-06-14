@@ -35,25 +35,34 @@ learn more, see the section on
 </highlight>
 
 ### Origin
-Bucket start and end times are calculated based on an origin time. For a
-week-based bucket, `time_bucket` needs some way to determine when to start
-counting weeks. For a day-based bucket, it needs some way to determine when to
-start counting days, and so on. This is done with the `origin` date and time. 
+The origin determines when time buckets start and end. By default, a time bucket
+doesn't start at the earliest timestamp in your data. There is often a more
+logical time. For example, you might collect your first data point at `00:37`,
+but you probably want your daily buckets to start at midnight. Similarly, you
+might collect your first data point on a Wednesday, but you might want your
+weekly buckets calculated from Sunday or Monday.
 
-The default origin for `time_bucket` is January 3, 2000. Counting from the 
-origin, the first possible start date for a two-week time bucket is January 3, 
-2000. The next possible start date is two weeks from then, on January 17, 
-2000, and so on.
+Instead, time is divided into buckets based on intervals from the origin. The
+following diagram shows how, using the example of 2-week buckets. The first
+possible start date for a bucket is `origin`. The next possible start date for a
+bucket is `origin + bucket interval`. If your first timestamp does not fall
+exactly on a possible start date, the immediately preceding start date is used
+for the beginning of the bucket.
+
+<img
+  src="https://s3.amazonaws.com/assets.timescale.com/docs/images/time-bucket-origin.jpg"
+  class="main-content__illustration"
+  alt="Diagram showing how time buckets are calculated from the origin"
+/>
+
+The default origin for `time_bucket` is January 3, 2000. For integer time
+values, the default origin is 0.
 
 For example, say that your data's earliest timestamp is April 24, 2020. If you
 bucket by an interval of two weeks, the first bucket doesn't start on April 24,
 which is a Friday. It doesn't start on April 20, which is the immediately
 preceding Monday. It starts on April 13, because you can get to April 13, 2020,
 by counting in two-week increments from January 3, 2000.
-
-<!-- TODO: insert time bucket origin diagram -->
-
-For integer time values, time buckets align to an origin of 0.
 
 #### Choice of origin
 In TimescaleDB 1.0 and above, the default origin for `time_bucket` is January 3,
