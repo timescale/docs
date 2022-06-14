@@ -30,8 +30,7 @@ topping or bottoming out.
 This tutorial shows you how to:
 
 *   [Create candlestick aggregates with raw data](#create-a-candlestick-with-raw-data)
-*   [Show transaction volume when querying with raw data]
-(#show-transaction-volumes-in-a-candlestick-plot)
+*   [Show transaction volume when querying with raw data](#show-transaction-volumes-in-a-candlestick-plot)
 
 ## Prerequisites
 Before you begin, make sure you have:
