@@ -137,6 +137,10 @@ SELECT pg_size_pretty(before_compression_total_bytes) as "before compression",
 |326 MB            |29 MB            |
 ```
 
+
+<video url="https://www.youtube.com/embed/RR1xayRusBc"></video>
+
+
 ## Next steps
 Your overview of TimescaleDB is almost complete. The final thing to explore is [data retention][data-retention],
 which allows you to drop older raw data from a hypertable quickly without

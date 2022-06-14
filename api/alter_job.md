@@ -33,6 +33,11 @@ other useful statistics for deciding what the new schedule should be.
 |`next_start`|TIMESTAMPTZ|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`|
 |`if_exists`|BOOLEAN|Set to `true `to issue a notice instead of an error if the job does not exist. Defaults to false.|
 
+When a job begins, the `next_start` parameter is set to `infinity`. This
+prevents the job from attempting to be started again while it is running. When
+the job completes, whether or not the job is successful, the parameter is
+automatically updated to the next computed start time.
+
 ### Returns
 
 |Column|Type|Description|
