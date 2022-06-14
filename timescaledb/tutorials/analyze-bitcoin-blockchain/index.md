@@ -1,34 +1,35 @@
 # Analyze the Bitcoin blockchain
-Blockchain data is fundamentally time-series data. In this tutorial we provide
-a step-by-step guide on how to use TimescaleDB for ingesting, storing, and
-analyzing Bitcoin blockchain transactions. Even though this tutorial focuses
-on the Bitcoin network, after completing the steps you will be able to
-apply the same principles and TimescaleDB features to efficiently work with
-any kind of blockchain data, including Etheruem, Solana, and others.
+Blockchain data is time-series data. You can use
+TimescaleDB to ingest, store, and
+analyze data on blockchain transactions. This tutorial focuses
+on Bitcoin analysis, but you can
+apply the same principles and TimescaleDB features on
+any blockchain data. This includes Etheruem, Solana, and others.
 
-This tutorial intends to show you one approach how to Do Your Own Research in
-the blockchain space. This tutorial
-might provide conclusions based on the data but they are only meant to educate
-you about TimescaleDB capabilities and inspire you so you can get a head start
-in your blockchain data journey. If you want to read about the
-conclusions that we made based on
-analyzing 5 years' worth of Bitcoin transactions, we suggest that you should
-read our blog post about that. (LINK WHEN BLOG PUBLISHED)
+<highlight type="note">
+This tutorial shows you one approach to Doing Your Own Research in
+the blockchain space. Any
+conclusions made from the data are illustrative examples only. They're meant to help
+you learn about TimescaleDB features, and to inspire your own
+data analysis and conclusions. To read about the
+conclusions we made from
+analyzing 5 years' worth of Bitcoin transactions,
+see our blog post. (LINK WHEN BLOG PUBLISHED)
+</highlight>
 
-This tutorial has two sections to get you started with blockchain data
-ingestion and analyics in TimescaleDB:
+## What you'll learn
+This tutorial teaches you to ingest and analyze blockchain data
+in TimescaleDB. Follow these two sections to learn how:
 
-* Ingest and query Bitcoin transactions
-* Analyze the blockchain with hyperfunctions
+*   [Ingest and query Bitcoin transactions][ingest-bitcoin]
+*   [Analyze the blockchain with hyperfunctions][analyze-blockchain]
 
 ## Prerequisites
 Before you begin, make sure you have:
-* A TimescaleDB instance running locally or on the cloud. For more information, see [installation options](/install/latest/)
+* A TimescaleDB instance running locally or on the cloud. For more information, see [installation options][install-timescale]
 * [`psql`][psql-install], DBeaver, or any other PostgreSQL client
 
-
-
-
-
-[install-timescale]: /install/latest/
+[analyze-blockchain]: /tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
+[ingest-bitcoin]: /tutorials/analyze-bitcoin-blockchain/ingest-query-btc-transactions/
+[install-timescale]: /install/:currentVersion:/
 [psql-install]: /how-to-guides/connecting/psql
