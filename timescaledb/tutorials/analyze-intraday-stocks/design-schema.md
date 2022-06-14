@@ -33,7 +33,7 @@ CREATE TABLE public.stocks_intraday (
 	price_close double precision NULL,
 	price_low double precision NULL,
 	price_high double precision NULL,
-	trading_volume int NULL,
+	trading_volume int NULL
 );
 ```
 
