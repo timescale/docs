@@ -38,15 +38,15 @@ module.exports = [
           {
             title: 'Ingest and query Bitcoin transactions',
             href: 'ingest-query-btc-transactions',
-        tags: ['bitcoin', 'blockchain', 'analyze', 'learn', 'timescaledb'],
-        keywords: ['bitcoin', 'blockchain', 'tutorial', 'TimescaleDB'],
+            tags: ['bitcoin', 'blockchain', 'analyze', 'learn', 'timescaledb'],
+            keywords: ['bitcoin', 'blockchain', 'tutorial', 'TimescaleDB'],
             excerpt: 'Design schema and ingest Bitcoin blockchain data with TimescaleDB',
           },
           {
             title: 'Analyze the blockchain with hyperfunctions',
             href: 'analyze-blockchain',
-        tags: ['bitcoin', 'blockchain', 'hyperfunctions', 'learn', 'timescaledb'],
-        keywords: ['bitcoin', 'blockchain', 'tutorial', 'TimescaleDB'],
+            tags: ['bitcoin', 'blockchain', 'hyperfunctions', 'learn', 'timescaledb'],
+            keywords: ['bitcoin', 'blockchain', 'tutorial', 'TimescaleDB'],
             excerpt:
               'Use TimescaleDB hyperfunctions for blockchain insights',
           }

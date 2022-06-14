@@ -382,3 +382,4 @@ ORDER BY 1
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
 
 [stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
+[stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/

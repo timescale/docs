@@ -104,7 +104,7 @@ Insert this dataset into your TimescaleDB instance.
     ```
 1. At the `psql` prompt, insert the content of the `.csv` file into the database.
     ```bash
-    psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/tsdb?sslmode=require"
+    psql -x "postgres://tsdbadmin:<YOUR_PASSWORD_HERE>@<YOUR_HOSTNAME_HERE>:<YOUR_PORT_HERE>/tsdb?sslmode=require"
     
     \COPY transactions FROM 'bitcoin_sample.csv' CSV HEADER;
     ```
@@ -112,11 +112,11 @@ Insert this dataset into your TimescaleDB instance.
 
 </procedure>
 
-Once the ingestion finishes, your database has around 1.5M Bitcoin
-transactions in it and you can start making your first queries.
+Once the ingestion finishes, your database contains around 1.5 million Bitcoin
+transactions. Now, you can make your first queries.
 
 ## Query Bitcoin transactions
-Query the five most recent non-coinbase transactions from the database:
+Query for the five most recent non-coinbase transactions:
 
 ```sql
 SELECT time, hash, block_id, weight  FROM transactions 
@@ -136,12 +136,11 @@ time               |hash                                                        
 2022-05-30 01:42:17|429c0d00282645b54bd3c0082800a85d1c952d1764c54dc2a591f97b97c93fbd|  738489|   766|
 
 <highlight type="note">
-A **coinbase transaction** is the first transaction in each block in which the
-miner receives the transaction fees and block reward for the mining work.
+A coinbase transaction is the first transaction in each block. This transaction contains the miner's reward.
 </highlight>
 
-Here's another example query that returns the five most recent blocks and
-stats about them like block weight, transaction count, and value in USD:
+Here's another example query that returns the five most recent blocks, with
+statistics such as block weight, transaction count, and value in USD:
 ```sql
 WITH recent_blocks AS (
 	SELECT block_id FROM transactions 
@@ -170,5 +169,8 @@ block_id|transaction_count|block_weight|block_value_usd   |
   738485|             2602|     3991871| 761258578.3764017|
 
 At this point, you have Bitcoin blockchain data in your database and you've made
-your first SQL queries. Let's dig deeper into the blockchain and use
+your first SQL queries. In the [next section][next-section], dig deeper into the blockchain and use
 TimescaleDB hyperfunctions to generate insights!
+
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[next-section]: /tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
