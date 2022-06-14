@@ -65,8 +65,8 @@ The examples in this section use these variables and Grafana functions:
   Grafana variables. You change the values of these variables by
   using the dashboard's date chooser when viewing your graph.
 
-Check out the video below for a step-by-step walk through on how to create 
-histograms in Grafana.
+Check out this video for a step-by-step walkthrough on creating
+histograms in Grafana:
 <video url="https://www.youtube-nocookie.com/embed/h1eTIYOFplA"/>
 
 ## Create a price/transaction histogram with raw data
@@ -143,8 +143,8 @@ This uses a lot of CPU, memory, and network bandwidth. In extreme cases, Grafana
 will show you the message: 
 `Results have been limited to 1000000 because the SQL row limit was reached`
 
-This means Grafana has decided not to display all rows returned by the query. To
-solve this problem, pre-aggregate the data in your query using TimescaleDB's 
+This means Grafana is not displaying all rows returned by the query. To
+solve this problem, pre-aggregate the data in your query using the TimescaleDB
 `time_bucket` function. With `time_bucket`, you need to add a new variable 
 called `bucket_interval`.
 
@@ -281,9 +281,9 @@ You can do this with a pre-aggregation query, using:
     The plot shows a left-skewed distribution for the AMZN symbol. For many
     symbols, you might see a distorted distribution, due to outliers 
     representing a few very large volume transactions. There are 2 solutions:
-    1.  Limit your query to transactions with volumes less than a certain 
+    *  Limit your query to transactions with volumes less than a certain 
         threshold.
-    1.  Use a logarithmic scale. Unfortunately these are not yet supported in 
+    *  Use a logarithmic scale. Unfortunately these are not yet supported in 
         Grafana histogram panels.
 
 </procedure>
