@@ -112,3 +112,6 @@ policies, see the [Data Retention docs][data-retention].
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/
 [retention-policy]: /api/:currentVersion:/data-retention/add_retention_policy/
+
+
+<video url="https://www.youtube.com/embed/BJRIntSAmHM"></video>

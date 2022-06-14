@@ -72,6 +72,8 @@ and eventually send historical readings once they are reconnected.
 
 </procedure>
 
+<video url="https://www.youtube.com/embed/WObBOJlCYVs"></video>
+
 ## Next steps
 Now that you have a continuous aggregate set up and refreshing automatically,
 see how TimescaleDB can save you up to 96% on storage costs while speeding up
