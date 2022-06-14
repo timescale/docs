@@ -99,6 +99,8 @@ there is one other table of data called `company`.
 
 </procedure>
 
+<video url="https://www.youtube.com/embed/MpMw7yIjauI"></video>
+
 ## Next steps
 Ingest some sample stock trade data into TimescaleDB. The next section, ['Add time-series data'][add-data],
 shows you how to populate the tables you just created.

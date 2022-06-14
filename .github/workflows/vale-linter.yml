@@ -11,10 +11,8 @@ jobs:
     - name: Vale
       uses: errata-ai/vale-action@v2
       with:
-        onlyAnnotateModifiedLines: true
-        # config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
-        # styles: |
-        #   https://github.com/errata-ai/Google/releases/latest/download/Google.zip
+        reporter: github-pr-check
+        filter_mode: added
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       continue-on-error: true
