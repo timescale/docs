@@ -291,7 +291,7 @@ module.exports = [
         ],
       },
       {
-        title: "Ingest data from third-party sources"
+        title: "Ingest data from other sources"
         href: "ingest-data",
         children: [
           {
