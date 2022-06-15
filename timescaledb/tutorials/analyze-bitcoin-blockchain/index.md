@@ -14,7 +14,7 @@ you learn about TimescaleDB features, and to inspire your own
 data analysis and conclusions. To read about the
 conclusions we made from
 analyzing 5 years' worth of Bitcoin transactions,
-see our blog post. (LINK WHEN BLOG PUBLISHED)
+[see our blog post](https://www.timescale.com/blog/analyzing-the-bitcoin-blockchain-looking-behind-the-hype-with-postgresql/).
 </highlight>
 
 ## What you'll learn
