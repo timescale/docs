@@ -165,5 +165,5 @@ all the [Grafana tutorials][grafana-tutorials].
 [max]: https://www.postgresql.org/docs/current/tutorial-agg.html
 [lag]: https://www.postgresql.org/docs/current/functions-window.html
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[variables-tutorial]: https://www.youtube.com/watch?v=Fq9xsvHPsSQ
+[variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ
 [continuous-aggregrate]: /tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
