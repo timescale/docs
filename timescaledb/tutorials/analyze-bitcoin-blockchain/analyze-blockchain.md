@@ -184,12 +184,12 @@ transactions, blocks, and miner revenue. For each question,
 you get a relevant SQL query and a chart that answers the question.
 
 **Questions**
-* Is there any connection between the number of transactions and the transaction fees?
-* Does the transaction volume affect the BTC-USD rate?
-* Do more transactions in a block mean the block is more expensive to mine?
-* What percentage of the average miner's revenue comes from fees vs. block rewards?
-* How does block weight affect miner fees?
-* What’s the average miner revenue per block?
+* [Is there any connection between the number of transactions and the transaction fees?](#is-there-any-connection-between-the-number-of-transactions-and-the-transaction-fees)
+* [Does the transaction volume affect the BTC-USD rate?](#does-the-transaction-volume-affect-the-btc-usd-rate)
+* [Do more transactions in a block mean the block is more expensive to mine?](#do-more-transactions-in-a-block-mean-the-block-is-more-expensive-to-mine)
+* [What percentage of the average miner's revenue comes from fees vs. block rewards?](#what-percentage-of-the-average-miners-revenue-comes-from-fees-compared-to-block-rewards)
+* [How does block weight affect miner fees?](#how-does-block-weight-affect-miner-fees)
+* [What’s the average miner revenue per block?](#whats-the-average-miner-revenue-per-block)
 
 
 ### Is there any connection between the number of transactions and the transaction fees?
