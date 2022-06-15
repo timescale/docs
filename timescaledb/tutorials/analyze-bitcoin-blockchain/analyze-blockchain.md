@@ -35,7 +35,7 @@ Enable Toolkit extension:
 CREATE EXTENSION timescaledb_toolkit;
 ```
 
-YOu have everything now to create the continuous aggregates and start analyzing!
+You have everything now to create the continuous aggregates and start analyzing!
 
 ### Continuous aggregate: transactions
 Create a continuous aggregate called `one_hour_transactions`. This view holds
