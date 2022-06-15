@@ -374,11 +374,10 @@ and increase the time range:
 ```sql
 SELECT
    bucket as "time",
-   average_y(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '7 days' PRECEDING))*0.00000001 AS "revenue in BTC",
-   average_x(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '7 days' PRECEDING)) AS "revenue in USD"
-FROM coinbase_one_day
-WHERE
- bucket > NOW() - INTERVAL '5 day'
+   average_y(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '12 hours' PRECEDING))*0.00000001 AS "revenue in BTC",
+    average_x(rolling(stats_miner_revenue) OVER (ORDER BY bucket RANGE '12 hours' PRECEDING)) AS "revenue in USD"
+FROM one_hour_coinbase
+WHERE bucket > NOW() - INTERVAL '1 day'
 ORDER BY 1
 ```
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
