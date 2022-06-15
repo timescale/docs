@@ -1,17 +1,35 @@
 # Analyze the blockchain with hyperfunctions
-In this section, analyze Bitcoin
-transactions with SQL in different ways. Before you start analysis, create
-continuous aggregates for better query performance.
+In this section, analyze Bitcoin transactions with SQL in different ways.
+See how hyperfunctions and continuous aggregates can make it easier to query
+and analyze blockchain data.
+
+## Hyperfunctions for simplified statistical queries
+In some of the following queries you can find custom SQL functions that are
+not part of vanilla PostgreSQL. These queries are TimescaleDB
+[hyperfunctions][docs-hyperfunctions] and they are
+either part of the TimescaleDB extension or the Toolkit extension.
+Hyperfunctions is a series of SQL functions that make it easier to manipulate
+and analyze time-series data in PostgreSQL. You need to
+[install and enable the Toolkit extension][install-toolkit] to be able to use
+the whole set of hyperfunctions and successfully run the following queries.
+
+After installing the extension, enable it:
+```sql
+CREATE EXTENSION timescaledb_toolkit;
+```
+
+Now set up a few continuous aggregates for faster and simplifed analysis.
 
 ## Continuous aggregates for blockchain analytics
-Continuous aggregates are materialized views for time-series data. They make
+[Continuous aggregates][docs-cagg] are materialized views for time-series data.
+They make
 queries faster by continuously materializing aggregated data. At the same
-time, they provide real-time results. That means they include the latest data from the
-underlying hypertable.
+time, they provide real-time results. That means they include the latest data
+from the underlying hypertable.
 
 By using continuous aggregates, you simplify and speed up your queries.
 
-In this tutorial, you learn to create three continuous aggregates, focusing
+In this tutorial, you create three continuous aggregates, focusing
 on three aspects of the dataset:
 * Bitcoin transactions
 * Bitcoin blocks
@@ -22,20 +40,6 @@ of transactions: over 10,000 per hour.
 
 In this section, you also learn how to keep your continuous
 aggregate views up-to-date with automatic refresh policies.
-
-## Hyperfunctions for simplified statistical queries
-In the following queries you can find custom SQL functions that are not part of
-vanilla PostgreSQL. These queries are TimescaleDB hyperfunctions and they are
-either part of the TimescaleDB extension or the Toolkit extension. You need to
-install and enable the Toolkit extension to successfully run the following
-queries.
-
-Enable Toolkit extension:
-```sql
-CREATE EXTENSION timescaledb_toolkit;
-```
-
-You have everything now to create the continuous aggregates and start analyzing!
 
 ### Continuous aggregate: transactions
 Create a continuous aggregate called `one_hour_transactions`. This view holds
@@ -380,4 +384,6 @@ ORDER BY 1
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
 
 [stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
-[stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
+[install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit/
+[docs-hyperfunctions]: /how-to-guides/hyperfunctions/
+[docs-cagg]: /how-to-guides/continuous-aggregates/
