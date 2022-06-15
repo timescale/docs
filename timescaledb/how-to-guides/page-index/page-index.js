@@ -291,11 +291,45 @@ module.exports = [
         ],
       },
       {
-        title: "Ingest data from other sources",
+        title: "Ingest data from third-party sources"
         href: "ingest-data",
-        tags: ["ingest", "data", "timescaledb"],
-        keywords: ["ingest", "timescaledb"],
-        excerpt: "Ingest data into TimescaleDB",
+        children: [
+          {
+            title: "About ingesting data"
+            href: "about-ingesting"
+            tags: ["ingest", "data", "timescaledb"],
+            keywords: ["ingest", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from third-party sources",
+          },
+          {
+            title: "Ingesting data with Prometheus"
+            href: "ingest-prometheus"
+            tags: ["ingest", "data", "prometheus", "promscale", "timescaledb"],
+            keywords: ["ingest", "promscale", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from Prometheus",
+          },
+          {
+            title: "Ingesting data with Kafka"
+            href: "ingest-kafka"
+            tags: ["ingest", "data", "kafka", "timescaledb"],
+            keywords: ["ingest", "kafka", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from Kafka",
+          },
+          {
+            title: "Ingesting data with Telegraf"
+            href: "ingest-telegraf"
+            tags: ["ingest", "data", "telegraf", "timescaledb"],
+            keywords: ["ingest", "telegraf", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from Telegraf",
+          },
+          {
+            title: "Ingesting data with TimescaleDB parallel copy"
+            href: "ingest-parallel-copy"
+            tags: ["ingest", "data", "timescaledb"],
+            keywords: ["ingest", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB using parallel copy",
+          },
+        ],
       },
       {
         href: "query-data",
