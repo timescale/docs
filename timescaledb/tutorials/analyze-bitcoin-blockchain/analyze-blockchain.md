@@ -234,9 +234,8 @@ Next, get block-level insights by analyzing the connection
 between transactions and blocks.
 
 ### Do more transactions in a block mean the block is more expensive to mine?
-For someone who is not an expert on how the Bitcoin blockchain works, it might be a
-difficult question to answer. So let’s ask the data and see if it’s true.
-For this kind of analysis, you might want to look at a larger time frame.
+See how the number of transactions in a block influences the overall block
+mining fee. For this analysis, you might want to look at a larger time frame.
 Change the analyzed time range to the last five days.
 
 ```sql
