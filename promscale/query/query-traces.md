@@ -43,7 +43,7 @@ A single span is a record of the following structure:
 |`span_kind`                        | `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
 |`start_time`                       | `timestamptz` | Start date and time of the span |
 |`end_time`                         | `timestamptz` | End date and time of the span|
-|`time_range`                       | `tstzrange`   | A tstzrange representation of Start and End times of the span |
+|`time_range`                       | `tstzrange`   | A [`tstzrange`](https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-BUILTIN) representation of Start and End times of the span |
 |`duration_ms`                      | `float8`      | Duration of the span in milliseconds |
 |`span_tags`                        | `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
 |`dropped_tags_count`               | `int4`        | Number of dropped tags |
@@ -107,6 +107,7 @@ select
             start_time >= now() - interval '10 minutes'
         and span_tags -> 'os_name' = '"linux"'
         and span_kind = 'server'
+    limit 50
 ```
 
 ### 1.2.2. `event` view <a name="para-1-2-2"></a>
@@ -127,7 +128,7 @@ select
 | `span_kind`                   | `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
 | `span_start_time`             | `timestamptz` | Start date and time of the span |
 | `span_end_time`               | `timestamptz` | End date and time of the span|
-| `span_time_range`             | `tstzrange`   | A tstzrange representation of Start and End times of the span |
+| `span_time_range`             | `tstzrange`   | A [`tstzrange`](https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-BUILTIN) representation of Start and End times of the span |
 | `span_duration_ms`            | `float8`      | Duration of the span in milliseconds |
 | `span_tags`                   | `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
 | `dropped_span_tags_count`     | `integer`     | Number of dropped span tags |
@@ -142,23 +143,33 @@ Below is an example of a simple query on the `event` view:
 select
         service_name,
         span_name,
-        status_message,
-        event_name
+        status_message
     from events
     where
-            start_time >= now() - interval'10 minutes'
+            start_time >= now() - interval '10 minutes'
         and event_tags -> 'level' = '"error"'
+    limit 50
 ```
 
 ### 1.2.3. `link` view <a name="para-1-2-3"></a>
 
-!TODO: Find docs on linked_spans
+
+`link` view provides a convenient interface for viewing spans originating from the same trace. It is essentially a representation of two related spans and some extra info regarding the relationship between them. More info regarding linked tags can be found [here](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md#links-between-spans=).
+
+Below we provide a table of columns that are added by the `link` view which weren't covered in the [`span` view seciton](#para-1-2-1):
+
+|Name                           | Type          | Description |
+|-------------------------------|---------------|-------------|
+|link_tags                      | `tag_map`     | Link tags   |
+|dropped_link_tags_count        | `integer`     | Number of dropped link tags |
+
 
 # 2. Examples of SQL queries <a name="para-2"></a>
 
 General notes on the queries:
-- When building timeseries graphs in Grafana, consider using the [`$__interval`](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval) variable provided by Grafana together with TimescaleDB `time_bucket` function.
-- We limit the `start_time` using Grafana's  variable `$__timeFilter`
+- When building time series graphs in Grafana, use the [`$__interval`](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval) variable provided by Grafana
+- To make the bucketing configurable, use the TimescaleDB `time_bucket` function, and the corresponding Grafana variable [`$bucket_interval`](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/histograms/#prerequisites)
+- Limit the `start_time` using Grafana time filter `$__timeFilter`.
 
 Bigger windows come at a cost. We don't recommend completely removing `start_time` filters, as it could have a significant performance impact since it will search across all spans in the database.
 
@@ -186,19 +197,18 @@ select
 ```SQL
 select
         time_bucket('$__interval', start_time) as "time",
-        service_name as "Service",
         coalesce(count(*)/date_part('epoch', '$__interval'::interval), 0) as "Request rate"
     from ps_trace.span s
     where
             $__timeFilter(start_time)
-            and (  span_kind = 'server' or parent_span_id is null )
-    group by 1, 2
-    order by  1, 2
+        and (  span_kind = 'server'
+            or parent_span_id is null)
+        and service_name = '${service}'
+    group by 1
+    order by 1
 ```
 
 ## 2.3. Timeseries with average duration per service <a name="para-2-3"></a>
-
-!TODO: Make sure this is the query
 
 ```SQL
 select
@@ -302,7 +312,7 @@ select *
 
 ```
 
-Here we are limiting our scope to spans within last 30 minutes that have a span tag `pwlen` with exact value `25`. We can specify as many of these as we want combining them with logical operations:
+Here we are limiting our scope to spans within last 30 minutes that have a tag `pwlen` with exact value `25`. We can specify as many of these as we want combining them with logical operations:
 
 ```SQL
 select *
@@ -314,7 +324,7 @@ select *
     limit 50
 ```
 
-Notice the single **and** double-quoted string `'"opentelemtry"'`. This is an artefact of PostgreSQL's `->` operator returning a `jsonb` and thus expecting a `jsonb` on the right side of the `=`. This can be worked around by using the more appropriate `->>` operator that returns text, but unfortunately that operator is not supported in the current implementation of `tag_map` type. It is planned for a future version of Promscale, so stay tuned!
+Notice the single **and** double-quoted string `'"opentelemtry"'`. This is an artefact of PostgreSQL's `->` operator returning a `jsonb` and thus expecting a `jsonb` on the right side of the `=`. This can be worked around by using the more appropriate `->>` operator that returns text, but unfortunately that operator is not supported in the current implementation of `tag_map` type. It is planned for Promscale 1.0.0, so stay tuned!
 
 
 ## 3.3. Joins <a name="para-3-3"></a>
@@ -343,6 +353,7 @@ select
     group by 1
     order by 1
 ```
+
 There's quite a bit going on in this query, so lets break it down.
 First lets have a look at our metric table and its filters:
 
@@ -371,44 +382,12 @@ select
         count(*)                                as "cnt"
     from span
     where 
-            start_time >= now() - interval'1 day'
+            start_time >= now() - interval '1 day'
         and service_name = '${service}'
     group by 1, 2
 ```
 
 Here we use group by both time and the `pwlen` field of the `span_tags` column using their position in the `select` list. `count(*)` in this case is an [aggregate function](https://www.postgresql.org/docs/current/functions-aggregate.html) that counts the number of rows in the group, in our case a 30-minute window with the same value of `pwlen` field.
-
-Now we can build a more complicated query using both techniques. Lets see how error rate correlates with the memory usage:
-
-```SQL
-with joined as
-(
-    select
-            time_bucket('30 minutes', span.start_time)  as "time",
-            max(mem.value)::float8                      as "max_mem",
-            count(trace_id)::float8                     as "num_errors"
-        from container_memory_working_set_bytes as mem
-            left join span on 
-                    time_bucket('30 minutes', span.start_time) = time_bucket('30 minutes', mem.time)
-                and span.status_code = 'error'
-                and span.service_name = 'my_service'
-                and span.span_tags -> 'container_name' = '"my_container"'
-        where 
-                mem.value != 'NaN'
-            and mem.time >= now() - interval '1 week'
-            and span.start_time >= now() - interval '1 week'
-            and mem.container = 'my_container'
-            and mem.instance = 42
-        group by 1
-        order by 1
-)
-select 
-        corr(max_mem, num_errors) as correlation_factor
-    from joined
-```
-
-First we've put our [join-query from above](#para-3-3) into a [CTE](https://www.postgresql.org/docs/current/queries-with.html) to improve the readability. This is necessary because PostgreSQL doesn't allow to use nested aggregate functions, thus we need to use a subquery to do what we intended here. We've also added type casts because the `corr` aggregate function expects `float8` (`double precision`) values.
-
 
 ## 3.5. Sorting <a name="para-3-5"></a>
 
@@ -419,8 +398,9 @@ For example:
 ```SQL
 select * 
     from span
-    where start_time >= now() - interval'1 hour'
+    where start_time >= now() - interval '1 hour'
     order by span_tags -> 'pwlen'
+    limit 50
 ```
 
 The output will be sorted based on the value **and type** of `pwlen` 
