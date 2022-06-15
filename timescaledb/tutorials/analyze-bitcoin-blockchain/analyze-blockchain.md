@@ -366,7 +366,6 @@ WHERE bucket > NOW() - INTERVAL '1 day'
 ORDER BY 1
 ```
 ![Average miner revenue per block, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block.png)
-(THIS CHART NEEDS AN UPDATE - larger time frame?)
 
 To make the chart more interesting, add the BTC-USD rate to the analysis
 and increase the time range:
