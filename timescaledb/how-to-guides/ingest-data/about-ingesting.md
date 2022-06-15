@@ -1,4 +1,4 @@
-# Ingesting data
+# Ingesting data from other sources
 By default, TimescaleDB supports standard SQL inserts. Additionally, you can use
 third party tools to build data ingest pipelines. A data ingest pipeline can
 increase your data ingest rates by using batch writes, instead of inserting data

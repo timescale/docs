@@ -295,7 +295,7 @@ module.exports = [
         href: "ingest-data",
         children: [
           {
-            title: "About ingesting data",
+            title: "About ingesting data from other sources",
             href: "about-ingesting",
             tags: ["ingest", "data", "timescaledb"],
             keywords: ["ingest", "timescaledb"],
