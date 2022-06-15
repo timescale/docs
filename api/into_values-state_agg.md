@@ -1,5 +1,8 @@
 ---
-api_name: into_values
+api_name: into_values()
+excerpt: Calculate all state durations from a state aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

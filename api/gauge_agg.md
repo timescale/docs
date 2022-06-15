@@ -1,5 +1,8 @@
 ---
-api_name: gauge_agg
+api_name: gauge_agg()
+excerpt: Aggregate gauge data into a `GaugeSummary` for further analysis
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

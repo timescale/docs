@@ -1,5 +1,8 @@
 ---
-api_name: 'variance | variance_y | variance_x'
+api_name: 'variance() | variance_y() | variance_x()'
+excerpt: Calculate the variance of values from a statistical aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

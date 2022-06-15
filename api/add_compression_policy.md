@@ -1,3 +1,9 @@
+---
+api_name: add_compression_policy()
+excerpt: Add policy to schedule automatic compression of chunks
+license: community
+---
+
 # add_compression_policy() <tag type="community" content="community" />
 Allows you to set a policy by which the system compresses a chunk
 automatically in the background after it reaches a given age.

@@ -1,3 +1,9 @@
+---
+api_name: add_reorder_policy()
+excerpt: Add a policy to reorder rows in hypertable chunks
+license: community
+---
+
 ## add_reorder_policy() <tag type="community">Community</tag>
 Create a policy to reorder chunks on a given hypertable index in the
 background. (See [reorder_chunk](/hypertable/reorder_chunk)). Only one reorder policy may

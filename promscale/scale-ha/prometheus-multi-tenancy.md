@@ -120,3 +120,16 @@ If you are querying multiple Promscale instances, you can configure individual
 instances to selectively authorize any valid tenant for queries, based on your
 requirements.
 </highlight>
+
+## Limitations
+
+Currently, the `labels` API (/api/v1/labels) returns data for all labels across
+all tenants even if you have configured `-multi-tenancy-valid-tenants`. Thus,
+when writing PromQL queries in Grafana, matching label names and values across
+all tenants are returned by the autocomplete feature. However, other data such
+as series and samples are returned only if they belong to the configured
+tenants.
+
+[This Github issue][labels-issue] tracks resolution for this problem and is
+currently in our backlog. Leave a comment in the issue if you are interested in
+this improvement.

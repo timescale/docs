@@ -1,3 +1,9 @@
+---
+api_name: move_chunk()
+excerpt: Move a chunk and its indexes to a different tablespace
+license: community
+---
+
 ## move_chunk() <tag type="community">Community</tag>
 TimescaleDB allows you to move data and indexes to different tablespaces. This
 allows you to move data to more cost-effective storage as it ages.

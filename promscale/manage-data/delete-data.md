@@ -93,7 +93,7 @@ For example, to delete all data from the `container_cpu_load_average_10s` metric
 that is older than 10 hours, decompress all chunks
 related to the hypertable of the metric:
 ```sql
-SELECT decompress_chunks(show_chunks('prom_data.container_cpu_load_average_10s'));
+SELECT decompress_chunk(show_chunks('prom_data.container_cpu_load_average_10s'));
 ```
 
 Then, perform the deletion query:
@@ -106,7 +106,7 @@ in the `WHERE` clause of the `DELETE` query.
 
 Now, recompress the remaining data:
 ```sql
-SELECT compress_chunks(show_chunks('prom_data.container_cpu_load_average_10s', older_than => '2 hours'));
+SELECT compress_chunk(show_chunks('prom_data.container_cpu_load_average_10s', older_than => '2 hours'));
 ```
 
 ## Delete trace data

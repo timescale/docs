@@ -188,3 +188,19 @@ dev=# select * FROM (select time_bucket_gapfill(4, time,-5,13), locf(avg(v)::int
                   -8 |
 (6 rows)
 ```
+
+## Cannot refresh compressed chunks of a continuous aggregate
+Compressed chunks of a continuous aggregate can't be refreshed. This follows
+from a general limitation where compressed chunks can't be updated or deleted.
+
+If you try to refresh the compressed regions, you get this error:
+```
+ERROR:  cannot update/delete rows from chunk <CHUNK_NAME> as it is compressed
+```
+
+If you receive historical data and must refresh a compressed region, first
+[decompress the chunk][decompression]. Then manually run
+[`refresh_continuous_aggregate`][refresh_continuous_aggregate].
+
+[decompression]: /how-to-guides/compression/decompress-chunks/
+[refresh_continuous_aggregate]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/

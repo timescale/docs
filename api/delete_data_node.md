@@ -1,3 +1,9 @@
+---
+api_name: delete_data_node()
+excerpt: Remove a data node from a database and detach it from all hypertables
+license: community
+---
+
 ## delete_data_node() <tag type="community">Community</tag>
 
 This function is executed on an access node to remove a data

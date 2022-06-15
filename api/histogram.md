@@ -1,3 +1,9 @@
+---
+api_name: histogram()
+excerpt: Partition the dataset into buckets and get the number of counts in each bucket
+license: apache
+---
+
 ## histogram() 
 
 The `histogram()` function represents the distribution of a set of

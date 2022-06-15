@@ -1,3 +1,9 @@
+---
+api_name: delete_job()
+excerpt: Delete a job from the automatic scheduler
+license: community
+---
+
 ## delete_job() <tag type="community">Community</tag>
 
 Delete a job registered with the automation framework.

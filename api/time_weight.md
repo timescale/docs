@@ -1,5 +1,8 @@
 ---
-api_name: time_weight
+api_name: time_weight()
+excerpt: Aggregate data in a `TimeWeightSummary` for further time-weighted analysis
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

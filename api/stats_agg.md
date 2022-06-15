@@ -1,5 +1,8 @@
 ---
-api_name: stats_agg
+api_name: stats_agg()
+excerpt: Aggregate statistical data into a statistical aggregate for further analysis
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -1,5 +1,8 @@
 ---
-api_name: min_val
+api_name: min_val()
+excerpt: Calculate the minimum from values in a `tdigest`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

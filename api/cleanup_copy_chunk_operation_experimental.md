@@ -1,3 +1,9 @@
+---
+api_name: cleanup_copy_chunk_operation()
+excerpt: Clean up after a failed chunk move or chunk copy operation
+license: community
+---
+
 ## cleanup_copy_chunk_operation() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
 You can [copy][copy_chunk] or [move][move_chunk] a
 chunk to a new location within a multi-node environment. The

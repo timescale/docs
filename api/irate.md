@@ -1,5 +1,8 @@
 ---
-api_name: 'irate_left | irate_right'
+api_name: 'irate_left() | irate_right()'
+excerpt: Calculate the instantaneous rate of change from values in a `CounterSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

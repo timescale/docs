@@ -1,5 +1,8 @@
 ---
-api_name: corr
+api_name: corr()
+excerpt: Calculate the correlation coefficient from values in a 2-dimensional `StatsSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

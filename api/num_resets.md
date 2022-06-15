@@ -1,5 +1,8 @@
 ---
-api_name: num_resets
+api_name: num_resets()
+excerpt: Calculate the total number of times a counter is reset
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

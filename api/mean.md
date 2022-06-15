@@ -1,5 +1,8 @@
 ---
-api_name: mean
+api_name: mean()
+excerpt: Calculate the mean from values in a percentile aggregate
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
