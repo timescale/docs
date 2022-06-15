@@ -29,6 +29,13 @@ Before you begin, make sure you have:
 * A TimescaleDB instance running locally or on the cloud. For more information, see [installation options][install-timescale]
 * [`psql`][psql-install], DBeaver, or any other PostgreSQL client
 
+<highlight type="note">
+The easiest way to get a new TimescaleDB instance up and running and complete
+this tutorial is to 
+[sign up for a free Timescale Cloud account]((https://www.timescale.com/timescale-signup/))
+(no credit card required).
+</highlight>
+
 [analyze-blockchain]: /tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
 [ingest-bitcoin]: /tutorials/analyze-bitcoin-blockchain/ingest-query-btc-transactions/
 [install-timescale]: /install/:currentVersion:/
