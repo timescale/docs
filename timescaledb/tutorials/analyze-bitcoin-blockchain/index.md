@@ -32,7 +32,7 @@ Before you begin, make sure you have:
 <highlight type="note">
 The easiest way to get a new TimescaleDB instance up and running and complete
 this tutorial is to 
-[sign up for a free Timescale Cloud account]((https://www.timescale.com/timescale-signup/))
+[sign up for a free Timescale Cloud account](https://www.timescale.com/timescale-signup/)
 (no credit card required).
 </highlight>
 
