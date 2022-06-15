@@ -301,7 +301,6 @@ GROUP BY bucket
 ORDER BY 1;
 ```
 ![Line graph with two lines showing the average fee and block reward, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/revenue_ratio.png)
-(THIS CHART NEEDS AN UPDATE)
 
 This chart analyzes the last five days of average miner revenue. The left
 axis shows the percentage of total revenue that
