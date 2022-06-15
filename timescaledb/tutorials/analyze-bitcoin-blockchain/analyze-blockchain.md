@@ -348,7 +348,7 @@ ORDER BY 1
 
 You can see that the block weight and block mining fee are indeed tightly
 connected to each other. In practice, you can also see that four million
-weight units are the size limit introduced in the 2017’s SegWit update.
+weight units is the size limit introduced in the 2017 SegWit update.
 This means that, looking at this graph, there’s still room to grow for
 individual blocks, and they could include even more transactions.
 
