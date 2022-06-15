@@ -56,7 +56,7 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
 <procedure>
 
-### Create a candlestick with raw data
+### Creating a candlestick with raw data
 
   1.  In the query editor, use this SQL to query a Candlestick dataset. Use the variable `$bucket interval`
       for the time period covered by each candlestick.
