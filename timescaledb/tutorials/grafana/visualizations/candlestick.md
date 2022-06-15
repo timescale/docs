@@ -26,7 +26,6 @@ patterns in the changing price of an asset. For example, you can tell whether an
 asset is entering bullish or bearish territory, or whether its market activity is
 topping or bottoming out.
 
-## What you will learn
 This tutorial shows you how to:
 
 *   [Create candlestick aggregates with raw data](#create-a-candlestick-with-raw-data)
