@@ -118,7 +118,7 @@ select
 |-------------------------------|---------------|-------------|
 | `trace_id`                    | `trace_id`    | Trace identifier |
 | `span_id`                     | `int8`        | Span identifier |
-| `time`                        | `timestamptz` | Date and time when the even has occurred |
+| `time`                        | `timestamptz` | Date and time when the event has occurred |
 | `event_name`                  | `text`        | Name of the event |
 | `event_tags`                  | `tag_map`     | Key-value pairs for event tags |
 | `dropped_tags_count`          | `integer`     | Number of dropped event tags |
