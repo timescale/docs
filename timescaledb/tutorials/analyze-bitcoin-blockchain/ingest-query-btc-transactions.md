@@ -93,7 +93,7 @@ Insert this dataset into your TimescaleDB instance.
 <procedure>
 
 ### Ingesting Bitcoin transactions
-1. Download the sample `.csv` file: <tag type="download">[bitcoin_sample.csv](https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip)</tag>
+1. Download the sample `.csv` file: <tag type="download">[tutorial_bitcoin_sample.csv](https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip)</tag>
     ```bash
     wget https://assets.timescale.com/docs/downloads/bitcoin-blockchain/bitcoin_sample.zip
     ```
@@ -106,7 +106,7 @@ Insert this dataset into your TimescaleDB instance.
     ```bash
     psql -x "postgres://tsdbadmin:<YOUR_PASSWORD_HERE>@<YOUR_HOSTNAME_HERE>:<YOUR_PORT_HERE>/tsdb?sslmode=require"
     
-    \COPY transactions FROM 'bitcoin_sample.csv' CSV HEADER;
+    \COPY transactions FROM 'tutorial_bitcoin_sample.csv' CSV HEADER;
     ```
     The process should complete in 3-5 minutes.
 
