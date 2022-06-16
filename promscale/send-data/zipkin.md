@@ -39,6 +39,12 @@ Where:
 * `<PROMSCALE_HOST>`: hostname of Promscale.
 * `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
 
+If you are running the OTLP Collector and the Promscale Connector on a
+Kubernetes cluster the endpoint parameter is similar to `endpoint:
+"promscale-connector.default.svc.cluster.local:<PORT>"`
+
+The default port exposed by Zipkin receiver is `9411`.
+
 For more information about OpenTelemetry Collector, see the 
 [OpenTelemetry documentation][otelcol-docs].
 

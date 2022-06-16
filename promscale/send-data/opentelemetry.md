@@ -84,6 +84,10 @@ If you are running the OTLP Collector and the Promscale Connector on a
 Kubernetes cluster the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
+The default ports exposed by OTLP receiver are
+* `4317` : gRPC
+* `4318` : HTTP
+
 ## Send data using OpenTelemetry Instrumentation SDKs
 
 The specifics of the configuration are different for each SDK and library. For
