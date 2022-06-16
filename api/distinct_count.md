@@ -35,12 +35,12 @@ This example retrieves the distinct values from a hyperloglog
 called `hyperloglog`:
 
 ``` sql
-SELECT distinct_count(hyperloglog(64, data))
-FROM generate_series(1, 100) data
+SELECT distinct_count(hyperloglog(32768, data))
+FROM generate_series(1, 100000) data
 
  distinct_count
 ----------------
-            114
+         100151
 ```
 
 
