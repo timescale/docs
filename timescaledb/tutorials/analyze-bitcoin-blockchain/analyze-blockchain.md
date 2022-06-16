@@ -198,6 +198,11 @@ If a blockchain is too expensive, you might not want to use it. This query
 shows you whether there’s any correlation between the
 number of Bitcoin transactions and the fees. The time range for this analysis
 is the last day.
+
+<terminal>
+
+<tab label='SQL'>
+
 ```sql
 SELECT
  bucket AS "time",
@@ -207,6 +212,24 @@ FROM one_hour_transactions
 WHERE bucket > NOW() - INTERVAL '1 day'
 ORDER BY 1
 ```
+
+</tab>
+
+<tab label="Data">
+
+```
+time               |tx volume|fees              |
+2022-05-21 08:00:00|     5949| 6251.997814758783|
+2022-05-21 09:00:00|     5558| 5036.266642677222|
+2022-05-21 10:00:00|     1411|13300.024096385541|
+2022-05-21 11:00:00|     8488|7209.5062441093305|
+2022-05-21 12:00:00|    15741| 4380.564830696906|
+```
+
+</tab>
+
+</terminal>
+
 ![Hourly transaction volume and fees, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_volume_fees.png)
 
 On this chart, the green line indicates the average transaction volume over
@@ -220,6 +243,10 @@ In cryptocurrency trading, there’s a lot of speculation. You can adopt
 a data-based trading strategy by looking at correlations between blockchain
 metrics, such as transaction volume and fees.
 
+<terminal>
+
+<tab label='SQL'>
+
 ```sql
 SELECT
  bucket AS "time",
@@ -229,6 +256,24 @@ FROM one_hour_transactions
 WHERE bucket > NOW() - INTERVAL '1 day'
 ORDER BY 1
 ```
+
+</tab>
+
+<tab label="Data">
+
+```
+time               |tx volume|btc-usd rate      |
+2022-05-21 08:00:00|     5949|29292.908489698697|
+2022-05-21 09:00:00|     5558|29292.881035254628|
+2022-05-21 10:00:00|     1411|29292.947146736336|
+2022-05-21 11:00:00|     8488|29292.943496737145|
+2022-05-21 12:00:00|    15741| 29292.91300051999|
+```
+
+</tab>
+
+</terminal>
+
 ![Hourly transaction volume and BTC-USD conversion rate, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/volume_btc_usd.png)
 
 Again, the green line shows the average transaction volume over time. The
@@ -242,6 +287,10 @@ See how the number of transactions in a block influences the overall block
 mining fee. For this analysis, you might want to look at a larger time frame.
 Change the analyzed time range to the last five days.
 
+<terminal>
+
+<tab label='SQL'>
+
 ```sql
 SELECT
  bucket as "time",
@@ -252,6 +301,24 @@ WHERE bucket > now() - INTERVAL '5 day'
 GROUP BY bucket
 ORDER BY 1
 ```
+
+</tab>
+
+<tab label="Data">
+
+```
+time               |transactions         |mining fee |
+2022-05-21 08:00:00|1189.8000000000000000|0.07438627000000000000|
+2022-05-21 09:00:00| 926.3333333333333333|0.04665261666666666667|
+2022-05-21 10:00:00|1411.0000000000000000|0.18766334000000000000|
+2022-05-21 11:00:00|2829.3333333333333333|0.20398096333333333333|
+2022-05-21 12:00:00|1749.0000000000000000|0.07661607888888888889|
+```
+
+</tab>
+
+</terminal>
+
 ![Line graph with two lines showing the average number of transactions in a block and the block mining fee, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_in_block_expensive.png)
 
 Unsurprisingly, there’s a high correlation between the number of transactions
@@ -262,6 +329,11 @@ In the next query, see if there is the same correlation between block
 weight and mining fee. (Block weight is the size measure of a block). More
 transactions should increase the block weight, boosting the miner fee as well.
 This query looks very similar to the previous one:
+
+<terminal>
+
+<tab label='SQL'>
+
 ```sql
 SELECT
  bucket as "time",
@@ -272,6 +344,24 @@ WHERE bucket > now() - INTERVAL '5 day'
 group by bucket
 ORDER BY 1
 ```
+
+</tab>
+
+<tab label="Data">
+
+```
+time               |block weight        |mining fee            |
+2022-05-21 08:00:00|2465442.600000000000|0.07438627000000000000|
+2022-05-21 09:00:00|1559434.000000000000|0.04665261666666666667|
+2022-05-21 10:00:00|3991686.000000000000|0.18766334000000000000|
+2022-05-21 11:00:00|3993417.000000000000|0.20398096333333333333|
+2022-05-21 12:00:00|3171876.222222222222|0.07661607888888888889|
+```
+
+</tab>
+
+</terminal>
+
 ![Line graph with two lines showing the block weight and the block mining fee, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fee.png)
 
 You can see the same kind of high correlation between block weight
@@ -290,6 +380,10 @@ Miners are incentivized to keep the network up and running because they earn
 fees and rewards after mining each block. How much of their
 revenue comes from each source?
 
+<terminal>
+
+<tab label='SQL'>
+
 ```sql
 WITH coinbase AS (
    SELECT block_id, output_total AS coinbase_tx FROM transactions
@@ -304,6 +398,25 @@ INNER JOIN coinbase c ON c.block_id = b.block_id
 GROUP BY bucket
 ORDER BY 1;
 ```
+
+</tab>
+
+<tab label="Data">
+
+```
+time               |fees                  |reward    |
+2022-05-21 08:00:00|0.07438627000000000000|6.25000000|
+2022-05-21 09:00:00|0.04665261666666666667|6.25000000|
+2022-05-21 10:00:00|0.18766334000000000000|6.25000000|
+2022-05-21 11:00:00|0.20398096333333333333|6.25000000|
+2022-05-21 12:00:00|0.07661607888888888889|6.25000000|
+```
+
+</tab>
+
+</terminal>
+
+
 ![Line graph with two lines showing the average fee and block reward, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/revenue_ratio.png)
 
 This chart analyzes the last five days of average miner revenue. The left
@@ -327,6 +440,10 @@ be tightly correlated.
 This query uses a 12-hour moving average to calculate the block weight and
 block mining fee over time.
 
+<terminal>
+
+<tab label='SQL'>
+
 ```sql
 WITH stats AS (
    SELECT
@@ -344,6 +461,23 @@ FROM stats
 ORDER BY 1
 ```
 
+</tab>
+
+<tab label="Data">
+
+```
+time               |block weight      |mining fee          |
+2022-05-21 08:00:00| 3196776.081081081| 0.09249903756756757|
+2022-05-21 09:00:00|2968309.7441860465| 0.08610186255813955|
+2022-05-21 10:00:00|2991568.2954545454| 0.08841007795454545|
+2022-05-21 11:00:00| 3055516.085106383| 0.09578694297872341|
+2022-05-21 12:00:00|3074216.8214285714| 0.09270591125000001|
+```
+
+</tab>
+
+</terminal>
+
 ![block weight and fees](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/weight_fees.png)
 
 You can see that the block weight and block mining fee are indeed tightly
@@ -357,6 +491,10 @@ Now, analyze how much revenue miners actually generate by mining a
 new block on the blockchain, including fees and block rewards. This query
 analyzes the last day with 12-hour moving averages.
 
+<terminal>
+
+<tab label='SQL'>
+
 ```sql
 SELECT
    bucket as "time",
@@ -365,10 +503,32 @@ FROM one_hour_coinbase
 WHERE bucket > NOW() - INTERVAL '1 day'
 ORDER BY 1
 ```
+
+</tab>
+
+<tab label="Data">
+
+```
+time               |revenue in BTC    |
+2022-05-21 08:00:00| 6.342499037567568|
+2022-05-21 09:00:00|  6.33610186255814|
+2022-05-21 10:00:00| 6.338410077954546|
+2022-05-21 11:00:00| 6.345786942978723|
+2022-05-21 12:00:00|     6.34270591125|
+```
+
+</tab>
+
+</terminal>
+
 ![Average miner revenue per block, plotted over the last day](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block.png)
 
 To make the chart more interesting, add the BTC-USD rate to the analysis
 and increase the time range:
+
+<terminal>
+
+<tab label='SQL'>
 
 ```sql
 SELECT
@@ -379,6 +539,24 @@ FROM one_hour_coinbase
 WHERE bucket > NOW() - INTERVAL '1 day'
 ORDER BY 1
 ```
+
+</tab>
+
+<tab label="Data">
+
+```
+time               |revenue in BTC    |revenue in USD    |
+2022-05-21 08:00:00| 6.342499037567568|187416.12836756755|
+2022-05-21 09:00:00|  6.33610186255814|187001.94948139536|
+2022-05-21 10:00:00| 6.338410077954546| 187037.7794659091|
+2022-05-21 11:00:00| 6.345786942978723|187166.63164042553|
+2022-05-21 12:00:00|     6.34270591125|186870.74608750004|
+```
+
+</tab>
+
+</terminal>
+
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
 
 [stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
