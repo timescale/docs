@@ -89,6 +89,8 @@ Let's start by creating a function that fetches data for one symbol and one mont
 
 ```python
 import config
+import pandas as pd
+
 def fetch_stock_data(symbol, month):
     """Fetches historical intraday data for one ticker symbol (1-min interval)
 
