@@ -2,6 +2,8 @@
 api_name: first()
 excerpt: Get the first value in one column when rows are ordered by another column
 license: apache
+topic: hyperfunctions
+tags: [hyperfunctions, first]
 ---
 
 ## first()

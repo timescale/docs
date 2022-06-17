@@ -2,6 +2,8 @@
 api_name: reorder_chunk()
 excerpt: Reorder rows in a chunk
 license: community
+topic: hypertables
+tags: [hypertables, chunks, reorder]
 ---
 
 ## reorder_chunk() <tag type="community">Community</tag>

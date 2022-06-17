@@ -1,8 +1,10 @@
 ---
-api_name: hyperloglog
+api_name: hyperloglog()
 excerpt: Aggregate data into a hyperloglog for approximate counting
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, approximate count distinct, distinct count, hyperloglog]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

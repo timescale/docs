@@ -3,6 +3,8 @@ api_name: determination_coeff
 excerpt: Calculate the determination coefficient from values in a 2-dimensional statistical aggregate
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, determination coefficient, statistics, statistical aggregates, StatsSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

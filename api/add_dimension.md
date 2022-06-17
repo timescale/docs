@@ -2,6 +2,8 @@
 api_name: add_dimension()
 excerpt: Add a space-partitioning dimension to a hypertable
 license: apache
+topic: hypertables
+tags: [hypertables, partitions, dimensions, chunks]
 ---
 
 ## add_dimension()

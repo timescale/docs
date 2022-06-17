@@ -2,6 +2,8 @@
 api_name: add_reorder_policy()
 excerpt: Add a policy to reorder rows in hypertable chunks
 license: community
+topic: hypertables
+tags: [hypertables, policy, reorder, chunks]
 ---
 
 ## add_reorder_policy() <tag type="community">Community</tag>

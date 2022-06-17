@@ -2,6 +2,9 @@
 api_name: timescaledb_experimental.time_bucket_ng()
 excerpt: Bucket rows by time interval with support for time zones, months, and years
 license: apache
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, time buckets, date_trunc, aggregates]
 ---
 
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>

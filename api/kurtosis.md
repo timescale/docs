@@ -3,6 +3,8 @@ api_name: 'kurtosis() | kurtosis_y() | kurtosis_x()'
 excerpt: Calculate the kurtosis from values in a statistical aggregate
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, kurtosis, skew, statistics, statistical aggregates]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

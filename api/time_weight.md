@@ -3,6 +3,8 @@ api_name: time_weight()
 excerpt: Aggregate data in a `TimeWeightSummary` for further time-weighted analysis
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, time-weighted averages, aggregates, TimeWeightSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -2,6 +2,8 @@
 api_name: last()
 excerpt: Get the last value in one column when rows are ordered by another column
 license: apache
+topic: hyperfunctions
+tags: [hyperfunctions, last]
 ---
 
 ## last()

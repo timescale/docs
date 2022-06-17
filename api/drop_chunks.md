@@ -1,3 +1,11 @@
+---
+api_name: drop_chunks()
+excerpt: Delete chunks by time range
+license: apache
+topic: data retention
+tags: [data retention, chunks, drop, delete]
+---
+
 ## drop_chunks()
 
 Removes data chunks whose time range falls completely before (or

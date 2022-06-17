@@ -2,6 +2,8 @@
 api_name: refresh_continuous_aggregate()
 excerpt: Manually refresh a continuous aggregate
 license: community
+topic: continuous aggregates
+tags: [continuous aggregates, refresh]
 ---
 
 ## refresh_continuous_aggregate() <tag type="community">Community</tag>

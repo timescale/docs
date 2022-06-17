@@ -3,6 +3,9 @@ api_name: state_agg()
 excerpt: Aggregate state data into a state aggregate for further analysis
 license: community
 toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, states, aggregates, state aggregates]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
