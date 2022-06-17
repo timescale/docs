@@ -51,7 +51,7 @@ The examples in this section use these variables and Grafana functions:
   function when aggregating data.
 
 Check out this video for a step-by-step walkthrough on creating
-candlestick in Grafana:
+candlestick visualizations in Grafana:
 <video url="https://www.youtube-nocookie.com/embed/08CydeL9lIk"/>
 
 ## Create a candlestick with raw data
