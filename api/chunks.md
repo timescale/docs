@@ -1,3 +1,9 @@
+---
+api_name: timescaledb_information.chunks
+excerpt: Get metadata about hypertable chunks
+license: apache
+---
+
 ## timescaledb_information.chunks
 
 Get metadata about the chunks of hypertables.

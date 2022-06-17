@@ -184,8 +184,15 @@ module.exports = [
         href: "time-buckets",
         tags: ["time bucket", "timescaledb"],
         keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
-        excerpt: "Learn how time buckets work in TimescaleDB.",
+        excerpt: "Aggregate data by time interval with time buckets",
         children: [
+          {
+            title: "About time buckets",
+            href: "about-time-buckets",
+            tags: ["time bucket", "timescaledb"],
+            keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
+            excerpt: "Learn how time buckets work in TimescaleDB.",
+          },
           {
             title: "Use time buckets to group time-series data",
             href: "use-time-buckets",
@@ -512,6 +519,7 @@ module.exports = [
         ],
       },
       {
+        title: "Continuous aggregates",
         href: "continuous-aggregates",
         children: [
           {
@@ -534,6 +542,13 @@ module.exports = [
             tags: ["caggs", "manage", "timescaledb"],
             keywords: ["caggs", "TimescaleDB"],
             excerpt: "Manage refresh policies for continuous aggregates",
+          },
+          {
+            title: "Create an index on a continuous aggregate",
+            href: "create-index",
+            tags: ["indexes", "caggs", "timescaledb"],
+            keywords: ["indexes", "caggs", "TimescaleDB"],
+            excerpt: "Manage automatic index creation and manually create additional indexes",
           },
           {
             title: "Time in continuous aggregates",
@@ -978,6 +993,22 @@ module.exports = [
         tags: ["manage", "timescaledb"],
         keywords: ["manage", "timescaledb"],
         excerpt: "Additional tooling for managing TimescaleDB",
+        children: [
+          {
+            title: "About timescaledb-tune",
+            href: "about-timescaledb-tune",
+            tags: ["manage", "timescaledb"],
+            keywords: ["manage", "timescaledb"],
+            excerpt: "Automatically configure your TimescaleDB instance with `timescaledb-tune`",
+          },
+          {
+            title: "About timescaledb-parallel-copy",
+            href: "about-timescaledb-parallel-copy",
+            tags: ["manage", "timescaledb"],
+            keywords: ["manage", "timescaledb"],
+            excerpt: "Quickly insert bulk data by parallelizing `COPY` operations",
+          },
+        ]
       },
       {
         title: "Troubleshoot TimescaleDB",

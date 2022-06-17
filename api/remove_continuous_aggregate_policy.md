@@ -1,3 +1,9 @@
+---
+api_name: remove_continuous_aggregate_policy()
+excerpt: Remove a refresh policy from a continuous aggregate
+license: community
+---
+
 ## remove_continuous_aggregate_policy() <tag type="community">Community</tag> 
 Remove refresh policy for a continuous aggregate.
 

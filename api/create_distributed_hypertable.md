@@ -1,3 +1,9 @@
+---
+api_name: create_distributed_hypertable()
+excerpt: Create a distributed hypertable in a multi-node cluster
+license: community
+---
+
 ## create_distributed_hypertable()  <tag type="community">Community</tag>
 
 Creates a TimescaleDB hypertable distributed across a multinode

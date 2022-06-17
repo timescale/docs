@@ -137,6 +137,8 @@ hypertable_schema|hypertable_name |view_schema|view_name     |view_owner|materia
 public           |stocks_real_time|public     |candle_one_min|tsdbadmin |false            |false              |_timescaledb_internal            |_materialized_hypertable_3     | SELECT time_bucket('00:01:00'::interval, stocks_real_time."time") AS bucket,¶    stocks_real_time.symbol,¶    first(stocks_real_time.price, stocks_real_time."time") AS open,¶    max(stocks_real_time.price) AS high,¶    min(stocks_real_time.price) AS low,|
 ```
 
+<video url="https://www.youtube.com/embed/1m9yxpyGrBY"></video>
+
 ## Next steps
 Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
 

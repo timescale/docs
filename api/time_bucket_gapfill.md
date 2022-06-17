@@ -1,5 +1,8 @@
 ---
-api_name: time_bucket_gapfill
+api_name: time_bucket_gapfill()
+excerpt: Bucket rows by time interval while filling gaps in data
+license: community
+toolkit: false
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -128,7 +131,7 @@ Get the metric value every day over the last seven days, interpolating missing
 values:
 ```sql
 SELECT
-  time_bucket_gapfill('5 minutes', time) AS day,
+  time_bucket_gapfill('1 day', time) AS day,
   device_id,
   avg(value) AS value,
   interpolate(avg(value))

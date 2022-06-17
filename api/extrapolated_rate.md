@@ -1,5 +1,8 @@
 ---
-api_name: extrapolated_rate
+api_name: extrapolated_rate()
+excerpt: Calculate the extrapolated rate of change from values in a `CounterSummary`
+license: community
+toolkit: true
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
