@@ -1,6 +1,6 @@
-# Ingesting data with third party tools
+# Ingesting data with third-party tools
 By default, TimescaleDB supports standard SQL inserts. Additionally, you can use
-third party tools to build data ingest pipelines.
+third-party tools to build data ingest pipelines.
 
 This section covers some popular frameworks and systems used in conjunction with
 TimescaleDB:
