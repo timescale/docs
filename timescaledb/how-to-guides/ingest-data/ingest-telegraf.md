@@ -7,6 +7,9 @@ of data.
 
 <Component />
 
+For some suggestions of workarounds, see this
+[Timescale Forum post](https://www.timescale.com/forum/t/telegraf-plugin/118).
+
 Timescale have an unofficial build of Telegraf version 1.13.0 with the plugin
 added. For more information about installing the Timescale Telegraf binaries
 with the plugin, see the [telegraf-tutorial][telegraf-tutorial].
