@@ -17,9 +17,9 @@ significant performance improvements.
 *   [Use JSON and JSONB][schema-json] for semi-structured data.
 
 [about-schema]: /how-to-guides/schema-management/about-schemas
-[about-indexing]: /how-to-guides/schema-management/indexing
-[about-constraints]: /how-to-guides/schema-management/constraints
-[about-tablespaces]: /how-to-guides/schema-management/tablespaces
+[about-indexing]: /how-to-guides/schema-management/about-indexing
+[about-constraints]: /how-to-guides/schema-management/about-constraints
+[about-tablespaces]: /how-to-guides/schema-management/about-tablespaces
 [schema-alter]: /how-to-guides/schema-management/alter
 [schema-triggers]: /how-to-guides/schema-management/triggers
 [schema-json]: /how-to-guides/schema-management/json

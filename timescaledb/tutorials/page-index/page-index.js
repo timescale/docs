@@ -29,6 +29,30 @@ module.exports = [
         excerpt: 'Use TimescaleDB to analyze cryptocurrency data',
       },
       {
+        title: 'Analyze the Bitcoin blockchain',
+        href: 'analyze-bitcoin-blockchain',
+        tags: ['blockchain', 'bitcoin', 'analyze', 'learn', 'timescaledb'],
+        keywords: ['blockchain', 'bitcoin', 'tutorial', 'TimescaleDB'],
+        excerpt: 'Store and query blockchain transactions',
+        children: [
+          {
+            title: 'Ingest and query Bitcoin transactions',
+            href: 'ingest-query-btc-transactions',
+            tags: ['bitcoin', 'blockchain', 'analyze', 'learn', 'timescaledb'],
+            keywords: ['bitcoin', 'blockchain', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Design schema and ingest Bitcoin blockchain data with TimescaleDB',
+          },
+          {
+            title: 'Analyze the blockchain with hyperfunctions',
+            href: 'analyze-blockchain',
+            tags: ['bitcoin', 'blockchain', 'hyperfunctions', 'learn', 'timescaledb'],
+            keywords: ['bitcoin', 'blockchain', 'tutorial', 'TimescaleDB'],
+            excerpt:
+              'Use TimescaleDB hyperfunctions for blockchain insights',
+          }
+        ],
+      },
+      {
         title: 'Store financial tick data in TimescaleDB',
         href: 'financial-candlestick-tick-data',
         tags: ['candlestick', 'finance', 'analyze', 'ohlcv', 'timescaledb'],
@@ -256,6 +280,13 @@ module.exports = [
                 tags: ['grafana', 'visualize', 'histograms', 'learn', 'timescaledb'],
                 keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'histogram'],
                 excerpt: 'How to build a histogram in Grafana',
+              },
+              {
+                title: 'Candlestick',
+                href: 'candlestick',
+                tags: ['grafana', 'visualize', 'candlestick', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'candlestick'],
+                excerpt: 'How to build a candlestick chart in Grafana',
               }
             ]
           }
