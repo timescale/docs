@@ -1,102 +1,93 @@
-# Querying trace data
+# Query traces in Promscale
+SQL allows you to conduct correlational analysis of different types of data,
+such as metrics and spans. You can use Promscale to help you construct these
+kinds of queries.
 
-## Table of contents
+## Single span
 
-1\. [Trace data structure](#para-1)  
-1\.1. [Single span](#para-1-1)  
-1\.1.1. [`tag_map` type](#para-1-1-1)  
-1\.1.2. [`trace_id` type](#para-1-1-2)  
-1\.1.3. [`span_kind` enum](#para-1-1-3)  
-1\.1.4. [`status_code` enum](#para-1-1-4)  
-1\.2. [Views](#para-1-2)  
-1\.2.1. [`span` view](#para-1-2-1)  
-1\.2.2. [`event` view](#para-1-2-2)  
-1\.2.3. [`link` view](#para-1-2-3)  
-2\. [Examples of SQL queries](#para-2)  
-2\.1. [Top 20 slowest traces](#para-2-1)  
-2\.2. [Timeseries with the request rate per service](#para-2-2)  
-2\.3. [Timeseries with average duration per service](#para-2-3)  
-2\.4. [Most common errors in spans](#para-2-4)  
-2\.5. [Timeseries with error ratio](#para-2-5)  
-3\. [Querying resource and span tags](#para-3)  
-3\.1. [Simple queries](#para-3-1)  
-3\.2. [Filtering](#para-3-2)  
-3\.3. [Joins](#para-3-3)  
-3\.4. [Grouping](#para-3-4)  
-3\.5. [Sorting](#para-3-5)  
+<!--- Add some concept info about single spans here -->
 
-# 1. Trace data structure <a name="para-1"></a>
+A single span is a record of this structure:
 
-## 1.1. Single span <a name="para-1-1"></a>
+|Name|Type|Description|
+|-|-|-|
+|`trace_id`|`trace_id`|Trace identifier|
+|`span_id`|`int8`|Span identifier|
+|`trace_state`|`text`|[Trace state][trace-state-docs]|
+|`parent_span_id`|`int8`|Reference to the parent `trace_id`|
+|`is_root_span`|`bool`|Is the span a root span|
+|`service_name`|`text`|Name of the service|
+|`span_name`|`text`|Name of the span|
+|`span_kind`|`enum`|[Span kind][span-kind-docs]|
+|`start_time`|`timestamptz`|Start date and time of the span |
+|`end_time`|`timestamptz`|End date and time of the span|
+|`time_range`|`tstzrange`|A [`tstzrange`][tstzrange-docs] representation of Start and End times of the span|
+|`duration_ms`|`float8`|Duration of the span in milliseconds|
+|`span_tags`|`tag_map`|Key-value pairs for span tags. See details on `tag_map` type in this section|
+|`dropped_tags_count`|`int4`|Number of dropped tags|
+|`event_time`|`tstzrange`|Start and end time of the event|
+|`dropped_events_count`|`int4`|Number of dropped events|
+|`dropped_link_count`|`int4`|Number of dropped links|
+|`status_code`|`enum`|[Status Code][status-code-docs]|
+|`status_message`|`text`|Status message|
+|`instrumentation_lib_name`|`text`|[Instrumentation Library][instrumentation-docs] name|
+|`instrumentation_lib_version`|`text`|[Instrumentation Library][instrumentation-docs] version|
+|`instrumentation_lib_schema_url`|`text`|[Instrumentation Library][instrumentation-docs] schema URL|
+|`resource_tags`|`tag_map`|[Resource][resource-docs] tags|
+|`resource_dropped_tags_count`|`int4`|Number of dropped resources|
+|`resource_schema_url`|`text`|Resource's schema file URL|
 
-A single span is a record of the following structure:
+### The `tag_map` type
+The `tag_map` type is a storage optimization for spans. It can be queried as a
+regular [`jsonb` PostgreSQL type][jsonb-pg-type]. It normalizes the span data
+and can significantly reduce the storage footprint. This is a custom type made
+by Timescale, and it is continuously being improved. These operators have
+optimized support:
 
-|Name                               | Type          | Description |
-|-----------------------------------|---------------|-------------|
-|`trace_id`                         | `trace_id`    | Trace identifier |
-|`span_id`                          | `int8`        | Span Identifier |
-|`trace_state`                      | `text`        | [Trace State](https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate) |
-|`parent_span_id`                   | `int8`        | Reference to the parent `trace_id` |
-|`is_root_span`                     | `bool`        | Is the span a root span |
-|`service_name`                     | `text`        | Name of the service |
-|`span_name`                        | `text`        | Name of the span |
-|`span_kind`                        | `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
-|`start_time`                       | `timestamptz` | Start date and time of the span |
-|`end_time`                         | `timestamptz` | End date and time of the span|
-|`time_range`                       | `tstzrange`   | A [`tstzrange`](https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-BUILTIN) representation of Start and End times of the span |
-|`duration_ms`                      | `float8`      | Duration of the span in milliseconds |
-|`span_tags`                        | `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
-|`dropped_tags_count`               | `int4`        | Number of dropped tags |
-|`event_time`                       | `tstzrange`   | Start and end time of the event |
-|`dropped_events_count`             | `int4`        | Number of dropped events |
-|`dropped_link_count`               | `int4`        | Number of dropped links |
-|`status_code`                      | `enum`        | [Status Code](https://opentelemetry.io/docs/reference/specification/trace/api/#set-status) |
-|`status_message`                   | `text`        | Status message |
-|`instrumentation_lib_name`         | `text`        | [Instrumentation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) name |
-|`instrumentation_lib_version`      | `text`        | [Instrumentation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) version |
-|`instrumentation_lib_schema_url`   | `text`        | [Instrumentation Library](https://opentelemetry.io/docs/concepts/instrumenting-library/) schema URL |
-|`resource_tags`                    | `tag_map`     | [Resource](https://opentelemetry.io/docs/reference/specification/overview/#resources) tags |
-|`resource_dropped_tags_count`      | `int4`        | Number of dropped resources |
-|`resource_schema_url`              | `text`        | Resource's schema file URL |
+* `->` is used get the value for the given key. For example: `span_tags -> 'pwlen'`.
+* `=` is used to provide value equality for a key. For example: `span_tags -> 'pw_len' = '10'::jsonb`.
+* `!=` is used to provide value inequality for a key. For example: `span_tags -> 'pw_len' != '10'::jsonb`.
 
-### 1.1.1. `tag_map` type <a name="para-1-1-1"></a>
+All other operators also perform well, but the listed operators have
+additional performance optimizations available.
 
-The `tag_map` type is a storage optimization for spans. It can be queried as a regular [`jsonb` PostgreSQL type](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). Behind the scenes it normalizes the span data and thus significantly reduces the storage footprint. To further improve performance of the queries involving `tag_map` we're continuosly working on optimizing operators for our custom made type. So far we have optimized support for the following operators (meaning other operators will not perform well):
- - `->` -- get the value for the given key (for example: `span_tags -> 'pwlen'`)
- - `=`  -- value equality for a key (for example: `span_tags -> 'pw_len' = '10'::jsonb`)
- - `!=` -- value inequality for a key (for example: `span_tags -> 'pw_len' != '10'::jsonb`)
+### The `trace_id` type
+The `trace_id` type is a 16-byte type that is a bit like a UUID. It represents
+the `trace_id` in compliance with [Open Telemetry requirements][opentel-spec].
 
-### 1.1.2. `trace_id` type <a name="para-1-2-3"></a>
+### The `span_kind` enum type
+The `span_kind` enumerated type is <!--add explanation here -->.
 
-A `uuid`-like 16-byte type that represents the `trace_id` in compliance with [Open Telemetry requirements](https://opentelemetry.io/docs/reference/specification/trace/api/#spancontext)
+The possible values for this type are:
+* `unspecified`
+* `internal`
+* `server`
+* `client`
+* `producer`
+* `consumer`
 
-### 1.1.3. `span_kind` enum <a name="para-1-1-3"></a>
-Possible values:
-- `unspecified`
-- `internal`
-- `server`
-- `client`
-- `producer`
-- `consumer`
+### The `status_code` enum type
+The `status_code` enumerated type is <!--add explanation here -->.
 
-### 1.1.4. `status_code` enum <a name="para-1-1-4"></a>
-Possible values:
-- `unset`
-- `ok`
-- `error`
+The possible values for this type are:
+* `unset`
+* `ok`
+* `error`
 
-## 1.2. Views <a name="para-1-2"></a>
+## Views
+Promscale uses views to provide a stable interface. The set of views is provided in the `ps_trace` schema. These include:
+* `span`
+* `link`
+* `event`
 
-To provide a stable interface to the end users a set of views is provided in the `ps_trace` schema. These include:
- - `span`
- - `link`
- - `event`
+### The `span` view
+The `span` view joins several tables so you can see an overview of the data
+relevant for a single span. The span is stored across multiple tables, and data
+is split across several columns for better index support. The table that
+contains the span data is a hypertable, so it has support for retention and
+compression.
 
-### 1.2.1. `span` view <a name="para-1-2-1"></a>
-
-This view joins several tables to present the user with an overview of the data relevant for a single span. We've already covered its structure in 1.1. What's worth mentioning is that physically the span is stored across multiple tables and data is split across several columns for better index support. The actual table with span data is a [`timescaledb` hypertable](https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/) which enables seamless support for retention and compression out of the box.
-
-Below is an example of a simple query on the `span` view:
+This is an example of a simple query on the `span` view:
 
 ```SQL
 select
@@ -110,34 +101,37 @@ select
     limit 50
 ```
 
-### 1.2.2. `event` view <a name="para-1-2-2"></a>
+### The `event` view
+The `event` view provides access to events and their corresponding spans. For
+more information about OpenTelemetry events, see the OpenTelemetry documentation
+for [add events][opentel-add-events] and [span events][opentel-span-events].
 
-`event` view provides access to the events and their corresponding spans. Further details on OpenTelemetry events can be found [here](https://opentelemetry.io/docs/reference/specification/trace/api/#add-events) and [here](https://opentelemetry.io/docs/concepts/signals/traces/#span-events=).
+<!-- Add stem sentence for table here -->
 
-|Name                           | Type          | Description |
-|-------------------------------|---------------|-------------|
-| `trace_id`                    | `trace_id`    | Trace identifier |
-| `span_id`                     | `int8`        | Span identifier |
-| `time`                        | `timestamptz` | Date and time when the event has occurred |
-| `event_name`                  | `text`        | Name of the event |
-| `event_tags`                  | `tag_map`     | Key-value pairs for event tags |
-| `dropped_tags_count`          | `integer`     | Number of dropped event tags |
-| `trace_state`                 | `text`        | [Trace State](https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate) |
-| `service_name`                | `text`        | Name of the service |
-| `span_name`                   | `text`        | Name of the span |
-| `span_kind`                   | `enum`        | [Span Kind](https://opentelemetry.io/docs/reference/specification/trace/api/#spankind) |
-| `span_start_time`             | `timestamptz` | Start date and time of the span |
-| `span_end_time`               | `timestamptz` | End date and time of the span|
-| `span_time_range`             | `tstzrange`   | A [`tstzrange`](https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-BUILTIN) representation of Start and End times of the span |
-| `span_duration_ms`            | `float8`      | Duration of the span in milliseconds |
-| `span_tags`                   | `tag_map`     | Key-value pairs for span tags. See details on `tag_map` type below |
-| `dropped_span_tags_count`     | `integer`     | Number of dropped span tags |
-| `resource_tags`               | `tag_map`     | [Resource](https://opentelemetry.io/docs/reference/specification/overview/#resources) tags |
-| `resource_dropped_tags_count` | `integer`     | Number of dropped resource tags |
-| `status_code`                 | `enum`        | [Status Code](https://opentelemetry.io/docs/reference/specification/trace/api/#set-status) |
-| `status_message`              | `text`        | Status message |
+|Name|Type|Description|
+|-|-|-|
+|`trace_id`|`trace_id`|Trace identifier|
+|`span_id`|`int8`|Span identifier|
+|`time`|`timestamptz`|Date and time when the event has occurred|
+|`event_name`|`text`|Name of the event|
+|`event_tags` `tag_map`|Key-value pairs for event tags|
+|`dropped_tags_count`|`integer`|Number of dropped event tags|
+|`trace_state`|`text`|[Trace State][trace-state-docs]|
+|`service_name`|`text`|Name of the service|
+|`span_name`|`text`|Name of the span|
+|`span_kind`|`enum`|[Span Kind][span-kind-docs]|
+|`span_start_time`|`timestamptz`|Start date and time of the span|
+|`span_end_time`|`timestamptz`|End date and time of the span|
+|`span_time_range`|`tstzrange`|A [`tstzrange`][tstzrange-docs] representation of start and end times of the span|
+|`span_duration_ms`|`float8`|Duration of the span in milliseconds|
+|`span_tags`|`tag_map`|Key-value pairs for span tags. See details on `tag_map` type below|
+|`dropped_span_tags_count`|`integer`|Number of dropped span tags|
+|`resource_tags`|`tag_map`|[Resource][resource-docs] tags|
+|`resource_dropped_tags_count`|`integer`|Number of dropped resource tags|
+|`status_code`|`enum`|[Status code][status-code-docs]|
+|`status_message`|`text`|Status message|
 
-Below is an example of a simple query on the `event` view:
+This is an example of a simple query on the `event` view:
 
 ```SQL
 select
@@ -151,32 +145,39 @@ select
     limit 50
 ```
 
-### 1.2.3. `link` view <a name="para-1-2-3"></a>
+### The `link` view
+The `link` view allows you to see spans that have originated from the same
+trace. In essence, it is a representation of two related spans, with some extra
+information about the relationship between them. For more information about
+linked tags, see the [OpenTelemtry specification][opentel-spec-links].
 
+The `link` view adds all the columns in the previous table, as well as these additional columns:
 
-`link` view provides a convenient interface for viewing spans originating from the same trace. It is essentially a representation of two related spans and some extra info regarding the relationship between them. More info regarding linked tags can be found [here](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md#links-between-spans=).
+|Name|Type|Description|
+|-|-|-|
+|link_tags|`tag_map`|Link tags|
+|dropped_link_tags_count|`integer`|Number of dropped link tags|
 
-Below we provide a table of columns that are added by the `link` view which weren't covered in the [`span` view seciton](#para-1-2-1):
+## Example trace queries in SQL
 
-|Name                           | Type          | Description |
-|-------------------------------|---------------|-------------|
-|link_tags                      | `tag_map`     | Link tags   |
-|dropped_link_tags_count        | `integer`     | Number of dropped link tags |
+<!--- Add some concept info about querying traces here -->
 
+When you build time series graphs in Grafana, you can use the Grafana [`$__interval`][grafana-interval] variable.
 
-# 2. Examples of SQL queries <a name="para-2"></a>
+If you want to configure bucketing, you can use the TimescaleDB `time_bucket`
+function with the corresponding Grafana
+[`$bucket_interval`][grafana-bucket-interval] variable.
 
-General notes on the queries:
-- When building time series graphs in Grafana, use the [`$__interval`](https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval) variable provided by Grafana
-- To make the bucketing configurable, use the TimescaleDB `time_bucket` function, and the corresponding Grafana variable [`$bucket_interval`](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/histograms/#prerequisites)
-- Limit the `start_time` using Grafana time filter `$__timeFilter`.
+You can limit the `start_time` using the Grafana `$__timeFilter` variable.
 
-Bigger windows come at a cost. We don't recommend completely removing `start_time` filters, as it could have a significant performance impact since it will search across all spans in the database.
+Bigger windows come at a cost, so you should avoid completely removing the
+`start_time` filters. If you remove them, searches need to occur across all
+spans in the database, which could significantly impact your performance.
 
-- PostgreSQL has very versatile [`interval` type](https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT). Make sure to get familiar with it.
+PostgreSQL has a very versatile [`interval` type][pg-interval], which can be
+very useful when you create these kinds of queries.
 
-
-## 2.1. Top 20 slowest traces <a name="para-2-1"></a>
+Find the top twenty slowest traces:
 
 ```SQL
 select
@@ -192,7 +193,7 @@ select
     limit 20
 ```
 
-## 2.2. Timeseries with the request rate per service <a name="para-2-2"></a>
+Find the specified request rate per service:
 
 ```SQL
 select
@@ -208,7 +209,7 @@ select
     order by 1
 ```
 
-## 2.3. Timeseries with average duration per service <a name="para-2-3"></a>
+Find the average duration per service:
 
 ```SQL
 select
@@ -224,7 +225,7 @@ select
     order by 1 asc
 ```
 
-## 2.4. Most common errors in spans <a name="para-2-4"></a>
+Find the most common span errors:
 
 ```SQL
 select
@@ -239,7 +240,8 @@ select
     order by 3
     limit 50
 ```
-## 2.5. Timeseries with error ratio <a name="para-2-5"></a>
+
+Find the current error ratio:
 
 ```SQL
 select
@@ -254,16 +256,17 @@ select
     group by 1
     order by 1
 ```
-# 3. Querying resource and span tags <a name="para-3"></a>
+## Query resource and span tags
+This section contains some example SQL queries that you can use for insight into
+complex systems and interactions.
 
-One of the major advantages of having SQL as the query language is the power and freedom it provides. Below we'll show some examples of techniques one can use to gain insights into complex systems and interactions within it.
-
-## 3.1. Simple queries <a name="para-3-1"></a>
-
-The simplest queries we can do would involve only a single table or [view](#para-1-2), for example:
+### Simple queries
+The simplest queries you can perform on spans involve only a single table or
+view. For example, this query returns certain columns of the `span` view, up
+to 50 rows:
 
 ```SQL
-select 
+select
         trace_id,
         span_id,
         span_tags,
@@ -272,20 +275,29 @@ select
     from span
     limit 50
 ```
-This will return certain columns of the `span` view and up to 50 rows.
+
+This query returns all columns of the `link` view, up to 50 rows:
 
 ```SQL
 select *
     from link
     limit 5
 ```
-This one will return all columns of the `link` view and up to 50 rows as well.
 
-Such queries can be very useful first exploratory step into a new system. Typicall though the volume and diversity of trace data in modern systems is very high, at the very least we want to limit the scope of our query.
+These simpler queries can be a good way to start learning a new system.
 
-## 3.2. Filtering <a name="para-3-2"></a>
+### Filters
+In most cases, the volume and diversity of trace data is very high, so you might
+find that you need to limit the scope of your queries. You can do this with
+filtering.
 
-To filter the data we're interested in we're going to use the SQL `where` clause:
+<highlight type="note">
+When you are working with time series data, make sure you define the time window
+that you are interested in. Because data is partitioned based on the time,
+omitting the time filters can drastically hinder the performance of the queries.
+</highlight>
+
+To filter the data you're interested in, you can use the SQL `where` clause. This example queries spans that happened within last 30 minutes. This type of query is far more efficient than those without any filters in the `where` clause, as it allows the optimizer to eliminate unnecessary chunks from the hypertable. It also uses indexes to locate rows that satisfy the query. For example:
 
 ```SQL
 select
@@ -296,42 +308,46 @@ select
     where start_time >= now() - interval '30 minutes'
     limit 50
 ```
-Here we limit our query to spans that happened within last 30 minutes. This type of query is far more efficient than those without any filters in the `where` clause, as it allows the optimizer do it's magic, namely eliminating unnecessary [chunks from the hypertable](https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks=) and using indexes to locate rows that satisfy our quals.
 
-When dealing with timeseries data it is very important to define the time window that is of interest, because the data is partitioned based on the time and thus omitting time filters can drastically hinder the performance of the queries.
+For more information about partitioning hypertables, see the
+[partitioning hypertables section][partitioning-hypertables].
 
-When dealing with traces it can be extremely important to pinpoint a particular trace tag. This can be done by using standard PostgreSQL [`json` operators](https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE):
+When you are querying traces, it is important to pinpoint a particular trace
+tag. You can do this with standard PostgreSQL [`json` operators][jsonb-pg-type].
+For example:
 
 ```SQL
 select *
     from span
-    where 
+    where
             start_time >= now() - interval '30 minutes'
         and span_tags -> 'pwlen' = '25'
     limit 50
 
 ```
 
-Here we are limiting our scope to spans within last 30 minutes that have a tag `pwlen` with exact value `25`. We can specify as many of these as we want combining them with logical operations:
+In this example, the scope is limited to spans within last 30 minutes, with a
+`pwlen` tag, and an exact value of `25`. You can specify as many of these as you
+want, and combine them with logical operations. For example:
 
 ```SQL
 select *
     from span
-    where 
+    where
             start_time >= now() - interval '30 minutes'
         and span_tags -> 'pwlen' = '25'
         and resource_tags -> 'telemetry.sdk.name' = '"opentelemetry"'
     limit 50
 ```
 
-Notice the single **and** double-quoted string `'"opentelemtry"'`. This is an artefact of PostgreSQL's `->` operator returning a `jsonb` and thus expecting a `jsonb` on the right side of the `=`. This can be worked around by using the more appropriate `->>` operator that returns text, but unfortunately that operator is not supported in the current implementation of `tag_map` type. It is planned for Promscale 1.0.0, so stay tuned!
+<highlight type="note">
+In the previous example, the `'"opentelemtry"'` string is both single- and double-quoted. This is because PostgreSQL's `->` operator returns JSONB, and expects JSONB on the right side of the `=`. You could potentially work around this by using the `->>` operator instead, so that it returns text instead of JSONB, but the `->>` operator is not supported in the current implementation of `tag_map` type.
+</highlight>
 
-
-## 3.3. Joins <a name="para-3-3"></a>
-
-One of the main reasons to use SQL database as a backbone of your observability stack is to be able to conduct correlational analysis of different types of data, namely metrics and spans. And Promscale enables you to do exactly that.
-
-Suppose we want to see how error rate of our service correlates with the overall memory consumption of a container. It's as easy as joining the corresponding metric table with the aforementioned `span` view:
+### Joins
+You can use a `JOIN` to see how the error rate of your service correlates with
+the overall memory consumption of a container. To do this, you need to join the
+corresponding metric table, with the `span` view. For example:
 
 ```SQL
 select
@@ -339,12 +355,12 @@ select
         max(mem.value) as "max_mem",
         count(trace_id) as "num_errors"
     from container_memory_working_set_bytes as mem
-        left join span on 
+        left join span on
                 time_bucket('30 minutes', span.start_time) = time_bucket('30 minutes', mem.time)
             and span.status_code = 'error'
             and span.service_name = 'my_service'
             and span.span_tags -> 'container_name' = '"my_container"'
-    where 
+    where
             mem.value != 'NaN'
         and mem.time >= now() - interval '1 week'
         and span.start_time >= now() - interval '1 week'
@@ -354,26 +370,36 @@ select
     order by 1
 ```
 
-There's quite a bit going on in this query, so lets break it down.
-First lets have a look at our metric table and its filters:
+To understand the previous example in more depth, start by looking at the metric
+table and its filters:
+* To retrieve actual memory usage values, the query filters out some misses
+  where the value was reported as `NaN`.
+* The query specifies last week as the time window. This allows the
+  planner to eliminate unecessary partitions on the planning stage. This should
+  also siginifcantly speed up the query.
+* The query limits the metrics to the container and instance you're interested
+  in. This also helps to give the planner more freedom in dealing with the
+  query.
+1. The join clause itself is matching only on the generated `time_bucket`.
 
-1. We want some actual memory usage values so we filter out some misses where the value was reported `NaN`
-2. We explicitly specify last week as the time window to allow planner to eliminate unecessary partitions on the planning stage. This should speed up our query significantly
-3. We explicitly limit the metrics to the container and instance we're interested in. This is also aimed at giving planner more freedom in dealing with the query.
-4. The join clause itself is matching only on the generated `time_bucket`. More on this later.
+Now to look at the `span` view:
+* The only qualification in the `where` clause is the `start_time` matching that
+  of the metric.
+* A number of filters are specified in the join condition instead. This is for a
+  couple of reasons. Firstly, you need to filter out irrelevant rows from the
+  `span` view. Secondly, you want to keep the entries from the metric table to
+  have a good measure of memory consumption regardless if there were errors or
+  not. If you put these qualifications into the `where` clause instead, all the
+  rows without errors that match would be filtered out.
 
-The `span` view we approach slightly differently:
+### Grouping
+You can use aggregate functions to perform various operations on groups. You can
+group data on any set of columns, including fields of `tag_map` columns.
 
-1. The only qual in the `where` clause we specify is the `start_time` matching that of the metric for the same reason
-2. We specify a number of filters in the join condition instead for several reasons:
- - We do need to filter out irrelevant rows from the `span` view
- - We want to keep the entries from the metric table to have a good measure of memory consumption regardless if there were errors or not. If we instead put these quals into the `where` clause, all the rows without errors matching the quals would've been filtered out.
-
-Further we'll see how we can leverage full power of SQL by combining all these primitives together.
-
-## 3.4. Grouping <a name="para-3-4"></a>
-
-One of the strengths of SQL in general and PostgreSQL in particular are aggregate functions which perform various operations on groups. We can group data on any set of columns, includinig fields of `tag_map` columns. Below is a simple example:
+This example groups by both time and the `pwlen` field of the `span_tags` column
+using their position in the `select` list. In this case, `count(*)` is an [aggregate function][pg-agg-function] that counts the number of rows in the
+group. In this case, it's a 30 minute window with the same value of `pwlen`
+field. For example:
 
 ```SQL
 select
@@ -381,26 +407,38 @@ select
         span_tags -> 'pwlen'                    as "pwlen",
         count(*)                                as "cnt"
     from span
-    where 
+    where
             start_time >= now() - interval '1 day'
         and service_name = '${service}'
     group by 1, 2
 ```
+### Sorting
+You can also sort data based on `tag_map` column fields. This behaves in the same way as the standard PostgreSQL `jsonb` type, and the same rules apply when sorting. Numeric fields sort using numeric comparison, like `[1, 2, 10, 11]`, and text fields sort using string comparison, like `["1", "10", "11", "2"]`.
 
-Here we use group by both time and the `pwlen` field of the `span_tags` column using their position in the `select` list. `count(*)` in this case is an [aggregate function](https://www.postgresql.org/docs/current/functions-aggregate.html) that counts the number of rows in the group, in our case a 30-minute window with the same value of `pwlen` field.
-
-## 3.5. Sorting <a name="para-3-5"></a>
-
-Finally lets mention sorting the data based on `tag_map` column fields. No surprises here, since it behaves as standard PostgreSQL `jsonb` type, same rules apply when sorting. Namely, numeric fields will sort using numeric comparison: [1, 2, 10, 11] and text fields will sort using string comparison: ["1", "10", "11", "2"]
-
-For example:
+In this example, the output is sorted based on the value **and type** of `pwlen`:
 
 ```SQL
-select * 
+select *
     from span
     where start_time >= now() - interval '1 hour'
     order by span_tags -> 'pwlen'
     limit 50
 ```
 
-The output will be sorted based on the value **and type** of `pwlen` 
+[trace-state-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate
+[span-kind-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#spankind
+[tstzrange-docs]: https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-BUILTIN
+[status-code-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#set-status
+[instrumentation-docs]: https://opentelemetry.io/docs/concepts/instrumenting-library/
+[resource-docs]: https://opentelemetry.io/docs/reference/specification/overview/#resources
+[jsonb-pg-type]: https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
+[opentel-spec]: https://opentelemetry.io/docs/reference/specification/trace/api/#spancontext
+[opentel-add-events]: https://opentelemetry.io/docs/reference/specification/trace/api/#add-events
+[opentel-span-events]: https://opentelemetry.io/docs/concepts/signals/traces/#span-events
+[status-code-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#set-status
+[opentel-spec-links]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md#links-between-spans
+[grafana-interval]: https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval
+[grafana-bucket-interval]: https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/histograms/#prerequisites
+[pg-interval]: https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT
+[partitioning-hypertables]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks
+[pg-agg-function]: https://www.postgresql.org/docs/current/functions-aggregate.html
