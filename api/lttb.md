@@ -32,7 +32,7 @@ original dataset. The TimescaleDB Toolkit implementation of this takes
 
 |Column|Type|Description|
 |-|-|-|
-|`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points.  It can be unpacked via `unnest`.|
+|`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points. It can be unpacked via `unnest`.|
 
 ## Sample usage
 This example creates a dramatically downsampled data set from a `sample_data` table:

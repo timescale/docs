@@ -3,7 +3,7 @@ Each release of TimescaleDB is compatible with specific versions of PostgreSQL.
 Over time support is added for a newer version of PostgreSQL while
 simultaneously dropping support for older versions.
 
-When the supported versions of PostgreSQL changes, you may need to upgrade the version of the **PostgreSQL instance** (e.g. from 10 to 12) before you can install the latest release of TimescaleDB.
+When the supported versions of PostgreSQL changes, you may need to upgrade the version of the **PostgreSQL instance** (for example, from 10 to 12) before you can install the latest release of TimescaleDB.
 
 To upgrade PostgreSQL, you have two choices, as outlined in the PostgreSQL online documentation.
 

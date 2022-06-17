@@ -8,7 +8,7 @@ traditional RDBMSs for storing time-series data:
  * Time-oriented features.
 
 And because TimescaleDB still allows you to use the full range of
-PostgreSQL features and tools &mdash; e.g., JOINs with relational tables,
+PostgreSQL features and tools &mdash; for example, JOINs with relational tables,
 geospatial queries via PostGIS, `pg_dump` and `pg_restore`, any
 connector that speaks PostgreSQL &mdash; there is little reason **not** to
 use TimescaleDB for storing time-series data within a PostgreSQL node.
@@ -16,12 +16,12 @@ use TimescaleDB for storing time-series data within a PostgreSQL node.
 ## Much higher ingest rates
 
 TimescaleDB achieves a much higher and more stable ingest rate than
-PostgreSQL for time-series data.  As described in our [architectural discussion][],
+PostgreSQL for time-series data. As described in our [architectural discussion][],
 PostgreSQL's performance begins to significantly suffer as soon as indexed tables
 can no longer fit in memory.
 
 In particular, whenever a new row is inserted, the database needs to
-update the indexes (e.g., B-trees) for each of the table's indexed
+update the indexes (for example, B-trees) for each of the table's indexed
 columns, which involves swapping one or more pages in from disk.
 Throwing more memory at the problem only delays the inevitable, and
 your throughput in the 10K-100K+ rows per second can crash to
@@ -33,20 +33,22 @@ time-space partitioning, even when running *on a single machine*.  So
 all writes to recent time intervals are only to tables that remain in
 memory, and updating any secondary indexes is also fast as a result.
 
-Benchmarking shows the clear advantage of this approach.  The
+Benchmarking shows the clear advantage of this approach. The
 following benchmark out to 1 billion rows (on a single machine)
 emulates a common monitoring
-scenario, with database clients inserting moderately-sized batches of
+scenario, with database clients inserting moderately sized batches of
 data containing time, a device's tagset, and multiple numeric metrics (in
 this case, 10).  Here, experiments were performed on a standard Azure VM
 (DS4 v2, 8 core) with network-attached SSD storage.
 
+<!-- vale Google.Units = NO -->
 <img width="100%" src="//assets.timescale.com/benchmarks/timescale-vs-postgres-insert-1B.jpg"></img>
+<!-- vale Google.Units = YES -->
 
 We observe that both PostgreSQL and TimescaleDB start at around the
 same throughput (106K and 114K, respectively) for the first 20M
-requests, or over 1M metrics per second.  However, at around 50M rows,
-PostgreSQL's performance begins to drop precipitously.  Its average
+requests, or over 1M metrics per second. However, at around 50M rows,
+PostgreSQL's performance begins to drop precipitously. Its average
 over the last 100M rows is only 5K rows/s, while TimescaleDB retains its
 throughput of 111K rows/s.
 
@@ -55,9 +57,9 @@ In short, TimescaleDB loads the one billion row database in
 more than **20x** that of PostgreSQL at these larger sizes.
 
 Our benchmarks of TimescaleDB show that it maintains its constant
-performance at over 10B rows, even with a single disk.
+performance at over 10&nbsp;B rows, even with a single disk.
 
-Additionally, users have reported such stable performance for **100s
+Additionally, users have reported such stable performance for **hundreds
 of billions of rows** when leveraging many disks on a single
 machine, either in RAIDed configuration or using TimescaleDB's support
 for spreading a single hypertable across multiple disks
@@ -71,7 +73,7 @@ perform indexed lookups or table scans are similarly performant
 between PostgreSQL and TimescaleDB.
 
 For example, on a 100M row table with indexed time, hostname, and cpu
-usage information, the following query takes less than 5ms for
+usage information, the following query takes less than 5&nbsp;ms for
 each database:
 
 ```sql
@@ -96,7 +98,7 @@ time-oriented analysis -- often achieve superior performance in TimescaleDB.
 
 For example, the following query that touches 33M rows is **5x** faster
 in TimescaleDB when the entire (hyper)table is 100M rows, and
-around **2x** faster when it is 1B rows.
+around **2x** faster when it is 1&nbsp;B rows.
 
 ```sql
 SELECT date_trunc('hour', time) as hour,
@@ -114,7 +116,7 @@ For example, TimescaleDB introduces a time-based "merge append" optimization to
 minimize the number of groups which must be processed to execute the
 following (given its knowledge that time is already ordered).  For our
 100M row table, this results in query latency that is **396x** faster
-than PostgreSQL (82ms vs. 32566ms).
+than PostgreSQL (82&nbsp;ms vs. 32566&nbsp;ms).
 
 ```sql
 SELECT date_trunc('minute', time) AS minute, max(usage_user)
@@ -137,12 +139,12 @@ The one additional cost of TimescaleDB compared to PostgreSQL is more
 complex planning (given that a single hypertable can be comprised of
 many chunks).  This can translate to a few extra milliseconds of
 planning time, which can have a disproportional influence for very
-low-latency queries (< 10ms).
+low-latency queries (< 10&nbsp;ms).
 
 ## Time-oriented features
 
 TimescaleDB also includes a number of time-oriented features that
-aren't found in traditional relational databases.  These include
+aren't found in traditional relational databases. These include
 special query optimizations (like the merge append above) that provide
 some of the huge performance improvements for time-oriented queries,
 as well as other time-oriented functions (some of which are listed below).
@@ -153,14 +155,14 @@ TimescaleDB includes *new* functions for time-oriented analytics,
 including some of the following:
 
 - **Time bucketing**: A more powerful version of the standard `date_trunc` function,
-    it allows for arbitrary time intervals (e.g., 5 minutes, 6 hours, etc.),
+    it allows for arbitrary time intervals (for example, 5 minutes, 6 hours, etc.),
     as well as flexible groupings and offsets, instead of just second,
     minute, hour, etc.
 
 - **Last** and **first** aggregates: These functions allow you
-    to get the value of one column as ordered by another.  For
+    to get the value of one column as ordered by another. For
     example, `last(temperature, time)` returns the latest
-    temperature value based on time within a group (e.g., an hour).
+    temperature value based on time within a group (for example, an hour).
 
 These type of functions enable very natural time-oriented queries.
 The following financial query, for example, prints the opening,
@@ -178,10 +180,10 @@ SELECT time_bucket('3 hours', time) AS period
 ```
 
 The ability of `last` to order by a secondary column (even different
-than the aggregate) enables some powerful types of queries.  For
+than the aggregate) enables some powerful types of queries. For
 example, a common technique in financial reporting is "bitemporal
 modeling", which separately reasons about the time associated with an
-observation from the time that observation was recorded.  In such a
+observation from the time that observation was recorded. In such a
 model, corrections are inserted as a new row (with a more
 recent *time_recorded* field) and do not replace existing data.
 
@@ -212,7 +214,7 @@ data for a week."
 In fact, it's common to couple this with the use of continuous
 aggregations, so you might keep two hypertables: one with raw data,
 the other with data that has already been rolled up into minutely or
-hourly aggregates.  Then, you might want to define different retention
+hourly aggregates. Then, you might want to define different retention
 policies on the two (hyper)tables, storing the aggregated data much
 longer.
 
@@ -225,7 +227,7 @@ SELECT drop_chunks('conditions', INTERVAL '7 days');
 
 This deletes all chunks (files) from the hypertable 'conditions'
 that only include data older than this duration, rather than deleting
-any individual rows of data in chunks.  This avoids fragmentation in
+any individual rows of data in chunks. This avoids fragmentation in
 the underlying database files, which in turn avoids the need for
 vacuuming that can be prohibitively expensive in very large tables.
 

@@ -65,7 +65,7 @@ approx_percentile
              0.999
 ```
 
-The `percentile_agg` function can be used used to create continuous aggregates,
+The `percentile_agg` function can be used to create continuous aggregates,
 after which you can use multiple accessors for retrospective analysis:
 
 ```SQL

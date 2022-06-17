@@ -75,7 +75,7 @@ An error is given if:
 * The function is executed in a database that is already a data node.
 * The data node already exists and `if_not_exists` is `FALSE`.
 * The access node cannot connect to the data node due to a network
-  failure or invalid configuration (e.g., wrong port, or there is no
+  failure or invalid configuration (for example, wrong port, or there is no
   way to authenticate the user).
 * If `bootstrap` is `FALSE` and the database was not previously
   bootstrapped.

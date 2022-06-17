@@ -21,12 +21,12 @@ For example, your incoming data may look like this:
 
 timestamp | device_id | cpu_1m_avg | free_mem | temperature | location_id | dev_type
 ---:|---:|---:|---:|---:|---:|---:
-2017-01-01 01:02:00 | abc123 |  80 | 500MB | 72 | 335 | field
-2017-01-01 01:02:23 | def456 |  90 | 400MB | 64 | 335 | roof
-2017-01-01 01:02:30 | ghi789 | 120 |   0MB | 56 |  77 | roof
-2017-01-01 01:03:12 | abc123 |  80 | 500MB | 72 | 335 | field
-2017-01-01 01:03:35 | def456 |  95 | 350MB | 64 | 335 | roof
-2017-01-01 01:03:42 | ghi789 | 100 | 100MB | 56 |  77 | roof
+2017-01-01 01:02:00 | abc123 |  80 | 500&nbsp;MB | 72 | 335 | field
+2017-01-01 01:02:23 | def456 |  90 | 400&nbsp;MB | 64 | 335 | roof
+2017-01-01 01:02:30 | ghi789 | 120 |   0&nbsp;MB | 56 |  77 | roof
+2017-01-01 01:03:12 | abc123 |  80 | 500&nbsp;MB | 72 | 335 | field
+2017-01-01 01:03:35 | def456 |  95 | 350&nbsp;MB | 64 | 335 | roof
+2017-01-01 01:03:42 | ghi789 | 100 | 100&nbsp;MB | 56 |  77 | roof
 
 
 Now you can look at various ways to model this data:

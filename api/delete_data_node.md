@@ -46,7 +46,7 @@ all attached hypertables.
 |Name|Type|Description|
 |---|---|---|
 | `if_exists`   | BOOLEAN | Prevent error if the data node does not exist. Defaults to false. |
-| `force`       | BOOLEAN | Force removal of data nodes from hypertables unless that would result in data loss.  Defaults to false. |
+| `force`       | BOOLEAN | Force removal of data nodes from hypertables unless that would result in data loss. Defaults to false. |
 | `repartition` | BOOLEAN | Make the number of space partitions equal to the new number of data nodes (if such partitioning exists). This ensures that the remaining data nodes are used evenly. Defaults to true. |
 
 ### Returns

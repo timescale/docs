@@ -45,7 +45,7 @@ and to enable compression policies on distributed hypertables.
 Altering data of compressed chunks still has some limitations:
   - You cannot execute `UPDATE` or `DELETE` statements on compressed chunks.
   - `INSERT` is not fully supported on compressed chunks:
-    - You cannot use the `ON CONFLICT` clause  i.e. upserts are not supported.
+    - You cannot use the `ON CONFLICT` clause, that is, upserts are not supported.
     - You cannot use the `OVERRIDING` clause.
     - You cannot use the `RETURNING` clause.
   - Triggers are not fully supported when inserting into compressed chunks:

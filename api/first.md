@@ -30,7 +30,7 @@ GROUP BY device_id;
 
 <highlight type="warning">
  The `last` and `first` commands do **not** use indexes, and instead
- perform a sequential scan through their groups.  They are primarily used
+ perform a sequential scan through their groups. They are primarily used
  for ordered selection within a `GROUP BY` aggregate, and not as an
  alternative to an `ORDER BY time DESC LIMIT 1` clause to find the
  latest value (which uses indexes).

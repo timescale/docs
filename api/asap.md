@@ -28,7 +28,7 @@ an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 |-|-|-|
 |`ts`|`TIMESTAMPTZ`|Column of timestamps corresponding to the values to aggregate|
 |`value`|`DOUBLE PRECISION`|Column to aggregate|
-|`resolution`|`INT`|Approximate number of points to return.  Intended to represent the horizontal resolution in which the aggregate is graphed.|
+|`resolution`|`INT`|Approximate number of points to return. Intended to represent the horizontal resolution in which the aggregate is graphed.|
 
 ## Returns
 
@@ -39,7 +39,7 @@ an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 ## Sample usage
 This example uses a table called `metrics`, with columns for `date` and 
 `reading` that contain measurements that have been accumulated over 
-a large interval of time.  This example takes that data and provides a 
+a large interval of time. This example takes that data and provides a 
 smoothed representation of approximately 10 points, but that still shows 
 any anomalous readings:
 ```sql

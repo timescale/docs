@@ -14,8 +14,8 @@ and disk. Eventually, the entire dataset does not fit in memory, and you need
 to write your data and indexes to disk.
 
 Once the data is sufficiently large that we can't fit all pages of our indexes
-(e.g., B-trees) in memory, then updating a random part of the tree can involve
-swapping in data from disk.  And databases like PostgreSQL keep a B-tree (or
+(for example, B-trees) in memory, then updating a random part of the tree can involve
+swapping in data from disk. And databases like PostgreSQL keep a B-tree (or
 other data structure) for each table index, in order for values in that
 index to be found efficiently. So, the problem compounds as you index more
 columns.
@@ -36,7 +36,7 @@ For more on the motivation and design of TimescaleDB, please see our
 
 TimescaleDB supports streaming replication from a "primary" database server
 to separate "replica" servers, using the standard PostgreSQL physical
-replication protocol.  The protocol works by streaming records of database
+replication protocol. The protocol works by streaming records of database
 modifications from the primary server to one or more replicas, which can then
 be used as read-only nodes (to scale queries) or as failover servers (for high availability).
 
@@ -50,23 +50,21 @@ and in an identical order to each replica.
 TimescaleDB (from underlying PostgreSQL functionality) supports various
 options for physical replication that trade off performance and consistency.
 
-Replication can occur synchronously.  When an insert or schema modification
+Replication can occur synchronously. When an insert or schema modification
 operation is executed on the primary, the operation is replicated (or even
-applied) to replicas before the primary returns any result.  This ensures that
+applied) to replicas before the primary returns any result. This ensures that
 replicas always stay perfectly up-to-date.
 
-Replication can also occur asynchronously.  Operations to the primary return
+Replication can also occur asynchronously. Operations to the primary return
 to a client as soon as they are executed, but any changes are queued for
-asynchronous transmission to any replicas.  Asynchronous replicas are
+asynchronous transmission to any replicas. Asynchronous replicas are
 often used for ad-hoc data exploration, to avoid heavy query load on replicas
 from interfering with a production primary server.
 
 In fact, a single TimescaleDB primary can have both synchronous and
-asynchronous replicas, for a mix of HA failover and read scaling.  The main
+asynchronous replicas, for a mix of HA failover and read scaling. The main
 limitation of primary/backup replication is that each server stores a *full copy*
 of the database.
-
-[//]: # ( Link to section on distributed hypertables?  Timescale Cloud? )
 
 ## Multi-node TimescaleDB and distributed hypertables [](multi-node)
 
@@ -76,7 +74,7 @@ of the data, a *[distributed hypertable][distributed-hypertables]* can be spread
 nodes, such that each node only stores a portion of the distributed
 hypertable (namely, a subset of the chunks). This allows TimescaleDB
 to scale storage, inserts, and queries beyond the capabilities of a single
-TimescaleDB instance.  Distributed hypertables and regular hypertables
+TimescaleDB instance. Distributed hypertables and regular hypertables
 look very similar, with the main difference being that distributed chunks
 are not stored locally (and some other [current limitations][distributed-hypertable-limitations]).
 
@@ -86,7 +84,7 @@ TimescaleDB software for operational simplicity.
 
 [//]: # (Comment: Picture of access nodes and data nodes )
 
-A client connects to an access node database.  The client can
+A client connects to an access node database. The client can
 create a distributed hypertable on the access node, which stores
 cluster-wide information about the different data nodes as well as
 how chunks belonging to distributed hypertables are spread
