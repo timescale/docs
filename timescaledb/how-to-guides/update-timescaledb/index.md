@@ -14,7 +14,8 @@ version. For example, you can update from TimescaleDB 2.1 to 2.2, or from 1.7 to
 <highlight type="cloud" header="Make upgrades automatic" button="Try Timescale Cloud for free">
 Timescale Cloud avoids the manual work involved in updating your TimescaleDB version. 
 Updates take place automatically during a maintenance window picked by you. 
-Learn more about automatic version updates in Timescale Cloud.
+[Learn more](https://docs.timescale.com/cloud/latest/service-operations/maintenance/) 
+about automatic version updates in Timescale Cloud.
 </highlight>
 
 ## TimescaleDB release compatibility
