@@ -4,18 +4,18 @@ Update your TimescaleDB version with an in-place update. By updating in-place,
 you don't need to dump and restore your data. Automated migration scripts handle
 conversion of internal states where needed.
 
-<highlight type="important">
-Follow these instructions to update TimescaleDB within the same major release
-version. For example, you can update from TimescaleDB 2.1 to 2.2, or from 1.7 to
-1.7.4. To update from 1.x to 2.x, see the [section on updating to TimescaleDB 
-2.x](https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb-2/).
-</highlight>
-
 <highlight type="cloud" header="Make upgrades automatic" button="Try Timescale Cloud for free">
 Timescale Cloud avoids the manual work involved in updating your TimescaleDB version. 
 Updates take place automatically during a maintenance window picked by you. 
 [Learn more](https://docs.timescale.com/cloud/latest/service-operations/maintenance/) 
 about automatic version updates in Timescale Cloud.
+</highlight>
+
+<highlight type="important">
+Follow these instructions to update TimescaleDB within the same major release
+version. For example, you can update from TimescaleDB 2.1 to 2.2, or from 1.7 to
+1.7.4. To update from 1.x to 2.x, see the [section on updating to TimescaleDB 
+2.x](https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb-2/).
 </highlight>
 
 ## TimescaleDB release compatibility
