@@ -1,4 +1,10 @@
 # Configure replication
+<highlight header="Enable replication in one click and avoid manual configuration work" type="cloud">
+If you would prefer not to manually configure replication for your TimescaleDB instance, 
+you might find Timescale Cloud’s one-click replicas useful. Create multiple replicas per database 
+and enable or disable them with a single click. Test it out for yourself today with a 
+[free Timescale Cloud trial](http://tsdb.co/cloud-signup).
+</highlight>
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
 
