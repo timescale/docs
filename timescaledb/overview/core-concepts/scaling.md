@@ -4,7 +4,7 @@
 
 <highlight type="cloud" header="Scale your database in one click with Timescale Cloud" button="Try for free"> 
 Timescale Cloud simplifies the process of scaling TimescaleDB for single-node and multi-node 
-instances. Scale your database’s compute (CPU/ memory) and disk storage independently, 
+instances. Scale your database's compute (CPU/ memory) and disk storage independently, 
 at any time and in one click. [Learn more](https://docs.timescale.com/cloud/latest/service-operations/resources/) 
 about scaling database resources on Timescale Cloud.
 </highlight>
