@@ -1,11 +1,20 @@
 # Scaling TimescaleDB
-[//]: # (Comment: Add image comparing single node, physical replication, multi-node)
 
-TimescaleDB supports three main deployment options:  as a single database server,
+[//]: # "Comment: Add image comparing single node, physical replication, multi-node"
+
+<highlight type="cloud" header="Scale your database in one click with Timescale Cloud" button="Try for free"> 
+Timescale Cloud simplifies the process of scaling TimescaleDB for single-node and multi-node 
+instances. Scale your database's compute (CPU/ memory) and disk storage independently, 
+at any time and in one click. [Learn more](https://docs.timescale.com/cloud/latest/service-operations/resources/) 
+about scaling database resources on Timescale Cloud.
+</highlight>
+
+TimescaleDB supports three main deployment options: as a single database server,
 in a traditional primary/replica deployment, or in a multi-node deployment with horizontal
 scalability.
 
 ## Single instance (node)
+
 A single instance of PostgreSQL with TimescaleDB installed can often support
 the needs of very large datasets and application querying. In a regular PostgreSQL
 instance without TimescaleDB, a common problem with scaling database performance
@@ -32,7 +41,7 @@ For more on the motivation and design of TimescaleDB, please see our
 
 ## Primary and backup replication
 
-[//]: # (Comment: Update this image: https://blog.timescale.com/content/images/2018/12/image-12.png )
+[//]: # "Comment: Update this image: https://blog.timescale.com/content/images/2018/12/image-12.png "
 
 TimescaleDB supports streaming replication from a "primary" database server
 to separate "replica" servers, using the standard PostgreSQL physical
@@ -70,7 +79,7 @@ of the database.
 
 TimescaleDB 2.0 also supports horizontally scaling across many servers.
 Instead of a primary node (and each replica) which stores the full copy
-of the data, a *[distributed hypertable][distributed-hypertables]* can be spread across multiple
+of the data, a _[distributed hypertable][distributed-hypertables]_ can be spread across multiple
 nodes, such that each node only stores a portion of the distributed
 hypertable (namely, a subset of the chunks). This allows TimescaleDB
 to scale storage, inserts, and queries beyond the capabilities of a single
@@ -82,7 +91,7 @@ In a multi-node deployment of TimescaleDB, a database can assume the
 role of either an **access node** or a **data node**; both run the identical
 TimescaleDB software for operational simplicity.
 
-[//]: # (Comment: Picture of access nodes and data nodes )
+[//]: # "Comment: Picture of access nodes and data nodes "
 
 A client connects to an access node database. The client can
 create a distributed hypertable on the access node, which stores
@@ -104,10 +113,9 @@ access node, such that aggregates are performed on data nodes
 whenever possible, and only aggregated or filtered results are passed
 back to the access node for merging and returning to a client.
 
-
 [data model]: /overview/data-model-flexibility/
 [chunking]: https://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
-[Compression Operational Overview]: /how-to-guides/compression/
+[compression operational overview]: /how-to-guides/compression/
 [compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
 [contact]: https://www.timescale.com/contact
 [slack]: https://slack.timescale.com/
