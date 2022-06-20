@@ -78,7 +78,7 @@ the time dimension and the space dimension. You can specify the number of
 partitions along the space dimension. Data is assigned to a partition by hashing
 its value on that dimension.
 
-For example, say you use `device_id` as a a space partitioning column. For each
+For example, say you use `device_id` as a space partitioning column. For each
 row, the value of the `device_id` column is hashed. Then the row is inserted
 into the correct partition for that hash value.
 
