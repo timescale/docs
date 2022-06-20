@@ -42,7 +42,9 @@ this case, 10).  Here, experiments were performed on a standard Azure VM
 (DS4 v2, 8 core) with network-attached SSD storage.
 
 <!-- vale Google.Units = NO -->
+
 <img width="100%" src="//assets.timescale.com/benchmarks/timescale-vs-postgres-insert-1B.jpg"></img>
+
 <!-- vale Google.Units = YES -->
 
 We observe that both PostgreSQL and TimescaleDB start at around the
