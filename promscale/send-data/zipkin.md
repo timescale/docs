@@ -43,7 +43,7 @@ If you are running the OTLP Collector and the Promscale Connector on a
 Kubernetes cluster the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
-The default port exposed by Zipkin receiver is `9411`.
+The default port exposed by the Zipkin receiver is `9411`.
 
 For more information about OpenTelemetry Collector, see the 
 [OpenTelemetry documentation][otelcol-docs].
