@@ -1,13 +1,10 @@
 # Query traces in Promscale
 SQL allows you to conduct correlational analysis of different types of data,
-such as metrics and spans. You can use Promscale to help you construct these
-kinds of queries.
+such as metrics and spans. Promscale helps you construct these kinds of queries.
 
-## Single span
-
-<!--- Add some concept info about single spans here -->
-
-A single span is a record of this structure:
+## Span
+A span represents a single operation within a trace. The structure of a span is
+similar to:
 
 |Name|Type|Description|
 |-|-|-|
@@ -40,54 +37,42 @@ A single span is a record of this structure:
 ### The `tag_map` type
 The `tag_map` type is a storage optimization for spans. It can be queried as a
 regular [`jsonb` PostgreSQL type][jsonb-pg-type]. It normalizes the span data
-and can significantly reduce the storage footprint. This is a custom type made
-by Timescale, and it is continuously being improved. These operators have
-optimized support:
+and can significantly reduce the storage footprint. This is a custom type
+created by Timescale, and it is continuously being improved. While all other
+operators also perform well, these operators have additional performance
+optimizations:
 
 * `->` is used get the value for the given key. For example: `span_tags -> 'pwlen'`.
 * `=` is used to provide value equality for a key. For example: `span_tags -> 'pw_len' = '10'::jsonb`.
 * `!=` is used to provide value inequality for a key. For example: `span_tags -> 'pw_len' != '10'::jsonb`.
 
-All other operators also perform well, but the listed operators have
-additional performance optimizations available.
-
 ### The `trace_id` type
 The `trace_id` type is a 16-byte type that is a bit like a UUID. It represents
 the `trace_id` in compliance with [Open Telemetry requirements][opentel-spec].
 
-### The `span_kind` enum type
-The `span_kind` enumerated type is <!--add explanation here -->.
+### The `span_kind` enumerated type
+The `span_kind` provides useful performance context in a trace. This information is useful in performance analysis. The possible values for this type are:
+`unspecified`, `internal`, `server`, `client`, `producer`, and `consumer`.
 
-The possible values for this type are:
-* `unspecified`
-* `internal`
-* `server`
-* `client`
-* `producer`
-* `consumer`
-
-### The `status_code` enum type
-The `status_code` enumerated type is <!--add explanation here -->.
-
-The possible values for this type are:
-* `unset`
-* `ok`
-* `error`
+### The `status_code` enumerated type
+The `status_code` is a special, standardized property for a span. The possible values are: `unset`, `ok`, and `error`.
 
 ## Views
-Promscale uses views to provide a stable interface. The set of views is provided in the `ps_trace` schema. These include:
+Promscale uses views to provide a stable interface. The set of views is provided
+in the `ps_trace` schema. These include:
 * `span`
 * `link`
 * `event`
 
 ### The `span` view
-The `span` view joins several tables so you can see an overview of the data
+The `span` view joins several tables so that you can see an overview of the data
 relevant for a single span. The span is stored across multiple tables, and data
 is split across several columns for better index support. The table that
 contains the span data is a hypertable, so it has support for retention and
 compression.
 
-This is an example of a simple query on the `span` view:
+This is an example of a simple query to view spans for a service in the
+last 10 minutes on a Linux server:
 
 ```SQL
 select
@@ -106,7 +91,7 @@ The `event` view provides access to events and their corresponding spans. For
 more information about OpenTelemetry events, see the OpenTelemetry documentation
 for [add events][opentel-add-events] and [span events][opentel-span-events].
 
-<!-- Add stem sentence for table here -->
+The structure of an event view is similar to:
 
 |Name|Type|Description|
 |-|-|-|
@@ -131,7 +116,8 @@ for [add events][opentel-add-events] and [span events][opentel-span-events].
 |`status_code`|`enum`|[Status code][status-code-docs]|
 |`status_message`|`text`|Status message|
 
-This is an example of a simple query on the `event` view:
+This is an example of a simple query to view the events in the last 10 minutes
+with error:
 
 ```SQL
 select
@@ -160,7 +146,7 @@ The `link` view adds all the columns in the previous table, as well as these add
 
 ## Example trace queries in SQL
 
-<!--- Add some concept info about querying traces here -->
+A trace is a collection of transactions or spans that represents a unique user or API transaction handled by an application and its services. 
 
 When you build time series graphs in Grafana, you can use the Grafana [`$__interval`][grafana-interval] variable.
 
@@ -442,3 +428,4 @@ select *
 [pg-interval]: https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT
 [partitioning-hypertables]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks
 [pg-agg-function]: https://www.postgresql.org/docs/current/functions-aggregate.html
+
