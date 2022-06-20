@@ -44,7 +44,7 @@ Where:
 * `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
 
 If you are running the OTLP Collector and the Promscale Connector on a
-Kubernetes cluster the endpoint parameter is similar to `endpoint:
+Kubernetes cluster, the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
 The default ports exposed by Jaeger receiver are:
