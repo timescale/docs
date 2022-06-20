@@ -366,7 +366,7 @@ table and its filters:
 * The query limits the metrics to the container and instance you're interested
   in. This also helps to give the planner more freedom in dealing with the
   query.
-1. The join clause itself is matching only on the generated `time_bucket`.
+* The join clause itself is matching only on the generated `time_bucket`.
 
 Now to look at the `span` view:
 * The only qualification in the `where` clause is the `start_time` matching that
