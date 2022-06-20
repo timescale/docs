@@ -9,6 +9,10 @@ using `INSERT`, `UPDATE`, and `DELETE` statements.
 *   [Upsert data][upsert] into hypertables
 *   [Delete data][delete] from hypertables
 
+For more information about using third-party tools to write data
+into TimescaleDB, see the [Ingest Data from other sources][ingest-data] section.
+
+[ingest-data]: /how-to-guides/ingest-data/
 [about-writing-data]: /how-to-guides/write-data/about-writing-data/
 [delete]: /how-to-guides/write-data/delete/
 [insert]: /how-to-guides/write-data/insert/

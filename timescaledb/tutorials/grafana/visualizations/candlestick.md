@@ -50,6 +50,10 @@ The examples in this section use these variables and Grafana functions:
 * `$bucket_interval`: the interval size to pass to the `time_bucket`
   function when aggregating data.
 
+Check out this video for a step-by-step walkthrough on creating
+candlestick visualizations in Grafana:
+<video url="https://www.youtube-nocookie.com/embed/08CydeL9lIk"/>
+
 ## Create a candlestick with raw data
 Create a candlestick visualization using the raw data in the table `stocks_real_time`.
 
