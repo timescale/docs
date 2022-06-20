@@ -25,7 +25,7 @@ automatically creates a chunk to store it.
 
 By default, each chunk covers 7 days. You can change this to better suit your
 needs. For example, if you set `chunk_time_interval` to 1 day, each chunk stores
-data from the same day. Data from different days is stored in different chunks. 
+data from the same day. Data from different days is stored in different chunks.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/getting-started/hypertables-chunks.png"
@@ -69,9 +69,9 @@ section on [changing hypertable chunk intervals][change-chunk-intervals].
 Space partitioning is optional. It is not usually recommended for regular
 hypertables, except in very particular circumstances. It is recommended for
 distributed hypertables, to balance inserts between nodes. For more information,
-see the sections on [best practices for space
-partitioning][best-practices-space] and on [distributed
-hypertables][about-distributed-hypertables].
+see the sections on
+[best practices for space partitioning][best-practices-space] and
+[distributed hypertables][about-distributed-hypertables].
 
 When space partitioning is on, 2 dimensions are used to divide data into chunks:
 the time dimension and the space dimension. You can specify the number of
@@ -85,6 +85,11 @@ into the correct partition for that hash value.
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/hypertable-time-space-partition.png"
 alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
+
+### Closed and open dimensions for space partitioning
+Space partitioning dimensions can be open or closed. A closed dimension has a fixed number of partitions, and usually uses some hashing to match values to the partition. An open dimension does not have a fixed number of partitions, and usually has each chunk cover a certain range. In most cases the time dimension is open and the space dimension is closed.
+
+If you use the `create_hypertable` command to create your hypertable, then the space dimension is open, and there is no way to adjust this. To create a hypertable with a closed space dimenssion, create the hypertable with only the time dimension first, and then use the `add_dimension` command to explicitly add an open device. If you set the range to `1`, each device has its own chunks. This can help you work around some limitations of normal space dimensions, and is especially useful if you want to make some chunks readily available for exclusion.
 
 ### Best practices for space partitioning
 Space partitioning is not usually recommended for non-distributed hypertables.
