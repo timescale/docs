@@ -47,7 +47,7 @@ If you are running the OTLP Collector and the Promscale Connector on a
 Kubernetes cluster, the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
-The default ports exposed by Jaeger receiver are:
+The default ports exposed by the Jaeger receiver are:
 * `14250` : gRPC
 * `6832`  : thrift_binary
 * `6831`  : thrift_compact
