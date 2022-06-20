@@ -34,7 +34,7 @@ similar to:
 |`resource_dropped_tags_count`|`int4`|Number of dropped resources|
 |`resource_schema_url`|`text`|Resource's schema file URL|
 
-### The `tag_map` type
+### The tag_map type
 The `tag_map` type is a storage optimization for spans. It can be queried as a
 regular [`jsonb` PostgreSQL type][jsonb-pg-type]. It normalizes the span data
 and can significantly reduce the storage footprint. This is a custom type
@@ -46,15 +46,15 @@ optimizations:
 * `=` is used to provide value equality for a key. For example: `span_tags -> 'pw_len' = '10'::jsonb`.
 * `!=` is used to provide value inequality for a key. For example: `span_tags -> 'pw_len' != '10'::jsonb`.
 
-### The `trace_id` type
+### The trace_id type
 The `trace_id` type is a 16-byte type that is a bit like a UUID. It represents
 the `trace_id` in compliance with [Open Telemetry requirements][opentel-spec].
 
-### The `span_kind` enumerated type
+### The span_kind enumerated type
 The `span_kind` provides useful performance context in a trace. This information is useful in performance analysis. The possible values for this type are:
 `unspecified`, `internal`, `server`, `client`, `producer`, and `consumer`.
 
-### The `status_code` enumerated type
+### The status_code enumerated type
 The `status_code` is a special, standardized property for a span. The possible values are: `unset`, `ok`, and `error`.
 
 ## Views
@@ -64,7 +64,7 @@ in the `ps_trace` schema. These include:
 * `link`
 * `event`
 
-### The `span` view
+### The span view
 The `span` view joins several tables so that you can see an overview of the data
 relevant for a single span. The span is stored across multiple tables, and data
 is split across several columns for better index support. The table that
@@ -86,7 +86,7 @@ select
     limit 50
 ```
 
-### The `event` view
+### The event view
 The `event` view provides access to events and their corresponding spans. For
 more information about OpenTelemetry events, see the OpenTelemetry documentation
 for [add events][opentel-add-events] and [span events][opentel-span-events].
@@ -131,7 +131,7 @@ select
     limit 50
 ```
 
-### The `link` view
+### The link view
 The `link` view allows you to see spans that have originated from the same
 trace. In essence, it is a representation of two related spans, with some extra
 information about the relationship between them. For more information about
