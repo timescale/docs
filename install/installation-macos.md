@@ -116,15 +116,15 @@ installed it yet, check out our [installing psql][install-psql] section.
     ```
 1. Check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. Output is similar to:
-```sql
-tsdb-# \dx
-                                      List of installed extensions
-    Name     | Version |   Schema   |                            Description                            
--------------+---------+------------+-------------------------------------------------------------------
- plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
- timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
-(2 rows)
-```
+    ```sql
+    tsdb-# \dx
+                                          List of installed extensions
+        Name     | Version |   Schema   |                            Description                            
+    -------------+---------+------------+-------------------------------------------------------------------
+     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+     timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
+    (2 rows)
+    ```
 
 </procedure>
 
