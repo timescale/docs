@@ -33,7 +33,7 @@ permissions.
 **Massive scale**: store and query terabytes of datapoints with horizontal
 scalability, columnar compression and continous aggregates.
 
-**100s of integrations**: access a large ecosystem of integrations available
+**Hundreds of integrations**: access a large ecosystem of integrations available
 for Postgres and TimescaleDB: data visualization tools, AI platforms, IDEs, ORMs,
 management tools, performance tuning, etc.
 

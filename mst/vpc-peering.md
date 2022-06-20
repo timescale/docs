@@ -10,7 +10,7 @@ you can have multiple projects that peer with different connections.
 
 <highlight type="tip">
 Services are only accessible via your VPC's internal network, they are not
-accessible from the public internet.  TLS certificates for VPC peered services are
+accessible from the public internet. TLS certificates for VPC peered services are
 signed by the Timescale project CA and cannot be validated against a public CA
 (Let's Encrypt). You can choose service-by-service whether you want to run on VPC
 peered network or on public internet.
@@ -23,7 +23,7 @@ request in the VPC section of the dashboard.
 When creating a new service, you can choose whether the service is placed
 in a VPC or not: The list of cloud providers and regions contains options like
 "Belgium - Google Cloud: Belgium" and "Belgium - Google Cloud: Belgium - Project
-VPC". Here selecting the former would create the service to non-VPC environment
+VPC." Here selecting the former would create the service to non-VPC environment
 while the latter would place the service within the VPC. The same functionality
 is available with the "Migrate" feature, allowing moving a service to and from a
 VPC.

@@ -3,6 +3,8 @@ api_name: counter_zero_time()
 excerpt: Predict the time when a counter was at zero
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [counters, least squares, regression, extrapolate, extrapolation, hyperfunctions]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

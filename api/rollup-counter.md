@@ -3,6 +3,8 @@ api_name: rollup()
 excerpt: Roll up multiple `CounterSummary` aggregates
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, rollup, counters, CounterSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

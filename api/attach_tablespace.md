@@ -2,6 +2,8 @@
 api_name: attach_tablespace()
 excerpt: Attach a tablespace to a hypertable
 license: apache
+topic: hypertables
+tags: [data tiering, chunks, tablespaces, hypertables, attach]
 ---
 
 ## attach_tablespace()

@@ -2,6 +2,9 @@
 api_name: copy_chunk()
 excerpt: Copy a chunk between data nodes in a distributed hypertable
 license: community
+experimental: true
+topic: multi-node
+tags: [multi-node, data nodes, chunks, distributed hypertables]
 ---
 
 ## copy_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>

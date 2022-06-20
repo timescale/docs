@@ -1,8 +1,8 @@
 # Troubleshooting
 
 If you run into problems when using TimescaleDB, there are a few things that you
-can do.  There are some solutions to common errors below as well as ways to output
-diagnostic information about your setup.  If you need more guidance, you can join
+can do. There are some solutions to common errors below as well as ways to output
+diagnostic information about your setup. If you need more guidance, you can join
 the support [slack group][slack] or post an issue on the TimescaleDB [github][].
 
 ## Common errors
@@ -10,8 +10,8 @@ the support [slack group][slack] or post an issue on the TimescaleDB [github][].
 ### Error updating TimescaleDB when using a third-party PostgreSQL admin tool
 
 The update command `ALTER EXTENSION timescaledb UPDATE` must be the first command
-executed upon connection to a database.  Some admin tools execute command before
-this, which can disrupt the process.  It may be necessary for you to manually update
+executed upon connection to a database. Some admin tools execute command before
+this, which can disrupt the process. It may be necessary for you to manually update
 the database with `psql`.  See our [update docs][update-db] for details.
 
 ###  Log error: could not access file "timescaledb" [](access-timescaledb)
@@ -41,7 +41,7 @@ $ pg_config --bindir
 If either of those steps is not the version you are expecting, you need
 to either (a) uninstall the incorrect version of PostgreSQL if you can or
 (b) update your `PATH` environmental variable to have the correct
-path of `pg_config` listed first, i.e., by prepending the full path:
+path of `pg_config` listed first, that is, by prepending the full path:
 
 ```bash
 $ export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
@@ -55,7 +55,7 @@ If the error occurs immediately after updating your version of TimescaleDB and
 the file mentioned is from the previous version, it is probably due to an incomplete
 update process. Within the greater PostgreSQL server instance, each
 database that has TimescaleDB installed needs to be updated with the SQL command
-`ALTER EXTENSION timescaledb UPDATE;` while connected to that database.  Otherwise,
+`ALTER EXTENSION timescaledb UPDATE;` while connected to that database. Otherwise,
 the database will be looking for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.

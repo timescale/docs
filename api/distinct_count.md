@@ -1,8 +1,10 @@
 ---
-api_name: distinct_count
+api_name: distinct_count()
 excerpt: Estimate the number of distinct values from values in a hyperloglog
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, approximate count distinct, distinct count, hyperloglog]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

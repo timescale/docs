@@ -23,7 +23,7 @@ and disk. Eventually, the entire dataset does not fit in memory, and you need
 to write your data and indexes to disk.
 
 Once the data is sufficiently large that we can't fit all pages of our indexes
-(e.g., B-trees) in memory, then updating a random part of the tree can involve
+(for example, B-trees) in memory, then updating a random part of the tree can involve
 swapping in data from disk. And databases like PostgreSQL keep a B-tree (or
 other data structure) for each table index, in order for values in that
 index to be found efficiently. So, the problem compounds as you index more
@@ -72,10 +72,8 @@ from interfering with a production primary server.
 
 In fact, a single TimescaleDB primary can have both synchronous and
 asynchronous replicas, for a mix of HA failover and read scaling. The main
-limitation of primary/backup replication is that each server stores a _full copy_
+limitation of primary/backup replication is that each server stores a *full copy*
 of the database.
-
-[//]: # " Link to section on distributed hypertables?  Timescale Cloud? "
 
 ## Multi-node TimescaleDB and distributed hypertables [](multi-node)
 

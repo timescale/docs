@@ -75,7 +75,7 @@ check out our [installing psql][install-psql] section.
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
-1.  Click the name of the service you want to connect to to see the connection
+1.  Click the name of the service you want to connect to see the connection
     information. Take a note of the `host`, `port`, and `password`.
 1.  On your local system, at the command prompt, connect to the service, using
     your own service details:

@@ -3,6 +3,8 @@ api_name: rolling()
 excerpt: Roll up multiple statistical aggregates to calculate rolling window aggregates
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, rollup, statistical aggregates, rolling window]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
