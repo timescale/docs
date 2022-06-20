@@ -1,18 +1,18 @@
 # Query metric data with SQL
 This section covers information about the different SQL queries you can use for
-metrics data.
+metrics data. When you query a metric, the query is performed against the view
+of the metric you're interested in.
 
-When you query a metric, the query is performed against the view of the metric
-you're interested in. This example queries a metric named `go_dc_duration` for
-its samples in the past five minutes. This metric is a measurement for how long
-garbage collection is taking in Go applications:
+For example, to query a metric named `go_dc_duration` for its samples in the
+past five minutes. This metric measures for how long garbage collection takes in
+Go applications:
 
 ``` sql
 SELECT * from go_gc_duration_seconds
 WHERE time > now() - INTERVAL '5 minutes';
 ```
 
-An example of the output for this query:
+The output is similar to:
 ```sql
 |           time             |    value    | series_id |      labels       | instance_id | job_id | quantile_id |
 |----------------------------|-------------|-----------|-------------------|-------------|--------|-------------|
@@ -23,15 +23,12 @@ An example of the output for this query:
 | 2021-01-27 18:43:42.389+00 |           0 |       500 | {208,43,51,216}   |          43 |     51 |         216 |
 ```
 
-In this output, each row includes a `series_id` field, which uniquely identifies
-its measurements label set. This enables efficient aggregation by series.
-
-Each row also includes a `labels` field, which contains an array of foreign keys
-to label key-value pairs making up the label set.
-
-While the `labels` array is the entire label set, there are also separate fields
-for each label key in the label set, to simplify access. These fields end with
-the suffix `_id` .
+Where:
+* `series_id` uniquely identifies its measurements label set. This enables
+efficient aggregation by series.
+* `labels` field, which contains an array of foreign keys to label key-value
+pairs that make up the label set.
+* `<LABEL_KEY>_id` are separate fields for each label key in the label set, to simplify access.
 
 ## Query values for label keys
 Each label key is expanded into its own column, which stores foreign key
@@ -55,7 +52,7 @@ WHERE
 GROUP BY job_id;
 ```
 
-An example of the output for this query:
+The output is simialr to:
 ``` sql
 |      job      |  median   |
 |---------------|---------- |
@@ -66,8 +63,7 @@ An example of the output for this query:
 ## Query label sets for a metric
 The `labels` field in any metric row represents the full set of labels
 associated with the measurement. It is represented as an array of identifiers.
-To return the entire labelset in JSON, you can use the `jsonb()` function, like
-this:
+To return the entire labelset in JSON, you can use the `jsonb()` function:
 ``` sql
 SELECT
     time, value, jsonb(labels) as labels
@@ -77,7 +73,7 @@ WHERE
     time > now() - INTERVAL '5 minutes';
 ```
 
-An example of the output for this query:
+The output is similar to:
 ```sql
 |            time            |    value    |                                                        labels                                                       |
 |----------------------------|-------------|--------------------------------------------------------------------------------------------------------------------|
@@ -121,7 +117,7 @@ WHERE
     AND time > now() - INTERVAL '5 minutes';
 ```
 
-An example of the output for this query:
+The output is similar to:
 ```sql
 | time                       |   value   |              labels                                                                                              |
 |----------------------------|-----------|------------------------------------------------------------------------------------------------------------------|
@@ -142,7 +138,7 @@ FROM go_gc_duration_seconds
 GROUP BY series_id;
 ```
 
-An example of the output for this query:
+The output is similar to:
 ```sql
 |                                                       labels                                                        | count |
 |---------------------------------------------------------------------------------------------------------------------|-------|
@@ -162,3 +158,4 @@ An example of the output for this query:
 [sql-query-dan-luu]: https://danluu.com/metrics-analytics/
 [visualize-data]: /promscale/:currentVersion:/visualize-data/
 [promql-docs]: https://prometheus.io/docs/prometheus/latest/querying/basics/
+
