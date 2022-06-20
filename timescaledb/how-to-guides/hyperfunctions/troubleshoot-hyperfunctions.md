@@ -46,7 +46,7 @@ timescaledb_toolkit` fails, try:
 
 
 ## Updating the Toolkit extension fails with an error saying `no update path`
-In some cases, when you use the `ALTER EXTENSION timescaledb UPDATE` command to
+In some cases, when you use the `ALTER EXTENSION timescaledb_toolkit UPDATE` command to
 update the Toolkit extension, it might fail with an error like this:
 
 ```sql
