@@ -14,7 +14,7 @@ If you would prefer not to manually create backups and keep them up to date for 
 you might find the automatic backups on Timescale Cloud useful. In addition to automatically maintaining backups, 
 the platform also handles automatic restore from backups with no user action required. 
 [Learn more](https://docs.timescale.com/cloud/latest/backup-restore-cloud/) about backup 
-and restore in Timescale Cloud or or [test it out yourself](http://tsdb.co/cloud-signup) with a free trial.
+and restore in Timescale Cloud or [test it out yourself](http://tsdb.co/cloud-signup) with a free trial.
 
 </highlight>
 
