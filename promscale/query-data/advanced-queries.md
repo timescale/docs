@@ -2,10 +2,11 @@
 This section contains some examples of more complicated queries.
 
 ## Query percentiles aggregated over time and series
-This query calculates the 99th percentile over both time and series (`app_id`)
-for the metric named `go_gc_duration_seconds`. This metric is a measurement for
-how long garbage collection is taking in Go applications:
-``` sql
+This query calculates the ninety-ninth percentile over both time and series
+(`app_id`) for the metric named `go_gc_duration_seconds`. This metric is a
+measurement for how long garbage collection is taking in Go applications:
+
+```sql
 SELECT
     val(instance_id) as app,
     percentile_cont(0.99) within group(order by value) p99
@@ -30,13 +31,13 @@ and returns an accurate calculation of the percentile. It is not possible to use
 PromQL alone to accurately calculate percentiles when aggregating over both time
 and series.
 
-
 ## Other complex queries
 The examples in this section are for querying metrics from Prometheus and
 `node_exporter`. A more complex example provided by [Dan Luu][sql-query-dan-luu]
 shows how you can discover Kubernetes containers that are over-provisioned. In
-this query, you find containers whose 99th percentile memory utilization is low,
-like this:
+this query, you find containers whose ninety-ninth percentile memory utilization
+is low, like this:
+
 ```sql
 WITH memory_allowed as (
   SELECT

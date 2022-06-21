@@ -56,7 +56,7 @@ WHERE
 GROUP BY job_id;
 ```
 
-The output is simialr to:
+The output is similar to:
 
 ```sql
 |      job      |  median   |
@@ -68,7 +68,7 @@ The output is simialr to:
 ## Query label sets for a metric
 The `labels` field in any metric row represents the full set of labels
 associated with the measurement. It is represented as an array of identifiers.
-To return the entire labelset in JSON, you can use the `jsonb()` function:
+To return the entire label set in JSON, you can use the `jsonb()` function:
 
 ```sql
 SELECT

@@ -34,7 +34,7 @@ similar to:
 |`resource_dropped_tags_count`|`int4`|Number of dropped resources|
 |`resource_schema_url`|`text`|Resource's schema file URL|
 
-### tag_map
+### `tag_map`
 The `tag_map` type is a storage optimization for spans. It can be queried as a
 regular [`jsonb` PostgreSQL type][jsonb-pg-type]. It normalizes the span data
 and can significantly reduce the storage footprint. This is a custom type
@@ -46,15 +46,15 @@ optimizations:
 * `=` is used to provide value equality for a key. For example: `span_tags -> 'pw_len' = '10'::jsonb`.
 * `!=` is used to provide value inequality for a key. For example: `span_tags -> 'pw_len' != '10'::jsonb`.
 
-### trace_id
+### `trace_id`
 The `trace_id` type is a 16-byte type that is a bit like a UUID. It represents
 the `trace_id` in compliance with [Open Telemetry requirements][opentel-spec].
 
-### span_kind
+### `span_kind`
 The `span_kind` provides useful performance context in a trace. This information is useful in performance analysis. The possible values for this type are:
 `unspecified`, `internal`, `server`, `client`, `producer`, and `consumer`.
 
-### status_code
+### `status_code`
 The `status_code` is a special, standardized property for a span. The possible values are: `unset`, `ok`, and `error`.
 
 ## Views
@@ -141,11 +141,10 @@ The `link` view adds all the columns in the previous table, as well as these add
 
 |Name|Type|Description|
 |-|-|-|
-|link_tags|`tag_map`|Link tags|
-|dropped_link_tags_count|`integer`|Number of dropped link tags|
+|`link_tags`|`tag_map`|Link tags|
+|`dropped_link_tags_count`|`integer`|Number of dropped link tags|
 
 ## Example trace queries in SQL
-
 A trace is a collection of transactions or spans that represents a unique user or API transaction handled by an application and its services.
 
 When you build time series graphs in Grafana, you can use the Grafana [`$__interval`][grafana-interval] variable.
@@ -371,8 +370,8 @@ table and its filters:
 * To retrieve actual memory usage values, the query filters out some misses
   where the value was reported as `NaN`.
 * The query specifies last week as the time window. This allows the
-  planner to eliminate unecessary partitions on the planning stage. This should
-  also siginifcantly speed up the query.
+  planner to eliminate unnecessary partitions on the planning stage. This should
+  also significantly speed up the query.
 * The query limits the metrics to the container and instance you're interested
   in. This also helps to give the planner more freedom in dealing with the
   query.
