@@ -3,6 +3,8 @@ api_name: corr()
 excerpt: Calculate the correlation coefficient from values in a `CounterSummary`
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, correlation coefficient, counters, CounterSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

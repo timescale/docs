@@ -34,14 +34,14 @@ To use this procedure:
  ```
 
 If using a temp table, the table is automatically dropped at the end of your
-database session.  If using a normal table, after you are done backfilling the
+database session. If using a normal table, after you are done backfilling the
 data successfully, you want to truncate your table in preparation
 for the next backfill (or drop it completely).
 
 ## Manually decompressing chunks for backfill
 
 To perform these steps more manually, we first identify and turn off our
-compression policy, before manually decompressing chunks.  To accomplish this
+compression policy, before manually decompressing chunks. To accomplish this
 we first find the job_id of the policy using:
 
 ```sql
@@ -59,7 +59,7 @@ SELECT alter_job(<job_id>, scheduled => false);
 
 We have now paused the compress chunk policy from the hypertable which
 leaves us free to decompress the chunks we need to modify via backfill or
-update. To decompress the chunk(s) that need to be modified, for each chunk:
+update. To decompress the chunks that need to be modified, for each chunk:
 
 ``` sql
 SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');

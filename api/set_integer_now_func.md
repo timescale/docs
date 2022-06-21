@@ -2,6 +2,8 @@
 api_name: set_integer_now_fun()
 excerpt: Define the relationship between integer time values and actual time
 license: apache
+topic: hypertables
+tags: [hypertables, integer time values]
 ---
 
 ## set_integer_now_func() 

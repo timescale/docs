@@ -1,3 +1,11 @@
+---
+api_name: drop_chunks()
+excerpt: Delete chunks by time range
+license: apache
+topic: data retention
+tags: [data retention, chunks, drop, delete]
+---
+
 ## drop_chunks()
 
 Removes data chunks whose time range falls completely before (or
@@ -46,7 +54,7 @@ The `older_than` and `newer_than` parameters can be specified in two ways:
 
 <highlight type="warning">
 When using just an interval type, the function assumes that
-you are are removing things _in the past_. If you want to remove data
+you are removing things _in the past_. If you want to remove data
 in the future, for example to delete erroneous entries, use a timestamp.
 </highlight>
 

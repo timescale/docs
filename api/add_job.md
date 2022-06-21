@@ -2,6 +2,8 @@
 api_name: add_job()
 excerpt: Add a job to run a user-defined action automatically
 license: community
+topic: jobs
+tags: [user-defined actions, scheduled jobs, automation framework, background jobs]
 ---
 
 ## add_job() <tag type="community">Community</tag>

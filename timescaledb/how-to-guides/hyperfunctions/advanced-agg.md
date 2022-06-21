@@ -32,7 +32,7 @@ of the discrete value.
 
 Think about the types of percentiles you're most interested in. `tdigest` is
 optimized for more accurate estimates at the extremes, and less accurate
-estimates near the median. If your workflow involves estimating 99th
+estimates near the median. If your workflow involves estimating ninety-ninth
 percentiles, then choose `tdigest`. If you're more concerned about getting
 highly accurate median estimates, choose `uddsketch`.
 

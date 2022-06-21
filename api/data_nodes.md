@@ -2,6 +2,8 @@
 api_name: timescaledb_information.data_nodes
 excerpt: Get information on data nodes in a multi-node cluster
 license: community
+topic: multi-node
+tags: [multi-node, informational views, cluster]
 ---
 
 # timescaledb_information.data_nodes 

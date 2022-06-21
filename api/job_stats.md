@@ -2,6 +2,8 @@
 api_name: timescaledb_information.job_stats
 excerpt: Get information and statistics about automatically run jobs
 license: community
+topic: jobs
+tags: [background jobs, scheduled jobs, automation framework, scheduled views, statistics]
 ---
 
 ## timescaledb_information.job_stats 

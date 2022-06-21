@@ -3,6 +3,8 @@ api_name: rollup()
 excerpt: Roll up multiple hyperloglogs
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, rollup, hyperloglogs, approximate count distinct]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -42,13 +44,14 @@ For more information about approximate count distinct functions, see the
 ```SQL
 SELECT distinct_count(rollup(logs))
 FROM (
-    (SELECT hyperloglog(32, v::text) logs FROM generate_series(1, 100) v)
+    (SELECT hyperloglog(32768, v::text) logs FROM generate_series(1, 100000) v)
     UNION ALL
-    (SELECT hyperloglog(32, v::text) FROM generate_series(50, 150) v)
+    (SELECT hyperloglog(32768, v::text) FROM generate_series(50000, 150000) v)
 ) hll;
- count
--------
-   152
+
+ distinct_count 
+----------------
+         150147
 ```
 
 

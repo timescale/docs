@@ -1,9 +1,9 @@
 ## Narrow-table model
 
 Most time-series databases would represent this data in the following way:
-- Represent each metric as a separate entity (e.g., represent `cpu_1m_avg`
+- Represent each metric as a separate entity (for example, represent `cpu_1m_avg`
   and `free_mem` as two different things)
-- Store a sequence of "time", "value" pairs for that metric
+- Store a sequence of "time," "value" pairs for that metric
 - Represent the metadata values as a "tag-set" associated with that
 metric/tag-set combination
 
