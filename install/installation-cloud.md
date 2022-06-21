@@ -71,7 +71,7 @@ check out our [installing psql][install-psql] section.
 1.  Sign in to the [Timescale Cloud portal][tsc-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
-1.  Click the name of the service you want to connect to to see the connection
+1.  Click the name of the service you want to connect to see the connection
     information. Take a note of the `Service URL`.
 1.  Navigate to the `Operations` tab, and click `Reset password`. You can choose
     your own password for the service, or allow Timescale Cloud to generate a

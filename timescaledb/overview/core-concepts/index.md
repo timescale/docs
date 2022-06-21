@@ -37,19 +37,19 @@ advanced capabilities designed specifically for time-series data, including:
 
 - **Transparent and automated time partitioning**, where time-series tables are
   automatically and continuously "chunked" into smaller intervals to improve
-  performance and to unlock various data-management capabilities.  Data
+  performance and to unlock various data-management capabilities. Data
   and indexes for the latest chunks naturally remain in memory,
   ensuring fast inserts and performant queries to recent data.
 
 - **Native columnar compression** with advanced datatype-specific compression,
   employing various best-in-class algorithms based on whether the data are
-  timestamps, integers, floats, strings, or others.  Users typically report 94-97%
+  timestamps, integers, floats, strings, or others. Users typically report 94-97%
   storage reduction and faster queries to compressed data.
 
 - **Continuous and real-time aggregations**, in which the database continually
   and incrementally maintains a materialized view of aggregate time-series data
   to improve query performance, while properly handling late data or data
-  backfills.  TimescaleDB even enables queries to transparently merge pre-
+  backfills. TimescaleDB even enables queries to transparently merge pre-
   computed aggregates with the latest raw data to ensure always up-to-date
   answers.
 

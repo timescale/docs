@@ -101,7 +101,7 @@ configuration, the following views and functions about hypertable information
 have been updated or added:
 
 *   [`timescaledb_information.hypertables`](/api/:currentVersion:/informational-views/hypertables)
-    *   The view with basic information about hypertables has been renamed from the singular “hypertable”.
+    *   The view with basic information about hypertables has been renamed from the singular "hypertable".
     *   Some columns have new names for consistency with other views.
     *   Table size information has been removed and made available through new size functions discussed later.
     *   Additional columns have been added related to distributed hypertables.
@@ -118,7 +118,7 @@ hypertable or continuous aggregate identifier as the first argument, which is co
 Previously, it was possible to view the chunks of all hypertables by eliding the hypertable argument. To view all
 chunks in the database, we instead recommend using the new chunks view described above.
 
-These views can be used together to answer certain questions.  For example:
+These views can be used together to answer certain questions. For example:
 
 **Q:  Get all chunks written to tablespace "ts1" during the past month:**
 
@@ -226,7 +226,7 @@ SELECT add_continuous_aggregate_policy(
 ```
 
 In the example above, `CREATE MATERIALIZED VIEW `creates a continuous aggregate without any automation yet
-associated with it.  Notice also that  `WITH NO DATA` is specified at the end. This prevents the view from
+associated with it. Notice also that  `WITH NO DATA` is specified at the end. This prevents the view from
 materializing data at creation time, instead deferring the population of aggregated data until the policy runs
 as a background job or as part of a manual refresh. Therefore, we recommend that users create continuous aggregates
 using the `WITH NO DATA` option, especially if a significant amount of historical data can be materialized.
@@ -234,7 +234,7 @@ using the `WITH NO DATA` option, especially if a significant amount of historica
 Once the continuous aggregate is created, calling `add_continuous_aggregate_policy` creates a continuous
 aggregate policy, which automatically materializes or refreshes the data following the schedule and rules
 provided. Inputs to the policy function include the continuous aggregate name, a refresh window, and a
-schedule interval.  The refresh window is specified by the start and end offsets, which are used to calculate
+schedule interval. The refresh window is specified by the start and end offsets, which are used to calculate
 a new refresh window every time the policy runs by subtracting the offsets from the current time (as normally
 returned by the function `now()`).
 
@@ -263,7 +263,7 @@ setting unless otherwise specified.
 
 Finally, it is recommended that the `end_offset` lags the current time by at least one `time_bucket `as defined
 in the aggregate SQL, otherwise it might affect performance when inserting new data, which usually is written to
-what would be the latest bucket.  In TimescaleDB 1.x, the `refresh_lag` parameter was used for a similar purpose,
+what would be the latest bucket. In TimescaleDB 1.x, the `refresh_lag` parameter was used for a similar purpose,
 but we found that  using it correctly was more difficult to understand.
 
 
@@ -305,7 +305,7 @@ with the `ignore_invalidation_older_than` setting is automatically disabled with
 
 As an example, if a data retention policy on a hypertable is set for `drop_after => '4 weeks'`, then the policy
 associated with a continuous aggregate on that same hypertable should have a `start_offset` less than or equal
-to 4 weeks.  Similarly, any manual call to `refresh_continuous_aggregate` should likely specify a `window_start`
+to 4 weeks. Similarly, any manual call to `refresh_continuous_aggregate` should likely specify a `window_start`
 that's also less than the date from 4 weeks ago.
 
 If not understood properly, users could overwrite existing aggregated data in continuous aggregates with empty
@@ -316,7 +316,7 @@ create a data retention policy on the continuous aggregate itself.
 **This differs significantly from how TimescaleDB 1.x handled conflicts between retention policies and continuous aggregates.**
 
 Previously, if the continuous aggregation setting `ignore_invalidation_older_than` overlapped with data that would
-be dropped by a retention policy, the retention policy would silently fail.  Making the retention policy work again
+be dropped by a retention policy, the retention policy would silently fail. Making the retention policy work again
 required users to modify settings in either the retention policy or the continuous aggregate, and even then some
 data wasn't always materialized as expected.
 
@@ -372,7 +372,7 @@ In TimescaleDB 1.x, data that was backfilled into hypertables wasn't handled
 optimally. Modification of any hypertable data, regardless of how old, would
 cause the continuous aggregate materializer job to restart from the point of the
 earliest backfill and then materialize from that point forward. Unfortunately,
-this could also cause the materializer to get "stuck", since the background job
+this could also cause the materializer to get "stuck," since the background job
 only processed a limited amount of data per run, as governed by the
 `max_interval_per_job` setting. When this happened, one job run could
 potentially force the next job to start all over again.
@@ -444,7 +444,7 @@ Other minor changes were made to various APIs for greater understandability and 
 #### Changes and additions
 *   [`drop_chunks`](/api/:currentVersion:/hypertable/drop_chunks): This function now requires specifying a
 hypertable or continuous aggregate as the first argument, and does not allow dropping chunks across all hypertables
-in a database.  Additionally, the arguments `cascade` and `cascade_to_materializations` were removed (and behave as
+in a database. Additionally, the arguments `cascade` and `cascade_to_materializations` were removed (and behave as
 if the arguments were set to `false` in earlier versions). In TimescaleDB 2.0, we instead recommend creating a
 separate retention policy on each continuous aggregate.
 *   [`add_retention_policy`](/api/:currentVersion:/data-retention/add_retention_policy), [`remove_retention_policy`](/api/:currentVersion:/data-retention/remove_retention_policy):  
@@ -488,11 +488,11 @@ TimescaleDB 2.0 introduces user-defined actions and creates a more unified jobs 
 TimescaleDB policies and for user-defined actions can be managed and viewed through a single API.
 
 *   [`add_job`](/api/:currentVersion:/actions/add_job): Adds a new user-defined action to the job scheduling framework.
-*   [`alter_job`](/api/:currentVersion:/actions/alter_job): Changes settings for existing jobs.  Renamed from `alter_job_schedule` in previous versions,  it
+*   [`alter_job`](/api/:currentVersion:/actions/alter_job): Changes settings for existing jobs. Renamed from `alter_job_schedule` in previous versions,  it
 introduces additional settings, including  `scheduled` to pause and resume jobs, and `config` to change policy
 or action-specific settings.
 *   [`run_job`](/api/:currentVersion:/actions/run_job): Manually executes a job immediately and in the foreground.
-*   [`delete_job`](/api/:currentVersion:/actions/delete_job): Removes the job from the scheduler.  This is equivalent to functions that remove policies for
+*   [`delete_job`](/api/:currentVersion:/actions/delete_job): Removes the job from the scheduler. This is equivalent to functions that remove policies for
 built-in actions (for example, `remove_retention_policy`).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs):  The new view provides all job settings available, and it replaces all policy-specific views.
 *   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/job_stats):  The view presents statistics of executing jobs for policies and actions.

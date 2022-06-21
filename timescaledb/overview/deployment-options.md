@@ -8,7 +8,7 @@ and K8 Helm charts.
 ## Timescale Cloud
 
 Timescale Cloud combines the power and reliability of TimescaleDB with a
-fully-managed, cloud-native experience that is easy to start and less expensive
+fully managed, cloud-native experience that is easy to start and less expensive
 to operate. Creating an account in Timescale Cloud takes 30 seconds and allows
 you to quickly deploy instances of many sizes.
 

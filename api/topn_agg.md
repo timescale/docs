@@ -3,6 +3,9 @@ api_name: topn_agg()
 excerpt: Aggregate data in a top N aggregate for further calculation of most frequent values
 license: community
 toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, frequency, most common, top N]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

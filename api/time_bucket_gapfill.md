@@ -3,6 +3,8 @@ api_name: time_bucket_gapfill()
 excerpt: Bucket rows by time interval while filling gaps in data
 license: community
 toolkit: false
+topic: hyperfunctions
+tags: [hyperfunctions, time buckets, gapfilling]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
