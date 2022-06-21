@@ -3,6 +3,8 @@ api_name: extrapolated_delta()
 excerpt: Calculate the extrapolated change in a counter from values in a `CounterSummary`
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, delta, extrapolate, extrapolation, counters, CounterSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

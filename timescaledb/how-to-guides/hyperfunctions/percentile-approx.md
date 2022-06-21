@@ -1,16 +1,16 @@
 # Percentile approximation
 In general, percentiles are useful for understanding the distribution of data.
-The 50th percentile is the point at which half of your data is greater and half
-is lesser. The 10th percentile is the point at which 90% of the data is greater,
-and 10% is lesser. The 99th percentile is the point at which 1% is greater, and
+The fiftieth percentile is the point at which half of your data is greater and half
+is lesser. The tenth percentile is the point at which 90% of the data is greater,
+and 10% is lesser. The ninety-ninth percentile is the point at which 1% is greater, and
 99% is lesser.
 
-The 50th percentile, or median, is often a more useful measure than the average,
+The fiftieth percentile, or median, is often a more useful measure than the average,
 especially when your data contains outliers. Outliers can dramatically change
 the average, but do not affect the median as much. For example, if you have
 three rooms in your house and two of them are 40℉ (4℃) and one is 130℉ (54℃),
 the average room temperature is 70℉ (21℃), which doesn't tell you much. However,
-the 50th percentile temperature is 40℉ (4℃), which tells you that at least half
+the fiftieth percentile temperature is 40℉ (4℃), which tells you that at least half
 your rooms are at refrigerator temperatures (also, you should probably get your
 heating checked!)
 

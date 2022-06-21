@@ -2,6 +2,8 @@
 api_name: reorder_chunk()
 excerpt: Reorder rows in a chunk
 license: community
+topic: hypertables
+tags: [hypertables, chunks, reorder]
 ---
 
 ## reorder_chunk() <tag type="community">Community</tag>
@@ -14,7 +16,7 @@ more disk space during the operation.
 
 This command can be particularly useful when data is often queried in an order
 different from that in which it was originally inserted. For example, data is
-commonly inserted into a hypertable in loose time order (e.g., many devices
+commonly inserted into a hypertable in loose time order (for example, many devices
 concurrently sending their current state), but one might typically query the
 hypertable about a _specific_ device. In such cases, reordering a chunk using an
 index on `(device_id, time)` can lead to significant performance improvement for

@@ -3,6 +3,8 @@ api_name: 'sum() | sum_y() | sum_x()'
 excerpt: Calculate the sum from values in a statistical aggregate
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, sum, statistical aggregates, StatsSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

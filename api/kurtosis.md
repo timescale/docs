@@ -3,6 +3,8 @@ api_name: 'kurtosis() | kurtosis_y() | kurtosis_x()'
 excerpt: Calculate the kurtosis from values in a statistical aggregate
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, kurtosis, skew, statistics, statistical aggregates]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -23,7 +25,7 @@ kurtosis_y(summary StatsSummary2D, method TEXT) RETURNS BIGINT
 kurtosis_x(summary StatsSummary2D, method TEXT) RETURNS BIGINT
 ```
 
-Calculate the [kurtosis][kurtosis], or the 4th statistical moment, of the values contained
+Calculate the [kurtosis][kurtosis], or the fourth statistical moment, of the values contained
 in a statistical aggregate. In a two-dimensional [`stats_agg`][stats-agg] use 
 the `_y`/ `_x` form to access the `kurtosis` of the dependent and independent variables. 
 

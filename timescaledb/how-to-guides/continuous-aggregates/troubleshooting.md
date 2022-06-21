@@ -14,7 +14,7 @@ with continuous aggregates.
 
 ## Retention policies
 If you have hypertables that use a different retention policy to your continuous
-aggregates, the retention policies are applied separately.  The retention policy
+aggregates, the retention policies are applied separately. The retention policy
 on a hypertable determines how long the raw data is kept for. The retention
 policy on a continuous aggregate determines how long the continuous aggregate is
 kept for. For  example, if you have a hypertable with a retention policy of a
@@ -45,7 +45,7 @@ This can use a lot of resources to process, especially if you have any important
 data in the past that also needs to be brought to the present.
 
 Consider an example where you have 300 columns on a single hypertable and use,
-for example, five of them in a continuous aggregation.  In this case, it could
+for example, five of them in a continuous aggregation. In this case, it could
 be hard to refresh and would make more sense to isolate these columns in another
 hypertable. Alternatively, you might create one hypertable per metric and
 refresh them independently.

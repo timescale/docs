@@ -1,8 +1,10 @@
 ---
-api_name: hyperloglog
+api_name: hyperloglog()
 excerpt: Aggregate data into a hyperloglog for approximate counting
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, approximate count distinct, distinct count, hyperloglog]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -26,7 +28,7 @@ For more information about approximate count distinct functions, see the
 |value|AnyElement| Column to count distinct elements. The type must have an extended, 64-bit, hash function.|
 
 Increasing the `buckets` argument usually provides more accuracy at the expense
-of more storage.  Because hyperloglog is a probabilistic algorithm, it works
+of more storage. Because hyperloglog is a probabilistic algorithm, it works
 best on datasets that have many distinct values: at least tens of thousands. But it should
 also be fairly accurate so long as you have more buckets than distinct values.
 

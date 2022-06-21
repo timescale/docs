@@ -2,6 +2,8 @@
 api_name: alter_job()
 excerpt: Alter a job that is scheduled to run automatically
 license: community
+topic: jobs
+tags: [scheduled jobs, user-defined actions, automation framework, background jobs, change]
 ---
 
 ## alter_job() <tag type="community">Community</tag>

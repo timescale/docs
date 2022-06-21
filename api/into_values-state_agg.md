@@ -3,6 +3,9 @@ api_name: into_values()
 excerpt: Calculate all state durations from a state aggregate
 license: community
 toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, state, duration]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

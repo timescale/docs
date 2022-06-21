@@ -2,6 +2,8 @@
 api_name: set_chunk_time_interval()
 excerpt: Change the chunk time interval of a hypertable
 license: apache
+topic: hypertables
+tags: [chunks, hypertables, time ranges, time intervals]
 ---
 
 ## set_chunk_time_interval()

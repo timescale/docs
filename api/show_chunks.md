@@ -2,6 +2,8 @@
 api_name: show_chunks()
 excerpt: Show the chunks belonging to a hypertable
 license: apache
+topic: hypertables
+tags: [chunks, hypertables, show, get]
 ---
 
 ## show_chunks()

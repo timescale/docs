@@ -2,7 +2,7 @@
 When you have successfully collected and ingested the data, it's time to analyze
 it. For this analysis, we use data collected with our ingestion script that
 contains only successful sale transactions that happened between
-1 January 2021 to 12 October 2021 on the OpenSea marketplace, as reported by the
+January 1, 2021 to October 12, 2021 on the OpenSea marketplace, as reported by the
 OpenSea API.
 
 For simplicity, this tutorial analyzes only those transactions that used `ETH`
