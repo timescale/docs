@@ -283,7 +283,12 @@ that you are interested in. Because data is partitioned based on the time,
 omitting the time filters can drastically hinder the performance of the queries.
 </highlight>
 
-To filter the data you're interested in, you can use the SQL `where` clause. This example queries spans that happened within last 30 minutes. This type of query is far more efficient than those without any filters in the `where` clause, as it allows the optimizer to eliminate unnecessary chunks from the hypertable. It also uses indexes to locate rows that satisfy the query. For example:
+To filter the data you're interested in, you can use the SQL `where` clause.
+This example queries spans that happened within last 30 minutes. This type of
+query is far more efficient than those without any filters in the `where`
+clause, as it allows the optimizer to eliminate unnecessary chunks from the
+hypertable. It also uses indexes to locate rows that satisfy the query. For
+example:
 
 ```SQL
 select
@@ -327,7 +332,12 @@ select *
 ```
 
 <highlight type="note">
-In the previous example, the `'"opentelemtry"'` string is both single- and double-quoted. This is because PostgreSQL's `->` operator returns JSONB, and expects JSONB on the right side of the `=`. You could potentially work around this by using the `->>` operator instead, so that it returns text instead of JSONB, but the `->>` operator is not supported in the current implementation of `tag_map` type.
+In the previous example, the `'"opentelemtry"'` string is both single- and
+double-quoted. This is because PostgreSQL's `->` operator returns JSONB, and
+expects JSONB on the right side of the `=`. You could potentially work around
+this by using the `->>` operator instead, so that it returns text instead of
+JSONB, but the `->>` operator is not supported in the current implementation of
+`tag_map` type.
 </highlight>
 
 ### Joins
@@ -383,9 +393,10 @@ You can use aggregate functions to perform various operations on groups. You can
 group data on any set of columns, including fields of `tag_map` columns.
 
 This example groups by both time and the `pwlen` field of the `span_tags` column
-using their position in the `select` list. In this case, `count(*)` is an [aggregate function][pg-agg-function] that counts the number of rows in the
-group. In this case, it's a 30 minute window with the same value of `pwlen`
-field. For example:
+using their position in the `select` list. In this case, `count(*)` is an
+[aggregate function][pg-agg-function]
+that counts the number of rows in the group. In this case, it's a 30 minute
+window with the same value of `pwlen` field. For example:
 
 ```SQL
 select
@@ -399,9 +410,13 @@ select
     group by 1, 2
 ```
 ### Sorting
-You can also sort data based on `tag_map` column fields. This behaves in the same way as the standard PostgreSQL `jsonb` type, and the same rules apply when sorting. Numeric fields sort using numeric comparison, like `[1, 2, 10, 11]`, and text fields sort using string comparison, like `["1", "10", "11", "2"]`.
+You can also sort data based on `tag_map` column fields. This behaves in the
+same way as the standard PostgreSQL `jsonb` type, and the same rules apply when
+sorting. Numeric fields sort using numeric comparison, like `[1, 2, 10, 11]`,
+and text fields sort using string comparison, like `["1", "10", "11", "2"]`.
 
-In this example, the output is sorted based on the value **and type** of `pwlen`:
+In this example, the output is sorted based on the value **and type** of
+`pwlen`:
 
 ```SQL
 select *
