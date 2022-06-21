@@ -87,9 +87,9 @@ src="https://s3.amazonaws.com/assets.timescale.com/docs/images/hypertable-time-s
 alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
 
 ### Closed and open dimensions for space partitioning
-Space partitioning dimensions can be open or closed. A closed dimension has a fixed number of partitions, and usually uses some hashing to match values to the partition. An open dimension does not have a fixed number of partitions, and usually has each chunk cover a certain range. In most cases the time dimension is open and the space dimension is closed.
+Space partitioning dimensions can be open or closed. A closed dimension has a fixed number of partitions, and usually uses some hashing to match values to partitions. An open dimension does not have a fixed number of partitions, and usually has each chunk cover a certain range. In most cases the time dimension is open and the space dimension is closed.
 
-If you use the `create_hypertable` command to create your hypertable, then the space dimension is open, and there is no way to adjust this. To create a hypertable with a closed space dimenssion, create the hypertable with only the time dimension first, and then use the `add_dimension` command to explicitly add an open device. If you set the range to `1`, each device has its own chunks. This can help you work around some limitations of normal space dimensions, and is especially useful if you want to make some chunks readily available for exclusion.
+If you use the `create_hypertable` command to create your hypertable, then the space dimension is open, and there is no way to adjust this. To create a hypertable with a closed space dimension, create the hypertable with only the time dimension first. Then use the `add_dimension` command to explicitly add an open device. If you set the range to `1`, each device has its own chunks. This can help you work around some limitations of normal space dimensions, and is especially useful if you want to make some chunks readily available for exclusion.
 
 ### Best practices for space partitioning
 Space partitioning is not usually recommended for non-distributed hypertables.
