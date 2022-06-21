@@ -195,7 +195,7 @@ you get a relevant SQL query and a chart that answers the question.
 ### Is there any connection between the number of transactions and the transaction fees?
 Transaction fees are a major concern for blockchain users. 
 If a blockchain is too expensive, you might not want to use it. This query
-shows you whether there’s any correlation between the
+shows you whether there's any correlation between the
 number of Bitcoin transactions and the fees. The time range for this analysis
 is the last day.
 
@@ -239,7 +239,7 @@ submit a transaction now or wait a few days for fees to
 decrease.
 
 ### Does the transaction volume affect the BTC-USD rate?
-In cryptocurrency trading, there’s a lot of speculation. You can adopt
+In cryptocurrency trading, there's a lot of speculation. You can adopt
 a data-based trading strategy by looking at correlations between blockchain
 metrics, such as transaction volume and fees.
 
@@ -321,7 +321,7 @@ time               |transactions         |mining fee |
 
 ![Line graph with two lines showing the average number of transactions in a block and the block mining fee, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/tx_in_block_expensive.png)
 
-Unsurprisingly, there’s a high correlation between the number of transactions
+Unsurprisingly, there's a high correlation between the number of transactions
 in a block and the mining fee. The more transactions a block has, the higher
 the block mining fee.
 
@@ -429,10 +429,10 @@ last five days.
 This kind of analysis can start discussions around the long-term fading of
 block rewards and how on-chain fees need to rise to
 incentivize miners and sustain the network. (Note that the left axis is
-logarithmic-scale, so it’s easier to see the green "fees" portion.)
+logarithmic-scale, so it's easier to see the green "fees" portion.)
 
 ### How does block weight affect miner fees?
-You’ve already seen that more transactions in a block mean it’s more expensive
+You've already seen that more transactions in a block mean it's more expensive
 to mine. Is it the same with block weights? The more transactions a block has,
 the larger its size (or weight), so the block weight and mining fee should
 be tightly correlated. 
@@ -483,10 +483,10 @@ time               |block weight      |mining fee          |
 You can see that the block weight and block mining fee are indeed tightly
 connected to each other. In practice, you can also see that four million
 weight units is the size limit introduced in the 2017 SegWit update.
-This means that, looking at this graph, there’s still room to grow for
+This means that, looking at this graph, there's still room to grow for
 individual blocks, and they could include even more transactions.
 
-### What’s the average miner revenue per block?
+### What's the average miner revenue per block?
 Now, analyze how much revenue miners actually generate by mining a
 new block on the blockchain, including fees and block rewards. This query
 analyzes the last day with 12-hour moving averages.

@@ -1,3 +1,11 @@
+---
+api_name: detach_tablespaces()
+excerpt: Detach all tablespaces from a hypertable
+license: apache
+topic: hypertables
+tags: [hypertables, tablespaces, detach]
+---
+
 ## detach_tablespaces()
 
 Detach all tablespaces from a hypertable. After issuing this command

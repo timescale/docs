@@ -18,7 +18,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 
 * Python 3
 * TimescaleDB (see [installation options][install-timescale])
-* [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
+* [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
 
 ## Download the dataset
 
@@ -283,7 +283,7 @@ When you run this query you might notice that the `player_id` and `display_name`
 
 ### **Average and median yards run per game by type of player (not taking avg of individual)**
 
-  For this query, you use another one of the TimescaleDB percentile functions called `percentile_agg`. You set the `percentile_agg` function to find the 50th percentile, which returns the approximate median.
+  For this query, you use another one of the TimescaleDB percentile functions called `percentile_agg`. You set the `percentile_agg` function to find the fiftieth percentile, which returns the approximate median.
 
 ```sql
 WITH sum_yards AS (

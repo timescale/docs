@@ -2,6 +2,8 @@
 api_name: delete_data_node()
 excerpt: Remove a data node from a database and detach it from all hypertables
 license: community
+topic: multi-node
+tags: [multi-node, data nodes, detach, delete]
 ---
 
 ## delete_data_node() <tag type="community">Community</tag>
@@ -44,7 +46,7 @@ all attached hypertables.
 |Name|Type|Description|
 |---|---|---|
 | `if_exists`   | BOOLEAN | Prevent error if the data node does not exist. Defaults to false. |
-| `force`       | BOOLEAN | Force removal of data nodes from hypertables unless that would result in data loss.  Defaults to false. |
+| `force`       | BOOLEAN | Force removal of data nodes from hypertables unless that would result in data loss. Defaults to false. |
 | `repartition` | BOOLEAN | Make the number of space partitions equal to the new number of data nodes (if such partitioning exists). This ensures that the remaining data nodes are used evenly. Defaults to true. |
 
 ### Returns

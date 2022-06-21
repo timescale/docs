@@ -2,6 +2,8 @@
 api_name: delete_job()
 excerpt: Delete a job from the automatic scheduler
 license: community
+topic: jobs
+tags: [background jobs, scheduled jobs, user-defined actions, automation framework, delete]
 ---
 
 ## delete_job() <tag type="community">Community</tag>

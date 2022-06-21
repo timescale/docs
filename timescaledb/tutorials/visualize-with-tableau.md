@@ -39,7 +39,7 @@ connection type. Then enter your database  credentials.
 ### Step 2: Run a simple query in Tableau
 
 Let's use the built-in SQL editor in Tableau. To run a query, add custom SQL to your data source
-by dragging and dropping the “New Custom SQL” button (in the bottom left of the Tableau desktop
+by dragging and dropping the "New Custom SQL" button (in the bottom left of the Tableau desktop
 user interface) to the place that says 'Drag tables here'.
 
 Type a query in the dialog box. In this case, use the first

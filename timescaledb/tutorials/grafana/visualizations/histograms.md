@@ -246,7 +246,7 @@ volume for that bucket.
 You can do this with a pre-aggregation query, using:
 *   TimescaleDB's [`time_bucket`][time_bucket] function.
 *   PostgreSQL's [`max`][max] function.
-*   PostgreSQL's [`lag`][lag] function. Use this to subtract each from from the 
+*   PostgreSQL's [`lag`][lag] function. Use this to subtract each from the 
     previous, when the rows are ordered by descending `time`.
 
 <procedure>

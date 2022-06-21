@@ -77,7 +77,7 @@ Next, speed up block-level queries by adding an index on the `block_id` column:
 CREATE INDEX block_idx ON public.transactions (block_id)
 ```
 
-To ensure that you don’t accidentally insert duplicate records,
+To ensure that you don't accidentally insert duplicate records,
 add a `UNIQUE INDEX` on the `time` and `hash` columns.
 ```sql
 CREATE UNIQUE INDEX time_hash_idx ON public.transactions (time, hash)
@@ -127,6 +127,7 @@ LIMIT 5
 
 The result looks something like this:
 
+<!-- vale Google.Units = NO -->
 time               |hash                                                            |block_id|weight|
 -------------------|----------------------------------------------------------------|--------|------|
 2022-05-30 01:42:17|6543a8e489eade391f099df7066f17783ea2f9d19d644d818ac22bd8fb86005e|  738489|   863|
@@ -134,6 +135,7 @@ time               |hash                                                        
 2022-05-30 01:42:17|fd0a9a8c31962107d0a5a0c4ef2a5702e2c9fad6d989e7ac543d87783205a980|  738489|   758|
 2022-05-30 01:42:17|e2aedc6026459381485cd57f3e66ea88121e5094c03fa4634193417069058609|  738489|   766|
 2022-05-30 01:42:17|429c0d00282645b54bd3c0082800a85d1c952d1764c54dc2a591f97b97c93fbd|  738489|   766|
+<!-- vale Google.Units = YES -->
 
 <highlight type="note">
 A coinbase transaction is the first transaction in each block. This transaction contains the miner's reward.

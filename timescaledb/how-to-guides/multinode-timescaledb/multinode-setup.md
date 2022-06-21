@@ -1,4 +1,11 @@
 # Set up multi-node on self-hosted TimescaleDB
+<highlight type="cloud" header="Create multi-node databases in seconds with Timescale Cloud">
+Timescale Cloud saves you the manual work associated with setting up and maintaining 
+a multi-node instance of TimescaleDB. You can create, configure and deploy your 
+multi-node instance in just a few clicks. To test it out yourself, start a free 
+[Timescale Cloud trial](http://tsdb.co/cloud-signup) and select "multi-node" when creating your service.
+</highlight>
+
 To set up multi-node on a self-hosted TimescaleDB instance, you need:
 *   A PostgreSQL instance to act as an access node (AN)
 *   One or more PostgreSQL instances to act as data nodes (DN)
