@@ -7,12 +7,13 @@ For example, to query a metric named `go_dc_duration` for its samples in the
 past five minutes. This metric measures for how long garbage collection takes in
 Go applications:
 
-``` sql
+```sql
 SELECT * from go_gc_duration_seconds
 WHERE time > now() - INTERVAL '5 minutes';
 ```
 
 The output is similar to:
+
 ```sql
 |           time             |    value    | series_id |      labels       | instance_id | job_id | quantile_id |
 |----------------------------|-------------|-----------|-------------------|-------------|--------|-------------|
@@ -23,12 +24,14 @@ The output is similar to:
 | 2021-01-27 18:43:42.389+00 |           0 |       500 | {208,43,51,216}   |          43 |     51 |         216 |
 ```
 
-Where:
-* `series_id` uniquely identifies its measurements label set. This enables
-efficient aggregation by series.
-* `labels` field, which contains an array of foreign keys to label key-value
-pairs that make up the label set.
-* `<LABEL_KEY>_id` are separate fields for each label key in the label set, to simplify access.
+In this output:
+
+* The `series_id` uniquely identifies the measurements label set. This enables
+  efficient aggregation by series.
+* The `labels` field contains an array of foreign keys to label key-value pairs
+  that make up the label set.
+* The `<LABEL_KEY>_id` fields are separate fields for each label key in the
+  label set, to simplify access.
 
 ## Query values for label keys
 Each label key is expanded into its own column, which stores foreign key
@@ -41,7 +44,8 @@ particular label key.
 
 For example, to find the median value for the `go_gc_duration_seconds` metric,
 grouped by the job associated with it:
-``` sql
+
+```sql
 SELECT
     val(job_id) as job,
     percentile_cont(0.5) within group (order by value) AS median
@@ -53,7 +57,8 @@ GROUP BY job_id;
 ```
 
 The output is simialr to:
-``` sql
+
+```sql
 |      job      |  median   |
 |---------------|---------- |
 | prometheus    |  6.01e-05 |
@@ -64,7 +69,8 @@ The output is simialr to:
 The `labels` field in any metric row represents the full set of labels
 associated with the measurement. It is represented as an array of identifiers.
 To return the entire labelset in JSON, you can use the `jsonb()` function:
-``` sql
+
+```sql
 SELECT
     time, value, jsonb(labels) as labels
 FROM
@@ -74,6 +80,7 @@ WHERE
 ```
 
 The output is similar to:
+
 ```sql
 |            time            |    value    |                                                        labels                                                       |
 |----------------------------|-------------|--------------------------------------------------------------------------------------------------------------------|
@@ -89,10 +96,11 @@ This query returns the label set for the metric `go_gc_duration` in JSON format,
 so you can read or further interact with it.
 
 ### Advanced query: percentiles aggregated over time and series
-This query calculates the ninety-ninth percentile over both time and series (`app_id`)
-for the metric named `go_gc_duration_seconds`. This metric is a measurement for
-how long garbage collection is taking in Go applications:
-``` sql
+This query calculates the ninety-ninth percentile over both time and series
+(`app_id`) for the metric named `go_gc_duration_seconds`. This metric is a
+measurement for how long garbage collection is taking in Go applications:
+
+```sql
 SELECT
     val(instance_id) as app,
     percentile_cont(0.99) within group(order by value) p99
@@ -105,6 +113,7 @@ ORDER BY p99 desc;
 ```
 
 An example of the output for this query:
+
 ```sql
 |       app         |     p99      |
 |-------------------|------------  |
@@ -118,8 +127,8 @@ PromQL alone to accurately calculate percentiles when aggregating over both time
 and series.
 
 ### Filter by labels
-You can filter by labels, because matching operators correspond to the selectors in
-PromQL. The operators are used in a `WHERE` clause, in the
+You can filter by labels, because matching operators correspond to the selectors
+in PromQL. The operators are used in a `WHERE` clause, in the
 `labels ? (<label_key> <operator> <pattern>)`.
 
 The four matching operators are:
@@ -136,7 +145,8 @@ different spellings to avoid clashing with other PostgreSQL operators. You can
 combine them using any Boolean logic, with any arbitrary `WHERE` clauses. For
 example, if you want only metrics from the job called `node-exporter`, you can
 filter by labels like this:
-``` sql
+
+```sql
 SELECT
     time, value, jsonb(labels) as labels
 FROM
@@ -161,7 +171,8 @@ measurement's label set. This allows you to aggregate by series more
 efficiently. You can retrieve the labels array from a `series_id` using the
 `labels(series_id)` function. For example, this query shows how many data points
 we have in each series:
-``` sql
+
+```sql
 SELECT jsonb(labels(series_id)) as labels, count(*)
 FROM go_gc_duration_seconds
 GROUP BY series_id;
@@ -189,6 +200,7 @@ The examples in this section are for querying metrics from Prometheus and
 shows how you can discover Kubernetes containers that are over-provisioned. In
 this query, you find containers whose ninety-ninth percentile memory utilization is low,
 like this:
+
 ```sql
 WITH memory_allowed as (
   SELECT
@@ -218,6 +230,7 @@ LIMIT 100;
 ```
 
 An example of the output for this query:
+
 ```sql
 | container                      |   percent_used_p99      |  total      |
 |--------------------------------|-------------------------|-------------|
@@ -229,9 +242,7 @@ An example of the output for this query:
 This example uses `cAdvisor`, as an example of the sorts of sophisticated
 analysis enabled by Promscale's support to query your data in SQL.
 
-
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [sql-query-dan-luu]: https://danluu.com/metrics-analytics/
 [visualize-data]: /promscale/:currentVersion:/visualize-data/
 [promql-docs]: https://prometheus.io/docs/prometheus/latest/querying/basics/
-

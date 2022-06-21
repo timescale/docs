@@ -64,7 +64,7 @@ in the `ps_trace` schema. These include:
 * `link`
 * `event`
 
-### Span view 
+### Span view
 The `span` view joins several tables so that you can see an overview of the data
 relevant for a single span. The span is stored across multiple tables, and data
 is split across several columns for better index support. The table that
@@ -146,7 +146,7 @@ The `link` view adds all the columns in the previous table, as well as these add
 
 ## Example trace queries in SQL
 
-A trace is a collection of transactions or spans that represents a unique user or API transaction handled by an application and its services. 
+A trace is a collection of transactions or spans that represents a unique user or API transaction handled by an application and its services.
 
 When you build time series graphs in Grafana, you can use the Grafana [`$__interval`][grafana-interval] variable.
 
@@ -428,4 +428,3 @@ select *
 [pg-interval]: https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT
 [partitioning-hypertables]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks
 [pg-agg-function]: https://www.postgresql.org/docs/current/functions-aggregate.html
-
