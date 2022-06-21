@@ -105,7 +105,7 @@ Using the same temperature example, the materialization table looks like this:
 
 The materialization table is stored as a TimescaleDB hypertable, to take
 advantage of the scaling and query optimizations that hypertables offer.
-Materialization tables contain a a column for each group-by clause in the query,
+Materialization tables contain a column for each group-by clause in the query,
 a `chunk` column identifying which chunk in the raw data this entry came from,
 and a `partial aggregate` column for each aggregate in the query.
 

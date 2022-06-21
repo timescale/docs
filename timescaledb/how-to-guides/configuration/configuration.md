@@ -9,7 +9,7 @@ your machine's `postgresql.conf`, can improve performance.
 
 <highlight type="tip">
 You can determine the location of `postgresql.conf` by running
-`SHOW config_file;` from your PostgreSQL client (e.g., `psql`).
+`SHOW config_file;` from your PostgreSQL client (for example, `psql`).
 </highlight>
 
 In addition, other TimescaleDB specific settings can be modified through the
@@ -81,7 +81,7 @@ may need to adjust; those are covered below.
 
 The settings `shared_buffers`, `effective_cache_size`, `work_mem`, and
 `maintenance_work_mem` need to be adjusted to match the machine's available
-memory.  We suggest getting the configuration values from the [PgTune][pgtune]
+memory. We suggest getting the configuration values from the [PgTune][pgtune]
 website (suggested DB Type: Data warehouse). You should also adjust the
 `max_connections` setting to match the ones given by PgTune since there is a
 connection between `max_connections` and memory settings. Other settings from
@@ -131,7 +131,7 @@ settings. If you want a bit of additional performance, you can set
 `synchronous_commit = 'off'`([PostgreSQL docs][synchronous-commit]).
 Please note that when disabling
 `synchronous_commit` in this way, an operating system or database crash might
-result in some recent allegedly-committed transactions being lost. We actively
+result in some recent allegedly committed transactions being lost. We actively
 discourage changing the `fsync` setting.
 
 ### Lock settings [](locks)
@@ -273,9 +273,9 @@ Version of `timescaledb-tune` used to tune when it ran.
 ## Changing configuration with Docker [](docker-config)
 
 When running TimescaleDB via a [Docker container][docker], there are
-two approaches to modifying your PostgreSQL configuration.  In the
+two approaches to modifying your PostgreSQL configuration. In the
 following example, we modify the size of the database instance's
-write-ahead-log (WAL) from 1GB to 2GB in a Docker container named
+write-ahead-log (WAL) from 1&nbsp;GB to 2&nbsp;GB in a Docker container named
 `timescaledb`.
 
 #### Modifying postgres.conf inside Docker
@@ -286,7 +286,7 @@ docker start timescaledb
 docker exec -i -t timescaledb /bin/bash
 ```
 
-2. Edit and then save the config file, modifying the setting for the desired configuration parameter (e.g., `max_wal_size`).
+2. Edit and then save the config file, modifying the setting for the desired configuration parameter (for example, `max_wal_size`).
 ```
 vi /var/lib/postgresql/data/postgresql.conf
 ```

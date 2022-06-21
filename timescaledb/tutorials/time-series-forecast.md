@@ -381,7 +381,7 @@ Now you can make use of MADlib's library to analyze the taxicab dataset. Here,
 you can train an ARIMA model to predict the price of a ride from JFK to Times
 Square at a given time.
 
-Let's look at the `rides_price` table. The `trip_price` column is the the
+Let's look at the `rides_price` table. The `trip_price` column is the
 average price of a trip from JFK to Times Square during each hourly period. Data
 points that are missing due to no rides being taken during a certain hourly
 period are filled with the previous value. This is done by

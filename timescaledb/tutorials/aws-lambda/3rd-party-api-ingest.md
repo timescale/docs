@@ -186,7 +186,7 @@ an EventBridge trigger. This creates a rule using a [`cron` expression][cron-exa
 <procedure>
 
 ### Scheduling the Lambda function
-1.  Create the schedule. In this example, the function runs every day at 9am:
+1.  Create the schedule. In this example, the function runs every day at 9 AM:
     ```bash
     aws events put-rule --name schedule-lambda --schedule-expression 'cron(0 9 * * ? *)'
     ```

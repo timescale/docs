@@ -4,7 +4,7 @@
 Apache 2.0.
 
 ## Is there a TimescaleDB community or group I can join?
-Yes!  We have a very active [online community in Slack][join_slack], and
+Yes! We have a very active [online community in Slack][join_slack], and
 you can report any issues on our [GitHub][] page.
 
 ## Where can I get TimescaleDB source code?

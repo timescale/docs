@@ -3,6 +3,8 @@ api_name: percentile_agg()
 excerpt: Aggregate data into a percentile aggregate for further analysis
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, percentile, aggregates, percentile aggregates]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -63,7 +65,7 @@ approx_percentile
              0.999
 ```
 
-The `percentile_agg` function can be used used to create continuous aggregates,
+The `percentile_agg` function can be used to create continuous aggregates,
 after which you can use multiple accessors for retrospective analysis:
 
 ```SQL

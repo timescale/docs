@@ -3,6 +3,9 @@ api_name: lttb()
 excerpt: Downsample a time series using the Largest Triangle Three Buckets method
 license: community
 toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, downsample, smoothing]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -29,7 +32,7 @@ original dataset. The TimescaleDB Toolkit implementation of this takes
 
 |Column|Type|Description|
 |-|-|-|
-|`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points.  It can be unpacked via `unnest`.|
+|`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points. It can be unpacked via `unnest`.|
 
 ## Sample usage
 This example creates a dramatically downsampled data set from a `sample_data` table:
