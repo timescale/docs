@@ -20,7 +20,7 @@ pg_dump -h localhost -p 5432 -U tsdbadmin -d mydb -F p -f dump.sql
 To backup larger databases use the custom format:
 
 ```bash
-pg_dump -h localhost -p 5432 -U tsdbadmin -d mydb -F c -f dump.sql
+pg_dump -h localhost -p 5432 -U tsdbadmin -d mydb -F c -f dump.dat
 ```
 ## Restore
 
@@ -48,7 +48,7 @@ psql -h localhost p 5432 -U tsdbadmin -d mydb -f dump.sql
 ```
 If you used `pg_dump` to backup in custom format use `pg_restore`:
 ```bash
-pg_restore -Fc -d mydb dump.sql
+pg_restore -Fc -d mydb dump.dat
 SELECT public.timescaledb_post_restore();
 ```
 
