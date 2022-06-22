@@ -14,11 +14,11 @@ database connection details and Alpha Vantage API key in there:
 
 ```python
 # example content of config.py:
-DB_USER = 'user'
+DB_USER = 'tsdb'
 DB_PASS = 'passwd'
-DB_HOST = 'host'
-DB_PORT = '000'
-DB_NAME = 'db'
+DB_HOST = 'xxxxxxx.xxxxxxx.tsdb.cloud.timescale.com'
+DB_PORT = '66666'
+DB_NAME = 'tsdb'
 APIKEY = 'alpha_vantage_apikey'
 ```
 
