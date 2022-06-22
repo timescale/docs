@@ -3,6 +3,9 @@ api_name: 'average() | average_y() | average_x()'
 excerpt: Calculate the average of values in a statistical aggregate
 license: community
 toolkit: true
+experimental: false
+topic: hyperfunctions
+tags: [hyperfunctions, average, statistics, statistical aggregate]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -1,7 +1,7 @@
 # Distributed hypertables
 
 TimescaleDB supports distributing hypertables across multiple nodes
-(i.e., a cluster) by leveraging the same hypertable and chunk
+(that is, a cluster) by leveraging the same hypertable and chunk
 primitives as described above. This allows TimescaleDB to scale
 inserts and queries beyond the capabilities of a single TimescaleDB
 instance.
@@ -20,7 +20,7 @@ assume the role of either an **access node** or a **data node** (but not both).
 
 A client connects to an access node database. The access node then
 distributes the requests and queries appropriately to data nodes, and
-aggregates the results received from the data nodes.  Access nodes
+aggregates the results received from the data nodes. Access nodes
 store cluster-wide information about the different data nodes as well
 as how chunks are distributed across those data nodes. Access nodes
 can also store non-distributed hypertables, as well as regular

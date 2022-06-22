@@ -192,7 +192,7 @@ from your web browser.
 For example, you can visit the below page, which graphs the total number of
 http requests your Django application received in the last hour:
 
-[http://localhost:9090/graph?g0.range_input=1h&g0.stacked=1&g0.expr=django_http_requests_total_by_method_total&g0.tab=0][localhost-prom-example]
+[Graph of Django HTTP requests, served on localhost][localhost-prom-example]
 
 It should look something like this:
 
@@ -208,7 +208,7 @@ Prometheus is collecting.
 you to easily instrument additional aspects of your application, including:
 
 * Your databases
-* Your models (e.g., monitor the creation/deletion/update rate for your models)
+* Your models (for example, monitor the creation/deletion/update rate for your models)
 * Your caches
 * Your own custom metrics in your code
 

@@ -3,7 +3,7 @@ This tutorial builds a continuous deployment (CD) pipeline between GitHub and
 AWS Lambda using GitHub actions.
 
 Packaging and deploying your function and its dependencies with AWS Lambda can
-sometimes be a tedious job.  Especially if you also want to use a source code
+sometimes be a tedious job. Especially if you also want to use a source code
 management platform like GitHub to develop your code before pushing  it to AWS
 Lambda.
 

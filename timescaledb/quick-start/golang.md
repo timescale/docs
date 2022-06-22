@@ -225,7 +225,7 @@ First, we create a variable which houses our `CREATE TABLE SQL` statement
 for our hypertable. Notice how the hypertable has the compulsory time column:
 
 Second, we formulate the SELECT statement to convert the table created
-into a hypertable.Note that we must specify the table name which we
+into a hypertable. Note that we must specify the table name which we
 wish to convert to a hypertable and its time column name as the two
 arguments, as mandated by the [create_hypertable docs][hypertable-docs]:
 

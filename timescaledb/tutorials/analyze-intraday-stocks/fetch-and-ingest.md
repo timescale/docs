@@ -84,7 +84,7 @@ Check out the [Alpha Vantage API](https://www.alphavantage.co/documentation/) do
 
 Let's start by creating a function that fetches data for one symbol and one month. The function takes these two values as parameters:
 
-* `symbol`: the ticker symbol you want to fetch data for (e.g. "AMZN" for Amazon).
+* `symbol`: the ticker symbol you want to fetch data for (for example, "AMZN" for Amazon).
 * `month`: an integer value between 1-24 indicating which month you want to fetch data from.
 
 ```python

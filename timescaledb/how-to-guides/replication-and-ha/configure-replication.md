@@ -2,6 +2,14 @@
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
 
+<highlight header="Enable replication in one click and avoid manual configuration work" type="cloud">
+If you would prefer not to manually configure replication for your TimescaleDB instance, 
+you might find Timescale Cloud's one-click replicas useful. Create multiple replicas per database 
+and enable or disable them with a single click. Test it out for yourself today with a 
+[free Timescale Cloud trial](http://tsdb.co/cloud-signup).
+</highlight>
+
+
 Before you begin, make sure you have at least two separate instances of
 TimescaleDB running. If you installed TimescaleDB using a Docker container, use
 a [PostgreSQL entry point script][docker-postgres-scripts] to run the

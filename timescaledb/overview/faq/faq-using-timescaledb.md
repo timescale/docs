@@ -5,7 +5,7 @@ TimescaleDB is ideal for time-series workloads that would benefit from a SQL int
 SQL carries a variety of benefits: a query language that most developers already know;
 rich set of functions and utilities; and a broad ecosystem of tools, connectors, and
 visualization options. Also, since SQL JOINS are natively supported in TimescaleDB, data
-from different sources can be combined at query time (e.g., combining relational data stored
+from different sources can be combined at query time (for example, combining relational data stored
 in PostgreSQL tables with time-series data stored in TimescaleDB hypertables). This ability
 to store relational data alongside time-series data enables developers to simplify their stack,
 potentially reducing complex polyglot architectures to a single operational analytical database.
@@ -25,7 +25,7 @@ Just via normal SQL, but here are some [query examples][SELECT].
 ## What are my compression options?
 Since v1.5,
 TimescaleDB has supported native compression that uses a hybrid row/columnar
-approach combined with type-specific compression algorithms (e.g., different
+approach combined with type-specific compression algorithms (for example, different
 compression algorithms for timestamps, integers, floats, strings, or other
 data). Many users see between a 90-98% reduction in their storage footprint,
 leading to significant cost savings (and other query performance improvements).
@@ -36,7 +36,7 @@ or a longer technical deep-dive [on our blog ][compression-blog].
 
 ## How far can TimescaleDB scale?
 In our internal benchmarks on standard cloud VMs, we regularly test
-single-node TimescaleDB to 100s of terabytes of data, while sustaining
+single-node TimescaleDB to hundreds of terabytes of data, while sustaining
 insert rates of 100-200k rows / second (1-2 million metric inserts / second).
 Multi-node TimescaleDB can scale to 10+ million metric inserts / second, and
 store petabytes of data. You can read more about

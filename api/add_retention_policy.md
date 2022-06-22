@@ -2,6 +2,8 @@
 api_name: add_retention_policy()
 excerpt: Add a policy to drop older chunks
 license: community
+topic: data retention
+tags: [delete, hypertables, policy, data retention, scheduled jobs]
 ---
 
 ## add_retention_policy() <tag type="community">Community</tag>

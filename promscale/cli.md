@@ -82,7 +82,7 @@ automatically, otherwise you can specify the config file with `./promscale
 | telemetry.trace.jaeger-endpoint | string | "" (empty) | Jaeger tracing collector thrift HTTP URL endpoint to send telemetry to (for example: https://jaeger-collector:14268/api/traces). |
 | telemetry.trace.sample-ratio | float | 1.0 | Trace sampling ratio, amount of spans to send to collector. Valid values from 0.0 (none) to 1.0 (all). |
 
-## Metrics specific flags flags
+## Metrics specific flags
 
 | Flag | Type | Default | Description |
 |------|:-----:|:-------:|:-----------|

@@ -14,7 +14,7 @@ similar mechanism), the virtual machines are distributed evenly across the zones
 in order to provide best possible service in cases when an entire Availability
 Zone (may include one or more data centers) goes unavailable.
 
-Service-providing virtual machines are dedicated for a single customer, i.e.
+Service-providing virtual machines are dedicated for a single customer, that is,
 there is no multi-tenancy on a VM basis, and the customer data never leaves the
 machine, except when uploaded to the offsite backup location.
 

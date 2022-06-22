@@ -2,6 +2,8 @@
 api_name: move_chunk()
 excerpt: Move a chunk and its indexes to a different tablespace
 license: community
+topic: hypertables
+tags: [hypertables, chunks, move, tablespaces, data tiering]
 ---
 
 ## move_chunk() <tag type="community">Community</tag>

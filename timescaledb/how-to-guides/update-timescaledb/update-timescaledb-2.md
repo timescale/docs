@@ -88,7 +88,7 @@ Read more about changes to continuous aggregates and data retension policies [he
 
 As discussed in the [Changes to TimescaleDB 2.0][changes-in-ts2] document, the APIs and setting names
 that configure various policies are changing. The update process below automatically configures
-new policies using your current configurations in TimescaleDB 1.x.  If you would like to verify
+new policies using your current configurations in TimescaleDB 1.x. If you would like to verify
 the policy settings after the update is complete, we suggest querying the informational views below
 and saving the output so that you can refer to it once the update is complete.
 
@@ -118,7 +118,7 @@ Execute the following SQL to save current settings for Continuous Aggregates and
 Software upgrades use PostgreSQL's `ALTER EXTENSION` support to update to the
 latest version. TimescaleDB supports having different extension
 versions on different databases within the same PostgreSQL instance. This
-allows you to update extensions independently on different databases.  The
+allows you to update extensions independently on different databases. The
 upgrade process involves three-steps:
 
 1. We recommend that you perform a [backup][] of your database via `pg_dump`.
