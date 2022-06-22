@@ -11,7 +11,7 @@ Let's see how it's done!
 
 To get started with data exploration, you need to install a couple of tools first:
 
-* [Pandas][pandas-docs], to query and structure the data
+* [Pandas][pandas-docs], to query and structure the data (this is already installed if you have completed the steps in the previous sections)
 * [Plotly][plotly-docs], to create visualizations quickly
 
 **Install both**
