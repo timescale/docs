@@ -42,7 +42,7 @@ Kubernetes includes Prometheus, OpenTelemetry, and Promscale.
 
 *   Install [the observability stack (tobs) for Kubernetes][promscale-install-tobs]
 
-[promscale-install-prom-migrator]: /installation/prom-migrator/
+[promscale-install-prom-migrator]: /guides/prom-migrator/
 [promscale-install-docker]: /installation/docker/
 [promscale-install-source]: /installation/source/
 [promscale-install-tobs]: /tobs/
