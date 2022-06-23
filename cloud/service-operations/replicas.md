@@ -67,6 +67,11 @@ over to the replica.
 
 ## Create a database replica
 
+<highlight type="warning">
+If your service was created before June 2022, adding a replica may cause your 
+service to restart. Restarts typically take about one minute to complete.
+</highlight>
+
 <procedure>
 
 ### Creating a database replica
