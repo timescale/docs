@@ -1,10 +1,10 @@
-# Promscale from source
+# Install Promscale using binary
 You can install Promscale from source on any operating system. The Promscale
 source files are available from our
 [GitHub releases page][gh-promscale-download].
 
 Before you begin, you must have an already installed and working Prometheus
-environment. Additionally, you need a
+or OpenTelemetry collector environment. Additionally, you need a
 [self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
 
 ## Install TimescaleDB
@@ -58,8 +58,6 @@ For instructions, see the [send data][send-data] section.
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
-[go-install]: https://golang.org/dl/
-[prometheus-config-tips]: https://github.com/timescale/promscale/blob/master/docs/configuring_prometheus.md
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [releases]: https://github.com/timescale/promscale/releases/
 [send-data]: promscale/:currentVersion:/send-data/

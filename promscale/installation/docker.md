@@ -1,4 +1,4 @@
-# Install Promscale using a pre-built Docker container
+# Install Promscale using a Docker image
 Docker images for the [Promscale Connector][promscale-docker-image] and
 [TimescaleDB (with the Promscale extension)][timescaledb-docker-image] are
 available on Docker Hub.

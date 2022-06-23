@@ -23,53 +23,103 @@ module.exports = [
         excerpt: "Learn about the benefits of Promscale",
       },
       {
-        title: "Install Promscale",
+        title: "Installation",
         href: "installation",
         tags: ["promscale", "learn", "analytics", "prometheus"],
         keywords: ["Promscale", "analytics"],
         relatedPages: [
-          "/promscale/:currentVersion:/installation/recomm-guide",
+          "/promscale/:currentVersion:/guides/resource-recomm",
           "/promscale/:currentVersion:/send-data/",
         ],
         excerpt:
           "Install Promscale on Kubernetes, Docker, virtual machine, or bare metal",
         children: [
           {
-            title: "Install Promscale on Kubernetes",
+            title: "Kubernetes",
             href: "kubernetes",
             tags: ["promscale", "install", "kubernetes", "analytics", "helm"],
             keywords: ["Promscale", "Kubernetes", "analytics", "Helm"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
+              "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Install Promscale on a Kubernetes cluster",
           },
           {
-            title: "Install Promscale with Docker",
+            title: "Docker",
             href: "docker",
             tags: ["promscale", "install", "analytics", "docker"],
             keywords: ["Promscale", "analytics", "Docker"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
+              "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Install Docker for Promscale",
           },
           {
-            title: "Install Promscale from source",
-            href: "source",
+            title: "Binary",
+            href: "binary",
             tags: ["promscale", "install", "analytics"],
             keywords: ["Promscale", "analytics"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
+              "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Install Promscale on bare metal",
           },
           {
+            title: "Debian or Ubuntu",
+            href: "debian-ubuntu",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            relatedPages: [
+              "/promscale/:currentVersion:/guides/resource-recomm",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Install Promscale on bare metal",
+          },
+          {
+            title: "RPM based Linux (Redhat or CentOS)",
+            href: "rhel-centos",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            relatedPages: [
+              "/promscale/:currentVersion:/guides/resource-recomm",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Install Promscale on bare metal",
+          },
+          {
+            title: "tobs",
+            href: "tobs",
+            tags: ["promscale", "install", "analytics", "k8s"],
+            keywords: ["Promscale", "analytics", "Kubernetes"],
+            relatedPages: [
+              "/promscale/:currentVersion:/guides/resource-recomm",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Install tobs",
+          },
+        ],
+      },
+      {
+        title: "Guides",
+        href: "guides",
+        tags: ["promscale", "learn", "analytics", "prometheus"],
+        keywords: ["Promscale", "analytics"],
+        excerpt:
+          "Install Promscale on Kubernetes, Docker, virtual machine, or bare metal",
+        children: [
+          {
             title: "Resource recommendation guide",
-            href: "recomm-guide",
+            href: "resource-recomm",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            excerpt: "Recommended resources for Promscale",
+          },
+          {
+            title: "Configuration recommendation guide",
+            href: "config-recomm",
             tags: ["promscale", "install", "analytics"],
             keywords: ["Promscale", "analytics"],
             excerpt: "Recommended resources for Promscale",
@@ -83,24 +133,11 @@ module.exports = [
               "Use Prom-migrator to send existing Prometheus data to Promscale",
           },
           {
-            title: "Install Promscale with tobs",
-            href: "tobs",
-            tags: ["promscale", "install", "analytics", "k8s"],
-            keywords: ["Promscale", "analytics", "Kubernetes"],
-            relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
-              "/promscale/:currentVersion:/send-data/",
-            ],
-            excerpt: "Install tobs",
-          },
-          {
             title: "Upgrade Promscale",
             href: "upgrade",
             tags: ["promscale", "upgrade"],
             keywords: ["Promscale", "upgrade"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation",
-              "/promscale/:currentVersion:/installation/recomm-guide",
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Upgrade Promscale",
