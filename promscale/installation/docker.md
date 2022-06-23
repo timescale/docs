@@ -52,6 +52,11 @@ packages and instructions, see the
 
 </procedure>
 
+<highlight type="note">
+Post installation of Promscale, the next step is to ingest the 
+data into Promscale. Follow the [send data][send-data] instructions.
+</highlight>
+
 ## Upgrading from the previous alpine image
 
 Previously, our recommended image was located at [`timescaledev/promscale-extension`](https://hub.docker.com/r/timescaledev/promscale-extension).
@@ -107,3 +112,4 @@ If you are using Kubernetes instead of plain docker you should:
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
+[send-data]: promscale/:currentVersion:/send-data/
