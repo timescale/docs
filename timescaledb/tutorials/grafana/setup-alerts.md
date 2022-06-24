@@ -4,7 +4,7 @@ Alerts are an important aspect of monitoring because they proactively
 inform us when things go wrong and need our attention. This could be:
 
 - When something crashes
-- You're consuming too many resources (e.g., memory, CPU)
+- You're consuming too many resources (for example, memory, CPU)
 - There's an outage
 - Users report performance degradation, via support tickets
 
@@ -56,7 +56,7 @@ There are some downsides to using Grafana for alerts:
 Ultimately, for most cases, this is okay because:
 
 - You're mainly dealing with time-series data for alerts
-- You can usually turn any other visualization (e.g., a Gauge or a Single Stat) into a time-series graph
+- You can usually turn any other visualization (for example, a Gauge or a Single Stat) into a time-series graph
 
 #### Available data soruces for Grafana alerts
 

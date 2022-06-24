@@ -39,10 +39,20 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
     ```bash
     brew install timescaledb
     ```
-1.  Run the setup script to complete installation:
+1. Run the `timescaledb-tune` script to configure your database:
+   ```bash
+   timescaledb-tune -conf-path /opt/homebrew/var/postgres/postgresql.conf --yes 
+   ```    
+1. Change to the directory where the setup script is located. It is typically,
+   located at `/opt/homebrew/Cellar/timescaledb/<VERSION>/bin/`, where
+   `<VERSION>` is the version of `timescaledb` that you installed: 
+   ```bash
+   cd /opt/homebrew/Cellar/timescaledb/<VERSION>/bin/
+   ```
+1. Run the setup script to complete installation. 
     ```bash
-    /usr/local/bin/timescaledb_move.sh
-    ```
+    ./timescaledb_move.sh
+   ```
 
 </procedure>
 
@@ -71,11 +81,6 @@ You can use MacPorts to install TimescaleDB on macOS-based systems.
 
 </procedure>
 
-When you have completed the installation, you need to configure your database so
-that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. For more
-information, see the [configuration][config] section.
-
 ## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
@@ -93,60 +98,41 @@ installed it yet, check out our [installing psql][install-psql] section.
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
     ```
-    psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
-    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+    psql (14.4)
     Type "help" for help.
-    tsdb=>
+
     ```
-1.  At the `psql` prompt, create an empty database. Our database is
-    called `example`:
+1.  At the `psql` prompt, create an empty database named `tsdb`:
     ```sql
-    CREATE database example;
+    CREATE database tsdb;
     ```
-1.  Connect to the database you created:
+1.  Connect to the `tsdb` database that you created:
     ```sql
-    \c example
+    \c tsdb
     ```
 1.  Add the TimescaleDB extension:
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
-1.  You can now connect to your database using this command:
-    ```bash
-    psql -U postgres -h localhost -d example
+1. Check that the TimescaleDB extension is installed by using the `\dx`
+command at the `psql` prompt. Output is similar to:
+    ```sql
+    tsdb-# \dx
+                                          List of installed extensions
+        Name     | Version |   Schema   |                            Description                            
+    -------------+---------+------------+-------------------------------------------------------------------
+     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+     timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
+    (2 rows)
     ```
 
 </procedure>
 
-You can check that the TimescaleDB extension is installed by using the `\dx`
-command at the `psql` prompt. It looks like this:
-```sql
-tsdb=> \dx
-List of installed extensions
--[ RECORD 1 ]------------------------------------------------------------------
-Name        | pg_stat_statements
-Version     | 1.7
-Schema      | public
-Description | track execution statistics of all SQL statements executed
--[ RECORD 2 ]------------------------------------------------------------------
-Name        | plpgsql
-Version     | 1.0
-Schema      | pg_catalog
-Description | PL/pgSQL procedural language
--[ RECORD 3 ]------------------------------------------------------------------
-Name        | timescaledb
-Version     | 2.5.1
-Schema      | public
-Description | Enables scalable inserts and complex queries for time-series data
--[ RECORD 4 ]------------------------------------------------------------------
-Name        | timescaledb_toolkit
-Version     | 1.3.1
-Schema      | public
-Description | timescaledb_toolkit
-
-tsdb=>
-```
-
+After you have created the extension and the database, you can connect to your database directly using this command:
+    ```bash
+    psql -U postgres -h localhost -d tsdb
+    ```
+    
 ## Where to next
 Now that you have your first TimescaleDB database up and running, you can check
 out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what

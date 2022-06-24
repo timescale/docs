@@ -3,6 +3,8 @@ api_name: num_vals()
 excerpt: Calculate the number of values contained in a statistical aggregate
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, count, number, statistical aggregates]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

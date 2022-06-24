@@ -19,8 +19,8 @@ Data:
 ```
 
 But in fact, in many monitoring applications, different metrics are often
-collected together (e.g., CPU, memory, network statistics, battery life). So, it
-does not always make sense to think of each metric separately.  Consider this
+collected together (for example, CPU, memory, network statistics, battery life). So, it
+does not always make sense to think of each metric separately. Consider this
 alternative "wider" data model that maintains the correlation between metrics
 collected at the same time.
 
@@ -58,11 +58,11 @@ characteristics that time-series databases like TimescaleDB typically leverage:
 more rarely make updates or backfill missing data about old intervals.
 
 The frequency or regularity of data is less important though; it can be
-collected every millisecond or hour.  It can also be collected at regular or
-irregular intervals (e.g., when some *event* happens, as opposed to at
+collected every millisecond or hour. It can also be collected at regular or
+irregular intervals (for example, when some *event* happens, as opposed to at
 pre-defined times).
 
-But haven't databases long had time fields?  A key difference between
+But haven't databases long had time fields? A key difference between
 time-series data (and the databases that support them), compared to other
 data like standard relational "business" data, is that **changes to the
 data are inserts, not overwrites**.

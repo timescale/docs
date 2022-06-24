@@ -2,6 +2,8 @@
 api_name: move_chunk()
 excerpt: Move a chunk to a different data node in a multi-node cluster
 license: community
+topic: multi-node
+tags: [multi-node, chunks, data nodes, cluster, rebalance, rebalancing]
 ---
 
 ## move_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>

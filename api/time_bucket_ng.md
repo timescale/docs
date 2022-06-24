@@ -2,6 +2,9 @@
 api_name: timescaledb_experimental.time_bucket_ng()
 excerpt: Bucket rows by time interval with support for time zones, months, and years
 license: apache
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, time buckets, date_trunc, aggregates]
 ---
 
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
@@ -32,8 +35,8 @@ Firstly, `time_bucket_ng()` doesn't work with timestamps prior to `origin`,
 while `time_bucket()` does.
 
 Secondly, the default `origin` values differ. `time_bucket()` uses an origin
-date of 3 Jan 2000, because that date is a Monday. This works better with
-weekly buckets. `time_bucket_ng()` uses an origin date of 1 Jan 2000, because
+date of January 3, 2000, because that date is a Monday. This works better with
+weekly buckets. `time_bucket_ng()` uses an origin date of January 1, 2000, because
 it is the first day of the month and the year. This works better with monthly
 or annual aggregates.
 </highlight>

@@ -125,7 +125,7 @@ Congratulations, you've successfully created a relational table in TimescaleDB u
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertable].
 It provides an abstraction of a single continuous table across all space and time
-intervals. You can can query it via standard SQL.
+intervals. You can query it via standard SQL.
 
 Virtually all user interactions with TimescaleDB are with hypertables. Creating tables
 and indexes, altering tables, inserting data, selecting data, and most other tasks  can and should

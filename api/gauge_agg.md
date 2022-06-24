@@ -3,6 +3,9 @@ api_name: gauge_agg()
 excerpt: Aggregate gauge data into a `GaugeSummary` for further analysis
 license: community
 toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, gauges, aggregates, GaugeSummary]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

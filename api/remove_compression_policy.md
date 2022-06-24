@@ -2,6 +2,8 @@
 api_name: remove_compression_policy()
 excerpt: Remove a compression policy from a hypertable
 license: community
+topic: compression
+tags: [compression, policy, remove]
 ---
 
 ## remove_compression_policy() <tag type="community" content="community" />
