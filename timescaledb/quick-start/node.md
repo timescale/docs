@@ -519,7 +519,7 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 [install-timescale]: /install/latest/
 [setup-psql]: /how-to-guides/connecting/psql/
 [time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /getting-started/create-cagg/
+[continuous-aggregates]: /getting-started/latest/create-cagg/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
 [hypertables]: /overview/core-concepts/
