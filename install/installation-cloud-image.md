@@ -1,6 +1,6 @@
 # Install self-hosted TimescaleDB from a pre-built cloud image
 
-<highlight header="Deploying TimescaleDB to AWS?">
+<highlight type="cloud" header="Deploying TimescaleDB to AWS?">
 Timescale Cloud is the most effective way to use TimescaleDB in AWS, as it saves you the time to manually configure your services, backups, high availability, data recovery, forks, upgrades… You can also connect to Timescale Cloud through your own private infrastructure via [VPC peering]().
 </highlight>
 
