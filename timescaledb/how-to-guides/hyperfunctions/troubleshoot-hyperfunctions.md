@@ -12,9 +12,19 @@ with hyperfunctions and TimescaleDB Toolkit.
 * Copy this comment at the top of every troubleshooting page
 -->
 
-### Problem setting up TimescaleDB Toolkit
-If `CREATE EXTENSION timescaledb_toolkit` or `ALTER EXTENSION
-timescaledb_toolkit` fails, try:
+## Updating the Toolkit extension fails with an error saying `no update path`
+In some cases, when you create the extension, or use the `ALTER EXTENSION timescaledb_toolkit UPDATE` command to
+update the Toolkit extension, it might fail with an error like this:
+
+```sql
+ERROR:  extension "timescaledb_toolkit" has no update path from version "1.2" to version "1.3"
+```
+
+This occurs if the list of available extensions does not include the version you
+are trying to upgrade to, and it can occur if the package was not installed
+correctly in the first place. To correct the problem, install the upgrade
+package, restart PostgreSQL, verify the version, and then attempt the update
+again.
 
 <procedure>
 
@@ -43,22 +53,6 @@ timescaledb_toolkit` fails, try:
 1.  Retry `CREATE EXTENSION` or `ALTER EXTENSION`.
 
 </procedure>
-
-
-## Updating the Toolkit extension fails with an error saying `no update path`
-In some cases, when you use the `ALTER EXTENSION timescaledb_toolkit UPDATE` command to
-update the Toolkit extension, it might fail with an error like this:
-
-```sql
-ERROR:  extension "timescaledb_toolkit" has no update path from version "1.2" to version "1.3"
-```
-
-This occurs if the list of available extensions does not include the version you
-are trying to upgrade to, and it can occur if the package was not installed
-correctly in the first place. To correct the problem, install the upgrade
-package, restart PostgreSQL, verify the version, and then attempt the update
-again.
-
 
 [deb-install]: /install/:currentVersion:/self-hosted/installation-debian/
 [rhel-install]: /install/:currentVersion:/self-hosted/installation-redhat/
