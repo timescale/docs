@@ -550,6 +550,13 @@ module.exports = [
             keywords: ["retention", "data", "TimescaleDB"],
             excerpt: "Manually drop chunks",
           },
+          {
+            title: "Troubleshooting data retention",
+            href: "troubleshooting",
+            tags: ["retention", "data", "tshoot", "timescaledb"],
+            keywords: ["retention", "data", "troubleshooting", "TimescaleDB"],
+            excerpt: "Troubleshoot data retention",
+          },
         ],
       },
       {

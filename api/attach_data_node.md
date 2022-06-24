@@ -2,6 +2,8 @@
 api_name: attach_data_node()
 excerpt: Attach a data node to a distributed hypertable
 license: community
+topic: multi-node
+tags: [distributed hypertables, multi-node, data nodes, attach]
 ---
 
 ## attach_data_node() <tag type="community">Community</tag>

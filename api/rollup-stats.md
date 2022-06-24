@@ -3,6 +3,8 @@ api_name: rollup()
 excerpt: Roll up multiple statistical aggregates
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, rollup, statistical aggregates, StatsSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

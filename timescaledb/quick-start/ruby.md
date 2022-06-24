@@ -187,7 +187,7 @@ rails generate scaffold PageLoads user_agent:string
 TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on your table
 include all partitioning columns, which in our case is the time column. A new Rails model
 includes a `PRIMARY KEY` index for `id` by default, so we need to either remove the
-column or make sure that the index includes time as part of a "composite key".
+column or make sure that the index includes time as part of a "composite key."
 
 <highlight type="tip">
 Composite keys aren't supported natively by Rails, but if you need to keep

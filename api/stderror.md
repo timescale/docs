@@ -3,6 +3,8 @@ api_name: stderror()
 excerpt: Estimate the relative standard error of a hyperloglog
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, standard error, stderror, hyperloglogs, approximate count distinct]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

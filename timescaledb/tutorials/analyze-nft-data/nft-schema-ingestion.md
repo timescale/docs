@@ -271,7 +271,7 @@ tutorial.
 
 ### Download sample NFT data
 You can download and insert sample CSV files that contain NFT sales data from
-1 October 2021 to 7 October 2021.
+October 1, 2021 to October 7, 2021.
 
 <procedure>
 

@@ -3,6 +3,8 @@ api_name: slope()
 excerpt: Calculate the slope from values in a 2-dimensional statistical aggregate
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, slope, least squares, statistics, statistical aggregates, StatsSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

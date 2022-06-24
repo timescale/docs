@@ -61,7 +61,7 @@ remote_read:
 ### Step 2: Associate Prometheus Endpoint with Managed Service
 
 Next, we want to associate our Prometheus endpoint with our Timescale
-managed service.  Using the navigation menu, select the service we want to
+managed service. Using the navigation menu, select the service we want to
 monitor and click the 'Overview' tab.
 
 Navigate down to the 'Service Integrations' section and click the 'Manage Integrations' button.

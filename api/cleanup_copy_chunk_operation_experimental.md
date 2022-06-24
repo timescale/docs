@@ -2,6 +2,8 @@
 api_name: cleanup_copy_chunk_operation()
 excerpt: Clean up after a failed chunk move or chunk copy operation
 license: community
+topic: multi-node
+tags: [chunks, multi-node, move, copy, distributed hypertables]
 ---
 
 ## cleanup_copy_chunk_operation() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>

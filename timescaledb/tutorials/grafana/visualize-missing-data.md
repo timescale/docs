@@ -7,7 +7,7 @@ want to aggregate data across a large time window, for example,
 computing the average temperature over the past 6 hours by 30 minute
 time intervals or analyzing today's CPU utilization by 15 minute
 intervals. Gaps in data can also have other negative consequences,
-e.g., breaking applications downstream.
+for example, breaking applications downstream.
 
 In this tutorial, you'll see how to use [Grafana][grafana-external]
 (an open-source visualization tool) and TimescaleDB for
@@ -162,7 +162,7 @@ period.
 
 This is just one way to use TimescaleDB with Grafana to solve data
 problems and ensure that your applications, systems, and operations
-don't  suffer any negative consequences (e.g., downtime, misbehaving
+don't  suffer any negative consequences (for example, downtime, misbehaving
 applications, or a degregraded customer experience). For more ways on
 how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).
