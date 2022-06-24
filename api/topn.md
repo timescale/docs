@@ -3,6 +3,9 @@ api_name: topn()
 excerpt: Calculate the top N most common values from data in a frequency or top N aggregate
 license: community
 toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, most common, frequency, frequency aggregates, top N]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

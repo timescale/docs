@@ -42,7 +42,7 @@ cluster: one access node and two data nodes.
 There is currently no way to visually distinguish between the access node and
 data nodes within the Managed Service for TimescaleDB console, **so we strongly
 recommend that you include "AN" and "DN" in the names of each service,
-respectively (eg. "an-mycluster", "dn1-mycluster", "dn2-mycluster", etc.)**.
+respectively (eg. "an-mycluster," "dn1-mycluster," "dn2-mycluster," etc.)**.
 Services can only assume one role in a cluster (access or data node), and only
 one Service can act as the access node.
 
@@ -226,7 +226,7 @@ server:
 ## Maintenance tasks
 A multi-node TimescaleDB setup requires regular maintenance; in particular,
 the distributed transaction log needs to be cleaned up and non-completed
-transactions should be "healed". Please refer to our standard
+transactions should be "healed." Please refer to our standard
 [multi-node documentation][maintenance-tasks] for instructions on how to
 configure a user-defined action for this task.
 

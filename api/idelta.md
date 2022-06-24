@@ -3,6 +3,8 @@ api_name: 'idelta_left() | idelta_right()'
 excerpt: Calculate the instantaneous change from values in a `CounterSummary`
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, delta, change, counters, CounterSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

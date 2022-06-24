@@ -2,7 +2,7 @@
 
 An intrinsic part of time-series data is that new data is accumulated
 and old data is rarely, if ever, updated and the relevance of the data
-diminishes over time.  It is therefore often desirable to delete old
+diminishes over time. It is therefore often desirable to delete old
 data to save disk space.
 
 As an example, if you have a hypertable definition of `conditions`

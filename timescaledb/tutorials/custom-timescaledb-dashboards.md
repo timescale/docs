@@ -39,7 +39,7 @@ TimescaleDB uses [hypertables][] to store time-series data. TimescaleDB
 automatically partitions data in hypertables into smaller child tables called
 chunks. The chunks represent data for a given time period, which makes it easier
 to query and manage over time. For example, if you wanted to query data from
-10am to 11am, instead of scanning your entire database, TimescaleDB would scan
+10 AM to 11 AM, instead of scanning your entire database, TimescaleDB would scan
 the specific chunks that contain data for just that period. All the interaction
 with the database still occurs on the hypertable using SQL, but TimescaleDB
 partitions the data to make large queries more efficient.

@@ -3,6 +3,8 @@ api_name: covariance()
 excerpt: Calculate the covariance from values in a 2-dimensional `StatsSummary`
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, covariance, statistics, statistical aggregates, StatsSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

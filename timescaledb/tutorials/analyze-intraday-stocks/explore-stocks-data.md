@@ -3,7 +3,7 @@
 When you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
 data.
 
-Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (e.g. 2-min or 15-min) using TimescaleDB aggregate functions. 
+Because of the high granularity of the dataset, there are numerous ways to explore it. For example, you could analyze stock prices and volumes on a minute-by-minute basis. With TimescaleDB, you could also bucket records into custom intervals (for example, 2 min or 15 min) using TimescaleDB aggregate functions. 
 
 Let's see how it's done!
 
@@ -11,7 +11,7 @@ Let's see how it's done!
 
 To get started with data exploration, you need to install a couple of tools first:
 
-* [Pandas][pandas-docs], to query and structure the data
+* [Pandas][pandas-docs], to query and structure the data (this is already installed if you have completed the steps in the previous sections)
 * [Plotly][plotly-docs], to create visualizations quickly
 
 **Install both**
@@ -81,7 +81,7 @@ fig.show()
 
 ### 2. How did Apple's trading volume change over time?
 
-Now let's try a similar query focused on the daily trading volume of one symbol (e.g. 'AAPL'). 
+Now let's try a similar query focused on the daily trading volume of one symbol (for example, 'AAPL'). 
 
 ```python
 import plotly.express as px

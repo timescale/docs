@@ -95,7 +95,7 @@ that case, feel free to ignore them.
 &#10060; Simply install TimescaleDB.
 
 *And/Or*
-: Do not use. You can usually pick one. If you're not sure, pick "and".
+: Do not use. You can usually pick one. If you're not sure, pick "and."
 
 &#10060; I like apples and/or oranges.
 
@@ -192,7 +192,7 @@ device.
 
 *Via*
 : Avoid if possible. There is usually a more accurate English word, like
-"through", "with", or "using".
+"through," "with," or "using."
 
 ### W [](#W)
 

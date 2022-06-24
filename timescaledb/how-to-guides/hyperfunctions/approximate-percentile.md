@@ -25,8 +25,8 @@ information about how long a server takes to respond to API calls.
     FROM response_times
     GROUP BY 1;
     ```
-1.  Re-aggregate the aggregate to get the last 30 days, and look for the 95th
-    percentile:
+1.  Re-aggregate the aggregate to get the last 30 days, and look for the
+    ninety-fifth percentile:
     ```sql
     SELECT approx_percentile(0.95, percentile_agg(percentile_agg)) as threshold
     FROM response_times_daily

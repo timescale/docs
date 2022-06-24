@@ -3,6 +3,8 @@ api_name: 'variance() | variance_y() | variance_x()'
 excerpt: Calculate the variance of values from a statistical aggregate
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, variance, statistics, statistical aggregates, StatsSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

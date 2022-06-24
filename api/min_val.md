@@ -3,6 +3,8 @@ api_name: min_val()
 excerpt: Calculate the minimum from values in a `tdigest`
 license: community
 toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, minimum, tdigest]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
