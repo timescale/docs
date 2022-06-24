@@ -36,6 +36,11 @@ virtualenv env
 source env/bin/activate
 ```
 
+Install Pandas within the virtual environment:
+```bash
+pip install pandas
+```
+
 
 [install-timescale]: /install/latest/
 [alpha-vantage-apikey]: https://www.alphavantage.co/support/#api-key
