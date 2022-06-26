@@ -46,7 +46,7 @@ the database with a command like below:
 ```bash
 psql -h localhost p 5432 -U tsdbadmin -d mydb -f dump.sql
 ```
-If you used `pg_dump` to backup in custom format use `pg_restore`:
+If you used `pg_dump` to backup in custom format, use `pg_restore`:
 ```bash
 pg_restore -Fc -d mydb dump.dat
 SELECT public.timescaledb_post_restore();
