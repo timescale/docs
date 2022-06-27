@@ -2,12 +2,29 @@
 This section contains some ideas for troubleshooting common problems experienced
 with hyperfunctions and TimescaleDB Toolkit.
 
-## Common errors
-Find solutions for common errors.
+<!---
+* Keep this section in alphabetical order
+* Use this format for writing troubleshooting sections:
+ - Cause: What causes the problem?
+ - Consequence: What does the user see when they hit this problem?
+ - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
+ - Result: When the user applies the fix, what is the result when the same action is applied?
+* Copy this comment at the top of every troubleshooting page
+-->
 
-### Problem setting up TimescaleDB Toolkit
-If `CREATE EXTENSION timescaledb_toolkit` or `ALTER EXTENSION
-timescaledb_toolkit` fails, try:
+## Updating the Toolkit extension fails with an error saying `no update path`
+In some cases, when you create the extension, or use the `ALTER EXTENSION timescaledb_toolkit UPDATE` command to
+update the Toolkit extension, it might fail with an error like this:
+
+```sql
+ERROR:  extension "timescaledb_toolkit" has no update path from version "1.2" to version "1.3"
+```
+
+This occurs if the list of available extensions does not include the version you
+are trying to upgrade to, and it can occur if the package was not installed
+correctly in the first place. To correct the problem, install the upgrade
+package, restart PostgreSQL, verify the version, and then attempt the update
+again.
 
 <procedure>
 
