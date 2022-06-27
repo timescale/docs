@@ -42,7 +42,7 @@ Continuous aggregates have some limitations of what types of queries they can
 support, described in more length below. For example, the `FROM` clause must
 provide only one hypertable, and joins, CTEs, views or subqueries are not
 supported. The `GROUP BY` clause must include a time bucket on the hypertable
-time column, and all aggregates must be parallelizable.
+time column.
 
 Some important things to remember when constructing your `SELECT` query:
 *   Only a single hypertable can be specified in the `FROM` clause of
@@ -56,14 +56,12 @@ Some important things to remember when constructing your `SELECT` query:
 *   You cannot use [`time_bucket_gapfill`][time-bucket-gapfill] in continuous
     aggregates, but you can run them in a `SELECT` query from the continuous
     aggregate view.
-*   You can usually use aggregates that are
-    [parallelized by PostgreSQL][postgres-parallel-agg] in the view definition,
-    including most aggregates distributed by PostgreSQL. However, the `ORDER BY`,
-    `DISTINCT` and `FILTER` clauses are not supported.
 *   All functions and their arguments included in `SELECT`, `GROUP BY` and
     `HAVING` clauses must be [immutable][postgres-immutable].
 *   The view cannot be a [security barrier view][postgres-security-barrier].
 *   You cannot use Window functions with continuous aggregates.
+*   Not all keywords are supported in continuous aggregates. To see what is
+    supported, check the [function support table][function-support].
 
 The settings for continuous aggregates are in the
 [informational views][info-views].
@@ -89,7 +87,7 @@ Optional `WITH` clause options:
 |-|-|-|-|
 |`timescaledb.materialized_only`|BOOLEAN|Return only materialized data when querying the continuous aggregate view|`FALSE`|
 |`timescaledb.create_group_indexes`|BOOLEAN|Create indexes on the continuous aggregate for columns in its `GROUP BY` clause. Indexes are in the form `(<GROUP_BY_COLUMN>, time_bucket)`|`TRUE`|
-|`timescaledb.finalized`|BOOLEAN|In TimescaleDB 2.7 and above, use the new version of continuous aggregates, which stores finalized results for aggregate functions. Supports all aggregate functions, including ones that use `FILTER`, `ORDER BY`, and `DISTINCT` clauses.|`TRUE`|
+|`timescaledb.finalized`|BOOLEAN|In TimescaleDB 2.7 and above, use the new version of continuous aggregates, which stores finalized results for aggregate functions. Supports ordered-set aggregates, hypothetical-set aggregates, and aggregate queries that use `FILTER` and `DISTINCT` clauses.|`TRUE`|
 
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
@@ -121,12 +119,13 @@ WITH (timescaledb.continuous) AS
     GROUP BY time_bucket('1h', timec);
 ```
 
+[function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
+[info-views]: /api/:currentVersion:/informational-views/
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
 [postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
 [real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
-[refresh-cagg]: /continuous-aggregates/refresh_continuous_aggregate/
-[time-bucket]: /hyperfunctions/time_bucket/
-[time-bucket-gapfill]: /hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
-[info-views]: /informational-views/
+[refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
+[time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
