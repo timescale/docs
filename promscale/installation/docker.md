@@ -52,8 +52,8 @@ packages and instructions, see the
 
 </procedure>
 
-When you have installed Promscale, you are ready to ingest 
-data. For instructions, see the [send data][send-data] section.
+After you have installed Promscale, you can ingest data.
+For instructions, see the [send data][send-data] section.
 
 ## Upgrading from the previous alpine image
 
