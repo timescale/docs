@@ -17,7 +17,11 @@ For example:
 ```bash
 pg_dump -h localhost -p 5432 -U tsdbadmin -d mydb -F p -f dump.sql
 ```
+To backup larger databases use the custom format:
 
+```bash
+pg_dump -h localhost -p 5432 -U tsdbadmin -d mydb -F c -f dump.dat
+```
 ## Restore
 
 Starting with version 0.11.0 of the Promscale connector and 0.5.0 of the 
@@ -41,6 +45,11 @@ the database with a command like below:
 
 ```bash
 psql -h localhost p 5432 -U tsdbadmin -d mydb -f dump.sql
+```
+If you used `pg_dump` to backup in custom format, use `pg_restore`:
+```bash
+pg_restore -Fc -d mydb dump.dat
+SELECT public.timescaledb_post_restore();
 ```
 
 Do not use the `-v ON_ERROR_STOP=1` option with the above command. Some 
