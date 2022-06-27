@@ -4,14 +4,14 @@ one TimescaleDB instance. TimescaleDB multi-node allows you to run and
 manage a cluster of databases, which can give you faster data ingest,
 and more responsive and efficient queries for large workloads.
 
-<highlight type="important"> 
+<highlight type="important">
 In some cases, your queries could be
 slower in a multi-node cluster due to the extra network communication
 between the various nodes. Queries perform the best when the query
 processing is distributed among the nodes and the result set is small
 relative to the queried data set. It is important that you understand
 multi-node architecture before you begin, and plan your database
-according to your specific requirements.  
+according to your specific requirements.
 </highlight>
 
 You can use multi-node on a self-managed TimescaleDB instance, or you can use it
@@ -64,26 +64,23 @@ distributed database with a consistent set of data nodes.
 
 
 ## Distributed hypertables
-If you use a regular table or hypertable on a distributed database, 
-they are not automatically distributed. Regular tables and 
-hypertables continue to work as usual, even when the underlying 
-database is distributed. To enable
-multi-node capabilities, you need to explicitly create a distributed
-hypertable on the access node to make use of the data nodes. A
-distributed hypertable is similar to a regular
-[hypertable][hypertables], but with the difference that chunks are
-distributed across data nodes instead of on local storage. By distributing
-the chunks, the processing power of the data nodes is combined to
-achieve higher ingest throughput and faster queries. However, the
-ability to achieve good performance is highly dependent on how the
-data is partitioned across the data nodes.
+If you use a regular table or hypertable on a distributed database, they are not
+automatically distributed. Regular tables and hypertables continue to work as
+usual, even when the underlying database is distributed. To enable multi-node
+capabilities, you need to explicitly create a distributed hypertable on the
+access node to make use of the data nodes. A distributed hypertable is similar
+to a regular [hypertable][hypertables], but with the difference that chunks are
+distributed across data nodes instead of on local storage. By distributing the
+chunks, the processing power of the data nodes is combined to achieve higher
+ingest throughput and faster queries. However, the ability to achieve good
+performance is highly dependent on how the data is partitioned across the data
+nodes.
 
-To achieve good ingest performance, write the data in
-batches, with each batch containing data that can be distributed across
-many data nodes. To achieve good query performance, spread the
-query across many nodes and have a result set
-that is small relative to the amount of processed data. To achieve this,
-it is important to consider an appropriate partitioning method.
+To achieve good ingest performance, write the data in batches, with each batch
+containing data that can be distributed across many data nodes. To achieve good
+query performance, spread the query across many nodes and have a result set that
+is small relative to the amount of processed data. To achieve this, it is
+important to consider an appropriate partitioning method.
 
 ### Partitioning methods
 Data that is ingested into a distributed hypertable is spread across the data
@@ -131,16 +128,16 @@ LIMIT 100;
 
 ### Transactions and consistency model
 Transactions that occur on distributed hypertables are atomic, just
-like those on regular hypertables. This means that a distributed 
-transaction that involves multiple data nodes is guaranteed to 
+like those on regular hypertables. This means that a distributed
+transaction that involves multiple data nodes is guaranteed to
 either succeed on all nodes or on none of them. This guarantee
 is provided by the [two-phase commit protocol][2pc], which
 is used to implement distributed transactions in TimescaleDB.
 
 However, the read consistency of a distributed hypertable is different
-to a regular hypertable. Because a distributed transaction is a set of 
-individual transactions across multiple nodes, each node can commit 
-its local transaction at a slightly different time due to network 
+to a regular hypertable. Because a distributed transaction is a set of
+individual transactions across multiple nodes, each node can commit
+its local transaction at a slightly different time due to network
 transmission delays or other small fluctuations. As a consequence, the
 access node cannot guarantee a fully consistent snapshot of the
 data across all data nodes. For example, a distributed read
@@ -153,7 +150,7 @@ snapshot on another data node might not include them.
 If you need stronger read consistency in a distributed transaction, then you
 can use consistent snapshots across all data nodes. However, this
 requires a lot of coordination and management, which can negatively effect
-performance, and it is therefore not implemented by default for distributed 
+performance, and it is therefore not implemented by default for distributed
 hypertables.
 
 [hypertables]: /how-to-guides/hypertables/
