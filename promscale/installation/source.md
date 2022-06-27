@@ -53,8 +53,8 @@ In this procedure, you download the Promscale binaries and run them.
 
 </procedure>
 
-When you have installed Promscale, you are ready to ingest 
-data. For instructions, see the [send data][send-data] section.
+After you have installed Promscale, you can ingest data.
+For instructions, see the [send data][send-data] section.
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
