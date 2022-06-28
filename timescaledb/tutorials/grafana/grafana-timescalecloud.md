@@ -13,7 +13,7 @@ This section shows you how to connect TimescaleCloud database instance as data
 source in [Grafana][grafana-homepage].
 
 ## Configure TimscaleDB as a data source
-To configure TimscaleCloud database as data source you need the create a
+To configure TimscaleCloud database as a data source you need to create a
 TimescaleDB service and then configure TimescaleDB as the data source in
 Grafana.
 
