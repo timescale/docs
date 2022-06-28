@@ -28,6 +28,7 @@ Grafana.
     that you require to configure TimescaleDB as a data source on Grafana.
 
 <Component />
+
 </procedure>
 
 <procedure>
