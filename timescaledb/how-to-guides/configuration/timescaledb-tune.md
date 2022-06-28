@@ -48,7 +48,8 @@ work_mem = 26214kB
 Is this okay? [(y)es/(s)kip/(q)uit]:
 ```
 
-When you have answered the questions, the changes are written to your `postgresql.conf` and take effect when you next restart.
+When you have answered the questions, the changes are written to your
+`postgresql.conf` and take effect when you next restart.
 
 If you are starting on a fresh instance and don't want to approve each group of
 changes, you can automatically accept and append the suggestions to the end of
