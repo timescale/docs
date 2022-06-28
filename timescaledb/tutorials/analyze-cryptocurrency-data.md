@@ -637,6 +637,6 @@ Ready for even more learning? Here's a few suggestions:
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
 [tableau-tutorial]: /tutorials/visualize-with-tableau/
 [time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /getting-started/create-cagg
+[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/

@@ -1439,7 +1439,7 @@ the materialized aggregate the next time that the automated process executes.
 
 For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
 [our docs overview](/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
-and visit this [tutorial](/timescaledb/:currentVersion:/getting-started/create-cagg/).
+and visit this [tutorial](/getting-started/:currentVersion:/create-cagg/).
 
 **Major features**
 * #1184 Add continuous aggregate functionality
