@@ -815,7 +815,7 @@ Ready for more learning? Here's a few suggestions:
 [nyc_data]: https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz
 [postgis]: http://postgis.net/documentation
 [time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /getting-started/latest/create-cagg/
+[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
 [other-samples]: /tutorials/sample-datasets/
 [migrate]: /how-to-guides/migrate-data/
 [cloud-signup]: https://console.cloud.timescale.com/signup
