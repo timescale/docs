@@ -26,7 +26,7 @@ aws-cli/2.2.18 Python/3.8.8 Linux/5.10.0-1044-oem exe/x86_64.ubuntu.20 prompt/of
 For more information about installing the AWS CLI, see
 [the AWS installation instructions][aws-install].
 
-<highlight type="cloud" button="Try for free">
+<highlight type="cloud" header="VPC on Timescale Cloud" button="Try for free">
 If you are completing this tutorial in Timescale Cloud, make sure you have
 created a VPC on both AWS, and on your database in Timescale Cloud. For more
 information about setting up a VPC, see the
