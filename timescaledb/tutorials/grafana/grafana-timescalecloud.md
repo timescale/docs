@@ -14,7 +14,7 @@ source in [Grafana][grafana-homepage].
 
 ## Configure TimscaleDB as a data source
 To configure TimscaleCloud database as a data source you need to create a
-TimescaleDB service and then configure TimescaleDB as the data source in
+service, and then configure TimescaleDB as the data source in
 Grafana.
 
 <procedure>
