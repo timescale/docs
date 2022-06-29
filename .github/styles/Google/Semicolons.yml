@@ -2,7 +2,7 @@ extends: existence
 message: "Use semicolons judiciously."
 link: 'https://developers.google.com/style/semicolons'
 nonword: true
-scope: raw
+scope: sentence
 level: suggestion
 tokens:
-  - ';(?!\n)'
+  - ';'
