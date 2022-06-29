@@ -45,7 +45,7 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 
 ### Creating a bar chat with preaggregated data
 
-    1. In the query editor, use this SQL to query a bar chart dataset. Use the variable `$bucket interval`
+  1. In the query editor, use this SQL to query a bar chart dataset. Use the variable `$bucket interval`
         for the time period covered by the bar chart.
         ```sql
 
@@ -58,31 +58,31 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
         GROUP BY time_bucket('$bucket_interval', time), symbol;
         ```
 
-    1. Select a stock from the dashboard variable option. 
+  1. Select a stock from the dashboard variable option. 
        Adjust the time range of the dashboard if needed.
 
-    1. The returned data looks like this:
+  1. The returned data looks like this:
         
         <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/Tabledataforgoogle.png" alt="Screenshot of the table view of valid time series data for google stock."/>
         
         Time is an important factor in any time-series data used by Grafana, it must have a column named time with timestamp data. The timestamps are usually in ascending order, it mostly throws when otherwise.
     
-    1. Select bar chart as your visualization type
+  1. Select bar chart as your visualization type
        
         <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/barchartvisualisation.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Bar chart' shows as a visualization type."/>
     
-    1. Grafana turns the query into something that looks like this:
+  1. Grafana turns the query into something that looks like this:
         
         <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/googlebarchart.png" alt="Screenshot of the vertical bar graph produced by Grafana. The vertical bar graph represents the price of GOOG in the past 2 months."/>
         
         This shows a vertical bar chart price distribution of GOOG stock which ranges between $2836 and $2108 within a specific period.
     
-    1. Converting this vertical chart to a horizontal bar chart looks like this, it gives room for a
+  1. Converting this vertical chart to a horizontal bar chart looks like this, it gives room for a
        longer label along the vertical axis if needed. On the right side of the dashboard, scroll to the ‘bar chart’ section, click on the drop down and select horizontal as ‘orientation’.
         
         <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/horizontalbarchart.png" alt="Screenshot of the Grafana dashboard. The 'horizontal orientation'tab is focused. Underneath, 'X-Axis' shows the orientation type."/>
     
-    1. The bar chart should look like this:
+  1. The bar chart should look like this:
         
         <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/googlebarchart.png" alt="Screenshot of the horizontal bar graph produced by Grafana. The horizontal bar graph represents the price of GOOG in the past 2 months."/>
 
