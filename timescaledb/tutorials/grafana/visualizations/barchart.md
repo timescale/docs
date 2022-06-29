@@ -56,7 +56,7 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
         WHERE symbol = $symbol
             AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
         GROUP BY time_bucket('$bucket_interval', time), symbol;
-        ```sql
+        ```
 
     1. Select a stock from the dashboard variable option. 
        Adjust the time range of the dashboard if needed.
