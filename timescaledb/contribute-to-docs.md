@@ -185,6 +185,21 @@ device.
 
 ### U [](#U)
 
+*Update*
+: An update is a small or minor improvement, often delivered in a patch. Updates
+are often done frequently, and require little or no downtime.
+
+&#128077; Install the security update to patch this version.
+
+*Upgrade*
+: An upgrade is a large or major improvement, and usually requires a new
+version. Upgrades are done less frequently, and could require planning,
+prepatory backups, and planned downtime.
+
+&#128077; Upgrade from TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2.
+
+&#128077; Upgrade from TimescaleDB&nbsp;2.3 to TimescaleDB&nbsp;2.4.
+
 *Utilize*
 : Do not use. Use "use" instead.
 
