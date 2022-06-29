@@ -80,7 +80,13 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
     1. Converting this vertical chart to a horizontal bar chart looks like this, it gives room for a
        longer label along the vertical axis if needed. On the right side of the dashboard, scroll to the ‘bar chart’ section, click on the drop down and select horizontal as ‘orientation’.
         
-        <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/googlebarchart.png" alt="Screenshot of the vertical bar graph produced by Grafana. The vertical bar graph represents the price of GOOG in the past 2 months."/>
+        <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/horizontalbarchart.png" alt="Screenshot of the Grafana dashboard. The 'horizontal orientation'tab is focused. Underneath, 'X-Axis' shows the orientation type."/>
+    
+    1. The bar chart should look like this:
+        
+        <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/googlebarchart.png" alt="Screenshot of the horizontal bar graph produced by Grafana. The horizontal bar graph represents the price of GOOG in the past 2 months."/>
+
+</procedure>
         
          
   
