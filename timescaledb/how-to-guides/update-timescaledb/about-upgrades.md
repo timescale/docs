@@ -1,3 +1,5 @@
+import PlanUpgrade from '../../../../_partials/_plan_upgrade.mdx';
+
 # About upgrades
 A major upgrade is when you upgrade from one major version of TimescaleDB, to
 the next major version. For example, when you upgrade from TimescaleDB&nbsp;1,
@@ -20,23 +22,12 @@ about automatic version updates in Timescale Cloud.
 </highlight>
 
 ## Plan your upgrade
-You can upgrade your on-premise TimescaleDB installation in-place. This means
-that you do not need to dump and restore your data. However, it is still
-important that you plan for your upgrade ahead of time.
-
-Before you upgrade:
-
-* Read [the release notes][relnotes] for the TimescaleDB version you are
-  upgrading to.
-* Check which PostgreSQL version you are currently running. You might need to [upgrade to the latest PostgreSQL version][upgrade-pg]
-  before you begin your TimescaleDB upgrade.
-* [Perform a backup][backup-restore] of your database. While TimescaleDB
-  upgrades are performed in-place, upgrading is an intrusive operation. Always
-  make sure you have a backup on hand, and that the backup is readable in the
-  case of disaster.
+<PlanUpgrade />
 
 ## Check your version
-You can check which version of TimescaleDB you are running, at the psql command prompt. Use this to check which version you are running before you begin your upgrade, and again after your upgrade is complete:
+You can check which version of TimescaleDB you are running, at the psql command
+prompt. Use this to check which version you are running before you begin your
+upgrade, and again after your upgrade is complete:
 
 ```sql
 \dx timescaledb
