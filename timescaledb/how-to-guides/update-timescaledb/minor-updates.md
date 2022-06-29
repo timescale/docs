@@ -1,19 +1,20 @@
 # Update TimescaleDB versions
-You can update your TimescaleDB version with an in-place update. By updating in-place,
+
+Update your TimescaleDB version with an in-place update. By updating in-place,
 you don't need to dump and restore your data. Automated migration scripts handle
 conversion of internal states where needed.
 
 <highlight type="cloud" header="Make upgrades automatic" button="Try Timescale Cloud for free">
-Timescale Cloud avoids the manual work involved in updating your TimescaleDB version.
-Updates take place automatically during a maintenance window picked by you.
-[Learn more](https://docs.timescale.com/cloud/latest/service-operations/maintenance/)
+Timescale Cloud avoids the manual work involved in updating your TimescaleDB version. 
+Updates take place automatically during a maintenance window picked by you. 
+[Learn more](https://docs.timescale.com/cloud/latest/service-operations/maintenance/) 
 about automatic version updates in Timescale Cloud.
 </highlight>
 
 <highlight type="important">
 Follow these instructions to update TimescaleDB within the same major release
 version. For example, you can update from TimescaleDB 2.1 to 2.2, or from 1.7 to
-1.7.4. To update from 1.x to 2.x, see the [section on updating to TimescaleDB
+1.7.4. To update from 1.x to 2.x, see the [section on updating to TimescaleDB 
 2.x](https://docs.timescale.com/timescaledb/latest/how-to-guides/update-timescaledb/update-timescaledb-2/).
 </highlight>
 
@@ -34,9 +35,9 @@ more, see the sections on updating PostgreSQL in
 | 2.4                 | 12, 13                        |
 | 2.5+                | 12, 13, 14                    |
 
-<highlight type="important">
+<highlight type="important"> 
 To make sure your update completes properly, update PostgreSQL and TimescaleDB
-separately. Keep PostgreSQL and TimescaleDB versions compatible throughout the
+separately. Keep PostgreSQL and TimescaleDB versions compatible throughout the 
 process. If your update spans multiple versions, this could require several steps.
 
 For example, if you're currently running PostgreSQL 10 and TimescaleDB 1.7.5,
@@ -55,7 +56,7 @@ different TimescaleDB versions on different databases within the same PostgreSQL
 instance. You can also update your extensions independently on different
 databases.
 
-<highlight type="important">
+<highlight type="important"> 
 Before updating, check the [release
 notes](https://docs.timescale.com/timescaledb/latest/overview/release-notes/)
 for the version you want to update to. Specific versions might have different
