@@ -48,7 +48,6 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
   1. In the query editor, use this SQL to query a bar chart dataset. Use the variable `$bucket interval`
         for the time period covered by the bar chart.
         ```sql
-
         SELECT time_bucket('$bucket_interval', time) AS time,
             symbol,
             AVG(price) as price
