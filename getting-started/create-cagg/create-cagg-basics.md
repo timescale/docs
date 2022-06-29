@@ -170,4 +170,4 @@ found in the [continuous aggregates docs][continuous-aggregates].
 [min]: https://www.postgresql.org/docs/current/tutorial-agg.html
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [last]: /api/:currentVersion:/hyperfunctions/last/
-[cagg-policy]: /getting-started/create-cagg/create-cagg-policy/
+[cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/

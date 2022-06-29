@@ -179,4 +179,3 @@ For more information about setting up multi-node, see the
 [multi-node]: /how-to-guides/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [real-time-aggs]: /how-to-guides/continuous-aggregates/real-time-aggregates/
-[tutorial-caggs]: /getting-started/create-cagg
