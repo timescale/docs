@@ -110,6 +110,43 @@ To compare the distributions of 4 or more different stocks, create a panel with 
 
   1. Select type query to have the option to add the query above, and update as shown below:
 
+     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/Variables.png" alt="Grafana screenshot showing the Variables > Edit dialog. The variable name is 'symbol', the type is 'query', and the query written fetches all company symbol available on company table"/>
+
+  1. Update the first query with the following:
+
+     ```sql
+        SELECT
+            time_bucket('$bucket_interval', time) AS time,
+            symbol,
+            AVG(price) as price
+        FROM stocks_real_time srt
+        WHERE symbol IN ($symbol)
+            AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
+        GROUP BY time_bucket('$bucket_interval', time), symbol;     
+        ```
+
+        This query makes it possible to have multiple symbols in the query. Select as many symbols you want to compare and refresh the dashboard.
+
+  1. The returned data looks like this:
+
+      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/tableviewfivestockdata.png" alt="Screenshot of the table view of valid time series data for 'AAPL, ABNB, AMAT, ABGN, HD' stock."/>
+
+  1. This query gives the following:
+
+      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multiplebarchart.png" alt="Screenshot of the multiple bar graph produced by Grafana. The multiple bar graph represents the price of 'AAPL, ABNB, AMAT, ABGN, HD' in the past 1 month."/>
+
+      We can clearly see 5 different stocks "AAPL, ABNB, AMAT, AMGN, and HD" but can barely differentiate them. To tell them apart, adjust the color of each stock.
+
+  1. Click on each line by the left of each legend and pick any desired color for each bar
+
+      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/colorinbarchart.png" alt="Screenshot of Grafana plot, showing different colors to select for a bar chart."/>
+  
+  1. The graph clearly shows 5 different price distributions in different colors.
+
+      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multicoloredbarchart.png" alt="Screenshot of Grafana plot, showing 5 bar chart of stock values in green, blue, red, purple and orange."/>
+
+</procedure>
+
 [install-grafana]: https://grafana.com/get/
 [install-timescale]: /install/:currentVersion:/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
