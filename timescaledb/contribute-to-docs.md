@@ -187,7 +187,7 @@ device.
 
 *Update*
 : An update is a small or minor improvement, often delivered in a patch. Updates
-are often done frequently, and require little or no downtime.
+are done frequently, and require little or no downtime.
 
 &#128077; Install the security update to patch this version.
 
