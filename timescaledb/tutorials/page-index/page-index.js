@@ -294,6 +294,13 @@ module.exports = [
                 tags: ['grafana', 'visualize', 'candlestick', 'learn', 'timescaledb'],
                 keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'candlestick'],
                 excerpt: 'How to build a candlestick chart in Grafana',
+              },
+              {
+                title: 'Barchart',
+                href: 'barchart',
+                tags: ['grafana', 'visualize', 'barchart', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'barchart'],
+                excerpt: 'How to build a barchart in Grafana',
               }
             ]
           }
