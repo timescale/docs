@@ -16,7 +16,7 @@ This tutorial shows you how to:
 
 1. [Create a bar graph with pre-aggregated data using time_bucket()](#create-a-bar-chart-with-preaggregated-data).
 2. [Create multiple bar graphs in a single panel](#create-multiple-bar-chart).
-3. [Create a stacked bar graph with pre-aggregated data showing volume transactions](#create-stacked-bar-chart).
+3. [Create a stacked bar graph with pre-aggregated](#create-stacked-bar-chart).
 
 When presenting data using a bar graph, there are several kinds to consider, the vertical, horizontal, and stacked bar graph which shall be discussed in the tutorial.
 
@@ -82,7 +82,7 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
         This shows a vertical bar chart price distribution of Google stock which ranges between $2836 and $2108 within a specific period.
 
   1. Converting this vertical chart to a horizontal bar chart looks like this, it gives room for a
-      longer label along the vertical axis if needed. On the right side of the dashboard, scroll to the "bar chart" section, click the drop down and select horizontal as "orientation".
+      longer label along the vertical axis if needed. On the right side of the dashboard, scroll to the "bar chart" section. Click the drop down and select horizontal as "orientation".
 
         <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/horizontalbarchart.png" alt="Screenshot of the Grafana dashboard. The 'horizontal orientation' tab is focused. Underneath, 'X-Axis' shows the orientation type."/>
 
@@ -100,7 +100,7 @@ To compare the distributions of 4 or more different stocks, create a panel with 
 
 ### Creating multiple bar chart in a single panel
 
-  1. Fetch all company symbols from the data set in the [Getting Started Tutorial][gsg-data] using
+  1. Fetch all company symbols from the dataset in the [Getting Started Tutorial][gsg-data] using
       the query below:
 
        ```sql
