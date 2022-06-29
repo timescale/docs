@@ -92,7 +92,4 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 [install-timescale]: /install/:currentVersion:/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
 [grafana-tutorials]: /tutorials/grafana/
-[max]: https://www.postgresql.org/docs/current/tutorial-agg.html
-[lag]: https://www.postgresql.org/docs/current/functions-window.html
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ      

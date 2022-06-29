@@ -9,5 +9,5 @@ Learn how to create Grafana visualizations of time-series data.
 [time-series]: /tutorials/grafana/visualizations/time-series
 [histograms]: /tutorials/grafana/visualizations/histograms
 [candlestick]: /tutorials/grafana/visualizations/candlestick
-[bar-chart]: /tutorials/grafana/visualizations/barchart
+[barchart]: /tutorials/grafana/visualizations/barchart
 
