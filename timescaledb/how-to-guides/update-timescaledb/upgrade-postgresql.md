@@ -7,6 +7,51 @@ When the supported versions of PostgreSQL changes, you may need to upgrade the v
 
 To upgrade PostgreSQL, you have two choices, as outlined in the PostgreSQL online documentation.
 
+### TimescaleDB release compatibility
+TimescaleDB supports these PostgreSQL releases. If you are not
+currently running a compatible release, please upgrade before updating TimescaleDB.
+
+ TimescaleDB Release |   Supported PostgreSQL Release
+ --------------------|-------------------------------
+ 1.7                 | 9.6, 10, 11, 12
+ 2.0                 | 11, 12
+ 2.1-2.3             | 11, 12, 13
+ 2.4                 | 12, 13
+ 2.5+                | 12, 13, 14
+
+If you need to upgrade PostgreSQL first,
+see [our documentation][upgrade-pg].
+
+
+We always recommend that you update PostgreSQL and TimescaleDB as
+separate actions to make sure that each process completes properly.
+For example, if you are currently running PostgreSQL 10 and
+TimescaleDB 1.7.5, and you want to upgrade to PostgreSQL 13 and
+TimescaleDB 2.2, upgrade in this order:
+
+1. Upgrade PostgreSQL 10 to PostgreSQL 12
+1. Update TimescaleDB 1.7.5 to TimescaleDB 2.2 on PostgreSQL 12
+1. Upgrade PostgreSQL 12 to PostgreSQL 13 with TimescaleDB 2.2 installed
+
+
+
+#### PostgreSQL compatibility
+**TimescaleDB 2.0 is not compatible with PostgreSQL 9.6 or 10**. If your current PostgreSQL installation is not
+at least version 11, please upgrade PostgreSQL first. Depending on your current PostgreSQL version and installed
+TimescaleDB release, you may have to perform multiple upgrades because of compatibility restrictions.
+
+For example, if you are currently running PostgreSQL 10 and TimescaleDB 1.5, the recommended upgrade path to
+PostgreSQL 12 and TimescaleDB 2.0 would be:
+
+1. Update TimescaleDB 1.5 to TimescaleDB 1.7 on PostgreSQL 10
+1. Upgrade PostgreSQL 10 to PostgreSQL 12 with TimescaleDB 1.7 installed
+1. Update TimescaleDB 1.7 to TimescaleDB 2.0 on PostgreSQL with the instructions below
+
+<highlight type="tip">
+Whenever possible, prefer the most recent supported version, PostgreSQL 12. Please see our [Upgrading PostgreSQL](/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/) guide for help.
+</highlight>
+
+
 ### Use `pg_upgrade`
 
 [`pg_upgrade`][pg_upgrade] is a tool that avoids the need to dump all data and then import it

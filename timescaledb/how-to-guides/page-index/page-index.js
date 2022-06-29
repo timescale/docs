@@ -745,7 +745,7 @@ module.exports = [
         ],
       },
       {
-        title: "Update TimescaleDB",
+        title: "Upgrade TimescaleDB",
         href: "update-timescaledb",
         children: [
           {
