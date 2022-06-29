@@ -91,5 +91,5 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 [install-grafana]: https://grafana.com/get/
 [install-timescale]: /install/:currentVersion:/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
-[grafana-tutorials]: /tutorials/grafana/
+[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
 [variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ      
