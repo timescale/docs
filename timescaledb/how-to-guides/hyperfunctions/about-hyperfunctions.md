@@ -1,3 +1,5 @@
+import Experimental from '../../../../_partials/_experimental.mdx';
+
 # About Timescale hyperfunctions
 Timescale hyperfunctions are a specialized set of functions that allow you to
 analyze time-series data. You can use hyperfunctions to analyze anything you
@@ -19,11 +21,7 @@ Here is a list of all the hyperfunctions provided by Timescale. Hyperfunctions
 marked 'Toolkit' require an installation of Timescale Toolkit. Hyperfunctions
 marked 'experimental' are still under development.
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk,
-and do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ### Approximate count distincts
 

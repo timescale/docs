@@ -69,7 +69,7 @@ SELECT tdigest(100, data) FROM samples;
 ```
 
 This example builds a view from the aggregate that can be passed to other
-tdigest functions:
+`tdigest` functions:
 ```SQL
 CREATE VIEW digest AS
     SELECT tdigest(100, data)
@@ -77,5 +77,5 @@ CREATE VIEW digest AS
 ```
 
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md
