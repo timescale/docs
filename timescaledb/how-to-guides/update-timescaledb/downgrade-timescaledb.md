@@ -48,8 +48,8 @@ upgrading and downgrading.
 1. Connect to psql using the `-X` flag. This prevents any `.psqlrc` commands
    from accidentally triggering the load of a previous TimescaleDB version on
    session startup.
-1. At the psql prompt, upgrade the TimescaleDB extension. This must be the first
-   command you execute in the current session:
+1. At the psql prompt, downgrade the TimescaleDB extension. This must be the
+   first command you execute in the current session:
 
     ```sql
     ALTER EXTENSION timescaledb UPDATE TO '<PREVIOUS_VERSION>';
@@ -60,8 +60,8 @@ upgrading and downgrading.
     ALTER EXTENSION timescaledb UPDATE TO '2.5.1';
     ```
 
-1. Check that you have upgraded to the latest version of the extension with the
-   `\dx` command. The output should show the upgraded version number.
+1. Check that you have downgraded to the correct version of the extension with
+   the `\dx` command. The output should show the downgraded version number.
 
     ```sql
     \dx timescaledb

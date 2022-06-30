@@ -50,7 +50,7 @@ supported for PostgreSQL&nbsp;8.4 and higher.
     data directory on your local system.
 1.  At the psql prompt, perform the upgrade:
     ```sql
-    pg_upgrade -b oldbindir -B newbindir -d olddatadir -D newdatadir"
+    pg_upgrade -b <OLD_BIN_DIR> -B <NEW_BIN_DIR> -d <OLD_DATA_DIR> -D <NEW_DATA_DIR>
     ```
 
 </procedure>
