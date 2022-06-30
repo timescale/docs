@@ -61,34 +61,34 @@ individually.
 1. At the psql prompt, use this command to save the current settings for your
    policy statistics to a `.csv` file:
 
-```sql
-COPY (SELECT * FROM timescaledb_information.policy_stats)
-TO policy_stats.csv csv header
-```
+    ```sql
+    COPY (SELECT * FROM timescaledb_information.policy_stats)
+    TO policy_stats.csv csv header
+    ```
 
 1. Use this command to save the current settings for your continuous aggregates
    to a `.csv` file:
 
-```sql
-COPY (SELECT * FROM timescaledb_information.continuous_aggregate_stats)
-TO continuous_aggregate_stats.csv csv header
-```
+    ```sql
+    COPY (SELECT * FROM timescaledb_information.continuous_aggregate_stats)
+    TO continuous_aggregate_stats.csv csv header
+    ```
 
 1. Use this command to save the current settings for your drop chunk policies to
    a `.csv` file:
 
-```sql
-COPY (SELECT * FROM timescaledb_information.drop_chunks_policies)
-TO drop_chunk_policies.csv csv header
-```
+    ```sql
+    COPY (SELECT * FROM timescaledb_information.drop_chunks_policies)
+    TO drop_chunk_policies.csv csv header
+    ```
 
 1. Use this command to save the current settings for your reorder policies
    to a `.csv` file:
 
-```sql
-COPY (SELECT * FROM timescaledb_information.reorder_policies)
-TO reorder_policies.csv csv header
-```
+    ```sql
+    COPY (SELECT * FROM timescaledb_information.reorder_policies)
+    TO reorder_policies.csv csv header
+    ```
 
 </procedure>
 
@@ -102,15 +102,16 @@ TO reorder_policies.csv csv header
 1. At the psql prompt, upgrade the TimescaleDB extension. This must be the first
    command you execute in the current session:
 
-```sql
-ALTER EXTENSION timescaledb UPDATE;
-```
+    ```sql
+    ALTER EXTENSION timescaledb UPDATE;
+    ```
 
-1. Check that you have upgraded to the latest version of the extension with the `\dx` command. The output should show the upgraded version number.
+1. Check that you have upgraded to the latest version of the extension with the
+   `\dx` command. The output should show the upgraded version number.
 
-```sql
-\dx timescaledb
-```
+    ```sql
+    \dx timescaledb
+    ```
 
 </procedure>
 
@@ -120,27 +121,27 @@ ALTER EXTENSION timescaledb UPDATE;
 
 1. Use this query to verify the continuous aggregate policy jobs:
 
-```sql
-SELECT * FROM timescaledb_information.jobs
-  WHERE application_name LIKE 'Refresh Continuous%';
+    ```sql
+    SELECT * FROM timescaledb_information.jobs
+      WHERE application_name LIKE 'Refresh Continuous%';
 
--[ RECORD 1 ]-----+--------------------------------------------------
-job_id            | 1001
-application_name  | Refresh Continuous Aggregate Policy [1001]
-schedule_interval | 01:00:00
-max_runtime       | 00:00:00
-max_retries       | -1
-retry_period      | 01:00:00
-proc_schema       | _timescaledb_internal
-proc_name         | policy_refresh_continuous_aggregate
-owner             | postgres
-scheduled         | t
-config            | {"start_offset": "20 days", "end_offset": "10
-days", "mat_hypertable_id": 2}
-next_start        | 2020-10-02 12:38:07.014042-04
-hypertable_schema | _timescaledb_internal
-hypertable_name   | _materialized_hypertable_2
-```
+    -[ RECORD 1 ]-----+--------------------------------------------------
+    job_id            | 1001
+    application_name  | Refresh Continuous Aggregate Policy [1001]
+    schedule_interval | 01:00:00
+    max_runtime       | 00:00:00
+    max_retries       | -1
+    retry_period      | 01:00:00
+    proc_schema       | _timescaledb_internal
+    proc_name         | policy_refresh_continuous_aggregate
+    owner             | postgres
+    scheduled         | t
+    config            | {"start_offset": "20 days", "end_offset": "10
+    days", "mat_hypertable_id": 2}
+    next_start        | 2020-10-02 12:38:07.014042-04
+    hypertable_schema | _timescaledb_internal
+    hypertable_name   | _materialized_hypertable_2
+    ```
 
 1. Verify the information for each policy type that you exported before you
    upgraded. For continuous aggregates, take note of the `config` information to
@@ -191,3 +192,4 @@ total_failures         | 0
 [changes-in-ts2-caggs]: /overview/release-notes/changes-in-timescaledb-2#updating-continuous-aggregates
 [upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/minor-upgrade/
 [relnotes-20]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
+[relnotes]: /timescaledb/:currentVersion:/overview/release-notes/

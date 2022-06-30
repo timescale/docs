@@ -16,7 +16,7 @@ TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2, see the
 This upgrade uses the PostgreSQL `ALTER EXTENSION` function to upgrade to the
 latest version of the TimescaleDB extension. TimescaleDB supports having
 different extension versions on different databases within the same PostgreSQL
-instance. This allows you to update extensions independently on different
+instance. This allows you to upgrade extensions independently on different
 databases. Run the `ALTER EXTENSION` function on each database to upgrade them
 individually.
 
@@ -30,15 +30,16 @@ individually.
 1. At the psql prompt, upgrade the TimescaleDB extension. This must be the first
    command you execute in the current session:
 
-```sql
-ALTER EXTENSION timescaledb UPDATE;
-```
+    ```sql
+    ALTER EXTENSION timescaledb UPDATE;
+    ```
 
-1. Check that you have upgraded to the latest version of the extension with the `\dx` command. The output should show the upgraded version number.
+1. Check that you have upgraded to the latest version of the extension with the
+   `\dx` command. The output should show the upgraded version number.
 
-```sql
-\dx timescaledb
-```
+    ```sql
+    \dx timescaledb
+    ```
 
 </procedure>
 
@@ -57,3 +58,4 @@ ALTER EXTENSION timescaledb UPDATE;
 [update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
 [upgrade-major]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/major-upgrade/
+[relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
