@@ -1,3 +1,11 @@
+---
+title: Install TimescaleDB
+excerpt: Install TimescaleDB, the PostgreSQL database for time-series and data analysis
+section: install
+nav-hidden: true
+keywords: [install]
+---
+
 # Install TimescaleDB
 TimescaleDB is an extension to PostgreSQL that allows you to more easily and
 quickly work with time-series data. You can use TimescaleDB in several different
@@ -30,9 +38,9 @@ than 75 regions on Amazon Web Services, Azure, or Google Cloud Platform.
 *   Start using [Managed Service for TimescaleDB][mst-install].
 
 
-[tsc-install]: install/latest/installation-cloud/
-[self-hosted-install]: install/latest/self-hosted/
-[self-hosted-source]: /install/latest/self-hosted/installation-source/
-[self-hosted-container]: /install/latest/installation-docker/
-[self-hosted-cloud]: /install/latest/self-hosted/installation-debian/
-[mst-install]: /install/latest/installation-mst/
+[tsc-install]: /install/:currentVersion:/installation-cloud/
+[self-hosted-install]: /install/:currentVersion:/self-hosted/
+[self-hosted-source]: /install/:currentVersion:/installation-source/
+[self-hosted-container]: /install/:currentVersion:/installation-docker/
+[self-hosted-cloud]: /install/:currentVersion:/installation-debian/
+[mst-install]: /install/:currentVersion:/installation-mst/

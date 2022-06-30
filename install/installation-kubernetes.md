@@ -1,3 +1,12 @@
+---
+title: Install TimescaleDB on Kubernetes
+nav-title: Kubernetes
+excerpt: Install self-hosted TimescaleDB on Kubernetes
+section: install
+subsection: self-hosted
+keywords: [install, self-hosted, Kubernetes]
+---
+
 # Install TimescaleDB on Kubernetes
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the
 `timescaledb-single` Helm chart to deploy a highly available TimescaleDB
