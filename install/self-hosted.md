@@ -1,1 +1,12 @@
+---
+title: Install self-hosted TimescaleDB
+excerpt: Install a self-hosted, self-managed instance of TimescaleDB.
+section: install
+subsection:
+  - [install, self-hosted]
+order: 1
+keywords: [install, self-hosted]
+tags: [install, self-hosted]
+---
+
 <Installation />

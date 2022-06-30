@@ -1,3 +1,11 @@
+---
+title: Install TimescaleDB
+excerpt: Install TimescaleDB, the PostgreSQL database for time-series and data analysis.
+section: install
+keywords: [install]
+tags: [install]
+---
+
 # Install TimescaleDB
 TimescaleDB is an extension to PostgreSQL that allows you to more easily and
 quickly work with time-series data. You can use TimescaleDB in several different

@@ -1,3 +1,12 @@
+---
+title: Install Timescale Cloud
+excerpt: Start a TimescaleDB instance on Timescale Cloud, our hosted, cloud-native TimescaleDB service.
+section: install
+order: 1
+keywords: [install, Cloud]
+tags: [install, cloud]
+---
+
 # Install Timescale Cloud
 Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
 quickly spin up new TimescaleDB instances. You can

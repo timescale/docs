@@ -1,3 +1,13 @@
+---
+title: Install TimescaleDB on Windows
+excerpt: Install self-hosted TimescaleDB on Windows
+section: install
+subsection:
+  - [install, self-hosted]
+keywords: [install, self-hosted, Windows]
+tags: [install, self-hosted, windows]
+---
+
 # Install self-hosted TimescaleDB on Windows systems
 You can host TimescaleDB yourself on your Microsoft Windows system.
 These instructions use a `zip` installer on these versions:

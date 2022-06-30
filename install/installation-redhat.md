@@ -1,3 +1,13 @@
+---
+title: Install TimescaleDB on Red Hat
+excerpt: Install self-hosted TimescaleDB on Red Hat-based systems.
+section: install
+subsection:
+  - [install, self-hosted]
+keywords: [install, self-hosted, Red Hat]
+tags: [install, self-hosted, red hat]
+---
+
 # Install self-hosted TimescaleDB on Red Hat-based systems
 You can host TimescaleDB yourself on your Red Hat, CentOS, or Fedora system.
 These instructions use the `yum` package manager on these

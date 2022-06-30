@@ -1,3 +1,13 @@
+---
+title: Install TimescaleDB from source
+excerpt: Install self-hosted TimescaleDB from source.
+section: install
+subsection:
+  - [install, self-hosted]
+keywords: [install, self-hosted]
+tags: [install, self-hosted]
+---
+
 # Install self-hosted TimescaleDB from source
 You can host TimescaleDB yourself, on any system, by downloading the source code
 and compiling it. These instructions do not require the use of a package manager

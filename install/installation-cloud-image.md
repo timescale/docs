@@ -1,3 +1,13 @@
+---
+title: Install TimescaleDB from cloud image
+excerpt: Install self-hosted TimescaleDB from a pre-built cloud image.
+section: install
+subsection:
+  - [install, self-hosted]
+keywords: [install, self-hosted, cloud image]
+tags: [install, self-hosted, cloud image]
+---
+
 # Install self-hosted TimescaleDB from a pre-built cloud image
 
 <highlight type="cloud" header="Deploying TimescaleDB to AWS?" button="Try for free">
