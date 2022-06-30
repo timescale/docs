@@ -48,7 +48,7 @@ policy settings before performing the upgrade, so that you can verify them after
 the upgrade is complete.
 
 This upgrade uses the PostgreSQL `ALTER EXTENSION` function to upgrade to the
-latest version of the TimescaelDB extension. TimescaleDB supports having
+latest version of the TimescaleDB extension. TimescaleDB supports having
 different extension versions on different databases within the same PostgreSQL
 instance. This allows you to update extensions independently on different
 databases. Run the `ALTER EXTENSION` function on each database to upgrade them
