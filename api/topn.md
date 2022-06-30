@@ -14,6 +14,8 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
+import Experimental from '../../../../_partials/_experimental.mdx';
+
 # topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Returns the most common values accumulated in a [frequency aggregate][freq_agg]
 or [top N aggregate][topn_agg].
@@ -37,11 +39,7 @@ allow you to store all values that surpass a threshold frequency. They are
 useful if you want to store and use frequency information, and not just
 calculate top N.
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk, and
-do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ## Required arguments
 

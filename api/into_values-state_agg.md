@@ -14,6 +14,8 @@ hyperfunction_subfamily: StateAgg
 hyperfunction_type: accessor
 ---
 
+import Experimental from '../../../../_partials/_experimental.mdx';
+
 # into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Returns the data accumulated in a [state aggregate][state_agg].  
 ```sql
@@ -22,11 +24,7 @@ into_values (
 ) RETURNS (TEXT, BIGINT)
 ```
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk, and
-do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ## Required arguments
 

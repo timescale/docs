@@ -777,6 +777,13 @@ module.exports = [
             keywords: ["TimescaleDB", "downgrade"],
             excerpt: "Downgrade a TimescaleDB version",
           },
+          {
+            title: "Troubleshooting updates",
+            href: "troubleshooting",
+            tags: ["tshoot", "upgrade", "timescaledb"],
+            keywords: ["troubleshooting", "upgrade", "TimescaleDB"],
+            excerpt: "Troubleshoot updating your TimescaleDB installation",
+          },
         ],
       },
       {
