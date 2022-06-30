@@ -50,15 +50,15 @@ In our **[Code quick starts][code]** section we provide samples of connecting to
 TimescaleDB from a growing list of application languages using standard SDKs
 and best practices.
 
-[overview]: /overview/
-[release-notes]: /overview/release-notes/
-[faq]: /overview/faq/
-[limitations]: /overview/limitations/
-[getting-started]: /getting-started/
-[how-to]: /how-to-guides/
-[tutorials]: /tutorials/
-[promscale]: /promscale/latest/
-[grafana]: /tutorials/grafana
-[crypto]: /tutorials/analyze-cryptocurrency-data/
-[forecast]: /tutorials/time-series-forecast/
-[code]: /quick-start/
+[overview]: /timescaledb/:currentVersion:/overview/
+[release-notes]: /timescaledb/:currentVersion:/overview/release-notes/
+[faq]: /timescaledb/:currentVersion:/overview/faq/
+[limitations]: /timescaledb/:currentVersion:/overview/limitations/
+[getting-started]: /getting-started/:currentVersion:/
+[how-to]: /timescaledb/:currentVersion:/how-to-guides/
+[tutorials]: /timescaledb/:currentVersion:/tutorials/
+[promscale]: /promscale/:currentVersion:/
+[grafana]: /timescaledb/:currentVersion:/tutorials/grafana
+[crypto]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
+[forecast]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[code]: /timescaledb/:currentVersion:/quick-start/
