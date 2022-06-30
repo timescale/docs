@@ -64,4 +64,3 @@ ORDER BY bucket
 
 
 [lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
-[sample-download]: https://assets.timescale.com/docs/downloads/crypto_sample.zip
