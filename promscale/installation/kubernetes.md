@@ -150,8 +150,8 @@ can provide the database URI, or specify connection parameters.
 ## Install Promscale with a manifest file
 This section includes instructions to install the Promscale Connector using a
 manifest file. To deploy TimescaleDB on Kubernetes use
-[helm charts][timescaledb-install-helm] instead. Alternatively, you can
-[install TimescaleDB on a host][timescaledb-host-install].
+[helm charts](#installing-the-timescaledb-helm-chart) instead. Alternatively, you can
+[install TimescaleDB on a host](#install-timescaledb).
 
 <procedure>
 
@@ -169,9 +169,6 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 
 </procedure>
 
-
-[timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
-[timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
 [helm-install]: https://helm.sh/docs/intro/install/
 [promscale-values-yaml]: https://github.com/timescale/promscale/blob/master/deploy/helm-chart/values.yaml
 [timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml 
