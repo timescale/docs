@@ -17,6 +17,7 @@ performance of Promscale.
     ```
     apt install promscale-extension-postgresql-14
     ```
+    
 </procedure>
 
 

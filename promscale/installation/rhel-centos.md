@@ -16,6 +16,7 @@ performance of Promscale.
     ```
     yum install -y promscale-extension-postgresql-14
     ```
+    
 </procedure>
 
 
