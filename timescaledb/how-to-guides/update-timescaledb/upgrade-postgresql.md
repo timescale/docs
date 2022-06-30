@@ -1,75 +1,62 @@
 # Upgrade PostgreSQL
-Each release of TimescaleDB is compatible with specific versions of PostgreSQL.
-Over time support is added for a newer version of PostgreSQL while
-simultaneously dropping support for older versions.
+Because TimescaleDB is a PostgreSQL extension, you need to ensure you keep your underlying PotsgreSQL installation up to date. When you upgrade your TimescaleDB extension to a new version, always take the time to check if you need to also upgrade your PostgreSQL version. If you are running an older version of PostgreSQL, you need to upgrade it first, before you upgrade your TimescaleDB extension.
 
-When the supported versions of PostgreSQL changes, you may need to upgrade the version of the **PostgreSQL instance** (for example, from 10 to 12) before you can install the latest release of TimescaleDB.
+TimescaleDB supports these PostgreSQL releases. If you are not running a compatible PostgreSQL version, make sure you upgrade PostgreSQL before you upgrade TimescaleDB:
 
-To upgrade PostgreSQL, you have two choices, as outlined in the PostgreSQL online documentation.
+||PostgreSQL&nbsp;9.6|PostgreSQL&nbsp;10|PostgreSQL&nbsp;11|PostgreSQL&nbsp;12|PostgreSQL&nbsp;13|PostgreSQL&nbsp;14|
+|-|-|-|-|-|-|-|
+|TimescaleDB&nbsp;1.7|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.1|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|
+|TimescaleDB&nbsp;2.2|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|
+|TimescaleDB&nbsp;2.3|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|
+|TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|
+|TimescaleDB&nbsp;2.5 and higher|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|
 
-### TimescaleDB release compatibility
-TimescaleDB supports these PostgreSQL releases. If you are not
-currently running a compatible release, please upgrade before updating TimescaleDB.
+You need to upgrade PostgreSQL and TimescaleDB in two seperate steps. This is so that you can make sure each upgrade completes properly. For example, if you are running PostgreSQL&nbsp;10 and
+TimescaleDB&nbsp;1.7.5, and you want to upgrade to PostgreSQL&nbsp;13 and
+TimescaleDB&nbsp;2.2, upgrade in this order:
 
- TimescaleDB Release |   Supported PostgreSQL Release
- --------------------|-------------------------------
- 1.7                 | 9.6, 10, 11, 12
- 2.0                 | 11, 12
- 2.1-2.3             | 11, 12, 13
- 2.4                 | 12, 13
- 2.5+                | 12, 13, 14
+1. Upgrade PostgreSQL&nbsp;10 to PostgreSQL&nbsp;12
+1. Update TimescaleDB&nbsp;1.7.5 to TimescaleDB&nbsp;2.2 on PostgreSQL&nbsp;12
+1. Upgrade PostgreSQL&nbsp;12 to PostgreSQL&nbsp;13 with TimescaleDB&nbsp;2.2 installed
 
-If you need to upgrade PostgreSQL first,
-see [our documentation][upgrade-pg].
+## Plan your upgrade
+You can upgrade your PostgreSQL installation in-place. This means
+that you do not need to dump and restore your data. However, it is still
+important that you plan for your upgrade ahead of time.
 
+Before you upgrade:
 
-We always recommend that you update PostgreSQL and TimescaleDB as
-separate actions to make sure that each process completes properly.
-For example, if you are currently running PostgreSQL 10 and
-TimescaleDB 1.7.5, and you want to upgrade to PostgreSQL 13 and
-TimescaleDB 2.2, upgrade in this order:
+* Read [the release notes][pg-relnotes] for the PostgreSQL version you are
+  upgrading to.
+* [Perform a backup][backup-restore] of your database. While PostgreSQL and
+  TimescaleDB upgrades are performed in-place, upgrading is an intrusive
+  operation. Always make sure you have a backup on hand, and that the backup is
+  readable in the case of disaster.
 
-1. Upgrade PostgreSQL 10 to PostgreSQL 12
-1. Update TimescaleDB 1.7.5 to TimescaleDB 2.2 on PostgreSQL 12
-1. Upgrade PostgreSQL 12 to PostgreSQL 13 with TimescaleDB 2.2 installed
+## Upgrade PostgreSQL
+You can use the [`pg_upgrade`][pg_upgrade] tool to upgrade PostgreSQL in-place.
+This means that you do not need to dump and restore your data. Instead,
+`pg_upgrade` allows you to retain the data files of your current PostgreSQL
+installation while binding the new PostgreSQL binary runtime to them. This is
+supported for PostgreSQL&nbsp;8.4 and higher.
 
+<procedure>
 
+### Upgrading PostgreSQL
 
-#### PostgreSQL compatibility
-**TimescaleDB 2.0 is not compatible with PostgreSQL 9.6 or 10**. If your current PostgreSQL installation is not
-at least version 11, please upgrade PostgreSQL first. Depending on your current PostgreSQL version and installed
-TimescaleDB release, you may have to perform multiple upgrades because of compatibility restrictions.
+1.  Before you begin, determine the location of the PostgreSQL binary and your
+    data directory on your local system.
+1.  At the psql prompt, perform the upgrade:
+    ```sql
+    pg_upgrade -b oldbindir -B newbindir -d olddatadir -D newdatadir"
+    ```
 
-For example, if you are currently running PostgreSQL 10 and TimescaleDB 1.5, the recommended upgrade path to
-PostgreSQL 12 and TimescaleDB 2.0 would be:
+</procedure>
 
-1. Update TimescaleDB 1.5 to TimescaleDB 1.7 on PostgreSQL 10
-1. Upgrade PostgreSQL 10 to PostgreSQL 12 with TimescaleDB 1.7 installed
-1. Update TimescaleDB 1.7 to TimescaleDB 2.0 on PostgreSQL with the instructions below
-
-<highlight type="tip">
-Whenever possible, prefer the most recent supported version, PostgreSQL 12. Please see our [Upgrading PostgreSQL](/timescaledb/latest/how-to-guides/update-timescaledb/upgrade-postgresql/) guide for help.
-</highlight>
-
-
-### Use `pg_upgrade`
-
-[`pg_upgrade`][pg_upgrade] is a tool that avoids the need to dump all data and then import it
-into a new instance of PostgreSQL after a new version is installed. Instead, `pg_upgrade` allows you to
-retain the data files of your current PostgreSQL installation while binding the new PostgreSQL binary
-runtime to them. This is currently supported for all releases 8.4 and greater.
-
- ```
- pg_upgrade -b oldbindir -B newbindir -d olddatadir -D newdatadir"
- ```
-
-### Use `pg_dump` and `pg_restore`
-When `pg_upgrade` is not an option, such as moving data to a new physical instance of PostgreSQL, using the
-tried and true method of dumping all data in the database and then restoring into a database in the new instance
-is always supported with PostgreSQL and TimescaleDB.
-
-Please see our documentation on [Backup & Restore][backup] strategies for more information.
-
+If you are moving data to a new physical instance of PostgreSQL, you can use the `pg_dump` and `pg_restore` tools to dump your data from the old database, and then restore it into the new, upgraded, database. For more information, see the [backup and restore section][backup-restore].
 
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /how-to-guides/backup-and-restore/
+[backup-restore]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[pg-relnotes]: FIXME
