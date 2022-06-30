@@ -14,7 +14,7 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 This function returns the data accumulated in a

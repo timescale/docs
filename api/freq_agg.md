@@ -14,7 +14,7 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: aggregate
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # freq_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 The `freq_agg` aggregate uses the [SpaceSaving][spacesaving-algorithm] algorithm 

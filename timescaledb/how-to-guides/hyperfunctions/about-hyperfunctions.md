@@ -1,4 +1,4 @@
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # About Timescale hyperfunctions
 Timescale hyperfunctions are a specialized set of functions that allow you to

@@ -1,4 +1,4 @@
-import CaggsFunctionSupport from '../../../../_partials/_caggs-function-support.mdx';
+import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
 # About continuous aggregates
 Time-series data usually grows very quickly. Large data volumes can become slow

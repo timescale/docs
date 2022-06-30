@@ -6,7 +6,7 @@ topic: multi-node
 tags: [multi-node, chunks, data nodes, cluster, rebalance, rebalancing]
 ---
 
-import Experimental from '../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 ## move_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
 TimescaleDB allows you to move chunks to other data nodes. Moving

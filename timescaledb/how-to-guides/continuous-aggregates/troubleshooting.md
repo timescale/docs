@@ -1,4 +1,4 @@
-import CaggsFunctionSupport from '../../../../_partials/_caggs-function-support.mdx';
+import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
 # Troubleshooting continuous aggregates
 This section contains some ideas for troubleshooting common problems experienced

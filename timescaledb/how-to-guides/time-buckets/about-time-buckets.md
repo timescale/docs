@@ -1,4 +1,4 @@
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # About time buckets
 The [`time_bucket`][time_bucket] function allows you to aggregate data into
