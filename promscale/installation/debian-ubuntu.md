@@ -1,18 +1,15 @@
 # Install Promscale on Debain or Ubuntu
-This page explains how to install Promscale, get the service up and running on your Debian or Ubuntu system, and also describes the installation package details.
+You can install Promscale on any Debian or Ubuntu system where you have an
+already installed and working Prometheus or OpenTelemetry environment.
 
-Before you begin, you must have an already installed and working Prometheus
-or OpenTelemetry environment. Additionally, you need a
-[self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
-
-## Install TimescaleDB
-Installing TimescaleDB to use with Promscale requires the TimescaleDB database,
-as well as the Promscale extension. The Promscale extension contains support
-functions to improve performance of Promscale.
+## Install TimescaleDB and Promscale extension
+To use with Promscale you need TimescaleDB database, as well as the Promscale
+extension. The Promscale extension contains support functions to improve
+performance of Promscale.
 
 <procedure>
 
-### Install TimescaleDB and Promscale extension
+### Installing TimescaleDB and Promscale extension
 
 1.  Install TimescaleDB following the instructions in the
     [TimescaleDB install page][tsdb-install-self-hosted]
@@ -24,16 +21,18 @@ functions to improve performance of Promscale.
 
 
 ## Install the Promscale connector
-By now as we installed TimescaleDB and Promscale extension, now lets install
-Promscale connector
+The Promscale connector understands PromQL queries natively and fetches data
+from TimescaleDB to execute them, while SQL queries go directly to TimescaleDB.
+After you install TimescaleDB and Promscale extension, install Promscale
+connector.
 
 <procedure>
 
-1.  Install Promscale connector
+1.  Install Promscale connector:
     ```bash
     apt install promscale
     ```
 
 </procedure>
 
-[tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
+[tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/

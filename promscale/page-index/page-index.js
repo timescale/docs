@@ -23,7 +23,7 @@ module.exports = [
         excerpt: "Learn about the benefits of Promscale",
       },
       {
-        title: "Installation",
+        title: "Install Promscale",
         href: "installation",
         tags: ["promscale", "learn", "analytics", "prometheus"],
         keywords: ["Promscale", "analytics"],
@@ -65,7 +65,7 @@ module.exports = [
               "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
-            excerpt: "Install Promscale on bare metal",
+            excerpt: "Install Promscale from source on bare metal",
           },
           {
             title: "Debian or Ubuntu",
@@ -76,7 +76,7 @@ module.exports = [
               "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
-            excerpt: "Install Promscale on bare metal",
+            excerpt: "Install Promscale on Debian or Ubuntu",
           },
           {
             title: "RPM based Linux (Redhat or CentOS)",
@@ -87,7 +87,7 @@ module.exports = [
               "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
-            excerpt: "Install Promscale on bare metal",
+            excerpt: "Install Promscale on RPM based Linux",
           },
           {
             title: "tobs",

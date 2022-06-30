@@ -42,13 +42,13 @@ Kubernetes includes Prometheus, OpenTelemetry, and Promscale.
 
 *   Install [the observability stack (tobs) for Kubernetes][promscale-install-tobs]
 
-[promscale-install-prom-migrator]: /guides/prom-migrator/
-[promscale-install-docker]: /installation/docker/
-[promscale-install-source]: /installation/source/
-[promscale-install-tobs]: /tobs/
-[promscale-install-helm]: /installation/kubernetes/#install-promscale-with-helm
-[promscale-install-k8s-manifest]: /installation/kubernetes/#install-promscale-with-a-manifest-file
-[config-prometheus]: /send-data/prometheus/
-[config-otel]: /send-data/opentelemetry/
+[promscale-install-prom-migrator]: /promscale/:currentVersion/guides/prom-migrator/
+[promscale-install-docker]: /promscale/:currentVersion/installation/docker/
+[promscale-install-source]: /promscale/:currentVersion/installation/binary/
+[promscale-install-tobs]: /promscale/:currentVersion/tobs/
+[promscale-install-helm]: https://docs.timescale.com/promscale/latest/installation/kubernetes/#install-promscale-with-helm
+[promscale-install-k8s-manifest]: https://docs.timescale.com/promscale/latest/installation/kubernetes/#install-promscale-with-a-manifest-file
+[config-prometheus]: /promscale/:currentVersion/send-data/prometheus/
+[config-otel]: /promscale/:currentVersion/send-data/opentelemetry/
 [prometheus-install]: https://prometheus.io/docs/prometheus/latest/installation/
 [otel]: https://opentelemetry.io/docs/

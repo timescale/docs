@@ -1,40 +1,38 @@
-# Install Promscale using binary
+# Install Promscale from source
 You can install Promscale from source on any operating system. The Promscale
-source files are available from our
-[GitHub releases page][gh-promscale-download].
+source files are available at [GitHub releases page][gh-promscale-download].
 
-Before you begin, you must have an already installed and working Prometheus
-or OpenTelemetry collector environment. Additionally, you need a
-[self-hosted TimescaleDB instance][tsdb-install-self-hosted] installed.
+Before you begin, you must have an already installed and working Prometheus or
+OpenTelemetry collector environment.
 
-## Install TimescaleDB
-Installing TimescaleDB to use with Promscale requires the TimescaleDB database,
-as well as the Promscale extension. The Promscale  extension contains support
-functions to improve performance of Promscale.
+## Install TimescaleDB and Promscale extension
+To use with Promscale you need TimescaleDB database, as well as the Promscale
+extension. The Promscale extension contains support functions to improve
+performance of Promscale.
 
 <procedure>
 
-### Build and Install TimescaleDB
+### Compiling and Installing TimescaleDB
 
-1.  Install TimescaleDB following the instructions in the
+1.  Install TimescaleDB following the instructions in the 
     [TimescaleDB install page][tsdb-install-self-hosted]
-1.  Compile and install the Promscale extension from source, it is available
-    on the [Promscale extension page][promscale-extension]
+1.  Compile and install the Promscale extension from source that is available on
+    the [Promscale extension page][promscale-extension]
 
 </procedure>
 
 ## Install the Promscale pre-compiled binary
-In this procedure, you download the Promscale binaries and run them.
+Download the Promscale binaries and run them.
 
 <procedure>
 
 ### Installing Promscale from source
-1.  At the command prompt, as root, download the appropriate source files for
-    your operating system (get the URL from the [GitHub repository releases page][releases]):
+1.  At the command prompt, as a root user, download the appropriate source files
+    for your operating system (get the URL from the [GitHub repository releases page][releases]):
     ```bash
     curl -L -o promscale https://github.com/timescale/promscale/releases/download/<VERSION>/<PROMSCALE_DISTRIBUTION>
     ```
-1.  Grant executable permissions on the `promscale` directory:
+1.  Grant executable permissions to the `promscale` directory:
     ```bash
     chmod +x promscale
     ```

@@ -26,4 +26,5 @@ Make sure that the maximum latency between the
 Promscale connector and the database is no more than 100&nbsp;ms. 
 </highlight>
 
-[timescale-tune-configuration]: timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune/
+
+[timescale-tune-configuration]: https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/#timescaledb-tuning-tool
