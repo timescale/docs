@@ -122,4 +122,4 @@ If you are using Kubernetes instead of plain docker:
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
 [promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
-[upgrade]: https://docs.timescale.com/promscale/latest/installation/installation/docker/#upgrading-from-the-previous-alpine-image 
+[upgrade]: https://docs.timescale.com/promscale/latest/installation/docker/#upgrading-from-the-previous-alpine-image 
