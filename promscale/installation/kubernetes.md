@@ -158,7 +158,7 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 #### Installing the Promscale Connector with a manifest
 1.  Download the [template manifest file][template-manifest]:
     ```bash
-    curl https://raw.githubusercontent.com/timescale/promscale/0.10.0/deploy/static/deploy.yaml --output promscale-connector.yaml
+    curl https://raw.githubusercontent.com/timescale/promscale/0.12.1/deploy/static/deploy.yaml --output promscale-connector.yaml
     ```
 1.  Edit the manifest and configure the TimescaleDB database details using the
     parameters starting with <PROMSCALE_DB>.
@@ -176,6 +176,6 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 [promscale-values-yaml]: https://github.com/timescale/promscale/blob/master/deploy/helm-chart/values.yaml
 [timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml 
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
-[template-manifest]: https://github.com/timescale/promscale/blob/0.10.0/deploy/static/deploy.yaml
+[template-manifest]: https://github.com/timescale/promscale/blob/0.12.1/deploy/static/deploy.yaml
 [timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
 [timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
