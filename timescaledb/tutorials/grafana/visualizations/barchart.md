@@ -147,6 +147,8 @@ To compare the distributions of 4 or more different stocks, create a panel with 
 
 </procedure>
 
+## Create a stacked bar chart with volume transaction
+
 [install-grafana]: https://grafana.com/get/
 [install-timescale]: /install/:currentVersion:/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
