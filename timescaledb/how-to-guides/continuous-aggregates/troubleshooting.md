@@ -199,6 +199,6 @@ If you receive historical data and must refresh a compressed region, first
 [decompress the chunk][decompression]. Then manually run
 [`refresh_continuous_aggregate`][refresh_continuous_aggregate].
 
-[decompression]: /how-to-guides/compression/decompress-chunks/
+[decompression]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [refresh_continuous_aggregate]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/

@@ -58,4 +58,4 @@ OK    | 106000000
 START |  11000000
 ```
 
-[state_agg]: /hyperfunctions/frequency-analysis/state_agg/
+[state_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/state_agg/

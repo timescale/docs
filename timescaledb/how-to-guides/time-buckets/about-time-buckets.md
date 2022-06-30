@@ -163,11 +163,11 @@ There are several differences between `time_bucket` and `time_bucket_ng`:
 |Origin|January 3, 2000|January 1, 2000|
 |Bucket dates before the origin|✅|❌ Work around this by changing the origin.|
 
-[caggs]: /how-to-guides/continuous-aggregates/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [date_trunc]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [time_bucket_ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/
-[time-cagg]: /how-to-guides/continuous-aggregates/time/
+[time-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/time/
 [origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
 [origin-ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/#optional-arguments
-[use-time-buckets]: /how-to-guides/time-buckets/use-time-buckets/
+[use-time-buckets]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/use-time-buckets/

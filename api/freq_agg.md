@@ -44,4 +44,4 @@ CREATE toolkit_experimental.freq_agg(0.05, ZIP) FROM HomeSales;
 ```
 
 [spacesaving-algorithm]: https://www.cse.ust.hk/~raywong/comp5331/References/EfficientComputationOfFrequentAndTop-kElementsInDataStreams.pdf
-[frequency-analysis]: /hyperfunctions/frequency-analysis/
+[frequency-analysis]: /api/:currentVersion:/hyperfunctions/frequency-analysis/

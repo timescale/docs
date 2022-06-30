@@ -67,4 +67,4 @@ If you prefer to see the result in seconds, [`EXTRACT`][extract] the epoch from
 the returned result.
 
 [extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT
-[state_agg]: /hyperfunctions/frequency-analysis/state_agg/
+[state_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/state_agg/

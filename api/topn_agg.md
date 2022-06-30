@@ -81,5 +81,5 @@ the `topn` function:
 SELECT topn(topn_agg(20, zip_code)) FROM employees;
 ```
 
-[topn]: /hyperfunctions/frequency-analysis/topn/
+[topn]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn/
 [zeta-distribution]: https://en.wikipedia.org/wiki/Zeta_distribution
