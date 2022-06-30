@@ -1,15 +1,12 @@
 # Guides
-The Promscale guides help you to guide through recommendations and operations
-of Promscale.
-
-Below are the guides:
+The Promscale guides provides the recommendations and operations of Promscale.
 
 *   Resource recommendation [guide][recomm-guide].
 *   Configuration recommendation [guide][config-guide].
-*   Migrating existing metrics data using [Prom-migrator][prom-migrator].
+*   Migration of existing metrics data using [Prom-migrator][prom-migrator].
 *   Promscale upgrade [guide][upgrade-guide].
 
-[recomm-guide]: /guides/resource-recomm/
-[config-guide]: /guides/config-recomm/
-[prom-migrator]: /guides/prom-migrator/
-[upgrade-guide]: /scale-ha/prometheus-multi-tenancy/
+[recomm-guide]: /promscale/:currentVersion/guides/resource-recomm/
+[config-guide]: /promscale/:currentVersion/guides/config-recomm/
+[prom-migrator]: /promscale/:currentVersion/guides/prom-migrator/
+[upgrade-guide]: /promscale/:currentVersion/guides/upgrade/
