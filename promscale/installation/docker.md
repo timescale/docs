@@ -75,7 +75,7 @@ Migrating to Debian version can be a lengthy process and involves downtime.
 1. Shut down the original database Docker image, but make sure you preserve the volume mount
    for the data directory. You need to mount this same directory in the new
    image.
-1. Change the ownership of the data-directory to the postgres user and group in
+1. Change ownership of the data directory to the `postgres` user and group in
    the new image. For example:
 
    ```
