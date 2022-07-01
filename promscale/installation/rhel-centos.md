@@ -6,6 +6,7 @@ already installed and working Prometheus or OpenTelemetry environment.
 To use Promscale, you need a TimescaleDB database, as well as the Promscale
 extension. The Promscale extension contains support functions to improve
 performance of Promscale.
+
 <procedure>
 
 ### Installing TimescaleDB and the Promscale extension
