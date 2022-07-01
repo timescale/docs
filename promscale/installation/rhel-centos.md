@@ -14,7 +14,7 @@ performance of Promscale.
     [TimescaleDB install page][tsdb-install-self-hosted]
 1.  Install the Promscale extension:
     ```
-    yum install -y promscale-extension-postgresql-14
+    yum install promscale-extension-postgresql-14
     ```
     
 </procedure>
