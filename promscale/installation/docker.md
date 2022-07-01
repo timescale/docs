@@ -115,7 +115,8 @@ If you are using Kubernetes instead of plain Docker:
 <procedure>
 
 1. Shutdown the Promscale Connector pods
-1. Change the database pod to use the debian docker image and restart it.
+1. Change the database pod to use the Debian Docker image.
+1. Restart the pod.
 1. Execute jobs for the script in steps 4 and 6 above.
 1. Restart the Promscale Connector pods.
 
