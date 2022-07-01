@@ -190,7 +190,7 @@ There are plenty of great ways to visualize data using TimescaleDB and Grafana,
 check out the other
 [Grafana visualization tutorials][grafana-tutorials].
 
-[barchart-create]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/barchart/#create-a-bar-chart-with-preaggregated-data
-[barchart-create-multiple]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/barchart/#create-multiple-bar-chart
-[barchart-create-stacked]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/barchart/#create-stacked-bar-chart
+[barchart-create]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart/#create-a-bar-chart-with-preaggregated-data
+[barchart-create-multiple]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart/#create-multiple-bar-charts
+[barchart-create-stacked]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart/#create-stacked-bar-chart
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
