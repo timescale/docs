@@ -13,7 +13,7 @@ the performance of Promscale.
 
 1.  Install TimescaleDB following the instructions in the
     [TimescaleDB install page][tsdb-install-self-hosted]
-1.  Install Promscale extension
+1.  Install the Promscale extension:
     ```
     apt install promscale-extension-postgresql-14
     ```
