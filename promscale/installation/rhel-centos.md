@@ -1,3 +1,4 @@
+import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
 # Install Promscale on Red Hat or CentOS
 You can install Promscale on a Red Hat or CentOS system, if you have an
 already installed and working Prometheus or OpenTelemetry environment.
@@ -22,10 +23,7 @@ performance of Promscale.
 
 
 ## Install the Promscale connector
-The Promscale connector consumes PromQL queries natively and fetches data
-from TimescaleDB to execute them, while SQL queries go directly to TimescaleDB.
-After you install TimescaleDB and the Promscale extension, you can 
-install the Promscale connector using this command:
+<PromscaleConnector >
     ```bash
     yum install promscale
     ```
