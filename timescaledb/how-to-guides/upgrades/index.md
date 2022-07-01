@@ -28,10 +28,10 @@ you need to.
 
 <highlight type="cloud" header="Upgrade automatically" button="Try Timescale Cloud for free">
 Timescale Cloud avoids the manual work involved in updating your TimescaleDB
-version. Updates take place automatically during a maintenance window picked by
+version. Upgrades take place automatically during a maintenance window picked by
 you.
 [Learn more](https://docs.timescale.com/cloud/latest/service-operations/maintenance/)
-about automatic version updates in Timescale Cloud.
+about automatic version upgrades in Timescale Cloud.
 </highlight>
 
 [about-upgrades]: timescaledb/:currentVersion:/how-to-guides/upgrades/about-upgrades/

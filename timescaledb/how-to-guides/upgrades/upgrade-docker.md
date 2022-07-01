@@ -106,14 +106,14 @@ data.
     docker exec -it timescaledb psql -U postgres -X
     ```
 
-1.  At the psql prompt, use the `ALTER` command to update the extension:
+1.  At the psql prompt, use the `ALTER` command to upgrade the extension:
 
     ```sql
     ALTER EXTENSION timescaledb UPDATE;
     ```
 
-[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
+[upgrade-pg]: /how-to-guides/upgrades/upgrade-postgresql/
+[update-tsdb-2]: /how-to-guides/upgrades/update-timescaledb-2/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /how-to-guides/backup-and-restore/
 [Install]: /install/latest/
