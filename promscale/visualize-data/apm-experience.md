@@ -71,8 +71,8 @@ dashboards published by Promscale.
 <procedure>
 
 ### Importing dashboards as JSON files
-1.  Download all the `.json` files with `apm` prefix from the [Promscale
-    dashboards][promscle-github-dashboards] repository.
+1.  Download all the `.json` files with `apm` prefix from the
+    [Promscale dashboards][promscale-github-dashboards] repository.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
     menu.
 1.  Select the `Upload JSON file` button, and select the downloaded `JSON` dashboard
@@ -89,11 +89,8 @@ dashboards published by Promscale.
 </procedure>
 
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
-[promscale-as-prometheus]:
-    /visualize-data/grafana/#promscale-as-prometheus-datasource
-[promscale-as-jaeger]: /visualize-data/grafana/#configure-promscale-as-jaeger-data-source 
-[promscale-as-postgresql]:
-    /visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
+[promscale-as-jaeger]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-jaeger-data-source 
+[promscale-as-postgresql]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
 [install-toolkit]:/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit
 [promscale-github-dashboards]: https://github.com/timescale/promscale/tree/master/docs/mixin/dashboards
-[install-extension]: /promscale/latest/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension
+[install-extension]: /promscale/:currentVersion:/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension

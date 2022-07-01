@@ -94,7 +94,6 @@ our complementing tutorial
 ingest data directly from the [Twelve Data][twelve-data] financial API.
 
 
-[hypertable]: /how-to-guides/hypertables/
-[sample-download]: https://assets.timescale.com/docs/downloads/candlestick/crypto_sample.zip
+[hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [twelve-data]: https://twelvedata.com/
-[ingest-real-time]: /tutorials/ingest-real-time-websocket-data
+[ingest-real-time]: /timescaledb/:currentVersion:/tutorials/ingest-real-time-websocket-data
