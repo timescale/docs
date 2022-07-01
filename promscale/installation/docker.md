@@ -83,8 +83,7 @@ Migrating to Debian version can be a lengthy process and involves downtime.
    ```
 1. Start the new Docker container with the same volume mounts that the
    original container used.
-1. Connect to the new database using psql and reindex all the data that has
-   collatable data. Use the following query to reindex all the necessary indexes:
+1. Connect to the new database using psql and reindex all the collatable data. Use this query to reindex all the necessary indexes:
 
    ```
      DO $$DECLARE r record;
