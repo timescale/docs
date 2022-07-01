@@ -50,11 +50,11 @@ SELECT hyperloglog(32768, weights) FROM samples;
 ```
 
 Alternatively, you can build a view from the aggregate that you can pass to
-other `tdigest` functions:
+other `hyperloglog` functions:
 
 ``` sql
-CREATE VIEW digest AS SELECT hyperloglog(32768, data) FROM samples;
+CREATE VIEW hll AS SELECT hyperloglog(32768, data) FROM samples;
 ```
 
 
-[hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
+[hyperfunctions-approx-count-distincts]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/

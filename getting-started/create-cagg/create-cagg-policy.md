@@ -88,10 +88,9 @@ trading bot with TimescaleDB][crypto-bot].
 For detailed information on continuous aggregates and real-time aggregation,
 see the [continuous aggregates section][continuous-aggregates].
 
-[getting-started-compression]: /compress-data/
+[getting-started-compression]: /getting-started/:currentVersion:/compress-data/
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
-
 [manual-refresh]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
 [auto-refresh]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/

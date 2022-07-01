@@ -18,7 +18,7 @@ For creating a more advanced simulated IoT dataset, try the
 [Time-series Benchmarking Suite (TSBS)](https://github.com/timescale/tsbs).
 </highlight>
 
-## Prerequisites [](prereqs)
+## Prerequisites
 To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
@@ -27,7 +27,7 @@ To start, [install TimescaleDB][install-timescale]. When your installation is
 complete, you can ingest or create sample data and finish the tutorial.
 
 
-## Set up your tables [](step1)
+## Set up your tables
 First, connect to your database via `psql`.
 
 Second, create the "sensors" and "sensor_data" tables:
@@ -86,7 +86,7 @@ this:
 (4 rows)
 ```
 
-## Create the simulated IoT sensor data [](step2)
+## Create the simulated IoT sensor data
 
 <highlight type="note">
 This section shows results of the queries as examples, but because the tutorial
@@ -129,7 +129,7 @@ Example output:
 Congratulations, you've created a basic IoT sensor dataset. Now let's run some
 queries.
 
-## Run basic queries (optional) [](step3)
+## Run basic queries (optional)
 
 This section requires TimescaleDB.
 
@@ -210,7 +210,7 @@ Example output:
 ...
 ```
 
-## Next steps [](next-steps)
+## Next steps
 Congratulations, you now have a basic IoT sensor dataset you can
 use for testing in PostgreSQL or TimescaleDB.
 
@@ -225,10 +225,8 @@ documentation:
 
 
 
-[github-tsbs]: https://github.com/timescale/tsbs
-[install-timescale]: /install/latest/
-[get-psql]: /how-to-guides/connecting/psql/
-[docs-hypertable]: /how-to-guides/hypertables/
+[install-timescale]: /install/:currentVersion:/
+[docs-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [docs-last]: /api/:currentVersion:/hyperfunctions/last
-[docs-timescaledb-intro]: /overview
+[docs-timescaledb-intro]: /timescaledb/:currentVersion:/overview

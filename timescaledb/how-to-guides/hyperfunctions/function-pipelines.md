@@ -1,14 +1,12 @@
+import Experimental from '../../../../_partials/_experimental.mdx';
+
 # Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Function pipelines are an experimental feature, designed to radically improve
 how you write queries to analyze data in PostgreSQL and SQL. They work by
 applying principles from functional programming and popular tools like Python
 Pandas, and PromQL.
 
-<highlight type="warning">
-Experimental features could have bugs! They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk,
-and do not use any experimental features in production. 
-</highlight>
+<Experimental />
 
 <highlight type="important">
 The `timevector()` function materializes all its data points in 

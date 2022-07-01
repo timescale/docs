@@ -282,6 +282,8 @@ ORDER BY total_price DESC
 LIMIT 5
 ```
 
+<!-- markdown-link-check-disable -->
+
 nft            |total_price|time               |url                                                                    |
 ---------------|-----------|-------------------|-----------------------------------------------------------------------|
 Founder Cat #40|      225.0|2021-09-03 14:59:16|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/40|
@@ -289,6 +291,8 @@ Founder Cat #17|      177.0|2021-09-03 01:58:13|https://opensea.io/assets/0x0601
 润龙🐱‍👓创世猫王44# |      150.0|2021-09-03 02:01:11|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/44|
 grey           |      149.0|2021-09-03 02:32:26|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/16|
 Founder Cat #38|      148.0|2021-09-03 01:58:13|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/38|
+
+<!-- markdown-link-check-enable -->
 
 ### Daily ETH volume of assets in a collection
 What is the daily volume of Ether (ETH) for a specific collection? Using the
@@ -538,6 +542,8 @@ INNER JOIN LATERAL (
 ) assets ON TRUE;```
 ```
 
+<!-- markdown-link-check-disable -->
+
 bucket             |nft           |url                                                                           |open_price|close_price|intraday_max_change|
 -------------------|--------------|------------------------------------------------------------------------------|----------|-----------|-------------------|
 2021-09-22 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      0.72|     0.9999|           239.2889|
@@ -545,6 +551,8 @@ bucket             |nft           |url                                          
 2021-09-27 02:00:00|Skulptuur #647|https://opensea.io/assets/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/173000647|      25.0|       90.0|               65.0|
 2021-09-25 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      1.41|      1.475|               61.3|
 2021-09-26 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      1.48|      4.341|              43.05|
+
+<!-- markdown-link-check-enable -->
 
 ## Resources and next steps
 This section contains information about what to do when you've completed the
@@ -583,19 +591,17 @@ Check out these resources for more about using TimescaleDB with crypto data:
 * [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
 
 
-[cont-agg]: /how-to-guides/continuous-aggregates
+[cont-agg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
 [queries]: https://github.com/timescale/nft-starter-kit/blob/master/queries.sql
 [snoop-dogg-opensea]: https://opensea.io/Cozomo_de_Medici
 [daliso-opensea]: https://opensea.io/daliso
 [superset]: https://superset.apache.org
 [grafana]: https://grafana.com
-
 [percentile-agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile_agg/
 [first-docs]: /api/:currentVersion:/hyperfunctions/first/
 [last-docs]: /api/:currentVersion:/hyperfunctions/last
-
-[analyze-cryptocurrency]: /tutorials/analyze-cryptocurrency-data/
+[analyze-cryptocurrency]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
 [analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
 [messari]: https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
 [trading-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
