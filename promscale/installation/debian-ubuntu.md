@@ -3,7 +3,7 @@ You can install Promscale on any Debian or Ubuntu system where you have an
 already installed and working Prometheus or OpenTelemetry environment.
 
 ## Install TimescaleDB and the Promscale extension
-To use with Promscale you need TimescaleDB database, as well as the Promscale
+To use Promscale you need a TimescaleDB database, as well as the Promscale
 extension. The Promscale extension contains support functions to improve
 performance of Promscale.
 
