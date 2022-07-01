@@ -22,18 +22,12 @@ performance of Promscale.
 
 
 ## Install the Promscale connector
-The Promscale connector understands PromQL queries natively and fetches data
+The Promscale connector consumes PromQL queries natively and fetches data
 from TimescaleDB to execute them, while SQL queries go directly to TimescaleDB.
-After you install TimescaleDB and Promscale extension, install Promscale
-connector.
-
-<procedure>
-
-1.  Install Promscale connector
+After you install TimescaleDB and the Promscale extension, you can 
+install the Promscale connector using this command:
     ```bash
     yum install promscale
     ```
-
-</procedure>
 
 [tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/

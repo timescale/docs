@@ -54,11 +54,13 @@ packages and instructions, see the [Docker installation documentation][docker-in
 
 </procedure>
 
-## Upgrading from the previous alpine image
+## Upgrade from the previous alpine image
+You can upgrade from the previous alpine image on Docker or Kubernetes. 
+
+### Upgrading from the previous alpine image on Docker
 
 Previously, the recommended image was located at [`timescaledev/promscale-extension`](https://hub.docker.com/r/timescaledev/promscale-extension).
 It was based on the [Alpine docker image for PostgreSQL](https://github.com/docker-library/postgres/blob/e8ebf74e50128123a8d0220b85e357ef2d73a7ec/12/alpine/Dockerfile).
-Because of [collation bugs](https://github.com/docker-library/postgres/issues/327) and other issues we have now switched to the Debian-based image above.
 
 The previous Alpine-based image are updated and supported until
 the end of 2022 but users are encouraged to migrate to the
@@ -108,13 +110,36 @@ Migrating to Debian version can be a lengthy process and involves downtime.
 
 </procedure>
 
+## Upgrading from the previous alpine image on Kubernetes
 If you are using Kubernetes instead of plain Docker:
+
 <procedure>
 
 1. Shutdown the Promscale Connector pods
 1. Change the database pod to use the Debian Docker image.
 1. Restart the pod.
-1. Execute jobs for the script in steps 4 and 6 above.
+1. Change ownership of the data directory to the `postgres` user and group in
+   the new image. For example:
+
+   ```
+   docker run -v <data_dir_volume_mount>:/var/lib/postgresql/data timescale/timescaledb-ha:pg14-latest chown -R postgres:postgres /var/lib/postgresql/data
+   ```
+1. Connect to the new database using psql and reindex all the collatable data.
+   Use this query to reindex all the necessary indexes:
+
+   ```
+     DO $$DECLARE r record;
+     BEGIN
+       FOR r IN
+         SELECT DISTINCT indclass
+             FROM (SELECT indexrelid::regclass indclass, unnest(string_to_array(indcollation::text, ' ')) coll FROM pg_catalog.pg_index) sub
+             INNER JOIN pg_catalog.pg_class c ON (c.oid = sub.indclass)
+             WHERE coll !='0' AND c.relkind != 'I'
+       LOOP
+        EXECUTE 'REINDEX INDEX ' || r.indclass;
+     END LOOP;
+   END$$;
+   ```  
 1. Restart the Promscale Connector pods.
 
 </procedure>
@@ -124,4 +149,4 @@ If you are using Kubernetes instead of plain Docker:
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
 [promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
-[upgrade]: https://docs.timescale.com/promscale/latest/installation/docker/#upgrading-from-the-previous-alpine-image 
+[upgrade]: https://docs.timescale.com/promscale/latest/installation/docker/#upgrade-from-the-previous-alpine-image 
