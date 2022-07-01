@@ -70,10 +70,10 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/googlebarchart.png" alt="Screenshot of the vertical bar chart produced by Grafana. The vertical bar chart represents the price of Google in the past 2 months."/>
 
-1.  You can converting from a vertical bar chart to a horizontal one to get room
+1.  You can convert from a vertical bar chart to a horizontal one to get room
     for a longer label along the vertical axis. In the dashboard, navigate to
-    the the bar chart section. In the `Orientaton` section, click `horizontal`.
-    The horizontal bar chart looks like this:
+    the bar chart section. In the `Orientaton` section, click `horizontal`. The
+    horizontal bar chart looks like this:
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/googlebarchart.png" alt="Screenshot of the horizontal bar chart produced by Grafana. The horizontal bar chart represents the price of google in the past 2 months."/>
 
@@ -119,15 +119,15 @@ charts.
 
 1. In Grafana, refresh the dashboard. The returned data looks like this:
 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/tableviewfivestockdata.png" alt="Screenshot of the table view of valid time series data for 'AAPL, ABNB, AMAT, ABGN, HD' stock."/>
+  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/tableviewfivestockdata.png" alt="Screenshot of the table view of valid time series data for four different stocks."/>
 
   And the displayed graph looks like this:
 
-  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multiplebarchart.png" alt="Screenshot of the multiple bar chart produced by Grafana. The multiple bar chart represents the price of 'AAPL, ABNB, AMAT, ABGN, HD' in the past 1 month."/>
+  <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multiplebarchart.png" alt="Screenshot of the multiple bar chart produced by Grafana. The multiple bar chart represents the price of four different stocks in the past 1 month."/>
 
 1. In the graph you just created, you can see the 5 different stocks, but it is
    difficult to differentiate them. To tell them apart, you can adjust the color
-   of each stock by click on the legend to the left of each line, and picking a
+   of each stock by clicking the legend to the left of each line, and picking a
    color for each bar:
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/multicoloredbarchart.png" alt="Screenshot of Grafana plot, showing 5 bar chart of stock values in green, blue, red, purple and orange."/>
@@ -171,8 +171,10 @@ traded volume. This helps to calculate the volume of data for each bucket.
 
 1. In the Grafana dashboard, convert your multiple bar chart to a stacked bar
    chart. In the symbol drop-down menu, select all the stocks you want to
-   compare. On the right side of the panel, click on the bar chart drop-down. In
-   the `stacking` field, select `normal`, and refresh the panel. The stacked bar chart view shows a 1-day bucket with a 1-hour bucket interval. The volume calculation is valid mostly with the trading day:
+   compare. On the right side of the panel, click the bar chart drop-down. In
+   the `stacking` field, select `normal`, and refresh the panel. The stacked bar
+   chart view shows a 1-day bucket with a 1-hour bucket interval. The volume
+   calculation is valid mostly with the trading day:
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/stackedbarcharts.png" alt="Screenshot of Grafana dashboard, showing a stacked bar chart."/>
 
@@ -184,16 +186,11 @@ calculation on a single trading day instead.
 
 </procedure>
 
-We have other great ways to visualize data using TimescaleDB and Grafana, check
-out the other
+There are plenty of great ways to visualize data using TimescaleDB and Grafana,
+check out the other
 [Grafana visualization tutorials][grafana-tutorials].
 
-
-[install-grafana]: <https://grafana.com/get/>
-[install-timescale]: /install/:currentVersion:/
-[gsg-data]: /getting-started/:currentVersion:/add-data/
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
-[variables-tutorial]: <https://youtu.be/Fq9xsvHPsSQ>
 [barchart-create]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/barchart/#create-a-bar-chart-with-preaggregated-data
 [barchart-create-multiple]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/barchart/#create-multiple-bar-chart
 [barchart-create-stacked]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/barchart/#create-stacked-bar-chart
+[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
