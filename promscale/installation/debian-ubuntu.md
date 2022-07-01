@@ -1,4 +1,4 @@
-# Install Promscale on Debain or Ubuntu
+# Install Promscale on Debian or Ubuntu
 You can install Promscale on any Debian or Ubuntu system where you have an
 already installed and working Prometheus or OpenTelemetry environment.
 
