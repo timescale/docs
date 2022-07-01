@@ -70,4 +70,4 @@ then restore it into the new, upgraded, database. For more information, see the 
 
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup-restore]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
-[pg-relnotes]: FIXME
+[pg-relnotes]: https://www.postgresql.org/docs/release/

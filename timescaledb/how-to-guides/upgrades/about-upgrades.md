@@ -38,21 +38,21 @@ upgrade, and again after your upgrade is complete:
 (1 row)
 ```
 
-[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
+[upgrade-pg]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
 [update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
-[update-timescaledb]: /how-to-guides/update-timescaledb/update-timescaledb/
+[update-timescaledb]: timescaledb/:currentVersion:/how-to-guides/upgrades/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /how-to-guides/backup-and-restore/
-[Install]: /install/latest/
-[telemetry]: /administration/telemetry/
+[backup]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[Install]: timescaledb/:currentVersion:/install/latest/
+[telemetry]: timescaledb/:currentVersion:/administration/telemetry/
 [volumes]: https://docs.docker.com/engine/admin/volumes/volumes/
 [bind-mounts]: https://docs.docker.com/engine/admin/volumes/bind-mounts/
-[caggs]: /how-to-guides/continuous-aggregates
-[compression]: /how-to-guides/compression
-[retention]: /how-to-guides/data-retention
-[retention-cagg-changes]: /overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
-[changes-in-ts2]: /overview/release-notes/changes-in-timescaledb-2
-[changes-in-ts2-caggs]: /overview/release-notes/changes-in-timescaledb-2#updating-continuous-aggregates
+[caggs]: timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[compression]: timescaledb/:currentVersion:/how-to-guides/compression
+[retention]: timescaledb/:currentVersion:/how-to-guides/data-retention
+[retention-cagg-changes]: timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
+[changes-in-ts2]: timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2
+[changes-in-ts2-caggs]: timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#updating-continuous-aggregates
 [upgrade-docker]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-docker/
 [relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
 [backup-restore]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/

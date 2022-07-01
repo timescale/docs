@@ -15,7 +15,7 @@ TimescaleDB&nbsp;2.5 to TimescaleDB&nbsp;2.6, see the
 Additionally, before you begin this major upgrade, read the
 [changes in TimescaleDB&nbsp;2 section][changes-in-ts2].
 This section provides a more detailed look at the major changes in
-TimescaleDB&nbsp;2. It also includes infomration about how these major changes
+TimescaleDB&nbsp;2. It also includes information about how these major changes
 impact the way your applications and scripts interact with the TimescaleDB API.
 
 ## Breaking changes
@@ -24,7 +24,7 @@ automatically configure updated features to work as expected with the new
 version. However, not everything works in exactly the same way as previously.
 
 Before you begin this major upgrade, check the database log for errors related
-to failed retention policies that could have ocurred in TimescaleDB&nbsp;1. You
+to failed retention policies that could have occurred in TimescaleDB&nbsp;1. You
 can either remove the failing policies entirely, or update them to be compatible
 with your existing continuous aggregates.
 
@@ -175,21 +175,21 @@ total_failures         | 0
 </procedure>
 
 
-[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[update-tsdb-1]: https://legacy-docs.timescale.com/latest/update-timescaledb/update-tsdb-1
-[update-timescaledb]: /how-to-guides/update-timescaledb/update-timescaledb/
+[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
+[update-tsdb-1]: https://legacy-docs.timescale.com/latest/upgrades/update-tsdb-1
+[update-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb/
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /how-to-guides/backup-and-restore/
-[Install]: /install/latest/
-[telemetry]: /administration/telemetry/
+[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[Install]: /timescaledb/:currentVersion:/install/latest/
+[telemetry]: /timescaledb/:currentVersion:/administration/telemetry/
 [volumes]: https://docs.docker.com/engine/admin/volumes/volumes/
 [bind-mounts]: https://docs.docker.com/engine/admin/volumes/bind-mounts/
-[caggs]: /how-to-guides/continuous-aggregates
-[compression]: /how-to-guides/compression
-[retention]: /how-to-guides/data-retention
-[retention-cagg-changes]: /overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
-[changes-in-ts2]: /overview/release-notes/changes-in-timescaledb-2
-[changes-in-ts2-caggs]: /overview/release-notes/changes-in-timescaledb-2#updating-continuous-aggregates
-[upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/minor-upgrade/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression
+[retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
+[retention-cagg-changes]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
+[changes-in-ts2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2
+[changes-in-ts2-caggs]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#updating-continuous-aggregates
+[upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
 [relnotes-20]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
 [relnotes]: /timescaledb/:currentVersion:/overview/release-notes/

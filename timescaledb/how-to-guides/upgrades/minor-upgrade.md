@@ -43,19 +43,19 @@ individually.
 
 </procedure>
 
-[backup]: /how-to-guides/backup-and-restore/
-[changes-in-2.0]: /overview/release-notes/changes-in-timescaledb-2/
+[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[changes-in-2.0]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2/
 [cloud-update-pg]: cloud/:currentVersion:/maintenance/#upgrade-to-a-new-postgresql-version
-[downgrade]: /how-to-guides/update-timescaledb/downgrade-timescaledb/
-[install]: /install/:currentVersion:/
+[downgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/downgrade-timescaledb/
+[install]: /timescaledb/:currentVersion:/install/:currentVersion:/
 [mst-update-pg]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [self-hosted-update-pg]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
-[telemetry]: /administration/telemetry/
-[update-docker]: /how-to-guides/update-timescaledb/updating-docker/
-[update-timescaledb]: /how-to-guides/update-timescaledb/update-timescaledb/
-[update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
-[upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
-[upgrade-major]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/major-upgrade/
+[telemetry]: /timescaledb/:currentVersion:/administration/telemetry/
+[update-docker]: /timescaledb/:currentVersion:/how-to-guides/upgrades/updating-docker/
+[update-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/update-timescaledb/
+[update-tsdb-2]: /timescaledb/:currentVersion:/how-to-guides/upgrades/update-timescaledb-2/
+[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
+[upgrade-major]: timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
 [relnotes]: /timescaledb/:currentVersion:/overview/release-notes/

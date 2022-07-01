@@ -34,10 +34,10 @@ you.
 about automatic version updates in Timescale Cloud.
 </highlight>
 
-[about-upgrades]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/about-upgrades/
-[upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/minor-upgrade/
-[upgrade-major]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/major-upgrade/
-[downgrade]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/downgrade/
-[upgrade-docker]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-docker/
-[upgrade-pg]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-pg/
-[upgrade-tshoot]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/troubleshooting/
+[about-upgrades]: timescaledb/:currentVersion:/how-to-guides/upgrades/about-upgrades/
+[upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
+[upgrade-major]: timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[downgrade]: timescaledb/:currentVersion:/how-to-guides/upgrades/downgrade/
+[upgrade-docker]: timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-docker/
+[upgrade-pg]: timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
+[upgrade-tshoot]: timescaledb/:currentVersion:/how-to-guides/upgrades/troubleshooting/
