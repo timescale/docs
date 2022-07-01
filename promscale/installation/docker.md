@@ -5,7 +5,7 @@ and the [Promscale connector][promscale-docker-image].
 The Docker images are available for download from Docker Hub.
 
 If you are upgrading from the previously used [Alpine image][alpine-image]
-follow the[upgrade instructions][upgrade].
+follow the [upgrade instructions][upgrade].
 
 The TimescaleDB images have a suffix that indicates the version of PostgreSQL
 and TimescaleDB. For example, the tag `pg14.2-ts2.6.1-latest` includes
