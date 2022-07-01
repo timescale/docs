@@ -84,7 +84,7 @@ Migrating to Debian version can be a lengthy process and involves downtime.
    ```
    docker run -v <data_dir_volume_mount>:/var/lib/postgresql/data timescale/timescaledb-ha:pg14-latest chown -R postgres:postgres /var/lib/postgresql/data
    ```
-1. Start the new docker container with the same volume mounts as that the
+1. Start the new Docker container with the same volume mounts that the
    original container used.
 1. Connect to the new database using psql and reindex all the data that has
    collatable data. Use the following query to reindex all the necessary indexes:
