@@ -26,7 +26,7 @@ running PostgreSQL&nbsp;10 and TimescaleDB&nbsp;1.7.5, and you want to upgrade
 to PostgreSQL&nbsp;13 and TimescaleDB&nbsp;2.2, upgrade in this order:
 
 1. Upgrade PostgreSQL&nbsp;10 to PostgreSQL&nbsp;12
-1. Update TimescaleDB&nbsp;1.7.5 to TimescaleDB&nbsp;2.2 on PostgreSQL&nbsp;12
+1. Upgrade TimescaleDB&nbsp;1.7.5 to TimescaleDB&nbsp;2.2 on PostgreSQL&nbsp;12
 1. Upgrade PostgreSQL&nbsp;12 to PostgreSQL&nbsp;13 with TimescaleDB&nbsp;2.2
    installed
 
