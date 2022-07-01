@@ -59,7 +59,7 @@ For instructions, see the [send data][send-data] section.
 
 ## Upgrading from the previous alpine image
 
-Previously, our recommended image was located at [`timescaledev/promscale-extension`](https://hub.docker.com/r/timescaledev/promscale-extension).
+Previously, the recommended image was located at [`timescaledev/promscale-extension`](https://hub.docker.com/r/timescaledev/promscale-extension).
 It was based on the [Alpine docker image for PostgreSQL](https://github.com/docker-library/postgres/blob/e8ebf74e50128123a8d0220b85e357ef2d73a7ec/12/alpine/Dockerfile).
 Because of [collation bugs](https://github.com/docker-library/postgres/issues/327) and other issues we have now switched to the Debian-based image above.
 
