@@ -20,7 +20,6 @@ the performance of Promscale.
     
 </procedure>
 
-
 ## Install the Promscale connector
 The Promscale connector understands PromQL queries natively and fetches data
 from TimescaleDB to execute them, while SQL queries go directly to TimescaleDB.
