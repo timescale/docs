@@ -1,86 +1,116 @@
-# Updating a TimescaleDB Docker installation
+# Upgrades within a Docker container
+If you originally installed TimescaleDB using Docker, you can upgrade from
+within the Docker container. This allows you to upgrade to the latest
+TimescaleDB version, while retaining your data.
 
-The following steps should be taken with a docker
-installation to upgrade to the latest TimescaleDB version, while
-retaining data across the updates.
-
-The following instructions assume that your docker instance is named
-`timescaledb`. If not, replace this name with the one you use in the subsequent
+<highlight type="note">
+In this section, the examples use a Docker instance called `timescaledb`. If you
+have given your Docker instance a different name, replace it when you issue the
 commands.
-
-#### Step 1: Pull new image [](update-docker-1)
-Install the current TimescaleDB 2.0 image:
-
-```bash
-docker pull timescale/timescaledb:2.0.0-pg12
-```
-<highlight type="tip">
-If you are using PostgreSQL 11 images, use the tag `2.0.0-pg11`.
 </highlight>
 
-#### Step 2: Determine mount point used by old container [](update-docker-2)
-As you'll want to restart the new docker image pointing to a mount point
-that contains the previous version's data, we first need to determine
-the current mount point.
+## Determine the mount point type
+When you start your upgraded Docker container, you need to be able to point the
+new Docker image to the location that contains the data from your previous
+version. To do this, you need to work out where the current mount point is. The
+current mount point varies depending on whether your container is using volume
+mounts, or bind mounts.
 
-There are two types of mounts. To find which mount type your old container is
-using you can run the following command:
-```bash
-docker inspect timescaledb --format='{{range .Mounts }}{{.Type}}{{end}}'
-```
-This command returns either `volume` or `bind`, corresponding
-to the two options below.
+<procedure>
 
-1. [Volumes][volumes] -- to get the current volume name use:
-```bash
-$ docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
-069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
-```
+### Determining the mount point type
+1.  Work out what type of mount your Docker container uses by running this
+    command, which returns either `volume` or `bind`:
 
-2. [Bind-mounts][bind-mounts] -- to get the current mount path use:
-```bash
-$ docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
-/path/to/data
-```
+    ```bash
+    docker inspect timescaledb --format='{{range .Mounts }}{{.Type}}{{end}}'
+    ```
 
-#### Step 3: Stop old container [](update-docker-3)
-If the container is currently running, stop and remove it in order to connect
-the new one.
+1.  Get the current name or mount path with this command, and record it to use
+    when you perform the upgrade. Make sure you copy the correct command, based
+    on your mount point type:
 
-```bash
-docker stop timescaledb
-docker rm timescaledb
-```
+  <terminal>
 
-#### Step 4: Start new container [](update-docker-4)
-Launch a new container with the updated docker image, but pointing to
-the existing mount point. This again differs by mount type.
+      <tab label='Volume mount'>
 
-1. For volume mounts you can use:
-```bash
-docker run -v 069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
-```
+      ```bash
+      $ docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
+      069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
+      ```
 
-2. If using bind-mounts, you need to run:
-```bash
-docker run -v /path/to/data:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
-```
+      </tab>
 
+      <tab label="Bind mount">
 
-#### Step 5: Run ALTER EXTENSION [](update-docker-5)
-Finally, connect to this instance via `psql` (with the `-X` flag) and execute the `ALTER` command
-as above in order to update the extension to the latest version:
+      ```bash
+      $ docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
+      /path/to/data
+      ```
 
-```bash
-docker exec -it timescaledb psql -U postgres -X
+      </tab>
 
-# within the PostgreSQL instance
-ALTER EXTENSION timescaledb UPDATE;
-```
+  </terminal>
 
-You can then run the `\dx` command to make sure you have the
-latest version of TimescaleDB installed.
+</procedure>
 
+## Upgrade TimescaleDB within Docker
+To upgrade TimescaleDB within Docker, you need to download the upgraded image,
+stop the old container, and launch the new container pointing to your existing
+data.
+
+<procedure>
+
+### Upgrading TimescaleDB within Docker
+
+1.  Pull the latest TimescaleDB image:
+
+    ```bash
+    docker pull timescale/timescaledb-ha:pg14-latest
+    ```
+
+1.  Stop the old container, and remove it:
+
+    ```bash
+    docker stop timescaledb
+    docker rm timescaledb
+    ```
+
+1.  Launch a new container with the upgraded Docker image, pointing to the
+    existing mount point. Make sure you copy the correct command, based on your
+    mount point type:
+
+     <terminal>
+
+        <tab label='Volume mount'>
+
+        ```bash
+        docker run -v 069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
+        ```
+
+        </tab>
+
+        <tab label="Bind mount">
+
+        ```bash
+        docker run -v /path/to/data:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
+        ```
+
+        </tab>
+
+    </terminal>
+
+1.  Connect to the upgraded instance using `psql` with the `-X` flag:
+
+    ```bash
+    docker exec -it timescaledb psql -U postgres -X
+    ```
+
+1.  At the psql prompt, use the `ALTER` command to update the extension:
+
+    ```sql
+    ALTER EXTENSION timescaledb UPDATE;
+    ```
 
 [upgrade-pg]: /how-to-guides/update-timescaledb/upgrade-postgresql/
 [update-tsdb-2]: /how-to-guides/update-timescaledb/update-timescaledb-2/
