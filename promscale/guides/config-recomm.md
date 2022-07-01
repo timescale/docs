@@ -1,7 +1,7 @@
 # Configuration recommendations
 This section describes the configuration recommendations for Promscale
 
-## Database Configuration
+## Database configuration
 
 To set the most common parameters to optimal values based on your system, run
 `timescaledb-tune`. It accounts for memory, CPU, and PostgreSQL version. For
