@@ -169,6 +169,8 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 
 </procedure>
 
+After you have installed Promscale, you can ingest data.
+For instructions, see the [send data][send-data] section.
 
 [timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
 [timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
@@ -179,3 +181,4 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 [template-manifest]: https://github.com/timescale/promscale/blob/0.10.0/deploy/static/deploy.yaml
 [timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
 [timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
+[send-data]: promscale/:currentVersion:/send-data/
