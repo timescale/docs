@@ -8,7 +8,7 @@ extension. The Promscale extension contains support functions to improve
 performance of Promscale.
 <procedure>
 
-### Installing TimescaleDB and Promscale extension
+### Installing TimescaleDB and the Promscale extension
 
 1.  Install TimescaleDB following the instructions in the
     [TimescaleDB install page][tsdb-install-self-hosted]
