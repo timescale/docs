@@ -70,6 +70,7 @@ the end of 2022 but users are encouraged to migrate to the
 <highlight type="note">
 Migrating to Debian version can be a lengthy process and involves downtime.
 </highlight>
+
 <procedure>
 
 1. Use `docker inspect` to determine the data volumes used by your database for the data directory.
