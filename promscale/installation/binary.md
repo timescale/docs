@@ -12,7 +12,7 @@ performance of Promscale.
 
 <procedure>
 
-### Compiling and Installing TimescaleDB
+### Compiling and installing TimescaleDB
 
 1.  Install TimescaleDB following the instructions in the 
     [TimescaleDB install page][tsdb-install-self-hosted]
