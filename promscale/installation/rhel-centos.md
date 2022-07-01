@@ -1,4 +1,4 @@
-# Install Promscale on Redhat or CentOS
+# Install Promscale on Red Hat or CentOS
 You can install Promscale on Redhat or CentOS system where you have an
 already installed and working Prometheus or OpenTelemetry environment.
 
