@@ -6,7 +6,7 @@ This section describes the configuration recommendations for Promscale.
 You can use the `timescaledb-tune` tool to set most common parameters to the best 
 values for your system. The tool accounts for memory, CPU, and PostgreSQL version. For
 more information, see [configuration][timescale-tune-configuration]. Additionally,
-there are a few other PostgreSQL parameters worth tuning:
+there are a few other PostgreSQL parameters that you might like to adjust:
 
 * `checkpoint_timeout=15min` - when a lot of data is ingested, increase the
   checkpoint timeout to reduce the input/output pressure.
