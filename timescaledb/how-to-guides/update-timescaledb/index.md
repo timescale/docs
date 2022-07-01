@@ -24,7 +24,7 @@ you need to.
 *   Upgrade TimescaleDB using [Docker][upgrade-docker].
 *   Upgrade the version of [PostgreSQL][upgrade-pg] your TimescaleDB
     installation uses.
-*   [Troubleshoot][upgrade-tshoot] widgets.
+*   [Troubleshoot][upgrade-tshoot] upgrading.
 
 <highlight type="cloud" header="Upgrade automatically" button="Try Timescale Cloud for free">
 Timescale Cloud avoids the manual work involved in updating your TimescaleDB

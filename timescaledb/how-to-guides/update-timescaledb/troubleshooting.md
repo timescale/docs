@@ -13,7 +13,8 @@ with updating your TimescaleDB installation.
 -->
 
 ## Updating fails with an error saying `no update path`
-In some cases, when you use the `ALTER EXTENSION timescaledb UPDATE` command to update, it might fail with an error like this:
+In some cases, when you use the `ALTER EXTENSION timescaledb UPDATE` command to
+update, it might fail with an error like this:
 
 ```sql
 ERROR: extension "timescaledb" has no update path from version "2.5.2" to version "2.6.1"
