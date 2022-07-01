@@ -15,7 +15,7 @@ there are a few other PostgreSQL parameters that you might like to adjust:
 * `bgwriter_lru_maxpages=100000` - increase the number of pages a background
   writer can handle, to make it more efficient.
 * `max_wal_size` - set it to a high enough value so that the checkpoint is triggered
-  by the timeout setting and not when the `maximum_wal_size` is reached.
+  by the timeout setting, much before the `max_wal_size` is reached.
 * `synchronous_commit=off` - this does not cause data corruption or
   inconsistency. However, in case of a crash, some of the most recent data points could be
   lost. For a monitoring observability use case, it's a reasonable trade-off to
