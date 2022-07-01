@@ -1,5 +1,5 @@
 # Configuration recommendations
-This section describes the configuration recommendations for Promscale
+This section describes the configuration recommendations for Promscale.
 
 ## Database configuration
 
