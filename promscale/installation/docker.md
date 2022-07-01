@@ -108,7 +108,7 @@ Migrating to Debian version can be a lengthy process and involves downtime.
 
 </procedure>
 
-If you are using Kubernetes instead of plain docker:
+If you are using Kubernetes instead of plain Docker:
 <procedure>
 
 1. Shutdown the Promscale Connector pods
