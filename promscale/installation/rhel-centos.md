@@ -2,7 +2,7 @@
 You can install Promscale on Redhat or CentOS system where you have an
 already installed and working Prometheus or OpenTelemetry environment.
 
-## Install TimescaleDB
+## Install TimescaleDB and the Promscale extension
 To use with Promscale you need TimescaleDB database, as well as the Promscale
 extension. The Promscale extension contains support functions to improve
 performance of Promscale.
