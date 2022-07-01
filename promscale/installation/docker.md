@@ -74,7 +74,7 @@ Migrating to Debian version can be a lengthy process and involves downtime.
 <procedure>
 
 1. Use `docker inspect` to determine the data volumes used by your database for the data directory.
-1. Shutdown all Promscale Connectors.
+1. Shut down all Promscale Connectors.
 1. Shutdown the original database docker image while preserving the volume mount
    for the data directory. You need to mount this same directory in the new
    image.
