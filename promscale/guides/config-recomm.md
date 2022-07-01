@@ -3,8 +3,8 @@ This section describes the configuration recommendations for Promscale.
 
 ## Database configuration
 
-To set the most common parameters to optimal values based on your system, run
-`timescaledb-tune`. It accounts for memory, CPU, and PostgreSQL version. For
+You can use the `timescaledb-tune` tool to set most common parameters to the best 
+values for your system. The tool accounts for memory, CPU, and PostgreSQL version. For
 more information, see [configuration][timescale-tune-configuration]. However,
 there are a few other PostgreSQL parameters worth tuning:
 
