@@ -79,7 +79,7 @@ module.exports = [
             excerpt: "Install Promscale on Debian or Ubuntu",
           },
           {
-            title: "RPM based Linux (Redhat or CentOS)",
+            title: "RPM based Linux (Red hat or CentOS)",
             href: "rhel-centos",
             tags: ["promscale", "install", "analytics"],
             keywords: ["Promscale", "analytics"],
@@ -103,7 +103,7 @@ module.exports = [
         ],
       },
       {
-        title: "Guides",
+        title: "Recommendations and Operations",
         href: "guides",
         tags: ["promscale", "learn", "analytics", "prometheus"],
         keywords: ["Promscale", "analytics"],
