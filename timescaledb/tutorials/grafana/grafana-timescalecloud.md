@@ -1,4 +1,4 @@
-import Component from '../../../_partials/_cloudtrial.mdx';
+import Component from '../../../../_partials/_cloudtrial.mdx';
 
 # Connect TimescaleDB and Grafana
 Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data
@@ -12,7 +12,7 @@ information about installing Grafana, see the [Grafana installation documentatio
 This section shows you how to connect TimescaleCloud database instance as data
 source in [Grafana][grafana-homepage].
 
-## Configure TimscaleDB as a data source
+## Configure TimescaleDB as a data source
 To configure TimscaleCloud database as a data source you need to create a
 service, and then configure TimescaleDB as the data source in
 Grafana.
