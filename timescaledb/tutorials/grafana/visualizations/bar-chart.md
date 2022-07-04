@@ -1,6 +1,7 @@
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a bar chart in Grafana
+
 A bar chart displays data using bars, each representing a specific category. A
 bar chart is a great comparison tool for data visualization, as it's easy to see
 which item's column or bar is longer or shorter. Bar charts use two axes:
@@ -38,13 +39,14 @@ this tutorial.
 <GrafanaVizPrereqs />
 
 ## Create a bar chart with preaggregated data
+
 Create a bar chart visualization using the data in the table `stocks_real_time`.
 
 <procedure>
 
 ### Creating a bar chat with preaggregated data
 
-1.  In the query editor, use this SQL to query a bar chart dataset. Use the
+1. In the query editor, use this SQL to query a bar chart dataset. Use the
     variable `$bucket interval` for the time period covered by the bar chart:
 
     ```sql
@@ -58,7 +60,7 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
     GROUP BY time_bucket('$bucket_interval', time), symbol;
     ```
 
-1.  In the Grafana dashboard, in the `Dashboard variable` field, select a stock
+1. In the Grafana dashboard, in the `Dashboard variable` field, select a stock
     to graph. Adjust the time range of the dashboard if needed. Make sure the
     returned data has column named `time` that contains timestamps. The
     timestamps should be in ascending order, you might get errors otherwise. The
@@ -66,14 +68,14 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/Tabledataforgoogle.png" alt="Screenshot of the table view of valid time series data for google stock."/>
 
-1.  In the `Visualizations` field, select `Bar chart`. Grafana turns the query
+1. In the `Visualizations` field, select `Bar chart`. Grafana turns the query
     into a bar chart. This example shows a vertical bar chart price distribution
     of Google stock, which ranges between $2836 and $2108 within a specific
     period:
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/googlebarchart.png" alt="Screenshot of the vertical bar chart produced by Grafana. The vertical bar chart represents the price of Google in the past 2 months."/>
 
-1.  You can convert from a vertical bar chart to a horizontal one to get room
+1. You can convert from a vertical bar chart to a horizontal one to get room
     for a longer label along the vertical axis. In the dashboard, navigate to
     the bar chart section. In the `Orientaton` section, click `horizontal`. The
     horizontal bar chart looks like this:
@@ -83,6 +85,7 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 </procedure>
 
 ## Create multiple bar charts
+
 If you want compare the distributions of 4 or more different stocks, you can
 create a panel containing multiple bar charts. The database returns the
 transactions for all selected values, and Grafana buckets them in separate bar
@@ -138,6 +141,7 @@ charts.
 </procedure>
 
 ## Create a stacked bar chart
+
 You can use a stacked bar chart to show how different stock divides into smaller
 categories, and what the relationship of each part has on the total amount.
 
