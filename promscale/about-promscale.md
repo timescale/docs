@@ -46,7 +46,7 @@ other types of data that you can then use to correlate with observability data.
 
 TimecaleDB stores the data and offers the TimescaleDB functionalities to the Promscale
 connector. If you have custom metrics data, the data that is not in the format
-of Prometheus data model you can leverage the Promscale’s JSON streaming format
+of Prometheus data model you can leverage the Promscale's JSON streaming format
 to store data in Promscale. This offers PromQL for querying metrics from
 the connector, SQL querying from database.
 
