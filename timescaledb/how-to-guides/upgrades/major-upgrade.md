@@ -1,4 +1,4 @@
-import PlanUpgrade from '../../../../_partials/_plan_upgrade.mdx';
+import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
 # Major TimescaleDB upgrades
 A major upgrade is when you upgrade from one major version of TimescaleDB, to
@@ -175,21 +175,6 @@ total_failures         | 0
 </procedure>
 
 
-[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
-[update-tsdb-1]: https://legacy-docs.timescale.com/latest/upgrades/update-tsdb-1
-[update-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb/
-[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
-[Install]: /timescaledb/:currentVersion:/install/latest/
-[telemetry]: /timescaledb/:currentVersion:/administration/telemetry/
-[volumes]: https://docs.docker.com/engine/admin/volumes/volumes/
-[bind-mounts]: https://docs.docker.com/engine/admin/volumes/bind-mounts/
-[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
-[compression]: /timescaledb/:currentVersion:/how-to-guides/compression
-[retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
-[retention-cagg-changes]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
-[changes-in-ts2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2
-[changes-in-ts2-caggs]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#updating-continuous-aggregates
 [upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
+[changes-in-ts2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2
 [relnotes-20]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
-[relnotes]: /timescaledb/:currentVersion:/overview/release-notes/

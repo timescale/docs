@@ -20,7 +20,7 @@ upgrade TimescaleDB:
 |TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|
 |TimescaleDB&nbsp;2.5 and higher|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|
 
-You need to upgrade PostgreSQL and TimescaleDB in two seperate steps. This is so
+You need to upgrade PostgreSQL and TimescaleDB in two separate steps. This is so
 that you can make sure each upgrade completes properly. For example, if you are
 running PostgreSQL&nbsp;10 and TimescaleDB&nbsp;1.7.5, and you want to upgrade
 to PostgreSQL&nbsp;13 and TimescaleDB&nbsp;2.2, upgrade in this order:
@@ -39,7 +39,7 @@ Before you upgrade:
 
 * Read [the release notes][pg-relnotes] for the PostgreSQL version you are
   upgrading to.
-* [Perform a backup][backup-restore] of your database. While PostgreSQL and
+* [Perform a backup][backup] of your database. While PostgreSQL and
   TimescaleDB upgrades are performed in-place, upgrading is an intrusive
   operation. Always make sure you have a backup on hand, and that the backup is
   readable in the case of disaster.
@@ -66,8 +66,8 @@ supported for PostgreSQL&nbsp;8.4 and higher.
 
 If you are moving data to a new physical instance of PostgreSQL, you can use the
 `pg_dump` and `pg_restore` tools to dump your data from the old database, and
-then restore it into the new, upgraded, database. For more information, see the [backup and restore section][backup-restore].
+then restore it into the new, upgraded, database. For more information, see the [backup and restore section][backup].
 
 [pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup-restore]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
 [pg-relnotes]: https://www.postgresql.org/docs/release/

@@ -21,7 +21,7 @@ Before you downgrade:
 * Check which PostgreSQL version you are currently running. You might need to
   [upgrade to the latest PostgreSQL version][upgrade-pg]
   before you begin your TimescaleDB downrgade.
-* [Perform a backup][backup-restore] of your database. While TimescaleDB
+* [Perform a backup][backup] of your database. While TimescaleDB
   downgrades are performed in-place, downgrading is an intrusive operation.
   Always make sure you have a backup on hand, and that the backup is readable in
   the case of disaster.
@@ -71,3 +71,5 @@ upgrading and downgrading.
 
 
 [relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
+[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
+[backup]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/

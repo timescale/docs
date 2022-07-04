@@ -111,12 +111,3 @@ data.
     ```sql
     ALTER EXTENSION timescaledb UPDATE;
     ```
-
-[upgrade-pg]: /how-to-guides/upgrades/upgrade-postgresql/
-[update-tsdb-2]: /how-to-guides/upgrades/update-timescaledb-2/
-[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[backup]: /how-to-guides/backup-and-restore/
-[Install]: /install/latest/
-[telemetry]: /administration/telemetry/
-[volumes]: https://docs.docker.com/engine/admin/volumes/volumes/
-[bind-mounts]: https://docs.docker.com/engine/admin/volumes/bind-mounts/

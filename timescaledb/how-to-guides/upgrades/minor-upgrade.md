@@ -1,4 +1,4 @@
-import PlanUpgrade from '../../../../_partials/_plan_upgrade.mdx';
+import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
 # Minor TimescaleDB upgrades
 A minor upgrade is when you upgrade within your current major version of
@@ -12,7 +12,7 @@ TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2, see the
 ## Plan your upgrade
 <PlanUpgrade />
 
-## Upgrade TimescaleDB to the next minor verson
+## Upgrade TimescaleDB to the next minor version
 This upgrade uses the PostgreSQL `ALTER EXTENSION` function to upgrade to the
 latest version of the TimescaleDB extension. TimescaleDB supports having
 different extension versions on different databases within the same PostgreSQL
@@ -43,19 +43,4 @@ individually.
 
 </procedure>
 
-[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
-[changes-in-2.0]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2/
-[cloud-update-pg]: cloud/:currentVersion:/maintenance/#upgrade-to-a-new-postgresql-version
-[downgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/downgrade-timescaledb/
-[install]: /timescaledb/:currentVersion:/install/:currentVersion:/
-[mst-update-pg]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
-[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
-[self-hosted-update-pg]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
-[telemetry]: /timescaledb/:currentVersion:/administration/telemetry/
-[update-docker]: /timescaledb/:currentVersion:/how-to-guides/upgrades/updating-docker/
-[update-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/update-timescaledb/
-[update-tsdb-2]: /timescaledb/:currentVersion:/how-to-guides/upgrades/update-timescaledb-2/
-[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
 [upgrade-major]: timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
-[relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
