@@ -1,4 +1,4 @@
-import GrafanaVizPrereqs from '../../../../../_partials/_grafana-viz-prereqs.mdx';
+import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a bar chart in Grafana
 A bar chart displays data using bars, each representing a specific category. A

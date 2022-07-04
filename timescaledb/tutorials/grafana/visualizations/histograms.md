@@ -1,4 +1,4 @@
-import GrafanaVizPrereqs from '../../../../../_partials/_grafana-viz-prereqs.mdx';
+import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a histogram in Grafana
 Histograms show how data is distributed. You can use one to graph the number of

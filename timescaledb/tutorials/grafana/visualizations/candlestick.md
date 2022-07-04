@@ -1,4 +1,4 @@
-import GrafanaVizPrereqs from '../../../../../_partials/_grafana-viz-prereqs.mdx';
+import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a candlestick chart in Grafana
 Candlestick charts show the opening, closing, high, and low prices
