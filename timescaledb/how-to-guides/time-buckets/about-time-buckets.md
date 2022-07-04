@@ -1,3 +1,5 @@
+import Experimental from '../../../../_partials/_experimental.mdx';
+
 # About time buckets
 The [`time_bucket`][time_bucket] function allows you to aggregate data into
 buckets of time, for example: 5 minutes, 1 hour, or 3 days. It's similar to
@@ -112,11 +114,7 @@ Continuous aggregates also don't allow named parameters.
 The experimental function [`time_bucket_ng`][time_bucket_ng] adds new features,
 including support for months, years, and timezones.
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk,
-and do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ### Months and years
 In addition to the time units supported by `time_bucket`, `time_bucket_ng` also

@@ -14,15 +14,13 @@ giving you faster data ingest, and more responsive and efficient queries.
 *   Set up [high availability][multi-node-ha] (HA) for your cluster
 *   [Maintain][multi-node-maintenance] your multi-node environment
 
-<!---*   [Backup and restore][multi-node-backup] your cluster -->
-
-[about-multi-node]: /how-to-guides/multinode-timescaledb/about-multinode/
-[setup-selfhosted]: /how-to-guides/multinode-timescaledb/multinode-setup/
+[about-multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/about-multinode/
+[setup-selfhosted]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-setup/
 [setup-cloud]: /cloud/:currentVersion:/cloud-multi-node/
 [setup-mst]: /mst/:currentVersion:/mst-multi-node/
-[multi-node-auth]: /how-to-guides/multinode-timescaledb/multinode-auth/
-[multi-node-config]: /how-to-guides/multinode-timescaledb/multinode-config/
-[multi-node-administration]: /how-to-guides/multinode-timescaledb/multinode-administration/
-[multi-node-grow-shrink]: /how-to-guides/multinode-timescaledb/multinode-grow-shrink/
-[multi-node-ha]: /how-to-guides/multinode-timescaledb/multinode-ha/
-[multi-node-maintenance]: /how-to-guides/multinode-timescaledb/multinode-maintenance/
+[multi-node-auth]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/
+[multi-node-config]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-config/
+[multi-node-administration]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-administration/
+[multi-node-grow-shrink]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-grow-shrink/
+[multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
+[multi-node-maintenance]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-maintenance/

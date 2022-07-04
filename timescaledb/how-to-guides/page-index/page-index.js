@@ -779,7 +779,7 @@ module.exports = [
           },
           {
             title: "Troubleshooting updates",
-            href: "troubleshootingb",
+            href: "troubleshooting",
             tags: ["tshoot", "upgrade", "timescaledb"],
             keywords: ["troubleshooting", "upgrade", "TimescaleDB"],
             excerpt: "Troubleshoot updating your TimescaleDB installation",
