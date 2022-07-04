@@ -103,7 +103,7 @@ module.exports = [
         ],
       },
       {
-        title: "Recommendations and Operations",
+        title: "Recommendations and operations",
         href: "guides",
         tags: ["promscale", "learn", "analytics", "prometheus"],
         keywords: ["Promscale", "analytics"],
