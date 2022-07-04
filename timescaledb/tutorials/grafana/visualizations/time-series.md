@@ -1,4 +1,4 @@
-import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
+import GrafanaVizPrereqs from '../../../../../_partials/_grafana-viz-prereqs.mdx';
 
 # Build a time-series graph in Grafana
 A time-series graph is a line graph that plots points changing over time. It

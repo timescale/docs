@@ -298,9 +298,9 @@ module.exports = [
               {
                 title: 'Bar chart',
                 href: 'bar-chart',
-                tags: ['grafana', 'visualize', 'barchart', 'learn', 'timescaledb'],
-                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'barchart'],
-                excerpt: 'How to build a barchart in Grafana',
+                tags: ['grafana', 'visualize', 'bar chart', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'bar chart'],
+                excerpt: 'How to build a bar chart in Grafana',
               }
             ]
           }
