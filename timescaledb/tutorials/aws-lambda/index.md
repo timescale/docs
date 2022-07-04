@@ -13,7 +13,7 @@ Before you begin, make sure you have completed the
 [Analyze intraday stock data tutorial](https://docs.timescale.com/timescaledb/latest/tutorials/analyze-intraday-stocks/).
 This tutorial needs the tables and data that you set up in that tutorial.
 
-To complete this tutorial, you need an AWS account, and be able to access the
+To complete this tutorial, you need an AWS account. You also need access to the
 AWS command-line interface (CLI). To check if you have AWS CLI installed, use
 this command at the command prompt. If it is installed, the command shows the
 version number, like this:
