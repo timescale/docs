@@ -29,8 +29,8 @@ can either remove the failing policies entirely, or update them to be compatible
 with your existing continuous aggregates.
 
 If incompatible retention policies are present when you perform the upgrade, the
-`ignore_invalidation_older_than` setting is automatically disabled, and a notice
-is shown.
+`ignore_invalidation_older_than` setting is automatically turned off, and a
+notice is shown.
 
 For more information about changes to continuous aggregates and data retention
 policies, see the [release notes][relnotes-20].
