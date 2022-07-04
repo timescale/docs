@@ -1,14 +1,19 @@
 name: Linting
-on: [pull_request]
+
+on: pull_request
+
+permissions:
+  contents: read
 
 jobs:
   prose:
+    if: github.repository == 'timescale/docs'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@master
 
     - name: Vale
-      uses: errata-ai/vale-action@v2
+      uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
