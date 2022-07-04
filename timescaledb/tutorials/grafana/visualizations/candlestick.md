@@ -34,6 +34,7 @@ This tutorial shows you how to:
 *   [Show transaction volume when querying with raw data](#show-transaction-volumes-in-a-candlestick-plot)
 
 ## Prerequisites
+
 <GrafanaVizPrereqs />
 
 Check out this video for a step-by-step walk-through on creating
@@ -65,7 +66,7 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
   1.  Click outside of the query editor, or click the refresh icon to
       update the Grafana chart.
 
-  1.  Select "candlestick" as your visualization type:
+  1.  Select `candlestick` as your visualization type:
 
        <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_visualization.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Candlestick' shows as a visualization type."/>
 
@@ -74,17 +75,24 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
 
        <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/1_min.png" alt="Screenshot of a candlestick chart in Grafana, showing the price distribution of $AMZN."/>
 
-       In this first example, we set the $bucket_interval to 1-min, you can see the price of AMZN ranges between $2120 and $2200. This chart uses hyperfunctions to query the `stock_real_time` table, with a bucket interval of 1 minute.
+       In this first example, with the `$bucket_interval` set to 1 minute, you
+       can see the price of `AMZN` ranges between $2120 and $2200. This chart uses
+       hyperfunctions to query the `stock_real_time` table, with a bucket
+       interval of 1 minute.
 
 </procedure>
 
-Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications.
+Retrieving this data took about 7+ seconds, over two weeks of data which is
+probably slower than most users would expect when analyzing data. This is where
+continuous aggregates are particularly useful for data-intensive, time-series
+applications.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
 
 <procedure>
 
-  With the use of the `$bucket_interval` variable, we are able to switch intervals. For example, switching to a 15-minute bucket interval gives you this data.
+  When you use the `$bucket_interval` variable, you can switch intervals. For
+  example, switching to a 15 minute bucket interval gives you this data.
 
   1.  Switch your bucket interval to 15-min from the dropdown
 
@@ -141,9 +149,9 @@ difference gives the traded volume for that bucket.
 </procedure>
 
 In conclusion, candlestick charts are a great way to visualize financial data.
-This tutorial shows you how to use TimescaleDB to generate
-candlestick values (open, high, low, close) from raw data in ahypertable.
-It also shows you how to query the traded volume for each time interval.
+This tutorial shows you how to use TimescaleDB to generate candlestick values
+that includes open, high, low, and close, from raw data in a hypertable. It also
+shows you how to query the traded volume for each time interval.
 
 To see other examples of how you can use TimescaleDB and Grafana, check out
 all the [Grafana tutorials][grafana-tutorials].

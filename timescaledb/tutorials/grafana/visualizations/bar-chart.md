@@ -194,3 +194,4 @@ check out the other
 [Grafana visualization tutorials][grafana-tutorials].
 
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
+[gsg-data]: getting-started/:currentVersion:/index/

@@ -36,6 +36,7 @@ This tutorial shows you how to:
 *   [Create multiple time-series graphs in a single panel](#create-multiple-time-series-graphs-in-a-single-panel)
 
 ## Prerequisites
+
 <GrafanaVizPrereqs />
 
 ## Create a time-series graph with raw data
@@ -130,17 +131,17 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/time-bucket-graph.png" alt="Screenshot of the time-series graph produced by Grafana using the `time_bucket` hyperfunction. The graph represents the price of AMD stock in the past 30 days with an interval of 30 minutes."/>
 
     Because the stock market is only open from 9:30&nbsp;AM to 4:00&nbsp;PM on
-    weekdays, there are large gaps in our dataset where there is no data.
+    weekdays, there are large gaps in the dataset where there is no data.
     Grafana automatically connects the last non-null value to the nearest other
-    non-null value. This creates the long, straight, almost-horizontal lines you see
-    in the graph.
+    non-null value. This creates the long, straight, almost-horizontal lines you
+    see in the graph.
 
-1.  To circumvent this issue, you can use Grafana's `Connect null values` settings. But first,
-    you need rows containing null values wherever you have no data. By default,
-    `time_bucket` doesn't return a row if there is no data. In your query, replace `time_bucket`
-    with [`time_bucket_gapfill`](https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
-    If you don't specify a gapfilling function, `time_bucket_gapfill` returns a row with a
-    null value wherever there is no data.
+1.  To circumvent this issue, you can use Grafana's `Connect null values`
+    settings. But first, you need rows containing null values wherever you have
+    no data. By default, `time_bucket` doesn't return a row if there is no data.
+    In your query, replace `time_bucket` with [`time_bucket_gapfill`](https://docs.timescale.com/api/latest/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
+    If you don't specify a gapfilling function, `time_bucket_gapfill` returns a
+    row with a null value wherever there is no data.
 
 1.  In your query, replace `time_bucket` with `time_bucket_gapfill`.
 

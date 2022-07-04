@@ -48,6 +48,7 @@ This tutorial shows you how to:
 *   [Create a panel showing multiple histograms](#create-a-panel-with-multiple-price-transaction-histograms)
 *   [Create a price/volume histogram](#create-a-price-volume-histogram)
 ## Prerequisites
+
 <GrafanaVizPrereqs />
 
 Check out this video for a step-by-step walk-through on creating
@@ -121,11 +122,11 @@ transactions data from the `stocks_real_time` hypertable.
 
 ## Create a price/transaction histogram with aggregated data
 
-In the previous example, we queried raw data for Apple stock, which often trades
-~40 000 times a day. The query returns more than 40 000 rows of data for
-Grafana to bucket every refresh interval, which is 30 seconds by default.
-This uses a lot of CPU, memory, and network bandwidth. In extreme cases, Grafana
-will show you the message:
+The previous example queried raw data for Apple stock, which often trades around
+40,000 times a day. The query returns more than 40,000 rows of data for Grafana
+to bucket every refresh interval, which is 30 seconds by default. This uses a
+lot of CPU, memory, and network bandwidth. In extreme cases, Grafana shows the
+message:
 `Results have been limited to 1000000 because the SQL row limit was reached`
 
 This means Grafana is not displaying all rows returned by the query. To
@@ -204,7 +205,7 @@ selected values, and Grafana buckets them in separate histograms.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/histograms/multiple_histograms.png" alt="Screenshot of overlaid Grafana histograms, showing the price distributions of 3 stocks. All 3 histograms are in green."/>
 
-    We can clearly see the 3 distinct histograms but it's impossible to tell
+    You can clearly see the 3 distinct histograms but it's impossible to tell
     them apart from each other.
 
 1.  Click on the green line at the left side of the legend and pick a color:
