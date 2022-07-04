@@ -27,14 +27,28 @@ Promscale includes two components:
 for observability data, processes that data and stores it in TimescaleDB. It
 also provides an interface to query the data with PromQL. The Promscale
 Connector automatically sets up the data structures in TimescaleDB to store the
-data and handles changes in those data structures if required for
-upgrading to newer versions of Promscale.
+data and handles changes in those data structures if required for upgrading to
+newer versions of Promscale. 
+
+Promscale connector is a translator to natively support integrations with OSS
+standards such as Prometheus, OpenTelemetry and offers features that are native
+to Observability ecosystem. Promscale connector creates schema to store metrics
+and traces. It offers Prometheus endpoint for metrics reads and writes,
+OpenTelemetry Line Protocol endpoint to write traces, Jaeger query endpoint to
+query traces. Promscale connector manages the complete lifecycle of data stored
+in the database with operations such as compression and retention.
 
 **TimescaleDB**: the Postgres-based database where all the observability data is
 stored. It offers a full SQL interface for querying the data as well as advanced
 capabilities like analytical functions, columnar compression and continuous
 aggregates. TimescaleDB offers a lot of  flexibility to also store business and
 other types of data that you can then use to correlate with observability data.
+
+TimecaleDB stores the data and offers the TimescaleDB functionalities to the Promscale
+connector. If you have custom metrics data, the data that is not in the format
+of Prometheus data model you can leverage the Promscale’s JSON streaming format
+to store data in Promscale. This offers PromQL for querying metrics from
+the connector, SQL querying from database.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-arch.png" alt="Promscale architecture diagram"/>
 
