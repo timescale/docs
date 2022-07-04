@@ -141,16 +141,16 @@ If you are using Kubernetes instead of plain Docker:
 1. Change the database pod to use the Debian Docker image.
 1. Restart the pod.
 1. Change ownership of the data directory to the `postgres` user and group in
-   the new image. For example:
+   the new image by ssh into the database container. For example:
 
    ```
-   docker run -v <data_dir_volume_mount>:/var/lib/postgresql/data timescale/timescaledb-ha:pg14-latest chown -R postgres:postgres /var/lib/postgresql/data
+   chown -R postgres:postgres /var/lib/postgresql/data
    ```
 1. Connect to the new database using psql and reindex all the collatable data.
    Use this query to reindex all the necessary indexes:
 
    ```
-     DO $$DECLARE r record;
+   DO $$DECLARE r record;
      BEGIN
        FOR r IN
          SELECT DISTINCT indclass
