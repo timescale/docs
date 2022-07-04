@@ -22,11 +22,11 @@ you want to plot multiple bar charts in a single panel.
 
 This tutorial shows you how to:
 
-* [Create a bar chart](https:docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-a-bar-chart-with-preaggregated-data)
+* [Create a bar chart](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-a-bar-chart-with-preaggregated-data)
   with pre-aggregated data using `time_bucket()`.
-* [Create multiple bar charts](https:docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-multiple-bar-charts)
+* [Create multiple bar charts](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-multiple-bar-charts)
   in a single panel.
-* [Create a stacked bar chart](https:docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-stacked-bar-chart)
+* [Create a stacked bar chart](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-stacked-bar-chart)
   with pre-aggregated data.
 
 There are a few different kinds of bar charts to choose from, including
@@ -194,4 +194,4 @@ check out the other
 [Grafana visualization tutorials][grafana-tutorials].
 
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
-[gsg-data]: getting-started/:currentVersion:/
+[gsg-data]: /getting-started/:currentVersion:/
