@@ -22,16 +22,19 @@ you want to plot multiple bar charts in a single panel.
 
 This tutorial shows you how to:
 
-* [Create a bar chart][barchart-create] with pre-aggregated data using
-  `time_bucket()`.
-* [Create multiple bar charts][barchart-create-multiple] in a single panel.
-* [Create a stacked bar chart][barchart-create-stacked] with pre-aggregated data.
+* [Create a bar chart](timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-a-bar-chart-with-preaggregated-data)
+  with pre-aggregated data using `time_bucket()`.
+* [Create multiple bar charts](timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-multiple-bar-charts)
+  in a single panel.
+* [Create a stacked bar chart](timescaledb/latest/tutorials/grafana/visualizations/bar-chart/#create-stacked-bar-chart)
+  with pre-aggregated data.
 
 There are a few different kinds of bar charts to choose from, including
 vertical, horizontal, and stacked bar charts. All of these types are covered in
 this tutorial.
 
 ## Prerequisites
+
 <GrafanaVizPrereqs />
 
 ## Create a bar chart with preaggregated data
@@ -190,7 +193,4 @@ There are plenty of great ways to visualize data using TimescaleDB and Grafana,
 check out the other
 [Grafana visualization tutorials][grafana-tutorials].
 
-[barchart-create]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart/#create-a-bar-chart-with-preaggregated-data
-[barchart-create-multiple]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart/#create-multiple-bar-charts
-[barchart-create-stacked]: timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart/#create-stacked-bar-chart
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
