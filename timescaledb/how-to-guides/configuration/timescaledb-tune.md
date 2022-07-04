@@ -1,18 +1,19 @@
 # TimescaleDB tuning tool
-To help make configuring TimescaleDB a little easier, we created a tool called
-[`timescaledb-tune`][tstune] that handles setting the most common parameters to
-good values based on your system. It accounts for memory, CPU, and PostgreSQL
-version. `timescaledb-tune` is packaged along with our binary releases as a
+To help make configuring TimescaleDB a little easier, you can use the [`timescaledb-tune`][tstune]
+tool. This tool handles setting the most common parameters to good values based
+on your system. It accounts for memory, CPU, and PostgreSQL version.
+`timescaledb-tune` is packaged with the TimescaleDB binary releases as a
 dependency, so if you installed TimescaleDB from a binary release (including
 Docker), you should already have access to the tool. Alternatively, you can use
-the `go get` command to install it:
+the `go install` command to install it:
 
 ```bash
-go get github.com/timescale/timescaledb-tune/cmd/timescaledb-tune
+go install github.com/timescale/timescaledb-tune/cmd/timescaledb-tune@latest
 ```
 
-The `timescaledb-tune` tool reads your system's `postgresql.conf` file and offers
-interactive suggestions for your settings. Here is an example of the tool running:
+The `timescaledb-tune` tool reads your system's `postgresql.conf` file and
+offers interactive suggestions for your settings. Here is an example of the tool
+running:
 
 ```bash
 Using postgresql.conf at this path:
@@ -47,12 +48,15 @@ work_mem = 26214kB
 Is this okay? [(y)es/(s)kip/(q)uit]:
 ```
 
-When you have answered the questions, the changes are written to your `postgresql.conf` and take effect when you next restart.
+When you have answered the questions, the changes are written to your
+`postgresql.conf` and take effect when you next restart.
 
-If you are starting on a fresh instance and don't want to approve each group of changes, you can automatically accept and append the suggestions to the end of your `postgresql.conf` by using some additional flags when you run the tool:
+If you are starting on a fresh instance and don't want to approve each group of
+changes, you can automatically accept and append the suggestions to the end of
+your `postgresql.conf` by using some additional flags when you run the tool:
+
 ```bash
 $ timescaledb-tune --quiet --yes --dry-run >> /path/to/postgresql.conf
 ```
-
 
 [tstune]: https://github.com/timescale/timescaledb-tune
