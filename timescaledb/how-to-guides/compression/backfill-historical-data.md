@@ -116,6 +116,6 @@ We plan to remove this limitation in future releases.
 
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
-[compression-schema-changes]: /how-to-guides/compression/modify-a-schema/
+[compression-schema-changes]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema/
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
 [run-job]: /api/:currentVersion:/actions/run_job/
