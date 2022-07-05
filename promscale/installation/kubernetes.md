@@ -10,15 +10,17 @@ packages and installation instructions, see the
 
 The Helm charts must be installed
 in this order:
-1.  Install the TimescaleDB Helm chart
-1.  Install the Promscale Helm chart
+
+1. Install the TimescaleDB Helm chart
+1. Install the Promscale Helm chart
 
 ### Install the TimescaleDB Helm chart
 Before you install the TimescaleDB Helm chart, you need to configure these
 settings in the [`values.yaml`][timescaledb-single-values-yaml] configuration file:
-*   [Credentials for the superuser, admin, and other users][timescaledb-helm-values-creds]
-*   [TLS Certificates][timescaledb-helm-values-certs]
-*   **Optional:** `pgbackrest` [configuration][timescale-backups]
+
+* [Credentials for the superuser, admin, and other users][timescaledb-helm-values-creds]
+* [TLS Certificates][timescaledb-helm-values-certs]
+* **Optional:** `pgbackrest` [configuration][timescale-backups]
 
 <highlight type="note">
 If you do not configure the user credentials before you start, they are randomly
@@ -33,9 +35,9 @@ high availability mode. This creates three database replicas,
 which consumes three times the amount of disk space. Each database
 instance mounts to its own persistent volume claim (PVC).
 
-You can
-disable high availability mode by changing the value of `replicaCount`
-to `1` in [`values.yaml`][timescaledb-single-values-yaml].
+You can disable high availability mode by changing the value of `replicaCount`
+to `1` in
+[`values.yaml`][timescaledb-single-values-yaml].
 
 <procedure>
 
@@ -181,4 +183,4 @@ For instructions, see the [send data][send-data] section.
 [template-manifest]: https://github.com/timescale/promscale/blob/0.12.1/deploy/static/deploy.yaml
 [timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
 [timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
-[send-data]: promscale/:currentVersion:/send-data/
+[send-data]: /promscale/:currentVersion:/send-data/
