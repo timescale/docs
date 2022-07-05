@@ -180,4 +180,4 @@ For more information about data retention, see the
 
 
 [tsdb-caggs]: timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
-[retention]: /manage-data/retention/
+[retention]: promscale/:currentVersion:/manage-data/retention/
