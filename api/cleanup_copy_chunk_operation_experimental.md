@@ -6,7 +6,7 @@ topic: multi-node
 tags: [chunks, multi-node, move, copy, distributed hypertables]
 ---
 
-import Experimental from '../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 ## cleanup_copy_chunk_operation() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
 You can [copy][copy_chunk] or [move][move_chunk] a
