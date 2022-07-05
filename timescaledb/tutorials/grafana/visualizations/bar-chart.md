@@ -62,8 +62,8 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 
 1. In the Grafana dashboard, in the `Dashboard variable` field, select a stock
     to graph. Adjust the time range of the dashboard if needed. Make sure the
-    returned data has column named `time` that contains timestamps. The
-    timestamps should be in ascending order, you might get errors otherwise. The
+    returned data has a column named `time` that contains timestamps. The
+    timestamps should be in ascending order. Otherwise, you get an error. The
     returned data looks like this:
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/Tabledataforgoogle.png" alt="Screenshot of the table view of valid time-series data for Google stock."/>
