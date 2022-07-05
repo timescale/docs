@@ -28,20 +28,20 @@ credentials instead it uses the same credentials that are generated during the
 `helm install`.
 </highlight>
 
-By default, the `timescaledb-single` Helm chart deploys TimescaleDB in 
-high availability mode. This creates three database replicas, 
-which consumes three times the amount of disk space. Each database 
-instance mounts to its own persistent volume claim (PVC). 
+By default, the `timescaledb-single` Helm chart deploys TimescaleDB in
+high availability mode. This creates three database replicas,
+which consumes three times the amount of disk space. Each database
+instance mounts to its own persistent volume claim (PVC).
 
-You can 
+You can
 disable high availability mode by changing the value of `replicaCount`
 to `1` in [`values.yaml`][timescaledb-single-values-yaml].
 
 <procedure>
 
 #### Disabling TimescaleDB high availability mode
-1.  Download the default [`values.yaml`][timescaledb-single-values-yaml] file for the `timescaledb-single` Helm chart. 
-1.  In `values.yaml`, change the default `replicaCount` from `3` to `1`. 
+1.  Download the default [`values.yaml`][timescaledb-single-values-yaml] file for the `timescaledb-single` Helm chart.
+1.  In `values.yaml`, change the default `replicaCount` from `3` to `1`.
 1.  Use this `values.yaml` file with the `-f` flag when installing the `timescaledb-single` Helm chart.
     For installation instructions, see [the procedures for installing the Helm chart](#installing-the-timescaledb-helm-chart).
 
@@ -169,10 +169,16 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 
 </procedure>
 
+After you have installed Promscale, you can ingest data.
+For instructions, see the [send data][send-data] section.
+
+[timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
+[timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
 [helm-install]: https://helm.sh/docs/intro/install/
 [promscale-values-yaml]: https://github.com/timescale/promscale/blob/master/deploy/helm-chart/values.yaml
-[timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml 
+[timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
 [template-manifest]: https://github.com/timescale/promscale/blob/0.12.1/deploy/static/deploy.yaml
 [timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
 [timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
+[send-data]: promscale/:currentVersion:/send-data/
