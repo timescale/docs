@@ -14,7 +14,7 @@ hyperfunction_subfamily: StateAgg
 hyperfunction_type: aggregate
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # state_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 The `state_agg` aggregate measures the amount of time spent in each 

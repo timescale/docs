@@ -1,4 +1,4 @@
-import Component from '../../../../_partials/_cloudtrial.mdx';
+import CloudTrial from 'versionContent/_partials/_cloudtrial.mdx';
 
 # Connect TimescaleDB and Grafana
 Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data
@@ -27,7 +27,7 @@ Grafana.
 1.  Click `Download the cheatsheet`. This `.sql` file contains the credentials
     that you require to configure TimescaleDB as a data source on Grafana.
 
-<Component />
+<CloudTrial />
 
 </procedure>
 

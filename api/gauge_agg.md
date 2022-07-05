@@ -14,7 +14,7 @@ hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # gauge_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 Produces a `GaugeSummary` that can be used to accumulate gauge data for further
@@ -90,4 +90,4 @@ SELECT
 FROM t;
 ```
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

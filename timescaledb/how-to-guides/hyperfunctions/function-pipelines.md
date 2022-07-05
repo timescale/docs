@@ -1,4 +1,4 @@
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Function pipelines are an experimental feature, designed to radically improve

@@ -14,7 +14,7 @@ hyperfunction_subfamily: StateAgg
 hyperfunction_type: accessor
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Returns the data accumulated in a [state aggregate][state_agg].  
@@ -58,4 +58,4 @@ OK    | 106000000
 START |  11000000
 ```
 
-[state_agg]: /hyperfunctions/frequency-analysis/state_agg/
+[state_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/state_agg/

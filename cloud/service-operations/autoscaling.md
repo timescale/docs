@@ -86,7 +86,7 @@ plan for this before you begin!
 
 ## Configure autoscaling for disk size
 Disk size autoscaling is enabled by default on most services. When you consume
-95% or more of your existing disk space, disk size is automatically increased to
+85% or more of your existing disk space, disk size is automatically increased to
 the next size available, up to a configurable limit.
 
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
@@ -150,9 +150,9 @@ underlying storage volume. This can typically happen within 6 hours, but it
 might take 24 hours in some cases. The time doesn't always scale linearly with
 the volume size. For safety, you might want to leave 24 hours.
 
-Resizing is triggered when your disk is 95% full, so the first resize
-is triggered at 95&nbsp;GB, and the second resize is triggered at 118&nbsp;GB.
-If you expect your data to grow from 95&nbsp;GB to 118&nbsp;GB within a day, you
+Resizing is triggered when your disk is 85% full, so the first resize
+is triggered at 85&nbsp;GB, and the second resize is triggered at 118&nbsp;GB.
+If you expect your data to grow from 85&nbsp;GB to 118&nbsp;GB within a day, you
 should manually resize your storage to accommodate the heavy load.
 
 ### Size increase gradations
