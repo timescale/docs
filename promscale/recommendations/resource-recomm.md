@@ -26,7 +26,7 @@ For optimal performance of `remote_write` to Promscale, use this Prometheus
 remote_write:
   remote_timeout: 100s
   queue_config:
-    capapcity: 100000
+    capacity: 100000
     max_samples_per_second: 10000
     batch_send_deadline: 30s
     min_shards: 20

@@ -26,7 +26,7 @@ packages and instructions, see the [Docker installation documentation][docker-in
 
 <procedure>
 
-### Installing Promscale using Docker run
+### Installing Promscale using Docker
 1.  Use Docker to create a network for Promscale and TimescaleDB:
     ```bash
     docker network create --driver bridge promscale

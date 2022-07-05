@@ -12,12 +12,13 @@ performance of Promscale.
 
 <procedure>
 
-### Compiling and installing TimescaleDB
+### Installing TimescaleDB
 
 1.  Install TimescaleDB following the instructions in the 
     [TimescaleDB install page][tsdb-install-self-hosted]
-1.  Compile and install the Promscale extension from source that is available on
-    the [Promscale extension page][promscale-extension]
+1.  Install the Promscale extension using packages specifc to
+    the operating system [Debian or Ubuntu][debian-ubuntu]
+    and [Redhat or CentOS][rhel-centos]
 
 </procedure>
 
@@ -56,6 +57,7 @@ For instructions, see the [send data][send-data] section.
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
-[promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
+[rhel-centos]: promscale/:currentVersion:/installation/rhel-centos#installing-timescaledb-and-the-promscale-extension
+[debian-ubuntu]: promscale/:currentVersion:/installation/debian-ubuntu#installing-timescaledb-and-the-promscale-extension
 [releases]: https://github.com/timescale/promscale/releases/
 [send-data]: promscale/:currentVersion:/send-data/

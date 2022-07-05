@@ -103,8 +103,36 @@ module.exports = [
         ],
       },
       {
-        title: "Recommendations and operations",
-        href: "guides",
+        title: "Recommendations",
+        href: "recommendations",
+        tags: ["promscale", "learn", "analytics", "prometheus"],
+        keywords: ["Promscale", "analytics"],
+        excerpt:
+          "Install Promscale on Kubernetes, Docker, virtual machine, or bare metal",
+        children: [
+          {
+            title: "Migrate existing data",
+            href: "prom-migrator",
+            tags: ["promscale", "install", "data", "migration", "prometheus"],
+            keywords: ["Promscale", "analytics"],
+            excerpt:
+              "Use Prom-migrator to send existing Prometheus data to Promscale",
+          },
+          {
+            title: "Upgrade Promscale",
+            href: "upgrade",
+            tags: ["promscale", "upgrade"],
+            keywords: ["Promscale", "upgrade"],
+            relatedPages: [
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Upgrade Promscale",
+          },
+        ],
+      },
+      {
+        title: "Recommendations",
+        href: "recommendations",
         tags: ["promscale", "learn", "analytics", "prometheus"],
         keywords: ["Promscale", "analytics"],
         excerpt:
@@ -123,24 +151,6 @@ module.exports = [
             tags: ["promscale", "install", "analytics"],
             keywords: ["Promscale", "analytics"],
             excerpt: "Recommended resources for Promscale",
-          },
-          {
-            title: "Migrate existing data",
-            href: "prom-migrator",
-            tags: ["promscale", "install", "data", "migration", "prometheus"],
-            keywords: ["Promscale", "analytics"],
-            excerpt:
-              "Use Prom-migrator to send existing Prometheus data to Promscale",
-          },
-          {
-            title: "Upgrade Promscale",
-            href: "upgrade",
-            tags: ["promscale", "upgrade"],
-            keywords: ["Promscale", "upgrade"],
-            relatedPages: [
-              "/promscale/:currentVersion:/send-data/",
-            ],
-            excerpt: "Upgrade Promscale",
           },
         ],
       },
