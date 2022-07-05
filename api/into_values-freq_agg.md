@@ -14,7 +14,7 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 This function returns the data accumulated in a
@@ -69,5 +69,5 @@ The output for this query looks like this, with some variation due to randomness
     10 |  0.05286 |  0.05289
 ```
 
-[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
-[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
+[freq_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn_agg/

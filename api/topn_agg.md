@@ -14,7 +14,7 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: aggregate
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # topn_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 Produces an aggregate that can be passed to the [`topn` function][topn] to
@@ -81,5 +81,5 @@ the `topn` function:
 SELECT topn(topn_agg(20, zip_code)) FROM employees;
 ```
 
-[topn]: /hyperfunctions/frequency-analysis/topn/
+[topn]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn/
 [zeta-distribution]: https://en.wikipedia.org/wiki/Zeta_distribution

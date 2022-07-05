@@ -62,11 +62,11 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 
 1. In the Grafana dashboard, in the `Dashboard variable` field, select a stock
     to graph. Adjust the time range of the dashboard if needed. Make sure the
-    returned data has column named `time` that contains timestamps. The
-    timestamps should be in ascending order, you might get errors otherwise. The
+    returned data has a column named `time` that contains timestamps. The
+    timestamps should be in ascending order. Otherwise, you get an error. The
     returned data looks like this:
 
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/Tabledataforgoogle.png" alt="Screenshot of the table view of valid time series data for google stock."/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/Tabledataforgoogle.png" alt="Screenshot of the table view of valid time-series data for Google stock."/>
 
 1. In the `Visualizations` field, select `Bar chart`. Grafana turns the query
     into a bar chart. This example shows a vertical bar chart price distribution
@@ -86,14 +86,14 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
 
 ## Create multiple bar charts
 
-If you want compare the distributions of 4 or more different stocks, you can
+If you want to compare the distributions of 4 or more different stocks, you can
 create a panel containing multiple bar charts. The database returns the
 transactions for all selected values, and Grafana buckets them in separate bar
 charts.
 
 <procedure>
 
-### Creating multiple bar chart in a single panel
+### Creating multiple bar charts in a single panel
 
 1. Fetch all company symbols from the dataset in the
    [Getting Started Tutorial][gsg-data] with this query:
@@ -143,7 +143,7 @@ charts.
 ## Create a stacked bar chart
 
 You can use a stacked bar chart to show how different stock divides into smaller
-categories, and what the relationship of each part has on the total amount.
+categories, and what impact each part has on the total amount.
 
 The previous examples used vertical, horizontal, and multiple bar charts with
 price transactions. In this section, you see the trading volume of each stock
@@ -166,8 +166,8 @@ traded volume. This helps to calculate the volume of data for each bucket.
           time_bucket('$bucket_interval', time) AS time,
           symbol,
           MAX(day_volume) - LAG(max(day_volume), 1) OVER(
-          PARTITION BY symbol
-          ORDER BY time_bucket('$bucket_interval', time)
+              PARTITION BY symbol
+              ORDER BY time_bucket('$bucket_interval', time)
           ) AS bucket_volume
       FROM stocks_real_time srt
       WHERE symbol = $symbol
