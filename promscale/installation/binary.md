@@ -1,5 +1,5 @@
 # Install Promscale from binary
-You can install Promscale from binary on any operating systems. The Promscale
+You can install Promscale from a pre-compiled binary on any operating system. The Promscale
 binaries are available at [GitHub releases page][gh-promscale-download].
 
 Before you begin, you must have an already installed and working Prometheus or
