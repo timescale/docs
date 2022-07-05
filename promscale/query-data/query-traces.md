@@ -1,6 +1,11 @@
 # Query traces in Promscale
-SQL allows you to conduct correlational analysis of different types of data,
-such as metrics and spans. Promscale helps you construct these kinds of queries.
+This section covers information about the data model used with traces and the
+different SQL queries you can use for trace data.
+
+You can query the data in Promscale with your preferred SQL tool. For example,
+you can use `psql`.
+For more information about installing and using `psql`, see the
+[installing psql section][install-psql].
 
 ## Span
 A span represents a single operation within a trace. The structure of a span is

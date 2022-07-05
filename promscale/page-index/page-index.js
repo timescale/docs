@@ -157,13 +157,6 @@ module.exports = [
         excerpt: "Learn how to query data in Promscale",
         children: [
           {
-            title: 'About querying data in Promscale',
-            href: 'about-querying-data',
-            tags: ["promscale", "analytics", "sql", "promql", "prometheus"],
-            keywords: ["Promscale", "analytics"],
-            excerpt: 'Learn about querying data in Promscale'
-          },
-          {
             title: 'Query metrics',
             href: 'query-metrics',
             tags: ["promscale", "analytics", "sql", "prometheus"],
@@ -176,13 +169,6 @@ module.exports = [
             tags: ["promscale", "analytics", "sql", "prometheus"],
             keywords: ["Promscale", "analytics", "query", "traces"],
             excerpt: 'Query trace data in Promscale'
-          },
-          {
-            title: 'Advanced queries',
-            href: 'advanced-queries',
-            tags: ["promscale", "analytics", "sql", "prometheus"],
-            keywords: ["Promscale", "analytics", "query"],
-            excerpt: 'Advanced queries in Promscale'
           },
         ]
       },
