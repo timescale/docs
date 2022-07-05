@@ -2,11 +2,11 @@ import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
 # About upgrades
 A major upgrade is when you upgrade from one major version of TimescaleDB, to
-the next major version. For example, when you upgrade from TimescaleDB&nbsp;1,
+the next major version. For example, when you upgrade from TimescaleDB&nbsp;1
 to TimescaleDB&nbsp;2.
 
 A minor upgrade is when you upgrade within your current major version of
-TimescaleDB. For example, when you upgrade from TimescaleDB&nbsp;2.5, to
+TimescaleDB. For example, when you upgrade from TimescaleDB&nbsp;2.5 to
 TimescaleDB&nbsp;2.6.
 
 If you originally installed TimescaleDB using Docker, you can upgrade from

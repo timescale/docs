@@ -753,7 +753,7 @@ module.exports = [
             href: "about-upgrades",
             tags: ["upgrade", "update", "timescaledb"],
             keywords: ["upgrade", "TimescaleDB"],
-            excerpt: "Learn about Upgrading TimescaleDB",
+            excerpt: "Learn about upgrading TimescaleDB",
           },
           {
             title: "Minor upgrades",

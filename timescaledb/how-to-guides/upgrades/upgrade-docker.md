@@ -111,3 +111,5 @@ data.
     ```sql
     ALTER EXTENSION timescaledb UPDATE;
     ```
+
+</procedure>
