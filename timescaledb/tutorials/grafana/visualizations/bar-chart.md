@@ -80,7 +80,7 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
     the bar chart section. In the `Orientaton` section, click `horizontal`. The
     horizontal bar chart looks like this:
 
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/horizontalbarchart.png" alt="Screenshot of the horizontal bar chart produced by Grafana. The horizontal bar chart represents the price of google in the past 2 months."/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/barchart/horizontalbarchartview.png" alt="Screenshot of the horizontal bar chart produced by Grafana. The horizontal bar chart represents the price of google in the past 2 months."/>
 
 </procedure>
 
