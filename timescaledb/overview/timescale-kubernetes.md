@@ -50,8 +50,8 @@ that sets up:
 * Creates each Pod that has a container using a Docker image which includes the
   TimescaleDB multi-node sources.
 
-If you need to add or remove nodes set the values in the `dataNodes` parameter
-of the `values.yaml` file before you begin the installation using the
+To add or remove nodes, change the `dataNodes` parameter in
+the `values.yaml` file. Do this before installing TimescaleDB from the
 `timescaledb-multinode` Helm chart. For details about the parameters you can
 set, see the [Administrator Guide][admin-guide].
 
