@@ -1,3 +1,5 @@
+import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
+
 # Troubleshooting continuous aggregates
 This section contains some ideas for troubleshooting common problems experienced
 with continuous aggregates.
@@ -14,7 +16,7 @@ with continuous aggregates.
 
 ## Retention policies
 If you have hypertables that use a different retention policy to your continuous
-aggregates, the retention policies are applied separately.  The retention policy
+aggregates, the retention policies are applied separately. The retention policy
 on a hypertable determines how long the raw data is kept for. The retention
 policy on a continuous aggregate determines how long the continuous aggregate is
 kept for. For  example, if you have a hypertable with a retention policy of a
@@ -45,7 +47,7 @@ This can use a lot of resources to process, especially if you have any important
 data in the past that also needs to be brought to the present.
 
 Consider an example where you have 300 columns on a single hypertable and use,
-for example, five of them in a continuous aggregation.  In this case, it could
+for example, five of them in a continuous aggregation. In this case, it could
 be hard to refresh and would make more sense to isolate these columns in another
 hypertable. Alternatively, you might create one hypertable per metric and
 refresh them independently.
@@ -159,17 +161,12 @@ that continuous aggregates do not support, you see an error like this:
 ERROR:  invalid continuous aggregate view
 SQL state: 0A000
 ```
-Continuous aggregates are supported for most aggregate functions that can be
-[parallelized by PostgreSQL][postgres-parallel-agg], including the standard
-aggregates like `SUM` and `AVG`. You can also use more complex expressions on
-top of the aggregate functions, for example `max(temperature)-min(temperature)`.
 
-However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
-continuous aggregates since they cannot be parallelized with
-PostgreSQL. TimescaleDB does not support `FILTER` or `JOIN` clauses,
-or window functions in continuous aggregates.
+TimescaleDB doesn't support window functions or `JOIN` clauses on continuous
+aggregates. In versions earlier than 2.7, it doesn't support any
+[non-parallelizable SQL aggregates][postgres-parallel-agg].
 
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+<CaggsFunctionSupport />
 
 ## Queries using locf() do not return NULL values
 When you have a query that uses a last observation carried forward (locf)
@@ -188,3 +185,20 @@ dev=# select * FROM (select time_bucket_gapfill(4, time,-5,13), locf(avg(v)::int
                   -8 |
 (6 rows)
 ```
+
+## Cannot refresh compressed chunks of a continuous aggregate
+Compressed chunks of a continuous aggregate can't be refreshed. This follows
+from a general limitation where compressed chunks can't be updated or deleted.
+
+If you try to refresh the compressed regions, you get this error:
+```
+ERROR:  cannot update/delete rows from chunk <CHUNK_NAME> as it is compressed
+```
+
+If you receive historical data and must refresh a compressed region, first
+[decompress the chunk][decompression]. Then manually run
+[`refresh_continuous_aggregate`][refresh_continuous_aggregate].
+
+[decompression]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+[refresh_continuous_aggregate]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/

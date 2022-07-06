@@ -175,6 +175,8 @@ a `time_bucket()` of one week, starts on the beginning date of the bucket, not
 the current time that you run the query. To learn more about how time buckets
 are calculated, see the [how-to guide for time buckets][time-bucket-how-to].
 
+<video url="https://www.youtube.com/embed/WFg0B1Bihtg"></video>
+
 ## Next steps
 Now that you're familiar with some TimescaleDB queries and functions, like `time_bucket`, learn about
 continuous aggregates in the [next section][create-cagg].

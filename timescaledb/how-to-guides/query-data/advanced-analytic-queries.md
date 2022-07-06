@@ -5,7 +5,7 @@ TimescaleDB. This section contains the most common and useful analytic queries.
 
 ## Median and percentile
 Use [`percentile_cont`][percentile_cont] to calculate percentiles. You can also
-use this function to look for the 50th percentile, or median. For example, to
+use this function to look for the fiftieth percentile, or median. For example, to
 find the median temperature:
 ```sql
 SELECT percentile_cont(0.5)
@@ -16,7 +16,7 @@ You can also use Timescale Toolkit to find the
 [approximate percentile][toolkit-approx-percentile].
 
 ## Cumulative sum
-Use `sum(sum(column)) OVER(ORDER BY group)` to find the cumulative sum.  For
+Use `sum(sum(column)) OVER(ORDER BY group)` to find the cumulative sum. For
 example:
 ```sql
 SELECT location, sum(sum(temperature)) OVER(ORDER BY location)

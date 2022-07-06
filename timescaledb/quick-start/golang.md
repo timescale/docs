@@ -5,11 +5,11 @@ This quick start guide is designed to get the Golang developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#new_database)
-* [Create a relational table](#create_table)
+* [Connect to TimescaleDB](#connect-to-database)
+* [Create a relational table](#create-a-table)
 * [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert_rows)
-* [Execute a query on your Timescale database](#execute_query)
+* [Insert a batch of rows into your Timescale database](#insert-a-batch-of-rows-into-your-timescale-database)
+* [Execute a query on your Timescale database](#execute-a-query-on-your-timescale=database)
 
 ## Prerequisites
 To complete this tutorial, you need a cursory knowledge of the Structured Query
@@ -23,7 +23,7 @@ You also need:
 * Go installed on your machine. ([Install instructions][golang-install])
 * The [PGX driver][pgx-driver-github] for Go
 
-## Connect to database [](new-database)
+## Connect to database
 
 Locate your TimescaleDB credentials in order to compose a connection string for
 PGX to use in order to connect to your TimescaleDB instance.
@@ -145,7 +145,7 @@ func main() {
 
 Congratulations, you've successfully connected to TimescaleDB using Go.
 
-## Create a table [](create_table)
+## Create a table
 
 Note: For the rest of this tutorial, you use a connection pool, since
 having concurrent connections is the most common use case.
@@ -206,7 +206,7 @@ func main() {
 }
 ```
 
-## Generate a hypertable [](create_hypertable)
+## Generate a hypertable
 
 In TimescaleDB, the primary point of interaction with your data is
 a hypertable, the abstraction of a single continuous table across all
@@ -225,7 +225,7 @@ First, we create a variable which houses our `CREATE TABLE SQL` statement
 for our hypertable. Notice how the hypertable has the compulsory time column:
 
 Second, we formulate the SELECT statement to convert the table created
-into a hypertable.Note that we must specify the table name which we
+into a hypertable. Note that we must specify the table name which we
 wish to convert to a hypertable and its time column name as the two
 arguments, as mandated by the [create_hypertable docs][hypertable-docs]:
 
@@ -302,7 +302,7 @@ func main() {
 
 Congratulations, you've successfully created a hypertable in your Timescale database using Go.
 
-## Insert a row into your Timescale database [](insert_rows)
+## Insert a row into your Timescale database
 
 Here's a typical pattern you'd use to insert some data into a table. In the
 example below, we insert the relational data from the two arrays, `sensorTypes`
@@ -697,7 +697,7 @@ which is a command line program for parallelizing PostgreSQL's built-in `COPY`
 functionality for bulk inserting data into TimescaleDB.
 </highlight>
 
-## Execute a query on your Timescale database [](execute_query)
+## Execute a query on your Timescale database
 
 ### Step 1: Define the SQL query
 
@@ -877,8 +877,7 @@ Golang application, be sure to check out these advanced TimescaleDB tutorials:
 [golang-install]: https://golang.org/doc/install
 [pgx-driver-github]: https://github.com/jackc/pgx
 [libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
-[cloud-signup]: https://www.timescale.com/products
 [hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
-[getting-started]: /getting-started/
+[getting-started]: /getting-started/:currentVersion:/

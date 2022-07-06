@@ -1,5 +1,6 @@
 *~
 .DS_Store
 .idea
+_notes/
 .github/workflows/update-search.yml
 *.swp

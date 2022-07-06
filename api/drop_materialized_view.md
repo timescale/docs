@@ -1,3 +1,11 @@
+---
+api_name: DROP MATERIALIZED VIEW (Continuous Aggregate)
+excerpt: Drop a continuous aggregate view
+license: community
+topic: continuous aggregates
+tags: [continuous aggregates, materialized views, drop, delete]
+---
+
 ## DROP MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag> 
 Continuous aggregate views can be dropped using the `DROP MATERIALIZED VIEW` statement.
 

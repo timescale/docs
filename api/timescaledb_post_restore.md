@@ -1,3 +1,11 @@
+---
+api_name: timescaledb_post_restore()
+excerpt: Resume normal operations after restoring a database
+license: apache
+topic: administration
+tags: [administration, restore, backup, background workers]
+---
+
 ## timescaledb_post_restore() 
 Perform the proper operations after restoring the database has completed.
 Specifically this resets the `timescaledb.restoring` GUC and restarts any

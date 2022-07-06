@@ -1,5 +1,5 @@
 name: Linting
-on: [push]
+on: [pull_request]
 
 jobs:
   prose:
@@ -9,12 +9,6 @@ jobs:
       uses: actions/checkout@master
 
     - name: Vale
-      uses: errata-ai/vale-action@v1.4.0
-      with:
-        onlyAnnotateModifiedLines: true
-        # config: https://raw.githubusercontent.com/errata-ai/vale/master/.vale.ini
-        # styles: |
-        #   https://github.com/errata-ai/Google/releases/latest/download/Google.zip
+      uses: errata-ai/vale-action@v2
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-      continue-on-error: true

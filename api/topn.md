@@ -1,5 +1,11 @@
 ---
-api_name: topn
+api_name: topn()
+excerpt: Calculate the top N most common values from data in a frequency or top N aggregate
+license: community
+toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, most common, frequency, frequency aggregates, top N]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -7,6 +13,8 @@ hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
+
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Returns the most common values accumulated in a [frequency aggregate][freq_agg]
@@ -31,11 +39,7 @@ allow you to store all values that surpass a threshold frequency. They are
 useful if you want to store and use frequency information, and not just
 calculate top N.
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk, and
-do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ## Required arguments
 
@@ -94,5 +98,5 @@ The output for this query:
    15
 ```
 
-[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
-[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
+[freq_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn_agg/

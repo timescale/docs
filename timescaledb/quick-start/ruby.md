@@ -22,7 +22,7 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 You also need to [install Rails][rails-install].
 
-## Connect Ruby to TimescaleDB [](new-database)
+## Connect Ruby to TimescaleDB
 
 ### Step 1: Create a new Rails application
 Let's start by creating a new Rails application configured to use PostgreSQL as the
@@ -113,7 +113,7 @@ rails db:create
 This creates the `my_app_db` database in your TimescaleDB instance and a `schema.rb`
 file that represents the state of your TimescaleDB database.
 
-## Create a relational table [](create_table)
+## Create a relational table
 
 ### Step 1: Add TimescaleDB to your Rails migration
 
@@ -187,7 +187,7 @@ rails generate scaffold PageLoads user_agent:string
 TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on your table
 include all partitioning columns, which in our case is the time column. A new Rails model
 includes a `PRIMARY KEY` index for `id` by default, so we need to either remove the
-column or make sure that the index includes time as part of a "composite key".
+column or make sure that the index includes time as part of a "composite key."
 
 <highlight type="tip">
 Composite keys aren't supported natively by Rails, but if you need to keep
@@ -239,7 +239,7 @@ the `\d page_loads` command in the `rails dbconsole` output:
  updated_at | timestamp(6) without time zone |           | not null |
 ```
 
-## Generate hypertable [](create_hypertable)
+## Generate hypertable
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
 the abstraction of a single continuous table across all space and time
@@ -299,7 +299,7 @@ Triggers:
     ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE PROCEDURE _timescaledb_internal.insert_blocker()
 ```
 
-## Insert rows into TimescaleDB [](insert_rows)
+## Insert rows into TimescaleDB
 
 Create a new view and controller so that we can insert a value into
 the database and see our results. When the view displays, you can store
@@ -389,7 +389,7 @@ The output should look like this:
 (4 rows)
 ```
 
-## Execute a query [](execute_query)
+## Execute a query
 
 So far, we've created a TimescaleDB table and inserted data into it. Now, let's
 retrieve data and display it.
@@ -713,18 +713,14 @@ be sure to check out these advanced TimescaleDB tutorials:
 
 
 [install-timescale]: /install/latest/
-[setup-psql]: /how-to-guides/connecting/psql/
-[install]: /install/latest/
-[indexing-api-guide]: /how-to-guides/schema-management/indexing/
-[crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
-[time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /how-to-guides/continuous-aggregates/
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
-[hypertables]: /overview/core-concepts/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/
 [active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
 [rails-install]: https://guides.rubyonrails.org/getting_started.html
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
-[time_bucket]: https://docs.timescale.com/latest/api#time_bucket
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark

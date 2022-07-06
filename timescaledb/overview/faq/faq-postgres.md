@@ -26,7 +26,7 @@ time-space partitioning, even when running _on a single machine_. So all writes
 to recent time intervals are only to tables that remain in memory, and updating any
 secondary indexes is also fast as a result.
 * Superior (or similar) query performance: Queries that can reason
-specifically about time ordering can be _much_ more performant (1000s of times faster)
+specifically about time ordering can be _much_ more performant (thousands of times faster)
 in TimescaleDB. On single disk machines, at least, many simple queries that just perform
 indexed lookups or table scans are similarly performant between PostgreSQL and TimescaleDB.
 * Much faster data deletion: To save space or to implement data retention policies,

@@ -1,3 +1,11 @@
+---
+api_name: timescaledb_information.chunks
+excerpt: Get metadata about hypertable chunks
+license: apache
+topic: hypertables
+tags: [informational views, chunks, hypertables, schemas, tablespaces, data nodes, time ranges]
+---
+
 ## timescaledb_information.chunks
 
 Get metadata about the chunks of hypertables.
@@ -7,7 +15,7 @@ For information about a hypertable's secondary dimensions,
 the [dimensions view](/informational-views/dimensions/) should be used instead.
 
 If the chunk's primary dimension is of a time datatype, `range_start` and
-`range_end` are set.  Otherwise, if the primary dimension type is integer based,
+`range_end` are set. Otherwise, if the primary dimension type is integer based,
 `range_start_integer` and `range_end_integer` are set.
 
 ### Available columns

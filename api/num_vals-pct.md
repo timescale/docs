@@ -1,5 +1,10 @@
 ---
-api_name: num_vals
+api_name: num_vals()
+excerpt: Calculate the number of values contained in a percentile estimate
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, number, count, percentile aggregates]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

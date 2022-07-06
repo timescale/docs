@@ -43,14 +43,17 @@ packages and instructions, see the
     ```bash
     docker run --name promscale -d -p 9201:9201 \
     --network promscale timescale/promscale:latest \
-    -db-password=<password> \
-    -db-port=5432 \
-    -db-name=postgres \
-    -db-host=timescaledb \
-    -db-ssl-mode=allow
+    -db.password=<password> \
+    -db.port=5432 \
+    -db.name=postgres \
+    -db.host=timescaledb \
+    -db.ssl-mode=allow
     ```
 
 </procedure>
+
+After you have installed Promscale, you can ingest data.
+For instructions, see the [send data][send-data] section.
 
 ## Upgrading from the previous alpine image
 
@@ -107,3 +110,4 @@ If you are using Kubernetes instead of plain docker you should:
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
+[send-data]: promscale/:currentVersion:/send-data/

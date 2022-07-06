@@ -1,3 +1,11 @@
+---
+api_name: create_hypertable()
+excerpt: Create a hypertable
+license: apache
+topic: hypertables
+tags: [hypertables, create]
+---
+
 # create_hypertable()
 
 Creates a TimescaleDB hypertable from a PostgreSQL table (replacing

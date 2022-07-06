@@ -184,8 +184,15 @@ module.exports = [
         href: "time-buckets",
         tags: ["time bucket", "timescaledb"],
         keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
-        excerpt: "Learn how time buckets work in TimescaleDB.",
+        excerpt: "Aggregate data by time interval with time buckets",
         children: [
+          {
+            title: "About time buckets",
+            href: "about-time-buckets",
+            tags: ["time bucket", "timescaledb"],
+            keywords: ["time bucket", "TimescaleDB", "hyperfunction"],
+            excerpt: "Learn how time buckets work in TimescaleDB.",
+          },
           {
             title: "Use time buckets to group time-series data",
             href: "use-time-buckets",
@@ -286,9 +293,43 @@ module.exports = [
       {
         title: "Ingest data from other sources",
         href: "ingest-data",
-        tags: ["ingest", "data", "timescaledb"],
-        keywords: ["ingest", "timescaledb"],
-        excerpt: "Ingest data into TimescaleDB",
+        children: [
+          {
+            title: "About ingesting data from other sources",
+            href: "about-ingesting",
+            tags: ["ingest", "data", "timescaledb"],
+            keywords: ["ingest", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from third-party sources",
+          },
+          {
+            title: "Ingesting data with Prometheus",
+            href: "ingest-prometheus",
+            tags: ["ingest", "data", "prometheus", "promscale", "timescaledb"],
+            keywords: ["ingest", "promscale", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from Prometheus",
+          },
+          {
+            title: "Ingesting data with Kafka",
+            href: "ingest-kafka",
+            tags: ["ingest", "data", "kafka", "timescaledb"],
+            keywords: ["ingest", "kafka", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from Kafka",
+          },
+          {
+            title: "Ingesting data with Telegraf",
+            href: "ingest-telegraf",
+            tags: ["ingest", "data", "telegraf", "timescaledb"],
+            keywords: ["ingest", "telegraf", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB from Telegraf",
+          },
+          {
+            title: "Ingesting data with TimescaleDB parallel copy",
+            href: "ingest-parallel-copy",
+            tags: ["ingest", "data", "timescaledb"],
+            keywords: ["ingest", "timescaledb"],
+            excerpt: "Ingest data into TimescaleDB using parallel copy",
+          },
+        ],
       },
       {
         href: "query-data",
@@ -509,9 +550,17 @@ module.exports = [
             keywords: ["retention", "data", "TimescaleDB"],
             excerpt: "Manually drop chunks",
           },
+          {
+            title: "Troubleshooting data retention",
+            href: "troubleshooting",
+            tags: ["retention", "data", "tshoot", "timescaledb"],
+            keywords: ["retention", "data", "troubleshooting", "TimescaleDB"],
+            excerpt: "Troubleshoot data retention",
+          },
         ],
       },
       {
+        title: "Continuous aggregates",
         href: "continuous-aggregates",
         children: [
           {
@@ -534,6 +583,13 @@ module.exports = [
             tags: ["caggs", "manage", "timescaledb"],
             keywords: ["caggs", "TimescaleDB"],
             excerpt: "Manage refresh policies for continuous aggregates",
+          },
+          {
+            title: "Create an index on a continuous aggregate",
+            href: "create-index",
+            tags: ["indexes", "caggs", "timescaledb"],
+            keywords: ["indexes", "caggs", "TimescaleDB"],
+            excerpt: "Manage automatic index creation and manually create additional indexes",
           },
           {
             title: "Time in continuous aggregates",
@@ -689,37 +745,61 @@ module.exports = [
         ],
       },
       {
-        title: "Update TimescaleDB",
-        href: "update-timescaledb",
+        title: "Upgrade TimescaleDB",
+        href: "upgrades",
         children: [
           {
-            title: "Update from TimescaleDB 1.x to 2.x",
-            href: "update-timescaledb-2",
-            tags: ["upgrade", "1-x", "2-x", "timescaledb"],
-            keywords: ["upgrade", "1-x", "2-x", "TimescaleDB"],
-            excerpt: "Upgrade from TimescaleDB 1.x to TimescaleDB 2.x",
+            title: "About upgrades",
+            href: "about-upgrades",
+            tags: ["upgrade", "update", "timescaledb"],
+            keywords: ["upgrade", "TimescaleDB"],
+            excerpt: "Learn about upgrading TimescaleDB",
           },
           {
-            title: "Update using Docker",
-            href: "updating-docker",
-            tags: ["upgrade", "docker", "1-x", "2-x", "timescaledb"],
-            keywords: ["upgrade", "docker", "1-x", "2-x", "TimescaleDB"],
+            title: "Minor upgrades",
+            href: "minor-upgrades",
+            tags: ["upgrade", "update", "timescaledb"],
+            keywords: ["upgrade", "TimescaleDB"],
             excerpt:
-              "Upgrade from TimescaleDB 1.x to TimescaleDB 2.x using Docker",
+              "Upgrade to a new minor version of TimescaleDB",
           },
           {
-            title: "Upgrade PostgreSQL",
-            href: "upgrade-postgresql",
-            tags: ["upgrade", "postregsql", "timescaledb"],
-            keywords: ["upgrade", "postgresql", "TimescaleDB"],
-            excerpt: "Upgrade the version of PostgreSQL used by TimescaleDB",
+            title: "Major upgrades",
+            href: "major-upgrades",
+            tags: ["upgrade", "update", "timescaledb"],
+            keywords: ["upgrade", "TimescaleDB"],
+            excerpt:
+              "Upgrade to a new major version of TimescaleDB",
           },
           {
             title: "Downgrade TimescaleDB",
-            href: "downgrade-timescaledb",
+            href: "downgrade",
             tags: ["downgrade", "timescaledb"],
             keywords: ["TimescaleDB", "downgrade"],
             excerpt: "Downgrade a TimescaleDB version",
+          },
+          {
+            title: "Upgrade within Docker",
+            href: "upgrade-docker",
+            tags: ["upgrade", "update", "docker", "timescaledb"],
+            keywords: ["upgrade", "docker", "TimescaleDB"],
+            excerpt:
+              "Upgrade to a new minor version of TimescaleDB within a Docker container",
+          },
+          {
+            title: "Upgrade PostgreSQL",
+            href: "upgrade-pg",
+            tags: ["upgrade", "update", "postgresql", "timescaledb"],
+            keywords: ["upgrade", "PostgreSQL", "TimescaleDB"],
+            excerpt:
+              "Upgrade to a new version of PostgreSQL",
+          },
+          {
+            title: "Troubleshooting upgrades",
+            href: "troubleshooting",
+            tags: ["tshoot", "upgrade", "update", "timescaledb"],
+            keywords: ["troubleshooting", "upgrade", "TimescaleDB"],
+            excerpt: "Troubleshoot upgrading your TimescaleDB installation",
           },
         ],
       },
@@ -978,6 +1058,22 @@ module.exports = [
         tags: ["manage", "timescaledb"],
         keywords: ["manage", "timescaledb"],
         excerpt: "Additional tooling for managing TimescaleDB",
+        children: [
+          {
+            title: "About timescaledb-tune",
+            href: "about-timescaledb-tune",
+            tags: ["manage", "timescaledb"],
+            keywords: ["manage", "timescaledb"],
+            excerpt: "Automatically configure your TimescaleDB instance with `timescaledb-tune`",
+          },
+          {
+            title: "About timescaledb-parallel-copy",
+            href: "about-timescaledb-parallel-copy",
+            tags: ["manage", "timescaledb"],
+            keywords: ["manage", "timescaledb"],
+            excerpt: "Quickly insert bulk data by parallelizing `COPY` operations",
+          },
+        ]
       },
       {
         title: "Troubleshoot TimescaleDB",

@@ -1,5 +1,10 @@
 ---
-api_name: counter_agg
+api_name: counter_agg()
+excerpt: Aggregate counter data into a `CounterSummary` for further analysis
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, counters, CounterSummary, aggregates]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

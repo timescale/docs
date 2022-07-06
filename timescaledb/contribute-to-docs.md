@@ -95,7 +95,7 @@ that case, feel free to ignore them.
 &#10060; Simply install TimescaleDB.
 
 *And/Or*
-: Do not use. You can usually pick one. If you're not sure, pick "and".
+: Do not use. You can usually pick one. If you're not sure, pick "and."
 
 &#10060; I like apples and/or oranges.
 
@@ -185,6 +185,21 @@ device.
 
 ### U [](#U)
 
+*Update*
+: An update is a small or minor improvement, often delivered in a patch. Updates
+are done frequently, and require little or no downtime.
+
+&#128077; Install the security update to patch this version.
+
+*Upgrade*
+: An upgrade is a large or major improvement, and usually requires a new
+version. Upgrades are done less frequently, and could require planning,
+prepatory backups, and planned downtime.
+
+&#128077; Upgrade from TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2.
+
+&#128077; Upgrade from TimescaleDB&nbsp;2.3 to TimescaleDB&nbsp;2.4.
+
 *Utilize*
 : Do not use. Use "use" instead.
 
@@ -192,7 +207,7 @@ device.
 
 *Via*
 : Avoid if possible. There is usually a more accurate English word, like
-"through", "with", or "using".
+"through," "with," or "using."
 
 ### W [](#W)
 

@@ -95,7 +95,7 @@ def main():
 
 Congratulations, you've successfully connected to TimescaleDB using Python.
 
-## Create a relational table [](create_table)
+## Create a relational table
 
 ### Step 1: Formulate your SQL statement
 First, compose a string which contains the SQL statement that you would use to create
@@ -121,11 +121,11 @@ cursor.close()
 
 Congratulations, you've successfully created a relational table in TimescaleDB using Python.
 
-## Create hypertable [](create_hypertable)
+## Create hypertable
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertable].
 It provides an abstraction of a single continuous table across all space and time
-intervals. You can can query it via standard SQL.
+intervals. You can query it via standard SQL.
 
 Virtually all user interactions with TimescaleDB are with hypertables. Creating tables
 and indexes, altering tables, inserting data, selecting data, and most other tasks  can and should
@@ -177,7 +177,7 @@ cursor.close()
 
 Congratulations, you've successfully created a hypertable in your Timescale database using Python!
 
-## Insert rows into TimescaleDB [](insert_rows)
+## Insert rows into TimescaleDB
 
 ### How to insert rows using Psycopg2
 
@@ -317,7 +317,7 @@ print(cursor.fetchall())
 Congratulations, you've successfully inserted time-series data into TimescaleDB
 using Python and the `pgcopy` library.
 
-## Execute a query [](execute_query)
+## Execute a query
 
 ### Step 1: Define your query in SQL
 First, define the SQL query you'd like to run on the database. The example below
@@ -402,25 +402,22 @@ tutorials:
 - [Migrate your own Data][migrate]
 
 
-[setup-psql]: /how-to-guides/connecting/psql/
-[install]: /install/latest/
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
 [psycopg2-cursor]: https://www.psycopg.org/docs/connection.html?highlight=cursor#connection.cursor
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
-[nyc-taxi]: /tutorials/nyc-taxi-cab
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
-[time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /how-to-guides/continuous-aggregates/
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [self-hosted-install]: http://docs.timescale.com/install/latest/self-hosted/
 [cloud-install]: https://www.timescale.com/timescale-signup
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[hypertable]: /overview/core-concepts/hypertables-and-chunks/
+[hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
 [hypertable-api]: /api/:currentVersion:/hypertable/

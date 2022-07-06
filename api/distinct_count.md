@@ -1,5 +1,10 @@
 ---
-api_name: distinct_count
+api_name: distinct_count()
+excerpt: Estimate the number of distinct values from values in a hyperloglog
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, approximate count distinct, distinct count, hyperloglog]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -32,12 +37,12 @@ This example retrieves the distinct values from a hyperloglog
 called `hyperloglog`:
 
 ``` sql
-SELECT distinct_count(hyperloglog(64, data))
-FROM generate_series(1, 100) data
+SELECT distinct_count(hyperloglog(32768, data))
+FROM generate_series(1, 100000) data
 
  distinct_count
 ----------------
-            114
+         100151
 ```
 
 

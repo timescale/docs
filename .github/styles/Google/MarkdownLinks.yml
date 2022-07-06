@@ -1,7 +1,39 @@
-extends: conditional
+extends: script
 message: "Remember to include the link."
 level: error
-ignorecase: false
-# Ensures that the existence of 'first' implies the existence of 'second'.
-first: '(?:\[[\w\\`",.()\s-]+\])(\[[\w\s.-]+\])'
-second: '(\[[\w\s.-]+\])(?:: [\w\/.&#=:?-]+$)'
+scope: raw
+script: |-
+  text := import("text")
+  // Items in matches array show up as Vale admonitions
+  matches := []
+  // Remove frontmatter
+  documentMinusFrontmatter := text.re_replace("(?s)-{3}.*?-{3}", scope, "")
+  // Remove code blocks
+  documentMinusFrontmatterAndCode := text.re_replace("(?s)\\n\\x60{3}.*?\\x60{3}", documentMinusFrontmatter, "")
+  paragraphs := text.split(text.trim_space(documentMinusFrontmatterAndCode), "\n\n")
+  body := []
+  urls := ""
+  for i:=0; i<len(paragraphs); i++ {
+    if i == len(paragraphs) - 1 {
+      urls = paragraphs[i]
+    } else {
+      body = append(body, paragraphs[i])
+    }
+  }
+  for section in body {
+    for line in text.split(section, "\n") {
+      links := text.re_find("\\]\\[[^\\]]+\\]", line)
+      if links {
+        for i:=0; i<len(links); i++ {
+          reference := text.trim_prefix(text.trim_suffix(links[i][0].text, "]"), "][")
+          match := text.re_match("\\[" + reference + "\\]:", urls)
+          if !match {
+            lineIndex := text.index(scope, line)
+            start := lineIndex + links[i][0].begin + 1
+            end := lineIndex + links[i][0].end + 1
+            matches = append(matches, {begin: start, end: end})
+          }
+        }
+      }
+    }
+  } 

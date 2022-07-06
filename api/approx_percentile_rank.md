@@ -1,5 +1,11 @@
 ---
-api_name: approx_percentile_rank
+api_name: approx_percentile_rank()
+excerpt: Estimate the percentile of a given value from values in a percentile aggregate
+license: community
+toolkit: true
+experimental: false
+topic: hyperfunctions
+tags: [approximate, percentile, hyperfunctions]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

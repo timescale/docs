@@ -108,7 +108,7 @@ This query returns the label set for the metric `go_gc_duration` in JSON format,
 so you can read or further interact with it.
 
 ### Advanced query: percentiles aggregated over time and series
-This query calculates the 99th percentile over both time and series (`app_id`)
+This query calculates the ninety-ninth percentile over both time and series (`app_id`)
 for the metric named `go_gc_duration_seconds`. This metric is a measurement for
 how long garbage collection is taking in Go applications:
 ``` sql
@@ -206,7 +206,7 @@ An example of the output for this query:
 The examples in this section are for querying metrics from Prometheus and
 `node_exporter`. A more complex example provided by [Dan Luu][sql-query-dan-luu]
 shows how you can discover Kubernetes containers that are over-provisioned. In
-this query, you find containers whose 99th percentile memory utilization is low,
+this query, you find containers whose ninety-ninth percentile memory utilization is low,
 like this:
 ```sql
 WITH memory_allowed as (

@@ -1,3 +1,11 @@
+---
+api_name: get_telemetry_report()
+excerpt: Get the telemetry string that is sent to Timescale servers
+license: apache
+topic: administration
+tags: [telemetry, report, administration]
+---
+
 ## get_telemetry_report()
 
 If background [telemetry] is enabled, returns the string sent to our servers.

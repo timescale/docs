@@ -59,13 +59,18 @@ new one is created. This node becomes the new replica, while the promoted node
 remains the primary.
 
 ### Multi-AZ
-Timescale Cloud replicas are created in a different availability zone (AZ) than 
-the primary by default. Doing so provides additional availability for Timescale 
+By default, Timescale Cloud replicas are created in a different availability 
+zone (AZ) than the primary. This provides additional availability for Timescale 
 Cloud services with replicas, as it protects against entire AZ outages. If a 
-primary is in an AZ that experiences an outage, the service will simply fail 
+primary is in an AZ that experiences an outage, the service can easily fail 
 over to the replica.
 
 ## Create a database replica
+
+<highlight type="warning">
+If your service was created before June 2022, adding a replica may cause your 
+service to restart. Restarts typically take about one minute to complete.
+</highlight>
 
 <procedure>
 

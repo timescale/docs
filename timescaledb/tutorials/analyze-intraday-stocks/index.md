@@ -22,7 +22,7 @@ This tutorial has a few main steps:
 * TimescaleDB (see [installation options][install-timescale])
 * Alpha Vantage API key ([get one for free][alpha-vantage-apikey])
 * Virtualenv (installation: `pip install virtualenv`)
-* [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
+* [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
 
 ## Get started: create a virtual environment
 
@@ -34,6 +34,11 @@ mkdir intraday-stock-analysis
 cd intraday-stock-analysis
 virtualenv env
 source env/bin/activate
+```
+
+Install Pandas within the virtual environment:
+```bash
+pip install pandas
 ```
 
 

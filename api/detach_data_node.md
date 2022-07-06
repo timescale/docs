@@ -1,3 +1,11 @@
+---
+api_name: detach_data_node()
+excerpt: Detach a data node from one or all hypertables
+license: community
+topic: multi-node
+tags: [multi-node, cluster, detach, data nodes]
+---
+
 ## detach_data_node() <tag type="community">Community</tag>
 
 Detach a data node from one hypertable or from all hypertables.

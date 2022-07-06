@@ -682,7 +682,7 @@ hypertable are issued to the access node, but inserted data and queries
 are pushed down across data nodes for greater scale and performance.
 
 Multi-node TimescaleDB can be self managed or, for easier operation,
-launched within Timescale's fully-managed cloud services.
+launched within Timescale's fully managed cloud services.
 
 This release also adds:
 
@@ -690,7 +690,7 @@ This release also adds:
   customize, and schedule automated tasks, which can be run by the
   built-in jobs scheduling framework now exposed to users.
 * Significant changes to continuous aggregates, which now separate the
-  view creation from the policy.  Users can now refresh individual
+  view creation from the policy. Users can now refresh individual
   regions of the continuous aggregate materialized view, or schedule
   automated refreshing via  policy.
 * Redesigned informational views, including new (and more general)
@@ -701,12 +701,12 @@ This release also adds:
   and updating Timescale License, which now provides additional (more
   permissive) rights to users and developers.
 
-Some of the changes above (e.g., continuous aggregates, updated
+Some of the changes above (for example, continuous aggregates, updated
 informational views) do introduce breaking changes to APIs and are not
 backwards compatible. While the update scripts in TimescaleDB 2.0
 upgrade databases running TimescaleDB 1.x automatically, some of these
 API and feature changes may require changes to clients and/or upstream
-scripts that rely on the previous APIs.  Before upgrading, we recommend
+scripts that rely on the previous APIs. Before upgrading, we recommend
 reviewing upgrade documentation at docs.timescale.com for more details.
 
 **Major features**
@@ -892,7 +892,7 @@ The noticeable breaking changes in APIs are:
 - Redesign of informational views, including new (and more general) views for
   information about policies and user-defined actions
 
-This release candidate is upgradable, so if you are on a previous release (e.g., 1.7.4)
+This release candidate is upgradable, so if you are on a previous release (for example, 1.7.4)
 you can upgrade to the release candidate and later expect to be able to upgrade to the
 final 2.0 release. However, please carefully consider your compatibility requirements
 _before_ upgrading.
@@ -1165,7 +1165,7 @@ hypertables with integer-based time columns to use continuous aggregates on
 this table.
 
 We added a timescaledb.ignore_invalidation_older_than parameter for continuous
-aggregates. This parameter accept a time-interval (e.g. 1 month). If set,
+aggregates. This parameter accept a time-interval (for example, 1 month). If set,
 it limits the amount of time for which to process invalidation. Thus, if
 timescaledb.ignore_invalidation_older_than = '1 month', then any modifications
 for data older than 1 month from the current timestamp at modification time may
@@ -1241,7 +1241,8 @@ parallel query coordination to the ChunkAppend node.
 Previously ChunkAppend would rely on parallel coordination in the
 underlying scans for parallel plans.
 
-For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](/timescaledb/:currentVersion:/getting-started/compress-data/),
+For more information on this release, read the
+[announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial][compress-data],
 and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
 **For this release only**, you need to restart the database before running
@@ -1299,7 +1300,7 @@ and expression indexes.
 
 **Thanks**
 * @shahidhk for reporting an issue with OUTER JOINs
-* @cossbow and @xxGL1TCHxx for reporting reporting issues with ChunkAppend and space partitioning
+* @cossbow and @xxGL1TCHxx for reporting issues with ChunkAppend and space partitioning
 * @est for reporting an issue with CASE expressions in continuous aggregates
 * @devlucasc for reporting the issue with deleting a background worker while a job is running
 * @ryan-shaw for reporting an issue with expression indexes on hypertables with dropped columns
@@ -1372,7 +1373,7 @@ and [blog on using OrderedAppend](https://blog.timescale.com/blog/ordered-append
 
 This maintenance release contains bug and security fixes since the 1.3.1 release. We deem it moderate-to-high priority for upgrading.
 
-This release fixes some security vulnerabilities, specifically related to being able to elevate role-based permissions by database users that already have access to the database.  We strongly recommend that users who rely on role-based permissions upgrade to this release as soon as possible.
+This release fixes some security vulnerabilities, specifically related to being able to elevate role-based permissions by database users that already have access to the database. We strongly recommend that users who rely on role-based permissions upgrade to this release as soon as possible.
 
 **Security fixes**
 * #1311 Fix role-based permission checking logic
@@ -1428,7 +1429,7 @@ views, but unlike a materialized view, continuous
 aggregates do not need to be refreshed manually; the view is refreshed
 automatically in the background as new data is added, or old data is
 modified. Additionally, it does not need to re-calculate all of the data on
-every refresh. Only new and/or invalidated data is calculated.  Since this
+every refresh. Only new and/or invalidated data is calculated. Since this
 re-aggregation is automatic, it doesn't add any maintenance burden to your
 database.
 
@@ -1439,7 +1440,7 @@ the materialized aggregate the next time that the automated process executes.
 
 For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
 [our docs overview](/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
-and visit this [tutorial](/timescaledb/:currentVersion:/getting-started/create-cagg/).
+and visit this [tutorial](/getting-started/:currentVersion:/create-cagg/).
 
 **Major features**
 * #1184 Add continuous aggregate functionality
@@ -1640,12 +1641,9 @@ For more information on this release, read the [blog announcement](https://blog.
 
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
-
-[changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
-[distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
-[distributed-hypertables-setup]: /how-to-guides/multi-node-setup/
+[compress-data]: /getting-started/:currentVersion:/compress-data/
+[distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
+[distributed-hypertables-setup]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
 [github-issue]: https://github.com/timescale/timescaledb/issues/new/choose
 [github-repo]: https://github.com/timescale/timescaledb
-[multinode-intro]: /overview/core-concepts/distributed-hypertables
-[multinode-setup]: /how-to-guides/multi-node-setup/
 [timescale-slack]: https://slack.timescale.com

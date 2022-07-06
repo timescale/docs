@@ -1,5 +1,10 @@
 ---
-api_name: 'stddev | stddev_y | stddev_x'
+api_name: 'stddev() | stddev_y() | stddev_x()'
+excerpt: Calculate the standard deviation from values in a statistical aggregate
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, standard deviation, stddev, statistics, statistical aggregates, StatsSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
