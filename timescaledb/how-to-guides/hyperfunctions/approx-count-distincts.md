@@ -6,5 +6,5 @@ entries, the calculation would be very fast. Finding the cardinality of a
 dataset that contains 20 million entries, however, can take a
 significant amount of time and compute resources. Approximate count distincts do
 not calculate the exact cardinality of a dataset, but rather estimate the number
-of unique values, in order to reduce memory comsumption and improve compute time by
+of unique values, to reduce memory consumption and improve compute time by
 avoiding spilling the intermediate results to the secondary storage.

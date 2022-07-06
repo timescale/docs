@@ -24,7 +24,7 @@ For more information about approximate count distinct functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|buckets|integer|Number of buckets in the digest. Rounded up to the next power of 2. Must be between 16 and 2^18, values less than 1024 are not recommended. If unsure, we recommendate starting with 32768 (2^15).]|
+|buckets|integer|Number of buckets in the digest. Rounded up to the next power of 2. Must be between 16 and 2^18, values less than 1024 are not recommended. If unsure, start experimenting with 32768 (2^15).|
 |value|AnyElement| Column to count distinct elements. The type must have an extended, 64-bit, hash function.|
 
 Increasing the `buckets` argument usually provides more accuracy at the expense

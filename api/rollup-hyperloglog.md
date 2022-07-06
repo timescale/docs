@@ -21,7 +21,7 @@ rollup(
 ) RETURNS Hyperloglog
 ```
 
-Returns a hyperloglog by aggregating over the union of the input elements. Since hyperloglog is designed to be mergeable, `rollup`
+Returns a hyperloglog by aggregating over the union of the input elements. Since hyperloglog is designed to merge well, `rollup`
 does not compound errors. Union of hyperloglogs of different bucket size is currently not supported.
 
 For more information about approximate count distinct functions, see the
