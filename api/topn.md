@@ -16,7 +16,7 @@ hyperfunction_type: accessor
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 Returns the most common values accumulated in a [frequency aggregate][freq_agg]
 or [top N aggregate][topn_agg].
 ```sql
