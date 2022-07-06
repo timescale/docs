@@ -55,4 +55,4 @@ The output for this query:
 
 
 [gh-lttb]: https://github.com/sveinn-steinarsson/flot-downsample
-[hyperfunctions-timevectors]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
+[hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors

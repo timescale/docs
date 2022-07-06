@@ -75,4 +75,4 @@ The output for this query:
 
 
 [asap-algorithm]: https://arxiv.org/pdf/1703.00983.pdf
-[hyperfunctions-timevectors]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
+[hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
