@@ -16,7 +16,7 @@ hyperfunction_type: accessor
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 Returns the data accumulated in a [state aggregate][state_agg].  
 ```sql
 into_values (

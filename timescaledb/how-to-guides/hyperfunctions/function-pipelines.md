@@ -1,6 +1,6 @@
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 Function pipelines are an experimental feature, designed to radically improve
 how you write queries to analyze data in PostgreSQL and SQL. They work by
 applying principles from functional programming and popular tools like Python
