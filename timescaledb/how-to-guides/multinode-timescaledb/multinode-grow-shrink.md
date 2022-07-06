@@ -1,12 +1,10 @@
 # Grow and shrink multi-node
+
 When you are working within a multi-node environment, you might discover that
-you need more or fewer data nodes in your cluster over time. When you create a
-distributed hypertable, it uses all the available data nodes by default.
-However, it is possible to use only some of the data nodes when you create your
-distributed hypertable. This is useful if you need to tie a distributed
-hypertable to data nodes that have a specific performance profile. You can also
-add and remove data nodes from your cluster, and move data between chunks on
-data nodes as required to free up storage.
+you need more or fewer data nodes in your cluster over time. You can choose how
+many of the available nodes to use when creating a distributed hypertable. You
+can also add and remove data nodes from your cluster, and move data between
+chunks on data nodes as required to free up storage.
 
 ## See which data nodes are in use
 You can check which data nodes are in use by a distributed hypertable, using
@@ -24,6 +22,11 @@ hypertable_name |              data_nodes
 -----------------+---------------------------------------
 conditions      | {data_node_1,data_node_2,data_node_3}
 ```
+
+## Choose how many nodes to use for a distributed hypertable
+By default, when you create a distributed hypertable, it uses all available 
+data nodes. To restrict it to specific nodes, pass the `data_nodes` argument to
+[`create_distributed_hypertable`][create_distributed_hypertable].
 
 ## Attach a new data node
 When you add additional data nodes to a database, you need to add them to the
@@ -93,3 +96,5 @@ is called `conditions`:
 ```sql
 SELECT detach_data_node('node1', hypertable => 'conditions');
 ```
+
+[create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
