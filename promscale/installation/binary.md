@@ -16,7 +16,7 @@ performance of Promscale.
 
 1.  Install TimescaleDB following the instructions in the 
     [TimescaleDB install page][tsdb-install-self-hosted]
-1.  Install the Promscale extension using packages specifc to
+1.  Install the Promscale extension using packages specific to
     the operating system [Debian or Ubuntu][debian-ubuntu]
     and [Redhat or CentOS][rhel-centos]
 
