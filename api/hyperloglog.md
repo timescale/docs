@@ -24,13 +24,12 @@ For more information about approximate count distinct functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|buckets|integer|Number of buckets in the digest. Rounded up to the next power of 2. Must be between 16 and 2^18, values less than 1024 are not recommended.|
+|buckets|integer|Number of buckets in the digest. Rounded up to the next power of 2. Must be between 16 and 2^18, values less than 1024 are not recommended. If unsure, we recommendate starting with 32768 (2^15).]|
 |value|AnyElement| Column to count distinct elements. The type must have an extended, 64-bit, hash function.|
 
 Increasing the `buckets` argument usually provides more accuracy at the expense
-of more storage. Because hyperloglog is a probabilistic algorithm, it works
-best on datasets that have many distinct values: at least tens of thousands. But it should
-also be fairly accurate so long as you have more buckets than distinct values.
+of more memory usage. Because hyperloglog is a probabilistic algorithm, it works
+best on datasets that have many distinct values: at least tens of thousands. 
 
 ## Returns
 

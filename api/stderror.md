@@ -16,7 +16,7 @@ hyperfunction_type: accessor
 # stderror()  <tag type="toolkit">Toolkit</tag>
 The `stderror` function returns an estimate of the relative standard error of the hyperloglog, based on the hyperloglog error formula. Approximate results are:
 
-|precision|registers|error|bytes|
+|precision|registers (bucket size)|error|bytes|
 |-|-|-|-|
 |4|16|0.2600|12|
 |5|32|0.1838|24|
