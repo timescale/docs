@@ -1,10 +1,14 @@
-# Grafana visualizations 
+# Grafana visualizations
 Learn how to create Grafana visualizations of time-series data.
 
-- **[Time-series][time-series]**: Graph data points in timed order.
-- **[Histograms][histograms]**: Graph the distribution of values in a set of data.
-- **[Candlestick][candlestick]**: Graph the open, high, low, and close values of financial assets.
+* Use [time-series][time-series] to graph data points in timed order.
+* Use [histograms][histograms] to graph the distribution of values in a set of
+  data.
+* Use [candlesticks][candlestick] to graph the open, high, low, and close values
+  of financial assets.
+* Use [bar charts][bar-chart] to compare datasets between different categories.
 
-[time-series]: /tutorials/grafana/visualizations/time-series
-[histograms]: /tutorials/grafana/visualizations/histograms
-[candlestick]: /tutorials/grafana/visualizations/candlestick
+[candlestick]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/candlestick
+[histograms]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms
+[time-series]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series
+[bar-chart]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart

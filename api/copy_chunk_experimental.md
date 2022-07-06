@@ -7,7 +7,7 @@ topic: multi-node
 tags: [multi-node, data nodes, chunks, distributed hypertables]
 ---
 
-import Experimental from '../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 ## copy_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
 TimescaleDB allows you to copy existing chunks to a new location within a

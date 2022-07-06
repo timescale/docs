@@ -79,7 +79,11 @@ module.exports = [
             excerpt: "Install Promscale on Debian or Ubuntu",
           },
           {
+<<<<<<< HEAD
             title: "RPM based Linux (Red hat or CentOS)",
+=======
+            title: "RPM based Linux (Red Hat or CentOS)",
+>>>>>>> 3dacf70a7381e488ae03113306df997ae8b6750a
             href: "rhel-centos",
             tags: ["promscale", "install", "analytics"],
             keywords: ["Promscale", "analytics"],
@@ -103,6 +107,7 @@ module.exports = [
         ],
       },
       {
+<<<<<<< HEAD
         title: "Recommendations and Operations",
         href: "guides",
         tags: ["promscale", "learn", "analytics", "prometheus"],
@@ -125,6 +130,16 @@ module.exports = [
             excerpt: "Recommended resources for Promscale",
           },
           {
+=======
+        title: "How-to Guides",
+        href: "guides",
+        tags: ["promscale", "migration", "upgrade", "docker", "kubernetes"],
+        keywords: ["Promscale", "migration", "upgrade"],
+        excerpt:
+          "Migrate, upgrade,and integrate Promscale",
+        children: [
+          {
+>>>>>>> 3dacf70a7381e488ae03113306df997ae8b6750a
             title: "Migrate existing data",
             href: "prom-migrator",
             tags: ["promscale", "install", "data", "migration", "prometheus"],
@@ -141,6 +156,30 @@ module.exports = [
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Upgrade Promscale",
+          },
+        ],
+      },
+      {
+        title: "Recommendations",
+        href: "recommendations",
+        tags: ["promscale", "learn", "analytics", "prometheus"],
+        keywords: ["Promscale", "analytics"],
+        excerpt:
+          "Install Promscale on Kubernetes, Docker, virtual machine, or bare metal",
+        children: [
+          {
+            title: "Resource recommendation guide",
+            href: "resource-recomm",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            excerpt: "Recommended resources for Promscale",
+          },
+          {
+            title: "Configuration recommendation guide",
+            href: "config-recomm",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            excerpt: "Recommended resources for Promscale",
           },
         ],
       },
