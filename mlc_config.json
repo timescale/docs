@@ -1,13 +1,17 @@
 {
-    "ignorePatterns": [
-        {
-            "pattern": "^/"
-        }
-    ],
     "replacementPatterns": [
         {
             "pattern": ":currentVersion:",
             "replacement": "latest"
+        },
+        {
+            "pattern": "^/",
+            "replacement": "https://docs.timescale.com/"
+        }
+    ],
+    "ignorePatterns": [
+        {
+            "pattern": "^https://opensea.io/"
         }
     ]
 }

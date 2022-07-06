@@ -162,7 +162,6 @@ found in the [continuous aggregates docs][continuous-aggregates].
 
 [flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
 [crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 [candlestick]: https://en.wikipedia.org/wiki/Candlestick_chart
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
@@ -170,4 +169,4 @@ found in the [continuous aggregates docs][continuous-aggregates].
 [min]: https://www.postgresql.org/docs/current/tutorial-agg.html
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [last]: /api/:currentVersion:/hyperfunctions/last/
-[cagg-policy]: /getting-started/create-cagg/create-cagg-policy/
+[cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/

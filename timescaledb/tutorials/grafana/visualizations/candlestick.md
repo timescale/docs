@@ -1,6 +1,8 @@
+import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
+
 # Build a candlestick chart in Grafana
-Candlestick charts show the opening, closing, high, and low prices 
-of financial assets, such as stocks, currencies, and securities. 
+Candlestick charts show the opening, closing, high, and low prices
+of financial assets, such as stocks, currencies, and securities.
 They are mainly used in technical analysis, to predict how prices will change.
 
 They can answer questions like:
@@ -10,7 +12,7 @@ They can answer questions like:
 *   How is the price of this asset changing over time?
 *   Is this asset entering bearish or bullish territory?
 
-   <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Diagram of a candlestick. The open and close prices define the ending positions of a central box. Lines extend from the box to show the high and low prices. The distance between open and close prices is called the real body. The distance between the central box and the high price is the upper shadow, and the distance between the box and the low price is the lower shadow."/>
+<img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_fig.png" alt="Diagram of a candlestick. The open and close prices define the ending positions of a central box. Lines extend from the box to show the high and low prices. The distance between open and close prices is called the real body. The distance between the central box and the high price is the upper shadow, and the distance between the box and the low price is the lower shadow."/>
 
 The figure above shows the structure of a candlestick. A candlestick covers a
 specific time interval, for example 5 minutes, 10 minutes, or 1 hour. For this
@@ -32,25 +34,10 @@ This tutorial shows you how to:
 *   [Show transaction volume when querying with raw data](#show-transaction-volumes-in-a-candlestick-plot)
 
 ## Prerequisites
-Before you begin, make sure you have:
 
-* Installed [Grafana][install-grafana] version&nbsp;8.5 or higher
-* Installed [TimescaleDB][install-timescale]
-* Imported the stock trade data from the [Getting Started Tutorial][gsg-data]
+<GrafanaVizPrereqs />
 
-If you are new to Grafana, see the [Grafana tutorials][grafana-tutorials]
-to get familiar with creating your first dashboard and visualizations. Also
-see [this tutorial on adding variables to Grafana][variables-tutorial].
-
-The examples in this section use these variables and Grafana functions:
-* `$symbol`: a variable used to filter results by stock symbols.
-* `$__timeFrom()::timestamptz` & `$__timeTo()::timestamptz`:
-  Grafana variables. You change the values of these variables by
-  using the dashboard's date chooser when viewing your graph.
-* `$bucket_interval`: the interval size to pass to the `time_bucket`
-  function when aggregating data.
-
-Check out this video for a step-by-step walkthrough on creating
+Check out this video for a step-by-step walk-through on creating
 candlestick visualizations in Grafana:
 <video url="https://www.youtube-nocookie.com/embed/08CydeL9lIk"/>
 
@@ -76,36 +63,43 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
           AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
       GROUP BY symbol;
       ```
-  1.  Click outside of the query editor, or click the refresh icon to 
+  1.  Click outside of the query editor, or click the refresh icon to
       update the Grafana chart.
 
-  1.  Select "candlestick" as your visualization type:
-      
+  1.  Select `candlestick` as your visualization type:
+
        <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/candlestick_visualization.png" alt="Screenshot of the Grafana dashboard. The 'Visualizations' tab is focused. Underneath, 'Candlestick' shows as a visualization type."/>
 
-  1.  Grafana turns the query into a candlestick chart that 
+  1.  Grafana turns the query into a candlestick chart that
       looks like this:
 
        <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/1_min.png" alt="Screenshot of a candlestick chart in Grafana, showing the price distribution of $AMZN."/>
 
-       In this first example, we set the $bucket_interval to 1-min, you can see the price of AMZN ranges between $2120 and $2200. This chart uses hyperfunctions to query the `stock_real_time` table, with a bucket interval of 1 minute. 
+       In this first example, with the `$bucket_interval` set to 1 minute, you
+       can see the price of `AMZN` ranges between $2120 and $2200. This chart uses
+       hyperfunctions to query the `stock_real_time` table, with a bucket
+       interval of 1 minute.
 
 </procedure>
 
-Retrieving this data took about 7+ seconds, over two weeks of data which is probably slower than most users would expect when analyzing data. This is where continuous aggregates are particularly useful for data-intensive, time-series applications. 
+Retrieving this data took about 7+ seconds, over two weeks of data which is
+probably slower than most users would expect when analyzing data. This is where
+continuous aggregates are particularly useful for data-intensive, time-series
+applications.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/raw_data_exec_time.png" alt="Screenshot of the Grafana query response."/>
 
 <procedure>
 
-  With the use of the `$bucket_interval` variable, we are able to switch intervals. For example, switching to a 15-minute bucket interval gives you this data. 
+  When you use the `$bucket_interval` variable, you can switch intervals. For
+  example, switching to a 15 minute bucket interval gives you this data.
 
   1.  Switch your bucket interval to 15-min from the dropdown
-      
+
       <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/timebucket_dropdown.png" alt="Screenshot of the Grafana variable dropdown."/>
 
   1.  Refresh the dashboard to get the updated chart
-      
+
       <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/candlestick/15_min.png" alt="Screenshot of the Grafana variable dropdown."/>
 
 The query execution took more than 6 seconds. To decrease query execution time to sub-seconds, use continuous aggregates. See the how-to guide on [continuous aggregrates][continuous-aggregrate] to learn more.
@@ -115,9 +109,9 @@ The query execution took more than 6 seconds. To decrease query execution time t
 ## Show transaction volumes in a candlestick plot
 
 In addition to looking at the price changes for each stock, you can look at its traded volumes.
-This shows you how much the stock is being traded during the bucket interval. 
+This shows you how much the stock is being traded during the bucket interval.
 
-The `stock_real_time` hypertable contains a column with the daily cumulative traded volume. You can use this to calculate the volume of data for each bucket. 
+The `stock_real_time` hypertable contains a column with the daily cumulative traded volume. You can use this to calculate the volume of data for each bucket.
 
 First, find the maximum `day_volume` value for a symbol within a bucket.
 Then, subtract each maximum from the previous bucket's maximum. The
@@ -147,17 +141,17 @@ difference gives the traded volume for that bucket.
     ```
 
 1.  Refresh the dashboard to get the updated chart.
-    
+
      <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/candlestick/volume_Distribution.png" alt="Screenshot of Grafana candlestick showing the stock volume distribution and price for $AMZN."/>
 
     At the bottom of the plot, you see the trade volume for each time bucket.
 
 </procedure>
 
-In conclusion, candlestick charts are a great way to visualize financial data. 
-This tutorial shows you how to use TimescaleDB to generate 
-candlestick values (open, high, low, close) from raw data in ahypertable. 
-It also shows you how to query the traded volume for each time interval. 
+In conclusion, candlestick charts are a great way to visualize financial data.
+This tutorial shows you how to use TimescaleDB to generate candlestick values
+that includes open, high, low, and close, from raw data in a hypertable. It also
+shows you how to query the traded volume for each time interval.
 
 To see other examples of how you can use TimescaleDB and Grafana, check out
 all the [Grafana tutorials][grafana-tutorials].
@@ -165,9 +159,6 @@ all the [Grafana tutorials][grafana-tutorials].
 [install-grafana]: https://grafana.com/get/
 [install-timescale]: /install/:currentVersion:/
 [gsg-data]: /getting-started/:currentVersion:/add-data/
-[grafana-tutorials]: /tutorials/grafana/
-[max]: https://www.postgresql.org/docs/current/tutorial-agg.html
-[lag]: https://www.postgresql.org/docs/current/functions-window.html
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
 [variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ
-[continuous-aggregrate]: /tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
+[continuous-aggregrate]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates

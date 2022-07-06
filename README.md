@@ -216,12 +216,10 @@ To insert the partial in another document, put an import statement in the
 document. The import statement goes before the content and after any
 frontmatter. For example:
 
-`import Component from '../../../_partials/_partial-name.mdx';`
+`import Component from 'versionContent/_partials/_partial-name.mdx';`
 
-The path follows the site's directory structure, not the docs repo's
-directory structure. You can determine the site's directory structure from the
-page's URL. `Component` can be any CamelCased name. For consistency, make it
-the CamelCased version of your partial's filename.
+`Component` can be any CamelCased name. For consistency, make it the CamelCased
+version of your partial's filename.
 
 Where you need the partial to display, insert it as a self-closing tag:
 

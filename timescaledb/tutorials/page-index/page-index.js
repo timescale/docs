@@ -218,11 +218,18 @@ module.exports = [
         excerpt: 'Getting Started with Grafana and TimescaleDB',
         children: [
           {
-            title: 'Install Grafana',
+            title: 'Connect TimescaleDB and Grafana',
+            href: 'grafana-timescalecloud',
+            tags: ['grafana', 'visualize', 'install', 'learn', 'timescaledb'],
+            keywords: ['Grafana', 'tutorial', 'TimescaleDB'],
+            excerpt: 'Learn how to connect TimescaleDB and Grafana',
+          },
+          {
+            title: 'Setup Grafana on Managed Service for TimescaleDB',
             href: 'installation',
             tags: ['grafana', 'visualize', 'install', 'learn', 'timescaledb'],
             keywords: ['Grafana', 'tutorial', 'TimescaleDB'],
-            excerpt: 'Learn how to install Grafana',
+            excerpt: 'Learn how to setup Grafana and TimescaleDB on Managed Service for TimescaleDB',
           },
           {
             title: 'Create a dashboard and panel',
@@ -287,6 +294,13 @@ module.exports = [
                 tags: ['grafana', 'visualize', 'candlestick', 'learn', 'timescaledb'],
                 keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'candlestick'],
                 excerpt: 'How to build a candlestick chart in Grafana',
+              },
+              {
+                title: 'Bar chart',
+                href: 'bar-chart',
+                tags: ['grafana', 'visualize', 'bar chart', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'bar chart'],
+                excerpt: 'How to build a bar chart in Grafana',
               }
             ]
           }
