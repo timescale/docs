@@ -1,46 +1,126 @@
 # High availability
-Timescale Cloud uses various methods to ensure that your service remains
-available. This section covers some of the strategies used to
-increase service availability.
+Availability needs are determined by how a system recovers when a 
+database crashes or becomes unavailable. Availability is a balance 
+between how much data may be lost after a failure, the Recovery Point 
+Objective (RPO), and how quickly the database is back up and running, 
+the Recovery Time Objective (RTO). High availability usually refers to 
+keeping the system operational during a failure while minimizing any 
+data loss. 
 
-High availability (HA) is achieved by increasing redundancy and
-resilience. To increase redundancy, parts of the system are
-replicated, so that they are on standby in the event of a failure. To increase
-resilience, recovery processes switch between these standby resources as quickly
-as possible.
+Timescale Cloud provides very low RTO and RPO for all instances 
+(see: Rapid recovery below). Timescale Cloud also offers features like 
+replicas to satisfy high availability requirements to ensure near-zero 
+downtime and data loss in the event of a failure. This section covers 
+some strategies used to increase service availability on Timescale 
+Cloud.
 
-## Backups
-On Timescale Cloud, full backups are taken weekly and incremental backups are
-performed daily.
+## Rapid recovery
+For all services, Timescale Cloud decouples the database’s compute and 
+storage, allowing us to provide ways for databases to self-heal 
+gracefully rather than crashing and recovering from backup in all 
+failure scenarios. Historically, a failure in any part of the database 
+would typically require a full restore from backup to recover, which 
+could result in hours of downtime. On Timescale Cloud, we are able to 
+replace only the failed part of the database, dramatically reducing 
+potential downtime in the most common failure scenarios.
 
-For more information about backups on Timescale Cloud, see the
+Compute failing is by far the most common cause of a database failure. 
+It can be caused by unoptimized queries or increased load that maxes
+out the CPU usage, causing a failure. In compute failure scenarios,
+only the instance (i.e., compute and memory) needs replacing since the
+data on disk is unaffected. Once a compute failure is detected,
+Timescale Cloud immediately provisions a new database instance and
+mounts the database’s existing storage (disk) to the new instance. Any
+available WAL then replays. This process is similar to recovering from
+a filesystem-level backup. The impact is that the database is
+unavailable while the storage mounts to the new server instance, and
+database connections reset. This process typically only takes thirty
+seconds, though it may take up to twenty minutes in some circumstances.
+Even in the worst-case scenario, this recovery is an order of magnitude
+faster than a standard recovery from backup procedure. In addition, the
+entire process for detecting and recovering from a compute failure is
+fully automated, with no action required by the user.
+
+Compute failures are by far the most common types of failures. That 
+said, sometimes the disk itself can fail, although this is far less 
+common. In the event of a storage failure, Timescale Cloud 
+automatically performs a full recovery from backup. Similar to compute 
+failures, any unarchived WAL (up to16MB or 5 minutes) is also lost. You 
+can learn more about backups and recovery [here][cloud-backup]. 
+
+Timescale Cloud’s rapid recovery strategy can dramatically reduce the 
+RTO in the most common failure scenarios, bringing the time to recover 
+to mere seconds or minutes instead of hours. The potential data loss (
+RPO) is minimal due to our WAL streaming strategy. The only potential 
+data loss is of WAL segments that had not yet been written to disk at 
+the time of failure. Fortunately, these segments are written to disk 
+every 16MB or 5 minutes, whichever comes first. For systems that 
+require very low RTO and near-zero RPO in nearly every disaster 
+scenario, we recommend using replicas.
+
+<highlight type="note">
+Timescale Cloud offers different tools to help improve the availability 
+of services, but we also need help from the user. We recommend Cloud 
+users follow best practices to avoid situations like consistently 
+maxing out CPU usage. These practices can result in worst-case 
+scenarios like WAL archiving getting queued behind other processes, 
+causing a failure to result in larger data loss in the event of a 
+failure. That said, we actively monitor for scenarios like these to 
+help catch them before a failure occurs.
+</highlight>
+
+## Replicas
+Timescale Cloud offers replicas for systems requiring higher 
+availability than rapid recovery. Replicas on Timescale Cloud are “hot 
+standbys,” meaning that they take over operations if the primary fails 
+and can also be used for read queries during normal operations. 
+Timescale Cloud replicas are also deployed in a different Availability 
+Zone (AZ) than the primary to protect against scenarios where an entire 
+AZ becomes unavailable.
+
+Adding a replica to your service helps significantly reduce the 
+likelihood of downtime in the event of a failure. If there is a 
+failure, the only noticeable impact on your service will be connections 
+resetting while the replica is promoted to the primary. For replicas, 
+WAL is streamed to the replica directly, not in chunks like in services 
+without replicas. In certain high-traffic scenarios, there can be a 
+small lag (at most a few seconds) between the primary and replica, 
+causing transactions to be committed but not replicated before a 
+failure. In this specific case, there may be a small amount of data 
+loss, though this is rare. In general, replicas are considered a best 
+practice for services with high availability requirements. 
+
+For more information about database replicas, including how they work,
+see the [Service Operations - Replicas section][db-replicas].
+
+## Maintenance downtime
+Some operations on your database cannot avoid downtime, such as 
+upgrading a major version of PostgreSQL. If Timescale Cloud has to 
+apply a critical update, such as a security patch, we will only do so 
+during your set Maintenance Window. However, these situations are rare 
+or triggered by the user manually. See the [Maintenance] section in the 
+docs to learn more about how we handle maintenance.
+
+Adding replicas to your service can help reduce the downtime during a 
+maintenance event, as maintenance is applied to each node individually. 
+For example, your replica may have maintenance performed on it while 
+the primary remains operational; once it is completed, the replica will 
+be promoted to the primary while the (former) primary node undergoes 
+maintenance. 
+
+## Backup and recovery
+On Timescale Cloud, full backups are taken weekly and incremental
+backups are performed daily. Additionally, WAL is archived as soon as it
+is written to disk. In the event of a catastrophic failure, if the 
+service is unable to self-heal, Timescale Cloud will automatically 
+recover your database from backup and replay any WAL to close the gap 
+between the backup and time of failure. This strategy ensures that we 
+can retrieve data almost right up to the point of failure, with the 
+exception of data in memory (up to 16MB or the last 5 minutes). For 
+more information about backups on Timescale Cloud, see the
 [backup and restore section][cloud-backup].
-
-## Storage redundancy
-Storage redundancy refers to having multiple copies of a database's data files.
-If the storage currently attached to a PostgreSQL instance corrupts or otherwise
-becomes unavailable, the system can replace its current storage with one of the
-copies. 
-
-If one drive fails, the copy automatically takes over, and a new drive is
-provisioned within the volume. The volume remains attached to the instance, with
-the only impact to the database being potentially degraded performance as the
-impacted drive is repaired or replaced within the volume. The entire recovery
-process for a drive failure is near-instantaneous. 
-
-## Database replicas
-Instance redundancy refers to having replicas of your database running
-simultaneously. In the case of a database failure, a replica is an up-to-date,
-running database that can take over immediately.
-
-For more information about database replicas, see [the Service Operations - Replicas section][db-replicas]
-
-## Zonal redundancy
-While the public cloud is highly reliable, entire portions of the cloud can be
-unavailable at times. Timescale Cloud does not protect against Availability Zone
-failures unless the user is using HA replicas. We do not currently offer
-multi-cloud solutions or protection from an AWS Regional failure.
 
 
 [cloud-backup]: /backup-restore-cloud/
 [db-replicas]: /service-operations/replicas/
+[maintenance]: /service-operations/maintenance/
