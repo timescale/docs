@@ -45,7 +45,7 @@ Compute failures are by far the most common types of failures. That
 said, sometimes the disk itself can fail, although this is far less 
 common. In the event of a storage failure, Timescale Cloud 
 automatically performs a full recovery from backup. Similar to compute 
-failures, any unarchived WAL (up to16MB or 5 minutes) is also lost. You 
+failures, any unarchived WAL (up to 16&nbsp;MB or 5 minutes) is also lost. You 
 can learn more about backups and recovery [here][cloud-backup]. 
 
 Timescale Cloud's rapid recovery strategy can dramatically reduce the 
@@ -122,4 +122,5 @@ more information about backups on Timescale Cloud, see the
 
 
 [cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
+[db-replicas]: /cloud/:currentVersion:/service-operations/replicas/
 [maintenance]: /cloud/:currentVersion:/service-operations/maintenance/
