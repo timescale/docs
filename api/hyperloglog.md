@@ -31,6 +31,8 @@ Increasing the `buckets` argument usually provides more accuracy at the expense
 of more memory usage. Because hyperloglog is a probabilistic algorithm, it works
 best on datasets that have many distinct values: at least tens of thousands. 
 
+See [stderror][stderror] for how estimated error rate is related to `buckets`.
+
 ## Returns
 
 |Column|Type|Description|
