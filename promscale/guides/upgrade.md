@@ -12,8 +12,8 @@ the Promscale extension are available.
 1.  Start one instance with the new version of the Promscale Connector.
 1.  Start all other Promscale Connector instances.
 
-You can upgrade your existing Promscale to [Promscale `0.11.0`](#upgrade-to-promscale-0.11.0)
-and from the previous [alphine image](#upgrade-from-the-previous-alphine-image).
+You can upgrade your existing Promscale to Promscale `0.11.0`
+and from the previous alphine image.
 
 ## Upgrade to Promscale 0.11.0
 Promscale 0.11.0 contains significant changes, and the upgrade drops any
