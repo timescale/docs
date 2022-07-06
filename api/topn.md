@@ -14,7 +14,7 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
-import Experimental from '../../../../_partials/_experimental.mdx';
+import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Returns the most common values accumulated in a [frequency aggregate][freq_agg]
@@ -98,5 +98,5 @@ The output for this query:
    15
 ```
 
-[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
-[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
+[freq_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn_agg/
