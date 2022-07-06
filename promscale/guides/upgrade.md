@@ -13,7 +13,7 @@ the Promscale extension are available.
 1.  Start all other Promscale Connector instances.
 
 You can upgrade your existing Promscale to Promscale `0.11.0`
-and from the previous alphine image.
+and from the previous [Alpine docker image](alpine-image).
 
 ## Upgrade to Promscale 0.11.0
 Promscale 0.11.0 contains significant changes, and the upgrade drops any
@@ -169,3 +169,4 @@ If you are using Kubernetes instead of plain Docker:
 [transaction-locks]: timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration/#transaction-locks
 [update-timescaledb]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/#update-timescaledb
 [upgrade-postgresql]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
+[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
