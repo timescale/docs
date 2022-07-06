@@ -169,4 +169,3 @@ If you are using Kubernetes instead of plain Docker:
 [transaction-locks]: timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration/#transaction-locks
 [update-timescaledb]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/#update-timescaledb
 [upgrade-postgresql]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
-[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
