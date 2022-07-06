@@ -2,10 +2,9 @@
 Promscale consists of the Promscale Connector, and the Promscale Database. The
 Promscale Database is PostgreSQL with the TimescaleDB and the Promscale
 extensions. When you upgrade your Promscale installation, you need to check both
-the Connector and the Database. This section contains important information
-about upgrading.
+the Connector and the Database.
 
-The process for updating your Promscale installation is:
+The process for upgrading your Promscale installation is:
 
 1.  Check that the most recent required versions of PostgreSQL, TimescaleDB and
 the Promscale extension are available.
@@ -13,9 +12,8 @@ the Promscale extension are available.
 1.  Start one instance with the new version of the Promscale Connector.
 1.  Start all other Promscale Connector instances.
 
-This document contains:
-   * [Upgrade to Promscale `0.11.0`](#upgrade-to-promscale-0.11.0)
-   * [Upgrade from the previous alphine image](#upgrade-from-the-previous-alphine-image)
+You can upgrade your existing Promscale to [Promscale `0.11.0`](#upgrade-to-promscale-0.11.0)
+and from the previous [alphine image](#upgrade-from-the-previous-alphine-image).
 
 ## Upgrade to Promscale 0.11.0
 Promscale 0.11.0 contains significant changes, and the upgrade drops any
@@ -85,7 +83,7 @@ Previously, the recommended image was located at [`timescaledev/promscale-extens
 It was based on the [Alpine docker image for PostgreSQL](https://github.com/docker-library/postgres/blob/e8ebf74e50128123a8d0220b85e357ef2d73a7ec/12/alpine/Dockerfile).
 
 The previous Alpine-based image are updated and supported until
-the end of 2022 but users are encouraged to migrate to the
+the end of 2022 but you are encouraged to migrate to the
 `timescale/timescaledb-ha`. All new installations should switch to the
 `timescale/timescaledb-ha`image.
 <highlight type="note">
