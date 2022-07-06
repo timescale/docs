@@ -12,8 +12,9 @@ with updating your TimescaleDB installation.
 * Copy this comment at the top of every troubleshooting page
 -->
 
-## Updating fails with an error saying `no update path`
-In some cases, when you use the `ALTER EXTENSION timescaledb UPDATE` command to update, it might fail with an error like this:
+## Upgrading fails with an error saying `no update path`
+In some cases, when you use the `ALTER EXTENSION timescaledb UPDATE` command to
+upgrade, it might fail with an error like this:
 
 ```sql
 ERROR: extension "timescaledb" has no update path from version "2.5.2" to version "2.6.1"
@@ -22,5 +23,5 @@ ERROR: extension "timescaledb" has no update path from version "2.5.2" to versio
 This occurs if the list of available extensions does not include the version you
 are trying to upgrade to, and it can occur if the package was not installed
 correctly in the first place. To correct the problem, install the upgrade
-package, restart PostgreSQL, verify the version, and then attempt the update
+package, restart PostgreSQL, verify the version, and then attempt the upgrade
 again.
