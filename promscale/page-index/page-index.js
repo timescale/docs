@@ -103,12 +103,12 @@ module.exports = [
         ],
       },
       {
-        title: "Recommendations",
-        href: "recommendations",
-        tags: ["promscale", "learn", "analytics", "prometheus"],
-        keywords: ["Promscale", "analytics"],
+        title: "How-to Guides",
+        href: "guides",
+        tags: ["promscale", "migration", "upgrade", "docker", "kubernetes"],
+        keywords: ["Promscale", "migration", "upgrade"],
         excerpt:
-          "Install Promscale on Kubernetes, Docker, virtual machine, or bare metal",
+          "Migrate, upgrade,and integrate Promscale",
         children: [
           {
             title: "Migrate existing data",
