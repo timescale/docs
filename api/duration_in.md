@@ -14,14 +14,13 @@ hyperfunction_subfamily: StateAgg
 hyperfunction_type: accessor
 ---
 
+import Experimental from 'versionContent/_partials/_experimental.mdx';
+
 # duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
 Use this function to report the total duration for a given state in a [state aggregate][state_agg].
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk, and
-do not use any experimental features in production.
-</highlight>
+<Experimental />
+
 ## Required arguments
 
 |Name|Type|Description|
@@ -68,4 +67,4 @@ If you prefer to see the result in seconds, [`EXTRACT`][extract] the epoch from
 the returned result.
 
 [extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT
-[state_agg]: /hyperfunctions/frequency-analysis/state_agg/
+[state_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/state_agg/

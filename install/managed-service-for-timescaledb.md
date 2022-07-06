@@ -168,7 +168,7 @@ account when securing your data. To learn more about security options within man
 visit the [managed service for TimescaleDB Knowledge Base][mst-kb].
 
 
-[mst-install]: /install/latest/installation-mst/
+[mst-install]: /install/:currentVersion:/installation-mst/
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cidr-tool]: http://www.subnet-calculator.com/cidr.php
 [mst-kb]: https://kb.timescale.cloud/en/collections/1600092-security
@@ -177,6 +177,6 @@ visit the [managed service for TimescaleDB Knowledge Base][mst-kb].
 [timescale-features]: https://www.timescale.com/products
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[using-timescale]: /overview/core-concepts/
-[hello-timescale]: /tutorials/tutorial-hello-timescale
+[using-timescale]: /timescaledb/:currentVersion:/overview/core-concepts/
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[getting-started]: /getting-started/:currentVersion:/

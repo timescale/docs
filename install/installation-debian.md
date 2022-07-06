@@ -71,10 +71,11 @@ instead.
     <highlight type="note">
     If you want to install a specific version of TimescaleDB, instead of the
     most recent, you can specify the version like this:
-    `apt-get install timescaledb-2-2.6.0-postgresql-12`
+    `apt-get install timescaledb-2-postgresql-12='2.6.0*' timescaledb-2-loader-postgresql-12='2.6.0*'`
     
     You can see the full list of TimescaleDB releases by visiting our
-    [releases page][releases-page]
+    [releases page][releases-page]. Note that older versions of TimescaleDB
+    don't always support all the OS versions listed above.
     </highlight>
 
 </procedure>

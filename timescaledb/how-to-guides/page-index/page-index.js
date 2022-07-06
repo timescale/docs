@@ -550,6 +550,13 @@ module.exports = [
             keywords: ["retention", "data", "TimescaleDB"],
             excerpt: "Manually drop chunks",
           },
+          {
+            title: "Troubleshooting data retention",
+            href: "troubleshooting",
+            tags: ["retention", "data", "tshoot", "timescaledb"],
+            keywords: ["retention", "data", "troubleshooting", "TimescaleDB"],
+            excerpt: "Troubleshoot data retention",
+          },
         ],
       },
       {
@@ -769,6 +776,13 @@ module.exports = [
             tags: ["downgrade", "timescaledb"],
             keywords: ["TimescaleDB", "downgrade"],
             excerpt: "Downgrade a TimescaleDB version",
+          },
+          {
+            title: "Troubleshooting updates",
+            href: "troubleshooting",
+            tags: ["tshoot", "upgrade", "timescaledb"],
+            keywords: ["troubleshooting", "upgrade", "TimescaleDB"],
+            excerpt: "Troubleshoot updating your TimescaleDB installation",
           },
         ],
       },

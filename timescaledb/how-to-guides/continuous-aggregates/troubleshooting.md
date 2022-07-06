@@ -1,3 +1,5 @@
+import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
+
 # Troubleshooting continuous aggregates
 This section contains some ideas for troubleshooting common problems experienced
 with continuous aggregates.
@@ -159,17 +161,12 @@ that continuous aggregates do not support, you see an error like this:
 ERROR:  invalid continuous aggregate view
 SQL state: 0A000
 ```
-Continuous aggregates are supported for most aggregate functions that can be
-[parallelized by PostgreSQL][postgres-parallel-agg], including the standard
-aggregates like `SUM` and `AVG`. You can also use more complex expressions on
-top of the aggregate functions, for example `max(temperature)-min(temperature)`.
 
-However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
-continuous aggregates since they cannot be parallelized with
-PostgreSQL. TimescaleDB does not support `FILTER` or `JOIN` clauses,
-or window functions in continuous aggregates.
+TimescaleDB doesn't support window functions or `JOIN` clauses on continuous
+aggregates. In versions earlier than 2.7, it doesn't support any
+[non-parallelizable SQL aggregates][postgres-parallel-agg].
 
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
+<CaggsFunctionSupport />
 
 ## Queries using locf() do not return NULL values
 When you have a query that uses a last observation carried forward (locf)
@@ -202,5 +199,6 @@ If you receive historical data and must refresh a compressed region, first
 [decompress the chunk][decompression]. Then manually run
 [`refresh_continuous_aggregate`][refresh_continuous_aggregate].
 
-[decompression]: /how-to-guides/compression/decompress-chunks/
+[decompression]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
+[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [refresh_continuous_aggregate]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
