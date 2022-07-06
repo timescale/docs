@@ -41,7 +41,7 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
     ```
 1. Run the `timescaledb-tune` script to configure your database:
    ```bash
-   timescaledb-tune -conf-path /opt/homebrew/var/postgres/postgresql.conf --yes 
+   timescaledb-tune --quiet --yes 
    ```    
 1. Change to the directory where the setup script is located. It is typically,
    located at `/opt/homebrew/Cellar/timescaledb/<VERSION>/bin/`, where
