@@ -98,7 +98,7 @@ Some operations on your database cannot avoid downtime, such as
 upgrading a major version of PostgreSQL. If Timescale Cloud has to 
 apply a critical update, like a security patch, it is only applied 
 during the set Maintenance Window. However, these situations are rare 
-or triggered by the user manually. See the [Maintenance] section in the 
+or triggered by the user manually. See the [Maintenance][maintenance] section in the 
 docs to learn more about how maintenance is handled.
 
 Adding replicas to your service can help reduce the downtime during a 
@@ -116,11 +116,10 @@ service is unable to self-heal, Timescale Cloud automatically
 recovers your database from backup and replay any WAL to close the gap 
 between the backup and time of failure. This strategy ensures that data 
 can be retrieved almost right up to the point of failure, with the 
-exception of data in memory (up to 16MB or the last 5 minutes). For 
+exception of data in memory (up to 16&nbsp;MB or the last 5 minutes). For 
 more information about backups on Timescale Cloud, see the
 [backup and restore section][cloud-backup].
 
 
-[cloud-backup]: /backup-restore-cloud/
-[db-replicas]: /service-operations/replicas/
-[maintenance]: /service-operations/maintenance/
+[cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
+[maintenance]: /cloud/:currentVersion:/service-operations/maintenance/
