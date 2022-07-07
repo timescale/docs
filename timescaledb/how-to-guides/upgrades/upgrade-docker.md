@@ -84,13 +84,13 @@ data.
     docker run -v /path/to/data:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
     ```
 
-2.  Connect to the upgraded instance using `psql` with the `-X` flag:
+1.  Connect to the upgraded instance using `psql` with the `-X` flag:
 
     ```bash
     docker exec -it timescaledb psql -U postgres -X
     ```
 
-3.  At the psql prompt, use the `ALTER` command to upgrade the extension:
+1.  At the psql prompt, use the `ALTER` command to upgrade the extension:
 
     ```sql
     ALTER EXTENSION timescaledb UPDATE;
