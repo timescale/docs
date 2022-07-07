@@ -30,6 +30,7 @@ mounts, or bind mounts.
     when you perform the upgrade. Make sure you copy the correct command, based
     on your mount point type:
 
+<!---
   <terminal>
 
       <tab label="Volume mount">
@@ -51,6 +52,7 @@ mounts, or bind mounts.
       </tab>
 
   </terminal>
+-->
 
 </procedure>
 
@@ -80,6 +82,7 @@ data.
     existing mount point. Make sure you copy the correct command, based on your
     mount point type:
 
+<!---
      <terminal>
 
         <tab label="Volume mount">
@@ -99,6 +102,7 @@ data.
         </tab>
 
     </terminal>
+-->
 
 1.  Connect to the upgraded instance using `psql` with the `-X` flag:
 
