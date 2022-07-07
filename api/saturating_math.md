@@ -11,5 +11,4 @@ additional hyperfunctions, you need to install the
     sortByType
 />
 
-[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
-[saturating-math-docs]: timescaledb/:currentVersion/how-to-guides/hyperfunctoins/
+[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
