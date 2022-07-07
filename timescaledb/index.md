@@ -1,5 +1,7 @@
 # Welcome to the TimescaleDB documentation!
 
+[test][test]
+
 TimescaleDB is a time-series database, built on top of PostgreSQL. More than that,
 however, it's a relational database for time-series. Developers who use TimescaleDB
 get the benefit of a purpose-built time-series database, plus a classic relational
@@ -9,6 +11,10 @@ In this section of our documentation, we present all of the information you need
 to understand what TimescaleDB is, how it works, how to get started, and how
 to successfully use and implement all of the powerful features for your next
 project.
+
+### Testing
+
+Lorem ipsum blah blah blah
 
 ### Overview
 
@@ -62,3 +68,4 @@ and best practices.
 [crypto]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
 [forecast]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
 [code]: /timescaledb/:currentVersion:/quick-start/
+[test]: #testing
