@@ -4,7 +4,8 @@ excerpt: Calculate the instantaneous change from values in a `CounterSummary`
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, delta, change, counters, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [delta, change]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

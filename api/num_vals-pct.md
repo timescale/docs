@@ -4,7 +4,8 @@ excerpt: Calculate the number of values contained in a percentile estimate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, number, count, percentile aggregates]
+keywords: [percentiles, hyperfunctions, toolkit]
+tags: [number, count]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

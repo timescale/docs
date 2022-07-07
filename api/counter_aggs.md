@@ -1,3 +1,9 @@
+---
+title: Counter and gauge aggregation
+excerpt: Perform statistical analysis of counters and gauges
+keywords: [counters, gauges, hyperfunctions, toolkit]
+---
+
 # Counter and gauge aggregation
 This section contains functions related to counter and gauge aggregation.
 Counter aggregation functions are used to accumulate monotonically increasing data 

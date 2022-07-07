@@ -4,7 +4,8 @@ excerpt: Linearly interpolate missing values when gapfilling
 license: community
 toolkit: false
 topic: hyperfunctions
-tags: [hyperfunctions, gapfill, missing values, interpolate, interpolation]
+keywords: [gapfill, interpolate, hyperfunctions, toolkit]
+tags: [missing values]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

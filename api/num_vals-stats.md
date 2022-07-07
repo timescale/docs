@@ -4,7 +4,8 @@ excerpt: Calculate the number of values contained in a statistical aggregate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, count, number, statistical aggregates]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [count, number]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

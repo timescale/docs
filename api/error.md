@@ -4,7 +4,8 @@ excerpt: Get the maximum relative error for a percentile estimate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, percentile, relative error]
+keywords: [percentiles, hyperfunctions, toolkit]
+tags: [relative error]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

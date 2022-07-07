@@ -1,3 +1,10 @@
+---
+title: Compression
+excerpt: Compress your hypertables
+keywords: [compression]
+tags: [hypertables]
+---
+
 ## Compression <tag type="community">Community</tag>
 
 We highly recommend reading the [blog post][blog-compression] and

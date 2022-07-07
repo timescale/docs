@@ -4,7 +4,8 @@ excerpt: Aggregate data in a `uddsketch` for further calculation of percentile e
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, percentile, uddsketch]
+keywords: [percentiles, hyperfunctions, toolkit]
+tags: [uddsketch]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -1,3 +1,10 @@
+---
+title: User-defined actions
+excerpt: Define your own functions and procedures to run on a schedule
+keywords: [actions, jobs]
+tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
+---
+
 # User-Defined Actions <tag type="community">Community</tag>
 
 User-defined actions allow you to run functions and procedures implemented in a

@@ -4,7 +4,8 @@ excerpt: Calculate the extrapolated rate of change from values in a `CounterSumm
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, rate, extrapolated, extrapolation, counters, CounterSummary]
+keywords: [rate, counters, hyperfunctions, toolkit]
+tags: [extrapolate]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

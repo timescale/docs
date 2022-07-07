@@ -4,7 +4,7 @@ excerpt: Roll up multiple statistical aggregates to calculate rolling window agg
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, rollup, statistical aggregates, rolling window]
+keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

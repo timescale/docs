@@ -4,7 +4,7 @@ excerpt: Calculate the difference between the start and end times from data in a
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, delta, counters, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

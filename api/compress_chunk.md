@@ -3,7 +3,8 @@ api_name: compress_chunk()
 excerpt: Manually compress a given chunk
 license: community
 topic: compression
-tags: [compression, chunks]
+keywords: [compression]
+tags: [chunks]
 ---
 
 ## compress_chunk() <tag type="community">Community</tag>

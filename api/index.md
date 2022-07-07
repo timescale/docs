@@ -1,3 +1,9 @@
+---
+title: TimescaleDB API reference
+excerpt: Look up details about the use and behavior of TimescaleDB APIs
+keywords: [reference]
+---
+
 # TimescaleDB API Reference
 
 TimescaleDB is an open-source relational database for time-series data. We focus on making

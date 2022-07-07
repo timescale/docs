@@ -3,7 +3,8 @@ api_name: timescaledb_information.chunks
 excerpt: Get metadata about hypertable chunks
 license: apache
 topic: hypertables
-tags: [informational views, chunks, hypertables, schemas, tablespaces, data nodes, time ranges]
+keywords: [chunks, hypertables, information]
+tags: [schemas, tablespaces, data nodes, time ranges]
 ---
 
 ## timescaledb_information.chunks

@@ -3,7 +3,8 @@ api_name: delete_data_node()
 excerpt: Remove a data node from a database and detach it from all hypertables
 license: community
 topic: multi-node
-tags: [multi-node, data nodes, detach, delete]
+keywords: [multi-node]
+tags: [distributed hypertables, data nodes, detach, delete]
 ---
 
 ## delete_data_node() <tag type="community">Community</tag>

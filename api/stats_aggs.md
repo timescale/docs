@@ -1,3 +1,9 @@
+---
+title: Statistical aggregates
+excerpt: Calculate aggregate statistics from a dataset
+keywords: [statistics, hyperfunctions, toolkit]
+---
+
 # Statistical aggregates
 This section includes functions related to statistical aggregates.
 

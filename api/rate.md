@@ -4,7 +4,8 @@ excerpt: Calculate the rate of change from values in a `CounterSummary`
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, counters, rate, change, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [rate, change]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

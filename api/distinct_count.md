@@ -4,7 +4,8 @@ excerpt: Estimate the number of distinct values from values in a hyperloglog
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, approximate count distinct, distinct count, hyperloglog]
+keywords: [count, hyperfunctions, toolkit]
+tags: [approximate, distinct, hyperloglog]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

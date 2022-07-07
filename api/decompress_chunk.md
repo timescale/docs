@@ -3,7 +3,7 @@ api_name: decompress_chunk()
 excerpt: Decompress a compressed chunk
 license: community
 topic: compression
-tags: [compression, decompression, chunks]
+keywords: [compression, decompression, chunks]
 ---
 
 ## decompress_chunk() <tag type="community">Community</tag>

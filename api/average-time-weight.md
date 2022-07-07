@@ -5,7 +5,7 @@ license: community
 toolkit: true
 experimental: false
 topic: hyperfunctions
-tags: [hyperfunctions, average, time-weighted, TimeWeightSummary]
+keywords: [average, time-weighted, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

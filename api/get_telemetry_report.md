@@ -2,8 +2,9 @@
 api_name: get_telemetry_report()
 excerpt: Get the telemetry string that is sent to Timescale servers
 license: apache
-topic: administration
-tags: [telemetry, report, administration]
+topic: admin
+keywords: [admin]
+tags: [telemetry, report]
 ---
 
 ## get_telemetry_report()

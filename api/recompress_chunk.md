@@ -3,7 +3,8 @@ api_name: recompress_chunk()
 excerpt: Recompress a chunk that had new data inserted after compression
 license: community
 topic: compression
-tags: [compression, recompression, chunks]
+keywords: [compression, recompression, chunks]
+tags: [hypertables]
 ---
 
 # recompress_chunk() <tag type="community" content="Community" />

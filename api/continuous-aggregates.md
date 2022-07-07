@@ -1,3 +1,10 @@
+---
+title: Continuous aggregates
+excerpt: Automatically aggregate your data by time interval
+keywords: [continuous aggregates]
+tags: [hypertables]
+---
+
 ## Continuous Aggregates <tag type="community">Community</tag>
 
 TimescaleDB allows users the ability to automatically recompute aggregates

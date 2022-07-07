@@ -2,8 +2,9 @@
 api_name: timescaledb_post_restore()
 excerpt: Resume normal operations after restoring a database
 license: apache
-topic: administration
-tags: [administration, restore, backup, background workers]
+topic: admin
+keywords: [admin]
+tags: [restore, backup, background workers]
 ---
 
 ## timescaledb_post_restore() 

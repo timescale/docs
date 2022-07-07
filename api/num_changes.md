@@ -4,7 +4,8 @@ excerpt: Calculate the number of times a value changed within the time period of
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hpyerfunctions, changes, counters, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [count, change]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

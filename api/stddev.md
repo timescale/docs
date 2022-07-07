@@ -4,7 +4,8 @@ excerpt: Calculate the standard deviation from values in a statistical aggregate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, standard deviation, stddev, statistics, statistical aggregates, StatsSummary]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [standard deviation]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -5,7 +5,7 @@ license: community
 toolkit: true
 experimental: false
 topic: hyperfunctions
-tags: [hyperfunctions, average, statistics, statistical aggregate]
+keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

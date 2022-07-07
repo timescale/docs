@@ -4,7 +4,8 @@ excerpt: Calculate the instantaneous rate of change from values in a `CounterSum
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunction, rate, counters, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [rate]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -3,7 +3,8 @@ api_name: ALTER MATERLIALIZED VIEW (Continuous Aggregate)
 excerpt: Change an existing continuous aggregate
 license: community
 topic: continuous aggregates
-tags: [continuous aggregates, materialized views, alter, change]
+keywords: [continuous aggregates]
+tags: [materialized views, hypertables, alter, change]
 ---
 
 ## ALTER MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>

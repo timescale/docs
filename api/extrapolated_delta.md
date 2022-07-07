@@ -4,7 +4,8 @@ excerpt: Calculate the extrapolated change in a counter from values in a `Counte
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, delta, extrapolate, extrapolation, counters, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [change, extrapolate]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

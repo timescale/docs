@@ -4,7 +4,7 @@ excerpt: Aggregate data into a percentile aggregate for further analysis
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, percentile, aggregates, percentile aggregates]
+keywords: [percentiles, aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

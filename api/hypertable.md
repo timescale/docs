@@ -1,3 +1,9 @@
+---
+title: Hypertables and chunks
+excerpt: Create and work with hypertables
+keywords: [hypertables, chunks]
+---
+
 ## Hypertables & Chunks
 
 From a user's perspective, TimescaleDB exposes what look like singular tables,

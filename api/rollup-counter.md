@@ -4,7 +4,7 @@ excerpt: Roll up multiple `CounterSummary` aggregates
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, rollup, counters, CounterSummary]
+hyperfunctions: [counters, rollup, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

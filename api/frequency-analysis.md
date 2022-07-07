@@ -1,3 +1,9 @@
+---
+title: Frequency analysis
+excerpt: Measure how often values occur in a dataset
+keywords: [frequency, hyperfunctions, toolkit]
+---
+
 # Frequency analysis
 This section includes functions used to measure how often particular values
 occur. These are broken further into state aggregate APIs, which measure the

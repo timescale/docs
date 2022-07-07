@@ -4,7 +4,8 @@ excerpt: Calculate the kurtosis from values in a statistical aggregate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, kurtosis, skew, statistics, statistical aggregates]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [skew]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

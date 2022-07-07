@@ -3,7 +3,7 @@ api_name: cleanup_copy_chunk_operation()
 excerpt: Clean up after a failed chunk move or chunk copy operation
 license: community
 topic: multi-node
-tags: [chunks, multi-node, move, copy, distributed hypertables]
+keywords: [chunks, multi-node, distributed hypertables, move, copy]
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

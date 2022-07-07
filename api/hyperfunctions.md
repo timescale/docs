@@ -1,3 +1,9 @@
+---
+title: Hyperfunctions
+excerpt: Use hyperfunctions to simplify data analysis
+keywords: [hyperfunctions, toolkit]
+---
+
 # Hyperfunctions
 Timescale hyperfunctions are a specialized set of functions that allow you to
 analyze time-series data. You can use hyperfunctions to analyze anything you

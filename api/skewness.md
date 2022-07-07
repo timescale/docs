@@ -4,7 +4,7 @@ excerpt: Calculate the skewness from values in a statistical aggregate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, skewness, statistics, statistical aggregates, StatsSummary]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

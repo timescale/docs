@@ -3,7 +3,8 @@ api_name: drop_chunks()
 excerpt: Delete chunks by time range
 license: apache
 topic: data retention
-tags: [data retention, chunks, drop, delete]
+keywords: [data retention, chunks, delete]
+tags: [drop]
 ---
 
 ## drop_chunks()

@@ -4,7 +4,7 @@ excerpt: Calculate the covariance from values in a 2-dimensional `StatsSummary`
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, covariance, statistics, statistical aggregates, StatsSummary]
+keywords: [covariance, statistics, statistical aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

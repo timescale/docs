@@ -4,7 +4,7 @@ excerpt: Add bounds to a `CounterSummary`
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, counters, bounds, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

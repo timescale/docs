@@ -4,7 +4,8 @@ excerpt: Calculate the sum from values in a statistical aggregate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, sum, statistical aggregates, StatsSummary]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [sum]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

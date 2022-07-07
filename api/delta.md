@@ -5,7 +5,8 @@ license: community
 toolkit: true
 experimental: false
 topic: hyperfunctions
-tags: [hyperfunctions, counters, delta, change, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [delta]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

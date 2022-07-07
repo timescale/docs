@@ -4,7 +4,8 @@ excerpt: Calculate the intercept from values in a 2-dimensional statistical aggr
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, intercept, least squares, statistics, statistical aggregates]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [intercept, least squares, regression]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

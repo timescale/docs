@@ -4,7 +4,8 @@ excerpt: Calculate the slope from values in a 2-dimensional statistical aggregat
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, slope, least squares, statistics, statistical aggregates, StatsSummary]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [least squares, regression]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

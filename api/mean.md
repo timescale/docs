@@ -4,7 +4,8 @@ excerpt: Calculate the mean from values in a percentile aggregate
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, average, mean, percentile aggregates]
+keywords: [hyperfunctions, toolkit]
+tags: [average, percentiles]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false

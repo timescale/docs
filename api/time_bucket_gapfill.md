@@ -4,7 +4,8 @@ excerpt: Bucket rows by time interval while filling gaps in data
 license: community
 toolkit: false
 topic: hyperfunctions
-tags: [hyperfunctions, time buckets, gapfilling]
+keywords: [gapfill, interpolate, aggregate, hyperfunctions, toolkit]
+tags: [time buckets]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
