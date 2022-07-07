@@ -18,9 +18,9 @@ Cloud.
 ## Rapid recovery
 For all services, Timescale Cloud decouples the database's compute and
 storage. This allows databases to self-heal gracefully in many situations,
-rather than crashing and recovering from backup in all cases.
-would typically require a full restore from backup to recover, which 
-could result in hours of downtime. Timescale Cloud is able to replace 
+rather than crashing and recovering from backup in all cases. Without self-healing,
+failure recovery usually requires a full restore from backup. This
+can result in hours of downtime. Timescale Cloud is able to replace
 only the failed part of the database, dramatically reducing potential 
 downtime in the most common failure scenarios.
 
