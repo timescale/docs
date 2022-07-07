@@ -16,7 +16,7 @@ hyperfunction_type: accessor
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 Use this function to report the total duration for a given state in a [state aggregate][state_agg].
 
 <Experimental />
