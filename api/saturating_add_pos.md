@@ -33,4 +33,4 @@ For more information about saturating math functions, see the
 |saturating_add_pos|INT| The result of x+y, saturating at 0 for the minimum bound |
 
 
-[saturating-math-docs]: /api/:currentVersion:/hyperfunctions/saturating-math/
+[saturating-math-docs]: /api/:currentVersion:/hyperfunctions/saturating_math/

@@ -33,4 +33,4 @@ For more information about saturating math functions, see the
 |saturating_add|INT| The result of x+y, saturating at the numeric bounds instead of overflowing. |
 
 
-[saturating-math-docs]: /api/:currentVersion:/hyperfunctions/saturating-math/
+[saturating-math-docs]: /api/:currentVersion:/hyperfunctions/saturating_math/
