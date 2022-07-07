@@ -1,6 +1,6 @@
-# Install Promscale from source
-You can install Promscale from source on any operating system. The Promscale
-source files are available at [GitHub releases page][gh-promscale-download].
+# Install Promscale from binary
+You can install Promscale from a pre-complied binary on any operating systems. The
+Promscale binary file is available at [GitHub releases page][gh-promscale-download].
 
 Before you begin, you must have an already installed and working Prometheus or
 OpenTelemetry collector environment.
@@ -22,12 +22,12 @@ performance of Promscale.
 </procedure>
 
 ## Install the Promscale pre-compiled binary
-Download the Promscale binaries and run them.
+Download the Promscale binary file and run the file.
 
 <procedure>
 
-### Installing Promscale from source
-1.  At the command prompt, as a root user, download the appropriate source files
+### Installing Promscale from binary
+1.  At the command prompt, as a root user, download the appropriate file
     for your operating system (get the URL from the [GitHub repository releases page][releases]):
     ```bash
     curl -L -o promscale https://github.com/timescale/promscale/releases/download/<VERSION>/<PROMSCALE_DISTRIBUTION>
