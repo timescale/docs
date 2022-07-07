@@ -3,12 +3,6 @@ You can use Docker to install
 [TimescaleDB with the Promscale extension][timescaledb-docker-image], 
 and the [Promscale connector][promscale-docker-image]. 
 The Docker images are available for download from Docker Hub.
-<<<<<<< HEAD
-
-If you are upgrading from the previously used [Alpine image][alpine-image]
-follow the [upgrade instructions][upgrade].
-=======
->>>>>>> 3dacf70a7381e488ae03113306df997ae8b6750a
 
 The TimescaleDB images have a suffix that indicates the version of PostgreSQL
 and TimescaleDB. For example, the tag `pg14.2-ts2.6.1-latest` includes
@@ -57,7 +51,6 @@ packages and instructions, see the [Docker installation documentation][docker-in
 
 </procedure>
 
-<<<<<<< HEAD
 ## Upgrade from the previous alpine image
 You can upgrade from the previous alpine image on Docker or Kubernetes. 
 
@@ -147,20 +140,13 @@ If you are using Kubernetes instead of plain Docker:
 1. Restart the Promscale Connector pods.
 
 </procedure>
-=======
+
 After you have installed Promscale, you can ingest data.
 For instructions, see the [send data][send-data] section.
->>>>>>> 3dacf70a7381e488ae03113306df997ae8b6750a
 
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
-<<<<<<< HEAD
-[promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
-[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
-[upgrade]: https://docs.timescale.com/promscale/latest/installation/docker/#upgrade-from-the-previous-alpine-image 
-=======
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [send-data]: promscale/:currentVersion:/send-data/
->>>>>>> 3dacf70a7381e488ae03113306df997ae8b6750a
