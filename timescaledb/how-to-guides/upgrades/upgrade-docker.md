@@ -28,29 +28,21 @@ mounts, or bind mounts.
 
 1.  Get the current name or mount path with this command, and record it to use
     when you perform the upgrade. Make sure you copy the correct command, based
-    on your mount point type:
+    on your mount point type.
 
-  <terminal>
+    For volume mounts:
 
-      <tab label='Volume mount'>
+    ```bash
+    docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
+    069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
+    ```
 
-      ```bash
-      $ docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
-      069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
-      ```
+    For bind mounts:
 
-      </tab>
-
-      <tab label="Bind mount">
-
-      ```bash
-      $ docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
-      /path/to/data
-      ```
-
-      </tab>
-
-  </terminal>
+    ```bash
+    docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
+    /path/to/data
+    ```
 
 </procedure>
 
@@ -78,27 +70,19 @@ data.
 
 1.  Launch a new container with the upgraded Docker image, pointing to the
     existing mount point. Make sure you copy the correct command, based on your
-    mount point type:
+    mount point type.
 
-     <terminal>
+    For volume mounts:
 
-        <tab label='Volume mount'>
+    ```bash
+    docker run -v 069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
+    ```
 
-        ```bash
-        docker run -v 069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
-        ```
+    For bind mounts:
 
-        </tab>
-
-        <tab label="Bind mount">
-
-        ```bash
-        docker run -v /path/to/data:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
-        ```
-
-        </tab>
-
-    </terminal>
+    ```bash
+    docker run -v /path/to/data:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
+    ```
 
 1.  Connect to the upgraded instance using `psql` with the `-X` flag:
 

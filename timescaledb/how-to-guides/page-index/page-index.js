@@ -757,7 +757,7 @@ module.exports = [
           },
           {
             title: "Minor upgrades",
-            href: "minor-upgrades",
+            href: "minor-upgrade",
             tags: ["upgrade", "update", "timescaledb"],
             keywords: ["upgrade", "TimescaleDB"],
             excerpt:
@@ -765,7 +765,7 @@ module.exports = [
           },
           {
             title: "Major upgrades",
-            href: "major-upgrades",
+            href: "major-upgrade",
             tags: ["upgrade", "update", "timescaledb"],
             keywords: ["upgrade", "TimescaleDB"],
             excerpt:
