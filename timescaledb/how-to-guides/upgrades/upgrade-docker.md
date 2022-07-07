@@ -32,7 +32,7 @@ mounts, or bind mounts.
 
   <terminal>
 
-      <tab label='Volume mount'>
+      <tab label="Volume mount">
 
       ```bash
       $ docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
@@ -82,7 +82,7 @@ data.
 
      <terminal>
 
-        <tab label='Volume mount'>
+        <tab label="Volume mount">
 
         ```bash
         docker run -v 069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
