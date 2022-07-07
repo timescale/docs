@@ -35,7 +35,7 @@ mounts, or bind mounts.
       <tab label="Volume mount">
 
       ```bash
-      $ docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
+      docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
       069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
       ```
 
@@ -44,7 +44,7 @@ mounts, or bind mounts.
       <tab label="Bind mount">
 
       ```bash
-      $ docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
+      docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
       /path/to/data
       ```
 
