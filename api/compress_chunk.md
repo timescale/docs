@@ -11,7 +11,7 @@ tags: [chunks]
 
 The compress_chunk function is used to compress a specific chunk. This is
 most often used instead of the
-[add_compression_policy](/compression/add_compression_policy/) function, when a user
+[add_compression_policy][add_compression_policy] function, when a user
 wants more control over the scheduling of compression. For most users, we
 suggest using the policy framework instead.
 
@@ -46,3 +46,5 @@ Compress a single chunk.
 ``` sql
 SELECT compress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 ```
+
+[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/

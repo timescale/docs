@@ -10,7 +10,7 @@ tags: [distributed hypertables, data nodes, attach]
 ## attach_data_node() <tag type="community">Community</tag>
 
 Attach a data node to a hypertable. The data node should have been
-previously created using [`add_data_node`](/distributed-hypertables/add_data_node).
+previously created using [`add_data_node`][add_data_node].
 
 When a distributed hypertable is created, by default it uses all
 available data nodes for the hypertable, but if a data node is added
@@ -47,7 +47,7 @@ function.
 
 Attach a data node `dn3` to a distributed hypertable `conditions`
 previously created with
-[`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable).
+[`create_distributed_hypertable`][create_distributed_hypertable].
 
 ```sql
 SELECT * FROM attach_data_node('dn3','conditions');
@@ -61,5 +61,8 @@ hypertable_id | node_hypertable_id |  node_name
 
 <highlight type="tip">
  You must add a data node to your distributed database first
-with [`add_data_node`](/distributed-hypertables/add_data_node) first before attaching it.
+with [`add_data_node`](/api/latest/distributed-hypertables/add_data_node) first before attaching it.
 </highlight>
+
+[add_data_node]: /api/:currentVersion:/distributed-hypertables/add_data_node/
+[create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/

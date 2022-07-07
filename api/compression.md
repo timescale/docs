@@ -13,10 +13,10 @@ for the first time.
 
 Setting up compression on TimescaleDB requires users to first [configure the
 hypertable for compression][configure-compression] and then [set up a
-policy](/compression/add_compression_policy/) for when to compress chunks.
+policy][add_compression_policy] for when to compress chunks.
 
 Advanced usage of compression allows users to [compress chunks
-manually](/compression/compress_chunk), instead of automatically as they age.
+manually][compress_chunk], instead of automatically as they age.
 
 Compressed chunks have the following limitations:
 - `ROW LEVEL SECURITY` is not supported.
@@ -62,7 +62,8 @@ Altering data of compressed chunks still has some limitations:
     - Primary Keys (`PRIMARY KEY`) are not supported.
 
 
-
+[add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
 [blog-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
-[using-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[compress_chunk]: /api/:currentVersion:/compression/compress_chunk/
 [configure-compression]: /api/:currentVersion:/compression/alter_table_compression/
+[using-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/

@@ -34,7 +34,7 @@ find new insights in your time-series data. To dig in further, consider reading:
 
 
 
-[getting-started]: /timescaledb/:currentVersion:/getting-started/
+[getting-started]: /getting-started/:currentVersion:/
 [core-concepts]: /timescaledb/:currentVersion:/overview/core-concepts/
 [how-to-guides]: /timescaledb/:currentVersion:/how-to-guides/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/

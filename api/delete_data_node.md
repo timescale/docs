@@ -13,7 +13,7 @@ This function is executed on an access node to remove a data
 node from the local database. As part of the deletion, the data node
 is detached from all hypertables that are using it, if permissions
 and data integrity requirements are satisfied. For more information,
-see [`detach_data_node`](/distributed-hypertables/detach_data_node).
+see [`detach_data_node`][detach_data_node].
 
 Deleting a data node is strictly a local operation; the data
 node itself is not affected and the corresponding remote database
@@ -24,7 +24,7 @@ the data node.
 
 <highlight type="note">
 It is not possible to use
-[`add_data_node`](/distributed-hypertables/add_data_node) to add the
+[`add_data_node`](/api/latest/distributed-hypertables/add_data_node) to add the
 same data node again without first deleting the database on the data
 node or using another database. This is to prevent adding a data node
 that was previously part of the same or another distributed database
@@ -60,3 +60,5 @@ To delete a data node named `dn1`:
 ```sql
 SELECT delete_data_node('dn1');
 ```
+
+[detach_data_node]: /api/:currentVersion:/distributed-hypertables/detach_data_node

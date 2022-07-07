@@ -67,5 +67,5 @@ SELECT toolkit_experimental.max_frequency(
 );
 ```
 
-[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
-[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
+[freq_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn_agg/

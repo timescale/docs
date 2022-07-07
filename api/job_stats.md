@@ -12,7 +12,7 @@ tags: [background jobs, scheduled jobs, automation framework, scheduled views, s
 Shows information and statistics about jobs run by the automation framework.
 This includes jobs set up for user defined actions and jobs run by policies 
 created to manage data retention, continuous aggregates, compression, and
-other automation policies.  (See [policies](/actions/)). 
+other automation policies.  (See [policies][actions]). 
 The statistics include information useful for administering jobs and determining
 whether they ought be rescheduled, such as: when and whether the background job
 used to implement the policy succeeded and when it is scheduled to run next.
@@ -73,3 +73,5 @@ total_successes        | 1
 total_failures         | 0
 
 ```
+
+[actions]: /api/:currentVersion:/actions/

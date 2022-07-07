@@ -51,6 +51,6 @@ GROUP BY id, time_bucket('15 min'::interval, ts)
 ```
 
 
-[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
+[hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
 [least-squares]:https://en.wikipedia.org/wiki/Least_squares

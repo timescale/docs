@@ -68,6 +68,6 @@ FROM generate_series(0, 100) data;
 ```
 
 
-[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
+[hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
 [skewness]: https://en.wikipedia.org/wiki/Skewness

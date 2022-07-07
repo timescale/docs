@@ -79,7 +79,7 @@ GROUP BY 1;
 ```
 
 
-[approx_percentile]: /hyperfunctions/percentile-approximation/approx_percentile/
-[rollup]: /hyperfunctions/percentile-approximation/rollup-percentile/
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[approx_percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/approx_percentile/
+[rollup]: /api/:currentVersion:/hyperfunctions/percentile-approximation/rollup-percentile/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

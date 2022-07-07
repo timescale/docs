@@ -205,5 +205,5 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 |Timezones support|✅|2.6.0 or later|
 |Specify custom origin|✅|2.7.0 or later|
 
-[time_bucket]: /hyperfunctions/time_bucket/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

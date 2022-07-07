@@ -59,4 +59,4 @@ SELECT set_chunk_time_interval('conditions', 86400000);
 ```
 
 
-[create-hypertable]: /hypertable/create_hypertable
+[create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable

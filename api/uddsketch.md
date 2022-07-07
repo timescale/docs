@@ -75,6 +75,6 @@ CREATE VIEW sketch AS
     FROM samples;
 ```
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md
-[error]: /hyperfunctions/percentile-approximation/error/
+[error]: /api/:currentVersion:/hyperfunctions/percentile-approximation/error/

@@ -78,5 +78,5 @@ FROM t;
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
-[irate]: /hyperfunctions/counter_aggs/irate/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[irate]: /api/:currentVersion:/hyperfunctions/counter_aggs/irate/

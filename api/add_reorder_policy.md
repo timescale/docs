@@ -9,7 +9,7 @@ tags: [reorder]
 
 ## add_reorder_policy() <tag type="community">Community</tag>
 Create a policy to reorder chunks on a given hypertable index in the
-background. (See [reorder_chunk](/hypertable/reorder_chunk)). Only one reorder policy may
+background. (See [reorder_chunk][reorder_chunk]). Only one reorder policy may
 exist per hypertable. Only chunks that are the third from the most recent are
 reordered to avoid reordering chunks that are still being inserted into.
 
@@ -48,4 +48,6 @@ and re-create the policy if many older chunks have been affected.
 SELECT add_reorder_policy('conditions', 'conditions_device_id_time_idx');
 ```
 
-creates a policy to reorder completed chunks by the existing `(device_id, time)` index. (See [reorder_chunk](/hypertable/reorder_chunk)).
+Creates a policy to reorder completed chunks by the existing `(device_id, time)` index. (See [reorder_chunk][reorder_chunk]).
+
+[reorder_chunk]: /api/:currentVersion:/hypertable/reorder_chunk

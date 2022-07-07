@@ -8,7 +8,7 @@ tags: [materialized views, hypertables, alter, change]
 ---
 
 ## ALTER MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
-`ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH` clause [options](/continuous-aggregates/create_materialized_view/#parameters) for the continuous aggregate view.
+`ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH` clause [options][create_materialized_view] for the continuous aggregate view.
 `ALTER MATERIALIZED VIEW` statement also supports the following
 [PostgreSQL clauses][postgres-alterview] on the
 continuous aggregate view:
@@ -52,4 +52,5 @@ MATERIALIZED VIEW` are `materialized_only` and `compress`. The other options
 `continuous` and `create_group_indexes` can only be set when creating
 the continuous aggregate.
 
+[create_materialized_view]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/#parameters
 [postgres-alterview]: https://www.postgresql.org/docs/current/sql-alterview.html

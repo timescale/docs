@@ -20,4 +20,4 @@ additional hyperfunctions, you need to install the
     sortByType
 />
 
-[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

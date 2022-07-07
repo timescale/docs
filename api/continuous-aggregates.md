@@ -13,4 +13,4 @@ frequently used queries. For a more detailed discussion of this capability,
 see [using TimescaleDB Continuous Aggregates][using-continuous-aggs].
 
 
-[using-continuous-aggs]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/continuous-aggregates/
+[using-continuous-aggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

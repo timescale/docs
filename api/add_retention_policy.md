@@ -10,7 +10,7 @@ tags: [hypertables, drop]
 ## add_retention_policy() <tag type="community">Community</tag>
 
 Create a policy to drop chunks older than a given interval of a particular
-hypertable or continuous aggregate on a schedule in the background. (See [drop_chunks](/hypertable/drop_chunks)).
+hypertable or continuous aggregate on a schedule in the background. (See [drop_chunks][drop_chunks]).
 This implements a data retention policy and removes data on a schedule. Only
 one retention policy may exist per hypertable.
 
@@ -26,7 +26,7 @@ type of the time column of the hypertable:
 - For hypertables with TIMESTAMP, TIMESTAMPTZ, and DATE time columns: the time
 interval should be an INTERVAL type.
 - For hypertables with integer-based timestamps: the time interval should be an
-integer type (this requires the [integer_now_func](/hypertable/set_integer_now_func) to be set).
+integer type (this requires the [integer_now_func][set_integer_now_func] to be set).
 
 ### Optional arguments
 
@@ -51,3 +51,6 @@ Create a data retention policy with an integer-based time column:
 ```sql
 SELECT add_retention_policy('conditions', BIGINT '600000');
 ```
+
+[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks/
+[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func/

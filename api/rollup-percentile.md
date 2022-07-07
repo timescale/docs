@@ -81,7 +81,7 @@ FROM foo_hourly
 GROUP BY 1;
 ```
 
-[percentile_agg]: /hyperfunctions/percentile-approximation/percentile_agg/
+[percentile_agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile_agg/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
-[time_bucket]: /hyperfunctions/time_bucket/
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

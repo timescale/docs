@@ -18,7 +18,7 @@ hyperfunction_type: other
 The `locf` (last observation carried forward) function allows you to carry the
 last seen value in an aggregation group forward. It can only be used in an
 aggregation query with
-[time_bucket_gapfill](/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
+[time_bucket_gapfill][time_bucket_gapfill].
 The `locf` function call cannot be nested inside other function calls.
 
 For more information about gapfilling and interpolation functions, see the
@@ -101,4 +101,5 @@ ORDER BY day;
 (7 row)
 ```
 
-[hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
+[hyperfunctions-gapfilling]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
+[time_bucket_gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/

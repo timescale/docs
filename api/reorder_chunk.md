@@ -23,7 +23,7 @@ index on `(device_id, time)` can lead to significant performance improvement for
 these types of queries.
 
 One can call this function directly on individual chunks of a hypertable, but
-using [add_reorder_policy](/hypertable/add_reorder_policy/) is often much more convenient.
+using [add_reorder_policy][add_reorder_policy] is often much more convenient.
 
 ### Required arguments
 
@@ -51,4 +51,5 @@ SELECT reorder_chunk('_timescaledb_internal._hyper_1_10_chunk', 'conditions_devi
 
 runs a reorder on the `_timescaledb_internal._hyper_1_10_chunk` chunk using the `conditions_device_id_time_idx` index.
 
+[add_reorder_policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html

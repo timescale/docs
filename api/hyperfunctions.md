@@ -17,5 +17,5 @@ additional hyperfunctions, you need to install the
 For more information, see the [hyperfunctions documentation][hyperfunctions-howto].
 
 
-[hyperfunctions-howto]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
-[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
+[hyperfunctions-howto]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/

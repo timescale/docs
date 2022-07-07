@@ -11,7 +11,7 @@ tags: [show, get]
 Get list of chunks associated with a hypertable.
 
 Function accepts the following required and optional arguments. These arguments
-have the same semantics as the `drop_chunks` [function](/hypertable/drop_chunks).
+have the same semantics as the `drop_chunks` [function][drop_chunks].
 
 ### Required arguments
 
@@ -60,3 +60,5 @@ Get all chunks from hypertable `conditions` before 2017:
 ```sql
 SELECT show_chunks('conditions', older_than => DATE '2017-01-01');
 ```
+
+[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
