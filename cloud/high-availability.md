@@ -1,24 +1,24 @@
 # High availability
 Availability needs are determined by how a system recovers when a 
 database crashes or becomes unavailable. Availability is a balance 
-between how much data may be lost after a failure, the Recovery Point 
-Objective (RPO), and how quickly the database is back up and running, 
-the Recovery Time Objective (RTO). High availability usually refers to 
+between how much data may be lost after a failure and how long it
+takes for the database to get back up and running. The former is
+called the Recovery Point Objective (RTO), and the latter is called
+the Recovery Time Objective (RTO). High availability usually means 
 keeping the system operational during a failure while minimizing any 
 data loss. 
 
-Timescale Cloud provides very low RTO and RPO for all instances 
-(see rapid recovery below). Timescale Cloud also offers features like 
-replicas to satisfy high availability requirements to ensure near-zero 
-downtime and data loss in the event of a failure. This section covers 
+Timescale Cloud provides very low RTO and RPO for all instances.
+Timescale Cloud also offers features such as 
+replicas to satisfy high availability requirements. Replicas ensure near-zero 
+downtime and near-zero data loss if the database fails. This section covers 
 some strategies used to increase service availability on Timescale 
 Cloud.
 
 ## Rapid recovery
-For all services, Timescale Cloud decouples the database's compute and 
-storage, allowing Cloud to provide ways for databases to self-heal 
-gracefully rather than crashing and recovering from backup in all 
-failure scenarios. Historically, a failure in any part of the database 
+For all services, Timescale Cloud decouples the database's compute and
+storage. This allows databases to self-heal gracefully in many situations,
+rather than crashing and recovering from backup in all cases.
 would typically require a full restore from backup to recover, which 
 could result in hours of downtime. Timescale Cloud is able to replace 
 only the failed part of the database, dramatically reducing potential 
@@ -60,12 +60,12 @@ scenario, Timescale Cloud recommends using replicas.
 
 <highlight type="note">
 Timescale Cloud offers different tools to help improve the availability 
-of services, but also needs help from the user. It is recommend Cloud 
+of services, but also needs help from the user. We recommend that Cloud 
 users follow best practices to avoid situations like consistently 
 maxing out CPU usage. These practices can result in worst-case 
 scenarios like WAL archiving getting queued behind other processes, 
-causing a failure to result in larger data loss in the event of a 
-failure. That said, Cloud actively monitors for scenarios like these to 
+causing a failure to result in larger data loss.
+To mitigate this, Cloud actively monitors for such scenarios to 
 help catch them before a failure occurs.
 </highlight>
 
@@ -98,7 +98,7 @@ Some operations on your database cannot avoid downtime, such as
 upgrading a major version of PostgreSQL. If Timescale Cloud has to 
 apply a critical update, like a security patch, it is only applied 
 during the set Maintenance Window. However, these situations are rare 
-or triggered by the user manually. See the [Maintenance][maintenance] section in the 
+or triggered manually by the user. See the [Maintenance][maintenance] section in the 
 docs to learn more about how maintenance is handled.
 
 Adding replicas to your service can help reduce the downtime during a 
@@ -113,7 +113,7 @@ On Timescale Cloud, full backups are taken weekly and incremental
 backups are performed daily. Additionally, WAL is archived as soon as it
 is written to disk. In the event of a catastrophic failure, if the 
 service is unable to self-heal, Timescale Cloud automatically 
-recovers your database from backup and replay any WAL to close the gap 
+recovers your database from backup and replays any WAL to close the gap 
 between the backup and time of failure. This strategy ensures that data 
 can be retrieved almost right up to the point of failure, with the 
 exception of data in memory (up to 16&nbsp;MB or the last 5 minutes). For 
