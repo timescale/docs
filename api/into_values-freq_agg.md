@@ -16,7 +16,7 @@ hyperfunction_type: accessor
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 This function returns the data accumulated in a
 [frequency aggregate][freq_agg] or [top N aggregate][topn_agg].
 The aggregate operates over `AnyElement` types, so this method

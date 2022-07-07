@@ -16,7 +16,7 @@ hyperfunction_type: aggregate
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# freq_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# freq_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 The `freq_agg` aggregate uses the [SpaceSaving][spacesaving-algorithm] algorithm 
 to estimate the most common elements of a set. This API takes a sizing parameter and 
 a PostgreSQL column, and returns a FreqAgg object that can be passed to 

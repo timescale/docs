@@ -1,17 +1,27 @@
 # Backfill historical data on compressed chunks
 
 In the [TimescaleDB extras][timescaledb-extras] GitHub repository, we provide
-explicit functions for [backfilling batch data to compressed
-chunks][timescaledb-extras-backfill], which is useful for inserting a *batch*
-of backfilled data (as opposed to individual row inserts). By "backfill", we
-mean inserting data corresponding to a timestamp well in the past, which given
-its timestamp, already corresponds to a compressed chunk.
+explicit functions for
+[backfilling batch data to compressed chunks][timescaledb-extras-backfill],
+which is useful for inserting a *batch* of backfilled data (as opposed to
+individual row inserts). When you backfill data, you insert data corresponding to
+a timestamp well in the past, which has a timestamp that already corresponds to
+a compressed chunk.
 
 In the below example, we backfill data into a temporary table; such temporary
 tables are short-lived and only exist for the duration of the database
 session. Alternatively, if backfill is common, one might use a normal table for
 this instead, which would allow multiple writers to insert into the table at
 the same time before the `decompress_backfill` process.
+
+<procedure>
+
+## Backfilling using the `decompress_backfill` procedure
+
+<highlight type="important">
+The `decompress_backfill` function doesn't support distributed hypertables. To
+backfill a distributed hypertable, manually decompress the chunks before inserting data.
+</highlight>
 
 To use this procedure:
 
@@ -33,8 +43,10 @@ To use this procedure:
  CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'cpu');`
  ```
 
-If using a temp table, the table is automatically dropped at the end of your
-database session. If using a normal table, after you are done backfilling the
+</procedure>
+
+If you are using a temporary table, the table is automatically dropped at the end of your
+database session. If you are using a regular table, after you have backfilled the
 data successfully, you want to truncate your table in preparation
 for the next backfill (or drop it completely).
 
@@ -93,7 +105,7 @@ the command via [`run_job`][run-job]:
 CALL run_job(<job_id>);
 ```
 
-## Future Work [](future-work)
+## Future work
 
 One of the current limitations of TimescaleDB is that once chunks are converted
 into compressed column form, we do not allow updates and deletes of the data
@@ -104,6 +116,6 @@ We plan to remove this limitation in future releases.
 
 
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
-[compression-schema-changes]: /how-to-guides/compression/modify-a-schema/
+[compression-schema-changes]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema/
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
 [run-job]: /api/:currentVersion:/actions/run_job/
