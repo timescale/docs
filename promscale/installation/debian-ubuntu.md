@@ -23,6 +23,7 @@ the performance of Promscale.
 </procedure>
 
 ## Install the Promscale connector
+
 <PromscaleConnector />
 
     ```

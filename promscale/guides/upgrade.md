@@ -86,6 +86,7 @@ The previous Alpine-based image are updated and supported until
 the end of 2022 but you are encouraged to migrate to the
 `timescale/timescaledb-ha`. All new installations should switch to the
 `timescale/timescaledb-ha`image.
+
 <highlight type="note">
 Migrating to Debian version can be a lengthy process and involves downtime.
 </highlight>
