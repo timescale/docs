@@ -23,9 +23,9 @@ performance of Promscale.
 </procedure>
 
 ## Install the Promscale connector
-<PromscaleConnector >
-```bash
-yum install promscale
-```
+<PromscaleConnector />
+   ```bash
+      yum install promscale
+   ```
 
 [tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/

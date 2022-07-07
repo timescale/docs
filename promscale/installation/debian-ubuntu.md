@@ -23,9 +23,10 @@ the performance of Promscale.
 </procedure>
 
 ## Install the Promscale connector
-<PromscaleConnector >
-```bash
-apt install promscale
-```
+<PromscaleConnector />
+
+    ```
+       apt install promscale
+    ```
 
 [tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
