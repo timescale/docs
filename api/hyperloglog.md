@@ -59,3 +59,5 @@ CREATE VIEW hll AS SELECT hyperloglog(32768, data) FROM samples;
 
 
 [hyperfunctions-approx-count-distincts]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
+
+[stderror]: /api/:currentVersion:/hyperfunctions/approx_count_distincts/stderror/
