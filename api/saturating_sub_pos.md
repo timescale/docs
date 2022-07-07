@@ -33,4 +33,4 @@ For more information about saturating math functions, see the
 |saturating_sub_pos |INT| The result of x-y, saturating at 0 for the minimum bound |
 
 
-[hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
+[saturating-math-docs]: timescaledb/:currentVersion:/api/hyperfunctions/saturating-math/
