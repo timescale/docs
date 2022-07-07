@@ -1,4 +1,5 @@
 import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
+
 # Install Promscale on Red Hat or CentOS
 You can install Promscale on a Red Hat or CentOS system, if you have an
 already installed and working Prometheus or OpenTelemetry environment.
@@ -17,15 +18,14 @@ performance of Promscale.
 1.  Install the Promscale extension:
     ```
     yum install promscale-extension-postgresql-14
-    ```
-    
-</procedure>
+    ```    
 
+</procedure>
 
 ## Install the Promscale connector
 <PromscaleConnector >
-    ```bash
-    yum install promscale
-    ```
+```bash
+yum install promscale
+```
 
 [tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
