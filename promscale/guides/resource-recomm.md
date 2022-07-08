@@ -84,7 +84,7 @@ Where:
 * `<PROMSCALE_HOST>`: hostname of Promscale
 * `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
 
-Compute recommendations for the Promscale connector and TimescaleDB are:
+Compute recommendations for the Promscale Connector and Database are:
 
 |Ingestion Rate|Connector CPU|Connector Memory|DB CPU|DB Memory|DB connections|
 |-|-|-|-|-|-|
