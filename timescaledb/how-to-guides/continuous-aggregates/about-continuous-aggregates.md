@@ -1,4 +1,4 @@
-import CaggsFunctionSupport from '../../../../_partials/_caggs-function-support.mdx';
+import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
 # About continuous aggregates
 Time-series data usually grows very quickly. Large data volumes can become slow
@@ -174,9 +174,8 @@ Make sure you are maintaining your invalidation log size to avoid this, for exam
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
-[cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
-[cagg-window-functions]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
-[multi-node]: /how-to-guides/multinode-timescaledb/
+[cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
+[cagg-window-functions]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
+[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[real-time-aggs]: /how-to-guides/continuous-aggregates/real-time-aggregates/
-[tutorial-caggs]: /getting-started/create-cagg
+[real-time-aggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/

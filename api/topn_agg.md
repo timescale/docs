@@ -14,6 +14,8 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: aggregate
 ---
 
+import Experimental from 'versionContent/_partials/_experimental.mdx';
+
 # topn_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 Produces an aggregate that can be passed to the [`topn` function][topn] to
 calculate the `n` most-frequent values in a column.
@@ -24,11 +26,7 @@ topn_agg (
 ) RETURNS SpaceSavingAggregate
 ```
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk,
-and do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ## Required arguments
 
@@ -83,5 +81,5 @@ the `topn` function:
 SELECT topn(topn_agg(20, zip_code)) FROM employees;
 ```
 
-[topn]: /hyperfunctions/frequency-analysis/topn/
+[topn]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn/
 [zeta-distribution]: https://en.wikipedia.org/wiki/Zeta_distribution

@@ -53,9 +53,13 @@ In this procedure, you download the Promscale binaries and run them.
 
 </procedure>
 
+After you have installed Promscale, you can ingest data.
+For instructions, see the [send data][send-data] section.
+
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
 [go-install]: https://golang.org/dl/
 [prometheus-config-tips]: https://github.com/timescale/promscale/blob/master/docs/configuring_prometheus.md
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [releases]: https://github.com/timescale/promscale/releases/
+[send-data]: promscale/:currentVersion:/send-data/

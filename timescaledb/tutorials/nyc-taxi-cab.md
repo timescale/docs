@@ -660,7 +660,7 @@ The result of your query should start something like this:
 
 ```
 
-#### How many rides on New Year's morning originated from within 400m of Times Square, in 30 minute buckets? [](postgis)
+#### How many rides on New Year's morning originated from within 400m of Times Square, in 30 minute buckets?
 
 New York City is famous for its annual Ball Drop New Year's Eve
 celebration in Times Square. Thousands of people gather to bring in the
@@ -809,15 +809,14 @@ Ready for more learning? Here's a few suggestions:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-[install-timescale]: /install/latest/
-[setup-psql]: /how-to-guides/connecting/psql
+[install-timescale]: /install/:currentVersion:/
+[setup-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[nyc_data]: https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz
 [postgis]: http://postgis.net/documentation
-[time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /getting-started/create-cagg/
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [cloud-signup]: https://console.cloud.timescale.com/signup
-[hypertables]: /how-to-guides/hypertables
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy

@@ -14,7 +14,7 @@ hyperfunction_subfamily: 'downsample'
 hyperfunction_type: other
 ---
 
-# lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 [Largest Triangle Three Buckets][gh-lttb] is a downsampling method that 
 tries to retain visual similarity between the downsampled data and the 
 original dataset. The TimescaleDB Toolkit implementation of this takes 
@@ -55,4 +55,4 @@ The output for this query:
 
 
 [gh-lttb]: https://github.com/sveinn-steinarsson/flot-downsample
-[hyperfunctions-timevectors]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
+[hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors

@@ -1241,7 +1241,8 @@ parallel query coordination to the ChunkAppend node.
 Previously ChunkAppend would rely on parallel coordination in the
 underlying scans for parallel plans.
 
-For more information on this release, read the [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial](/timescaledb/:currentVersion:/getting-started/compress-data/),
+For more information on this release, read the
+[announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial][compress-data],
 and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
 **For this release only**, you need to restart the database before running
@@ -1439,7 +1440,7 @@ the materialized aggregate the next time that the automated process executes.
 
 For more information on this release, read our [blog on continuous aggregates](https://blog.timescale.com/blog/continuous-aggregates-faster-queries-with-automatically-maintained-materialized-views/),
 [our docs overview](/timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/),
-and visit this [tutorial](/timescaledb/:currentVersion:/getting-started/create-cagg/).
+and visit this [tutorial](/getting-started/:currentVersion:/create-cagg/).
 
 **Major features**
 * #1184 Add continuous aggregate functionality
@@ -1640,12 +1641,9 @@ For more information on this release, read the [blog announcement](https://blog.
 
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
-
-[changes-in-timescaledb-2]: /overview/release-notes/changes-in-timescaledb-2/
-[distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
-[distributed-hypertables-setup]: /how-to-guides/multi-node-setup/
+[compress-data]: /getting-started/:currentVersion:/compress-data/
+[distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
+[distributed-hypertables-setup]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
 [github-issue]: https://github.com/timescale/timescaledb/issues/new/choose
 [github-repo]: https://github.com/timescale/timescaledb
-[multinode-intro]: /overview/core-concepts/distributed-hypertables
-[multinode-setup]: /how-to-guides/multi-node-setup/
 [timescale-slack]: https://slack.timescale.com
