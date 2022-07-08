@@ -6,13 +6,12 @@ that make up your application are configured.
 
 ## Before you begin
 * Ensure that you have [installed Docker Compose][docker-compose].
-* Create a directory named `docker-compose`.
 
 ## Install Promscale with Docker Compose
-To install Promscale with Docker Compose you need to create a compose file and define the services and then run the Docker Compose.
+To install Promscale with Docker Compose you need to clone the compose file and then run the Docker Compose.
 
-### Creating a compose file and defining the services
-You need to create the `docker-compose.yaml` in the `docker-compose` directory and define the services for the following components:
+### Downloading the Compose file
+You need to download the the `docker-compose` directory which contains the services for the following components:
 * Promscale for analytics and long term storage of metrics, traces.
 * Prometheus and Node exporter for metrics
 * OpenTelemetry collector, Demo applications and Grafana for traces and visualisation
@@ -20,132 +19,13 @@ You need to create the `docker-compose.yaml` in the `docker-compose` directory a
 <procedure>
 
 1. Define the services for Promscale:
-   ```yaml
-   version: '3.0'
-   services:
-     db:
-       image: timescale/timescaledb-ha:pg14-latest
-       ports:
-        - 5432:5432/tcp
-       environment:
-         POSTGRES_PASSWORD: password
-         POSTGRES_USER: postgres
-     promscale:
-       image: timescale/promscale:latest
-       ports:
-        - 9201:9201/tcp
-        - 9202:9202/tcp
-       restart: on-failure
-       depends_on:
-        - db
-       environment:
-         PROMSCALE_DB_URI: postgres://postgres:password@db:5432/postgres?sslmode=allow
-  ```
-1. Define the services for Prometheus and Node Exporter :
-    ```yaml
-    version: "3.9"
-    services:
-      prometheus:
-        image: prom/prometheus:latest
-        depends_on:
-        - promscale
-        ports:
-        - 9090:9090/tcp
-       volumes:
-        - ${PWD}/prometheus.yml:/etc/prometheus/prometheus.yml
-       node_exporter:
-        image: quay.io/prometheus/node-exporter
-        ports:
-        - "9100:9100"
-    ```
-1. Define the services for OpenTelemetry Collector and Demo applications:
-    ```yaml
-    version: "3.9"
-    services:
-      grafana:
-        build:
-        context: ./instrumented/grafana
-      volumes:
-        - grafana-data:/var/lib/grafana
-      ports:
-        - 3000:3000/tcp
-      restart: on-failure
-      collector:
-        build:
-        context: ./instrumented/collector
-      ports:
-        - 4317:4317/tcp
-        - 4318:4318/tcp
-      restart: on-failure
-      depends_on:
-        - promscale
-      upper:
-       build:
-       context: ./instrumented/upper
-       restart: on-failure
-       depends_on:
-        - collector
-       ports:
-        - 5054:5000/tcp
-       environment:
-        - OTEL_EXPORTER_OTLP_ENDPOINT=collector:4317
-      lower:
-        build:
-        context: ./instrumented/lower
-        restart: on-failure
-        depends_on:
-        - collector
-       ports:
-         - 5053:5000/tcp
-       environment:
-         - OTEL_EXPORTER_OTLP_ENDPOINT=http://collector:4318
-      special:
-        build:
-        context: ./instrumented/special
-        restart: on-failure
-        depends_on:
-        - collector
-        ports:
-        - 5052:5000/tcp
-       environment:
-        - OTEL_EXPORTER_OTLP_ENDPOINT=collector:4317  
-       digit:
-         build:
-         context: ./instrumented/digit
-         restart: on-failure
-         depends_on:
-         - collector
-         ports:
-         - 5051:5000/tcp
-        environment:
-         - OTEL_EXPORTER_OTLP_ENDPOINT=collector:4317
-       generator:
-         build:
-         context: ./instrumented/generator
-         restart: on-failure
-        depends_on:
-         - upper
-         - lower
-         - special
-         - digit
-       ports:
-         - 5050:5000/tcp
-       environment:
-         - OTEL_EXPORTER_OTLP_ENDPOINT=collector:4317
-      load:
-        build:
-        context: ./instrumented/load
-        restart: on-failure
-        depends_on:
-         - generator
-        deploy:
-         mode: replicated
-         replicas: 3
-         volumes:
-       timescaledb-data:
-       grafana-data:
-  ```
-1. Save `docker-compose.yaml` file.
+   ```bash
+   git clone git@github.com:timescale/promscale.git
+   ```
+1. Naviagte into Promscale demo docker-compose directory.
+   ```bash
+   cd docker-compose/promscale-demo
+   ```
 
 </procedure >
 
@@ -153,7 +33,37 @@ You need to create the `docker-compose.yaml` in the `docker-compose` directory a
 You can run Promscale on Docker Compose using:
 ```bash
    docker compose up -d
-```   
+```
+
+## Exploring the Promscale
+
+By now Promscale should be up and running, Now let's explore the services
+installed in docker-compose
+
+### Grafana
+
+Grafana is out of the box configured with datasources and dashboards.
+
+#### Data sources
+
+You can see the below image all three data sources that are configured to Promscale
+1. Promscale-Metrics: PromQL query endpoint
+2. Promscale-Traces: Jaeger query endpoint
+3. Promscale-SQL: SQL query endpoint for both metrics and traces.
+
+<todo-upload-the-image-to-s3-and-add-it-here>
+
+#### APM Dashboards
+
+With Promscale you get the APM like experience from trace data. Below are some 
+of the dashboards that are pre-configured in docker-compose.
+
+<todo-upload-the-image1-to-s3-and-add-it-here>
+
+<todo-upload-the-image2-to-s3-and-add-it-here>
+
+<todo-upload-the-image3-to-s3-and-add-it-here>
+
 
 [gh-promscale]: https://github.com/timescale/promscale
 [slack]: https://slack.timescale.com
