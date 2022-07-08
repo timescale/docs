@@ -58,7 +58,7 @@ The default chunk interval is `8h`
 ## Traces
 Resource recommendation for ingestion through OpenTelemetry Protocol (OTLP) gRPC endpoint. 
 
-### OpenTelemetry Line Protocol
+### OpenTelemetry Protocol
 
 We recommend using the OpenTelemetry collector for ingesting the spans to 
 Promscale. Use this configuration with the OTLP exporter and batch processor 
