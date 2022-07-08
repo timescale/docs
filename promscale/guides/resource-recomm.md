@@ -35,7 +35,7 @@ remote_write:
     max_backoff: 10s
 ```
 
-Compute recommendations for the Promscale connector and TimescaleDB are:
+Compute recommendations for the Promscale Connector and Database are:
 
 |Ingestion Rate|Connector CPU|Connector Memory|DB CPU|DB Memory|DB connections|
 |-|-|-|-|-|-|
