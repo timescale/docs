@@ -14,21 +14,21 @@ beginning of a line to denote a comment.
 
 ### Editing the PostgreSQL configuration file inside Docker
 1.  Start your Docker instance:
-```bash
-docker start timescaledb
-```
+    ```bash
+    docker start timescaledb
+    ```
 1.  Open a shell:
-```bash
-docker exec -i -t timescaledb /bin/bash
-```
+    ```bash
+    docker exec -i -t timescaledb /bin/bash
+    ```
 1.  Open the configuration file in your opreferred text editor. In this example, we are using ther `Vi` editor:
-```bash
-vi /var/lib/postgresql/data/postgresql.conf
-```
+    ```bash
+    vi /var/lib/postgresql/data/postgresql.conf
+    ```
 1.  Restart the container to reload the configuration:
-```bash
-docker restart timescaledb
-```
+    ```bash
+    docker restart timescaledb
+    ```
 
 </procedure>
 

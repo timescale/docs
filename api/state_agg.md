@@ -16,7 +16,7 @@ hyperfunction_type: aggregate
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
-# state_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# state_agg()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 The `state_agg` aggregate measures the amount of time spent in each 
 distinct value of a state field. It is designed to work with a relatively small 
 number of states and might not perform well on queries where states are 
