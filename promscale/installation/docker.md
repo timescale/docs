@@ -1,7 +1,7 @@
 # Install Promscale using a Docker image
 You can use Docker to install 
 [TimescaleDB with the Promscale extension][timescaledb-docker-image], 
-and the [Promscale connector][promscale-docker-image]. 
+and the [Promscale Connector][promscale-docker-image]. 
 The Docker images are available for download from Docker Hub.
 
 The TimescaleDB images have a suffix that indicates the version of PostgreSQL
