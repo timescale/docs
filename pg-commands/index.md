@@ -1,4 +1,4 @@
-# Working with PostgreSQL commands
+# PostgreSQL for time-series
 TimescaleDB is built on top of PostgreSQL. When you interact with TimescaleDB,
 you're usually using PostgreSQL functionality. This guide helps you get up and
 running with the most common PostgreSQL keywords, functions, and concepts that

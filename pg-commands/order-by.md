@@ -6,10 +6,10 @@ to specify the columns to order the results on then, optionally, give the
 ordering direction, either ascending or descending. If you don't specify the
 order direction for your columns, the default ordering is ascending.
 
-When you query time-series data, you need ordered results. Time occurs linearly
-and by nature is chronological. When you analyze and understand time-series
-data, you need to retain that order on time. To effectively analyze time-series
-data in TimescaleDB, the `ORDER BY` clause is necessary.
+When you query time-series data, you usually need ordered results. Time occurs
+linearly and by nature is chronological. When you analyze and understand
+time-series data, you need to retain that order on time. When you are analyzing
+time-series data in TimescaleDB, an important function is the `ORDER BY` clause.
 
 ## Syntax
 Single column ordering: sort all rows of data based on the values in the
@@ -38,14 +38,14 @@ For example, if you have this raw  data:
 
 ```sql
 stock_data:
-| row_id | time | group | price | 
+| row_id | time | group | price |
 | - | - | - | - |
-| 1 | 2022-01-01 | b | 261.12 | 
-| 2 | 2022-01-02 | a | 200.88 | 
-| 3 | 2022-01-01 | a | 200.88 | 
-| 4 | 2022-01-02 | b | 382.76 | 
-| 5 | 2022-01-02 | b | 129.45 | 
-| 6 | 2022-01-01 | a |   72.70 | 
+| 1 | 2022-01-01 | b | 261.12 |
+| 2 | 2022-01-02 | a | 200.88 |
+| 3 | 2022-01-01 | a | 200.88 |
+| 4 | 2022-01-02 | b | 382.76 |
+| 5 | 2022-01-02 | b | 129.45 |
+| 6 | 2022-01-01 | a |   72.70 |
 ```
 
 You can create a query like this that orders time. Notice that the results are
@@ -59,14 +59,14 @@ ORDER BY time
 Results:
 
 ```sql
-| row_id | time | group | price | 
+| row_id | time | group | price |
 | - | - | - | - |
-| 1 | 2022-01-01 | b | 261.12 | 
+| 1 | 2022-01-01 | b | 261.12 |
 | 3 | 2022-01-01 | a | 200.88 |
-| 6 | 2022-01-01 | a |   72.70 | 
-| 2 | 2022-01-02 | a | 200.88 | 
-| 4 | 2022-01-02 | b | 382.76 | 
-| 5 | 2022-01-02 | b | 129.45 | 
+| 6 | 2022-01-01 | a |   72.70 |
+| 2 | 2022-01-02 | a | 200.88 |
+| 4 | 2022-01-02 | b | 382.76 |
+| 5 | 2022-01-02 | b | 129.45 |
 ```
 
 Or you can sort on multiple columns and specify descending:
@@ -79,11 +79,11 @@ ORDER BY group DESC, price, time
 Results:
 
 ```sql
-| row_id | time | group | price | 
+| row_id | time | group | price |
 | - | - | - | - |
 | 4 | 2022-01-02 | b | 382.76 |
 | 1 | 2022-01-01 | b | 261.12 |
-| 5 | 2022-01-02 | b | 129.45 | 
+| 5 | 2022-01-02 | b | 129.45 |
 | 3 | 2022-01-01 | a | 200.88 |
 | 2 | 2022-01-02 | a | 200.88 |
 | 6 | 2022-01-01 | a |   72.70 |
@@ -92,7 +92,7 @@ Results:
 Here's a more realistic example:
 
 ```sql
-weather_station_data: 
+weather_station_data:
 | weather_station_id | weather_station_location | time | temperature | humidity |
 | - | - | - | - | - |
 | 6 | Harrisburgh | 2022-03-23 12:00:00 | 49.4 | 65 |
@@ -121,9 +121,9 @@ Results:
 | 1 | Allentown | 2022-03-23 12:00:00 | 48.1 | 53 |
 | 2 | Altoona | 2022-03-23 12:00:00 | 49.2 | 67 |
 | 3 | Clearfield | 2022-03-23 12:00:00 | 47.9 | 56 |
-. 
-. 
-. 
+.
+.
+.
 ```
 
 The results display the most recent weather readings ordered by the weather
