@@ -496,6 +496,14 @@ module.exports = [
                 href: 'extrapolated_rate',
               },
               {
+                title: 'interpolated_delta',
+                href: 'interpolated_delta',
+              },
+              {
+                title: 'interpolated_rate',
+                href: 'interpolated_rate',
+              },
+              {
                 title: 'idelta',
                 href: 'idelta',
               },
@@ -554,6 +562,10 @@ module.exports = [
                 title: 'average',
                 href: 'average-time-weight',
               },
+              {
+                title: 'interpolated_average',
+                href: 'interpolated_average',
+              },
             ],
           },
           {
@@ -603,6 +615,10 @@ module.exports = [
               {
                 title: 'duration_in',
                 href: 'duration_in',
+              },
+              {
+                title: 'interpolated_duration_in',
+                href: 'interpolated_duration_in',
               },
               {
                 title: 'into_values (for state_agg)',
