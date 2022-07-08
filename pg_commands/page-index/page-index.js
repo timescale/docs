@@ -1,7 +1,7 @@
 module.exports = [
   {
     title: "PostgreSQL for time-series",
-    href: "pg-commands",
+    href: "pg_commands",
     pageComponents: ["featured-cards"],
     tags: ["timescaledb", "postgresql", "commands", "getting started"],
     keywords: ["PostgreSQL", "commands", "learn"],
