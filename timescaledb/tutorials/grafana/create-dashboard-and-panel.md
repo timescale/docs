@@ -101,7 +101,7 @@ FROM rides
 #### The Grafana \_\_timeFilter function
 
 Grafana time-series panels include a tool that enables the end-user to filter on a given
-time range, like a "time filter". Not surprisingly, Grafana has a way to link the
+time range, like a "time filter." Not surprisingly, Grafana has a way to link the
 user interface construct in a Grafana panel with the query itself. In this case,
 the `$__timefilter()` function.
 
@@ -145,7 +145,7 @@ When we visualize this query in Grafana, we see the following:
 <highlight type="tip">
  Remember to set the time filter in the upper right corner of your Grafana dashboard.
  If you're using the pre-built sample dataset for this example, you can set
- your time filter around January 1st, 2016.
+ your time filter around January 1, 2016.
 </highlight>
 
 Currently, the data is bucketed into 1 day groupings. Adjust the `time_bucket`

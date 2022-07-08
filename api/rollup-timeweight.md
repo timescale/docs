@@ -1,5 +1,10 @@
 ---
-api_name: rollup
+api_name: rollup()
+excerpt: Roll up multiple `TimeWeightSummaries`
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, rollup, time-weighted, TimeWeightSummaries]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

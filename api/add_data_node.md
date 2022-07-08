@@ -1,3 +1,11 @@
+---
+api_name: add_data_node()
+excerpt: Add a new data node to a multi-node cluster
+license: community
+topic: multi-node
+tags: [distributed hypertables, multi-node, data node, cluster]
+---
+
 ## add_data_node() <tag type="community">Community</tag>
 
 Add a new data node on the access node to be used by distributed
@@ -67,7 +75,7 @@ An error is given if:
 * The function is executed in a database that is already a data node.
 * The data node already exists and `if_not_exists` is `FALSE`.
 * The access node cannot connect to the data node due to a network
-  failure or invalid configuration (e.g., wrong port, or there is no
+  failure or invalid configuration (for example, wrong port, or there is no
   way to authenticate the user).
 * If `bootstrap` is `FALSE` and the database was not previously
   bootstrapped.

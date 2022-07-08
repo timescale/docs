@@ -1,3 +1,11 @@
+---
+api_name: recompress_chunk()
+excerpt: Recompress a chunk that had new data inserted after compression
+license: community
+topic: compression
+tags: [compression, recompression, chunks]
+---
+
 # recompress_chunk() <tag type="community" content="Community" />
 Recompresses a compressed chunk that had more data inserted after compression.
 ```sql

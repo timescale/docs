@@ -1,5 +1,11 @@
 ---
-api_name: asap_smooth
+api_name: asap_smooth()
+excerpt: Downsample a time series using the ASAP smoothing algorithm
+license: community
+toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, downssample, smoothing]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -8,7 +14,7 @@ hyperfunction_subfamily: 'downsample'
 hyperfunction_type: other
 ---
 
-# asap_smooth()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# asap_smooth()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 The [ASAP smoothing alogrithm][asap-algorithm] is designed to create 
 human-readable graphs that preserve the rough shape and larger trends 
 of the input data, while minimizing the local variance between points. 
@@ -22,7 +28,7 @@ an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 |-|-|-|
 |`ts`|`TIMESTAMPTZ`|Column of timestamps corresponding to the values to aggregate|
 |`value`|`DOUBLE PRECISION`|Column to aggregate|
-|`resolution`|`INT`|Approximate number of points to return.  Intended to represent the horizontal resolution in which the aggregate is graphed.|
+|`resolution`|`INT`|Approximate number of points to return. Intended to represent the horizontal resolution in which the aggregate is graphed.|
 
 ## Returns
 
@@ -33,7 +39,7 @@ an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 ## Sample usage
 This example uses a table called `metrics`, with columns for `date` and 
 `reading` that contain measurements that have been accumulated over 
-a large interval of time.  This example takes that data and provides a 
+a large interval of time. This example takes that data and provides a 
 smoothed representation of approximately 10 points, but that still shows 
 any anomalous readings:
 ```sql
@@ -69,4 +75,4 @@ The output for this query:
 
 
 [asap-algorithm]: https://arxiv.org/pdf/1703.00983.pdf
-[hyperfunctions-timevectors]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
+[hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors

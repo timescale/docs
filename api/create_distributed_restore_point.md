@@ -1,3 +1,11 @@
+---
+api_name: create_distributed_restore_point()
+excerpt: Create a consistent restore point for all nodes in a multi-node cluster
+license: community
+topic: distributed hypertables
+tags: [distributed hypertables, multi-node, clusters, write-ahead logs, backup, recovery, restore]
+---
+
 # create_distributed_restore_point()
 Creates a same-named marker record, for example `restore point`, in the
 write-ahead logs of all nodes in a multi-node TimescaleDB cluster.

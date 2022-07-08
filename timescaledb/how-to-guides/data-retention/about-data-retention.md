@@ -12,7 +12,7 @@ the raw data. You can downsample your older data by
 ## Drop data by chunk
 TimescaleDB data retention works on chunks, not on rows. Deleting data
 row-by-row, for example with the PostgreSQL `DELETE` command, can be slow. But
-dropping data by the chunk is faster, because it deletes an entire fire from
+dropping data by the chunk is faster, because it deletes an entire file from
 disk. It doesn't need garbage collection and defragmentation.
 
 Whether you use a policy or manually drop chunks, TimescaleDB drops data by the

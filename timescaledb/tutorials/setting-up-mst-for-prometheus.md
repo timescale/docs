@@ -91,7 +91,6 @@ and analyze Prometheus metrics from your Timescale Cloud instance.
 
 
 [timescale-mst]: https://www.timescale.com/products
-[timescale-mst-install]: /mst/:currentVersion:/
 [get-prometheus]: https://prometheus.io
 [timescale-mst-get-started]: /mst/:currentVersion:/
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html

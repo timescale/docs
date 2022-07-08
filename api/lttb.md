@@ -1,5 +1,11 @@
 ---
-api_name: lttb
+api_name: lttb()
+excerpt: Downsample a time series using the Largest Triangle Three Buckets method
+license: community
+toolkit: true
+experimental: true
+topic: hyperfunctions
+tags: [hyperfunctions, downsample, smoothing]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -8,7 +14,7 @@ hyperfunction_subfamily: 'downsample'
 hyperfunction_type: other
 ---
 
-# lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+# lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 [Largest Triangle Three Buckets][gh-lttb] is a downsampling method that 
 tries to retain visual similarity between the downsampled data and the 
 original dataset. The TimescaleDB Toolkit implementation of this takes 
@@ -26,7 +32,7 @@ original dataset. The TimescaleDB Toolkit implementation of this takes
 
 |Column|Type|Description|
 |-|-|-|
-|`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points.  It can be unpacked via `unnest`.|
+|`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points. It can be unpacked via `unnest`.|
 
 ## Sample usage
 This example creates a dramatically downsampled data set from a `sample_data` table:
@@ -49,4 +55,4 @@ The output for this query:
 
 
 [gh-lttb]: https://github.com/sveinn-steinarsson/flot-downsample
-[hyperfunctions-timevectors]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
+[hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors

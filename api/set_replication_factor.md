@@ -1,3 +1,11 @@
+---
+api_name: set_replication_factor()
+excerpt: Set the replication factor for a distributed hypertable
+license: community
+topic: distributed hypertables
+tags: [distributed hypertable, replication, multi-node, cluster]
+---
+
 ## set_replication_factor() <tag type="community">Community</tag>
 Sets the replication factor of a distributed hypertable to the given value.
 Changing the replication factor does not affect the number of replicas for existing chunks.

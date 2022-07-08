@@ -13,7 +13,9 @@ VPC peering attachments.
 
 To use Timescale Cloud VPC peering, you need your own cloud VPC, where your
 applications and infrastructure are already running. This section covers how to
-get your VPC peering set up in Amazon Web Services (AWS).
+get your VPC peering set up in Amazon Web Services (AWS). You can peer your VPC
+from any AWS region, though the Timescale Cloud VPC itself must be within one of
+the [Cloud-supported regions][tsc-regions].
 
 You need to have these permissions on your cloud provider account to set up
 VPC peering:
@@ -37,26 +39,27 @@ To begin, you need to create a new VPC in the Timescale Cloud console.
 <procedure>
 
 ### Creating a new VPC in Timescale Cloud
-1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
-    the `VPC` section.
-1.  Click `Create VPC`.
-1.  In the `Create a VPC` dialog:
-    *   Type a name for your new VPC and select the region that matches the region of the service you
-        want to attach it to.
-    *   Provide an IPv4 CIDR block. Make sure that your VPC CIDR block has its mask in 
-        the range between 16 and 28 and that the CIDR block you choose for your 
-        Timescale Cloud VPC does not overlap with the CIDR block used by your AWS VPC
-        peer. If the CIDR blocks overlap, the peering process fails. You can find the
-        CIDR block of your AWS VPC from the AWS console. This example uses the
-        `10.0.0.0/16` CIDR block.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
 <highlight type="note">
 You can create a VPC during your Timescale Cloud trial for free, but you need to
 enter a valid payment method. You are not charged for the service until your
 trial has finished.
 </highlight>
+
+1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
+    the `VPC` section.
+1.  Click `Create VPC`.
+1.  In the `Create a VPC` dialog:
+    *   Type a name for your new VPC and select the region that matches the region of the service you
+        want to attach it to.
+    *   Provide an IPv4 CIDR block. Make sure that your VPC CIDR block has its mask in
+        the range between 16 and 28 and that the CIDR block you choose for your
+        Timescale Cloud VPC does not overlap with the CIDR block used by your AWS VPC
+        peer. If the CIDR blocks overlap, the peering process fails. You can find the
+        CIDR block of your AWS VPC from the AWS console. This example uses the
+        `10.0.0.0/16` CIDR block.
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
 </procedure>
 
@@ -182,7 +185,8 @@ complete.
 </procedure>
 
 
+[aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
 [cloud-vpc]: cloud/vpc-peering/
 [cloud-login]: https://console.cloud.timescale.com/
 [timescale-support]: https://www.timescale.com/support
-[aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
+[tsc-regions]: /#available-in-multiple-aws-regions

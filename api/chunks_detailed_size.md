@@ -1,3 +1,11 @@
+---
+api_name: chunks_detailed_size
+excerpt: Get detailed information about disk space used by chunks
+license: community
+topic: hypertables
+tags: [hypertables, size, disk space, schemas]
+---
+
 ## chunks_detailed_size()   
 
 Get information about the disk space used by the chunks belonging to a

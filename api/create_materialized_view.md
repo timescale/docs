@@ -1,3 +1,11 @@
+---
+api_name: CREATE MATERIALIZED VIEW (Continuous Aggregate)
+excerpt: Create a continuous aggregate on a hypertable
+license: community
+topic: continuous aggregates
+tags: [continuous aggregates, create]
+---
+
 ## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
 The `CREATE MATERIALIZED VIEW` statement is used to create continuous
 aggregates.
@@ -31,7 +39,7 @@ parameter. For more information, see
 [`refresh_continuous_aggregate`][refresh-cagg].
 
 Continuous aggregates have some limitations of what types of queries they can
-support, described in more length below.  For example, the `FROM` clause must
+support, described in more length below. For example, the `FROM` clause must
 provide only one hypertable, and joins, CTEs, views or subqueries are not
 supported. The `GROUP BY` clause must include a time bucket on the hypertable
 time column, and all aggregates must be parallelizable.

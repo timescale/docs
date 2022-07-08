@@ -1,5 +1,10 @@
 ---
-api_name: with_bounds
+api_name: with_bounds()
+excerpt: Add bounds to a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, counters, bounds, CounterSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

@@ -1,3 +1,11 @@
+---
+api_name: decompress_chunk()
+excerpt: Decompress a compressed chunk
+license: community
+topic: compression
+tags: [compression, decompression, chunks]
+---
+
 ## decompress_chunk() <tag type="community">Community</tag>
 If you need to modify or add data to a chunk that has already been
 compressed, you need to decompress the chunk first. This is especially

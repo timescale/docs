@@ -38,7 +38,7 @@ This tutorial has a few sections to help you on your journey:
 
 * Python 3
 * TimescaleDB (see [installation options][install-timescale])
-* [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
+* [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
 * The [Timescale toolkit][toolkit]
 
 ## Download the dataset

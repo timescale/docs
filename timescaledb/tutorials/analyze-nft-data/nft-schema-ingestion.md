@@ -271,7 +271,7 @@ tutorial.
 
 ### Download sample NFT data
 You can download and insert sample CSV files that contain NFT sales data from
-1 October 2021 to 7 October 2021.
+October 1, 2021 to October 7, 2021.
 
 <procedure>
 
@@ -303,7 +303,5 @@ After ingesting NFT data, you can try running some queries on your database:
 SELECT count(*), MIN(time) AS min_date, MAX(time) AS max_date FROM nft_sales
 ```
 
-[nft-starter-kit]: https://github.com/timescale/nft-starter-kit
-[ingest-script]: https://github.com/timescale/nft-starter-kit/blob/master/opensea_ingest.py
 [sample-data]: https://assets.timescale.com/docs/downloads/nft_sample.zip
 [nft-schema]: https://github.com/timescale/nft-starter-kit/blob/master/schema.sql

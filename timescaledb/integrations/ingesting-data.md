@@ -3,7 +3,7 @@
 TimescaleDB can support standard SQL inserts. Read more about how to use
 SQL to write data into TimescaleDB in our [Writing Data][writing-data] section.
 
-Users often choose to leverage existing 3rd party tools to build data ingest pipelines
+Users often choose to leverage existing third party tools to build data ingest pipelines
 that increase ingest rates by performing batch writes into TimescaleDB, as opposed
 to inserting data one row or metric at a time. At a high-level, TimescaleDB looks just
 like PostgreSQL, so any tool that can read and/or write to PostgreSQL also works with
@@ -11,7 +11,7 @@ TimescaleDB.
 
 Below, we discuss some popular frameworks and systems used in conjunction with TimescaleDB.
 
-## Prometheus [](prometheus)
+## Prometheus
 
 Prometheus is a popular tool used to monitor infrastructure metrics. It can scrape any
 endpoints that expose metrics in a Prometheus-compatible format. The metrics are stored in
@@ -31,7 +31,7 @@ Grafana via the [Prometheus][prometheus-grafana] and PostgreSQL/TimescaleDB
 Read more about Promscale and how we designed it to perform well in our [design
 doc][design-doc] or check out our [github project][promscale-github].
 
-## PostgreSQL and TimescaleDB output plugin for Telegraf [](postgresql-and-timescaledb-output-plugin-for-telegraf)
+## PostgreSQL and TimescaleDB output plugin for Telegraf
 
 Telegraf is an agent that collects, processes, aggregates, and writes metrics. Since it is plugin-driven for both the
 collection and the output of data, it is easily extendable. In fact, it already contains over 200 plugins for gathering and
@@ -57,13 +57,13 @@ narrow model with a separate metadata table and foreign keys. You can also choos
 
 To get started with the PostgreSQL and TimescaleDB output plugin, visit the [tutorial][telegraf-tutorial].
 
-## PostgreSQL's Kafka connector [](postgresqls-kafka-connector)
+## PostgreSQL's Kafka connector
 
 Another popular method of ingesting data into TimescaleDB is through the use of
 the [PostgreSQL connector with Kafka Connect][postgresql-connector-with-kafka-connect].
 The connector is designed to work with [Kafka Connect][kafka-connect] and to be
 deployed to a Kafka Connect runtime service. It's purpose is to ingest change
-events from PostgreSQL databases (i.e. TimescaleDB).
+events from PostgreSQL databases (that is, TimescaleDB).
 
 The deployed connector monitors one or more schemas within a TimescaleDB
 server and write all change events to Kafka topics, which can be independently
@@ -86,8 +86,8 @@ If you are interested in an alternative method to ingest data from Kafka to
 TimescaleDB, you can download the [StreamSets Data Collector][streamsets-data-collector]
 and get started with this [tutorial][tutorial-streamsets].  
 
-
-[writing-data]: /how-to-guides/writing-data
+[design-doc]: https://tsdb.co/prom-design-doc
+[writing-data]: /timescaledb/:currentVersion:/how-to-guides/write-data
 [prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
 [postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/
 [promscale-blog]: https://blog.timescale.com/blog/promscale-analytical-platform-long-term-store-for-prometheus-combined-sql-promql-postgresql/

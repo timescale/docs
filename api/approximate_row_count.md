@@ -1,3 +1,11 @@
+---
+api_name: approximate_row_count()
+excerpt: Estimate the number of rows in a table
+license: apache
+topic: hyperfunctions
+tags: [approximate, count, hyperfunctions, rows]
+---
+
 ## approximate_row_count()
 
 Get approximate row count for hypertable, distributed hypertable, or regular PostgreSQL table based on catalog estimates.

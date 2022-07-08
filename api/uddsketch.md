@@ -1,5 +1,10 @@
 ---
-api_name: uddsketch
+api_name: uddsketch()
+excerpt: Aggregate data in a `uddsketch` for further calculation of percentile estimates
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, percentile, uddsketch]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -29,10 +34,10 @@ smaller unless you have a good understanding of exactly what your error should
 be.
 
 Timescale's `UddSketch` implementation is provided as an aggregate function in
-PostgreSQL. The output is currently only suitable as input to the
-the percentile approximation functions. This can be directly as part of a one-off
-SQL query, or as transient data stored in a continuous aggregate that is queried
-later with these functions and using the `UddSketch` data as input.
+PostgreSQL. The output is currently only suitable as input to the percentile
+approximation functions; it can be used directly as part of a one-off SQL query
+or as data stored in a continuous aggregate that is queried later with
+percentile approximation functions.
 
 *   For more information about percentile approximation functions, see the
     [hyperfunctions documentation][hyperfunctions-percentile-approx].
@@ -70,5 +75,5 @@ CREATE VIEW sketch AS
 ```
 
 [hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
-[gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/`tdigest`.md
+[gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md
 [error]: /hyperfunctions/percentile-approximation/error/

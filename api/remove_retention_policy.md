@@ -1,3 +1,11 @@
+---
+api_name: remove_retention_policy()
+excerpt: Remove a retention policy from a hypertable
+license: community
+topic: data retention
+tags: [data retention, policy, remove]
+---
+
 ## remove_retention_policy() <tag type="community">Community</tag> 
 Remove a policy to drop chunks of a particular hypertable.
 

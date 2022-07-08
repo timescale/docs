@@ -27,13 +27,13 @@ Based on this, you can create a table called `stocks_intraday`:
 
 ```sql
 CREATE TABLE public.stocks_intraday (
-    "time" timestamp NOT NULL,
+    "time" timestamptz NOT NULL,
     symbol text NULL,
 	price_open double precision NULL,
 	price_close double precision NULL,
 	price_low double precision NULL,
 	price_high double precision NULL,
-	trading_volume int NULL,
+	trading_volume int NULL
 );
 ```
 

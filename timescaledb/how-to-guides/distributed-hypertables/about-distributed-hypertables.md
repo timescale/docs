@@ -34,8 +34,9 @@ hypertables. But unlike non-distributed hypertables, distributed hypertables
 should also be partitioned by space. This allows you to balance inserts and
 queries between data nodes, similar to traditional sharding. Without space
 partitioning, all data in the same time range would write to the same chunk on a
-single node. For more information about space partitioning, see the [space
-partitioning][space-partitioning] and [multi-node][multi-node] sections.
+single node. For more information about space partitioning, see the
+[space partitioning][space-partitioning] and
+[multi-node][multi-node] sections.
 
 By default, TimescaleDB creates as many space partitions as there are data
 nodes. You can change this number, but having too many space partitions degrades
@@ -47,11 +48,11 @@ dimension corresponds to a data node. One data node may hold many buckets, but
 each bucket may belong to only one node for each time interval.
 
 ### Repartitioning distributed hypertables
-You can expand distributed hypertables by adding additional data nodes. If you 
+You can expand distributed hypertables by adding additional data nodes. If you
 now have fewer space partitions than data nodes, you need to increase the
 number of space partitions to make use of your new nodes. The new partitioning
-configuration only affects new chunks. In this diagram, an extra data node 
-was added during the third time interval. The fourth time interval now includes 
+configuration only affects new chunks. In this diagram, an extra data node
+was added during the third time interval. The fourth time interval now includes
 four chunks, while the previous time intervals still include three:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
@@ -59,6 +60,17 @@ four chunks, while the previous time intervals still include three:
 This can affect queries that span the two different partitioning configurations.
 For more information, see the section on [limitations of query push
 down][limitations-pushing-down].
+
+## Replicating distributed hypertables
+To replicate distributed hypertables at the chunk level, configure the
+hypertables to write each chunk to multiple data nodes. This native replication
+ensures that a distributed hypertable is protected against data node failures
+and provides an alternative to fully replicating each data node using streaming
+replication to provide high availability. Only the data nodes are replicated
+using this method. The access node is not replicated.
+
+For more information about replication and high availability, see the
+[multi-node HA section][multi-node-ha].
 
 ## Performance of distributed hypertables
 A distributed hypertable horizontally scales your data storage, so you're not
@@ -145,7 +157,7 @@ for several reasons:
 	repartition your data to achieve elasticity without worrying about query
 	results. In some cases, your query could be slightly less performant, but
 	this is rare and the affected chunks usually move quickly out of your
-	retention window. 
+	retention window.
 *	The query includes [non-immutable functions][volatility] and expressions.
 	The function cannot be pushed down to the data node, because by definition,
 	it isn't guaranteed to have a consistent result across each node. An example
@@ -174,3 +186,4 @@ the data nodes and perform the `JOIN` locally.
 [random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE
 [space-partitioning]: /how-to-guides/hypertables/about-hypertables#space-partitioning
 [volatility]: https://www.postgresql.org/docs/current/xfunc-volatility.html
+[multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/

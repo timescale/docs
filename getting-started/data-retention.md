@@ -109,6 +109,9 @@ SELECT drop_chunks(
 For more details and best practices on data retention and automated data retention
 policies, see the [Data Retention docs][data-retention].
 
+
+<video url="https://www.youtube.com/embed/BJRIntSAmHM"></video>
+
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/
 [retention-policy]: /api/:currentVersion:/data-retention/add_retention_policy/

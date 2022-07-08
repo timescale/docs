@@ -1,3 +1,11 @@
+---
+api_name: ALTER TABLE (Compression)
+excerpt: Change compression settings on a compressed hypertable
+license: community
+topic: compression
+tags: [compression, settings, hypertables, alter]
+---
+
 ## ALTER TABLE (Compression) <tag type="community" content="community" />
 
 'ALTER TABLE' statement is used to turn on compression and set compression

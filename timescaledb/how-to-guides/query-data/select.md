@@ -1,43 +1,57 @@
-# SELECT commands
+# SELECT data
 
-Query data from a hypertable using the standard [`SELECT`][postgres-select] SQL
-command. You can use all SQL features, including `WHERE` clauses, `GROUP BY` and
-`ORDER BY` commands, joins, subqueries, window functions, user-defined functions
-(UDFs), `HAVING` clauses, and more.
+You can query data from a hypertable using a standard
+[`SELECT`][postgres-select] command. All SQL clauses and features are supported.
 
-From basic queries:
+## Basic query examples
 
+Here are some examples of basic `SELECT` queries.
+
+Return the 100 most-recent entries in the table `conditions`. Order the rows
+from newest to oldest:
 ```sql
--- Return the most recent 100 entries in the table 'conditions' ordered newest to oldest
 SELECT * FROM conditions ORDER BY time DESC LIMIT 100;
+```
 
--- Return the number of data entries written in past 12 hours
+Return the number of entries written to the table `conditions` in the last 12
+hours:
+```sql
 SELECT COUNT(*) FROM conditions
   WHERE time > NOW() - INTERVAL '12 hours';
 ```
-To more advanced SQL queries:
 
+### Advanced query examples
+
+Here are some examples of more advanced `SELECT` queries.
+
+Get information about the weather conditions at each location, for each
+15-minute period within the last 3&nbsp;hours. Calculate the number of
+measurements taken, the maximum temperature, and the maximum humidity. Order the
+results by maximum temperature.
+
+This examples uses the [`time_bucket`][time_bucket] function to aggregate data
+into 15-minute buckets:
 ```sql
--- Information about each 15-min period for each location
--- over the past 3 hours, ordered by time and temperature
 SELECT time_bucket('15 minutes', time) AS fifteen_min,
-    location, COUNT(*),
+    location,
+    COUNT(*),
     MAX(temperature) AS max_temp,
     MAX(humidity) AS max_hum
   FROM conditions
   WHERE time > NOW() - INTERVAL '3 hours'
   GROUP BY fifteen_min, location
   ORDER BY fifteen_min DESC, max_temp DESC;
+```
 
-
--- How many distinct locations with air conditioning
--- have reported data in the past day
+Count the number of distinct locations with air conditioning that have reported
+data in the last day:
+```sql
 SELECT COUNT(DISTINCT location) FROM conditions
   JOIN locations
     ON conditions.location = locations.location
   WHERE locations.air_conditioning = True
-    AND time > NOW() - INTERVAL '1 day'
+    AND time > NOW() - INTERVAL '1 day';
 ```
 
-
 [postgres-select]: https://www.postgresql.org/docs/current/static/sql-select.html
+[time_bucket]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/

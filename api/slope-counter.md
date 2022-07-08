@@ -1,5 +1,10 @@
 ---
-api_name: slope
+api_name: slope()
+excerpt: Calculate the slope from values in a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, slope, least squares, counters, CounterSummary]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

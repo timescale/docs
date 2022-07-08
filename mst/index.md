@@ -1,5 +1,5 @@
 # Managed Service for TimescaleDB
-Managed Service for TimescaleDB provides a fully-managed TimescaleDB service
+Managed Service for TimescaleDB provides a fully managed TimescaleDB service
 hosted in more than 75 regions using AWS, Azure, or GCP. You can use this
 service to create database instances, or services, in the cloud and automate
 most of your most common operational tasks. This allows you to spend more time
