@@ -1,7 +1,11 @@
+import PromscaleInstallPrerequisite from 'versionContent/_partials/_promscale-install-pre-requisite.mdx';
+import PromscaleSendData from 'versionContent/_partials/_promscale-send-data.mdx';
 # Promscale from source
 You can install Promscale from source on any operating system. The Promscale
 source files are available from our
 [GitHub releases page][gh-promscale-download].
+
+<PromscaleInstallPrerequisite />
 
 Before you begin, you must have an already installed and working Prometheus
 environment. Additionally, you need a
@@ -53,8 +57,7 @@ In this procedure, you download the Promscale binaries and run them.
 
 </procedure>
 
-After you have installed Promscale, you can ingest data.
-For instructions, see the [send data][send-data] section.
+<PromscaleSendData />
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [tsdb-install-self-hosted]: timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
@@ -63,3 +66,4 @@ For instructions, see the [send data][send-data] section.
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [releases]: https://github.com/timescale/promscale/releases/
 [send-data]: promscale/:currentVersion:/send-data/
+[prom-migrator]: promscale/:currentVersion:/installation/prom-migrator

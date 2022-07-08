@@ -1,7 +1,11 @@
+import PromscaleInstallPrerequisite from 'versionContent/_partials/_promscale-install-pre-requisite.mdx';
+import PromscaleSendData from 'versionContent/_partials/_promscale-send-data.mdx';
 # Install Promscale using a pre-built Docker container
 Docker images for the [Promscale Connector][promscale-docker-image] and
 [TimescaleDB (with the Promscale extension)][timescaledb-docker-image] are
 available on Docker Hub.
+
+<PromscaleInstallPrerequisite />
 
 If you are upgrading from the previously used [Alpine image][alpine-image]
 follow these upgrade instructions at the end of this page.
@@ -52,8 +56,7 @@ packages and instructions, see the
 
 </procedure>
 
-After you have installed Promscale, you can ingest data.
-For instructions, see the [send data][send-data] section.
+<PromscaleSendData />
 
 ## Upgrading from the previous alpine image
 
@@ -111,3 +114,4 @@ If you are using Kubernetes instead of plain docker you should:
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [send-data]: promscale/:currentVersion:/send-data/
+[prom-migrator]: promscale/:currentVersion:/installation/prom-migrator

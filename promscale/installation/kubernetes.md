@@ -1,5 +1,9 @@
+import PromscaleInstallPrerequisite from 'versionContent/_partials/_promscale-install-pre-requisite.mdx';
+import PromscaleSendData from 'versionContent/_partials/_promscale-send-data.mdx';
 # Install Promscale on Kubernetes
 You can install Promscale on Kubernetes using Helm or using a manifest file.
+
+<PromscaleInstallPrerequisite />
 
 ## Install Promscale with Helm
 You can install Promscale using Helm charts.
@@ -169,8 +173,7 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 
 </procedure>
 
-After you have installed Promscale, you can ingest data.
-For instructions, see the [send data][send-data] section.
+<PromscaleSendData />
 
 [timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
 [timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
@@ -182,3 +185,4 @@ For instructions, see the [send data][send-data] section.
 [timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
 [timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
 [send-data]: promscale/:currentVersion:/send-data/
+[prom-migrator]: promscale/:currentVersion:/installation/prom-migrator

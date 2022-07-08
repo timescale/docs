@@ -14,6 +14,16 @@ in Promscale with your preferred SQL tool. In this section, we use `psql`.
 For more information about installing and using `psql`, see the 
 [installing psql section][install-psql].
 
+<highlight type="note">
+The PostgreSQL `search_path` variable determines in what order schemas are
+searched and which objects such as tables, views, functions, and others do not
+require schema qualification to use. When you install Promscale, the Promscale
+extension modifies the `search_path` of the database that it is connected to
+and adds its public schemas to the search path. This makes querying Promscale
+data easier. The public schemas that Promscale adds are: `ps_tag`, `prom_api`,
+`prom_metric`, `ps_trace`. 
+</highlight>
+
 ## Query metric data with SQL
 This section covers information about the different SQL queries you can use for metrics data.
 
