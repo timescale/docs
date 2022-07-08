@@ -56,7 +56,7 @@ The default chunk interval is `8h`
 |200k samples/sec|90 days|~40 GB|~420 GB|~4 TB|-|
 
 ## Traces
-Resource recommendation for ingestion through OpenTelemetry Line Protocol (OTLP) gRPC endpoint. 
+Resource recommendation for ingestion through OpenTelemetry Protocol (OTLP) gRPC endpoint. 
 
 ### OpenTelemetry Line Protocol
 
