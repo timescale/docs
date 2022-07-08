@@ -308,6 +308,10 @@ module.exports = [
                 title: 'stderror',
                 href: 'stderror',
               },
+		{
+		    title: 'approx_count_distinct',
+		    href: 'approx_count_distinct',
+		},
             ],
           },
           {
