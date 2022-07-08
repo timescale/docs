@@ -1,4 +1,15 @@
-# Reading data
+# Querying data
 
-TimescaleDB hypertables are designed to behave in the same manner as
-PostgreSQL database tables for reading data, using standard SQL commands.
+TimescaleDB hypertables _are_ PostgreSQL tables. That means you can query them
+with standard SQL commands. In addition, you get extra benefits from TimescaleDB
+architecture and query planning.
+
+- [About querying data][about-querying-data]
+- [Select data with `SELECT`][selecting-data]
+- [Get faster `DISTINCT` queries with SkipScan][skipscan]
+- [Perform advanced analytic queries][advanced-analytics]
+
+[about-querying-data]: /timescaledb/:currentVersion:/how-to-guides/query-data/about-query-data/
+[selecting-data]: /timescaledb/:currentVersion:/how-to-guides/query-data/select/
+[skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
+[advanced-analytics]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries/

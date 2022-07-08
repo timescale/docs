@@ -21,7 +21,8 @@ rollup(
 ) RETURNS Hyperloglog
 ```
 
-Returns a hyperloglog by aggregating over the union of the input elements.
+Returns a hyperloglog by aggregating over the union of the input elements. Since hyperloglog is designed to merge well, `rollup`
+does not compound errors. Union of hyperloglogs of different bucket size is currently not supported.
 
 For more information about approximate count distinct functions, see the
 [hyperfunctions documentation][hyperfunctions-approx-count-distincts].
@@ -55,4 +56,4 @@ FROM (
 ```
 
 
-[hyperfunctions-approx-count-distincts]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
+[hyperfunctions-approx-count-distincts]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/

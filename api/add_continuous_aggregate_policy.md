@@ -7,7 +7,9 @@ tags: [continuous aggregates, policy, scheduled jobs, refresh]
 ---
 
 ## add_continuous_aggregate_policy() <tag type="community">Community</tag>
-Create a policy that automatically refreshes a continuous aggregate.
+Create a policy that automatically refreshes a continuous aggregate. To view the
+policies that you set or the policies that already exist, see 
+[informational views][informational-views].
 
 ### Required arguments
 
@@ -57,3 +59,4 @@ SELECT add_continuous_aggregate_policy('conditions_summary',
 	end_offset => INTERVAL '1 hour',
 	schedule_interval => INTERVAL '1 hour');
 ```
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
