@@ -71,7 +71,7 @@ This error occurs because PostgreSQL has a limited amount of shared memory
 available to store locks on objects. You can increase the amount of shared
 memory available by increasing the `max_locks_per_transaction` parameter. When
 you have completed the upgrade, you can set the value back to what it was before
-the upgrade. For more information about tuning this parameter, see
+then upgrade. For more information about tuning this parameter, see
 [troubleshooting Promscale][max-locks-config].
 
 ## Upgrade from the previous alpine image
