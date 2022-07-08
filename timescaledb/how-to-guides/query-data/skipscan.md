@@ -1,9 +1,9 @@
-# SkipScan
+# Get faster `DISTINCT` queries with `SkipScan`
 SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
 tables, TimescaleDB hypertables, and TimescaleDB distributed hypertables.
-SkipScan is included in TimescaleDB 2.2.1 and above.
+SkipScan is included in TimescaleDB&nbsp;2.2.1 and above.
 
-## Faster DISTINCT queries using SkipScan
+## Speed up `DISTINCT` queries
 To query your database and find the most recent value of an item, you
 could use a `DISTINCT` query. For example, you might want to find the latest
 stock or cryptocurrency price for each of your investments. Or you might have graphs

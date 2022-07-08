@@ -332,17 +332,32 @@ module.exports = [
         ],
       },
       {
+        title: "Query data",
         href: "query-data",
         children: [
           {
-            title: "SELECT",
+            title: "About querying data",
+            href: "about-query-data",
+            tags: ["data", "query", "timescaledb"],
+            keywords: ["query", "TimescaleDB",],
+            excerpt: "Learn how to query data in TimescaleDB",
+          },
+          {
+            title: "SELECT data",
             href: "select",
             tags: ["hypertables", "select", "data", "timescaledb"],
             keywords: ["hypertables", "TimescaleDB"],
             excerpt: "Select data in hypertables",
           },
           {
-            title: "Advanced analytic queries",
+            title: "Perform DISTINCT queries with SkipScan",
+            href: "skipscan",
+            tags: ["skipscan", "distinct", "query", "timescaledb"],
+            keywords: ["SkipScan", "query", "timescaledb"],
+            excerpt: "Make DISTINCT queries faster with SkipScan",
+          },
+          {
+            title: "Peform advanced analytic queries",
             href: "advanced-analytic-queries",
             tags: [
               "hypertables",
@@ -353,13 +368,6 @@ module.exports = [
             ],
             keywords: ["hypertables", "hyperfunctions", "TimescaleDB"],
             excerpt: "Use advanced analytics queries",
-          },
-          {
-            title: "DISTINCT queries with SkipScan",
-            href: "skipscan",
-            tags: ["skipscan", "distinct", "query", "timescaledb"],
-            keywords: ["SkipScan", "query", "timescaledb"],
-            excerpt: "Get faster DISTINCT queries with SkipScan",
           },
         ],
       },
