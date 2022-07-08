@@ -1,5 +1,6 @@
 import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
 import PromscalePgSupportedVersions from 'versionContent/_partials/_promscale-pg-supported-versions.mdx';
+
 # Install Promscale on Debian or Ubuntu
 You can install Promscale on any Debian or Ubuntu system where you have an
 already installed and working Prometheus or OpenTelemetry environment.

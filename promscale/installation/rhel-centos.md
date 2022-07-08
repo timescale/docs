@@ -1,5 +1,6 @@
 import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
 import PromscalePgSupportedVersions from 'versionContent/_partials/_promscale-pg-supported-versions.mdx';
+
 # Install Promscale on Red Hat or CentOS
 You can install Promscale on a Red Hat or CentOS system, if you have an
 already installed and working Prometheus or OpenTelemetry environment.
