@@ -22,7 +22,7 @@ performance of Promscale.
 
 </procedure>
 
-## Install the Promscale connector
+## Install the Promscale Connector
 <PromscaleConnector />
    ```bash
       yum install promscale
