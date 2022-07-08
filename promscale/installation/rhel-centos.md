@@ -1,5 +1,5 @@
 import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
-
+import PromscalePgSupportedVersions from 'versionContent/_partials/_promscale-pg-supported-versions.mdx';
 # Install Promscale on Red Hat or CentOS
 You can install Promscale on a Red Hat or CentOS system, if you have an
 already installed and working Prometheus or OpenTelemetry environment.
@@ -18,12 +18,17 @@ performance of Promscale.
 1.  Install the Promscale extension:
     ```
     yum install promscale-extension-postgresql-14
-    ```    
+    ```
+    <PromscalePgSupportedVersions />  
 
 </procedure>
 
 ## Install the Promscale Connector
 <PromscaleConnector />
+
+1. If you are installing Promscale Connector on a different host, You have to setup
+   the timescale package registry similar to TimecaleDB pre-install instructions.
+1. Install Promscale Connector
    ```bash
       yum install promscale
    ```

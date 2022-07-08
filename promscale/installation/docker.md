@@ -54,6 +54,8 @@ packages and instructions, see the [Docker installation documentation][docker-in
 After you have installed Promscale, you can ingest data.
 For instructions, see the [send data][send-data] section.
 
+For upgrading the Promscale, see the [upgrade] section.
+
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
