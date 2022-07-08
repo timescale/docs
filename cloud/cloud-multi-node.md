@@ -37,11 +37,11 @@ Timescale Cloud account.
     source. You can add your own data source later on. Click `Advanced options`
     to configure your service as a multi-node cluster.
 1.  In the `Create a service` page, select the `Multi-node` service type.
-1.  If this is your first multi-node service, a contact form appears. Multi-node
-    is currently available on request. A conversation with our customer support
+1.  If this is your first multi-node service, you see a contact form. Multi-node
+    is currently available on request. A conversation with the Timescale customer support
     team can help you understand the trade-offs and whether it's a good fit for
     your needs. Click `Contact us.`
-1.  Our customer support team will contact you. Once your request is approved,
+1.  Our customer support team contacts you. When your request is approved,
     return to the screen for creating a multi-node service.
 1.  Choose your preferred region, or accept the default region of `us-east-1`.
 1.  Accept the default for the data nodes, or click `Change` to choose the
