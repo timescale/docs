@@ -40,7 +40,7 @@ than 75 regions on Amazon Web Services, Azure, or Google Cloud Platform.
 
 [tsc-install]: /install/:currentVersion:/installation-cloud/
 [self-hosted-install]: /install/:currentVersion:/self-hosted/
-[self-hosted-source]: /install/:currentVersion:/installation-source/
+[self-hosted-source]: /install/:currentVersion:/self-hosted/installation-source/
 [self-hosted-container]: /install/:currentVersion:/installation-docker/
-[self-hosted-cloud]: /install/:currentVersion:/installation-debian/
+[self-hosted-cloud]: /install/:currentVersion:/self-hosted/installation-debian/
 [mst-install]: /install/:currentVersion:/installation-mst/
