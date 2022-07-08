@@ -4,8 +4,8 @@
 General structure:
 * Definition of keyword or function
 * Time-series focused friendly intro
-* Simple examples 
-* More complex examples 
+* Simple examples
+* More complex examples
 -->
 
 By default, in PostgreSQL and therefore TimescaleDB, the results from a basic
@@ -47,14 +47,14 @@ For example, if you have this raw  data:
 
 ```sql
 stock_data:
-| row_id | time | group | price | 
+| row_id | time | group | price |
 | - | - | - | - |
-| 1 | 2022-01-01 | b | 261.12 | 
-| 2 | 2022-01-02 | a | 200.88 | 
-| 3 | 2022-01-01 | a | 200.88 | 
-| 4 | 2022-01-02 | b | 382.76 | 
-| 5 | 2022-01-02 | b | 129.45 | 
-| 6 | 2022-01-01 | a |   72.70 | 
+| 1 | 2022-01-01 | b | 261.12 |
+| 2 | 2022-01-02 | a | 200.88 |
+| 3 | 2022-01-01 | a | 200.88 |
+| 4 | 2022-01-02 | b | 382.76 |
+| 5 | 2022-01-02 | b | 129.45 |
+| 6 | 2022-01-01 | a |   72.70 |
 ```
 
 You can create a query like this that orders time. Notice that the results are
@@ -68,14 +68,14 @@ ORDER BY time
 Results:
 
 ```sql
-| row_id | time | group | price | 
+| row_id | time | group | price |
 | - | - | - | - |
-| 1 | 2022-01-01 | b | 261.12 | 
+| 1 | 2022-01-01 | b | 261.12 |
 | 3 | 2022-01-01 | a | 200.88 |
-| 6 | 2022-01-01 | a |   72.70 | 
-| 2 | 2022-01-02 | a | 200.88 | 
-| 4 | 2022-01-02 | b | 382.76 | 
-| 5 | 2022-01-02 | b | 129.45 | 
+| 6 | 2022-01-01 | a |   72.70 |
+| 2 | 2022-01-02 | a | 200.88 |
+| 4 | 2022-01-02 | b | 382.76 |
+| 5 | 2022-01-02 | b | 129.45 |
 ```
 
 Or you can sort on multiple columns and specify descending:
@@ -88,11 +88,11 @@ ORDER BY group DESC, price, time
 Results:
 
 ```sql
-| row_id | time | group | price | 
+| row_id | time | group | price |
 | - | - | - | - |
 | 4 | 2022-01-02 | b | 382.76 |
 | 1 | 2022-01-01 | b | 261.12 |
-| 5 | 2022-01-02 | b | 129.45 | 
+| 5 | 2022-01-02 | b | 129.45 |
 | 3 | 2022-01-01 | a | 200.88 |
 | 2 | 2022-01-02 | a | 200.88 |
 | 6 | 2022-01-01 | a |   72.70 |
@@ -101,7 +101,7 @@ Results:
 Here's a more realistic example:
 
 ```sql
-weather_station_data: 
+weather_station_data:
 | weather_station_id | weather_station_location | time | temperature | humidity |
 | - | - | - | - | - |
 | 6 | Harrisburgh | 2022-03-23 12:00:00 | 49.4 | 65 |
@@ -130,9 +130,9 @@ Results:
 | 1 | Allentown | 2022-03-23 12:00:00 | 48.1 | 53 |
 | 2 | Altoona | 2022-03-23 12:00:00 | 49.2 | 67 |
 | 3 | Clearfield | 2022-03-23 12:00:00 | 47.9 | 56 |
-. 
-. 
-. 
+.
+.
+.
 ```
 
 The results display the most recent weather readings ordered by the weather
@@ -149,4 +149,4 @@ Include links to examples in docs here
 -->
 
 [orderby-postgres]: https://www.postgresql.org/docs/current/queries-order.html
-[postgres-docs]: https://www.postgresql.org/docs/currentqueries-order.html
+[postgres-docs]: https://www.postgresql.org/docs/current/queries-order.html

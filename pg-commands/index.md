@@ -7,5 +7,5 @@ you need to use with TimescaleDB.
 <!--* [`INSERT`][insert] to insert data into a hypertable-->
 * [`ORDER BY`][order-by] to order the results of your query
 
-[order-by]: /functions/:currentVersion:/order-by
-[insert]: /functions/:currentVersion:/FIXME
+[order-by]: /pg-commands/:currentVersion:/order-by
+[insert]: /pg-commands/:currentVersion:/FIXME
