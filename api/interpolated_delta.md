@@ -1,6 +1,6 @@
 ---
 api_name: interpolated_delta()
-excerpt: Calculate the interpolated change in a counter from values in a sequence of `CounterSummary`s
+excerpt: Calculate the change in a counter, interpolated over some time period
 license: community
 toolkit: true
 experimental: true
@@ -15,9 +15,9 @@ hyperfunction_type: accessor
 ---
 
 # interpolated_delta() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit">Experimental</tag>
-The change in the counter during the time period specified by the bounds in the
-arguments. To calculate the interpolated delta, the previous and next CounterSummaries
-are used to linearly interpolate the value at the interval boundary points.
+Calculate the change in a counter over a time period. Data points at the exact
+boundaries of the time period aren't needed. The function interpolates the
+counter values at the boundaries from adjacent CounterSummaries if needed.
 
 ```sql
 interpolated_delta(
@@ -36,7 +36,7 @@ For more information about counter aggregation functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|summary|CounterSummary|The input CounterSummary from a counter_agg call|
+|`summary`|`CounterSummary`|The input `CounterSummary` from a `counter_agg` call|
 |`start`|`TIMESTAMPTZ`|The start of the interval which the delta should be computed over (if there is a preceeding point)|
 |`interval`|`INTERVAL`|The length of the interval which the delta should cover|
 
@@ -44,14 +44,13 @@ For more information about counter aggregation functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|`prev`|`TimeWeightSummary`|The CounterSummary from the interval prior to this, used to interpolate the value at `start`. If NULL, the first timestamp in `summary` will be used as the start of the interval.|
-|`next`|`TimeWeightSummary`|The CounterSummary from the interval following this, used to interpolate the value at `start` + `interval`. If NULL, the last timestamp in `summary` will be used as the end of the interval.|
-
+|`prev`|`CounterSummary`|The `CounterSummary` from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `summary` is used as the start of the interval.|
+|`next`|`CounterSummary`|The `CounterSummary` from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `summary` is used as the end of the interval.|
 ## Returns
 
 |Name|Type|Description|
 |-|-|-|
-|interpolated_delta|DOUBLE PRECISION|The delta computed from the sequence of CounterSummaries|
+|`interpolated_delta`|`DOUBLE PRECISION`|The delta between the first and last points of the time interval. If exact values are missing in the raw data for the first and last points, these values are interpolated linearly from the neighboring `CounterSummaries`|
 
 ## Sample usage
 

@@ -1,6 +1,6 @@
 ---
 api_name: interpolated_average()
-excerpt: Calculate the time-weighted average of values in a `TimeWeightSummary`
+excerpt: Calculate the time-weighted average of values within an interval, interpolating the interval bounds
 license: community
 toolkit: true
 experimental: true
@@ -26,9 +26,18 @@ interpolated_average(
 ) RETURNS DOUBLE PRECISION
 ```
 
-A function to compute a time-weighted average over the interval (`start`, `start` + `interval`), given a `prev` and `next` TimeWeightSummary to compute the boundary points from. This is intended to allow a precise time-weighted average over intervals even when the points representing the intervals are grouped into discrete TimeWeightSummaries. PostgresQL window functions such as `LEAD` and `LAG` can be used to determine the `prev` and `next` arguments, as in the example below.
-
-Note that if either `prev` or `next` are `NULL`, the the first or last point in the summary will be treated as the edge of the interval. The interpolated point will be deterimined using LOCF or linear interpolation depending on which interpolation style the time weight summary was created with.
+A function to compute a time-weighted average over the interval, defined as `start`
+plus `interval`, given a `prev` and `next` time-weight summary from which to 
+compute the boundary points. This is intended to allow a precise time-weighted 
+average over intervals even when the points representing the intervals are grouped 
+into discrete time-weight summaries. PostgreSQL window functions such as 
+`LEAD` and `LAG` can be used to determine the `prev` and `next` arguments, 
+as used in the examples in this section.
+	
+Note that if either `prev` or `next` are `NULL`, the first or last point in the 
+summary is treated as the edge of the interval. The interpolated point is 
+determined using LOCF or linear interpolation, depending on which interpolation 
+style the time-weight summary was created with.
 
 *   For more information about time-weighted average functions, see the
     [hyperfunctions documentation][hyperfunctions-time-weight-average].
@@ -47,8 +56,8 @@ Note that if either `prev` or `next` are `NULL`, the the first or last point in 
 
 |Name|Type|Description|
 |-|-|-|
-|`prev`|`TimeWeightSummary`|The TimeWeightSummary from the interval prior to this, used to interpolate the value at `start`. If NULL, the first timestamp in `tws` will be used as the start of the interval.|
-|`next`|`TimeWeightSummary`|The TimeWeightSummary from the interval following this, used to interpolate the value at `start` + `interval`. If NULL, the last timestamp in `tws` will be used as the end of the interval.|
+|`prev`|`TimeWeightSummary`|The TimeWeightSummary from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `tws` will be used as the start of the interval.|
+|`next`|`TimeWeightSummary`|The TimeWeightSummary from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `tws` will be used as the end of the interval.|
 
 ### Returns
 

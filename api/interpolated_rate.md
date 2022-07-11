@@ -1,6 +1,6 @@
 ---
 api_name: interpolated_rate()
-excerpt: Calculate the interpolated rate of change from values in a sequence of `CounterSummary`s
+excerpt: Calculate the rate of change in a counter, interpolated over some time period
 license: community
 toolkit: true
 experimental: true
@@ -15,13 +15,12 @@ hyperfunction_type: accessor
 ---
 
 # interpolated_rate() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit">Experimental</tag>
-The rate of change in the counter computed over the time period specified by the
-given interval. Boundary points are computed by a linear interpolation of the
-first and last points of the CounterSummary with the first or last point of the
-next and previous CounterSummaries in the sequence.
+Calculate the rate of change in a counter over a time period. Data points at the exact
+boundaries of the time period aren't needed. The function linerally interpolates the
+counter values at the boundaries from adjacent `CounterSummaries` if they are unknown.
 
 This is the same value as an
-`interpolated_delta` divided by the duration in seconds.
+[`interpolated_delta`][interpolated_delta] divided by the duration in seconds.
 
 ```sql
 interpolated_rate(
@@ -40,7 +39,7 @@ For more information about counter aggregation functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|summary|CounterSummary|The input CounterSummary from a counter_agg call|
+|`summary`|`CounterSummary`|The input `CounterSummary` from a `counter_agg` call|
 |`start`|`TIMESTAMPTZ`|The start of the interval which the rate should be computed over (if there is a preceeding point)|
 |`interval`|`INTERVAL`|The length of the interval which the rate should cover|
 
@@ -48,14 +47,14 @@ For more information about counter aggregation functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|`prev`|`TimeWeightSummary`|The CounterSummary from the interval prior to this, used to interpolate the value at `start`. If NULL, the first timestamp in `summary` will be used as the start of the interval.|
-|`next`|`TimeWeightSummary`|The CounterSummary from the interval following this, used to interpolate the value at `start` + `interval`. If NULL, the last timestamp in `summary` will be used as the end of the interval.|
+|`prev`|`CounterSummary`|The `CounterSummary` from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `summary` is used as the start of the interval.|
+|`next`|`CounterSummary`|The CounterSummary from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `summary` will be used as the end of the interval.|
 
 ## Returns
 
 |Name|Type|Description|
 |-|-|-|
-|interpolated_rate|DOUBLE PRECISION|The per-second rate of change of the counter computed from the CounterSummary extended to the bounds specified by interpolating from adjacent CounterSummaries.|
+|`interpolated_rate`|`DOUBLE PRECISION`|The per-second rate of change of the counter between the specified bounds. If the raw data contains no points calculated at those bounds, the bounding values are linearly interpolated from neighboring `CounterSummaries`.|
 
 ## Sample usage
 
@@ -80,4 +79,5 @@ FROM (
 ) t
 ```
 
+[interpolated_delta]: /api/:currentVersion:/hyperfunctions/counter_aggs/
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

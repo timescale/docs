@@ -1,6 +1,6 @@
 ---
 api_name: interpolated_duration_in()
-excerpt: Calculate the total time spent in a given state from values in a state aggregate
+excerpt: Calculate the total time spent in a given state, interpolating values at interval boundaries if they don't exist
 license: community
 toolkit: true
 experimental: true
@@ -17,7 +17,10 @@ hyperfunction_type: accessor
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # interpolated_duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
-Use this function to report the total duration for a given state in a [state aggregate][state_agg]. This function will work across multiple state aggregates formed by grouping sets of points by time. It does this by interpolating the appropriate boundary points between the aggregates and using that to fill in the missing range.
+Calculate the total duration in a given state from a [state aggregate][state_agg].
+Unlike [`duration_in`][duration_in], you can use this function across multiple state
+aggregates that cover different time buckets. Any missing values at the time bucket
+boundaries are interpolated from adjacent StateAggs.
 
 ```SQL
 interpolated_duration_in(
@@ -45,8 +48,8 @@ interpolated_duration_in(
 
 |Name|Type|Description|
 |-|-|-|
-|`prev`|`StateAgg`|The StateAgg from the interval prior to this, used to interpolate the value at `start`. If NULL, the first timestamp in `aggregate` will be used as the start of the interval.|
-|`next`|`StateAgg`|The StateAgg from the interval following this, used to interpolate the value at `start` + `interval`. If NULL, the last timestamp in `aggregate` will be used as the end of the interval.|
+|`prev`|`StateAgg`|The `StateAgg` from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `aggregate` will be used as the start of the interval.|
+|`next`|`StateAgg`|The `StateAgg` from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `aggregate` will be used as the end of the interval.|
 
 ## Returns
 
@@ -102,5 +105,6 @@ Which gives the result:
 If you prefer to see the result in seconds, [`EXTRACT`][extract] the epoch from
 the returned result.
 
+[duration_in]: /api/:currentVersion:/hyperfunctions/frequency-analysis/duration_in/
 [extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT
 [state_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/state_agg/
