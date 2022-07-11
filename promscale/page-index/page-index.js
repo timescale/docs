@@ -213,7 +213,7 @@ module.exports = [
           {
             title: 'Query traces',
             href: 'query-traces',
-            tags: ["promscale", "analytics", "sql", "prometheus"],
+            tags: ["promscale", "analytics", "sql", "traces"],
             keywords: ["Promscale", "analytics", "query", "traces"],
             excerpt: 'Query trace data in Promscale'
           },
