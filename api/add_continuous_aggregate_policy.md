@@ -3,7 +3,8 @@ api_name: add_continuous_aggregate_policy()
 excerpt: Add policy to schedule automatic refresh of a continuous aggregate
 license: community
 topic: continuous aggregates
-tags: [continuous aggregates, policy, scheduled jobs, refresh]
+keywords: [continuous aggregates, policies]
+tags: [scheduled jobs, refresh]
 ---
 
 ## add_continuous_aggregate_policy() <tag type="community">Community</tag>

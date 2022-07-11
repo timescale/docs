@@ -3,7 +3,8 @@ api_name: create_distributed_restore_point()
 excerpt: Create a consistent restore point for all nodes in a multi-node cluster
 license: community
 topic: distributed hypertables
-tags: [distributed hypertables, multi-node, clusters, write-ahead logs, backup, recovery, restore]
+keywords: [distributed hypertables, restore, backup, multi-node]
+tags: [clusters, write-ahead logs, recovery]
 ---
 
 # create_distributed_restore_point()

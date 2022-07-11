@@ -4,7 +4,8 @@ excerpt: Aggregate data in a `uddsketch` for further calculation of percentile e
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, percentile, uddsketch]
+keywords: [percentiles, hyperfunctions, toolkit]
+tags: [uddsketch]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -74,6 +75,6 @@ CREATE VIEW sketch AS
     FROM samples;
 ```
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md
-[error]: /hyperfunctions/percentile-approximation/error/
+[error]: /api/:currentVersion:/hyperfunctions/percentile-approximation/error/

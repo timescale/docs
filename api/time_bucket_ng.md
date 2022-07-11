@@ -4,7 +4,8 @@ excerpt: Bucket rows by time interval with support for time zones, months, and y
 license: apache
 experimental: true
 topic: hyperfunctions
-tags: [hyperfunctions, time buckets, date_trunc, aggregates]
+keywords: [aggregate, hyperfunctions]
+tags: [time buckets]
 ---
 
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
@@ -204,5 +205,5 @@ This table shows which `time_bucket_ng()` functions can be used in a continuous 
 |Timezones support|✅|2.6.0 or later|
 |Specify custom origin|✅|2.7.0 or later|
 
-[time_bucket]: /hyperfunctions/time_bucket/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

@@ -5,7 +5,8 @@ license: community
 toolkit: true
 experimental: false
 topic: hyperfunctions
-tags: [approximate, percentile, hyperfunctions]
+keywords: [percentile, hyperfunctions]
+tags: [approximate, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -55,4 +56,4 @@ approx_percentile
 ```
 
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
