@@ -116,7 +116,7 @@ for more information and links to installation instructions when upgrading from 
 ## 2.7.1 (2022-07-07)
 
 **Bug fixes**
-* #4494 Handle timescaledb versions aptly in multinode
+* #4494 Handle TimescaleDB versions aptly in multi-node
 * #4493 Segfault when executing IMMUTABLE functions
 * #4482 Fix race conditions during chunk (de)compression
 * #4367 Improved buffer management in the copy operator
