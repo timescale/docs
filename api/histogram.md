@@ -3,7 +3,7 @@ api_name: histogram()
 excerpt: Partition the dataset into buckets and get the number of counts in each bucket
 license: apache
 topic: hyperfunctions
-tags: [hyperfunctions, histogram]
+keywords: [histogram, hyperfunctions]
 ---
 
 ## histogram() 

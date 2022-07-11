@@ -154,6 +154,15 @@ device.
 same position, or be in the position you expect on an individual reader's
 device.
 
+*Promscale Connector*
+: Use initial capital letters.
+
+&#128077; "Install the Promscale Connector."
+
+&#10060; "Install the Promscale connector."
+
+&#10060; "Install the promscale connector."
+
 ### Q [](#Q)
 
 ### R [](#R)

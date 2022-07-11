@@ -4,7 +4,8 @@ excerpt: Calculate the minimum or maximum estimated frequencies of a value from 
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, frequency, minimum, maximum, frequency aggregates, SpaceSavingAggregate]
+keywords: [frequency, hyperfunctions, toolkit]
+tags: [minimum, maximum]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -66,5 +67,5 @@ SELECT toolkit_experimental.max_frequency(
 );
 ```
 
-[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
-[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
+[freq_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn_agg/

@@ -4,7 +4,7 @@ excerpt: Aggregate data into a percentile aggregate for further analysis
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, percentile, aggregates, percentile aggregates]
+keywords: [percentiles, aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -79,7 +79,7 @@ GROUP BY 1;
 ```
 
 
-[approx_percentile]: /hyperfunctions/percentile-approximation/approx_percentile/
-[rollup]: /hyperfunctions/percentile-approximation/rollup-percentile/
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[approx_percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/approx_percentile/
+[rollup]: /api/:currentVersion:/hyperfunctions/percentile-approximation/rollup-percentile/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

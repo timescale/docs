@@ -4,7 +4,8 @@ excerpt: Copy a chunk between data nodes in a distributed hypertable
 license: community
 experimental: true
 topic: multi-node
-tags: [multi-node, data nodes, chunks, distributed hypertables]
+keywords: [multi-node, distributed hypertables]
+tags: [data nodes, chunks, copy]
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

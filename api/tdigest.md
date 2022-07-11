@@ -4,7 +4,8 @@ excerpt: Aggregate data in a `tdigest` for further calculation of percentile est
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, percentile, tdigest]
+keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+tags: [tdigest]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

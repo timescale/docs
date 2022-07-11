@@ -4,7 +4,8 @@ excerpt: Calculate the total number of times a counter is reset
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, resets, counters, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [resets, count]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -56,4 +57,4 @@ FROM (
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

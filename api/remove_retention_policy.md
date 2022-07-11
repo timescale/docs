@@ -3,7 +3,8 @@ api_name: remove_retention_policy()
 excerpt: Remove a retention policy from a hypertable
 license: community
 topic: data retention
-tags: [data retention, policy, remove]
+keywords: [data retention, policies, remove]
+tags: [delete, drop]
 ---
 
 ## remove_retention_policy() <tag type="community">Community</tag> 
