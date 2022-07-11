@@ -35,7 +35,7 @@ standards such as Prometheus and OpenTelemetry. It includes features that are na
 to an observability ecosystem. The Promscale Connector creates schemas to store metrics
 and traces. It offers a Prometheus endpoint for metrics reads and writes,
 an OpenTelemetry Protocol endpoint to write traces, and a Jaeger query endpoint to
-query traces. Promscale connector manages the complete lifecycle of data stored
+query traces. The Promscale Connector manages the complete lifecycle of data stored
 in the database with operations such as compression and retention.
 
 **Promscale Database**:  the database where all the observability data is stored
