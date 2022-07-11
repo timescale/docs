@@ -32,7 +32,7 @@ newer versions of Promscale.
 
 The Promscale Connector is a translator that natively support integrations with OSS
 standards such as Prometheus and OpenTelemetry. It includes features that are native
-to an observability ecosystem. Promscale connector creates schemas to store metrics
+to an observability ecosystem. The Promscale Connector creates schemas to store metrics
 and traces. It offers a Prometheus endpoint for metrics reads and writes,
 an OpenTelemetry Line Protocol endpoint to write traces, and a Jaeger query endpoint to
 query traces. Promscale connector manages the complete lifecycle of data stored
