@@ -13,9 +13,9 @@ Learn more about PromQL in the [Prometheus documentation][promql-docs].
 * [Query metrics][query-metrics] using SQL
 * [Query traces][query-traces] using SQL
 
-[query-metrics]: promscale/:currentVersion:/query-data/query-metrics/
-[query-traces]: promscale/:currentVersion:/query-data/query-traces/
-[advanced-queries]: promscale/:currentVersion:/query-data/advanced-queries/
+[query-metrics]: /promscale/:currentVersion:/query-data/query-metrics/
+[query-traces]: /promscale/:currentVersion:/query-data/query-traces/
+[advanced-queries]: /promscale/:currentVersion:/query-data/advanced-queries/
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [visualize-data]: /promscale/:currentVersion:/visualize-data/
 [promql-docs]: https://prometheus.io/docs/prometheus/latest/querying/basics/
