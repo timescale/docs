@@ -4,7 +4,8 @@ excerpt: Aggregate data into a hyperloglog for approximate counting
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, approximate count distinct, distinct count, hyperloglog]
+keywords: [count, hyperloglog, hyperfunctions, toolkit]
+tags: [approximate, distinct]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

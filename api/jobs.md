@@ -3,7 +3,8 @@ api_name: timescaledb_information.jobs
 excerpt: Get information about all jobs registered with the automatic scheduler
 license: community
 topic: jobs
-tags: [background jobs, scheduled jobs, automation framework, informational views]
+keywords: [jobs, information]
+tags: [background jobs, scheduled jobs, user-defined actions, automation framework]
 ---
 
 ## timescaledb_information.jobs

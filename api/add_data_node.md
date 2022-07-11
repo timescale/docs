@@ -3,7 +3,8 @@ api_name: add_data_node()
 excerpt: Add a new data node to a multi-node cluster
 license: community
 topic: multi-node
-tags: [distributed hypertables, multi-node, data node, cluster]
+keywords: [multi-node]
+tags: [data nodes, distributed hypertables, cluster]
 ---
 
 ## add_data_node() <tag type="community">Community</tag>
@@ -12,7 +13,7 @@ Add a new data node on the access node to be used by distributed
 hypertables. The data node is automatically used by distributed
 hypertables that are created after the data node has been added, while
 existing distributed hypertables require an additional
-[`attach_data_node`](/distributed-hypertables/attach_data_node).
+[`attach_data_node`][attach_data_node].
 
 If the data node already exists, the command aborts with either an
 error or a notice depending on the value of `if_not_exists`.
@@ -35,7 +36,7 @@ the data node by:
    database.
 
 Note that user roles are not automatically created on the new data
-node during bootstrapping. The [`distributed_exec`](/distributed-hypertables/distributed_exec)
+node during bootstrapping. The [`distributed_exec`][distributed_exec]
 procedure can be used to create additional roles on the data node
 after it is added.
 
@@ -120,4 +121,6 @@ SELECT create_distributed_hypertable('conditions', 'time', 'location');
 Note that this does not offer any performance advantages over using a
 regular hypertable, but it can be useful for testing.
 
+[attach_data_node]: /api/:currentVersion:/distributed-hypertables/attach_data_node/
+[distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec/
 [multinode]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/

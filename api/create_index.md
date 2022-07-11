@@ -3,7 +3,7 @@ api_name: CREATE INDEX (Transaction Per Chunk)
 excerpt: Create a hypertable index using a separate transaction for each chunk
 license: apache
 topic: hypertables
-tags: [hypertables, indexes, chunks]
+keywords: [hypertables, indexes, chunks, create]
 ---
 
 ## CREATE INDEX (Transaction Per Chunk)

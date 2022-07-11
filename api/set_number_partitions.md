@@ -3,7 +3,7 @@ api_name: set_number_partitions()
 excerpt: Set the number of space partitions for a hypertable
 license: community
 topic: hypertables
-tags: [hypertables, partitions]
+keywords: [hypertables, partitions]
 ---
 
 ## set_number_partitions() <tag type="community">Community</tag>
