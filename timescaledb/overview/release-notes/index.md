@@ -124,7 +124,7 @@ for more information and links to installation instructions when upgrading from 
 * #4400 Use our implementation of `find_em_expr_for_rel` for PG15+
 * #4408 Fix crash during insert into distributed hypertable
 * #4411 Add `shmem_request_hook`
-* #4437 Fix segfault in subscription_exec
+* #4437 Fix segfault in `subscription_exec`
 * #4442 Fix perms in copy/move chunk
 * #4450 Retain hypertable ownership on `attach_data_node`
 * #4451 Repair numeric partial state on the fly
