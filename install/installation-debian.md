@@ -1,3 +1,12 @@
+---
+title: Install TimescaleDB on Debian and Ubuntu
+nav-title: Debian and Ubuntu
+excerpt: Install self-hosted TimescaleDB on Debian-based systems
+section: install
+subsection: self-hosted
+keywords: [install, self-hosted, Debian]
+---
+
 # Install self-hosted TimescaleDB on Debian-based systems
 You can host TimescaleDB yourself, on your Debian or Ubuntu system. These
 instructions use the `apt` package manager on these distributions:
