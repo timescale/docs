@@ -1,5 +1,5 @@
 # Install self-hosted TimescaleDB on archlinux-based systems
-You can host TimescaleDB yourself, on your archlinux system. These
+You can host TimescaleDB yourself, on your Arch Linux system. These
 instructions use the `pacman` package manager.
 
 <highlight type="warning">
