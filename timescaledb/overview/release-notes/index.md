@@ -120,7 +120,7 @@ for more information and links to installation instructions when upgrading from 
 * #4493 Segfault when executing IMMUTABLE functions
 * #4482 Fix race conditions during chunk (de)compression
 * #4367 Improved buffer management in the copy operator
-* #4375 Don't ask for orderby column if default already set
+* #4375 Don't ask for `orderby` column if default already set
 * #4400 Use our implementation of `find_em_expr_for_rel` for PG15+
 * #4408 Fix crash during insert into distributed hypertable
 * #4411 Add `shmem_request_hook`
