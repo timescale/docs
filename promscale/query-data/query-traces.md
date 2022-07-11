@@ -447,3 +447,4 @@ select *
 [pg-interval]: https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT
 [partitioning-hypertables]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks
 [pg-agg-function]: https://www.postgresql.org/docs/current/functions-aggregate.html
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
