@@ -4,7 +4,8 @@ excerpt: Calculate the intercept from values in a 2-dimensional statistical aggr
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, intercept, least squares, statistics, statistical aggregates]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [intercept, least squares, regression]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -51,6 +52,6 @@ GROUP BY id, time_bucket('15 min'::interval, ts)
 ```
 
 
-[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
+[hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
 [least-squares]:https://en.wikipedia.org/wiki/Least_squares

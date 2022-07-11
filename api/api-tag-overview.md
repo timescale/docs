@@ -1,3 +1,9 @@
+---
+title: API reference tag overview
+excerpt: Understand the tags used in the Timescale documentation API references
+tags: [licenses, toolkit, experimental]
+---
+
 # API Reference tag overview
 The Timescale API Reference uses tags to categorize functions. The tags are `Community`, 
 `Experimental`, `Toolkit`, and `Experimental (Toolkit)`. This section explains each tag.

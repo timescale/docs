@@ -1,3 +1,9 @@
+---
+title: Gapfilling and interpolation
+excerpt: Fill in gaps for unevenly collected data
+keywords: [gapfill, interpolate, hyperfunctions, toolkit]
+---
+
 # Gapfilling and interpolation
 This section contains functions related to gapfilling and interpolation. You can
 use a gapfilling function to create additional rows of data in any gaps,
@@ -15,5 +21,5 @@ additional hyperfunctions, you need to install the
     sortByType
 />
 
-[hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
-[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[hyperfunctions-gapfilling]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

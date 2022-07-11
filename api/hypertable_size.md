@@ -3,7 +3,8 @@ api_name: hypertable_size()
 excerpt: Get the total disk space used by a hypertable
 license: apache
 topic: hypertables
-tags: [hypertables, disk space, size]
+keywords: [hypertables, information]
+tags: [disk space, size]
 ---
 
 ## hypertable_size()  
