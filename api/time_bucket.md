@@ -3,7 +3,8 @@ api_name: time_bucket()
 excerpt: Bucket rows by time interval to calculate aggregates
 license: apache
 topic: hyperfunctions
-tags: [hyperfunctions, time buckets, aggregates, date_trunc]
+keywords: [aggregate, hyperfunctions]
+tags: [time buckets, date_trunc]
 ---
 
 # time_bucket()

@@ -3,7 +3,8 @@ api_name: ALTER TABLE (Compression)
 excerpt: Change compression settings on a compressed hypertable
 license: community
 topic: compression
-tags: [compression, settings, hypertables, alter]
+keywords: [compression]
+tags: [settings, hypertables, alter, change]
 ---
 
 ## ALTER TABLE (Compression) <tag type="community" content="community" />

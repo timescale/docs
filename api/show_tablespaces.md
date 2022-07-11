@@ -3,7 +3,8 @@ api_name: show_tablespaces()
 excerpt: Show the tablespaces attached to a hypertable
 license: apache
 topic: hypertables
-tags: [hypertables, tablespaces, show, get]
+keywords: [tablespaces, hypertables]
+tags: [show, get]
 ---
 
 ## show_tablespaces() 

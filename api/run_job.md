@@ -3,7 +3,8 @@ api_name: run_job()
 excerpt: Manually run a job
 license: community
 topic: jobs
-tags: [background jobs, scheduled jobs, automation framework, run]
+keywords: [jobs, run]
+tags: [background jobs, scheduled jobs, automation framework]
 ---
 
 ## run_job() <tag type="community">Community</tag>
