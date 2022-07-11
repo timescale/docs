@@ -1,3 +1,10 @@
+---
+title: Service logs
+excerpt: View your Timescale Cloud service logs
+product: [cloud]
+keywords: [logs, services]
+---
+
 # Service logs
 From the `Services` page, click the service you are interested in and navigate
 to the `Logs` tab. This section contains your service's logging data.
