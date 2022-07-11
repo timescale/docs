@@ -115,7 +115,7 @@ for more information and links to installation instructions when upgrading from 
 ## Release notes
 ## 2.7.1 (2022-07-07)
 
-**Bugfixes**
+**Bug fixes**
 * #4494 Handle timescaledb versions aptly in multinode
 * #4493 Segfault when executing IMMUTABLE functions
 * #4482 Fix race conditions during chunk (de)compression
