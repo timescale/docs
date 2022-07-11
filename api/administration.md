@@ -1,3 +1,10 @@
+---
+title: Administrative functions
+excerpt: Prepare a database for backup and restore, and keep track of your setup data
+keywords: [admin]
+tags: [backup, restore, set up]
+---
+
 # Administrative Functions
 
 These administrative APIs help you prepare a database before and after a restore

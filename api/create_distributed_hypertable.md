@@ -3,7 +3,8 @@ api_name: create_distributed_hypertable()
 excerpt: Create a distributed hypertable in a multi-node cluster
 license: community
 topic: distributed hypertables
-tags: [multi-node, cluster, distributed hypertables, create]
+keywords: [distributed hypertables, multi-node, create]
+tags: [cluster]
 ---
 
 ## create_distributed_hypertable()  <tag type="community">Community</tag>
@@ -33,7 +34,7 @@ when creating distributed hypertables.
 | `partitioning_func` | REGCLASS | The function to use for calculating a value's partition.|
 | `migrate_data` | BOOLEAN | Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Default is FALSE. |
 | `time_partitioning_func` | REGCLASS | Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`. |
-| `replication_factor` | INTEGER | The number of data nodes to which the same data is written to. This is done by creating chunk copies on this amount of data nodes. Must be >= 1; default is 1.  Read [the best practices](/timescaledb/latest/how-to-guides/hypertables/best-practices/) before changing the default. |
+| `replication_factor` | INTEGER | The number of data nodes to which the same data is written to. This is done by creating chunk copies on this amount of data nodes. Must be >= 1; default is 1.  Read [the best practices][best-practices] before changing the default. |
 | `data_nodes` | ARRAY | The set of data nodes used for the distributed hypertable. If not present, defaults to all data nodes known by the access node (the node on which the distributed hypertable is created). |
 
 ### Returns
@@ -103,4 +104,5 @@ be removed in a future release. To avoid such inconsistency, we do not yet
 recommend using `replication_factor` > 1, and instead rely on physical
 replication of each data node if such fault-tolerance is required.
 
+[best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/#best-practices-for-time-partitioning
 [create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create

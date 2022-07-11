@@ -3,7 +3,8 @@ api_name: distributed_exec()
 excerpt: Execute a procedure across all the data nodes of a multi-node cluster
 license: community
 topic: multi-node
-tags: [multi-node, cluster, procedure, roles, permissions]
+keywords: [multi-node]
+tags: [data nodes, cluster, procedure, roles, permissions]
 ---
 
 ## distributed_exec() <tag type="community">Community</tag>
