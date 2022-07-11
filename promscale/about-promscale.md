@@ -38,11 +38,12 @@ an OpenTelemetry Line Protocol endpoint to write traces, and a Jaeger query endp
 query traces. Promscale connector manages the complete lifecycle of data stored
 in the database with operations such as compression and retention.
 
-**TimescaleDB**: the Postgres-based database where all the observability data is
-stored. It offers a full SQL interface for querying the data as well as advanced
-capabilities like analytical functions, columnar compression and continuous
-aggregates. TimescaleDB offers a lot of  flexibility to also store business and
-other types of data that you can then use to correlate with observability data.
+**Promscale Database**:  the database where all the observability data is stored
+that combines PostgreSQL with TimescaleDB and the Promscale extension.
+It offers a full SQL interface for querying the data, advanced capabilities like
+analytical functions, columnar compression and continuous aggregates as well
+as specific performance and query experience improvements for observability
+data.
 
 TimecaleDB stores the data and offers the TimescaleDB functionalities to the Promscale
 connector. If you have custom metrics data, that is not in the Prometheus 
