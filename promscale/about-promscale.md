@@ -30,7 +30,7 @@ Connector automatically sets up the data structures in TimescaleDB to store the
 data and handles changes in those data structures if required for upgrading to
 newer versions of Promscale. 
 
-Promscale connector is a translator that natively support integrations with OSS
+The Promscale Connector is a translator that natively support integrations with OSS
 standards such as Prometheus and OpenTelemetry. It includes features that are native
 to an observability ecosystem. Promscale connector creates schemas to store metrics
 and traces. It offers a Prometheus endpoint for metrics reads and writes,
