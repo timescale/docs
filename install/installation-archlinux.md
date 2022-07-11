@@ -77,7 +77,7 @@ installed it yet, check out our [installing psql][install-psql] section.
     psql (14.3)
     Type "help" for help.
     ```
-1.  At the `psql` prompt, create an empty database. Our database is
+1.  At the `psql` prompt, create an empty database. This database is
     called `tsdb`:
     ```sql
     CREATE database tsdb;
