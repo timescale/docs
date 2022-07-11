@@ -4,7 +4,8 @@ excerpt: Calculate the minimum from values in a `tdigest`
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, minimum, tdigest]
+keywords: [tdigest, hyperfunctions, toolkit]
+tags: [minimum, percentiles]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
@@ -55,5 +56,5 @@ FROM generate_series(1, 100) data;
 ```
 
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

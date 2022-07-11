@@ -4,7 +4,8 @@ excerpt: Predict the time when a counter was at zero
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [counters, least squares, regression, extrapolate, extrapolation, hyperfunctions]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [least squares, regression, extrapolate]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -55,4 +56,4 @@ FROM (
 ) t
 ```
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
