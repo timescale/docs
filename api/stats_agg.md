@@ -4,7 +4,7 @@ excerpt: Aggregate statistical data into a statistical aggregate for further ana
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, aggregates, statistics, statistical aggregates]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -107,5 +107,5 @@ FROM t;
 ```
 
 
-[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [pg-stats-aggs]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE

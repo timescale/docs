@@ -4,7 +4,8 @@ excerpt: Roll up multiple hyperloglogs
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, rollup, hyperloglogs, approximate count distinct]
+keywords: [rollup, hyperloglog, hyperfunctions, toolkit]
+tags: [approximate, count, distinct]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

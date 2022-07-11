@@ -5,7 +5,8 @@ license: community
 toolkit: true
 experimental: true
 topic: hyperfunctions
-tags: [hyperfunctions, downssample, smoothing]
+keywords: [downsample, smooth, hyperfunctions]
+tags: [toolkit]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

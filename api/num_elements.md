@@ -4,7 +4,8 @@ excerpt: Calculate the number of points with distinct times from values in a `Co
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, distinct, counters, CounterSummary]
+keywords: [counters, hyperfunctions, toolkit]
+tags: [distinct, count]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -57,4 +58,4 @@ FROM (
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
