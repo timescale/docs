@@ -14,8 +14,8 @@ hyperfunction_type: aggregate
 ---
 
 # approx_count_distinct()  <tag type="toolkit">Toolkit</tag>
-The `approx_count_distinct` function constructs and returns a hyperloglog with at least
-32,768 buckets over the given values.
+The `approx_count_distinct` function constructs and returns a hyperloglog with a
+default size appropriate for the majority of use cases.
 
 For more information about approximate count distinct functions, see the
 [hyperfunctions documentation][hyperfunctions-approx-count-distincts].
@@ -25,10 +25,6 @@ For more information about approximate count distinct functions, see the
 |Name|Type|Description|
 |-|-|-|
 |value|AnyElement| Column to count distinct elements. The type must have an extended, 64-bit, hash function.|
-
-Since hyperloglog is a probabilistic algorithm, it works best on datasets that have many distinct values: at least tens of thousands. 
-
-See [stderror][stderror] for how estimated error rate is related to `buckets`.
 
 ## Returns
 
