@@ -3,7 +3,7 @@ api_name: saturating_add()
 excerpt: Adds two numbers, saturating at the numeric bounds instead of overflowing
 license: community
 toolkit: true
-experimental-toolkit: true
+api_experimental: true
 topic: hyperfunctions
 tags: [hyperfunctions, saturating math]
 api_category: hyperfunction

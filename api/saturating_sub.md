@@ -6,7 +6,7 @@ toolkit: true
 topic: hyperfunctions
 tags: [hyperfunctions, saturating math]
 api_category: hyperfunction
-experimental-toolkit: true
+api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'saturating math'
 hyperfunction_subfamily: saturating math
