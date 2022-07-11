@@ -5,7 +5,7 @@ license: community
 toolkit: true
 experimental: true
 topic: hyperfunctions
-tags: [hyperfunctions, state, duration]
+keywords: [duration, states, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

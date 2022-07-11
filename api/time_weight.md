@@ -4,7 +4,7 @@ excerpt: Aggregate data in a `TimeWeightSummary` for further time-weighted analy
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, time-weighted averages, aggregates, TimeWeightSummary]
+keywords: [time-weighted, aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -146,4 +146,4 @@ GROUP BY measure_id;
 ```
 
 
-[hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
+[hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
