@@ -68,9 +68,9 @@ and architecture, see the
 When you have set up your multi-node installation, you can configure your
 cluster. For more information, see the [configuration section][configuration].
 
-[configuration]: /how-to-guides/multinode-timescaledb/multinode-config/
-[install]: /install/latest/
-[setup]: /install/latest/
-[about-multi-node]: /how-to-guides/multinode-timescaledb/about-multinode/
+[configuration]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-config/
+[install]: /install/:currentVersion:/
+[setup]: /install/:currentVersion:/
+[about-multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/about-multinode/
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment
-[multi-node-ha]: /how-to-guides/multinode-timescaledb/multinode-ha/
+[multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
