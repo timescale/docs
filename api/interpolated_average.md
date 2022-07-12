@@ -90,5 +90,5 @@ FROM (
 
 
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
-[hyperfunctions-time-weight]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/time-weight/
+[hyperfunctions-time-weight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/time_weight/
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
