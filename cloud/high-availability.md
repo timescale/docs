@@ -1,3 +1,11 @@
+---
+title: High availability
+excerpt: How rapid recovery and high availability works in Timescale Cloud
+product: cloud
+keywords: [high availability, recovery]
+tags: [restore, backup, failures]
+---
+
 # High availability
 Availability needs are determined by how a system recovers when a 
 database crashes or becomes unavailable. Availability is a balance 

@@ -1,3 +1,10 @@
+---
+title: Service explorer
+excerpt: Get insight into the performance and structure of your database
+product: [cloud]
+keywords: [services, hypertables, schemas, indexes, policies]
+---
+
 # Service Explorer
 Timescale Cloud Service Explorer provides a rich administrative dashboard for
 understanding the state of your database instance. The Explorer gives you
@@ -48,6 +55,5 @@ configured for real-time aggregation, and their refresh periods.
 For more information about continuous aggregates, see our
 [continuous aggregates section][caggs].
 
-
-[hypertables]: timescaledb/:currentVersion:/how-to-guides/hypertables/
-[caggs]: timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
