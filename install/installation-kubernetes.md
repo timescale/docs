@@ -1,3 +1,12 @@
+---
+title: Install TimescaleDB on Kubernetes
+nav-title: Kubernetes
+excerpt: Install self-hosted TimescaleDB on Kubernetes
+section: install
+subsection: self-hosted
+keywords: [install, self-hosted, Kubernetes]
+---
+
 # Install TimescaleDB on Kubernetes
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the
 `timescaledb-single` Helm chart to deploy a highly available TimescaleDB
@@ -166,7 +175,7 @@ To get help or chat with the Timescale team, [get in contact][contact].
 [aws-eks]: https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
 [microk8s-install]: https://microk8s.io/docs/getting-started
 [contact]: https://www.timescale.com/contact
-[tsdb-docs]: timescaledb/:currentVersion:/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [admin-guide]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/admin-guide.md
 [timescaledb-k8s]: /timescaledb/:currentVersion:/overview/timescale-kubernetes/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/

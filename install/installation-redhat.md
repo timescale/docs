@@ -1,3 +1,12 @@
+---
+title: Install TimescaleDB on Red Hat and CentOS
+nav-title: Red Hat and CentOS
+excerpt: Install self-hosted TimescaleDB on Red Hat-based systems
+section: install
+subsection: self-hosted
+keywords: [install, self-hosted, Red Hat]
+---
+
 # Install self-hosted TimescaleDB on Red Hat-based systems
 You can host TimescaleDB yourself on your Red Hat, CentOS, or Fedora system.
 These instructions use the `yum` package manager on these
@@ -214,6 +223,6 @@ if you want to have a chat.
 
 [contact]: https://www.timescale.com/contact
 [install-psql]: /timescaledb/latest/how-to-guides/connecting/psql/
-[tsdb-docs]: /timescaledb/:currentVersion:/index/
+[tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
