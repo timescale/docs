@@ -31,23 +31,29 @@ Timescale Cloud account.
 
 ### Setting up multi-node on Timescale Cloud
 
-1.  [Log in to your Timescale Cloud account][cloud-login] and click
-		`Create Service`.
+1.  [Log in to your Timescale Cloud account][cloud-login] and click `Create
+    Service`.
 1.  Go to the `Without demo data` tab to create the cluster without a data
-		source. You can add your own data source later on. Click
-		`Advanced options` to configure your service as a multi-node cluster.
-1.  In the `Create a service` page, select the `multi-node` service type.
+    source. You can add your own data source later on. Click `Advanced options`
+    to configure your service as a multi-node cluster.
+1.  In the `Create a service` page, select the `Multi-node` service type.
+1.  If this is your first multi-node service, you see a contact form. Multi-node
+    is currently available on request. A conversation with the Timescale customer support
+    team can help you understand the trade-offs and whether it's a good fit for
+    your needs. Click `Contact us.`
+1.  Our customer support team contacts you. When your request is approved,
+    return to the screen for creating a multi-node service.
 1.  Choose your preferred region, or accept the default region of `us-east-1`.
 1.  Accept the default for the data nodes, or click `Change` to choose the
-		number of data nodes, and their compute and disk size.
+    number of data nodes, and their compute and disk size.
 1.  Accept the default for the access node, or click `Change` to choose the
-		compute and disk size.
+    compute and disk size.
 1.  Click `Create service`. Take a note of the service information, you need
-		these details to connect to your multi-node cluster. The service takes a
-		few minutes to start up.
+    these details to connect to your multi-node cluster. The service takes a few
+    minutes to start up.
 1.  When the service is ready, you can see the service in the Service Overview
-		page. Click on the name of your new multi-node service to see more
-		information, and to make changes.
+    page. Click on the name of your new multi-node service to see more
+    information, and to make changes.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-running-service-multinode.png" alt="Timescale Cloud running multi-node service"/>
 
@@ -56,7 +62,7 @@ Timescale Cloud account.
 For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
 
-[multinode-timescaledb]: timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[multinode-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [multinode-mst]: /mst/:currentVersion:/mst-multi-node/
 [cloud-login]: https://console.cloud.timescale.com/
 [cloud-signup]: https://www.timescale.com/timescale-signup
