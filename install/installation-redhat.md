@@ -14,10 +14,11 @@ distributions:
 *   Red Hat Enterprise Linux 7
 *   Red Hat Enterprise Linux 8
 *   CentOS 7
-*   CentOS 8
 *   Fedora 33
 *   Fedora 34
 *   Fedora 35
+*   Rocky Linux 8
+TODO Why support Fedora at all?  Why not just a note that "it probably works but we don't recommend it"?
 
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `yum` or
@@ -34,7 +35,20 @@ instead.
 ### Installing self-hosted TimescaleDB on Red Hat-based systems
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
+
+    See https://www.postgresql.org/download/linux/redhat/ for detailed instructions; this is just a summary.
+    TODO Why duplicate any of that at all?  We should just say "go there and install and come back".
+
     <terminal>
+
+    <tab label='Rocky Linux'>
+    ```
+    # Install the repository RPM.
+    dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{rhel})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    # Disable the built-in PostgreSQL module.
+    dnf -qy module disable postgresql
+    ```
+    </tab>
 
     <tab label='Red Hat'>
 
@@ -52,10 +66,10 @@ instead.
 
     </tab>
 
-    <tab label="CentOS">
+    <tab label="CentOS 7">
 
     ```bash
-    yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{centos})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     ```
 
     </tab>
