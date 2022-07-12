@@ -14,7 +14,7 @@ hyperfunction_type: one-step
 ---
 
 # saturating_sub_pos()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit" content="Experimental" />
-The `saturating_sub_pos` subtracts the second number from the first, saturating at 0 for the minimum bound.
+The `saturating_sub_pos` subtracts the second number from the first, saturating at 0 and 2147483647 instead of overflowing.
 
 For more information about saturating math functions, see the
 [saturating math docs][saturating-math-docs].

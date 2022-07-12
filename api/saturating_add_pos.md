@@ -14,7 +14,7 @@ hyperfunction_type: one-step
 ---
 
 # saturating_add_pos()  <tag type="toolkit">Toolkit</tag><tag type="toolkit-experimental" content="Experimental" />
-The `saturating_add_pos` function adds two numbers, saturating at 0 for the minimum bound.
+The `saturating_add_pos` function adds two numbers, saturating at 0 and 2147483647 instead of overflowing.
 
 For more information about saturating math functions, see the
 [saturating math docs][saturating-math-docs].

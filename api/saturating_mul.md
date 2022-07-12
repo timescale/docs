@@ -14,7 +14,7 @@ hyperfunction_type: one-step
 ---
 
 # saturating_mul()  <tag type="toolkit">Toolkit</tag><tag type="toolkit-experimental" content="Experimental" />
-The `saturating_mul` function multiples two numbers, saturating at the numeric bounds instead of overflowing.
+The `saturating_mul` function multiples two numbers, saturating at -2147483648 and 2147483647 instead of overflowing.
 
 For more information about saturating math functions, see the
 [saturating math docs][saturating-math-docs].
