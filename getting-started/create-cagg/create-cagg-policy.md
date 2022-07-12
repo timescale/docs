@@ -1,3 +1,9 @@
+---
+title: Using and setting up continuous aggregate policies
+excerpt: Set a policy to refresh your continuous aggregates automatically
+keywords: [continuous aggregates, policies]
+---
+
 # Using and setting up continuous aggregate policies
 You now have a continuous aggregate, but you have not updated any data or
 created an automatic policy. There are two ways to update a continuous

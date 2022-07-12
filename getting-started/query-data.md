@@ -1,3 +1,9 @@
+---
+title: Query your data
+excerpt: Query your TimescaleDB data with the full power of SQL
+keywords: [queries]
+---
+
 # Query your data
 With TimescaleDB, there's no need to learn a custom query language, because
 TimescaleDB supports full SQL. You can use your SQL knowledge along with the

@@ -1,3 +1,9 @@
+---
+title: Compression
+excerpt: Use TimescaleDB's native compression to save on storage
+keywords: [compression]
+---
+
 # Compression 
 TimescaleDB includes native compression capabilities which enable you to
 analyze and query massive amounts of historical time-series data inside a

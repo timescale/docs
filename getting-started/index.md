@@ -1,3 +1,8 @@
+---
+title: Getting started with TimescaleDB
+excerpt: Get started with your first TimescaleDB instance
+---
+
 # Getting started with TimescaleDB
 
 **Congratulations!** You're here because you have successfully spun

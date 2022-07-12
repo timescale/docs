@@ -1,3 +1,9 @@
+---
+title: Create a data retention policy
+excerpt: Automatically drop historical data with a data retention policy
+keywords: [data retention, policies, create]
+---
+
 # Create a data retention policy
 An intrinsic part of working with time-series data is that the relevance of data
 can diminish over time. As new data accumulates, old data becomes less valuable and

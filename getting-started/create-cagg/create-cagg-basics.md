@@ -1,3 +1,9 @@
+---
+title: Creating continuous aggregates
+excerpt: Create a continuous aggregate from your data
+keywords: [continuous aggregates, create]
+---
+
 # Creating continuous aggregates
 Now that you've been introduced to continuous aggregates, create your own
 continuous aggregate from your data.

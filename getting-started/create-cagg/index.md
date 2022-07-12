@@ -1,3 +1,9 @@
+---
+title: Create a continuous aggregate
+excerpt: Learn how to speed up queries with continuous aggregates
+keywords: [continuous aggregates, create]
+---
+
 # Create a continuous aggregate
 Aggregates are summaries of raw data for a period of time. Some examples of
 aggregates include the average stock price per day, the maximum CPU utilization

@@ -1,3 +1,9 @@
+---
+title: Next steps
+excerpt: Continue exploring TimescaleDB
+keywords: [migrate, ingest, visualize, connect]
+---
+
 # Next steps
 Now that you've had some hands-on experience with TimescaleDB, hopefully you can
 see how many of Timescale's powerful features can help you manage your
