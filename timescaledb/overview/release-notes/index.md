@@ -32,7 +32,7 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.7:
+### What's new in TimescaleDB 2.7.1:
 
 
 You can recreate a continuous aggregate to benefit from the improvement, if the
@@ -71,6 +71,9 @@ exclude all but the most recent chunk were dominated by planning time.
 This new optimization enhances the planner to take the `now()` constraint into
 consideration when planning thereby reducing the work that needs to be done
 in the planner.
+
+This release also contains bug fixes and minor feature improvements since the 2.7.0 release.
+
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
 
 <highlight type="important"> This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity. </highlight>
@@ -110,6 +113,35 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+## 2.7.1 (2022-07-07)
+
+**Bug fixes**
+* #4494 Handle TimescaleDB versions aptly in multi-node
+* #4493 Segfault when executing IMMUTABLE functions
+* #4482 Fix race conditions during chunk (de)compression
+* #4367 Improved buffer management in the copy operator
+* #4375 Don't ask for `orderby` column if default already set
+* #4400 Use our implementation of `find_em_expr_for_rel` for PG15+
+* #4408 Fix crash during insert into distributed hypertable
+* #4411 Add `shmem_request_hook`
+* #4437 Fix segfault in `subscription_exec`
+* #4442 Fix perms in copy/move chunk
+* #4450 Retain hypertable ownership on `attach_data_node`
+* #4451 Repair numeric partial state on the fly
+* #4463 Fix empty bytea handlng with distributed tables
+* #4469 Better superuser handling for `move_chunk`
+
+**Features**
+* #4244 Function telemetry
+* #4287 Add internal api for foreign table chunk
+* #4470 Block drop chunk if chunk is in frozen state
+* #4464 Add internal api to associate a hypertable with custom jobs
+
+**Thanks**
+* @xin-hedera Finding bug in empty bytea values for distributed tables
+* @jflambert for reporting a bug with IMMUTABLE functions
+* @nikugogoi for reporting a bug with CTEs and upserts on distributed hypertables
+
 ## 2.7.0 (2022-05-24)
 
 This release adds major new features since the 2.6.1 release.
