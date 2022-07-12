@@ -30,19 +30,27 @@ mounts, or bind mounts.
     when you perform the upgrade. Make sure you copy the correct command, based
     on your mount point type.
 
-    For volume mounts:
+    <terminal>
+
+    <tab label='Volume mount'>
 
     ```bash
     docker inspect timescaledb --format='{{range .Mounts }}{{.Name}}{{end}}'
     069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c
     ```
 
-    For bind mounts:
+    </tab>
+
+    <tab label='Bind mount'>
 
     ```bash
     docker inspect timescaledb --format='{{range .Mounts }}{{.Source}}{{end}}'
     /path/to/data
     ```
+
+    </tab>
+
+    </terminal>
 
 </procedure>
 
@@ -74,15 +82,25 @@ data.
 
     For volume mounts:
 
+    <terminal>
+
+    <tab label='Volume mount'>
+
     ```bash
     docker run -v 069ba64815f0c26783b81a5f0ca813227fde8491f429cf77ed9a5ae3536c0b2c:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
     ```
 
-    For bind mounts:
+    </tab>
+
+    <tab label='Bind mount'>
 
     ```bash
     docker run -v /path/to/data:/var/lib/postgresql/data -d --name timescaledb -p 5432:5432 timescale/timescaledb
     ```
+
+    </tab>
+
+    </terminal>
 
 1.  Connect to the upgraded instance using `psql` with the `-X` flag:
 
