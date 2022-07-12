@@ -1,0 +1,77 @@
+---
+api_name: count_min_sketch()
+excerpt: Aggregate data in a `count_min_sketch` for calculation of estimates
+license: community
+toolkit: true
+topic: hyperfunctions
+tags: [hyperfunctions, frequency, count min sketch]
+api_category: hyperfunction
+api_experimental: true
+hyperfunction_toolkit: true
+hyperfunction_family: 'frequency analysis'
+hyperfunction_subfamily: CountMinSketch
+hyperfunction_type: aggregate
+---
+
+import Experimental from 'versionContent/_partials/_experimental.mdx';
+
+# count_min_sketch() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+Produces a [Count-Min Sketch][count-min-sketch] in the form of an aggregate that can be passed to the [`approx_count` function][approx-count] to estimate how many times a particular value has appeared in a column.
+
+```sql
+count_min_sketch(
+    values TEXT,
+    error DOUBLE PRECISION,
+    probability DOUBLE PRECISION,
+) RETURNS CountMinSketch
+```
+
+
+## Required arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`values`|`TEXT`|Column to aggregate|
+|`error`|`DOUBLE PRECISION`|Error tolerance in estimate, calculated relative to the number of values added to the sketch|
+|`probability`|`DOUBLE PRECISION`|Probability such that error bounds will hold with 1-`probability`% of the time|
+
+
+## Returns
+
+|Column|Type|Description|
+|-|-|-|
+|`agg`|`CountMinSketch`|An object storing a table of counters.|
+
+## Sample usage
+
+Create a Count-Min Sketch of the stock symbols seen in your tick data.
+With this aggregate, you'll then be able to estimate how often any text value appears in the `symbol` column.
+
+```sql
+SELECT count_min_sketch(symbol, 0.01, 0.01) AS symbol_sketch
+FROM stocks_real_time;
+```
+
+In this example, the first `0.01` dictates that our frequency estimates have a relative error of 1%.
+In other words, we have that
+```
+true_frequency <= estimated_frequency < true_frequency + 0.01*<NUMBER_OF_ROWS_IN_THE_COLUMN>
+```
+The second `0.01` means that our estimated frequency will fall outside those error bounds 1% of the time (on average).
+
+You can then pass this aggregate into the [`approx_count` function][approx-count].
+Doing so will give you an estimate of how many times a given symbol appears in the `symbol` column.
+
+For example, if you wanted to know approximately how many of the quotes in the tick data were for the `AAPL` stock, you would then do the following:
+
+```sql
+WITH t AS (
+  SELECT count_min_sketch(symbol, 0.01, 0.01) AS symbol_sketch
+  FROM stocks_real_time
+)
+SELECT toolkit_experimental.approx_count('AAPL', symbol_sketch)
+FROM t;
+```
+
+[approx-count]: /api/:currentVersion:/hyperfunctions/frequency-analysis/approx_count/
+[count-min-sketch]: https://en.wikipedia.org/wiki/Count–min_sketch
