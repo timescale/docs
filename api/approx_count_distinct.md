@@ -6,7 +6,7 @@ toolkit: true
 topic: hyperfunctions
 tags: [hyperfunctions, approximate count distinct, distinct count, hyperloglog]
 api_category: hyperfunction
-toolkit-experimental: false
+api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'approximate count distinct'
 hyperfunction_subfamily: hyperloglog
@@ -52,4 +52,3 @@ CREATE VIEW hll AS SELECT toolkit_experimental.approx_count_distinct(data) FROM 
 
 
 [hyperfunctions-approx-count-distincts]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
-[stderror]: /api/:currentVersion:/hyperfunctions/approx_count_distincts/stderror/
