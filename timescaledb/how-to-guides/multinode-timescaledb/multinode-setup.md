@@ -15,9 +15,9 @@ To set up multi-node on a self-hosted TimescaleDB instance, you need:
 The access and data nodes must begin as individual TimescaleDB instances.
 They should be hosts with a running PostgreSQL server and a loaded TimescaleDB
 extension. For more information about installing self-hosted TimescaleDB
-instances, see the [installation instructions][install]. Additionally, [high 
-availability with multi-node][multi-node-ha] can be configured to increase 
-redundancy and resilience.
+instances, see the [installation instructions][install]. Additionally, you
+can configure [high availability with multi-node][multi-node-ha] to 
+increase redundancy and resilience.
 
 The multi-node TimescaleDB architecture consists of an access node (AN) which
 stores metadata for the distributed hypertable and performs query planning
