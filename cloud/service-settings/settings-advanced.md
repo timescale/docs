@@ -1,3 +1,11 @@
+---
+title: Service settings - Advanced parameters
+excerpt: Configure advanced parameters for your Timescale Cloud service
+product: cloud
+keywords: [services, settings, extensions]
+tags: [schemas]
+---
+
 # Service settings - advanced parameters
 It is also possible to configure a wide variety of service database parameters
 by toggling `Show advanced parameters` in the upper-right corner of the

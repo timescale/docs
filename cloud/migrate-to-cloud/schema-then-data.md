@@ -1,3 +1,11 @@
+---
+title: Migrate schema and data separately
+excerpt: Migrate your TimescaleDB data and schema to Timescale Cloud
+product: [cloud]
+keywords: [migrate]
+tags: [ingest]
+---
+
 # Migrate schema and data separately
 Migrate larger databases by migrating your schema first, then migrating the
 data. This method copies each table or chunk separately, which allows you to
@@ -362,9 +370,9 @@ accessed. Skipping them does not affect statistics on your data.
 [cagg-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[compression-policy]: /timescaledb/:currentVersion:/getting-started/compress-data/#enable-timescaledb-compression-on-the-hypertable
-[choosing-method]: /migrate-to-cloud/
-[extensions]: /customize-configuration/#postgresql-extensions
+[compression-policy]: /getting-started/:currentVersion:/compress-data/
+[choosing-method]: /cloud/:currentVersion:/migrate-to-cloud/
+[extensions]: /cloud/:currentVersion:/customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
@@ -373,5 +381,5 @@ accessed. Skipping them does not affect statistics on your data.
 [reorder-policy]: /api/:currentVersion:/hypertable/add_reorder_policy/
 [timescaledb-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
-[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/
+[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
+[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
