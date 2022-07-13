@@ -61,7 +61,7 @@ for you to explore.
 
 #### Overview of services
 View all the services with service name, number of requests served per second,
-average duration per request, p90 latency and error rate. Click the service name
+average and p90 request duration and error rate. Click the service name
 to view the service level metrics.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-services-overview-dashboard.png" alt="A dashboard representing the overview of services"/>
 
