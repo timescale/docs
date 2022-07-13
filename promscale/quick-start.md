@@ -59,35 +59,30 @@ You can use Promscale for performance monitoring using trace data.
 The Docker Compose tool includes some pre-configured dashboards 
 for you to explore.
 
-#### Overview of Services
+#### Overview of services
+View all the services with service name, number of requests served per second,
+average duration per request, p90 latency and error rate. Click the service name
+to view the service level metrics.
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-services-overview-dashboard.png" alt="A dashboard representing the overview of services"/>
 
-THe below table lists all the services with service name, number of requests
-served per second, average duration per request, p90 latency and error rate.
-Clicking on the service name hyperlink will navigate you to the service level
-metrics.
+#### Slowest requests
+View the top 50 slowest requests across the services with relevant traceID.
+Click the traceID for trace vilsualization of slowest request.
 
-<!-- <apm-services-overview-dashboard> <alt-text=APM dashboard representing the overview of services> -->
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-slowest-traces-dashboard.png" alt="A dashboard representing the slowest requests across the services"/>
 
-#### Slowest Requests
+#### Rate Error Duration metrics
+View the Rate, Error, Duration (RED) metrics specific to a service to understand
+the number of requests a service provides per second, the number of failed
+requests per second, the amount of time it takes to process a request.
 
-The below table lists the top 50 slowest requests across the services with relevant traceID as hyperlink, clicking on it navigates to the trace vilsualization of slowest request.
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-red-metrics-dashboard.png" alt="A dashboard representing the RED metrics graphs specific to a service"/>
 
-<!-- <apm-slowest-traces-dashboard> <alt-text=APM dashboard representing the slowest requests across the services> -->
+#### Upstream dependencies
+View the upstream dependencies in other words, the origin of all the requests that are
+received by a specific service.
 
-#### RED metrics
-
-The below dashboard illustrates the RED (Rate, Error, Duration) metrics 
-specific to a service to understand the number of requests a service
-is serving per second, the number of failed requests per second, 
-the amount of time it takes to process a request.
-
-<!-- <apm-red-metrics-dashboard> <alt-text=APM dashboard representing the RED metrics graphs specific to a service> -->
-
-#### Upstream Dependencies
-
-The below graph illustrates the upstream dependencies i.e origin of all the requests that are received by a specific service.
-
-<!-- <apm-upstream-dependency-dashboard> <alt-text=APM dashboard representing the upstream dependencies specific to a service> -->
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-upstream-dependency-dashboard.png" alt="A dashboard representing the upstream dependencies specific to a service"/>
 
 [gh-promscale]: https://github.com/timescale/promscale
 [docker-compose]: https://docs.docker.com/compose/install/
