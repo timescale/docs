@@ -1,3 +1,11 @@
+---
+title: Service operations - VPC
+excerpt: Peer to Timescale Cloud with VPC to isolate your database
+product: cloud
+keywords: [vpc, services, operations]
+tags: [aws]
+---
+
 # Service operations - VPC
 Timescale Cloud allows you to create a virtual private cloud (VPC) network
 between an external cloud provider and your Timescale Cloud services. This
@@ -186,7 +194,7 @@ complete.
 
 
 [aws-dashboard]: https://console.aws.amazon.com/vpc/home#PeeringConnections:
-[cloud-vpc]: cloud/vpc-peering/
+[cloud-vpc]: /cloud/:currentVersion:/vpc-peering/
 [cloud-login]: https://console.cloud.timescale.com/
 [timescale-support]: https://www.timescale.com/support
-[tsc-regions]: /#available-in-multiple-aws-regions
+[tsc-regions]: /cloud/:currentVersion:/#available-in-multiple-aws-regions

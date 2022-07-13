@@ -1,3 +1,10 @@
+---
+title: Create a service
+excerpt: Create a service in Timescale Cloud
+product: cloud
+keywords: [services, create, install]
+---
+
 # Create a service
 Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
 quickly spin up new TimescaleDB instances. You can
@@ -32,9 +39,9 @@ You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
 
+[cloud-install]: /install/:currentVersion:/installation-cloud/
+[contact]: https://www.timescale.com/contact
 [sign-up]: https://www.timescale.com/timescale-signup
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
-[contact]: https://www.timescale.com/contact
-[tsc-docs]: cloud/:currentVersion:/
+[tsc-docs]: /cloud/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[cloud-install]: install/:currentVersion:/installation-cloud/
