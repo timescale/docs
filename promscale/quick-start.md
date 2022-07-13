@@ -2,7 +2,13 @@
 You can use Docker Compose to easily run Promscale in an isolated environment built
 with Docker containers. This quick-start guide demonstrates how to use Compose to set
 up and run Promscale as a single data store for your metrics and traces with full Prometheus
-and OpenTelemetry support, including seamless integration with Grafana and Jaeger.  
+and OpenTelemetry support. It also includes some additional pre-configured tooling for you
+to get familiar with additional Promscale functionality, such as performance monitoring and
+visualization tools.
+
+To learn more about how Promscale can improve your observability environment, see
+[About Promscale][about-promscale]. For instructions on installing Promscale directly, see
+[Installing Promscale][install-promscale].
 
 Before you begin, make sure that you have [installed Docker Compose][docker-compose].
 
@@ -63,3 +69,5 @@ for you to explore.
 
 [gh-promscale]: https://github.com/timescale/promscale
 [docker-compose]: https://docs.docker.com/compose/install/
+[about-promscale]: /promscale/:currentVersion:/about-promscale
+[install-promscale]: /promscale/:currentVersion:/installation
