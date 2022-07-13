@@ -54,7 +54,7 @@ You only get the full benefits of continuous aggregates by creating both the
 aggregate itself and its policy. Follow both sections to add the full value of
 aggregates to your time-series database.
 
-[material-view]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [cagg-overview]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
-[create-cagg-basics]: /create-cagg/create-cagg-basics/
-[create-cagg-policy]: /create-cagg/create-cagg-policy/
+[create-cagg-basics]: /getting-started/:currentVersion:/create-cagg/create-cagg-basics/
+[create-cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/
+[material-view]: https://www.postgresql.org/docs/current/rules-materializedviews.html

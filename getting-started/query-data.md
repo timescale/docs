@@ -192,14 +192,14 @@ For more information about the functions provided by TimescaleDB and Timescale T
 see the [API Reference for hyperfunctions](/api/:currentVersion:/hyperfunctions).
 
 [average]: https://www.postgresql.org/docs/14/functions-aggregate.html
+[clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
+[create-cagg]: /getting-started/:currentVersion:/create-cagg/
+[date-trunc]: https://www.postgresql.org/docs/current/functions-datetime.html
 [filter]: https://www.postgresql.org/docs/14/sql-expressions.html#SYNTAX-AGGREGATES
+[first]: /api/:currentVersion:/hyperfunctions/first
+[join]: https://www.postgresql.org/docs/current/tutorial-join.html
+[last]: /api/:currentVersion:/hyperfunctions/last
 [order-by]: https://www.postgresql.org/docs/current/queries-order.html
 [select-keywords]: https://www.postgresql.org/docs/14/sql-select.html
-[clause-expressions]: https://www.postgresql.org/docs/14/queries-table-expressions.html
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [time-bucket-how-to]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/
-[last]: /api/:currentVersion:/hyperfunctions/last
-[first]: /api/:currentVersion:/hyperfunctions/first
-[date-trunc]: https://www.postgresql.org/docs/current/functions-datetime.html
-[create-cagg]: /create-cagg/
-[join]: https://www.postgresql.org/docs/current/tutorial-join.html
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket

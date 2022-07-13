@@ -54,9 +54,9 @@ datasets. We have you covered! 🙌
 Have a look some of the [other datasets][sample-data] provided for you to dig
 deeper into time-series data and data analysis using TimescaleDB.
 
-[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[visualize-data]: /timescaledb/:currentVersion:/tutorials/grafana/
 [connect-with-code]: /timescaledb/:currentVersion:/quick-start/
-[sample-data]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [ingest-real-time]: /timescaledb/:currentVersion:/tutorials/ingest-real-time-websocket-data
+[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[sample-data]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [twelve-data]: https://twelvedata.com/
+[visualize-data]: /timescaledb/:currentVersion:/tutorials/grafana/

@@ -105,4 +105,4 @@ Now that you have data in your TimescaleDB instance, learn how to [query the
 data][query-data].
 
 [twelve-data]: https://twelvedata.com/
-[query-data]: /query-data/
+[query-data]: /getting-started/:currentVersion:/query-data/

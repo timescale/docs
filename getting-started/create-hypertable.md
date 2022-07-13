@@ -116,7 +116,7 @@ To learn more about hypertables and best practices for configuring chunks, see
 [Hypertable How-To][hypertable-how-to]. For information about how hypertables
 help with storing and querying data, see the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
-[add-data]: /add-data/
+[add-data]: /getting-started/:currentVersion:/add-data/
 [core-concepts-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
-[hypertable-how-to]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable
+[hypertable-how-to]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
