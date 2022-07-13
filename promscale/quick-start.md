@@ -3,7 +3,7 @@ You can use Docker Compose to easily run Promscale in an isolated environment bu
 with Docker containers. This quick start guide demonstrates how to use Compose to set
 up and run Promscale as a single data store for your metrics and traces with full Prometheus
 and OpenTelemetry support. It also includes some additional pre-configured tooling for you
-to get familiar with additional Promscale functionality, such as performance monitoring and
+to get familiar with additional Promscale features, such as performance monitoring and
 visualization tools.
 
 To learn more about how Promscale can improve your observability environment, see
