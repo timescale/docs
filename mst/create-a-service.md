@@ -20,7 +20,7 @@ Now you have your service up and running, you can try your
 
 
 [contact]: https://www.timescale.com/contact
-[getting-started]: /timescaledb/:currentVersion:/getting-started/
+[getting-started]: /getting-started/:currentVersion:/
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
 [mst-install]: /install/:currentVersion:/installation-mst/
 [mst-login]: https://portal.managed.timescale.com
