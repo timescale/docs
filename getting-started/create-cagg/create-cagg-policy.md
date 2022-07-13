@@ -1,3 +1,9 @@
+---
+title: Using and setting up continuous aggregate policies
+excerpt: Set a policy to refresh your continuous aggregates automatically
+keywords: [continuous aggregates, policies]
+---
+
 # Using and setting up continuous aggregate policies
 You now have a continuous aggregate, but you have not updated any data or
 created an automatic policy. There are two ways to update a continuous
@@ -88,9 +94,9 @@ trading bot with TimescaleDB][crypto-bot].
 For detailed information on continuous aggregates and real-time aggregation,
 see the [continuous aggregates section][continuous-aggregates].
 
-[getting-started-compression]: /getting-started/:currentVersion:/compress-data/
-[flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
-[crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
-[manual-refresh]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
 [auto-refresh]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy/
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
+[flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
+[getting-started-compression]: /getting-started/:currentVersion:/compress-data/
+[manual-refresh]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
