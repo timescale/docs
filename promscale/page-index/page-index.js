@@ -13,7 +13,7 @@ module.exports = [
         href: "quick-start",
         tags: ["promscale", "learn", "analytics", "prometheus"],
         keywords: ["Promscale", "analytics"],
-        excerpt: "Quick Start with Promscale",
+        excerpt: "Get started with Promscale fast",
       },
       {
         title: "About Promscale",
