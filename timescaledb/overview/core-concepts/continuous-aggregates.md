@@ -81,14 +81,10 @@ ORDER BY bucket;
 ```
 
 <highlight type="important">
-In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
-aggregate functions. They also support aggregates with keywords such as
-`DISTINCT`, `ORDER BY`, and `FILTER`. Older versions of TimescaleDB only support
-aggregate functions that can be
-[parallelized by PostgreSQL](https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION).
-They don't support `DISTINCT`, `ORDER BY`, and `FILTER`. For more information,
+Continuous aggregates support many PostgreSQL aggregate functions and features.
+Support depends on your TimescaleDB version. For a table of supported features,
 see the
-[how-to guide on continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates/#unsupported-functions).
+[how-to guide on continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates/#supported-functions).
 </highlight>
 
 ## Real-time aggregation [](real-time-aggregates)
