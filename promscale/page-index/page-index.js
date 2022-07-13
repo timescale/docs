@@ -11,7 +11,7 @@ module.exports = [
       {
         title: "Quick start",
         href: "quick-start",
-        tags: ["promscale", "learn", "analytics", "prometheus"],
+        tags: ["promscale", "install", "analytics", "prometheus"],
         keywords: ["Install", "Promscale", "analytics"],
         excerpt: "Get started with Promscale fast",
       },
