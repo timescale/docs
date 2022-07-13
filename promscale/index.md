@@ -22,13 +22,13 @@ This is not possible when data is siloed in different systems.
 For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
 
-[about-promscale]: promscale/:currentVersion:/about-promscale
-[install-promscale]: promscale/:currentVersion:/installation
-[promscale-benefits]: promscale/:currentVersion:/promscale-benefits/
-[query-data]: promscale/:currentVersion:/query-data/
-[visualize-data]: promscale/:currentVersion:/visualize-data/
+[about-promscale]: /promscale/:currentVersion:/about-promscale
+[install-promscale]: /promscale/:currentVersion:/installation
+[promscale-benefits]: /promscale/:currentVersion:/promscale-benefits/
+[query-data]: /promscale/:currentVersion:/query-data/
+[visualize-data]: /promscale/:currentVersion:/visualize-data/
 [promscale-gh-docs]: https://github.com/timescale/promscale/
-[about-tobs]: promscale/:currentVersion:/tobs/
-[send-data]: promscale/:currentVersion:/send-data/
-[scaling-ha]: promscale/:currentVersion:/scale-ha/
-[quick-start]: promscale/:currentVersion:/quick-start
+[about-tobs]: /promscale/:currentVersion:/tobs/
+[send-data]: /promscale/:currentVersion:/send-data/
+[scaling-ha]: /promscale/:currentVersion:/scale-ha/
+[quick-start]: /promscale/:currentVersion:/quick-start
