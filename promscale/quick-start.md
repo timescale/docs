@@ -32,11 +32,11 @@ To install Promscale with Docker Compose clone the Promscale [repository][gh-pro
 </procedure >
 
 ## Explore Promscale
-
-After Promscale is up and running you can explore the services installed in
-Docker Compose, such as Grafana. View the data sources that are configured to
-Promscale and the dashboards for trace data. Access Grafana on the browser
-`http://localhost:3000` as `admin` user using the password `admin`.
+When you have Promscale up and running, you can explore the services installed 
+by Docker Compose. For example, you can use Grafana to see the data sources 
+that are configured for Promscale, and use Grafana dashboards to visualize trace 
+data. Access Grafana by navigating to `http://localhost:3000` in your web browser, 
+and log in as `admin` with the password `admin`.
 
 ### Data sources
 The data sources that are configured for Promscale are:
