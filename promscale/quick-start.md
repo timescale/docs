@@ -23,7 +23,7 @@ To install Promscale with Docker Compose clone the Promscale [repository][gh-pro
    ```bash
    cd docker-compose/promscale-demo
    ```
-1. Run Promscale on Docker Compose:
+1. Use Docker Compose to run Promscale:
    ```bash
    docker compose up -d
    ```  
