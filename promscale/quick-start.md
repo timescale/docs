@@ -1,7 +1,8 @@
 # Promscale quick start
-Use Docker Compose to quickly install Promscale as a single data store for your
-metrics and traces with full Prometheus and OpenTelemetry support, including seamless
-integration with Grafana and Jaeger.  
+You can use Docker Compose to easily run Promscale in an isolated environment built
+with Docker containers. This quick-start guide demonstrates how to use Compose to set
+up and run Promscale as a single data store for your metrics and traces with full Prometheus
+and OpenTelemetry support, including seamless integration with Grafana and Jaeger.  
 
 Before you begin, make sure that you have [installed Docker Compose][docker-compose].
 
