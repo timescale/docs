@@ -1,3 +1,10 @@
+---
+title: TimescaleDB on Kubernetes
+excerpt: How timescaleDB works on Kubernetes
+keywords: [Kubernetes, high availability]
+tags: [helm, multi-node]
+---
+
 # TimescaleDB on Kubernetes
 You can install a TimescaleDB instance on any Kubernetes deployment. Use the
 `timescaledb-single` Helm chart to deploy a highly available TimescaleDB

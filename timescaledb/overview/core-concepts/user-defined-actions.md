@@ -1,3 +1,10 @@
+---
+title: User-defined actions
+excerpt: Set up user-defined actions to run tasks on a schedule
+keywords: [actions]
+tags: [user-defined actions, background jobs, scheduled jobs]
+---
+
 # User-defined actions
 
 User-defined actions allow you to run functions and procedures implemented in a
@@ -236,6 +243,5 @@ Stop or delete the job:
 ```sql
 SELECT delete_job(1000);
 ```
-
 
 [api-move_chunk]: /api/:currentVersion:/hypertable/move_chunk

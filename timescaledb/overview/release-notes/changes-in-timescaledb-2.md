@@ -1,3 +1,9 @@
+---
+title: Changes in TimescaleDB 2.0
+excerpt: New features and capabilities introduced in TimescaleDB 2.0
+keywords: [upgrade, releases]
+---
+
 # Changes in TimescaleDB 2.0
 
 TimescaleDB 2.0 introduces new features and capabilities to its advanced relational

@@ -1,4 +1,11 @@
-# Data retention [](data-retention)
+---
+title: Data retention
+excerpt: Learn how you can delete historical data to save storage
+keywords: [data retention]
+tags: [data retention, delete, drop]
+---
+
+# Data retention
 
 An intrinsic part of time-series data is that new data is accumulated
 and old data is rarely, if ever, updated and the relevance of the data
@@ -49,7 +56,6 @@ TimescaleDB to drop data as necessary.
 It's worth noting that [continuous aggregates][continuous-aggregates] are also valid targets retention
 policies.
 
-
-[drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/
 [add-retention-policy]: /api/:currentVersion:/data-retention/add_retention_policy/
-[continuous-aggregates]: /overview/core-concepts/continuous-aggregates/
+[continuous-aggregates]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
+[drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/

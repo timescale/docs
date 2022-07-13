@@ -1,3 +1,9 @@
+---
+title: What is time-series data?
+excerpt: Why time-series data is special, and how you can handle it
+keywords: [time-series, data]
+---
+
 # What is time-series data?
 
 What is this "time-series data" that we keep talking about, and how and why is

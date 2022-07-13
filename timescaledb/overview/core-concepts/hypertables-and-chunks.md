@@ -1,3 +1,9 @@
+---
+title: Hypertables
+excerpt: Learn how TimescaleDB hypertables work
+keywords: [hypertables, chunks, partitions]
+---
+
 # Hypertables
 
 From a user's perspective, TimescaleDB exposes what look like singular tables,
@@ -153,6 +159,5 @@ management. These includes:
   asynchronous rebalance a cluster after adding a server or to prepare for
   retiring a server (coming soon).
 
-
-  [create-hypertable]: /how-to-guides/hypertables/create/
-  [distributed hypertables]: /overview/core-concepts/distributed-hypertables/
+[create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
+[distributed hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/

@@ -1,3 +1,10 @@
+---
+title: Continuous aggregates
+excerpt: Learn how continuous aggregates help you speed up queries and downsample data
+keywords: [continuous aggregates]
+tags: [downsample, materialized views]
+---
+
 # Continuous aggregates
 
 Aggregate queries (`min()`, `max()`, `avg()`...) 
@@ -136,6 +143,5 @@ targeted updates to time ranges that may occur further in history through
 a backfill process. Using both tools to keep continuous aggregates up-to-date
 provides great control and flexibility!
 
-
-[postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [api-alter-cagg]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html

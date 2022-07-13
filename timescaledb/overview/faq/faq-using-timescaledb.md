@@ -1,3 +1,9 @@
+---
+title: FAQs - Using TimescaleDB
+excerpt: Frequently asked questions about using TimescaleDB
+keywords: [faq]
+---
+
 # FAQs - Using TimescaleDB
 
 ## What can I use TimescaleDB for?
@@ -86,14 +92,13 @@ See our [install documentation][install].
 ## How do I update an existing installation?
 See our [updating documentation][update].
 
-
-[INSERT]: /how-to-guides/write-data/insert/
-[SELECT]: /how-to-guides/query-data/select/
-[rdbms > nosql]: http://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
+[INSERT]: /timescaledb/:currentVersion:/how-to-guides/write-data/insert/
+[SELECT]: /timescaledb/:currentVersion:/how-to-guides/query-data/select/
 [benchmarks]: https://blog.timescale.com/blog/timescaledb-2-0-a-multi-node-petabyte-scale-completely-free-relational-database-for-time-series/
-[docs-architecture]: /overview/core-concepts/hypertables-and-chunks/
-[hypertable-best-practices]: /how-to-guides/hypertables/best-practices/
-[install]: /install/latest/
-[update]: /how-to-guides/update-timescaledb/
-[compression-docs]: /how-to-guides/compression/
 [compression-blog]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
+[compression-docs]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[docs-architecture]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[hypertable-best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/best-practices/
+[install]: /install/:currentVersion:/
+[rdbms > nosql]: http://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
+[update]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/
