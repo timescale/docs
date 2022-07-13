@@ -1,3 +1,11 @@
+---
+title: Ingest data
+excerpt: Ingest data into Managed Service for Timescaledb
+product: mst
+keywords: [ingest, migrate]
+tags: [JDB, ODBC, client driver, Kafka, csv]
+---
+
 # Ingest data
 There are several different ways of ingesting your data into Managed Service for
 TimescaleDB. This section contains instructions to:
@@ -126,9 +134,9 @@ recommend that you use the connector with Kafka and Kafka Connect.
 See [these instructions][gh-kafkaconnector] for using the Kafka connector.
 
 
-[github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
-[migrate-data]: /timescaledb/latest/how-to-guides/migrate-data/
-[migrate-influxdb]: /timescaledb/latest/how-to-guides/migrate-data/migrate-influxdb/
-[postgres-odbc]: https://odbc.postgresql.org/
-[code-qs]: /timescaledb/latest/quick-start/
+[code-qs]: /timescaledb/:currentVersion:/quick-start/
 [gh-kafkaconnector]: https://github.com/debezium/debezium/tree/master/debezium-connector-postgres
+[github-parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[migrate-influxdb]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/migrate-influxdb/
+[postgres-odbc]: https://odbc.postgresql.org/
