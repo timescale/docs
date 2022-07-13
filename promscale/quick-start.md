@@ -6,7 +6,7 @@ and OpenTelemetry support. It also includes some additional pre-configured tooli
 to get familiar with additional Promscale features, such as performance monitoring and
 visualization tools.
 
-To learn more about how Promscale can improve your observability environment, see
+To learn more about how Promscale can improve your observability stack, see
 [About Promscale][about-promscale]. For instructions on installing Promscale directly, see
 [Installing Promscale][install-promscale].
 
