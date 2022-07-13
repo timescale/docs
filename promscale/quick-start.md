@@ -18,7 +18,7 @@ To install Promscale with Docker Compose, you need to start by cloning the Proms
 `docker-compose` directory contains services for these components:
 * Promscale for analytics and long term storage of metrics and traces
 * Prometheus and Node exporter for metrics
-* OpenTelemetry collector, demonstration applications, and Grafana for traces and visualization
+* OpenTelemetry collector, demonstration applications, Jaeger query and Grafana for traces and visualization
 
 ### Installing Promscale with Docker Compose
 
@@ -39,7 +39,7 @@ To install Promscale with Docker Compose, you need to start by cloning the Proms
 
 </procedure >
 
-## Explore Promscale
+## Explore data in Promscale
 When you have Promscale up and running, you can explore the services installed 
 by Docker Compose. For example, you can use Grafana to see the data sources 
 that are configured for Promscale, and use Grafana dashboards to visualize trace 
@@ -48,8 +48,8 @@ and log in as `admin` with the password `admin`.
 
 ### Data sources
 The data sources that are configured for Promscale are:
-* Promscale-Metrics: PromQL query endpoint
-* Promscale-Traces: Jaeger query endpoint
+* Promscale-PromQL: PromQL query endpoint
+* Promscale-Tracing: Jaeger query endpoint
 * Promscale-SQL: SQL query endpoint for both metrics and traces
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-grafana-datasource-qsg.png" alt="Promscale data sources"/>
