@@ -58,14 +58,36 @@ The data sources that are configured for Promscale are:
 You can use Promscale for performance monitoring using trace data. 
 The Docker Compose tool includes some pre-configured dashboards 
 for you to explore.
-<!--- Add instructions here -->
 
-<!-- <todo-upload-the-image1-to-s3-and-add-it-here>
+#### Overview of Services
 
-<todo-upload-the-image2-to-s3-and-add-it-here>
+THe below table lists all the services with service name, number of requests
+served per second, average duration per request, p90 latency and error rate.
+Clicking on the service name hyperlink will navigate you to the service level
+metrics.
 
-<todo-upload-the-image3-to-s3-and-add-it-here> -->
+<!-- <apm-services-overview-dashboard> <alt-text=APM dashboard representing the overview of services> -->
 
+#### Slowest Requests
+
+The below table lists the top 50 slowest requests across the services with relevant traceID as hyperlink, clicking on it navigates to the trace vilsualization of slowest request.
+
+<!-- <apm-slowest-traces-dashboard> <alt-text=APM dashboard representing the slowest requests across the services> -->
+
+#### RED metrics
+
+The below dashboard illustrates the RED (Rate, Error, Duration) metrics 
+specific to a service to understand the number of requests a service
+is serving per second, the number of failed requests per second, 
+the amount of time it takes to process a request.
+
+<!-- <apm-red-metrics-dashboard> <alt-text=APM dashboard representing the RED metrics graphs specific to a service> -->
+
+#### Upstream Dependencies
+
+The below graph illustrates the upstream dependencies i.e origin of all the requests that are received by a specific service.
+
+<!-- <apm-upstream-dependency-dashboard> <alt-text=APM dashboard representing the upstream dependencies specific to a service> -->
 
 [gh-promscale]: https://github.com/timescale/promscale
 [docker-compose]: https://docs.docker.com/compose/install/
