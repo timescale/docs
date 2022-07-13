@@ -39,7 +39,7 @@ Promscale and the dashboards for trace data. Access Grafana on the browser
 `http://localhost:3000` as `admin` user using the password `admin`.
 
 ### Data sources
-The three data sources that are configured to Promscale are:
+The data sources that are configured for Promscale are:
 * Promscale-Metrics: PromQL query endpoint
 * Promscale-Traces: Jaeger query endpoint
 * Promscale-SQL: SQL query endpoint for both metrics and traces
