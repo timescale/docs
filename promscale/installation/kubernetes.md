@@ -17,7 +17,7 @@ You can install Promscale using Helm charts.
 
 Before you begin, you must have installed Helm. For more information, including
 packages and installation instructions, see the
-[Helm documentation][helm-install].
+[Helm documentation][install-helm].
 
 The Helm charts must be installed
 in this order:
@@ -187,6 +187,7 @@ For instructions, see the [send data][send-data] section.
 
 [install-binary]: /promscale/:currentVersion:/installation/binary/
 [install-helm]: /promscale/:currentVersion:/installation/kubernetes/#install-promscale-with-helm
+[promscale-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml
 [send-data]: /promscale/:currentVersion:/send-data/
 [template-manifest]: https://github.com/timescale/promscale/blob/0.12.1/deploy/static/deploy.yaml
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
