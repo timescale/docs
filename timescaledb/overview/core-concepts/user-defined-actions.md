@@ -7,4 +7,4 @@ ability to enhance existing policies with additional features.
 
 To learn more about user-defined actions, see the [how-to guide][how-to].
 
-[how-to]: /timescaledb/:currentVersion:/user-defined-actions/
+[how-to]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/
