@@ -74,7 +74,7 @@ Click the traceID to access the gantt chart view of the corresponding trace.
 #### Rate Error Duration metrics
 View the Rate, Error, Duration (RED) metrics specific to a service to understand
 the number of requests a service provides per second, the number of failed
-requests per second, the amount of time it takes to process a request.
+requests per second, the amount of time it takes to process requests.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-red-metrics-dashboard.png" alt="A dashboard representing the RED metrics graphs specific to a service"/>
 
