@@ -1,3 +1,10 @@
+---
+title: Compare TimescaleDB editions
+excerpt: Compare different editions of TimescaleDB
+keywords: [Apache, community, features]
+tags: [learn, contribute]
+---
+
 ## TimescaleDB Apache 2 vs TimescaleDB Community Editions
 
 There are two versions of TimescaleDB available:
@@ -480,10 +487,10 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
 </table>
 
 <!-- vale Google.Units = NO -->
+[aiven]: https://aiven.io/postgresql
 [azure-database]: https://azure.microsoft.com/en-us/services/postgresql/?&ef_id=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&gclid=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE#overview
 [digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/resources/supported-extensions/
-[aiven]: https://aiven.io/postgresql
-[timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
-[timescale-cloud]: /cloud/latest
-[mst]: /mst/latest
 [license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
+[mst]: /mst/:currentVersion:
+[timescale-cloud]: /cloud/:currentVersion:
+[timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE

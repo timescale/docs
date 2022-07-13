@@ -240,7 +240,7 @@ Always write in simple present tense.
 
 ### Z [](#Z)
 
-[github-docs]: https://github.com/timescale/docs
 [contributors]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
-[readme]: https://github.com/timescale/docs#readme
+[github-docs]: https://github.com/timescale/docs
 [google-style]: https://developers.google.com/style
+[readme]: https://github.com/timescale/docs#readme
