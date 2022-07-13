@@ -19,7 +19,7 @@ To install Promscale with Docker Compose clone the Promscale [repository][gh-pro
    ```bash
    git clone git@github.com:timescale/promscale.git
    ```
-1. Change to `promscale-demo` directory.
+1. Change to the `promscale-demo` directory:
    ```bash
    cd docker-compose/promscale-demo
    ```
