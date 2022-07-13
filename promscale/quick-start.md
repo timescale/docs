@@ -30,7 +30,7 @@ To install Promscale with Docker Compose, you need to start by cloning the Proms
    ```
 1. Change to the `promscale-demo` directory:
    ```bash
-   cd docker-compose/promscale-demo
+   cd promscale/docker-compose/promscale-demo
    ```
 1. Use Docker Compose to run Promscale:
    ```bash
