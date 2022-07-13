@@ -47,8 +47,10 @@ The data sources that are configured for Promscale are:
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-grafana-datasource-qsg.png" alt="Promscale data sources"/>
 
 ### Performance monitoring dashboards
-With Promscale you get the APM like experience from trace data. View some 
-of the dashboards that are pre-configured in docker-compose.
+You can use Promscale for performance monitoring using trace data. 
+The Docker Compose tool includes some pre-configured dashboards 
+for you to explore.
+<!--- Add instructions here -->
 
 <!-- <todo-upload-the-image1-to-s3-and-add-it-here>
 
