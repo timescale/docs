@@ -1,3 +1,9 @@
+---
+title: TimescaleDB
+excerpt: All you need to know about TimescaleDB architecture, concepts, setup, how-tos, tutorials, management, and contribution
+tags: [get started, overview, tutorials, learn, contribute, code]
+---
+
 # Welcome to the TimescaleDB documentation!
 
 TimescaleDB is a time-series database, built on top of PostgreSQL. More than that,
