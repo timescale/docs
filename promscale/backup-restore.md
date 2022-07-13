@@ -48,7 +48,7 @@ SELECT public.timescaledb_pre_restore();
 CREATE EXTENSION promscale;
 ```
 
-Using a database user with the privileges described [above](Prerequisites), 
+Using a database user with the privileges described [above][prerequisites],
 restore the database. If pg_dump was used as described above, you may restore
 the database with a command like below:
 
@@ -75,3 +75,5 @@ restore.
 SELECT public.timescaledb_post_restore();
 SELECT prom_api.promscale_post_restore();
 ```
+
+[prerequisites]: #prerequisites

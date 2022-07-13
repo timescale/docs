@@ -60,6 +60,6 @@ For more information about Prom-migrator and it command line options, see our
 [promscale-alerting]: /promscale/:currentVersion:/alert/
 [promscale-gh-releases]: https://github.com/timescale/promscale/releases
 [promscale-install-docker]: /promscale/:currentVersion:/installation/docker/
-[promscale-install-source]: /promscale/:currentVersion:/installation/source/
+[promscale-install-source]: /promscale/:currentVersion:/installation/binary/
 [promscale-recording]: /promscale/:currentVersion:/downsample-data/recording/
 [tsdb-install-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/

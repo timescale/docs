@@ -65,4 +65,4 @@ version of tobs and Kubernetes:
 |0.7.x|1.19 to 1.21|
 
 [download-tobs]: https://github.com/timescale/tobs/releases/latest
-[promscale-tracing]: /promscale/:currentVersion:/distributed-tracing/
+[promscale-tracing]: /promscale/:currentVersion:/query-data/query-traces/
