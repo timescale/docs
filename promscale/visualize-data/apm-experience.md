@@ -1,3 +1,11 @@
+---
+title: Application Performance Management (APM) with traces
+excerpt: APM experience within Grafana using dashboards with SQL queries on traces
+product: promscale
+keywords: [Jaeger, APM]
+tags: [configure, opentelemetry, traces]
+---
+
 # Application Performance Management (APM) with traces
 Promscale provides an APM-like experience with traces data using SQL. Import the 
 Grafana dashboards that are published by the Promscale team to get the APM 

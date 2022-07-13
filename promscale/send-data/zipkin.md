@@ -1,3 +1,11 @@
+---
+title: Send Zipkin traces to Promscale
+excerpt: Send Zipkin traces to Promscale
+product: promscale
+keywords: [Zipkin]
+tags: [configure, traces]
+---
+
 # Send Zipkin traces to Promscale
 Promscale natively supports the OpenTelemetry Protocol (OTLP) for 
 traces. To ingest Zipkin traces to Promscale, use the OpenTelemetry Collector.

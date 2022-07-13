@@ -1,3 +1,14 @@
+---
+title: Kubernetes
+excerpt: Install Promscale on a Kubernetes cluster
+product: promscale
+keywords: [Kubernetes, analytics, Helm]
+tags: [install]
+related_pages: 
+  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/send-data/
+---
+
 # Install Promscale on Kubernetes
 You can install Promscale on Kubernetes using Helm or using a manifest file.
 
@@ -174,13 +185,13 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 After you have installed Promscale, you can ingest data.
 For instructions, see the [send data][send-data] section.
 
-[timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
-[timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
-[helm-install]: https://helm.sh/docs/intro/install/
-[promscale-values-yaml]: https://github.com/timescale/promscale/blob/master/deploy/helm-chart/values.yaml
-[timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml
-[timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
-[template-manifest]: https://github.com/timescale/promscale/blob/0.12.1/deploy/static/deploy.yaml
-[timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
-[timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
 [send-data]: /promscale/:currentVersion:/send-data/
+[template-manifest]: https://github.com/timescale/promscale/blob/0.12.1/deploy/static/deploy.yaml
+[timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
+[timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
+[timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
+[timescaledb-host-install]: /promscale/:currentVersion:/installation/source#install-timescaledb
+[timescaledb-host-install]: promscale/:currentVersion:/installation/source#install-timescaledb
+[timescaledb-install-helm]: /promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
+[timescaledb-install-helm]: promscale/:currentVersion:/installation/kubernetes#install-the-timescaledb-helm-chart
+[timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml

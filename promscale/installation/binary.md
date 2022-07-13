@@ -1,3 +1,14 @@
+---
+title: Install Promscale from binary
+excerpt: Install Promscale from  source on bare metal
+product: promscale
+keywords: [analytics]
+tags: [install]
+related_pages:
+  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/send-data/
+---
+
 # Install Promscale from binary
 You can install Promscale from a pre-complied binary on any operating systems. The
 Promscale binary file is available at [GitHub releases page][gh-promscale-download].
@@ -52,6 +63,6 @@ Download the Promscale binary file and run the file.
 </procedure>
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
-[tsdb-install-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [releases]: https://github.com/timescale/promscale/releases/
+[tsdb-install-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/

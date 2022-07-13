@@ -1,3 +1,12 @@
+---
+title: Back up and restore Promscale
+excerpt: Learn how to back up and restore a Promscale database
+product: promscale
+keywords: [backup, restore]
+---
+
+# Back up and restore Promscale
+
 ## Prerequisites
 
 Trusted extensions were introduced in PostgreSQL 13. If using a PostgreSQL 

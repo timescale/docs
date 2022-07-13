@@ -1,3 +1,14 @@
+---
+title: Install the observability stock (tobs) for Kubernetes
+excerpt: Install tobs
+product: promscale
+keywords: [analytics, Kubernetes]
+tags: [install, k8s]
+related_pages:
+  - /promscale/:currentVersion:/guides/resource-recomm
+  - /promscale/:currentVersion:/send-data/
+---
+
 # Install the observability stack (tobs) for Kubernetes
 The observability stack (tobs) is a command-line tool for managing the
 observability stack components in a Kubernetes cluster.
@@ -53,6 +64,5 @@ version of tobs and Kubernetes:
 |0.8.x|1.21 to 1.23|
 |0.7.x|1.19 to 1.21|
 
-
 [download-tobs]: https://github.com/timescale/tobs/releases/latest
-[promscale-tracing]: promscale/:currentVersion:/distributed-tracing/
+[promscale-tracing]: /promscale/:currentVersion:/distributed-tracing/

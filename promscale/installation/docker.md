@@ -1,3 +1,14 @@
+---
+title: Install Promscale using a Docker image
+excerpt: Install Docker for Promscale
+product: promscale
+keywords: [analytics, Docker]
+tags: [install]
+related_pages:
+  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/send-data/ 
+---
+
 # Install Promscale using a Docker image
 You can use Docker to install 
 [TimescaleDB with the Promscale extension][timescaledb-docker-image], 
@@ -56,9 +67,9 @@ For instructions, see the [send data][send-data] section.
 
 For upgrading the Promscale, see the [upgrade] section.
 
+[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
-[timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
 [promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
-[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [send-data]: /promscale/:currentVersion:/send-data/
+[timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags

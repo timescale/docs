@@ -1,3 +1,11 @@
+---
+title: Promscale command line interface (CLI) reference
+excerpt: Learn about all parameters accepted by the Promscale CLI
+product: promscale
+keywords: [CLI]
+tags: [reference]
+---
+
 # Promscale command line interface (CLI) reference
 
 This document gives you information about the configuration flags and arguments

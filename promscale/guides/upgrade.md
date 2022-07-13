@@ -1,3 +1,12 @@
+---
+title: Upgrade Promscale
+excerpt: Upgrade Promscale
+product: promscale
+keywords: [upgrade]
+related_pages:
+  - /promscale/:currentVersion:/send-data/
+---
+
 # Upgrade Promscale
 Promscale consists of the Promscale Connector, and the Promscale Database. The
 Promscale Database is PostgreSQL with the TimescaleDB and the Promscale
@@ -165,8 +174,8 @@ If you are using Kubernetes instead of plain Docker:
 
 </procedure>
 
-[install-promscale]: promscale/:currentVersion:/installation
-[max-locks-config]: promscale/:currentVersion:/troubleshooting/#data-is-occupying-too-much-space
-[transaction-locks]: timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration/#transaction-locks
-[update-timescaledb]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/#update-timescaledb
-[upgrade-postgresql]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
+[install-promscale]: /promscale/:currentVersion:/installation
+[max-locks-config]: /promscale/:currentVersion:/troubleshooting/#data-is-occupying-too-much-space
+[transaction-locks]: /timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration/#transaction-locks
+[update-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/#update-timescaledb
+[upgrade-postgresql]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/

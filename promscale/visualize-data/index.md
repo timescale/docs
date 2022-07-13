@@ -1,3 +1,11 @@
+---
+title: Visualize data in Promscale
+excerpt: Learn about data visualization tools you can use with Promscale
+product: promscale
+keywords: [analytics, Grafana]
+tags: [visualize, analytics, jaeger]
+---
+
 # Visualize data in Promscale
 You can visualize data in Promscale using tools such as
 [Grafana][grafana-homepage] and [Jaeger][jaeger-homepage].
