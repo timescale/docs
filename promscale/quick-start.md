@@ -42,7 +42,7 @@ Promscale and the dashboards for trace data. Access Grafana on the browser
 The three data sources that are configured to Promscale are:
 * Promscale-Metrics: PromQL query endpoint
 * Promscale-Traces: Jaeger query endpoint
-* Promscale-SQL: SQL query endpoint for both metrics and traces.
+* Promscale-SQL: SQL query endpoint for both metrics and traces
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/promscale-grafana-datasource-qsg.png" alt="Promscale data sources"/>
 
