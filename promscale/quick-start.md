@@ -79,8 +79,13 @@ requests per second, the amount of time it takes to process requests.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-red-metrics-dashboard.png" alt="A dashboard representing the RED metrics graphs specific to a service"/>
 
 #### Upstream dependencies
-View the upstream dependencies in other words, the origin of all the requests that are
-received by a specific service.
+View the upstream dependencies for the selected service and operation. In other words, view a map of
+all the services and operations that were called across all requests before the selected service and 
+operation was called. This helps identify unexpected behaviors like calls between services and operations
+that were not part of the original design. It also accelerates the investigation of the root cause of changes
+in the RED metrics for the selected service and operation. For example, if there is a significant increase in
+the number of requests a particular operation called from many different services is receiving, you can
+track down which service and operation is at the origin of that increase.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-upstream-dependency-dashboard.png" alt="A dashboard representing the upstream dependencies specific to a service"/>
 
