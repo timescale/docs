@@ -66,7 +66,7 @@ to view the service level metrics.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-services-overview-dashboard.png" alt="A dashboard representing the overview of services"/>
 
 #### Slowest requests
-View the top 50 slowest requests across the services with relevant traceID.
+View the top 50 slowest requests across all services with their corresponding traceID.
 Click the traceID for trace vilsualization of slowest request.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-slowest-traces-dashboard.png" alt="A dashboard representing the slowest requests across the services"/>
