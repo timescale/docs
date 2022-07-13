@@ -9,7 +9,7 @@ Before you begin, make sure that you have [installed Docker Compose][docker-comp
 To install Promscale with Docker Compose clone the Promscale [repository][gh-promscale] and then run the Docker Compose. The `docker-compose` directory contains the services for the following components:
 * Promscale for analytics and long term storage of metrics and traces
 * Prometheus and Node exporter for metrics
-* OpenTelemetry collector, demo applications and Grafana for traces and visualisation
+* OpenTelemetry collector, demonstration applications, and Grafana for traces and visualization
 
 ### Installing Promscale with Docker Compose
 
