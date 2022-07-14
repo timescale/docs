@@ -53,7 +53,7 @@ collectively represents how a system, process, or behavior changes
 over time.**
 
 
-## Characteristics of time-series data [](characteristics)
+## Characteristics of time-series data
 
 If you look closely at how it's produced and ingested, there are important
 characteristics that time-series databases like TimescaleDB typically leverage:
@@ -73,7 +73,7 @@ time-series data (and the databases that support them), compared to other
 data like standard relational "business" data, is that **changes to the
 data are inserts, not overwrites**.
 
-## Time-series data is everywhere [](is-everywhere)
+## Time-series data is everywhere
 
 Time-series data is everywhere, but there are environments where it is especially
 being created in torrents.

@@ -46,7 +46,7 @@ include data older than this duration, and does _not_ delete any
 individual rows of data in chunks.
 
 
-## Automatic data retention policies [](retention-policy)
+## Automatic data retention policies
 
 TimescaleDB also includes a background job scheduling framework for automating
 data management tasks, such as enabling easy [data retention policies][add-retention-policy]. With

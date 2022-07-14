@@ -24,7 +24,7 @@ continuous aggregate or just a specific time range. In either case,
 the refresh only recomputes the aggregate buckets that have changed
 since the last refresh.
 
-## An introductory example [](quick-start)
+## An introductory example
 
 As a quick introductory example, let's create a hypertable
 `conditions` containing temperature data for devices and a continuous
@@ -98,7 +98,7 @@ see the
 [how-to guide on continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates/#unsupported-functions).
 </highlight>
 
-## Real-time aggregation [](real-time-aggregates)
+## Real-time aggregation
 
 A query on a continuous aggregate, by default, uses *real-time
 aggregation* (first introduced in TimescaleDB 1.7) to combine
@@ -133,7 +133,7 @@ This provides the ability to do things like:
 - keep the aggregate data in the continuous aggregate when removing
   source data from the hypertable.
 
-### Manually refreshing continuous aggregate ranges [](refresh-cagg)
+### Manually refreshing continuous aggregate ranges
 
 It is also possible, starting with TimescaleDB 2.0, to manually refresh
 a specific window of time in a continuous aggregate using

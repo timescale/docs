@@ -101,4 +101,4 @@ See our [updating documentation][update].
 [hypertable-best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/best-practices/
 [install]: /install/:currentVersion:/
 [rdbms > nosql]: http://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
-[update]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/
+[update]: /timescaledb/:currentVersion:/how-to-guides/upgrades/

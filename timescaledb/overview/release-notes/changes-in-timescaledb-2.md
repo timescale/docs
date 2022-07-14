@@ -8,13 +8,13 @@ keywords: [upgrade, releases]
 
 TimescaleDB 2.0 introduces new features and capabilities to its advanced relational
 database for time-series data. Driven by user feedback and our experience building
-products like [Promscale](https://github.com/timescale/promscale), 2.0 is a major
+products like [Promscale][promscale], 2.0 is a major
 milestone and introduces the first multi-node, petabyte-scale relational database
 for time-series. In addition to multi-node capabilities, this release includes new
 features, and improvements to existing ones, focused on giving you more flexibility,
  control over your data, and the ability to customize behavior to suit your needs.
 
-To facilitate many of the improvements in [TimescaleDB 2.0](https://github.com/timescale/timescaledb/releases/2.0.0),
+To facilitate many of the improvements in [TimescaleDB 2.0][timescaledb2],
  several existing APIs and function definitions have been modified which may require updates to your existing code.
 
 Most notably, the following API and PostgreSQL compatibility changes may impact
@@ -23,7 +23,7 @@ this document covers each in detail to help you understand what action
 you need to take.
 
 *   **Dropping support for PostgreSQL versions 9.6 and 10:** As mentioned in
-[our upgrade documentation](/how-to-guides/update-timescaledb/), TimescaleDB 2.0
+[our upgrade documentation][upgrades], TimescaleDB 2.0
  no longer supports older PostgreSQL versions. You need to be running PostgreSQL
   version 11 or 12 to upgrade your TimescaleDB installation to 2.0.
 *   **Continuous aggregates:** We have made major changes in the creation and management
@@ -38,16 +38,16 @@ and how they affect users of TimescaleDB 1.x . We've also included a bit of info
 about the impetus for these changes and our design decisions. For a more in-depth coverage
  of APIs, as well as a detailed description of new features included in 2.0, such as
  distributed hypertables and the ability to run user-defined actions (custom background jobs),
-  please [review our updated documentation](/how-to-guides/)
+  please [review our updated documentation][how-to-guides]
   (navigate to specific features of interest).
 
 Read this guide to understand the impact of upgrading to the latest version and
 to evaluate the effects on your application and infrastructure. Then, for upgrade
 instructions and recommendations, see the [documentation on upgrading to
-TimescaleDB 2.0](/how-to-guides/update-timescaledb/update-timescaledb-2/).
+TimescaleDB 2.0][upgrade-timescaledb2].
 
 
-## Why we've made these changes [](why-changes)
+## Why we've made these changes
 
 It's been two years since we released TimescaleDB 1.0 in October 2018 with the ambition
 to make it easy to scale PostgreSQL for time-series workloads. Since that initial release,
@@ -85,7 +85,7 @@ In the rest of this document, we go through each of the features and API changes
 what users migrating from an earlier version of TimescaleDB should consider prior to updating to TimescaleDB 2.0.
 
 
-## Working with hypertables [](hypertables)
+## Working with hypertables
 
 In TimescaleDB 2.0, we have made changes to existing APIs for working with hypertables, as well
 as improvements to the related information views and size functions. These views and functions
@@ -187,7 +187,7 @@ SELECT hypertable_name, hypertable_size(hypertable_name::regclass) FROM timescal
  conditions      |      	253952
 ```
 
-## Continuous aggregates [](caggs)
+## Continuous aggregates
 
 Major changes have been made to continuous aggregates in TimescaleDB 2.0 to better clarify this feature.
 
@@ -245,7 +245,7 @@ a new refresh window every time the policy runs by subtracting the offsets from 
 returned by the function `now()`).
 
 
-### Understanding continuous aggregate policies [](cagg-policies)
+### Understanding continuous aggregate policies
 
 It is worth noting the way that `start_offset` and `end_offset` work as new data arrives and is added to the source hypertables.
 
@@ -263,7 +263,7 @@ data that has actually changed.
 In this example, data backfilled more than 4 weeks ago is not rematerialized, nor does the continuous aggregate
 include data less than 2 hours old. However, querying the continuous aggregate view can still return aggregates
 about the latest data, and not just aggregated data more than 2 hours old, based on support for
-[real-time aggregation](/overview/core-concepts/continuous-aggregates/#real-time-aggregation),
+[real-time aggregation][real-time-aggregation],
 specified as before with the `timescaledb.materialized_only=false` parameter. Real-time aggregates are still the default
 setting unless otherwise specified.
 
@@ -273,7 +273,7 @@ what would be the latest bucket. In TimescaleDB 1.x, the `refresh_lag` parameter
 but we found that  using it correctly was more difficult to understand.
 
 
-### Manually refreshing regions of continuous aggregates [](cagg-refresh)
+### Manually refreshing regions of continuous aggregates
 
 TimescaleDB 2.0 removes support for `REFRESH MATERIALIZED VIEW` in favor of the new, more flexible function,
 [refresh_continuous_aggregate](/api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate), which enables
@@ -299,7 +299,7 @@ region or no updates to existing data have been made), no materialization is per
 region. This behavior is similar to the continuous aggregate policy and ensures more efficient operation.
 
 
-### Using data retention and continuous aggregates together [](retention-and-caggs)
+### Using data retention and continuous aggregates together
 
 With greater power and flexibility also comes a greater responsibility to understand how features interact. Specifically,
 users should understand the interactions between data retention policy settings and continuous aggregate settings.
@@ -372,7 +372,7 @@ SELECT add_job('refresh_and_drop_policy', '2 weeks',
    config => '{"hypertable":"public.conditions", "drop_after":"2 weeks"}');
 ```
 
-### Differences in the handling of backfill on continuous aggregates [](cagg-backfill)
+### Differences in the handling of backfill on continuous aggregates
 
 In TimescaleDB 1.x, data that was backfilled into hypertables wasn't handled
 optimally. Modification of any hypertable data, regardless of how old, would
@@ -405,7 +405,7 @@ Note again, however, that if backfill was previously ignored due to a retention 
 a manual refresh of older data into a continuous aggregate could remove data when hypertable chunks have been
 dropped due to a data retention policy as discussed in the previous section.
 
-### Viewing information about continuous aggregates [](cagg-information-views)
+### Viewing information about continuous aggregates
 
 In TimescaleDB 2.0, views surrounding continuous aggregates (and other policies) have been simplified and generalized.
 
@@ -421,7 +421,7 @@ statistics related to all jobs.
 #### Removed
 * [`timescaledb_information.continuous_aggregate_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-continuous_aggregate_stats): Removed in favor of the `job_stats` view mentioned above.
 
-### Updating existing continuous aggregates [](updating-continuous-aggregates)
+### Updating existing continuous aggregates
 
 If you have existing continuous aggregates and you update your database to TimescaleDB 2.0, the update scripts
 automatically reconfigure your continuous aggregates to use the new framework.
@@ -441,11 +441,11 @@ retention policies that are disabled post update should have their settings care
 
 You can validate these in the proper informational views, given above.
 
-## Other superficial API changes [](other-changes)
+## Other superficial API changes
 
 Other minor changes were made to various APIs for greater understandability and consistency, including in the following areas.
 
-### Data retention [](data-retention)
+### Data retention
 
 #### Changes and additions
 *   [`drop_chunks`](/api/:currentVersion:/hypertable/drop_chunks): This function now requires specifying a
@@ -466,7 +466,7 @@ explicit functions above.
  view has been removed in favor of the more general jobs view.
 
 
-### Compression [](compression)
+### Compression
 
 #### Changes and additions
 *   [`add_compression_policy`](/api/:currentVersion:/compression/add_compression_policy), [`remove_compression_policy`](/api/:currentVersion:/compression/remove_compression_policy):  
@@ -488,7 +488,7 @@ Removed in favor of the new `hypertable_compression_stats(hypertable)` function 
 * [`timescaledb_information.compressed_chunk_stats`](https://legacy-docs.timescale.com/v1.7/api#timescaledb_information-compressed_chunk_stats):
 Removed in favor of the new `chunk_compression_stats(hypertable)` function linked above.
 
-## Managing policies and other jobs [](jobs)
+## Managing policies and other jobs
 
 TimescaleDB 2.0 introduces user-defined actions and creates a more unified jobs API. Now, jobs created by the
 TimescaleDB policies and for user-defined actions can be managed and viewed through a single API.
@@ -504,7 +504,7 @@ built-in actions (for example, `remove_retention_policy`).
 *   [`timescaledb_information.jobs_stats`](/api/:currentVersion:/informational-views/job_stats):  The view presents statistics of executing jobs for policies and actions.
 
 
-## License information [](license-changes)
+## License information
 
 In TimescaleDB 2.0, all features which had been classified previously as "enterprise" have become "community" features
 and are available for free under the Timescale License. As such, the need for an "enterprise license" to unlock any
@@ -520,3 +520,10 @@ can take the value `timescale` or `apache`. It can be set only at startup (in th
 or on the server command line), and allows limiting access to certain features
 by license. For example, setting the 
 license to `apache` allows access to only Apache-2 licensed features.
+
+[how-to-guides]: /timescaledb/:currentVersion:/how-to-guides/
+[promscale]: https://github.com/timescale/promscale
+[real-time-aggregation]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/#real-time-aggregation
+[timescaledb2]: https://github.com/timescale/timescaledb/releases/2.0.0
+[upgrade-timescaledb2]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[upgrades]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/

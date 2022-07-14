@@ -80,7 +80,7 @@ asynchronous replicas, for a mix of HA failover and read scaling. The main
 limitation of primary/backup replication is that each server stores a *full copy*
 of the database.
 
-## Multi-node TimescaleDB and distributed hypertables [](multi-node)
+## Multi-node TimescaleDB and distributed hypertables
 
 TimescaleDB 2.0 also supports horizontally scaling across many servers.
 Instead of a primary node (and each replica) which stores the full copy
