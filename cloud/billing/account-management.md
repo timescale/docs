@@ -1,3 +1,11 @@
+---
+title: Billing - Account management
+excerpt: Manage billing information for your Timescale Cloud account
+product: cloud
+keywords: [billing, accounts, admin]
+tags: [payment]
+---
+
 # Billing - Account management
 If you haven't yet added a payment method, you can add one in this section. You
 can also update to a new credit card here. 
