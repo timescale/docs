@@ -45,8 +45,8 @@ When you have Promscale up and running, you can explore the services installed
 by Docker Compose. For example, you can use Grafana to see the data sources 
 that are configured for Promscale, and use Grafana dashboards to visualize trace 
 data. Access Grafana by navigating to `http://localhost:3000` in your web browser, 
-and log in as `admin` with the password `admin` and Access Jaeger Query by navigating
-to `http://localhost:16686`.
+and log in as `admin` with the password `admin`. Access Jaeger by navigating to
+`http://localhost:16686`.
 
 ### Data sources
 The data sources that are configured for Promscale are:
