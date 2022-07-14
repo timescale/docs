@@ -1,6 +1,6 @@
 ---
 title: Install Promscale using a Docker image
-excerpt: Install Docker for Promscale
+excerpt: Install Promscale using Docker
 product: promscale
 keywords: [analytics, Docker]
 tags: [install]
