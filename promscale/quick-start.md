@@ -58,7 +58,7 @@ The data sources that are configured for Promscale are:
 
 ### Application performance monitoring dashboards
 You can use Promscale for application/service performance monitoring using trace data. 
-The Docker Compose tool includes some pre-configured dashboards 
+The Docker Compose configuration includes some pre-configured dashboards 
 for you to explore.
 
 #### Overview of services
