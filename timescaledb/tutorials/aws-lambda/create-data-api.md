@@ -112,31 +112,33 @@ Lambda using the `create-function` AWS command.
 
 ## Uploading the function to AWS Lambda
 1.  At the command prompt, zip the function directory:
-  ```bash
-  zip function.zip function.py
-  ```
+    ```bash
+    zip function.zip function.py
+    ```
 1.  Upload the function:
-  ```bash
-  aws lambda create-function --function-name simple_api_function \
-  --runtime python3.8 --handler function.lambda_handler \
-  --role <ARN_LAMBDA_ROLE> --zip-file fileb://function.zip \
-  --layers <LAYER_ARN>
-  ```
+    ```bash
+    aws lambda create-function --function-name simple_api_function \
+    --runtime python3.8 --handler function.lambda_handler \
+    --role <ARN_LAMBDA_ROLE> --zip-file fileb://function.zip \
+    --layers <LAYER_ARN>
+    ```
 1.  You can check that the function has been uploaded correctly by using this
     command in the AWS console:
     ![aws lambda uploaded](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/lambda_function.png)
-1.  If you make changes to your function code, you need to zip the file again and use the
-`update-function-code` command to upload the changes:
-  ```bash
-  zip function.zip function.py
-  aws lambda update-function-code --function-name simple_api_function --zip-file fileb://function.zip
-  ```
+1.  If you make changes to your function code, you need to zip the file again
+    and use the `update-function-code` command to upload the changes:
+    ```bash
+    zip function.zip function.py
+    aws lambda update-function-code --function-name simple_api_function --zip-file fileb://function.zip
+    ```
 
 </procedure>
 
 ## Add database configuration to AWS Lambda
-Before you can use the functions, you need to ensure it can connect to the database. In
-the Python code above, you specified retrieving values from environment variables, and you also need to specify these within the Lambda environment.
+Before you can use the functions, you need to ensure it can connect to the
+database. In the Python code above, you specified retrieving values from
+environment variables, and you also need to specify these within the Lambda
+environment.
 
 <procedure>
 
@@ -171,7 +173,8 @@ the Python code above, you specified retrieving values from environment variable
 </procedure>
 
 ## Test the database connection
-When your function code is uploaded along with the database connection details, you can check to see if it retrieves the data you expect it to.
+When your function code is uploaded along with the database connection details,
+you can check to see if it retrieves the data you expect it to.
 
 <procedure>
 
