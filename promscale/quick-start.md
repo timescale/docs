@@ -83,7 +83,7 @@ requests per second, and the amount of time it takes to process requests.
 #### Upstream dependencies
 You can view the upstream dependencies for the selected service and operation. 
 This allows you to see a map of all the services and operations called across all 
-requests, before you called the selected service and operation. This helps identify 
+requests, before the selected service and operation is called. This helps identify 
 unexpected behaviors, such as calls between services and operations that were 
 not part of the original design. It also makes it faster to investigate the root cause 
 of changes in RED metrics for the selected service and operation. For example, 
