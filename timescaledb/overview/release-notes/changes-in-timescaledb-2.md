@@ -526,4 +526,4 @@ license to `apache` allows access to only Apache-2 licensed features.
 [real-time-aggregation]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/#real-time-aggregation
 [timescaledb2]: https://github.com/timescale/timescaledb/releases/2.0.0
 [upgrade-timescaledb2]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
-[upgrades]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/
+[upgrades]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
