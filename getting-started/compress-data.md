@@ -1,3 +1,9 @@
+---
+title: Compression
+excerpt: Use TimescaleDB's native compression to save on storage
+keywords: [compression]
+---
+
 # Compression 
 TimescaleDB includes native compression capabilities which enable you to
 analyze and query massive amounts of historical time-series data inside a
@@ -157,10 +163,10 @@ For an introduction to compression algorithms, see this blog post:
 
 For more information, see the [compression docs][compression-docs].
 
-[data-retention]: /data-retention/
+[alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [columnar-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
-[compression-algorithms]: https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
-[compression-docs]: /timescaledb/:currentVersion:/how-to-guides/compression
-[alter-table-compression]:  /api/:currentVersion:/compression/alter_table_compression/
 [compress-automatic]: /api/:currentVersion:/compression/add_compression_policy/
 [compress-manual]: /api/:currentVersion:/compression/compress_chunk/
+[compression-algorithms]: https://blog.timescale.com/blog/time-series-compression-algorithms-explained/
+[compression-docs]: /timescaledb/:currentVersion:/how-to-guides/compression
+[data-retention]: /getting-started/:currentVersion:/data-retention/
