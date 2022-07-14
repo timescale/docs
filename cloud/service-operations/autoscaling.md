@@ -1,3 +1,11 @@
+---
+title: Service operations - Autoscaling
+excerpt: Set up Timescale Cloud to automatically resize your compute and storage
+product: cloud
+keywords: [scaling, services, operations]
+tags: [cpu, storage, disk space]
+---
+
 # Service operations - Autoscaling
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is useful when you need to do something like increasing your

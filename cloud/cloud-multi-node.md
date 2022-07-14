@@ -1,3 +1,11 @@
+---
+title: Multi-node on Timescale Cloud
+excerpt: Horizontally scale your database by setting up multi-node on Timescale Cloud
+product: cloud
+keywords: [multi-node, scaling]
+tags: [cluster, distributed hypertables]
+---
+
 # Multi-node on Timescale Cloud
 If you have a larger workload, you might need more than one TimescaleDB
 instance. TimescaleDB multi-node allows you to run and manage multiple
@@ -62,7 +70,7 @@ Timescale Cloud account.
 For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
 
-[multinode-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
-[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
 [cloud-login]: https://console.cloud.timescale.com/
 [cloud-signup]: https://www.timescale.com/timescale-signup
+[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
+[multinode-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/

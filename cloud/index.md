@@ -1,3 +1,9 @@
+---
+title: Timescale Cloud
+excerpt: Cloud-native TimescaleDB as a service
+product: cloud
+---
+
 # Timescale Cloud
 
 Timescale Cloud is a cloud-native TimescaleDB as a service that is easy to get 

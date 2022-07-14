@@ -1,3 +1,10 @@
+---
+title: Service settings
+excerpt: Change your Timescale Cloud service settings
+product: cloud
+keywords: [services, settings]
+---
+
 # Service settings
 From the `Services` page, click the service you are interested in and navigate
 to the `Settings` tab. You can change your service's settings from this page.
