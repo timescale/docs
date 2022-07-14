@@ -39,6 +39,10 @@ This tutorial shows you how to:
 
 <GrafanaVizPrereqs />
 
+Check out this video for a step-by-step walk-through on creating
+time-series graphs in Grafana:
+<video url="https://www.youtube-nocookie.com/embed/uRgKwcL6lDQ"/>
+
 ## Create a time-series graph with raw data
 
 A very common use case of the time-series graph is displaying stock data. The
