@@ -1,3 +1,10 @@
+---
+title: Create candlestick aggregates
+excerpt: Turn raw financial tick data into aggregated candlestick views
+keywords: [finance, analytics]
+tags: [candlestick]
+---
+
 # Create candlestick aggregates
 Turning raw, real-time tick data into aggregated candlestick views is a common
 task for users who work with financial data. If your data is not tick data, for
@@ -249,10 +256,9 @@ creating multiple continuous aggregates for the same hypertable. Due
 to the efficient materialization mechanism of continuous aggregates, both
 refresh and query performance should work well.
 
-
-[intraday-tutorial]: /tutorials/analyze-intraday-stocks/
-[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
+[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
+[intraday-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/
 [last]: /api/:currentVersion:/hyperfunctions/last/
-[caggs]: /how-to-guides/continuous-aggregates/
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

@@ -1,3 +1,9 @@
+---
+title: Lambda continuous deployment with GitHub actions
+excerpt: Build a continuous deployment pipeline between GitHub and AWS Lambda
+keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
+---
+
 # Lambda continuous deployment with GitHub actions
 This tutorial builds a continuous deployment (CD) pipeline between GitHub and
 AWS Lambda using GitHub actions.

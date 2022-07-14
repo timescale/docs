@@ -1,3 +1,8 @@
+---
+title: Sample datasets
+excerpt: Download these sample datasets to start exploring TimescaleDB
+---
+
 # Sample datasets
 Timescale have created several sample datasets to help you get started using
 TimescaleDB. These datasets vary in database size, number of time

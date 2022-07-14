@@ -1,3 +1,9 @@
+---
+title: Advanced analysis using continuous aggregates and hyperfunctions
+excerpt: Use continuous aggregates and hyperfunctions to perform advanced analysis of NFL player activity
+keywords: [continuous aggregates, hyperfunctions, analytics]
+---
+
 ## Advanced analysis using continuous aggregates and hyperfunctions
 So far in this tutorial, you have ingested the data and run an aggregate query.
 Then you improved the performance of your analysis with continuous aggregates.

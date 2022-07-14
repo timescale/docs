@@ -1,3 +1,9 @@
+---
+title: Set up Grafana alerts
+excerpt: Get alerted when a problem occurs
+keywords: [Grafana, alerts]
+---
+
 # Set up Grafana alerts
 
 Alerts are an important aspect of monitoring because they proactively
@@ -279,9 +285,9 @@ and PagerDuty (API or Integration Key).
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
+[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
 [install-timescale]: /install/latest/
-[install-grafana]: /tutorials/grafana/installation
-[tutorial-prometheus]: /tutorials/monitor-mst-with-prometheus/
-[tutorial-grafana]: /tutorials/grafana
-[slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack
 [pagerduty-integration-key]: https://support.pagerduty.com/docs/services-and-integrations
+[slack-webhook-instructions]: https://slack.com/help/articles/115005265063-Incoming-Webhooks-for-Slack
+[tutorial-grafana]: /timescaledb/:currentVersion:/tutorials/grafana
+[tutorial-prometheus]: /timescaledb/:currentVersion:/tutorials/monitor-mst-with-prometheus/

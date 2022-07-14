@@ -1,3 +1,9 @@
+---
+title: IoT analysis and monitoring
+excerpt: Analyze IoT data with TimescaleDB
+keywords: [IoT, analytics, monitor]
+---
+
 # Introduction to IoT: New York City Taxicabs
 
 Use case: IoT Analysis and Monitoring
@@ -809,14 +815,14 @@ Ready for more learning? Here's a few suggestions:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-[install-timescale]: /install/:currentVersion:/
-[setup-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[postgis]: http://postgis.net/documentation
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
-[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [cloud-signup]: https://console.cloud.timescale.com/signup
+[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
 [hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables
+[install-timescale]: /install/latest/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[postgis]: http://postgis.net/documentation
+[setup-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/

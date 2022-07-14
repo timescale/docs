@@ -1,3 +1,10 @@
+---
+title: Build a candlestick chart in Grafana
+excerpt: Create a candlestick chart in Grafana to visualize opening, closing, high, and low prices of financial assets
+keywords: [Grafana, visualizations, analytics, finance]
+tags: [candlestick]
+---
+
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a candlestick chart in Grafana
@@ -156,9 +163,5 @@ shows you how to query the traded volume for each time interval.
 To see other examples of how you can use TimescaleDB and Grafana, check out
 all the [Grafana tutorials][grafana-tutorials].
 
-[install-grafana]: https://grafana.com/get/
-[install-timescale]: /install/:currentVersion:/
-[gsg-data]: /getting-started/:currentVersion:/add-data/
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
-[variables-tutorial]: https://youtu.be/Fq9xsvHPsSQ
 [continuous-aggregrate]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/create-candlestick-aggregates/#create-candlestick-aggregates
+[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/

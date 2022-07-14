@@ -1,3 +1,10 @@
+---
+title: Explore stock market data
+excerpt: Explore a stock market dataset using TimescaleDB with Plotly, Pandas, and psycopg2
+keywords: [finance, analytics, psycopg2, pandas, plotly]
+tags: [candlestick]
+---
+
 # Explore stock market data
 
 When you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
@@ -296,7 +303,6 @@ Change `date` to see the candlesticks for another day.
 * [Plotly docs][plotly-docs]
 * [Timescale free trial](https://www.timescale.com/timescale-signup)
 * [Analyze cryptocurrency data](/tutorials/analyze-cryptocurrency-data/)
-
 
 [pandas-docs]: https://pandas.pydata.org
 [plotly-docs]: https://plotly.com/python/

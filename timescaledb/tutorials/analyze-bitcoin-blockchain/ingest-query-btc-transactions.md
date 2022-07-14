@@ -1,3 +1,9 @@
+---
+title: Insert and query Bitcoin transactions
+excerpt: Ingest and store Bitcoin blockchain dataa in your database
+keywords: [crypto, blockchain, Bitcoin, finance, analytics]
+---
+
 # Insert and query Bitcoin transactions
 This section of the tutorial provides an example database schema that you can
 use to ingest and store Bitcoin blockchain data in TimescaleDB. The schema
@@ -175,4 +181,4 @@ your first SQL queries. In the [next section][next-section], dig deeper into the
 TimescaleDB hyperfunctions to generate insights!
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[next-section]: /tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
+[next-section]: /timescaledb/:currentVersion:/tutorials/analyze-bitcoin-blockchain/analyze-blockchain/

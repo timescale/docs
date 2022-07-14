@@ -1,3 +1,9 @@
+---
+title: Analyze data using continuous aggregates and hyperfunctions
+excerpt: Learn how to efficiently analyze time-series data with TimescaleDB's features
+keywords: [continuous aggregates, hyperfunctions, analytics]
+---
+
 # Analyze data using TimescaleDB continuous aggregates and hyperfunctions
 This tutorial is a step-by-step guide on how to use TimescaleDB for analyzing time-series data. We show you how to utilize TimescaleDB's continuous aggregates and hyperfunctions for faster and more efficient queries.
 We also take advantage of a unique capability of TimescaleDB: the ability to
@@ -50,9 +56,8 @@ This tutorial has a few sections to help you on your journey:
 
 * [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
-
-[install-timescale]: /install/latest/
-[psql-install]: /how-to-guides/connecting/psql
-[toolkit]: /how-to-guides/install-timescaledb-toolkit
-[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
+[install-timescale]: /install/latest/
+[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
+[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
+[toolkit]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb-toolkit

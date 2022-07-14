@@ -1,3 +1,9 @@
+---
+title: Grafana visualizations
+excerpt: Learn how to create Grafana visualizations of time-series data
+keywords: [Grafana, visualizations, analytics]
+---
+
 # Grafana visualizations
 Learn how to create Grafana visualizations of time-series data.
 
@@ -8,7 +14,7 @@ Learn how to create Grafana visualizations of time-series data.
   of financial assets.
 * Use [bar charts][bar-chart] to compare datasets between different categories.
 
+[bar-chart]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart
 [candlestick]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/candlestick
 [histograms]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms
 [time-series]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/time-series
-[bar-chart]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/bar-chart

@@ -1,3 +1,9 @@
+---
+title: Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
+excerpt: Collect metrics with Telegraf (deprecated)
+keywords: [metrics, monitor, Telegraf]
+---
+
 # Collecting metrics with the PostgreSQL and TimescaleDB output plugin for Telegraf
 
 <highlight type="deprecation">
@@ -339,9 +345,8 @@ When you have started inserting data in TimescaleDB, you can begin to familiariz
 Additionally, there are several other [tutorials][] available for you to explore
 as you become accustomed to working with TimescaleDB.
 
-
-[getting-started]: /install/latest/
-[tutorials]: /tutorials
-[public-slack]: https://slack.timescale.com/
-[architecture]: /overview/core-concepts
 [api]: /api/:currentVersion:/
+[architecture]: /timescaledb/:currentVersion:/overview/core-concepts
+[getting-started]: /install/latest/
+[public-slack]: https://slack.timescale.com/
+[tutorials]: /timescaledb/:currentVersion:/tutorials
