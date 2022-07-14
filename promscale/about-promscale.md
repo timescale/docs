@@ -217,7 +217,7 @@ For examples of querying a specific metric view, see
 [slack]: https://slack.timescale.com
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [Prometheus native format]: https://prometheus.io/docs/instrumenting/exposition_formats/
-[query-data]: promscale/:currentVersion:/query-data
+[query-data]: /promscale/:currentVersion:/query-data
 [promlabs-test]: https://promlabs.com/promql-compliance-test-results/2021-10-14/promscale
-[tsdb-compression]: timescaledb/:currentVersion:/how-to-guides/compression/
-[tsdb-hypertables]: timescaledb/:currentVersion:/how-to-guides/hypertables/
+[tsdb-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[tsdb-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
