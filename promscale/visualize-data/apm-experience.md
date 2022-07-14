@@ -7,7 +7,7 @@ tags: [configure, opentelemetry, traces]
 ---
 
 # Application performance monitoring (APM) with traces
-Promscale provides application performace monitoring with traces data using SQL. Import the 
+Promscale provides application performance monitoring with traces data using SQL. Import the 
 Grafana dashboards that are published by the Promscale team using traces.
 
 Before you begin importing the dashboards:
