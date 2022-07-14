@@ -64,7 +64,7 @@ dashboards published by Promscale.
 1.  Select the data sources from which you want the dashboard to query the data:
     * For application performance monitoring dashboards select `TimescaleDB or PostgreSQL
       data source` as `Promscale-SQL`.
-    * For application performance monitoringdashboards select `Promscale Jaeger Tracing data source`
+    * For application performance monitoring dashboards, select `Promscale Jaeger Tracing data source`
       as `Promscale-Tracing`.
 1.  Click `Import`.
 
