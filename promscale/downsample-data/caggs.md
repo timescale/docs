@@ -1,3 +1,11 @@
+---
+title: Continuous aggregates in Promscale
+excerpt: Use continuous aggregates to downsample and materialize your Promscale data
+product: promscale
+keywords: [continuous aggregates, downsample]
+tags: [recording]
+---
+
 # Continuous aggregates in Promscale
 Promscale can use [TimescaleDB continuous aggregates][tsdb-caggs] to manage data
 downsampling and materialization.
@@ -178,6 +186,5 @@ typical use case is to retain aggregated metrics for longer for trend analysis.
 For more information about data retention, see the
 [metric retention section][retention].
 
-
-[tsdb-caggs]: timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
-[retention]: promscale/:currentVersion:/manage-data/retention/
+[retention]: /promscale/:currentVersion:/manage-data/retention/
+[tsdb-caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

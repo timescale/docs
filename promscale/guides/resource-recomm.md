@@ -1,3 +1,11 @@
+---
+title: Resource recommendations
+excerpt: Recommended resources for Promscale
+product: promscale
+keywords: [analytics]
+tags: [learn, analytics, prometheus]
+---
+
 # Resource recommendations
 This section describes the compute and disk requirements that are 
 recommended for Promscale, based on the ingest rate and retention.
