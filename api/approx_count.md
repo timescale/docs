@@ -1,6 +1,6 @@
 ---
 api_name: approx_count()
-excerpt: Estimate an item's frequency using from a `count_min_sketch`
+excerpt: Estimate an item's frequency from a `count_min_sketch`
 license: community
 toolkit: true
 topic: hyperfunctions
@@ -24,7 +24,7 @@ approx_count (
     agg CountMinSketch
 ) RETURNS INTEGER
 ```
-
+<Experimental />
 
 ## Required arguments
 
@@ -50,12 +50,12 @@ SELECT count_min_sketch(symbol, 0.01, 0.01) AS symbol_sketch
 FROM stocks_real_time;
 ```
 
-In this example, the first `0.01` dictates that our frequency estimates have a relative error of 1%.
-In other words, we have that
+In this example, the first `0.01` dictates that your frequency estimates have a relative error of 1%.
+In other words, you have
 ```
 true_frequency <= estimated_frequency < true_frequency + 0.01*<NUMBER_OF_ROWS_IN_THE_COLUMN>
 ```
-The second `0.01` means that our estimated frequency will fall outside those error bounds 1% of the time (on average).
+The second `0.01` means that your estimated frequency falls outside those error bounds 1% of the time (on average).
 
 You can then pass this aggregate into the [`approx_count` function][approx-count].
 Doing so will give you an estimate of how many times a given symbol appears in the `symbol` column.
@@ -71,4 +71,5 @@ SELECT toolkit_experimental.approx_count('AAPL', symbol_sketch)
 FROM t;
 ```
 
+<!-- vale Google.EnDash = NO -->
 [count-min-sketch]: https://en.wikipedia.org/wiki/Count–min_sketch
