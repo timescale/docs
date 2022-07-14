@@ -1,3 +1,11 @@
+---
+title: Maintenance
+excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
+product: mst
+keywords: [maintenance, update, upgrade]
+tags: [maintenace window]
+---
+
 # Maintenance
 On Managed Service for TimescaleDB, software updates are handled automatically
 by us, and you do not need to perform any actions to keep up to date.
