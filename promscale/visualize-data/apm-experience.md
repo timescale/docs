@@ -87,9 +87,9 @@ dashboards published by Promscale.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard.
 1.  Select the data sources from which you want the dashboard to query the data:
-    * For application performance monitoring dashboards select `TimescaleDB or PostgreSQL data source`
+    * For application performance monitoring dashboards, select `TimescaleDB or PostgreSQL data source`
       as `Promscale-SQL`.
-    * For application performance monitoring dashboards select `Promscale Jaeger Tracing data source`
+    * For application performance monitoring dashboards, select `Promscale Jaeger Tracing data source`
       as `Promscale-Tracing`.
 1.  Click `Import`.
 
