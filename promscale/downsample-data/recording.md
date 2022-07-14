@@ -1,3 +1,11 @@
+---
+title: Recording rules in Promscale
+excerpt: Configure recording rules in Promscale
+product: promscale
+keywords: [Prometheus, downsample]
+tags: [recording rules]
+---
+
 # Recording rules in Promscale
 Promscale supports Prometheus recording rules. These rules
 are used to calculate frequently used or computationally expensive queries

@@ -1,3 +1,11 @@
+---
+title: Promscale benefits
+excerpt: Learn about the benefits of Promscale
+product: promscale
+keywords: [analytics]
+tags: [learn, prometheus]
+---
+
 # Promscale benefits
 
 **Get started in minutes**: deploy a full observability stack for metrics and
@@ -37,4 +45,4 @@ scalability, columnar compression and continous aggregates.
 for Postgres and TimescaleDB: data visualization tools, AI platforms, IDEs, ORMs,
 management tools, performance tuning, etc.
 
-[tobs]: promscale/:currentVersion:/installation/tobs
+[tobs]: /promscale/:currentVersion:/installation/tobs

@@ -1,3 +1,9 @@
+---
+title: Contribute to TimescaleDB documentation
+excerpt: contribute-to-docs
+tags: [contribute, docs, style guide]
+---
+
 # Contributing to Timescale documentation
 Timescale documentation is hosted in a [GitHub repository][github-docs]  and is
 open for contribution from all community members. If you  find errors or would
@@ -234,7 +240,7 @@ Always write in simple present tense.
 
 ### Z [](#Z)
 
-[github-docs]: https://github.com/timescale/docs
 [contributors]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
-[readme]: https://github.com/timescale/docs#readme
+[github-docs]: https://github.com/timescale/docs
 [google-style]: https://developers.google.com/style
+[readme]: https://github.com/timescale/docs#readme

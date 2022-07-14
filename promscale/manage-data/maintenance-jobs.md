@@ -1,3 +1,10 @@
+---
+title: Maintenance jobs
+excerpt: Understand and manage maintenance jobs
+product: promscale
+keywords: [maintenance, data]
+---
+
 # Maintenance jobs
 Promscale implements [retention][retention] and [compression][compression]
 through maintenance jobs. These jobs are automatically created when you install 
@@ -98,9 +105,8 @@ interval use:
 SELECT config_maintenance_jobs(4, '30 minutes'::INTERVAL);
 ```
 
-
-[compression]: /manage-data/compression/
-[retention]: /manage-data/retention/
-[user-defined-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions/
-[timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
+[compression]: /promscale/:currentVersion:/manage-data/compression/
+[retention]: /promscale/:currentVersion:/manage-data/retention/
 [timescaledb_information.job_stats]: /api/:currentVersion:/informational-views/job_stats/
+[timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
+[user-defined-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions/

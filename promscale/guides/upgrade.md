@@ -1,3 +1,12 @@
+---
+title: Upgrade Promscale
+excerpt: Upgrade Promscale
+product: promscale
+keywords: [upgrade]
+related_pages:
+  - /promscale/:currentVersion:/send-data/
+---
+
 # Upgrade Promscale
 Promscale consists of the Promscale Connector, and the Promscale Database. The
 Promscale Database is PostgreSQL with the TimescaleDB and the Promscale
@@ -13,7 +22,7 @@ the Promscale extension are available.
 1.  Start all other Promscale Connector instances.
 
 You can upgrade your existing Promscale to Promscale `0.11.0`
-and from the previous [Alpine docker image](alpine-image).
+and from the previous [Alpine docker image][alpine-image].
 
 ## Upgrade to Promscale 0.11.0
 Promscale 0.11.0 contains significant changes, and the upgrade drops any
@@ -165,8 +174,9 @@ If you are using Kubernetes instead of plain Docker:
 
 </procedure>
 
-[install-promscale]: promscale/:currentVersion:/installation
-[max-locks-config]: promscale/:currentVersion:/troubleshooting/#data-is-occupying-too-much-space
-[transaction-locks]: timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration/#transaction-locks
-[update-timescaledb]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/#update-timescaledb
-[upgrade-postgresql]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
+[alpine-image]: https://hub.docker.com/r/timescale/promscale/tags
+[install-promscale]: /promscale/:currentVersion:/installation
+[max-locks-config]: /promscale/:currentVersion:/troubleshooting/#data-is-occupying-too-much-space
+[transaction-locks]: /timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration/#transaction-locks
+[update-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
+[upgrade-postgresql]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
