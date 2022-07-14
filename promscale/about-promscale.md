@@ -66,9 +66,8 @@ through the PostgreSQL data source.
 ## Promscale PostgreSQL extension
 Promscale has a dependency on the
 [Promscale PostgreSQL extension][promscale-extension], which contains support
-functions to improve the performance of Promscale. While Promscale is able to
-run without the additional extension installed, adding this extension gets
-better performance from Promscale.
+functions to improve the performance of Promscale. If you are using
+Promscale&nbsp;0.11.0 or later, this extension is required.
 
 ## Promscale schema for metric data
 To achieve high ingestion, query performance, and optimal storage the Promscale
@@ -218,7 +217,7 @@ For examples of querying a specific metric view, see
 [slack]: https://slack.timescale.com
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [Prometheus native format]: https://prometheus.io/docs/instrumenting/exposition_formats/
-[query-data]: promscale/:currentVersion:/query-data
+[query-data]: /promscale/:currentVersion:/query-data
 [promlabs-test]: https://promlabs.com/promql-compliance-test-results/2021-10-14/promscale
-[tsdb-compression]: timescaledb/:currentVersion:/how-to-guides/compression/
-[tsdb-hypertables]: timescaledb/:currentVersion:/how-to-guides/hypertables/
+[tsdb-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[tsdb-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
