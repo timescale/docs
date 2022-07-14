@@ -1,0 +1,7 @@
+{
+    "Current Version": {
+        "prefix": [":c"],
+        "body": [":currentVersion:"],
+        "description": "Insert the currentVersion marker."
+    }
+}
