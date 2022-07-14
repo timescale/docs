@@ -2,7 +2,7 @@
 title: Promscale and Prometheus high availability
 excerpt: Configure Promscale and Prometheus high availability
 product: promscale
-keywords: [high avilability, Prometheus]
+keywords: [high availability, Prometheus]
 ---
 
 # Promscale and Prometheus high availability
