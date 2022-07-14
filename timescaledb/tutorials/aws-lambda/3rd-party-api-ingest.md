@@ -12,11 +12,11 @@ This tutorial requires multiple libraries. This can make your deployment package
 size  larger than the 250&nbsp;MB limit of Lambda. You can use a Docker
 container to extend the package size up to 10&nbsp;GB, giving you much more
 flexibility in libraries and dependencies. For more about AWS Lambda container
-support, see the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html).
+support, see the [AWS documentation][aws-lambda-docs].
 
 The libraries used in this tutorial:
 *   [`pandas`][pandas]
-*   [`requests`][requests]
+*   `requests`
 *   [`psycopg2`][psycopg2]
 *   [`pgcopy`][pgcopy]
 
@@ -232,8 +232,8 @@ you created. The Lambda function's name is listed under `Target(s)`:
 
 <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/targets.png" alt="Lamdba function target in AWS Console"/>
 
+[aws-lambda-docs]: https://docs.aws.amazon.com/lambda/latest/dg/images-create.html
 [cron-examples]: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html#eb-cron-expressions
 [pandas]: https://pandas.pydata.org/
 [pgcopy]: https://github.com/G-Node/pgcopy
 [psycopg2]: https://github.com/jkehler/awslambda-psycopg2
-[requests]: https://docs.python-requests.org/en/master/

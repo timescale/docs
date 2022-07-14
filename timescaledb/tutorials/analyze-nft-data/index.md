@@ -67,6 +67,6 @@ You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-
 [nft-schema]: /timescaledb/:currentVersion:/tutorials/analyze-nft-data/nft-schema-ingestion
 [nft-wiki]: https://en.wikipedia.org/wiki/Non-fungible_token
 [opensea-key]: https://docs.opensea.io/reference/request-an-api-key
-[opensea]: https://opensea.io
+[opensea]: https://opensea.io/
 [starter-kit]: https://github.com/timescale/nft-starter-kit
 [superset]: https://superset.apache.org

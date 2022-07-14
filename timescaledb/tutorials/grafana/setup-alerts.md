@@ -18,7 +18,7 @@ In this tutorial, you'll learn how to setup Grafana to alert you when
 something goes wrong using many of the communication channels you already
 use.
 
-### Prerequisites [](prereqs)
+### Prerequisites
 
 To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
@@ -37,7 +37,7 @@ setting up alerts. Use our [full set of Grafana tutorials][tutorial-grafana] to
 obtain the necessary background on Grafana. In this tutorial, we'll simply
 inform you of which Grafana visualization to create and the query to use.
 
-### Alerting principles [](alerting-principles)
+### Alerting principles
 
 When setting up alerts for your system, consider the following:
 
@@ -45,7 +45,7 @@ When setting up alerts for your system, consider the following:
 - Be careful not to overuse alerts. If an engineer gets an alert too frequently, it can cease to be useful or serve its purpose.
 - Use alerts that are directly relevant to your scenario: if you're monitoring a SaaS product, set up alerts for site uptime and latency. If you're monitoring infrastructure, set up alerts for disk usage, high CPU or memory usage, and API errors.
 
-### Introduction to alerts in Grafana [](intro-grafana-alerts)
+### Introduction to alerts in Grafana
 
 Beyond data visualization, Grafana also provides alerting functionality
 to keep you notified of anomalies. By using Grafana, you don't have the
@@ -111,7 +111,7 @@ You can think of alerts as objects that move through different states depending
 on the rule associated with them. Possible states are: OK, PENDING, ALERTING,
 NO DATA.
 
-### Alert 1: Integrating TimescaleDB, Grafana, and Slack [](alert1)
+### Alert 1: Integrating TimescaleDB, Grafana, and Slack
 
 Our goal in this first alert is to proactively notify us in Slack when we
 have sustained high memory usage over time. You can connect Grafana to
@@ -207,7 +207,7 @@ this within five minutes or so:
 
 <img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-grafana-alerts-tutorial/alert1_slack_messages.png" alt="Set up Slack and Grafana for Alerts"/>
 
-### Alert 2: Integrating TimescaleDB, Grafana, and PagerDuty [](alert2)
+### Alert 2: Integrating TimescaleDB, Grafana, and PagerDuty
 
 PagerDuty is a popular choice for managing support and incident responses for
 medium-large teams. Many of the steps in this section are similar to the steps
@@ -256,7 +256,7 @@ In the 'When' clause, select `last()`, `query(A, 1m, now)`, and supply '80' for 
 
 Select your PagerDuty channel in the 'Notifications' section and provide a descriptive message.
 
-### Alert 3: Integrating TimescaleDB, Grafana, and other notification platforms [](alert3)
+### Alert 3: Integrating TimescaleDB, Grafana, and other notification platforms
 
 Grafana supports a number of notification platforms, including:
 

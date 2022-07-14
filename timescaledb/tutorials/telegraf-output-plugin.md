@@ -27,7 +27,7 @@ Timescale have built downloadable binaries of Telegraf with the plugin included.
 This tutorial runs through a couple of examples on how to use the PostgreSQL and
 TimescaleDB output plugin for Telegraf.
 
-## Installation [](telegraf-installation)
+## Installation
 Before you start, you need [TimescaleDB installed][getting-started] and a means to connect to it.
 
 ### Setting up Telegraf
@@ -57,7 +57,7 @@ $ telegraf --version
 
 If the installation is successful, it shows `Telegraf 1.13.0-with-pg`.
 
-## Telegraf configuration [](telegraf-configuration)
+## Telegraf configuration
 When Telegraf is started, you need to specify a configuration file. The
 configuration file sets up:
 *   Telegraf agent
