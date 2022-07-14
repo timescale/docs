@@ -1,3 +1,9 @@
+---
+title: TimescaleDB
+excerpt: All you need to know about TimescaleDB architecture, concepts, setup, how-tos, tutorials, management, and contribution
+tags: [get started, overview, tutorials, learn, contribute, code]
+---
+
 # Welcome to the TimescaleDB documentation!
 
 TimescaleDB is a time-series database, built on top of PostgreSQL. More than that,
@@ -50,15 +56,15 @@ In our **[Code quick starts][code]** section we provide samples of connecting to
 TimescaleDB from a growing list of application languages using standard SDKs
 and best practices.
 
-[overview]: /timescaledb/:currentVersion:/overview/
-[release-notes]: /timescaledb/:currentVersion:/overview/release-notes/
-[faq]: /timescaledb/:currentVersion:/overview/faq/
-[limitations]: /timescaledb/:currentVersion:/overview/limitations/
-[getting-started]: /getting-started/:currentVersion:/
-[how-to]: /timescaledb/:currentVersion:/how-to-guides/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
-[promscale]: /promscale/:currentVersion:/
-[grafana]: /timescaledb/:currentVersion:/tutorials/grafana
-[crypto]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
-[forecast]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
 [code]: /timescaledb/:currentVersion:/quick-start/
+[crypto]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
+[faq]: /timescaledb/:currentVersion:/overview/faq/
+[forecast]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
+[getting-started]: /getting-started/:currentVersion:/
+[grafana]: /timescaledb/:currentVersion:/tutorials/grafana
+[how-to]: /timescaledb/:currentVersion:/how-to-guides/
+[limitations]: /timescaledb/:currentVersion:/overview/limitations/
+[overview]: /timescaledb/:currentVersion:/overview/
+[promscale]: /promscale/:currentVersion:/
+[release-notes]: /timescaledb/:currentVersion:/overview/release-notes/
+[tutorials]: /timescaledb/:currentVersion:/tutorials/
