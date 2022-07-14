@@ -1,17 +1,16 @@
 ---
-title: Application Performance Management (APM) with traces
-excerpt: APM experience within Grafana using dashboards with SQL queries on traces
+title: Application performance monitoring with traces
+excerpt: Application performance monitoring within Grafana using dashboards with SQL queries on traces
 product: promscale
 keywords: [Jaeger, APM]
 tags: [configure, opentelemetry, traces]
 ---
 
-# Application Performance Management (APM) with traces
-Promscale provides an APM-like experience with traces data using SQL. Import the 
-Grafana dashboards that are published by the Promscale team to get the APM 
-with traces.
+# Application performance monitoring (APM) with traces
+Promscale provides application performace monitoring with traces data using SQL. Import the 
+Grafana dashboards that are published by the Promscale team using traces.
 
-Before you begin importing APM dashboards:
+Before you begin importing the dashboards:
 
 * Add these data sources in Grafana:
     * [Jaeger data source][promscale-as-jaeger]
@@ -23,7 +22,7 @@ Before you begin importing APM dashboards:
   more information about installing the extension, see the 
   [toolkit extension installation documentation][install-extension].
 
-You can use one of these methods to import APM dashboards:
+You can use one of these methods to import dashboards:
 *  From the Grafana community the dashboards published by Promscale.
 *  From Promscale Github repository as JSON files.
 
@@ -46,13 +45,13 @@ You can use one of these methods to import APM dashboards:
 
 </procedure>
 
-## Import APM dashboards from the Grafana community
+## Import dashboards from the Grafana community
 [Grafana community dashboards][promscale-grafana-dashboards] contain all the
 dashboards published by Promscale. 
 
 <procedure>
 
-### Importing APM dashboards from the Grafana community
+### Importing dashboards from the Grafana community
 1.  In the [Grafana community dashboard][promscale-grafana-dashboards] select 
     the dashboard with `APM` prefix, click the `Details` button to open a dashboard. 
 1.  Click `Copy ID to Clipboard` to copy the UID of the dashboard.
@@ -63,10 +62,10 @@ dashboards published by Promscale.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard.
 1.  Select the data sources from which you want the dashboard to query the data:
-    * For APM dashboards select `TimescaleDB or PostgreSQL data source` as
-      `Promscale-SQL`.
-    * For APM dashboards select `Promscale Jaeger Tracing data source` as
-      `Promscale-Tracing`.
+    * For application performance monitoring dashboards select `TimescaleDB or PostgreSQL
+      data source` as `Promscale-SQL`.
+    * For application performance monitoringdashboards select `Promscale Jaeger Tracing data source`
+      as `Promscale-Tracing`.
 1.  Click `Import`.
 
 </procedure>
@@ -88,10 +87,10 @@ dashboards published by Promscale.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard.
 1.  Select the data sources from which you want the dashboard to query the data:
-    * For APM dashboards select `TimescaleDB or PostgreSQL data source` as
-      `Promscale-SQL`.
-    * For APM dashboards select `Promscale Jaeger Tracing data source` as
-      `Promscale-Tracing`.
+    * For application performance monitoring dashboards select `TimescaleDB or PostgreSQL data source`
+      as `Promscale-SQL`.
+    * For application performance monitoring dashboards select `Promscale Jaeger Tracing data source`
+      as `Promscale-Tracing`.
 1.  Click `Import`.
 
 </procedure>
