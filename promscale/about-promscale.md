@@ -74,9 +74,8 @@ through the PostgreSQL data source.
 ## Promscale PostgreSQL extension
 Promscale has a dependency on the
 [Promscale PostgreSQL extension][promscale-extension], which contains support
-functions to improve the performance of Promscale. While Promscale is able to
-run without the additional extension installed, adding this extension gets
-better performance from Promscale.
+functions to improve the performance of Promscale. If you are using
+Promscale&nbsp;0.11.0 or later, this extension is required.
 
 ## Promscale schema for metric data
 To achieve high ingestion, query performance, and optimal storage the Promscale

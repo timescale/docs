@@ -12,6 +12,7 @@ It is built on top of PostgreSQL and TimescaleDB. Promscale supports Prometheus 
 Its full SQL capabilities enable developers to correlate metrics, traces, and business data to get valuable insights.
 This is not possible when data is siloed in different systems.
 
+*   [Quick start Promscale][quick-start] get started with Promscale in no time.
 *   [Learn about Promscale][about-promscale] to understand how it works before
     you begin using it.
 *   [Learn about Promscale benefits][promscale-benefits] to understand how it
@@ -32,6 +33,7 @@ For more about Promscale, see our [developer documentation][promscale-gh-docs].
 [promscale-benefits]: /promscale/:currentVersion:/promscale-benefits/
 [promscale-gh-docs]: https://github.com/timescale/promscale/
 [query-data]: /promscale/:currentVersion:/query-data/
+[quick-start]: /promscale/:currentVersion:/quick-start/
 [scaling-ha]: /promscale/:currentVersion:/scale-ha/
 [send-data]: /promscale/:currentVersion:/send-data/
 [visualize-data]: /promscale/:currentVersion:/visualize-data/
