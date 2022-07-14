@@ -7,8 +7,8 @@ to get familiar with additional Promscale features, such as application performa
 monitoring dashboards and visualization tools.
 
 To learn more about how Promscale can improve your observability stack, see
-[About Promscale][about-promscale]. For instructions on installing Promscale directly, see
-[Installing Promscale][install-promscale].
+[About Promscale][about-promscale]. For instructions on installing Promscale in your
+production or staging environments, see [Installing Promscale][install-promscale].
 
 Before you begin, make sure that you have [installed Docker Compose][docker-compose].
 
