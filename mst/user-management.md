@@ -1,3 +1,11 @@
+---
+title: User management
+excerpt: Add and manage users for your Managed Service for TimescaleDB project
+product: mst
+keywords: [users, admin]
+tags: [manage]
+---
+
 # User Management
 You can add new users, and manage existing users, in the Managed Service for
 TimescaleDB console. New users can be added to an entire project, or a single

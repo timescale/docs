@@ -1,3 +1,11 @@
+---
+title: Send OpenTelemetry data to Promscale
+excerpt: Send OpenTelemetry data to Promscale
+product: promscale
+keywords: [OpenTelmetry]
+tags: [configure, traces]
+---
+
 # Send OpenTelemetry data to Promscale
 Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for traces
 and Prometheus remote write protocol for metrics. You can send traces to
@@ -95,4 +103,3 @@ The specifics of the configuration are different for each SDK and library. For
 more information, see the [OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
-

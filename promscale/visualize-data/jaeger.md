@@ -1,3 +1,11 @@
+---
+title: Visualize Promscale traces in Jaeger
+excerpt: Jaeger to visualize data in Promscale
+product: promscale
+keywords: [Jaeger]
+tags: [configure, opentelemetry, traces]
+---
+
 # Visualize Promscale traces in Jaeger
 Jaeger is an open source distributed tracing system used for monitoring and 
 troubleshooting microservices-based distributed systems. To visualize traces 

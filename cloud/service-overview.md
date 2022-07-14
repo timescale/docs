@@ -1,3 +1,11 @@
+---
+title: Service overview
+excerpt: See information on your service's connection parameters, configuration, and resource usage
+product: cloud
+keywords: [connect, services]
+tags: [storage, resources, disk space]
+---
+
 # Service overview
 When you log in to your [Timescale Cloud account][cloud-login], you see the
 `Services` page. Click the service you are interested in to see the `Services

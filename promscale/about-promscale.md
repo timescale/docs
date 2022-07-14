@@ -1,3 +1,11 @@
+---
+title: About Promscale
+excerpt: Learn about Promscale and how it works
+product: promscale
+keywords: [analytics]
+tags: [learn, prometheus]
+---
+
 # About Promscale
 Promscale is an open source observability backend for metrics and traces
 powered by SQL.
@@ -66,9 +74,8 @@ through the PostgreSQL data source.
 ## Promscale PostgreSQL extension
 Promscale has a dependency on the
 [Promscale PostgreSQL extension][promscale-extension], which contains support
-functions to improve the performance of Promscale. While Promscale is able to
-run without the additional extension installed, adding this extension gets
-better performance from Promscale.
+functions to improve the performance of Promscale. If you are using
+Promscale&nbsp;0.11.0 or later, this extension is required.
 
 ## Promscale schema for metric data
 To achieve high ingestion, query performance, and optimal storage the Promscale
@@ -213,12 +220,11 @@ values taken by the label,and the total number of values for that label.
 For examples of querying a specific metric view, see
 [Query data in Promscale][query-data].
 
-
 [gh-promscale]: https://github.com/timescale/promscale
 [slack]: https://slack.timescale.com
-[promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [Prometheus native format]: https://prometheus.io/docs/instrumenting/exposition_formats/
-[query-data]: promscale/:currentVersion:/query-data
+[promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [promlabs-test]: https://promlabs.com/promql-compliance-test-results/2021-10-14/promscale
-[tsdb-compression]: timescaledb/:currentVersion:/how-to-guides/compression/
-[tsdb-hypertables]: timescaledb/:currentVersion:/how-to-guides/hypertables/
+[query-data]: /promscale/:currentVersion:/query-data
+[tsdb-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[tsdb-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
