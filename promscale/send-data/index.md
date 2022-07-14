@@ -1,6 +1,6 @@
 ---
 title: Send data to Promsacle
-excerpt: Send data to Promscale from Prometheus, OpenTelemetry and other tools
+excerpt: Send data to Promscale from Prometheus, OpenTelemetry, and other tools
 product: promscale
 ---
 
