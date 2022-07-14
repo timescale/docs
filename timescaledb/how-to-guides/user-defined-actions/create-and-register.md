@@ -15,17 +15,18 @@ uses PLPGSQL.
 
 The outer statement contains the action signature: `(job_id INT, config JSONB)`.
 You must include this signature even if you don't need to use those arguments in
-your action. Include it literally. Don't replace with an actual job ID or config
-object. The config and job ID are defined and automatically generated later.
+your action. Include it literally, don't replace it with an actual job ID or config
+object. When you register the job, you can define the config.
+The job ID is automatically generated.
 
-The following example defines a simple procedure that raises a notice. Replace
-the `RAISE NOTICE` with the commands you want to run.
+This example defines a simple procedure that raises a notice. Replace
+the `RAISE NOTICE` command with the commands you want to run.
 
 <procedure>
 
 ## Defining a procedure
 
-1.  Write the commands you want your job to run.
+1.  Write the commands you want your job to run. For example:
 
     ```sql
     BEGIN
@@ -33,7 +34,7 @@ the `RAISE NOTICE` with the commands you want to run.
     END
     ```
 
-1.  Wrap the commands in a `CREATE OR REPLACE PROCEDURE` statement.
+1.  Wrap the commands in a `CREATE OR REPLACE PROCEDURE` statement. For example:
 
     ```sql
     CREATE OR REPLACE PROCEDURE user_defined_action(job_id INT, config JSONB)
@@ -58,7 +59,7 @@ parameters, use a NULL config.
 
 ## Registering an action
 
-1.  Add a job for your user-defined action.
+1.  Add a job for your user-defined action. For example:
 
     ```sql
     SELECT add_job('user_defined_action', '1h', config => '{"hypertable":"metr"}');
