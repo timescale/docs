@@ -1,3 +1,9 @@
+---
+title: "Quick Start: Ruby and TimescaleDB"
+excerpt: Get started with TimescaleDB for a Ruby application
+keywords: [Ruby]
+---
+
 # Quick Start: Ruby and TimescaleDB
 
 ## Goal
@@ -711,16 +717,15 @@ be sure to check out these advanced TimescaleDB tutorials:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-
-[install-timescale]: /install/latest/
-[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/
-[active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
-[rails-install]: https://guides.rubyonrails.org/getting_started.html
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/
+[install-timescale]: /install/latest/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[rails-install]: https://guides.rubyonrails.org/getting_started.html
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
