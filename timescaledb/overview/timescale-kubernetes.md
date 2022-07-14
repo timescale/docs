@@ -1,6 +1,6 @@
 ---
 title: TimescaleDB on Kubernetes
-excerpt: How timescaleDB works on Kubernetes
+excerpt: How TimescaleDB works on Kubernetes
 keywords: [Kubernetes, high availability]
 tags: [helm, multi-node]
 ---
