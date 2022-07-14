@@ -51,14 +51,13 @@ FROM stocks_real_time;
 ```
 
 In this example, the first `0.01` dictates that your frequency estimates have a relative error of 1%.
-In other words, you have
-```
-true_frequency <= estimated_frequency < true_frequency + 0.01*<NUMBER_OF_ROWS_IN_THE_COLUMN>
-```
+A relative error of 1% means that the approximate count of an item is overestimated by at most 1% of the total number of (non-`NULL`) rows in the column you aggregated.
+(The Count-Min Sketch is a biased estimator of the true frequency because it may overestimate the count of an item, but it cannot underestimate that count.)
+
 The second `0.01` means that your estimated frequency falls outside those error bounds 1% of the time (on average).
 
-You can then pass this aggregate into the [`approx_count` function][approx-count].
-Doing so will give you an estimate of how many times a given symbol appears in the `symbol` column.
+You can then pass this aggregate into the `approx_count` function.
+Doing so gives you an estimate of how many times a given symbol appears in the `symbol` column.
 
 For example, if you wanted to know approximately how many of the quotes in the tick data were for the `AAPL` stock, you would then do the following:
 

@@ -593,6 +593,14 @@ module.exports = [
                 href: 'topn',
               },
               {
+                title: 'count_min_sketch',
+                href: 'count_min_sketch',
+              },
+              {
+                title: 'approx_count',
+                href: 'approx_count',
+              },
+              {
                 title: 'into_values (for freq_agg)',
                 href: 'into_values-freq_agg',
               },
