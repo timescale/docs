@@ -1,3 +1,10 @@
+---
+title: Alert in Promscale
+excerpt: Configure alerting rules in Promscale
+product: promscale
+keywords: [Prometheus, alert, Alert Manager]
+---
+
 # Alert in Promscale
 Promscale supports alerting rules. It evaluates these rules at regular
 intervals. The Promscale connector can be used as the ruler while ingesting and
@@ -71,6 +78,5 @@ For specific information about alerting rules, see [Prometheus alerting
 rules][prometheus-alert-rules].
 
 [am-docs]: https://prometheus.io/docs/alerting/latest/alertmanager/
+[prometheus-alert-rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
 [prometheus-alerting]: https://prometheus.io/docs/alerting/latest/overview/
-[prometheus-alert-rules]:
-    https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/

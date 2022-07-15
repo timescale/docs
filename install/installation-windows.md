@@ -1,17 +1,18 @@
+---
+title: Install TimescaleDB on Windows
+nav-title: Windows
+excerpt: Install self-hosted TimescaleDB on Windows
+section: install
+subsection: self-hosted
+keywords: [install, self-hosted, Windows]
+---
+
 # Install self-hosted TimescaleDB on Windows systems
 You can host TimescaleDB yourself on your Microsoft Windows system.
 These instructions use a `zip` installer on these versions:
 *   Microsoft Windows 10
 *   Microsoft Windows 11
 *   Microsoft Windows Server 2019
-
-For the latest Windows releases, see the [Windows releases
-page][windows-releases].
-
-<highlight type="important">
-Before you begin installing TimescaleDB, make sure you have installed PostgreSQL
-version 12 or later.
-</highlight>
 
 <highlight type="warning">
 If you have already installed PostgreSQL using a method other than the `zip`
@@ -36,7 +37,7 @@ instead.
     type the path to your PostgreSQL `pg_config` file. It should
     be `C:\Program Files\PostgreSQL\14\bin\`. Click `OK` to save your changes.
 1.  Download the TimescaleDB installation `.zip` file from our
-    [Windows releases page][windows-releases].
+    [Windows releases][windows-releases].
 1.  Locate the downloaded file on your local file system, and extract the files.
 1.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
     select `Run as Administrator` to start the installer.
@@ -119,6 +120,23 @@ Description | timescaledb_toolkit
 tsdb=>
 ```
 
+## Windows releases
+
+Here are the latest TimescaleDB releases for PostgreSQL 12, 13, and 14. To see
+information on releases, check out the
+[GitHub releases page][gh-releases]. Also see the
+[release notes][release-notes].
+
+*   <tag type="download">
+    [PostgreSQL 14: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_latest-windows-amd64.zip)
+    </tag>
+*   <tag type="download">
+    [PostgreSQL 13: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-13_latest-windows-amd64.zip)
+    </tag>
+*   <tag type="download">
+    [PostgreSQL 12: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-12_latest-windows-amd64.zip)
+    </tag>
+
 ## Where to next
 Now that you have your first TimescaleDB database up and running, you can check
 out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what
@@ -130,12 +148,13 @@ TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
-
 [config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
+[gh-releases]: https://github.com/timescale/timescaledb/releases
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[tsdb-docs]: /timescaledb/:currentVersion:/
-[tutorials]: /timescaledb/:currentVersion:/tutorials/
 [ms-download]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
 [pg-download]: https://www.postgresql.org/download/windows/
-[windows-releases]: self-hosted/installation-windows/windows-releases/
+[release-notes]: /timescaledb/:currentVersion:/overview/release-notes/
+[tsdb-docs]: /timescaledb/:currentVersion:/
+[tutorials]: /timescaledb/:currentVersion:/tutorials/
+[windows-releases]: #windows-releases

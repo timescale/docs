@@ -1,3 +1,13 @@
+---
+title: Install Managed Service for TimescaleDB
+nav-title: Managed Service for TimescaleDB
+excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
+product: mst
+section: install
+order: 2
+keywords: [install]
+---
+
 # Install Managed Service for TimescaleDB
 Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
 than 75 regions in AWS, Azure, or GCP. You can

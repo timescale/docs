@@ -1,3 +1,11 @@
+---
+title: Service operation - Resources
+excerpt: Manage your service resources
+product: cloud
+keywords: [services, operation, storage]
+tags: [disk space, resources, oom, memory]
+---
+
 # Service operation - Resources
 Timescale Cloud contains several mechanisms for managing disk space on your
 services. There are four key tasks that Cloud performs to handle disk space:
@@ -108,4 +116,4 @@ immediately. The error log looks like this:
 2022-02-03 17:12:04 UTC [2253150]:TimescaleDB: tsdbadmin@tsdb,app=psql [53200] ERROR: out of memory
 ```
 
-[autoscaling]: cloud/:currentVersion:/service-operations/autoscaling/
+[autoscaling]: /cloud/:currentVersion:/service-operations/autoscaling/

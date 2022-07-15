@@ -1,3 +1,11 @@
+---
+title: Logging integrations
+excerpt: Get more detailed logging data by connecting to a logging service
+product: mst
+keywords: [integrations, logging]
+tags: [loggly]
+---
+
 # Logging integrations
 If you need to access logs for your services regularly, or if you need more
 detailed logging than Managed Service for TimescaleDB can provide in the web

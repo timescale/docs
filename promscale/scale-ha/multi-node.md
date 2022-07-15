@@ -1,3 +1,10 @@
+---
+title: Run Promscale in a multi-node environment
+excerpt: Scale promscale with a TimescaleDB multi-node database
+product: promscale
+keywords: [multi-node, scale]
+---
+
 # Run Promscale in a multi-node environment
 You can use Promscale to write and read data within a TimescaleDB multi-node
 environment.
@@ -23,4 +30,4 @@ Make sure that you run the `add_prom_node` command as the same database user as
 the one writing data from Promscale.
 </highlight>
 
-[db-multinode]: timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-setup/
+[db-multinode]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-setup/

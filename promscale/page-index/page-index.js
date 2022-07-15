@@ -9,6 +9,13 @@ module.exports = [
       "Promscale is the open source observability backend for metrics and traces powered by SQL, built on top of TimescaleDB.",
     children: [
       {
+        title: "Quick start",
+        href: "quick-start",
+        tags: ["promscale", "install", "analytics", "prometheus"],
+        keywords: ["Install", "Promscale", "analytics"],
+        excerpt: "Get started with Promscale fast",
+      },
+      {
         title: "About Promscale",
         href: "about-promscale",
         tags: ["promscale", "learn", "analytics", "prometheus"],
@@ -201,9 +208,23 @@ module.exports = [
       {
         title: "Query data in Promscale",
         href: "query-data",
-        tags: ["promscale", "analytics", "sql", "promql", "prometheus"],
-        keywords: ["Promscale", "analytics"],
         excerpt: "Learn how to query data in Promscale",
+        children: [
+          {
+            title: 'Query metrics',
+            href: 'query-metrics',
+            tags: ["promscale", "analytics", "sql", "prometheus"],
+            keywords: ["Promscale", "analytics", "query", "metrics"],
+            excerpt: 'Query metrics data in Promscale'
+          },
+          {
+            title: 'Query traces',
+            href: 'query-traces',
+            tags: ["promscale", "analytics", "sql", "traces"],
+            keywords: ["Promscale", "analytics", "query", "traces"],
+            excerpt: 'Query trace data in Promscale'
+          },
+        ]
       },
       {
         title: 'Visualize data in Promscale',

@@ -1,3 +1,8 @@
+---
+title: Getting started with TimescaleDB
+excerpt: Get started with your first TimescaleDB instance
+---
+
 # Getting started with TimescaleDB
 
 **Congratulations!** You're here because you have successfully spun
@@ -37,8 +42,8 @@ If you have any questions or concerns as you go through the tutorial,
 check out the Timescale community [Slack][slack] and [Timescale Forum][forum], where
 you can find help from the Timescale community and team.
 
-[install]: /install/:currentVersion:/
 [connecting]: /timescaledb/:currentVersion:/how-to-guides/connecting/
-[twelve-data]: https://twelvedata.com/
-[slack]: https://slack.timescale.com/
 [forum]: https://www.timescale.com/forum
+[install]: /install/:currentVersion:/
+[slack]: https://slack.timescale.com/
+[twelve-data]: https://twelvedata.com/

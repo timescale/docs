@@ -1,3 +1,14 @@
+---
+title: Debian or Ubuntu
+excerpt: Install Promscale on Debian or Ubuntu
+product: promscale
+keywords: [analytics]
+tags: [install]
+related_pages:
+  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/send-data/
+---
+
 import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
 import PromscalePgSupportedVersions from 'versionContent/_partials/_promscale-pg-supported-versions.mdx';
 

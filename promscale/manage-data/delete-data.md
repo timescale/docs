@@ -1,3 +1,11 @@
+---
+title: Delete data in Promscale
+excerpt: Delete data in Promscale
+product: promscale
+keywords: [delete]
+tags: [metrics:]
+---
+
 # Delete data in Promscale
 Promscale provides several methods for deleting data. You can delete metric data
 by series, by metric name, or by time. You can also delete trace data.
@@ -115,5 +123,5 @@ You can delete all trace data from the database using the
 default state, truncates the tables in the `_ps_trace` schema, and deletes all
 the data.
 
-[retention]: /manage-data/retention/
-[web-enable-admin-api]: /cli/#web-server-flags
+[retention]: /promscale/:currentVersion:/manage-data/retention/
+[web-enable-admin-api]: /promscale/:currentVersion:/cli/#web-server-flags
