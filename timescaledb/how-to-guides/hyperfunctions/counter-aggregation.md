@@ -1,3 +1,9 @@
+---
+title: Counter aggregation
+excerpt: Work with counter and gauge data
+keywords: [hyperfunctions, Toolkit, gauges, counters]
+---
+
 # Counter aggregation
 When you are monitoring application performance, there are two main types of
 metrics that you can collect: gauges, and counters. Gauges fluctuate up and
@@ -10,6 +16,5 @@ interruptions or resets.
 
 For more information about counter aggregation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-counter-agg].
-
 
 [hyperfunctions-api-counter-agg]: /api/:currentVersion:/hyperfunctions/counter_aggs/

@@ -1,3 +1,9 @@
+---
+title: Compress continuous aggregates
+excerpt: How to compress a continuous aggregate
+keywords: [continuous aggregates, compression]
+---
+
 # Compress continuous aggregates
 Continuous aggregates are often used to downsample historical data. If the data
 is only used for analytical queries and never modified, you can compress the
@@ -67,6 +73,6 @@ parameter greater than the `refresh_start` parameter of the continuous aggregate
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
-[compression]: /how-to-guides/compression/
-[decompress-chunks]:  /how-to-guides/compression/decompress-chunks 
-[refresh-policy]: /how-to-guides/continuous-aggregates/refresh-policies
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks 
+[refresh-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies

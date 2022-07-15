@@ -1,3 +1,9 @@
+---
+title: Schema management
+excerpt: A database schema defines hwo the tables and indexes in your database are organized
+keywords: [schemas]
+---
+
 # Schema management
 A database schema defines how the tables and indexes in your database are
 organized. Using a schema that is appropriate for your workload can result in
@@ -16,11 +22,11 @@ significant performance improvements.
 *   [Create triggers][schema-triggers] to propogate your schema changes to chunks.
 *   [Use JSON and JSONB][schema-json] for semi-structured data.
 
-[about-schema]: /how-to-guides/schema-management/about-schemas
-[about-indexing]: /how-to-guides/schema-management/about-indexing
-[about-constraints]: /how-to-guides/schema-management/about-constraints
-[about-tablespaces]: /how-to-guides/schema-management/about-tablespaces
-[schema-alter]: /how-to-guides/schema-management/alter
-[schema-triggers]: /how-to-guides/schema-management/triggers
-[schema-json]: /how-to-guides/schema-management/json
-[schema-indexing]: /how-to-guides/schema-management/indexing
+[about-constraints]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-constraints
+[about-indexing]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-indexing
+[about-schema]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-schemas
+[about-tablespaces]: /timescaledb/:currentVersion:/how-to-guides/schema-management/about-tablespaces
+[schema-alter]: /timescaledb/:currentVersion:/how-to-guides/schema-management/alter
+[schema-indexing]: /timescaledb/:currentVersion:/how-to-guides/schema-management/indexing
+[schema-json]: /timescaledb/:currentVersion:/how-to-guides/schema-management/json
+[schema-triggers]: /timescaledb/:currentVersion:/how-to-guides/schema-management/triggers

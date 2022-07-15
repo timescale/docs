@@ -1,3 +1,10 @@
+---
+title: Logical backups with pg_dump and pg_restore
+excerpt: Back up and restore a hypertable or entire database with native PostgreSQL commands
+keywords: [backup, restore]
+tags: [recovery, logicaly backup, pg_dump, pg_restore]
+---
+
 # Logical backups with pg_dump and pg_restore
 You can backup and restore an entire database or individual hypertables using
 the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
@@ -126,7 +133,7 @@ sure the new PostgreSQL instance has the same extension version as the original
 database before you perform the restore. After the data is restored, you can
 upgrade the version of TimescaleDB.
 
+[parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
-[timescaledb-upgrade]: /how-to-guides/update-timescaledb/
-[parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
+[timescaledb-upgrade]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/

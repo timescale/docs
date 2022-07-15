@@ -1,3 +1,9 @@
+---
+title: High availability with multi-node
+excerpt: How to configure multi-node TimescaleDB for high availability
+keywords: [multi-node, high availability]
+---
+
 # High availability with multi-node
 A multi-node installation of TimescaleDB can be made highly available
 by setting up one or more standbys for each node in the cluster, or by 
@@ -168,6 +174,5 @@ CALL timescaledb_experimental.cleanup_copy_chunk_operation('ts_copy_1_31');
 ```
 </highlight>
 
-
 [set_replication_factor]:  /api/:currentVersion:/distributed-hypertables/set_replication_factor
-[single-ha]: /how-to-guides/replication-and-ha/
+[single-ha]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/

@@ -1,3 +1,9 @@
+---
+title: Troubleshooting TimescaleDB
+excerpt: Troubleshoot common problems that occur when using TimescaleDB
+keywords: [troubleshooting]
+---
+
 # Troubleshooting
 
 If you run into problems when using TimescaleDB, there are a few things that you
@@ -123,5 +129,5 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 [slack]: https://slack.timescale.com/
 [support portal]: https://www.timescale.com/support
 [track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
-[update-db]: /how-to-guides/update-timescaledb/
+[update-db]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html

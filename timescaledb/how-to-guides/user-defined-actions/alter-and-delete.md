@@ -1,3 +1,10 @@
+---
+title: Alter and delete user-defined actions
+excerpt: Alter an existing job or delete it from the automation framework
+keywords: [actions]
+tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
+---
+
 # Alter and delete user-defined actions
 Alter an existing job by using [`alter_job`][api-alter_job]. You can change both
 the config and the schedule on which the job runs. Delete a job by using

@@ -1,3 +1,9 @@
+---
+title: Compression
+excerpt: Learn how compression works in TimescaleDB
+keywords: [compression, hypertables]
+---
+
 # Compression
 Time-series data can be compressed to reduce the amount of storage required, and
 increase the speed of some queries. This is a cornerstone feature of
@@ -22,8 +28,8 @@ hypertables.
 Compression alters data on your disk, so always back up before you start!
 </highlight>
 
-[compression]: /how-to-guides/compression/about-compression
-[manual-compression]: /how-to-guides/compression/manually-compress-chunks
-[decompress-chunks]: /how-to-guides/compression/decompress-chunks
-[backfill-historical]: /how-to-guides/compression/backfill-historical-data
-[modify-schema]: /how-to-guides/compression/modify-a-schema
+[backfill-historical]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression
+[decompress-chunks]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
+[manual-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/manually-compress-chunks
+[modify-schema]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema

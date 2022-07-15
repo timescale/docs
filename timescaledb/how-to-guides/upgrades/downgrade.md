@@ -1,3 +1,9 @@
+---
+title: Downgrade to a previous version of TimescaleDB
+excerpt: Roll back to an older version of TimescaleDB
+keywords: [upgrade]
+---
+
 # Downgrade to a previous version of TimescaleDB
 If you upgrade to a new TimescaleDB version and encounter problems, you can roll
 back to a previously installed version. This works in the same way as a minor
@@ -69,7 +75,6 @@ upgrading and downgrading.
 
 </procedure>
 
-
+[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
 [relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
 [upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
-[backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/

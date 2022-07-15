@@ -1,3 +1,9 @@
+---
+title: About timescaledb-parallel-copy
+excerpt: Speed up bulk inserts of data with an open-source tool
+keywords: [timescaledb-parallel-copy, copy]
+---
+
 # About timescaledb-parallel-copy
 Speed up bulk inserts of data by using `timescaledb-parallel-copy`.
 `timescaledb-parallel-copy` is an open source command line program that

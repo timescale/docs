@@ -1,3 +1,9 @@
+---
+title: Time-weighted averages
+excerpt: Calcualte time-weighted averages for unevenly sampled data
+keywords: [hyperfunctions, Toolkit, time-weighted]
+---
+
 # Time-weighted averages
 Time weighted averages are used in cases where a time series is not evenly
 sampled. Time series data points are often evenly spaced, for example every 30
@@ -21,7 +27,6 @@ accurate results.
     [time-weighted averages blog][blog-timeweight].
 *   For more information about time-weighted average API calls, see the
     [hyperfunction API documentation][hyperfunctions-api-timeweight].
-
 
 [blog-timeweight]: https://blog.timescale.com/blog/what-time-weighted-averages-are-and-why-you-should-care/
 [hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/

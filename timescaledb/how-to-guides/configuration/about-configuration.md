@@ -1,3 +1,9 @@
+---
+title: About configuration in TimescaleDB
+excerpt: About the configuration settings for TimescaleDB
+keywords: [configuration, memory, workers, settings]
+---
+
 # About configuration in TimescaleDB
 By default, TimescaleDB uses the default PostgreSQL server configuration
 settings. However, in some cases, these settings are not appropriate, especially
@@ -117,11 +123,10 @@ You can adjust these settings in the `postgresql.conf` configuration
 file.
 </highlight>
 
-
-[tstune-conf]: /how-to-guides/configuration/timescaledb-tune
-[postgresql-conf]: /how-to-guides/configuration/postgres-config
-[docker-conf]: /how-to-guides/configuration/docker-config
-[pgtune]: http://pgtune.leopard.in.ua/
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [chunk_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/
+[docker-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/docker-config
+[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
+[pgtune]: http://pgtune.leopard.in.ua/
+[postgresql-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config
+[tstune-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune

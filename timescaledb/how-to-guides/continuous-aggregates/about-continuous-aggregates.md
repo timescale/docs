@@ -1,3 +1,9 @@
+---
+title: About continuous aggregates
+excerpt: Learn how continuous aggregates speed up your TimescaleDB queries
+keywords: [continuous aggregates]
+---
+
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
 # About continuous aggregates

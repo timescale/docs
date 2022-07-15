@@ -1,3 +1,10 @@
+---
+title: User-defined actions
+excerpt: User-defined actions help you automate periodic tasks that aren't covered by TimescaleDB policies
+keywords: [actions]
+tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
+---
+
 # User-defined actions
 User-defined actions let you schedule custom-defined procedures to run within
 TimescaleDB. They help you automate periodic tasks that aren't covered by
@@ -18,11 +25,10 @@ In this section:
     *   Use a user-defined action to automatically
         [downsample and compress][downsample-compress] older chunks
 
-[about-user-defined-actions]: /how-to-guides/user-defined-actions/about-user-defined-actions/
-[create-and-register]: /how-to-guides/user-defined-actions/create-and-register/
-[test-and-debug]: /how-to-guides/user-defined-actions/test-and-debug/
-[alter-and-delete]: /how-to-guides/user-defined-actions/alter-and-delete/
-[generic-retention]: /how-to-guides/user-defined-actions/example-generic-retention
-[tiered-storage]: /how-to-guides/user-defined-actions/example-tiered-storage
-[downsample-compress]: /how-to-guides/defined-actions/example-downsample-and-compress
-
+[about-user-defined-actions]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/about-user-defined-actions/
+[alter-and-delete]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/alter-and-delete/
+[create-and-register]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/create-and-register/
+[downsample-compress]: /timescaledb/:currentVersion:/how-to-guides/defined-actions/example-downsample-and-compress
+[generic-retention]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-generic-retention
+[test-and-debug]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/test-and-debug/
+[tiered-storage]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-tiered-storage

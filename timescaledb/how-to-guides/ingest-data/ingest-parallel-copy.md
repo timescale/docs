@@ -1,3 +1,10 @@
+---
+title: TimescaleDB parallel copy
+excerpt: Bulk copy historical data into TimescaleDB with TimescaleDB parallel copy
+keywords: [ingest, copy, timescaledb-parallel-copy]
+tags: [insert]
+---
+
 # TimescaleDB parallel copy
 For bulk inserting historical data, you can use the TimescaleDB parallel copy
 tool, called `timescaledb-parallel-copy`. Install the tool from the TimescaleDB
