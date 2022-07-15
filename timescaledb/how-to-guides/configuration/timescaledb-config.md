@@ -22,7 +22,7 @@ workers. Default value is 16.
 
 ## Distributed hypertables
 
-### `timescaledb.enable_2pc (bool)` [](enable_2pc)
+### `timescaledb.enable_2pc (bool)`
 
 Enables two-phase commit for distributed hypertables. If disabled, it
 uses a one-phase commit instead, which is faster but can result in

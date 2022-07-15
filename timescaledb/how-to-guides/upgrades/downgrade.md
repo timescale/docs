@@ -77,4 +77,4 @@ upgrading and downgrading.
 
 [backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
 [relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
-[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
+[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/

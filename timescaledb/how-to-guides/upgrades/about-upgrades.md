@@ -44,4 +44,4 @@ upgrade, and again after your upgrade is complete:
 (1 row)
 ```
 
-[upgrade-docker]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-docker/
+[upgrade-docker]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-docker/

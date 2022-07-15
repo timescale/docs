@@ -15,7 +15,7 @@ they can't be updated or deleted. For continuous aggregates, that means
 compressed chunks can't be refreshed.
 
 If you receive historical data and need to refresh a compressed chunk, see
-[the troubleshooting guide](/how-to-guides/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate).
+[the troubleshooting guide][troubleshooting].
 
 <highlight type="warning">
 You can't refresh the compressed regions of a continuous aggregate. To avoid
@@ -76,3 +76,4 @@ SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks 
 [refresh-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
+[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate

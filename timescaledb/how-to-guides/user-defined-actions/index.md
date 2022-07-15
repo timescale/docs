@@ -28,7 +28,7 @@ In this section:
 [about-user-defined-actions]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/about-user-defined-actions/
 [alter-and-delete]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/alter-and-delete/
 [create-and-register]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/create-and-register/
-[downsample-compress]: /timescaledb/:currentVersion:/how-to-guides/defined-actions/example-downsample-and-compress
+[downsample-compress]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-downsample-and-compress
 [generic-retention]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-generic-retention
 [test-and-debug]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/test-and-debug/
 [tiered-storage]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-tiered-storage
