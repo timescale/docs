@@ -1,3 +1,11 @@
+---
+title: Compress data in Promscale
+excerpt: Configure data compression in Promscale
+product: promscale
+keywords: [compression]
+tags: [configure, metrics, storage]
+---
+
 # Compress data in Promscale
 Telemetry data is stored in Promscale using TimescaleDB [hypertables][hypertables].
 A maintenance job periodically [compresses][tsdb-compression] this data.
@@ -25,7 +33,6 @@ You can find the current default chunk interval setting with this query:
 SELECT get_default_chunk_interval();
 ```
 
-
-[hypertables]: timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
-[tsdb-compression]:timescaledb/:currentVersion:/overview/core-concepts/compression/
-[promscale-install]: /installation/
+[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[promscale-install]: /promscale/:currentVersion:/installation/
+[tsdb-compression]: /timescaledb/:currentVersion:/overview/core-concepts/compression/

@@ -1,3 +1,9 @@
+---
+title: "Quick Start: Golang and TimescaleDB"
+excerpt: Get started with TimescaleDB for a Go application
+keywords: [Golang]
+---
+
 # Quick Start: Go and TimescaleDB
 
 ## Goal
@@ -873,11 +879,11 @@ Golang application, be sure to check out these advanced TimescaleDB tutorials:
 * Get up and running with TimescaleDB with our [Getting Started][getting-started] tutorial.
 * Want fast inserts on CSV data? Check out [TimescaleDB parallel copy][parallel-copy-tool], our tool for fast inserts, written in Golang.
 
-[timescaledb-install]: /install/latest/
+[getting-started]: /getting-started/:currentVersion:/
 [golang-install]: https://golang.org/doc/install
-[pgx-driver-github]: https://github.com/jackc/pgx
-[libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
+[libpq-docs]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
-[getting-started]: /getting-started/:currentVersion:/
+[pgx-driver-github]: https://github.com/jackc/pgx
+[timescaledb-install]: /install/latest/
