@@ -11,6 +11,7 @@ management.
 *   View [service logs][viewing-service-logs]
 *   Use [VPC peering][vpc-peering]
 *   Understand [security for Timescale MST][security]
+*   Understand [backups] [backups]
 
 Some important terms:
 *   **Account:** Your Managed Service for TimescaleDB account. You can register
@@ -73,3 +74,4 @@ For more information on Managed Service for TimescaleDB's terms of service, visi
 [security]: /security
 [sign-up]: https://www.timescale.com/mst-signup
 [tos]: https://www.timescale.com/legal/mst-terms-of-service
+[backups]: /backup-types
