@@ -1,3 +1,9 @@
+---
+title: "Quick Start: Java and TimescaleDB"
+excerpt: Get started with TimescaleDB for a Java application
+keywords: [Java]
+---
+
 # Quick Start: Java and TimescaleDB
 
 ## Goal
@@ -24,7 +30,7 @@ and [PostgreSQL Java Database Connectivity (JDBC) Driver][pg-jdbc-driver] as wel
 All code is presented for Java 16 and above.
 If you are working with older JDK versions, use legacy coding techniques.
 
-## Connect Java to TimescaleDB [](new-database)
+## Connect Java to TimescaleDB
 
 ### Step 1: Create a new Java application
 
@@ -138,7 +144,7 @@ and you should see this output: `{ApplicationName=PostgreSQL JDBC Driver}`.
 
 Congratulations, you've successfully connected to TimescaleDB using Java.
 
-## Create a relational table [](create_table)
+## Create a relational table
 
 ### Step 1: Formulate your SQL statement
 
@@ -195,7 +201,7 @@ public class Main {
 
 Congratulations, you've successfully created a relational table in TimescaleDB using Java.
 
-## Generate a hypertable [](generate_hypertable)
+## Generate a hypertable
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][timescaledb-hypertable],
 the abstraction of a single continuous table across all space and time intervals,
@@ -288,7 +294,7 @@ public class Main {
 
 Congratulations, you've successfully created a hypertable in your TimescaleDB database using Java.
 
-## Insert a batch of rows into TimescaleDB [](insert_rows)
+## Insert a batch of rows into TimescaleDB
 
 Here's a typical pattern you could use to insert some data into a table.
 In the example below, insert the relational data from list of sensors,
@@ -435,7 +441,7 @@ which is a command line program for parallelizing PostgreSQL's built-in `COPY` f
 
 Congratulations, you've successfully inserted data into TimescaleDB using Java.
 
-## Execute queries on TimescaleDB [](execute_queries)
+## Execute queries on TimescaleDB
 
 ### Step 1: Define the SQL query
 
@@ -609,13 +615,13 @@ be sure to check out these advanced tutorials:
 * Get up and running with TimescaleDB with our [Getting Started][timescaledb-getting-started] tutorial.
 * Refer to the [PostgreSQL JDBC Driver documentation][pg-jdbc-driver-docs] for more information.
 
-[timescaledb-install]: /install/latest/
-[timescaledb-getting-started]: /getting-started/
-[timescaledb-hypertable]: /overview/core-concepts/hypertables-and-chunks/
-[timescaledb-hypertable-create-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [jdk]: https://openjdk.java.net
-[pg-jdbc-driver]: https://jdbc.postgresql.org
-[pg-jdbc-driver-docs]: https://jdbc.postgresql.org/documentation/head/index.html
-[pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/head/connect.html
 [pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download.html
+[pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/head/connect.html
 [pg-jdbc-driver-dependency]: https://mvnrepository.com/artifact/org.postgresql/postgresql
+[pg-jdbc-driver-docs]: https://jdbc.postgresql.org/documentation/head/index.html
+[pg-jdbc-driver]: https://jdbc.postgresql.org
+[timescaledb-getting-started]: /getting-started/:currentVersion:/
+[timescaledb-hypertable-create-docs]: /api/:currentVersion:/hypertable/create_hypertable
+[timescaledb-hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[timescaledb-install]: /install/latest/

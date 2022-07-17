@@ -1,3 +1,10 @@
+---
+title: Viewing service logs
+excerpt: View logs for your Managed Service for TimescaleDB service
+product: mst
+keywords: [logging, services]
+---
+
 # Viewing service logs
 
 Occasionally there is a need to inspect logs from Managed Service for
@@ -20,6 +27,6 @@ output, in case programmatic access is needed.
 
 Service logs included on the normal service price are stored only for a few days. Unless you are using logs integration to another service, older logs are not accessible.
 
-[mst-portal]: https://portal.managed.timescale.com
-[command-line-client]: https://github.com/aiven/aiven-client
 [REST API]: https://kb.timescale.cloud/en/articles/2949775-rest-api
+[command-line-client]: https://github.com/aiven/aiven-client
+[mst-portal]: https://portal.managed.timescale.com

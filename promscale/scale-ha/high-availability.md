@@ -1,3 +1,10 @@
+---
+title: Promscale and Prometheus high availability
+excerpt: Configure Promscale and Prometheus high availability
+product: promscale
+keywords: [high availability, Prometheus]
+---
+
 # Promscale and Prometheus high availability
 Promscale supports high availability alongside Prometheus high availability.
 Promscale is a stateless service, so it can use multiple replicas to run in a
