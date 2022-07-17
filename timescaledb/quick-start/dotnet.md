@@ -81,7 +81,7 @@ as SSL.
 
     ```bash
     dotnet add package Npgsql
-```
+    ```
 
 3.  Open the `Program.cs` file in your new project and replace the contents with
     this C# code:
