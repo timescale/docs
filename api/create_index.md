@@ -43,7 +43,7 @@ CREATE INDEX ON conditions(time, device_id) WITH (timescaledb.transaction_per_ch
 ```
 Other index methods
 ```SQL
-CREATE INDEX ON conditions(time, location) USING brin
+CREATE INDEX ON conditions USING brin(time, location)
   WITH (timescaledb.transaction_per_chunk);
 ```
 
