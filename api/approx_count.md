@@ -24,6 +24,7 @@ approx_count (
     agg CountMinSketch
 ) RETURNS INTEGER
 ```
+
 <Experimental />
 
 ## Required arguments
