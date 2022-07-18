@@ -46,6 +46,10 @@ This tutorial shows you how to:
 
 <GrafanaVizPrereqs />
 
+Check out this video for a step-by-step walk-through on creating
+time-series graphs in Grafana:
+<video url="https://www.youtube-nocookie.com/embed/uRgKwcL6lDQ"/>
+
 ## Create a time-series graph with raw data
 
 A very common use case of the time-series graph is displaying stock data. The
@@ -153,8 +157,8 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
 1.  In your query, replace `time_bucket` with `time_bucket_gapfill`.
 
     ```SQL
-    SELECT time_bucket_gapfill('$bucket_interval', time) as time,
-	    AVG(price) as price
+    SELECT time_bucket_gapfill('$bucket_interval', time) AS time,
+	    AVG(price) AS price
     FROM stocks_real_time
     WHERE symbol = '$symbol'
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
@@ -207,11 +211,11 @@ change to your query.
 1.  In the dashboard panel, change the query to allow for multi-value answers:
 
     ```SQL
-    SELECT time_bucket_gapfill('$bucket_interval', time) as time,
-        AVG(price) as price,
+    SELECT time_bucket_gapfill('$bucket_interval', time) AS time,
+        AVG(price) AS price,
         symbol
     FROM stocks_real_time
-    WHERE symbol in ($symbol)
+    WHERE symbol IN ($symbol)
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
     GROUP BY time_bucket_gapfill('$bucket_interval', time), symbol
     ORDER BY time;
