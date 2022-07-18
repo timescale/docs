@@ -1,3 +1,11 @@
+---
+title: Metrics and Datadog
+excerpt: Collect Datadog metrics on your Managed Service for TimescaleDB instance
+product: mst
+keywords: [integrations, metrics]
+tags: [datadog]
+---
+
 # Metrics and Datadog
 Datadog is a popular cloud-based monitoring service. You can send metrics to
 Datadog using a metrics collection agent for graphing, service dashboards,
