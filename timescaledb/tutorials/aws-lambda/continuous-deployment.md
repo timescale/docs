@@ -105,7 +105,7 @@ Connect the Github repository to AWS Lambda using Github actions.
 
 ### Adding your AWS credentials to the repository
 You need to add your AWS credentials to the repository so it has permission to connect to Lambda.
-You can do this by adding [GitHub secrets][github-secrets] using the GitHub CLI.
+You can do this by adding [GitHub secrets][github-secrets] using the GitHub command-line.
 
 1.  Authenticate with GitHub:
     ```bash
