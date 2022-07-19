@@ -1,6 +1,6 @@
 ---
 title: TimescaleDB with AWS Lambda
-excerpt: Learn to work with AWS Lambda and TimescaleDB together
+excerpt: Learn to use AWS Lambda and TimescaleDB together
 keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
 ---
 
