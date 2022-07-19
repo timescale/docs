@@ -233,5 +233,5 @@ change to your query.
 </procedure>
 
 [gsg-data]: /timescaledb/:currentVersion:/getting-started/
-[install-timescale]: /install/latest/
+[install-timescale]: /install/:currentVersion:/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
