@@ -1,6 +1,6 @@
 ---
 title: Custom TimescaleDB dashboards
-excerpt: Build custom TimescaleD bdashboards with Hasura GraphQL and React
+excerpt: Build custom TimescaleDB dashboards with Hasura GraphQL and React
 keywords: [visualizations, analytics, hasura]
 ---
 
