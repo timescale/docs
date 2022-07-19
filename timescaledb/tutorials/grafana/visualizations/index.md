@@ -1,7 +1,7 @@
 ---
 title: Grafana visualizations
 excerpt: Learn how to create Grafana visualizations of time-series data
-keywords: [Grafana, visualizations, analytics]
+keywords: [Grafana, visualization, analytics]
 ---
 
 # Grafana visualizations
