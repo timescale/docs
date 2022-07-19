@@ -1,7 +1,7 @@
 ---
 title: Build a histogram in Grafana
 excerpt: Create a histogram in Grafana to visualize the distribution of data
-keywords: [Grafana, visualizations, analytics]
+keywords: [Grafana, visualization, analytics]
 tags: [histogram]
 ---
 
