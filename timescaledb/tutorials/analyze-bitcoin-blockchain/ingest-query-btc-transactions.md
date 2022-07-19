@@ -1,6 +1,6 @@
 ---
 title: Insert and query Bitcoin transactions
-excerpt: Ingest and store Bitcoin blockchain dataa in your database
+excerpt: Ingest and store Bitcoin blockchain data in your database
 keywords: [crypto, blockchain, Bitcoin, finance, analytics]
 ---
 
