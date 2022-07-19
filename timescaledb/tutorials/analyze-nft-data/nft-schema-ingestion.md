@@ -1,6 +1,6 @@
 ---
 title: NFT schema design and ingestion
-excerpt: Design a schema to ingset and store NFT transaction data
+excerpt: Design a schema to ingest and store NFT transaction data
 keywords: [crypto, blockchain, finance, analytics]
 tags: [nft]
 ---
