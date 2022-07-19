@@ -1,6 +1,6 @@
 ---
 title: Set up Grafana alerts
-excerpt: Get alerted when a problem occurs
+excerpt: Use Grafana to get alerted when a problem occurs
 keywords: [Grafana, alerts]
 ---
 
