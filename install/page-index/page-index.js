@@ -71,18 +71,6 @@ module.exports = [
             iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
             excerpt:
               "Install self-hosted TimescaleDB on Microsoft Windows using a zipped .exe file",
-            children: [
-              {
-                title: "Windows releases",
-                href: "windows-releases",
-                tags: ["TimescaleDB", "self-hosted", "MS Windows"],
-                keywords: [
-                  "TimescaleDB",
-                  "self-hosted",
-                  "MS Windows",
-                ],
-              },
-            ],
           },
           {
             title: "MacOS",
