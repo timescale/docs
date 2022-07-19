@@ -1,6 +1,6 @@
 ---
 title: Set up TimescaleDB and Grafana
-excerpt: Set up Managed Service for TimescaleDB with Grafana to visualize your data
+excerpt: Use Grafana to visualize your data on Managed Service for TimescaleDB
 keywords: [Grafana, visualizations, analytics]
 ---
 
