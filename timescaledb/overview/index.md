@@ -1,3 +1,8 @@
+---
+title: TimescaleDB overview
+excerpt: Learn about TimescaleDB, the open-source relational database for time-series data
+---
+
 # TimescaleDB Overview
 TimescaleDB is an open-source relational database for time-series data. It uses
 full SQL and is just as easy to use as a traditional relational database, yet
@@ -80,12 +85,12 @@ its characteristics with TimescaleDB.
 If you prefer to learn by watching and want an intro to TimescaleDB, check out
 our [YouTube channel][youtube].
 
-[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[grafana]: /tutorials/grafana/
+[backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [continuous-aggregates]: /api/:currentVersion:/continuous-aggregates/
+[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[grafana]: /timescaledb/:currentVersion:/tutorials/grafana/
+[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
 [multinode]: /api/:currentVersion:/distributed-hypertables/
-[backups]: /how-to-guides/backup-and-restore/
-[replication]: /how-to-guides/replication-and-ha/
-[compression]: /how-to-guides/compression/
-[data-retention]: /how-to-guides/data-retention/
+[replication]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/
 [youtube]: https://www.youtube.com/c/TimescaleDB/featured/

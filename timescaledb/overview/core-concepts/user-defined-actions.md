@@ -1,3 +1,10 @@
+---
+title: User-defined actions
+excerpt: Set up user-defined actions to run tasks on a schedule
+keywords: [actions]
+tags: [user-defined actions, background jobs, scheduled jobs]
+---
+
 # User-defined actions
 
 User-defined actions allow you to run functions and procedures implemented in a
@@ -8,13 +15,13 @@ ability to enhance existing policies with additional functionality.
 User-defined actions have allow free-form configuration through a JSONB object
 which allows endless flexibility and reusability.
 
-## Examples [](examples)
+## Examples
 
 The following section provides a number of examples of user-defined actions
 that you can specify and subsequently schedule as part of TimescaleDB's
 automation framework.
 
-### Generic retention [](generic-retention)
+### Generic retention
 
 Create a generic data retention policy that applies to ALL hypertables, as opposed
 to just a single one as required by `add_retention_policy`.
@@ -47,7 +54,7 @@ than 12 months.
 SELECT add_job('generic_retention','1d', config => '{"drop_after":"12 month"}');
 ```
 
-### Tiered Storage [](tiered-storage)
+### Tiered storage
 
 Action that moves chunks older than a certain time to a different tablespace.
 
@@ -99,7 +106,7 @@ index as input, but performs data re-ordering as part of the move (for faster
 subsequent queries) and requires lower lock levels, so the chunk remains available
 for reads during the move.
 
-### Downsample and compress [](downsample-compress)
+### Downsample and compress
 
 Action that downsamples and compresses chunks on hypertable `metrics`
 older than a certain age. The example query computes a simple `avg` over
@@ -236,6 +243,5 @@ Stop or delete the job:
 ```sql
 SELECT delete_job(1000);
 ```
-
 
 [api-move_chunk]: /api/:currentVersion:/hypertable/move_chunk

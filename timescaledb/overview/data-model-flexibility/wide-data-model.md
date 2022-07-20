@@ -1,3 +1,10 @@
+---
+title: Wide-table model
+excerpt: Learn how to model your data in a wide-table model
+keywords: [data, hypertables]
+tags: [model]
+---
+
 ## Wide-table model
 
 TimescaleDB easily supports wide-table models. Queries across multiple metrics are
