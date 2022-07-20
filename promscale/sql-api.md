@@ -1,3 +1,11 @@
+---
+title: SQL functions API reference
+excerpt: Learn about all Promscale SQL API functions
+product: promscale
+keywords: [Structured Query Language, API, functions]
+tags: [reference]
+---
+
 # SQL functions API Reference
 
 This page is a reference for the functions available in Promscale.
