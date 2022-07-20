@@ -1,3 +1,9 @@
+---
+title: "Quick Start: Node.js and TimescaleDB"
+excerpt: Get started with TimescaleDB for a Node.js application
+keywords: [Node.js]
+---
+
 # Quick Start: Node and TimescaleDB
 
 ## Goal
@@ -23,7 +29,7 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 Obviously, you need to [install Node][node-install] and the
 [Node Package Manager (npm)][npm-install] as well.
 
-## Connect Node to TimescaleDB [](new-database)
+## Connect Node to TimescaleDB
 
 TimescaleDB is based on PostgreSQL and we can use common PostgreSQL tools to connect
 your Node app to the database. This example uses a common Node.js
@@ -150,7 +156,7 @@ Executing (default): SELECT 1+1 AS result
 Connection has been established successfully.
 ```
 
-## Create a relational table [](create_table)
+## Create a relational table
 
 ### Step 1: Add TimescaleDB to your Node configuration
 
@@ -374,7 +380,7 @@ let PageLoads = sequelize.define('page_loads', {
 You can now instantiate a `PageLoads` object and save it to the
 database.
 
-## Generate hypertable [](create_hypertable)
+## Generate hypertable
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
 the abstraction of a single continuous table across all space and time
@@ -440,7 +446,7 @@ Using environment "development".
 == 20200601202912-add_hypertable: migrated (0.426s)
 ```
 
-## Insert rows into TimescaleDB [](insert_rows)
+## Insert rows into TimescaleDB
 
 Now you have a working connection to your database, a table configured with
 the proper schema, and a hypertable created to more efficiently query data
@@ -472,7 +478,7 @@ app.get('/', async (req, res) => {
 })
 ```
 
-## Execute a query [](execute_query)
+## Execute a query
 
 Each time the page is reloaded, we also want to display all information
 currently in the table.
@@ -516,13 +522,13 @@ Node application, be sure to check out these advanced TimescaleDB tutorials:
 - [Migrate your own Data][migrate]
 
 
-[install-timescale]: /install/latest/
-[setup-psql]: /how-to-guides/connecting/psql/
-[time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
-[hypertables]: /overview/core-concepts/
+[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/
+[install-timescale]: /install/latest/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [node-install]: https://nodejs.org
 [npm-install]: https://www.npmjs.com/get-npm
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [sequelize-info]: https://sequelize.org
+[setup-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/

@@ -1,3 +1,11 @@
+---
+title: Visualize data in Promscale
+excerpt: Learn about data visualization tools you can use with Promscale
+product: promscale
+keywords: [analytics, Grafana]
+tags: [visualize, analytics, jaeger]
+---
+
 # Visualize data in Promscale
 You can visualize data in Promscale using tools such as
 [Grafana][grafana-homepage] and [Jaeger][jaeger-homepage].
@@ -22,13 +30,11 @@ you instant visibility into the performance of your services. You can
 [set up the experience][apm-experience] in your own Grafana instance and
 customize it to better meet your needs.
 
+[apm-experience]: /promscale/:currentVersion:/visualize-data/apm-experience/
 [grafana-homepage]:https://grafana.com
+[grafana-promscale]: /promscale/:currentVersion:/visualize-data/grafana
 [jaeger-homepage]: https://www.jaegertracing.io/
-[grafana-promscale]: /visualize-data/grafana
-[jaeger-promscale]: /visualize-data/jaeger
-[promscale-as-prometheus]:
-    /visualize-data/grafana/#configure-promscale-as-prometheus-data-source
-[promscale-as-jaeger]: /visualize-data/grafana/#configure-promscale-as-jaeger-data-source
-[promscale-as-postgresql]:
-    /visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
-[apm-experience]:/visualize-data/apm-experience/
+[jaeger-promscale]: /promscale/:currentVersion:/visualize-data/jaeger
+[promscale-as-jaeger]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-jaeger-data-source
+[promscale-as-postgresql]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
+[promscale-as-prometheus]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-prometheus-data-source

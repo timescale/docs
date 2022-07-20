@@ -1,33 +1,37 @@
-# Query data in Promscale
-You can query the data stored in Promscale using SQL (metrics and traces)
-and PromQL (only metrics).
+---
+title: Query metric data with SQL
+excerpt: Query metrics data in Promscale
+product: promscale
+keywords: [analytics, query, metrics]
+tags: [sql, prometheus]
+---
 
-PromQL queries have to be directed to the Promscale Connector.
-Alternatively, you can direct PromQL queries to the Prometheus instance, 
-which reads data from the Connector using the `remote_read`
-interface. The Connector, in turn, fetches data from TimescaleDB. You would
-typically use a [visualization tool][visualize-data] to run PromQL queries.
-Learn more about PromQL in the [Prometheus documentation][promql-docs].
+# Query metric data with SQL
+This section covers information about the different SQL queries you can use for
+metric data. 
 
-SQL queries are handled directly by TimescaleDB. You can query the data 
-in Promscale with your preferred SQL tool. In this section, we use `psql`.
-For more information about installing and using `psql`, see the 
+You can query the data in Promscale with your preferred SQL tool. For example,
+you can use `psql`.
+For more information about installing and using `psql`, see the
 [installing psql section][install-psql].
 
-## Query metric data with SQL
-This section covers information about the different SQL queries you can use for metrics data.
+## Metric views
 
-### Query a metric
-When you query a metric, the query is performed against the view of the metric
-you're interested in. This example queries a metric named `go_dc_duration` for
-its samples in the past five minutes. This metric is a measurement for how long
-garbage collection is taking in Go applications:
-``` sql
+When you query a metric, the query is performed against the view
+of the metric you're interested in. The name of the view is the metric name.
+
+For example, to query a metric named `go_dc_duration_seconds` for its samples in the
+past five minutes: 
+
+```sql
 SELECT * from go_gc_duration_seconds
 WHERE time > now() - INTERVAL '5 minutes';
 ```
+This metric measures for how long garbage collection takes in
+Go applications.
 
-An example of the output for this query:
+The output is similar to:
+
 ```sql
 |           time             |    value    | series_id |      labels       | instance_id | job_id | quantile_id |
 |----------------------------|-------------|-----------|-------------------|-------------|--------|-------------|
@@ -38,17 +42,16 @@ An example of the output for this query:
 | 2021-01-27 18:43:42.389+00 |           0 |       500 | {208,43,51,216}   |          43 |     51 |         216 |
 ```
 
-In this output, each row includes a `series_id` field, which uniquely identifies
-its measurements label set. This enables efficient aggregation by series.
+In this output:
 
-Each row also includes a `labels` field, which contains an array of foreign keys
-to label key-value pairs making up the label set.
+* The `series_id` uniquely identifies the measurements label set. This enables
+  efficient aggregation by series.
+* The `labels` field contains an array of foreign keys to label key-value pairs
+  that make up the label set.
+* The `<LABEL_KEY>_id` fields are separate fields for each label key in the
+  label set, to simplify access.
 
-While the `labels` array is the entire label set, there are also separate fields
-for each label key in the label set, to simplify access. These fields end with
-the suffix `_id` .
-
-### Query values for label keys
+## Query values for label keys
 Each label key is expanded into its own column, which stores foreign key
 identifiers to their value. This allows you to `JOIN`, aggregate, and filter by
 label keys and values.
@@ -59,7 +62,8 @@ particular label key.
 
 For example, to find the median value for the `go_gc_duration_seconds` metric,
 grouped by the job associated with it:
-``` sql
+
+```sql
 SELECT
     val(job_id) as job,
     percentile_cont(0.5) within group (order by value) AS median
@@ -70,20 +74,21 @@ WHERE
 GROUP BY job_id;
 ```
 
-An example of the output for this query:
-``` sql
+The output is similar to:
+
+```sql
 |      job      |  median   |
 |---------------|---------- |
 | prometheus    |  6.01e-05 |
 | node-exporter | 0.0002631 |
 ```
 
-### Query label sets for a metric
+## Query label sets for a metric
 The `labels` field in any metric row represents the full set of labels
 associated with the measurement. It is represented as an array of identifiers.
-To return the entire labelset in JSON, you can use the `jsonb()` function, like
-this:
-``` sql
+To return the entire label set in JSON, you can use the `jsonb()` function:
+
+```sql
 SELECT
     time, value, jsonb(labels) as labels
 FROM
@@ -92,11 +97,12 @@ WHERE
     time > now() - INTERVAL '5 minutes';
 ```
 
-An example of the output for this query:
+The output is similar to:
+
 ```sql
-|            time            |    value    |                                                        labels                                                       | 
+|            time            |    value    |                                                        labels                                                       |
 |----------------------------|-------------|--------------------------------------------------------------------------------------------------------------------|
-| 2021-01-27 18:43:48.236+00 | 0.000275625 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}        | 
+| 2021-01-27 18:43:48.236+00 | 0.000275625 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.5"}        |
 | 2021-01-27 18:43:48.236+00 | 0.000165632 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.25"}       |
 | 2021-01-27 18:43:48.236+00 | 0.000320684 | {"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0.75"}       |
 | 2021-01-27 18:43:52.389+00 |  1.9633e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}   |
@@ -107,38 +113,9 @@ An example of the output for this query:
 This query returns the label set for the metric `go_gc_duration` in JSON format,
 so you can read or further interact with it.
 
-### Advanced query: percentiles aggregated over time and series
-This query calculates the ninety-ninth percentile over both time and series (`app_id`)
-for the metric named `go_gc_duration_seconds`. This metric is a measurement for
-how long garbage collection is taking in Go applications:
-``` sql
-SELECT
-    val(instance_id) as app,
-    percentile_cont(0.99) within group(order by value) p99
-FROM
-    go_gc_duration_seconds
-WHERE
-    value != 'NaN' AND val(quantile_id) = '1' AND instance_id > 0
-GROUP BY instance_id
-ORDER BY p99 desc;
-```
-
-An example of the output for this query:
-```sql
-|       app         |     p99      |  
-|-------------------|------------  |
-|node_exporter:9100 | 0.002790063  |
-|localhost:9090     |  0.00097977  | 
-```
-
-This query is unique to Promscale, as it aggregates over both time and series
-and returns an accurate calculation of the percentile. It is not possible to use
-PromQL alone to accurately calculate percentiles when aggregating over both time
-and series.
-
-### Filter by labels
-You can filter by labels, because matching operators correspond to the selectors in
-PromQL. The operators are used in a `WHERE` clause, in the
+## Filter by labels
+You can filter by labels, because matching operators correspond to the selectors
+in PromQL. The operators are used in a `WHERE` clause, in the
 `labels ? (<label_key> <operator> <pattern>)`.
 
 The four matching operators are:
@@ -155,7 +132,8 @@ different spellings to avoid clashing with other PostgreSQL operators. You can
 combine them using any Boolean logic, with any arbitrary `WHERE` clauses. For
 example, if you want only metrics from the job called `node-exporter`, you can
 filter by labels like this:
-``` sql
+
+```sql
 SELECT
     time, value, jsonb(labels) as labels
 FROM
@@ -165,7 +143,7 @@ WHERE
     AND time > now() - INTERVAL '5 minutes';
 ```
 
-An example of the output for this query:
+The output is similar to:
 ```sql
 | time                       |   value   |              labels                                                                                              |
 |----------------------------|-----------|------------------------------------------------------------------------------------------------------------------|
@@ -174,20 +152,27 @@ An example of the output for this query:
 |2021-01-28 02:01:38.032+00  |  3.05e-05 | {"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0"}|
 ```
 
-### Query the number of datapoints in a series
+## Query examples
+
+SQL provides powerful capabilities to analyze metric data in many different ways.
+This sections provides a number of different examples to illustrate how you can
+use SQL to do more sophisticated analysis on your metric data.
+
+### Query the number of data points in a series
 Each row in a metric's view has a `series_id` that uniquely identifies the
 measurement's label set. This allows you to aggregate by series more
 efficiently. You can retrieve the labels array from a `series_id` using the
 `labels(series_id)` function. For example, this query shows how many data points
 we have in each series:
-``` sql
+
+```sql
 SELECT jsonb(labels(series_id)) as labels, count(*)
 FROM go_gc_duration_seconds
 GROUP BY series_id;
 ```
 
-An example of the output for this query:
-```sql 
+The output is similar to:
+```sql
 |                                                       labels                                                        | count |
 |---------------------------------------------------------------------------------------------------------------------|-------|
 |{"job": "node-exporter", "__name__": "go_gc_duration_seconds", "instance": "node_exporter:9100", "quantile": "0.75"} |   631 |
@@ -202,12 +187,42 @@ An example of the output for this query:
 |{"job": "prometheus", "__name__": "go_gc_duration_seconds", "instance": "localhost:9090", "quantile": "0"}           |   631 |
 ```
 
-### Other complex queries
-The examples in this section are for querying metrics from Prometheus and
-`node_exporter`. A more complex example provided by [Dan Luu][sql-query-dan-luu]
-shows how you can discover Kubernetes containers that are over-provisioned. In
-this query, you find containers whose ninety-ninth percentile memory utilization is low,
-like this:
+### Query percentiles aggregated over time and series
+This query calculates the ninety-ninth percentile over both time and series
+(`app_id`) for the metric named `go_gc_duration_seconds`. This metric is a
+measurement for how long garbage collection is taking in Go applications:
+
+```sql
+SELECT
+    val(instance_id) as app,
+    percentile_cont(0.99) within group(order by value) p99
+FROM
+    go_gc_duration_seconds
+WHERE
+    value != 'NaN' AND val(quantile_id) = '1' AND instance_id > 0
+GROUP BY instance_id
+ORDER BY p99 desc;
+```
+
+An example of the output for this query:
+```sql
+|       app         |     p99      |
+|-------------------|------------  |
+|node_exporter:9100 | 0.002790063  |
+|localhost:9090     |  0.00097977  |
+```
+
+This query is unique to Promscale, as it aggregates over both time and series
+and returns an accurate calculation of the percentile. It is not possible to use
+PromQL alone to accurately calculate percentiles when aggregating over both time
+and series.
+
+### A complex example: identifying over-provisioned containers
+The example in this section queries metrics from Prometheus and the
+`node_exporter` to identify Kubernetes containers that are over-provisioned.
+In this query, you find containers whose ninety-ninth percentile memory
+utilization is low, like this:
+
 ```sql
 WITH memory_allowed as (
   SELECT
@@ -230,13 +245,14 @@ INNER JOIN memory_allowed
       ON (memory_used.time >= memory_allowed.start_time AND
           memory_used.time <= memory_allowed.end_time AND
           eq(memory_used.labels,memory_allowed.labels))
-WHERE memory_used.value != 'NaN'   
+WHERE memory_used.value != 'NaN'
 GROUP BY container
 ORDER BY percent_used_p99 ASC
 LIMIT 100;
 ```
 
 An example of the output for this query:
+
 ```sql
 | container                      |   percent_used_p99      |  total      |
 |--------------------------------|-------------------------|-------------|
@@ -248,8 +264,4 @@ An example of the output for this query:
 This example uses `cAdvisor`, as an example of the sorts of sophisticated
 analysis enabled by Promscale's support to query your data in SQL.
 
-
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[sql-query-dan-luu]: https://danluu.com/metrics-analytics/
-[visualize-data]: /promscale/:currentVersion:/visualize-data/
-[promql-docs]: https://prometheus.io/docs/prometheus/latest/querying/basics/

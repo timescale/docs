@@ -5,7 +5,7 @@ license: community
 toolkit: true
 experimental: true
 topic: hyperfunctions
-tags: [hyperfunctions, frequency, most common, top N]
+keywords: [frequency, top N, aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true

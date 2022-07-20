@@ -1,3 +1,11 @@
+---
+title: Connection pools
+excerpt: Pool client connections to keep server resource us low
+product: mst
+keywords: [connect]
+tags: [connection pools, pgbouncer]
+---
+
 # Connection pools
 When you connect to your database, you consume server resources. If you have a
 lot of connections to your database, you can consume a lot of server resources.

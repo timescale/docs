@@ -1,3 +1,10 @@
+---
+title: Security overview
+excerpt: Learn how your Managed Service for TimescaleDB instance is secured
+product: mst
+keywords: [security]
+---
+
 # Security overview
 
 ## Cloud provider accounts
@@ -142,7 +149,7 @@ Cloud database instance. There are many other types of security measures you sho
 account when securing your data. To learn more about security options within Timescale Cloud,
 visit the [Managed TimescaleDB Knowledge Base][timescale-mst-kb].
 
-[cloud-security-eval]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjtm4bbn4rbAhUBDZoKHdBRDgkQFggpMAA&url=https%3A%2F%2Fwww.elfgroup.fi%2Fecc%2F1708-S6-71acd0046.pdf&usg=AOvVaw2wcBEPGeys6PL21W3G6wGW
-[timescale-mst-portal]: https://portal.managed.timescale.com/
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[cloud-security-eval]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjtm4bbn4rbAhUBDZoKHdBRDgkQFggpMAA&url=https%3A%2F%2Fwww.elfgroup.fi%2Fecc%2F1708-S6-71acd0046.pdf&usg=AOvVaw2wcBEPGeys6PL21W3G6wGW
 [timescale-mst-kb]: https://kb-managed.timescale.com/en/
+[timescale-mst-portal]: https://portal.managed.timescale.com/

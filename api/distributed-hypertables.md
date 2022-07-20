@@ -1,3 +1,9 @@
+---
+title: Distributed hypertables
+excerpt: Create and manage distributed hypertables
+keywords: [distributed hypertables]
+---
+
 # Distributed Hypertables <tag type="community">Community</tag>
 
 Distributed hypertables are an extention of regular hypertables, available when

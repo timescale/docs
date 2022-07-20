@@ -1,3 +1,9 @@
+---
+title: Contribute to TimescaleDB
+excerpt: Learn more about how to contribute to TimescaleDB
+tags: [contribute, github]
+---
+
 # Contributing to TimescaleDB
 
 There are multiple ways to help make TimescaleDB better. All of our documentation
@@ -45,10 +51,8 @@ There are multiple ways you can help:
 [Head over to our GitHub repository][github-timescaledb] for TimescaleDB to learn more about how you
 can help and to review our coding style guide!
 
-
-
 [github-docs]: https://github.com/timescale/docs
 [github-timescaledb]: https://github.com/timescale/timescaledb/blob/master/CONTRIBUTING.md
-[timescale-docs-style]: https://github.com/timescale/docs/blob/master/README.md
 [install-git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 [markdown-tutorial]: https://www.markdownguide.org/basic-syntax/
+[timescale-docs-style]: https://github.com/timescale/docs/blob/master/README.md

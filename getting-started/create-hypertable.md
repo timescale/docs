@@ -1,3 +1,9 @@
+---
+title: Create a hypertable
+excerpt: Create a hypertable to store your time-series data
+keywords: [hypertables, create]
+---
+
 # Create a hypertable
 Hypertables are the core of TimescaleDB. Hypertables enable TimescaleDB to work
 efficiently with time-series data. Because TimescaleDB is PostgreSQL, all the
@@ -110,7 +116,7 @@ To learn more about hypertables and best practices for configuring chunks, see
 [Hypertable How-To][hypertable-how-to]. For information about how hypertables
 help with storing and querying data, see the [hypertables and chunks core concepts page][core-concepts-hypertables].
 
-[add-data]: /add-data/
+[add-data]: /getting-started/:currentVersion:/add-data/
 [core-concepts-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
-[hypertable-how-to]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable
+[hypertable-how-to]: /timescaledb/:currentVersion:/how-to-guides/hypertables/

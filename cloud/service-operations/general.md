@@ -1,3 +1,11 @@
+---
+title: Services operations - General
+excerpt: Manage your service from the Operations dashboard
+product: cloud
+keywords: [services, operations, forks]
+tags: [manage, admin, passwords, pause, stop, terminate]
+---
+
 # Services operations - General
 In the `General` section of the Operations dashboard, you can fork your service,
 reset the password, pause, or terminate the service.

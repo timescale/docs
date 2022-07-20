@@ -4,7 +4,7 @@ excerpt: Roll up multiple statistical aggregates to calculate rolling window agg
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, rollup, statistical aggregates, rolling window]
+keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -73,8 +73,8 @@ FROM foo_hourly;
 ```
 
 
-[stats_agg]: /hyperfunctions/stats_aggs/stats_agg/
-[hyperfunctions-stats-aggs]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[time_bucket]: /hyperfunctions/time_bucket/
+[stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
+[hyperfunctions-stats-aggs]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [postgres-window-functions]: https://www.postgresql.org/docs/current/tutorial-window.html
-[rollup-func]: /hyperfunctions/stats_aggs/rollup-stats/
+[rollup-func]: /api/:currentVersion:/hyperfunctions/stats_aggs/rollup-stats/
