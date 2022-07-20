@@ -1,3 +1,9 @@
+---
+title: About data retention
+excerpt: Learn how data retention works in TimescaleDB
+keywords: [data retention]
+---
+
 # About data retention
 In time-series applications, data often becomes less useful as it gets older. If
 you don't need your historical data, you can delete it once it reaches a certain
@@ -28,6 +34,6 @@ You manually drop chunks older than 24 hours. Only the oldest chunk is deleted.
 The middle chunk is retained, because it contains some data newer than 24 hours.
 No individual rows are deleted from that chunk.
 
-[manual-drop]: /how-to-guides/data-retention/manually-drop-chunks/
-[retention-policy]: /how-to-guides/data-retention/create-a-retention-policy/
-[retention-with-caggs]: /how-to-guides/data-retention/data-retention-with-continuous-aggregates/
+[manual-drop]: /timescaledb/:currentVersion:/how-to-guides/data-retention/manually-drop-chunks/
+[retention-policy]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/
+[retention-with-caggs]: /timescaledb/:currentVersion:/how-to-guides/data-retention/data-retention-with-continuous-aggregates/

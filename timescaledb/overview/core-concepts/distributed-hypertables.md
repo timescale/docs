@@ -1,3 +1,10 @@
+---
+title: Distributed hypertables
+excerpt: Learn how distributed hypertables work on multi-node TimescaleDB
+keywords: [distributed hypertables, multi-node]
+tags: [scaling]
+---
+
 # Distributed hypertables
 
 TimescaleDB supports distributing hypertables across multiple nodes
@@ -74,5 +81,4 @@ queries across all chunks (even those that were created using the old
 partitioning settings). Do note that although the number of space partitions
 can be changed, the column on which the data is partitioned can not be changed.
 
-
-[distributed-hypertable-limitations]: /overview/limitations/#distributed-hypertable-limitations
+[distributed-hypertable-limitations]: /timescaledb/:currentVersion:/overview/limitations/#distributed-hypertable-limitations

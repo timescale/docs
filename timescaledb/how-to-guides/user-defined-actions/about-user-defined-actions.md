@@ -1,3 +1,10 @@
+---
+title: About user-defined actions
+excerpt: Write custom functions and procedures, and schedule them to run periodically
+keywords: [actions]
+tags: [user-defined actions, background jobs, scheduled jobs, automation framework]
+---
+
 # About user-defined actions
 
 With user-defined actions, you can write custom functions and procedures, and

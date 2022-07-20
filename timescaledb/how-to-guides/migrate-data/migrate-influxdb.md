@@ -1,3 +1,10 @@
+---
+title: Migrate data to TimescaleDB from InfluxDB
+excerpt: Mgirate data into TimescaleDB using the Outflux tool
+keywords: [migrate, InfluxDB]
+tags: [import, Outflux]
+---
+
 # Migrate data to TimescaleDB from InfluxDB
 You can migrate data to TimescaleDB from InfluxDB using the Outflux tool.
 [Outflux][outflux] is an open source tool built by Timescale for fast, seamless
@@ -160,8 +167,7 @@ $ outflux migrate --help
 ```
 
 [influx-cmd]: https://docs.influxdata.com/influxdb/v1.7/tools/shell/
-[install]: /install/:currentVersion:/
-[outflux]: https://github.com/timescale/outflux 
-[outflux-connection]: https://github.com/timescale/outflux#connection
+[install]: /install/latest/
 [outflux-migrate]: https://github.com/timescale/outflux#migrate
 [outflux-releases]: https://github.com/timescale/outflux/releases
+[outflux]: https://github.com/timescale/outflux 

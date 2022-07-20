@@ -1,3 +1,9 @@
+---
+title: Indexing data
+excerpt: How to create indexes on hypertables
+keywords: [hypertables, indexes]
+---
+
 # Indexing data
 You can use an index on your database to speed up read operations. You can
 create an index on any combination of columns, as long as you include the `time`
@@ -52,6 +58,5 @@ the time column and the partitioning column, if you are using one. For example,
 a unique index must include at least the `(time, location)` columns, in addition
 to any other columns you want to use. Generally,
 time-series data uses `UNIQUE` indexes more rarely than relational data.
-
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/

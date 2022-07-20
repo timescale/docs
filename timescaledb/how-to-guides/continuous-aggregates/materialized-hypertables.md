@@ -1,3 +1,10 @@
+---
+title: Materialized hypertables
+excerpt: Work with the materialized hypertables that underly continuous aggregates
+keywords: [continuous aggregates]
+tags: [materialized views]
+---
+
 # Materialized hypertables
 Continuous aggregates take raw data from the original hypertable, aggregate it,
 and store the intermediate state in a materialization hypertable. You can modify

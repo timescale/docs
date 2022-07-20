@@ -1,3 +1,9 @@
+---
+title: Indexing data
+excerpt: How indexes work
+keywords: [schemas, indexes]
+---
+
 # Indexing data
 Because looking up data can take a long time, especially if you have a lot of
 data in your hypertable, you can use an index to speed up read operations. You

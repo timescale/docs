@@ -1,3 +1,9 @@
+---
+title: High availability
+excerpt: Learn about high availability
+keywords: [high availability]
+---
+
 # High availability
 PostgreSQL relies on replication for high availability, failover, and balancing
 read loads across multiple nodes. Replication ensures that data written to the
@@ -13,8 +19,6 @@ scaled by spreading the read query volume across multiple nodes.
 *   For Timescale Cloud, see the [HA in Timescale Cloud][cloud-ha] section.
 *   [Configure replication][replication-enable].
 
-
-[about-ha]: /how-to-guides/replication-and-ha/about-ha/
-[ha-enable]: /how-to-guides/replication-and-ha/configure-ha/
-[replication-enable]: /how-to-guides/replication-and-ha/configure-replication/
-[cloud-ha]: cloud/:currentVersion:/high-availability/
+[about-ha]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/about-ha/
+[cloud-ha]: /cloud/:currentVersion:/high-availability/
+[replication-enable]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication/
