@@ -1,6 +1,6 @@
 ---
 title: About configuration in TimescaleDB
-excerpt: About the configuration settings for TimescaleDB
+excerpt: About the TimescaleDB configurations
 keywords: [configuration, memory, workers, settings]
 ---
 
