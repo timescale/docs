@@ -40,7 +40,7 @@ offers the most complete TimescaleDB experience. It
 includes the 
 [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit), 
 and support for PostGIS and Patroni. If you need the smallest possible image, use
-the `timescale/timescaledb:latest-pg14` image instead.
+the `timescale/timescaledb:pg14-latest` image instead.
 </highlight>
 
 </procedure>
@@ -68,7 +68,7 @@ You can use the Docker image in different ways, depending on your use case.
 If you want to run the image directly from the container, you can use this
 command:
 ```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:pg14-latest
 ```
 
 The `-p` flag binds the container port to the host port. This means that
@@ -82,7 +82,7 @@ outside world, you can bind to `127.0.0.1` instead of the public interface,
 using this command:
 ```bash
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+-e POSTGRES_PASSWORD=password timescale/timescaledb:pg14-latest
 ```
 
 If you don't want to install `psql` and other PostgreSQL client tools locally,
@@ -104,7 +104,7 @@ data volume using the `-v` flag. For example:
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
 -v /your/data/dir:/var/lib/postgresql/data \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+-e POSTGRES_PASSWORD=password timescale/timescaledb:pg14-latest
 ```
 
 When you install TimescaleDB using a Docker container, the PostgreSQL settings
