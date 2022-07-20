@@ -54,7 +54,7 @@ than 12 months.
 SELECT add_job('generic_retention','1d', config => '{"drop_after":"12 month"}');
 ```
 
-### Tiered Storage
+### Tiered storage
 
 Action that moves chunks older than a certain time to a different tablespace.
 

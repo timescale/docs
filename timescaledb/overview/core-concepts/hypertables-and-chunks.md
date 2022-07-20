@@ -82,7 +82,7 @@ the past week, and excludes any chunks before that time. This happens
 transparently to the user, however, who simply queries the hypertable with
 a standard SQL statement.
 
-## Benefits of Hypertables and Chunks
+## Benefits of hypertables and chunks
 
 This chunk-based architecture benefits many aspects of time-series data
 management. These includes:
