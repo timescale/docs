@@ -6,9 +6,11 @@ tags: [user-defined actions, background jobs, scheduled jobs, automation framewo
 ---
 
 # About user-defined actions
+
 With user-defined actions, you can write custom functions and procedures, and
 schedule them to run periodically. TimescaleDB natively includes some
 job-scheduling policies, such as:
+
 *   [Continuous aggregate policies][caggs] to automatically refresh continuous
     aggregates
 *   [Compression policies][compressing] to compress historical data
