@@ -1,6 +1,6 @@
 ---
 title: Backup and restore
-excerpt: Lean how to back up and restore yoru TimescaleDB instance
+excerpt: Learn how to back up and restore your TimescaleDB instance
 keywords: [backup, restore]
 tags: [recovery]
 ---

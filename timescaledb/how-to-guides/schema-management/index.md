@@ -1,6 +1,6 @@
 ---
 title: Schema management
-excerpt: A database schema defines hwo the tables and indexes in your database are organized
+excerpt: A database schema defines how the tables and indexes in your database are organized
 keywords: [schemas]
 ---
 

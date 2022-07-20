@@ -1,6 +1,6 @@
 ---
 title: Ingesting data from other sources
-excerpt: Build a data ingest pipeline to insert data into TimescaleDb
+excerpt: Build a data ingest pipeline to insert data into TimescaleDB
 keywords: [ingest, pipelines]
 tags: [insert]
 ---

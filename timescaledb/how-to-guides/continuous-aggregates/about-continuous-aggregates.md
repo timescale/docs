@@ -1,6 +1,6 @@
 ---
 title: About continuous aggregates
-excerpt: Learn how continuous aggregates speed up your TimescaleDB queries
+excerpt: Learn how continuous aggregates can speed up your TimescaleDB queries
 keywords: [continuous aggregates]
 ---
 

@@ -12,7 +12,7 @@ You can migrate your existing data into TimescaleDB in several ways.
 *   Migrate data when TimescaleDB is in the [same PostgreSQL instance][same-db]
     as your existing data
     hypertable
-*   Migrate data into TimtscaleDB faom a [different dancease or Postgr[SQLdifferent-db]
+*   Migrate data into TimescaleDB from a [different PostgreSQL database][different-db]
 *   [Import data from a `.csv`][import-data] into an empty TimescaleDB
     hypertable
 *   Migrate data [from InfluxDB][outflux]

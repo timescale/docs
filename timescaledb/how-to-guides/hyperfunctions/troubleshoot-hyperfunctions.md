@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting hyperfunctions and TimescaleDb Toolkit
+title: Troubleshooting hyperfunctions and TimescaleDB Toolkit
 excerpt: Troubleshoot common problems experienced with hyperfunctions and TimescaleDB Toolkit
 keywords: [hyperfunctions, Toolkit, troubleshooting]
 ---

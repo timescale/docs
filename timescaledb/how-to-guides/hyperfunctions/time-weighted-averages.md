@@ -1,6 +1,6 @@
 ---
 title: Time-weighted averages
-excerpt: Calcualte time-weighted averages for unevenly sampled data
+excerpt: Calculate time-weighted averages for unevenly sampled data
 keywords: [hyperfunctions, Toolkit, time-weighted]
 ---
 
