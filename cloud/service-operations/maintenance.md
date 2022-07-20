@@ -79,7 +79,8 @@ your PostgreSQL and TimescaleDB versions from the Timescale Cloud dashboard.
 />
 -->
 
-You can also manually upgrade to the next PostgreSQL version from the dashboard.
+You can also manually upgrade to the newest supported PostgreSQL version
+(PostgreSQL&nbsp;14) from the dashboard.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
@@ -129,7 +130,7 @@ Follow these optional recommendations for a smooth upgrade experience.
 </procedure>
 
 [cloud-login]: https://cloud.timescale.com
-[operations-forking]: cloud/:currentVersion:/operations/#fork-a-service
+[operations-forking]: /cloud/:currentVersion:/operations/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
-[replicas]: /high-availability/
+[replicas]: /cloud/:currentVersion:/high-availability/
 [timescale-relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
