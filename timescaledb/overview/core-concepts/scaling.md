@@ -1,6 +1,11 @@
-# Scaling TimescaleDB
+---
+title: Scaling TimescaleDB
+excerpt: Learn how to scale your database to support increased workloads and storage
+keywords: [scaling, multi-node, replicas]
+tags: [compute, storage, distributed hypertables]
+---
 
-[//]: # "Comment: Add image comparing single node, physical replication, multi-node"
+# Scaling TimescaleDB
 
 <highlight type="cloud" header="Scale your database in one click with Timescale Cloud" button="Try for free"> 
 Timescale Cloud simplifies the process of scaling TimescaleDB for single-node and multi-node 
@@ -75,7 +80,7 @@ asynchronous replicas, for a mix of HA failover and read scaling. The main
 limitation of primary/backup replication is that each server stores a *full copy*
 of the database.
 
-## Multi-node TimescaleDB and distributed hypertables [](multi-node)
+## Multi-node TimescaleDB and distributed hypertables
 
 TimescaleDB 2.0 also supports horizontally scaling across many servers.
 Instead of a primary node (and each replica) which stores the full copy
@@ -113,12 +118,12 @@ access node, such that aggregates are performed on data nodes
 whenever possible, and only aggregated or filtered results are passed
 back to the access node for merging and returning to a client.
 
-[data model]: /overview/data-model-flexibility/
 [chunking]: https://www.timescale.com/blog/time-series-data-why-and-how-to-use-a-relational-database-instead-of-nosql-d0cd6975e87c
-[compression operational overview]: /how-to-guides/compression/
 [compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database
+[compression operational overview]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [contact]: https://www.timescale.com/contact
+[data model]: /timescaledb/:currentVersion:/overview/data-model-flexibility/
+[distributed-hypertable-limitations]: /timescaledb/:currentVersion:/overview/limitations/#distributed-hypertable-limitations
+[distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables
+[multi-node-basic]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
 [slack]: https://slack.timescale.com/
-[distributed-hypertables]: /overview/core-concepts/distributed-hypertables
-[distributed-hypertable-limitations]: /overview/limitations/#distributed-hypertable-limitations
-[multi-node-basic]: /how-to-guides/multi-node-setup/

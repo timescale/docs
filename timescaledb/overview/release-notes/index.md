@@ -1,3 +1,9 @@
+---
+title: TimescaleDB release notes and future plans
+excerpt: New features and fixes are released regularly
+keywords: [upgrade, update, releases]
+---
+
 # TimescaleDB release notes and future plans
 
 Interested in what's coming down the pipeline? Review our [Future
@@ -234,7 +240,7 @@ hypertables and indexes. We deem this release to be moderate priority for
 upgrading.
 
 **Features**
-* #3768 Allow ALTER TABLE ADD COLUMN with DEFAULT on compressed hypertable
+* #3768 Allow ALTER TABLE ADD COLUMN with DEFAULT on compressedhypertable
 * #3769 Allow ALTER TABLE DROP COLUMN on compressed hypertable
 * #3873 Enable compression on continuous aggregates 
 * #3943 Optimize first/last

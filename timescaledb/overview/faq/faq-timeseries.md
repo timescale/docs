@@ -1,3 +1,9 @@
+---
+title: FAQs - About time-series databases
+excerpt: Frequently asked questions about time-series databases
+keywords: [time-series, faq]
+---
+
 # FAQs - About time-series databases
 
 ## Why is time-series data important?
