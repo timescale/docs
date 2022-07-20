@@ -1,3 +1,9 @@
+---
+title: Major TimescaleDB upgrades
+excerpt: Upgrade from one major of TimescaleDB to the next major version
+keywords: [upgrade]
+---
+
 import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
 # Major TimescaleDB upgrades
@@ -174,7 +180,6 @@ total_failures         | 0
 
 </procedure>
 
-
-[upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
 [changes-in-ts2]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2
 [relnotes-20]: /timescaledb/:currentVersion:/overview/release-notes/changes-in-timescaledb-2#retention-and-caggs
+[upgrade-minor]: /timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/

@@ -1,3 +1,9 @@
+---
+title: About upgrades
+excerpt: About major and minor upgrades, and best practices for upgrading
+keywords: [upgrade]
+---
+
 import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
 # About upgrades
@@ -38,4 +44,4 @@ upgrade, and again after your upgrade is complete:
 (1 row)
 ```
 
-[upgrade-docker]: timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-docker/
+[upgrade-docker]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-docker/

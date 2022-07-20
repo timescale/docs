@@ -1,3 +1,9 @@
+---
+title: Time bucket gapfill
+excerpt: Fill in gaps within your time-series data when calculating time buckets
+keywords: [hyperfunctions, Toolkit, gapfill, interpolate]
+---
+
 # Time bucket gapfill
 Sometimes data sorted into time buckets can have gaps. This can happen if you
 have irregular sampling intervals, or you have experienced an outage of some
@@ -11,6 +17,5 @@ such as last observation carried forward (LOCF), or interpolation.
 
 For more information about gapfilling and interpolation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-gapfilling].
-
 
 [hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/

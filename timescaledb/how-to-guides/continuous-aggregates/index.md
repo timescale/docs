@@ -1,3 +1,9 @@
+---
+title: Continuous aggregates
+excerpt: Continuous aggregates make queries run faster on very large datasets
+keywords: [continuous aggregates]
+---
+
 # Continuous aggregates
 Continuous aggregates are designed to make queries on very large datasets run
 faster. TimescaleDB continuous aggregates use
@@ -16,14 +22,13 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Compression with continuous aggregates][cagg-compression].
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
-
+[about-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates
+[cagg-autorefresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
+[cagg-compression]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/compression-on-continuous-aggregates
+[cagg-create]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate
+[cagg-drop]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/drop-data
+[cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
+[cagg-realtime]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates
+[cagg-time]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/time
+[cagg-tshoot]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting
 [postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
-[about-caggs]: /how-to-guides/continuous-aggregates/about-continuous-aggregates
-[cagg-create]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate
-[cagg-autorefresh]: /how-to-guides/continuous-aggregates/refresh-policies
-[cagg-time]: /how-to-guides/continuous-aggregates/time
-[cagg-drop]: /how-to-guides/continuous-aggregates/drop-data
-[cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
-[cagg-realtime]: /how-to-guides/continuous-aggregates/real-time-aggregates
-[cagg-compression]: /how-to-guides/continuous-aggregates/compression-on-continuous-aggregates
-[cagg-tshoot]: /how-to-guides/continuous-aggregates/troubleshooting

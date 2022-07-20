@@ -1,3 +1,9 @@
+---
+title: SELECT data
+excerpt: Query data from a hypertable using a standard SELECT command
+keywords: [queries]
+---
+
 # SELECT data
 
 You can query data from a hypertable using a standard

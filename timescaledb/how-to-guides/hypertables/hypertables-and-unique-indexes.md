@@ -1,3 +1,9 @@
+---
+title: Create unique indexes on a hypertable
+excerpt: How to create a unique index on a hypertable, and some limitations on unique indexes
+keywords: [hypertables, unique indexes, primary keys]
+---
+
 # Create unique indexes on a hypertable
 Hypertables have some restrictions on unique indexes, caused by partitioning.
 When you create a unique index, it must contain all the partitioning columns of
@@ -145,5 +151,5 @@ Fix the error by adding `user_id` to your unique index.
 
 </highlight>
 
-[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
