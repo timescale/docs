@@ -1,3 +1,9 @@
+---
+title: Aggregate time-series data with time bucket
+excerpt: Group your data to perform aggregate calculations over arbitrary time intervals
+keywords: [time buckets]
+---
+
 # Aggregate time-series data with time_bucket
 The `time_bucket` function helps you group your data, so you can perform
 aggregate calculations over arbitrary time intervals. It is usually used
@@ -79,4 +85,4 @@ SELECT time_bucket(INTERVAL '1 week', TIMESTAMP '2021-01-05');
 The function returns `2021-01-04 00:00:00`. That is the start time of the
 time bucket: the Monday of that week, at midnight.
 
-[time-buckets]: /how-to-guides/time-buckets/
+[time-buckets]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/

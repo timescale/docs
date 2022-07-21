@@ -1,3 +1,9 @@
+---
+title: Troubleshooting TimescaleDB updates
+excerpt: Troubleshoot common problems experienced with upgrading your TimescaleDB installation
+keywords: [upgrade, troubleshooting]
+---
+
 # Troubleshooting TimescaleDB updates
 This section contains some ideas for troubleshooting common problems experienced
 with updating your TimescaleDB installation.

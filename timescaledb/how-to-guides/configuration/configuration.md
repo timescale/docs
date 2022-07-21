@@ -1,3 +1,10 @@
+---
+title: Configuring TimescaleDB
+excerpt: How to configure a TimescaleDB instance
+keywords: [configuration]
+tags: [settings]
+---
+
 # Configuring TimescaleDB
 
 TimescaleDB works with the default PostgreSQL server configuration settings.
@@ -318,12 +325,12 @@ docker run -i -t timescale/timescaledb:latest-pg10 postgres -cmax_wal_size=2GB
 Additional examples of passing in arguments at boot can be found in our
 [discussion about using WAL-E][wale] for incremental backup.
 
-[tstune]: https://github.com/timescale/timescaledb-tune
-[pgtune]: http://pgtune.leopard.in.ua/
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
-[docker]: /install/latest/installation-docker/
-[wale]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/docker-and-wale/
 [chunks_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size
+[docker]: /install/latest/installation-docker/
+[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
+[pgtune]: http://pgtune.leopard.in.ua/
+[synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
 [ts-settings]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-config/
+[tstune]: https://github.com/timescale/timescaledb-tune
+[wale]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/docker-and-wale/

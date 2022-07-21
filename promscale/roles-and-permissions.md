@@ -1,3 +1,11 @@
+---
+title: Promscale database roles and permissions
+excerpt: Learn about the different database roles and permissions Promscale defines
+product: promscale
+keywords: [analytics, permissions, roles]
+tags: [database]
+---
+
 # Promscale database roles and permissions
 Promscale uses Role Based Access Control (RBAC) to manage permissions for the
 database. You can choose to use a single PostgreSQL user for all Promscale
@@ -93,6 +101,5 @@ configuration file:
 local_preload_libraries=pgextwlist
 extwlist.extensions=promscale,timescaledb
 ```
-
 
 [pgextwlist]: https://github.com/dimitri/pgextwlist

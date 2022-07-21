@@ -1,3 +1,11 @@
+---
+title: Downsample metric data in Promscale
+excerpt: Configure downsampling in Promscale
+product: promscale
+keywords: [Prometheus, downsample]
+tags: [continuous aggregates, metrics, recording rules]
+---
+
 # Downsample metric data in Promscale
 Downsampling is the term used when reducing the rate of a signal. When you
 downsample data, the size of the data on disk is reduced, but so is the
@@ -36,5 +44,5 @@ method:
     aggregates. This is especially important if it is something you do often,
     because backfilling old data with recording rules requires additional steps.
 
-[recording]: /downsample-data/recording/
-[caggs]: /downsample-data/caggs/
+[caggs]: /promscale/:currentVersion:/downsample-data/caggs/
+[recording]: /promscale/:currentVersion:/downsample-data/recording/

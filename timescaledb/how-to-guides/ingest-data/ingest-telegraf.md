@@ -1,3 +1,10 @@
+---
+title: Telegraf
+excerpt: Ingest data into TimescaleDB using the Telegraf plugin (deprecated)
+keywords: [ingest, Telegraf]
+tags: [insert]
+---
+
 import Deprecated from 'versionContent/_partials/_deprecated.mdx';
 
 # Telegraf

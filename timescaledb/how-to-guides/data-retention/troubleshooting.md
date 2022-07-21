@@ -1,3 +1,9 @@
+---
+title: Troubleshooting data retention
+excerpt: Troubleshoot common problems experienced with data retention
+keywords: [data retention, troubleshooting]
+---
+
 # Troubleshooting data retention
 This section contains some ideas for troubleshooting common problems experienced
 with data retention.

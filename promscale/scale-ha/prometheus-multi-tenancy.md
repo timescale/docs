@@ -1,3 +1,10 @@
+---
+title: Promscale multi-tenancy for Prometheus
+excerpt: Configure Promscale multi-tenancy for Prometheus
+product: promscale
+keywords: [multi-tenancy, scale, Prometheus]
+---
+
 # Promscale multi-tenancy for Prometheus
 Promscale supports multi-tenancy for Prometheus. It uses different Prometheus
 servers that correspond to different tenants, which all write data to the same

@@ -1,3 +1,10 @@
+---
+title: Create a data retention policy
+excerpt: Create a data retention policy to automatially drop historical data
+keywords: [data retention, policies]
+tags: [drop, delete]
+---
+
 # Create a data retention policy
 Automatically drop data once its time value ages past a certain interval. When
 you create a data retention policy, TimescaleDB automatically schedules a
@@ -75,5 +82,5 @@ total_failures      | 0
 
 [add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
 [remove_retention_policy]: /api/:currentVersion:/data-retention/remove_retention_policy 
-[timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/
 [timescaledb_information.job_stats]: /api/:currentVersion:/informational-views/job_stats/
+[timescaledb_information.jobs]: /api/:currentVersion:/informational-views/jobs/

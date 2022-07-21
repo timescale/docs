@@ -1,3 +1,9 @@
+---
+title: Query data in Promscale
+excerpt: Learn how to query data in Promscale
+product: promscale
+---
+
 # Query data in Promscale
 You can query the data such as metrics and traces stored in Promscale. You can
 use SQL to query both metrics and traces. SQL queries are handled directly by
@@ -13,7 +19,7 @@ Learn more about PromQL in the [Prometheus documentation][promql-docs].
 * [Query metrics][query-metrics] using SQL
 * [Query traces][query-traces] using SQL
 
+[promql-docs]: https://prometheus.io/docs/prometheus/latest/querying/basics/
 [query-metrics]: /promscale/:currentVersion:/query-data/query-metrics/
 [query-traces]: /promscale/:currentVersion:/query-data/query-traces/
 [visualize-data]: /promscale/:currentVersion:/visualize-data/
-[promql-docs]: https://prometheus.io/docs/prometheus/latest/querying/basics/

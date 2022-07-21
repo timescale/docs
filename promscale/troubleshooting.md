@@ -1,3 +1,11 @@
+---
+title: Troubleshooting Promscale
+excerpt: Troubleshooting Promscale
+product: promscale
+keywords: [troubleshooting]
+tags: [learn, prometheus]
+---
+
 # Troubleshooting Promscale
 This section covers some common errors or problems you might run into while using
  Promscale.
@@ -109,5 +117,5 @@ are shown as expected in the trace.
 
 For more information, see the [batch processor documentation][batch-processor].
 
-[prometheus-remote-read]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read
 [batch-processor]: https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/batchprocessor/README.md
+[prometheus-remote-read]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read

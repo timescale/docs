@@ -1,3 +1,9 @@
+---
+title: Query data in distributed hypertables
+excerpt: How to query data in distributed hypertables
+keywords: [distributed hypertables, multi-node, queries]
+---
+
 # Query data in distributed hypertables
 You can query a distributed hypertable just as you would query a regular
 hypertable or PostgreSQL table. For more information, see the section on
@@ -11,6 +17,6 @@ set to `on` for the access node. By default, it is `off`.
 If you want to use continuous aggregates on your distributed hypertable, see the
 [continuous aggregates][caggs] section for more information.
 
-[caggs]: /how-to-guides/continuous-aggregates/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [enable_partitionwise_aggregate]: https://www.postgresql.org/docs/current/runtime-config-query.html
-[write]: /how-to-guides/write-data/
+[write]: /timescaledb/:currentVersion:/how-to-guides/write-data/
