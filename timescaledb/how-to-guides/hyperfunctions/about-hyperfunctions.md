@@ -1,3 +1,9 @@
+---
+title: About TimescaleDB hyperfunctions
+excerpt: Learn about TimescaleDB hyperfunctions that help with data analysis
+keywords: [hyperfunctions, Toolkit, analytics]
+---
+
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # About Timescale hyperfunctions
@@ -136,12 +142,11 @@ community-wide problems and incorporate as much feedback as possible.
 *   Explore the current [feature requests][gh-requests].
 *   Add your own [feature request][gh-newissue].
 
-
-[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
-[gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
 [blog-function-pipelines]: http://tsdb.co/function-pipelines
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
+[gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
+[gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
-[gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

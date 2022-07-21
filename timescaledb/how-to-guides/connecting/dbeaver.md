@@ -1,3 +1,9 @@
+---
+title: DBeaver
+excerpt: Connect to your TimescaleDB database with DBeaver
+keywords: [connect]
+---
+
 # DBeaver
 DBeaver is a free database tool that is available for Microsoft Windows, Apple
 macOS, or various Linux flavors. You can also use it as a plugin to the Eclipse

@@ -1,3 +1,10 @@
+---
+title: Back up and restore
+excerpt: Back up TimescaleDB
+keywords: [backup, restore]
+tags: [recovery]
+---
+
 # Backup and restore
 
 Backing up TimescaleDB takes advantage of the reliable functionality already
@@ -13,8 +20,7 @@ restore point with the
 [`create_distributed_restore_point`][create_distributed_restore_point] 
 function, and use it later when you restore from a physical backup.
 
-
-[postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html
+[create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
-[create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/
+[postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html

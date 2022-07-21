@@ -1,3 +1,9 @@
+---
+title: About tablespaces
+excerpt: Learn how tablespaces work
+keywords: [schemas, tablepsaces]
+---
+
 # About tablespaces
 Tablespaces are used to determine the physical location of the tables and
 indexes in your database. In most cases, you want to use faster storage to store
@@ -39,8 +45,6 @@ or additional partitions are added. This is especially true for hash-partitioned
 tables.
 </highlight>
 
-
-[postgres-tablespaces]: https://www.postgresql.org/docs/current/static/manage-ag-tablespaces.html
 [attach_tablespace]: /api/:currentVersion:/hypertable/attach_tablespace/
 [detach_tablespace]: /api/:currentVersion:/hypertable/detach_tablespace/
 [show_tablespaces]: /api/:currentVersion:/hypertable/show_tablespaces/

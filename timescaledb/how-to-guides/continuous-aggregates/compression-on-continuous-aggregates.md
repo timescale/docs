@@ -1,3 +1,9 @@
+---
+title: Compress continuous aggregates
+excerpt: How to compress a continuous aggregate
+keywords: [continuous aggregates, compression]
+---
+
 # Compress continuous aggregates
 Continuous aggregates are often used to downsample historical data. If the data
 is only used for analytical queries and never modified, you can compress the
@@ -9,7 +15,7 @@ they can't be updated or deleted. For continuous aggregates, that means
 compressed chunks can't be refreshed.
 
 If you receive historical data and need to refresh a compressed chunk, see
-[the troubleshooting guide](/how-to-guides/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate).
+[the troubleshooting guide][troubleshooting].
 
 <highlight type="warning">
 You can't refresh the compressed regions of a continuous aggregate. To avoid
@@ -67,6 +73,7 @@ parameter greater than the `refresh_start` parameter of the continuous aggregate
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
-[compression]: /how-to-guides/compression/
-[decompress-chunks]:  /how-to-guides/compression/decompress-chunks 
-[refresh-policy]: /how-to-guides/continuous-aggregates/refresh-policies
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks 
+[refresh-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
+[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate

@@ -1,3 +1,9 @@
+---
+title: About psql
+excerpt: Connect to your database with the psql command line tool
+keywords: [connect, psql]
+---
+
 # About psql
 The `psql` command line tool is widely used for interacting with a PostgreSQL or
 TimescaleDB instance, and it is available for all operating systems. Most of
@@ -80,7 +86,6 @@ loaded into the editor. When you have made your changes, press `Esc`, then type
 `:`＋`w`＋`q` to save the changes, and return to the command prompt. Access the
 edited query by pressing `↑`, and press `Enter` to run it.
 
-
-[about-connecting]: /how-to-guides/connecting/about-connecting/
+[about-connecting]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-connecting/
 [psql-cheat-sheet]: https://postgrescheatsheet.com/
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
