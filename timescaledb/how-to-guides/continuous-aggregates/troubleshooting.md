@@ -1,3 +1,9 @@
+---
+title: Troubleshooting continuous aggregates
+excerpt: Troubleshoot common problems experienced with continuous aggregates
+keywords: [continuous aggregates, troubleshooting]
+---
+
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
 # Troubleshooting continuous aggregates

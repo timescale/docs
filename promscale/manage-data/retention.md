@@ -1,3 +1,11 @@
+---
+title: Configure data retention policies in Promscale
+excerpt: Configure data retention policies in Promscale
+product: promscale
+keywords: [data retention]
+tags: [configure, metrics, storage]
+---
+
 # Configure data retention policies in Promscale
 You can control how long metric and trace data is retained in Promscale. 
 
@@ -50,6 +58,4 @@ parameter of the function
 SELECT ps_trace.set_trace_retention_period(30 * INTERVAL '1 day');
 ```
 
-
-
-[promscale-install]: promscale/:currentVersion:/installation/
+[promscale-install]: /promscale/:currentVersion:/installation/

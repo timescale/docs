@@ -1,3 +1,9 @@
+---
+title: Configuration
+excerpt: Learn about configuring your TimescaleDB instance
+keywords: [configuration, settings]
+---
+
 # Configuration
 By default, TimescaleDB uses the default PostgreSQL server configuration
 settings. However, in some cases, these settings are not appropriate, especially
@@ -12,9 +18,8 @@ and storage.
     [within Docker][docker-conf].
 *   Find out more about the [data that we collect][telemetry].
 
-
-[config]: /how-to-guides/configuration/about-configuration
-[postgresql-conf]: /how-to-guides/configuration/postgres-config
-[tstune-conf]: /how-to-guides/configuration/timescaledb-tune
-[docker-conf]: /how-to-guides/configuration/docker-config
-[telemetry]: /how-to-guides/configuration/telemetry
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/about-configuration
+[docker-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/docker-config
+[postgresql-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config
+[telemetry]: /timescaledb/:currentVersion:/how-to-guides/configuration/telemetry
+[tstune-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune

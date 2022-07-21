@@ -1,3 +1,9 @@
+---
+title: Troubleshoot unique indexes
+excerpt: Troubleshoot common problems experienced with hypertables
+keywords: [hypertables, troubleshooting]
+---
+
 # Troubleshoot hypertables
 This section contains some ideas for troubleshooting common problems experienced
 with hypertables.
@@ -16,4 +22,4 @@ The error looks like this:
 For more information on how to fix this problem, see the
 [section on creating unique indexes on hypertables][unique-indexes].
 
-[unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
+[unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

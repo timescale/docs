@@ -1,3 +1,9 @@
+---
+title: Distributed hypertables
+excerpt: Distributed hypertables help you horizontally scale your data storage in multi-node clusters
+keywords: [distributed hypertables, multi-node]
+---
+
 # Distributed hypertables
 Distributed hypertables are hypertables that span multiple nodes. With
 distributed hypertables, you can scale your data storage across multiple
@@ -18,11 +24,11 @@ In this section:
 *   [Create foreign keys][foreign-keys] on distributed hypertables
 *   [Set triggers][triggers] on distributed hypertables
 
-[about-distributed-hypertables]: /how-to-guides/distributed-hypertables/about-distributed-hypertables/
-[alter-drop]: /how-to-guides/distributed-hypertables/alter-drop-distributed-hypertables
-[create]: /how-to-guides/distributed-hypertables/create-distributed-hypertables/
-[foreign-keys]: /how-to-guides/distributed-hypertables/foreign-keys/
-[hypertables]: /how-to-guides/hypertables/
-[insert]: /how-to-guides/distributed-hypertables/insert/
-[query]: /how-to-guides/distributed-hypertables/query/
-[triggers]: /how-to-guides/distributed-hypertables/triggers/
+[about-distributed-hypertables]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/
+[alter-drop]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/alter-drop-distributed-hypertables
+[create]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/create-distributed-hypertables/
+[foreign-keys]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/foreign-keys/
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[insert]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/insert/
+[query]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/query/
+[triggers]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/triggers/

@@ -1,3 +1,10 @@
+---
+title: Change hypertable chunk intervals
+excerpt: Adjust your hypertable chunk interval to improve query performance
+keywords: [hypertables, chunks]
+tags: [performance]
+---
+
 # Change hypertable chunk intervals
 Adjusting your hypertable chunk interval can improve TimescaleDB performance.
 This applies to both regular and distributed hypertables. For more information,
@@ -58,4 +65,4 @@ shorten the chunk for that year. In this situation, you can create a new
 hypertable and migrate your data.
 </highlight>
 
-[best-practices]: /how-to-guides/hypertables/about-hypertables#best-practices
+[best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#best-practices

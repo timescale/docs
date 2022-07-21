@@ -1,3 +1,10 @@
+---
+title: Deploying TimescaleDB
+excerpt: Learn all the ways you can deploy TimescaleDB, on the cloud and on your own hardware
+keywords: [install]
+tags: [cloud, mst, self-hosted]
+---
+
 # Deploying TimescaleDB
 
 TimescaleDB can quickly be deployed and ready to use with one of our
@@ -34,7 +41,6 @@ distro, or a Docker image for your cluster deployment, we have you covered!
 
 [See a listing of current deployment][self-hosted] options for self-hosted installations.
 
-
-[timescale-cloud]: /install/latest/installation-cloud/
-[timescale-mst]: /install/latest/installation-mst/
-[self-hosted]: /install/latest/self-hosted/
+[self-hosted]: /install/:currentVersion:/self-hosted/
+[timescale-cloud]: /install/:currentVersion:/installation-cloud/
+[timescale-mst]: /install/:currentVersion:/installation-mst/

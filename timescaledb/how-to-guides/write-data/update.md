@@ -1,3 +1,9 @@
+---
+title: Update data
+excerpt: Update data in a hypertable
+keywords: [update, hypertables]
+---
+
 # Update data
 Update data in a hypertable with a standard [`UPDATE`][postgres-update] SQL
 command.

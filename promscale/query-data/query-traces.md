@@ -1,3 +1,11 @@
+---
+title: Query traces in Promscale
+excerpt: Query trace data in Promscale
+product: promscale
+keywords: [analytics, query, traces]
+tags: [sql]
+---
+
 # Query traces in Promscale
 This section covers information about the data model used with traces and the
 different SQL queries you can use for trace data.
@@ -430,21 +438,21 @@ select *
     limit 50
 ```
 
-[trace-state-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate
-[span-kind-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#spankind
-[tstzrange-docs]: https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-BUILTIN
-[status-code-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#set-status
+[grafana-bucket-interval]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#prerequisites
+[grafana-interval]: https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [instrumentation-docs]: https://opentelemetry.io/docs/concepts/instrumenting-library/
-[resource-docs]: https://opentelemetry.io/docs/reference/specification/overview/#resources
 [jsonb-pg-type]: https://www.postgresql.org/docs/current/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
-[opentel-spec]: https://opentelemetry.io/docs/reference/specification/trace/api/#spancontext
 [opentel-add-events]: https://opentelemetry.io/docs/reference/specification/trace/api/#add-events
 [opentel-span-events]: https://opentelemetry.io/docs/concepts/signals/traces/#span-events
-[status-code-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#set-status
 [opentel-spec-links]: https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/overview.md#links-between-spans
-[grafana-interval]: https://grafana.com/docs/grafana/latest/variables/variable-types/global-variables/#__interval
-[grafana-bucket-interval]: https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/histograms/#prerequisites
-[pg-interval]: https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT
-[partitioning-hypertables]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks
+[opentel-spec]: https://opentelemetry.io/docs/reference/specification/trace/api/#spancontext
+[partitioning-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/#partitioning-in-hypertables-with-chunks
 [pg-agg-function]: https://www.postgresql.org/docs/current/functions-aggregate.html
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
+[pg-interval]: https://www.postgresql.org/docs/current/datatype-datetime.html#DATATYPE-INTERVAL-INPUT
+[resource-docs]: https://opentelemetry.io/docs/reference/specification/overview/#resources
+[span-kind-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#spankind
+[status-code-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#set-status
+[status-code-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#set-status
+[trace-state-docs]: https://opentelemetry.io/docs/reference/specification/trace/api/#tracestate
+[tstzrange-docs]: https://www.postgresql.org/docs/current/rangetypes.html#RANGETYPES-BUILTIN

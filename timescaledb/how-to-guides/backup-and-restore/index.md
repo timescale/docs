@@ -1,3 +1,10 @@
+---
+title: Backup and restore
+excerpt: Learn how to back up and restore your TimescaleDB instance
+keywords: [backup, restore]
+tags: [recovery]
+---
+
 # Backup and restore
 
 TimescaleDB takes advantage of the reliable backup and restore functionality
@@ -18,6 +25,6 @@ and restore in Timescale Cloud or [test it out yourself](http://tsdb.co/cloud-si
 
 </highlight>
 
-[physical-backups]: /how-to-guides/backup-and-restore/physical/
-[ongoing-physical-backups]: /how-to-guides/backup-and-restore/docker-and-wale/
-[logical-backups]: /how-to-guides/backup-and-restore/pg-dump-and-restore/
+[logical-backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/
+[ongoing-physical-backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/docker-and-wale/
+[physical-backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/physical/

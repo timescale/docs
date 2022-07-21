@@ -1,3 +1,9 @@
+---
+title: Install the psql connection tool
+excerpt: How to install the psql client for PostgreSQL
+keywords: [connect, psql]
+---
+
 # Install the psql connection tool
 The `psql` command line tool is widely used for interacting with a PostgreSQL or
 TimescaleDB instance, and it is available for all operating systems. Most of
@@ -153,7 +159,6 @@ EnterpriseDB.
 
 </procedure>
 
-
 [homebrew]: https://docs.brew.sh/Installation
-[windows-installer]: https://www.postgresql.org/download/windows/
 [macports]: https://guide.macports.org/#installing.macports
+[windows-installer]: https://www.postgresql.org/download/windows/

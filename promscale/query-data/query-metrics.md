@@ -1,3 +1,11 @@
+---
+title: Query metric data with SQL
+excerpt: Query metrics data in Promscale
+product: promscale
+keywords: [analytics, query, metrics]
+tags: [sql, prometheus]
+---
+
 # Query metric data with SQL
 This section covers information about the different SQL queries you can use for
 metric data. 
@@ -257,6 +265,3 @@ This example uses `cAdvisor`, as an example of the sorts of sophisticated
 analysis enabled by Promscale's support to query your data in SQL.
 
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
-[sql-query-dan-luu]: https://danluu.com/metrics-analytics/
-[visualize-data]: /promscale/:currentVersion:/visualize-data/
-[promql-docs]: https://prometheus.io/docs/prometheus/latest/querying/basics/

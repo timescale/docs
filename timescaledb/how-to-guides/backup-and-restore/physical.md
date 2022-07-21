@@ -1,3 +1,10 @@
+---
+title: Physical backups
+excerpt: How to take physical backups of your TimescaleDB instance
+keywords: [backup]
+tags: [restore, recovery, physical backup]
+---
+
 # Physical backups
 
 For full instance physical backups (which are especially useful for starting up
@@ -9,8 +16,8 @@ external backup and restore managers such as [`pg_backrest`][pg-backrest], or
 your entire instance, and many offer incremental backups and other automation
 options.
 
-[replication-tutorial]: /how-to-guides/replication-and-ha/replication/
-[postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html
 [pg-backrest]: https://pgbackrest.org/
 [pg-barman]: https://www.pgbarman.org/
-[wale]: /how-to-guides/backup-and-restore/docker-and-wale/
+[postgres-pg_basebackup]: https://www.postgresql.org/docs/current/app-pgbasebackup.html
+[replication-tutorial]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/
+[wale]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/docker-and-wale/

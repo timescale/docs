@@ -1,3 +1,9 @@
+---
+title: "Quick Start: Python and TimescaleDB"
+excerpt: Get started with TimescaleDB for a Python application
+keywords: [Python]
+---
+
 # Quick Start: Python and TimescaleDB
 
 ## Goal
@@ -401,23 +407,22 @@ tutorials:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-
-[virtual-env]: https://docs.python.org/3/library/venv.html
-[psycopg2-docs]: https://pypi.org/project/psycopg2/
+[cloud-install]: https://www.timescale.com/timescale-signup
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
+[dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
+[hypertable-api]: /api/:currentVersion:/hypertable/
+[hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
+[pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
+[pgcopy-install]: https://pypi.org/project/pgcopy/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
 [psycopg2-cursor]: https://www.psycopg.org/docs/connection.html?highlight=cursor#connection.cursor
-[pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
-[results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
-[pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
+[psycopg2-docs]: https://pypi.org/project/psycopg2/
+[results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
+[self-hosted-install]: /install/latest/self-hosted/
 [time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
-[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
-[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[self-hosted-install]: http://docs.timescale.com/install/latest/self-hosted/
-[cloud-install]: https://www.timescale.com/timescale-signup
-[pgcopy-install]: https://pypi.org/project/pgcopy/
-[dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
-[hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
-[hypertable-api]: /api/:currentVersion:/hypertable/
+[virtual-env]: https://docs.python.org/3/library/venv.html
