@@ -1,3 +1,9 @@
+---
+title: Manual compression
+excerpt: Manually compress a hypertable
+keywords: [compression, hypertables]
+---
+
 # Manual compression
 
 In most cases, an automated compression policy is sufficient. However, if you

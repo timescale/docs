@@ -1,3 +1,9 @@
+---
+title: Install and update TimescaleDB Toolkit
+excerpt: How to install TimescaleDB Toolkit to access more hyperfunctions and function pipelines
+keywords: [Toolkit, install, hyperfunctions, function pipelines]
+---
+
 # Install and update TimescaleDB Toolkit
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
@@ -167,9 +173,8 @@ You can build Toolkit from source. For more information, see the [Toolkit
 developer documentation][toolkit-gh-docs].
 
 [cloud]: /cloud/:currentVersion:/
-[debian-install]: /install/:currentVersion:/self-hosted/installation-debian/
-[docker-install]: /install/:currentVersion:/installation-docker/
+[debian-install]: /install/latest/self-hosted/installation-debian/
+[docker-install]: /install/latest/installation-docker/
 [mst]: /mst/:currentVersion:/
-[red-hat-install]: /install/:currentVersion:/self-hosted/installation-redhat/
-[rust-install]: https://www.rust-lang.org/tools/install
+[red-hat-install]: /install/latest/self-hosted/installation-redhat/
 [toolkit-gh-docs]: https://github.com/timescale/timescaledb-toolkit#-installing-from-source

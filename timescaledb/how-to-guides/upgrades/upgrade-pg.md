@@ -1,3 +1,9 @@
+---
+title: Upgrade PostgreSQL
+excerpt: Upgrade the PostgreSQL installation associated with TimescaleDB
+keywords: [upgrade, PostgreSQL]
+---
+
 # Upgrade PostgreSQL
 Because TimescaleDB is a PostgreSQL extension, you need to ensure you keep your
 underlying PotsgreSQL installation up to date. When you upgrade your TimescaleDB
@@ -68,6 +74,6 @@ If you are moving data to a new physical instance of PostgreSQL, you can use the
 `pg_dump` and `pg_restore` tools to dump your data from the old database, and
 then restore it into the new, upgraded, database. For more information, see the [backup and restore section][backup].
 
-[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html
 [backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
 [pg-relnotes]: https://www.postgresql.org/docs/release/
+[pg_upgrade]: https://www.postgresql.org/docs/current/static/pgupgrade.html

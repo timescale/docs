@@ -1,3 +1,9 @@
+---
+title: About compression
+excerpt: How to compress hypertables
+keywords: [compression, hypertables]
+---
+
 # About compression
 When compression is enabled, TimescaleDB converts data stored in many rows into
 an array. This means that instead of using lots of rows to store the data, it
@@ -249,6 +255,6 @@ possibly match a time predicate specified by the query.
 
 [alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
-[decompress-chunks]: /how-to-guides/compression/decompress-chunks
+[decompress-chunks]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
 [timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/

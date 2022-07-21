@@ -1,3 +1,9 @@
+---
+title: FAQs - Community
+excerpt: Frequently asked questions about our community, contributions, and licensing
+keywords: [community, contribute, license, faq]
+---
+
 # FAQs - Community
 
 ## What is the TimescaleDB open-source license?

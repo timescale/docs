@@ -1,3 +1,10 @@
+---
+title: Why use TimescaleDB over NoSQL?
+excerpt: TimescaleDB's advantages over NoSQL databases
+keywords: [NoSQL]
+tags: [compare]
+---
+
 # Why Use TimescaleDB over NoSQL?
 
 Compared to general NoSQL databases (for example, MongoDB, Cassandra) or even

@@ -1,3 +1,9 @@
+---
+title: Backfill historical data on compressed chunks
+excerpt: How to backfill a batch of historical data on a compressed hypertable
+keywords: [compression, backfill, hypertables]
+---
+
 # Backfill historical data on compressed chunks
 
 In the [TimescaleDB extras][timescaledb-extras] GitHub repository, we provide
@@ -114,8 +120,7 @@ In other words, chunks are partially immutable in compressed form.
 Attempts to modify the chunks' data in those cases either errors or fails silently (as preferred by users). 
 We plan to remove this limitation in future releases.
 
-
-[timescaledb-extras]: https://github.com/timescale/timescaledb-extras
 [compression-schema-changes]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema/
-[timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
 [run-job]: /api/:currentVersion:/actions/run_job/
+[timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
+[timescaledb-extras]: https://github.com/timescale/timescaledb-extras
