@@ -1,3 +1,10 @@
+---
+title: Migrating data to TimescaleDB from a different PostgreSQL database
+excerpt: How to migrate your data into TimescaleDB from a different PostgreSQL database
+keywords: [migrate, PostgreSQL]
+tags: [import]
+---
+
 # Migrating data to TimescaleDB from a different PostgreSQL database
 You can migrate your data into TimescaleDB from a different PostgreSQL database.
 
@@ -66,7 +73,7 @@ To learn what you can do with your hypertable data, read about common
 [hypertable commands][hypertable-commands].
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
-[csv-import]: /how-to-guides/migrate-data/import-csv/
-[hypertable-commands]: /how-to-guides/hypertables/
-[install]: /install/:currentVersion:/
+[csv-import]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/import-csv/
+[hypertable-commands]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[install]: /install/latest/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html

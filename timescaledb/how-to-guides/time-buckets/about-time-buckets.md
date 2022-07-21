@@ -1,3 +1,9 @@
+---
+title: About time buckets
+excerpt: Learn how time buckets help you aggregate data by time interval
+keywords: [time buckets]
+---
+
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # About time buckets
@@ -165,9 +171,9 @@ There are several differences between `time_bucket` and `time_bucket_ng`:
 
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [date_trunc]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC
+[origin-ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/#optional-arguments
+[origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
+[time-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/time/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [time_bucket_ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/
-[time-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/time/
-[origin]: /api/:currentVersion:/hyperfunctions/time_bucket/#optional-arguments-for-interval-time-inputs
-[origin-ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/#optional-arguments
 [use-time-buckets]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/use-time-buckets/

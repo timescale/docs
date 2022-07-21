@@ -1,3 +1,9 @@
+---
+title: Statistical aggregation
+excerpt: Aggregate data to perform common statistical calculations in continuous aggregates and window functions
+keywords: [hyperfunctions, Toolkit, statistics, statistical aggregates]
+---
+
 # Statistical aggregation
 To make common statistical aggregates easier to work with in window functions
 and continuous aggregates, TimescaleDB provides common statistical aggregates in
@@ -68,7 +74,6 @@ FROM measurements_multival;
 
 For more information about statistical aggregation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-stats-agg].
-
 
 [blog-aggregates]: https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/
 [gh-two-step-agg]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/two-step_aggregation.md

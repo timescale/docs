@@ -1,3 +1,9 @@
+---
+title: Set up multi-node on self-hosted TimescaleDB
+excerpt: How to set up a self-hosted multi-node instance
+keywords: [multi-node, self-hosted]
+---
+
 # Set up multi-node on self-hosted TimescaleDB
 <highlight type="cloud" header="Create multi-node databases in seconds with Timescale Cloud">
 Timescale Cloud saves you the manual work associated with setting up and maintaining 
@@ -68,9 +74,9 @@ and architecture, see the
 When you have set up your multi-node installation, you can configure your
 cluster. For more information, see the [configuration section][configuration].
 
-[configuration]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-config/
-[install]: /install/:currentVersion:/
-[setup]: /install/:currentVersion:/
 [about-multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/about-multinode/
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#using-continuous-aggregates-in-a-multi-node-environment
+[configuration]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-config/
+[install]: /install/latest/
 [multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
+[setup]: /install/latest/

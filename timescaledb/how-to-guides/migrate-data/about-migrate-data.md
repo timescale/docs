@@ -1,3 +1,10 @@
+---
+title: About data migration
+excerpt: Learn how to migrate your data into TimescaleDB
+keywords: [migrate]
+tags: [csv, import]
+---
+
 # About data migration
 You can migrate your existing data into TimescaleDB.
 
@@ -22,8 +29,8 @@ original data and any indexes. If your migration method requires decompression,
 you should also account for the size of any temporarily decompressed tables. For
 more information, see the specific instructions for your use case.
 
-[same-db]: /how-to-guides/migrate-data/same-db/
-[different-db]: /how-to-guides/migrate-data/different-db/
-[import-data]: /how-to-guides/migrate-data/import-csv/
+[different-db]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/different-db/
+[import-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/import-csv/
 [mst-to-cloud]: /cloud/:currentVersion:/migrate-to-cloud/
-[outflux]: /how-to-guides/migrate-data/migrate-influxdb/
+[outflux]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/migrate-influxdb/
+[same-db]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/same-db/

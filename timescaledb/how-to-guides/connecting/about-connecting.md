@@ -1,3 +1,9 @@
+---
+title: Connecting to TimescaleDB
+excerpt: How to connect to a TimescaleDB instance
+keywords: [connect, Managed Service for TimescaleDB, Timescale Cloud]
+---
+
 # Connecting to TimescaleDB
 Regardless of the tool you use to connect to your database, you need to make
 sure you have these details:
@@ -54,7 +60,6 @@ have connected using these details, we strongly recommend that you set up an
 additional user for accessing your database, and add additional authentication
 requirements.
 
-
-[about-psql]: /how-to-guides/connecting/about-psql/
-[tsc-portal]: https://console.cloud.timescale.com/
+[about-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/
 [mst-portal]: https://portal.managed.timescale.com
+[tsc-portal]: https://console.cloud.timescale.com/

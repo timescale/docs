@@ -1,3 +1,10 @@
+---
+title: Move data for data tiering
+excerpt: Move data to another tablespace
+keywords: [data tiering, tablespaces]
+tags: [move]
+---
+
 # Move data for data tiering
 PostgreSQL uses tablespaces to determine the physical location of your data. In
 most cases, you want to use faster storage to store data that is accessed
@@ -106,8 +113,7 @@ and move the data to `history` and the indexes to `history_indexes`.
 In TimescaleDB 2.0 and later, you can use `move_chunk` with the job scheduler
 framework. For more information, see the [user-defined actions section][actions].
 
-
+[actions]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/
 [api-move-chunk]: /api/:currentVersion:/hypertable/move_chunk
 [api-reorder-chunk]: /api/:currentVersion:/hypertable/reorder_chunk
 [tablespace]: https://www.postgresql.org/docs/10/sql-createtablespace.html
-[actions]: /how-to-guides/user-defined-actions/

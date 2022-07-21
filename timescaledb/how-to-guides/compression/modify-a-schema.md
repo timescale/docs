@@ -1,3 +1,9 @@
+---
+title: Schema modifications
+excerpt: Modify the schema of compressed hypertables
+keywords: [compression, schemas, hypertables]
+---
+
 # Schema modifications
 You can modify the schema of compressed hypertables in recent versions of
 TimescaleDB.
@@ -62,4 +68,4 @@ For example:
 ALTER TABLE conditions DROP COLUMN temperature;
 ```
 
-[decompression]: /how-to-guides/compression/decompress-chunks/ 
+[decompression]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/ 

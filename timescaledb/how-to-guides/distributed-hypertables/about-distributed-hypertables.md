@@ -1,3 +1,9 @@
+---
+title: About distributed hypertables
+excerpt: Learn how distributed hypertables work in multi-node TimescaleDB
+keywords: [distributed hypertables, multi-node]
+---
+
 # About distributed hypertables
 Distributed hypertables are hypertables that span multiple nodes. With
 distributed hypertables, you can scale your data storage across multiple
@@ -178,12 +184,10 @@ regular tables, with a few nuances. For example, if you `JOIN` a regular table
 and a distributed hypertable, the access node needs to fetch the raw data from
 the data nodes and perform the `JOIN` locally.
 
-[copy]: /how-to-guides/hypertables/work-with-distributed-hypertables#copy-data
-[current_time]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-CURRENT
-[hypertables]: /how-to-guides/hypertables/
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [limitations-pushing-down]: #limitations-of-pushing-down-queries
-[multi-node]: /how-to-guides/multinode-timescaledb/
-[random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE
-[space-partitioning]: /how-to-guides/hypertables/about-hypertables#space-partitioning
-[volatility]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
+[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
+[random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE
+[space-partitioning]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#space-partitioning
+[volatility]: https://www.postgresql.org/docs/current/xfunc-volatility.html

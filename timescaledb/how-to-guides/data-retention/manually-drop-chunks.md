@@ -1,3 +1,10 @@
+---
+title: Manually drop chunks
+excerpt: Manually drop chunks from your hypertable based on time value
+keywords: [data retention]
+tags: [drop, delete]
+---
+
 # Manually drop chunks
 Drop chunks manually by time value. For example, drop chunks containing data
 older than 30 days.

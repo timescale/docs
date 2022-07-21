@@ -1,3 +1,9 @@
+---
+title: Use triggers on distributed hypertables
+excerpt: How to set up triggers on a distributed hypertable
+keywords: [distributed hypertables, triggers, multi-node]
+---
+
 # Use triggers on distributed hypertables
 Triggers on distributed hypertables work in much the same way as triggers on
 regular hypertables. They have the same limitations. But there are some

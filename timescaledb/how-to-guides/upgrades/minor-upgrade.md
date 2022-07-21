@@ -1,3 +1,9 @@
+---
+title: Minor TimescaleDB upgrades
+excerpt: Upgrade within the same major version of TimescaleDB
+keywords: [upgrade]
+---
+
 import PlanUpgrade from 'versionContent/_partials/_plan_upgrade.mdx';
 
 # Minor TimescaleDB upgrades
@@ -43,4 +49,4 @@ individually.
 
 </procedure>
 
-[upgrade-major]: timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[upgrade-major]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/

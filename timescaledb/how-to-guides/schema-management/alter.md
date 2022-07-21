@@ -1,3 +1,10 @@
+---
+title: Altering and updating table schemas
+excerpt: Modify the schema of an existing hypertable
+keywords: [hypertables, schemas, alter]
+tags: [change]
+---
+
 # Altering and updating table schemas
 To modify the schema of an existing hypertable, you can use the `ALTER TABLE`
 command. When you change the hypertable schema, the changes are also propagated
