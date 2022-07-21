@@ -1,3 +1,9 @@
+---
+title: About multi-node
+excerpt: Learn how multi-node TimescaleDB works
+keywords: [multi-node]
+---
+
 # About multi-node
 If you have a larger petabyte-scale workload, you might need more than
 one TimescaleDB instance. TimescaleDB multi-node allows you to run and
@@ -153,7 +159,6 @@ requires a lot of coordination and management, which can negatively effect
 performance, and it is therefore not implemented by default for distributed
 hypertables.
 
-[hypertables]: /how-to-guides/hypertables/
-[multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/
-[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
 [2pc]: https://www.postgresql.org/docs/current/sql-prepare-transaction.html
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[multinode-cloud]: /cloud/:currentVersion:/cloud-multi-node/

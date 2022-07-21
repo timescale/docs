@@ -1,3 +1,9 @@
+---
+title: Multi-node configuration
+excerpt: Configure a multi-node TimescaleDB instance
+keywords: [configuration, settings, multi-node]
+---
+
 # Multi-node configuration
 In addition to the
 [regular TimescaleDB configuration][timescaledb-configuration], we recommend
@@ -48,7 +54,6 @@ For consistency, if the transaction isolation level is set to `READ COMMITTED`
 it is automatically upgraded to `REPEATABLE READ` whenever a distributed
 operation occurs. If the isolation level is `SERIALIZABLE`, it is not changed.
 
-
-[timescaledb-configuration]: /how-to-guides/configuration/
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
 [move_chunk]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental
+[timescaledb-configuration]: /timescaledb/:currentVersion:/how-to-guides/configuration/

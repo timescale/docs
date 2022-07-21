@@ -1,3 +1,10 @@
+---
+title: Multi-node maintenance tasks
+excerpt: How to maintain your multi-node instance
+keywords: [multi-node, maintenance]
+tags: [manage]
+---
+
 # Multi-node maintenance tasks
 Various maintenance activities need to be carried out for effective
 upkeep of the distributed multi-node setup. You can use `cron` or

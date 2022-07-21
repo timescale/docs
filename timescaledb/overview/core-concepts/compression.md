@@ -1,3 +1,9 @@
+---
+title: Native compression
+excerpt: Learn how TimescaleDB native compression works
+keywords: [compression]
+---
+
 # Native compression
 
 TimescaleDB supports the ability to natively compress data stored in hypertables.
@@ -31,6 +37,5 @@ For more information on using compression, please see our [Compression How-to gu
 For a deep dive on the design motivations and architecture supporting
 compression, read our [compression blog post].
 
-
-[Compression How-to guide]: /how-to-guides/compression/
+[Compression How-to guide]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [compression blog post]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database

@@ -1,3 +1,9 @@
+---
+title: Perform advanced analytic queries
+excerpt: Perform advanced data analysis using native PostgreSQL queries and TimescaleDB hyperfunctions
+keywords: [queries, hyperfunctions, analytics]
+---
+
 # Perform advanced analytic queries
 You can use TimescaleDB for a variety of analytical queries. Some of these
 queries are native PostgreSQL, and some are additional functions provided by
@@ -337,12 +343,12 @@ hypertable, although this requires more compute resources. Alternatively, you
 speed up your `SELECT DISTINCT` queries by structuring them so that TimescaleDB can 
 use its [SkipScan][skipscan] feature.
 
-[percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [date_trunc]: https://www.postgresql.org/docs/current/static/functions-datetime.html#functions-datetime-trunc
 [first]: /api/:currentVersion:/hyperfunctions/first
-[last]: /api/:currentVersion:/hyperfunctions/last
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
+[last]: /api/:currentVersion:/hyperfunctions/last
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
+[percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
