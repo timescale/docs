@@ -1,3 +1,9 @@
+---
+title: Querying data
+excerpt: Query data in TimescaleDB
+keywords: [queries]
+---
+
 # Querying data
 
 TimescaleDB hypertables _are_ PostgreSQL tables. That means you can query them
@@ -10,6 +16,6 @@ architecture and query planning.
 - [Perform advanced analytic queries][advanced-analytics]
 
 [about-querying-data]: /timescaledb/:currentVersion:/how-to-guides/query-data/about-query-data/
+[advanced-analytics]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries/
 [selecting-data]: /timescaledb/:currentVersion:/how-to-guides/query-data/select/
 [skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
-[advanced-analytics]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries/

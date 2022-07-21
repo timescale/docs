@@ -1,3 +1,9 @@
+---
+title: Upgrades within a Docker container
+excerpt: Upgrade TimescaleDB within a Docker container
+keywords: [upgrade, Docker]
+---
+
 # Upgrades within a Docker container
 If you originally installed TimescaleDB using Docker, you can upgrade from
 within the Docker container. This allows you to upgrade to the latest

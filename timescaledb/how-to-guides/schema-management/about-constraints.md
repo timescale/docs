@@ -1,3 +1,9 @@
+---
+title: About constraints
+excerpt: Learn how constraints help you keep your data valid and consistent
+keywords: [schemas, constraints]
+---
+
 # About constraints
 Constraints are rules that apply to your database columns. This prevents you
 from entering invalid data into your database. When you create, change, or
@@ -35,6 +41,5 @@ exist.
 
 For more information on how to manage constraints, see the
 [PostgreSQL docs][postgres-createconstraint].
-
 
 [postgres-createconstraint]: https://www.postgresql.org/docs/current/static/ddl-constraints.html

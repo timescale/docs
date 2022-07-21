@@ -1,3 +1,10 @@
+---
+title: Insert data
+excerpt: How to insert data into distributed hypertables
+keywords: [write, distributed hypertables]
+tags: [ingest, insert]
+---
+
 # Insert data
 You can insert data into a distributed hypertable with an `INSERT` statement.
 The syntax looks the same as for a regular hypertable or PostgreSQL table. For
@@ -58,6 +65,6 @@ COPY <HYPERTABLE> FROM '<FILE_PATH>';
 When doing a [`COPY`][postgresql-copy], the access node switches each data node
 to copy mode. It then streams each row to the correct data node.
 
-[config]: /how-to-guides/configuration/timescaledb-config/#distributed-hypertables
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-config/#distributed-hypertables
 [postgresql-copy]: https://www.postgresql.org/docs/14/sql-copy.html
 [postgresql-explain]: https://www.postgresql.org/docs/14/sql-explain.html

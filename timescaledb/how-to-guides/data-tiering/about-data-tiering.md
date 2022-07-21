@@ -1,3 +1,10 @@
+---
+title: About data tiering
+excerpt: Learn how to save on data storage with data tiering
+keywords: [data tiering, tablespaces]
+tags: [storage]
+---
+
 # About data tiering
 Data tiering helps you make the most of your equipment when running TimescaleDB
 on your own hardware. With data tiering, you save on data storage by using

@@ -1,3 +1,10 @@
+---
+title: FAQs - About our products
+excerpt: Frequently asked questions about TimescaleDB, Timescale Cloud, and Managed Service for TimescaleDB
+keywords: [Timescale Cloud, Managed Service for TimescaleDB, faq]
+tags: [cloud regions, PostgreSQL]
+---
+
 # FAQs - About our products
 
 ## What is the difference between Timescale, TimescaleDB, Timescale Cloud, and Managed Service for TimescaleDB?
@@ -148,7 +155,7 @@ Yes. TimescaleDB is currently deployed in production across a variety of industr
 including manufacturing, energy, utilities, mining, oil and gas, finance, ad tech,
 smart spaces, and more.
 
-## When is TimescaleDB a good choice?  [](when-good)
+## When is TimescaleDB a good choice?
 TimescaleDB is a good choice:
 
 * If you, and more of your organization, want to make standard SQL queries on time-series data,
@@ -189,9 +196,9 @@ there are some best practices and suggestions that may apply to get optimal
 performance depending on your scenario. See discussion in these docs
 or [join our Slack group][join_slack].
 
-[distributed_hypertable]: /overview/core-concepts/distributed-hypertables/
+[distributed_hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
 [join_slack]: https://slack.timescale.com/
-[new-queries]: /how-to-guides/query-data/advanced-analytic-queries
+[new-queries]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries
 [timescale-k8s]: https://github.com/timescale/timescaledb-kubernetes
 [timescale-license]: https://www.timescale.com/legal/licenses
 [timescale-signup]: https://www.timescale.com/timescale-signup

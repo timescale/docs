@@ -1,3 +1,10 @@
+---
+title: PostgreSQL Kafka connector
+excerpt: Ingest data into TimescaleDB using the PostgreSQL Kafka connector
+keywords: [ingest, Kafka]
+tags: [insert]
+---
+
 # PostgreSQL Kafka connector
 You can ingest data into TimescaleDB using the Kafka Connect JDBC sink
 connector. The connector is deployed to a Kafka Connect runtime service, and

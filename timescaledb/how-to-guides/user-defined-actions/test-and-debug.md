@@ -1,3 +1,9 @@
+---
+title: Test and debug a user-defined action
+excerpt: Troubleshoot problems when writing a user-defined action
+keywords: [actions, debug]
+---
+
 # Test and debug a user-defined action
 To debug an action, you can increase the log level and run the job manually in
 the foreground.

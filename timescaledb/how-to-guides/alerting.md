@@ -1,3 +1,9 @@
+---
+title: Alerting
+excerpt: Set up alerting with TimescaleDB
+keywords: [alert, integration, Grafana, DataDog, Nagios, Zabbix]
+---
+
 # Alerting
 
 There are a variety of different alerting solutions you can use in conjunction with TimescaleDB that are part of the PostgreSQL ecosystem. Regardless of whether you are creating custom alerts embedded in your applications, or using third-party alerting tools to monitor event data across your organization, there are a wide selection of tools available.
@@ -23,11 +29,9 @@ Some popular alerting tools that work with TimescaleDB include:
 - Nagios: get started [here][nagios-install]
 - Zabbix: get started [here][zabbix-install]
 
-
-[define alert rules]: https://grafana.com/docs/alerting/rules/
 [Grafana-install]: https://grafana.com/get
 [PostgreSQL datasource]: https://grafana.com/docs/features/datasources/postgres/
-[alert rules]: https://grafana.com/docs/alerting/rules/
 [datadog-install]: https://docs.datadoghq.com/integrations/postgres/
+[define alert rules]: https://grafana.com/docs/alerting/rules/
 [nagios-install]: https://www.nagios.com/solutions/postgres-monitoring/
 [zabbix-install]: https://www.zabbix.com/documentation/current/manual/quickstart/notification
