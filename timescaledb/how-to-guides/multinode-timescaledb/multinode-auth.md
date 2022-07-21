@@ -1,3 +1,10 @@
+---
+title: Multi-node authentication
+excerpt: Configure authentication between access nodes and data nodes
+keywords: [multi-node, authenticate]
+tags: [admin]
+---
+
 # Multi-node authentication
 When you have your instances set up, you need to configure them to accept
 connections from the access node to the data nodes. The authentication mechanism
@@ -366,9 +373,8 @@ step is add additional user roles.
 
 </procedure>
 
-
 [auth-password]: https://www.postgresql.org/docs/current/auth-password.html
-[md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
 [distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
+[md5sum]: https://www.tutorialspoint.com/unix_commands/md5sum.htm
+[multi-node-setup]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-setup/
 [user-mapping]: https://www.postgresql.org/docs/current/sql-createusermapping.html
-[multi-node-setup]: /how-to-guides/multinode-timescaledb/multinode-setup/

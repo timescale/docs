@@ -1,3 +1,9 @@
+---
+title: Create an index on a continuous aggregate
+excerpt: How to create and drop indexes on a continuous aggregate
+keywords: [continuous aggregates, indexes]
+---
+
 # Create an index on a continuous aggregate
 By default, some indexes are automatically created when you create a continuous
 aggregate. You can change this behavior. You can also manually create and drop
@@ -48,4 +54,4 @@ materialized view. This includes aggregated columns, such as those storing sums
 and averages. In earlier versions of TimescaleDB, you can't create an index on
 an aggregated column.
 
-[materialized-hypertable-name]: /how-to-guides/continuous-aggregates/materialized-hypertables/#discover-the-name-of-a-materialized-hypertable
+[materialized-hypertable-name]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables/#discover-the-name-of-a-materialized-hypertable

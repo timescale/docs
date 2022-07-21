@@ -1,3 +1,10 @@
+---
+title: Insert data
+excerpt: Insert data into a hypertable
+keywords: [ingest]
+tags: [insert, write, hypertables]
+---
+
 # Insert data
 Insert data into a hypertable with a standard [`INSERT`][postgres-insert] SQL
 command.

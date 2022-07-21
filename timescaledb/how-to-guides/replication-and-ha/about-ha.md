@@ -1,3 +1,10 @@
+---
+title: High availability
+excerpt: Strategies for increasing redundancy and resilience of your database
+keywords: [high availability, backup, replicas, failover]
+tags: [redundancy]
+---
+
 # High availability (HA)
 High availability (HA) is achieved by increasing redundancy and
 resilience. To increase redundancy, parts of the system are replicated, so that
@@ -65,12 +72,12 @@ out-of-the-box support for automatic failover. Read more in the PostgreSQL
 [failover documentation][failover-docs]. [Patroni][patroni-github] offers a
 configurable high availability solution with automatic failover functionality.
 
+[cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
 [cloud-ha]: /cloud/:currentVersion:/high-availability/
 [db-backup]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
-[cloud-backup]: /cloud/:currentVersion:/backup-restore-cloud/
-[postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION
-[postgres-partition-limitations]: https://www.postgresql.org/docs/current/static/logical-replication-restrictions.html
-[postgres-logrep-docs]: https://www.postgresql.org/docs/current/static/logical-replication.html
-[pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
+[pgctl-docs]: https://www.postgresql.org/docs/current/static/app-pg-ctl.html
+[postgres-logrep-docs]: https://www.postgresql.org/docs/current/static/logical-replication.html
+[postgres-partition-limitations]: https://www.postgresql.org/docs/current/static/logical-replication-restrictions.html
+[postgres-streaming-replication-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION
