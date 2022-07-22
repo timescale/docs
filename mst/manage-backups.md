@@ -31,5 +31,3 @@ You can put all backup files to single tar file and upload to S3:
 ```bash
 export BACKUP_NAME=backup-date -I.tartar -cf $BACKUP_NAME backup/s3cmd put $BACKUP_NAME s3://pg-backups/$BACKUP_NAME
 ```
-
-[github-timescaledb]: https://github.com/timescale/timescaledb-backup/#installing-timescaledb-backup
