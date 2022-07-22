@@ -68,7 +68,6 @@ instead.
     ```bash
     wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add -
     ```
-    
     <highlight type="note">
     For Ubuntu 21.10 and later use the following command to install Timescale GPG key
     `wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo sh -c "gpg --dearmor > /etc/apt/trusted.gpg.d/timescaledb.gpg"`
