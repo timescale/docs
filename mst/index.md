@@ -17,7 +17,7 @@ management.
 *   View [service logs][viewing-service-logs]
 *   Use [VPC peering][vpc-peering]
 *   Understand [security for Timescale MST][security]
-*   Manage [backup and restore][manage-backups]
+*   [Backup and restore][manage-backups] your services
 
 Some important terms:
 *   **Account:** Your Managed Service for TimescaleDB account. You can register
