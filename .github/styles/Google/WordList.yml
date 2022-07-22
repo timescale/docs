@@ -39,9 +39,11 @@ swap:
   in order to: to
   login to: log in to
   k8s: Kubernetes
+  [Mm]ultinode: multi-node
   network IP address: internal IP address
   open-source: open source
   Postgres: PostgreSQL
+  Promscale connector: Promscale Connector
   quickstart: quick start
   regex: regular expression
   SHA1: SHA-1|HAS-SHA1
