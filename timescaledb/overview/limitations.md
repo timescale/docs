@@ -1,3 +1,9 @@
+---
+title: Limitations
+excerpt: Current limitations of TimescaleDB features
+keywords: [hypertables, distributed hypertables]
+---
+
 # Limitations
 
 While TimescaleDB generally offers capabilities that go beyond what

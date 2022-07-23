@@ -1,3 +1,9 @@
+---
+title: Hypertables
+excerpt: Learn how TimescaleDB hypertables work
+keywords: [hypertables, chunks, partitions]
+---
+
 # Hypertables
 
 From a user's perspective, TimescaleDB exposes what look like singular tables,
@@ -76,7 +82,7 @@ the past week, and excludes any chunks before that time. This happens
 transparently to the user, however, who simply queries the hypertable with
 a standard SQL statement.
 
-## Benefits of Hypertables and Chunks [](hypertable-benefits)
+## Benefits of hypertables and chunks
 
 This chunk-based architecture benefits many aspects of time-series data
 management. These includes:
@@ -153,6 +159,5 @@ management. These includes:
   asynchronous rebalance a cluster after adding a server or to prepare for
   retiring a server (coming soon).
 
-
-  [create-hypertable]: /how-to-guides/hypertables/create/
-  [distributed hypertables]: /overview/core-concepts/distributed-hypertables/
+[create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
+[distributed hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/

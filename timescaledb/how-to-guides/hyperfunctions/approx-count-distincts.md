@@ -1,3 +1,9 @@
+---
+title: Approximate count distincts
+excerpt: Estimate the number of distinct values in a large dataset
+keywords: [hyperfunctions, Toolkit, approximate count distincts]
+---
+
 # Approximate count distincts
 Approximate count distincts are typically used to find the number of unique values, or cardinality, in a large dataset. When you calculate cardinality in a dataset,
 the time it takes to process the query is proportional to how large the dataset

@@ -1,3 +1,9 @@
+---
+title: Upgrade TimescaleDB
+excerpt: Upgrade your self-hosted TimescaleDB installation in-place
+keywords: [upgrade]
+---
+
 # Upgrade TimescaleDB
 You can upgrade your on-premise TimescaleDB installation in-place.
 
@@ -34,10 +40,10 @@ you.
 about automatic version upgrades in Timescale Cloud.
 </highlight>
 
-[about-upgrades]: timescaledb/:currentVersion:/how-to-guides/upgrades/about-upgrades/
-[upgrade-minor]: timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
-[upgrade-major]: timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
-[downgrade]: timescaledb/:currentVersion:/how-to-guides/upgrades/downgrade/
-[upgrade-docker]: timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-docker/
-[upgrade-pg]: timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
-[upgrade-tshoot]: timescaledb/:currentVersion:/how-to-guides/upgrades/troubleshooting/
+[about-upgrades]: /timescaledb/:currentVersion:/how-to-guides/upgrades/about-upgrades/
+[downgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/downgrade/
+[upgrade-docker]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-docker/
+[upgrade-major]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
+[upgrade-minor]: /timescaledb/:currentVersion:/how-to-guides/upgrades/minor-upgrade/
+[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
+[upgrade-tshoot]: /timescaledb/:currentVersion:/how-to-guides/upgrades/troubleshooting/

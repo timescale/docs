@@ -1,3 +1,9 @@
+---
+title: Telemetry and version checking
+excerpt: What telemetry TimescaleDB collects and how to disable telemetry
+keywords: [settings, telemetry]
+---
+
 # Telemetry and version checking
 Timescale collects anonymous usage data to help us better understand and assist
 our users. It also helps us provide some services, such as automated version
@@ -241,4 +247,4 @@ If you disable telemetry, the version checking functionality is also disabled.
 </procedure>
 
 [get_telemetry_report]: /api/:currentVersion:/administration/get_telemetry_report
-[postgres-config]: /how-to-guides/configuration/postgres-config
+[postgres-config]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config

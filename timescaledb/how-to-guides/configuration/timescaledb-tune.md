@@ -1,3 +1,10 @@
+---
+title: TimescaleDB tuning tool
+excerpt: Use the timescaledb-tune tool to automatically configure your TimescaleDB instance
+keywords: [configuration, settings, timescaledb-tune]
+tags: [tune]
+---
+
 # TimescaleDB tuning tool
 To help make configuring TimescaleDB a little easier, you can use the [`timescaledb-tune`][tstune]
 tool. This tool handles setting the most common parameters to good values based

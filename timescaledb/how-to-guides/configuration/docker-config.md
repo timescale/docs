@@ -1,3 +1,9 @@
+---
+title: Configuration with Docker
+excerpt: Configure a TimescaleDB instance running in a Docker container
+keywords: [configuration, settings, Docker]
+---
+
 # Configuration with Docker
 If you are running TimescaleDB in a [Docker container][docker], there are two
 different ways to modify your PostgreSQL configuration. You can edit the
@@ -40,6 +46,5 @@ using the `-c` option. For example:
 ```
 docker run -i -t timescale/timescaledb:latest-pg10 postgres -c max_wal_size=2GB
 ```
-
 
 [docker]: /install/latest/installation-docker/

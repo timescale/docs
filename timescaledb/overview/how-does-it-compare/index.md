@@ -1,3 +1,10 @@
+---
+title: How does TimescaleDB compare?
+excerpt: How TimescaleDB compares to other relational databases and to NoSQL databases
+keywords: [PostgreSQL, InfluxDB, MongoDB, NoSQL]
+tags: [compare]
+---
+
 # How does TimescaleDB compare?
 
 TimescaleDB is often compared to both plain, vanilla relational databases (ie.

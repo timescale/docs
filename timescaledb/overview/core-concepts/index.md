@@ -1,3 +1,8 @@
+---
+title: Why use TimescaleDB
+excerpt: TimescaleDB is PostgreSQL, enhanced for time-series data
+---
+
 # Why use TimescaleDB
 
 TimescaleDB is a **relational database for time-series data**.

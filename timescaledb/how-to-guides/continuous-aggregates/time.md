@@ -1,3 +1,9 @@
+---
+title: Time and continuous aggregates
+excerpt: How to work with timezones and continuous aggregates
+keywords: [continuous aggregates, timezones]
+---
+
 # Time and continuous aggregates
 Functions that depend on a local timezone setting inside a continuous aggregate
 are not supported. You cannot adjust to a local time because the timezone setting
@@ -128,7 +134,7 @@ To define a continuous aggregate on a hypertable that uses integer-based time, y
 
 </procedure>
 
-[postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html
+[api-set-integer-now-func]: /api/:currentVersion:/hypertable/set_integer_now_func
 [fff-system]: https://en.wikipedia.org/wiki/FFF_system
 [pg-func-stable]: https://www.postgresql.org/docs/current/static/sql-createfunction.html
-[api-set-integer-now-func]: /api/:currentVersion:/hypertable/set_integer_now_func
+[postgres-date-time]: https://www.postgresql.org/docs/current/datatype-datetime.html
