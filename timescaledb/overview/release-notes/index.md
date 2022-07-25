@@ -38,7 +38,7 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.7.1:
+### What's new in TimescaleDB 2.7.2:
 
 
 You can recreate a continuous aggregate to benefit from the improvement, if the
@@ -119,6 +119,27 @@ for more information and links to installation instructions when upgrading from 
 </highlight>
 
 ## Release notes
+
+## 2.7.2 (2022-07-26)
+
+This release is a patch release. We recommend that you upgrade at the
+next available opportunity.
+Among other things this release fixes several memory leaks, handling
+of TOASTed values in GapFill and parameter handling in prepared statements.
+
+**Bugfixes**
+* #4517 Fix prepared statement param handling in ChunkAppend
+* #4522 Fix ANALYZE on dist hypertable for a set of nodes
+* #4526 Fix gapfill group comparison for TOASTed values
+* #4527 Handle stats properly for range types
+* #4532 Fix memory leak in function telemetry
+* #4534 Use explicit memory context with hash_create
+* #4538 Fix chunk creation on hypertables with non-default statistics
+
+**Thanks**
+* @3a6u9ka, @bgemmill, @hongquan, @stl-leonid-kalmaev and @victor-sudakov for reporting a memory leak
+* @hleung2021 and @laocaixw  for reporting an issue with parameter handling in prepared statements
+
 ## 2.7.1 (2022-07-07)
 
 **Bug fixes**
