@@ -1,7 +1,7 @@
 ---
 title: Build a bar chart in Grafana
 excerpt: Plot a bar chart in Grafana to compare values between categories
-keywords: [Grafana, visualizations, analytics]
+keywords: [Grafana, visualization, analytics]
 tags: [bar chart]
 ---
 
