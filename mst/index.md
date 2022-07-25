@@ -68,12 +68,12 @@ integrations and extensions.
 
 For more information on Managed Service for TimescaleDB's terms of service, visit the [Timescale website][tos].
 
-[create-a-service]: /create-a-service
-[mst-multi-node]: /mst-multi-node
-[viewing-service-logs]: /viewing-service-logs
-[vpc-peering]: /vpc-peering
-[security]: /security
+[create-a-service]: /mst/:currentVersion:/create-a-service
+[mst-multi-node]: /mst/:currentVersion:/mst-multi-node
+[viewing-service-logs]: /mst/:currentVersion:/viewing-service-logs
+[vpc-peering]: /mst/:currentVersion:/vpc-peering
+[security]: /mst/:currentVersion:/security
 [sign-up]: https://www.timescale.com/mst-signup
 [tos]: https://www.timescale.com/legal/mst-terms-of-service
-[backups]: /backup-types
-[manage-backups]: /manage-backups
+[backups]: /mst/:currentVersion:/backup-types
+[manage-backups]: /mst/:currentVersion:/manage-backups
