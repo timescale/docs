@@ -98,7 +98,7 @@ reduce downtime for upgrades by enabling replicas.
 </highlight>
 
 ### Recommended practices for upgrading
-Follow these optional recommendations for a smooth upgrade experience.
+Follow these optional recommendations for a smooth upgrade experience:
 
 *   Fork your database, and try out the upgrade on the fork before running it on
     your production system. This gives you a good idea of what happens during
@@ -107,10 +107,10 @@ Follow these optional recommendations for a smooth upgrade experience.
 *   Keep a copy of your database with your old version and data, if you're
     worried about losing it. You can fork your database without upgrading the
     fork to keep a duplicate Timescale Cloud service.
-*   Enable replicas for near zero-downtime-upgrades. If you have replicas
+*   Enable replicas for near-zero-downtime upgrades. If you have replicas
     enabled on Timescale Cloud, the upgrade process upgrades your nodes one by
-    one. Thus, one node is always available. The only downtime is the time
-    needed for failover, which usually takes several seconds. For more
+    one, so one node is always available. The only downtime is the time
+    needed for failover, which usually takes a few seconds. For more
     information about replicas in Timescale Cloud, see the section on
     [replicas][replicas].
 
