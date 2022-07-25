@@ -55,6 +55,10 @@ module.exports = [
         href: "maintenance"
       },
       {
+        title: "Manage-backups",
+        href: "manage-backups"
+      },
+      {
         title: "Migrate your data to Timescale Cloud",
         href: "migrate-to-cloud"
       }
