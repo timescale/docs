@@ -1,3 +1,9 @@
+---
+title: How to monitor a Django application with Prometheus
+excerpt: Set up Prometheus to monitor a Django application
+keywords: [prometheus, django, monitor]
+---
+
 # How to monitor a Django application with Prometheus
 
 ## Introduction
@@ -21,7 +27,7 @@ syntax instead of the `pip [foo]` syntax. This is to ensure that pip installs
 new components for the version of Python that we are using.
 </highlight>
 
-## Step 1 - Set up a basic Django application (optional) [](step0)
+## Step 1 - Set up a basic Django application (optional)
 *(Please skip this step if you already have a Django application.)*
 
 ### Install Django
@@ -156,7 +162,7 @@ python_info{implementation="CPython",major="3",minor="8",patchlevel="0",version=
 ...
 ```
 
-## Step 3 - Point Prometheus to your Django application metrics endpoint [](step2)
+## Step 3 - Point Prometheus to your Django application metrics endpoint
 
 **(Note: This section assumes that you have a locally running Prometheus
 instance.)**
@@ -203,7 +209,7 @@ more times and reload the Prometheus Expression Browser to confirm that it
 is working. Also feel free to explore the other Django metrics that
 Prometheus is collecting.
 
-## Step 4 - Instrument additional aspects of your application (optional) [](step3)
+## Step 4 - Instrument additional aspects of your application (optional)
 [Django-prometheus][get-django-prometheus] is quite powerful, and allows
 you to easily instrument additional aspects of your application, including:
 
@@ -222,13 +228,13 @@ Looking for something to do next? You can start building dashboards to
 monitor key metrics in real-time, using another open-source tool for your
 visualizations, like [Grafana][grafana].
 
+[django-first-app]: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
+[get-django-prometheus-more]: https://github.com/korfuri/django-prometheus#monitoring-your-databases
+[get-django-prometheus]: https://github.com/korfuri/django-prometheus
+[get-django]: https://docs.djangoproject.com/en/3.0/topics/install/
 [get-pip]: https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py
 [get-prometheus]: https://prometheus.io/docs/prometheus/latest/installation/
-[get-django]: https://docs.djangoproject.com/en/3.0/topics/install/
-[django-first-app]: https://docs.djangoproject.com/en/3.0/intro/tutorial01/
-[get-django-prometheus]: https://github.com/korfuri/django-prometheus
-[get-django-prometheus-more]: https://github.com/korfuri/django-prometheus#monitoring-your-databases
+[grafana]: /timescaledb/:currentVersion:/tutorials/grafana
 [localhost-metrics]: http://localhost:8000/metrics
 [localhost-prom-browser]: http://localhost:9090/graph
 [localhost-prom-example]: http://localhost:9090/graph?g0.range_input=1h&g0.stacked=1&g0.expr=django_http_requests_total_by_method_total&g0.tab=0
-[grafana]: /tutorials/grafana

@@ -1,3 +1,10 @@
+---
+title: Explore stock market data
+excerpt: Explore a stock market dataset using TimescaleDB with Plotly, Pandas, and psycopg2
+keywords: [finance, analytics, psycopg2, pandas, plotly]
+tags: [candlestick]
+---
+
 # Explore stock market data
 
 When you've successfully collected 1-min intraday stock data, it's time to have some fun and explore the 
@@ -290,13 +297,16 @@ Change `date` to see the candlesticks for another day.
 
 ## Resources
 
-* [Intraday stocks analysis on Github](https://github.com/timescale/examples/tree/master/analyze-intraday-stocks)
-* [Alpha Vantage API docs](https://www.alphavantage.co/documentation/)
+* [Intraday stocks analysis on Github][github-intraday-stocks]
+* [Alpha Vantage API docs][alpha-vantage-api]
 * [Pandas docs][pandas-docs]
 * [Plotly docs][plotly-docs]
-* [Timescale free trial](https://www.timescale.com/timescale-signup)
-* [Analyze cryptocurrency data](/tutorials/analyze-cryptocurrency-data/)
+* [Timescale free trial][timescale-signup]
+* [Analyze cryptocurrency data][analyze-cryptocurrency-data]
 
-
+[alpha-vantage-api]: https://www.alphavantage.co/documentation/
+[analyze-cryptocurrency-data]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
+[github-intraday-stocks]: https://github.com/timescale/examples/tree/master/analyze-intraday-stocks
 [pandas-docs]: https://pandas.pydata.org
 [plotly-docs]: https://plotly.com/python/
+[timescale-signup]: https://www.timescale.com/timescale-signup
