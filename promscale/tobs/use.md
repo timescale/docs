@@ -1,3 +1,11 @@
+---
+title: Use the observability stack (tobs) for Kubernetes
+excerpt: Using the observability suite for Kubernetes (tobs)
+product: promscale
+keywords: [tobs, Kubernetes]
+tags: [monitor, k8s]
+---
+
 # Use the observability stack (tobs) for Kubernetes
 This section covers the main commands you can use with tobs, including how to
 use it to view metrics in Grafana. For more information about Helm charts, see
@@ -143,6 +151,5 @@ commands listed here.
 |--namespace, -n|Kubernetes namespace|
 |--config|Tobs configuration file, defaults to ``$HOME/.tobs.yaml`|
 
-
-[tobs-install]: promscale/:currentVersion:/installation/tobs/
 [tobs-helm]: https://github.com/timescale/tobs/tree/master/chart#tobs-helm-charts
+[tobs-install]: /promscale/:currentVersion:/installation/tobs/

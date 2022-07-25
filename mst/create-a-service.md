@@ -1,3 +1,10 @@
+---
+title: About services
+excerpt: Set up and manage your TimescaleDB services in Managed Service for TimescaleDB
+product: mst
+keywords: [services]
+---
+
 # About services
 A managed TimescaleDB service is an instance that corresponds to a cloud service
 provider tier. You can access all your services from the `Services` tab within
@@ -12,11 +19,11 @@ Now you have your service up and running, you can try your
 [first tutorial][getting-started].
 
 
-[sign-up]: https://www.timescale.com/cloud-signup
+[contact]: https://www.timescale.com/contact
+[getting-started]: /getting-started/:currentVersion:/
+[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
+[mst-install]: /install/:currentVersion:/installation-mst/
 [mst-login]: https://portal.managed.timescale.com
+[sign-up]: https://www.timescale.com/cloud-signup
 [timescale-mst-portal]: https://portal.managed.timescale.com
 [timescale-pricing]: https://www.timescale.com/products
-[contact]: https://www.timescale.com/contact
-[getting-started]: /timescaledb/:currentVersion:/getting-started/
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
-[mst-install]: install/:currentVersion:/installation-mst/

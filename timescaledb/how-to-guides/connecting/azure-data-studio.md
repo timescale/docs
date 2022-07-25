@@ -1,3 +1,9 @@
+---
+title: Azure Data Studio
+excerpt: Connect to your TimescaleDB database with Microsoft Azure Data Studio
+keywords: [connect]
+---
+
 # Azure Data Studio
 Microsoft Azure Data Studio is a cross-platform database tool that is available
 for Microsoft Windows, Apple macOS, or various Linux flavors. You can try Azure

@@ -1,3 +1,9 @@
+---
+title: Time-weighted average
+excerpt: Calculate a time-weighted average
+keywords: [hyperfunctions, Toolkit, time-weighted]
+---
+
 # Time-weighted average
 Timescale's time weighted average is implemented as an aggregate that
 weights each value using last observation carried forward (LOCF), or linear
@@ -36,5 +42,5 @@ contains data about internal freezer temperatures.
 For more information about time-weighted average API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-timeweight].
 
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 [hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/
-[caggs]: /how-to-guides/continuous-aggregates

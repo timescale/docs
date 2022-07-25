@@ -1,3 +1,10 @@
+---
+title: FAQs - Comparing to PostgreSQL
+excerpt: Why to choose TimescaleDB over regular PostgreSQL
+keywords: [PostgreSQL, faq]
+tags: [geospatial data, compare]
+---
+
 # FAQs - Comparing to PostgreSQL
 
 ## Why would I use TimescaleDB over vanilla PostgreSQL?
@@ -53,11 +60,10 @@ reporting tools.
 As an extension of PostgreSQL, TimescaleDB works well with PostGIS. For example,
 [see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data.
 
-
 [PostgreSQL-benchmark]: https://blog.timescale.com/blog/timescaledb-vs-6a696248104e/
 [PostgreSQL-problems-time-series]: https://blog.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5/
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [last]: /api/:currentVersion:/hyperfunctions/last/
-[data-retention]: /how-to-guides/data-retention/
-[postgis]: /tutorials/nyc-taxi-cab
+[postgis]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

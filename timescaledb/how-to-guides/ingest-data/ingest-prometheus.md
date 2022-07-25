@@ -1,3 +1,10 @@
+---
+title: Prometheus
+excerpt: Use TimescaleDB to store your Prometheus metrics
+keywords: [ingest, Prometheus, Promscale]
+tags: [insert]
+---
+
 # Prometheus
 Prometheus is used to monitor infrastructure metrics. It scrapes any endpoints
 that expose metrics in a compatible format. The metrics are stored in
@@ -15,7 +22,7 @@ aggregate views, downsampling, data gap-filling, and interpolation.
 Additionally, Promscale supports Grafana using [Prometheus][prometheus-grafana]
 and [PostgreSQL][postgres-grafana] data sources.
 
+[postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/
+[prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
 [promscale]: /promscale/:currentVersion:/
 [timescale-compression]: https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database/
-[prometheus-grafana]: https://grafana.com/docs/grafana/latest/datasources/prometheus/
-[postgres-grafana]: https://grafana.com/docs/grafana/latest/datasources/postgres/

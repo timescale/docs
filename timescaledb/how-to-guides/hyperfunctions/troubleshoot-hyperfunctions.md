@@ -1,3 +1,9 @@
+---
+title: Troubleshooting hyperfunctions and TimescaleDB Toolkit
+excerpt: Troubleshoot common problems experienced with hyperfunctions and TimescaleDB Toolkit
+keywords: [hyperfunctions, Toolkit, troubleshooting]
+---
+
 # Troubleshooting hyperfunctions and TimescaleDB Toolkit
 This section contains some ideas for troubleshooting common problems experienced
 with hyperfunctions and TimescaleDB Toolkit.
@@ -54,5 +60,5 @@ again.
 
 </procedure>
 
-[deb-install]: /install/:currentVersion:/self-hosted/installation-debian/
-[rhel-install]: /install/:currentVersion:/self-hosted/installation-redhat/
+[deb-install]: /install/latest/self-hosted/installation-debian/
+[rhel-install]: /install/latest/self-hosted/installation-redhat/

@@ -1,3 +1,9 @@
+---
+title: Partitioning in hypertables with chunks
+excerpt: Learn how hypertables are partitioned into chunks
+keywords: [hypertables, chunks, partitions]
+---
+
 ### Partitioning in hypertables with chunks
 
 Chunks are created by partitioning a hypertable's data into one
@@ -57,7 +63,7 @@ the past week, and excludes any chunks before that time. This happens
 transparently to the user, however, who simply queries the hypertable with
 a standard SQL statement.
 
-### Benefits of hypertables and chunks[](hypertable-benefits)
+### Benefits of hypertables and chunks
 
 This chunk-based architecture benefits many aspects of time-series data
 management. These includes:

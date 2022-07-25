@@ -1,3 +1,10 @@
+---
+title: Multi-node administration
+excerpt: Manage your multi-node TimescaleDB cluster
+keywords: [multi-node, admin]
+tags: [manage]
+---
+
 # Multi-node administration
 Multi-node TimescaleDB allows you to administer your cluster directly
 from the access node. When your environment is set up, you do not
@@ -228,10 +235,9 @@ of data. Therefore, it is not possible to assume that the same
 tablespace configuration exists across all nodes in a multi-node
 cluster.
 
-[distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
-[multi-node-authentication]: /how-to-guides/multinode-timescaledb/multinode-auth/
-[create-schema]: https://www.postgresql.org/docs/current/sql-createschema.html
 [alter-database]: https://www.postgresql.org/docs/current/sql-alterdatabase.html
-[grant]: https://www.postgresql.org/docs/current/sql-grant.html
-[revoke]: https://www.postgresql.org/docs/current/sql-revoke.html
+[distributed_exec]: /api/:currentVersion:/distributed-hypertables/distributed_exec
 [drop-owned]: https://www.postgresql.org/docs/current/sql-drop-owned.html
+[grant]: https://www.postgresql.org/docs/current/sql-grant.html
+[multi-node-authentication]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-auth/
+[revoke]: https://www.postgresql.org/docs/current/sql-revoke.html

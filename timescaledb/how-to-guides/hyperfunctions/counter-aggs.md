@@ -1,3 +1,9 @@
+---
+title: Counter aggregates
+excerpt: How to aggregate counter data for data analysis
+keywords: [hyperfunctions, Toolkit, counters]
+---
+
 # Counter aggregates
 When you process counter data, it is usually assumed that if the value of the
 counter goes down, the counter has been reset. For example, if you wanted to
@@ -153,6 +159,5 @@ the aggregate itself doesn't really make sense otherwise.
 
 For more information about parallelism and ordering, see our
 [developer documentation][gh-parallelism-ordering]
-
 
 [gh-parallelism-ordering]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/counter_agg.md#counter-agg-ordering
