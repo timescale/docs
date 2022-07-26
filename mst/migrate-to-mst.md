@@ -24,7 +24,7 @@ process and have a sufficiently powerful TimescaleDB plan.
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
 long time. During this time, any new writes that happen during the dumping
-process are not included, hence to get all your data you should turn off all the
+process are not included. To prevent data loss, turn off all the
 writes to the old database server before you start the dumping process. Try to
 migrate as a cold run without turning off writes on your previous server and
 running the dump concurrently. This gives you an estimate of the time the dump
