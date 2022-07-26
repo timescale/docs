@@ -43,7 +43,7 @@ Ensure that you have:
     Provision your database with enough space for all your data.
 *   Checked that you're running the same major version of PostgreSQL on both
     Managed Service for TimescaleDB and your source database. For information
-    about upgrading PostgreSQL on your source database, see the [upgrade
+    about upgrading PostgreSQL, see the [upgrade
     instructions for self-hosted TimescaleDB][upgrading-postgresql-self-hosted]
     and [Managed Service for TimescaleDB][upgrading-postgresql].
 *   Checked that you're running the same major version of TimescaleDB on both
