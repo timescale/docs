@@ -1,22 +1,23 @@
 extends: substitution
 message: "Use '%s' instead of '%s'."
-link: 'https://developers.google.com/style/word-list'
+link: "https://developers.google.com/style/word-list"
 level: warning
 ignorecase: false
 action:
   name: replace
 swap:
-  '(?:BAK| bak)': .bak
-  '(?:CSV| csv)': .csv
-  '(?:drop ?down) menu': drop-down menu
-  '(?:e-mail|Email|E-mail)': email
-  '(?:file ?path|path ?name)': path
-  '(?:kill|terminate|abort)': stop|exit|cancel|end
-  '(?:OAuth ?2|Oauth)': OAuth 2.0
-  '(?:ok|Okay)': OK|okay
-  '(?:PDF| pdf)': .pdf
-  '(?:WiFi|wifi)': Wi-Fi
-  'Write[- ]Ahead Log': write-ahead log
+  "(?:BAK| bak)": .bak
+  "(?:CSV| csv)": .csv
+  "(?:drop ?down) menu": drop-down menu
+  "(?:e-mail|Email|E-mail)": email
+  "(?:file ?path|path ?name)": path
+  "(?:kill|terminate|abort)": stop|exit|cancel|end
+  "(?:OAuth ?2|Oauth)": OAuth 2.0
+  "(?:ok|Okay)": OK|okay
+  "(?:PDF| pdf)": .pdf
+  "(?:WiFi|wifi)": Wi-Fi
+  "[Mm]ultinode": multi-node
+  "Write[- ]Ahead Log": write-ahead log
   '3\-D': 3D
   a SQL: an SQL
   account name: username
@@ -39,7 +40,6 @@ swap:
   in order to: to
   login to: log in to
   k8s: Kubernetes
-  [Mm]ultinode: multi-node
   network IP address: internal IP address
   open-source: open source
   Postgres: PostgreSQL
@@ -50,7 +50,7 @@ swap:
   sign into: sign in to
   static IP address: static external IP address
   time weighted: time-weighted
-  url:  URL
+  url: URL
   user defined actions: user-defined actions
   vanilla: regular|standard
   vs\.: versus

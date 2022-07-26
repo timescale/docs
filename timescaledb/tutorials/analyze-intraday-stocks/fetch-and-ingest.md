@@ -1,3 +1,10 @@
+---
+title: Fetch and ingest intraday stock data
+excerpt: Ingest intraday stock data into a TimescaleDB database
+keywords: [finance, analytics, psycopg2, pandas, plotly]
+tags: [candlestick]
+---
+
 # Fetch and ingest intraday stock data
 
 In this step:
@@ -366,8 +373,6 @@ for symbol in symbols:
 
 ```
 
-
-
+[pgcopy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [scraping-example]: https://github.com/timescale/examples/blob/master/analyze-intraday-stocks/scrape_symbols.py
 [symbols-csv]: https://assets.timescale.com/docs/downloads/symbols.csv
-[pgcopy-docs]: https://pgcopy.readthedocs.io/en/latest/
