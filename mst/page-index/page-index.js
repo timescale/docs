@@ -55,7 +55,7 @@ module.exports = [
         href: "maintenance"
       },
       {
-        title: "Manage-backups",
+        title: "Manage backups",
         href: "manage-backups"
       },
       {
