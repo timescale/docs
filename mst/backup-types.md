@@ -5,6 +5,7 @@ product: cloud
 keywords: [backup]
 tags: [backup, binary backup, logical backup]
 ---
+
 # Backups in Managed Service for TimescaleDB
 Managed Service for TimescaleDB databases are automatically backed up, with full
 backups daily, and write-ahead log (WAL) continuously recorded. All backups are
