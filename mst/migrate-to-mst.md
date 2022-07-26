@@ -1,5 +1,5 @@
 ---
-title: Migrating an existing TimescaleDB database to Managed Service for TimescaleDB
+title: Migrating from self-hosted TimescaleDB to Managed Service for TimescaleDB
 excerpt: Migrating an existing TimescaleDB database to Managed Service for TimescaleDB
 product: mst
 keywords: [migrate, databse]
