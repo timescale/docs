@@ -1,3 +1,9 @@
+---
+title: Ingest data and run your first query
+excerpt: Ingest some data from CSV files into your database
+keywords: [continuous aggregates, hyperfunctions, analytics]
+---
+
 ## Ingest data and run your first query
 
 The main dataset is provided by [Kaggle as multiple CSV files][kaggle-download].
@@ -283,7 +289,6 @@ We'll use this continuous aggregate in most of the queries in the
 next section. Feel free to play with other variations of this materialized data
 as you try to answer even more questions with TimescaleDB.
 
-
-[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
+[cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
-[cagg]: /how-to-guides/continuous-aggregates/
+[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data

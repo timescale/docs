@@ -1,3 +1,9 @@
+---
+title: Set up TimescaleDB and Grafana
+excerpt: Use Grafana to visualize your data on Managed Service for TimescaleDB
+keywords: [Grafana, visualization, analytics]
+---
+
 # Set up TimescaleDB and Grafana
 This tutorial uses Managed Service for TimescaleDB (MST) to set up your database, and
 to set up Grafana. You can [create a free account][mst-login] to try it out.

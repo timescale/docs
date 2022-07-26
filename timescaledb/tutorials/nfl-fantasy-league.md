@@ -1,3 +1,9 @@
+---
+title: Win your NFL fantasy league with TimescaleDB
+excerpt: Ingest and analyze American football data with TimescaleDB
+keywords: [analytics, psycopg2]
+---
+
 # Win your NFL fantasy league with TimescaleDB
 
 This tutorial is a step-by-step guide on how to ingest and analyze American football data with TimescaleDB.
@@ -569,8 +575,7 @@ draw_play(game_id=2018112900,
 
 * [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
-
-[install-timescale]: /install/latest/
-[psql-install]: /how-to-guides/connecting/psql
-[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
+[install-timescale]: /install/latest/
+[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
+[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql

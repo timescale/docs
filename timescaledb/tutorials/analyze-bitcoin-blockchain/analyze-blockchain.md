@@ -1,3 +1,9 @@
+---
+title: Analyze the blockchain with hyperfunctions
+excerpt: Use SQL functions and hyperfunctions to analyze Bitcoin transactions
+keywords: [crypto, blockchain, Bitcoin, finance, analytics]
+---
+
 # Analyze the blockchain with hyperfunctions
 In this section, analyze Bitcoin transactions with SQL in different ways.
 See how hyperfunctions and continuous aggregates can make it easier to query
@@ -559,7 +565,7 @@ time               |revenue in BTC    |revenue in USD    |
 
 ![Average miner revenue per block, plotted in BTC and USD, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/miner_revenue_per_block_with_btcusd.png)
 
+[docs-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[docs-hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
 [stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
-[install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit/
-[docs-hyperfunctions]: /how-to-guides/hyperfunctions/
-[docs-cagg]: /how-to-guides/continuous-aggregates/

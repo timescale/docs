@@ -1,3 +1,10 @@
+---
+title: Build a histogram in Grafana
+excerpt: Create a histogram in Grafana to visualize the distribution of data
+keywords: [Grafana, visualization, analytics]
+tags: [histogram]
+---
+
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a histogram in Grafana
@@ -274,9 +281,6 @@ You can do this with a pre-aggregation query, using:
 
 </procedure>
 
-[install-timescale]: /install/:currentVersion:/
-[gsg-data]: /timescaledb/:currentVersion:/getting-started/
-[grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
-[max]: https://www.postgresql.org/docs/current/tutorial-agg.html
 [lag]: https://www.postgresql.org/docs/14/functions-window.html
-[time_bucket]: https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/
+[max]: https://www.postgresql.org/docs/current/tutorial-agg.html
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

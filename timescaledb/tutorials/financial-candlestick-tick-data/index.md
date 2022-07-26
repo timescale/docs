@@ -1,3 +1,10 @@
+---
+title: Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
+excerpt: Store your financial tick data and create candlestick views to analyze price changes
+keywords: [finance, analytics]
+tags: [candlestick]
+---
+
 # Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
 [Candlestick charts][charts] are the standard way to analyze the price changes of
 financial assets. They can be used to examine trends in stock prices, cryptocurrency prices, 
@@ -49,7 +56,6 @@ Follow this tutorial and see how to set up your TimescaleDB database to consume 
 * [Create candlestick (open-high-low-close-volume) aggregates][create]
 * [Query candlestick views][query]
 * [Advanced data management][manage]
-
 
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
