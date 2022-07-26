@@ -1,3 +1,10 @@
+---
+title: Build a time-series graph in Grafana
+excerpt: Create a time-series graph to show values changing over time
+keywords: [Grafana, visualizations, analytics]
+tags: [time-series]
+---
+
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a time-series graph in Grafana
@@ -225,7 +232,6 @@ change to your query.
 
 </procedure>
 
-
-[install-timescale]: /install/:currentVersion:/
 [gsg-data]: /timescaledb/:currentVersion:/getting-started/
+[install-timescale]: /install/:currentVersion:/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
