@@ -107,14 +107,16 @@ more, see the section on [time in continuous aggregates](/timescaledb/latest/how
 ### Time_bucket in continuous aggregates
 Time buckets are commonly used to create [continuous aggregates][caggs].
 Continuous aggregates add some limitations to what you can do with
-`time_bucket`.
+`time_bucket`:
 
-Continuous aggregates don't allow functions that depend on a local timezone
-setting. That is, you cannot cast `TIMESTAMPTZ` to `TIMESTAMP` within a
-continuous aggregate definition. To learn more and find a workaround, see the
-section on [time in continuous aggregates][time-cagg].
-
-Continuous aggregates also don't allow named parameters.
+*   Continuous aggregates don't allow functions that depend on a local timezone
+    setting. That is, you cannot cast `TIMESTAMPTZ` to `TIMESTAMP` within a
+    continuous aggregate definition. To learn more and find a workaround, see
+    the section on [time in continuous aggregates][time-cagg].
+*   Continuous aggregates don't allow named parameters.
+*   Continuous aggregates don't allow the `origin` and `offset` arguments. If
+    you need to set an origin, see
+    [time_bucket_ng][time_bucket_ng-experimental].
 
 ## Experimental function: time_bucket_ng
 The experimental function [`time_bucket_ng`][time_bucket_ng] adds new features,
@@ -158,6 +160,9 @@ Here are the `time_bucket_ng` features supported by continuous aggregates:
 |Timezones|✅|2.6.0 and later|
 |Custom origin|✅|2.7.0 and later|
 
+If you're setting a custom origin and your time column is in `timestamptz`
+format, specify the timezone in an additional argument.
+
 ## Time_bucket compared to time_bucket_ng
 There are several differences between `time_bucket` and `time_bucket_ng`:
 
@@ -176,4 +181,5 @@ There are several differences between `time_bucket` and `time_bucket_ng`:
 [time-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/time/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [time_bucket_ng]: /api/:currentVersion:/hyperfunctions/time_bucket_ng/
+[time_bucket_ng-experimental]: #experimental-function-time-bucket-ng
 [use-time-buckets]: /timescaledb/:currentVersion:/how-to-guides/time-buckets/use-time-buckets/
