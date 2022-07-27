@@ -38,7 +38,7 @@ If you have questions about distributed hypertables, join our #multinode channel
 on [community Slack](https://slack.timescale.com/) for installation details and
 follow these [setup instructions][distributed-hypertables-setup].
 
-### What's new in TimescaleDB 2.7.2:
+### What's new in TimescaleDB 2.7:
 
 
 You can recreate a continuous aggregate to benefit from the improvement, if the
