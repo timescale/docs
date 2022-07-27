@@ -1,5 +1,6 @@
 {
     "customRules": [
+        "./.vscode/markdownlint/import-blank-line.js",
         "./.vscode/markdownlint/procedure-blank-lines.js"
     ]
 }
