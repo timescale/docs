@@ -5,16 +5,18 @@ product: promscale
 keywords: [analytics]
 tags: [install]
 related_pages:
-  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/installation/resource-recomm/
   - /promscale/:currentVersion:/send-data/
 ---
 
 import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
 import PromscalePgSupportedVersions from 'versionContent/_partials/_promscale-pg-supported-versions.mdx';
+import PromscaleConfigurationRecommendations from 'versionContent/_partials/_promscale-configuration-recommendations.mdx';
 
 # Install Promscale on Debian or Ubuntu
 You can install Promscale on any Debian or Ubuntu system where you have an
-already installed and working Prometheus or OpenTelemetry environment.
+already working Prometheus or OpenTelemetry environment. Before you begin the
+installation, understand the [resource requirements][resource-requirements].
 
 ## Install TimescaleDB and the Promscale extension
 To use Promscale you need a TimescaleDB database, as well as the Promscale
@@ -35,7 +37,7 @@ the performance of Promscale.
     
 </procedure>
 
-## Install the Promscale connector 
+## Install the Promscale Connector 
 
 <PromscaleConnector />
 
@@ -45,5 +47,8 @@ the performance of Promscale.
     ```bash
     apt install promscale
     ```
+## Database configurations
+<PromscaleConfigurationRecommendations />
 
 [tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
+[resource-requirements]: /promscale/:currentVersion:/installation/resource-recomm/

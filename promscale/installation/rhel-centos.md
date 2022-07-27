@@ -5,16 +5,17 @@ product: promscale
 keywords: [analytics]
 tags: [install]
 related_pages:
-  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/installation/resource-recomm/
   - /promscale/:currentVersion:/send-data/
 ---
 
 import PromscaleConnector from 'versionContent/_partials/_promscale-connector.mdx';
 import PromscalePgSupportedVersions from 'versionContent/_partials/_promscale-pg-supported-versions.mdx';
+import PromscaleConfigurationRecommendations from 'versionContent/_partials/_promscale-configuration-recommendations.mdx';
 
 # Install Promscale on Red Hat or CentOS
-You can install Promscale on a Red Hat or CentOS system, if you have an
-already installed and working Prometheus or OpenTelemetry environment.
+You can install Promscale on a Red Hat or CentOS system, if you have an already
+working Prometheus or OpenTelemetry environment and understand the [resource requirements][resource-requirements].
 
 ## Install TimescaleDB and the Promscale extension
 To use Promscale, you need a TimescaleDB database, as well as the Promscale
@@ -44,5 +45,8 @@ performance of Promscale.
    ```bash
       yum install promscale
    ```
+## Database configurations
+<PromscaleConfigurationRecommendations />
 
 [tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
+[resource-requirements]: /promscale/:currentVersion:/installation/resource-recomm/

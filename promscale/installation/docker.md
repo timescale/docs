@@ -5,7 +5,7 @@ product: promscale
 keywords: [analytics, Docker]
 tags: [install]
 related_pages:
-  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/installation/resource-recomm/
   - /promscale/:currentVersion:/send-data/ 
 ---
 
@@ -65,11 +65,12 @@ packages and instructions, see the [Docker installation documentation][docker-in
 After you have installed Promscale, you can ingest data.
 For instructions, see the [send data][send-data] section.
 
-For upgrading the Promscale, see the [upgrade] section.
+For upgrading the Promscale, see the [upgrade][upgrade] section.
 
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
 [send-data]: /promscale/:currentVersion:/send-data/
-[timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
+[timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags/
+[upgrade]: /promscale/:currentVersion:/guides/upgrade/

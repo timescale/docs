@@ -5,16 +5,17 @@ product: promscale
 keywords: [analytics]
 tags: [install]
 related_pages:
-  - /promscale/:currentVersion:/guides/resource-recomm/
+  - /promscale/:currentVersion:/installation/resource-recomm/
   - /promscale/:currentVersion:/send-data/
 ---
+import PromscaleConfigurationRecommendations from 'versionContent/_partials/_promscale-configuration-recommendations.mdx';
 
 # Install Promscale from binary
 You can install Promscale from a pre-complied binary on any operating systems. The
 Promscale binary file is available at [GitHub releases page][gh-promscale-download].
 
-Before you begin, you must have an already installed and working Prometheus or
-OpenTelemetry collector environment.
+Before you begin, understand the [resource requirements][resource-requirements]
+and have an already working Prometheus or OpenTelemetry collector environment.
 
 ## Install TimescaleDB and Promscale extension
 To use Promscale, you need a TimescaleDB database, as well as the Promscale
@@ -62,7 +63,11 @@ Download the Promscale binary file and run the file.
 
 </procedure>
 
+## Database configurations
+<PromscaleConfigurationRecommendations />
+
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [promscale-extension]: https://github.com/timescale/promscale_extension#promscale-extension
 [releases]: https://github.com/timescale/promscale/releases/
 [tsdb-install-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/install-timescaledb/self-hosted/
+[resource-requirements]: /promscale/:currentVersion:/installation/resource-recomm/

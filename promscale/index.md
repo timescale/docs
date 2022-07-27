@@ -28,7 +28,7 @@ This is not possible when data is siloed in different systems.
 For more about Promscale, see our [developer documentation][promscale-gh-docs].
 
 [about-promscale]: /promscale/:currentVersion:/about-promscale
-[about-tobs]: /promscale/:currentVersion:/tobs/
+[about-tobs]: /promscale/:currentVersion:/installation/kubernetes/tobs/
 [install-promscale]: /promscale/:currentVersion:/installation
 [promscale-benefits]: /promscale/:currentVersion:/promscale-benefits/
 [promscale-gh-docs]: https://github.com/timescale/promscale/
