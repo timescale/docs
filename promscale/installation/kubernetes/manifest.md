@@ -10,7 +10,9 @@ related_pages:
 ---
 
 # Install Promscale with a manifest file
-To install Promscale using a manifest file you must first deploy TimescaleDB on Kubernetes using [helm charts][install-helm] or [install TimescaleDB on a host][install-binary].
+To install Promscale using a manifest file you must first deploy 
+TimescaleDB on Kubernetes using [helm charts][install-helm] or 
+[install TimescaleDB on a host][install-binary].
 
 <procedure>
 
