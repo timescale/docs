@@ -32,7 +32,7 @@ If you want to install Promscale on your infrastructure where you have already i
 
 * Kubernetes using [helm charts][helm-charts], or a [manifest file][manifest-file]
 * [Pre-built containers][docker]
-* [Debian/Ubuntu][debain-ubuntu]
+* [Debian/Ubuntu][debian-ubuntu]
 * [RHEL/CentOS][rhel-centos]
 * [Binary][binary]
 
