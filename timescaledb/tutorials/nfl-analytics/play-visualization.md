@@ -1,3 +1,9 @@
+---
+title: Visualize pre-snap positions and player movement
+excerpt: Create a visualization of a football play using matplotlib
+keywords: [continuous aggregates, hyperfunctions, analytics, pandas, matplotlib]
+---
+
 ## Visualize pre-snap positions and player movement
 Interestingly, the NFL data set includes data on player movement within each
 football play. Visualizing the changes in your time-series data can often provide

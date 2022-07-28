@@ -1,3 +1,10 @@
+---
+title: Analyzing NFT transactions
+excerpt: Analyze NFT transactions from the OpenSea marketplace
+keywords: [crypto, blockchain, finance, analytics]
+tags: [nft]
+---
+
 # Analyzing NFT transactions
 When you have successfully collected and ingested the data, it's time to analyze
 it. For this analysis, we use data collected with our ingestion script that
@@ -590,20 +597,19 @@ Check out these resources for more about using TimescaleDB with crypto data:
 * [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone][messari]
 * [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
 
-
+[analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
+[analyze-cryptocurrency]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
 [cont-agg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[daliso-opensea]: https://opensea.io/daliso
+[eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
+[first-docs]: /api/:currentVersion:/hyperfunctions/first/
+[grafana]: https://grafana.com
+[last-docs]: /api/:currentVersion:/hyperfunctions/last
+[messari]: https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
+[nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link
 [nft-starter-kit]: https://github.com/timescale/nft-starter-kit
+[percentile-agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile_agg/
 [queries]: https://github.com/timescale/nft-starter-kit/blob/master/queries.sql
 [snoop-dogg-opensea]: https://opensea.io/Cozomo_de_Medici
-[daliso-opensea]: https://opensea.io/daliso
 [superset]: https://superset.apache.org
-[grafana]: https://grafana.com
-[percentile-agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile_agg/
-[first-docs]: /api/:currentVersion:/hyperfunctions/first/
-[last-docs]: /api/:currentVersion:/hyperfunctions/last
-[analyze-cryptocurrency]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/
-[analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
-[messari]: https://blog.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
 [trading-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[eon-collection]: https://opensea.io/collection/time-travel-tigers-by-timescale
-[nft-form]: https://docs.google.com/forms/d/e/1FAIpQLSdZMzES-vK8K_pJl1n7HWWe5-v6D9A03QV6rys18woGTZr0Yw/viewform?usp=sf_link

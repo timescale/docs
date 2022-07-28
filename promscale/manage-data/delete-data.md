@@ -121,7 +121,13 @@ SELECT compress_chunk(show_chunks('prom_data.container_cpu_load_average_10s', ol
 You can delete all trace data from the database using the
 `ps_trace.delete_all_traces()` function. This function restores the schema to a
 default state, truncates the tables in the `_ps_trace` schema, and deletes all
-the data.
+the data. You can only run the function when the Promscale Connector is not
+running.
+<highlight type="note">
+To run this function: first stop the Promscale Connector, then connect to the
+database and run `SELECT ps_trace.delete_all_traces();`, finally start the
+Promscale Connector.
+</highlight>
 
 [retention]: /promscale/:currentVersion:/manage-data/retention/
 [web-enable-admin-api]: /promscale/:currentVersion:/cli/#web-server-flags

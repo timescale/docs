@@ -1,3 +1,9 @@
+---
+title: Getting started with Grafana and TimescaleDB
+excerpt: Use Grafana to visualize time-series data stored in TimescaleDB
+keywords: [Grafana, visualizations, analytics]
+---
+
 # Getting Started with Grafana and TimescaleDB
 [Grafana][grafana-website] is an open source analytics and monitoring tool that
 you can use visualize time-series data. Use these tutorials to:
@@ -18,11 +24,10 @@ To complete this tutorial, you need at least some knowledge of SQL (structured
 query language). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-
 [grafana-website]: https://www.grafana.com
-[install-grafana]: /tutorials/grafana/installation
-[tutorial-grafana-dashboards]: /tutorials/grafana/create-dashboard-and-panel/
-[tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards/
-[tutorial-grafana-variables]: /tutorials/grafana/grafana-variables/
-[tutorial-grafana-missing-data]: /tutorials/grafana/visualize-missing-data/
-[tutorial-grafana-alerts]: /tutorials/grafana/setup-alerts/
+[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
+[tutorial-grafana-alerts]: /timescaledb/:currentVersion:/tutorials/grafana/setup-alerts/
+[tutorial-grafana-dashboards]: /timescaledb/:currentVersion:/tutorials/grafana/create-dashboard-and-panel/
+[tutorial-grafana-geospatial]: /timescaledb/:currentVersion:/tutorials/grafana/geospatial-dashboards/
+[tutorial-grafana-missing-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualize-missing-data/
+[tutorial-grafana-variables]: /timescaledb/:currentVersion:/tutorials/grafana/grafana-variables/

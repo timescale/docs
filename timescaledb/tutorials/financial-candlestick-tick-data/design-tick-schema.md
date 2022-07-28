@@ -1,3 +1,10 @@
+---
+title: Design schema and ingest tick data
+excerpt: Ingest and store real-time cryptocurrency or stock data in TimescaleDB
+keywords: [finance, analytics]
+tags: [candlestick]
+---
+
 # Design schema and ingest tick data
 This tutorial shows you how to store real-time cryptocurrency or stock 
 tick data in TimescaleDB. The initial schema provides the foundation to 
@@ -93,7 +100,6 @@ our complementing tutorial
 [Ingest real-time financial websocket data][ingest-real-time] to
 ingest data directly from the [Twelve Data][twelve-data] financial API.
 
-
 [hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[twelve-data]: https://twelvedata.com/
 [ingest-real-time]: /timescaledb/:currentVersion:/tutorials/ingest-real-time-websocket-data
+[twelve-data]: https://twelvedata.com/
