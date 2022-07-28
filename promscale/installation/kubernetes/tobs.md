@@ -21,23 +21,19 @@ server and identify any potential problems with a deployment. You can use Helm
 charts to configure and update [tobs][tobs] deployments. 
 
 ## Before you begin
-1.  Understand the [resource requirements][resource-requirements] for your cluster.
-1.  [Deploy a Kubernetes Cluster][kubernetes-cluster]. 
-1.  Install [Helm 3][helm] in your local machine.
-1.  Add the stable Helm charts repository to your Helm repositories:
+*  Understand the [resource requirements][resource-requirements] for your cluster.
+*  [Deploy a Kubernetes Cluster][kubernetes-cluster]. 
+*  Install [kubectl][kubectl] in your local environment and
+   [connect to your cluster][connect-to-cluster].
+*  Install [Helm 3][helm] in your local machine to add and update the repositories:
+   1.  Add the stable Helm charts repository to your Helm repositories.
     ```bash
     helm repo add stable https://charts.helm.sh/stable
     ```
-1.  Update your Helm repositories:
+   1.  Update your Helm repositories.
     ```bash
     helm repo update
     ```
-1.  Install [kubectl][kubectl] in your local environment and [connect to your
-    cluster][connect-to-cluster].
-1.  Create the `observability` namespace on your cluster:
-    ```bash
-    kubectl create namespace observability
-    ```   
 
 
 ## Installing Promscale with tobs 
@@ -46,6 +42,10 @@ You can deploy tobs on your cluster and access it locally with `kubectl`
 
 <procedure>
 
+1.  Create the `observability` namespace on your cluster:
+    ```bash
+    kubectl create namespace observability
+    ```   
 1. Install a certificate manager for your cluster:
    ```bash
    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
