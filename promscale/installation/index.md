@@ -42,7 +42,9 @@ configure [Prometheus][config-prometheus] and [OpenTelemetry][config-otel] to
 send data to Promscale.
 
 ## Install Promscale with instrumentation
-If you do not have Prometheus or OpenTelemetry installed on Kubernetes, you can use [the observability stack (tobs)][tobs] to install a complete, pre-configured observability stack with Promscale. It includes Prometheus, OpenTelemetry, and Promscale.
+If you do not have Prometheus or OpenTelemetry installed on Kubernetes, you can use 
+[the observability stack (tobs)][tobs] to install a complete, pre-configured observability 
+stack with Promscale. It includes Prometheus, OpenTelemetry, and Promscale.
 
 [helm-charts]: /promscale/:currentVersion:/installation/kubernetes/helm
 [manifest-file]: /promscale/:currentVersion:/installation/kubernetes/manifest
