@@ -24,12 +24,6 @@ charts to configure and update [tobs][tobs] deployments.
 1.  Understand the [resource requirements][resource-requirements] for your cluster.
 1.  [Deploy a Kubernetes Cluster][kubernetes-cluster]. 
 1.  Install [Helm 3][helm] in your local machine.
-1.  Install [kubectl][kubectl] in your local environment and [connect to your
-    cluster][connect-to-cluster].
-1.  Create the `observability` namespace on your cluster:
-    ```bash
-    kubectl create namespace observability
-    ```
 1.  Add the stable Helm charts repository to your Helm repositories:
     ```bash
     helm repo add stable https://charts.helm.sh/stable
@@ -38,6 +32,12 @@ charts to configure and update [tobs][tobs] deployments.
     ```bash
     helm repo update
     ```
+1.  Install [kubectl][kubectl] in your local environment and [connect to your
+    cluster][connect-to-cluster].
+1.  Create the `observability` namespace on your cluster:
+    ```bash
+    kubectl create namespace observability
+    ```   
 
 
 ## Installing Promscale with tobs 
@@ -80,7 +80,7 @@ You can deploy tobs on your cluster and access it locally with `kubectl`
 1. To access the **Prometheus** interface at the address `127.0.0.1:9090` in
    your web browser, use:
    ```bash
-   kubectl -n monitoring \
+   kubectl -n observability \
    port-forward \
    svc/tobs-kube-prometheus-prometheus \
    9090
@@ -88,7 +88,7 @@ You can deploy tobs on your cluster and access it locally with `kubectl`
 1. To access the **Alertmanager** interface at the address `127.0.0.1:9093` in
    your web browser, use:
    ```bash
-      kubectl -n monitoring \
+      kubectl -n observability \
       port-forward \
       svc/tobs-kube-prometheus-alertmanager  \
       9093
@@ -96,7 +96,7 @@ You can deploy tobs on your cluster and access it locally with `kubectl`
 1. To access the **Grafana** interface at the address `127.0.0.1:8081` in your
    web browser, use:
    ```bash
-   kubectl -n monitoring \
+   kubectl -n observability \
    port-forward \
    svc/tobs-grafana  \
    8081:80
