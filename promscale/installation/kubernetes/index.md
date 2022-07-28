@@ -8,6 +8,7 @@ related_pages:
   - /promscale/:currentVersion:/installation/resource-recomm/
   - /promscale/:currentVersion:/send-data/
 ---
+
 # Install Promscale on Kubernetes
 By default, Promscale does not provide instrumentation to collect telemetry
 from your applications on Kubernetes. You need to install [Prometheus][prometheus-install] to collect metrics and [OpenTelemetry][otel] to collect traces.
