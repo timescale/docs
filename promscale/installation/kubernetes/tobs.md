@@ -111,6 +111,7 @@ You can deploy tobs on your cluster and access it locally with `kubectl`
 </procedure>
 
 ## Database configurations
+
 <PromscaleConfigurationRecommendations />
 
  The Observability Stack, eliminates the need to maintain configuration details for each of 
