@@ -28,7 +28,7 @@ instead.
     ```bash
     pacman -Syu timescaledb-tune
     ```
-1.  Connect to the PostgreSQL instance as the `postgres` superuser:
+1.  As the `postgres` user, connect to the PostgreSQL instance:
     ```bash
     su -l postgres
     ```
