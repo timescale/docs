@@ -20,7 +20,7 @@ instead.
     ```bash
     pacman -Syu timescaledb
     ```
-1.  To use TimescaleDB as PostgreSQL extension, update the `postgresql.conf` file:
+1.  Update the `postgresql.conf` file, to use TimescaleDB as PostgreSQL extension:
     ```bash
     echo "shared_preload_libraries = 'timescaledb'" >> /var/lib/postgres/data/postgresql.conf
     ```
