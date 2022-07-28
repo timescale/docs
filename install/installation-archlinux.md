@@ -36,7 +36,7 @@ instead.
     ```bash
     initdb --locale=en_US.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data --data-checksums
     ```
-1. Logout as `postgres` superuser:
+1. Log out the `postgres` user:
    ```bash
    exit
    ```    
