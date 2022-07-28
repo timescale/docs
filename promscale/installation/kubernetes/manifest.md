@@ -31,6 +31,7 @@ After you have installed Promscale, you can ingest data.
 For instructions, see the [send data][send-data] section.
 
 ## Database configurations
+
 <PromscaleConfigurationRecommendations />
 
 [template-manifest]: https://github.com/timescale/promscale/blob/0.13.0/deploy/static/deploy.yaml
