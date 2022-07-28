@@ -117,7 +117,7 @@ This section provides instructions to deploy TimescaleDB using the
     </terminal>
 
 1.  Install the Promscale Helm chart. Make sure that you replace
-    `&lt;RELEASE_NAME&gt;` with the name of your choice :
+    `&lt;RELEASE_NAME&gt;` with the name of your choice:
     ```bash
     helm install <RELEASE_NAME> timescale/promscale -f values.yaml
     ```
