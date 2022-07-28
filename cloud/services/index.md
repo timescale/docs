@@ -1,3 +1,10 @@
+---
+title: Timescale Cloud services
+excerpt: Learn more about Timescale Cloud services
+product: cloud
+keywords: [services]
+---
+
 # Timescale Cloud services
 Welcome to Timescale Cloud! Timescale Cloud is a cloud-native TimescaleDB as a
 service that is easy to get started and powerful enough for the most demanding
@@ -37,13 +44,13 @@ For additional documentation on how to:
 *   [Customize your database configuration][configuration] easily
 *   [Create a TimescaleDB multi-node cluster][multi-node] in Timescale Cloud
 
-[slack-info]: https://slack-login.timescale.com
+[aggregates-info]: /getting-started/:currentVersion:/create-cagg
+[cloud-install]: /install/:currentVersion:/installation-cloud/
+[configuration]: /cloud/:currentVersion:/customize-configuration/
 [contact-timescale]: https://www.timescale.com/contact
-[hypertable-info]: /timescaledb/latest/how-to-guides/hypertables
-[time-bucket-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#time-bucket
-[gap-filling-info]: /timescaledb/latest/how-to-guides/query-data/advanced-analytic-queries#gap-filling
-[aggregates-info]: /timescaledb/latest/getting-started/create-cagg
-[resize]: /scaling-a-service/
-[configuration]: /customize-configuration/
-[multi-node]: /cloud-multi-node/
-[cloud-install]: install/:currentVersion:/installation-cloud/
+[gap-filling-info]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries#gap-filling
+[hypertable-info]: /timescaledb/:currentVersion:/how-to-guides/hypertables
+[multi-node]: /cloud/:currentVersion:/cloud-multi-node/
+[resize]: /cloud/:currentVersion:/scaling-a-service/
+[slack-info]: https://slack-login.timescale.com
+[time-bucket-info]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries#time-bucket

@@ -1,3 +1,10 @@
+---
+title: Dropping data
+excerpt: Drop raw data from a continuous aggregate or its underlying hypertable
+keywords: [continuous aggregates, hypertables, delete]
+tags: [drop]
+---
+
 # Dropping data
 When you are working with continuous aggregates, you can drop a view, or you can
 drop raw data from the underlying hypertable. Additionally, you need to be aware
@@ -41,6 +48,6 @@ the `start_offset` value of the aggregate policy to a smaller interval than the
 For more information, see the
 [data retention documentation][data-retention-with-continuous-aggregates]. 
 
-[api-drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks
-[data-retention-with-continuous-aggregates]: /how-to-guides/data-retention/data-retention-with-continuous-aggregates
 [api-add-retention-policy]: /api/:currentVersion:/data-retention/add_retention_policy
+[api-drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks
+[data-retention-with-continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/data-retention/data-retention-with-continuous-aggregates

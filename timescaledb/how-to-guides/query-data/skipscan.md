@@ -1,9 +1,15 @@
-# SkipScan
+---
+title: Get faster DISTINCT queries with SkipScan
+excerpt: Speed up DISTINCT queries by setting up a hypertable to take advantage of SkipScan
+keywords: [queries, DISTINCT, SkipScan]
+---
+
+# Get faster `DISTINCT` queries with `SkipScan`
 SkipScan improves query times for `DISTINCT` queries. It works on PostgreSQL
 tables, TimescaleDB hypertables, and TimescaleDB distributed hypertables.
-SkipScan is included in TimescaleDB 2.2.1 and above.
+SkipScan is included in TimescaleDB&nbsp;2.2.1 and above.
 
-## Faster DISTINCT queries using SkipScan
+## Speed up `DISTINCT` queries
 To query your database and find the most recent value of an item, you
 could use a `DISTINCT` query. For example, you might want to find the latest
 stock or cryptocurrency price for each of your investments. Or you might have graphs
@@ -79,6 +85,5 @@ ANALYZE` output shows one or more `Custom Scan (SkipScan)` nodes, like this:
       ->  Index Only Scan using _hyper_8_80_chunk_cpu_tags_id_time_idx on _hyper_8_80_chunk
          Index Cond: (tags_id > NULL::integer)
 ```
-
 
 [blog-skipscan]: https://www.timescale.com/blog/how-we-made-distinct-queries-up-to-8000x-faster-on-postgresql/

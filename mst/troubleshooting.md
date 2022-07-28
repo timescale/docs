@@ -1,3 +1,10 @@
+---
+title: Troubleshooting
+excerpt: Troubleshoot your Managed Service for TimescaleDB instance
+product: mst
+keywords: [troubleshooting]
+---
+
 # Troubleshooting
 This section covers some common errors or problems you might run into while
 using your Managed Service for TimescaleDB account.

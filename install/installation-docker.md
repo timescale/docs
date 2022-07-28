@@ -1,3 +1,12 @@
+---
+title: Install TimescaleDB from Docker container
+nav-title: Docker
+excerpt: Install self-hosted TimescaleDB from a pre-built Docker container
+section: install
+subsection: self-hosted
+keywords: [install, self-hosted, Docker]
+---
+
 # Install self-hosted TimescaleDB from a pre-built container
 You can install a self-hosted TimescaleDB instance on any local system, from a
 pre-built container. This is the simplest method to install a self-hosted
@@ -31,7 +40,7 @@ offers the most complete TimescaleDB experience. It
 includes the 
 [TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit), 
 and support for PostGIS and Patroni. If you need the smallest possible image, use
-the `timescale/timescaledb:latest-pg14` image instead.
+the `timescale/timescaledb:pg14-latest` image instead.
 </highlight>
 
 </procedure>
@@ -95,7 +104,7 @@ data volume using the `-v` flag. For example:
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
 -v /your/data/dir:/var/lib/postgresql/data \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+-e POSTGRES_PASSWORD=password timescale/timescaledb:pg14-latest
 ```
 
 When you install TimescaleDB using a Docker container, the PostgreSQL settings

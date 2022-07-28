@@ -1,11 +1,17 @@
-# Advanced analytic queries
+---
+title: Perform advanced analytic queries
+excerpt: Perform advanced data analysis using native PostgreSQL queries and TimescaleDB hyperfunctions
+keywords: [queries, hyperfunctions, analytics]
+---
+
+# Perform advanced analytic queries
 You can use TimescaleDB for a variety of analytical queries. Some of these
 queries are native PostgreSQL, and some are additional functions provided by
 TimescaleDB. This section contains the most common and useful analytic queries.
 
-## Median and percentile
+## Calculate the median and percentile
 Use [`percentile_cont`][percentile_cont] to calculate percentiles. You can also
-use this function to look for the 50th percentile, or median. For example, to
+use this function to look for the fiftieth percentile, or median. For example, to
 find the median temperature:
 ```sql
 SELECT percentile_cont(0.5)
@@ -15,8 +21,8 @@ SELECT percentile_cont(0.5)
 You can also use Timescale Toolkit to find the
 [approximate percentile][toolkit-approx-percentile].
 
-## Cumulative sum
-Use `sum(sum(column)) OVER(ORDER BY group)` to find the cumulative sum.  For
+## Calculate the cumulative sum
+Use `sum(sum(column)) OVER(ORDER BY group)` to find the cumulative sum. For
 example:
 ```sql
 SELECT location, sum(sum(temperature)) OVER(ORDER BY location)
@@ -24,7 +30,7 @@ SELECT location, sum(sum(temperature)) OVER(ORDER BY location)
   GROUP BY location;
 ```
 
-## Moving average
+## Calculate the moving average
 For a simple moving average, use the `OVER` windowing function over a number of
 rows, then compute an aggregation function over those rows. For example, to find
 the smoothed temperature of a device by averaging the ten most recent readings:
@@ -37,7 +43,7 @@ SELECT time, AVG(temperature) OVER(ORDER BY time
   ORDER BY time DESC;
 ```
 
-## Increase
+## Calculate the increase in a value
 To calculate the increase in a value, you need to account for counter resets.
 Counter resets can occur if a host reboots or container restarts. This example
 finds the number of bytes sent, and takes counter resets into account:
@@ -58,7 +64,7 @@ SELECT
   ORDER BY time
 ```
 
-## Rate
+## Calculate the rate of change
 Like [increase](#increase), rate applies to a situation with monotonically
 increasing counters. If your sample interval is variable or you use different
 sampling intervals between different series it is helpful to normalize the
@@ -81,7 +87,7 @@ SELECT
   ORDER BY time
 ```
 
-## Delta
+## Calculate the delta
 In many monitoring and IoT use cases, devices or sensors report metrics that do
 not change frequently, and any changes are considered anomalies. When you query
 for these changes in values over time, you usually do not want to transmit all
@@ -98,7 +104,7 @@ SELECT time, value FROM (
 WHERE diff IS NULL OR diff != 0;
 ```
 
-## Time bucket <tag type="function">TSDB Function</tag>
+## Group data into time buckets
 The TimescaleDB [`time_bucket`][time_bucket] function extends the PostgreSQL
 [`date_trunc`][date_trunc] function. Time bucket accepts arbitrary time
 intervals as well as optional offsets and returns the bucket start time. For
@@ -110,7 +116,7 @@ SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
   ORDER BY five_min DESC LIMIT 12;
 ```
 
-## First and last <tag type="function">TSDB Function</tag>
+## Get the first or last value in a column
 The TimescaleDB [`first`][first] and [`last`][last] functions allow you to get
 the value of one column as ordered by another. This is commonly used in an
 aggregation. These examples find the last element of a group:
@@ -126,7 +132,7 @@ SELECT time_bucket('5 minutes', time) five_min, location, last(temperature, time
   ORDER BY five_min DESC LIMIT 12;
 ```
 
-## Histogram <tag type="function">TSDB Function</tag>
+## Generate a histogram
 The TimescaleDB [`histogram`][histogram] function allows you to generate a
 histogram of your data. This example defines a histogram with five buckets
 defined over the range 60 to 85. The generated histogram has seven bins; the
@@ -148,7 +154,7 @@ This query outputs data like this:
  garage     | 10080 | {0,2679,957,2420,2150,1874,0}
 ```
 
-## Gap filling <tag type="function">TSDB Function</tag> <tag type="community">Community</tag>
+## Fill gaps in time-series data
 You can display records for a selected time range, even if no data exists for
 part of the range. This is often called gap filling, and usually involves an
 operation to record a null value for any missing data.
@@ -244,7 +250,7 @@ This query outputs data like this:
  2021-03-09 20:53:20+00 |  1037.78
 ```
 
-## Last observation carried forward (LOCF) <tag type="function">TSDB Function</tag> <tag type="community">Community</tag>
+### Fill gaps by carrying the last observation forward
 If your data collections only record rows when the actual value changes,
 your visualizations might still need all data points to properly display
 your results. In this situation, you can carry forward the last observed
@@ -261,7 +267,7 @@ WHERE
 GROUP BY 5min, meter_id
 ```
 
-## Last point
+## Find the last point for each unique item
 You can find the last point for each unique item in your database. For example,
 the last recorded measurement from each IoT device, the last location of each
 item in asset tracking, or the last price of a security. The standard approach
@@ -337,12 +343,12 @@ hypertable, although this requires more compute resources. Alternatively, you
 speed up your `SELECT DISTINCT` queries by structuring them so that TimescaleDB can 
 use its [SkipScan][skipscan] feature.
 
-[percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [date_trunc]: https://www.postgresql.org/docs/current/static/functions-datetime.html#functions-datetime-trunc
 [first]: /api/:currentVersion:/hyperfunctions/first
-[last]: /api/:currentVersion:/hyperfunctions/last
 [histogram]: /api/:currentVersion:/hyperfunctions/histogram
+[last]: /api/:currentVersion:/hyperfunctions/last
 [loose-index-scan]: https://wiki.postgresql.org/wiki/Loose_indexscan
-[skipscan]: /how-to-guides/query-data/skipscan/
+[percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
+[skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/

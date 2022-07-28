@@ -1,3 +1,9 @@
+---
+title: Create a data API for TimescaleDB
+excerpt: Create an API to fetch data from your TimescaleDB application, using AWS Lambda
+keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
+---
+
 # Create a data API for TimescaleDB
 This tutorial covers creating an API to fetch data from your TimescaleDB
 instance. It uses an API gateway to trigger a Lambda function, that then fetches
@@ -514,3 +520,7 @@ inserted into the database.
 |2021-11-12 21:00:00|MSFT|337.15|337.15|337.15|337.15|562|
 |2021-11-12 21:00:00|FB|341.35|341.35|341.3|341.3|556|
 
+[custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html
+[lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-concepts.html#gettingstarted-concepts-layer
+[lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2/
+[psycopg2]: https://pypi.org/project/psycopg2/

@@ -1,5 +1,11 @@
 ---
-api_name: tdigest
+api_name: tdigest()
+excerpt: Aggregate data in a `tdigest` for further calculation of percentile estimates
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+tags: [tdigest]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -64,7 +70,7 @@ SELECT tdigest(100, data) FROM samples;
 ```
 
 This example builds a view from the aggregate that can be passed to other
-tdigest functions:
+`tdigest` functions:
 ```SQL
 CREATE VIEW digest AS
     SELECT tdigest(100, data)
@@ -72,5 +78,5 @@ CREATE VIEW digest AS
 ```
 
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md

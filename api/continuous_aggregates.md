@@ -1,3 +1,12 @@
+---
+api_name: timescaledb_information.continuous_aggregates
+excerpt: Get metadata and settings information for continuous aggregates
+license: community
+topic: continuous aggregates
+keywords: [continuous aggregates]
+tags: [information, schemas, metadata, definition]
+---
+
 ## timescaledb_information.continuous_aggregates 
 
 Get metadata and settings information for continuous aggregates.

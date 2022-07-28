@@ -1,5 +1,11 @@
 ---
-api_name: error
+api_name: error()
+excerpt: Get the maximum relative error for a percentile estimate
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [percentiles, hyperfunctions, toolkit]
+tags: [relative error]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
@@ -52,6 +58,6 @@ FROM generate_series(0, 100) data;
 
 
 [hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
-[uddsketch]: /hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/
-[percentile-agg]: /hyperfunctions/percentile-approximation/percentile_agg/
+[uddsketch]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile-aggregation-methods/uddsketch/
+[percentile-agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile_agg/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

@@ -1,3 +1,11 @@
+---
+title: Continuous aggregates in Promscale
+excerpt: Use continuous aggregates to downsample and materialize your Promscale data
+product: promscale
+keywords: [continuous aggregates, downsample]
+tags: [recording]
+---
+
 # Continuous aggregates in Promscale
 Promscale can use [TimescaleDB continuous aggregates][tsdb-caggs] to manage data
 downsampling and materialization.
@@ -60,10 +68,12 @@ This example uses a metric called `node_memory_MemFree`, and shows you how to
 create a continuous aggregate to derive some summary statistics about the metric
 on an hourly basis. Run this query on the underlying TimescaleDB database:
 ```sql
-CREATE MATERIALIZED VIEW node_memfree_1hour( time, series_id, min, max, avg)
+CREATE MATERIALIZED VIEW node_memfree_1hour
 WITH (timescaledb.continuous) AS
   SELECT
-        time_bucket('1 hour', time) + '1 hour' as time ,
+        timezone('UTC', 
+          time_bucket('1 hour', time) AT TIME ZONE 'UTC' +'1 hour')  
+            as time, 
         series_id,
         min(value) as min,
         max(value) as max,
@@ -92,10 +102,16 @@ To query the average in the new aggregated metric with SQL, and show it in a
 time series chart in Grafana, use this query:
 ```sql
 SELECT time, jsonb(labels) as metric, avg
-FROM node_memfree_1hour
+FROM node_memfree_1hour m
+INNER JOIN prom_series.node_memory_MemFree s 
+    ON (m.series_id=s.series_id)
 WHERE $__timeFilter(time)
-ORDER BY time ASC
+ORDER BY time asc
 ```
+
+The join with the original metric is currently required in SQL queries to 
+retrieve the labels for a specific series.
+
 
 To do the same with PromQL, you need to use the `__column__` label. The
 aggregated metric stores the data for `min`, `max`, and `avg` in different
@@ -117,10 +133,12 @@ is specified. To do this with the previous example, you can create a continuous
 aggregate that sets the average as the default to be returned in PromQL queries,
 like this:
 ```sql
-CREATE MATERIALIZED VIEW node_memfree_1hour( time, series_id, min, max, value)
+CREATE MATERIALIZED VIEW node_memfree_1hour
 WITH (timescaledb.continuous) AS
   SELECT
-        time_bucket('1 hour', time) + '1 hour' as time ,
+        timezone('UTC', 
+          time_bucket('1 hour', time) AT TIME ZONE 'UTC' +'1 hour')  
+            as time, 
         series_id,
         min(value) as min,
         max(value) as max,
@@ -151,7 +169,7 @@ then remove the continuous aggregate.
 
 Remove the metric view:
 ```sql
-unregister_metric_view('public', 'node_memfree_1hour');
+SELECT unregister_metric_view('public', 'node_memfree_1hour');
 ```
 
 Delete the continuous aggregate:
@@ -168,6 +186,5 @@ typical use case is to retain aggregated metrics for longer for trend analysis.
 For more information about data retention, see the
 [metric retention section][retention].
 
-
-[tsdb-caggs]: timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/
-[retention]: /manage-data/retention/
+[retention]: /promscale/:currentVersion:/manage-data/retention/
+[tsdb-caggs]: /timescaledb/:currentVersion:/overview/core-concepts/continuous-aggregates/

@@ -1,5 +1,11 @@
 ---
-api_name: interpolate
+api_name: interpolate()
+excerpt: Linearly interpolate missing values when gapfilling
+license: community
+toolkit: false
+topic: hyperfunctions
+keywords: [gapfill, interpolate, hyperfunctions, toolkit]
+tags: [missing values]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
@@ -11,7 +17,7 @@ hyperfunction_type: other
 # interpolate() <tag type="community">Community</tag>
 The `interpolate` function does linear interpolation for missing values. It can
 only be used in an aggregation query with
-[time_bucket_gapfill](/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/).
+[time_bucket_gapfill][time_bucket_gapfill].
 The `interpolate` function call cannot be nested inside other function calls.
 
 For more information about gapfilling and interpolation functions, see the
@@ -101,4 +107,5 @@ ORDER BY day;
 ```
 
 
-[hyperfunctions-gapfilling]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
+[hyperfunctions-gapfilling]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
+[time_bucket_gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/

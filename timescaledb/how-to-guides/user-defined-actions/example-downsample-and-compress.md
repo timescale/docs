@@ -1,3 +1,9 @@
+---
+title: Use a user-defined action to downsample and compress chunks
+excerpt: Customize downsampling and compression with a user-defined action
+keywords: [actions, compression, downsample]
+---
+
 # Use a user-defined action to downsample and compress chunks
 TimescaleDB lets you downsample and compress chunks by combining a
 [continuous aggregate refresh policy][cagg-refresh] with a
@@ -77,5 +83,5 @@ policy. But you can make the query arbitrarily complex.
 
 </procedure>
 
-[cagg-refresh]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate/
-[compression]: /how-to-guides/compression/about-compression/
+[cagg-refresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/

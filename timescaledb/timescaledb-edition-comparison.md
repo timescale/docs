@@ -1,3 +1,10 @@
+---
+title: Compare TimescaleDB editions
+excerpt: Compare different editions of TimescaleDB
+keywords: [Apache, community, features]
+tags: [learn, contribute]
+---
+
 ## TimescaleDB Apache 2 vs TimescaleDB Community Editions
 
 There are two versions of TimescaleDB available:
@@ -28,7 +35,7 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
 - _Can I sell TimescaleDB Community Edition as a service, even if I'm not the main contributor?_ <br/>
   No.
 - _Can I modify the TimescaleDB Community Edition source code and run it for production use?_ <br/>
-  Yes. Developers using TimescaleDB Community Edition have the “right to repair” and make modifications to the source code and run it in their own on-premises or cloud infrastructure. However, consistent with the previous question, users may not make modifications to the TimescaleDB Community Edition source code and offer it as a service.
+  Yes. Developers using TimescaleDB Community Edition have the "right to repair" and make modifications to the source code and run it in their own on-premises or cloud infrastructure. However, consistent with the previous question, users may not make modifications to the TimescaleDB Community Edition source code and offer it as a service.
 - _Is there a hosted version of TimescaleDB Community Edition?_ <br/>
   Yes. There are two options for users that want to run TimescaleDB Community Edition as a hosted service in the cloud: [Timescale Cloud][timescale-cloud] and [Managed Service for TimescaleDB (MST)][mst]. Timescale Cloud is a cloud-native platform for time-series, hosted in AWS. MST is a database-as-a-service offering for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 
@@ -479,10 +486,11 @@ Many of the most recent features of TimescaleDB are only available in TimescaleD
   </tr>
 </table>
 
-[azure-database]: https://azure.microsoft.com/en-us/services/postgresql/?&ef_id=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&gclid=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE#overview
-[digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/resources/supported-extensions/
+<!-- vale Google.Units = NO -->
 [aiven]: https://aiven.io/postgresql
-[timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE
-[timescale-cloud]: /cloud/latest
-[mst]: /mst/latest
+[azure-database]: https://azure.microsoft.com/en-us/services/postgresql/?&ef_id=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&gclid=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE#overview
+[digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/details/supported-extensions/
 [license-blog]: https://blog.timescale.com/blog/building-open-source-business-in-cloud-era-v2/
+[mst]: /mst/:currentVersion:
+[timescale-cloud]: /cloud/:currentVersion:
+[timescale-license]: https://github.com/timescale/timescaledb/blob/master/tsl/LICENSE-TIMESCALE

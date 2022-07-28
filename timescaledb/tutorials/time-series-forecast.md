@@ -1,3 +1,9 @@
+---
+title: Time-series forecasting
+excerpt: Predict likely future values of a dataset based on historical data
+keywords: [forecast, analytics]
+---
+
 # Time-series forecasting
 Time-series forecasting enables us to predict likely
 future values for a dataset based on historical time-series
@@ -381,7 +387,7 @@ Now you can make use of MADlib's library to analyze the taxicab dataset. Here,
 you can train an ARIMA model to predict the price of a ride from JFK to Times
 Square at a given time.
 
-Let's look at the `rides_price` table. The `trip_price` column is the the
+Let's look at the `rides_price` table. The `trip_price` column is the
 average price of a trip from JFK to Times Square during each hourly period. Data
 points that are missing due to no rides being taken during a certain hourly
 period are filled with the previous value. This is done by
@@ -752,21 +758,21 @@ variety of statistical models and machine learning algorithms that you can use
 to analyze and make predictions on time-series data in your TimescaleDB
 database.
 
-[hello_timescale]: /tutorials/nyc-taxi-cab/
-[install]: /install/latest/
-[tutorial-postgis]: /tutorials/nyc-taxi-cab/#mission-monitoring
-[install_r]: https://www.r-project.org/
-[install_python]: https://www.python.org/downloads/
-[forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
 [NYCTLC]: http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
-[gap_filling]: /how-to-guides/query-data/advanced-analytic-queries/#gap-filling
 [arima]: https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
-[rpostgres]: https://cran.r-project.org/web/packages/RPostgres/index.html
-[r-xts]: https://cran.r-project.org/web/packages/xts/xts.pdf
-[r-forecast]: https://cran.r-project.org/web/packages/forecast/forecast.pdf
-[madlib]: http://madlib.apache.org/
-[madlib_install]: https://cwiki.apache.org/confluence/display/MADLIB/Installation+Guide
-[madlib_arima]: http://madlib.apache.org/docs/latest/group__grp__arima.html
+[forecast-sql]: http://assets.iobeam.com/sql/forecast.sql
+[gap_filling]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries/#gap-filling
+[hello_timescale]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/
 [holt-winters]: https://otexts.org/fpp2/holt-winters.html
+[install]: /install/latest/
+[install_python]: https://www.python.org/downloads/
+[install_r]: https://www.r-project.org/
+[madlib]: http://madlib.apache.org/
+[madlib_arima]: http://madlib.apache.org/docs/latest/group__grp__arima.html
+[madlib_install]: https://cwiki.apache.org/confluence/display/MADLIB/Installation+Guide
 [python-psycopg2]: https://pypi.org/project/psycopg2/
 [python-statsmodels]: http://www.statsmodels.org/dev/tsa.html
+[r-forecast]: https://cran.r-project.org/web/packages/forecast/forecast.pdf
+[r-xts]: https://cran.r-project.org/web/packages/xts/xts.pdf
+[rpostgres]: https://cran.r-project.org/web/packages/RPostgres/index.html
+[tutorial-postgis]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/#mission-monitoring

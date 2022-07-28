@@ -1,9 +1,16 @@
-# Application Performance Management (APM) with traces
-Promscale provides an APM-like experience with traces data using SQL. Import the 
-Grafana dashboards that are published by the Promscale team to get the APM 
-with traces.
+---
+title: Application performance monitoring with traces
+excerpt: Application performance monitoring within Grafana using dashboards with SQL queries on traces
+product: promscale
+keywords: [Jaeger, APM]
+tags: [configure, opentelemetry, traces]
+---
 
-Before you begin importing APM dashboards:
+# Application performance monitoring (APM) with traces
+Promscale provides application performance monitoring with traces data using SQL. Import the 
+Grafana dashboards that are published by the Promscale team using traces.
+
+Before you begin importing the dashboards:
 
 * Add these data sources in Grafana:
     * [Jaeger data source][promscale-as-jaeger]
@@ -15,7 +22,7 @@ Before you begin importing APM dashboards:
   more information about installing the extension, see the 
   [toolkit extension installation documentation][install-extension].
 
-You can use one of these methods to import APM dashboards:
+You can use one of these methods to import dashboards:
 *  From the Grafana community the dashboards published by Promscale.
 *  From Promscale Github repository as JSON files.
 
@@ -38,13 +45,13 @@ You can use one of these methods to import APM dashboards:
 
 </procedure>
 
-## Import APM dashboards from the Grafana community
+## Import dashboards from the Grafana community
 [Grafana community dashboards][promscale-grafana-dashboards] contain all the
 dashboards published by Promscale. 
 
 <procedure>
 
-### Importing APM dashboards from the Grafana community
+### Importing dashboards from the Grafana community
 1.  In the [Grafana community dashboard][promscale-grafana-dashboards] select 
     the dashboard with `APM` prefix, click the `Details` button to open a dashboard. 
 1.  Click `Copy ID to Clipboard` to copy the UID of the dashboard.
@@ -55,10 +62,10 @@ dashboards published by Promscale.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard.
 1.  Select the data sources from which you want the dashboard to query the data:
-    * For APM dashboards select `TimescaleDB or PostgreSQL data source` as
-      `Promscale-SQL`.
-    * For APM dashboards select `Promscale Jaeger Tracing data source` as
-      `Promscale-Tracing`.
+    * For application performance monitoring dashboards select `TimescaleDB or PostgreSQL
+      data source` as `Promscale-SQL`.
+    * For application performance monitoring dashboards, select `Promscale Jaeger Tracing data source`
+      as `Promscale-Tracing`.
 1.  Click `Import`.
 
 </procedure>
@@ -71,8 +78,8 @@ dashboards published by Promscale.
 <procedure>
 
 ### Importing dashboards as JSON files
-1.  Download all the `.json` files with `apm` prefix from the [Promscale
-    dashboards][promscle-github-dashboards] repository.
+1.  Download all the `.json` files with `apm` prefix from the
+    [Promscale dashboards][promscale-github-dashboards] repository.
 1.  In the Grafana UI, select `Import` from the `+` Create icon on the side
     menu.
 1.  Select the `Upload JSON file` button, and select the downloaded `JSON` dashboard
@@ -80,20 +87,17 @@ dashboards published by Promscale.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard.
 1.  Select the data sources from which you want the dashboard to query the data:
-    * For APM dashboards select `TimescaleDB or PostgreSQL data source` as
-      `Promscale-SQL`.
-    * For APM dashboards select `Promscale Jaeger Tracing data source` as
-      `Promscale-Tracing`.
+    * For application performance monitoring dashboards, select `TimescaleDB or PostgreSQL data source`
+      as `Promscale-SQL`.
+    * For application performance monitoring dashboards, select `Promscale Jaeger Tracing data source`
+      as `Promscale-Tracing`.
 1.  Click `Import`.
 
 </procedure>
 
 [promscale-grafana-dashboards]: https://grafana.com/orgs/promscale/dashboards
-[promscale-as-prometheus]:
-    /visualize-data/grafana/#promscale-as-prometheus-datasource
-[promscale-as-jaeger]: /visualize-data/grafana/#configure-promscale-as-jaeger-data-source 
-[promscale-as-postgresql]:
-    /visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
+[promscale-as-jaeger]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-jaeger-data-source 
+[promscale-as-postgresql]: /promscale/:currentVersion:/visualize-data/grafana/#configure-promscale-as-a-postgresql-data-source
 [install-toolkit]:/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit
 [promscale-github-dashboards]: https://github.com/timescale/promscale/tree/master/docs/mixin/dashboards
-[install-extension]: /promscale/latest/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension
+[install-extension]: /promscale/:currentVersion:/visualize-data/apm-experience/#install-the-timescaledb-toolkit-extension

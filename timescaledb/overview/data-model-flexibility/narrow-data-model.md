@@ -1,9 +1,16 @@
+---
+title: Narrow-table model
+excerpt: Learn how to model your data in a narrow-table model
+keywords: [data, hypertables]
+tags: [model]
+---
+
 ## Narrow-table model
 
 Most time-series databases would represent this data in the following way:
-- Represent each metric as a separate entity (e.g., represent `cpu_1m_avg`
+- Represent each metric as a separate entity (for example, represent `cpu_1m_avg`
   and `free_mem` as two different things)
-- Store a sequence of "time", "value" pairs for that metric
+- Store a sequence of "time," "value" pairs for that metric
 - Represent the metadata values as a "tag-set" associated with that
 metric/tag-set combination
 
@@ -44,4 +51,4 @@ additional metric you want to correlate requires another JOIN. If you typically
 query multiple metrics together, it is both faster and easier to store them in a
 [wide table format][wide-table-format].
 
-[wide-table-format]: /overview/data-model-flexibility/wide-data-model/
+[wide-table-format]: /timescaledb/:currentVersion:/overview/data-model-flexibility/wide-data-model/

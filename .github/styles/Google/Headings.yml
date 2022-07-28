@@ -40,6 +40,7 @@ exceptions:
   - PostgreSQL
   - Prometheus
   - Promscale
+  - Promscale Connector
   - Python
   - Red
   - REPL

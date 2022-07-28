@@ -1,20 +1,27 @@
+---
+title: How to visualize and aggregate missing time-series data in Grafana
+excerpt: Handle missing data points when plotting data in Grafana
+keywords: [Grafana, visualizations, analytics, gapfill]
+tags: [time-series]
+---
+
 # Tutorial: How to visualize and aggregate missing time-series data in Grafana
 
-### Introduction [](introduction)
+### Introduction
 Sometimes there are gaps in our time-series data: because systems
 are offline, or devices lose power, etc. This causes problems when you
 want to aggregate data across a large time window, for example,
 computing the average temperature over the past 6 hours by 30 minute
 time intervals or analyzing today's CPU utilization by 15 minute
 intervals. Gaps in data can also have other negative consequences,
-e.g., breaking applications downstream.
+for example, breaking applications downstream.
 
 In this tutorial, you'll see how to use [Grafana][grafana-external]
 (an open-source visualization tool) and TimescaleDB for
 handling missing time-series data (using the TimescaleDB/PostgreSQL data
 source natively available in Grafana).
 
-### Prerequisites [](prereqs)
+### Prerequisites
 To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
@@ -30,7 +37,7 @@ is complete, we can proceed to ingesting or creating sample data and finishing t
 * Grafana dashboard connected to your TimescaleDB instance ([setup
 instructions][get-grafana])
 
-### Step 0 - Load your time-series data into TimescaleDB and simulate missing data (optional) [](step0)
+### Step 0 - Load your time-series data into TimescaleDB and simulate missing data (optional)
 
 *(Please skip this step if you already have TimescaleDB loaded with your
 time-series data.)*
@@ -57,7 +64,7 @@ To simulate missing data, let's delete all data our sensors collected between 1 
 DELETE FROM sensor_data WHERE sensor_id = 1 and time > now() - INTERVAL '2 hour' and time < now() - INTERVAL '1 hour';
 ```
 
-### Step 1 - Plot the dataset and confirm missing data [](step1)
+### Step 1 - Plot the dataset and confirm missing data
 
 *(For this and the following steps, we'll use the IoT dataset from Step
 0, but the steps are the same if you use your own - real or simulated -
@@ -84,7 +91,7 @@ ORDER BY 1
 There is missing data from 17:05 to 18:10, as we can see by the lack of
 data points (flat line) during that time period.
 
-### Step 2 - Interpolate (fill in) the missing data [](step2)
+### Step 2 - Interpolate (fill in) the missing data
 
 For interpolating the missing data, we use
 [`time_bucket_gapfill`][docs-timebucket-gapfill],
@@ -113,7 +120,7 @@ have been.
 
 As you can see, the graph now plots data points at regular intervals for the times where we have missing data.
 
-### Step 3 - Aggregate across a larger time window [](step3)
+### Step 3 - Aggregate across a larger time window
 Now, we return to our original problem: wanting to aggregate data across a large time window with missing data.
 
 Here we use our interpolated data and compute the average temperature by 30 minute windows over the past 6 hours.
@@ -158,21 +165,21 @@ and risking breaking applications downstream. In contrast, the ORANGE
 plot uses our interpolated data to create a datapoint for that time
 period.
 
-### Next steps [](next-steps)
+### Next steps
 
 This is just one way to use TimescaleDB with Grafana to solve data
 problems and ensure that your applications, systems, and operations
-don't  suffer any negative consequences (e.g., downtime, misbehaving
+don't  suffer any negative consequences (for example, downtime, misbehaving
 applications, or a degregraded customer experience). For more ways on
 how to use TimescaleDB, check out our other [tutorials][tutorials]
 (which range from beginner to advanced).
 
+[docs-LOCF]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/locf
+[docs-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill
+[docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
+[get-grafana]: /timescaledb/:currentVersion:/tutorials/grafana
 [grafana-external]: https://grafana.com/
 [install-timescale]: /install/latest/
-[get-grafana]: /tutorials/grafana
-[tutorial-simulate-iot]: /tutorials/simulate-iot-sensor-data/
-[docs-hypertable]: /how-to-guides/hypertables/
-[docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[docs-timebucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill
-[docs-LOCF]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/locf
-[tutorials]: /tutorials
+[tutorial-simulate-iot]: /timescaledb/:currentVersion:/tutorials/simulate-iot-sensor-data/
+[tutorials]: /timescaledb/:currentVersion:/tutorials

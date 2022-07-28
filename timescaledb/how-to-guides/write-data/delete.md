@@ -1,3 +1,9 @@
+---
+title: Delete data
+excerpt: How to delete data from TimescaleDB
+keywords: [delete, hypertables]
+---
+
 # Delete data
 You can delete data from a hypertable using a standard
 [`DELETE`][postgres-delete] SQL command. If you want to delete old data once it
@@ -24,5 +30,5 @@ hypertable. You can do so either manually or by data retention policy.
 
 To learn more, see the [data retention section][data-retention].
 
+[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [postgres-delete]: https://www.postgresql.org/docs/current/static/sql-delete.html
-[data-retention]: /how-to-guides/data-retention/

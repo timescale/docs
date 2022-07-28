@@ -1,3 +1,9 @@
+---
+title: IoT analysis and monitoring
+excerpt: Analyze IoT data with TimescaleDB
+keywords: [IoT, analytics, monitor]
+---
+
 # Introduction to IoT: New York City Taxicabs
 
 Use case: IoT Analysis and Monitoring
@@ -17,7 +23,7 @@ SQL command, but it is helpful if you've seen SQL before.
 ### Accessing Timescale
 There are multiple options for using Timescale to follow along with this tutorial. **All connection information
 and database naming** throughout this tutorial assumes you are connected to **Timescale Cloud**, our hosted,
-fully-managed database-as-a-service. [Sign up for a free, 30-day demo account][cloud-signup], no credit-card
+fully managed database-as-a-service. [Sign up for a free, 30-day demo account][cloud-signup], no credit-card
 required. Once you confirm the account and get logged in, proceed to the **Background** section below.
 
 If you would like to follow along with a local or on-prem install, you can follow the [install TimescaleDB][install-timescale]
@@ -61,7 +67,7 @@ vehicles. These vehicles are famous for getting New Yorkers
 and tourists wherever they need to go across all five boroughs.
 
 The NYC TLC has over 200,000 licensee vehicles completing
-about 1 million trips each day – that's a lot of trips! They've
+about 1 million trips each day. That's a lot of trips! They've
 made their taxi utilization data publicly available. And, because nearly all of this data
 is time-series data, proper analysis requires a purpose-built
 time-series database. We use the unique functions
@@ -579,7 +585,7 @@ a ride's current status.
 >:WARNING: A more realistic setup would involve creating a data pipeline that streams sensor data directly from the cars into TimescaleDB. However, we use the January 2016 data to illustrate the underlying principles that are applicable regardless of setup.
 
 #### How many rides took place every 5 minutes for the first day of 2016?
-It's January 1st 2016. NYC riders have celebrated New Year's Eve, and are using taxi
+It's January 1, 2016. NYC riders have celebrated New Year's Eve, and are using taxi
 cabs to travel to and from their first gathering of the new year.
 
 The first thing you might like to know is how many rides have recently taken
@@ -622,7 +628,7 @@ trunc(EXTRACT(minute from pickup_datetime) / 5)*5 AS five_mins
 ```
 
 So our result for time of 08:49 would be `trunc(49/5)*5 = trunc(9.8)*5 = 9*5 = 45`,
-so this time would be in the 45min bucket. After extracting both the hours and which
+so this time would be in the 45&nbsp;min bucket. After extracting both the hours and which
 5 minute interval the time fell into, we then group our results, first by the
 `hours` and then the `five_mins` interval. Whew, that was a lot for a conceptually
 simple question!
@@ -660,7 +666,7 @@ The result of your query should start something like this:
 
 ```
 
-#### How many rides on New Year's morning originated from within 400m of Times Square, in 30 minute buckets? [](postgis)
+#### How many rides on New Year's morning originated from within 400m of Times Square, in 30 minute buckets?
 
 New York City is famous for its annual Ball Drop New Year's Eve
 celebration in Times Square. Thousands of people gather to bring in the
@@ -809,15 +815,14 @@ Ready for more learning? Here's a few suggestions:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
-[install-timescale]: /install/latest/
-[setup-psql]: /how-to-guides/connecting/psql
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-[nyc_data]: https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz
-[postgis]: http://postgis.net/documentation
-[time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /getting-started/create-cagg/
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
 [cloud-signup]: https://console.cloud.timescale.com/signup
-[hypertables]: /how-to-guides/hypertables
+[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg/
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables
+[install-timescale]: /install/latest/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
 [parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[postgis]: http://postgis.net/documentation
+[setup-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/

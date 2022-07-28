@@ -1,3 +1,12 @@
+---
+api_name: distributed_exec()
+excerpt: Execute a procedure across all the data nodes of a multi-node cluster
+license: community
+topic: multi-node
+keywords: [multi-node]
+tags: [data nodes, cluster, procedure, roles, permissions]
+---
+
 ## distributed_exec() <tag type="community">Community</tag>
 
 This procedure is used on an access node to execute a SQL command

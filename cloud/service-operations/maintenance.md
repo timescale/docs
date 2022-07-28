@@ -1,3 +1,10 @@
+---
+title: Service operations - Maintenance
+excerpt: How your Timescale Cloud service is kept up-to-date
+product: cloud
+keywords: [updates, upgrades, maintenance]
+---
+
 # Service operations - Maintenance
 On Timescale Cloud, minor software updates are handled automatically by us, and
 you do not need to perform any actions.

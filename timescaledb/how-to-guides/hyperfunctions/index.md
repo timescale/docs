@@ -1,3 +1,9 @@
+---
+title: Hyperfunctions
+excerpt: Hyperfunctions help you perform critical time-series queries quickly
+keywords: [hyperfunctions, Toolkit, analytics]
+---
+
 # Hyperfunctions
 Hyperfunctions allow you to perform critical time-series queries quickly,
 analyze time-series data, and extract meaningful information.
@@ -16,13 +22,6 @@ For more information, read the [hyperfunctions blog post][hyperfunctions-blog].
 
 ## Browse hyperfunctions and Toolkit features by category
 
-[about-hyperfunctions]: /how-to-guides/hyperfunctions/about-hyperfunctions
-[install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
-[about-pipelines]: /how-to-guides/hyperfunctions/function-pipelines
-[hyperfunctions-approx-count-distinct]: /how-to-guides/hyperfunctions/approx-count-distincts
-[hyperfunctions-stats-agg]: /how-to-guides/hyperfunctions/stats-aggs/
-[hyperfunctions-gapfilling]: /how-to-guides/hyperfunctions/gapfilling-interpolation
-[hyperfunctions-approximate-percentile]: /how-to-guides/hyperfunctions/percentile-approx/approximate-percentile/
-[hyperfunctions-time-weighted-averages]: /how-to-guides/hyperfunctions/time-weighted-averages
-[hyperfunctions-counteragg]: /how-to-guides/hyperfunctions/counter-aggregation/counter-aggs/
+[about-hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/about-hyperfunctions
 [hyperfunctions-blog]: https://blog.timescale.com/blog/time-series-analytics-for-postgresql-introducing-the-timescale-analytics-project/
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

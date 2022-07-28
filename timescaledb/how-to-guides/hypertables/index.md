@@ -1,3 +1,9 @@
+---
+title: Hypertables
+excerpt: Hypertables are PostgreSQL tables with special features that make it easy to handle time-series data
+keywords: [hypertables]
+---
+
 # Hypertables
 Hypertables are PostgreSQL tables with special features that make it easy to
 handle time-series data. Anything you can do with regular PostgreSQL tables, you
@@ -12,10 +18,10 @@ performance and user experience for time-series data.
 *   [Drop a hypertable][drop-hypertables]
 *   [Troubleshoot][troubleshooting] hypertable issues
 
-[about-hypertables]: /how-to-guides/hypertables/about-hypertables/
-[create-hypertables]: /how-to-guides/hypertables/create/
-[change-chunk-intervals]: /how-to-guides/hypertables/change-chunk-intervals/
-[alter-hypertables]: /how-to-guides/hypertables/alter/
-[create-unique-indexes]: /how-to-guides/hypertables/hypertables-and-unique-indexes/
-[drop-hypertables]: /how-to-guides/hypertables/drop/
-[troubleshooting]: /how-to-guides/hypertables/troubleshooting/
+[about-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/
+[alter-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/alter/
+[change-chunk-intervals]: /timescaledb/:currentVersion:/how-to-guides/hypertables/change-chunk-intervals/
+[create-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
+[create-unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
+[drop-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/drop/
+[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/hypertables/troubleshooting/

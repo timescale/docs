@@ -1,5 +1,10 @@
 ---
-api_name: rollup
+api_name: rollup()
+excerpt: Roll up multiple `CounterSummary` aggregates
+license: community
+toolkit: true
+topic: hyperfunctions
+hyperfunctions: [counters, rollup, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -58,4 +63,4 @@ FROM t;
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

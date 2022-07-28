@@ -1,3 +1,11 @@
+---
+api_name: CREATE INDEX (Transaction Per Chunk)
+excerpt: Create a hypertable index using a separate transaction for each chunk
+license: apache
+topic: hypertables
+keywords: [hypertables, indexes, chunks, create]
+---
+
 ## CREATE INDEX (Transaction Per Chunk)
 
 ```SQL
@@ -35,7 +43,7 @@ CREATE INDEX ON conditions(time, device_id) WITH (timescaledb.transaction_per_ch
 ```
 Other index methods
 ```SQL
-CREATE INDEX ON conditions(time, location) USING brin
+CREATE INDEX ON conditions USING brin(time, location)
   WITH (timescaledb.transaction_per_chunk);
 ```
 

@@ -1,3 +1,11 @@
+---
+title: Backup and restore
+excerpt: Understand how backups and restores work in Timescale Cloud
+product: cloud
+keywords: [backup, restore]
+tags: [recovery, failures]
+---
+
 # Backup and restore
 Timescale Cloud has a range of automated backup and restore mechanisms. All
 automated backups in Timescale Cloud are created using the `pgbackrest` tool.

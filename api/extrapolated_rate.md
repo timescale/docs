@@ -1,5 +1,11 @@
 ---
-api_name: extrapolated_rate
+api_name: extrapolated_rate()
+excerpt: Calculate the extrapolated rate of change from values in a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [rate, counters, hyperfunctions, toolkit]
+tags: [extrapolate]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -65,4 +71,4 @@ FROM (
 ) t
 ```
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

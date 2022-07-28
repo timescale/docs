@@ -1,3 +1,9 @@
+---
+title: Using Tableau to visualize data in TimescaleDB
+excerpt: Use Tableau to plot and visualize your data
+keywords: [visualizations, analytics, Tableau]
+---
+
 # Using Tableau to visualize data in TimescaleDB
 
 [Tableau][get-tableau] is a popular analytics platform that enables you to gain
@@ -39,7 +45,7 @@ connection type. Then enter your database  credentials.
 ### Step 2: Run a simple query in Tableau
 
 Let's use the built-in SQL editor in Tableau. To run a query, add custom SQL to your data source
-by dragging and dropping the “New Custom SQL” button (in the bottom left of the Tableau desktop
+by dragging and dropping the "New Custom SQL" button (in the bottom left of the Tableau desktop
 user interface) to the place that says 'Drag tables here'.
 
 Type a query in the dialog box. In this case, use the first
@@ -112,11 +118,11 @@ Ready for more learning? Here's a few suggestions:
 - [Try Other Sample Datasets][other-samples]
 - [Migrate your own Data][migrate]
 
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[crypto-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data
 [get-tableau]: https://www.tableau.com/products/trial
-[crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
-[timescale-products]: https://www.timescale.com/products
 [install-timescale]: /install/latest/
-[time-series-forecasting]: /tutorials/time-series-forecast
-[continuous-aggregates]: /how-to-guides/continuous-aggregates
-[other-samples]: /tutorials/sample-datasets
-[migrate]: /how-to-guides/migrate-data
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast
+[timescale-products]: https://www.timescale.com/products

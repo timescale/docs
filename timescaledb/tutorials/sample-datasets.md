@@ -1,3 +1,8 @@
+---
+title: Sample datasets
+excerpt: Download these sample datasets to start exploring TimescaleDB
+---
+
 # Sample datasets
 Timescale have created several sample datasets to help you get started using
 TimescaleDB. These datasets vary in database size, number of time
@@ -75,7 +80,7 @@ instead.
 psql -U postgres -h localhost -d devices_small
 ```
 
-## Device ops datasets [](in-depth-devices)
+## Device ops datasets
 After importing one of these datasets (`devices_small`, `devices_med`,
 `devices_big`), you have a plain PostgreSQL table called `device_info` and a
 hypertable called `readings`. The `device_info` table has static metadata
@@ -192,7 +197,7 @@ hour                   | min_battery_level | max_battery_level
 
 ---
 
-## Weather datasets [](in-depth-weather)
+## Weather datasets
 After importing one of these datasets (`weather_small`, `weather_med`,
 `weather_big`), you notice a plain PostgreSQL table called `locations` and a
 hypertable called `conditions`. The `locations` table has metadata about each of
@@ -311,12 +316,5 @@ hour                   | avg_temp | min_temp | max_temp
 2016-11-16 06:00:00-05 |    78.42 |    69.49 |    84.40
 (24 rows)
 ```
-[installation]: /install/latest/
-<!-- datasets -->
-[devices-small]: https://timescaledata.blob.core.windows.net/datasets/devices_small.tar.gz
-[devices-medium]: https://timescaledata.blob.core.windows.net/datasets/devices_med.tar.gz
-[devices-big]: https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz
 
-[weather-small]: https://timescaledata.blob.core.windows.net/datasets/weather_small.tar.gz
-[weather-medium]: https://timescaledata.blob.core.windows.net/datasets/weather_med.tar.gz
-[weather-big]: https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz
+[installation]: /install/latest/
