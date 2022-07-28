@@ -18,7 +18,8 @@ You can install Promscale on Kubernetes with or without instrumentation.
 
 ## Install Promscale on Kubernetes without instrumentation
 If you already have Prometheus or OpenTelemetry installed, you can install Promscale
-on Kubernetes using [Helm charts][promscale-install-helm] or [a manifest][promscale-install-k8s-manifest] file.
+on Kubernetes using [Helm charts][promscale-install-helm] or 
+[a manifest][promscale-install-k8s-manifest] file.
 
 After you have installed Promscale, migrate your existing Prometheus data into
 Promscale using the [prom-migrator tool][promscale-install-prom-migrator], then
