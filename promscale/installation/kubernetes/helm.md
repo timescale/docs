@@ -128,6 +128,7 @@ After you have installed Promscale, you can ingest data.
 For instructions, see the [send data][send-data] section.
 
 ## Database configurations
+
 <PromscaleConfigurationRecommendations />
 
 
