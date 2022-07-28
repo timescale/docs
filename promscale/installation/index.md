@@ -11,7 +11,10 @@ related_pages:
 
 # Install Promscale
 By default, Promscale does not provide instrumentation to collect telemetry
-from your applications and infrastructure. You can use [Prometheus][prometheus-install] to collect metrics and [OpenTelemetry][otel] to collect traces. After you have the instrumentation set up, you can use Promscale to ingest the metric and trace data. 
+from your applications and infrastructure. You can use 
+[Prometheus][prometheus-install] to collect metrics and 
+[OpenTelemetry][otel] to collect traces. After you have the instrumentation 
+set up, you can use Promscale to ingest the metric and trace data. 
 
 <highlight type="note">
 The PostgreSQL `search_path` variable determines in what order schemas are
