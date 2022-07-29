@@ -1,6 +1,9 @@
 ---
 title: How-to guides
 excerpt: Learn how to work with TimescaleDB
+layout:
+  components:
+    content_list: []
 ---
 
 # How-to guides

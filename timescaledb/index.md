@@ -2,6 +2,9 @@
 title: TimescaleDB
 excerpt: All you need to know about TimescaleDB architecture, concepts, setup, how-tos, tutorials, management, and contribution
 tags: [get started, overview, tutorials, learn, contribute, code]
+layout:
+  components:
+    featured_cards: []
 ---
 
 # Welcome to the TimescaleDB documentation!

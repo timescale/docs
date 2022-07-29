@@ -1,6 +1,9 @@
 ---
 title: Getting started with TimescaleDB
 excerpt: Get started with your first TimescaleDB instance
+layout:
+  components:
+    featured_cards: []
 ---
 
 # Getting started with TimescaleDB
@@ -11,10 +14,11 @@ explore some of the most popular TimescaleDB features. If you have not yet
 created a TimescaleDB instance or learned how to connect to it, make sure to
 check out these two sections:
 
-* [Install TimescaleDB][install]
-* [Connect to TimescaleDB][connecting]
+*   [Install TimescaleDB][install]
+*   [Connect to TimescaleDB][connecting]
 
 ## What is TimescaleDB?
+
 TimescaleDB is an extension on top of PostgreSQL.
 When you use TimescaleDB, you get all the time-series optimizations and special
 features that TimescaleDB provides, along with all the features available
@@ -26,6 +30,7 @@ all the tools and connectors within the PostgreSQL ecosystem. If it works with
 PostgreSQL, it works with TimescaleDB.
 
 ## About this tutorial
+
 This Getting Started section gives you a hands-on introduction to the
 fundamentals of TimescaleDB. You'll learn definitions
 of key terms like hypertables and chunks, and use some of TimescaleDB's key

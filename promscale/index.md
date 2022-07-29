@@ -2,9 +2,13 @@
 title: Promscale
 excerpt: Promscale is the open source observability backend for metrics and traces powered by SQL, built on top of TimescaleDB
 product: promscale
+layout:
+  components:
+    featured_cards: []
 ---
 
 # Promscale
+
 Promscale is the open source observability backend for metrics and traces
 powered by SQL.
 
@@ -21,7 +25,7 @@ This is not possible when data is siloed in different systems.
 *   [Learn about tobs][about-tobs] to understand how to install a complete
     observability stack on Kubernetes.
 *   Configure Promscale for [scaling and high availability][scaling-ha].
-*   [Send metrics and traces][send-data] to Promscale    
+*   [Send metrics and traces][send-data] to Promscale
 *   Use Promscale to [run queries][query-data].
 *   Use Promscale with [visualization tools][visualize-data].
 
