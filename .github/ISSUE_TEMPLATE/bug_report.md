@@ -22,10 +22,6 @@ _Use this template for reporting bugs in the docs._
 
 [Provide the URL to the page you noticed the bug on]
 
-# Version affected
-
-[Which version of the site you noticed the bug on]
-
 # Subject matter expert (SME)
 
 [If known, who is a good person to ask about this topic]
