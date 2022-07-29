@@ -5,23 +5,26 @@ product: cloud
 keywords: [integrations, DataDog, AWS CloudWatch]
 ---
 
-import CloudIntegrationsExporterRegion from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';
+import AttachExporter from 'versionContent/_partials/_cloud-integrations-attach-exporter.mdx';
+import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';
 
 # Integrate Timescale Cloud services with third-party monitoring tools
 
 You can export your service telemetry to a third-party monitoring tool, such as
-[DataDog][datadog] or [AWS CloudWatch][cloudwatch]. To do so, create a data
-exporter and attach your service to it.
+[DataDog][datadog] or [AWS CloudWatch][cloudwatch].
 
-## Create a data exporter
+## Export telemetry data to DataDog
 
-Create a data exporter to send telemetry data to your preferred provider.
+Export telemetry data to DataDog by:
+
+1.  Creating a data exporter
+1.  Attaching your database service to the exporter
 
 <procedure>
 
-### Creating a data exporter to DataDog
+### Creating a data exporter for DataDog
 
-<CloudIntegrationsExporterRegion />
+<ExporterRegionNote />
 
 1.  In the Timescale Cloud console, navigate to `Integrations`.
 1.  Click `Create exporter`.
@@ -40,11 +43,20 @@ Create a data exporter to send telemetry data to your preferred provider.
 
 </procedure>
 
+<AttachExporter />
+
+## Export telemetry data to AWS CloudWatch
+
+Export telemetry data to AWS CloudWatch by:
+
+1.  Creating a data exporter
+1.  Attaching your database service to the exporter
+
 <procedure>
 
-### Creating a data exporter to AWS CloudWatch
+### Creating a data exporter for AWS CloudWatch
 
-<CloudIntegrationsExporterRegion />
+<ExporterRegionNote />
 
 1.  In the Timescale Cloud console, navigate to `Integrations`.
 1.  Click `Create exporter`.
@@ -60,8 +72,8 @@ Create a data exporter to send telemetry data to your preferred provider.
 1.  Enter your AWS credentials. To get your AWS keys, see [Getting access keys
     for AWS CloudWatch][aws-access-keys].
 1.  Select an AWS Region for your CloudWatch instance.
-1.  **(optional)** Define an IAM role to upload segments to a
-    different account.
+1.  **OPTIONAL** Define an Identity and Access Management (IAM) role to upload
+    segments to a different account.
 
 <!-- FIXME: insert screenshot here -->
 
@@ -80,25 +92,7 @@ Create a data exporter to send telemetry data to your preferred provider.
 
 </procedure>
 
-## Attach a data exporter to a service
-
-When you have a data exporter, you can attach it to a service. The exporter then
-exports that service's telemetry data.
-
-You can only have one exporter per service.
-
-<procedure>
-
-### Attaching a data exporter to a service
-
-<CloudIntegrationsExporterRegion />
-
-1.  Navigate to `Services`. Click on the service you want to connect to your
-    exporter.
-1.  Navigate to `Operations`, then `Integrations`.
-1.  Select and add an exporter.
-
-</procedure>
+<AttachExporter />
 
 ## Edit a data exporter
 
