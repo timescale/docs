@@ -37,3 +37,10 @@ _Use this template for reporting bugs in the docs._
 # Any further info
 
 [Anything else you want to add, or further links]
+
+## Contributing to documentation
+
+We welcome documentation contributions!
+
+* For information about how to suggest a change, see the [contributing guide][https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md] in our GitHub repository.
+* For information on style and word usage, see the [style guide][https://docs.timescale.com/timescaledb/latest/contribute-to-docs]
