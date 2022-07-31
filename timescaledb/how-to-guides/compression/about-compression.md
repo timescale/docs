@@ -79,7 +79,7 @@ For more information, see the API reference for [`timescaledb_information.jobs`]
 
 ## Remove compression policy
 To remove a compression policy, use `remove_compression_policy`. For example, to remove a compression policy for a
-for a hypertable named `cpu`:
+hypertable named `cpu`:
 ```sql
 SELECT remove_compression_policy('cpu');
 ```

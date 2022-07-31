@@ -51,22 +51,18 @@ buckets), although interval-based partitioning can be employed here as well.
 We sometimes refer to hypertables partitioned by both time and this additional
 dimension as "time and space" partitions.
 
-This time-and-space partitioning is primarily used for *[distributed hypertables]*.
+This time-and-space partitioning is primarily used for [distributed hypertables][distributed-hypertables].
 With such two-dimensional partitioning, each time interval is also
 partitioned across multiple nodes comprising the distributed hypertables.
 In such cases, for the same hour, information about some portion of the
 devices are stored on each node. This allows multi-node TimescaleDB
 to parallelize inserts and queries for data during that time interval.
 
-[//]: # (Comment: We should include an image that shows a chunk picture of a)
-[//]: # (partition pointing at multiple chunks, each chunk have some range of)
-[//]: # (data, and an index --binary tree-like data structure-- associated with it)
-
 Each chunk is implemented using a standard database table.  (In PostgreSQL
 internals, the chunk is actually a "child table" of the "parent" hypertable.)
 A chunk includes constraints that specify and enforce its partitioning ranges,
 for example, that the time interval of the chunk covers
-['2020-07-01 00:00:00+00', '2020-07-02 00:00:00+00'),
+`['2020-07-01 00:00:00+00', '2020-07-02 00:00:00+00')`,
 and all rows included in the chunk must have a time value within that
 range. Any space partitions are reflected as chunk constraints as well.
 As these ranges and partitions are non-overlapping, all chunks in a
@@ -160,4 +156,4 @@ management. These includes:
   retiring a server (coming soon).
 
 [create-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
-[distributed hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
+[distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/

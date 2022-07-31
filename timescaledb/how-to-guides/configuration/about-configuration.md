@@ -65,10 +65,7 @@ directly, by adjusting the `--cpus` flag, or by using the `TS_TUNE_NUM_CPUS`
 The `max_worker_processes` setting defines the total pool of workers available
 to both background and parallel workers, as well a small number of built-in
 PostgreSQL workers. It should be at least the sum of
-`timescaledb.max_background_workers` and `max_parallel_workers`. When you adjust
-`timescaledb.max_background_workers` or `max_parallel_workers`, the
-`max_worker_processes` setting is automatically updated to the sum of those two
-parameters.
+`timescaledb.max_background_workers` and `max_parallel_workers`.
 
 <highlight type="tip">
 You can adjust these settings with `timescaledb-tune`.
