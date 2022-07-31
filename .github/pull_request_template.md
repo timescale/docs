@@ -8,7 +8,7 @@ Fixes #[insert issue link, if any]
 
 # Writing help
 
-For information about style and word usage, see the [style guide][https://docs.timescale.com/timescaledb/latest/contribute-to-docs/]
+For information about style and word usage, see the [style guide](https://docs.timescale.com/timescaledb/latest/contribute-to-docs/)
 
 # Review checklists
 Reviewers: use this section to ensure you have checked everything before approving this PR:
