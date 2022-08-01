@@ -1,8 +1,10 @@
+// @ts-check
+
 'use strict';
 
 const {
   addErrorAndInsertBlank,
-  findPatternInContent,
+  findPatternInLines,
   isBlank 
 } = require('./utils');
 
@@ -15,16 +17,16 @@ const {
  */
 const checkProcedureBlankLines = (params, onError) => {
   const { lines } = params;
-  const procedureTags = findPatternInContent(params.tokens, '<\/?procedure>');
+  const procedureTags = findPatternInLines(lines, '<\/?procedure>');
   if (procedureTags.length === 0) return;
   procedureTags.forEach((procedureTag) => {
     // lineNumber is indexed from 1
-    const procedureLine = procedureTag.lineNumber - 1;
+    const zeroIndexedLine = procedureTag.lineNumber - 1;
     const hasPrecedingBlank =
-      procedureLine === 0 || isBlank(lines[procedureLine - 1]);
-    const hasFollowingBlank = isBlank(lines[procedureLine + 1]);
-    if (!hasPrecedingBlank) addErrorAndInsertBlank(onError, procedureLine, 0);
-    if (!hasFollowingBlank) addErrorAndInsertBlank(onError, procedureLine, 1);
+      zeroIndexedLine === 0 || isBlank(lines[zeroIndexedLine - 1]);
+    const hasFollowingBlank = isBlank(lines[zeroIndexedLine + 1]);
+    if (!hasPrecedingBlank) addErrorAndInsertBlank(onError, procedureTag.lineNumber, 0);
+    if (!hasFollowingBlank) addErrorAndInsertBlank(onError, procedureTag.lineNumber, 1);
   });
 };
 

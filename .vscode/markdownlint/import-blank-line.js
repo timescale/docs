@@ -1,8 +1,10 @@
+// @ts-check
+
 'use strict';
 
 const {
   addErrorAndInsertBlank,
-  findPatternInContent,
+  findPatternInLines,
   isBlank
 } = require('./utils');
 
@@ -16,11 +18,11 @@ const {
 const checkImportBlankLine = (params, onError) => {
   const { lines } = params;
   const pattern = "^import .+ from '.+';$";
-  const importStatements = findPatternInContent(params.tokens, pattern);
+  const importStatements = findPatternInLines(lines, pattern);
   if (importStatements.length === 0) return;
+  const lastImportStatementLine = importStatements.at(-1).lineNumber;
   // lineNumber is indexed from 1
-  const lastImportStatementLine = importStatements.at(-1).lineNumber - 1;
-  const hasFollowingBlank = isBlank(lines[lastImportStatementLine + 1]);
+  const hasFollowingBlank = isBlank(lines[lastImportStatementLine]);
   if (!hasFollowingBlank) addErrorAndInsertBlank(onError, lastImportStatementLine, 1);
 };
 
