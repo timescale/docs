@@ -15,8 +15,9 @@ import PromscaleConfigurationRecommendations from 'versionContent/_partials/_pro
 You can install Promscale from a pre-complied binary on any operating systems. The
 Promscale binary file is available at [GitHub releases page][gh-promscale-download].
 
-Before you begin, understand the [resource requirements][resource-requirements]
-and have an already working Prometheus or OpenTelemetry collector environment.
+Before you begin, you need a working Prometheus or OpenTelemetry collector 
+environment. You should also check that your environment meets the 
+[resource requirements][resource-requirements].
 
 ## Install TimescaleDB and Promscale extension
 To use Promscale, you need a TimescaleDB database, as well as the Promscale
