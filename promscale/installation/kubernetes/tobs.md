@@ -50,7 +50,7 @@ You can deploy tobs on your cluster and access it locally with `kubectl`
    ```bash
    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
    ```
-1.  Using Helm, deploy the TOBS release labeled `tobs` in the `observability`
+1.  Using Helm, deploy the tobs release labeled `tobs` in the `observability`
     namespace on your cluster:
     ```bash
     helm repo add timescale https://charts.timescale.com/
