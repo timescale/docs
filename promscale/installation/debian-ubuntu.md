@@ -48,6 +48,7 @@ the performance of Promscale.
     apt install promscale
     ```
 ## Database configurations
+
 <PromscaleConfigurationRecommendations />
 
 [tsdb-install-self-hosted]: /install/:currentVersion:/self-hosted/
