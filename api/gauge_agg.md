@@ -11,14 +11,16 @@ api_experimental: true
 hyperfunction_toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
+hyperfunction_type: aggregate
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # gauge_agg() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
+
 Produces a `GaugeSummary` that can be used to accumulate gauge data for further
-calculations. 
+calculations.
+
 ```sql
 gauge_agg (
     ts TIMESTAMPTZ,
@@ -72,9 +74,11 @@ all the same accessor functions as `CounterSummary`, with the exception of
 </highlight>
 
 ## Sample usage
+
 Create a gauge summary from time-series data that has a timestamp, `ts`, and a
 gauge value, `val`. Get the instantaneous rate of change from the last 2 time
 intervals using the `irate_right` accessor:
+
 ```sql
 WITH t as (
     SELECT
