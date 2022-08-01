@@ -9,17 +9,17 @@ tags: [ingest, backup, restore]
 # Migrate the entire database to Managed Service for TimescaleDB
 
 You can migrate your data from self-hosted TimescaleDB to Managed Service for
-TimescaleDB and use exclusive features, including separate scaling for compute
-and storage requirements, first-class multi-node support, and more.
+TimescaleDB and automate most of your most common operational tasks.
 
 Managed Service for TimescaleDB creates a database named `defaultdb` and a
 default user account named `tsdbadmin`. You can use the Web console to create
 additional users and databases using the `Users` and `Databases` tabs. 
 
-You can switch between different plan sizes in Managed Service for TimescaleDB
-but for the duration of the dumping process choose a plan size that is large
-enough for the task. This allows you to limit the downtime during the migration
-process and have a sufficiently powerful TimescaleDB plan.
+You can switch between different plan sizes in Managed Service for TimescaleDB,
+However, during the dumping process choose a plan size that has the same
+storage size or slightly larger than the currently allocated plan. This allows
+you to limit the downtime during the migration process and have a sufficiently
+powerful TimescaleDB plan..
 
 <highlight type="warning">
 Depending on your database size and network speed, migration can take a very
