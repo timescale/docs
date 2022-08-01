@@ -1,5 +1,6 @@
 {
     "customRules": [
+        "./.vscode/markdownlint/highlight-line-break.js",
         "./.vscode/markdownlint/import-blank-line.js",
         "./.vscode/markdownlint/frontmatter-blank-line.js",
         "./.vscode/markdownlint/procedure-blank-lines.js",
