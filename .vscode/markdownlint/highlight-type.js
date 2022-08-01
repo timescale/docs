@@ -1,5 +1,7 @@
 // @ts-check
 
+'use strict';
+
 const { findPatternInLines } = require('./utils');
 
 const highlightTypes = [

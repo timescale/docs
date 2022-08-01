@@ -1,6 +1,11 @@
 // @ts-check
 
-const { checkTagLineBreak, findPatternInLines } = require('./utils');
+'use strict';
+
+const {
+  checkTagLineBreak,
+  findPatternInLines
+} = require('./utils');
 
 /*
  * Check for blank lines following an import statement. Registers an error

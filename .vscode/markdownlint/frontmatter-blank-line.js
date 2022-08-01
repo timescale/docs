@@ -1,6 +1,11 @@
 // @ts-check
 
-const { addErrorAndInsertBlank, isBlank } = require('./utils');
+'use strict';
+
+const {
+  addErrorAndInsertBlank,
+  isBlank
+} = require('./utils');
 
 /*
  * Check for blank lines following an import statement. Registers an error
