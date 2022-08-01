@@ -8,6 +8,7 @@ related_pages:
   - /promscale/:currentVersion:/installation/resource-recomm/
   - /promscale/:currentVersion:/send-data/
 ---
+
 import PromscaleConfigurationRecommendations from 'versionContent/_partials/_promscale-configuration-recommendations.mdx';
 
 # Install Promscale from binary
