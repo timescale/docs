@@ -1,7 +1,10 @@
+// @ts-check
+
 'use strict';
 
 const {
-  findPatternInContent 
+  checkTagsClosed,
+  findPatternInLines, 
 } = require('./utils');
 
 /*
@@ -14,18 +17,19 @@ const {
 const checkProcedureTagsClosed = (params, onError) => {
   const { lines } = params;
   const procedureOpeningTags =
-    findPatternInContent(params.tokens, '<procedure>');
+    findPatternInLines(lines, '<procedure>');
   const procedureClosingTags =
-    findPatternInContent(params.tokens, '<\/procedure>');
-  if (procedureOpeningTags.length === procedureClosingTags.length) return;
-  onError({
-    lineNumber: procedureOpeningTags.at(0).lineNumber
-  })
+    findPatternInLines(lines, '<\/procedure>');
+  checkTagsClosed(
+    procedureOpeningTags,
+    procedureClosingTags,
+    onError
+  );
 };
 
 module.exports = {
   names: [ 'TS003', 'timescale.procedures-tags-closed' ],
-  description: 'There is an unclosed procedure tag in this document',
+  description: 'This procedure tag is unclosed',
   tags: [ 'validation', 'procedures' ],
   function: checkProcedureTagsClosed
 };

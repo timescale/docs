@@ -1,7 +1,9 @@
+// @ts-check
+
 'use strict';
 
 const {
-  findPatternInContent,
+  findPatternInLines,
 } = require('./utils');
 
 /*
@@ -12,7 +14,8 @@ const {
  * @param {addErrorCallback} onError The callback that adds markdownlint errors.
  */
 const checkProcedureNoIndent = (params, onError) => {
-  const procedureTags = findPatternInContent(params.tokens, '<\/?procedure>');
+  const { lines } = params;
+  const procedureTags = findPatternInLines(lines, '<\/?procedure>');
   if (procedureTags.length === 0) return;
   for (let i = 0; i < procedureTags.length; i++) {
     const procedureTagText = procedureTags[i].line;
