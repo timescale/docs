@@ -9,7 +9,7 @@
  * @param {number} procedureLine 1-indexed line number of procedure tag.
  * @param {number} blankLineOffset Relative line on which to add blank line.
  */
-module.exports.addErrorAndInsertBlank = (onError, lineNumber, blankLineOffset) => {
+module.exports.addErrorAndInsertBlank = (onError, lineNumber, blankLineOffset=0) => {
   onError({
     lineNumber: lineNumber,
     fixInfo: {

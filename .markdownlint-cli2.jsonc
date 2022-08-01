@@ -1,6 +1,7 @@
 {
     "customRules": [
         "./.vscode/markdownlint/import-blank-line.js",
+        "./.vscode/markdownlint/frontmatter-blank-line.js",
         "./.vscode/markdownlint/procedure-blank-lines.js",
         "./.vscode/markdownlint/procedure-no-indent.js",
         "./.vscode/markdownlint/procedure-tags-closed.js",
