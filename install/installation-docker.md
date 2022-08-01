@@ -68,7 +68,7 @@ You can use the Docker image in different ways, depending on your use case.
 If you want to run the image directly from the container, you can use this
 command:
 ```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:pg14-latest
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
 ```
 
 The `-p` flag binds the container port to the host port. This means that
@@ -82,7 +82,7 @@ outside world, you can bind to `127.0.0.1` instead of the public interface,
 using this command:
 ```bash
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb:pg14-latest
+-e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
 ```
 
 If you don't want to install `psql` and other PostgreSQL client tools locally,

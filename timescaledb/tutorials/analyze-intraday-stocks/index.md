@@ -1,3 +1,10 @@
+---
+title: Analyze historical intraday stock data
+excerpt: Collect, store, and analyze intraday stock data with TimescaleDB
+keywords: [finance, analytics, psycopg2, pandas, plotly]
+tags: [candlestick]
+---
+
 # Analyze historical intraday stock data
 
 This tutorial is a step-by-step guide on how to collect, store, and analyze intraday stock data
@@ -41,10 +48,9 @@ Install Pandas within the virtual environment:
 pip install pandas
 ```
 
-
-[install-timescale]: /install/latest/
 [alpha-vantage-apikey]: https://www.alphavantage.co/support/#api-key
-[design-schema]: /tutorials/analyze-intraday-stocks/design-schema
-[fetch-ingest]: /tutorials/analyze-intraday-stocks/fetch-and-ingest
-[explore]: /tutorials/analyze-intraday-stocks/explore-stocks-data
-[psql-install]: /how-to-guides/connecting/psql
+[design-schema]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/design-schema
+[explore]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/explore-stocks-data
+[fetch-ingest]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/fetch-and-ingest
+[install-timescale]: /install/latest/
+[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql

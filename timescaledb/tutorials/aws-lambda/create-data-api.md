@@ -1,3 +1,9 @@
+---
+title: Create a data API for TimescaleDB
+excerpt: Create an API to fetch data from your TimescaleDB application, using AWS Lambda
+keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
+---
+
 # Create a data API for TimescaleDB
 This tutorial covers creating an API to fetch data from your TimescaleDB
 instance. It uses an API gateway to trigger a Lambda function, that then fetches
@@ -112,30 +118,33 @@ Lambda using the `create-function` AWS command.
 
 ## Uploading the function to AWS Lambda
 1.  At the command prompt, zip the function directory:
-  ```bash
-  zip function.zip function.py
-  ```
+    ```bash
+    zip function.zip function.py
+    ```
 1.  Upload the function:
-  ```bash
-  aws lambda create-function --function-name simple_api_function \
-  --runtime python3.8 --handler function.lambda_handler \
-  --role <ARN_LAMBDA_ROLE> --zip-file fileb://function.zip
-  ```
+    ```bash
+    aws lambda create-function --function-name simple_api_function \
+    --runtime python3.8 --handler function.lambda_handler \
+    --role <ARN_LAMBDA_ROLE> --zip-file fileb://function.zip \
+    --layers <LAYER_ARN>
+    ```
 1.  You can check that the function has been uploaded correctly by using this
     command in the AWS console:
     ![aws lambda uploaded](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/lambda_function.png)
-1.  If you make changes to your function code, you need to zip the file again and use the
-`update-function-code` command to upload the changes:
-  ```bash
-  zip function.zip function.py
-  aws lambda update-function-code --function-name simple_api_function --zip-file fileb://function.zip
-  ```
+1.  If you make changes to your function code, you need to zip the file again
+    and use the `update-function-code` command to upload the changes:
+    ```bash
+    zip function.zip function.py
+    aws lambda update-function-code --function-name simple_api_function --zip-file fileb://function.zip
+    ```
 
 </procedure>
 
 ## Add database configuration to AWS Lambda
-Before you can use the functions, you need to ensure it can connect to the database. In
-the Python code above, you specified retrieving values from environment variables, and you also need to specify these within the Lambda environment.
+Before you can use the functions, you need to ensure it can connect to the
+database. In the Python code above, you specified retrieving values from
+environment variables, and you also need to specify these within the Lambda
+environment.
 
 <procedure>
 
@@ -170,7 +179,8 @@ the Python code above, you specified retrieving values from environment variable
 </procedure>
 
 ## Test the database connection
-When your function code is uploaded along with the database connection details, you can check to see if it retrieves the data you expect it to.
+When your function code is uploaded along with the database connection details,
+you can check to see if it retrieves the data you expect it to.
 
 <procedure>
 
@@ -353,21 +363,21 @@ with a JSON payload.
     from psycopg2.extras import execute_values
     import os
     from typing import Dict
-    
+
     def lambda_handler(event, context):
-    
+
         db_name = os.environ['DB_NAME']
         db_user = os.environ['DB_USER']
         db_host = os.environ['DB_HOST']
         db_port = os.environ['DB_PORT']
         db_pass = os.environ['DB_PASS']
-    
+
         conn = psycopg2.connect(user=db_user, database=db_name, host=db_host,
                               password=db_pass, port=db_port)
-    
+
         cursor = conn.cursor()
         sql = "INSERT INTO stocks_intraday VALUES %s"
-        
+
         records = json.loads(event["body"]).get("records")
         if  isinstance(records, Dict):
             values = [[value for value in records.values()], ]
@@ -376,7 +386,7 @@ with a JSON payload.
         execute_values(cursor, sql, values)
         conn.commit()
         conn.close()
-    
+
         return {
             'statusCode': 200,
             'body': json.dumps(event, default=str),
@@ -384,7 +394,7 @@ with a JSON payload.
                 "Content-Type": "application/json"
                 }
         }
-    
+
       ```
 1. Upload the function to AWS Lambda:
     ```bash
@@ -420,7 +430,7 @@ with a JSON payload.
     ```
 1.  Create a new resource. In this example, the new resource is called `insert`:
     ```bash
-    aws apigateway create-resource --rest-api-id <API_ID> --region us-east-1 
+    aws apigateway create-resource --rest-api-id <API_ID> --region us-east-1
     --parent-id <RESOURCE_ID> --path-part insert
     {
         "id": "arabc2",
@@ -501,11 +511,11 @@ Create a new payload file, called `post.json`:
 
 Use `curl` to make the request:
 ```bash
-curl -X POST -H "Content-Type: application/json" -d @./post.json 
+curl -X POST -H "Content-Type: application/json" -d @./post.json
 https://h45kwepq8g.execute-api.us-east-1.amazonaws.com/test_post_api/insert_function
 ```
 
-If everything is working properly, the content of your JSON payload file gets 
+If everything is working properly, the content of your JSON payload file gets
 inserted into the database.
 
 |time|symbol|price_open|price_high|price_low|price_close|trading_volume|

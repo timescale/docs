@@ -1,3 +1,9 @@
+---
+title: Analyze the Bitcoin blockchain
+excerpt: Learn how to store and analyze your Bitcoin blockchain data to uncover trends
+keywords: [crypto, blockchain, Bitcoin, finance, analytics]
+---
+
 # Analyze the Bitcoin blockchain
 Blockchain data is time-series data. You can use
 TimescaleDB to ingest, store, and
@@ -36,7 +42,7 @@ this tutorial is to
 (no credit card required).
 </highlight>
 
-[analyze-blockchain]: /tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
-[ingest-bitcoin]: /tutorials/analyze-bitcoin-blockchain/ingest-query-btc-transactions/
-[install-timescale]: /install/:currentVersion:/
-[psql-install]: /how-to-guides/connecting/psql
+[analyze-blockchain]: /timescaledb/:currentVersion:/tutorials/analyze-bitcoin-blockchain/analyze-blockchain/
+[ingest-bitcoin]: /timescaledb/:currentVersion:/tutorials/analyze-bitcoin-blockchain/ingest-query-btc-transactions/
+[install-timescale]: /install/latest/
+[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
