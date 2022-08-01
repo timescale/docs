@@ -23,7 +23,7 @@ If the error occurs immediately after updating your version of TimescaleDB and
 the file mentioned is from the previous version, it is probably due to an incomplete
 update process. Within the greater PostgreSQL server instance, each
 database that has TimescaleDB installed needs to be updated with the SQL command
-`ALTER EXTENSION timescaledb UPDATE;` while connected to that database.  Otherwise,
+`ALTER EXTENSION timescaledb UPDATE;` while connected to that database. Otherwise,
 the database will be looking for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.

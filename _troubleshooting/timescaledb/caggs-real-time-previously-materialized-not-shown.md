@@ -9,6 +9,8 @@ keywords: [continuous aggregates, real-time aggregates]
 tags: [continuous aggregates, real-time aggregates, materialized views]
 ---
 
+import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
+
 <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
@@ -19,15 +21,12 @@ tags: [continuous aggregates, real-time aggregates, materialized views]
 * Copy this comment at the top of every troubleshooting page
 -->
 
-If you have a time bucket that has already been materialized, the real-time
-aggregate does not show the data that has been inserted, updated, or deleted 
-into that bucket until the next `refresh_continuous_aggregate` call is executed.
-The continuous aggregate is refreshed either when you manually call 
-`refresh_continuous_aggregate` or when a continuous aggregate policy is executed. 
-This worked example shows the expected behavior of continuous aggregates, when
-real time aggregation is enabled.
+<CaggsRealTimeHistoricalDataRefreshes />
+
+The following example shows how this works.
 
 Create and fill the hypertable:
+
 ```sql
 CREATE TABLE conditions(
   day DATE NOT NULL,
@@ -58,6 +57,7 @@ INSERT INTO conditions (day, city, temperature) VALUES
 
 Create a continuous aggregate but do not materialize any data. Note that real
  time aggregation is enabled by default:
+
 ```sql
 CREATE MATERIALIZED VIEW conditions_summary
 WITH (timescaledb.continuous) AS
@@ -79,6 +79,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
  ```
 
 Materialize data into the continuous aggregate:
+
 ```sql
 CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
 
@@ -92,6 +93,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
 ```
 
 Update the data in the previously materialized bucket:
+
 ```sql
 UPDATE conditions
 SET temperature = 35
@@ -101,6 +103,7 @@ WHERE day = '2021-06-14' and city = 'Moscow';
 The updated data is not yet visible when you query the continuous aggregate. This
 is because these changes have not been materialized.( Similarly, any
 INSERTs or DELETEs would also not be visible).
+
 ```sql
 SELECT * FROM conditions_summary ORDER BY bucket;
   city  |   bucket   | min | max
@@ -110,6 +113,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
 ```
 
 Refresh the data again to update the previously materialized region:
+
 ```sql
 CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
 
