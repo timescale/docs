@@ -11,7 +11,8 @@ import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exp
 # Integrate Timescale Cloud services with third-party monitoring tools
 
 You can export your service telemetry to a third-party monitoring tool, such as
-[DataDog][datadog] or [AWS CloudWatch][cloudwatch].
+[DataDog][datadog] or [AWS CloudWatch][cloudwatch]. Exported metrics include
+CPU usage, RAM usage, and storage.
 
 ## Export telemetry data to DataDog
 
