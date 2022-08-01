@@ -44,10 +44,11 @@ $ pg_config --bindir
 If either of those steps is not the version you are expecting, you need
 to either (a) uninstall the incorrect version of PostgreSQL if you can or
 (b) update your `PATH` environmental variable to have the correct
-path of `pg_config` listed first, i.e., by prepending the full path:
+path of `pg_config` listed first, that is, by prepending the full path:
 
 ```bash
-$ export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
+export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
 ```
+
 Then, reinstall TimescaleDB and it should find the correct installation
 path.

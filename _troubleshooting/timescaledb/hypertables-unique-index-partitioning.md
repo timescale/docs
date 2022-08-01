@@ -30,4 +30,4 @@ You might get a unique index and partitioning column error in 2 situations:
 For more information on how to fix this problem, see the
 [section on creating unique indexes on hypertables][unique-indexes].
 
-[unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
+[unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

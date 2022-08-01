@@ -32,17 +32,18 @@ need to refresh E and F.  However, if you insert C we'll need to refresh C, D, E
 and F.
 
 For example:
-1.  A, B, D, and F are already materialized in a view with all data.
-1.  To insert C, split the data into `AB` and `DEF` subsets.
-1.  `AB` are consistent and the materialized data is too; you only need to
+
+1. A, B, D, and F are already materialized in a view with all data.
+1. To insert C, split the data into `AB` and `DEF` subsets.
+1. `AB` are consistent and the materialized data is too; you only need to
     reuse it.
-1.  Insert C, `DEF`, and refresh policies after C.
+1. Insert C, `DEF`, and refresh policies after C.
 
 This can use a lot of resources to process, especially if you have any important
 data in the past that also needs to be brought to the present.
 
 Consider an example where you have 300 columns on a single hypertable and use,
-for example, five of them in a continuous aggregation.  In this case, it could
+for example, five of them in a continuous aggregation. In this case, it could
 be hard to refresh and would make more sense to isolate these columns in another
 hypertable. Alternatively, you might create one hypertable per metric and
 refresh them independently.

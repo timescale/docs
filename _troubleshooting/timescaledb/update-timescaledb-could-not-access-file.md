@@ -28,4 +28,4 @@ the database will be looking for the previous version of the timescaledb files.
 
 See [our update docs][update-db] for more info.
 
-[update-db]: /how-to-guides/update-timescaledb/
+[update-db]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/
