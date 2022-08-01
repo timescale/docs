@@ -21,15 +21,69 @@ module.exports.addErrorAndInsertBlank = (onError, lineNumber, blankLineOffset=0)
 };
 
 /*
- * Check a tag for a single line break between it and the enclosed content.
+ * Check for blank lines between a tag and its enclosed content.
  *
  * @param {Object} tag The tag to check.
  * @param {('opening'|'closing')} tagType Whether the tag is an opening or closing tag.
  * @param {string} pattern A regex pattern that matches the tag
  * @param {String[]} lines The lines in the document
  * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
+ * @param {boolean} withExceptions Whether to make exceptions for code blocks and lists.
  */
-module.exports.checkTagLineBreak = (tag, tagType, pattern, lines, onError) => {
+module.exports.checkTagBlankLine = ({
+  tag,
+  tagType,
+  lines,
+  onError,
+  withExceptions = false
+}) => {
+  if (tagType !== 'opening' && tagType !== 'closing') {
+    throw `The tag type for checkTagLineBreak must be either opening or closing: ${tagType}`;
+  }
+
+  const lineNumberToCheck = (tagType === 'opening') ? tag.lineNumber : tag.lineNumber - 2;
+  const hasBlankNeighbor = this.isBlank(lines[lineNumberToCheck]);
+
+  const fixMultipleBlankLines = (tag, tagType, onError) => {
+    const lineNumberToFix = (tagType === 'opening') ? tag.lineNumber + 1 : tag.lineNumber - 1;
+    onError({
+      lineNumber: tag.lineNumber,
+      detail: 'Multiple line breaks between content and tag',
+      fixInfo: {
+        lineNumber: lineNumberToFix,
+        deleteCount: -1,
+      },
+    });
+  };
+  
+  if (!withExceptions && hasBlankNeighbor) {
+    fixMultipleBlankLines(tag, tagType, onError);
+  } else if (withExceptions) {
+    const exceptionLineNumber = hasBlankNeighbor ? lineNumberToCheck - 1 : lineNumberToCheck;
+    const useException = !!lines[exceptionLineNumber].match('```|\\d\. .+|^\\s+');
+    if (useException && !hasBlankNeighbor) {
+      onError({
+        lineNumber: tag.lineNumber,
+        detail: 'Exception: Leave a blank line if content ends in list or code block',
+        fixInfo: {
+          insertText: '\n',
+        },
+      });
+    } else if (!useException && hasBlankNeighbor) {
+      fixMultipleBlankLines(tag, tagType, onError);
+    }
+  }
+};
+
+/*
+ * Check for lack of line break between a tag and its enclosed content.
+ *
+ * @param {Object} tag The tag to check.
+ * @param {('opening'|'closing')} tagType Whether the tag is an opening or closing tag.
+ * @param {string} pattern A regex pattern that matches the tag
+ * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
+ */
+module.exports.checkTagLineBreak = (tag, tagType, pattern, onError) => {
   if (tagType !== 'opening' && tagType !== 'closing') {
     throw `The tag type for checkTagLineBreak must be either opening or closing: ${tagType}`;
   }
@@ -48,21 +102,6 @@ module.exports.checkTagLineBreak = (tag, tagType, pattern, lines, onError) => {
       fixInfo: {
         insertText: '\n',
         editColumn: editColumn,
-      },
-    });
-    return;
-  }
-
-  // Check for multiple line breaks
-  const lineNumberToCheck = (tagType === 'opening') ? tag.lineNumber : tag.lineNumber - 2;
-  if (this.isBlank(lines[lineNumberToCheck])) {
-    const lineNumberToFix = (tagType === 'opening') ? tag.lineNumber + 1 : tag.lineNumber - 1;
-    onError({
-      lineNumber: tag.lineNumber,
-      detail: 'Multiple line breaks between content and tag',
-      fixInfo: {
-        lineNumber: lineNumberToFix,
-        deleteCount: -1,
       },
     });
   }
