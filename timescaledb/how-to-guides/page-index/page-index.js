@@ -786,6 +786,29 @@ module.exports = [
             keywords: ["TimescaleDB", "downgrade"],
             excerpt: "Downgrade a TimescaleDB version",
           },
+          {
+            title: "Upgrade within Docker",
+            href: "upgrade-docker",
+            tags: ["upgrade", "update", "docker", "timescaledb"],
+            keywords: ["upgrade", "docker", "TimescaleDB"],
+            excerpt:
+              "Upgrade to a new minor version of TimescaleDB within a Docker container",
+          },
+          {
+            title: "Upgrade PostgreSQL",
+            href: "upgrade-pg",
+            tags: ["upgrade", "update", "postgresql", "timescaledb"],
+            keywords: ["upgrade", "PostgreSQL", "TimescaleDB"],
+            excerpt:
+              "Upgrade to a new version of PostgreSQL",
+          },
+          {
+            title: "Troubleshooting upgrades",
+            href: "troubleshooting",
+            tags: ["tshoot", "upgrade", "update", "timescaledb"],
+            keywords: ["troubleshooting", "upgrade", "TimescaleDB"],
+            excerpt: "Troubleshoot upgrading your TimescaleDB installation",
+          },
         ],
       },
       {
@@ -1059,6 +1082,13 @@ module.exports = [
             excerpt: "Quickly insert bulk data by parallelizing `COPY` operations",
           },
         ]
+      },
+      {
+        title: "Troubleshoot TimescaleDB",
+        href: "troubleshoot-timescaledb",
+        tags: ["tshoot", "timescaledb"],
+        keywords: ["troubleshoot", "timescaledb"],
+        excerpt: "Troubleshooting TimescaleDB",
       },
     ],
   },
