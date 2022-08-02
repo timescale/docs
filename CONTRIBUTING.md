@@ -11,7 +11,7 @@ instead. Some of our automation does not work correctly on forks.
 <procedure>
 
 ### Contributing using a fork
-1.  Make sure you have a [GitHub](github.com) account, and that you're signed in.
+1.  Make sure you have a [GitHub](https://github.com) account, and that you're signed in.
 1.  Navigate to the
     [Timescale documentation repo](https://github.com/timescale/docs),
     click the `Fork` button in the top-right corner, and select the account you
