@@ -24,7 +24,7 @@ jobs:
 
       - name: Create issue
         if: steps.linkcheck.outputs.exit_code != 0
-        uses: JasonEtco/create-an-issue@e6b4b190af80961b6462c725454e7828d0247a68
+        uses: JasonEtco/create-an-issue@9e6213aec58987fa7d2f4deb8b256b99e63107a2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           with:
