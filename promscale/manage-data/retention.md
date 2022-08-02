@@ -31,9 +31,6 @@ function `prom_api.get_default_retention_period()`:
 SELECT prom_api.get_default_metric_retention_period();
 ```
 
-You can set a default data retention period for metrics, and override the
-default on a per-metric basis.
-
 Change the default retention period for metrics by adjusting the 
 `retention_period` parameter of the function
 `prom_api.set_default_retention_period(retention_period INTERVAL)`:
@@ -53,6 +50,8 @@ Retrieve the retention being used for a specific metric by using the function
 ```sql
 SELECT prom_api.get_metric_retention_period('container_cpu_usage_seconds_total');
 ```
+It returns the default retention if no specific retention has been set for the
+metric. 
 
 Reset an overridden metric retention period to the default
 by using the function `prom_api.reset_metric_retention_period(metric_name TEXT)`
@@ -61,9 +60,8 @@ SELECT prom_api.reset_metric_retention_period('container_cpu_usage_seconds_total
 ```
 
 When you change the default retention period, any metrics that have a specific
-retention configured will keep the specific retention unless you reset it as
-explained above.
-
+retention configured will keep that retention unless you reset it as explained
+above.
 
 ## Configure data retention for traces
 The `_ps_trace.span`, `_ps_trace.event`, and `_ps_trace.link` hypertables have
