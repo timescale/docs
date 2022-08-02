@@ -1,8 +1,9 @@
 ---
-title: Integrate Timescale Cloud services with third-party monitoring tools
-excerpt: Export telemetry metrics to DataDog or AWS CloudWatch
+title: Integrate Timescale Cloud services with third-party monitoring
+excerpt: Export telemetry metrics to Datadog or AWS CloudWatch
 product: cloud
-keywords: [integrations, DataDog, AWS CloudWatch]
+keywords: [integrations, metrics, Datadog, AWS CloudWatch]
+tags: [telemetry, monitor]
 ---
 
 import AttachExporter from 'versionContent/_partials/_cloud-integrations-attach-exporter.mdx';
@@ -11,19 +12,19 @@ import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exp
 # Integrate Timescale Cloud services with third-party monitoring tools
 
 You can export your service telemetry to a third-party monitoring tool, such as
-[DataDog][datadog] or [AWS CloudWatch][cloudwatch]. Exported metrics include
+[Datadog][datadog] or [AWS CloudWatch][cloudwatch]. Exported metrics include
 CPU usage, RAM usage, and storage.
 
-## Export telemetry data to DataDog
+## Export telemetry data to Datadog
 
-Export telemetry data to DataDog by:
+Export telemetry data to Datadog by:
 
 1.  Creating a data exporter
 1.  Attaching your database service to the exporter
 
 <procedure>
 
-### Creating a data exporter for DataDog
+### Creating a data exporter for Datadog
 
 <ExporterRegionNote />
 
@@ -34,13 +35,15 @@ Export telemetry data to DataDog by:
     exporter is only available to database services in the same AWS region.
 1.  Name your exporter. This name appears in the Cloud console, so choose a
     descriptive name.
-1.  Add a DataDog API key. If you don't have an API key yet, click `Click here
-    to generate a DataDog API key`.
-1.  Under Site, choose your DataDog region. You can choose a region to meet any
+1.  Add a Datadog API key. If you don't have an API key yet, you can create one
+    by following the instructions in the [Datadog documentation][datadog-docs].
+1.  Under Site, choose your Datadog region. You can choose a region to meet any
     regulatory requirements or application needs you might have.
 1.  Click `Create endpoint`.
 
-<!-- FIXME: insert screenshot here -->
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-integrations-datadog.png"
+alt="Screenshot of the menu for adding a Datadog exporter" />
 
 </procedure>
 
@@ -70,26 +73,16 @@ Export telemetry data to AWS CloudWatch by:
     you're uncertain, use the default values. For more information on naming log
     groups and logs streams, see [the AWS CloudWatch
     docs][cloudwatch-log-naming].
-1.  Enter your AWS credentials. To get your AWS keys, see [Getting access keys
-    for AWS CloudWatch][aws-access-keys].
+1.  Enter your AWS credentials. To get your AWS keys, you need to create a new
+    Identity and Access Management (IAM) user in your AWS console. For
+    instructions, see the [AWS documentation][aws-access-keys].
 1.  Select an AWS Region for your CloudWatch instance.
-1.  **OPTIONAL** Define an Identity and Access Management (IAM) role to upload
-    segments to a different account.
+1.  **OPTIONAL** Define an IAM role if you want to upload metrics to another
+    account on which you have delegated access.
 
-<!-- FIXME: insert screenshot here -->
-
-</procedure>
-
-<procedure>
-
-### Getting access keys for AWS CloudWatch
-
-1.  Navigate to your AWS Console.  
-1.  Select `Access key - Programmatic access`.
-1.  Select `Use a permissions boundary to control the maximum user permissions`.
-1.  Enable `AmazonCloudWatchEvidentlyFullAccess`.
-1.  Copy your access key and secret key. Remember to keep these secure.
-1.  Return to the Timescale Cloud console to enter your AWS keys.
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-integrations-cloudwatch.png"
+alt="Screenshot of the menu for adding a Datadog exporter" />
 
 </procedure>
 
@@ -130,7 +123,8 @@ Delete any data exporters that you no longer need.
 
 </procedure>
 
-[aws-access-keys]: #getting-access-keys-for-aws-cloudwatch
+[aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
 [datadog]: https://www.datadoghq.com
+[datadog-docs]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
