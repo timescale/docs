@@ -6,7 +6,7 @@ review with GitHub.
 ## First contribution
 You can make contributions to the documentation by creating a fork of the
 repository. However, if you have write access to the repository, use a branch
-instead. Some of our automation will not work correctly on forks.
+instead. Some of our automation does not work correctly on forks.
 
 <procedure>
 
@@ -152,13 +152,10 @@ that reviewers check for in the pull request template.
 ## Writing standards
 Timescale has comprehensive writing and style standards, that are constantly
 being updated and improved. For the current guidelines, see
-[contributing to documentation][docs-standards].
+[contributing to documentation](https://docs.timescale.com/timescaledb/latest/contribute-to-docs/).
 
 ## The Timescale documentation team
 *   Lana Brindley <https://github.com/Loquacity>
 *   Rajakavitha Kodhandapani <https://github.com/Rajakavitha1>
 *   Charis Lam <https://github.com/charislam>
 *   Jacob Prall <https://github.com/jacobprall>
-
-
-[docs-standards]: timescaledb/:currentVersion:/contribute-to-docs
