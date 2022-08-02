@@ -109,9 +109,8 @@ or an integral value in *microseconds*.
 explicitly, as the database does not otherwise understand the
 semantics of what each integer value represents (a second,
 millisecond, nanosecond, etc.).  So if your time column is the number
-of milliseconds since the UNIX epoch, and you wish to each chunk to
+of milliseconds since the UNIX epoch, and you wish to have each chunk
 cover 1 day, you should specify `chunk_time_interval => 86400000`.
-
 
 In case of hash partitioning (in other words, if `number_partitions` is greater
 than zero), it is possible to optionally specify a custom partitioning
