@@ -11,18 +11,19 @@ instead. Some of our automation does not work correctly on forks.
 <procedure>
 
 ### Contributing using a fork
-1.  Make sure you have a [GitHub](https://github.com) account, and that you're signed in.
+1.  Make sure you have a [GitHub](https://github.com) account, and that
+    you're signed in.
 1.  Navigate to the
     [Timescale documentation repo](https://github.com/timescale/docs),
     click the `Fork` button in the top-right corner, and select the account you
     want to use.
-2.  Wait for GitHub to create your fork and redirect you.
-3.  Clone the repository to your local machine. To find this URL, click the green
+1.  Wait for GitHub to create your fork and redirect you.
+1.  Clone the repository to your local machine. To find this URL, click the green
     `Code` button and copy the HTTPS URL:
     ```bash
     git clone https://github.com/<username>/docs.git
     ```
-4.  List the current remote branches:
+1.  List the current remote branches:
     ```bash
     git remote -v
     ```
@@ -31,32 +32,34 @@ instead. Some of our automation does not work correctly on forks.
     origin  https://github.com/<username>/docs.git (fetch)
     origin  https://github.com/<username>/docs.git (push)
     ```
-    The `origin` remotes are your own fork, and you can do whatever you want here without changing the upstream repository.
-5.  Add the docs repo as an upstream:
+    The `origin` remotes are your own fork, and you can do whatever you want
+    here without changing the upstream repository.
+1.  Add the docs repo as an upstream:
     ```bash
     git remote add upstream https://github.com/timescale/docs.git
     ```
-6.  Check:
+1.  Check:
     ```bash
     git remote -v
     ```
-    This command should now have the same two `origin` remotes as before, plus two more labelled `upstream`, like this:
+    This command should now have the same two `origin` remotes as before, plus
+    two more labelled `upstream`, like this:
     ```bash
     origin  https://github.com/<username>/docs.git (fetch)
     origin  https://github.com/<username>/docs.git (push)
     upstream  https://github.com/timescale/docs.git (fetch)
     upstream  https://github.com/timescale/docs.git (push)
     ```
-7.  Fetch the branches in the upstream repository:
+1.  Fetch the branches in the upstream repository:
     ```bash
     git fetch upstream
     ```
-8.  Merge the changes from the upstream `latest` branch, into your fork's
+1.  Merge the changes from the upstream `latest` branch, into your fork's
     `latest` branch:
     ```bash
     git merge upstream/latest
     ```
-9.  Create a new branch for the work you want to do. Make sure you give it an
+1. Create a new branch for the work you want to do. Make sure you give it an
     appropriate name, and include your username:
     ```bash
     git checkout -b update-readme-username
