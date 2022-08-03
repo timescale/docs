@@ -1,4 +1,14 @@
+---
+title: Troubleshooting backups
+excerpt: Fix common problems experienced with backups and restores
+keywords: [backup, restore]
+tags: [recovery, pg_dump, pg_restore]
+---
+
 # Troubleshooting
+
+This section contains some ideas for troubleshooting common problems experienced
+with backups and restores.
 
 ## Troubleshoot version mismatches
 
