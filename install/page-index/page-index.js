@@ -59,7 +59,7 @@ module.exports = [
               "Arch Linux",
               "TimescaleDB extension"
             ],
-            iconSrc: "//assets.iobeam.com/images/docs/redhat_centos.png",
+            iconSrc: "//assets.iobeam.com/images/docs/archlinux-logo-light-1200dpi.7ccd81fd52dc.png",
             excerpt:
               "Install self-hosted TimescaleDB on Arch Linux using pacman",
           },
