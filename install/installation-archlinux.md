@@ -23,7 +23,7 @@ instead.
     ```bash
     timescaledb-tune
     ```
-1.  Initialize the database:
+1.  Initialize the database as the postgres user: 
     ```bash
     sudo -u postgres initdb --locale=en_US.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data --data-checksums
     ```
