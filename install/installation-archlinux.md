@@ -27,10 +27,6 @@ instead.
     ```bash
     sudo -u postgres initdb --locale=en_US.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data --data-checksums
     ```
-1. Log out the `postgres` user:
-   ```bash
-   exit
-   ```    
 1. Enable and start the service:
     ```
     systemctl enable postgresql.service
