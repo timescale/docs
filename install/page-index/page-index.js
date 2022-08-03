@@ -61,7 +61,7 @@ module.exports = [
             ],
             iconSrc: "//assets.iobeam.com/images/docs/redhat_centos.png",
             excerpt:
-              "Install self-hosted TimescaleDB on Red Hat or CentOS using dnf",
+              "Install self-hosted TimescaleDB on Arch Linux using pacman",
           },
           {
             title: "Windows",
