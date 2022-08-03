@@ -32,10 +32,6 @@ instead.
     systemctl enable postgresql.service
     systemctl start postgresql.service
     ```
-1.  Restart the service:
-    ```bash
-    systemctl restart postgresql
-    ```
     
 </procedure>
 
