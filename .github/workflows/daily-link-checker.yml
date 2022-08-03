@@ -2,7 +2,7 @@ name: Check all Markdown links daily
 
 on:
   schedule:
-    - cron: "0 19 * * *"
+    - cron: "0 22 * * *"
 
 permissions:
   contents: read
@@ -23,7 +23,7 @@ jobs:
           config-file: "mlc_config.json"
 
       - name: Create issue
-        if: steps.linkcheck.outputs.exit_code != 0
+        if: ${{ failure() }}
         uses: JasonEtco/create-an-issue@9e6213aec58987fa7d2f4deb8b256b99e63107a2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
