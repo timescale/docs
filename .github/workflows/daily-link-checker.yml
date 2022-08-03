@@ -2,7 +2,7 @@ name: Check all Markdown links daily
 
 on:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "0 19 * * *"
 
 permissions:
   contents: read
@@ -27,5 +27,5 @@ jobs:
         uses: JasonEtco/create-an-issue@9e6213aec58987fa7d2f4deb8b256b99e63107a2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
-            filename: .github/ISSUE_TEMPLATE/broken_link_report.md
+        with:
+          filename: .github/ISSUE_TEMPLATE/broken_link_report.md
