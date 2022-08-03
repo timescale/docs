@@ -31,4 +31,4 @@ other roles. For a complete list of roles available, see the
 [PostgreSQL role attributes documentation][pg-roles-doc].
 
 [cloud-login]: https://console.cloud.timescale.com/
-[pg-roles-docs]: https://www.postgresql.org/docs/current/role-attributes.html
+[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html

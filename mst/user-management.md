@@ -86,4 +86,4 @@ Your service must be running before you can manage users.
 </procedure>
 
 [mst-login]: https://portal.managed.timescale.com
-[pg-roles-docs]: https://www.postgresql.org/docs/current/role-attributes.html
+[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
