@@ -17,7 +17,7 @@ instead.
 ### Installing self-hosted TimescaleDB on archlinux-based systems
 1.  Install TimescaleDB and timescaledb-tune:
     ```bash
-    pacman -Syu timescaledb timescaledb-tune
+    sudo pacman -Syu timescaledb timescaledb-tune
     ```
 1.  Initialize the database as the postgres user: 
     ```bash
@@ -25,12 +25,12 @@ instead.
     ```
 1.  Run timescaledb-tune to adjust your `postgresql.conf` file, to use TimescaleDB as PostgreSQL extension:
     ```bash
-    timescaledb-tune
+    sudo timescaledb-tune
     ```
 1. Enable and start the service:
     ```
-    systemctl enable postgresql.service
-    systemctl start postgresql.service
+    sudo systemctl enable postgresql.service
+    sudo systemctl start postgresql.service
     ```
     
 </procedure>
