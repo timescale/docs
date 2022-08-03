@@ -2,7 +2,7 @@ name: Check all Markdown links daily
 
 on:
   schedule:
-    - cron: "0 22 * * *"
+    - cron: "0 23 * * *"
 
 permissions:
   contents: read

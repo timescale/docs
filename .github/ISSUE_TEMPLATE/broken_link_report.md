@@ -1,6 +1,5 @@
 ---
 title: Failing link check ({{ date | date('dddd, MMMM Do') }})
-assignees: timescale/documentation
 labels: bug, automated issue, link check
 ---
 
