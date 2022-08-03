@@ -19,13 +19,13 @@ instead.
     ```bash
     pacman -Syu timescaledb timescaledb-tune
     ```
-1.  Run timescaledb-tune to adjust your `postgresql.conf` file, to use TimescaleDB as PostgreSQL extension:
-    ```bash
-    timescaledb-tune
-    ```
 1.  Initialize the database as the postgres user: 
     ```bash
     sudo -u postgres initdb --locale=en_US.UTF-8 --encoding=UTF8 -D /var/lib/postgres/data --data-checksums
+    ```
+1.  Run timescaledb-tune to adjust your `postgresql.conf` file, to use TimescaleDB as PostgreSQL extension:
+    ```bash
+    timescaledb-tune
     ```
 1. Enable and start the service:
     ```
