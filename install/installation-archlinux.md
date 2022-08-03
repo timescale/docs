@@ -48,7 +48,7 @@ installed it yet, check out the [installing psql][install-psql] section.
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
     ```bash
-    su postgres -c psql
+    sudo -u postgres psql
     ```
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
