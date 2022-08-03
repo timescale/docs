@@ -79,7 +79,7 @@ installed it yet, check out the [installing psql][install-psql] section.
     ```
 1.  You can now connect to your database using this command:
     ```bash
-    su postgres -c 'psql -d tsdb'
+    sudo -u postgres psql tsdb
     ```
 
 </procedure>
