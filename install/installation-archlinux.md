@@ -15,18 +15,13 @@ instead.
 <procedure>
 
 ### Installing self-hosted TimescaleDB on archlinux-based systems
-1.  At the command prompt, as root, add the PostgreSQL third party repository
-    to get the latest PostgreSQL packages:
+1.  Install TimescaleDB and timescaledb-tune:
     ```bash
-    pacman -Syu timescaledb
+    pacman -Syu timescaledb timescaledb-tune
     ```
-1.  Update the `postgresql.conf` file, to use TimescaleDB as PostgreSQL extension:
+1.  Run timescaledb-tune to adjust your `postgresql.conf` file, to use TimescaleDB as PostgreSQL extension:
     ```bash
-    echo "shared_preload_libraries = 'timescaledb'" >> /var/lib/postgres/data/postgresql.conf
-    ```
-1.  Install `timescaledb-tune`:
-    ```bash
-    pacman -Syu timescaledb-tune
+    timescaledb-tune
     ```
 1.  As the `postgres` user, connect to the PostgreSQL instance:
     ```bash
