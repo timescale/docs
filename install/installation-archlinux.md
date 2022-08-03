@@ -43,10 +43,6 @@ instead.
     
 </procedure>
 
-When you have completed the installation, you need to configure your database so
-that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. For more
-information, see the [configuration][config] section.
 
 ## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
