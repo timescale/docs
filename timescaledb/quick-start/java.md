@@ -11,11 +11,11 @@ keywords: [Java]
 This quick start guide is designed to get Java developers up and running with TimescaleDB as their database.
 In this tutorial, you'll learn how to:
 
-* [Connect Java to TimescaleDB](#connect-java-to-timescaledb)
-* [Create a relational table](#create-a-relational-table)
-* [Generate a hypertable](#generate-a-hypertable)
-* [Insert a batch of rows into TimescaleDB](#insert-a-batch-of-rows-into-timescaledb)
-* [Execute queries on TimescaleDB](#execute-queries-on-timescaledb)
+*   [Connect Java to TimescaleDB](#connect-java-to-timescaledb)
+*   [Create a relational table](#create-a-relational-table)
+*   [Generate a hypertable](#generate-a-hypertable)
+*   [Insert a batch of rows into TimescaleDB](#insert-a-batch-of-rows-into-timescaledb)
+*   [Execute queries on TimescaleDB](#execute-queries-on-timescaledb)
 
 ## Pre-requisites
 
@@ -25,7 +25,7 @@ The tutorial walks you through each SQL command, but it is helpful if you've see
 To start, [install TimescaleDB][timescaledb-install]. Once your installation is complete,
 you can proceed to ingesting or creating sample data and finishing the tutorial.
 
-You also need to install [Java Development Kit (JDK)][jdk] 
+You also need to install [Java Development Kit (JDK)][jdk]
 and [PostgreSQL Java Database Connectivity (JDBC) Driver][pg-jdbc-driver] as well.
 All code is presented for Java 16 and above.
 If you are working with older JDK versions, use legacy coding techniques.
@@ -99,16 +99,16 @@ to use to connect to your TimescaleDB instance.
 
 You'll need these credentials:
 
-* host
-* port
-* database name
-* username
-* password
+*   host
+*   port
+*   database name
+*   username
+*   password
 
 Next, compose your connection string variable using this format:
 
 ```java
-var connUrl = "jdbc:postgresql://host:port/dbname?user=username&password=password";
+var connUrl = "jdbc:postgresql://<HOSTNAME>:<PORT>/<DATABASE_NAME>?user=<USERNAME>&password=<PASSWORD>";
 ```
 
 Full documentation on [the formation of the connection string][pg-jdbc-driver-conn-docs]
@@ -132,7 +132,7 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String... args) throws SQLException {
-        var connUrl = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
+        var connUrl = "jdbc:postgresql://<HOSTNAME>:<PORT>/<DATABASE_NAME>?user=<USERNAME>&password=<PASSWORD>";
         var conn = DriverManager.getConnection(connUrl);
         System.out.println(conn.getClientInfo());
     }
@@ -173,7 +173,7 @@ import java.sql.SQLException;
 public class Main {
 
     public static void main(String... args) throws SQLException {
-        var connUrl = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
+        var connUrl = "jdbc:postgresql://<HOSTNAME>:<PORT>/<DATABASE_NAME>?user=<USERNAME>&password=<PASSWORD>";
         var conn = DriverManager.getConnection(connUrl);
 
         var createSensorTableQuery = """
@@ -255,7 +255,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String... args) {
-        final var connUrl = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
+        final var connUrl = "jdbc:postgresql://<HOSTNAME>:<PORT>/<DATABASE_NAME>?user=<USERNAME>&password=<PASSWORD>";
         try (var conn = DriverManager.getConnection(connUrl)) {
             createSchema(conn);
             insertData(conn);
@@ -359,7 +359,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String... args) {
-        final var connUrl = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
+        final var connUrl = "jdbc:postgresql://<HOSTNAME>:<PORT>/<DATABASE_NAME>?user=<USERNAME>&password=<PASSWORD>";
         try (var conn = DriverManager.getConnection(connUrl)) {
             createSchema(conn);
             insertData(conn);
@@ -509,7 +509,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String... args) {
-        final var connUrl = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres";
+        final var connUrl = "jdbc:postgresql://<HOSTNAME>:<PORT>/<DATABASE_NAME>?user=<USERNAME>&password=<PASSWORD>";
         try (var conn = DriverManager.getConnection(connUrl)) {
             createSchema(conn);
             insertData(conn);
@@ -612,8 +612,8 @@ Congratulations 🎉, you've successfully executed a query on TimescaleDB using 
 Now that you're able to connect, read, and write to a TimescaleDB instance from your Java application,
 be sure to check out these advanced tutorials:
 
-* Get up and running with TimescaleDB with our [Getting Started][timescaledb-getting-started] tutorial.
-* Refer to the [PostgreSQL JDBC Driver documentation][pg-jdbc-driver-docs] for more information.
+*   Get up and running with TimescaleDB with our [Getting Started][timescaledb-getting-started] tutorial.
+*   Refer to the [PostgreSQL JDBC Driver documentation][pg-jdbc-driver-docs] for more information.
 
 [jdk]: https://openjdk.java.net
 [pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download.html
