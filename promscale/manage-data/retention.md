@@ -45,8 +45,8 @@ the function
 SELECT prom_api.set_metric_retention_period('container_cpu_usage_seconds_total', 180 * INTERVAL '1 day');
 ```
 
-Retrieve the retention being used for a specific metric by using the function
-`prom_api.get_metric_retention_period(metric_name TEXT)`:
+You can retrieve which retention is being used for a specific metric, using the 
+`prom_api.get_metric_retention_period(metric_name TEXT)` function:
 ```sql
 SELECT prom_api.get_metric_retention_period('container_cpu_usage_seconds_total');
 ```
