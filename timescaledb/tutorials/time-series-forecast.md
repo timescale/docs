@@ -5,6 +5,7 @@ keywords: [forecast, analytics]
 ---
 
 # Time-series forecasting
+
 Time-series forecasting enables us to predict likely
 future values for a dataset based on historical time-series
 data. Time-series data collectively represents how a system,
@@ -14,11 +15,11 @@ to predict the next set of values likely to occur.
 
 Time-series predictions can be used to:
 
-* Forecast cloud infrastructure expenses next quarter
-* Forecast the value of a given stock in the future
-* Forecast the number of units of a product likely to be sold next quarter
-* Forecast the remaining lifespan of an IoT device
-* Forecast the number of taxi or ride share drivers necessary for a big holiday evening
+*   Forecast cloud infrastructure expenses next quarter
+*   Forecast the value of a given stock in the future
+*   Forecast the number of units of a product likely to be sold next quarter
+*   Forecast the remaining lifespan of an IoT device
+*   Forecast the number of taxi or ride share drivers necessary for a big holiday evening
 
 Time-series forecasting alone is a powerful tool. But time-series
 data joined with business data can be a competitive advantage for
@@ -39,6 +40,7 @@ time-series forecasting model, and explore the use of various forecasting
 and machine learning tools.
 
 ### Setting up
+
 Prerequisites:
 
 *   [Installed TimescaleDB][install]
@@ -51,7 +53,7 @@ First, let's create the schema and populate the tables. Download the file
 [`forecast.sql`][forecast-sql] and execute the following command:
 
 ```bash
-psql -U postgres -d nyc_data -h localhost -f forecast.sql
+psql -U postgres -d tsdb -h localhost -f forecast.sql
 ```
 
 The `forecast.sql` file contains SQL statements that create three
@@ -109,6 +111,7 @@ are in your database.
 ```
 
 ### Seasonal ARIMA with R
+
 The [ARIMA (Autoregressive Integrated Moving Average) model][arima] is a
 tool that is often used in time-series analysis to better understand a
 dataset and make predictions on future values. The ARIMA model can be
@@ -360,6 +363,7 @@ alternative method that allows you to move computations to the database and
 improve this performance.
 
 ### Non-Seasonal ARIMA with Apache MADlib
+
 [MADlib][madlib] is an open source library for in-database data analytics that
 provides a wide collection of popular machine learning methods and various
 supplementary statistical tools.
@@ -436,6 +440,7 @@ WHERE one_hour <= '2016-01-21 23:59:59';
 SELECT * INTO rides_price_test FROM rides_price
 WHERE one_hour >= '2016-01-22 00:00:00';
 ```
+
 Now you can use [MADlib's ARIMA][madlib_arima] library to make forecasts
 on your dataset.
 
@@ -580,6 +585,7 @@ This means that TimescaleDB users can easily take advantage of
 the vast PostgreSQL ecosystem.
 
 ### Holt-Winters with Python
+
 The [Holt-Winters][holt-winters] model is another widely used tool in time-series
 analysis and forecasting. It can only be used for seasonal time-series data.
 The Holt-Winters model uses simple exponential smoothing to make
@@ -748,6 +754,7 @@ also thrown off by the anomalous data points on Martin Luther King
 day on the previous Monday.
 
 ### Takeaways from analysis
+
 This tutorial looked at different ways you can build statistical models to
 analyze time-series data and how you can leverage the full power of the
 PostgreSQL ecosystem with TimescaleDB. This tutorial also looked at integrating
