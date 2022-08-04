@@ -60,8 +60,7 @@ SELECT prom_api.reset_metric_retention_period('container_cpu_usage_seconds_total
 ```
 
 When you change the default retention period, any metrics that have a specific
-retention configured will keep that retention unless you reset it as explained
-above.
+retention configured keep that retention, unless you reset it.
 
 ## Configure data retention for traces
 The `_ps_trace.span`, `_ps_trace.event`, and `_ps_trace.link` hypertables have
