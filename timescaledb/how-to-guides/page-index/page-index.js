@@ -5,7 +5,8 @@ module.exports = [
     pageComponents: ["content-list"],
     tags: ["timescaledb", "overview", "get started", "contribute"],
     keywords: ["connect", "write data", "query data", "alerts"],
-    excerpt: "How to connect to TimescaleDB, and administer and configure the database.",
+    excerpt:
+      "How to connect to TimescaleDB, and administer and configure the database.",
     children: [
       {
         title: "Connecting to TimescaleDB",
@@ -156,10 +157,10 @@ module.exports = [
               "distributed",
               "edit",
               "delete",
-              "timescaledb"
+              "timescaledb",
             ],
             keywords: ["hypertables", "distributed", "TimescaleDB"],
-            excerpt: "Alter schema for and drop distributed hypertables"
+            excerpt: "Alter schema for and drop distributed hypertables",
           },
           {
             title: "Create foreign keys on distributed hypertables",
@@ -167,7 +168,7 @@ module.exports = [
             tags: ["distributed", "hypertables", "timescaledb", "foreign keys"],
             keywords: ["hypertables", "distributed", "TimescaleDB"],
             excerpt:
-              "Create foreign keys from distributed hypertables to other tables"
+              "Create foreign keys from distributed hypertables to other tables",
           },
           {
             title: "Use triggers in distributed hypertables",
@@ -198,7 +199,8 @@ module.exports = [
             href: "use-time-buckets",
             tags: ["time bucket", "timescaledb"],
             keywords: ["time bucket", "TimescaleDB", "hyperfunctions"],
-            excerpt: "How to group time series data with the time_bucket function."
+            excerpt:
+              "How to group time series data with the time_bucket function.",
           },
         ],
       },
@@ -251,7 +253,7 @@ module.exports = [
             title: "About data migration",
             href: "about-migrate-data",
             excerpt:
-              "Learn different ways of migrating your existing data into TimescaleDB"
+              "Learn different ways of migrating your existing data into TimescaleDB",
           },
           {
             title: "Migrate from the same database",
@@ -287,7 +289,7 @@ module.exports = [
             tags: ["troubleshooting", "migrate", "data", "timescaledb"],
             keywords: ["troubleshooting", "migrate", "data", "TimescaleDB"],
             excerpt: "Troubleshoot problems that occur during  data migration",
-          }
+          },
         ],
       },
       {
@@ -339,7 +341,7 @@ module.exports = [
             title: "About querying data",
             href: "about-query-data",
             tags: ["data", "query", "timescaledb"],
-            keywords: ["query", "TimescaleDB",],
+            keywords: ["query", "TimescaleDB"],
             excerpt: "Learn how to query data in TimescaleDB",
           },
           {
@@ -597,7 +599,8 @@ module.exports = [
             href: "create-index",
             tags: ["indexes", "caggs", "timescaledb"],
             keywords: ["indexes", "caggs", "TimescaleDB"],
-            excerpt: "Manage automatic index creation and manually create additional indexes",
+            excerpt:
+              "Manage automatic index creation and manually create additional indexes",
           },
           {
             title: "Time in continuous aggregates",
@@ -750,6 +753,13 @@ module.exports = [
             keywords: ["backup", "TimescaleDB"],
             excerpt: "Backing up and restoring with physical backups",
           },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            tags: ["tshoot", "backup", "restore", "timescaledb"],
+            keywords: ["troubleshoot", "backup", "TimescaleDB"],
+            excerpt: "Troubleshoot problems with backing up TimescaleDB",
+          },
         ],
       },
       {
@@ -768,16 +778,14 @@ module.exports = [
             href: "minor-upgrade",
             tags: ["upgrade", "update", "timescaledb"],
             keywords: ["upgrade", "TimescaleDB"],
-            excerpt:
-              "Upgrade to a new minor version of TimescaleDB",
+            excerpt: "Upgrade to a new minor version of TimescaleDB",
           },
           {
             title: "Major upgrades",
             href: "major-upgrade",
             tags: ["upgrade", "update", "timescaledb"],
             keywords: ["upgrade", "TimescaleDB"],
-            excerpt:
-              "Upgrade to a new major version of TimescaleDB",
+            excerpt: "Upgrade to a new major version of TimescaleDB",
           },
           {
             title: "Downgrade TimescaleDB",
@@ -799,8 +807,7 @@ module.exports = [
             href: "upgrade-pg",
             tags: ["upgrade", "update", "postgresql", "timescaledb"],
             keywords: ["upgrade", "PostgreSQL", "TimescaleDB"],
-            excerpt:
-              "Upgrade to a new version of PostgreSQL",
+            excerpt: "Upgrade to a new version of PostgreSQL",
           },
           {
             title: "Troubleshooting upgrades",
@@ -841,7 +848,7 @@ module.exports = [
               "install",
               "update",
               "hyperfunctions",
-              "timescaledb"
+              "timescaledb",
             ],
             keywords: ["TimescaleDB", "install", "update", "Toolkit"],
             excerpt: "Install and update the TimescaleDB Toolkit",
@@ -851,7 +858,8 @@ module.exports = [
             href: "function-pipelines",
             tags: ["toolkit", "hyperfunctions", "query", "timescaledb"],
             keywords: ["TimescaleDB", "hyperfunctions", "Toolkit"],
-            excerpt: "Use functional programming to simplify complex SQL queries",
+            excerpt:
+              "Use functional programming to simplify complex SQL queries",
           },
           {
             title: "Approximate count distincts",
@@ -960,9 +968,10 @@ module.exports = [
               "TimescaleDB",
               "hyperfunctions",
               "Toolkit",
-              "troubleshoot"
+              "troubleshoot",
             ],
-            excerpt: "Troubleshoot problems with hyperfunctions and TimescaleDB Toolkit",
+            excerpt:
+              "Troubleshoot problems with hyperfunctions and TimescaleDB Toolkit",
           },
         ],
       },
@@ -1013,9 +1022,15 @@ module.exports = [
           {
             title: "Multi-node administration",
             href: "multinode-administration",
-            tags: ['multi-node', 'management', 'administration', 'distributed', 'nodes'],
-            keywords: ['multi-node', 'management', 'administration'],
-            excerpt: 'Administer a multi-node cluster'
+            tags: [
+              "multi-node",
+              "management",
+              "administration",
+              "distributed",
+              "nodes",
+            ],
+            keywords: ["multi-node", "management", "administration"],
+            excerpt: "Administer a multi-node cluster",
           },
           {
             title: "Grow and shrink a multi-node cluster",
@@ -1057,7 +1072,7 @@ module.exports = [
             tags: ["ha", "replicate", "timescaledb"],
             keywords: ["replicate", "configure", "TimescaleDB"],
             excerpt: "Configure replication",
-          }
+          },
         ],
       },
       {
@@ -1072,16 +1087,18 @@ module.exports = [
             href: "about-timescaledb-tune",
             tags: ["manage", "timescaledb"],
             keywords: ["manage", "timescaledb"],
-            excerpt: "Automatically configure your TimescaleDB instance with `timescaledb-tune`",
+            excerpt:
+              "Automatically configure your TimescaleDB instance with `timescaledb-tune`",
           },
           {
             title: "About timescaledb-parallel-copy",
             href: "about-timescaledb-parallel-copy",
             tags: ["manage", "timescaledb"],
             keywords: ["manage", "timescaledb"],
-            excerpt: "Quickly insert bulk data by parallelizing `COPY` operations",
+            excerpt:
+              "Quickly insert bulk data by parallelizing `COPY` operations",
           },
-        ]
+        ],
       },
       {
         title: "Troubleshoot TimescaleDB",
