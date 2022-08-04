@@ -276,13 +276,11 @@ rails generate migration add_hypertable
 In your `db/migrate` project folder, you'll see a new migration file for
 `[some sequence of numbers]_add_hypertable`.
 
-Then we can write the migration to first remove the `id` column and then add
-our hypertable like so:
+Then we can write the migration to add our hypertable like so:
 
 ```ruby
 class AddHypertable < ActiveRecord::Migration[5.2]
   def change
-    remove_column :page_loads, :id
     execute "SELECT create_hypertable('page_loads', 'created_at');"
   end
 end
@@ -298,11 +296,10 @@ following:
    Column   |            Type             | Collation | Nullable | Default
 ------------+-----------------------------+-----------+----------+---------
  user_agent | character varying           |           |          |
- time       | timestamp without time zone |           | not null |
  created_at | timestamp without time zone |           | not null |
  updated_at | timestamp without time zone |           | not null |
 Indexes:
-    "page_loads_time_idx" btree ("time" DESC)
+    "page_loads_created_at_idx" btree (created_at DESC)
 Triggers:
     ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE PROCEDURE _timescaledb_internal.insert_blocker()
 ```
@@ -370,7 +367,7 @@ Started GET "/static_pages/home" for ::1 at 2020-04-15 14:02:18 -0700
 Processing by StaticPagesController#home as HTML
    (79.5ms)  BEGIN
   ↳ app/controllers/static_pages_controller.rb:6
-  PageLoad Create (79.9ms)  INSERT INTO "page_loads" ("user_agent", "time", "created_at", "updated_at") VALUES ($1, $2, $3, $4)  [["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15"], ["time", "2020-04-15 21:02:18.106769"], ["created_at", "2020-04-15 21:02:18.187643"], ["updated_at", "2020-04-15 21:02:18.187643"]]
+  PageLoad Create (79.9ms)  INSERT INTO "page_loads" ("user_agent", "created_at", "updated_at") VALUES ($1, $2, $3)  [["user_agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15"], ["created_at", "2020-04-15 21:02:18.187643"], ["updated_at", "2020-04-15 21:02:18.187643"]]
   ↳ app/controllers/static_pages_controller.rb:6
    (80.0ms)  COMMIT
   ↳ app/controllers/static_pages_controller.rb:6
@@ -382,7 +379,7 @@ Completed 200 OK in 266ms (Views: 20.9ms | ActiveRecord: 239.4ms)
 You can view these entries in TimescaleDB by running the following command in `psql`:
 
 ```sql
-SELECT * FROM page_loads ORDER BY time DESC;
+SELECT * FROM page_loads ORDER BY created_at DESC;
 ```
 
 The output should look like this:
