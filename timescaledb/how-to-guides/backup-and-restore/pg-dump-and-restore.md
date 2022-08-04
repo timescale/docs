@@ -24,10 +24,15 @@ information, see "Troubleshooting version mismatches" in this section.
 ## Back up your entire database
 
 You can perform a backup using the `pg_dump` command at the command prompt. For
-example, to backup a database named `exampledb`:
+example, to backup a database named `exampledb` hosted on a local server:
 
 ```bash
 pg_dump -Fc -f exampledb.bak exampledb
+```
+To backup a database named `exampledb` hosted on a remote server:
+
+```bash
+pg_dump -h <REMOTE_HOST> -p -U -f exampledb.bak exampledb
 ```
 
 You might see some errors when running `pg_dump`. To learn if they can be safely
