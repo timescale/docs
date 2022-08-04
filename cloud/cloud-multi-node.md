@@ -7,14 +7,24 @@ tags: [cluster, distributed hypertables]
 ---
 
 # Multi-node on Timescale Cloud
+
 If you have a larger workload, you might need more than one TimescaleDB
 instance. TimescaleDB multi-node allows you to run and manage multiple
 instances, which can give you faster data ingest, and more responsive and
 efficient queries for many large workloads.
 
 This section shows you how to use multi-node on Timescale Cloud. You can also
-use multi-node on [Managed Service for TimescaleDB][multinode-mst], or
-[self-hosted TimescaleDB][multinode-timescaledb].
+set up multi-node on [self-hosted TimescaleDB][multinode-timescaledb].
+
+<highlight type="important">
+Multi-node in Timescale Cloud is an early access feature. If you'd like to use
+multi-node, first contact the Timescale customer support team to discuss your
+use case. The team can help you understand the trade-offs and whether it's a
+good fit for your needs.
+
+You can contact Support from Cloud Console by clicking `Support` in the main
+menu.
+</highlight>
 
 <highlight type="important">
 In some cases, your processing speeds could be slower in a multi-node cluster,
@@ -27,6 +37,7 @@ For more information about how multi-node works, see the
 [multi-node on TimescaleDB][multinode-timescaledb] section.
 
 ## Set up multi-node on Timescale Cloud
+
 To create a multi-node cluster, you need an access node that stores metadata
 for the distributed hypertable and performs query planning across the cluster,
 and any number of data nodes that store subsets of the distributed hypertable
@@ -72,5 +83,4 @@ For more information about how multi-node works, see the
 
 [cloud-login]: https://console.cloud.timescale.com/
 [cloud-signup]: https://www.timescale.com/timescale-signup
-[multinode-mst]: /mst/:currentVersion:/mst-multi-node/
 [multinode-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
