@@ -24,10 +24,10 @@ information, see "Troubleshooting version mismatches" in this section.
 ## Back up your entire database
 
 You can perform a backup using the `pg_dump` command at the command prompt. For
-example, to backup a database named `exampledb`:
+example, to backup a database named `tsdb`:
 
 ```bash
-pg_dump -Fc -f exampledb.bak exampledb
+pg_dump -Fc -f tsdb.bak tsdb
 ```
 
 You might see some errors when running `pg_dump`. To learn if they can be safely
@@ -51,8 +51,8 @@ database and restore the data.
 1.  In `psql`, create a new database to restore to, and connect to it:
 
     ```sql
-    CREATE DATABASE exampledb;
-    \c exampledb
+    CREATE DATABASE tsdb;
+    \c tsdb
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     SELECT timescaledb_pre_restore();
     ```
@@ -60,7 +60,7 @@ database and restore the data.
 1.  Restore the database:
 
     ```sql
-    \! pg_restore -Fc -d exampledb exampledb.bak
+    \! pg_restore -Fc -d tsdb tsdb.bak
     SELECT timescaledb_post_restore();
     ```
 
