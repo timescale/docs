@@ -8,7 +8,7 @@ tags: [recovery, pg_dump, pg_restore]
 # Troubleshooting
 
 This section contains some ideas for troubleshooting common problems experienced
-with backups and restores.
+with backing up and restoring.
 
 ## Troubleshoot version mismatches
 
