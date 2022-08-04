@@ -26,7 +26,7 @@ audit purposes while not incurring the higher storage costs of having to keep
 all metrics for longer.
 
 Get the currently configured default retention for metrics using the
-function `prom_api.get_default_retention_period()`:
+`prom_api.get_default_retention_period()` function, like this:
  ```sql
 SELECT prom_api.get_default_metric_retention_period();
 ```
