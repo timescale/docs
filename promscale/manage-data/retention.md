@@ -50,8 +50,7 @@ You can retrieve which retention is being used for a specific metric, using the
 ```sql
 SELECT prom_api.get_metric_retention_period('container_cpu_usage_seconds_total');
 ```
-It returns the default retention if no specific retention has been set for the
-metric. 
+If no specific retention has been set for the metric, this returns the default retention.
 
 Reset an overridden metric retention period to the default
 by using the function `prom_api.reset_metric_retention_period(metric_name TEXT)`
