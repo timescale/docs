@@ -14,5 +14,5 @@ install and manage a full observability stack in a Kubernetes cluster.
 
 
 [about-tobs]: /promscale/:currentVersion:/tobs/about/
-[tobs-install]: /promscale/:currentVersion:/tobs/
+[tobs-install]: /promscale/:currentVersion:/tobs/tobs/
 
