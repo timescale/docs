@@ -96,7 +96,8 @@ ports in your web browser.
    port-forward \
    svc/tobs-grafana  \
    8081:80
-   ```   
+   ```
+
 </procedure>
 
 When accessing the Grafana interface, log in as `admin`. You can get the
