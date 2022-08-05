@@ -9,18 +9,21 @@ keywords: [IoT, analytics, monitor]
 Use case: IoT Analysis and Monitoring
 
 In this tutorial, you learn:
-1.	How to get started with TimescaleDB
-2.	How to use TimescaleDB to analyze and monitor data from IoT sensors
+
+1.  How to get started with TimescaleDB
+2.  How to use TimescaleDB to analyze and monitor data from IoT sensors
 
 Dataset: <tag type="download">[nyc_data.tar.gz](https://timescaledata.blob.core.windows.net/datasets/nyc_data.tar.gz)</tag>
 Estimated time for completion: 25 minutes.
 
 ### Prerequisites
+
 To complete this tutorial, you need a cursory knowledge of the
 Structured Query Language (SQL). The tutorial walks you through each
 SQL command, but it is helpful if you've seen SQL before.
 
 ### Accessing Timescale
+
 There are multiple options for using Timescale to follow along with this tutorial. **All connection information
 and database naming** throughout this tutorial assumes you are connected to **Timescale Cloud**, our hosted,
 fully managed database-as-a-service. [Sign up for a free, 30-day demo account][cloud-signup], no credit-card
@@ -33,8 +36,8 @@ install the **Timescale** extension.
 Using `psql` from the command line, create a database called `nyc_data` and install the extension:
 
 ```sql
-CREATE DATABASE nyc_data;
-\c nyc_data
+CREATE DATABASE tsdb;
+\c tsdb
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
 
@@ -53,9 +56,9 @@ domains use to plan upgrades, set budgets, allocate resources, and more.
 
 In this tutorial, you complete three missions:
 
-- **Mission 1: Gear up [5-15 minutes]** You learn how to setup and connect to a *TimescaleDB* instance and load data from a CSV file in your local terminal using *psql*.
-- **Mission 2: Analysis [10 minutes]** You learn how to analyze a time-series dataset using TimescaleDB and *PostgreSQL*.
-- **Mission 3: Monitoring [10 minutes]** You learn how to use TimescaleDB to monitor IoT devices. You'll also learn about using TimescaleDB in conjunction with other PostgreSQL extensions like *PostGIS*, for querying geospatial data.
+*   **Mission 1: Gear up [5-15 minutes]** You learn how to setup and connect to a *TimescaleDB* instance and load data from a CSV file in your local terminal using *psql*.
+*   **Mission 2: Analysis [10 minutes]** You learn how to analyze a time-series dataset using TimescaleDB and *PostgreSQL*.
+*   **Mission 3: Monitoring [10 minutes]** You learn how to use TimescaleDB to monitor IoT devices. You'll also learn about using TimescaleDB in conjunction with other PostgreSQL extensions like *PostGIS*, for querying geospatial data.
 
 ### Mission 1: Gear up
 
@@ -80,8 +83,9 @@ and space (on your machine), we'll only grab data for the month of January 2016,
 containing ~11 million records!
 
 This download contains two files:
-1. `nyc_data.sql` - A SQL file that sets up the necessary tables
-1. `nyc_data_rides.csv` - A CSV file with the ride data
+
+1.  `nyc_data.sql` - A SQL file that sets up the necessary tables
+1.  `nyc_data_rides.csv` - A CSV file with the ride data
 
 You can download the files from the below link:
 
@@ -139,20 +143,21 @@ vehicle in its fleet, generating data from millions of rides every day.
 
 They collect the following data about each ride:
 
-* Pickup date and time (as a timestamp)
-* Pickup location (latitude and longitude)
-* Drop off date and time (as a timestamp)
-* Drop off location (latitude and longitude)
-* Trip distance (in miles)
-* Fares (in USD)
-* Passenger count
-* Rate type (e.g, standard, airport, etc.)
-* Payment type (Cash, credit card, etc.)
+*   Pickup date and time (as a timestamp)
+*   Pickup location (latitude and longitude)
+*   Drop off date and time (as a timestamp)
+*   Drop off location (latitude and longitude)
+*   Trip distance (in miles)
+*   Fares (in USD)
+*   Passenger count
+*   Rate type (e.g, standard, airport, etc.)
+*   Payment type (Cash, credit card, etc.)
 
 To efficiently store that data, we're going to need three tables:
-1. A [hypertable][hypertables] called `rides`, which stores all of the above data for each ride taken.
-2. A regular Postgres table called `payment_types`, which maps the payment types to their English description.
-3. A regular Postgres table called `rates`, which maps the numeric rate codes to their English description.
+
+1.  A [hypertable][hypertables] called `rides`, which stores all of the above data for each ride taken.
+2.  A regular Postgres table called `payment_types`, which maps the payment types to their English description.
+3.  A regular Postgres table called `rates`, which maps the numeric rate codes to their English description.
 
 The `nyc_data.sql` script defines the schema for our three tables. The script
 automatically configures your TimescaleDB instance with the appropriate
@@ -507,12 +512,12 @@ footprint associated with airport trips.
 Prior to instituting any programs, they would like you to more closely
 examine trips to JFK (code 2) and Newark (code 3). For each airport, they
 would like to know the following for the month of January:
-- Number of trips to that airport
-- Average trip duration (i.e drop off time - pickup time)
-- Average trip cost
-- Average tip
-- Minimum, Maximum and Average trip distance
-- Average number of passengers
+*   Number of trips to that airport
+*   Average trip duration (i.e drop off time - pickup time)
+*   Average trip cost
+*   Average tip
+*   Minimum, Maximum and Average trip distance
+*   Average number of passengers
 
 To do this, we can run the following query:
 
@@ -555,11 +560,11 @@ avg_passengers    | 1.7435501129473309
 ```
 
 Based on your analysis, you are able to identify:
-- There are 13x more rides to JFK than Newark. This often leads to heavy traffic on the roads to and from JFK, especially during peak times. They've decided to explore road improvements to those areas, as well as increasing public transport to and from the airport (e.g, buses, subway, trains, etc.)
-- Each airport ride has on average the same number of passengers per trip (~1.7 passengers per trip).
-- The trip distances are roughly the same 16-17 miles.
-- JFK is about 30% cheaper, most likely because of NJ tunnel and highway tolls.
-- Newark trips are 22% (10 min) shorter.
+*   There are 13x more rides to JFK than Newark. This often leads to heavy traffic on the roads to and from JFK, especially during peak times. They've decided to explore road improvements to those areas, as well as increasing public transport to and from the airport (e.g, buses, subway, trains, etc.)
+*   Each airport ride has on average the same number of passengers per trip (~1.7 passengers per trip).
+*   The trip distances are roughly the same 16-17 miles.
+*   JFK is about 30% cheaper, most likely because of NJ tunnel and highway tolls.
+*   Newark trips are 22% (10 min) shorter.
 
 This data is useful not just for city planners, but also for airport travellers
 and tourism organizations like the NYC Tourism Bureau. For example, a tourism
@@ -585,6 +590,7 @@ a ride's current status.
 >:WARNING: A more realistic setup would involve creating a data pipeline that streams sensor data directly from the cars into TimescaleDB. However, we use the January 2016 data to illustrate the underlying principles that are applicable regardless of setup.
 
 #### How many rides took place every 5 minutes for the first day of 2016?
+
 It's January 1, 2016. NYC riders have celebrated New Year's Eve, and are using taxi
 cabs to travel to and from their first gathering of the new year.
 
@@ -794,6 +800,7 @@ hours, as people headed to breakfast and other New Years activities. New York is
 truly the city that never sleeps and Times Square is a good reflection of that!
 
 ### Conclusions and next steps
+
 In this tutorial you learned how to get started with TimescaleDB.
 
 In **Mission 1**, you learned how to setup and connect to a TimescaleDB instance
@@ -810,10 +817,10 @@ as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
 Ready for more learning? Here's a few suggestions:
-- [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-- [Continuous Aggregates][continuous-aggregates]
-- [Try Other Sample Datasets][other-samples]
-- [Migrate your own Data][migrate]
+*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
+*   [Continuous Aggregates][continuous-aggregates]
+*   [Try Other Sample Datasets][other-samples]
+*   [Migrate your own Data][migrate]
 
 [NYCTLC]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 [cloud-signup]: https://console.cloud.timescale.com/signup
