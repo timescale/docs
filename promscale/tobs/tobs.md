@@ -9,24 +9,29 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
-import PromscaleConfigurationRecommendations from 'versionContent/_partials/_promscale-configuration-recommendations.mdx';
-
 # Install the observability stack (tobs) for Kubernetes
 The observability stack (tobs), is a pre-packaged distribution of observability
 tools and dashboard interfaces which can be installed on any existing Kubernetes
 cluster. It includes many of the most popular open-source observability tools
 including Prometheus, Grafana, TimescaleDB, and [other components][stack-components].
-Together, these provide a maintainable solution to analyze the traffic on the
+Together, these provide a unified solution to analyze the traffic on the
 server and identify any potential problems with a deployment. You can use Helm
 charts to configure and update [tobs][tobs] deployments. 
 
  
 ## Before you begin
 *  Understand the [resource requirements][resource-requirements] for your cluster.
-*  [Deploy a Kubernetes Cluster][kubernetes-cluster]. 
-*  Install [kubectl][kubectl] in your local environment and
-   [connect to your cluster][connect-to-cluster].
-*  Install [Helm 3][helm] in your local machine. 
+*  Ensure that you have a [Kubernetes Cluster][kubernetes-cluster]. 
+*  Install [kubectl][kubectl] in your local environment and [connect to your cluster][connect-to-cluster].
+*  Install [Helm 3][helm] in your local machine.
+* Install a certificate manager for your cluster:
+   ```bash
+   kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
+   ```
+   <highlight type="note">
+   For the latest and updated instructions to install, see the [certificate manager][cert-manager-docs]documentation.
+   You may choose not to install certificate manager if you plan to use tobs with opentelemetry support disabled.
+   </highlight> 
 
 ## Installing Promscale with tobs 
 The observability stack (tobs), eliminates the need to maintain configuration
@@ -40,10 +45,6 @@ access it locally with `kubectl` [Port-Forward][port-forward].
     ```bash
     kubectl create namespace observability
     ```   
-1. Install a certificate manager for your cluster:
-   ```bash
-   kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
-   ```
 1.  Using Helm, deploy the tobs release labeled `tobs` in the `observability`
     namespace on your cluster:
     ```bash
@@ -51,16 +52,15 @@ access it locally with `kubectl` [Port-Forward][port-forward].
     helm repo update
     helm install --wait tobs timescale/tobs --namespace observability
     ```
-1.  Verify that the Prometheus Operator has been deployed to your cluster and
-    its components are running and ready by checking the pods in the
-    `observability` namespace:
+1.  Verify that all the components have been deployed to your cluster and are
+    running by checking the pods in the `observability` namespace:
     ```bash
     kubectl -n observability get pods
     ```
     
 </procedure>
 
-### Accessing the components with port-forward
+### Accessing the interfaces with port-forward
 
 <procedure>
 
@@ -89,13 +89,13 @@ ports in your web browser.
       svc/tobs-kube-prometheus-alertmanager  \
       9093
    ```   
-1. To access the **Grafana** interface at the address `127.0.0.1:8081` in your
+1. To access the **Grafana** interface at the address `127.0.0.1:3000` in your
    web browser, use:
    ```bash
    kubectl -n observability \
    port-forward \
    svc/tobs-grafana  \
-   8081:80
+   3000:80
    ```
 
 </procedure>
@@ -103,20 +103,16 @@ ports in your web browser.
 When accessing the Grafana interface, log in as `admin`. You can get the
 `password` using:
    ```bash
-   kubectl get secret --namespace monitoring tobs-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+   kubectl get secret --namespace observability tobs-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
    ```
-   The Grafana dashboards are accessible at `Dashboards > Manage` from the left navigation bar.
-
-## Database configurations
-
-<PromscaleConfigurationRecommendations />
-
+   The Grafana dashboards are accessible at `Dashboards > Browse` from the left navigation bar.
 
 [kubernetes-cluster]: https://kubernetes.io/docs/setup/production-environment/
 [helm]: https://helm.sh/docs/intro/install/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/#kubectl
 [connect-to-cluster]: https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#verify-kubectl-configuration
 [port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward).
-[tobs]: https://github.com/timescale/tobs
+[tobs]: https://github.com/timescale/tobs#tobs---the-observability-stack-for-kubernetes
 [resource-requirements]: /promscale/:currentVersion:/recommendations/resource-recomm/ 
 [stack-components]: /promscale/:currentVersion:/tobs/about/
+[cert-manager-docs]: https://cert-manager.io/docs/installation/
