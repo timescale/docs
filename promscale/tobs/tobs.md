@@ -60,7 +60,7 @@ access it locally with `kubectl` [Port-Forward][port-forward].
     
 </procedure>
 
-### Accessing the interfaces with port-forward
+### Accessing the components with port-forward
 
 <procedure>
 
