@@ -18,28 +18,48 @@ similar scheduling tool to schedule the maintenance task. See the
 details.
 
 ## Configure data retention for metrics
-You can set a default data retention period for metrics, and override the
-default on a per-metric basis.
+Metric data has an automated retention that drops data after a certain age.
+The default retention is 90 days which can be customized. It is also possible
+to configure a specific retention for a metric. This is typically used if you
+want to keep certain important metrics for longer to do trend analysis or for
+audit purposes while not incurring the higher storage costs of having to keep
+all metrics for longer.
+
+Get the currently configured default retention for metrics using the
+`prom_api.get_default_retention_period()` function, like this:
+ ```sql
+SELECT prom_api.get_default_metric_retention_period();
+```
 
 Change the default retention period for metrics by adjusting the 
 `retention_period` parameter of the function
 `prom_api.set_default_retention_period(retention_period INTERVAL)`:
 ```sql
-SELECT prom_api.set_default_retention_period(30 * INTERVAL '1 day')
+SELECT prom_api.set_default_retention_period(30 * INTERVAL '1 day');
 ```
 
 If you have specific metrics you need to retain for longer, use
 the function
 `prom_api.set_metric_retention_period(metric_name TEXT, new_retention_period INTERVAL)`:
 ```sql
-SELECT prom_api.set_metric_retention_period('container_cpu_usage_seconds_total', 180 * INTERVAL '1 day')
+SELECT prom_api.set_metric_retention_period('container_cpu_usage_seconds_total', 180 * INTERVAL '1 day');
 ```
+
+You can retrieve which retention is being used for a specific metric, using the 
+`prom_api.get_metric_retention_period(metric_name TEXT)` function:
+```sql
+SELECT prom_api.get_metric_retention_period('container_cpu_usage_seconds_total');
+```
+If no specific retention has been set for the metric, this returns the default retention.
 
 Reset an overridden metric retention period to the default
 by using the function `prom_api.reset_metric_retention_period(metric_name TEXT)`
 ```sql
-SELECT prom_api.reset_metric_retention_period('container_cpu_usage_seconds_total')
+SELECT prom_api.reset_metric_retention_period('container_cpu_usage_seconds_total');
 ```
+
+When you change the default retention period, any metrics that have a specific
+retention configured keep that retention, unless you reset it.
 
 ## Configure data retention for traces
 The `_ps_trace.span`, `_ps_trace.event`, and `_ps_trace.link` hypertables have
