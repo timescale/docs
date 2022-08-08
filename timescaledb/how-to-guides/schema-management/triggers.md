@@ -1,3 +1,9 @@
+---
+title: Triggers
+excerpt: Create, alter, and drop triggers on a hypertable
+keywords: [hypertables, triggers]
+---
+
 # Triggers
 TimescaleDB supports the full range of PostgreSQL triggers. Creating, altering,
 or dropping triggers on a hypertable propagates the changes to all of the

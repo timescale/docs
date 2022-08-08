@@ -1,3 +1,10 @@
+---
+title: Analyze historical intraday stock data
+excerpt: Collect, store, and analyze intraday stock data with TimescaleDB
+keywords: [finance, analytics, psycopg2, pandas, plotly]
+tags: [candlestick]
+---
+
 # Analyze historical intraday stock data
 
 This tutorial is a step-by-step guide on how to collect, store, and analyze intraday stock data
@@ -22,7 +29,7 @@ This tutorial has a few main steps:
 * TimescaleDB (see [installation options][install-timescale])
 * Alpha Vantage API key ([get one for free][alpha-vantage-apikey])
 * Virtualenv (installation: `pip install virtualenv`)
-* [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
+* [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
 
 ## Get started: create a virtual environment
 
@@ -36,10 +43,14 @@ virtualenv env
 source env/bin/activate
 ```
 
+Install Pandas within the virtual environment:
+```bash
+pip install pandas
+```
 
-[install-timescale]: /install/latest/
 [alpha-vantage-apikey]: https://www.alphavantage.co/support/#api-key
-[design-schema]: /tutorials/analyze-intraday-stocks/design-schema
-[fetch-ingest]: /tutorials/analyze-intraday-stocks/fetch-and-ingest
-[explore]: /tutorials/analyze-intraday-stocks/explore-stocks-data
-[psql-install]: /how-to-guides/connecting/psql
+[design-schema]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/design-schema
+[explore]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/explore-stocks-data
+[fetch-ingest]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/fetch-and-ingest
+[install-timescale]: /install/latest/
+[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql

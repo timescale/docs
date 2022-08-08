@@ -1,3 +1,9 @@
+---
+title: Custom TimescaleDB dashboards
+excerpt: Build custom TimescaleDB dashboards with Hasura GraphQL and React
+keywords: [visualizations, analytics, hasura]
+---
+
 # Custom TimescaleDB dashboards
 To help you understand what is going on in your database, you can create your
 own custom visualizations and dashboards. TimescaleDB allows you to create
@@ -39,7 +45,7 @@ TimescaleDB uses [hypertables][] to store time-series data. TimescaleDB
 automatically partitions data in hypertables into smaller child tables called
 chunks. The chunks represent data for a given time period, which makes it easier
 to query and manage over time. For example, if you wanted to query data from
-10am to 11am, instead of scanning your entire database, TimescaleDB would scan
+10 AM to 11 AM, instead of scanning your entire database, TimescaleDB would scan
 the specific chunks that contain data for just that period. All the interaction
 with the database still occurs on the hypertable using SQL, but TimescaleDB
 partitions the data to make large queries more efficient.
@@ -390,15 +396,15 @@ We hope you find new ways to explore your data and make your decisions smarter
 and data-driven. If you get any interesting results or have any questions about
 this tutorial, drop us a line on our [community Slack channel][timescale-slack].
 
+[Hasura]: http://hasura.io/
 [TimescaleDB]: https://timescale.com/
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[data retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[hasura-cloud]: https://cloud.hasura.io/
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[iot-tutorial]: /timescaledb/:currentVersion:/tutorials/simulate-iot-sensor-data/
+[repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
+[timescale-install]: /install/latest/
 [timescale-signup]: https://www.timescale.com/timescale-signup
 [timescale-slack]: https://slack.timescale.com
-[timescale-install]: /install/latest/
-[repo-example]: https://github.com/timescale/examples/tree/master/compression-preview
-[hypertables]: /how-to-guides/hypertables/
-[caggs]: /how-to-guides/continuous-aggregates/
-[data retention]: /how-to-guides/data-retention/
-[compression]: /how-to-guides/compression/
-[iot-tutorial]: /tutorials/simulate-iot-sensor-data/
-[Hasura]: http://hasura.io/
-[hasura-cloud]: https://cloud.hasura.io/

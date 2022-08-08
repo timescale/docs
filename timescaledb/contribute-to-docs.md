@@ -1,3 +1,9 @@
+---
+title: Contribute to TimescaleDB documentation
+excerpt: contribute-to-docs
+tags: [contribute, docs, style guide]
+---
+
 # Contributing to Timescale documentation
 Timescale documentation is hosted in a [GitHub repository][github-docs]  and is
 open for contribution from all community members. If you  find errors or would
@@ -95,7 +101,7 @@ that case, feel free to ignore them.
 &#10060; Simply install TimescaleDB.
 
 *And/Or*
-: Do not use. You can usually pick one. If you're not sure, pick "and".
+: Do not use. You can usually pick one. If you're not sure, pick "and."
 
 &#10060; I like apples and/or oranges.
 
@@ -154,6 +160,15 @@ device.
 same position, or be in the position you expect on an individual reader's
 device.
 
+*Promscale Connector*
+: Use initial capital letters.
+
+&#128077; "Install the Promscale Connector."
+
+&#10060; "Install the Promscale connector."
+
+&#10060; "Install the promscale connector."
+
 ### Q [](#Q)
 
 ### R [](#R)
@@ -185,6 +200,21 @@ device.
 
 ### U [](#U)
 
+*Update*
+: An update is a small or minor improvement, often delivered in a patch. Updates
+are done frequently, and require little or no downtime.
+
+&#128077; Install the security update to patch this version.
+
+*Upgrade*
+: An upgrade is a large or major improvement, and usually requires a new
+version. Upgrades are done less frequently, and could require planning,
+prepatory backups, and planned downtime.
+
+&#128077; Upgrade from TimescaleDB&nbsp;1 to TimescaleDB&nbsp;2.
+
+&#128077; Upgrade from TimescaleDB&nbsp;2.3 to TimescaleDB&nbsp;2.4.
+
 *Utilize*
 : Do not use. Use "use" instead.
 
@@ -192,7 +222,7 @@ device.
 
 *Via*
 : Avoid if possible. There is usually a more accurate English word, like
-"through", "with", or "using".
+"through," "with," or "using."
 
 ### W [](#W)
 
@@ -210,7 +240,7 @@ Always write in simple present tense.
 
 ### Z [](#Z)
 
-[github-docs]: https://github.com/timescale/docs
 [contributors]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
-[readme]: https://github.com/timescale/docs#readme
+[github-docs]: https://github.com/timescale/docs
 [google-style]: https://developers.google.com/style
+[readme]: https://github.com/timescale/docs#readme

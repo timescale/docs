@@ -1,3 +1,12 @@
+---
+api_name: timescaledb_information.compression_settings
+excerpt: Get information about compression settings for hypertables
+license: community
+topic: compression
+keywords: [compression]
+tags: [informational, settings, hypertables, schemas, indexes]
+---
+
 ## timescaledb_information.compression_settings 
 
 Get information about compression-related settings for hypertables.

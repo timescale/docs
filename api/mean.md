@@ -1,5 +1,11 @@
 ---
-api_name: mean
+api_name: mean()
+excerpt: Calculate the mean from values in a percentile aggregate
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [hyperfunctions, toolkit]
+tags: [average, percentiles]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
@@ -55,4 +61,4 @@ FROM generate_series(0, 100) data;
 
 
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

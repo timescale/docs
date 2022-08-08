@@ -1,3 +1,12 @@
+---
+api_name: add_job()
+excerpt: Add a job to run a user-defined action automatically
+license: community
+topic: jobs
+keywords: [jobs]
+tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
+---
+
 ## add_job() <tag type="community">Community</tag>
 Register an action for scheduling by the automation framework. For more information about scheduling, including example actions, see the [actions section][using-actions].
 

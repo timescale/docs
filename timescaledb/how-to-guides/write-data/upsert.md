@@ -1,3 +1,9 @@
+---
+title: Upsert data
+excerpt: Upsert data to insert a new row or update an existing row
+keywords: [upsert, hypertables]
+---
+
 # Upsert data
 Upserting is shorthand for:
 *   Inserting a new row if a matching row doesn't already exist

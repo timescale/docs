@@ -9,6 +9,13 @@ module.exports = [
       "Promscale is the open source observability backend for metrics and traces powered by SQL, built on top of TimescaleDB.",
     children: [
       {
+        title: "Quick start",
+        href: "quick-start",
+        tags: ["promscale", "install", "analytics", "prometheus"],
+        keywords: ["Install", "Promscale", "analytics"],
+        excerpt: "Get started with Promscale fast",
+      },
+      {
         title: "About Promscale",
         href: "about-promscale",
         tags: ["promscale", "learn", "analytics", "prometheus"],
@@ -28,52 +35,88 @@ module.exports = [
         tags: ["promscale", "learn", "analytics", "prometheus"],
         keywords: ["Promscale", "analytics"],
         relatedPages: [
-          "/promscale/:currentVersion:/installation/recomm-guide",
+          "/promscale/:currentVersion:/guides/resource-recomm",
           "/promscale/:currentVersion:/send-data/",
         ],
         excerpt:
           "Install Promscale on Kubernetes, Docker, virtual machine, or bare metal",
         children: [
           {
-            title: "Install Promscale on Kubernetes",
+            title: "Kubernetes",
             href: "kubernetes",
             tags: ["promscale", "install", "kubernetes", "analytics", "helm"],
             keywords: ["Promscale", "Kubernetes", "analytics", "Helm"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
+              "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Install Promscale on a Kubernetes cluster",
           },
           {
-            title: "Install Promscale with Docker",
+            title: "Docker",
             href: "docker",
             tags: ["promscale", "install", "analytics", "docker"],
             keywords: ["Promscale", "analytics", "Docker"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
+              "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
             excerpt: "Install Docker for Promscale",
           },
           {
-            title: "Install Promscale from source",
-            href: "source",
+            title: "Binary",
+            href: "binary",
             tags: ["promscale", "install", "analytics"],
             keywords: ["Promscale", "analytics"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
+              "/promscale/:currentVersion:/guides/resource-recomm",
               "/promscale/:currentVersion:/send-data/",
             ],
-            excerpt: "Install Promscale on bare metal",
+            excerpt: "Install Promscale from source on bare metal",
           },
           {
-            title: "Resource recommendation guide",
-            href: "recomm-guide",
+            title: "Debian or Ubuntu",
+            href: "debian-ubuntu",
             tags: ["promscale", "install", "analytics"],
             keywords: ["Promscale", "analytics"],
-            excerpt: "Recommended resources for Promscale",
+            relatedPages: [
+              "/promscale/:currentVersion:/guides/resource-recomm",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Install Promscale on Debian or Ubuntu",
           },
+          {
+            title: "RPM based Linux (Red Hat or CentOS)",
+            href: "rhel-centos",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            relatedPages: [
+              "/promscale/:currentVersion:/guides/resource-recomm",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Install Promscale on RPM based Linux",
+          },
+          {
+            title: "tobs",
+            href: "tobs",
+            tags: ["promscale", "install", "analytics", "k8s"],
+            keywords: ["Promscale", "analytics", "Kubernetes"],
+            relatedPages: [
+              "/promscale/:currentVersion:/guides/resource-recomm",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Install tobs",
+          },
+        ],
+      },
+      {
+        title: "How-to Guides",
+        href: "guides",
+        tags: ["promscale", "migration", "upgrade", "docker", "kubernetes"],
+        keywords: ["Promscale", "migration", "upgrade"],
+        excerpt:
+          "Migrate, upgrade,and integrate Promscale",
+        children: [
           {
             title: "Migrate existing data",
             href: "prom-migrator",
@@ -83,17 +126,47 @@ module.exports = [
               "Use Prom-migrator to send existing Prometheus data to Promscale",
           },
           {
-            title: "Install Promscale with tobs",
-            href: "tobs",
-            tags: ["promscale", "install", "analytics", "k8s"],
-            keywords: ["Promscale", "analytics", "Kubernetes,"],
+            title: "Upgrade Promscale",
+            href: "upgrade",
+            tags: ["promscale", "upgrade"],
+            keywords: ["Promscale", "upgrade"],
             relatedPages: [
-              "/promscale/:currentVersion:/installation/recomm-guide",
               "/promscale/:currentVersion:/send-data/",
             ],
-            excerpt: "Install tobs",
+            excerpt: "Upgrade Promscale",
           },
         ],
+      },
+      {
+        title: "Recommendations",
+        href: "recommendations",
+        tags: ["promscale", "learn", "analytics", "prometheus"],
+        keywords: ["Promscale", "analytics"],
+        excerpt:
+          "Install Promscale on Kubernetes, Docker, virtual machine, or bare metal",
+        children: [
+          {
+            title: "Resource recommendation guide",
+            href: "resource-recomm",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            excerpt: "Recommended resources for Promscale",
+          },
+          {
+            title: "Configuration recommendation guide",
+            href: "config-recomm",
+            tags: ["promscale", "install", "analytics"],
+            keywords: ["Promscale", "analytics"],
+            excerpt: "Recommended resources for Promscale",
+          },
+        ],
+      },
+      {
+        title: "Backup and Restore Promscale",
+        href: "backup-restore",
+        tags: ["promscale", "backup", "restore"],
+        keywords: ["Promscale", "backup", "restore"],
+        excerpt: "Learn how to backup and restore a Promscale database"
       },
       {
         title: "Send data to Promscale",
@@ -135,9 +208,23 @@ module.exports = [
       {
         title: "Query data in Promscale",
         href: "query-data",
-        tags: ["promscale", "analytics", "sql", "promql", "prometheus"],
-        keywords: ["Promscale", "analytics"],
         excerpt: "Learn how to query data in Promscale",
+        children: [
+          {
+            title: 'Query metrics',
+            href: 'query-metrics',
+            tags: ["promscale", "analytics", "sql", "prometheus"],
+            keywords: ["Promscale", "analytics", "query", "metrics"],
+            excerpt: 'Query metrics data in Promscale'
+          },
+          {
+            title: 'Query traces',
+            href: 'query-traces',
+            tags: ["promscale", "analytics", "sql", "traces"],
+            keywords: ["Promscale", "analytics", "query", "traces"],
+            excerpt: 'Query trace data in Promscale'
+          },
+        ]
       },
       {
         title: 'Visualize data in Promscale',
@@ -277,6 +364,13 @@ module.exports = [
             tags: ['promscale', 'delete', 'metrics'],
             keywords: ['Promscale', 'Prometheus', 'delete'],
             excerpt: 'Delete data in Promscale',
+          },
+          {
+            title: 'Maintenance jobs',
+            href: 'maintenance-jobs',
+            tags: ['promscale', 'maintenance', 'data'],
+            keywords: ['Promscale', 'maintenance', 'data'],
+            excerpt: 'Understand and manage maintenance jobs',
           },
         ],
       },

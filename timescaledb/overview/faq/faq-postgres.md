@@ -1,3 +1,10 @@
+---
+title: FAQs - Comparing to PostgreSQL
+excerpt: Why to choose TimescaleDB over regular PostgreSQL
+keywords: [PostgreSQL, faq]
+tags: [geospatial data, compare]
+---
+
 # FAQs - Comparing to PostgreSQL
 
 ## Why would I use TimescaleDB over vanilla PostgreSQL?
@@ -26,7 +33,7 @@ time-space partitioning, even when running _on a single machine_. So all writes
 to recent time intervals are only to tables that remain in memory, and updating any
 secondary indexes is also fast as a result.
 * Superior (or similar) query performance: Queries that can reason
-specifically about time ordering can be _much_ more performant (1000s of times faster)
+specifically about time ordering can be _much_ more performant (thousands of times faster)
 in TimescaleDB. On single disk machines, at least, many simple queries that just perform
 indexed lookups or table scans are similarly performant between PostgreSQL and TimescaleDB.
 * Much faster data deletion: To save space or to implement data retention policies,
@@ -53,11 +60,10 @@ reporting tools.
 As an extension of PostgreSQL, TimescaleDB works well with PostGIS. For example,
 [see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data.
 
-
 [PostgreSQL-benchmark]: https://blog.timescale.com/blog/timescaledb-vs-6a696248104e/
 [PostgreSQL-problems-time-series]: https://blog.timescale.com/blog/time-series-data-postgresql-10-vs-timescaledb-816ee808bac5/
-[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [last]: /api/:currentVersion:/hyperfunctions/last/
-[data-retention]: /how-to-guides/data-retention/
-[postgis]: /tutorials/nyc-taxi-cab
+[postgis]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

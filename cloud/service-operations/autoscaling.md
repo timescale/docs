@@ -1,3 +1,11 @@
+---
+title: Service operations - Autoscaling
+excerpt: Set up Timescale Cloud to automatically resize your compute and storage
+product: cloud
+keywords: [scaling, services, operations]
+tags: [cpu, storage, disk space]
+---
+
 # Service operations - Autoscaling
 Timescale Cloud allows you to resize compute (CPU/RAM) and storage independently
 at any time. This is useful when you need to do something like increasing your
@@ -36,11 +44,27 @@ resources your service has available, as well as change the disk size for your
 service. You can adjust this manually as required, or for disk size you can use autoscaling.
 
 ## Change resource allocations manually
-When you change the disk size, the changes are applied with no downtime, and the
-new size generally becomes available within a few seconds. You can change the
-disk size once every six hours, and you can only increase the size, not decrease
-it. You can have a disk up to 16&nbsp;TB in size.
+You can manually change both storage and compute resources.
 
+### Storage resources
+When you change the disk size, the changes are applied with no downtime. The
+new size generally becomes available within a few seconds. You can only increase
+your disk size, not decrease it, up to a maximum of 16&nbsp;TB.
+
+Though your new storage is available within seconds, it needs to be optimized
+behind the scenes. Optimization takes anywhere from 6 to 24 hours for each
+terabyte of data. Allow enough time for optimization to finish before scaling
+your service again. You must wait at least 6 hours, even if your service is
+smaller than 1&nbsp;TB.
+
+<highlight type="warning">
+If you resize your service again while your previous resize is still optimizing,
+the second resize fails. For more information on storage optimization, see the
+[Amazon Elastic Block Store](https://aws.amazon.com/premiumsupport/knowledge-center/ebs-volume-stuck-optimizing-on-modification/)
+documentation. To prevent this, wait for the recommended time between resizes.
+</highlight>
+
+### Compute resources
 You can change the CPU and memory allocation for your service at any time, with
 minimal downtime, usually less than thirty seconds. The new resources become
 available as soon as the service restarts. You can change the CPU and memory
@@ -70,17 +94,27 @@ plan for this before you begin!
 
 ## Configure autoscaling for disk size
 Disk size autoscaling is enabled by default on most services. When you consume
-95% or more of your existing disk space, disk size is automatically increased to
+85% or more of your existing disk space, disk size is automatically increased to
 the next size available, up to a configurable limit.
-
-Autoscaling can change the disk size once every six hours. When the increase is
-requested, the new limit is applied, and then the used space is optimized. The
-optimization process does not require downtime, and in most cases it happens
-very quickly. However, if you have a lot of existing data, optimization can take
-longer, and in some cases this could create a delay longer than six hours.
 
 Autoscaling can only increase disk size, not decrease it. You can have a disk up
 to 16&nbsp;TB in size.
+
+Autoscaling can change the disk size once every 6 hours. When the increase is
+requested, the new limit is applied, and then the used space is optimized. The
+optimization process does not require downtime, and in most cases it happens
+very quickly. However, if you have a lot of existing data, optimization can take
+longer. You should expect 6 to 24 hours of optimization time for every terabyte
+of data. For more information, see the
+[Amazon Elastic Block Store documentation][aws-ebs].
+
+<highlight type="warning">
+If you ingest very large amounts of data, autoscaling might not be able to keep
+up with data ingest. This happens because you need to wait for storage
+optimization between resizes. In that case, you need to scale your storage
+manually. To learn more, see the
+[limitations of autoscaling](#limitations-of-autoscaling).
+</highlight>
 
 If you have a Timescale Cloud multi-node cluster, you can also use
 autoscaling. We recommend that you define different scale limits for the access
@@ -106,6 +140,30 @@ have a single scaling threshold that applies across all the data nodes.
 
 </procedure>
 
+### Limitations of autoscaling
+Under very heavy data ingest loads, your data might grow faster than your new
+storage can be optimized. There must be a gap of at least 6 hours between
+resizes. For larger databases, there should be a gap of 6 to 24 hours for each
+terabyte of data.
+
+Refer to the [autoscaling size increases][size-increases] to check the next few
+tiers of storage. If you expect your database to outgrow an upper tier while
+still optimizing the next tier, you should
+[manually scale your database][manual-scaling] to your expected final size. This
+prevents you from outgrowing your data storage before it can be resized again.
+
+For example, say you have 100&nbsp;GB of storage. The next two tiers are
+125&nbsp;GB and 150&nbsp;GB. To resize to 125&nbsp;GB, AWS needs to modify the
+underlying storage volume. This can typically happen within 6 hours, but it
+might take 24 hours in some cases. The time doesn't always scale linearly with
+the volume size. For safety, you might want to leave 24 hours.
+
+Resizing is triggered when your disk is 85% full, so the first resize
+is triggered at 85&nbsp;GB, and the second resize is triggered at 118&nbsp;GB.
+If you expect your data to grow from 85&nbsp;GB to 118&nbsp;GB within a day, you
+should manually resize your storage to accommodate the heavy load.
+
+### Size increase gradations
 Size increases occur with these gradations:
 *   10&nbsp;GB
 *   25&nbsp;GB
@@ -147,3 +205,7 @@ Size increases occur with these gradations:
 *   12&nbsp;TB
 *   14&nbsp;TB
 *   16&nbsp;TB
+
+[aws-ebs]: https://aws.amazon.com/premiumsupport/knowledge-center/ebs-volume-stuck-optimizing-on-modification/
+[manual-scaling]: #change-resource-allocations-manually
+[size-increases]: #size-increase-gradations

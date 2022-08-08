@@ -1,3 +1,9 @@
+---
+title: FAQs - About time-series databases
+excerpt: Frequently asked questions about time-series databases
+keywords: [time-series, faq]
+---
+
 # FAQs - About time-series databases
 
 ## Why is time-series data important?
@@ -21,7 +27,7 @@ to measure everything that matters today.
 ## Why build another time-series database?
 Time-series data is cropping up in more and more places: monitoring and DevOps,
 sensor data and IoT, financial data, logistics data, app usage data, and more.
-Often this data is high in volume and complex in nature (e.g., multiple
+Often this data is high in volume and complex in nature (for example, multiple
 measurements and labels associated with a single time). This means that storing
 time-series data demands both scale and efficient complex queries. Yet achieving
 both of these properties has remained elusive. Users have typically been faced

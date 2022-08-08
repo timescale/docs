@@ -1,5 +1,16 @@
+---
+api_name: remove_compression_policy()
+excerpt: Remove a compression policy from a hypertable
+license: community
+topic: compression
+keywords: [compression, policies, remove]
+tags: [delete, drop]
+---
+
 ## remove_compression_policy() <tag type="community" content="community" />
-If you need to remove the compression policy. To re-start policy-based compression again you need to re-add the policy.
+If you need to remove the compression policy. To restart policy-based
+compression you need to add the policy again. To view the policies that
+already exist, see [informational views][informational-views].
 
 ### Required arguments
 
@@ -22,3 +33,5 @@ Remove the compression policy from the 'cpu_weekly' continuous aggregate:
 ``` sql
 SELECT remove_compression_policy('cpu_weekly');
 ```
+
+[informational-views]: /api/:currentVersion:/informational-views/jobs/

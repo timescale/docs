@@ -1,12 +1,24 @@
+---
+api_name: add_compression_policy()
+excerpt: Add policy to schedule automatic compression of chunks
+license: community
+topic: compression
+keywords: [compression, policies]
+tags: [scheduled jobs, background jobs, automation framework]
+---
+
 # add_compression_policy() <tag type="community" content="community" />
 Allows you to set a policy by which the system compresses a chunk
 automatically in the background after it reaches a given age.
 
 Note that compression policies can only be created on hypertables or continuous
-aggregates that already have compression enabled. Use the [`ALTER TABLE`][compression_alter-table] command
-to set `timescaledb.compress` and other configuration parameters for hypertables.
-Use [`ALTER MATERIALIZED VIEW`][compression_continuous-aggregate] command to
-enable compression on continuous aggregates
+aggregates that already have compression enabled. Use the 
+[`ALTER TABLE`][compression_alter-table] command to set `timescaledb.compress` 
+and other configuration parameters for hypertables. Use 
+[`ALTER MATERIALIZED VIEW`][compression_continuous-aggregate] command to 
+enable compression on continuous aggregates. To view the policies that you set or 
+the policies that already exist, see 
+[informational views][informational-views].
 
 ### Required arguments
 
@@ -55,4 +67,5 @@ SELECT add_compression_policy('cpu_weekly', INTERVAL '8 weeks');
 
 [compression_alter-table]: /api/:currentVersion:/compression/alter_table_compression/
 [compression_continuous-aggregate]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
-[set_integer_now_func]: /hypertable/set_integer_now_func
+[set_integer_now_func]: /api/:currentVersion:/hypertable/set_integer_now_func
+[informational-views]: /api/:currentVersion:/informational-views/jobs/

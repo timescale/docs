@@ -1,5 +1,10 @@
 ---
-api_name: rollup
+api_name: rollup()
+excerpt: Roll up multiple `TimeWeightSummaries`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [rollup, time-weighted, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -58,4 +63,4 @@ FROM t;
 ```
 
 
-[hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
+[hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/

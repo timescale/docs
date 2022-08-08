@@ -1,3 +1,11 @@
+---
+api_name: create_hypertable()
+excerpt: Create a hypertable
+license: apache
+topic: hypertables
+keywords: [hypertables, create]
+---
+
 # create_hypertable()
 
 Creates a TimescaleDB hypertable from a PostgreSQL table (replacing
@@ -24,7 +32,7 @@ still work on the resulting hypertable.
 |Name|Type|Description|
 |-|-|-|
 |`partitioning_column`|REGCLASS|Name of an additional column to partition by. If provided, the `number_partitions` argument must also be provided.|
-|`number_partitions`|INTEGER|Number of [hash partitions][] to use for `partitioning_column`. Must be > 0.|
+|`number_partitions`|INTEGER|Number of [hash partitions][hash-partitions] to use for `partitioning_column`. Must be > 0.|
 |`chunk_time_interval`|INTERVAL|Event time that each chunk covers. Must be > 0. Default is 7 days.|
 |`create_default_indexes`|BOOLEAN|Whether to create default indexes on time/partitioning columns. Default is TRUE.|
 |`if_not_exists`|BOOLEAN|Whether to print warning if table already converted to hypertable or raise exception. Default is FALSE.|
@@ -33,7 +41,7 @@ still work on the resulting hypertable.
 |`associated_table_prefix`|TEXT|Prefix for internal hypertable chunk names. Default is `_hyper`.|
 |`migrate_data`|BOOLEAN|Set to TRUE to migrate any existing data from the `relation` table to chunks in the new hypertable. A non-empty table generates an error without this option. Large tables may take significant time to migrate. Defaults to FALSE.|
 |`time_partitioning_func`|REGCLASS| Function to convert incompatible primary time column values to compatible ones. The function must be `IMMUTABLE`.|
-|`replication_factor`|INTEGER| If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`](/distributed-hypertables/create_distributed_hypertable/) in place of `create_hypertable`.|
+|`replication_factor`|INTEGER| If set to 1 or greater, creates a distributed hypertable. Default is NULL. When creating a distributed hypertable, consider using [`create_distributed_hypertable`][create_distributed_hypertable] in place of `create_hypertable`.|
 |`data_nodes`|ARRAY|This is the set of data nodes that are used for this table if it is distributed. This has no impact on non-distributed hypertables. If no data nodes are specified, a distributed hypertable uses all data nodes known by this instance.|
 
 ### Returns
@@ -56,7 +64,7 @@ in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
 If you would like finer control over index formation and other aspects of your
-hypertable, [follow these migration instructions instead](/timescaledb/latest/how-to-guides/migrate-data/).
+hypertable, [follow these migration instructions instead][migrate-data].
 
 When converting a normal SQL table to a hypertable, pay attention to how you handle
 constraints. A hypertable can contain foreign keys to normal SQL table columns,
@@ -101,9 +109,8 @@ or an integral value in *microseconds*.
 explicitly, as the database does not otherwise understand the
 semantics of what each integer value represents (a second,
 millisecond, nanosecond, etc.).  So if your time column is the number
-of milliseconds since the UNIX epoch, and you wish to each chunk to
+of milliseconds since the UNIX epoch, and you wish to have each chunk
 cover 1 day, you should specify `chunk_time_interval => 86400000`.
-
 
 In case of hash partitioning (in other words, if `number_partitions` is greater
 than zero), it is possible to optionally specify a custom partitioning
@@ -192,7 +199,7 @@ configuring `chunk_time_interval`.
 the manual and automated adaption of its time intervals. With
 manually set intervals, users should specify a `chunk_time_interval`
 when creating their hypertable (the default value is 1 week). The
-interval used for new chunks can be changed by calling [`set_chunk_time_interval()`](/hypertable/set_chunk_time_interval/).
+interval used for new chunks can be changed by calling [`set_chunk_time_interval()`][set_chunk_time_interval].
 
 The key property of choosing the time interval is that the chunk (including indexes)
 belonging to the most recent interval (or chunks if using space
@@ -229,6 +236,12 @@ function.
 **Space partitions:** In most cases, it is advised for users not to use
 space partitions. However, if you create a distributed hypertable, it is
 important to create space partitioning, see
-[create_distributed_hypertable](/distributed-hypertables/create_distributed_hypertable/).
+[create_distributed_hypertable][create_distributed_hypertable].
 The rare cases in which space partitions may be useful for non-distributed
-hypertables are described in the [add_dimension](/hypertable/add_dimension/) section.
+hypertables are described in the [add_dimension][add_dimension] section.
+
+[add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
+[create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
+[hash-partitions]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/#hypertable-partitioning
+[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[set_chunk_time_interval]:

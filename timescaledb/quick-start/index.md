@@ -1,3 +1,8 @@
+---
+title: Language quick starts
+excerpt: Get started with TimescaleDB adn your favorite language
+---
+
 # Language quick starts
 
 Here is a collection of quick starts for your favorite language.
@@ -16,9 +21,9 @@ feel free to [request](https://forms.gle/tBc3qBMKRosdHrGG9).
 - **[C# .NET and TimescaleDB][dotnet-quickstart]**: A quick start guide for C# developers looking to use TimescaleDB.
 
 
-[node-quickstart]: /quick-start/node
-[python-quickstart]: /quick-start/python
-[ruby-quickstart]: /quick-start/ruby
-[go-quickstart]: /quick-start/golang
-[java-quickstart]: /quick-start/java
-[dotnet-quickstart]: /quick-start/dotnet
+[dotnet-quickstart]: /timescaledb/:currentVersion:/quick-start/dotnet
+[go-quickstart]: /timescaledb/:currentVersion:/quick-start/golang
+[java-quickstart]: /timescaledb/:currentVersion:/quick-start/java
+[node-quickstart]: /timescaledb/:currentVersion:/quick-start/node
+[python-quickstart]: /timescaledb/:currentVersion:/quick-start/python
+[ruby-quickstart]: /timescaledb/:currentVersion:/quick-start/ruby

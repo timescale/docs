@@ -1,3 +1,11 @@
+---
+title: Service operations
+excerpt: Manage your Timescale Cloud service
+product: cloud
+keywords: [services, operations]
+tags: [manage, admin]
+---
+
 # Service Operations
 Timescale Cloud provides an operations dashboard for managing your services. You
 can see the Operations dashboard in your Timescale Cloud account by navigating

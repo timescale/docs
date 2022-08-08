@@ -1,3 +1,10 @@
+---
+title: Promscale multi-tenancy for Prometheus
+excerpt: Configure Promscale multi-tenancy for Prometheus
+product: promscale
+keywords: [multi-tenancy, scale, Prometheus]
+---
+
 # Promscale multi-tenancy for Prometheus
 Promscale supports multi-tenancy for Prometheus. It uses different Prometheus
 servers that correspond to different tenants, which all write data to the same
@@ -120,3 +127,12 @@ If you are querying multiple Promscale instances, you can configure individual
 instances to selectively authorize any valid tenant for queries, based on your
 requirements.
 </highlight>
+
+## Limitations
+
+Currently, the `labels` API (/api/v1/labels) returns data for all labels across
+all tenants even if you have configured `-multi-tenancy-valid-tenants`. Thus,
+when writing PromQL queries in Grafana, matching label names and values across
+all tenants are returned by the autocomplete feature. However, other data such
+as series and samples are returned only if they belong to the configured
+tenants.

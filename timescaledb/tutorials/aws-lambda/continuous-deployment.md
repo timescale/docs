@@ -1,9 +1,15 @@
+---
+title: Lambda continuous deployment with GitHub actions
+excerpt: Build a continuous deployment pipeline between GitHub and AWS Lambda
+keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pipeline]
+---
+
 # Lambda continuous deployment with GitHub actions
 This tutorial builds a continuous deployment (CD) pipeline between GitHub and
 AWS Lambda using GitHub actions.
 
 Packaging and deploying your function and its dependencies with AWS Lambda can
-sometimes be a tedious job.  Especially if you also want to use a source code
+sometimes be a tedious job. Especially if you also want to use a source code
 management platform like GitHub to develop your code before pushing  it to AWS
 Lambda.
 
@@ -41,7 +47,7 @@ Now you can create a new GitHub repository which contains the function code.
     ```
 1.  Create the Lambda function that you want to upload.
     As an example, here's a Python Lambda function which returns data from a TimescaleDB table called `stocks_intraday`
-    ([read the tutorial to build a TimescaleDB API with Lambda here](/tutorials/aws-lambda/create-data-api/)).
+    ([read the tutorial to build a TimescaleDB API with Lambda here][create-data-api]).
     ```bash
     touch function.py
     ```
@@ -99,8 +105,7 @@ Connect the Github repository to AWS Lambda using Github actions.
 
 ### Adding your AWS credentials to the repository
 You need to add your AWS credentials to the repository so it has permission to connect to Lambda.
-You can do this by adding [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets)
-using the GitHub CLI.
+You can do this by adding [GitHub secrets][github-secrets] using the GitHub command-line.
 
 1.  Authenticate with GitHub:
     ```bash
@@ -206,3 +211,6 @@ You can test if the hook works by pushing the changes to GitHub.
 </procedure>
 
 You now have a continuous deployment pipeline set up between GitHub and AWS Lambda.
+
+[create-data-api]: /timescaledb/:currentVersion:/tutorials/aws-lambda/create-data-api/
+[github-secrets]: https://docs.github.com/en/actions/reference/encrypted-secrets
