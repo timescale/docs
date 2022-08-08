@@ -15,7 +15,7 @@ import PromscaleConfigurationRecommendations from 'versionContent/_partials/_pro
 The observability stack (tobs), is a pre-packaged distribution of observability
 tools and dashboard interfaces which can be installed on any existing Kubernetes
 cluster. It includes many of the most popular open-source observability tools
-including Prometheus, Grafana, Jaeager, TimescaleDB, and [other components][stack-components].
+including Prometheus, Grafana, TimescaleDB, and [other components][stack-components].
 Together, these provide a maintainable solution to analyze the traffic on the
 server and identify any potential problems with a deployment. You can use Helm
 charts to configure and update [tobs][tobs] deployments. 
