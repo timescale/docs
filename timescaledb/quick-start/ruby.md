@@ -276,7 +276,7 @@ rails generate migration add_hypertable
 In your `db/migrate` project folder, you'll see a new migration file for
 `[some sequence of numbers]_add_hypertable`.
 
-Then we can write the migration to add our hypertable like so:
+Then you can write the migration to add the hypertable:
 
 ```ruby
 class AddHypertable < ActiveRecord::Migration[5.2]
