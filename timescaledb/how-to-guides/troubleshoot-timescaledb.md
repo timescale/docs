@@ -72,6 +72,23 @@ If your scheduled jobs stop running, try restarting the background workers:
 SELECT _timescaledb_internal.start_background_workers();
 ```
 
+### Failed to start a background worker
+You might see this error message in the logs if background workers aren't
+properly configured:
+
+```bash
+"<TYPE_OF_BACKGROUND_JOB>": failed to start a background worker
+```
+
+To fix this error, make sure that `max_worker_processes`,
+`max_parallel_workers`, and `timescaledb.max_background_workers` are properly
+set. `timescaledb.max_background_workers` should equal the number of databases
+plus the number of concurrent background workers. `max_worker_processes` should
+equal the sum of `timescaledb.max_background_workers` and
+`max_parallel_workers`.
+
+For more information, see the [worker configuration docs][worker-config].
+
 ## Getting more information
 
 ###  EXPLAINing query performance
@@ -131,3 +148,4 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 [track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [update-db]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
+[worker-config]: /timescaledb/latest/how-to-guides/configuration/about-configuration/#workers
