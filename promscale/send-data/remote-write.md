@@ -5,8 +5,8 @@ compatible with Prometheus. You can also push data to Promscale from a custom
 application.
 
 To configure Prometheus for remote writing to Promscale, see the section on
-[writing from Prometheus][write-prometheus]. To use the remote-write endpoint
-with a custom application, see the following sections.
+[writing from Prometheus][write-prometheus]. This section covers how to 
+use the remote-write endpoint with a custom application.
 
 ## Overview of remote-write endpoint
 
@@ -20,8 +20,8 @@ Only the HTTP POST method is supported.
 The default data format is Protobuf, but JSON streaming and text are also
 supported.
 
-For more information on endpoint details, see the [Prometheus
-documentation][prometheus-remote-storage].
+For more information on endpoint details, see the 
+[Prometheus documentation][prometheus-remote-storage].
 
 ## Formats
 
@@ -51,8 +51,8 @@ A sample must contain two things:
 
 ## Protobuf format
 
-Protobuf is the default data format. It is slightly more complex than the [JSON
-streaming format][json-format], but it is usually more performant, because the
+Protobuf is the default data format. It is slightly more complex than the 
+[JSON streaming format][json-format], but it is usually more performant, because the
 payload is smaller. We recommend this format if you're building a system to
 ingest a lot of data continuously.
 
@@ -60,14 +60,14 @@ ingest a lot of data continuously.
 
 ### Using the Promscale endpoint with the Protobuf format
 
-1.  Fetch the protocol buffer definition files [from the Prometheus GitHub
-    repo][protobuf-definition].
+1.  Fetch the protocol buffer definition files 
+    [from the Prometheus GitHub repository][protobuf-definition].
 1.  Compile the definitions into the structures of the programming language
-    you're using. For instructions, see the [Google Protobuf
-    tutorials][protobuf-tutorials].
+    you're using. For instructions, see the 
+    [Google Protobuf tutorials][protobuf-tutorials].
 1.  Use the structures to construct requests to send to the Promscale write
-    endpoint. For more information, see [a sample request written in
-    Go][go-sample].
+    endpoint. For more information, see 
+    [this sample request written in Go][go-sample].
 
 </procedure>
 
@@ -78,7 +78,7 @@ Prometheus codebase. These definitions must be compiled into the necessary
 classes for payload serialization.
 
 Since Prometheus is written in the Go language, you can directly import the
-pre-generated classes from the [prompb] package in the Prometheus repository.
+pre-generated classes from the [prompb][prompb] package in the Prometheus repository.
 This gives you all the necessary classes to create a write request.
 
 Then, you can:
@@ -183,7 +183,7 @@ A simple payload looks like this:
 In the `labels` object, fields represent the label name. Field values contain
 the label value.
 
-The `samples` array must be in the following format:
+The `samples` array must be in this format:
 
 *   Each array can only contain two values.
 *   The first value is a UNIX timestamp in milliseconds. It must be an integer.
