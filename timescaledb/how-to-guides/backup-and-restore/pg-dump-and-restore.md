@@ -5,7 +5,7 @@ keywords: [backup, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
-# Logical backups with pg_dump and pg_restore
+# Logical backups with `pg_dump` and `pg_restore`
 
 You can backup and restore an entire database or individual hypertables using
 the native PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
@@ -24,10 +24,10 @@ information, see "Troubleshooting version mismatches" in this section.
 ## Back up your entire database
 
 You can perform a backup using the `pg_dump` command at the command prompt. For
-example, to backup a database named `exampledb`:
+example, to backup a database named `tsdb`:
 
 ```bash
-pg_dump -Fc -f exampledb.bak exampledb
+pg_dump -Fc -f tsdb.bak tsdb
 ```
 
 You might see some errors when running `pg_dump`. To learn if they can be safely
@@ -51,16 +51,26 @@ database and restore the data.
 1.  In `psql`, create a new database to restore to, and connect to it:
 
     ```sql
-    CREATE DATABASE exampledb;
-    \c exampledb
+    CREATE DATABASE tsdb;
+    \c tsdb
     CREATE EXTENSION IF NOT EXISTS timescaledb;
+
+1.  Run [timescaledb_pre_restore][timescaledb_pre_restore] to put your database
+    in the right state for restoring:
+
+    ```sql
     SELECT timescaledb_pre_restore();
     ```
 
 1.  Restore the database:
 
     ```sql
-    \! pg_restore -Fc -d exampledb exampledb.bak
+    \! pg_restore -Fc -d tsdb tsdb.bak
+
+1.  Run [`timescaledb_post_restore`][timescaledb_post_restore] to return your
+    database to normal operations:
+
+    ```sql
     SELECT timescaledb_post_restore();
     ```
 
@@ -147,5 +157,7 @@ partitions, or the chunk interval sizes.
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy
 [pg_dump]: https://www.postgresql.org/docs/current/static/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/static/app-pgrestore.html
+[timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
+[timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb-upgrade]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
 [troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/troubleshooting/
