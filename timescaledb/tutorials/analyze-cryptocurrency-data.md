@@ -1,3 +1,9 @@
+---
+title: Analyze cryptocurrency market data
+excerpt: Analyze a time-series cryptocurrency dataset with TimescaleDB
+keywords: [crypto, finance, analytics]
+---
+
 # Analyze cryptocurrency market data
 This tutorial is a step-by-step guide on how to analyze a time-series
 cryptocurrency dataset using TimescaleDB. The instructions in this tutorial
@@ -19,8 +25,10 @@ You can also download the resources for this tutorial:
 
 *   Schema creation script: <tag type="download" >[schema.sql](https://github.com/timescale/examples/blob/master/crypto_tutorial/schema.sql)</tag>
 *   Dataset creation script: <tag type="download" >[crypto_data_extraction.py](https://github.com/timescale/examples/blob/master/crypto_tutorial/crypto_data_extraction.py)</tag>
+<!-- vale Google.Units = NO -->
 *   Dataset: <tag type="download" >[Crypto Currency Dataset September 2019](https://github.com/timescale/examples/tree/master/crypto_tutorial/Cryptocurrency%20dataset%20Sept%2016%202019)</tag> (Note that this data is from
     September 2019. Follow the steps in Section 2 of this tutorial if you require fresh data)
+<!-- vale Google.Units = YES -->
 
 ## Prerequisites
 To complete this tutorial, you need a cursory knowledge of the Structured Query
@@ -627,14 +635,14 @@ Ready for even more learning? Here's a few suggestions:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
-[install-timescale]: /install/latest/
+[continuous-aggregates]: /getting-started/:currentVersion:/create-cagg
 [crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
-[hypertable-docs]: /how-to-guides/hypertables
-[hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
-[cryptocompare]: https://www.cryptocompare.com
 [cryptocompare-apikey]: https://min-api.cryptocompare.com
-[tableau-tutorial]: /tutorials/visualize-with-tableau/
-[time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /getting-started/create-cagg
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
+[cryptocompare]: https://www.cryptocompare.com
+[hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
+[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables
+[install-timescale]: /install/latest/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[tableau-tutorial]: /timescaledb/:currentVersion:/tutorials/visualize-with-tableau/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/

@@ -1,3 +1,9 @@
+---
+title: About compression
+excerpt: How to compress hypertables
+keywords: [compression, hypertables]
+---
+
 # About compression
 When compression is enabled, TimescaleDB converts data stored in many rows into
 an array. This means that instead of using lots of rows to store the data, it
@@ -73,7 +79,7 @@ For more information, see the API reference for [`timescaledb_information.jobs`]
 
 ## Remove compression policy
 To remove a compression policy, use `remove_compression_policy`. For example, to remove a compression policy for a
-for a hypertable named `cpu`:
+hypertable named `cpu`:
 ```sql
 SELECT remove_compression_policy('cpu');
 ```
@@ -249,6 +255,6 @@ possibly match a time predicate specified by the query.
 
 [alter-table-compression]: /api/:currentVersion:/compression/alter_table_compression/
 [add_compression_policy]: /api/:currentVersion:/compression/add_compression_policy/
-[decompress-chunks]: /how-to-guides/compression/decompress-chunks
+[decompress-chunks]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
 [remove_compression_policy]: /api/:currentVersion:/compression/remove_compression_policy/
 [timescaledb_information-jobs]: /api/:currentVersion:/informational-views/jobs/

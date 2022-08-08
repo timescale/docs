@@ -1,3 +1,12 @@
+---
+api_name: time_bucket()
+excerpt: Bucket rows by time interval to calculate aggregates
+license: apache
+topic: hyperfunctions
+keywords: [aggregate, hyperfunctions]
+tags: [time buckets, date_trunc]
+---
+
 # time_bucket()
 The `time_bucket` function is similar to the standard PostgreSQL `date_trunc`
 function. Unlike `date_trunc`, it allows for arbitrary time intervals instead of

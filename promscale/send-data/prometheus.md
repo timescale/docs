@@ -1,3 +1,13 @@
+---
+title: Send Prometheus metrics to Promscale
+excerpt: Send Prometheus metrics to Promscale
+product: promscale
+keywords: [Prometheus]
+tags: [configure, metrics]
+related_pages:
+  - /promscale/:currentVersion:/installation/
+---
+
 # Send Prometheus metrics to Promscale
 Promscale can be used as a remote storage for Prometheus and has native 
 support for the Prometheus remote write and read protocols as well as full 
@@ -101,6 +111,5 @@ that the write request is retried again after a pause of a set number of
 seconds. This can be particularly useful if the remote-storage is subject to
 rate limiting. You can set this to `min_backoff: 1s` and `max_backoff: 10s`.
 However, you can set higher values for `*_backoffs:` based on the requirements.
-
 
 [prometheus-config]: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write

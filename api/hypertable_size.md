@@ -1,8 +1,17 @@
+---
+api_name: hypertable_size()
+excerpt: Get the total disk space used by a hypertable
+license: apache
+topic: hypertables
+keywords: [hypertables, information]
+tags: [disk space, size]
+---
+
 ## hypertable_size()  
 
-Get the total disk space used by a hypertable, i.e. the sum of the
+Get the total disk space used by a hypertable, that is, the sum of the
 size for the table itself (including chunks), any indexes on the
-table, and any toast tables. The size is reported in bytes.  This is
+table, and any toast tables. The size is reported in bytes. This is
 equivalent to computing the sum of `total_bytes` column from the
 output of `hypertable_detailed_size` function.
 

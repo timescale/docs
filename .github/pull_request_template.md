@@ -6,6 +6,10 @@
 
 Fixes #[insert issue link, if any]
 
+# Writing help
+
+For information about style and word usage, see the [style guide](https://docs.timescale.com/timescaledb/latest/contribute-to-docs/)
+
 # Review checklists
 Reviewers: use this section to ensure you have checked everything before approving this PR:
 
@@ -22,10 +26,7 @@ Reviewers: use this section to ensure you have checked everything before approvi
 - [ ] Is the content free from typos?
 - [ ] Does the content use plain English?
 - [ ] Does the content contain clear sections for concepts, tasks, and references?
-- [ ] Are procedure and highlight tags used appropriately?
-- [ ] Has the index been updated appropriately?
 - [ ] Have any images been uploaded to the correct location, and are resolvable?
-- [ ] Are all links provided in reference style, and resolvable?
 - [ ] If the page index was updated, are redirects required
       and have they been implemented?
 - [ ] Have you checked the built version of this content?

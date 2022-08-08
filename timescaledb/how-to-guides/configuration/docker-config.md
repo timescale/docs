@@ -1,3 +1,9 @@
+---
+title: Configuration with Docker
+excerpt: Configure a TimescaleDB instance running in a Docker container
+keywords: [configuration, settings, Docker]
+---
+
 # Configuration with Docker
 If you are running TimescaleDB in a [Docker container][docker], there are two
 different ways to modify your PostgreSQL configuration. You can edit the
@@ -14,21 +20,21 @@ beginning of a line to denote a comment.
 
 ### Editing the PostgreSQL configuration file inside Docker
 1.  Start your Docker instance:
-```bash
-docker start timescaledb
-```
+    ```bash
+    docker start timescaledb
+    ```
 1.  Open a shell:
-```bash
-docker exec -i -t timescaledb /bin/bash
-```
+    ```bash
+    docker exec -i -t timescaledb /bin/bash
+    ```
 1.  Open the configuration file in your opreferred text editor. In this example, we are using ther `Vi` editor:
-```bash
-vi /var/lib/postgresql/data/postgresql.conf
-```
+    ```bash
+    vi /var/lib/postgresql/data/postgresql.conf
+    ```
 1.  Restart the container to reload the configuration:
-```bash
-docker restart timescaledb
-```
+    ```bash
+    docker restart timescaledb
+    ```
 
 </procedure>
 
@@ -40,6 +46,5 @@ using the `-c` option. For example:
 ```
 docker run -i -t timescale/timescaledb:latest-pg10 postgres -c max_wal_size=2GB
 ```
-
 
 [docker]: /install/latest/installation-docker/

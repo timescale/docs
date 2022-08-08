@@ -1,3 +1,10 @@
+---
+title: Advanced data management
+excerpt: Learn advanced techniques for managing your tick and candlestick data long-term
+keywords: [finance, analytics]
+tags: [candlestick]
+---
+
 # Advanced data management
 The final part of this tutorial shows you some more advanced techniques
 to efficiently manage your tick and candlestick data long-term. TimescaleDB
@@ -8,10 +15,12 @@ This section contains four examples of how you can set up automation policies on
 tick data hypertable and your candlestick continuous aggregates. This can help you 
 save on disk storage and improve the performance of long-range analytical queries by
 automatically:
+<!-- vale Google.LyHyphens = NO -->
 * [Deleting older tick data](#automatically-delete-older-tick-data)
 * [Deleting older candlestick data](#automatically-delete-older-candlestick-data)
 * [Compressing tick data](#automatically-compress-tick-data)
 * [Compressing candlestick data](#automatically-compress-candlestick-data)
+<!-- vale Google.LyHyphens = YES -->
 
 Before you implement any of these automation policies, it's important to have
 a high-level understanding of chunk time intervals in TimescaleDB
@@ -163,9 +172,9 @@ be set so that actively refreshed time intervals are not compressed.
 
 [Read more about compressing continuous aggregates.][caggs-compress]
 
-[chunks]: https://docs.timescale.com/timescaledb/latest/overview/core-concepts/hypertables-and-chunks/
+[caggs-compress]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/compression-on-continuous-aggregates/
+[chunks]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
-[retention]: /how-to-guides/data-retention/create-a-retention-policy/
-[compression]: /how-to-guides/compression/
 [release-blog]: https://www.timescale.com/blog/increase-your-storage-savings-with-timescaledb-2-6-introducing-compression-for-continuous-aggregates/
-[caggs-compress]: /how-to-guides/continuous-aggregates/compression-on-continuous-aggregates/
+[retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/create-a-retention-policy/

@@ -1,3 +1,12 @@
+---
+api_name: hypertable_detailed_size()
+excerpt: Get detailed information about disk space used by a hypertable
+license: apache
+topic: hypertables
+keywords: [hypertables, information]
+tags: [statistics, size, disk space]
+---
+
 ## hypertable_detailed_size()  
 
 Get detailed information about disk space used by a hypertable,
@@ -42,5 +51,5 @@ SELECT * FROM hypertable_detailed_size('disttable') ORDER BY node_name;
 ```
 
 The access node is listed without a user-given node name. Normally,
-the access node holds no data, but still maintains, e.g., index
+the access node holds no data, but still maintains, for example, index
 information that occupies a small amount of disk space.

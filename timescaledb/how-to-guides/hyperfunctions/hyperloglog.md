@@ -1,10 +1,16 @@
+---
+title: Hyperloglog
+excerpt: Find the number of unique values in a very large dataset
+keywords: [hyperfunctions, Toolkit, approximate count distincts, hyperloglog]
+---
+
 # Hyperloglog
-Hyperloglog is used to find the cardinality of very large datasets. If you want
+Hyperloglog is typically used to find the cardinality of very large datasets. If you want
 to find the number of unique values, or cardinality, in a dataset, the time it
 takes to process this query is proportional to how large the dataset is. So if
 you wanted to find the cardinality of a dataset that contained only 20 entries,
 the calculation would be very fast. Finding the cardinality of a dataset that
-contains 20,000 or 20 million entries, however, can take a significant amount of
+contains 20 million entries, however, can take a significant amount of
 time and compute resources.
 
 Hyperloglog does not calculate the exact cardinality of a dataset, but rather
@@ -21,6 +27,5 @@ needed. This makes it an ideal candidate for using with continuous aggregates.
 
 For more information about approximate count distinct API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-approx-count-distincts].
-
 
 [hyperfunctions-api-approx-count-distincts]: /api/:currentVersion:/hyperfunctions/approx_count_distincts/

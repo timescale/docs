@@ -1,3 +1,11 @@
+---
+title: Send OpenTelemetry data to Promscale
+excerpt: Send OpenTelemetry data to Promscale
+product: promscale
+keywords: [OpenTelmetry]
+tags: [configure, traces]
+---
+
 # Send OpenTelemetry data to Promscale
 Promscale natively supports the OpenTelemetry Line Protocol (OTLP) for traces
 and Prometheus remote write protocol for metrics. You can send traces to
@@ -84,10 +92,14 @@ If you are running the OTLP Collector and the Promscale Connector on a
 Kubernetes cluster the endpoint parameter is similar to `endpoint:
 "promscale-connector.default.svc.cluster.local:<PORT>"`
 
+The default ports exposed by the OpenTelemetry Collector OTLP receiver are:
+* `4317` : gRPC
+* `4318` : HTTP
+These are the ports where you should send your OpenTelemetry traces. 
+
 ## Send data using OpenTelemetry Instrumentation SDKs
 
 The specifics of the configuration are different for each SDK and library. For
 more information, see the [OpenTelemetry documentation][otel-docs].
 
 [otel-docs]: https://opentelemetry.io/docs/instrumentation/
-

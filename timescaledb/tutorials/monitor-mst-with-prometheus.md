@@ -1,3 +1,10 @@
+---
+title: How to set up a Prometheus endpoint for Managed Service for TimescaleDB
+excerpt: Use Prometheus to monitor your Managed Service for TimescaleDB
+product: mst
+keywords: [prometheus, monitor]
+---
+
 # How to set up a Prometheus endpoint for a Managed TimescaleDB database
 
 You can get more insights into the performance of your managed TimescaleDB
@@ -61,7 +68,7 @@ remote_read:
 ### Step 2: Associate Prometheus Endpoint with Managed Service
 
 Next, we want to associate our Prometheus endpoint with our Timescale
-managed service.  Using the navigation menu, select the service we want to
+managed service. Using the navigation menu, select the service we want to
 monitor and click the 'Overview' tab.
 
 Navigate down to the 'Service Integrations' section and click the 'Manage Integrations' button.
@@ -92,11 +99,9 @@ service on managed service for TimescaleDB!
 Next, [use Promscale][promscale] with Timescale, Grafana, and Prometheus to ingest
 and analyze Prometheus metrics from your managed TimescaleDB instance.
 
-
-[timescale-mst]: https://www.timescale.com/products
-[timescale-mst-install]: /mst/:currentVersion:/
 [get-prometheus]: https://prometheus.io
-[timescale-mst-get-started]: /mst/:currentVersion:/create-a-service/
+[node-exporter-metrics]: https://github.com/prometheus/node_exporter
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
 [promscale]: https://github.com/timescale/timescale-prometheus
-[node-exporter-metrics]: https://github.com/prometheus/node_exporter
+[timescale-mst]: https://www.timescale.com/products
+[timescale-mst-get-started]: /mst/:currentVersion:/create-a-service/

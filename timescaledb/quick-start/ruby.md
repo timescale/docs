@@ -1,15 +1,22 @@
+---
+title: "Quick Start: Ruby and TimescaleDB"
+excerpt: Get started with TimescaleDB for a Ruby application
+keywords: [Ruby]
+---
+
 # Quick Start: Ruby and TimescaleDB
 
 ## Goal
+
 This quick start guide is designed to get the Rails developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#connect-ruby-to-timescaledb)
-* [Create a relational table](#create-a-relational-table)
-* [Generate a Hypertable](#generate-hypertable)
-* [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
-* [Execute a query on your Timescale database](#execute-a-query)
+*   [Connect to TimescaleDB](#connect-ruby-to-timescaledb)
+*   [Create a relational table](#create-a-relational-table)
+*   [Generate a Hypertable](#generate-hypertable)
+*   [Insert a batch of rows into your Timescale database](#insert-rows-into-timescaledb)
+*   [Execute a query on your Timescale database](#execute-a-query)
 
 ## Prerequisites
 
@@ -22,9 +29,10 @@ we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 You also need to [install Rails][rails-install].
 
-## Connect Ruby to TimescaleDB [](new-database)
+## Connect Ruby to TimescaleDB
 
 ### Step 1: Create a new Rails application
+
 Let's start by creating a new Rails application configured to use PostgreSQL as the
 database. TimescaleDB is a PostgreSQL extension.
 
@@ -40,11 +48,11 @@ Locate your TimescaleDB credentials in order to connect to your TimescaleDB inst
 
 You'll need the following credentials:
 
-* password
-* username
-* host URL
-* port
-* database name
+*   password
+*   username
+*   host URL
+*   port
+*   database name
 
 In the `default` section of the `config/database.yml` section, configure your database:
 
@@ -66,12 +74,12 @@ Experienced Rails developers might want to set and retrieve environment variable
 </highlight>
 
 Then configure the database name in the `development`, `test`, and `production` sections. Let's call our
-database `my_app_db` like so:
+database `tsdb` like so:
 
 ```ruby
 development:
   <<: *default
-  database: my_app_db
+  database: tsdb
 ```
 
 Repeat the step for the `test` and `production` sections further down this file.
@@ -92,28 +100,29 @@ default: &default
 
 development:
   <<: *default
-  database: my_app_db
+  database: tsdb
 
 test:
   <<: *default
-  database: my_app_db
+  database: tsdb
 
 production:
   <<: *default
-  database: my_app_db
+  database: tsdb
 ```
 
 #### Create the database
+
 Now we can run the following `rake` command to create the database in TimescaleDB:
 
 ```bash
 rails db:create
 ```
 
-This creates the `my_app_db` database in your TimescaleDB instance and a `schema.rb`
+This creates the `tsdb` database in your TimescaleDB instance and a `schema.rb`
 file that represents the state of your TimescaleDB database.
 
-## Create a relational table [](create_table)
+## Create a relational table
 
 ### Step 1: Add TimescaleDB to your Rails migration
 
@@ -167,8 +176,9 @@ The output should be something like the following:
  timescaledb | 2.1.1   | public     | Enables scalable inserts and complex queries for time-series data
 (2 rows)
 ```
+
 <highlight type="note">
-To ensure that your tests run successfully, add `config.active_record.verify_foreign_keys_for_fixtures = false` 
+To ensure that your tests run successfully, add `config.active_record.verify_foreign_keys_for_fixtures = false`
 to your `config/environments/test.rb` file. Otherwise you get an error because TimescaleDB
 uses internal foreign keys.
 </highlight>
@@ -187,7 +197,7 @@ rails generate scaffold PageLoads user_agent:string
 TimescaleDB requires that any `UNIQUE` or `PRIMARY KEY` indexes on your table
 include all partitioning columns, which in our case is the time column. A new Rails model
 includes a `PRIMARY KEY` index for `id` by default, so we need to either remove the
-column or make sure that the index includes time as part of a "composite key".
+column or make sure that the index includes time as part of a "composite key."
 
 <highlight type="tip">
 Composite keys aren't supported natively by Rails, but if you need to keep
@@ -197,7 +207,6 @@ the [`composite_primary_keys` gem](https://github.com/composite-primary-keys/com
 
 To satisfy this TimescaleDB requirement, we need to change the migration code to _not_ create a `PRIMARY KEY` using the `id` column when `create_table` is used.
 To do this we can change the migration implementation:
-
 
 ```rb
 class CreatePageLoads < ActiveRecord::Migration[6.0]
@@ -239,7 +248,7 @@ the `\d page_loads` command in the `rails dbconsole` output:
  updated_at | timestamp(6) without time zone |           | not null |
 ```
 
-## Generate hypertable [](create_hypertable)
+## Generate hypertable
 
 In TimescaleDB, the primary point of interaction with your data is a [hypertable][hypertables],
 the abstraction of a single continuous table across all space and time
@@ -256,7 +265,6 @@ least one column specifying a time value.
 The TimescaleDB documentation on [schema management and indexing](/timescaledb/latest/how-to-guides/schema-management/)
 explains this in further detail.
 </highlight>
-
 
 Let's create this migration to modify the `page_loads` database and create a
 hypertable by first running the following command:
@@ -299,7 +307,7 @@ Triggers:
     ts_insert_blocker BEFORE INSERT ON page_loads FOR EACH ROW EXECUTE PROCEDURE _timescaledb_internal.insert_blocker()
 ```
 
-## Insert rows into TimescaleDB [](insert_rows)
+## Insert rows into TimescaleDB
 
 Create a new view and controller so that we can insert a value into
 the database and see our results. When the view displays, you can store
@@ -389,7 +397,7 @@ The output should look like this:
 (4 rows)
 ```
 
-## Execute a query [](execute_query)
+## Execute a query
 
 So far, we've created a TimescaleDB table and inserted data into it. Now, let's
 retrieve data and display it.
@@ -414,7 +422,7 @@ each item:
 ```
 
 Now, each time we refresh our page, we can see that a record is being inserted
-into the `my_app_db` TimescaleDB database, and the counter is incremented on the page.
+into the `tsdb` TimescaleDB database, and the counter is incremented on the page.
 
 ## Generating requests
 
@@ -431,7 +439,6 @@ ab -n 50000 -c 10 http://localhost:3000/static_pages/home
 Now, you can grab a tea and relax while it creates thousands of records in
 your first hypertable. You'll be able to count how many 'empty requests' your
 Rails supports.
-
 
 ## Counting requests per minute
 
@@ -475,7 +482,6 @@ end
 ```
 
 And you can also combine the scopes with other ActiveRecord methods:
-
 
 ```ruby
 PageLoad.last_week.count     # Total of requests from last week
@@ -565,6 +571,7 @@ PageLoad.order(:created_at).last
 # PageLoad Load (1.7ms)  SELECT "page_loads".* FROM "page_loads" ORDER BY "page_loads"."created_at" DESC LIMIT $1  [["LIMIT", 1]]
 # => #<PageLoad:0x00007fdafc5c69d8 path: "/static_pages/home", performance: 0.049275, ...>
 ```
+
 ## Exploring aggregation functions
 
 Now that we know what pages exist, we can explore page by page (or all the
@@ -593,8 +600,8 @@ scope :per_week, -> { time_bucket('1 week') }
 scope :per_month, -> { time_bucket('1 month') }
 ```
 
-
 Create some average response depending on the timeframe:
+
 ```ruby
 scope :average_response_time_per_minute, -> { time_bucket('1 minute', value: 'avg(performance)') }
 scope :average_response_time_per_hour, -> { time_bucket('1 hour', value: 'avg(performance)') }
@@ -660,6 +667,7 @@ PageLoad.resume_for("/page_loads/new")
 # :worst_response_time_last_hour=>2.892941999947652,
 # :best_response_time_last_hour=>0.0030219999607652426}
 ```
+
 And you can keep combining other filters like:
 
 ```ruby
@@ -706,25 +714,20 @@ independent, which is suboptimal but covers different options.
 Now that you get some basics of the TimescaleDB instance from your Rails application,
 be sure to check out these advanced TimescaleDB tutorials:
 
-- [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-- [Continuous Aggregates][continuous-aggregates]
-- [Try Other Sample Datasets][other-samples]
-- [Migrate your own Data][migrate]
+*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
+*   [Continuous Aggregates][continuous-aggregates]
+*   [Try Other Sample Datasets][other-samples]
+*   [Migrate your own Data][migrate]
 
-
-[install-timescale]: /install/latest/
-[setup-psql]: /how-to-guides/connecting/psql/
-[install]: /install/latest/
-[indexing-api-guide]: /how-to-guides/schema-management/indexing/
-[crypto-tutorial]: /tutorials/analyze-cryptocurrency-data
-[time-series-forecasting]: /tutorials/time-series-forecast/
-[continuous-aggregates]: /how-to-guides/continuous-aggregates/
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
-[hypertables]: /overview/core-concepts/
-[active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
-[rails-install]: https://guides.rubyonrails.org/getting_started.html
 [ab]: https://httpd.apache.org/docs/2.4/programs/ab.html
-[time_bucket]: https://docs.timescale.com/latest/api#time_bucket
+[active-record-query]: https://guides.rubyonrails.org/active_record_querying.html
 [around_action]: https://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
 [benchmark]: https://github.com/ruby/benchmark
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/
+[install-timescale]: /install/latest/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[rails-install]: https://guides.rubyonrails.org/getting_started.html
+[time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/

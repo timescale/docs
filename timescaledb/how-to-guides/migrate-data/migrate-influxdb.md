@@ -1,4 +1,12 @@
+---
+title: Migrate data to TimescaleDB from InfluxDB
+excerpt: Mgirate data into TimescaleDB using the Outflux tool
+keywords: [migrate, InfluxDB]
+tags: [import, Outflux]
+---
+
 # Migrate data to TimescaleDB from InfluxDB
+
 You can migrate data to TimescaleDB from InfluxDB using the Outflux tool.
 [Outflux][outflux] is an open source tool built by Timescale for fast, seamless
 migrations. It pipes exported data directly to TimescaleDB, and manages schema
@@ -10,27 +18,34 @@ Outflux works with earlier versions of InfluxDB. It does not work with InfluxDB
 </highlight>
 
 ## Prerequisites
+
 Before you start, make sure you have:
+
 *   A running instance of InfluxDB and a means to connect to it.
 *   An [installation of TimescaleDB][install] and a means to connect to it.
 *   Data in your InfluxDB instance. If you need to import some sample data for a
     test, see the instructions for [importing sample data](#import-sample-data).
 
 ## Procedures
+
 To import data from Outflux, follow these procedures:
+
 1.  [Install Outflux](#install-outflux)
-1.  [Import sample data](#import-sample-data-into-influxdb) to InfluxDB if you don't have existing data
+1.  [Import sample data](#import-sample-data-into-influxdb) to InfluxDB if you
+    don't have existing data.
 1.  [Discover, validate, and transfer
     schema](#discover-validate-and-transfer-schema) to TimescaleDB (optional)
 1.  [Migrate data to TimescaleDB](#migrate-data-to-timescaledb)
 
 ## Install Outflux
+
 Install Outflux from the GitHub repository. There are builds for Linux, Windows,
 and MacOS.
 
 <procedure>
 
 ### Installing Outflux
+
 1.  Go to the [releases section][outflux-releases] of the Outflux repository.
 1.  Download the latest compressed tarball for your platform.
 1.  Extract it to a preferred location.
@@ -47,6 +62,7 @@ To get help with Outflux, you can run `./outflux --help` from the directory
 where you installed it.
 
 ## Import sample data into InfluxDB
+
 If you don't have an existing InfluxDB database, or if you want to test on a
 sample instance, you can try Outflux by importing sample data. We provide an
 example file with data written in the Influx Line Protocol.
@@ -54,14 +70,17 @@ example file with data written in the Influx Line Protocol.
 <procedure>
 
 ### Importing sample data into InfluxDB
+
 1.  Download the sample data:
     <tag type="download">
       [Outflux taxi data](https://timescaledata.blob.core.windows.net/datasets/outflux_taxi.txt)
     </tag>
-2.  Use the [Influx CLI client][influx-cmd] to load the data into InfluxDB.
+1.  Use the [Influx CLI client][influx-cmd] to load the data into InfluxDB.
+
     ```bash
     influx -import -path=outflux_taxi.txt -database=outflux_tutorial
     ```
+
     This command imports the data into a new database named `outflux_tutorial`.
 
 <highlight type="note">
@@ -77,6 +96,7 @@ available at `http://localhost:8086`.
 ## Discover, validate, and transfer schema
 
 Outflux can:
+
 *   Discover the schema of an InfluxDB measurement
 *   Validate whether a TimescaleDB table exists that can hold the transferred
     data
@@ -92,10 +112,11 @@ of data migration.
 
 To transfer your schema from InfluxDB to TimescaleDB, run `outflux
 schema-transfer`:
+
 ```bash
 outflux schema-transfer <DATABASE_NAME> <INFLUX_MEASUREMENT_NAME> \
 --input-server=http://localhost:8086 \
---output-conn="dbname=postgres user=postgres"
+--output-conn="dbname=tsdb user=tsdbadmin"
 ```  
 
 To transfer all measurements from the database, leave out the measurement name
@@ -108,7 +129,9 @@ Github repo](https://github.com/timescale/outflux#connection).
 </highlight>
 
 ### Schema transfer options
+
 Outflux's `schema-transfer` can use 1 of 4 schema strategies:
+
 *   `ValidateOnly`: checks that TimescaleDB is installed and that the specified
     database has a properly partitioned hypertable with the correct columns, but
     doesn't perform modifications
@@ -129,21 +152,24 @@ your TimescaleDB tables. To transfer tags and fields as a single JSONB column,
 use the flag `--tags-as-json`.
 
 ## Migrate data to TimescaleDB
+
 Transfer your schema and migrate your data all at once with the `migrate`
 command.
 
 For example, run:
-```
+
+```bash
 outflux migrate <DATABASE_NAME> <INFLUX_MEASUREMENT_NAME> \
 --input-server=http://localhost:8086 \
---output-conn="dbname=postgres user=postgres"
+--output-conn="dbname=tsdb user=tsdbadmin"
 ```
 
 The schema strategy and connection options are the same as for
 `schema-transfer`. For more information, see the
 [`schema-transfer`](#discover-validate-and-transfer-schema) section.
 
-In addition, `outflux migrate` also takes the following flags: 
+In addition, `outflux migrate` also takes the following flags:
+
 *   `--limit`: Pass a number, `N`, to `--limit` to export only the first `N`
     rows, ordered by time.
 *   `--from` and `to`: Pass a timestamp to `--from` or `--to` to specify a time
@@ -155,13 +181,13 @@ In addition, `outflux migrate` also takes the following flags:
 
 For more flags, see the [Github documentation for `outflux
 migrate`][outflux-migrate]. Alternatively, see the command line help:
-```
-$ outflux migrate --help
+
+```bash
+outflux migrate --help
 ```
 
 [influx-cmd]: https://docs.influxdata.com/influxdb/v1.7/tools/shell/
-[install]: /install/:currentVersion:/
-[outflux]: https://github.com/timescale/outflux 
-[outflux-connection]: https://github.com/timescale/outflux#connection
+[install]: /install/latest/
 [outflux-migrate]: https://github.com/timescale/outflux#migrate
 [outflux-releases]: https://github.com/timescale/outflux/releases
+[outflux]: https://github.com/timescale/outflux

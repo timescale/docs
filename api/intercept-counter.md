@@ -1,5 +1,11 @@
 ---
-api_name: intercept
+api_name: intercept()
+excerpt: Calculate the intercept from values in a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [counters, hyperfunctions, toolkit]
+tags: [intercept, least squares, regression]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -53,5 +59,5 @@ FROM (
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
 [least-squares]:https://en.wikipedia.org/wiki/Least_squares

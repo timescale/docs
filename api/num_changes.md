@@ -1,5 +1,11 @@
 ---
-api_name: num_changes
+api_name: num_changes()
+excerpt: Calculate the number of times a value changed within the time period of a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [counters, hyperfunctions, toolkit]
+tags: [count, change]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -54,4 +60,4 @@ FROM (
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

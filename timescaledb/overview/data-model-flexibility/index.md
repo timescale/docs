@@ -1,3 +1,10 @@
+---
+title: Data model
+excerpt: Learn how to model your data in TimescaleDB, in either a wide or narrow model
+keywords: [data, hypertables]
+tags: [model]
+---
+
 # Data model
 
 As a relational database supporting full SQL, TimescaleDB supports flexible data
@@ -21,12 +28,12 @@ For example, your incoming data may look like this:
 
 timestamp | device_id | cpu_1m_avg | free_mem | temperature | location_id | dev_type
 ---:|---:|---:|---:|---:|---:|---:
-2017-01-01 01:02:00 | abc123 |  80 | 500MB | 72 | 335 | field
-2017-01-01 01:02:23 | def456 |  90 | 400MB | 64 | 335 | roof
-2017-01-01 01:02:30 | ghi789 | 120 |   0MB | 56 |  77 | roof
-2017-01-01 01:03:12 | abc123 |  80 | 500MB | 72 | 335 | field
-2017-01-01 01:03:35 | def456 |  95 | 350MB | 64 | 335 | roof
-2017-01-01 01:03:42 | ghi789 | 100 | 100MB | 56 |  77 | roof
+2017-01-01 01:02:00 | abc123 |  80 | 500&nbsp;MB | 72 | 335 | field
+2017-01-01 01:02:23 | def456 |  90 | 400&nbsp;MB | 64 | 335 | roof
+2017-01-01 01:02:30 | ghi789 | 120 |   0&nbsp;MB | 56 |  77 | roof
+2017-01-01 01:03:12 | abc123 |  80 | 500&nbsp;MB | 72 | 335 | field
+2017-01-01 01:03:35 | def456 |  95 | 350&nbsp;MB | 64 | 335 | roof
+2017-01-01 01:03:42 | ghi789 | 100 | 100&nbsp;MB | 56 |  77 | roof
 
 
 Now you can look at various ways to model this data:
@@ -34,5 +41,5 @@ Now you can look at various ways to model this data:
 - [Wide data model][wide-data-model]
 - [Narrow data model][narrow-data-model]
 
-[wide-data-model]: /overview/data-model-flexibility/wide-data-model/
-[narrow-data-model]: /overview/data-model-flexibility/narrow-data-model/
+[narrow-data-model]: /timescaledb/:currentVersion:/overview/data-model-flexibility/narrow-data-model/
+[wide-data-model]: /timescaledb/:currentVersion:/overview/data-model-flexibility/wide-data-model/

@@ -1,3 +1,9 @@
+---
+title: Advanced analysis using continuous aggregates and hyperfunctions
+excerpt: Use continuous aggregates and hyperfunctions to perform advanced analysis of NFL player activity
+keywords: [continuous aggregates, hyperfunctions, analytics]
+---
+
 ## Advanced analysis using continuous aggregates and hyperfunctions
 So far in this tutorial, you have ingested the data and run an aggregate query.
 Then you improved the performance of your analysis with continuous aggregates.
@@ -45,7 +51,7 @@ football.
 ### Average and median yards run per game by type of player
 For this query, you use another one of the TimescaleDB percentile functions
 called `percentile_agg`. You can use the `percentile_agg` function to find the
-50th percentile, which is the approximate median.
+fiftieth percentile, which is the approximate median.
 
 ```sql
 WITH sum_yards AS (

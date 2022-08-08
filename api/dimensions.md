@@ -1,7 +1,16 @@
+---
+api_name: timescaledb_information.dimensions
+excerpt: Get information on the dimensions of hypertables
+license: community
+topic: hypertables
+keywords: [hypertables, information]
+tags: [dimensions, partitions]
+---
+
 ## timescaledb_information.dimensions
 
 Get metadata about the dimensions of hypertables, returning one row of metadata
-for each dimension of a hypertable.  For a time-and-space-partitioned
+for each dimension of a hypertable. For a time-and-space-partitioned
 hypertable, for example, two rows of metadata are returned for the 
 hypertable.
 

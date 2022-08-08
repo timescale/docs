@@ -1,3 +1,12 @@
+---
+api_name: run_job()
+excerpt: Manually run a job
+license: community
+topic: jobs
+keywords: [jobs, run]
+tags: [background jobs, scheduled jobs, automation framework]
+---
+
 ## run_job() <tag type="community">Community</tag>
 
 Run a previously registered job in the current session.

@@ -1,5 +1,10 @@
 ---
-api_name: corr
+api_name: corr()
+excerpt: Calculate the correlation coefficient from values in a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [correlation coefficient, counters, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -55,4 +60,4 @@ FROM (
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

@@ -1,5 +1,15 @@
+---
+api_name: remove_continuous_aggregate_policy()
+excerpt: Remove a refresh policy from a continuous aggregate
+license: community
+topic: continuous aggregates
+keywords: [continuous aggregates, policies, remove]
+tags: [delete, drop]
+---
+
 ## remove_continuous_aggregate_policy() <tag type="community">Community</tag> 
-Remove refresh policy for a continuous aggregate.
+Remove refresh policy for a continuous aggregate. To view the policies that
+already exist, see [informational views][informational-views].
 
 ### Required arguments
 
@@ -12,3 +22,6 @@ Remove the refresh policy from the 'cpu_view' continuous aggregate:
 ``` sql
 SELECT remove_continuous_aggregate_policy('cpu_view');
 ```
+
+[informational-views]: /api/:currentVersion:/informational-views/jobs/
+

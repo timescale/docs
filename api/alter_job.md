@@ -1,3 +1,12 @@
+---
+api_name: alter_job()
+excerpt: Alter a job that is scheduled to run automatically
+license: community
+topic: jobs
+keywords: [jobs]
+tags: [scheduled jobs, user-defined actions, automation framework, background jobs, alter, change]
+---
+
 ## alter_job() <tag type="community">Community</tag>
 Actions scheduled using the TimescaleDB automation framework run periodically in
 a background worker. You can change the schedule of these jobs with the
@@ -26,6 +35,11 @@ other useful statistics for deciding what the new schedule should be.
 |`config`|JSONB|Job-specific configuration, passed to the function when it runs|
 |`next_start`|TIMESTAMPTZ|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`|
 |`if_exists`|BOOLEAN|Set to `true `to issue a notice instead of an error if the job does not exist. Defaults to false.|
+
+When a job begins, the `next_start` parameter is set to `infinity`. This
+prevents the job from attempting to be started again while it is running. When
+the job completes, whether or not the job is successful, the parameter is
+automatically updated to the next computed start time.
 
 ### Returns
 

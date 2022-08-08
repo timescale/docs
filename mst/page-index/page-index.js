@@ -31,6 +31,10 @@ module.exports = [
         href: "viewing-service-logs"
       },
       {
+        title: "Logging integrations",
+        href: "logging-integrations"
+      },
+      {
         title: "VPC peering",
         href: "vpc-peering"
       },
@@ -49,6 +53,18 @@ module.exports = [
       {
         title: "Maintenance",
         href: "maintenance"
+      },
+      {
+        title: "Manage backups",
+        href: "manage-backups"
+      },
+      {
+        title: "Backups",
+        href: "backup-types"
+      },
+      {
+        title: "Migrate your data to Managed Service for TimescaleDB",
+        href: "migrate-to-mst"
       },
       {
         title: "Migrate your data to Timescale Cloud",

@@ -1,5 +1,12 @@
 ---
-api_name: approx_percentile_rank
+api_name: approx_percentile_rank()
+excerpt: Estimate the percentile of a given value from values in a percentile aggregate
+license: community
+toolkit: true
+experimental: false
+topic: hyperfunctions
+keywords: [percentile, hyperfunctions]
+tags: [approximate, rank, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -50,5 +57,5 @@ FROM generate_series(0, 100) data;
 ```
 
 
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

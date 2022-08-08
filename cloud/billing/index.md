@@ -1,3 +1,11 @@
+---
+title: Billing
+excerpt: How billing works for Timescale Cloud
+product: cloud
+keywords: [billing, accounts, admin]
+tags: [payment]
+---
+
 # Billing
 When you log in to your [Timescale Cloud account][cloud-login], navigate to the
 `Billing` page to manage billing for your Timescale Cloud account. From here,

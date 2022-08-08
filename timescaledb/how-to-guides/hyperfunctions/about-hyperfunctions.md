@@ -1,3 +1,11 @@
+---
+title: About TimescaleDB hyperfunctions
+excerpt: Learn about TimescaleDB hyperfunctions that help with data analysis
+keywords: [hyperfunctions, Toolkit, analytics]
+---
+
+import Experimental from 'versionContent/_partials/_experimental.mdx';
+
 # About Timescale hyperfunctions
 Timescale hyperfunctions are a specialized set of functions that allow you to
 analyze time-series data. You can use hyperfunctions to analyze anything you
@@ -19,11 +27,7 @@ Here is a list of all the hyperfunctions provided by Timescale. Hyperfunctions
 marked 'Toolkit' require an installation of Timescale Toolkit. Hyperfunctions
 marked 'experimental' are still under development.
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk,
-and do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ### Approximate count distincts
 
@@ -138,12 +142,11 @@ community-wide problems and incorporate as much feedback as possible.
 *   Explore the current [feature requests][gh-requests].
 *   Add your own [feature request][gh-newissue].
 
-
-[install-toolkit]: /how-to-guides/hyperfunctions/install-toolkit
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
-[gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
-[blog-function-pipelines]: http://tsdb.co/function-pipelines
+[blog-function-pipelines]: https://www.timescale.com/blog/function-pipelines-building-functional-programming-into-postgresql-using-custom-operators/
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
+[gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
+[gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
 [gh-proposed]: https://github.com/timescale/timescale-analytics/labels/proposed-feature
 [gh-requests]: https://github.com/timescale/timescale-analytics/labels/feature-request
-[gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

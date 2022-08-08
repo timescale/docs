@@ -1,3 +1,9 @@
+---
+title: Statistical aggregates
+excerpt: Calculate aggregate statistics from a dataset
+keywords: [statistics, hyperfunctions, toolkit]
+---
+
 # Statistical aggregates
 This section includes functions related to statistical aggregates.
 
@@ -22,6 +28,6 @@ For more information about statistical aggregate functions, see the
     sortByType
 />
 
-[hyperfunctions-stats-aggs]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[hyperfunctions-stats-aggs]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
 [pg-stats-aggs]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
