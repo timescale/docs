@@ -26,7 +26,6 @@ Currently this stack includes:
     ability to query metrics data using SQL
 *   [Opentelemetry-Operator][opentelemetry-operator] to manage the lifecycle of       
     OpenTelemetryCollector Custom Resource Definition (CRDs)
-*   [Jaeger Query][jaeger-query] to visualize the traces
 
 You can also use the tobs Helm chart directly, or as sub-charts for other
 projects.
@@ -34,7 +33,6 @@ projects.
 [alert-manager]: https://github.com/prometheus/alertmanager#alertmanager-
 [design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
 [grafana]: https://github.com/grafana/grafana
-[jaeger-query]: https://github.com/jaegertracing/jaeger
 [kube-prometheus]: https://github.com/prometheus-operator/kube-prometheus#kube-prometheus
 [kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics
 [node-exporter]: https://github.com/prometheus/node_exporter
