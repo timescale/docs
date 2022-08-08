@@ -38,14 +38,14 @@ You might also have the following identifier and metadata for each sensor:
 
 You incoming data looks like this:
 
-| timestamp | device_id | cpu_1m_avg | free_mem | temperature | location_id | dev_type |
-|---:|---:|---:|---:|---:|---:|---:|
-| 2017-01-01 01:02:00 | abc123 |  80 | 500&nbsp;MB | 72 | 335 | field |
-| 2017-01-01 01:02:23 | def456 |  90 | 400&nbsp;MB | 64 | 335 | roof |
-| 2017-01-01 01:02:30 | ghi789 | 120 |   0&nbsp;MB | 56 |  77 | roof |
-| 2017-01-01 01:03:12 | abc123 |  80 | 500&nbsp;MB | 72 | 335 | field |
-| 2017-01-01 01:03:35 | def456 |  95 | 350&nbsp;MB | 64 | 335 | roof |
-| 2017-01-01 01:03:42 | ghi789 | 100 | 100&nbsp;MB | 56 |  77 | roof |
+|timestamp|device_id|cpu_1m_avg|free_mem|temperature|location_id|dev_type|
+|-|-|-|-|-|-|-|
+|2017-01-01 01:02:00|abc123|80|500&nbsp;MB|72|335|field|
+|2017-01-01 01:02:23|def456|90|400&nbsp;MB|64|335|roof|
+|2017-01-01 01:02:30|ghi789|120|0&nbsp;MB|56|77|roof|
+|2017-01-01 01:03:12|abc123|80|500&nbsp;MB|72|335|field|
+|2017-01-01 01:03:35|def456|95|350&nbsp;MB|64|335|roof|
+|2017-01-01 01:03:42|ghi789|100|100&nbsp;MB|56|77|roof|
 
 You can store all the metrics for one timestamp as a single entry. This is a
 wide-table model. Alternately, you can store a separate entry for each metric,
@@ -103,14 +103,14 @@ partitioning optimizations for time-series data.
 
 A narrow-table model in TimescaleDB looks like this:
 
-| timestamp | device_id | dev_type | metric_type | value |
-|---:|---:|---:|---:|---:|
-| 2017-01-01 01:02:00 | abc123 | field | cpu_1m_avg| 80 |
-| 2017-01-01 01:02:00 | abc123 | field | free_mem | 500 |
-| 2017-01-01 01:02:00 | abc123 | field | temperature| 72 |
+|timestamp|device_id|metric_type|value|
+|-|-|-|-|
+|2017-01-01 01:02:00|abc123|cpu_1m_avg|80|
+|2017-01-01 01:02:00|abc123|free_mem|500|
+|2017-01-01 01:02:00|abc123|temperature|72|
 
 Note that the timestamp and device ID are the same for each entry. But the
-entries are stored separately because they record different metrics.
+entries are stored in separate rows because they record different metrics.
 
 <RelationalMetadata />
 
@@ -144,14 +144,14 @@ wide-table models.
 In this model, each device has a single entry for each timestamp. Each entry
 includes values for multiple metrics:
 
-| timestamp | device_id | cpu_1m_avg | free_mem | temperature |
-|---:|---:|---:|---:|---:|
-| 2017-01-01 01:02:00 | abc123 | 80 | 500&nbsp;MB | 72 |
-| 2017-01-01 01:02:23 | def456 | 90 | 400&nbsp;MB | 64 |
-| 2017-01-01 01:02:30 | ghi789 | 120 | 0&nbsp;MB | 56 |
-| 2017-01-01 01:03:12 | abc123 | 80 | 500&nbsp;MB | 72 |
-| 2017-01-01 01:03:35 | def456 | 95 | 350&nbsp;MB | 64 |
-| 2017-01-01 01:03:42 | ghi789 | 100 | 100&nbsp;MB | 56 |
+|timestamp|device_id|cpu_1m_avg|free_mem|temperature|
+|-|-|-|-|-|
+|2017-01-01 01:02:00|abc123|80|500&nbsp;MB|72|
+|2017-01-01 01:02:23|def456|90|400&nbsp;MB|64|
+|2017-01-01 01:02:30|ghi789|120|0&nbsp;MB|56|
+|2017-01-01 01:03:12|abc123|80|500&nbsp;MB|72|
+|2017-01-01 01:03:35|def456|95|350&nbsp;MB|64|
+|2017-01-01 01:03:42|ghi789|100|100&nbsp;MB|56|
 
 This model preserves relationships within data. The temperature for each device
 is stored on the same row as the CPU usage at that time. This makes queries
@@ -167,13 +167,13 @@ metadata in secondary tables, which get joined to the main table at query time.
 For example, you might create a `locations` table to store metadata about each
 `location_id`:
 
-| location_id | name | latitude | longitude | zip_code | region |
-|---:|---:|---:|---:|---:|---:|
-| 42 | Grand Central Terminal | 40.7527° N | 73.9772° W | 10017 | NYC |
-| 77 | Lobby 7 | 42.3593° N | 71.0935° W | 02139 | Massachusetts |
+|location_id|name|latitude|longitude|zip_code|region|
+|-|-|-|-|-|-|
+|42|Grand Central Terminal|40.7527° N|73.9772° W|10017|NYC|
+|77|Lobby 7|42.3593° N|71.0935° W|02139|Massachusetts|
 
 This reduces data bloat, because you don't need to store repetitive values on
-every row. For example, you might have 10 000 rows of data for location `42`.
+every row. For example, you might have 10,000 rows of data for location `42`.
 But you only need to define that location `42` is at Grand Central Terminal
 once, within your metadata table.
 
