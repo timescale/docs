@@ -24,20 +24,8 @@ module.exports.addErrorAndInsertBlank = (
   });
 };
 
-const isValidTagType = (tagType) => tagType === "opening" || tagType === "closing";
-
-const fixMultipleBlankLines = ({ lineNumber }, tagType, onError) => {
-  const lineNumberToFix =
-    tagType === "opening" ? lineNumber + 1 : lineNumber - 1;
-  onError({
-    lineNumber,
-    detail: "Multiple line breaks between content and tag",
-    fixInfo: {
-      lineNumber: lineNumberToFix,
-      deleteCount: -1,
-    },
-  });
-};
+const isValidTagType = (tagType) =>
+  tagType === "opening" || tagType === "closing";
 
 /*
  * Check for blank lines between a tag and its enclosed content.
@@ -49,6 +37,19 @@ const fixMultipleBlankLines = ({ lineNumber }, tagType, onError) => {
  * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
  * @param {boolean} withExceptions Whether to make exceptions for code blocks and lists.
  */
+
+const fixBlankLine = (tag, tagType, onError) => {
+  const lineNumberToFix =
+    tagType === "opening" ? tag.lineNumber + 1 : tag.lineNumber - 1;
+  onError({
+    lineNumber: tag.lineNumber,
+    detail: "Line break between content and tag",
+    fixInfo: {
+      lineNumber: lineNumberToFix,
+      deleteCount: -1,
+    },
+  });
+};
 
 module.exports.checkTagBlankLine = ({
   tag,
@@ -65,11 +66,15 @@ module.exports.checkTagBlankLine = ({
     tagType === "opening" ? tag.lineNumber : tag.lineNumber - 2;
   const hasBlankNeighbor = this.isBlank(lines[lineNumberToCheck]);
 
-  if (withExceptions) {
+  if (!withExceptions && hasBlankNeighbor) {
+    fixBlankLine(tag, tagType, onError);
+  } else if (withExceptions) {
     const exceptionLineNumber = hasBlankNeighbor
       ? lineNumberToCheck - 1
       : lineNumberToCheck;
-    const isException = !!lines[exceptionLineNumber].match("```|\\d. .+|^\\s+"); // could we make this more modular?
+    const isException = !!lines[exceptionLineNumber].match(
+      "```|\\d\\. .+|^\\s+"
+    );
     if (isException && !hasBlankNeighbor) {
       onError({
         lineNumber: tag.lineNumber,
@@ -80,13 +85,13 @@ module.exports.checkTagBlankLine = ({
         },
       });
     } else if (!isException && hasBlankNeighbor) {
-      fixMultipleBlankLines(tag, tagType, onError);
+      fixBlankLine(tag, tagType, onError);
     }
     return;
   }
 
   if (!withExceptions && hasBlankNeighbor) {
-    fixMultipleBlankLines(tag, tagType, onError);
+    fixBlankLine(tag, tagType, onError);
     return;
   }
 };
@@ -100,7 +105,7 @@ module.exports.checkTagBlankLine = ({
  * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
  */
 module.exports.checkTagLineBreak = (tag, tagType, pattern, onError) => {
-  if (!isValidTagType(tagType)) {
+  if (tagType !== "opening" && tagType !== "closing") {
     throw `The tag type for checkTagLineBreak must be either opening or closing: ${tagType}`;
   }
 
@@ -130,23 +135,31 @@ module.exports.checkTagLineBreak = (tag, tagType, pattern, onError) => {
  * @param {Object[]} closingTags Array of closing tags.
  * @param {addErrorCallback} onError The callback that adds markdownlint errors.
  */
-// Thinking of a way to improve this
 module.exports.checkTagsClosed = (openingTags, closingTags, onError) => {
-  if (openingTags.length === closingTags.length) return;
+  const message = "This tag has no matching tag";
 
   let current = 0;
-  let newCurrent;
-  for (let i = 0; i < openingTags.length; i++) {
-    newCurrent = openingTags[i].lineNumber;
-    if (newCurrent < current) onError({ lineNumber: newCurrent });
-    current = newCurrent;
+  let next;
+  for (let i = 0; i < openingTags.length || i < closingTags.length; i++) {
+    next = openingTags[i] ? openingTags[i].lineNumber : null;
+    if (next === null) {
+      onError({ lineNumber: closingTags[i].lineNumber, detail: message });
+      return;
+    } else if (next < current) {
+      onError({ lineNumber: openingTags[i - 1].lineNumber, detail: message });
+      return;
+    }
+    current = next;
 
-    newCurrent = closingTags[i]
-      ? closingTags[i].lineNumber
-      : closingTags[i - 1].lineNumber;
-    if (newCurrent < current)
-      onError({ lineNumber: openingTags[i].lineNumber });
-    current = newCurrent;
+    next = closingTags[i] ? closingTags[i].lineNumber : null;
+    if (next === null) {
+      onError({ lineNumber: openingTags[i].lineNumber, detail: message });
+      return;
+    } else if (next < current) {
+      onError({ lineNumber: next, detail: message });
+      return;
+    }
+    current = next;
   }
 };
 
@@ -187,7 +200,7 @@ module.exports.findPatternInLines = (lines, pattern) =>
  *
  * @returns {boolean}
  */
-module.exports.isBlank = (line) => line.match(new RegExp("^s*$"));
+module.exports.isBlank = (line) => line.match(new RegExp(/^\s*$/));
 
 /*
  * Checks if a token's line number is sandwiched between two other lines.
