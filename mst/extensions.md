@@ -35,7 +35,7 @@ before they are fully available.
 
 ## Available extensions
 
-The following extensions are available on Managed Service for TimescaleDB:
+These extensions are available on Managed Service for TimescaleDB:
 
 <!-- vale Vale.Spelling = NO -->
 
