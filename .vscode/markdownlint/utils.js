@@ -1,23 +1,42 @@
 // @ts-check
 
-'use strict';
+"use strict";
 
 /*
  * Adds a markdownlint error with a corresponding fix that inserts blank lines.
- * 
+ *
  * @param {addErrorCallback} onError The callback that adds markdownlint errors.
- * @param {number} procedureLine 1-indexed line number of procedure tag.
+ * @param {number} lineNumber 1-indexed line number of procedure tag.
  * @param {number} blankLineOffset Relative line on which to add blank line.
  */
-module.exports.addErrorAndInsertBlank = (onError, lineNumber, blankLineOffset=0) => {
+module.exports.addErrorAndInsertBlank = (
+  onError,
+  lineNumber,
+  blankLineOffset = 0
+) => {
   onError({
-    lineNumber: lineNumber,
+    lineNumber,
     fixInfo: {
-      'insertText': '\n',
-      'lineNumber': lineNumber + blankLineOffset,
-      'editColumn': 1
-    }
-  })
+      insertText: "\n",
+      lineNumber: lineNumber + blankLineOffset,
+      editColumn: 1,
+    },
+  });
+};
+
+const isValidTagType = (tagType) => tagType === "opening" || tagType === "closing";
+
+const fixMultipleBlankLines = ({ lineNumber }, tagType, onError) => {
+  const lineNumberToFix =
+    tagType === "opening" ? lineNumber + 1 : lineNumber - 1;
+  onError({
+    lineNumber,
+    detail: "Multiple line breaks between content and tag",
+    fixInfo: {
+      lineNumber: lineNumberToFix,
+      deleteCount: -1,
+    },
+  });
 };
 
 /*
@@ -30,48 +49,45 @@ module.exports.addErrorAndInsertBlank = (onError, lineNumber, blankLineOffset=0)
  * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
  * @param {boolean} withExceptions Whether to make exceptions for code blocks and lists.
  */
+
 module.exports.checkTagBlankLine = ({
   tag,
   tagType,
   lines,
   onError,
-  withExceptions = false
+  withExceptions = false,
 }) => {
-  if (tagType !== 'opening' && tagType !== 'closing') {
+  if (!isValidTagType(tagType)) {
     throw `The tag type for checkTagLineBreak must be either opening or closing: ${tagType}`;
   }
 
-  const lineNumberToCheck = (tagType === 'opening') ? tag.lineNumber : tag.lineNumber - 2;
+  const lineNumberToCheck =
+    tagType === "opening" ? tag.lineNumber : tag.lineNumber - 2;
   const hasBlankNeighbor = this.isBlank(lines[lineNumberToCheck]);
 
-  const fixMultipleBlankLines = (tag, tagType, onError) => {
-    const lineNumberToFix = (tagType === 'opening') ? tag.lineNumber + 1 : tag.lineNumber - 1;
-    onError({
-      lineNumber: tag.lineNumber,
-      detail: 'Multiple line breaks between content and tag',
-      fixInfo: {
-        lineNumber: lineNumberToFix,
-        deleteCount: -1,
-      },
-    });
-  };
-  
-  if (!withExceptions && hasBlankNeighbor) {
-    fixMultipleBlankLines(tag, tagType, onError);
-  } else if (withExceptions) {
-    const exceptionLineNumber = hasBlankNeighbor ? lineNumberToCheck - 1 : lineNumberToCheck;
-    const useException = !!lines[exceptionLineNumber].match('```|\\d\. .+|^\\s+');
-    if (useException && !hasBlankNeighbor) {
+  if (withExceptions) {
+    const exceptionLineNumber = hasBlankNeighbor
+      ? lineNumberToCheck - 1
+      : lineNumberToCheck;
+    const isException = !!lines[exceptionLineNumber].match("```|\\d. .+|^\\s+"); // could we make this more modular?
+    if (isException && !hasBlankNeighbor) {
       onError({
         lineNumber: tag.lineNumber,
-        detail: 'Exception: Leave a blank line if content ends in list or code block',
+        detail:
+          "Exception: Leave a blank line if content ends in list or code block",
         fixInfo: {
-          insertText: '\n',
+          insertText: "\n",
         },
       });
-    } else if (!useException && hasBlankNeighbor) {
+    } else if (!isException && hasBlankNeighbor) {
       fixMultipleBlankLines(tag, tagType, onError);
     }
+    return;
+  }
+
+  if (!withExceptions && hasBlankNeighbor) {
+    fixMultipleBlankLines(tag, tagType, onError);
+    return;
   }
 };
 
@@ -84,23 +100,22 @@ module.exports.checkTagBlankLine = ({
  * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
  */
 module.exports.checkTagLineBreak = (tag, tagType, pattern, onError) => {
-  if (tagType !== 'opening' && tagType !== 'closing') {
+  if (!isValidTagType(tagType)) {
     throw `The tag type for checkTagLineBreak must be either opening or closing: ${tagType}`;
   }
 
   // Check for lack of line break
-  const regex = (tagType === 'opening') ? `${pattern}$` : `^${pattern}`;
+  const regex = tagType === "opening" ? `${pattern}$` : `^${pattern}`;
   if (!tag.line.match(regex)) {
     const match = tag.line.match(pattern);
     const indexOfTag = match.index + 1;
-    const editColumn = (tagType === 'opening')
-      ? indexOfTag + match.at(0).length
-      : indexOfTag;
+    const editColumn =
+      tagType === "opening" ? indexOfTag + match.at(0).length : indexOfTag;
     onError({
       lineNumber: tag.lineNumber,
-      detail: 'No line break between content and tag',
+      detail: "No line break between content and tag",
       fixInfo: {
-        insertText: '\n',
+        insertText: "\n",
         editColumn: editColumn,
       },
     });
@@ -110,29 +125,29 @@ module.exports.checkTagLineBreak = (tag, tagType, pattern, onError) => {
 /*
  * Checks that the number of opening tags matches the number of closing tags. If
  * not, registers an error with markdownlint.
- * 
+ *
  * @param {Object[]} openingTags Array of opening tags, with properties `line` and `lineNumber`.
- * @param {number} closingTags Array of closing tags.
+ * @param {Object[]} closingTags Array of closing tags.
  * @param {addErrorCallback} onError The callback that adds markdownlint errors.
  */
-module.exports.checkTagsClosed = (
-  openingTags,
-  closingTags,
-  onError
-) => {
+// Thinking of a way to improve this
+module.exports.checkTagsClosed = (openingTags, closingTags, onError) => {
   if (openingTags.length === closingTags.length) return;
-  
+
   let current = 0;
   let newCurrent;
   for (let i = 0; i < openingTags.length; i++) {
     newCurrent = openingTags[i].lineNumber;
-    if (newCurrent < current) onError({lineNumber: newCurrent});
+    if (newCurrent < current) onError({ lineNumber: newCurrent });
     current = newCurrent;
 
-    newCurrent = closingTags[i] ? closingTags[i].lineNumber : closingTags[i-1].lineNumber;
-    if (newCurrent < current) onError({lineNumber: openingTags[i].lineNumber});
+    newCurrent = closingTags[i]
+      ? closingTags[i].lineNumber
+      : closingTags[i - 1].lineNumber;
+    if (newCurrent < current)
+      onError({ lineNumber: openingTags[i].lineNumber });
     current = newCurrent;
-  };
+  }
 };
 
 /*
@@ -143,20 +158,19 @@ module.exports.checkTagsClosed = (
  * @returns {number} The number of whitespace characters at the beginning of the
  * line.
  */
-module.exports.countWhitespace = (line) => (
-  line.length - line.trimStart().length
-);
+module.exports.countWhitespace = (line) =>
+  line.length - line.trimStart().length;
 
 /*
  * Gets all the lines corresponding to a regex pattern.
- * 
+ *
  * @param {String[]} lines The lines to check.
  * @param {string} pattern The regex pattern to find inside content.
- * 
+ *
  * @returns {Object[]} Object containing matching lines and their 1-indexed line numbers.
  */
-module.exports.findPatternInLines =
-  (lines, pattern) => lines.reduce((patternLines, line, index) => {
+module.exports.findPatternInLines = (lines, pattern) =>
+  lines.reduce((patternLines, line, index) => {
     if (line.match(pattern)) {
       patternLines.push({
         line: line,
@@ -170,10 +184,10 @@ module.exports.findPatternInLines =
  * Checks if a line is blank (contains no characters or only whitespace).
  *
  * @param {string} line The line to check.
- * 
+ *
  * @returns {boolean}
  */
-module.exports.isBlank = (line) => line.match(new RegExp('^\s*$'));
+module.exports.isBlank = (line) => line.match(new RegExp("^s*$"));
 
 /*
  * Checks if a token's line number is sandwiched between two other lines.
@@ -181,17 +195,16 @@ module.exports.isBlank = (line) => line.match(new RegExp('^\s*$'));
  * @param {token} token The token to check.
  * @param {number} openingLineNumber The smaller line number bound.
  * @param {number} closingLineNumber The larger line number bound.
- * 
+ *
  * @returns {boolean}
  */
-module.exports.isBetween = (token, openingLineNumber, closingLineNumber) => (
-  token.lineNumber > openingLineNumber && token.lineNumber < closingLineNumber
-);
+module.exports.isBetween = (token, openingLineNumber, closingLineNumber) =>
+  token.lineNumber > openingLineNumber && token.lineNumber < closingLineNumber;
 
 /*
  * Checks that the line of a token has the given indentation. If not, fix
  * indentation.
- * 
+ *
  * @param {Object} token The token to check.
  * @param {number} indent The number of spaces to indent.
  * @param {addErrorCallback} onError The callback that adds markdownlint errors.
@@ -203,8 +216,8 @@ module.exports.matchIndentation = (token, indent, onError) => {
       lineNumber: token.lineNumber,
       fixInfo: {
         deleteCount: lineWhitespace,
-        insertText: ''.padEnd(indent, ' '),
+        insertText: "".padEnd(indent, " "),
       },
     });
   }
-}
+};
