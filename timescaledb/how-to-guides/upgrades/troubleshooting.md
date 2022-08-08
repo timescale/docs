@@ -45,7 +45,7 @@ or if you use tab completion when running the command. Tab completion triggers
 metadata queries in the background which prevents the alter extension from being
 the first command.
 
-To correct the problem, start a new session using psql and run this command:
+To correct the problem, execute the ALTER EXTENSION command like so:
 
 ``sql
 psql -X -c 'ALTER EXTENSION timescaledb UPDATE;'
