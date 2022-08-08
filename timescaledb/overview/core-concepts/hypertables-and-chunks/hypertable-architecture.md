@@ -8,8 +8,7 @@ Hypertables partition data into chunks by time, and optionally by space.
 ### Time-based partitioning
 A hypertable is composed from many child tables, called chunks. Each chunk has a
 time constraint, and only contains data from that time range. When you insert
-data into a hypertable, TimescaleDB automatically creates chunks based on your
-data's time values.
+data into a hypertable, TimescaleDB automatically creates chunks based on the time values of your data.
 
 For example, assume each chunk contains 1 day's worth of data. For each day for
 which you have data, TimescaleDB creates a chunk. For each row of data, it looks
@@ -73,7 +72,7 @@ the correct chunk, and routes the insertion there. When a query is made, the
 planner pushes the query down to only affected chunks. For example, if a query
 has a `WHERE` clause specifying `time > now() - INTERVAL '1 week'`, the database
 only executes the query against chunks covering the past week. It excludes older
-chunks. 
+chunks.
 
 All of this happens in the background. From your perspective, the hypertable
 should look just like a regular PostgreSQL table.
@@ -95,7 +94,7 @@ Like time partitions, space partitions never overlap.
 Rather than building a global index over an entire hypertable, TimescaleDB
 builds local indexes on each chunk. In other words, each chunk has its own index
 that only indexes data within that chunk. This optimization improves insert
-speed for recent data. For more information, see the section on the 
+speed for recent data. For more information, see the section on the
 [benefits of local indexes][hypertable-benefits-indexes].
 
 <!-- TODO: insert local indexes diagram -->
@@ -128,7 +127,5 @@ practice, see the section on
 [hypertables and unique indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
 </highlight>
 
-[chunk-sizing]: /how-to-guides/hypertables/best-practices/#time-intervals
-[create-hypertable]: /how-to-guides/hypertables/create/
 [distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
 [hypertable-benefits-indexes]: /overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/#faster-index-updates

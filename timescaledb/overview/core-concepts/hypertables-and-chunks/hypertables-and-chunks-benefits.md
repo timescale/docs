@@ -21,8 +21,8 @@ section on
 </highlight>
 
 Though fitting chunks in memory gives the best performance, TimescaleDB doesn't
-*require* this setup. It still works with larger chunks. It uses Least Recently
-Used (LRU) caching to choose which indexes and data to keep in memory.
+require it, and works well with larger chunks. TimescaleDB uses least recently
+used (LRU) caching to choose which indexes and data to keep in memory.
 
 ## Faster index updates
 TimescaleDB builds local indexes on each chunk, rather than global indexes
@@ -61,7 +61,7 @@ move older data to less expensive storage.
 
 In TimescaleDB, you can delete entire chunks of data based on time values. For
 example, you can delete chunks containing data with time values more than 6
-months old. 
+months old.
 
 Because deleting a chunk means deleting an entire file from disk, it's faster
 than deleting individual rows. Deleting rows requires expensive `VACUUM`
@@ -93,7 +93,7 @@ To fine-tune server rebalancing, you can asynchronously migrate chunks. Or, you
 can delete older data by using data retention policies. Older data is
 partitioned according to the older server setup, while newer data is partitioned
 according to the newer setup. So data retention eventually rebalances data
-across your servers. 
+across your servers.
 
 For more information, see the [chunk migration][chunk-migration] and
 [data retention][data-retention] sections.
@@ -109,7 +109,6 @@ For more information, see the [replication][replication] section.
 
 [chunk-migration]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental/
 [data-retention]: /how-to-guides/data-retention/
-[data-tiering]: /how-to-guides/data-tiering/
 [local-indexes]: /overview/core-concepts/hypertables-and-chunks/chunk-architecture/#chunk-local-indexes
 [performance-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e/
 [replication]: /how-to-guides/replication-and-ha/
