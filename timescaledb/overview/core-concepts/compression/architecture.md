@@ -1,5 +1,7 @@
 # Compression architecture
+
 TimescaleDB compresses data by:
+
 *   Converting it from a row-based format to a [hybrid row-columnar
     format][row-columnar-format]
     *   [Ordering and segmenting][ordering-and-segmenting] the data according to
@@ -8,6 +10,7 @@ TimescaleDB compresses data by:
     algorithms][compression-algorithms] where possible
 
 In addition:
+
 *   Data is stored on [secondary disk pages][secondary-pages]
 *   Old indexes are removed and [new indexes are created][indexes]
 
@@ -15,6 +18,7 @@ Understanding compression architecture is important to improving how you
 [work with compressed data][work-with-compressed-data].
 
 ## Hybrid row-columnar format for chunks
+
 In TimescaleDB, compression is done chunk by chunk. Each chunk is either
 compressed or uncompressed. You can't compress only part of the data in a
 chunk. Compression also doesn't change the number of chunks. One uncompressed
@@ -52,6 +56,7 @@ TimescaleDB finds any compressed data, decompresses it, and returns it to you.
 </highlight>
 
 ## Data ordering and segmenting
+
 By default, TimescaleDB orders rows by decreasing time value when compressing.
 Then it combines the rows into columns of up to 1000 entries.
 
@@ -71,6 +76,7 @@ compression][improving-compression].
 -->
 
 ### Data ordering with timescaledb.compress_orderby
+
 If you often `ORDER BY` a column other than time, you can change the compressed
 chunk's data order by using `timescaledb.compress_orderby`. For more
 information, see the [how-to guide for ordering entries][ordering-entries].
@@ -87,6 +93,7 @@ The query planner can quickly decide if it needs to read a row, without needing
 to decompress the data.
 
 ### Data segmenting with timescaledb.segment_by
+
 By default, TimescaleDB doesn't segment compressed chunks. It combines entries
 in the order of your `orderby` columns, without taking into account the value of
 any other column.
@@ -108,6 +115,7 @@ the compressed table is segmented by `device_id`:
 |[12:00:02, 12:00:01]|2|[300.5, 299.1]|[0.9, 0.95]|
 
 ## Type-specific compression algorithms
+
 TimescaleDB uses type-specific compression algorithms to compress each column.
 This compresses data more efficiently than generic, type-agnostic algorithms.
 Here are the algorithms used for each data type:
@@ -132,6 +140,7 @@ see the [compression algorithms blog post][compression-algorithms-blog].
 |LZ compression|Another type of dictionary compression, but not applied at the whole-row level. Regular PostgreSQL uses LZ compression for TOAST (The Oversized-Attribute Storage Technique) tables.|
 
 ## Indexes on compressed chunks
+
 When you compress a chunk, any indexes on that chunk are removed. New indexes
 are created on each `segmentby` column. The indexes are in the form
 `(<SEGMENT_BY_COLUMN>, _ts_meta_sequence_num)`, where `_ts_meta_sequence_num` is
@@ -148,6 +157,7 @@ to individual values. Only columns used in `segment_by` can be indexed, since
 they are stored as their original values.</highlight>
 
 ## Data storage for compressed chunks
+
 For simplicity, the examples on this page show data arrays contained within the
 compressed tables. In practise, to speed up queries, data isn't stored within
 the tables. Instead, it is stored on secondary disk pages. The tables contain
@@ -166,15 +176,17 @@ TimescaleDB implements pointers and secondary pages by using PostgreSQL's TOAST
 feature. To learn more, see the [PostgreSQL documentation on TOAST][TOAST].
 
 ## Interacting with compressed chunks
+
 In many ways, you interact with compressed chunks just as you interact with
 uncompressed chunks. But there are some differences.
 
 ### Inserts
+
 With TimescaleDB 2.3 and above, you can insert data into compressed chunks. You
 write an `INSERT` statement as normal. Behind the scenes, TimescaleDB compresses
 the inserted row as a single row. It then saves it within the appropriate chunk.
 Periodically, it recompresses the chunk, which combines the individually
-inserted rows with the previously compressed rows. 
+inserted rows with the previously compressed rows.
 
 This minimizes the performance penalty at insert time, because recompression is
 batched and performed asynchronously.
@@ -183,6 +195,7 @@ To insert large batches of data, you can use a [backfilling
 function][backfilling].
 
 ### Updates and deletes
+
 You can't update or delete data in compressed chunks. You can work around this
 by decompressing the chunk, making your changes, and recompressing. You can also
 drop entire chunks at once without decompressing them, either manually or via
@@ -193,6 +206,7 @@ To minimize the amount of decompressing and recompressing you need to do, set
 your compression policy to only compress data that is rarely updated.
 
 ### Queries
+
 You query compressed data just as you would query uncompressed data. Queries on
 compressed data are compatible with all the features of TimescaleDB.
 
@@ -201,6 +215,7 @@ without thinking about whether the data is compressed. However, to optimize your
 queries, it helps to understand what is happening behind the scenes.
 
 When you query data across both compressed and uncompressed chunks, TimescaleDB:
+
 1.  Finds the compressed chunks and decompresses the requested columns
 2.  Appends the decompressed data to more recent, uncompressed, data
 3.  Returns the final results to you as if all the data were stored uncompressed
@@ -230,19 +245,19 @@ For more information, see the section on [optimizing
 compression][improving-compression].
 -->
 
-[about-compression]: /how-to-guides/compression/about-compression/
-[backfilling]: /how-to-guides/compression/backfill-historical-data/
+[about-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/
+[backfilling]: /timescaledb/:currentVersion:/how-to-guides/compression/backfill-historical-data/
 [compression-algorithms]: #type-specific-compression-algorithms
 [compression-algorithms-blog]: https://www.timescale.com/blog/time-series-compression-algorithms-explained/
-[data-retention]: /how-to-guides/data-retention/
-[decompress]: /how-to-guides/compression/decompress-chunks.md
-[improving-compression]: /how-to-guides/compression/improve-compression.md
+[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[decompress]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks.md
+[improving-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/improve-compression.md
 [indexes]: #indexes-on-compressed-chunks
 [ordering-and-segmenting]: #data-ordering-and-segmenting
-[ordering-entries]: /how-to-guides/compression/about-compression/#order-entries
-[query-performance]: /overview/core-concepts/compression/#compression-performance
+[ordering-entries]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/#order-entries
+[query-performance]: /timescaledb/:currentVersion:/overview/core-concepts/compression/#compression-performance
 [row-columnar-format]: #hybrid-row-columnar-format-for-chunks
 [secondary-pages]: #data-storage-for-compressed-chunks
-[segmenting-columns]: /how-to-guides/compression/about-compression/#segment-by-columns
+[segmenting-columns]: /timescaledb/:currentVersion:/how-to-guides/compression/about-compression/#segment-by-columns
 [TOAST]: https://www.postgresql.org/docs/current/storage-toast.html
 [work-with-compressed-data]: #interacting-with-compressed-chunks
