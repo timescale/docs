@@ -1,3 +1,9 @@
+---
+title: How to simulate a basic IoT sensor dataset on PostgreSQL or TimescaleDB
+excerpt: Test your database by simulating a dataset
+keywords: [IoT, simulate]
+---
+
 # How to simulate a basic IoT sensor dataset on PostgreSQL or TimescaleDB
 The Internet of Things (IoT) describes a trend where computing is
 becoming ubiquitous and is embedded in more and more physical things.
@@ -223,10 +229,8 @@ documentation:
 * [`time_bucket`][docs-timebucket]
 * [`last`][docs-last]
 
-
-
-[install-timescale]: /install/:currentVersion:/
 [docs-hypertable]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [docs-last]: /api/:currentVersion:/hyperfunctions/last
+[docs-timebucket]: /api/:currentVersion:/hyperfunctions/time_bucket
 [docs-timescaledb-intro]: /timescaledb/:currentVersion:/overview
+[install-timescale]: /install/:currentVersion:/

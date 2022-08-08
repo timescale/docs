@@ -1,3 +1,9 @@
+---
+title: Using Grafana variables
+excerpt: Learn how to use Grafana variables to help end users filter and customize your visualizations
+keywords: [Grafana, visualizations, analytics]
+---
+
 # Using Grafana variables
 
 Grafana variables enable end-users of your dashboards to filter and customize visualizations.
@@ -221,8 +227,8 @@ Your dashboard should look something like this:
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
+[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
 [install-timescale]: /install/latest/
-[install-grafana]: /tutorials/grafana/installation
 [nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
-[tutorial-grafana]: /tutorials/grafana
-[tutorial-grafana-geospatial]: /tutorials/grafana/geospatial-dashboards/
+[tutorial-grafana-geospatial]: /timescaledb/:currentVersion:/tutorials/grafana/geospatial-dashboards/
+[tutorial-grafana]: /timescaledb/:currentVersion:/tutorials/grafana

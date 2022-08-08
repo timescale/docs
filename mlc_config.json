@@ -18,6 +18,12 @@
         },
         {
             "pattern": "^https://opensea.io/"
+        },
+        {
+            "pattern": "^https://docs.github.com/"
+        },
+        {
+            "pattern": "_template"
         }
     ]
 }

@@ -49,6 +49,21 @@ module.exports = [
               "Install self-hosted TimescaleDB on Red Hat or CentOS using dnf",
           },
           {
+            title: "Arch Linux",
+            href: "installation-archlinux",
+            tags: ["install", "archlinux", "timescaledb"],
+            keywords: [
+              "TimescaleDB",
+              "install",
+              "self-hosted",
+              "Arch Linux",
+              "TimescaleDB extension"
+            ],
+            iconSrc: "//assets.iobeam.com/images/docs/archlinux-logo-light-1200dpi.7ccd81fd52dc.png",
+            excerpt:
+              "Install self-hosted TimescaleDB on Arch Linux using pacman",
+          },
+          {
             title: "Windows",
             href: "installation-windows",
             tags: ["install", "mswin", "exe", "timescaledb"],

@@ -1,4 +1,10 @@
+---
+title: Sample datasets
+excerpt: Download these sample datasets to start exploring TimescaleDB
+---
+
 # Sample datasets
+
 Timescale have created several sample datasets to help you get started using
 TimescaleDB. These datasets vary in database size, number of time
 intervals, and number of values for the partition field.
@@ -7,7 +13,6 @@ Each gzip archive contains a single `.sql` file to create the necessary
 hypertables within the database, and several `.csv` files that contain the
 data to be copied into those tables. These files presume the database
 you are importing them to has already been [set up with the TimescaleDB extension][installation].
-
 
 **Device ops**: these datasets include metrics such as CPU, memory, and network,
 that are collected from mobile devices. Click on the name to download.
@@ -34,10 +39,11 @@ For more details and example usage, see [weather datasets](#in-depth-weather-dat
 ## Importing
 <!-- Add steps format-->
 Briefly, the import steps are:
-1. Setup a database with TimescaleDB.
-1. Unzip the archive.
-1. Import the `.sql` file to create the hypertables via `psql`.
-1. Import the data from `.csv` files via `psql`.
+
+1.  Setup a database with TimescaleDB.
+1.  Unzip the archive.
+1.  Import the `.sql` file to create the hypertables via `psql`.
+1.  Import the data from `.csv` files via `psql`.
 
 Each dataset has a name in the format of `[dataset]_[size].tar.gz`.
 For example, `devices_small.tar.gz` is dataset `devices` and size `small`.
@@ -49,16 +55,17 @@ two tables (`device_info` and a hypertable named `readings`) from `devices.sql`.
 Therefore, there are two CSV files: `devices_small_readings.csv` and
 `devices_small_device_info.csv`. So, to import this dataset into a TimescaleDB
 database named `devices_small`:
+
 ```bash
 # (1) unzip the archive
 tar -xvzf devices_small.tar.gz
 
 # (2) import the .sql file to the database
-psql -U postgres -d devices_small < devices.sql
+psql -U postgres -d tsdb < devices.sql
 
 # (3) import data from .csv files to the database
-psql -U postgres -d devices_small -c "\COPY readings FROM devices_small_readings.csv CSV"
-psql -U postgres -d devices_small -c "\COPY device_info FROM devices_small_device_info.csv CSV"
+psql -U postgres -d tsdb -c "\COPY readings FROM devices_small_readings.csv CSV"
+psql -U postgres -d tsdb -c "\COPY device_info FROM devices_small_device_info.csv CSV"
 ```
 
 The data is now ready for use.
@@ -71,11 +78,12 @@ instead.
 </highlight>
 
 ```bash
-# To access your database (for example: `devices_small`)
-psql -U postgres -h localhost -d devices_small
+# To access your database (for example: `tsdb`)
+psql -U postgres -h localhost -d tsdb
 ```
 
 ## Device ops datasets
+
 After importing one of these datasets (`devices_small`, `devices_med`,
 `devices_big`), you have a plain PostgreSQL table called `device_info` and a
 hypertable called `readings`. The `device_info` table has static metadata
@@ -86,6 +94,7 @@ them and join them with the metadata as you would normal SQL tables, as shown in
 the example queries in this section.
 
 #### Schemas
+
 ```sql
 Table "public.device_info"
 Column       | Type | Modifiers
@@ -120,9 +129,11 @@ Indexes:
 ```
 
 #### Example queries
+
 Uses `devices_med` dataset
 
 **10 most recent battery temperature readings for charging devices**
+
 ```sql
 SELECT time, device_id, battery_temperature
 FROM readings
@@ -145,6 +156,7 @@ time                   | device_id  | battery_temperature
 ```
 
 **Busiest devices (1 min avg) whose battery level is below 33% and is not charging**
+
 ```sql
 SELECT time, readings.device_id, cpu_avg_1min,
 battery_level, battery_status, device_info.model
@@ -193,6 +205,7 @@ hour                   | min_battery_level | max_battery_level
 ---
 
 ## Weather datasets
+
 After importing one of these datasets (`weather_small`, `weather_med`,
 `weather_big`), you notice a plain PostgreSQL table called `locations` and a
 hypertable called `conditions`. The `locations` table has metadata about each of
@@ -203,6 +216,7 @@ them with the metadata as you would normal SQL tables, as shown in the example
 queries in this section.
 
 #### Schemas
+
 ```sql
 Table "public.locations"
 Column      | Type | Modifiers
@@ -226,9 +240,11 @@ Indexes:
 ```
 
 #### Example queries
+
 Uses `weather_med` dataset.
 
 **Last ten readings**
+
 ```sql
 SELECT * FROM conditions c ORDER BY time DESC LIMIT 10;
 
@@ -248,6 +264,7 @@ time                   |     device_id      |    temperature     |      humidity
 ```
 
 **Last 10 readings from 'outside' locations**
+
 ```sql
 SELECT time, c.device_id, location,
 trunc(temperature, 2) temperature, trunc(humidity, 2) humidity
@@ -272,6 +289,7 @@ time                   |     device_id      |   location    | temperature | humi
 ```
 
 **Hourly average, min, and max temperatures for "field" locations**
+
 ```sql
 SELECT date_trunc('hour', time) "hour",
 trunc(avg(temperature), 2) avg_temp,

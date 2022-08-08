@@ -5,6 +5,7 @@ keywords: [continuous aggregates, troubleshooting]
 ---
 
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
+import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
 
 # Troubleshooting continuous aggregates
 This section contains some ideas for troubleshooting common problems experienced
@@ -58,14 +59,11 @@ be hard to refresh and would make more sense to isolate these columns in another
 hypertable. Alternatively, you might create one hypertable per metric and
 refresh them independently.
 
-### Updates to previously materialized regions are not shown in real-time aggregates
-If you have a time bucket that has already been materialized, the real-time
-aggregate does not show the data that has been inserted, updated, or deleted 
-into that bucket until the next `refresh_continuous_aggregate` call is executed.
-The continuous aggregate is refreshed either when you manually call 
-`refresh_continuous_aggregate` or when a continuous aggregate policy is executed. 
-This worked example shows the expected behavior of continuous aggregates, when
-real time aggregation is enabled.
+## Updates to previously materialized regions are not shown in real-time aggregates
+
+<CaggsRealTimeHistoricalDataRefreshes />
+
+The following example shows how this works.
 
 Create and fill the hypertable:
 ```sql

@@ -1,3 +1,10 @@
+---
+title: Build a bar chart in Grafana
+excerpt: Plot a bar chart in Grafana to compare values between categories
+keywords: [Grafana, visualization, analytics]
+tags: [bar chart]
+---
+
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a bar chart in Grafana

@@ -1,3 +1,9 @@
+---
+title: Create a Grafana dashboard and panel
+excerpt: Visualize your data in Grafana
+keywords: [Grafana, visualizations, analytics]
+---
+
 # Creating a Grafana dashboard and panel
 
 Grafana is organized into 'Dashboards' and 'Panels'. A dashboard represents a view
@@ -171,8 +177,8 @@ When you visualize this query, it looks like this:
 
 Complete your Grafana knowledge by following [all the TimescaleDB + Grafana tutorials][tutorial-grafana].
 
+[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
 [install-timescale]: /install/latest/
-[install-grafana]: /tutorials/grafana/installation
-[nyc-taxi]: /tutorials/nyc-taxi-cab
+[nyc-taxi]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab
 [time-bucket-reference]: /api/:currentVersion:/hyperfunctions/time_bucket
-[tutorial-grafana]: /tutorials/grafana
+[tutorial-grafana]: /timescaledb/:currentVersion:/tutorials/grafana
