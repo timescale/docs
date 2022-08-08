@@ -1,3 +1,9 @@
+---
+title: Refresh continuous aggregates
+excerpt: Refresh a continuous aggregate to keep it up to date
+keywords: [continuous aggregates, refresh, policies]
+---
+
 # Refresh continuous aggregates
 Continuous aggregates can have a range of different refresh policies. In
 addition to refreshing the continuous aggregate automatically using a policy,
@@ -121,8 +127,7 @@ ingest rate of the hypertable due to write amplification. If you want to include
 the latest bucket in your queries,
 use [real-time aggregation][real-time-aggregates] instead.
 
-
-[real-time-aggregates]: /how-to-guides/continuous-aggregates/real-time-aggregates
-[sec-data-retention]: /how-to-guides/data-retention
 [api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
-[cagg-drop-data]: /how-to-guides/continuous-aggregates/drop-data
+[cagg-drop-data]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/drop-data
+[real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates
+[sec-data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention

@@ -1,3 +1,9 @@
+---
+title: JSONB support for semi-structured data
+excerpt: Store semi-structured data, such as user-defined fields, as JSONB
+keywords: [schemas, JSONB]
+---
+
 # JSONB support for semi-structured data
 You can use JSON and JSONB to provide semi-structured data. This is most useful
 for data that contains user-defined fields, such as field names that are defined
@@ -75,8 +81,8 @@ adding `time DESC` as a leading column. Note, however, that to enable index-only
 scans, you need `data` as a column, not the full expression
 `((data->>'cpu')::double precision)`.
 
+[expression-index]: https://www.postgresql.org/docs/current/static/indexes-expressional.html
 [json-indexing]: https://www.postgresql.org/docs/current/static/datatype-json.html#JSON-INDEXING
 [json-operators]: https://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
 [multicolumn-index]: https://www.postgresql.org/docs/current/static/indexes-multicolumn.html
 [partial-index]: https://www.postgresql.org/docs/current/static/indexes-partial.html
-[expression-index]: https://www.postgresql.org/docs/current/static/indexes-expressional.html

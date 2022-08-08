@@ -1,3 +1,9 @@
+---
+title: Ingest real-time financial websocket data
+excerpt: Set up a data pipeline to get data from different financial APIs
+keywords: [finance, analytics, websockets, data pipeline]
+---
+
 # Ingest real-time financial websocket data
 This tutorial shows you how to ingest real-time time-series data into
 TimescaleDB using a websocket connection. The tutorial sets up a data pipeline to
@@ -327,10 +333,10 @@ efficiently store and analyze your data after ingestion:
 - [Store financial tick data in TimescaleDB using the OHLCV (candlestick) format][candlestick-tutorial]
 - [Getting started with TimescaleDB][get-started]
 
+[candlestick-tutorial]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/
+[get-started]: /getting-started/:currentVersion:/
 [install-ts]: /install/latest/
-[twelve-signup]: https://twelvedata.com/pricing
-[twelve-data]: https://twelvedata.com
-[twelve-wrapper]: https://github.com/twelvedata/twelvedata-python
-[candlestick-tutorial]: /tutorials/financial-candlestick-tick-data/
-[get-started]: /getting-started/
 [psycopg2]: https://www.psycopg.org/docs/
+[twelve-data]: https://twelvedata.com
+[twelve-signup]: https://twelvedata.com/pricing
+[twelve-wrapper]: https://github.com/twelvedata/twelvedata-python

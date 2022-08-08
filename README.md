@@ -206,6 +206,25 @@ rendered documentation site.
 Programming language samples aside, most code blocks will usually be one of:
 `bash`, `sql`, `json`.
 
+### Partials
+
+Partials allow you to reuse snippets of content in multiple places. All partials
+live in the `_partials` top-level directory. To make a new partial, create a new
+`.mdx` file. The filename must start with an underscore.
+
+To insert the partial in another document, put an import statement in the
+document. The import statement goes before the content and after any
+frontmatter. For example:
+
+`import Component from 'versionContent/_partials/_partial-name.mdx';`
+
+`Component` can be any CamelCased name. For consistency, make it the CamelCased
+version of your partial's filename.
+
+Where you need the partial to display, insert it as a self-closing tag:
+
+`<Component />`
+
 ### General formatting conventions
 
 To maintain consistency, please follow these general rules.

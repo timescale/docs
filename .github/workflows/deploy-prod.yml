@@ -5,18 +5,16 @@ on:
     branches:
       - latest
 
+permissions: {}
+
 jobs:
   trigger:
     name: Docs prod deploy
     runs-on: ubuntu-latest
     steps:
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
+        uses: peter-evans/repository-dispatch@11ba7d3f32dc7cc919d1c43f1fec1c05260c26b5
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content-prod
-      - name: Update search index
-        run: |
-          curl --fail https://responses.timescale.com/v1/update_search_index
-        continue-on-error: true

@@ -1,3 +1,9 @@
+---
+title: Win your NFL fantasy league with TimescaleDB
+excerpt: Ingest and analyze American football data with TimescaleDB
+keywords: [analytics, psycopg2]
+---
+
 # Win your NFL fantasy league with TimescaleDB
 
 This tutorial is a step-by-step guide on how to ingest and analyze American football data with TimescaleDB.
@@ -18,7 +24,7 @@ get started with TimescaleDB and explore a real world dataset with SQL and Pytho
 
 * Python 3
 * TimescaleDB (see [installation options][install-timescale])
-* [Psql][psql-install] or any other PostgreSQL client (e.g. DBeaver)
+* [Psql][psql-install] or any other PostgreSQL client (for example, DBeaver)
 
 ## Download the dataset
 
@@ -283,7 +289,7 @@ When you run this query you might notice that the `player_id` and `display_name`
 
 ### **Average and median yards run per game by type of player (not taking avg of individual)**
 
-  For this query, you use another one of the TimescaleDB percentile functions called `percentile_agg`. You set the `percentile_agg` function to find the 50th percentile, which returns the approximate median.
+  For this query, you use another one of the TimescaleDB percentile functions called `percentile_agg`. You set the `percentile_agg` function to find the fiftieth percentile, which returns the approximate median.
 
 ```sql
 WITH sum_yards AS (
@@ -569,8 +575,7 @@ draw_play(game_id=2018112900,
 
 * [NFL Big Data Bowl 2021 on Kaggle](https://www.kaggle.com/c/nfl-big-data-bowl-2021)
 
-
-[install-timescale]: /install/latest/
-[psql-install]: /how-to-guides/connecting/psql
-[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
 [extra-download]: https://assets.timescale.com/docs/downloads/nfl_2018.zip
+[install-timescale]: /install/latest/
+[kaggle-download]: https://www.kaggle.com/c/nfl-big-data-bowl-2021/data
+[psql-install]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql

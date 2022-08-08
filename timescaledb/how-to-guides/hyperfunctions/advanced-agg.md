@@ -1,3 +1,9 @@
+---
+title: Percentile approximation advanced aggregation methods
+excerpt: Use approximation algorithms to quickly estimate percentiles
+keywords: [hyperfunctions, Toolkit, percentiles, uddsketch, tdigest]
+---
+
 # Percentile approximation advanced aggregation methods
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
@@ -32,7 +38,7 @@ of the discrete value.
 
 Think about the types of percentiles you're most interested in. `tdigest` is
 optimized for more accurate estimates at the extremes, and less accurate
-estimates near the median. If your workflow involves estimating 99th
+estimates near the median. If your workflow involves estimating ninety-ninth
 percentiles, then choose `tdigest`. If you're more concerned about getting
 highly accurate median estimates, choose `uddsketch`.
 
@@ -70,5 +76,5 @@ see the developer documentation for [uddsketch][gh-uddsketch] and
 [tdigest][gh-tdigest].
 
 [pg-percentile]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
-[gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md
 [gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md
+[gh-uddsketch]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/uddsketch.md

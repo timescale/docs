@@ -1,3 +1,11 @@
+---
+title: SQL functions API reference
+excerpt: Learn about all Promscale SQL API functions
+product: promscale
+keywords: [Structured Query Language, API, functions]
+tags: [reference]
+---
+
 # SQL functions API Reference
 
 This page is a reference for the functions available in Promscale.
@@ -42,8 +50,10 @@ ORDER BY 1, 2, 4;
 |Name|Arguments|Type|Description|
 |-|:-:|:-:|:-|
  |`drop_metric`|metric_name_to_be_dropped text|void||
- |`delete_series_from_metric`|metric_name text, series_ids|boolean|deletes the series from the metric.|               
+ |`delete_series_from_metric`|metric_name text, series_ids|boolean|deletes the series from the metric.|
+ |`get_default_metric_retention_period`||interval|Returns the current default retention period for metrics.|              
  |`get_metric_metadata`|metric_family_nametext|TABLE(metric_family text, type text, unit text, help text)|
+ |`get_metric_retention_period`|metric_name text|interval|Returns the retention period configured for a specific metric.|
  |`get_multiple_metric_metadata`|metric_families text[]|TABLE(metric_family text, type text, unit text, help text)|
  |`is_normal_nan`|value double precision|boolean|is_normal_nan returns true if the value is a NaN.|
  |`is_stale_marker`|value double precision|boolean|is_stale_marker returns true if the value is a Prometheus stale marker.|

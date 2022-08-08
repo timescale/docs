@@ -1,3 +1,11 @@
+---
+title: Migrate the entire database at once
+excerpt: Migrate an entire TimescaleDB database to Timescale Cloud in one go
+product: cloud
+keywords: [migrate]
+tags: [ingest]
+---
+
 # Migrate the entire database at once
 Migrate smaller databases by dumping and restoring the entire database at once.
 This method works best on databases smaller than 100&nbsp;GB. For larger
@@ -133,14 +141,14 @@ accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[extensions]: /customize-configuration/#postgresql-extensions
+[extensions]: /cloud/:currentVersion:/customize-configuration/#postgresql-extensions
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
-[migrate-separately]: migrate-to-cloud/schema-then-data/
+[migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [timescaledb_pre_restore]: /api/:currentVersion:/administration/timescaledb_pre_restore/
 [timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
-[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/upgrade-postgresql/
-[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/update-timescaledb/update-timescaledb-2/
+[upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
+[upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/

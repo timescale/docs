@@ -1,5 +1,11 @@
 ---
-api_name: 'average | average_y | average_x'
+api_name: 'average() | average_y() | average_x()'
+excerpt: Calculate the average of values in a statistical aggregate
+license: community
+toolkit: true
+experimental: false
+topic: hyperfunctions
+keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -52,5 +58,5 @@ FROM generate_series(0, 100) data;
 ```
 
 
-[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
+[hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/

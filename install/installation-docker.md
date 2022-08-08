@@ -1,4 +1,14 @@
+---
+title: Install TimescaleDB from Docker container
+nav-title: Docker
+excerpt: Install self-hosted TimescaleDB from a pre-built Docker container
+section: install
+subsection: self-hosted
+keywords: [install, self-hosted, Docker]
+---
+
 # Install self-hosted TimescaleDB from a pre-built container
+
 You can install a self-hosted TimescaleDB instance on any local system, from a
 pre-built container. This is the simplest method to install a self-hosted
 TimescaleDB instance, and it means you always have access to the latest version
@@ -18,9 +28,11 @@ instead.
 <procedure>
 
 ### Installing self-hosted TimescaleDB from a Docker container
+
 1.  Install Docker, if you don't already have it. For packages and
     instructions, see the [Docker installation documentation][docker-install].
 1.  At the command prompt, run the TimescaleDB Docker image:
+
     ```bash
     docker pull timescale/timescaledb-ha:pg14-latest
     ```
@@ -28,8 +40,8 @@ instead.
 <highlight type="important">
 The [`timescaledb-ha`](https://hub.docker.com/r/timescale/timescaledb-ha) image
 offers the most complete TimescaleDB experience. It
-includes the 
-[TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit), 
+includes the
+[TimescaleDB Toolkit](https://github.com/timescale/timescaledb-toolkit),
 and support for PostGIS and Patroni. If you need the smallest possible image, use
 the `timescale/timescaledb:latest-pg14` image instead.
 </highlight>
@@ -52,14 +64,19 @@ script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
 ## More Docker options
-The TimescaleDB pre-built Docker image is derived from the [official PostgreSQL
-image][official-image] and includes [Alpine Linux][] as its operating system.
+
+The TimescaleDB HA Docker image includes [Ubuntu][ubuntu] as its operating
+system. The lighter-weight TimescaleDB (non-HA) image uses [Alpine][alpine]. The
+commands in this section use the TimescaleDB HA image, but the steps are the
+same for both.
+
 You can use the Docker image in different ways, depending on your use case.
 
 If you want to run the image directly from the container, you can use this
 command:
+
 ```bash
-docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+docker run -d --name timescaledb -p 5432:5432 -e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg14-latest
 ```
 
 The `-p` flag binds the container port to the host port. This means that
@@ -71,14 +88,16 @@ container disables password checks for all database users.
 If you want to access the container from the host but avoid exposing it to the
 outside world, you can bind to `127.0.0.1` instead of the public interface,
 using this command:
+
 ```bash
 docker run -d --name timescaledb -p 127.0.0.1:5432:5432 \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+-e POSTGRES_PASSWORD=password timescale/timescaledb-ha:pg14-latest
 ```
 
 If you don't want to install `psql` and other PostgreSQL client tools locally,
 or if you are using a Microsoft Windows host system, you can connect using the
 version of `psql` that is bundled within the container with this command:
+
 ```bash
 docker exec -it timescaledb psql -U postgres
 ```
@@ -92,10 +111,11 @@ ls` command to list existing docker volumes. If you want to store the data from
 your Docker container in a host directory, or you want to run the Docker image
 on top of an existing data directory, you can specify the directory to mount a
 data volume using the `-v` flag. For example:
+
 ```bash
 docker run -d --name timescaledb -p 5432:5432 \
 -v /your/data/dir:/var/lib/postgresql/data \
--e POSTGRES_PASSWORD=password timescale/timescaledb:latest-pg14
+-e POSTGRES_PASSWORD=password timescale/timescaledb:pg14-latest
 ```
 
 When you install TimescaleDB using a Docker container, the PostgreSQL settings
@@ -109,6 +129,7 @@ on PostgreSQL 14. To find other Docker tags you can use, see the
 [Dockerhub repository][dockerhub].
 
 ## Set up the TimescaleDB extension
+
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
@@ -118,38 +139,49 @@ installed it yet, check out the [installing psql][install-psql] section.
 
 ### Setting up the TimescaleDB extension
 
-<highlight type="important"> 
+<highlight type="important">
 If you installed TimescaleDB from the pre-built Docker container, then you
 probably already have the TimescaleDB extension, and you can skip this procedure.
 </highlight>
 
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
+
     ```bash
     psql -U postgres -h localhost
     ```
+
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
+
     ```
     psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
     SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
     Type "help" for help.
     tsdb=>
     ```
+
 1.  At the `psql` prompt, create an empty database. Our database is
     called `example`:
+
     ```sql
     CREATE database example;
     ```
+
 1.  Connect to the database you created:
+
     ```sql
     \c example
     ```
+
 1.  Add the TimescaleDB extension:
+
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
+
 1.  You can now connect to your database using this command:
+
     ```bash
     psql -U postgres -h localhost -d example
     ```
@@ -158,6 +190,7 @@ probably already have the TimescaleDB extension, and you can skip this procedure
 
 You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. It looks like this:
+
 ```sql
 tsdb=> \dx
 List of installed extensions
@@ -186,6 +219,7 @@ tsdb=>
 ```
 
 ## Where to next
+
 Now that you have your first TimescaleDB database up and running, you can check
 out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what
 you can do with it.
@@ -196,14 +230,13 @@ TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
-
+[alpine]: https://alpinelinux.org/
+[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
 [contact]: https://www.timescale.com/contact
+[docker-install]: https://docs.docker.com/get-docker/
+[docker-postgres]: https://hub.docker.com/_/postgres
+[dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[config]: /timescaledb/:currentVersion:/how-to-guides/configuration/
-[docker-install]: https://docs.docker.com/get-docker/
-[official-image]: https://github.com/docker-library/postgres/
-[alpine Linux]: https://alpinelinux.org/
-[dockerhub]: https://hub.docker.com/r/timescale/timescaledb/tags?page=1&ordering=last_updated
-[docker-postgres]: https://hub.docker.com/_/postgres
+[ubuntu]: https://ubuntu.com

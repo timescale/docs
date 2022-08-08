@@ -1,3 +1,10 @@
+---
+title: FAQs - About our products
+excerpt: Frequently asked questions about TimescaleDB, Timescale Cloud, and Managed Service for TimescaleDB
+keywords: [Timescale Cloud, Managed Service for TimescaleDB, faq]
+tags: [cloud regions, PostgreSQL]
+---
+
 # FAQs - About our products
 
 ## What is the difference between Timescale, TimescaleDB, Timescale Cloud, and Managed Service for TimescaleDB?
@@ -37,7 +44,7 @@ to measure everything that matters.
 Unifying time-series data and relational data at the query level removes data
 silos, and makes demos and prototypes easier to get off the ground. The
 combination of scalability and a full SQL interface empowers a broad variety of
-people across an organization (e.g., developers, product managers, business
+people across an organization (for example, developers, product managers, business
 analysts, etc.) to directly ask questions of the data. In other words, by
 supporting a query language already in wide use, TimescaleDB ensures that your
 questions are limited by your imagination, not the database.
@@ -47,7 +54,7 @@ TimescaleDB is ideal for time-series workloads that would benefit from a SQL int
 SQL carries a variety of benefits: a query language that most developers already know;
 rich set of functions and utilities; and a broad ecosystem of tools, connectors, and
 visualization options. Also, since SQL JOINS are natively supported in TimescaleDB, data
-from different sources can be combined at query time (e.g., combining relational data stored
+from different sources can be combined at query time (for example, combining relational data stored
 in PostgreSQL tables with time-series data stored in TimescaleDB hypertables). This ability
 to store relational data alongside time-series data enables developers to simplify their stack,
 potentially reducing complex polyglot architectures to a single operational analytical database.
@@ -102,7 +109,7 @@ Or, if you prefer, [you can let us run TimescaleDB for you][timescale-signup],
 fully managed on AWS, Azure, or GCP in 75+ regions and with access to
 our [top-rated support team][timescale-support].
 
-## Do you really support "all of SQL"?
+## Do you really support all of SQL?
 Yes, all of SQL, including: secondary indexes, JOINs, window functions. In fact,
 to the outside world, TimescaleDB looks like a PostgreSQL database: You connect
 to the database as if it's PostgreSQL, and you can administer the database as if
@@ -110,9 +117,9 @@ it's PostgreSQL. Any tools and libraries that connect with PostgreSQL
 automatically work with TimescaleDB.
 
 ## Why SQL?
-SQL is the most widely-used query language in the world for interacting with a
+SQL is the most widely used query language in the world for interacting with a
 database and manipulating data. We wanted TimescaleDB to be easy to use and powerful.
-Because SQL is so widely-used, it allows an entire organization to access their data,
+Because SQL is so widely used, it allows an entire organization to access their data,
 lending different perspectives to the analysis of that data and empowering people
 in their respective roles. It also allows for easy migration of data residing in
 PostgreSQL tables to TimescaleDB hypertables. Put another way: we wanted
@@ -134,7 +141,7 @@ To enable multi-node deployments, TimescaleDB 2.0 introduces the concept of a
 
 A regular hypertable, one of our original innovations, is a virtual
 table in TimescaleDB that automatically partitions data into many
-sub-tables (“chunks”) on a single machine, continuously creating
+sub-tables (chunks) on a single machine, continuously creating
 new ones as necessary, yet provides the illusion of a single continuous
 table across all time.
 
@@ -148,7 +155,7 @@ Yes. TimescaleDB is currently deployed in production across a variety of industr
 including manufacturing, energy, utilities, mining, oil and gas, finance, ad tech,
 smart spaces, and more.
 
-## When is TimescaleDB a good choice?  [](when-good)
+## When is TimescaleDB a good choice?
 TimescaleDB is a good choice:
 
 * If you, and more of your organization, want to make standard SQL queries on time-series data,
@@ -189,9 +196,9 @@ there are some best practices and suggestions that may apply to get optimal
 performance depending on your scenario. See discussion in these docs
 or [join our Slack group][join_slack].
 
-[distributed_hypertable]: /overview/core-concepts/distributed-hypertables/
+[distributed_hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
 [join_slack]: https://slack.timescale.com/
-[new-queries]: /how-to-guides/query-data/advanced-analytic-queries
+[new-queries]: /timescaledb/:currentVersion:/how-to-guides/query-data/advanced-analytic-queries
 [timescale-k8s]: https://github.com/timescale/timescaledb-kubernetes
 [timescale-license]: https://www.timescale.com/legal/licenses
 [timescale-signup]: https://www.timescale.com/timescale-signup

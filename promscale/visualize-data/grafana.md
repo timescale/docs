@@ -1,3 +1,11 @@
+---
+title: Connect Promscale and Grafana
+excerpt: Grafana to visualize data in Promscale
+product: promscale
+keywords: [Grafana]
+tags: [configure, prometheus, metrics]
+---
+
 # Connect Promscale and Grafana
 Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data source
 plugins that allow you to query and visualize data from a compatible database.

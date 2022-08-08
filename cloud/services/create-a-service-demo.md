@@ -1,3 +1,10 @@
+---
+title: Create a service with demo data
+excerpt: Create a Timescale Cloud service with demo data to start exploring TimescaleDB
+product: cloud
+keywords: [services, create, demo]
+---
+
 # Create a service with demo data
 Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
 quickly spin up new TimescaleDB instances. You can
@@ -30,6 +37,6 @@ if you want to have a chat.
 [sign-up]: https://www.timescale.com/timescale-signup
 [timescale-pricing]: https://www.timescale.com/products#cloud-pricing
 [contact]: https://www.timescale.com/contact
-[tsc-docs]: cloud/:currentVersion:/
+[tsc-docs]: /cloud/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
-[cloud-install]: install/:currentVersion:/installation-cloud/
+[cloud-install]: /install/:currentVersion:/installation-cloud/

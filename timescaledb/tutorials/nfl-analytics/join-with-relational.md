@@ -1,3 +1,9 @@
+---
+title: Join time-series data with relational data for deeper analysis
+excerpt: Join tables in TimescaleDB for richer anlysis
+keywords: [continuous aggregates, hyperfunctions, analytics]
+---
+
 ## Join time-series data with relational data for deeper analysis
 
 TimescaleDB is packaged as a PostgreSQL extension. As such, TimescaleDB is

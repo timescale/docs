@@ -1,5 +1,12 @@
 ---
-api_name: delta
+api_name: delta()
+excerpt: Calculate the change in a counter from values in a `CounterSummary`
+license: community
+toolkit: true
+experimental: false
+topic: hyperfunctions
+keywords: [counters, hyperfunctions, toolkit]
+tags: [delta]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -49,4 +56,4 @@ FROM (
 ) t
 ```
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

@@ -1,3 +1,10 @@
+---
+title: Alter and drop distributed hypertables
+excerpt: How to alter and drop distributed hypertables
+keywords: [distributed hypertables, alter, drop]
+tags: [change, delete]
+---
+
 # Alter and drop distributed hypertables
 You can alter and drop distributed hypertables in the same way as regular
 hypertables. To lean more, see:
@@ -11,5 +18,5 @@ section on [multi-node
 administration](/timescaledb/latest/how-to-guides/multinode-timescaledb/multinode-administration/).
 </highlight>
 
-[alter]: /how-to-guides/hypertables/alter/
-[drop]: /how-to-guides/hypertables/drop/
+[alter]: /timescaledb/:currentVersion:/how-to-guides/hypertables/alter/
+[drop]: /timescaledb/:currentVersion:/how-to-guides/hypertables/drop/

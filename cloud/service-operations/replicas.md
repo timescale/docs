@@ -1,26 +1,84 @@
+---
+title: Service operations - Replicas
+excerpt: Set up replicas on Timescale Cloud for high availability
+product: cloud
+keywords: [high avilability, replicas]
+tags: [failover, availability zones, replication, wal]
+---
+
 # Service operations - Replicas
-Instance redundancy refers to having replicas of your database running
-simultaneously. In the case of a database failure, a replica is an up-to-date,
-running database that can take over immediately.
+Replicas are up-to-date, running databases that contain the same data as your
+primary database. If your primary database fails, the replica can take over
+within a few seconds. Having replicas of your database is also known as instance
+redundancy.
 
-<highlight type="note">
-Creating database replicas in Timescale Cloud is an early access feature. Early
-access features are still under active development. You can start enjoying the
-benefits of database replication now, while we continue to develop extended 
-capabilities, such as offering replicas in different availability zones.
+You can enable a replica for your single-node services. If your primary database
+fails, the replica automatically assumes the role of primary, and a new standby
+replica is created. Replicas are resilient to availability zone failure, because
+they are created in different availability zones. If the availability zone of
+your primary goes down, your replica can take over.
+
+To learn more about how replicas work in Timescale Cloud, see the section on
+[how replicas work](#how-replicas-work).
+To learn how to create a replica, see the section on
+[creating replicas](#create-a-database-replica).
+
+## How replicas work
+Replicas in Timescale Cloud are asynchronous hot standbys. They use streaming
+replication to minimize the chance of data loss during failover. To learn more,
+see the [blog post on Timescale Cloud replicas][replicas-blog].
+
+### Asynchronous commits
+Timescale Cloud replicas are asynchronous. That means the primary database
+reports success as soon as a transaction is completedly locally. It doesn't wait
+to see if the replica successfully commits the transaction as well. The improves
+ingest rates and allows you to keep writing to your database even when the
+replica fails. But it might cause a small amount of data loss if the primary
+fails. To learn more, see the [failover section](#failover).
+
+Timescale Cloud doesn't currently offer synchronous replicas.
+
+### Hot standbys
+Timescale Cloud replicas are hot standbys. That means they are ready to take
+over as soon as the primary fails. It also means you can read from your replica,
+even when the primary is running. You can reduce the load on your primary by
+distributing your read queries.
+
+### Streaming replication
+To keep data in sync between the primary and the replicas, the primary streams
+its write-ahead log (WAL). WAL records are streamed as soon as they're written,
+rather than waiting to be batched and shipped. This reduces the chance of data
+loss. 
+
+### Failover
+In a normal operating state, your application is connected to the primary. It
+can optionally be connected to the replica for read queries. Timescale Cloud
+manages these connections automatically through a load balancer.
+
+If the primary fails, the platform promotes the replica to the primary and
+redirects traffic to it. Any missing data writes are retrieved from backup and
+replayed on the new primary, to account for any lag at the time of failure.
+Because replicas are asynchronous, it is possible that not all data is captured,
+so there might be a small amount of data loss. Closing and reopening connections
+to the databases usually takes a few seconds, meaning there is minimal downtime.
+
+To maintain a stable number of replicas, either the failed node recovers or a
+new one is created. This node becomes the new replica, while the promoted node
+remains the primary.
+
+### Multi-AZ
+By default, Timescale Cloud replicas are created in a different availability 
+zone (AZ) than the primary. This provides additional availability for Timescale 
+Cloud services with replicas, as it protects against entire AZ outages. If a 
+primary is in an AZ that experiences an outage, the service can easily fail 
+over to the replica.
+
+## Create a database replica
+
+<highlight type="warning">
+If your service was created before June 2022, adding a replica may cause your 
+service to restart. Restarts typically take about one minute to complete.
 </highlight>
-
-You can enable a replica for your single-node services. The
-replicas are asynchronous, and if your primary database fails, the replica
-automatically assumes the role of primary, and a new standby replica is created.
-Any missing data writes are retrieved from backup and replayed on the new
-primary, to account for any lag at the time of failure. Because replicas are
-asynchronous, it is possible that not all data is captured, so there
-might be a small amount of data loss.
-
-When this occurs, connections to the original, failed database are closed and
-need to be reopened. The entire process usually takes a few seconds. Timescale
-Cloud does not currently offer synchronous replicas.
 
 <procedure>
 
@@ -44,3 +102,4 @@ Cloud does not currently offer synchronous replicas.
 
 
 [cloud-login]: https://console.cloud.timescale.com
+[replicas-blog]: https://www.timescale.com/blog/high-availability-for-your-production-environments-introducing-database-replication-in-timescale-cloud/

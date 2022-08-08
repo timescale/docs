@@ -1,5 +1,11 @@
 ---
-api_name: into_values
+api_name: into_values()
+excerpt: Calculate all frequency estimates from a frequency aggregate or top N aggregate
+license: community
+toolkit: true
+experimental: true
+topic: hyperfunctions
+keywords: [frequency, top N, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -8,17 +14,15 @@ hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
-# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+import Experimental from 'versionContent/_partials/_experimental.mdx';
+
+# into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 This function returns the data accumulated in a
 [frequency aggregate][freq_agg] or [top N aggregate][topn_agg].
 The aggregate operates over `AnyElement` types, so this method
 requires a type parameter to determine the type of the output.
 
-<highlight type="warning">
-Experimental features could have bugs. They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk, and
-do not use any experimental features in production.
-</highlight>
+<Experimental />
 
 ## Required arguments
 
@@ -65,5 +69,5 @@ The output for this query looks like this, with some variation due to randomness
     10 |  0.05286 |  0.05289
 ```
 
-[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
-[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
+[freq_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn_agg/

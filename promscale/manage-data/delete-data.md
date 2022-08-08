@@ -1,3 +1,11 @@
+---
+title: Delete data in Promscale
+excerpt: Delete data in Promscale
+product: promscale
+keywords: [delete]
+tags: [metrics:]
+---
+
 # Delete data in Promscale
 Promscale provides several methods for deleting data. You can delete metric data
 by series, by metric name, or by time. You can also delete trace data.
@@ -93,7 +101,7 @@ For example, to delete all data from the `container_cpu_load_average_10s` metric
 that is older than 10 hours, decompress all chunks
 related to the hypertable of the metric:
 ```sql
-SELECT decompress_chunks(show_chunks('prom_data.container_cpu_load_average_10s'));
+SELECT decompress_chunk(show_chunks('prom_data.container_cpu_load_average_10s'));
 ```
 
 Then, perform the deletion query:
@@ -106,14 +114,20 @@ in the `WHERE` clause of the `DELETE` query.
 
 Now, recompress the remaining data:
 ```sql
-SELECT compress_chunks(show_chunks('prom_data.container_cpu_load_average_10s', older_than => '2 hours'));
+SELECT compress_chunk(show_chunks('prom_data.container_cpu_load_average_10s', older_than => '2 hours'));
 ```
 
 ## Delete trace data
 You can delete all trace data from the database using the
 `ps_trace.delete_all_traces()` function. This function restores the schema to a
 default state, truncates the tables in the `_ps_trace` schema, and deletes all
-the data.
+the data. You can only run the function when the Promscale Connector is not
+running.
+<highlight type="note">
+To run this function: first stop the Promscale Connector, then connect to the
+database and run `SELECT ps_trace.delete_all_traces();`, finally start the
+Promscale Connector.
+</highlight>
 
-[retention]: /manage-data/retention/
-[web-enable-admin-api]: /cli/#web-server-flags
+[retention]: /promscale/:currentVersion:/manage-data/retention/
+[web-enable-admin-api]: /promscale/:currentVersion:/cli/#web-server-flags

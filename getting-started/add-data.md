@@ -1,3 +1,10 @@
+---
+title: Add time-series data
+excerpt: Add time-series data to your TimescaleDB instance
+keywords: [ingest]
+tags: [add, data, time-series]
+---
+
 # Add time-series data
 To explore TimescaleDB's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
@@ -91,9 +98,11 @@ docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
 
 </procedure>
 
+<video url="https://www.youtube.com/embed/YwidcyBFgAU"></video>
+
 ## Next steps
 Now that you have data in your TimescaleDB instance, learn how to [query the
 data][query-data].
 
 [twelve-data]: https://twelvedata.com/
-[query-data]: /query-data/
+[query-data]: /getting-started/:currentVersion:/query-data/

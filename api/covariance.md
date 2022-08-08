@@ -1,5 +1,10 @@
 ---
-api_name: covariance
+api_name: covariance()
+excerpt: Calculate the covariance from values in a 2-dimensional `StatsSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [covariance, statistics, statistical aggregate, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -56,6 +61,6 @@ GROUP BY id, time_bucket('15 min'::interval, ts)
 ```
 
 
-[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[stats-agg]:/hyperfunctions/stats_aggs/stats_agg/
+[hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
 [least-squares]:https://en.wikipedia.org/wiki/Least_squares

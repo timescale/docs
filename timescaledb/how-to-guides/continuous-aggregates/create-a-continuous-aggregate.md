@@ -1,3 +1,9 @@
+---
+title: Create a continuous aggregate
+excerpt: How to create a continuous aggregate
+keywords: [continuous aggregates, create]
+---
+
 # Create a continuous aggregate
 Creating a continuous aggregate is a two-step process. You need to create the
 view first, then enable a policy to keep the view refreshed. You can have more
@@ -43,15 +49,9 @@ hypertable. Additionally, all functions and their arguments included in
 
 </procedure>
 
-Continuous aggregates are supported for most aggregate functions that can be
-[parallelized by PostgreSQL][postgres-parallel-agg], including the standard
-aggregates like `SUM` and `AVG`. You can also use more complex expressions on
-top of the aggregate functions, for example `max(temperature)-min(temperature)`.
-
-However, aggregates using `ORDER BY` and `DISTINCT` cannot be used with
-continuous aggregates since they are not possible to parallelize with PostgreSQL.
-TimescaleDB does not currently support the `FILTER` clause, or window functions
-in continuous aggregates.
+You can use most PostgreSQL aggregate functions in continuous aggregations. To
+see what PostgreSQL features are supported, check the
+[function support table][cagg-function-support].
 
 ## Choosing an appropriate bucket interval
 Continuous aggregates require a `time_bucket` on the time partitioning column of
@@ -202,9 +202,10 @@ FROM example_aggregate;
 This speeds up your query by calculating the aggregation ahead of time. The
 delta still needs to be calculated at query time.
 
-[api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
-[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
+[api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
+[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html

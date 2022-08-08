@@ -1,5 +1,11 @@
 ---
-api_name: max_val
+api_name: max_val()
+excerpt: Calculate the maximum from values in a `tdigest`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [tdigest, hyperfunctions, toolkit]
+tags: [percentiles, maximum]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: false
@@ -51,4 +57,4 @@ FROM generate_series(1, 100) data;
 
 
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
-[hyperfunctions-percentile-approx]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
+[hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

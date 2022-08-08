@@ -1,3 +1,10 @@
+---
+title: Approximate percentiles
+excerpt: How to use an approximation algorithm to calculate percentiles
+keywords: [hyperfunctions, Toolkit, percentiles]
+tags: [tdigest, uddsketch]
+---
+
 # Approximate percentiles
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
@@ -25,8 +32,8 @@ information about how long a server takes to respond to API calls.
     FROM response_times
     GROUP BY 1;
     ```
-1.  Re-aggregate the aggregate to get the last 30 days, and look for the 95th
-    percentile:
+1.  Re-aggregate the aggregate to get the last 30 days, and look for the
+    ninety-fifth percentile:
     ```sql
     SELECT approx_percentile(0.95, percentile_agg(percentile_agg)) as threshold
     FROM response_times_daily
@@ -49,6 +56,5 @@ information about how long a server takes to respond to API calls.
 For more information about percentile approximation API calls, see the
 [hyperfunction API documentation][hyperfunctions-api-approx-percentile].
 
-
-[advanced-agg]: /how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
+[advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
 [hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/

@@ -1,3 +1,11 @@
+---
+title: Send Zipkin traces to Promscale
+excerpt: Send Zipkin traces to Promscale
+product: promscale
+keywords: [Zipkin]
+tags: [configure, traces]
+---
+
 # Send Zipkin traces to Promscale
 Promscale natively supports the OpenTelemetry Protocol (OTLP) for 
 traces. To ingest Zipkin traces to Promscale, use the OpenTelemetry Collector.
@@ -38,6 +46,13 @@ service:
 Where: 
 * `<PROMSCALE_HOST>`: hostname of Promscale.
 * `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.
+
+If you are running the OTLP Collector and the Promscale Connector on a
+Kubernetes cluster, the endpoint parameter is similar to `endpoint:
+"promscale-connector.default.svc.cluster.local:<PORT>"`
+
+The default port exposed by the OpenTelemetry Collector Zipkin receiver is `9411`.
+This is the port where you should send your Zipkin traces. 
 
 For more information about OpenTelemetry Collector, see the 
 [OpenTelemetry documentation][otelcol-docs].
