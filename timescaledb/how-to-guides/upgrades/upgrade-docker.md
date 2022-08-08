@@ -134,8 +134,8 @@ data.
     to help you with queries and data analysis:
 
     ```sql
-    CREATE EXTENSION IF NOT EXISTS timescaledb-toolkit;
-    ALTER EXTENSION timescaledb-toolkit UPDATE;
+    CREATE EXTENSION IF NOT EXISTS timescaledb_toolkit;
+    ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
 
 </procedure>

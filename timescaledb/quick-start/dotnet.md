@@ -128,8 +128,8 @@ as SSL.
             //
             // This is the constructor for our TimescaleHelper class
             //
-            public TimescaleHelper(string host="localhost", string user="postgres",
-                string dbname="postgres", string password="password",string port="5432")
+            public TimescaleHelper(string host="<HOSTNAME>", string user="<USERNAME>",
+                string dbname="<DATABASE_NAME>", string password="<PASSWORD>",string port="<PORT>")
             {
                 Host=host;
                 User=user;
