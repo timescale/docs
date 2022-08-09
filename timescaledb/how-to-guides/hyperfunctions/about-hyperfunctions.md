@@ -143,7 +143,7 @@ community-wide problems and incorporate as much feedback as possible.
 *   Add your own [feature request][gh-newissue].
 
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions
-[blog-function-pipelines]: http://tsdb.co/function-pipelines
+[blog-function-pipelines]: https://www.timescale.com/blog/function-pipelines-building-functional-programming-into-postgresql-using-custom-operators/
 [gh-discussions]: https://github.com/timescale/timescale-analytics/discussions
 [gh-docs]: https://github.com/timescale/timescale-analytics/tree/main/docs
 [gh-newissue]: https://github.com/timescale/timescale-analytics/issues/new?assignees=&labels=feature-request&template=feature-request.md&title=
