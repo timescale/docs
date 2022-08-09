@@ -78,8 +78,8 @@ Export telemetry data to AWS CloudWatch by:
     your new user has restricted access to only Cloudwatch, and keep your keys
     secret. For instructions, see the [AWS documentation][aws-access-keys].
 1.  Select an AWS Region for your CloudWatch instance.
-1.  **OPTIONAL** Define an IAM role if you want to upload metrics to another
-    account on which you have delegated access.
+1.  **OPTIONAL** IAM role to use for uploading metrics. Having a dedicated role
+    with only CloudWatch permissions is a recommended security practice.
 
 <highlight type="warning">
 AWS keys give access to your AWS services. To keep your AWS account secure,
