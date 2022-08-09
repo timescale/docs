@@ -13,7 +13,7 @@ tags: [upgrade]
 When you use the `ALTER EXTENSION timescaledb UPDATE` command to upgrade, this
 error might appear.
 
-If occurs if you don't run `ALTER EXTENSION timescaledb UPDATE` command as the
+This occurs if you don't run `ALTER EXTENSION timescaledb UPDATE` command as the
 first command after starting a new session using psql or if you use tab
 completion when running the command. Tab completion triggers metadata queries in
 the background which prevents the alter extension from being the first command.
