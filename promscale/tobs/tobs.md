@@ -11,11 +11,11 @@ related_pages:
 
 # Install the observability stack (tobs) for Kubernetes
 The observability stack (tobs), is a pre-packaged distribution of observability
-tools and dashboard interfaces which can be installed on any existing Kubernetes
+tools and components which can be installed on any existing Kubernetes
 cluster. It includes many of the most popular open-source observability tools
 including Prometheus, Grafana, TimescaleDB, and [other components][stack-components].
-Together, these provide a unified solution to analyze the traffic on the
-server and identify any potential problems with a deployment. You can use Helm
+Together, these provide a unified solution to observe deployments in Kubernetes
+cluster and identify any potential problems using both metrics and traces. You can use Helm
 charts to configure and update [tobs][tobs] deployments. 
 
  
@@ -60,20 +60,19 @@ access it locally with `kubectl` [Port-Forward][port-forward].
     
 </procedure>
 
-### Accessing the interfaces with port-forward
+### Accessing the components with port-forward
 
 <procedure>
 
 You can use `kubectl` [port-forward][port-forward] to open a connection to a
-service, then access the interface of the service by entering the corresponding
-ports in your web browser.
+service, then access the service by entering the corresponding ports in your web browser.
 
 1.  List the services running in the `observability` namespace and review their
     respective ports:
     ```bash
     kubectl -n observability get svc
     ```
-1. To access the **Prometheus** interface at the address `127.0.0.1:9090` in
+1. To access **Prometheus** at the address `127.0.0.1:9090` in
    your web browser, use:
    ```bash
    kubectl -n observability \
@@ -81,7 +80,7 @@ ports in your web browser.
    svc/tobs-kube-prometheus-prometheus \
    9090
    ```
-1. To access the **Alertmanager** interface at the address `127.0.0.1:9093` in
+1. To access **Alertmanager** at the address `127.0.0.1:9093` in
    your web browser, use:
    ```bash
       kubectl -n observability \
@@ -89,7 +88,7 @@ ports in your web browser.
       svc/tobs-kube-prometheus-alertmanager  \
       9093
    ```   
-1. To access the **Grafana** interface at the address `127.0.0.1:3000` in your
+1. To access **Grafana** at the address `127.0.0.1:3000` in your
    web browser, use:
    ```bash
    kubectl -n observability \
@@ -100,7 +99,7 @@ ports in your web browser.
 
 </procedure>
 
-When accessing the Grafana interface, log in as `admin`. You can get the
+When accessing Grafana, log in as `admin`. You can get the
 `password` using:
    ```bash
    kubectl get secret --namespace observability tobs-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
