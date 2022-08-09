@@ -36,7 +36,8 @@ Export telemetry data to Datadog by:
 1.  Name your exporter. This name appears in the Cloud console, so choose a
     descriptive name.
 1.  Add a Datadog API key. If you don't have an API key yet, you can create one
-    by following the instructions in the [Datadog documentation][datadog-docs].
+    by following the instructions in the [Datadog
+    documentation][datadog-api-key].
 1.  Under Site, choose your Datadog region. You can choose a region to meet any
     regulatory requirements or application needs you might have.
 1.  Click `Create endpoint`.
@@ -48,6 +49,10 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 </procedure>
 
 <AttachExporter />
+
+You can now monitor your service metrics from the [metrics explorer in
+Datadog][datadog-metrics-explorer]. For more information, see the [Datadog
+documentation][datadog-docs].
 
 ## Export telemetry data to AWS CloudWatch
 
@@ -95,6 +100,10 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 
 <AttachExporter />
 
+You can now query your service metrics from the CloudWatch metrics page in AWS
+Console. For more information, see the [CloudWatch
+documentation][cloudwatch-docs].
+
 ## Edit a data exporter
 
 You can edit a data exporter after you create it. Some fields, such as the
@@ -132,6 +141,9 @@ Delete any data exporters that you no longer need.
 
 [aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
 [cloudwatch]: https://aws.amazon.com/cloudwatch/
+[cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html
 [cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
 [datadog]: https://www.datadoghq.com
-[datadog-docs]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
+[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
+[datadog-docs]: https://docs.datadoghq.com/
+[datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer
