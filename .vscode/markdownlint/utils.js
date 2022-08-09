@@ -6,7 +6,7 @@
  * Adds a markdownlint error with a corresponding fix that inserts blank lines.
  *
  * @param {addErrorCallback} onError The callback that adds markdownlint errors.
- * @param {number} procedureLine 1-indexed line number of procedure tag.
+ * @param {number} lineNumber 1-indexed line number to add the error on.
  * @param {number} blankLineOffset Relative line on which to add blank line.
  */
 module.exports.addErrorAndInsertBlank = (
@@ -15,7 +15,7 @@ module.exports.addErrorAndInsertBlank = (
   blankLineOffset = 0
 ) => {
   onError({
-    lineNumber: lineNumber,
+    lineNumber,
     fixInfo: {
       insertText: "\n",
       lineNumber: lineNumber + blankLineOffset,
@@ -23,6 +23,9 @@ module.exports.addErrorAndInsertBlank = (
     },
   });
 };
+
+const isValidTagType = (tagType) =>
+  tagType === "opening" || tagType === "closing";
 
 /*
  * Check for blank lines between a tag and its enclosed content.
@@ -34,6 +37,20 @@ module.exports.addErrorAndInsertBlank = (
  * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
  * @param {boolean} withExceptions Whether to make exceptions for code blocks and lists.
  */
+
+const fixBlankLine = (tag, tagType, onError) => {
+  const lineNumberToFix =
+    tagType === "opening" ? tag.lineNumber + 1 : tag.lineNumber - 1;
+  onError({
+    lineNumber: tag.lineNumber,
+    detail: "Line break between content and tag",
+    fixInfo: {
+      lineNumber: lineNumberToFix,
+      deleteCount: -1,
+    },
+  });
+};
+
 module.exports.checkTagBlankLine = ({
   tag,
   tagType,
@@ -41,26 +58,13 @@ module.exports.checkTagBlankLine = ({
   onError,
   withExceptions = false,
 }) => {
-  if (tagType !== "opening" && tagType !== "closing") {
+  if (!isValidTagType(tagType)) {
     throw `The tag type for checkTagLineBreak must be either opening or closing: ${tagType}`;
   }
 
   const lineNumberToCheck =
     tagType === "opening" ? tag.lineNumber : tag.lineNumber - 2;
   const hasBlankNeighbor = this.isBlank(lines[lineNumberToCheck]);
-
-  const fixBlankLine = (tag, tagType, onError) => {
-    const lineNumberToFix =
-      tagType === "opening" ? tag.lineNumber + 1 : tag.lineNumber - 1;
-    onError({
-      lineNumber: tag.lineNumber,
-      detail: "Line break between content and tag",
-      fixInfo: {
-        lineNumber: lineNumberToFix,
-        deleteCount: -1,
-      },
-    });
-  };
 
   if (!withExceptions && hasBlankNeighbor) {
     fixBlankLine(tag, tagType, onError);
@@ -83,6 +87,12 @@ module.exports.checkTagBlankLine = ({
     } else if (!isException && hasBlankNeighbor) {
       fixBlankLine(tag, tagType, onError);
     }
+    return;
+  }
+
+  if (!withExceptions && hasBlankNeighbor) {
+    fixBlankLine(tag, tagType, onError);
+    return;
   }
 };
 
