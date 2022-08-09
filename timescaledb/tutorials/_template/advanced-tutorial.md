@@ -17,7 +17,7 @@ provide the query in a code block.
 Provide example results of the query, using either a code block or, if more
 appropriate, an image.
 
-## The second query
+## The second advanced step
 Continue to build on the first query you presented, providing more information,
 explaining the query, and continuing to explain which questions are being
 answered. Repeat as required.
