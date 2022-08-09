@@ -23,6 +23,12 @@ any introduced inconsistency.
 Note that the command is _not_ executed on the access node itself and
 it is not possible to chain multiple commands together in one call.
 
+<highlight type="important">
+You cannot run `distributed_exec` with some SQL commands. For example, `ALTER
+EXTENSION` doesn't work because it can't be called after the TimescaleDB
+extension is already loaded.
+</highlight>
+
 ### Required arguments
 
 |Name|Type|Description|
@@ -42,17 +48,22 @@ Create the role `testrole` across all data nodes in a distributed database:
 
 ```sql
 CALL distributed_exec($$ CREATE USER testrole WITH LOGIN $$);
-
 ```
 
 Create the role `testrole` on two specific data nodes:
 
 ```sql
 CALL distributed_exec($$ CREATE USER testrole WITH LOGIN $$, node_list => '{ "dn1", "dn2" }');
-
 ```
 
-Create new databases `dist_database` on data nodes, which requires to set `transactional` to FALSE:
+Create the table `example` on all data nodes:
+
+```sql
+CALL distributed_exec($$ CREATE TABLE example (ts TIMESTAMPTZ, value INTEGER) $$);
+```
+
+Create new databases `dist_database` on data nodes, which requires setting
+`transactional` to FALSE:
 
 ```sql
 CALL distributed_exec('CREATE DATABASE dist_database', transactional => FALSE);
