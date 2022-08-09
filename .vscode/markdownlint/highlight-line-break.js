@@ -25,7 +25,12 @@ const checkHighlightLineBreak = (params, onError) => {
   const closingTags = findPatternInLines(lines, closingPattern);
 
   openingTags.forEach((tag) => {
-    checkTagLineBreak(tag, "opening", openingPattern, onError);
+    checkTagLineBreak({
+      tag,
+      tagType: "opening",
+      pattern: openingPattern,
+      errorCallback: onError,
+    });
     checkTagBlankLine({
       tag: tag,
       tagType: "opening",
@@ -35,7 +40,12 @@ const checkHighlightLineBreak = (params, onError) => {
   });
 
   closingTags.forEach((tag) => {
-    checkTagLineBreak(tag, "closing", closingPattern, onError);
+    checkTagLineBreak({
+      tag,
+      tagType: "closing",
+      pattern: closingPattern,
+      errorCallback: onError,
+    });
     checkTagBlankLine({
       tag: tag,
       tagType: "closing",

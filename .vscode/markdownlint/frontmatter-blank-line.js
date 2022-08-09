@@ -15,7 +15,7 @@ const checkFrontmatterBlankLine = (params, onError) => {
   const { frontMatterLines } = params;
   if (frontMatterLines.length === 0) return;
   if (!isBlank(frontMatterLines.at(-1))) {
-    addErrorAndInsertBlank(onError, 1);
+    addErrorAndInsertBlank({ errorCallback: onError, lineNumber: 1 });
   }
 };
 

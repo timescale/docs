@@ -26,7 +26,11 @@ const checkTerminalIndent = (params, onError) => {
   if (terminalOpeningTags.length === 0) return;
 
   // Create an error for any unmatched terminal opening or closing tags
-  checkTagsClosed(terminalOpeningTags, terminalClosingTags, onError);
+  checkTagsClosed({
+    openingTags: terminalOpeningTags,
+    closingTags: terminalClosingTags,
+    errorCallback: onError,
+  });
 
   // Early return if number of opening and closing tags do not match, because
   // it is unclear how to split multiple terminals into sets to check matching
@@ -40,14 +44,26 @@ const checkTerminalIndent = (params, onError) => {
     const terminalOpeningLine = terminalOpeningTags[i].lineNumber;
     const terminalClosingLine = terminalClosingTags[i].lineNumber;
     const enclosedTabs = tabTags.filter((tag) =>
-      isBetween(tag, terminalOpeningLine, terminalClosingLine)
+      isBetween({
+        token: tag,
+        openingLineNumber: terminalOpeningLine,
+        closingLineNumber: terminalClosingLine,
+      })
     );
 
     // Check whitespace equal
     const allowedWhitespace = countWhitespace(terminalOpeningTags[i].line);
-    matchIndentation(terminalClosingTags[i], allowedWhitespace, onError);
+    matchIndentation({
+      token: terminalClosingTags[i],
+      indent: allowedWhitespace,
+      errorCallback: onError,
+    });
     enclosedTabs.forEach((tabTag) =>
-      matchIndentation(tabTag, allowedWhitespace, onError)
+      matchIndentation({
+        token: tabTag,
+        indent: allowedWhitespace,
+        errorCallback: onError,
+      })
     );
   }
 };

@@ -26,9 +26,17 @@ const checkProcedureBlankLines = (params, onError) => {
       zeroIndexedLine === 0 || isBlank(lines[zeroIndexedLine - 1]);
     const hasFollowingBlank = isBlank(lines[zeroIndexedLine + 1]);
     if (!hasPrecedingBlank)
-      addErrorAndInsertBlank(onError, procedureTag.lineNumber, 0);
+      addErrorAndInsertBlank({
+        errorCallback: onError,
+        lineNumber: procedureTag.lineNumber,
+        blankLineOffset: 0,
+      });
     if (!hasFollowingBlank)
-      addErrorAndInsertBlank(onError, procedureTag.lineNumber, 1);
+      addErrorAndInsertBlank({
+        errorCallback: onError,
+        lineNumber: procedureTag.lineNumber,
+        blankLineOffset: 1,
+      });
   });
 };
 

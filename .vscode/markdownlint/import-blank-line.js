@@ -24,7 +24,11 @@ const checkImportBlankLine = (params, onError) => {
   // lineNumber is indexed from 1
   const hasFollowingBlank = isBlank(lines[lastImportStatementLine]);
   if (!hasFollowingBlank)
-    addErrorAndInsertBlank(onError, lastImportStatementLine, 1);
+    addErrorAndInsertBlank({
+      errorCallback: onError,
+      lineNumber: lastImportStatementLine,
+      blankLineOffset: 1,
+    });
 };
 
 module.exports = {

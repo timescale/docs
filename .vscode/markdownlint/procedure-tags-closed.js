@@ -17,7 +17,11 @@ const checkProcedureTagsClosed = (params, onError) => {
   const procedureClosingTags = findPatternInLines(lines, "<\\/procedure>");
   if (procedureOpeningTags.length === 0 && procedureClosingTags.length === 0)
     return;
-  checkTagsClosed(procedureOpeningTags, procedureClosingTags, onError);
+  checkTagsClosed({
+    openingTags: procedureOpeningTags,
+    closingTags: procedureClosingTags,
+    errorCallback: onError,
+  });
 };
 
 module.exports = {
