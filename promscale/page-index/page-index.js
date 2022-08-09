@@ -273,7 +273,7 @@ module.exports = [
             excerpt: "Install the observability stack for Kubernetes (tobs)",
           },
           {
-            title: "Install the observability stack (tobs) for Kubernetes",
+            title: "Install",
             href: "tobs",
             tags: ["promscale", "install", "analytics", "k8s"],
             keywords: ["Promscale", "analytics", "Kubernetes"],
