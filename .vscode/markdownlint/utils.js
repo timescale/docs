@@ -6,7 +6,7 @@
  * Adds a markdownlint error with a corresponding fix that inserts blank lines.
  *
  * @param {addErrorCallback} onError The callback that adds markdownlint errors.
- * @param {number} lineNumber 1-indexed line number of procedure tag.
+ * @param {number} lineNumber 1-indexed line number to add the error on.
  * @param {number} blankLineOffset Relative line on which to add blank line.
  */
 module.exports.addErrorAndInsertBlank = (
