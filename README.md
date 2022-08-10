@@ -1,5 +1,12 @@
 # README
 
+<a href="https://gitpod.io/#https://github.com/charislam/docs>">
+  <img
+    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
+
 This is the source for content for docs.timescale.com, starting with release 2.0.
 All documentation for previous versions is in the deprecated repository called
 [docs.timescale.com-content](https://github.com/timescale/docs.timescale.com-content).
