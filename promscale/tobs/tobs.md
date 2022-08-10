@@ -26,7 +26,7 @@ charts to configure and update [tobs][tobs] deployments.
 *  Install [Helm 3][helm] in your local machine.
 * Install a certificate manager for your cluster:
    ```bash
-   kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
+   kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/<LATEST_VERSION>/cert-manager.yaml
    ```
    <highlight type="note">
    For the latest and updated instructions to install, see the [certificate manager][cert-manager-docs] documentation.
