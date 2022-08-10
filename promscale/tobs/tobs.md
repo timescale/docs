@@ -24,10 +24,7 @@ charts to configure and update [tobs][tobs] deployments.
 *  Ensure that you have a [Kubernetes Cluster][kubernetes-cluster]. 
 *  Install [kubectl][kubectl] in your local environment and [connect to your cluster][connect-to-cluster].
 *  Install [Helm 3][helm] in your local machine.
-* Install a certificate manager for your cluster:
-   ```bash
-   kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/<LATEST_VERSION>/cert-manager.yaml
-   ```
+* Install a certificate manager for your cluster.
    <highlight type="note">
    For the latest and updated instructions to install, see the [certificate manager][cert-manager-docs] documentation.
    You may choose not to install certificate manager if you plan to use tobs with opentelemetry support disabled.
