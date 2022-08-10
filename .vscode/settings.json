@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "[markdown]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    } 
+}

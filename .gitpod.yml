@@ -1,5 +1,8 @@
 image:
   file: .gitpod.Dockerfile
+github:
+  prebuilds:
+    latest: true
 vscode:
   extensions:
     - DavidAnson.vscode-markdownlint
