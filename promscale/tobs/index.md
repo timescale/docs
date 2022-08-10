@@ -11,8 +11,8 @@ install and manage a full observability stack in a Kubernetes cluster.
 *   [Learn about tobs][about-tobs] to understand how it works before you begin
     using it.
 *   [Install tobs][tobs-install].
-*   [Use tobs][tobs-use].
+
 
 [about-tobs]: /promscale/:currentVersion:/tobs/about/
-[tobs-install]: /promscale/:currentVersion:/installation/tobs/
-[tobs-use]: /promscale/:currentVersion:/tobs/use/
+[tobs-install]: /promscale/:currentVersion:/tobs/tobs/
+

@@ -166,10 +166,6 @@ ERROR:  invalid continuous aggregate view
 SQL state: 0A000
 ```
 
-TimescaleDB doesn't support window functions or `JOIN` clauses on continuous
-aggregates. In versions earlier than 2.7, it doesn't support any
-[non-parallelizable SQL aggregates][postgres-parallel-agg].
-
 <CaggsFunctionSupport />
 
 ## Queries using locf() do not return NULL values
