@@ -15,14 +15,15 @@ hyperfunction_type: other
 ---
 
 # lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
-[Largest Triangle Three Buckets][gh-lttb] is a downsampling method that 
-tries to retain visual similarity between the downsampled data and the 
-original dataset. The TimescaleDB Toolkit implementation of this takes 
+
+[Largest triangle three buckets][gh-lttb] is a downsampling method that
+tries to retain visual similarity between the downsampled data and the
+original dataset. The TimescaleDB Toolkit implementation of this takes
 `(timestamp, value)` pairs, sorts them if needed, and downsamples them.
 
 ## Required arguments
 
-|Name| Type |Description|
+|Name|Type|Description|
 |-|-|-|
 |`time`|`TIMESTAMPTZ`|Time (x) value for the data point|
 |`value`|`DOUBLE PRECISION`|Data (y) value for the data point|
@@ -35,7 +36,10 @@ original dataset. The TimescaleDB Toolkit implementation of this takes
 |`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points. It can be unpacked via `unnest`.|
 
 ## Sample usage
-This example creates a dramatically downsampled data set from a `sample_data` table:
+
+This example creates a dramatically downsampled dataset from a `sample_data`
+table:
+
 ```sql
 SELECT time, value
 FROM toolkit_experimental.unnest((
@@ -44,6 +48,7 @@ FROM toolkit_experimental.unnest((
 ```
 
 The output for this query:
+
 ```sql
           time          |       value
 ------------------------+--------------------
@@ -53,6 +58,28 @@ The output for this query:
  2020-04-20 00:00:00+00 | 10.022128489940254
 ```
 
+This example creates a downsampled dataset from multiple series:
+
+```sql
+WITH downsamples AS (
+ SELECT
+  metric_id,
+  toolkit_experimental.lttb("time", value, :datapoint_count) AS samples
+ FROM sample_data
+ WHERE metric_id = any(:metric_ids)
+     AND TIME BETWEEN
+      :start_time - interval '1 seconds' * :resolution
+      AND :end_time + interval '1 seconds' * :resolution
+ GROUP BY metric_id
+)
+SELECT
+ metric_id,
+ s."time",
+ s.value
+FROM downsamples ds
+ CROSS JOIN lateral (SELECT * FROM toolkit_experimental.unnest(ds.samples)) s
+;
+```
 
 [gh-lttb]: https://github.com/sveinn-steinarsson/flot-downsample
 [hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
