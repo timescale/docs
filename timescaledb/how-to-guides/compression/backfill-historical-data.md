@@ -175,7 +175,7 @@ identify your compressed chunks before inserting the backfilled data.
 
     Repeat for each chunk.
 1.  *OPTIONAL* Alternatively, decompress a set of chunks based on a time range
-    using [`show_chunks`][show_chunks]:
+    using `show_chunks`:
 
     ``` sql
     SELECT decompress_chunk(i)
@@ -214,6 +214,5 @@ those cases either errors or fails silently.
 
 [compression-schema-changes]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema/
 [run-job]: /api/:currentVersion:/actions/run_job/
-
 [timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
