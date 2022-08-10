@@ -1,8 +1,8 @@
 ---
 title: Verb the widget tutorial - Advanced steps
 excerpt: Advanced steps to verb your widgets to achieve an outcome using the tool
-keywords: [noun, noun, tutorial]
-tags: [noun, verb]
+keywords: [noun, verb, tutorial]
+tags: [noun, noun]
 ---
 
 # Advanced steps
