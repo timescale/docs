@@ -45,6 +45,12 @@ module.exports = [
             tags: ["compression", "hypertables", "timescaledb"],
             keywords: ["hypertables", "compression", "TimescaleDB"],
             excerpt: "Using compression on hypertables",
+            children: [
+              {
+                title: "Compression architecture",
+                href: "architecture",
+              },
+            ],
           },
           {
             title: "Continuous aggregates",
