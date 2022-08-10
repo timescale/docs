@@ -81,14 +81,15 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 1.  Start `Azure Data Studio`.
 1.  Click the `New Connection` icon in the `SERVERS`page.
 1.  In the form that pops up, go to `Connection type` and select `PostgreSQL`
-    from the drop-down. To connect to the TimescaleDB hosted on your local
-    machine or on a remote server. Fill in the fields using the server name, user
+    from the drop-down. Fill in the fields using the server name, user
     name, port, and password for your Managed Service for TimescaleDB service. For
     description of the settings in `Connection Details`,
     see [Connection Detais][connection-details].
 
    <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.png"alt="Connection screen for Managed Service for TimescaleDB service"/>
 
+1.  Click `Advanced`.
+1.  Type the port number in the `Port` field and click `OK`.
 1.  Select `Connect`.
 
 After successfully connecting, your server opens in the `SERVERS`sidebar.
