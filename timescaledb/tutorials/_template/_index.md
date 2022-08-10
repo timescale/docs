@@ -1,8 +1,8 @@
 ---
 title: Verb the widget in the tool
 excerpt: Verb your widgets to achieve an outcome using the tool
-keywords: [noun, noun, tutorial]
-tags: [noun, verb]
+keywords: [noun, verb, tutorial]
+tags: [noun, noun]
 ---
 
 # Verb the widget in the tool

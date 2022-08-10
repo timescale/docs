@@ -1,8 +1,8 @@
 ---
 title: Verb the widget tutorial - set up dataset
 excerpt: Set up a dataset so you can verb your widgets to achieve an outcome using the tool
-keywords: [noun, noun, tutorial]
-tags: [noun, verb]
+keywords: [noun, verb, tutorial]
+tags: [noun, noun]
 ---
 
 # The dataset

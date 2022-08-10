@@ -1,8 +1,8 @@
 ---
 title: Verb the widget tutorial - query the data
 excerpt: Query data to verb your widgets to achieve an outcome using the tool
-keywords: [noun, noun, tutorial]
-tags: [noun, verb]
+keywords: [noun, verb, tutorial]
+tags: [noun, noun]
 ---
 
 # Query the data
