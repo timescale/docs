@@ -24,9 +24,9 @@ Virtual machines are automatically launched to the cloud region chosen by the
 customer. Data never leaves the chosen cloud region. If a cloud region has
 multiple Availability Zones, or a similar high-availability mechanism, the
 virtual machines are distributed evenly across the zones. This provides the best
-possible service if an Available Zone becomes unavailable.
+possible service if an Availability Zone becomes unavailable.
 
-Customer data never leaves the virtual machine, except when uploaded to the
+Customer data never leaves the virtual machine, except when uploaded to an
 offsite backup location.
 
 Virtual machines are not reused. They are terminated and wiped when you upgrade
