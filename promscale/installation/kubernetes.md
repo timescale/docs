@@ -225,7 +225,5 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 [template-manifest]: https://github.com/timescale/promscale/blob/0.13.0/deploy/static/deploy.yaml
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3
 [timescaledb-helm-values-certs]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L45
-[send-data]: promscale/:currentVersion:/send-data/
-[prom-migrator]: promscale/:currentVersion:/installation/prom-migrator
 [timescaledb-helm-values-creds]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml#L33
 [timescaledb-single-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml

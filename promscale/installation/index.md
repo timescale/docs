@@ -49,8 +49,6 @@ Kubernetes includes Prometheus, OpenTelemetry, and Promscale.
 [config-otel]: /promscale/:currentVersion:/send-data/opentelemetry/
 [config-prometheus]: /promscale/:currentVersion:/send-data/prometheus/
 [otel]: https://opentelemetry.io/docs/
-[recomm-guide]: recommendation/resource-recomm/
-[config-guide]: recommendation/config-recomm/
 [prometheus-install]: https://prometheus.io/docs/prometheus/latest/installation/
 [promscale-install-docker]: /promscale/:currentVersion:/installation/docker/
 [promscale-install-helm]: https://docs.timescale.com/promscale/latest/installation/kubernetes/#install-promscale-with-helm

@@ -77,10 +77,7 @@ For upgrading the Promscale, see the [upgrade] section.
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
-[promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
 [send-data]: /promscale/:currentVersion:/send-data/
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
 [promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
-[send-data]: promscale/:currentVersion:/send-data/
-[prom-migrator]: promscale/:currentVersion:/installation/prom-migrator
