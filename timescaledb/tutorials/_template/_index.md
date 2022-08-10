@@ -30,9 +30,9 @@ Before you begin, make sure you have:
 A numbered list of the sub-pages in the tutorial. Remember that this is
 curricula content, so these steps must be in order:
 
-*   [Set up up your dataset][tutorial-dataset]
-*   [Query your datset][tutorial-query]
-*   [More things to try][tutorial-advanced]
+1.  [Set up up your dataset][tutorial-dataset]
+1.  [Query your dataset][tutorial-query]
+1.  [More things to try][tutorial-advanced]
 
 ## About the widget and the tool
 
