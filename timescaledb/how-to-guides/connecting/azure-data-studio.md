@@ -67,7 +67,7 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
    the drop-down. Fill in the fields using the server name, user name, and
    password for your TimescaleDB Cloud service.
 
-   <img class="maincontent__illustration"src="https://s3.console.aws.amazon.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"alt="Connection screen for Timescale Cloud service"/>
+   <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"alt="Connection screen for Timescale Cloud service"/>
 
    | Setting       | Example value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -105,7 +105,7 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
    machine or on a remote server. Fill in the fields using the server name, user
    name, and password for your Managed Service for TimescaleDB service.
 
-   <img class="maincontent__illustration"src="https://s3.console.aws.amazon.com/assets.timescale.com/docs/images/mst_connection_screen.png"alt="Connection screen for Managed Service for TimescaleDB service"/>
+   <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.png"alt="Connection screen for Managed Service for TimescaleDB service"/>
 
    | Setting       | Example value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
