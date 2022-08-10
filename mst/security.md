@@ -8,27 +8,32 @@ keywords: [security]
 # Security overview
 
 ## Cloud provider accounts
+
 The regular managed TimescaleDB services are hosted under cloud provider
 accounts controlled by Managed Service for TimescaleDB. These accounts are
 managed only by Timescale and Aiven operations personnel. Customers cannot
 directly access the cloud provider account resources.
 
 ## Virtual machines
-Each Managed Service for TimescaleDB service consists of one or more virtual
-machines, which are automatically launched to the target cloud region chosen by
-the customer. In cloud regions that have multiple Availability Zones (or a
-similar mechanism), the virtual machines are distributed evenly across the zones
-in order to provide best possible service in cases when an entire Availability
-Zone (may include one or more data centers) goes unavailable.
 
-Service-providing virtual machines are dedicated for a single customer, that is,
-there is no multi-tenancy on a VM basis, and the customer data never leaves the
-machine, except when uploaded to the offsite backup location.
+Each Managed Service for TimescaleDB service resides on one or more virtual
+machines. Service-providing virtual machines are dedicated to a single customer.
+There is no multi-tenancy of virtual machines.
 
-Virtual machines are not reused and are terminated and wiped upon service
-upgrade or termination.
+Virtual machines are automatically launched to the cloud region chosen by the
+customer. Data never leaves the chosen cloud region. If a cloud region has
+multiple Availability Zones, or a similar high-availability mechanism, the
+virtual machines are distributed evenly across the zones. This provides the best
+possible service if an Availability Zone becomes unavailable.
+
+Customer data never leaves the virtual machine, except when uploaded to an
+offsite backup location.
+
+Virtual machines are not reused. They are terminated and wiped when you upgrade
+or delete your service.
 
 ## Data encryption
+
 Managed Service for TimescaleDB at-rest data encryption covers both active
 service instances as well as service backups in cloud object storage.
 
@@ -49,6 +54,7 @@ Timescale Cloud-encrypted backup files are stored in the object storage in the
 same region where the service virtual machines are located.
 
 ## Networking security
+
 Customer access to provided services is only provided over TLS encrypted connections.
 There is no option for using unencrypted plaintext connections.
 
@@ -63,6 +69,7 @@ network (customer client connections).  The allowed source IP addresses for
 establishing connections is user controlled on per-service basis.
 
 ## Networking with VPC peering
+
 When using VPC peering, **no public internet based access** is provided to the
 services. Service addresses are published in public DNS, but they can only be
 connected to from the customer's peered VPC using private network addresses.
@@ -71,6 +78,7 @@ The service providing virtual machines are still contained under Timescale Cloud
 provider accounts.
 
 ## Operator access
+
 Normally all the resources required for providing an Managed Service for
 TimescaleDB service are automatically created, maintained and terminated by the
 Timescale Cloud infrastructure and there is no manual operator intervention
@@ -83,6 +91,7 @@ These accesses are audit logged.
 No customer access to the virtual machine level is provided.
 
 ## Customer data privacy
+
 Customer data privacy is of utmost importance at Timescale and is covered
 by internal Security and Customer Privacy policies as well as the strict EU regulations.
 Timescale operators never access customer data, unless explicitly
@@ -141,9 +150,11 @@ For example, entering a value of `192.168.1.15/32` ONLY allows incoming traffic 
 source IP of `192.168.1.15` and denies all other traffic.
 
 #### Step 4 - Save your changes
+
 Click 'Save Changes' and see this take effect immediately.
 
 #### Conclusion
+
 Limiting IP address inbound access is just one option to improve the security of your Timescale
 Cloud database instance. There are many other types of security measures you should take into
 account when securing your data. To learn more about security options within Timescale Cloud,
