@@ -1,4 +1,6 @@
 ---
+name: Broken link report
+about: Automated issue template for reporting link checker fails
 title: Failing link check ({{ date | date('dddd, MMMM Do') }})
 labels: bug, automated issue, link check
 ---
