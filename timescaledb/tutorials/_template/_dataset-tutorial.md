@@ -21,7 +21,7 @@ title; the procedure itself uses the gerund-verb form (an `-ing` word) instead.
 
 ### Setting up the dataset
 
-1.  Start each step with a verb (create, use, install, etc), or a location (at
+1.  Start each step with a verb (create, use, install, etc) or a location (at
     the `psql` prompt, on your local filesystem, on the server, etc) followed by
     a verb.
 1.  Do the next step:

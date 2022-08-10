@@ -37,7 +37,7 @@ curricula content, so these steps must be in order:
 ## About the widget and the tool
 
 This section collects all the concept information related to the tutorial, and
-the tools that are being used throughout. It answers the question "What is it"?
+the tools that are being used throughout. It answers the question "What is it?"
 This section should not include any procedures, but it can contain code samples
 if they are being used to explain the feature. Break this page up in a way that
 is logical, starting from simpler concepts and moving to more complicated ones.
