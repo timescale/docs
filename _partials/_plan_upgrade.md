@@ -1,0 +1,19 @@
+You can upgrade your on-premise TimescaleDB installation in-place. This means
+that you do not need to dump and restore your data. However, it is still
+important that you plan for your upgrade ahead of time.
+
+Before you upgrade:
+
+*   Read [the release notes][relnotes] for the TimescaleDB version you are
+    upgrading to.
+*   Check which PostgreSQL version you are currently running. You might need to
+    [upgrade to the latest PostgreSQL version][upgrade-pg]
+    before you begin your TimescaleDB upgrade.
+*   [Perform a backup][backup] of your database. While TimescaleDB
+    upgrades are performed in-place, upgrading is an intrusive operation. Always
+    make sure you have a backup on hand, and that the backup is readable in the
+    case of disaster.
+
+[relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
+[upgrade-pg]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-postgresql/
+[backup]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/

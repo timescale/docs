@@ -3,7 +3,8 @@ title: Can't create unique index on hypertable, or can't create hypertable with 
 section: troubleshooting
 topics: [hypertables, distributed hypertables, data migration]
 errors:
-  - message: |-
+  - language: text
+    message: |-
       ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in partitioning) 
 apis:
   - [hypertables, create_hypertable()]
@@ -23,6 +24,7 @@ tags: [hypertables, distributed hypertables, indexes, primary keys, partitions]
 -->
 
 You might get a unique index and partitioning column error in 2 situations:
+
 *   When creating a primary key or unique index on a hypertable
 *   When creating a hypertable from a table that already has a unique index or
     primary key

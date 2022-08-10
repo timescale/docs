@@ -3,7 +3,8 @@ title: Can't access file "timescaledb-VERSION" after update
 section: troubleshooting
 topics: [updates]
 errors:
-  - message: |-
+  - language: text
+    message: |-
       ERROR: could not access file "timescaledb-<VERSION>": No such file or directory
 keywords: [update]
 tags: [update]
