@@ -1,3 +1,12 @@
+---
+api_name: recompress_chunk()
+excerpt: Recompress a chunk that had new data inserted after compression
+license: community
+topic: compression
+keywords: [compression, recompression, chunks]
+tags: [hypertables]
+---
+
 # recompress_chunk() <tag type="community" content="Community" />
 Recompresses a compressed chunk that had more data inserted after compression.
 ```sql
@@ -68,4 +77,4 @@ END
 $$;
 ```
 
-[run-job]: /actions/run_job/
+[run-job]: /api/:currentVersion:/actions/run_job/

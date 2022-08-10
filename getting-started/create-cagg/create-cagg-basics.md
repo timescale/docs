@@ -1,3 +1,9 @@
+---
+title: Creating continuous aggregates
+excerpt: Create a continuous aggregate from your data
+keywords: [continuous aggregates, create]
+---
+
 # Creating continuous aggregates
 Now that you've been introduced to continuous aggregates, create your own
 continuous aggregate from your data.
@@ -137,6 +143,8 @@ hypertable_schema|hypertable_name |view_schema|view_name     |view_owner|materia
 public           |stocks_real_time|public     |candle_one_min|tsdbadmin |false            |false              |_timescaledb_internal            |_materialized_hypertable_3     | SELECT time_bucket('00:01:00'::interval, stocks_real_time."time") AS bucket,¶    stocks_real_time.symbol,¶    first(stocks_real_time.price, stocks_real_time."time") AS open,¶    max(stocks_real_time.price) AS high,¶    min(stocks_real_time.price) AS low,|
 ```
 
+<video url="https://www.youtube.com/embed/1m9yxpyGrBY"></video>
+
 ## Next steps
 Now that your continuous aggregate is created, the next step is to create a [continuous aggregate refresh policy][cagg-policy].
 
@@ -158,14 +166,13 @@ trading bot with TimescaleDB][crypto-bot].
 Detailed information on continuous aggregates and real-time aggregation can be
 found in the [continuous aggregates docs][continuous-aggregates].
 
-[flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
-[crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-
-[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[cagg-policy]: /getting-started/:currentVersion:/create-cagg/create-cagg-policy/
 [candlestick]: https://en.wikipedia.org/wiki/Candlestick_chart
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
+[crypto-bot]: https://blog.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
+[first]: /api/:currentVersion:/hyperfunctions/first/
+[flightaware]: https://blog.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
+[last]: /api/:currentVersion:/hyperfunctions/last/
 [max]: https://www.postgresql.org/docs/current/tutorial-agg.html
 [min]: https://www.postgresql.org/docs/current/tutorial-agg.html
-[first]: /api/:currentVersion:/hyperfunctions/first/
-[last]: /api/:currentVersion:/hyperfunctions/last/
-[cagg-policy]: /getting-started/create-cagg/create-cagg-policy/
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/

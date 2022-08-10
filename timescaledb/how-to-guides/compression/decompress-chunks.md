@@ -1,3 +1,10 @@
+---
+title: Decompression
+excerpt: How to decompress a compressed chunk
+keywords: [compression, hypertables]
+tags: [decompression]
+---
+
 # Decompression
 If you need to backfill or update data in a compressed chunk, decompress
 the chunk first. Inserting data into a compressed chunk is more computationally

@@ -1,3 +1,10 @@
+---
+title: Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
+excerpt: Store your financial tick data and create candlestick views to analyze price changes
+keywords: [finance, analytics]
+tags: [candlestick]
+---
+
 # Store financial tick data in TimescaleDB using the OHLCV (candlestick) format
 [Candlestick charts][charts] are the standard way to analyze the price changes of
 financial assets. They can be used to examine trends in stock prices, cryptocurrency prices, 
@@ -14,7 +21,7 @@ BTC, ETH, and other popular assets.
 ## Prerequisites
 Before you begin, make sure you have:
 * A TimescaleDB instance running locally or on the cloud. For more information, see [installation options](/install/latest/)
-* [`psql`](/how-to-guides/connecting/psql), DBeaver, or any other PostgreSQL client
+* [`psql`][psql], DBeaver, or any other PostgreSQL client
 
 ## What's candlestick data and OHLCV?
 Candlestick charts are used in the financial sector to visualize the price
@@ -50,14 +57,12 @@ Follow this tutorial and see how to set up your TimescaleDB database to consume 
 * [Query candlestick views][query]
 * [Advanced data management][manage]
 
-
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
 [messari]: https://www.timescale.com/blog/how-messari-uses-data-to-open-the-cryptoeconomy-to-everyone/
 [bot]: https://www.timescale.com/blog/how-i-power-a-successful-crypto-trading-bot-with-timescaledb/
-[install-timescale]: /install/latest/
-[psql-install]: /how-to-guides/connecting/psql
-[design]: /tutorials/financial-candlestick-tick-data/design-tick-schema
-[create]: /tutorials/financial-candlestick-tick-data/create-candlestick-aggregates
-[query]: /tutorials/financial-candlestick-tick-data/query-candlestick-views
-[manage]: /tutorials/financial-candlestick-tick-data/advanced-data-management
+[design]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/design-tick-schema
+[create]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/create-candlestick-aggregates
+[query]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/query-candlestick-views
+[manage]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/advanced-data-management
+[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/

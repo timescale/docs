@@ -1,5 +1,11 @@
 ---
-api_name: average
+api_name: average()
+excerpt: Calculate the time-weighted average of values in a `TimeWeightSummary`
+license: community
+toolkit: true
+experimental: false
+topic: hyperfunctions
+keywords: [average, time-weighted, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -27,7 +33,7 @@ A function to compute a time-weighted average from a `TimeWeightSummary`.
 
 |Name|Type|Description|
 |-|-|-|
-|`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`](/hyperfunctions/time-weighted-averages/time_weight/) call|
+|`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`][time_weight] call|
 
 ### Returns
 
@@ -51,5 +57,6 @@ FROM (
 ```
 
 
-[hyperfunctions-time-weight-average]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
-[hyperfunctions-stats-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
+[hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[time_weight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/time_weight/

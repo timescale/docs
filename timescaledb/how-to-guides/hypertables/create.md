@@ -1,3 +1,9 @@
+---
+title: Create hypertables
+excerpt: Create a hypertable to store time-series data
+keywords: [hypertables, create]
+---
+
 # Create hypertables
 After [creating a TimescaleDB database][install], you're ready to create your
 first hypertable. Creating a hypertable is a 2-step process:
@@ -42,6 +48,6 @@ section](/timescaledb/latest/how-to-guides/migrate-data).
 
 </procedure>
 
-[create-distributed-hypertable]: /how-to-guides/distributed-hypertables/create-distributed-hypertables/
+[create-distributed-hypertable]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/create-distributed-hypertables/
 [install]: /install/:currentVersion:/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html

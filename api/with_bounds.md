@@ -1,5 +1,10 @@
 ---
-api_name: with_bounds
+api_name: with_bounds()
+excerpt: Add bounds to a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [counters, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -60,4 +65,4 @@ FROM (
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

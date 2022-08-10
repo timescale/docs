@@ -1,3 +1,12 @@
+---
+api_name: set_chunk_time_interval()
+excerpt: Change the chunk time interval of a hypertable
+license: apache
+topic: hypertables
+keywords: [chunks, hypertables]
+tags: [time ranges, time intervals]
+---
+
 ## set_chunk_time_interval()
 Sets the `chunk_time_interval` on a hypertable. The new interval is used
 when new chunks are created, and time intervals on existing chunks are
@@ -50,4 +59,4 @@ SELECT set_chunk_time_interval('conditions', 86400000);
 ```
 
 
-[create-hypertable]: /hypertable/create_hypertable
+[create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable

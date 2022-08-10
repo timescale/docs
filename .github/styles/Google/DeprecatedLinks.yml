@@ -1,0 +1,41 @@
+extends: script
+message: "This reference might not appear in the main text. Double check and remove it if necessary."
+level: warning
+scope: raw
+script: |-
+  text := import("text")
+  // Items in matches array show up as Vale admonitions
+  matches := []
+  // Remove frontmatter
+  documentMinusFrontmatter := text.re_replace("(?s)^-{3}.*?-{3}", scope, "")
+  // Remove code blocks
+  documentMinusFrontmatterAndCode := text.re_replace("(?s)\\n\\x60{3}.*?\\x60{3}", documentMinusFrontmatter, "")
+  paragraphs := text.split(text.trim_space(documentMinusFrontmatterAndCode), "\n\n")
+  body := []
+  links := ""
+  for i:=0; i<len(paragraphs); i++ {
+    if i == len(paragraphs) - 1 {
+      links = paragraphs[i]
+    } else {
+      body = append(body, paragraphs[i])
+    }
+  }
+  for line in text.split(links, "\n") {
+    link := text.re_find("^\\[[^\\]]+\\]:", line, 1)
+    if link {
+      reference := text.trim_prefix(text.trim_suffix(link[0][0].text, "]:"), "[")
+      found := 0
+      for section in body {
+        match := text.re_match("\\[" + reference + "\\]", section)
+        if match {
+          found = 1
+          break
+        }
+      }
+      if found == 0 {
+        start := text.index(scope, line)
+        end := start + len(reference) + 2 // include brackets
+        matches = append(matches, {begin: start, end: end})
+      }
+    }
+  } 

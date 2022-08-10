@@ -1,15 +1,27 @@
-# Compression on continuous aggregates
-Continuous aggregates are often used to store downsampled historical data.
-The historical data is almost never modified or recomputed and is only used 
-for serving analytic queries. For this use case, it is often beneficial to 
-store the materialized data in compressed form to save on storage costs. 
-You can get these cost savings by enabling compression on continuous 
-aggregates.
+---
+title: Compress continuous aggregates
+excerpt: How to compress a continuous aggregate
+keywords: [continuous aggregates, compression]
+---
+
+# Compress continuous aggregates
+Continuous aggregates are often used to downsample historical data. If the data
+is only used for analytical queries and never modified, you can compress the
+aggregate to save on storage.
+
+Compression on continuous aggregates works similarly to
+[compression on hypertables][compression]. Compressed chunks can be queried, but
+they can't be updated or deleted. For continuous aggregates, that means
+compressed chunks can't be refreshed.
+
+If you receive historical data and need to refresh a compressed chunk, see
+[the troubleshooting guide][troubleshooting].
 
 <highlight type="warning">
-Currently, TimescaleDB does not support refreshing compressed regions of a 
-continuous aggregate. To do this, you have to manually decompress 
-the compressed chunk and then execute a [`refresh_continuous_aggregate`](/api/latest/continuous-aggregates/refresh_continuous_aggregate) call.
+You can't refresh the compressed regions of a continuous aggregate. To avoid
+conflicts between compression and refresh, make sure you set `compress_after` to
+to a larger interval than the `start_offset` of your
+[refresh policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
 </highlight>
 
 ## Enable compression on continuous aggregates
@@ -61,13 +73,7 @@ parameter greater than the `refresh_start` parameter of the continuous aggregate
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
-After a chunk is compressed, manual refresh calls that attempt to refresh the 
-continuous aggregate's compressed region will fail with an error like this:
-
-```sql
-CALL refresh_continuous_aggregate('cagg_name', NULL, now() - '30 days'::interval );
-ERROR:  cannot update/delete rows from chunk "_hyper_3_3_chunk" as it is compressed
-```
-
-[decompress-chunks]:  /how-to-guides/compression/decompress-chunks 
-[refresh-policy]: /how-to-guides/continuous-aggregates/refresh-policies
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
+[decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks 
+[refresh-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
+[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate

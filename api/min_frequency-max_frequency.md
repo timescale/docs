@@ -1,5 +1,11 @@
 ---
-api_name: 'min_frequency | max_frequency'
+api_name: 'min_frequency() | max_frequency()'
+excerpt: Calculate the minimum or maximum estimated frequencies of a value from a frequency aggregate
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [frequency, hyperfunctions, toolkit]
+tags: [minimum, maximum]
 api_category: hyperfunction
 api_experimental: true
 hyperfunction_toolkit: true
@@ -61,5 +67,5 @@ SELECT toolkit_experimental.max_frequency(
 );
 ```
 
-[freq_agg]: /hyperfunctions/frequency-analysis/freq_agg/
-[topn_agg]: /hyperfunctions/frequency-analysis/topn_agg/
+[freq_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/freq_agg/
+[topn_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/topn_agg/

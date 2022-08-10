@@ -1,3 +1,10 @@
+---
+title: Import data into TimescaleDB from .csv
+excerpt: Import data into your TimescaleDB instance from an external .csv file
+keywords: [migrate]
+tags: [import, csv]
+---
+
 # Import data into TimescaleDB from .csv
 If you have data stored in an external `.csv` file, you can import it into TimescaleDB.
 
@@ -60,5 +67,5 @@ resources and reduce the performance improvements.
 </procedure>
 
 [create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable
-[install]: /install/:currentVersion:/
+[install]: /install/latest/
 [parallel importer]: https://github.com/timescale/timescaledb-parallel-copy

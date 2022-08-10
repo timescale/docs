@@ -1,3 +1,11 @@
+---
+title: About continuous aggregates
+excerpt: Learn how continuous aggregates can speed up your TimescaleDB queries
+keywords: [continuous aggregates]
+---
+
+import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
+
 # About continuous aggregates
 Time-series data usually grows very quickly. Large data volumes can become slow
 when aggregating the data into useful summaries. To make aggregating data
@@ -58,24 +66,11 @@ and `AVG`, and non-parallelizable aggregates, such as `RANK`.
 
 In older versions of TimescaleDB, continuous aggregates only support
 [aggregate functions that can be parallelized by PostgreSQL][postgres-parallel-agg].
-They also don't support `FILTER` and `ORDER BY` clauses, and the `DISTINCT` keyword. You can
-work around this by aggregating the other parts of your query in the continuous
-aggregate, then
+You can work around this by aggregating the other parts of your query in the
+continuous aggregate, then
 [using the window function to query the aggregate][cagg-window-functions].
 
-The following table summarizes aggregate function support in continuous
-aggregates:
-
-|Function, clause, or feature|TimescaleDB 2.7 and above|Below TimescaleDB 2.7|
-|-|-|-|
-|Parallelizable aggregate functions|✅|✅|
-|Non-parallelizable aggregate functions|✅|❌|
-|Ordered-set aggregates|✅|❌|
-|Hypothetical-set aggregates|✅|❌|
-|`DISTINCT` in aggregate functions|✅|❌|
-|`FILTER` in aggregate functions|✅|❌|
-|`ORDER BY` in aggregate functions|✅|❌|
-
+<CaggsFunctionSupport />
 
 If you want the old behavior in TimescaleDB 2.7 and above, set the parameter
 `timescaledb.finalized` to `false` when creating your continuous aggregate.
@@ -105,7 +100,7 @@ Using the same temperature example, the materialization table looks like this:
 
 The materialization table is stored as a TimescaleDB hypertable, to take
 advantage of the scaling and query optimizations that hypertables offer.
-Materialization tables contain a a column for each group-by clause in the query,
+Materialization tables contain a column for each group-by clause in the query,
 a `chunk` column identifying which chunk in the raw data this entry came from,
 and a `partial aggregate` column for each aggregate in the query.
 
@@ -184,9 +179,8 @@ Make sure you are maintaining your invalidation log size to avoid this, for exam
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
 
-[cagg-mat-hypertables]: /how-to-guides/continuous-aggregates/materialized-hypertables
-[cagg-window-functions]: /how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
-[multi-node]: /how-to-guides/multinode-timescaledb/
+[cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
+[cagg-window-functions]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
+[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[real-time-aggs]: /how-to-guides/continuous-aggregates/real-time-aggregates/
-[tutorial-caggs]: /getting-started/create-cagg
+[real-time-aggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/

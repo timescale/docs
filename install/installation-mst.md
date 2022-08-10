@@ -1,3 +1,13 @@
+---
+title: Install Managed Service for TimescaleDB
+nav-title: Managed Service for TimescaleDB
+excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
+product: mst
+section: install
+order: 2
+keywords: [install]
+---
+
 # Install Managed Service for TimescaleDB
 Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
 than 75 regions in AWS, Azure, or GCP. You can
@@ -75,7 +85,7 @@ check out our [installing psql][install-psql] section.
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
-1.  Click the name of the service you want to connect to to see the connection
+1.  Click the name of the service you want to connect to see the connection
     information. Take a note of the `host`, `port`, and `password`.
 1.  On your local system, at the command prompt, connect to the service, using
     your own service details:

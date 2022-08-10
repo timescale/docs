@@ -1,7 +1,14 @@
+---
+title: Why use TimescaleDB over NoSQL?
+excerpt: TimescaleDB's advantages over NoSQL databases
+keywords: [NoSQL]
+tags: [compare]
+---
+
 # Why Use TimescaleDB over NoSQL?
 
-Compared to general NoSQL databases (e.g., MongoDB, Cassandra) or even
-more specialized time-oriented ones (e.g., InfluxDB, KairosDB),
+Compared to general NoSQL databases (for example, MongoDB, Cassandra) or even
+more specialized time-oriented ones (for example, InfluxDB, KairosDB),
 TimescaleDB provides both qualitative and quantitative differences:
 
 - **Normal SQL**: TimescaleDB gives you the power of standard SQL

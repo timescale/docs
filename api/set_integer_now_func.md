@@ -1,3 +1,12 @@
+---
+api_name: set_integer_now_fun()
+excerpt: Define the relationship between integer time values and actual time
+license: apache
+topic: hypertables
+keywords: [hypertables]
+tags: [integer time values]
+---
+
 ## set_integer_now_func() 
 This function is only relevant for hypertables with integer (as opposed to
 TIMESTAMP/TIMESTAMPTZ/DATE) time values. For such hypertables, it sets a

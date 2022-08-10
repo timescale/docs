@@ -1,9 +1,17 @@
+---
+api_name: refresh_continuous_aggregate()
+excerpt: Manually refresh a continuous aggregate
+license: community
+topic: continuous aggregates
+keywords: [continuous aggregates, refresh]
+---
+
 ## refresh_continuous_aggregate() <tag type="community">Community</tag>
 
 Refresh all buckets of a continuous aggregate in the _refresh window_
 given by `window_start` and `window_end`.
 
-A continuous aggregate materializes aggregates in time buckets (e.g.,
+A continuous aggregate materializes aggregates in time buckets (for example,
 min, max, average over 1 day worth of data), as determined by the
 `time_bucket` interval specified when the continuous aggregate was
 created. Therefore, when refreshing the continuous aggregate, only

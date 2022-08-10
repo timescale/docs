@@ -1,3 +1,10 @@
+---
+title: Query candlestick views
+excerpt: Query your data to create and visualize candlestick aggregates
+keywords: [finance, analytics]
+tags: [candlestick]
+---
+
 # Query candlestick views
 So far in this tutorial, you have created the schema to store tick data,
 and set up multiple candlestick views. In this section, use some 
@@ -59,9 +66,6 @@ WHERE symbol IN ('BTC/USD', 'ETH/USD') AND bucket >= NOW() - INTERVAL '14 days'
 ORDER BY bucket
 ```
 
-
 ![btc vs eth](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/pct_change.png)
 
-
 [lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
-[sample-download]: https://assets.timescale.com/docs/downloads/crypto_sample.zip

@@ -1,3 +1,9 @@
+---
+title: Create a data retention policy
+excerpt: Automatically drop historical data with a data retention policy
+keywords: [data retention, policies, create]
+---
+
 # Create a data retention policy
 An intrinsic part of working with time-series data is that the relevance of data
 can diminish over time. As new data accumulates, old data becomes less valuable and
@@ -108,6 +114,9 @@ SELECT drop_chunks(
 
 For more details and best practices on data retention and automated data retention
 policies, see the [Data Retention docs][data-retention].
+
+
+<video url="https://www.youtube.com/embed/BJRIntSAmHM"></video>
 
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [drop-chunks]: /api/:currentVersion:/hypertable/drop_chunks/

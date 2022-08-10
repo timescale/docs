@@ -1,3 +1,9 @@
+---
+title: Create distributed hypertables
+excerpt: Create a distributed hypertable in a multi-node TimescaleDB instance
+keywords: [distributed hypertables, multi-node, create]
+---
+
 # Create distributed hypertables
 If you have a [multi-node environment][multi-node], you can create a distributed
 hypertable across your data nodes. First create a standard PostgreSQL table, and
@@ -32,6 +38,6 @@ section](/timescaledb/latest/how-to-guides/multinode-timescaledb/).
 
 </procedure>
 
-[multi-node]: /how-to-guides/multinode-timescaledb/
+[multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
-[space-partitions]: /how-to-guides/hypertables/about-hypertables#space-partitions-for-distributed-hypertables
+[space-partitions]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#space-partitions-for-distributed-hypertables

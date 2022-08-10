@@ -1,5 +1,11 @@
 ---
-api_name: 'irate_left | irate_right'
+api_name: 'irate_left() | irate_right()'
+excerpt: Calculate the instantaneous rate of change from values in a `CounterSummary`
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [counters, hyperfunctions, toolkit]
+tags: [rate]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -98,4 +104,4 @@ FROM (
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

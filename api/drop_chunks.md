@@ -1,8 +1,17 @@
+---
+api_name: drop_chunks()
+excerpt: Delete chunks by time range
+license: apache
+topic: data retention
+keywords: [data retention, chunks, delete]
+tags: [drop]
+---
+
 ## drop_chunks()
 
 Removes data chunks whose time range falls completely before (or
 after) a specified time. Shows a list of the chunks that were
-dropped, in the same style as the `show_chunks` [function](/hypertable/show_chunks).
+dropped, in the same style as the `show_chunks` [function][show_chunks].
 
 Chunks are constrained by a start and end time and the start time is
 always before the end time. A chunk is dropped if its end time is
@@ -46,7 +55,7 @@ The `older_than` and `newer_than` parameters can be specified in two ways:
 
 <highlight type="warning">
 When using just an interval type, the function assumes that
-you are are removing things _in the past_. If you want to remove data
+you are removing things _in the past_. If you want to remove data
 in the future, for example to delete erroneous entries, use a timestamp.
 </highlight>
 
@@ -106,3 +115,5 @@ Drop all chunks older than 3 months ago across all hypertables:
 SELECT drop_chunks(format('%I.%I', hypertable_schema, hypertable_name)::regclass, INTERVAL '3 months')
   FROM timescaledb_information.hypertables;
 ```
+
+[show_chunks]: /api/:currentVersion:/hypertable/show_chunks/

@@ -1,7 +1,16 @@
+---
+api_name: add_dimension()
+excerpt: Add a space-partitioning dimension to a hypertable
+license: apache
+topic: hypertables
+keywords: [hypertables, partitions]
+tags: [dimensions, chunks]
+---
+
 ## add_dimension()
 Add an additional partitioning dimension to a TimescaleDB hypertable.
 The column selected as the dimension can either use interval
-partitioning (e.g., for a second time partition) or hash partitioning.
+partitioning (for example, for a second time partition) or hash partitioning.
 
 <highlight type="warning">
 The `add_dimension` command can only be executed after a table has been
@@ -10,13 +19,13 @@ be run only on an empty hypertable.
 </highlight>
 
 **Space partitions**: Using space partitions is highly recommended
-for [distributed hypertables](/distributed-hypertables/create_distributed_hypertable) to achieve
-efficient scale-out performance. For [regular hypertables](/hypertable/create_hypertable)
+for [distributed hypertables][distributed-hypertables] to achieve
+efficient scale-out performance. For [regular hypertables][regular-hypertables]
 that exist only on a single node, additional partitioning can be used
 for specialized use cases and not recommended for most users.
 
 Space partitions use hashing: Every distinct item is hashed to one of
-*N* buckets.  Remember that we are already using (flexible) time
+*N* buckets. Remember that we are already using (flexible) time
 intervals to manage chunk sizes; the main purpose of space
 partitioning is to enable parallelization across multiple
 data nodes (in the case of distributed hypertables) or
@@ -29,7 +38,7 @@ parallelized across data nodes, even while the inserted rows share
 timestamps from the same time interval, and thus increases the ingest rate.
 Query performance also benefits by being able to parallelize queries
 across nodes, particularly when full or partial aggregations can be
-"pushed down" to data nodes (e.g., as in the query
+"pushed down" to data nodes (for example, as in the query
 `avg(temperature) FROM conditions GROUP BY hour, location`
 when using `location` as a space partition). Please see our
 [best practices about partitioning in distributed hypertables][distributed-hypertable-partitioning-best-practices]
@@ -44,17 +53,17 @@ from multiple disks in parallel.
 Thus, users looking for parallel I/O have two options:
 
 1. Use a RAID setup across multiple physical disks, and expose a
-single logical disk to the hypertable (i.e., via a single tablespace).
+single logical disk to the hypertable (that is, via a single tablespace).
 
 1. For each physical disk, add a separate tablespace to the
-database.  TimescaleDB allows you to actually add multiple tablespaces
+database. TimescaleDB allows you to actually add multiple tablespaces
 to a *single* hypertable (although under the covers, a hypertable's
 chunks are spread across the tablespaces associated with that hypertable).
 
 We recommend a RAID setup when possible, as it supports both forms of
-parallelization described above (i.e., separate queries to separate
+parallelization described above (that is, separate queries to separate
 disks, single query to multiple disks in parallel).  The multiple
-tablespace approach only supports the former.  With a RAID setup,
+tablespace approach only supports the former. With a RAID setup,
 *no spatial partitioning is required*.
 
 That said, when using space partitions, we recommend using 1
@@ -80,7 +89,7 @@ queries.
 |-|-|-|
 |`number_partitions`|INTEGER|Number of hash partitions to use on `column_name`. Must be > 0|
 |`chunk_time_interval`|INTERVAL|Interval that each chunk covers. Must be > 0|
-|`partitioning_func`|REGCLASS|The function to use for calculating a value's partition (see `create_hypertable` [instructions](/hypertable/create_hypertable))|
+|`partitioning_func`|REGCLASS|The function to use for calculating a value's partition (see `create_hypertable` [instructions][create_hypertable])|
 |`if_not_exists`|BOOLEAN|Set to true to avoid throwing an error if a dimension for the column already exists. A notice is issued instead. Defaults to false|
 
 ### Returns
@@ -105,13 +114,13 @@ an integer value in *microseconds*.
 
 - If the column is some other integer type, this length
 should be an integer that reflects
-the column's underlying semantics (e.g., the
+the column's underlying semantics (for example, the
 `chunk_time_interval` should be given in milliseconds if this column
 is the number of milliseconds since the UNIX epoch).
 
 <highlight type="warning">
  Supporting more than **one** additional dimension is currently
- experimental.  For any production environments, users are recommended
+ experimental. For any production environments, users are recommended
  to use at most one "space" dimension.
 </highlight>
 
@@ -147,4 +156,7 @@ SELECT create_distributed_hypertable('conditions', 'time');
 SELECT add_dimension('conditions', 'location', number_partitions => 2);
 ```
 
-[distributed-hypertable-partitioning-best-practices]: https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/best-practices/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
+[distributed-hypertable-partitioning-best-practices]: /timescaledb/:currentVersion:/how-to-guides/hypertables/best-practices/
+[distributed-hypertables]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable/
+[regular-hypertables]: /api/:currentVersion:/hypertable/create_hypertable/

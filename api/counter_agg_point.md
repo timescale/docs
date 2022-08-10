@@ -1,5 +1,10 @@
 ---
-api_name: counter_agg
+api_name: counter_agg()
+excerpt: Aggregate counter data into a `CounterSummary` for further analysis
+license: community
+toolkit: true
+topic: hyperfunctions
+keywords: [counters, aggregates, hyperfunctions, toolkit]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true
@@ -73,5 +78,5 @@ FROM t;
 ```
 
 
-[hyperfunctions-counter-agg]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
-[irate]: /hyperfunctions/counter_aggs/irate/
+[hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
+[irate]: /api/:currentVersion:/hyperfunctions/counter_aggs/irate/

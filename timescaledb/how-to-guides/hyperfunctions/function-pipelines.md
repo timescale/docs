@@ -1,14 +1,18 @@
-# Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental">Experimental</tag>
+---
+title: Function pipelines
+excerpt: Function pipelines improve the experience of writing data analysis queries in PostgreSQL and SQL
+keywords: [Toolkit, function pipelines]
+---
+
+import Experimental from 'versionContent/_partials/_experimental.mdx';
+
+# Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 Function pipelines are an experimental feature, designed to radically improve
 how you write queries to analyze data in PostgreSQL and SQL. They work by
 applying principles from functional programming and popular tools like Python
 Pandas, and PromQL.
 
-<highlight type="warning">
-Experimental features could have bugs! They might not be backwards compatible,
-and could be removed in future releases. Use these features at your own risk,
-and do not use any experimental features in production. 
-</highlight>
+<Experimental />
 
 <highlight type="important">
 The `timevector()` function materializes all its data points in 
@@ -78,7 +82,7 @@ GROUP BY device_id;
 Function pipelines use a single custom operator of `->`. This operator is used
 to apply and compose multiple functions. The `->` operator takes the inputs on
 the left of the operator, and applies the operation on the right of the
-operator. To put it more plainly, you can think of it as "do the next thing".
+operator. To put it more plainly, you can think of it as "do the next thing."
 
 A typical function pipeline could look something like this:
 ```sql
@@ -669,10 +673,10 @@ average on each of two dimensions. The available statistical aggregates are:
 |`corr()`|The correlation coefficient of the least squares fit line|
 |`covariance(method)`|The covariance of the values using either `population` or `sample` method|
 | `determination_coeff()`|The determination coefficient (or R squared) of the values|
-|`kurtosis(method)/kurtosis_y(method)/kurtosis_x(method)`|The kurtosis (4th moment) of the values using either the `population` or `sample` method|
+|`kurtosis(method)/kurtosis_y(method)/kurtosis_x(method)`|The kurtosis (fourth moment) of the values using either the `population` or `sample` method|
 |`intercept()`|The intercept of the least squares fit line|
 |`num_vals()`|The number of values seen|
-|`skewness(method)/skewness_y(method)/skewness_x(method)`|The skewness (3rd moment) of the values using either the `population` or `sample` method|
+|`skewness(method)/skewness_y(method)/skewness_x(method)`|The skewness (third moment) of the values using either the `population` or `sample` method|
 |`slope()`|The slope of the least squares fit line|
 |`stddev(method)/stddev_y(method)/stddev_x(method)`|The standard deviation of the values using either the `population` or `sample` method|
 |`sum()`|The sum of the values|
