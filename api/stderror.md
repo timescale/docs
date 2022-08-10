@@ -4,7 +4,8 @@ excerpt: Estimate the relative standard error of a hyperloglog
 license: community
 toolkit: true
 topic: hyperfunctions
-tags: [hyperfunctions, standard error, stderror, hyperloglogs, approximate count distinct]
+keywords: [hyperloglog, hyperfunctions, toolkit]
+tags: [standard error, percentiles]
 api_category: hyperfunction
 api_experimental: false
 hyperfunction_toolkit: true

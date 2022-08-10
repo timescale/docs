@@ -1,3 +1,9 @@
+---
+title: Percentile approximation
+excerpt: Approximate percentiles in large datasets
+keywords: [hyperfunctions, Toolkit, percentiles]
+---
+
 # Percentile approximation
 In general, percentiles are useful for understanding the distribution of data.
 The fiftieth percentile is the point at which half of your data is greater and half
@@ -36,7 +42,6 @@ word for this type of function.
 *   For more information about percentile approximation API calls, see the
     [hyperfunction API documentation][hyperfunctions-api-approx-percentile].
 
-
-[advanced-agg]: /how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
+[advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
 [blog-percentile-approx]: https://blog.timescale.com/blog/how-percentile-approximation-works-and-why-its-more-useful-than-averages/
 [hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/

@@ -1,3 +1,9 @@
+---
+title: About querying data
+excerpt: How to query data in TimescaleDB
+keywords: [queries]
+---
+
 # About querying data
 
 Querying data in TimescaleDB works just like querying data in PostgreSQL. You

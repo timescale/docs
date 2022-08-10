@@ -1,3 +1,10 @@
+---
+title: Data model
+excerpt: Learn how to model your data in TimescaleDB, in either a wide or narrow model
+keywords: [data, hypertables]
+tags: [model]
+---
+
 # Data model
 
 As a relational database supporting full SQL, TimescaleDB supports flexible data
@@ -34,5 +41,5 @@ Now you can look at various ways to model this data:
 - [Wide data model][wide-data-model]
 - [Narrow data model][narrow-data-model]
 
-[wide-data-model]: /overview/data-model-flexibility/wide-data-model/
-[narrow-data-model]: /overview/data-model-flexibility/narrow-data-model/
+[narrow-data-model]: /timescaledb/:currentVersion:/overview/data-model-flexibility/narrow-data-model/
+[wide-data-model]: /timescaledb/:currentVersion:/overview/data-model-flexibility/wide-data-model/

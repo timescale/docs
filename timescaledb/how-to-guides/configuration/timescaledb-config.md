@@ -1,3 +1,10 @@
+---
+title: TimescaleDB configuration and tuning
+excerpt: How to change configuration settings for TimescaleDB
+keywords: [configuration, settings]
+tags: [tune]
+---
+
 # TimescaleDB configuration and tuning
 
 Just as you can tune settings in PostgreSQL, TimescaleDB provides a number of configuration
@@ -15,7 +22,7 @@ workers. Default value is 16.
 
 ## Distributed hypertables
 
-### `timescaledb.enable_2pc (bool)` [](enable_2pc)
+### `timescaledb.enable_2pc (bool)`
 
 Enables two-phase commit for distributed hypertables. If disabled, it
 uses a one-phase commit instead, which is faster but can result in
@@ -96,14 +103,3 @@ Records last time `timescaledb-tune` ran.
 ### `timescaledb.last_tuned_version (string)`
 
 Version of `timescaledb-tune` used to tune when it ran.
-
-
-
-[tstune]: https://github.com/timescale/timescaledb-tune
-[pgtune]: http://pgtune.leopard.in.ua/
-[async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[synchronous-commit]: https://www.postgresql.org/docs/current/static/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
-[docker]: /install/latest/installation-docker/
-[wale]: /how-to-guides/backup-and-restore/docker-and-wale/
-[chunk_detailed_size]: /api/:currentVersion:/hypertable/chunk_detailed_size

@@ -1,3 +1,9 @@
+---
+title: About data retention with continuous aggregates
+excerpt: How data retention works with continuous aggregates for downsampling
+keywords: [continuous aggregates, data retention]
+---
+
 # About data retention with continuous aggregates
 You can downsample your data by combining a data retention policy with
 [continuous aggregates][continuous_aggregates]. If you set your refresh policies
@@ -54,7 +60,4 @@ You can also apply data retention on a continuous aggregate itself. For example,
 you can keep raw data for 30 days, as above. Meanwhile, you can keep daily data
 for 600 days, and no data beyond that.
 
-[add_retention_policy]: /api/:currentVersion:/data-retention/add_retention_policy
-[continuous_aggregates]: /how-to-guides/continuous-aggregates
-[drop_chunks]: /api/:currentVersion:/hypertable/drop_chunks
-[troubleshooting]: /how-to-guides/continuous-aggregates/troubleshooting/
+[continuous_aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates

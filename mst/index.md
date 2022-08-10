@@ -1,3 +1,9 @@
+---
+title: Managed Service for TimescaleDB
+excerpt: A fully managed TimescaleDB service on AWS, Azure, or GCP, available in more than 75 regions
+product: mst
+---
+
 # Managed Service for TimescaleDB
 Managed Service for TimescaleDB provides a fully managed TimescaleDB service
 hosted in more than 75 regions using AWS, Azure, or GCP. You can use this
@@ -11,6 +17,8 @@ management.
 *   View [service logs][viewing-service-logs]
 *   Use [VPC peering][vpc-peering]
 *   Understand [security for Timescale MST][security]
+*   [Backup and restore][manage-backups] your services
+*   Understand [backups][backups]
 
 Some important terms:
 *   **Account:** Your Managed Service for TimescaleDB account. You can register
@@ -66,10 +74,12 @@ integrations and extensions.
 
 For more information on Managed Service for TimescaleDB's terms of service, visit the [Timescale website][tos].
 
-[create-a-service]: /create-a-service
-[mst-multi-node]: /mst-multi-node
-[viewing-service-logs]: /viewing-service-logs
-[vpc-peering]: /vpc-peering
-[security]: /security
+[create-a-service]: /mst/:currentVersion:/create-a-service
+[mst-multi-node]: /mst/:currentVersion:/mst-multi-node
+[viewing-service-logs]: /mst/:currentVersion:/viewing-service-logs
+[vpc-peering]: /mst/:currentVersion:/vpc-peering
+[security]: /mst/:currentVersion:/security
 [sign-up]: https://www.timescale.com/mst-signup
 [tos]: https://www.timescale.com/legal/mst-terms-of-service
+[backups]: /mst/:currentVersion:/backup-types
+[manage-backups]: /mst/:currentVersion:/manage-backups

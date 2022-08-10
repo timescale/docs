@@ -1,3 +1,9 @@
+---
+title: Function pipelines
+excerpt: Function pipelines improve the experience of writing data analysis queries in PostgreSQL and SQL
+keywords: [Toolkit, function pipelines]
+---
+
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>

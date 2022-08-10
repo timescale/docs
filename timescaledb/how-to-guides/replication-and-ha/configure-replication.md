@@ -1,3 +1,9 @@
+---
+title: Configure replication
+excerpt: Set up asynchronous streaming replication on one or more database replicas
+keywords: [replicas]
+---
+
 # Configure replication
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
@@ -377,12 +383,12 @@ not provide support for automatic failover. For more information, see the
 configurable high availability solution with automatic failover functionality,
 check out [Patroni][patroni-github].
 
-[configure-params]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-parameters
-[configure-pghba]: /how-to-guides/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
-[configure-primary-db]: /how-to-guides/replication-and-ha/configure-replication#configure-the-primary-database
-[configure-replication]: /how-to-guides/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
-[create-base-backup]: /how-to-guides/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
-[create-replication-slots]: /how-to-guides/replication-and-ha/configure-replication#create-replication-slots
+[configure-params]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-replication-parameters
+[configure-pghba]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-host-based-authentication-parameters
+[configure-primary-db]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-the-primary-database
+[configure-replication]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#configure-replication-and-recovery-settings
+[create-base-backup]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#create-a-base-backup-on-the-replica
+[create-replication-slots]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#create-replication-slots
 [docker-postgres-scripts]: https://docs.docker.com/samples/library/postgres/#how-to-extend-this-image
 [failover-docs]: https://www.postgresql.org/docs/current/static/warm-standby-failover.html
 [patroni-github]: https://github.com/zalando/patroni
@@ -394,6 +400,6 @@ check out [Patroni][patroni-github].
 [postgres-recovery-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVE-RECOVERY
 [postgres-rslots-docs]: https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION-SLOTS
 [postgres-synchronous-commit-docs]: https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT
-[replication-modes]: /how-to-guides/replication-and-ha/configure-replication#replication-modes
+[replication-modes]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#replication-modes
 [timescale-streamrep-docker]: https://github.com/timescale/streaming-replication-docker
-[verify-replica]: /how-to-guides/replication-and-ha/configure-replication#verify-that-the-replica-is-working
+[verify-replica]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/configure-replication#verify-that-the-replica-is-working

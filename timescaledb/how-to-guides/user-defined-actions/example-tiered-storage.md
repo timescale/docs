@@ -1,3 +1,9 @@
+---
+title: Use a user-defined action to implement automatic data tiering
+excerpt: Implement automatic data tierign with a user-defined action
+keywords: [actions, data tiering]
+---
+
 # Use a user-defined action to implement automatic data tiering
 [Data tiering][data-tiering] helps you save on storage costs by moving older
 data to a different tablespace. TimescaleDB supports data tiering by providing
@@ -64,5 +70,4 @@ remains available for reads during the move.
 
 </procedure>
 
-[data-tiering]: /how-to-guides/data-tiering/
-
+[data-tiering]: /timescaledb/:currentVersion:/how-to-guides/data-tiering/

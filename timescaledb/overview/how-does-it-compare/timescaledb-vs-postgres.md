@@ -1,3 +1,10 @@
+---
+title: Why use TimescaleDB over relational databases?
+excerpt: TimescaleDB's advantages over regular relational databases, including regular PostgreSQL
+keywords: [PostgreSQL]
+tags: [compare]
+---
+
 # Why Use TimescaleDB over relational databases?
 
 TimescaleDB offers three key benefits over vanilla PostgreSQL or other
@@ -238,7 +245,7 @@ to automate your data retention policies.
 
 **Next:** How does TimescaleDB compare to NoSQL time-series DBs? [TimescaleDB vs. NoSQL][vs NoSQL]
 
-[architectural discussion]: /overview/core-concepts/
+[architectural discussion]: /timescaledb/:currentVersion:/overview/core-concepts/
 [api]: /api/:currentVersion:/
-[data retention]: /how-to-guides/data-retention
-[vs NoSQL]: /overview/how-does-it-compare/timescaledb-vs-nosql/
+[data retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
+[vs NoSQL]: /timescaledb/:currentVersion:/overview/how-does-it-compare/timescaledb-vs-nosql/

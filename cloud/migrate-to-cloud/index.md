@@ -1,3 +1,11 @@
+---
+title: Migrate your TimescaleDB database to Timescale Cloud
+excerpt: Migrate from self-hosted TimescaleDB or Managed Service for TimescaleDB
+product: [cloud]
+keywords: [migrate, self-hosted, mst]
+tags: [ingest]
+---
+
 # Migrate your TimescaleDB database to Timescale Cloud
 You can migrate your data to Timescale Cloud from self-hosted TimescaleDB or
 Managed Service for TimescaleDB. This allows you to use Timescale Cloud's
@@ -49,5 +57,5 @@ happening. Begin by running ingest in parallel on the source database and
 Timescale Cloud. This ensures that the newest data is written to both databases.
 Then backfill your data with one of the two migration methods.
 
-[migrate-entire]: migrate-to-cloud/entire-database/
-[migrate-separately]: migrate-to-cloud/schema-then-data/
+[migrate-entire]: /cloud/:currentVersion:/migrate-to-cloud/entire-database/
+[migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/

@@ -3,7 +3,8 @@ api_name: set_replication_factor()
 excerpt: Set the replication factor for a distributed hypertable
 license: community
 topic: distributed hypertables
-tags: [distributed hypertable, replication, multi-node, cluster]
+keywords: [distributed hypertables, multi-node, replication]
+tags: [cluster]
 ---
 
 ## set_replication_factor() <tag type="community">Community</tag>
@@ -32,7 +33,7 @@ An error is given if:
 - `replication_factor` is bigger than the number of attached data nodes.
 
 If a bigger replication factor is desired, it is necessary to attach more data nodes
-by using [attach_data_node](/distributed-hypertables/attach_data_node).
+by using [attach_data_node][attach_data_node].
 
 ### Sample usage
 
@@ -54,3 +55,5 @@ ERROR:  too big replication factor for hypertable "conditions"
 DETAIL:  The hypertable has 2 data nodes attached, while the replication factor is 3.
 HINT:  Decrease the replication factor or attach more data nodes to the hypertable.
 ```
+
+[attach_data_node]: /api/:currentVersion:/distributed-hypertables/attach_data_node/

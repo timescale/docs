@@ -11,7 +11,19 @@
     ],
     "ignorePatterns": [
         {
+            "pattern": "^https?://localhost"
+        },
+        {
+            "pattern": "^https://mvnrepository.com"
+        },
+        {
             "pattern": "^https://opensea.io/"
+        },
+        {
+            "pattern": "^https://docs.github.com/"
+        },
+        {
+            "pattern": "_template"
         }
     ]
 }

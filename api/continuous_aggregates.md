@@ -3,10 +3,11 @@ api_name: timescaledb_information.continuous_aggregates
 excerpt: Get metadata and settings information for continuous aggregates
 license: community
 topic: continuous aggregates
-tags: [informational views, continuous aggregates, schemas, definition]
+keywords: [continuous aggregates]
+tags: [information, schemas, metadata, definition]
 ---
 
-## timescaledb_information.continuous_aggregates 
+## timescaledb_information.continuous_aggregates
 
 Get metadata and settings information for continuous aggregates.
 
@@ -24,8 +25,10 @@ Get metadata and settings information for continuous aggregates.
 |`materialization_hypertable_schema` | TEXT | Schema of the underlying materialization table|
 |`materialization_hypertable_name` | TEXT | Name of the underlying materialization table|
 |`view_definition` | TEXT | `SELECT` query for continuous aggregate view|
+|`finalized`| BOOLEAN | Whether the continuous aggregate stores data in finalized or partial form. Since TimescaleDB 2.7, the default is finalized. |
 
 ### Sample usage
+
 ```sql
 SELECT * FROM timescaledb_information.continuous_aggregates;
 
@@ -43,5 +46,6 @@ view_definition                   |  SELECT foo.a,                              
                                   |     COUNT(foo.b) AS countb                      +
                                   |    FROM foo                                     +
                                   |   GROUP BY (time_bucket('1 day', foo.a)), foo.a;
+finalized                         | t
 
 ```

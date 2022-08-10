@@ -2,15 +2,16 @@
 api_name: timescaledb_pre_restore()
 excerpt: Prepare a database for data restoration
 license: apache
-topic: administration
-tags: [administration, restore, backup, background workers]
+topic: admin
+keywords: [admin]
+tags: [restore, backup, background workers]
 ---
 
 ## timescaledb_pre_restore() 
 
 Perform the proper operations to allow restoring of the database via `pg_restore` to commence.
 Specifically this sets the `timescaledb.restoring` GUC to `on` and stops any
-background workers which may have been performing tasks until the [`timescaledb_post_restore`](/administration/timescaledb_post_restore/)
+background workers which may have been performing tasks until the [`timescaledb_post_restore`][timescaledb_post_restore]
 function is run following the restore. See [backup/restore docs][backup-restore] for more information.
 
 <highlight type="warning">
@@ -30,4 +31,5 @@ function is run following the restore. See [backup/restore docs][backup-restore]
 SELECT timescaledb_pre_restore();
 ```
 
-[backup-restore]: timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/
+[backup-restore]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/
+[timescaledb_post_restore]: /api/:currentVersion:/administration/timescaledb_post_restore/

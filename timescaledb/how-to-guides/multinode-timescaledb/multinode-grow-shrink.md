@@ -1,3 +1,10 @@
+---
+title: Grow and shrink multi-node
+excerpt: Add and remove data nodes from a multi-node cluster
+keywords: [multi-node, data nodes]
+tags: [add, remove]
+---
+
 # Grow and shrink multi-node
 
 When you are working within a multi-node environment, you might discover that

@@ -1,3 +1,9 @@
+---
+title: About hypertables
+excerpt: Learn how hypertables work for time-series data
+keywords: [hypertables, partitions]
+---
+
 # About hypertables
 Hypertables are PostgreSQL tables with special features that make it easy to
 work with time-series data. You interact with them just as you would with
@@ -125,10 +131,9 @@ indexes on a hypertable][hypertables-and-unique-indexes].
 *   Read about the
     [benefits and architecture of hypertables][hypertable-concepts]
 
-[about-distributed-hypertables]: /how-to-guides/distributed-hypertables/about-distributed-hypertables/
+[about-distributed-hypertables]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
-[best-practices-time]: #best-practices-for-time-partitioning
-[create-hypertables]: /how-to-guides/hypertables/create/
-[hypertables-and-unique-indexes]: /how-to-guides/hypertables/hypertables-and-unique-indexes/
-[hypertable-concepts]: /overview/core-concepts/hypertables-and-chunks/
-[change-chunk-intervals]: /how-to-guides/hypertables/change-chunk-intervals/
+[change-chunk-intervals]: /timescaledb/:currentVersion:/how-to-guides/hypertables/change-chunk-intervals/
+[create-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
+[hypertable-concepts]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
+[hypertables-and-unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

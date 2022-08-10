@@ -1,3 +1,10 @@
+---
+title: Data retention
+excerpt: Delete old data to save disk save
+keywords: [data retention, delete]
+tags: [drop]
+---
+
 # Data Retention <tag type="community">Community</tag>
 
 An intrinsic part of time-series data is that new data is accumulated

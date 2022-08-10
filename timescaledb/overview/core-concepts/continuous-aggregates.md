@@ -1,3 +1,10 @@
+---
+title: Continuous aggregates
+excerpt: Learn how continuous aggregates help you speed up queries and downsample data
+keywords: [continuous aggregates]
+tags: [downsample, materialized views]
+---
+
 # Continuous aggregates
 
 Aggregate queries (`min()`, `max()`, `avg()`...) 
@@ -17,7 +24,7 @@ continuous aggregate or just a specific time range. In either case,
 the refresh only recomputes the aggregate buckets that have changed
 since the last refresh.
 
-## An introductory example [](quick-start)
+## An introductory example
 
 As a quick introductory example, let's create a hypertable
 `conditions` containing temperature data for devices and a continuous
@@ -81,17 +88,13 @@ ORDER BY bucket;
 ```
 
 <highlight type="important">
-In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
-aggregate functions. They also support aggregates with keywords such as
-`DISTINCT`, `ORDER BY`, and `FILTER`. Older versions of TimescaleDB only support
-aggregate functions that can be
-[parallelized by PostgreSQL](https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION).
-They don't support `DISTINCT`, `ORDER BY`, and `FILTER`. For more information,
+Continuous aggregates support many PostgreSQL aggregate functions and features.
+Support depends on your TimescaleDB version. For a table of supported features,
 see the
-[how-to guide on continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates/#unsupported-functions).
+[how-to guide on continuous aggregates](/timescaledb/latest/how-to-guides/continuous-aggregates/about-continuous-aggregates/#supported-functions).
 </highlight>
 
-## Real-time aggregation [](real-time-aggregates)
+## Real-time aggregation
 
 A query on a continuous aggregate, by default, uses *real-time
 aggregation* (first introduced in TimescaleDB 1.7) to combine
@@ -126,7 +129,7 @@ This provides the ability to do things like:
 - keep the aggregate data in the continuous aggregate when removing
   source data from the hypertable.
 
-### Manually refreshing continuous aggregate ranges [](refresh-cagg)
+### Manually refreshing continuous aggregate ranges
 
 It is also possible, starting with TimescaleDB 2.0, to manually refresh
 a specific window of time in a continuous aggregate using
@@ -136,6 +139,5 @@ targeted updates to time ranges that may occur further in history through
 a backfill process. Using both tools to keep continuous aggregates up-to-date
 provides great control and flexibility!
 
-
-[postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html
 [api-alter-cagg]: /api/:currentVersion:/continuous-aggregates/alter_materialized_view/
+[postgres-materialized-views]: https://www.postgresql.org/docs/current/rules-materializedviews.html

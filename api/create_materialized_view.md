@@ -3,7 +3,8 @@ api_name: CREATE MATERIALIZED VIEW (Continuous Aggregate)
 excerpt: Create a continuous aggregate on a hypertable
 license: community
 topic: continuous aggregates
-tags: [continuous aggregates, create]
+keywords: [continuous aggregates, create]
+tags: [materialized view, hypertables]
 ---
 
 ## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
@@ -126,7 +127,7 @@ WITH (timescaledb.continuous) AS
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
 [postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
 [real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
-[refresh-cagg]: /continuous-aggregates/refresh_continuous_aggregate/
-[time-bucket]: /hyperfunctions/time_bucket/
-[time-bucket-gapfill]: /hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
-[info-views]: /informational-views/
+[refresh-cagg]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
+[info-views]: /api/:currentVersion:/informational-views/

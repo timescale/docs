@@ -49,6 +49,21 @@ module.exports = [
               "Install self-hosted TimescaleDB on Red Hat or CentOS using dnf",
           },
           {
+            title: "Arch Linux",
+            href: "installation-archlinux",
+            tags: ["install", "archlinux", "timescaledb"],
+            keywords: [
+              "TimescaleDB",
+              "install",
+              "self-hosted",
+              "Arch Linux",
+              "TimescaleDB extension"
+            ],
+            iconSrc: "//assets.iobeam.com/images/docs/archlinux-logo-light-1200dpi.7ccd81fd52dc.png",
+            excerpt:
+              "Install self-hosted TimescaleDB on Arch Linux using pacman",
+          },
+          {
             title: "Windows",
             href: "installation-windows",
             tags: ["install", "mswin", "exe", "timescaledb"],
@@ -56,18 +71,6 @@ module.exports = [
             iconSrc: "//assets.iobeam.com/images/docs/Windows_logo_-_2012.svg",
             excerpt:
               "Install self-hosted TimescaleDB on Microsoft Windows using a zipped .exe file",
-            children: [
-              {
-                title: "Windows releases",
-                href: "windows-releases",
-                tags: ["TimescaleDB", "self-hosted", "MS Windows"],
-                keywords: [
-                  "TimescaleDB",
-                  "self-hosted",
-                  "MS Windows",
-                ],
-              },
-            ],
           },
           {
             title: "MacOS",

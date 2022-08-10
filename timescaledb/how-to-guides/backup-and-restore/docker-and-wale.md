@@ -1,3 +1,12 @@
+---
+title: Ongoing physical backups with Docker & WAL-E
+excerpt: Back up your Docker instance of TimescaleDB
+keywords: [backup, Docker]
+tags: [restore, recovery, physical backup]
+---
+
+import DeprecationNotice from 'versionContent/_partials/_deprecated.mdx';
+
 # Ongoing physical backups with Docker & WAL-E
 When you run TimescaleDB in a containerized environment, you can use
 [continuous archiving][pg archiving] with a [WAL-E][wale official] container.
@@ -9,6 +18,8 @@ container called `timescaledb`, and a WAL-E sidecar called `wale`. When you are
 ready to implement this in your production deployment, you can adapt the
 instructions here to do archiving against cloud providers such as AWS S3, and
 run it in an orchestration framework such as Kubernetes.
+
+<DeprecationNotice />
 
 ## Run the TimescaleDB container in Docker
 To make TimescaleDB use the WAL-E sidecar for archiving, the two containers need
@@ -204,5 +215,5 @@ database, and check that recovery was successful.
 </procedure>
 
 [pg archiving]: https://www.postgresql.org/docs/current/continuous-archiving.html#BACKUP-PITR-RECOVERY
-[wale official]: https://github.com/wal-e/wal-e
 [wale image]: https://hub.docker.com/r/timescale/timescaledb-wale
+[wale official]: https://github.com/wal-e/wal-e
