@@ -17,7 +17,8 @@ in the  cloud and automate many of your most common operational tasks. This
 allows you  to spend more time focusing on your time-series workloads and less
 time worrying  about database management.
 
-Your Managed Service for TimescaleDB account has three main components: projects, services, and databases.
+Your Managed Service for TimescaleDB account has three main components:
+projects, services, and databases.
 
 Before you begin, make sure you have
 [signed up to Managed Service for TimescaleDB][sign-up] and created your account.
@@ -26,7 +27,7 @@ Before you begin, make sure you have
 
 When you sign up for Managed Service for TimescaleDB, an empty project is
 created for you automatically. Projects are the highest organization level, and
-they conatin all your services and databases. You can use projects to organize
+they contain all your services and databases. You can use projects to organize
 groups of services. Each project can also have its own billing settings.
 
 To create a new project, click the project name in the navigation menu, and
@@ -88,15 +89,20 @@ disruption to your service while DNS changes are propagated.
 
 Within each configuration plan option, there are several plan types available:
 
-*   `IO-Optimized` and `Compute-Optimized` These configurations are optimized for input/output (I/O) performance, using SSD storage media.
-*   `Storage-Optimized`: These configurations usually have larger amounts of overall storage, using HDD storage media.
-*   `Dev-Only`: These configurations are typically smaller footprints, and lower cost, designed for development and testing scenarios.
+*   `IO-Optimized` and `Compute-Optimized` These configurations are optimized
+    for input/output (I/O) performance, using SSD storage media.
+*   `Storage-Optimized`: These configurations usually have larger amounts of
+    overall storage, using HDD storage media.
+*   `Dev-Only`: These configurations are typically smaller footprints, and lower
+    cost, designed for development and testing scenarios.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
 
 ## Databases
 
-Each service can contain a one or more databases. To view existing databases, or to create a new database, click the name of the service in the services list, and navigate to the `Databases` tab.
+Each service can contain a one or more databases. To view existing databases, or
+to create a new database, click the name of the service in the services list,
+and navigate to the `Databases` tab.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.png" alt="Managed Service for TimescaleDB databases list"/>
 
