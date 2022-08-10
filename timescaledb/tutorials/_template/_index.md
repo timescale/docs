@@ -55,6 +55,6 @@ during that time.
 
 Include reference-style links at the bottom of the page.
 
-[tutorial-dataset]: timescaledb/tutorials/_template/dataset-tutorial
-[tutorial-query]: timescaledb/tutorials/_template/query-template
-[tutorial-advanced]: timescaledb/tutorials/_template/advanced-tutorial
+[tutorial-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
+[tutorial-query]: timescaledb/tutorials/_template/_query-template
+[tutorial-advanced]: timescaledb/tutorials/_template/_advanced-tutorial
