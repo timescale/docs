@@ -22,7 +22,7 @@ TimescaleDB using the OHLCV format.
 Before you begin, make sure you have:
 
 *   A TimescaleDB instance running locally or on the cloud.
-  For more information, see [installation options](/install/latest/)
+  For more information, see [installation options][install-docs].
 *   [`psql`][psql], or any other PostgreSQL client.
 
 ## Steps in this tutorial
@@ -55,6 +55,8 @@ during that time.
 
 Include reference-style links at the bottom of the page.
 
+[install-docs]: install/:currentVersion:/
+[psql]: timescaledb/:currentVersion:/how-to-guides/connecting/
 [tutorial-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
 [tutorial-query]: timescaledb/tutorials/_template/_query-template
 [tutorial-advanced]: timescaledb/tutorials/_template/_advanced-tutorial
