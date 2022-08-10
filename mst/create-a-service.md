@@ -26,12 +26,7 @@ information about migrating data, see [migrating your data][migrate-data-mst].
 Now you have your service up and running, you can try your
 [first tutorial][getting-started].
 
-[contact]: https://www.timescale.com/contact
 [getting-started]: /getting-started/:currentVersion:/
-[install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql
 [mst-install]: /install/:currentVersion:/installation-mst/
-[mst-login]: https://portal.managed.timescale.com
 [sign-up]: https://www.timescale.com/cloud-signup
-[timescale-mst-portal]: https://portal.managed.timescale.com
-[timescale-pricing]: https://www.timescale.com/products
 [migrate-data-mst]: mst/:currentVersion:/migrate-to-mst/
