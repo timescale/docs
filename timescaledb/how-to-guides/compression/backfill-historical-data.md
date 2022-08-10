@@ -14,11 +14,11 @@ individual row inserts). When you backfill data, you insert data corresponding t
 a timestamp well in the past, which has a timestamp that already corresponds to
 a compressed chunk.
 
-In the below example, we backfill data into a temporary table; such temporary
-tables are short-lived and only exist for the duration of the database
-session. Alternatively, if backfill is common, one might use a normal table for
-this instead, which would allow multiple writers to insert into the table at
-the same time before the `decompress_backfill` process.
+In this example, data is backfilled into a temporary table. Temporary tables are
+short-lived and only exist for the duration of the database session.
+Alternatively, if backfill is common, one might use a normal table for this
+instead, which would allow multiple writers to insert into the table at the same
+time before the `decompress_backfill` process.
 
 <procedure>
 
@@ -26,7 +26,8 @@ the same time before the `decompress_backfill` process.
 
 <highlight type="important">
 The `decompress_backfill` function doesn't support distributed hypertables. To
-backfill a distributed hypertable, manually decompress the chunks before inserting data.
+backfill a distributed hypertable, manually decompress the chunks before
+inserting data.
 </highlight>
 
 To use this procedure:
@@ -51,16 +52,16 @@ To use this procedure:
 
 </procedure>
 
-If you are using a temporary table, the table is automatically dropped at the end of your
-database session. If you are using a regular table, after you have backfilled the
-data successfully, you want to truncate your table in preparation
+If you are using a temporary table, the table is automatically dropped at the
+end of your database session. If you are using a regular table, after you have
+backfilled the data successfully, you want to truncate your table in preparation
 for the next backfill (or drop it completely).
 
 ## Manually decompressing chunks for backfill
 
 To perform these steps more manually, we first identify and turn off our
-compression policy, before manually decompressing chunks. To accomplish this
-we first find the job_id of the policy using:
+compression policy, before manually decompressing chunks. To accomplish this we
+first find the job_id of the policy using:
 
 ```sql
 SELECT s.job_id
@@ -75,8 +76,8 @@ Next, pause the job with:
 SELECT alter_job(<job_id>, scheduled => false);
 ```
 
-We have now paused the compress chunk policy from the hypertable which
-leaves us free to decompress the chunks we need to modify via backfill or
+You have now paused the compress chunk policy from the hypertable, which leaves
+you free to decompress the chunks you need to modify, using either backfill or
 update. To decompress the chunks that need to be modified, for each chunk:
 
 ``` sql
@@ -91,7 +92,7 @@ SELECT decompress_chunk(i) from show_chunks('conditions', newer_than, older_than
 ```
 
 <highlight type="tip">
-You need to run 'decompress_chunk' for each chunk that is impacted
+You need to run `decompress_chunk` for each chunk that is impacted
 by your INSERT or UPDATE statement in backfilling data. Once your needed chunks
 are decompressed you can proceed with your data backfill operations.
 </highlight>
@@ -107,9 +108,9 @@ procedure:
 1.  Inserts data from a temporary table into the hypertable
 1.  Re-enables the compression policy
 
-Before you begin, add the [`decompress_backfill` stored procedure and its supporting
-functions][timescaledb-extras-backfill] to your database.
-You can copy and paste the procedure and function declarations from `backfill.sql` and
+Before you begin, add the [`decompress_backfill` stored procedure and its
+supporting functions][timescaledb-extras-backfill] to your database. You can
+copy and paste the procedure and function declarations from `backfill.sql` and
 run them in your database.
 
 <procedure>
@@ -173,7 +174,7 @@ identify your compressed chunks before inserting the backfilled data.
     ```
 
     Repeat for each chunk.
-1.  *(optional)* Alternatively, decompress a set of chunks based on a time range
+1.  *OPTIONAL* Alternatively, decompress a set of chunks based on a time range
     using [`show_chunks`][show_chunks]:
 
     ``` sql
@@ -205,11 +206,11 @@ identify your compressed chunks before inserting the backfilled data.
 ## Future work
 
 One of the current limitations of TimescaleDB is that once chunks are converted
-into compressed column form, we do not allow updates and deletes of the data
-or changes to the schema without manual decompression, except as noted [above][compression-schema-changes].
-In other words, chunks are partially immutable in compressed form.
-Attempts to modify the chunks' data in those cases either errors or fails silently (as preferred by users).
-We plan to remove this limitation in future releases.
+into compressed column form, you cannot update or delete the data, or change the
+schema, without manual decompression, except as noted
+[in this section][compression-schema-changes]. In other words, chunks are
+partially immutable in compressed form. Attempts to modify the chunks' data in
+those cases either errors or fails silently.
 
 [compression-schema-changes]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema/
 [run-job]: /api/:currentVersion:/actions/run_job/
