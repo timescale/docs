@@ -100,12 +100,12 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 
    |Setting|Example value|Description|
    | ------------ | ------------------ | ------------------------------------------------- |
-   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
+   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name.    The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Authentication type|Password|The authentication type to log in with|
-   |User name|postgres, tsdbadmin|The user name you want to log in with|
+   |User name|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB      service|
    |Password|*password*|The password for the account you are logging in with|
    |Remember password|*Check*|Check this box if you don't want to enter the password each time you connect.|
-   |Database name|\<Default\>, defaultdb|This option connnects the database that you specify.The default database on your Managed Service for TimescaleDB service is `defaultdb`.|
+   |Database name|\<Default\>, defaultdb|This option connnects to default database. The default database on your Managed Service for TimescaleDB service      is `defaultdb`. You can also specify the name of the database to connect to.|
    |Server group| \<Default\> |This option lets you assign this connection to a specific server group you create.|
    |Name (optional)|*leave blank*|This option lets you specify a friendly name for your server|
 
