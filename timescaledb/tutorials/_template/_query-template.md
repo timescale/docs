@@ -6,10 +6,12 @@ tags: [noun, verb]
 ---
 
 # Query the data
+
 Use this section to talk about the queries that readers can do on the dataset.
 Make sure you reference which questions are being answered by the queries.
 
 ## The first query
+
 This should be the simplest query. Start by explaining which question the query
 answers. Then explain how the query is constructed, then provide the query in a
 code block.
@@ -18,6 +20,7 @@ Provide example results of the query, using either a code block or, if more
 appropriate, an image.
 
 ## The second query
+
 Continue to build on the first query you presented, providing more information,
 explaining the query, and continuing to explain which questions are being
 answered. Repeat as required.

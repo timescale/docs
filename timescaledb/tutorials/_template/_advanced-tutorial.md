@@ -6,10 +6,12 @@ tags: [noun, verb]
 ---
 
 # Advanced steps
+
 Use this section to provide additional or extra things that readers can try with
 the dataset to further their understanding of the underlying topic.
 
 ## The first advanced step
+
 This should be the simplest of the advanced steps. Start by explaining which
 question the query answers. Then explain how the query is constructed, then
 provide the query in a code block.
@@ -18,6 +20,7 @@ Provide example results of the query, using either a code block or, if more
 appropriate, an image.
 
 ## The second advanced step
+
 Continue to build on the first query you presented, providing more information,
 explaining the query, and continuing to explain which questions are being
 answered. Repeat as required.

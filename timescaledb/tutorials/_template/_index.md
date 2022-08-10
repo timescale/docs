@@ -6,6 +6,7 @@ tags: [noun, verb]
 ---
 
 # Verb the widget in the tool
+
 A single paragraph description of the tutorial. Make sure to cover what the
 tutorial does in one or two sentences, including the desired learning outcome.
 For example:
@@ -17,21 +18,24 @@ TimescaleDB using the OHLCV format.
 ```
 
 ## Prerequisites
+
 Before you begin, make sure you have:
 
-* A TimescaleDB instance running locally or on the cloud.
+*   A TimescaleDB instance running locally or on the cloud.
   For more information, see [installation options](/install/latest/)
-* [`psql`][psql], or any other PostgreSQL client.
+*   [`psql`][psql], or any other PostgreSQL client.
 
 ## Steps in this tutorial
+
 A numbered list of the sub-pages in the tutorial. Remember that this is
 curricula content, so these steps must be in order:
 
-* [Set up up your dataset][tutorial-dataset]
-* [Query your datset][tutorial-query]
-* [More things to try][tutorial-advanced]
+*   [Set up up your dataset][tutorial-dataset]
+*   [Query your datset][tutorial-query]
+*   [More things to try][tutorial-advanced]
 
 ## About the widget and the tool
+
 This section collects all the concept information related to the tutorial, and
 the tools that are being used throughout. It answers the question "What is it"?
 This section should not include any procedures, but it can contain code samples
@@ -41,6 +45,7 @@ Use diagrams and screenshots sparingly, and ensure they add value. Try to keep
 this section succinct, by linking to lengthier material that exists elsewhere.
 
 For example:
+
 ```txt
 Candlestick charts are used in the financial sector to visualize the price
 change of an asset. Each candlestick represents a time frame, such as 1
