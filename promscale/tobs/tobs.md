@@ -29,7 +29,7 @@ charts to configure and update [tobs][tobs] deployments.
    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
    ```
    <highlight type="note">
-   For the latest and updated instructions to install, see the [certificate manager][cert-manager-docs]documentation.
+   For the latest and updated instructions to install, see the [certificate manager][cert-manager-docs] documentation.
    You may choose not to install certificate manager if you plan to use tobs with opentelemetry support disabled.
    </highlight> 
 
