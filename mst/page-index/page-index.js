@@ -8,8 +8,8 @@ module.exports = [
       "Managed Service for TimescaleDB is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP",
     children: [
       {
-        title: "About services",
-        href: "create-a-service",
+        title: "About Managed Service for TimescaleDB",
+        href: "about-mst",
       },
       {
         title: "Ingest data",
