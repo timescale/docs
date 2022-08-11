@@ -70,6 +70,13 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 
 ### Connecting to Managed Service for TimescaleDB service
 
+<highlight type="note">
+To ensure a secure network access to your Managed Service for TimescaleDB
+service, add the IP address of your local machine on which you have installed
+Azure Data Studio to `Allowed IP Addresses`. For more information about network
+security see, [Security overview][security-overview].
+</highlight>
+
 <procedure>
 
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
@@ -100,12 +107,12 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 
    |Setting|Example value|Description|
    | ------------ | ------------------ | ------------------------------------------------- |
-   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
+   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name.    The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Authentication type|Password|The authentication type to log in with|
-   |User name|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB service|
+   |User name|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB      service|
    |Password|*password*|The password for the account you are logging in with|
    |Remember password|*Check*|Check this box if you don't want to enter the password each time you connect.|
-   |Database name|\<Default\>, defaultdb|This option connnects to default database. The default database on your Managed Service for TimescaleDB service is `defaultdb`. You can also specify the name of the database to connect to.|
+   |Database name|\<Default\>, defaultdb|This option connnects to default database. The default database on your Managed Service for TimescaleDB service      is `defaultdb`. You can also specify the name of the database to connect to.|
    |Server group| \<Default\> |This option lets you assign this connection to a specific server group you create.|
    |Name (optional)|*leave blank*|This option lets you specify a friendly name for your server|
 
@@ -113,4 +120,5 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 [postgresql-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
 [tsc-portal]: https://console.cloud.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
-[connection-details]: #settings-in-the-connection-details
+[connection-details]: /timescaledb/:currentVersion:/how-to-guides/connecting/azure-data-studio/#settings-in-the-connection-details/
+[security-overview]: /mst/:currentVersion:/security/
