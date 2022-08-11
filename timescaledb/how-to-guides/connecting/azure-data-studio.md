@@ -24,9 +24,9 @@ services.
 
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
-1.  In the `FIXME` dialog, navigate to `Connection type`, and select `PostgreSQL`.
+1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
     Fill in the fields using the server name, user name, and password for your 
-    TimescaleDB instance. For more information about retrieving these settings, see 
+    TimescaleDB instance. For more information about these settings, see 
     [the connection details section][connection-details].
 
    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.png"alt="Connection screen for local or remote timescaledb"/>
@@ -53,10 +53,10 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
     secure password for you. Take a note of your new password.
 1.  Start `Azure Data Studio`.
 1.  Click the `New Connection` icon in the `SERVERS`page.
-1.  In the form that pops up, go to `Connection type`and select `PostgreSQL`from
-    the drop-down. Fill in the fields using the server name, user name, port, and
-    password for your TimescaleDB Cloud service. For description of the settings
-    in `Connection Details`, see [Connection Details][connection-details].
+1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
+    Fill in the fields using the server name, user name, port, and password for your
+    TimescaleDB Cloud service. For more information about these settings, see 
+    [the connection details section][connection-details].
 
    <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"alt="Connection screen for Timescale Cloud service"/>
 
@@ -87,11 +87,10 @@ security see, [Security overview][security-overview].
     `Password`.
 1.  Start `Azure Data Studio`.
 1.  Click the `New Connection` icon in the `SERVERS`page.
-1.  In the form that pops up, go to `Connection type` and select `PostgreSQL`
-    from the drop-down. Fill in the fields using the server name, user
-    name, port, and password for your Managed Service for TimescaleDB service. For
-    description of the settings in `Connection Details`,
-    see [Connection Detais][connection-details].
+1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
+    Fill in the fields using the server name, user name, port, and password for your
+    Managed Service for TimescaleDB service. For more information about these settings, see 
+    [the connection details section][connection-details].
 
    <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.png"alt="Connection screen for Managed Service for TimescaleDB service"/>
 
