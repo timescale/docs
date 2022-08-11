@@ -10,8 +10,8 @@ keywords: [connect]
 Azure Data Studio is a cross-platform database tool for data professionals using
 on-premises and cloud data platforms on Windows, macOS, and Linux. You can
 connect to TimescaleDB hosted on your local machine or on a remote server. You
-can also connect to Timescale Cloud service and Managed Service for TimescaleDB
-service.
+can also connect to Timescale Cloud, and Managed Service for TimescaleDB
+services.
 
 ## Before you begin
 
