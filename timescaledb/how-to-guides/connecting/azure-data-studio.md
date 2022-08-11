@@ -24,7 +24,7 @@ services.
 
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
-1.  In the form that pops up, go to `Connection type` and select `PostgreSQL`
+1.  In the `FIXME` dialog, navigate to `Connection type`, and select `PostgreSQL`.
     from the drop-down. Fill in the fields using the server name, user name, and
     password for your TimescaleDB server. For description of the settings in
     `Connection Details`, see [Connection Details][connection-details]
