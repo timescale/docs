@@ -67,7 +67,7 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 
 </procedure>
 
-### Connecting to Managed Service for TimescaleDB service
+### Connecting to Managed Service for TimescaleDB with Azure Data Studio
 
 <highlight type="note">
 To ensure a secure network access to your Managed Service for TimescaleDB
