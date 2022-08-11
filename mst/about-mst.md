@@ -107,8 +107,30 @@ and navigate to the `Databases` tab.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.png" alt="Managed Service for TimescaleDB databases list"/>
 
-When you have your service up and running, you can try your
-[first tutorial][getting-started].
+## Billing
+
+Managed Service for TimescaleDB uses hourly billing. The price charged for your
+service includes:
+
+*   Virtual machine
+*   Networking
+*   Backups
+*   Setting up
+
+<highlight type="note">
+Managed Service for TiemscaleDB does not charge you for network traffic used by
+your service. However, your application cloud service provider might charge you
+for the network traffic going to or from your service.
+</highlight>
+
+Terminating or powering a service down stops the accumulation of new charges
+immediately. However, the minimum hourly charge unit is one hour. For example,
+if you launch a Managed Service for TimescaleDB service and terminate it after
+40 minutes, you are charged for one full hour.
+
+Migrating to different service plans levels does not incur extra charges. Note, though, that some service plan levels are more costly per hour, and your new service is charged at the new rate.
+
+Migrating a service to another cloud region or different cloud provider does not incur extra charges.
 
 [timescale-features]: https://www.timescale.com/products/#Features
 [getting-started]: /getting-started/:currentVersion:/
