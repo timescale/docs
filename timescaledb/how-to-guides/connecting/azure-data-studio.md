@@ -96,7 +96,7 @@ security see, [Security overview][security-overview].
    <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.png"alt="Connection screen for Managed Service for TimescaleDB service"/>
 
 1.  Click `Advanced`.
-1.  Type the port number in the `Port` field and click `OK`.
+1.  In the `Port` field, type the port number, and click `OK`.
 1.  Select `Connect`.
 
 
