@@ -50,7 +50,8 @@ For more information about getting your first service up and running, see the
 When you have created, and named, a new Managed Service for TimescaleDB service,
 you cannot rename it. If you need to have your service running under a different
 name, you need to create a new service, and manually migrate the data. For more
-information about migrating data, see [migrating your data][migrate-data-mst].
+information about migrating data, see
+[migrating your data](https://docs.timescale.com/mst/latest/migrate-to-mst/).
 </highlight>
 
 ### Service configuration plans
@@ -109,6 +110,7 @@ and navigate to the `Databases` tab.
 When you have your service up and running, you can try your
 [first tutorial][getting-started].
 
+[timescale-features]: https://www.timescale.com/products/#Features
 [getting-started]: /getting-started/:currentVersion:/
 [mst-install]: /install/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
