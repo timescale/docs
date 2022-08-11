@@ -101,7 +101,7 @@ Within each configuration plan option, there are several plan types available:
 
 ## Databases
 
-Each service can contain a one or more databases. To view existing databases, or
+Each service can contain one or more databases. To view existing databases, or
 to create a new database, click the name of the service in the services list,
 and navigate to the `Databases` tab.
 
@@ -159,8 +159,6 @@ to [our support team][timescale-support] asking to be changed to corporate
 billing.
 
 [timescale-features]: https://www.timescale.com/products/#Features
-[getting-started]: /getting-started/:currentVersion:/
 [mst-install]: /install/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
-[migrate-data-mst]: mst/:currentVersion:/migrate-to-mst/
 [timescale-support]: https://www.timescale.com/support
