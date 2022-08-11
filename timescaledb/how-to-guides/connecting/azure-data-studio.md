@@ -61,7 +61,7 @@ services.
 
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
-1.  Select `Connect`.
+1.  Click `Connect`.
 
 After successfully connecting, your server opens in the `SERVERS`sidebar.
 
