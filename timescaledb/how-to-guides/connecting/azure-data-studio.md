@@ -69,7 +69,7 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 
 ### Connecting to Managed Service for TimescaleDB with Azure Data Studio
 
-<highlight type="note">
+<highlight type="important">
 To ensure a secure network access to your Managed Service for TimescaleDB
 service, add the IP address of your local machine on which you have installed
 Azure Data Studio to `Allowed IP Addresses`. For more information about network
