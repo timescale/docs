@@ -5,162 +5,152 @@ product: mst
 keywords: [security]
 ---
 
-# Security overview
+# Security in Managed Service for TimescaleDB
+
+This section covers how Timescale handles security of your data while it is
+stored.
 
 ## Cloud provider accounts
 
-The regular managed TimescaleDB services are hosted under cloud provider
-accounts controlled by Managed Service for TimescaleDB. These accounts are
-managed only by Timescale and Aiven operations personnel. Customers cannot
-directly access the cloud provider account resources.
+Managed Service for TimescaleDB services are hosted by cloud provider
+accounts controlled by Timescale. These accounts are managed only by Timescale
+and Aiven operations personnel. Members of the public cannot directly access the
+cloud provider account resources.
 
 ## Virtual machines
 
-Each Managed Service for TimescaleDB service resides on one or more virtual
-machines. Service-providing virtual machines are dedicated to a single customer.
-There is no multi-tenancy of virtual machines.
+Your Managed Service for TimescaleDB services are located on one or more virtual
+machines. Each virtual machine is dedicated to a single customer, and are never
+multi-tenanted. Customer data never leaves the virtual machine, except when
+uploaded to an offsite backup location.
 
-Virtual machines are automatically launched to the cloud region chosen by the
-customer. Data never leaves the chosen cloud region. If a cloud region has
-multiple Availability Zones, or a similar high-availability mechanism, the
-virtual machines are distributed evenly across the zones. This provides the best
+When you create a new service, you need to select a cloud region. When the
+virtual machine is launched, it does so in the cloud region you have chosen.
+Your data never leaves the chosen cloud region. If a cloud region has multiple
+Availability Zones, or a similar high-availability mechanism, the virtual
+machines are distributed evenly across the zones. This provides the best
 possible service if an Availability Zone becomes unavailable.
-
-Customer data never leaves the virtual machine, except when uploaded to an
-offsite backup location.
 
 Virtual machines are not reused. They are terminated and wiped when you upgrade
 or delete your service.
+
+## Project security
+
+Every Managed Service for TimescaleDB project has its own certificate authority.
+This certificate authority is used to sign certificates used internally by your
+services to communicate between different cluster nodes and to management
+systems.
+
+You can download your project certificate authority in the
+[Managed Service for TimescaleDB portal][mst-portal]. In the `Services` tab,
+click the service you want to find the certificate for. In the service
+`Overview` tab, under `Connection information`, locate the
+`CA Certificate` section, and click `Show` to see the certificate. It is
+recommended that you set up your browser or client to trust that certificate.
+
+All server certificates are signed by the Managed Service for TimescaleDB
+project certificate authority.
 
 ## Data encryption
 
 Managed Service for TimescaleDB at-rest data encryption covers both active
 service instances as well as service backups in cloud object storage.
 
-Service instances and the underlying VMs use full volume encryption using LUKS
-with a randomly generated ephemeral key per each instance and each volume. The
-key is never re-used and are trashed at the destruction of the instance, so
-there's a natural key rotation with roll-forward upgrades. We use the LUKS default
-mode aes-xts-plain64:sha256 with a 512-bit key.
+Service instances and the underlying virtual machines use full volume
+encryption. The encryption method uses LUKS, with a randomly generated ephemeral
+key per each instance, and per volume. The keys are never re-used, and are
+disposed of when the instance ius destroyed. This means that a natural key
+rotation occurs with roll-forward upgrades. By default, the LUKS mode is
+`aes-xts-plain64:sha256`, with a 512-bit key.
 
 Backups are encrypted with a randomly generated key per file. These keys are in
-turn encrypted with RSA key-encryption key-pair and stored in the header section
-of each backup segment. The file encryption is performed with AES-256 in CTR
-mode with HMAC-SHA256 for integrity protection. The RSA key-pair is randomly
-generated for each service. The key lengths are 256-bit for block encryption,
-512-bit for the integrity protection and 3072-bits for the RSA key.
+turn encrypted with an RSA key-encryption key-pair, and stored in the header
+section of each backup segment. The file encryption is performed with AES-256 in
+CTR mode, with HMAC-SHA256 for integrity protection. The RSA key-pair is
+randomly generated for each service. The key lengths are 256-bit for block
+encryption, 512-bit for the integrity protection and 3072-bits for the RSA key.
 
-Timescale Cloud-encrypted backup files are stored in the object storage in the
-same region where the service virtual machines are located.
+Encrypted backup files are stored in the object storage in the same region that
+the virtual machines are located for the service.
 
 ## Networking security
 
-Customer access to provided services is only provided over TLS encrypted connections.
-There is no option for using unencrypted plaintext connections.
+Access to provided services is only provided over TLS encrypted connections. TLS
+ensures that third-parties can't eavesdrop or modify the data while it's in
+transit between your service and the clients accessing your service. You cannot
+use unencrypted plain text connections.
 
 Communication between virtual machines within Managed Service for TimescaleDB is
-secured with either TLS or IPsec. There are no unencrypted plaintext
+secured with either TLS or IPsec. You cannot use unencrypted plaintext
 connections.
 
 Virtual machines network interfaces are protected by a dynamically configured
-iptables-based firewall that only allows connections from specific addresses both
-from the internal network (other VMs in the same service) or external public
-network (customer client connections).  The allowed source IP addresses for
-establishing connections is user controlled on per-service basis.
+firewall based on iptables, which only allows connections from specific
+addresses. This is used for network traffic from the internal network to other
+VMs in the same service, and for external public network, to client connections.
+
+By default, new services accept incooming traffic from all sources, which is
+used to simplify initial set up of your service. It is highly recommended that
+you restrict the IP addresses that are allowed to establish connections to your
+services.
+
+<prcoedure>
+
+### Configure allowed incoming IP addresses for your service
+
+1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
+1.  In the `Services` tab, find the service you want to configure, and check
+    it is marked as `Running`.
+1.  In the service `Overview` tab, under `Connection information`, locate the
+    port number. This is the port that you are managing inbound access for.
+1.  Scroll down and locate the `Allowed IP addresses` section. By default, this
+    is set to `0.0.0.0/0`, which accepts incoming access from all sources.
+1.  Click `Change`, and type the CIDR value for your incoming source traffic.
+    For example, if you enter a value of `192.168.1.15/32` only traffic from
+    this IP address is allowed, and all other traffic is blocked. Alternatively,
+    you could enter an address block to allow all traffic from within the block.
+    Click `+` to add the address to the allowed list. Click `Save changes`.
+1.  Check that the new allowed addresses are shown correctly in the
+   `Allowed IP addresses` section.
+
+   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.png" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
+
+</procedure>
 
 ## Networking with VPC peering
 
-When using VPC peering, **no public internet based access** is provided to the
-services. Service addresses are published in public DNS, but they can only be
-connected to from the customer's peered VPC using private network addresses.
+When you set up VPC peering, you cannot access your services using public
+internet-based access. Service addresses are published in the public DNS record,
+but they can only be connected to from your peered VPC network using private
+network addresses.
 
-The service providing virtual machines are still contained under Timescale Cloud
-provider accounts.
-
-## Operator access
-
-Normally all the resources required for providing an Managed Service for
-TimescaleDB service are automatically created, maintained and terminated by the
-Timescale Cloud infrastructure and there is no manual operator intervention
-required.
-
-However, the Managed Service for TimescaleDB Operations Team has the capability
-to securely login to the service Virtual Machines for troubleshooting purposes.
-These accesses are audit logged.
-
-No customer access to the virtual machine level is provided.
+The virtual machines providing your service are hosted by cloud provider
+accounts controlled by Timescale.
 
 ## Customer data privacy
 
-Customer data privacy is of utmost importance at Timescale and is covered
-by internal Security and Customer Privacy policies as well as the strict EU regulations.
-Timescale operators never access customer data, unless explicitly
-requested by the customer in order to troubleshoot a technical issue.
+Customer data privacy is of utmost importance at Timescale. Your data is
+protected by internal security and customer privacy policies, in addition to
+strict national regulations, including that of the European Union.
 
-The Timescale operations team has mandatory recurring training regarding the
-applicable policies.
+In most cases, all the resources required for providing your services are
+automatically created, maintained, and terminated by the Managed Service for
+TimescaleDB infrastructure, with no manual operator intervention required.
+
+The Timescale Operations Team are able to securely log in to your service
+Virtual Machines, for the purposes of troubleshooting, as required. Timescale
+operators never access customer data unless you explicitly request them to do
+so, to troubleshoot a technical issue. This access is logged and audited.
+
+There is no ability for any customer or member of the public to access any
+virtual machines used in Managed Service for TimescaleDB.
 
 TimescaleDB services are periodically assessed and penetration tested for any
-security issues by an independent professional cyber security vendor.
-
-The latest evaluation report can be found [here][cloud-security-eval].
-
-## Advanced Managed Service for TimescaleDB configuration
-
-### Securing network access to Timescale Cloud
-
-One very critical piece of securing your database within Managed Service for TimescaleDB is network protection.
-
-TimescaleDB provides the ability to configure, in a fine-grained manner, the
-set of source IP addresses and ranges, as well as connection ports, that can
-access your Managed Service for TimescaleDB services.
-
-This tutorial walks you through how to configure this capability.
-
-#### Before you start
-
-Be sure to follow the instructions above in order to
-get signed up and create your first database instance.
-
-#### Step 1 - Navigate to your TimescaleDB instance
-
-Once you have a database instance setup in the
-[Managed Service for TimescaleDB portal][timescale-mst-portal], browse to this
-service and click on the 'Overview' tab. In the 'Connection Information'
-section, you can see the port number that is used for database connections.
-This is the port you need to protect by managing inbound access.
-
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/overview-tab.png" alt="Timescale Cloud Overview tab"/>
-
-#### Step 2 - Find the allowed IP addresses section
-
-Scroll down to find the 'Allowed IP Addresses' section. By default, this value is set to
-`0.0.0.0/0` which is actually wide-open.
-
-<highlight type="warning">
-This wide-open setting simplifies getting started since it accepts incoming traffic from all sources, but you absolutely want to narrow this range.
-</highlight>
-
-<img class="main-content__illustration" src="https://assets.iobeam.com/images/docs/screenshots-for-securing-timescale-cloud/allowed-ip.png" alt="Allowed IP addresses"/>
-
-#### Step 3 - Change the allowed IP addresses section
-
-Click 'Change' and adjust the [Classless Inter-Domain Routing][cidr-wiki] (CIDR) value based on where your source traffic is coming from.
-For example, entering a value of `192.168.1.15/32` ONLY allows incoming traffic from a
-source IP of `192.168.1.15` and denies all other traffic.
-
-#### Step 4 - Save your changes
-
-Click 'Save Changes' and see this take effect immediately.
-
-#### Conclusion
-
-Limiting IP address inbound access is just one option to improve the security of your Timescale
-Cloud database instance. There are many other types of security measures you should take into
-account when securing your data. To learn more about security options within Timescale Cloud,
-visit the [Managed TimescaleDB Knowledge Base][timescale-mst-kb].
+security issues by an independent professional cybersecurity vendor. The latest
+evaluation report [is available for download][cloud-security-eval].
 
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[cloud-security-eval]: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjtm4bbn4rbAhUBDZoKHdBRDgkQFggpMAA&url=https%3A%2F%2Fwww.elfgroup.fi%2Fecc%2F1708-S6-71acd0046.pdf&usg=AOvVaw2wcBEPGeys6PL21W3G6wGW
+[cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
 [timescale-mst-kb]: https://kb-managed.timescale.com/en/
 [timescale-mst-portal]: https://portal.managed.timescale.com/
+[mst-portal]: https://portal.managed.timescale.com
