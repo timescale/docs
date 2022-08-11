@@ -100,7 +100,7 @@ After successfully connecting, your server opens in the `SERVERS`sidebar.
 
    |Setting|Example value|Description|
    | ------------ | ------------------ | ------------------------------------------------- |
-   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name.    The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
+   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Authentication type|Password|The authentication type to log in with|
    |User name|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB      service|
    |Password|*password*|The password for the account you are logging in with|
