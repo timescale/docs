@@ -60,7 +60,7 @@ services.
    <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_connection_screen.png"alt="Connecting to Timescale Cloud using Azure Data Studio"/>
 
 1.  Click `Advanced`.
-1.  Type the port number in the `Port` field and click `OK`.
+1.  In the `Port` field, type the port number, and click `OK`.
 1.  Select `Connect`.
 
 After successfully connecting, your server opens in the `SERVERS`sidebar.
