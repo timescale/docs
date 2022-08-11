@@ -96,17 +96,6 @@ module.exports = [
             ],
             excerpt: "Install Promscale on RPM based Linux",
           },
-          {
-            title: "tobs",
-            href: "tobs",
-            tags: ["promscale", "install", "analytics", "k8s"],
-            keywords: ["Promscale", "analytics", "Kubernetes"],
-            relatedPages: [
-              "/promscale/:currentVersion:/guides/resource-recomm",
-              "/promscale/:currentVersion:/send-data/",
-            ],
-            excerpt: "Install tobs",
-          },
         ],
       },
       {
@@ -284,11 +273,15 @@ module.exports = [
             excerpt: "Install the observability stack for Kubernetes (tobs)",
           },
           {
-            title: "Use tobs",
-            href: "use",
-            tags: ["tobs", "monitor", "k8s", "timescaledb"],
-            keywords: ["tobs", "Kubernetes", "timescaleDB", "Promscale"],
-            excerpt: "Using the observability suite for Kubernetes (tobs)",
+            title: "Install",
+            href: "tobs",
+            tags: ["promscale", "install", "analytics", "k8s"],
+            keywords: ["Promscale", "analytics", "Kubernetes"],
+            relatedPages: [
+              "/promscale/:currentVersion:/guides/resource-recomm",
+              "/promscale/:currentVersion:/send-data/",
+            ],
+            excerpt: "Install tobs",
           },
         ],
       },
