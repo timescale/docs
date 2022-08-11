@@ -99,7 +99,6 @@ security see, [Security overview][security-overview].
 1.  Type the port number in the `Port` field and click `OK`.
 1.  Select `Connect`.
 
-After successfully connecting, your server opens in the `SERVERS`sidebar.
 
 </procedure>
 
