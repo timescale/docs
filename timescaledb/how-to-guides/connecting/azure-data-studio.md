@@ -35,7 +35,6 @@ services.
 1.  In the `Port` field, type the port number, and click `OK`.
 1.  Click `Connect`.
 
-After successfully connecting, your server opens in the `SERVERS`sidebar.
 
 </procedure>
 
