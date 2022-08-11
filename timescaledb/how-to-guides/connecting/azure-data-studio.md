@@ -92,7 +92,7 @@ security in Managed Service for TimescaleDB, see
     Managed Service for TimescaleDB service. For more information about these settings, see 
     [the connection details section][connection-details].
 
-   <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.png"alt="Connection screen for Managed Service for TimescaleDB service"/>
+   <img class="main-content__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_connection_screen.png"alt="Connecting to Managed Service for TimescaleDB using Azure Data Studio"/>
 
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
