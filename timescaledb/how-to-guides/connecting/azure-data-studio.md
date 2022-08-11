@@ -29,7 +29,7 @@ services.
     TimescaleDB instance. For more information about these settings, see 
     [the connection details section][connection-details].
 
-   <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.png"alt="Connection screen for local or remote timescaledb"/>
+   <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.png"alt="Connecting to TimescaleDB using Azure Data Studio"/>
 
 1.  Click `Advanced`.
 1.  Type the port number in the `Port` field and click `OK`.
