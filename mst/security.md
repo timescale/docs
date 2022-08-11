@@ -59,7 +59,7 @@ service instances as well as service backups in cloud object storage.
 Service instances and the underlying virtual machines use full volume
 encryption. The encryption method uses LUKS, with a randomly generated ephemeral
 key per each instance, and per volume. The keys are never re-used, and are
-disposed of when the instance ius destroyed. This means that a natural key
+disposed of when the instance is destroyed. This means that a natural key
 rotation occurs with roll-forward upgrades. By default, the LUKS mode is
 `aes-xts-plain64:sha256`, with a 512-bit key.
 
