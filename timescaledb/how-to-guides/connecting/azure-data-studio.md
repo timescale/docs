@@ -32,7 +32,7 @@ services.
    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/local_remote_connection_screen.png"alt="Connecting to TimescaleDB using Azure Data Studio"/>
 
 1.  Click `Advanced`.
-1.  Type the port number in the `Port` field and click `OK`.
+1.  In the `Port` field, type the port number, and click `OK`.
 1.  Click `Connect`.
 
 After successfully connecting, your server opens in the `SERVERS`sidebar.
