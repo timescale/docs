@@ -14,7 +14,7 @@ required.
 
 Powered by [TimescaleDB][timescale-features], you can create database instances
 in the  cloud and automate many of your most common operational tasks. This
-allows you  to spend more time focusing on your time-series workloads and less
+allows you to spend more time focusing on your time-series workloads and less
 time worrying  about database management.
 
 Your Managed Service for TimescaleDB account has three main components:
