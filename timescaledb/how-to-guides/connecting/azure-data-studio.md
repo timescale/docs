@@ -18,7 +18,7 @@ services.
 *   Download and install [Azure Data Studio][ms-azure-data-studio].
 *   Install the [PostgreSQL extension for Azure Data Studio][postgresql-azure-data-studio].
 
-### Connecting to TimescaleDB hosted locally, or on a remote server
+### Connecting to on-premise TimescaleDB using Azure Data Studio
 
 <procedure>
 
