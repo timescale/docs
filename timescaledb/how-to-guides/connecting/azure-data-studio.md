@@ -38,7 +38,7 @@ services.
 
 </procedure>
 
-### Connecting to Timescale Cloud service
+### Connecting to Timescale Cloud with Azure Data Studio
 
 <procedure>
 
