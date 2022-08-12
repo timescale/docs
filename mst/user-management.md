@@ -46,7 +46,22 @@ and stop services permission.
 </procedure>
 
 ## Service users
-You can create user accounts for accessing your services.
+By default, when you create a new service, a new `tsdbadmin` user is created.
+This is the user that you use to connect to your new service.
+
+The `tsdbadmin` user is the owner of the database, but is not a superuser. To
+access features requiring a superuser, log in as the `postgres` user instead.
+
+On Managed Service for TimescaleDB services, the `tsdbadmin` user can:
+
+* Create a database
+* Create a role
+* Perform replication
+* Bypass row level security (RLS)
+
+This allows you to use the `tsdbadmin` user to create another user with any
+other roles. For a complete list of roles available, see the
+[PostgreSQL role attributes documentation][pg-roles-doc].
 
 <highlight type="important">
 Your service must be running before you can manage users.
@@ -63,10 +78,12 @@ Your service must be running before you can manage users.
     the user to be replicated, toggle `Allow replication`. Click
     `Add service user` to save the user.
 1.  The new user shows in the `Username` list. You can view the password by
-    clicking the eye icon. Use the options in the list to change the replication setting and password, or delete the user.   
+    clicking the eye icon. Use the options in the list to change the replication
+    setting and password, or delete the user.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-serviceuser.png" alt="Add a new MST service user"/>
 
 </procedure>
 
 [mst-login]: https://portal.managed.timescale.com
+[pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
