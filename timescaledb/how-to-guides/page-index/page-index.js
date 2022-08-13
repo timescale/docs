@@ -44,7 +44,7 @@ module.exports = [
             excerpt: "Install Azure Data Studio to connect to TimescaleDB",
           },
           {
-            title: "Install DBeaver",
+            title: "Connect using DBeaver",
             href: "dbeaver",
             tags: ["connect", "install", "timescaledb"],
             keywords: ["TimescaleDB", "connect", "install"],
