@@ -1,20 +1,28 @@
 ---
 api_name: counter_zero_time()
 excerpt: Predict the time when a counter was at zero
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [least squares, regression, extrapolate]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # counter_zero_time() <tag type="toolkit" content="Toolkit" />
+
 The time at which the counter value is predicted to have been zero based on the
 least squares fit line computed from the points in the CounterSummary.
 

@@ -1,3 +1,9 @@
+---
+title: Saturating math
+excerpt: Perform saturating math on integers to keep results within bounds
+keywords: [hyperfunctions, saturating math]
+---
+
 # Saturating math
 
 The saturating math hyperfunctions help you perform saturating math on integers.

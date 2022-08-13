@@ -1,19 +1,21 @@
 ---
 api_name: timescaledb_information.compression_settings
 excerpt: Get information about compression settings for hypertables
-license: community
-topic: compression
+topics: [compression]
 keywords: [compression]
 tags: [informational, settings, hypertables, schemas, indexes]
+api:
+  license: community
+  type: view
 ---
 
-## timescaledb_information.compression_settings 
+## timescaledb_information.compression_settings
 
 Get information about compression-related settings for hypertables.
 Each row of the view provides information about individual orderby
 and segmentby columns used by compression.
 
-### Available columns 
+### Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -25,8 +27,7 @@ and segmentby columns used by compression.
 | `orderby_asc` | BOOLEAN | True if this is used for order by ASC, False for order by DESC |
 | `orderby_nullsfirst` | BOOLEAN | True if nulls are ordered first for this column, False if nulls are ordered last|
 
-
-### Sample usage 
+### Sample usage
 
 ```sql
 CREATE TABLE hypertab (a_col integer, b_col integer, c_col integer, d_col integer, e_col integer);

@@ -1,21 +1,30 @@
 ---
 api_name: approx_percentile_rank()
 excerpt: Estimate the percentile of a given value from values in a percentile aggregate
-license: community
-toolkit: true
-experimental: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [percentile, hyperfunctions]
 tags: [approximate, rank, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: accessor
+  aggregates:
+    - percentile_agg()
+    - tdigest()
+    - uddsketch()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: accessor
 ---
 
 # approx_percentile_rank()  <tag type="toolkit">Toolkit</tag>
+
 Estimate what percentile a given value would be located at in a `UddSketch`.
 
 ```SQL
@@ -50,12 +59,12 @@ SELECT
     approx_percentile_rank(99, percentile_agg(data))
 FROM generate_series(0, 100) data;
 ```
+
 ```output
  approx_percentile_rank
 ----------------------------
          0.9851485148514851
 ```
-
 
 [hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

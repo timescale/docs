@@ -1,9 +1,11 @@
 ---
 api_name: refresh_continuous_aggregate()
 excerpt: Manually refresh a continuous aggregate
-license: community
-topic: continuous aggregates
+topics: [continuous aggregates]
 keywords: [continuous aggregates, refresh]
+api:
+  license: community
+  type: function
 ---
 
 ## refresh_continuous_aggregate() <tag type="community">Community</tag>
@@ -29,7 +31,6 @@ date or timestamp type. Note that a continuous aggregate using the
 `window_start` and `window_end` is specified in the local time zone,
 any time zone shift relative UTC needs to be accounted for when
 refreshing in order to align with bucket boundaries.
-
 
 ### Required arguments
 

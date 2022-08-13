@@ -1,16 +1,19 @@
 ---
 api_name: copy_chunk()
 excerpt: Copy a chunk between data nodes in a distributed hypertable
-license: community
-experimental: true
-topic: multi-node
+topics: [multi-node, distributed hypertables]
 keywords: [multi-node, distributed hypertables]
 tags: [data nodes, chunks, copy]
+api:
+  license: community
+  type: function
+  experimental: true
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 ## copy_chunk() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
+
 TimescaleDB allows you to copy existing chunks to a new location within a
 multi-node environment. This allows each data node to work both as a primary for
 some chunks and backup for others. If a data node fails, its chunks already
@@ -27,6 +30,7 @@ exist on other nodes that can take over the responsibility of serving them.
 |`destination_node`|NAME|Data node where the chunk is to be copied|
 
 ### Required settings
+
 When copying a chunk, the destination data node needs a way to
 authenticate with the data node that holds the source chunk. It is
 currently recommended to use a [password file][password-config] on the
@@ -38,11 +42,11 @@ many chunks in parallel, you can increase `max_wal_senders` and
 `max_replication_slots`.
 
 ### Failures
-When a copy operation fails, it sometimes creates objects and metadata on 
+
+When a copy operation fails, it sometimes creates objects and metadata on
 the destination data node. It can also hold a replication slot open on the
 source data node. To clean up these objects and metadata, use
 [`cleanup_copy_chunk_operation`][cleanup_copy_chunk].
-
 
 ### Sample usage
 

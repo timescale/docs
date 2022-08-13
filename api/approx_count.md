@@ -1,13 +1,22 @@
 ---
 api_name: approx_count()
 excerpt: Estimate an item's frequency from a `count_min_sketch`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 tags: [hyperfunctions, frequency, count min sketch]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: accessor
+  aggregates:
+    - count_min_sketch()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: CountMinSketch
 hyperfunction_type: accessor
@@ -16,6 +25,7 @@ hyperfunction_type: accessor
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # approx_count() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+
 Returns an estimate of the number of times that the text `item` was seen by the [Count-Min Sketch][count-min-sketch] `agg`.
 
 ```sql
@@ -33,7 +43,6 @@ approx_count (
 |-|-|-|
 |`item`|`TEXT`|The text whose frequency you want to estimate|
 |`agg`|`CountMinSketch`|The aggregate to use for estimating the frequency of `item`|
-
 
 ## Returns
 
