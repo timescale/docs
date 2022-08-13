@@ -115,3 +115,5 @@ appear in the `Main` tab of `Connection settings`.
 [dbeaver-downloads]: https://dbeaver.io/download/
 [connection-settings]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/#connection-settings-in-connect-to-a-database/
 [security-overview]: /mst/:currentVersion:/security/
+[tsc-portal]: https://console.cloud.timescale.com/
+[mst-portal]: https://portal.managed.timescale.com
