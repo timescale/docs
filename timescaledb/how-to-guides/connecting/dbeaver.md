@@ -97,7 +97,7 @@ Service for TimescaleDB, see [the security section][security-overview].
 
 </procedure>
 
-## Connection Settings in `Connect to a database`
+## Connection settings in `Connect to a database`
 
 This table provides the description and example values for the fields that
 appear in the `Main` tab of `Connection settings`.
@@ -113,5 +113,5 @@ appear in the `Main` tab of `Connection settings`.
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
-[connection-details]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/#connection-settings-in-connect-to-a-database/
+[connection-settings]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/#connection-settings-in-connect-to-a-database/
 [security-overview]: /mst/:currentVersion:/security/
