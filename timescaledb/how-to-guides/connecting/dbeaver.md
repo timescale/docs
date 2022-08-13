@@ -34,7 +34,7 @@ services.
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
-    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_debeaver.png"alt="Connecting to TimescaleDB using DBeaver"/>
+    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_dbeaver.png"alt="Connecting to TimescaleDB using DBeaver"/>
 
 </procedure>
 
