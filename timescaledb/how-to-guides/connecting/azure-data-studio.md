@@ -49,7 +49,7 @@ services.
     your own password for the service, or allow Timescale Cloud to generate a
     secure password for you. Take a note of your new password.
 1.  Start `Azure Data Studio`.
-1.  In the `SERVERS`page, click `New Connection`.
+1.  On the `SERVERS` page, click `New Connection`.
 1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
     Fill in the fields using the server name, database, user name, port, and password for your
     TimescaleDB Cloud service. For more information about these settings, see 
