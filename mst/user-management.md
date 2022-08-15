@@ -133,6 +133,45 @@ account. To regain access to your account, on the login screen, click
 regained access to your account, reconfigure multi-factor authentication.
 </highlight>
 
+## User authentication tokens
+
+Every time a registered user logs in, Managed Service for TimescaleDB creates a
+new authentication token. This occurs for login events using the portal, and
+using the API. By default, authentication tokens expire after 30 days, but the
+expiry date is adjusted every time the token is used. This means that tokens can
+be used indefinitely, if the user logs in at least every thirty days.
+
+You can see the list of all current authentication tokens in the Managed Service
+for TimescaleDB dashboard. [Log in to your account][mst-login], and click the
+`User information` icon in the top-right of the dashboard to go to the
+`User profile` section. In the `Authentication` tab, the table lists all current
+authentication tokens.
+
+When you make authentication changes, such as enabling two factor authentication
+or resetting a password, all existing tokens are revoked. In some cases, a new
+token is immediately created so that the web console session remains valid. You
+can also manually revoke authentication tokens from the `User profile` page
+individually, or click `Revoke all tokens` to revoke all current tokens.
+
+Additionally, you can click `Generate token` to create a new token. When you
+generate a token on this page, you can provide a description, maximum age, and
+an extension policy. Generating authentication tokens in this way allows you to
+use them with monitoring applications that make automatic API calls to Managed
+Service for TimescaleDB.
+
+<highlight type="important">
+There is a limit to how many valid authentication tokens are allowed per user.
+This limit is different for tokens that are created as a result of a sign in
+operation, and for tokens created explicitly. For automatically-created tokens,
+the system automatically deletes the oldest tokens as new ones are creates. For
+explicitly-created tokens, older tokens are not deleted unless they expire or
+are manually revoked. This can result in explicitly-created tokens that stop
+working, even though they haven't expired or been revoked. To avoid this, make
+sure you sign out at the end of every user session, instead of just discarding
+your authentication token. This is especially important for automation tools
+that automatically sign in.
+</highlight>
+
 [mst-login]: https://portal.managed.timescale.com
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
 [install-google-authenticator]: https://support.google.com/accounts/answer/1066447
