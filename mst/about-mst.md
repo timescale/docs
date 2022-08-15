@@ -133,7 +133,7 @@ immediately. However, the minimum hourly charge unit is one hour. For example,
 if you launch a Managed Service for TimescaleDB service and terminate it after
 40 minutes, you are charged for one full hour.
 
-Migrating to different service plans levels does not incur extra charges. Note,
+Migrating to different service plan levels does not incur extra charges. Note,
 though, that some service plan levels are more costly per hour, and your new
 service is charged at the new rate.
 
@@ -158,7 +158,7 @@ and email address is correct in project's billing settings, and send a message
 to [our support team][timescale-support] asking to be changed to corporate
 billing.
 
-[timescale-features]: https://www.timescale.com/products/#Features
+[timescale-features]: https://www.timescale.com/products/#features
 [mst-install]: /install/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-support]: https://www.timescale.com/support
