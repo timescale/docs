@@ -7,11 +7,13 @@ tags: [manage]
 ---
 
 # User Management
+
 You can add new users, and manage existing users, in the Managed Service for
 TimescaleDB console. New users can be added to an entire project, or a single
 service.
 
 ## Project members
+
 You can invite new users to join your project as project members. There are
 several roles available for project members:
 
@@ -29,6 +31,7 @@ and stop services permission.
 <procedure>
 
 ### Adding project members
+
 1.  [Log in to your account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Check that you are in the project that you want to change the members for,
@@ -46,6 +49,7 @@ and stop services permission.
 </procedure>
 
 ## Service users
+
 By default, when you create a new service, a new `tsdbadmin` user is created.
 This is the user that you use to connect to your new service.
 
@@ -54,10 +58,10 @@ access features requiring a superuser, log in as the `postgres` user instead.
 
 On Managed Service for TimescaleDB services, the `tsdbadmin` user can:
 
-* Create a database
-* Create a role
-* Perform replication
-* Bypass row level security (RLS)
+*   Create a database
+*   Create a role
+*   Perform replication
+*   Bypass row level security (RLS)
 
 This allows you to use the `tsdbadmin` user to create another user with any
 other roles. For a complete list of roles available, see the
@@ -70,6 +74,7 @@ Your service must be running before you can manage users.
 <procedure>
 
 ### Adding service users
+
 1.  [Log in to your account][mst-login]. By default, you start in the
     `Services` view, showing any services you currently have in your project.
 1.  Click the name of the service that you want to add users to, and navigate
@@ -85,5 +90,49 @@ Your service must be running before you can manage users.
 
 </procedure>
 
+## Multi-factor user authentication
+
+You can use multi-factor authentication (MFA) to log in to your Managed Service
+for TimescaleDB account. This requires an authentication code, provided by the
+Google Authenticator app on your mobile device, to be able to log in to your
+Managed Service for TimescaleDB account.
+
+You can see which authentication method is in use by each member of your Managed
+Service for TimescaleDB project. From the dashboard, navigate to the `Members`
+section. Each member is listed in the table with an authentication method of
+either `Password`, or `Two-Factor`.
+
+Before you begin, install the Google Authenticator app on your mobile device.
+For more information, and installation instructions, see
+[the Google Authenticator documentation][install-google-authenticator].
+
+<procedure>
+
+### Configuring multi-factor authentication
+
+1.  [Log in to your account][mst-login].
+1.  Click the `User information` icon in the top-right of the dashboard to go to
+    the `User profile` section.
+1.  In the `Authentication` tab, toggle `Two-factor authentication` to
+    `Enabled`, and enter your password.
+1.  On your mobile device, open the Google Authenticator app, tap `+` and select
+    `Scan a QR code`.
+1.  On your mobile device, scan the QR code provided by Managed Service for
+    TimescaleDB.
+1.  In your Managed Service for TimescaleDB dashboard, enter the confirmation
+    code provided by the Google Authenticator app, and click
+    `Enable Two-Factor Auth`.
+
+</procedure>
+
+<highlight type="warning">
+If you have lost access to the mobile device uses for your multi-factor
+authentication, you cannot sign in to your Managed Service for TimescaleDB
+account. To regain access to your account, on the login screen, click
+`Forgot password?` and follow the step to reset your password. When you have
+regained access to your account, reconfigure multi-factor authentication.
+</highlight>
+
 [mst-login]: https://portal.managed.timescale.com
 [pg-roles-doc]: https://www.postgresql.org/docs/current/role-attributes.html
+[install-google-authenticator]: https://support.google.com/accounts/answer/1066447
