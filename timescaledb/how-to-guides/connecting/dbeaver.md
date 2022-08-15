@@ -8,7 +8,7 @@ keywords: [connect]
 # Connect to TimescaleDB using DBeaver
 
 [DBeaver][dbeaver] is a free and open source database tool that is
-available for Microsoft Windows, Apple macOS, or various Linux flavors. DBeaver
+available for Microsoft Windows, Apple macOS, and many Linux versions. DBeaver
 provides a powerful SQL-editor, administration features, ability to migrate data
 and schema, monitor database connection sessions, and others. You can
 connect to TimescaleDB hosted on your local machine or on a remote server. You
