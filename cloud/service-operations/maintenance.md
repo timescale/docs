@@ -100,8 +100,7 @@ information about feature changes between versions, see the
 <highlight type="warning">
 Your Timescale Cloud service is unavailable for use until the upgrade is
 complete. Upgrading can take up to several hours, so we recommend
-that you plan ahead, and upgrade during a time with low usage. You can also
-reduce downtime for upgrades by enabling replicas.
+that you plan ahead, and upgrade during a time with low usage. 
 </highlight>
 
 ### Recommended practices for upgrading
@@ -113,14 +112,8 @@ Follow these optional recommendations for a smooth upgrade experience:
     see the section on [forking][operations-forking].
 *   Keep a copy of your database with your old version and data, if you're
     worried about losing it. You can fork your database without upgrading the
-    fork to keep a duplicate Timescale Cloud service.
-*   Enable replicas for near-zero-downtime upgrades. If you have replicas
-    enabled on Timescale Cloud, the upgrade process upgrades your nodes one by
-    one, so one node is always available. The only downtime is the time
-    needed for failover, which usually takes a few seconds. For more
-    information about replicas in Timescale Cloud, see the section on
-    [replicas][replicas].
-
+    fork to keep a duplicate Timescale Cloud service. You can immediately pause 
+    this fork to only pay for storage until you are comfortable deleting it.
 <procedure>
 
 ### Upgrading to a new PostgreSQL version
