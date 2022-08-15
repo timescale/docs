@@ -37,13 +37,13 @@ are prompted to sign the CLA during the pull request process.
 When making style decisions, consult resources in this order:
 
 1.  This guide: always check this guide first, it contains project-specific
-guidance, and in some cases differs from the other resources listed here.
+    guidance, and in some cases differs from the other resources listed here.
 1.  The [Google Developer Documentation Style Guide][google-style]: for most
-general style guidance, we rely on the style defined here.
+    general style guidance, we rely on the style defined here.
 1.  The Chicago Manual of Style: we use this guide for some formatting decisions
-that are not covered in other resources
+    that are not covered in other resources
 1.  Merriam-Webster: Timescale documentation is written in US English, for
-spelling and definitions, consult the dictionary.
+    spelling and definitions, consult the dictionary.
 
 ## Language
 
@@ -56,9 +56,9 @@ it's passive or active voice.
 For example, here are three ways of writing one sentence:
 
 *   Natural English: In order to perform X installation process, please ensure
-that all of the following steps are done ...
-*   Tech writer's English: To perform the X installation process, verify you have
-done the subsequent steps ...
+    that all of the following steps are done ...
+*   Tech writer's English: To perform the X installation process, verify you
+    have done the subsequent steps ...
 *   Plain English: To install X, do these steps ...
 
 Remember that the order of words is important in English. Put the most important
@@ -88,7 +88,7 @@ that case, feel free to ignore them.
 
 ## Headings
 
-All headings should be written in sentence case: capitalise only the first word
+All headings should be written in sentence case: capitalize only the first word
 in the heading, and proper nouns.
 
 For top-level page headings, and most section headings, use the simplest noun
@@ -102,8 +102,12 @@ level three heading, with the gerund form of the same heading. For example,
 
 ## Processes and procedures
 
-We use processes and procedures to provide readers with numbered steps to achieve a specific goal.
-Processes contain procedures. If the task you are describing is very lengthy, or has a series of distinct components, break it up into a series of procedures within a process.
+We use processes and procedures to provide readers with numbered steps to
+achieve a specific goal.
+
+Processes contain procedures. If the task you are describing is very lengthy, or
+has a series of distinct components, break it up into a series of procedures
+within a process.
 
 Procedures contain these elements:
 
@@ -116,7 +120,7 @@ Procedures contain these elements:
 1.  Numbered steps
 1.  Screenshot
 
-2.  Close `</procedure>` tag
+1.  Close `</procedure>` tag
 
 For example:
 
@@ -140,7 +144,7 @@ This section describes how to install TimescaleDB on premise.
 ```
 
 In general, do not use result statements. However, if you feel it is absolutely
-becessary, include it immediately before the closing procedure tag, and do not
+necessary, include it immediately before the closing procedure tag, and do not
 put it as a step.
 
 ## Verbs
