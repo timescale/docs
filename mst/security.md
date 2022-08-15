@@ -129,9 +129,8 @@ accounts controlled by Timescale.
 
 ## Customer data privacy
 
-Customer data privacy is of utmost importance at Timescale. Your data is
-protected by internal security and customer privacy policies, in addition to
-strict national regulations, including that of the European Union.
+Customer data privacy is of utmost importance at Timescale. Timescale works with
+Aiven to provide Managed Service for TimescaleDB.
 
 In most cases, all the resources required for providing your services are
 automatically created, maintained, and terminated by the Managed Service for
@@ -149,8 +148,13 @@ TimescaleDB services are periodically assessed and penetration tested for any
 security issues by an independent professional cybersecurity vendor. The latest
 evaluation report [is available for download][cloud-security-eval].
 
+Aiven is fully GDPR-compliant, and has executed Data Processing Agreements
+(DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
+you want more information about information security policies, contact [Timescale Support][timescale-support].
+
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
 [timescale-mst-kb]: https://kb-managed.timescale.com/en/
 [timescale-mst-portal]: https://portal.managed.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
+[timescale-support]: https://www.timescale.com/support
