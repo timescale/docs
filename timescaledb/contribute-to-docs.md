@@ -303,7 +303,7 @@ device.
 
 &#10060; "I want to install TimeScaleDB"
 
-*tobs* : The observability suite. Do not use capitalisation, even when it begins
+*tobs* : The observability suite. Do not use capitalization, even when it begins
 a sentence. If possible, rewrite the sentence to avoid this.
 
 &#128077; "Install using tobs"
