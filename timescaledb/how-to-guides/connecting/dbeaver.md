@@ -83,7 +83,7 @@ Service for TimescaleDB, see [the security section][security-overview].
     information. Take a note of the `Host`, `Port`, `Database Name`, `User`, and
     `Password`.
 1.  Start `DBeaver`.
-1.  Click the `Database` menu dropdown, and select `New Database Connection`.
+1.  In the `Database` menu, click `New Database Connection`.
 1.  In the `Connect to a database` window that appears, search for `TimescaleDB`.
 1.  Select `TimescaleDB` and click `Next` to continue.
 1.  In the `Main` tab type the details for your connection, including the
