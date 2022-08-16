@@ -104,12 +104,12 @@ appear in the `Main` tab of `Connection settings`.
 
    |Setting|Example value|Description|
    |-|-|-|
-   |Host|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
+   |Host|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io|The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Port|5432|The port number of the TimescaleDB server, Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Username|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB service|
    |Password|*password*|The password for the account you are logging in with|
    |Save password locally|*Check*|Check this box if you don't want to enter the password each time you connect.|
-   |Database|tsdb |This option connects to default database. The database name for Timescale Cloud service and Managed Service for TimescaleDB service is `tsdb`. You can also specify the name of the database to connect to.|
+   |Database|tsdb|This option connects to default database. The database name for Timescale Cloud service and Managed Service for TimescaleDB service is `tsdb`. You can also specify the name of the database to connect to.|
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
