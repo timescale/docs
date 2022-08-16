@@ -111,16 +111,17 @@ within a process.
 
 Procedures contain these elements:
 
+<!-- markdownlint-disable -->
+
 1.  Level two section title in simple verb form
 1.  Short introduction
-
 1.  Open `<procedure>` tag
-
 1.  Level three procedure title in gerund verb form
 1.  Numbered steps
 1.  Screenshot
-
 1.  Close `</procedure>` tag
+
+<!-- markdownlint-enable -->
 
 For example:
 
@@ -303,7 +304,7 @@ device.
 
 &#10060; "I want to install TimeScaleDB"
 
-*tobs* 
+*tobs*
 : The observability suite. Do not use capitalization, even when it begins
 a sentence. If possible, rewrite the sentence to avoid this.
 
