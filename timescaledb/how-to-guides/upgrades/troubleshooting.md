@@ -31,3 +31,22 @@ are trying to upgrade to, and it can occur if the package was not installed
 correctly in the first place. To correct the problem, install the upgrade
 package, restart PostgreSQL, verify the version, and then attempt the upgrade
 again.
+
+## Upgrading fails with an error that reads `old version has already been loaded`
+When you use the `ALTER EXTENSION timescaledb UPDATE` command to upgrade, and an
+error appears that reads:
+
+```sql
+ERROR: extension "timescaledb" cannot be updated after the old version has already been loaded
+```
+This error occurs sometimes when you do not run `ALTER EXTENSION timescaledb
+UPDATE` command as the first command after starting a new session using psql
+or if you use tab completion when running the command. Tab completion triggers
+metadata queries in the background which prevents the alter extension from being
+the first command.
+
+To correct the problem, execute the ALTER EXTENSION command like this:
+
+``sql
+psql -X -c 'ALTER EXTENSION timescaledb UPDATE;'
+```
