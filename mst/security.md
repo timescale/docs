@@ -161,9 +161,6 @@ Aiven is fully GDPR-compliant, and has executed Data Processing Agreements
 you want more information about information security policies, contact
 [Timescale Support][timescale-support].
 
-[cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
-[timescale-mst-kb]: https://kb-managed.timescale.com/en/
-[timescale-mst-portal]: https://portal.managed.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
 [timescale-support]: https://www.timescale.com/support
