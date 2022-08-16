@@ -94,7 +94,7 @@ used to simplify initial set up of your service. It is highly recommended that
 you restrict the IP addresses that are allowed to establish connections to your
 services.
 
-<prcoedure>
+<procedure>
 
 ### Configure allowed incoming IP addresses for your service
 
