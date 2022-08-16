@@ -96,7 +96,7 @@ firewall based on iptables, which only allows connections from specific
 addresses. This is used for network traffic from the internal network to other
 VMs in the same service, and for external public network, to client connections.
 
-By default, new services accept incooming traffic from all sources, which is
+By default, new services accept incoming traffic from all sources, which is
 used to simplify initial set up of your service. It is highly recommended that
 you restrict the IP addresses that are allowed to establish connections to your
 services.
@@ -118,7 +118,7 @@ services.
     you could enter an address block to allow all traffic from within the block.
     Click `+` to add the address to the allowed list. Click `Save changes`.
 1.  Check that the new allowed addresses are shown correctly in the
-   `Allowed IP addresses` section.
+    `Allowed IP addresses` section.
 
    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-allowed-incomingip.png" alt="Add a new allowed incoming IP address for Managed Service for TimescaleDB services"/>
 
@@ -152,12 +152,14 @@ There is no ability for any customer or member of the public to access any
 virtual machines used in Managed Service for TimescaleDB.
 
 TimescaleDB services are periodically assessed and penetration tested for any
-security issues by an independent professional cybersecurity vendor. The latest
-evaluation report [is available for download][cloud-security-eval].
+security issues by an independent professional cybersecurity vendor. The most
+recent evaluation report
+[is available for download][cloud-security-eval].
 
 Aiven is fully GDPR-compliant, and has executed Data Processing Agreements
 (DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
-you want more information about information security policies, contact [Timescale Support][timescale-support].
+you want more information about information security policies, contact
+[Timescale Support][timescale-support].
 
 [cidr-wiki]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
