@@ -126,3 +126,5 @@ short interuption to your service while the DNS changes are propogated.
 </highlight>
 
 </procedure>
+
+[mst-portal]: https://portal.managed.timescale.com/
