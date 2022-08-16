@@ -122,7 +122,7 @@ short interruption to your service while the DNS changes are propagated.
 <highlight type="important">
 The service is rebuilt in the new region in the background. When the service has
 been rebuilt in the new region, the DNS records are updated. This could cause a
-short interuption to your service while the DNS changes are propagated.
+short interruption to your service while the DNS changes are propagated.
 </highlight>
 
 </procedure>
