@@ -94,13 +94,12 @@ Your service must be running before you can manage users.
 
 You can use multi-factor authentication (MFA) to log in to your Managed Service
 for TimescaleDB account. This requires an authentication code, provided by the
-Google Authenticator app on your mobile device, to be able to log in to your
-Managed Service for TimescaleDB account.
+Google Authenticator app on your mobile device.
 
 You can see which authentication method is in use by each member of your Managed
 Service for TimescaleDB project. From the dashboard, navigate to the `Members`
 section. Each member is listed in the table with an authentication method of
-either `Password`, or `Two-Factor`.
+either `Password` or `Two-Factor`.
 
 Before you begin, install the Google Authenticator app on your mobile device.
 For more information, and installation instructions, see
@@ -126,7 +125,7 @@ For more information, and installation instructions, see
 </procedure>
 
 <highlight type="warning">
-If you have lost access to the mobile device uses for your multi-factor
+If you lose access to the mobile device you use for multi-factor
 authentication, you cannot sign in to your Managed Service for TimescaleDB
 account. To regain access to your account, on the login screen, click
 `Forgot password?` and follow the step to reset your password. When you have
@@ -139,7 +138,7 @@ Every time a registered user logs in, Managed Service for TimescaleDB creates a
 new authentication token. This occurs for login events using the portal, and
 using the API. By default, authentication tokens expire after 30 days, but the
 expiry date is adjusted every time the token is used. This means that tokens can
-be used indefinitely, if the user logs in at least every thirty days.
+be used indefinitely, if the user logs in at least every 30 days.
 
 You can see the list of all current authentication tokens in the Managed Service
 for TimescaleDB dashboard. [Log in to your account][mst-login], and click the
@@ -162,10 +161,10 @@ Service for TimescaleDB.
 <highlight type="important">
 There is a limit to how many valid authentication tokens are allowed per user.
 This limit is different for tokens that are created as a result of a sign in
-operation, and for tokens created explicitly. For automatically-created tokens,
-the system automatically deletes the oldest tokens as new ones are creates. For
-explicitly-created tokens, older tokens are not deleted unless they expire or
-are manually revoked. This can result in explicitly-created tokens that stop
+operation, and for tokens created explicitly. For automatically created tokens,
+the system automatically deletes the oldest tokens as new ones are created. For
+explicitly created tokens, older tokens are not deleted unless they expire or
+are manually revoked. This can result in explicitly created tokens that stop
 working, even though they haven't expired or been revoked. To avoid this, make
 sure you sign out at the end of every user session, instead of just discarding
 your authentication token. This is especially important for automation tools
