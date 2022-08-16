@@ -8,7 +8,7 @@ tags: [recovery, failures]
 
 # Backup and restore
 Timescale Cloud has a range of automated backup and restore mechanisms. All
-automated backups in Timescale Cloud are created using the `pgbackrest` tool.
+automated backups in Timescale Cloud are created using the `pgBackRest` tool.
 There is no need for you to manually perform backups for your Timescale Cloud
 service.
 
@@ -61,11 +61,11 @@ and the current day.
 If your database fails, the restore process begins automatically. This occurs in
 two stages:
 
-1.  Restore: The PostgreSQL service uses `pg_restore` to restore from the most
+1.  Restore: The PostgreSQL service uses `pgBackRest` to restore from the most
     recent successful backup. In most cases, the most recent successful backup
     is no more than a day old; either a full weekly backup, or an incremental
     daily backup. How quickly this occurs is limited by the CPU size of the
-    service. Large services can take a long time to recover.
+    service. Large services can take a long time to restore.
 1.  Recovery: When the restore is complete, recovery can begin. This is where
     the database replays the WAL segments that have been created since the last
     successful backup. This stage is processed using a single thread, so the
