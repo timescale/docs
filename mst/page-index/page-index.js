@@ -12,6 +12,10 @@ module.exports = [
         href: "create-a-service",
       },
       {
+        title: "Clouds and regions",
+        href: "cloud-regions",
+      },
+      {
         title: "Ingest data",
         href: "ingest-data",
       },
