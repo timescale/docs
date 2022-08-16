@@ -69,7 +69,7 @@ To ensure a secure network access to your Managed Service for TimescaleDB
 service, make sure you add the IP address of the machine running Azure Data 
 Studio to the `Allowed IP Addresses`. For more information about network
 security in Managed Service for TimescaleDB, see 
-[the security section][security-overview].
+[the security section](https://docs.timescale.com/mst/latest/security/).
 </highlight>
 
 <procedure>
@@ -114,5 +114,5 @@ appear in the `Connection Details` dialog.
 [postgresql-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/extensions/postgres-extension?view=sql-server-ver16
 [tsc-portal]: https://console.cloud.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
-[connection-details]: /timescaledb/:currentVersion:/how-to-guides/connecting/azure-data-studio/#settings-in-the-connection-details/
-[security-overview]: /mst/:currentVersion:/security/
+[connection-details]: /timescaledb/:currentVersion:/how-to-guides/connecting/azure-data-studio/#settings-in-the-connection-details
+
