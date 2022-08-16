@@ -100,14 +100,14 @@ This table provides the description and example values for the fields that
 appear in the `Connection Details` dialog.
 
    |Setting|Example value|Description|
-   | ------------ | ------------------ | ------------------------------------------------- |
-   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io |The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
+   |-|-|-|
+   |Server name|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io|The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Authentication type|Password|The authentication type to log in with|
    |User name|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB service|
    |Password|*password*|The password for the account you are logging in with|
    |Remember password|*Check*|Check this box if you don't want to enter the password each time you connect.|
-   |Database name|\<Default\>, tsdb |This option connnects to default database. The database name for Timescale Cloud service and Managed Service for TimescaleDB service is `tsdb`. You can also specify the name of the database to connect to.|
-   |Server group| \<Default\> |This option lets you assign this connection to a specific server group you create.|
+   |Database name|\<Default\>, tsdb|This option connnects to default database. The database name for Timescale Cloud service and Managed Service for TimescaleDB service is `tsdb`. You can also specify the name of the database to connect to.|
+   |Server group|\<Default\> |This option lets you assign this connection to a specific server group you create.|
    |Name (optional)|*leave blank*|This option lets you specify a friendly name for your server|
 
 [ms-azure-data-studio]: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16#install-azure-data-studio
