@@ -26,10 +26,17 @@ uploaded to an offsite backup location.
 
 When you create a new service, you need to select a cloud region. When the
 virtual machine is launched, it does so in the cloud region you have chosen.
-Your data never leaves the chosen cloud region. If a cloud region has multiple
-Availability Zones, or a similar high-availability mechanism, the virtual
-machines are distributed evenly across the zones. This provides the best
-possible service if an Availability Zone becomes unavailable.
+Your data never leaves the chosen cloud region.
+
+If a cloud region has multiple Availability Zones, or a similar
+high-availability mechanism, the virtual machines are distributed evenly across
+the zones. This provides the best possible service if an Availability Zone
+becomes unavailable.
+
+Access to the virtual machine providing your service is restricted. Software
+that is accessing your database needs to run on a different virtual machine. To
+reduce latency, it is best for it to be using a virtual machine provided by the
+same cloud provider, and in the same region, if possible.
 
 Virtual machines are not reused. They are terminated and wiped when you upgrade
 or delete your service.
