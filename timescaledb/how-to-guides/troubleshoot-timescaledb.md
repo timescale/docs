@@ -1,3 +1,9 @@
+---
+title: Troubleshooting TimescaleDB
+excerpt: Troubleshoot common problems that occur when using TimescaleDB
+keywords: [troubleshooting]
+---
+
 # Troubleshooting
 
 If you run into problems when using TimescaleDB, there are a few things that you
@@ -14,7 +20,7 @@ executed upon connection to a database. Some admin tools execute command before
 this, which can disrupt the process. It may be necessary for you to manually update
 the database with `psql`.  See our [update docs][update-db] for details.
 
-###  Log error: could not access file "timescaledb" [](access-timescaledb)
+###  Log error: could not access file "timescaledb"
 
 If your PostgreSQL logs have this error preventing it from starting up,
 you should double check that the TimescaleDB files have been installed
@@ -49,7 +55,7 @@ $ export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
 Then, reinstall TimescaleDB and it should find the correct installation
 path.
 
-### ERROR: could not access file "timescaledb-\<version\>": No such file or directory [](alter-issue)
+### ERROR: could not access file "timescaledb-\<version\>": No such file or directory
 
 If the error occurs immediately after updating your version of TimescaleDB and
 the file mentioned is from the previous version, it is probably due to an incomplete
@@ -66,9 +72,26 @@ If your scheduled jobs stop running, try restarting the background workers:
 SELECT _timescaledb_internal.start_background_workers();
 ```
 
+### Failed to start a background worker
+You might see this error message in the logs if background workers aren't
+properly configured:
+
+```bash
+"<TYPE_OF_BACKGROUND_JOB>": failed to start a background worker
+```
+
+To fix this error, make sure that `max_worker_processes`,
+`max_parallel_workers`, and `timescaledb.max_background_workers` are properly
+set. `timescaledb.max_background_workers` should equal the number of databases
+plus the number of concurrent background workers. `max_worker_processes` should
+equal the sum of `timescaledb.max_background_workers` and
+`max_parallel_workers`.
+
+For more information, see the [worker configuration docs][worker-config].
+
 ## Getting more information
 
-###  EXPLAINing query performance [](explain)
+###  EXPLAINing query performance
 
 PostgreSQL's EXPLAIN feature allows users to understand the underlying query
 plan that PostgreSQL uses to execute a query. There are multiple ways that
@@ -102,7 +125,7 @@ If you have TimescaleDB installed in a Docker container, you can view your logs
 using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
 information, see the [Docker documentation on logs][docker-logs].
 
-## Dump TimescaleDB meta data [](dump-meta-data)
+## Dump TimescaleDB meta data
 
 To help when asking for support and reporting bugs,
 TimescaleDB includes a SQL script that outputs metadata
@@ -123,5 +146,6 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 [slack]: https://slack.timescale.com/
 [support portal]: https://www.timescale.com/support
 [track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
-[update-db]: /how-to-guides/update-timescaledb/
+[update-db]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
+[worker-config]: /timescaledb/latest/how-to-guides/configuration/about-configuration/#workers

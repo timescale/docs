@@ -1,3 +1,9 @@
+---
+title: Create a continuous aggregate
+excerpt: How to create a continuous aggregate
+keywords: [continuous aggregates, create]
+---
+
 # Create a continuous aggregate
 Creating a continuous aggregate is a two-step process. You need to create the
 view first, then enable a policy to keep the view refreshed. You can have more
@@ -196,10 +202,10 @@ FROM example_aggregate;
 This speeds up your query by calculating the aggregation ahead of time. The
 delta still needs to be calculated at query time.
 
-[api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [api-time-bucket-gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/
+[api-time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [cagg-function-support]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates/#function-support
-[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html
+[postgres-security-barrier]: https://www.postgresql.org/docs/current/rules-privileges.html

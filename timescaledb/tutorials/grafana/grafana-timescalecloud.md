@@ -1,3 +1,9 @@
+---
+title: Connect TimescaleDB and Grafana
+excerpt: Connect Timescale Cloud to Grafana to visualize your data
+keywords: [Grafana, visualizations, analytics]
+---
+
 import CloudTrial from 'versionContent/_partials/_cloudtrial.mdx';
 
 # Connect TimescaleDB and Grafana
@@ -54,6 +60,6 @@ Grafana.
 
 When you have configured TimescaleDB as a data source in Grafana, you can create panels that are populated with data using SQL.
 
-[grafana-install]: https://grafana.com/docs/grafana/latest/installation/
 [grafana-homepage]: https://grafana.com/
+[grafana-install]: https://grafana.com/docs/grafana/latest/installation/
 [tsc-portal]: https://console.cloud.timescale.com/

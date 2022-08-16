@@ -1,3 +1,9 @@
+---
+title: Gapfilling and interpolation
+excerpt: Fill gaps in time-series data
+keywords: [hyperfunctions, Toolkit, gapfill, interpolate]
+---
+
 # Gapfilling and interpolation
 Most time-series data analysis techniques aggregate data into fixed time
 intervals, which smooths the data and makes it easier to interpret and analyze.
@@ -16,7 +22,6 @@ the returned rows are in chronological order, and contiguous.
     [gapfilling blog][blog-gapfilling].
 *   For more information about gapfilling and interpolation API calls, see the
     [hyperfunction API documentation][hyperfunctions-api-gapfilling].
-
 
 [blog-gapfilling]: https://blog.timescale.com/blog/sql-functions-for-time-series-analysis/
 [hyperfunctions-api-gapfilling]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/

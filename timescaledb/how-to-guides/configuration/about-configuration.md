@@ -1,3 +1,9 @@
+---
+title: About configuration in TimescaleDB
+excerpt: About the TimescaleDB configurations
+keywords: [configuration, memory, workers, settings]
+---
+
 # About configuration in TimescaleDB
 By default, TimescaleDB uses the default PostgreSQL server configuration
 settings. However, in some cases, these settings are not appropriate, especially
@@ -59,10 +65,7 @@ directly, by adjusting the `--cpus` flag, or by using the `TS_TUNE_NUM_CPUS`
 The `max_worker_processes` setting defines the total pool of workers available
 to both background and parallel workers, as well a small number of built-in
 PostgreSQL workers. It should be at least the sum of
-`timescaledb.max_background_workers` and `max_parallel_workers`. When you adjust
-`timescaledb.max_background_workers` or `max_parallel_workers`, the
-`max_worker_processes` setting is automatically updated to the sum of those two
-parameters.
+`timescaledb.max_background_workers` and `max_parallel_workers`.
 
 <highlight type="tip">
 You can adjust these settings with `timescaledb-tune`.
@@ -117,11 +120,10 @@ You can adjust these settings in the `postgresql.conf` configuration
 file.
 </highlight>
 
-
-[tstune-conf]: /how-to-guides/configuration/timescaledb-tune
-[postgresql-conf]: /how-to-guides/configuration/postgres-config
-[docker-conf]: /how-to-guides/configuration/docker-config
-[pgtune]: http://pgtune.leopard.in.ua/
 [async-commit]: https://www.postgresql.org/docs/current/static/wal-async-commit.html
-[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
 [chunk_detailed_size]: /api/:currentVersion:/hypertable/chunks_detailed_size/
+[docker-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/docker-config
+[lock-management]: https://www.postgresql.org/docs/current/static/runtime-config-locks.html
+[pgtune]: http://pgtune.leopard.in.ua/
+[postgresql-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/postgres-config
+[tstune-conf]: /timescaledb/:currentVersion:/how-to-guides/configuration/timescaledb-tune

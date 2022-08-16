@@ -1,4 +1,11 @@
+---
+title: Troubleshooting data retention
+excerpt: Troubleshoot common problems experienced with data retention
+keywords: [data retention, troubleshooting]
+---
+
 # Troubleshooting data retention
+
 This section contains some ideas for troubleshooting common problems experienced
 with data retention.
 
@@ -13,13 +20,14 @@ with data retention.
 -->
 
 ## Dropping chunks times out
+
 When you drop a chunk, it requires an exclusive lock. If a chunk is being
-If a chunk is being accessed by another session, you cannot drop the chunk at the same time. If a drop chunk
-operation can't get the lock on the chunk, then it times out and the process
-fails. To resolve this problem, check what is locking the chunk. In some cases,
-this could be caused by a continuous aggregate or other process accessing the
-chunk. When the drop chunk operation can get an exclusive lock on the chunk, it
-completes as expected.
+accessed by another session, you cannot drop the chunk at the same time. If a
+drop chunk operation can't get the lock on the chunk, then it times out and the
+process fails. To resolve this problem, check what is locking the chunk. In some
+cases, this could be caused by a continuous aggregate or other process accessing
+the chunk. When the drop chunk operation can get an exclusive lock on the chunk,
+it completes as expected.
 
 For more information about locks, see the
 [PostgreSQL lock monitoring documentation][pg-lock-monitoring].

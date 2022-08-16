@@ -1,3 +1,11 @@
+---
+title: Real-time aggregates
+excerpt: Real-time aggregates combine pre-aggregated data with the most recent raw data for up-to-date results
+keywords: [continuous aggregates, real-time aggregates]
+---
+
+import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
+
 # Real time aggregates
 Continuous aggregates do not include the most recent data chunk from the
 underlying hypertable. Real time aggregates use the aggregated data and add the
@@ -28,13 +36,11 @@ You can enable and disable real time aggregation by setting the
 
 </procedure>
 
-<highlight type="important">
-If you have a time bucket that has already been materialized, the real-time
-aggregate won't show the data that has been inserted, updated, or deleted. When
-you need to change data that has already been materialized, use
-`refresh_continuous_aggregate()` for the corresponding buckets. For more
-information, see the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/troubleshooting/).
-</highlight>
+## Real-time aggregates and refreshing historical data
+
+<CaggsRealTimeHistoricalDataRefreshes />
+
+For more information, see the [troubleshooting section][troubleshooting].
 
 [blog-rtaggs]: https://blog.timescale.com/blog/achieving-the-best-of-both-worlds-ensuring-up-to-date-results-with-real-time-aggregation/
-[troubleshooting]: https://docs.timescale.com/timescaledb/latest/how-to-guides/continuous-aggregates/troubleshooting/
+[troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#updates-to-previously-materialized-regions-are-not-shown-in-continuous-aggregates

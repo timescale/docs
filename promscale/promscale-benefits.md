@@ -9,7 +9,7 @@ tags: [learn, prometheus]
 # Promscale benefits
 
 **Get started in minutes**: deploy a full observability stack for metrics and
-traces in your Kubernetes cluster with a single command using our [cli](tobs). Or deploy
+traces in your Kubernetes cluster using [tobs](tobs). Or deploy
 the two components that make up Promscale in a container platform or VM using
 the provided artifacts. Integrates with Grafana and Jaeger out-of-the-box.
 
@@ -45,4 +45,4 @@ scalability, columnar compression and continous aggregates.
 for Postgres and TimescaleDB: data visualization tools, AI platforms, IDEs, ORMs,
 management tools, performance tuning, etc.
 
-[tobs]: /promscale/:currentVersion:/installation/tobs
+[tobs]: /promscale/:currentVersion:/tobs/tobs/

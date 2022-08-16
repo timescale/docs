@@ -1,3 +1,10 @@
+---
+title: Build a bar chart in Grafana
+excerpt: Plot a bar chart in Grafana to compare values between categories
+keywords: [Grafana, visualization, analytics]
+tags: [bar chart]
+---
+
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a bar chart in Grafana
@@ -38,6 +45,10 @@ this tutorial.
 
 <GrafanaVizPrereqs />
 
+Check out this video for a step-by-step walk-through on creating bar chart in 
+Grafana:
+<video url="https://www.youtube-nocookie.com/embed/nBcUiPvYjhc"/>
+
 ## Create a bar chart with preaggregated data
 
 Create a bar chart visualization using the data in the table `stocks_real_time`.
@@ -53,7 +64,7 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
     SELECT
         time_bucket('$bucket_interval', time) AS time,
         symbol,
-        AVG(price) as price
+        AVG(price) AS price
     FROM stocks_real_time srt
     WHERE symbol = $symbol
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
@@ -116,7 +127,7 @@ charts.
       SELECT
           time_bucket('$bucket_interval', time) AS time,
           symbol,
-          AVG(price) as price
+          AVG(price) AS price
       FROM stocks_real_time srt
       WHERE symbol IN ($symbol)
           AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
@@ -165,7 +176,7 @@ traded volume. This helps to calculate the volume of data for each bucket.
       SELECT
           time_bucket('$bucket_interval', time) AS time,
           symbol,
-          MAX(day_volume) - LAG(max(day_volume), 1) OVER(
+          MAX(day_volume) - LAG(MAX(day_volume), 1) OVER(
               PARTITION BY symbol
               ORDER BY time_bucket('$bucket_interval', time)
           ) AS bucket_volume

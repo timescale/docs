@@ -1,3 +1,10 @@
+---
+title: Troubleshooting data migration
+excerpt: Troubleshoot common problems experienced with data migration
+keywords: [migrate]
+tags: [import]
+---
+
 # Troubleshooting data migration
 This section contains some ideas for troubleshooting common problems experienced
 with data migration.
@@ -12,4 +19,4 @@ ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in 
 To fix this problem, see the [hypertables and unique indexes][unique-indexes]
 section.
 
-[unique-indexes]: timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/
+[unique-indexes]: /timescaledb/:currentVersion:/how-to-guides/hypertables/hypertables-and-unique-indexes/

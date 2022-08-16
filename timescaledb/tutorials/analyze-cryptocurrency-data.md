@@ -1,3 +1,9 @@
+---
+title: Analyze cryptocurrency market data
+excerpt: Analyze a time-series cryptocurrency dataset with TimescaleDB
+keywords: [crypto, finance, analytics]
+---
+
 # Analyze cryptocurrency market data
 This tutorial is a step-by-step guide on how to analyze a time-series
 cryptocurrency dataset using TimescaleDB. The instructions in this tutorial
@@ -629,14 +635,14 @@ Ready for even more learning? Here's a few suggestions:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate your own Data][migrate]
 
-[install-timescale]: /install/latest/
-[crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
-[hypertable-docs]: /how-to-guides/hypertables
-[hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
-[cryptocompare]: https://www.cryptocompare.com
-[cryptocompare-apikey]: https://min-api.cryptocompare.com
-[tableau-tutorial]: /tutorials/visualize-with-tableau/
-[time-series-forecasting]: /tutorials/time-series-forecast/
 [continuous-aggregates]: /getting-started/:currentVersion:/create-cagg
-[other-samples]: /tutorials/sample-datasets/
-[migrate]: /how-to-guides/migrate-data/
+[crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
+[cryptocompare-apikey]: https://min-api.cryptocompare.com
+[cryptocompare]: https://www.cryptocompare.com
+[hypertable-blog]: https://blog.timescale.com/blog/when-boring-is-awesome-building-a-scalable-time-series-database-on-postgresql-2900ea453ee2/
+[hypertable-docs]: /timescaledb/:currentVersion:/how-to-guides/hypertables
+[install-timescale]: /install/latest/
+[migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
+[other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
+[tableau-tutorial]: /timescaledb/:currentVersion:/tutorials/visualize-with-tableau/
+[time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/

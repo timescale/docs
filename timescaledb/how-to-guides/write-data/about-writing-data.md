@@ -1,3 +1,10 @@
+---
+title: About writing data
+excerpt: How to write data to TimescaleDB
+keywords: [ingest]
+tags: [write]
+---
+
 # About writing data
 TimescaleDB supports writing data in the same way as PostgreSQL, using `INSERT`,
 `UPDATE`, `INSERT ... ON CONFLICT`, and `DELETE`.
