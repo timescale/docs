@@ -156,7 +156,7 @@ security issues by an independent professional cybersecurity vendor. The most
 recent evaluation report
 [is available for download][cloud-security-eval].
 
-Aiven is fully GDPR-compliant, and has executed Data Processing Agreements
+Aiven is fully GDPR-compliant, and has executed data processing agreements
 (DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
 you want more information about information security policies, contact
 [Timescale Support][timescale-support].
