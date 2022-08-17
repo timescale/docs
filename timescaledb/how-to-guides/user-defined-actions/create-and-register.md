@@ -42,28 +42,21 @@ To make the job scheduler run your action, you need to register it. Use the
 you want it to run on, and the content of your config. If your job needs no
 parameters, use a NULL config.
 
-<procedure>
+For example:
 
-## Registering an action
+```sql
+SELECT add_job('user_defined_action', '1h', config => '{"hypertable":"metr"}');
+```
 
-1.  Add a job for your user-defined action. For example:
+The `add_job` call returns a `job_id`. It stores the `job_id` and `config` in
+the TimescaleDB catalog.
 
-    ```sql
-    SELECT add_job('user_defined_action', '1h', config => '{"hypertable":"metr"}');
-    ```
-
-1.  The `add_job` call returns a `job_id`. It stores the `job_id` and `config`
-    in the TimescaleDB catalog.
-1.  The action runs on schedule. It also runs when you manually start it by
-    calling [`run_job`][api-run_job] with the `job_id`. When it runs, the
-    `job_id` and `config` are passed as arguments to the procedure.
-
-</procedure>
-
-## List current jobs
+The action runs on the schedule you set. It also runs when you manually start it
+by calling [`run_job`][api-run_job] with the `job_id`. When it runs, the
+`job_id` and `config` are passed as arguments to the procedure.
 
 To list all currently registered jobs, query
-[`timescaledb_information.jobs`][api-timescaledb_information-jobs].
+[`timescaledb_information.jobs`][api-timescaledb_information-jobs]:
 
 ```sql
 SELECT * FROM timescaledb_information.jobs;
