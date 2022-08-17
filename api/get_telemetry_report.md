@@ -1,10 +1,12 @@
 ---
 api_name: get_telemetry_report()
 excerpt: Get the telemetry string that is sent to Timescale servers
-license: apache
-topic: admin
+topics: [administration]
 keywords: [admin]
 tags: [telemetry, report]
+api:
+  license: apache
+  type: function
 ---
 
 ## get_telemetry_report()
@@ -20,11 +22,15 @@ and returns a NULL report.
 | `always_display_report` | BOOLEAN | Set to true to always view the report, even if telemetry is disabled |
 
 ### Sample usage
+
 If telemetry is enabled, view the telemetry report.
+
 ```sql
 SELECT get_telemetry_report();
 ```
+
 If telemetry is disabled, view the telemetry report locally.
+
 ```sql
 SELECT get_telemetry_report(always_display_report := true);
 ```

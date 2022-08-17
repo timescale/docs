@@ -1,10 +1,12 @@
 ---
 api_name: drop_chunks()
 excerpt: Delete chunks by time range
-license: apache
-topic: data retention
+topics: [data retention]
 keywords: [data retention, chunks, delete]
 tags: [drop]
+api:
+  license: apache
+  type: function
 ---
 
 ## drop_chunks()
@@ -42,16 +44,15 @@ based on a space partition.
 
 The `older_than` and `newer_than` parameters can be specified in two ways:
 
-- **interval type:** The cut-off point is computed as `now() -
+*   **interval type:** The cut-off point is computed as `now() -
     older_than` and similarly `now() - newer_than`.  An error is
     returned if an INTERVAL is supplied and the time column is not one
     of a `TIMESTAMP`, `TIMESTAMPTZ`, or `DATE`.
 
-- **timestamp, date, or integer type:** The cut-off point is
+*   **timestamp, date, or integer type:** The cut-off point is
     explicitly given as a `TIMESTAMP` / `TIMESTAMPTZ` / `DATE` or as a
     `SMALLINT` / `INT` / `BIGINT`. The choice of timestamp or integer
     must follow the type of the hypertable's time column.
-
 
 <highlight type="warning">
 When using just an interval type, the function assumes that
@@ -68,6 +69,7 @@ intersection between two ranges results in an error.
 ### Sample usage
 
 Drop all chunks from hypertable `conditions` older than 3 months:
+
 ```sql
 SELECT drop_chunks('conditions', INTERVAL '3 months');
 ```
@@ -94,6 +96,7 @@ SELECT drop_chunks('conditions', newer_than => now() + interval '3 months');
 ```
 
 Drop all chunks from hypertable `conditions` before 2017:
+
 ```sql
 SELECT drop_chunks('conditions', '2017-01-01'::date);
 ```
@@ -106,11 +109,13 @@ SELECT drop_chunks('conditions', 1483228800000);
 ```
 
 Drop all chunks older than 3 months ago and newer than 4 months ago from hypertable `conditions`:
+
 ```sql
 SELECT drop_chunks('conditions', older_than => INTERVAL '3 months', newer_than => INTERVAL '4 months')
 ```
 
 Drop all chunks older than 3 months ago across all hypertables:
+
 ```sql
 SELECT drop_chunks(format('%I.%I', hypertable_schema, hypertable_name)::regclass, INTERVAL '3 months')
   FROM timescaledb_information.hypertables;

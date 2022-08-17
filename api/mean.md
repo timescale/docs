@@ -1,14 +1,23 @@
 ---
 api_name: mean()
 excerpt: Calculate the mean from values in a percentile aggregate
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [hyperfunctions, toolkit]
 tags: [average, percentiles]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: accessor
+  aggregates:
+    - percentile_agg()
+    - tdigest()
+    - uddsketch()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: false
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: accessor
@@ -19,6 +28,7 @@ hyperfunction_type: accessor
 ```SQL
 mean(sketch UddSketch) RETURNS DOUBLE PRECISION
 ```
+
 ```SQL
 mean(digest tdigest) RETURNS DOUBLE PRECISION
 ```
@@ -53,12 +63,12 @@ separate `avg` aggregate.
 SELECT mean(percentile_agg(data))
 FROM generate_series(0, 100) data;
 ```
+
 ```output
  mean
 ------
  50
 ```
-
 
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
 [hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

@@ -1,14 +1,19 @@
 ---
 api_name: timescaledb_experimental.time_bucket_ng()
 excerpt: Bucket rows by time interval with support for time zones, months, and years
-license: apache
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [aggregate, hyperfunctions]
 tags: [time buckets]
+api:
+  license: apache
+  type: function
+  experimental: true
+hyperfunction:
+  type: bucket
 ---
 
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
+
 The `time_bucket_ng()` (next generation) experimental function is an updated
 version of  the original [`time_bucket()`][time_bucket] function. While
 `time_bucket` works only with small units of time,  `time_bucket_ng()`
@@ -68,7 +73,6 @@ can't be used with continuous aggregates. Best practice is to use
 
 The function returns the bucket's start time. The return value type is the
 same as `ts`.
-
 
 ### Sample usage
 
