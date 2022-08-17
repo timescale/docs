@@ -49,10 +49,11 @@ see the [algorithms section][compression-algorithms].
 For simplicity, this example shows only 4 entries. TimescaleDB can combine up to
 1000 entries into a single row.
 
-<highlight type="note"> Behind the scenes, TimescaleDB actually creates a
-second, under-the-covers, hypertable with the compressed data. You shouldn't
-query this table directly. Run your queries against the original hypertable, and
-TimescaleDB finds any compressed data, decompresses it, and returns it to you.
+<highlight type="note">
+Behind the scenes, TimescaleDB actually creates a second, under-the-covers,
+hypertable with the compressed data. You shouldn't query this table directly.
+Run your queries against the original hypertable, and TimescaleDB finds any
+compressed data, decompresses it, and returns it to you.
 </highlight>
 
 ## Data ordering and segmenting
@@ -60,10 +61,11 @@ TimescaleDB finds any compressed data, decompresses it, and returns it to you.
 By default, TimescaleDB orders rows by decreasing time value when compressing.
 Then it combines the rows into columns of up to 1000 entries.
 
-<highlight type="note"> At a first approximation, this means that a chunk with
-`N` rows turns into a compressed chunk with `ceiling(N / 1000)` rows. In
-practice, the number might differ slightly, depending on the start and end
-ranges of your data and chunks. </highlight>
+<highlight type="note">
+At a first approximation, this means that a chunk with `N` rows turns into a
+compressed chunk with `ceiling(N / 1000)` rows. In practice, the number might
+differ slightly, depending on the start and end ranges of your data and chunks.
+</highlight>
 
 You can change the ordering and segmenting behavior to improve compression
 efficiency and query performance. The best choice depends on your application
@@ -148,13 +150,15 @@ some internal metadata on the compressed chunk.
 
 If you decompress a chunk, your old indexes are restored.
 
-<highlight type="note">Your old indexes are removed because compressed data
-isn't indexable in the same way as uncompressed data. For example, say that you
-have an index on a column named `data`. Before compression, the index points to
-individual rows with individual values for `data`. After compression, the values
-for `data` are stored in array-like structures, so the index can no longer point
-to individual values. Only columns used in `segment_by` can be indexed, since
-they are stored as their original values.</highlight>
+<highlight type="note">
+Your old indexes are removed because compressed data isn't indexable in the same
+way as uncompressed data. For example, say that you have an index on a column
+named `data`. Before compression, the index points to individual rows with
+individual values for `data`. After compression, the values for `data` are
+stored in array-like structures, so the index can no longer point to individual
+values. Only columns used in `segment_by` can be indexed, since they are stored
+as their original values.
+</highlight>
 
 ## Data storage for compressed chunks
 
@@ -217,8 +221,8 @@ queries, it helps to understand what is happening behind the scenes.
 When you query data across both compressed and uncompressed chunks, TimescaleDB:
 
 1.  Finds the compressed chunks and decompresses the requested columns
-2.  Appends the decompressed data to more recent, uncompressed, data
-3.  Returns the final results to you as if all the data were stored uncompressed
+1.  Appends the decompressed data to more recent, uncompressed, data
+1.  Returns the final results to you as if all the data were stored uncompressed
 
 You incur a performance penalty to decompress the data. But you save on I/O,
 because you read only the required columns from the compressed chunks, rather
@@ -250,7 +254,7 @@ compression][improving-compression].
 [compression-algorithms]: #type-specific-compression-algorithms
 [compression-algorithms-blog]: https://www.timescale.com/blog/time-series-compression-algorithms-explained/
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
-[decompress]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks.md
+[decompress]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
 [improving-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/improve-compression.md
 [indexes]: #indexes-on-compressed-chunks
 [ordering-and-segmenting]: #data-ordering-and-segmenting

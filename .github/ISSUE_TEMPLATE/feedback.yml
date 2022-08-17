@@ -12,15 +12,15 @@ body:
     attributes:
       label: Is it easy to find the information you need?
       options:
-        - Yes
-        - No
+        - "Yes"
+        - "No"
   - type: dropdown
     id: instructions
     attributes:
       label: Are the instructions clear?
       options:
-        - Yes
-        - No
+        - "Yes"
+        - "No"
   - type: textarea
     id: improvements
     attributes:
