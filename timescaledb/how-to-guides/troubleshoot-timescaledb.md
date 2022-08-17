@@ -9,20 +9,20 @@ import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-
 # Troubleshooting
 
 If you run into problems when using TimescaleDB, there are a few things that you
-can do. There are some solutions to common errors below as well as ways to
+can do. There are some solutions to common errors in this section as well as ways to
 output diagnostic information about your setup. If you need more guidance, you
-can join the support [slack group][slack] or post an issue on the TimescaleDB
-[github][].
+can join the community [Slack group][slack] or post an issue on the TimescaleDB
+[GitHub][github].
 
 ## Common errors
 
 ### Error updating TimescaleDB when using a third-party PostgreSQL administration tool
 
-The update command `ALTER EXTENSION timescaledb UPDATE` must be the first
+The `ALTER EXTENSION timescaledb UPDATE` command must be the first
 command executed upon connection to a database. Some administration tools
-execute commands before this, which can disrupt the process. It may be necessary
-for you to manually update the database with `psql`.  See the [update
-docs][update-db] for details.
+execute commands before this, which can disrupt the process. You might
+need to manually update the database with `psql`.  See the 
+[update docs][update-db] for details.
 
 ### Log error: could not access file "timescaledb"
 
@@ -66,7 +66,7 @@ the file mentioned is from the previous version, it is probably due to an
 incomplete update process. Within the greater PostgreSQL server instance, each
 database that has TimescaleDB installed needs to be updated with the SQL command
 `ALTER EXTENSION timescaledb UPDATE;` while connected to that database.
-Otherwise, the database looks for the previous version of the timescaledb files.
+Otherwise, the database looks for the previous version of the `timescaledb` files.
 
 See [our update docs][update-db] for more info.
 
