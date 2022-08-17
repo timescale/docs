@@ -6,121 +6,114 @@ keywords: [compression, backfill, hypertables]
 
 # Backfill historical data on compressed chunks
 
-In the [TimescaleDB extras][timescaledb-extras] GitHub repository, we provide
-explicit functions for
-[backfilling batch data to compressed chunks][timescaledb-extras-backfill],
-which is useful for inserting a *batch* of backfilled data (as opposed to
-individual row inserts). When you backfill data, you insert data corresponding to
-a timestamp well in the past, which has a timestamp that already corresponds to
-a compressed chunk.
+When you backfill data, you are inserting data into a chunk that has already
+been compressed. This section contains procedures for bulk backfilling, taking
+you through these steps:
 
-In the below example, we backfill data into a temporary table; such temporary
-tables are short-lived and only exist for the duration of the database
-session. Alternatively, if backfill is common, one might use a normal table for
-this instead, which would allow multiple writers to insert into the table at
-the same time before the `decompress_backfill` process.
+1.  Temporarily turning off any existing compression policy. This stops the
+    policy from trying to compress chunks that you are currently working on.
+1.  Decompressing chunks.
+1.  Performing the insertion or backfill.
+1.  Re-enabling the compression policy. This re-compresses the chunks you worked
+    on.
+
+<highlight type="note">
+This section shows you how to bulk backfill data using a temporary table.
+Temporary tables only exist for the duration of the database session, and then
+are automatically dropped. If you backfill regularly, you might prefer to use a
+regular table instead, so that multiple writers can insert into the table at the
+same time. In this case, after you are done backfilling the data, clean up by
+truncating your table in preparation for the next backfill.
+</highlight>
+
+## Backfill with a supplied function
+
+To simplify backfilling, you can use the [backfilling
+functions][timescaledb-extras-backfill] in the [TimescaleDB
+extras][timescaledb-extras] GitHub repository. In particular, the
+`decompress_backfill` procedure automates many of the backfilling steps for you.
 
 <procedure>
 
-## Backfilling using the `decompress_backfill` procedure
+### Backfilling with a supplied function
 
-<highlight type="important">
-The `decompress_backfill` function doesn't support distributed hypertables. To
-backfill a distributed hypertable, manually decompress the chunks before inserting data.
-</highlight>
+1.  At the psql prompt, create a temporary table with the same schema as the
+    hypertable you want to backfill into. In this example, the table is named
+    `example`, and the temporary table is named `cpu_temp`:
 
-To use this procedure:
+    ```sql
+    CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM example WITH NO DATA;
+    ```
 
-1. Create a table with the same schema as the hypertable (in
-  this example, `cpu`) that we are backfilling into:
+1.  Insert your data into the temporary table.
+1.  Call the `decompress_backfill` procedure. This procedure halts the
+    compression policy, identifies the compressed chunks that the backfilled
+    data corresponds to, decompresses the chunks, inserts data from the backfill
+    table into the main hypertable, and then re-enables the compression policy:
 
- ```sql
- CREATE TEMPORARY TABLE cpu_temp AS SELECT * FROM cpu WITH NO DATA;
- ```
-
-1. Insert data into the backfill table.
-
-1. Use a supplied backfill procedure to perform the above steps: halt
-  compression policy, identify those compressed chunks to which the backfilled
-  data corresponds, decompress those chunks, insert data from the backfill
-  table into the main hypertable, and then re-enable compression policy:
-
- ```sql
- CALL decompress_backfill(staging_table=>'cpu_temp', destination_hypertable=>'cpu');`
- ```
+    ```sql
+    CALL decompress_backfill(
+        staging_table=>'cpu_temp', destination_hypertable=>'example'
+    );
+    ```
 
 </procedure>
 
-If you are using a temporary table, the table is automatically dropped at the end of your
-database session. If you are using a regular table, after you have backfilled the
-data successfully, you want to truncate your table in preparation
-for the next backfill (or drop it completely).
+## Backfill manually
 
-## Manually decompressing chunks for backfill
+If you don't want to use a supplied function, you can perform the steps
+manually.
 
-To perform these steps more manually, we first identify and turn off our
-compression policy, before manually decompressing chunks. To accomplish this
-we first find the job_id of the policy using:
+<procedure>
 
-```sql
-SELECT s.job_id
-FROM timescaledb_information.jobs j
-  INNER JOIN timescaledb_information.job_stats s ON j.job_id = s.job_id
-WHERE j.proc_name = 'policy_compression' AND s.hypertable_name = <target table>;
-```
+### Backfilling manually
 
-Next, pause the job with:
+1.  At the psql prompt, find the `job_id` of the policy:
 
-``` sql
-SELECT alter_job(<job_id>, scheduled => false);
-```
+    ```sql
+    SELECT j.job_id
+        FROM timescaledb_information.jobs j
+        WHERE j.proc_name = 'policy_compression'
+            AND j.hypertable_name = <target table>;
+    ```
 
-We have now paused the compress chunk policy from the hypertable which
-leaves us free to decompress the chunks we need to modify via backfill or
-update. To decompress the chunks that need to be modified, for each chunk:
+1.  Pause compression, to prevent the policy from trying to compress chunks that
+    you are currently working on:
 
-``` sql
-SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
-```
+    ``` sql
+    SELECT alter_job(<job_id>, scheduled => false);
+    ```
 
-Similar to above, you can also decompress a set of chunks based on a
-time range by first looking up this set of chunks via `show_chunks`:
+1.  Decompress the chunks that you want to modify.
 
-``` sql
-SELECT decompress_chunk(i) from show_chunks('conditions', newer_than, older_than) i;
-```
+    ``` sql
+    SELECT decompress_chunk('_timescaledb_internal._hyper_2_2_chunk');
+    ```
 
-<highlight type="tip">
-You need to run 'decompress_chunk' for each chunk that is impacted
-by your INSERT or UPDATE statement in backfilling data. Once your needed chunks
-are decompressed you can proceed with your data backfill operations.
-</highlight>
+    Repeat for each chunk. Alternatively, you can decompress a set of chunks
+    based on a time range using `show_chunks`:
 
-Once your backfill and update operations are complete we can simply re-enable
-our compression policy job:
+    ``` sql
+    SELECT decompress_chunk(i)
+        FROM show_chunks('conditions', newer_than, older_than) i;
+    ```
 
-``` sql
-SELECT alter_job(<job_id>, scheduled => true);
-```
+1.  When you have decompressed all the chunks you want to modify, perform the
+    `INSERT` or `UPDATE` commands to backfill the data.
+1.  Restart the compression policy job. The next time the job runs, it
+    recompresses any chunks that were decompressed.
 
-This job re-compresses any chunks that were decompressed during your backfilling
-operation the next time it runs. To have it run immediately, you can expressly execute
-the command via [`run_job`][run-job]:
+    ``` sql
+    SELECT alter_job(<job_id>, scheduled => true);
+    ```
 
-``` sql
-CALL run_job(<job_id>);
-```
+    Alternatively, to recompress chunks immediately, use the `run_job` command:
 
-## Future work
+    ``` sql
+    CALL run_job(<job_id>);
+    ```
 
-One of the current limitations of TimescaleDB is that once chunks are converted
-into compressed column form, we do not allow updates and deletes of the data
-or changes to the schema without manual decompression, except as noted [above][compression-schema-changes].
-In other words, chunks are partially immutable in compressed form.
-Attempts to modify the chunks' data in those cases either errors or fails silently (as preferred by users). 
-We plan to remove this limitation in future releases.
+</procedure>
 
-[compression-schema-changes]: /timescaledb/:currentVersion:/how-to-guides/compression/modify-a-schema/
-[run-job]: /api/:currentVersion:/actions/run_job/
-[timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
 [timescaledb-extras]: https://github.com/timescale/timescaledb-extras
+[timescaledb-extras-backfill]: https://github.com/timescale/timescaledb-extras/blob/master/backfill.sql
