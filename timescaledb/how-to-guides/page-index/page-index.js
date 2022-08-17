@@ -37,7 +37,7 @@ module.exports = [
             excerpt: "Install psql to connect to TimescaleDB",
           },
           {
-            title: "Install Azure Data Studio",
+            title: "Connect using Azure Data Studio",
             href: "azure-data-studio",
             tags: ["connect", "install", "timescaledb"],
             keywords: ["TimescaleDB", "connect", "install"],
