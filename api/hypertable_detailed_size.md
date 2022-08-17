@@ -1,10 +1,12 @@
 ---
 api_name: hypertable_detailed_size()
 excerpt: Get detailed information about disk space used by a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [hypertables, information]
 tags: [statistics, size, disk space]
+api:
+  license: apache
+  type: function
 ---
 
 ## hypertable_detailed_size()  
@@ -22,7 +24,8 @@ including the access node.
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to show detailed size of. |
 
-### Returns 
+### Returns
+
 |Column|Type|Description|
 |---|---|---|
 |table_bytes|BIGINT| Disk space used by main_table (like pg_relation_size(main_table))|
@@ -36,8 +39,10 @@ If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </highlight>
 
-### Sample usage 
+### Sample usage
+
 Get size information for a hypertable.
+
 ```sql
 -- disttable is a distributed hypertable --
 SELECT * FROM hypertable_detailed_size('disttable') ORDER BY node_name;

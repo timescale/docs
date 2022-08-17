@@ -1,26 +1,33 @@
 ---
 api_name: asap_smooth()
 excerpt: Downsample a time series using the ASAP smoothing algorithm
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [downsample, smooth, hyperfunctions]
 tags: [toolkit]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: downsample
+  type: one-step aggregate
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'downsample'
 hyperfunction_subfamily: 'downsample'
 hyperfunction_type: other
 ---
 
 # asap_smooth()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
-The [ASAP smoothing alogrithm][asap-algorithm] is designed to create 
-human-readable graphs that preserve the rough shape and larger trends 
-of the input data, while minimizing the local variance between points. 
-The `asap_smooth` hyperfunction provides an implementation of this 
-algorithm that takes `(timestamptz, double precision)` data and returns 
+
+The [ASAP smoothing alogrithm][asap-algorithm] is designed to create
+human-readable graphs that preserve the rough shape and larger trends
+of the input data, while minimizing the local variance between points.
+The `asap_smooth` hyperfunction provides an implementation of this
+algorithm that takes `(timestamptz, double precision)` data and returns
 an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 
 ## Required arguments
@@ -38,11 +45,13 @@ an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 |`normalizedtimevector`|`NormalizedTimevector`|An object representing a series of values occurring at set intervals from a starting time. It can be unpacked via `unnest`.|
 
 ## Sample usage
-This example uses a table called `metrics`, with columns for `date` and 
-`reading` that contain measurements that have been accumulated over 
-a large interval of time. This example takes that data and provides a 
-smoothed representation of approximately 10 points, but that still shows 
+
+This example uses a table called `metrics`, with columns for `date` and
+`reading` that contain measurements that have been accumulated over
+a large interval of time. This example takes that data and provides a
+smoothed representation of approximately 10 points, but that still shows
 any anomalous readings:
+
 ```sql
 SET TIME ZONE 'UTC';
 CREATE TABLE metrics(date TIMESTAMPTZ, reading DOUBLE PRECISION);
@@ -61,6 +70,7 @@ SELECT * FROM toolkit_experimental.unnest(
 ```
 
 The output for this query:
+
 ```sql
           time          |        value
 ------------------------+---------------------
@@ -73,7 +83,6 @@ The output for this query:
  2020-01-06 01:00:00+00 |  5.366481456572268
  2020-01-06 21:00:00+00 |  5.949469264090643
 ```
-
 
 [asap-algorithm]: https://arxiv.org/pdf/1703.00983.pdf
 [hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors

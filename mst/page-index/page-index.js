@@ -12,6 +12,10 @@ module.exports = [
         href: "create-a-service",
       },
       {
+        title: "Clouds and regions",
+        href: "cloud-regions",
+      },
+      {
         title: "Ingest data",
         href: "ingest-data",
       },
@@ -60,12 +64,8 @@ module.exports = [
         href: "maintenance",
       },
       {
-        title: "Manage backups",
-        href: "manage-backups",
-      },
-      {
         title: "Backups",
-        href: "backup-types",
+        href: "manage-backups",
       },
       {
         title: "Migrate your data to Managed Service for TimescaleDB",

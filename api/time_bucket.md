@@ -1,13 +1,18 @@
 ---
 api_name: time_bucket()
 excerpt: Bucket rows by time interval to calculate aggregates
-license: apache
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [aggregate, hyperfunctions]
 tags: [time buckets, date_trunc]
+api:
+  license: apache
+  type: function
+hyperfunction:
+  type: bucket
 ---
 
 # time_bucket()
+
 The `time_bucket` function is similar to the standard PostgreSQL `date_trunc`
 function. Unlike `date_trunc`, it allows for arbitrary time intervals instead of
 second, minute, and hour intervals. The return value is the bucket's
@@ -62,6 +67,7 @@ function instead.
 ## Sample usage
 
 Simple five minute averaging:
+
 ```sql
 SELECT time_bucket('5 minutes', time) AS five_min, avg(cpu)
 FROM metrics
@@ -70,6 +76,7 @@ ORDER BY five_min DESC LIMIT 10;
 ```
 
 To report the middle of the bucket, instead of the left edge:
+
 ```sql
 SELECT time_bucket('5 minutes', time) + '2.5 minutes'
   AS five_min, avg(cpu)
@@ -80,6 +87,7 @@ ORDER BY five_min DESC LIMIT 10;
 
 For rounding, move the alignment so that the middle of the bucket is at the
 five minute mark, and report the middle of the bucket:
+
 ```sql
 SELECT time_bucket('5 minutes', time, '-2.5 minutes'::INTERVAL) + '2.5 minutes'
   AS five_min, avg(cpu)
@@ -87,12 +95,14 @@ FROM metrics
 GROUP BY five_min
 ORDER BY five_min DESC LIMIT 10;
 ```
+
 In this example, add the explicit cast to ensure that PostgreSQL chooses the
 correct function.
 
 To shift the alignment of the buckets you can use the origin parameter passed as
 a timestamp, timestamptz, or date type. This example shifts the start of the
 week to a Sunday, instead of the default of Monday:
+
 ```sql
 SELECT time_bucket('1 week', timetz, TIMESTAMPTZ '2017-12-31')
   AS one_week, avg(cpu)
@@ -109,6 +119,7 @@ calculated relative to this origin. So, in this example, any Sunday could have
 been used. Note that because `time < TIMESTAMPTZ '2018-01-03'` is used in this
 example, the last bucket would have only 4 days of data. This cast to TIMESTAMP
 converts the time to local time according to the server's timezone setting.
+
 ```sql
 SELECT time_bucket(INTERVAL '2 hours', timetz::TIMESTAMP)
   AS five_min, avg(cpu)

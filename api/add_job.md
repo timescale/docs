@@ -1,13 +1,16 @@
 ---
 api_name: add_job()
 excerpt: Add a job to run a user-defined action automatically
-license: community
-topic: jobs
+topics: [jobs]
 keywords: [jobs]
 tags: [user-defined actions, scheduled jobs, background jobs, automation framework]
+api:
+  license: community
+  type: function
 ---
 
 ## add_job() <tag type="community">Community</tag>
+
 Register an action for scheduling by the automation framework. For more information about scheduling, including example actions, see the [actions section][using-actions].
 
 ### Required arguments
@@ -32,7 +35,9 @@ Register an action for scheduling by the automation framework. For more informat
 |`job_id`|INTEGER|TimescaleDB background job ID|
 
 ### Sample use
+
 Register the `user_defined_action` procedure to run every hour:
+
 ```sql
 CREATE OR REPLACE PROCEDURE user_defined_action(job_id int, config jsonb) LANGUAGE PLPGSQL AS
 $$
@@ -43,6 +48,5 @@ $$;
 
 SELECT add_job('user_defined_action','1h');
 ```
-
 
 [using-actions]: /timescaledb/:currentVersion:/overview/core-concepts/user-defined-actions
