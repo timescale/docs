@@ -47,7 +47,8 @@ services.
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
-1.  Navigate to the `Operations` tab, and click `Reset password`. You can choose
+1.  (Optinal) If you do not know the password for the service, navigate to the
+    `Operations` tab, and click `Reset password`. You can choose
     your own password for the service, or allow Timescale Cloud to generate a
     secure password for you. Take a note of your new password.
 1.  Start `DBeaver`.
@@ -107,7 +108,7 @@ appear in the `Main` tab of `Connection settings`.
    |Host|localhost, postgresql.example.com, <REMOTE_HOST>.tsdb.cloud.timescale.com, <REMOTE_HOST>.timescaledb.io|The fully qualified server name. The host name of your Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Port|5432|The port number of the TimescaleDB server, Timescale Cloud service or Managed Service for TimescaleDB service.|
    |Username|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB service|
-   |Password|*password*|The password for the database service you are connecting to.|
+   |Password|*password*|The password for the database user you are connecting to.|
    |Save password locally|*Check*|Check this box if you don't want to enter the password each time you connect.|
    |Database|tsdb|This option connects to default database. The database name for Timescale Cloud service and Managed Service for TimescaleDB service is `tsdb`. You can also specify the name of the database to connect to.|
 
