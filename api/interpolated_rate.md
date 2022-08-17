@@ -1,20 +1,30 @@
 ---
 api_name: interpolated_rate()
 excerpt: Calculate the rate of change in a counter, interpolated over some time period
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 tags: [hyperfunctions, rate, counters, CounterSummary, interpolated]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: function
+  accessors:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # interpolated_rate() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit">Experimental</tag>
+
 Calculate the rate of change in a counter over a time period. Data points at the exact
 boundaries of the time period aren't needed. The function linerally interpolates the
 counter values at the boundaries from adjacent `CounterSummaries` if they are unknown.

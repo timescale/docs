@@ -1,20 +1,29 @@
 ---
 api_name: slope()
 excerpt: Calculate the slope from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [least squares, regression]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # slope() <tag type="toolkit" content="Toolkit" />
+
 The slope of the least squares fit line computed from the adjusted counter
 values and times input in the CounterSummary. Because the times are input as
 seconds, the slope provides a per-second rate of change estimate based on the
@@ -59,6 +68,5 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

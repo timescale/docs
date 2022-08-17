@@ -1,13 +1,16 @@
 ---
 api_name: alter_job()
 excerpt: Alter a job that is scheduled to run automatically
-license: community
-topic: jobs
+topics: [jobs]
 keywords: [jobs]
 tags: [scheduled jobs, user-defined actions, automation framework, background jobs, alter, change]
+api:
+  license: community
+  type: function
 ---
 
 ## alter_job() <tag type="community">Community</tag>
+
 Actions scheduled using the TimescaleDB automation framework run periodically in
 a background worker. You can change the schedule of these jobs with the
 `alter_job` function. To alter an existing job, refer to it by `job_id`. The
@@ -34,7 +37,7 @@ other useful statistics for deciding what the new schedule should be.
 |`scheduled`|BOOLEAN|Set to `FALSE` to exclude this job from being run as background job|
 |`config`|JSONB|Job-specific configuration, passed to the function when it runs|
 |`next_start`|TIMESTAMPTZ|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`|
-|`if_exists`|BOOLEAN|Set to `true `to issue a notice instead of an error if the job does not exist. Defaults to false.|
+|`if_exists`|BOOLEAN|Set to `true`to issue a notice instead of an error if the job does not exist. Defaults to false.|
 
 When a job begins, the `next_start` parameter is set to `infinity`. This
 prevents the job from attempting to be started again while it is running. When
@@ -55,12 +58,15 @@ automatically updated to the next computed start time.
 |`next_start`|TIMESTAMPTZ|The next time to run the job|
 
 ### Sample usage
+
 Reschedules job ID `1000` so that it runs every two days:
+
 ```sql
 SELECT alter_job(1000, schedule_interval => INTERVAL '2 days');
 ```
 
 Disables scheduling of the compression policy on the `conditions` hypertable:
+
 ```sql
 SELECT alter_job(job_id, scheduled => false)
 FROM timescaledb_information.jobs
@@ -68,6 +74,7 @@ WHERE proc_name = 'policy_compression' AND hypertable_name = 'conditions'
 ```
 
 Reschedules continuous aggregate job ID `1000` so that it next runs at 9:00:00 on 15 March, 2020:
+
 ```sql
 SELECT alter_job(1000, next_start => '2020-03-15 09:00:00.0+00');
 ```

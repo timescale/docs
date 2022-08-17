@@ -1,10 +1,12 @@
 ---
 api_name: add_retention_policy()
 excerpt: Add a policy to drop older chunks
-license: community
-topic: data retention
+topics: [data retention, jobs]
 keywords: [data retention, policies, delete]
 tags: [hypertables, drop]
+api:
+  license: community
+  type: function
 ---
 
 ## add_retention_policy() <tag type="community">Community</tag>
@@ -23,9 +25,10 @@ one retention policy may exist per hypertable.
 
 The `drop_after` parameter should be specified differently depending on the
 type of the time column of the hypertable:
-- For hypertables with TIMESTAMP, TIMESTAMPTZ, and DATE time columns: the time
+
+*   For hypertables with TIMESTAMP, TIMESTAMPTZ, and DATE time columns: the time
 interval should be an INTERVAL type.
-- For hypertables with integer-based timestamps: the time interval should be an
+*   For hypertables with integer-based timestamps: the time interval should be an
 integer type (this requires the [integer_now_func][set_integer_now_func] to be set).
 
 ### Optional arguments
@@ -43,11 +46,13 @@ integer type (this requires the [integer_now_func][set_integer_now_func] to be s
 ### Sample usage
 
 Create a data retention policy to discard chunks greater than 6 months old:
+
 ```sql
 SELECT add_retention_policy('conditions', INTERVAL '6 months');
 ```
 
 Create a data retention policy with an integer-based time column:
+
 ```sql
 SELECT add_retention_policy('conditions', BIGINT '600000');
 ```

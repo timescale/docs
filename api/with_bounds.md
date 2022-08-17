@@ -1,19 +1,28 @@
 ---
 api_name: with_bounds()
 excerpt: Add bounds to a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: mutator
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: mutator
 ---
 
 # with_bounds() <tag type="toolkit" content="Toolkit" />
+
 A utility function to add bounds to an already-computed CounterSummary. The
 bounds represent the outer limits of the timestamps allowed for this
 CounterSummary as well as the edges of the range to extrapolate to in functions
@@ -63,6 +72,5 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

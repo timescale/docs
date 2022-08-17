@@ -1,7 +1,7 @@
 ---
 title: Administrative functions
 excerpt: Prepare a database for backup and restore, and keep track of your setup data
-keywords: [admin]
+keywords: [administration]
 tags: [backup, restore, set up]
 ---
 

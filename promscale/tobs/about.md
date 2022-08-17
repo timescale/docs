@@ -24,10 +24,8 @@ Currently this stack includes:
     long-term and allow analysis with both PromQL and SQL
 *   [TimescaleDB][timescaledb] for long term storage of metrics and provides
     ability to query metrics data using SQL
-*   [Promlens][promlens] tool to build and analyse promql queries with ease
 *   [Opentelemetry-Operator][opentelemetry-operator] to manage the lifecycle of       
     OpenTelemetryCollector Custom Resource Definition (CRDs)
-*   [Jaeger Query][jaeger-query] to visualize the traces
 
 You can also use the tobs Helm chart directly, or as sub-charts for other
 projects.
@@ -35,12 +33,10 @@ projects.
 [alert-manager]: https://github.com/prometheus/alertmanager#alertmanager-
 [design-doc]: https://docs.google.com/document/d/1e3mAN3eHUpQ2JHDvnmkmn_9rFyqyYisIgdtgd3D1MHA/edit?usp=sharing
 [grafana]: https://github.com/grafana/grafana
-[jaeger-query]: https://github.com/jaegertracing/jaeger
 [kube-prometheus]: https://github.com/prometheus-operator/kube-prometheus#kube-prometheus
 [kube-state-metrics]: https://github.com/kubernetes/kube-state-metrics
 [node-exporter]: https://github.com/prometheus/node_exporter
 [opentelemetry-operator]: https://github.com/open-telemetry/opentelemetry-operator#opentelemetry-operator-for-kubernetes
-[promlens]: https://promlens.com/
 [prometheus]: https://github.com/prometheus/prometheus
 [prometheus-operator]: https://github.com/prometheus-operator/prometheus-operator#prometheus-operator
 [promscale]: https://github.com/timescale/promscale
