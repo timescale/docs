@@ -25,28 +25,6 @@ Before you begin, make sure that you have [installed Docker Compose][docker-comp
 
 </procedure >
 
-OR
-
-Run the above specified instructions step by step to understand more context
-on the instructions
-
-<procedure>
-
-1. Clone the repository that defines the services for Promscale:
-   ```bash
-   git clone git@github.com:timescale/promscale.git
-   ```
-1. Change to the `promscale-demo` directory:
-   ```bash
-   cd promscale/docker-compose/promscale-demo
-   ```
-1. Use Docker Compose to run Promscale:
-   ```bash
-   docker compose up -d
-   ```  
-
-</procedure >
-
 The above quick start contains services for these below components:
 * Promscale for analytics and long term storage of metrics and traces
 * Prometheus with the node exporter to generate and collect metrics
