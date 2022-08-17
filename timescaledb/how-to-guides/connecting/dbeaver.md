@@ -71,7 +71,7 @@ services.
 To ensure a secure network access to your Managed Service for TimescaleDB
 service, make sure you add the IP address of the machine running DBeaver to the
 `Allowed IP Addresses`. For more information about network security in Managed
-Service for TimescaleDB, see [the security section][security-overview].
+Service for TimescaleDB, see [the security section](https://docs.timescale.com/mst/latest/security/).
 </highlight>
 
 <procedure>
@@ -113,7 +113,6 @@ appear in the `Main` tab of `Connection settings`.
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
-[connection-settings]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/#connection-settings-in-connect-to-a-database/
-[security-overview]: /mst/:currentVersion:/security/
+[connection-settings]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/#connection-settings-in-connect-to-a-database
 [tsc-portal]: https://console.cloud.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
