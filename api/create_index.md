@@ -12,39 +12,41 @@ keywords: [hypertables, indexes, chunks, create]
 CREATE INDEX ... WITH (timescaledb.transaction_per_chunk, ...);
 ```
 
-This option extends [`CREATE INDEX`][postgres-createindex] with the
-ability to use a separate transaction for each chunk it creates an
-index on, instead of using a single transaction for the entire hypertable.
-This allows `INSERT`s, and other operations to be performed concurrently
-during most of the duration of the `CREATE INDEX` command.
-While the index is being created on an individual chunk, it functions as
-if a regular `CREATE INDEX` were called on that chunk, however other chunks are
-completely un-blocked.
+This option extends [`CREATE INDEX`][postgres-createindex] with the ability to
+use a separate transaction for each chunk it creates an index on, instead of
+using a single transaction for the entire hypertable. This allows `INSERT`s, and
+other operations to be performed concurrently during most of the duration of the
+`CREATE INDEX` command. While the index is being created on an individual chunk,
+it functions as if a regular `CREATE INDEX` were called on that chunk, however
+other chunks are completely un-blocked.
 
-<highlight type="tip">
-	This version of `CREATE INDEX` can be used as an alternative to
-	`CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
+<highlight type="note">
+This version of `CREATE INDEX` can be used as an alternative to
+`CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
 </highlight>
 
 <highlight type="warning">
-If the operation fails partway through, indexes may not be created on all
+If the operation fails partway through, indexes might not be created on all
 hypertable chunks. If this occurs, the index on the root table of the hypertable
-is marked as invalid (this can be seen by running `\d+` on the hypertable).
-The index still works, and is created on new chunks, but if you 
-wish to ensure _all_ chunks have a copy of the index, drop and recreate it.
+is marked as invalid. You can check this by running `\d+` on the hypertable. The
+index still works, and is created on new chunks, but if you want to ensure all
+chunks have a copy of the index, drop and recreate it.
 </highlight>
-
 
 ### Sample usage
 
-Anonymous index
+Create an anonymous index:
+
 ```SQL
-CREATE INDEX ON conditions(time, device_id) WITH (timescaledb.transaction_per_chunk);
+CREATE INDEX ON conditions(time, device_id)
+    WITH (timescaledb.transaction_per_chunk);
 ```
-Other index methods
+
+Alternatively:
+
 ```SQL
 CREATE INDEX ON conditions USING brin(time, location)
-  WITH (timescaledb.transaction_per_chunk);
+    WITH (timescaledb.transaction_per_chunk);
 ```
 
 [postgres-createindex]: https://www.postgresql.org/docs/current/manage-ag-tablespaces.html
