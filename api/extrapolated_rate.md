@@ -1,20 +1,29 @@
 ---
 api_name: extrapolated_rate()
 excerpt: Calculate the extrapolated rate of change from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [rate, counters, hyperfunctions, toolkit]
 tags: [extrapolate]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # extrapolated_rate() <tag type="toolkit" content="Toolkit" />
+
 The rate of change in the counter computed over the time period specified by the
 bounds in the CounterSummary, extrapolating to the edges. It is an
 `extrapolated_delta` divided by the duration in seconds.

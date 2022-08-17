@@ -1,10 +1,12 @@
 ---
 api_name: add_continuous_aggregate_policy()
 excerpt: Add policy to schedule automatic refresh of a continuous aggregate
-license: community
-topic: continuous aggregates
+topics: [continuous aggregates, jobs]
 keywords: [continuous aggregates, policies]
 tags: [scheduled jobs, refresh]
+api:
+  license: community
+  type: function
 ---
 
 ## add_continuous_aggregate_policy() <tag type="community">Community</tag>
@@ -36,7 +38,7 @@ depending on the type of the time column of the hypertable:
 While setting `end_offset` to `NULL` is possible, it is not recommended. By
 default, querying a continuous aggregate returns data between `end_offset` and
 the current time. There is no need to set `end_offset` to `NULL`. To learn more
-about how continuous aggregates use real-time aggregation, see the 
+about how continuous aggregates use real-time aggregation, see the
 [real-time aggregation section](/timescaledb/latest/how-to-guides/continuous-aggregates/real-time-aggregates/).
 </highlight>
 

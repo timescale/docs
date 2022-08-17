@@ -1,12 +1,16 @@
 ---
 api_name: histogram()
 excerpt: Partition the dataset into buckets and get the number of counts in each bucket
-license: apache
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [histogram, hyperfunctions]
+api:
+  license: apache
+  type: function
+hyperfunction:
+  type: one-step aggregate
 ---
 
-## histogram() 
+## histogram()
 
 The `histogram()` function represents the distribution of a set of
 values as an array of equal-width buckets. It partitions the dataset
@@ -30,7 +34,7 @@ starting with `min`, but values equal to the `max` are in the last bucket.
 | `max` | NUMERIC | The histogram's upper bound used in bucketing (exclusive) |
 | `nbuckets` | INTEGER | The integer value for the number of histogram buckets (partitions) |
 
-### Sample usage 
+### Sample usage
 
 A simple bucketing of device's battery levels from the `readings` dataset:
 
@@ -42,6 +46,7 @@ LIMIT 10;
 ```
 
 The expected output:
+
 ```sql
  device_id  |          histogram
 ------------+------------------------------

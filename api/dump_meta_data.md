@@ -1,12 +1,14 @@
 ---
 api_name: dump_meta_data.sql
 excerpt: Output metadata for support requests and bug reports
-license: apache
-topic: admin
+topics: [administration]
 keywords: [admin, metadata]
+api:
+  license: apache
+  type: script
 ---
 
-## Dump TimescaleDB meta data 
+## Dump TimescaleDB meta data
 
 To help when asking for support and reporting bugs,
 TimescaleDB includes a SQL script that outputs metadata

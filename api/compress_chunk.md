@@ -1,10 +1,12 @@
 ---
 api_name: compress_chunk()
 excerpt: Manually compress a given chunk
-license: community
-topic: compression
+topics: [compression]
 keywords: [compression]
 tags: [chunks]
+api:
+  license: community
+  type: function
 ---
 
 ## compress_chunk() <tag type="community">Community</tag>
@@ -26,7 +28,6 @@ You can get a list of chunks belonging to a hypertable using the
 |---|---|---|
 | `chunk_name` | REGCLASS | Name of the chunk to be compressed|
 
-
 ### Optional arguments
 
 |Name|Type|Description|
@@ -39,8 +40,8 @@ You can get a list of chunks belonging to a hypertable using the
 |---|---|
 | `compress_chunk` | (REGCLASS) Name of the chunk that was compressed|
 
-
 ### Sample usage
+
 Compress a single chunk.
 
 ``` sql

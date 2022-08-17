@@ -1,23 +1,30 @@
 ---
 api_name: lttb()
 excerpt: Downsample a time series using the Largest Triangle Three Buckets method
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [downsample, smooth, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: downsample
+  type: one-step aggregate
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'downsample'
 hyperfunction_subfamily: 'downsample'
 hyperfunction_type: other
 ---
 
 # lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
-[Largest Triangle Three Buckets][gh-lttb] is a downsampling method that 
-tries to retain visual similarity between the downsampled data and the 
-original dataset. The TimescaleDB Toolkit implementation of this takes 
+
+[Largest Triangle Three Buckets][gh-lttb] is a downsampling method that
+tries to retain visual similarity between the downsampled data and the
+original dataset. The TimescaleDB Toolkit implementation of this takes
 `(timestamp, value)` pairs, sorts them if needed, and downsamples them.
 
 ## Required arguments
@@ -35,7 +42,9 @@ original dataset. The TimescaleDB Toolkit implementation of this takes
 |`sortedtimevector`|`SortedTimevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points. It can be unpacked via `unnest`.|
 
 ## Sample usage
+
 This example creates a dramatically downsampled data set from a `sample_data` table:
+
 ```sql
 SELECT time, value
 FROM toolkit_experimental.unnest((
@@ -44,6 +53,7 @@ FROM toolkit_experimental.unnest((
 ```
 
 The output for this query:
+
 ```sql
           time          |       value
 ------------------------+--------------------
@@ -52,7 +62,6 @@ The output for this query:
  2020-03-03 00:00:00+00 | 14.982710485116087
  2020-04-20 00:00:00+00 | 10.022128489940254
 ```
-
 
 [gh-lttb]: https://github.com/sveinn-steinarsson/flot-downsample
 [hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors

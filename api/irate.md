@@ -1,20 +1,29 @@
 ---
-api_name: 'irate_left() | irate_right()'
+api_name: irate_left() | irate_right()
 excerpt: Calculate the instantaneous rate of change from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [rate]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # irate_left() and irate_right() <tag type="toolkit" content="Toolkit" />
+
 The instantaneous rate of change of the counter at the left (earlier) and right
 (later) side of the time range.
 
@@ -22,6 +31,7 @@ For more information about counter aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-counter-agg].
 
 ## irate_left()
+
 The instantaneous rate of change of the counter at the left (earlier) side of
 the time range. Essentially, the `idelta_left` divided by the duration between the
 first and second observed points in the CounterSummary. This can be especially
@@ -63,6 +73,7 @@ FROM (
 ```
 
 ## irate_right()
+
 The instantaneous rate of change of the counter at the right (later) side of the
 time range. Essentially, the `idelta_right` divided by the duration between the
 first and second observed points in the CounterSummary. This can be especially
@@ -102,6 +113,5 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
