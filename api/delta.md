@@ -1,21 +1,29 @@
 ---
 api_name: delta()
 excerpt: Calculate the change in a counter from values in a `CounterSummary`
-license: community
-toolkit: true
-experimental: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [delta]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # delta() <tag type="toolkit" content="Toolkit" />
+
 The change in the counter over the time period. This is the raw or simple delta
 computed by accounting for resets and subtracting the last seen value from the
 first.

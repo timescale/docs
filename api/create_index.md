@@ -1,9 +1,11 @@
 ---
 api_name: CREATE INDEX (Transaction Per Chunk)
 excerpt: Create a hypertable index using a separate transaction for each chunk
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [hypertables, indexes, chunks, create]
+api:
+  license: apache
+  type: command
 ---
 
 ## CREATE INDEX (Transaction Per Chunk)
@@ -22,26 +24,29 @@ if a regular `CREATE INDEX` were called on that chunk, however other chunks are
 completely un-blocked.
 
 <highlight type="tip">
-	This version of `CREATE INDEX` can be used as an alternative to
-	`CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
+ This version of `CREATE INDEX` can be used as an alternative to
+ `CREATE INDEX CONCURRENTLY`, which is not currently supported on hypertables.
+
 </highlight>
 
 <highlight type="warning">
 If the operation fails partway through, indexes may not be created on all
 hypertable chunks. If this occurs, the index on the root table of the hypertable
 is marked as invalid (this can be seen by running `\d+` on the hypertable).
-The index still works, and is created on new chunks, but if you 
+The index still works, and is created on new chunks, but if you
 wish to ensure _all_ chunks have a copy of the index, drop and recreate it.
 </highlight>
-
 
 ### Sample usage
 
 Anonymous index
+
 ```SQL
 CREATE INDEX ON conditions(time, device_id) WITH (timescaledb.transaction_per_chunk);
 ```
+
 Other index methods
+
 ```SQL
 CREATE INDEX ON conditions USING brin(time, location)
   WITH (timescaledb.transaction_per_chunk);

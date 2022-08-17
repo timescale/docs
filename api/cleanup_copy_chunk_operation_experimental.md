@@ -1,17 +1,20 @@
 ---
 api_name: cleanup_copy_chunk_operation()
 excerpt: Clean up after a failed chunk move or chunk copy operation
-license: community
-topic: multi-node
+topics: [multi-node, distributed hypertables]
 keywords: [chunks, multi-node, distributed hypertables, move, copy]
+api:
+  license: community
+  type: function
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 ## cleanup_copy_chunk_operation() <tag type="community">Community</tag> <tag type="experimental">Experimental</tag>
+
 You can [copy][copy_chunk] or [move][move_chunk] a
 chunk to a new location within a multi-node environment. The
-operation happens over multiple transactions so, if it fails, it 
+operation happens over multiple transactions so, if it fails, it
 is manually cleaned up using this function. Without cleanup,
 the failed operation might hold a replication slot open, which in turn
 prevents storage from being reclaimed. The operation ID is logged in
@@ -40,7 +43,5 @@ Get a list of running copy or move operations:
 SELECT * FROM _timescaledb_catalog.chunk_copy_operation;
 ```
 
-
 [copy_chunk]: /api/:currentVersion:/distributed-hypertables/copy_chunk_experimental
 [move_chunk]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental
-
