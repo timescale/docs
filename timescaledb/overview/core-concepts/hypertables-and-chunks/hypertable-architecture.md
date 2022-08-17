@@ -127,5 +127,5 @@ practice, see the section on
 [hypertables and unique indexes](/timescaledb/latest/how-to-guides/hypertables/hypertables-and-unique-indexes/).
 </highlight>
 
-[distributed-hypertables]: /overview/core-concepts/distributed-hypertables/
-[hypertable-benefits-indexes]: /overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/#faster-index-updates
+[distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
+[hypertable-benefits-indexes]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/#faster-index-updates

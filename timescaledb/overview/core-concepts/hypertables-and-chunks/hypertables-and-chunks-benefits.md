@@ -108,7 +108,7 @@ This allows you to:
 For more information, see the [replication][replication] section.
 
 [chunk-migration]: /api/:currentVersion:/distributed-hypertables/move_chunk_experimental/
-[data-retention]: /how-to-guides/data-retention/
-[local-indexes]: /overview/core-concepts/hypertables-and-chunks/chunk-architecture/#chunk-local-indexes
+[data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
+[local-indexes]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/chunk-architecture/#chunk-local-indexes
 [performance-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e/
-[replication]: /how-to-guides/replication-and-ha/
+[replication]: /timescaledb/:currentVersion:/how-to-guides/replication-and-ha/

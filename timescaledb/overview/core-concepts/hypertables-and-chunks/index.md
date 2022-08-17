@@ -43,7 +43,7 @@ For example, you might have:
 *   A hypertable to record truck GPS coordinates over time, and a regular table
     to record the make, model, and age of each truck
 
-[hypertable-architecture]: /overview/core-concepts/hypertables-and-chunks/hypertable-architecture/
-[hypertable-benefits]: /overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/
+[hypertable-architecture]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/hypertable-architecture/
+[hypertable-benefits]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/
 [hypertable-how-to]: /how-to-guides/hypertables/
 [performance-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e/
