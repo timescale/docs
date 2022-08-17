@@ -23,8 +23,7 @@ statement also allows you to define the language of your commands in this
 statement. User-defined actions can be written in any language you choose. This
 guide uses the SQL procedural language [PL/pgSQL][plpgsql].
 
-This example defines a simple procedure that raises a notice. Replace
-the `RAISE NOTICE` command with the commands you want to run.
+This example defines a simple procedure that raises a notice:
 
 ```sql
 CREATE OR REPLACE PROCEDURE user_defined_action(job_id INT, config JSONB)
