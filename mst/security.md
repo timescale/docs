@@ -75,7 +75,7 @@ turn encrypted with an RSA key-encryption key-pair, and stored in the header
 section of each backup segment. The file encryption is performed with AES-256 in
 CTR mode, with HMAC-SHA256 for integrity protection. The RSA key-pair is
 randomly generated for each service. The key lengths are 256-bit for block
-encryption, 512-bit for the integrity protection and 3072-bits for the RSA key.
+encryption, 512-bit for the integrity protection, and 3072-bits for the RSA key.
 
 Encrypted backup files are stored in the object storage in the same region that
 the virtual machines are located for the service.
