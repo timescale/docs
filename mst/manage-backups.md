@@ -14,7 +14,7 @@ backups daily, and write-ahead log (WAL) continuously recorded. All backups are
 
 Managed Service for TimescaleDB uses [`pghoard`][pghoard], a PostgreSQL backup
 daemon and restore tool, to store backup data in cloud object stores. The number
-of backups stored and the retention time of the backup depends on the service
+of backups stored and the retention time of the backup depend on the service
 plan.
 
 <highlight type="important">
