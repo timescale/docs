@@ -42,7 +42,7 @@ an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 
 |Column|Type|Description|
 |-|-|-|
-|`normalizedtimevector`|`NormalizedTimevector`|An object representing a series of values occurring at set intervals from a starting time. It can be unpacked via `unnest`.|
+|`timevector`|`Timevector`|An object representing a series of values occurring at set intervals from a starting time. It can be unpacked via `unnest`.|
 
 ## Sample usage
 
@@ -64,7 +64,7 @@ SELECT
 ```
 
 ```sql
-SELECT * FROM toolkit_experimental.unnest(
+SELECT * FROM unnest(
     (SELECT toolkit_experimental.asap_smooth(date, reading, 8)
      FROM metrics));
 ```
