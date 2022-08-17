@@ -17,9 +17,9 @@ Normalize a provided metric based on reference date and days.
 
 |Name|Type|Description|
 |---|---|---|
-| `metric` | float8  |  |
-| `reference_date` | timestamptz | Timestamp to normalize the metric with. |
-| `days` | float8 | Optional, defaults to 365.25/12 if none provided. |
+| `metric` | `float8`  |  |
+| `reference_date` | `TIMESTAMPTZ` | Timestamp to normalize the metric with. |
+| `days` | `float8` | Optional, defaults to 365.25/12 if none provided. |
 
 ### Sample usage
 

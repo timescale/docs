@@ -17,7 +17,7 @@ Given a timestamptz, returns how many days are in that month.
 
 |Name|Type|Description|
 |---|---|---|
-| `date` | timestamptz | Timestamp to use to calculate how many days in the month |
+| `date` | `TIMESTAMPTZ` | Timestamp to use to calculate how many days in the month |
 
 ### Sample usage
 
