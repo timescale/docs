@@ -29,6 +29,10 @@ query from the `psql` prompt:
 SELECT pg_is_in_backup()::text
 ```
 
+<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+
+</highlight>
+
 ## Weekly backups
 A full database backup is performed weekly. The two most recent full backups are
 automatically saved to a secure Amazon S3 service. For every successful weekly

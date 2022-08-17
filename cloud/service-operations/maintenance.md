@@ -74,6 +74,10 @@ downtime is usually between 30&nbsp;seconds and 5&nbsp;minutes. We endeavor to
 notify you on email ahead of the upgrade if downtime is required, so that you
 can plan accordingly. However, in some cases, we might not be able to do so.
 
+<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+
+</highlight>
+
 [cloud-login]: https://cloud.timescale.com
 [operations-forking]: /cloud/:currentVersion:/operations/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
