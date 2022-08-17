@@ -1,12 +1,13 @@
 ---
 title: Migrate your TimescaleDB database to Timescale Cloud
 excerpt: Migrate from self-hosted TimescaleDB or Managed Service for TimescaleDB
-product: [cloud]
+product: cloud
 keywords: [migrate, self-hosted, mst]
 tags: [ingest]
 ---
 
 # Migrate your TimescaleDB database to Timescale Cloud
+
 You can migrate your data to Timescale Cloud from self-hosted TimescaleDB or
 Managed Service for TimescaleDB. This allows you to use Timescale Cloud's
 exclusive features, including separate scaling for compute and storage
@@ -26,6 +27,7 @@ There are two methods for migrating your data:
     continuous aggregates, and policies.
 
 ## Choose a migration method
+
 Which method you choose depends on your database size, network upload and
 download speeds, existing continuous aggregates, and tolerance for failure
 recovery.
@@ -42,7 +44,7 @@ Migrating your schema and data separately does not retain continuous aggregates
 calculated using already-deleted data. For example, if you delete raw data after
 a month but retain downsampled data in a continuous aggregate for a year, the
 continuous aggregate loses any data older than a month upon migration. If you
-must keep continuous aggregates calculated using deleted data, migrate your 
+must keep continuous aggregates calculated using deleted data, migrate your
 entire database at once regardless of database size.
 </highlight>
 
@@ -51,6 +53,7 @@ to estimate the time required. If the time estimate is very long, stop the
 migration and switch to the other method.
 
 ## Migrate an active database
+
 If your database is actively ingesting data, take precautions to ensure that
 Timescale Cloud contains the data that is ingested while the migration is
 happening. Begin by running ingest in parallel on the source database and
