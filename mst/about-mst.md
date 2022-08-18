@@ -8,8 +8,8 @@ keywords: [services]
 # About Managed Service for TimescaleDB
 
 Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
-than 75 regions in AWS, Azure, or GCP. You can
-[try Managed Service for TimescaleDB for free][sign-up], no credit card
+than 75 regions in Amazon Web Services, Microsoft Azure, or Google Cloud. You
+can [try Managed Service for TimescaleDB for free][sign-up], no credit card
 required.
 
 Powered by [TimescaleDB][timescale-features], you can create database instances
@@ -73,7 +73,7 @@ more information, see the
 
 By default, all new Managed Service for TimescaleDB services require a credit
 card, which is charged at the end of the month for all charges accrued over that
-month. Each project is charged separately. Your credit card statament records
+month. Each project is charged separately. Your credit card statement records
 the transaction as coming from Aiven, as Aiven provide billing services for
 Managed Service for TimescaleDB.
 
@@ -94,7 +94,7 @@ for the network traffic going to or from your service.
 
 Terminating or powering a service down stops the accumulation of new charges
 immediately. However, the minimum hourly charge unit is one hour. For example,
-if you launch a Managed Service for TimescaleDB service and terminate it after
+if you launch a Managed Service for TimescaleDB service and shut it down after
 40 minutes, you are charged for one full hour.
 
 Migrating to different service plan levels does not incur extra charges. Note,
@@ -121,8 +121,8 @@ configured in your dashboard.
 
 Payment terms for corporate invoices are 10 days net, by bank transfer, to the
 bank details provided on the invoice. By default, services are charged in US
-Dollars (USD), but you can request your invoices be sent in either Euros (EUR)or
-Pounds Sterling (GBP) at the invoice date's currency exchange rates.
+Dollars (USD), but you can request your invoices be sent in either Euros (EUR)
+or Pounds Sterling (GBP) at the invoice date's currency exchange rates.
 
 To switch from credit card to corporate billing, make sure your billing profile
 and email address is correct in project's billing settings, and send a message
