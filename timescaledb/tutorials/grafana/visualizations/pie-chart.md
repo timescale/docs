@@ -9,10 +9,8 @@ import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx
 
 # Build a pie chart in Grafana
 
-Pie charts are mostly used when dealing with group or categorized data.
-As the name suggests, the pie-shaped chart represents the whole data,
-divided into multiple parts or slices. Each piece of the pie represents
-a subcategory of the complete data.
+Pie charts are used to plot categorized data. The chart presents each
+category as a slice of a pie, so you can see its contribution to the total.
 
 Pie charts can answer questions like:
 
