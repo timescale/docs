@@ -35,7 +35,7 @@ The admin for the docs will use that as a guide when updating version branches.
 
 ## Docs review
 
-Once a PR has been started for any branch, a GitHub action will attach a unique
+Once a PR has been started for any branch, a GitHub Action will attach a unique
 URL to preview your changes and allow others to more effectively review your
 updates. The URL will be added as a comment to your PR.
 
