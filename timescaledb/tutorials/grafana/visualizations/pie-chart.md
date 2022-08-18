@@ -20,7 +20,7 @@ Pie charts can answer questions like:
 
 This tutorial shows you how to:
 
-*   [Create a pie chart](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/pie-chart/#create-a-pie-chart-with-preaggregated-data)
+*   [Create a pie chart](#create-a-pie-chart-with-preaggregated-data)
   with pre-aggregated data using `time_bucket()`.
 *   [Create transaction volume with raw data](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/pie-chart/#create-transaction-volume-with-raw-data)
   using a donut chart.
