@@ -103,10 +103,10 @@ Within each configuration plan option, there are several plan types available:
 
 You can protect your services from accidentally being terminated, by enabling
 service termination protection. When termination protection is enabled, you
-cannot terminate or power down the service from the web console, the REST API,
-or with a command-line client. To terminate a protected service, you need to
-disable termination protection first. Termination protection does not interrupt
-service migrations or upgrades.
+cannot power down the service from the web console, the REST API, or with a
+command-line client. To power down a protected service, you need to turn off
+termination protection first. Termination protection does not interrupt service
+migrations or upgrades.
 
 To enable service termination protection, navigate to the service `Overview`
 tab. Locate the `Termination protection` section, and toggle to enable
@@ -114,13 +114,14 @@ protection.
 
 <highlight type="important">
 If you run out of free sign-up credit, and have not entered a valid credit card
-for payment, your service will be powered down, even if you have enabled
-termination protection.
+for payment, your service is powered down, even if you have enabled termination
+protection.
 </highlight>
 
 ### Idle connections
 
-Managed Service for TimescaleDB uses the default keepalive settings for TCP connectrions. The default settings are:
+Managed Service for TimescaleDB uses the default keep alive settings for TCP
+connections. The default settings are:
 
 *   `tcp_keepalives_idle`: 7200
 *   `tcp_keepalive_count`: 9
@@ -128,11 +129,11 @@ Managed Service for TimescaleDB uses the default keepalive settings for TCP conn
 
 If you have long idle database connection sessions, you might need to adjust
 these settings to ensure that your TCP connection remains stable. If you
-eperience a broken TCP connection, when you reconnect make sure that your client
-resolves the DNS address correctly, as the underlying address changes during
-automatic failover.
+experience a broken TCP connection, when you reconnect make sure that your
+client resolves the DNS address correctly, as the underlying address changes
+during automatic failover.
 
-For more information about adjusting keepalive settings, see the
+For more information about adjusting keep alive settings, see the
 [PostgreSQL documentation][pg-keepalive].
 
 ## Databases
@@ -145,7 +146,10 @@ and navigate to the `Databases` tab.
 
 ## Service level agreement
 
-Managed Service for TimescaleDB is provided through a partnership with Aiven. This pprovides you with a service commitment to deliver 99.99% availability. For more information, see the [Aiven Service Level Agreement policy][aiven-sla].
+Managed Service for TimescaleDB is provided through a partnership with Aiven.
+This provides you with a service commitment to deliver 99.99% availability. For
+more information, see the
+[Aiven Service Level Agreement policy][aiven-sla].
 
 ## Billing
 
