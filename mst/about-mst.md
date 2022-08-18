@@ -99,6 +99,42 @@ Within each configuration plan option, there are several plan types available:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
 
+### Service termination protection
+
+You can protect your services from accidentally being terminated, by enabling
+service termination protection. When termination protection is enabled, you
+cannot terminate or power down the service from the web console, the REST API,
+or with a command-line client. To terminate a protected service, you need to
+disable termination protection first. Termination protection does not interrupt
+service migrations or upgrades.
+
+To enable service termination protection, navigate to the service `Overview`
+tab. Locate the `Termination protection` section, and toggle to enable
+protection.
+
+<highlight type="important">
+If you run out of free sign-up credit, and have not entered a valid credit card
+for payment, your service will be powered down, even if you have enabled
+termination protection.
+</highlight>
+
+### Idle connections
+
+Managed Service for TimescaleDB uses the default keepalive settings for TCP connectrions. The default settings are:
+
+*   `tcp_keepalives_idle`: 7200
+*   `tcp_keepalive_count`: 9
+*   `tcp_keepalives_interval`: 75
+
+If you have long idle database connection sessions, you might need to adjust
+these settings to ensure that your TCP connection remains stable. If you
+eperience a broken TCP connection, when you reconnect make sure that your client
+resolves the DNS address correctly, as the underlying address changes during
+automatic failover.
+
+For more information about adjusting keepalive settings, see the
+[PostgreSQL documentation][pg-keepalive].
+
 ## Databases
 
 Each service can contain one or more databases. To view existing databases, or
@@ -106,6 +142,10 @@ to create a new database, click the name of the service in the services list,
 and navigate to the `Databases` tab.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.png" alt="Managed Service for TimescaleDB databases list"/>
+
+## Service level agreement
+
+Managed Service for TimescaleDB is provided through a partnership with Aiven. This pprovides you with a service commitment to deliver 99.99% availability. For more information, see the [Aiven Service Level Agreement policy][aiven-sla].
 
 ## Billing
 
@@ -162,3 +202,5 @@ billing.
 [mst-install]: /install/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-support]: https://www.timescale.com/support
+[aiven-sla]: https://aiven.io/sla
+[pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
