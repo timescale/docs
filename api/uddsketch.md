@@ -1,14 +1,19 @@
 ---
 api_name: uddsketch()
 excerpt: Aggregate data in a `uddsketch` for further calculation of percentile estimates
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [percentiles, hyperfunctions, toolkit]
 tags: [uddsketch]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: aggregate
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'advanced aggregation'
 hyperfunction_type: aggregate
@@ -46,6 +51,7 @@ percentile approximation functions.
     see the [developer documentation][gh-uddsketch].
 
 ## Required arguments
+
 |Name| Type |Description|
 |-|-|-|
 |`size`|`INTEGER`|Maximum number of buckets in the sketch. Providing a larger value here makes it more likely that the aggregate is able to maintain the desired error, but  potentially increases the memory usage.|
@@ -58,17 +64,19 @@ percentile approximation functions.
 |-|-|-|
 |`uddsketch`|`UddSketch`|A UddSketch object which can be passed to other UddSketch APIs|
 
-
 ## Sample usage
+
 This example uses a table called `samples` with a column called `data` that
 holds `DOUBLE PRECISION` values. This query returns a Uddsketch over that
 column:
+
 ```SQL
 SELECT uddsketch(100, 0.01, data) FROM samples;
 ```
 
 This example builds a view from the aggregate that you can pass to other
 Uddsketch functions:
+
 ```SQL
 CREATE VIEW sketch AS
     SELECT uddsketch(100, 0.01, data)

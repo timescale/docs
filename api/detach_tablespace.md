@@ -1,9 +1,11 @@
 ---
 api_name: detach_tablespace()
 excerpt: Detach a tablespace from a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [tablespaces, hypertables, data tiering, detach]
+api:
+  license: apache
+  type: function
 ---
 
 ## detach_tablespace()
@@ -32,14 +34,12 @@ appropriate permissions for. Therefore, without proper permissions,
 the tablespace may still receive new chunks after this command
 is issued.
 
-
 ### Optional arguments
 
 |Name|Type|Description|
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to detach a the tablespace from.|
 | `if_attached` | BOOLEAN | Set to true to avoid throwing an error if the tablespace is not attached to the given table. A notice is issued instead. Defaults to false. |
-
 
 When specifying a specific hypertable, the tablespace is only
 detached from the given hypertable and thus may remain attached to

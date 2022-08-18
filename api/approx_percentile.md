@@ -1,15 +1,23 @@
 ---
 api_name: approx_percentile()
 excerpt: Estimate the value at a given percentile from values in a percentile aggregate
-license: community
-toolkit: true
-experimental: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [percentile, hyperfunctions]
 tags: [approximate, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: accessor
+  aggregates:
+    - percentile_agg()
+    - tdigest()
+    - uddsketch()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: accessor
@@ -49,11 +57,11 @@ SELECT
     approx_percentile(0.01, percentile_agg(data))
 FROM generate_series(0, 100) data;
 ```
+
 ```output
 approx_percentile
 -------------------
              0.999
 ```
-
 
 [hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
