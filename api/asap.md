@@ -23,7 +23,7 @@ hyperfunction_type: other
 
 # asap_smooth()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 
-The [ASAP smoothing alogrithm][asap-algorithm] is designed to create
+The [ASAP smoothing algorithm][asap-algorithm] is designed to create
 human-readable graphs that preserve the rough shape and larger trends
 of the input data, while minimizing the local variance between points.
 The `asap_smooth` hyperfunction provides an implementation of this
