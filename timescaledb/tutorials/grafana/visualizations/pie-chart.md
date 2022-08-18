@@ -98,10 +98,10 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
 
 A  donut chart is just a pie chart with the middle cut out. People favor them because the human eye often finds it easier to differentiate when looking at arcs not slices. A donut can help you compare respective categories or dimensions to the larger whole. Each donut arc has the same width but a different length. So when you compare which one is greater, you only have to make one point of comparison—which has a longer length?
 
-In this section, we will display the traded volume of how much the stock is being traded with a bucket interval.
-The stock_real_time hypertable contains a column with the daily cumulative traded volume. This helps to calculate the volume of data for each bucket.
-
-To calculate this, find the maximum day_volume value for a symbol within a bucket. Then, subtract each maximum from the previous bucket's maximum. The difference gives the traded volume for that bucket.
+Follow this section to create a donut chart displaying the average transaction
+volume of each stock within a bucket interval. The transaction volume per
+bucket is calculated from the daily cumulative traded volume, which is available
+in the `stocks_real_time` hypertable.
 
 <procedure>
 
