@@ -1,13 +1,16 @@
 ---
 api_name: show_chunks()
 excerpt: Show the chunks belonging to a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [chunks, hypertables]
 tags: [show, get]
+api:
+  license: apache
+  type: function
 ---
 
 ## show_chunks()
+
 Get list of chunks associated with a hypertable.
 
 Function accepts the following required and optional arguments. These arguments
@@ -21,7 +24,6 @@ have the same semantics as the `drop_chunks` [function][drop_chunks].
 
 ### Optional arguments
 
-
 |Name|Type|Description|
 |---|---|---|
 | `older_than` | ANY | Specification of cut-off point where any full chunks older than this timestamp should be shown. |
@@ -29,12 +31,12 @@ have the same semantics as the `drop_chunks` [function][drop_chunks].
 
 The `older_than` and `newer_than` parameters can be specified in two ways:
 
-- **interval type:** The cut-off point is computed as `now() -
+*   **interval type:** The cut-off point is computed as `now() -
     older_than` and similarly `now() - newer_than`.  An error is returned if an INTERVAL is supplied
     and the time column is not one of a TIMESTAMP, TIMESTAMPTZ, or
     DATE.
 
-- **timestamp, date, or integer type:** The cut-off point is
+*   **timestamp, date, or integer type:** The cut-off point is
     explicitly given as a TIMESTAMP / TIMESTAMPTZ / DATE or as a
     SMALLINT / INT / BIGINT. The choice of timestamp or integer must follow the type of the hypertable's time column.
 
@@ -47,16 +49,19 @@ intersection between two ranges results in an error.
 ### Sample usage
 
 Get list of all chunks associated with a table:
+
 ```sql
 SELECT show_chunks('conditions');
 ```
 
 Get all chunks from hypertable `conditions` older than 3 months:
+
 ```sql
 SELECT show_chunks('conditions', older_than => INTERVAL '3 months');
 ```
 
 Get all chunks from hypertable `conditions` before 2017:
+
 ```sql
 SELECT show_chunks('conditions', older_than => DATE '2017-01-01');
 ```

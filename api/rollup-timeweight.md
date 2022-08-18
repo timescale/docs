@@ -1,13 +1,20 @@
 ---
 api_name: rollup()
 excerpt: Roll up multiple `TimeWeightSummaries`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [rollup, time-weighted, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: time-weighted averages
+  type: rollup
+  aggregates:
+    - time_weight()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'time-weighted averages'
 hyperfunction_subfamily: 'time-weighted averages'
 hyperfunction_type: rollup
@@ -40,7 +47,6 @@ For more information about time-weighted average functions, see the
 |---|---|---|
 |`time_weight`|`TimeWeightSummary`|A TimeWeightSummary object that can be passed to other functions within the time weighting API|
 
-
 ## Sample usage
 
 ```SQL
@@ -61,6 +67,5 @@ SELECT
     average(tw) / (SELECT average(full_tw) FROM q LIMIT 1)  as normalized -- get the normalized average
 FROM t;
 ```
-
 
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/

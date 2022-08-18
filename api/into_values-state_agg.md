@@ -1,14 +1,22 @@
 ---
 api_name: into_values()
 excerpt: Calculate all state durations from a state aggregate
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [duration, states, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: accessor
+  aggregates:
+    - state_agg()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: StateAgg
 hyperfunction_type: accessor
@@ -17,7 +25,9 @@ hyperfunction_type: accessor
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+
 Returns the data accumulated in a [state aggregate][state_agg].  
+
 ```sql
 into_values (
     agg StateAgg
@@ -40,16 +50,19 @@ into_values (
 |`duration`|`BIGINT`|The duration of time spent in that state|
 
 ## Sample usage
+
 Create a state aggregate from the table `states_test`. The time column is named
 `time`, and the `state` column contains text values corresponding to different
 states of a system. Use `into_values` to display the data from the state
 aggregate:
+
 ```sql
 SELECT state, duration FROM toolkit_experimental.into_values(
      (SELECT toolkit_experimental.state_agg(time, state) FROM states_test));
 ```
 
 Example output:
+
 ```
 state | duration
 ------+-----------

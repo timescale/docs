@@ -1,10 +1,12 @@
 ---
 api_name: delete_job()
 excerpt: Delete a job from the automatic scheduler
-license: community
-topic: jobs
+topics: [jobs]
 keywords: [jobs, delete]
 tags: [background jobs, scheduled jobs, user-defined actions, automation framework]
+api:
+  license: community
+  type: function
 ---
 
 ## delete_job() <tag type="community">Community</tag>
@@ -21,7 +23,9 @@ If the job is currently running, the process is terminated.
 |`job_id`| INTEGER |  TimescaleDB background job id |
 
 ### Sample usage
+
 Delete the job with the job id 1000:
+
 ```sql
 SELECT delete_job(1000);
 ```

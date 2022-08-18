@@ -1,10 +1,12 @@
 ---
 api_name: hypertable_index_size()
 excerpt: Get the disk space used by a hypertable index
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [hypertables, indexes, information]
 tags: [disk space, size]
+api:
+  license: apache
+  type: function
 ---
 
 ## hypertable_index_size()  
@@ -19,7 +21,8 @@ reported in bytes.
 |---|---|---|
 | `index_name` | REGCLASS | Name of the index on a  hypertable |
 
-### Returns 
+### Returns
+
 |Column|Type|Description|
 |---|---|---|
 |hypertable_index_size|BIGINT| Returns the disk space used by the index |
@@ -28,7 +31,7 @@ reported in bytes.
 NULL is returned if the function is executed on a non-hypertable relation.
 </highlight>
 
-### Sample usage 
+### Sample usage
 
 Get size of a specific index on a hypertable.
 

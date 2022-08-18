@@ -1,9 +1,13 @@
 ---
 api_name: last()
 excerpt: Get the last value in one column when rows are ordered by another column
-license: apache
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [hyperfunctions]
+api:
+  license: apache
+  type: function
+hyperfunction:
+  type: one-step aggregate
 ---
 
 ## last()
@@ -22,6 +26,7 @@ latest temperature value based on time within an aggregate group.
 ### Sample usage
 
 Get the temperature every 5 minutes for each device over the past day:
+
 ```sql
 SELECT device_id, time_bucket('5 minutes', time) AS interval,
   last(temp, time)
@@ -32,9 +37,9 @@ ORDER BY interval DESC;
 ```
 
 <highlight type="warning">
- The `last` and `first` commands do **not** use indexes, and instead
- perform a sequential scan through their groups. They are primarily used
- for ordered selection within a `GROUP BY` aggregate, and not as an
- alternative to an `ORDER BY time DESC LIMIT 1` clause to find the
- latest value (which uses indexes).
+The `last` and `first` commands do **not** use indexes, and instead
+perform a sequential scan through their groups. They are primarily used
+for ordered selection within a `GROUP BY` aggregate, and not as an
+alternative to an `ORDER BY time DESC LIMIT 1` clause to find the
+latest value (which uses indexes).
 </highlight>

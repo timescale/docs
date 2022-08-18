@@ -1,20 +1,26 @@
 ---
 api_name: hyperloglog()
 excerpt: Aggregate data into a hyperloglog for approximate counting
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [count, hyperloglog, hyperfunctions, toolkit]
 tags: [approximate, distinct]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: approximate count distinct
+  type: aggregate
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'approximate count distinct'
 hyperfunction_subfamily: hyperloglog
 hyperfunction_type: aggregate
 ---
 
 # hyperloglog()  <tag type="toolkit">Toolkit</tag>
+
 The `hyperloglog` function constructs and returns a hyperloglog with at least
 the specified number of buckets over the given values.
 
@@ -30,7 +36,7 @@ For more information about approximate count distinct functions, see the
 
 Increasing the `buckets` argument usually provides more accuracy at the expense
 of more memory usage. Because hyperloglog is a probabilistic algorithm, it works
-best on datasets that have many distinct values: at least tens of thousands. 
+best on datasets that have many distinct values: at least tens of thousands.
 
 See [stderror][stderror] for how estimated error rate is related to `buckets`.
 
@@ -43,6 +49,7 @@ See [stderror][stderror] for how estimated error rate is related to `buckets`.
 <!---Any special notes about the returns-->
 
 ## Sample usage
+
 This examples assumes you have a table called `samples`, that contains a column
 called `weights` that holds DOUBLE PRECISION values. This command returns a
 digest over that column:
@@ -57,7 +64,6 @@ other `hyperloglog` functions:
 ``` sql
 CREATE VIEW hll AS SELECT hyperloglog(32768, data) FROM samples;
 ```
-
 
 [hyperfunctions-approx-count-distincts]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/
 [stderror]: /api/:currentVersion:/hyperfunctions/approx_count_distincts/stderror/

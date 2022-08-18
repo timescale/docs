@@ -1,20 +1,24 @@
 ---
 api_name: time_bucket_gapfill()
 excerpt: Bucket rows by time interval while filling gaps in data
-license: community
-toolkit: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [gapfill, interpolate, aggregate, hyperfunctions, toolkit]
 tags: [time buckets]
+api:
+  license: community
+  type: function
+hyperfunction:
+  family: gapfilling and interpolation
+  type: bucket
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
 hyperfunction_family: 'gapfilling and interpolation'
 hyperfunction_subfamily: gapfill
 hyperfunction_type: other
 ---
 
 # time_bucket_gapfill() <tag type="community">Community</tag>
+
 The `time_bucket_gapfill` function works similar to `time_bucket` but also
 activates gap filling for the interval between `start` and `finish`. It can only
 be used with an aggregation query. Values outside of `start` and `finish` pass
@@ -83,7 +87,9 @@ data, and does not perform constraint exclusion to exclude chunks from further
 processing, which is less performant.
 
 ### Sample usage
+
 Get the metric value every day over the last seven days:
+
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time) AS day,
@@ -108,6 +114,7 @@ ORDER BY day;
 
 Get the metric value every day over the last seven days, carrying forward the
 previous seen value if none is available in an interval:
+
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time) AS day,
@@ -132,6 +139,7 @@ ORDER BY day;
 
 Get the metric value every day over the last seven days, interpolating missing
 values:
+
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time) AS day,
@@ -153,6 +161,5 @@ ORDER BY day;
  2019-01-15 01:00:00+01 |         1 |   8.0 |         8.0
  2019-01-16 01:00:00+01 |         1 |   9.0 |         9.0
 ```
-
 
 [hyperfunctions-gapfilling]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/

@@ -1,20 +1,24 @@
 ---
 api_name: interpolate()
 excerpt: Linearly interpolate missing values when gapfilling
-license: community
-toolkit: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [gapfill, interpolate, hyperfunctions, toolkit]
 tags: [missing values]
+api:
+  license: community
+  type: function
+hyperfunction:
+  family: gapfilling and interpolation
+  type: interpolator
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: false
 hyperfunction_family: 'gapfilling and interpolation'
 hyperfunction_subfamily: interpolation
 hyperfunction_type: other
 ---
 
 # interpolate() <tag type="community">Community</tag>
+
 The `interpolate` function does linear interpolation for missing values. It can
 only be used in an aggregation query with
 [time_bucket_gapfill][time_bucket_gapfill].
@@ -52,8 +56,10 @@ data type in the `time_bucket_gapfill` call. The data type of `value` needs to
 be the same as the `value` data type of the `interpolate` call.
 
 ## Sample usage
+
 Get the temperature every day for each device over the last week, interpolating
 for missing readings:
+
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time, now() - INTERVAL '1 week', now()) AS day,
@@ -80,6 +86,7 @@ ORDER BY day;
 Get the average temperature every day for each device over the last seven days,
 interpolating for missing readings, with lookup queries for values before and
 after the gapfill time range:
+
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time, now() - INTERVAL '1 week', now()) AS day,
@@ -105,7 +112,6 @@ ORDER BY day;
  2019-01-16 01:00:00+01 |         1 |   9.0 |         9.0
 (7 row)
 ```
-
 
 [hyperfunctions-gapfilling]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/gapfilling-interpolation/
 [time_bucket_gapfill]: /api/:currentVersion:/hyperfunctions/gapfilling-interpolation/time_bucket_gapfill/

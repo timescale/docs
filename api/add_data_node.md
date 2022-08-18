@@ -1,10 +1,12 @@
 ---
 api_name: add_data_node()
 excerpt: Add a new data node to a multi-node cluster
-license: community
-topic: multi-node
+topics: [multi-node]
 keywords: [multi-node]
 tags: [data nodes, distributed hypertables, cluster]
+api:
+  license: community
+  type: function
 ---
 
 ## add_data_node() <tag type="community">Community</tag>
@@ -24,15 +26,16 @@ data node, the access node also tries to connect to the data node
 and therefore needs a way to authenticate with it. TimescaleDB
 currently supports several different such authentication methods for
 flexibility (including trust, user mappings, password, and certificate
-methods). Refer to [Setting up Multi-Node TimescaleDB][multinode] for more 
+methods). Refer to [Setting up Multi-Node TimescaleDB][multinode] for more
 information about node-to-node authentication.
 
 Unless `bootstrap` is false, the function attempts to bootstrap
 the data node by:
-1. Creating the database given in `database` that serve as the
+
+1.  Creating the database given in `database` that serve as the
    new data node.
-2. Loading the TimescaleDB extension in the new database.
-3. Setting metadata to make the data node part of the distributed
+2.  Loading the TimescaleDB extension in the new database.
+3.  Setting metadata to make the data node part of the distributed
    database.
 
 Note that user roles are not automatically created on the new data
@@ -72,13 +75,14 @@ after it is added.
 #### Errors
 
 An error is given if:
-* The function is executed inside a transaction.
-* The function is executed in a database that is already a data node.
-* The data node already exists and `if_not_exists` is `FALSE`.
-* The access node cannot connect to the data node due to a network
+
+*   The function is executed inside a transaction.
+*   The function is executed in a database that is already a data node.
+*   The data node already exists and `if_not_exists` is `FALSE`.
+*   The access node cannot connect to the data node due to a network
   failure or invalid configuration (for example, wrong port, or there is no
   way to authenticate the user).
-* If `bootstrap` is `FALSE` and the database was not previously
+*   If `bootstrap` is `FALSE` and the database was not previously
   bootstrapped.
 
 #### Privileges

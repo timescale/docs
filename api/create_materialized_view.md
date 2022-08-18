@@ -1,17 +1,21 @@
 ---
 api_name: CREATE MATERIALIZED VIEW (Continuous Aggregate)
 excerpt: Create a continuous aggregate on a hypertable
-license: community
-topic: continuous aggregates
+topics: [continuous aggregates]
 keywords: [continuous aggregates, create]
 tags: [materialized view, hypertables]
+api:
+  license: community
+  type: command
 ---
 
 ## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
+
 The `CREATE MATERIALIZED VIEW` statement is used to create continuous
 aggregates.
 
 The syntax is:
+
 ``` sql
 CREATE MATERIALIZED VIEW <view_name> [ ( column_name [, ...] ) ]
   WITH ( timescaledb.continuous [, timescaledb.<option> = <value> ] )
@@ -46,6 +50,7 @@ supported. The `GROUP BY` clause must include a time bucket on the hypertable
 time column, and all aggregates must be parallelizable.
 
 Some important things to remember when constructing your `SELECT` query:
+
 *   Only a single hypertable can be specified in the `FROM` clause of
     the `SELECT` query. You cannot include more hypertables, joins, tables,
     views, or subqueries.
@@ -69,8 +74,8 @@ Some important things to remember when constructing your `SELECT` query:
 The settings for continuous aggregates are in the
 [informational views][info-views].
 
-
 ### Parameters
+
 |Name|Type|Description|
 |-|-|-|
 |`<view_name>`|TEXT|Name (optionally schema-qualified) of continuous aggregate view to create|
@@ -95,7 +100,9 @@ Optional `WITH` clause options:
 For more information, see the [real-time aggregates][real-time-aggregates] section.
 
 ### Sample usage
+
 Create a daily continuous aggregate view:
+
 ```sql
 CREATE MATERIALIZED VIEW continuous_aggregate_daily( timec, minl, sumt, sumh )
 WITH (timescaledb.continuous) AS
@@ -105,6 +112,7 @@ WITH (timescaledb.continuous) AS
 ```
 
 Add a thirty day continuous aggregate on top of the same raw hypertable:
+
 ```sql
 CREATE MATERIALIZED VIEW continuous_aggregate_thirty_day( timec, minl, sumt, sumh )
 WITH (timescaledb.continuous) AS
@@ -114,6 +122,7 @@ WITH (timescaledb.continuous) AS
 ```
 
 Add an hourly continuous aggregate on top of the same raw hypertable:
+
 ```sql
 CREATE MATERIALIZED VIEW continuous_aggregate_hourly( timec, minl, sumt, sumh )
 WITH (timescaledb.continuous) AS

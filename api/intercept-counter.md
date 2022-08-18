@@ -1,20 +1,29 @@
 ---
 api_name: intercept()
 excerpt: Calculate the intercept from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [intercept, least squares, regression]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # intercept() <tag type="toolkit" content="Toolkit" />
+
 The intercept of the [least squares fit][least-squares] line computed from the adjusted counter
 values and times input in the CounterSummary. This corresponds to the projected
 value at the PostgreSQL epoch (2000-01-01 00:00:00+00). This is useful for
@@ -57,7 +66,6 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
 [least-squares]:https://en.wikipedia.org/wiki/Least_squares
