@@ -135,7 +135,7 @@ in the `stocks_real_time` hypertable.
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/piecharttype.png" alt="Screenshot of Grafana dashboard, showing pie chart."/>
 
 1.  Refresh the panel. The donut chart view shows the percentage of trading volume 
-    for a 10-minute bucket, averaged over the entire day. The volume calculation is valid mostly with the trading day:
+    for a 10-minute bucket, averaged over the entire day:
 
    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/donutchart.png" alt="Screenshot of Grafana dashboard, showing a donut chart."/>
 
