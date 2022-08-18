@@ -5,6 +5,8 @@ product: mst
 keywords: [troubleshooting]
 ---
 
+import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
+
 # Troubleshooting
 
 This section covers some common errors or problems you might run into while
@@ -54,6 +56,13 @@ using [continuous aggregates][howto-caggs], or
 [configuring data retention][howto-dataretention] to reduce the amount of
 resources your database uses. If you still need help, reach out to our [support
 team][timescale-support] to have a conversation.
+
+## Scheduled jobs stop running
+
+Your scheduled jobs might stop running for various reasons. You can restart them
+by restarting your background workers.
+
+<CloudMSTRestartWorkers />
 
 [howto-compression]: /timescaledb/:currentVersion:/how-to-guides/compression
 [howto-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
