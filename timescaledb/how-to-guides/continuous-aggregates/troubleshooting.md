@@ -277,7 +277,7 @@ window.
         );
     ```
 
-    Use the returned ID to query for the watermark's timestamp:
+1.  Use the returned ID to query for the watermark's timestamp:
 
     ```sql
     SELECT COALESCE(
