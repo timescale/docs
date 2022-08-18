@@ -1,13 +1,16 @@
 ---
 api_name: remove_retention_policy()
 excerpt: Remove a retention policy from a hypertable
-license: community
-topic: data retention
+topics: [data retention, jobs]
 keywords: [data retention, policies, remove]
 tags: [delete, drop]
+api:
+  license: community
+  type: function
 ---
 
-## remove_retention_policy() <tag type="community">Community</tag> 
+## remove_retention_policy() <tag type="community">Community</tag>
+
 Remove a policy to drop chunks of a particular hypertable.
 
 ### Required arguments
@@ -22,12 +25,10 @@ Remove a policy to drop chunks of a particular hypertable.
 |---|---|---|
 | `if_exists` | BOOLEAN |  Set to true to avoid throwing an error if the policy does not exist. Defaults to false.|
 
-
-### Sample usage 
+### Sample usage
 
 ```sql
 SELECT remove_retention_policy('conditions');
 ```
 
 Removes the existing data retention policy for the `conditions` table.
-

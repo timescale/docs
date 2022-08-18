@@ -1,9 +1,11 @@
 ---
 api_name: create_hypertable()
 excerpt: Create a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [hypertables, create]
+api:
+  license: apache
+  type: function
 ---
 
 # create_hypertable()
@@ -55,6 +57,7 @@ still work on the resulting hypertable.
 
 <highlight type="tip">
  If you use `SELECT * FROM create_hypertable(...)` you get the return value formatted as a table with column headings.
+
 </highlight>
 
 <highlight type="warning">
@@ -89,23 +92,25 @@ The 'time' column supports the following data types:
 |DATE|
 |Integer (SMALLINT, INT, BIGINT)|
 
-<highlight type="tip"> The type flexibility of the 'time' column allows the use
+<highlight type="tip">
+ The type flexibility of the 'time' column allows the use
 of non-time-based values as the primary chunk partitioning column, as long as
 those values can increment.
 </highlight>
 
-<highlight type="tip"> For incompatible data types (for example, `jsonb`) you can
+<highlight type="tip">
+ For incompatible data types (for example, `jsonb`) you can
 specify a function to the `time_partitioning_func` argument which can extract
 a compatible data type
 </highlight>
 
 The units of `chunk_time_interval` should be set as follows:
 
-- For time columns having timestamp or DATE types, the
+*   For time columns having timestamp or DATE types, the
 `chunk_time_interval` should be specified either as an `interval` type
 or an integral value in *microseconds*.
 
-- For integer types, the `chunk_time_interval` **must** be set
+*   For integer types, the `chunk_time_interval` **must** be set
 explicitly, as the database does not otherwise understand the
 semantics of what each integer value represents (a second,
 millisecond, nanosecond, etc.).  So if your time column is the number
@@ -121,25 +126,27 @@ exists. Thus, a custom partitioning function can be used for value
 types that do not have a native PostgreSQL hash function. A
 partitioning function should take a single `anyelement` type argument
 and return a positive `integer` hash value. Note that this hash value
-is _not_ a partition ID, but rather the inserted value's position in
+is *not* a partition ID, but rather the inserted value's position in
 the dimension's key space, which is then divided across the partitions.
-
 
 <highlight type="tip">
  The time column in `create_hypertable` must be defined as `NOT
  NULL`.  If this is not already specified on table creation,
  `create_hypertable` automatically adds this constraint on the
  table when it is executed.
+
 </highlight>
 
 ### Sample usage
 
 Convert table `conditions` to hypertable with just time partitioning on column `time`:
+
 ```sql
 SELECT create_hypertable('conditions', 'time');
 ```
 
 Convert table `conditions` to hypertable, setting `chunk_time_interval` to 24 hours.
+
 ```sql
 SELECT create_hypertable('conditions', 'time', chunk_time_interval => 86400000000);
 SELECT create_hypertable('conditions', 'time', chunk_time_interval => INTERVAL '1 day');
@@ -147,6 +154,7 @@ SELECT create_hypertable('conditions', 'time', chunk_time_interval => INTERVAL '
 
 Convert table `conditions` to hypertable with time partitioning on `time` and
 space partitioning (4 partitions) on `location`:
+
 ```sql
 SELECT create_hypertable('conditions', 'time', 'location', 4);
 ```
@@ -159,12 +167,14 @@ SELECT create_hypertable('conditions', 'time', 'location', 4, partitioning_func 
 
 Convert table `conditions` to hypertable. Do not raise a warning
 if `conditions` is already a hypertable:
+
 ```sql
 SELECT create_hypertable('conditions', 'time', if_not_exists => TRUE);
 ```
 
 Time partition table `measurements` on a composite column type `report` using a time partitioning function:
 Requires an immutable function that can convert the column value into a supported column value:
+
 ```sql
 CREATE TYPE report AS (reported timestamp with time zone, contents jsonb);
 
@@ -179,6 +189,7 @@ SELECT create_hypertable('measurements', 'report', time_partitioning_func => 're
 
 Time partition table `events`, on a column type `jsonb` (`event`), which has
 a top level key (`started`) containing an ISO 8601 formatted timestamp:
+
 ```sql
 CREATE FUNCTION event_started(jsonb)
   RETURNS timestamptz
@@ -188,7 +199,6 @@ CREATE FUNCTION event_started(jsonb)
 
 SELECT create_hypertable('events', 'event', time_partitioning_func => 'event_started');
 ```
-
 
 #### Best Practices
 

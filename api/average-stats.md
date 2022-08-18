@@ -1,14 +1,20 @@
 ---
-api_name: 'average() | average_y() | average_x()'
+api_name: average() | average_y() | average_x()
 excerpt: Calculate the average of values in a statistical aggregate
-license: community
-toolkit: true
-experimental: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: statistical aggregates
+  type: accessor, 1D
+  aggregates:
+    - stats_agg()
+# fields below this will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'statistical aggregates'
 hyperfunction_subfamily: 'statistical aggregates'
 hyperfunction_type: accessor-1d
@@ -19,16 +25,18 @@ hyperfunction_type: accessor-1d
 ```SQL
 average(summary StatsSummary1D) RETURNS BIGINT
 ```
+
 ```SQL
 average_y(summary StatsSummary2D) RETURNS BIGINT
 ```
+
 ```SQL
 average_x(summary StatsSummary2D) RETURNS BIGINT
 ```
 
 Get the average of the values contained in a statistical aggregate.
-In a two-dimensional [`stats_agg`][stats-agg] use the `_y`/ `_x` form to access the 
-average of the dependent and independent variables. 
+In a two-dimensional [`stats_agg`][stats-agg] use the `_y`/ `_x` form to access the
+average of the dependent and independent variables.
 
 For more information about statistical aggregate functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-agg].
@@ -51,12 +59,12 @@ For more information about statistical aggregate functions, see the
 SELECT average(stats_agg(data))
 FROM generate_series(0, 100) data;
 ```
+
 ```output
  average
 -----------
        50
 ```
-
 
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/

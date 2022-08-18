@@ -1,10 +1,14 @@
 ---
 api_name: approximate_row_count()
 excerpt: Estimate the number of rows in a table
-license: apache
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [count, hyperfunctions]
 tags: [approximate, rows]
+api:
+  license: apache
+  type: function
+hyperfunction:
+  type: one-step aggregate
 ---
 
 ## approximate_row_count()
@@ -23,6 +27,7 @@ The accuracy of `approximate_row_count` depends on the database having up-to-dat
 ### Sample usage
 
 Get the approximate row count for a single hypertable.
+
 ```sql
 ANALYZE conditions;
 
@@ -30,6 +35,7 @@ SELECT * FROM approximate_row_count('conditions');
 ```
 
 The expected output:
+
 ```
 approximate_row_count
 ----------------------
