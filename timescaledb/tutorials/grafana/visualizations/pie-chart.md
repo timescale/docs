@@ -65,9 +65,9 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
 1.  In the Grafana dashboard, navigate to the settings page for your panel. In
    the `Variables` section:
 
-*   In the `Name` field, give your symbol a name.
-*   In the `Type` field, select `Query`.
-*   In the `Selection options` field, enable `multi-value`.
+    *   In the `Name` field, give your symbol a name.
+    *   In the `Type` field, select `Query`.
+    *   In the `Selection options` field, enable `multi-value`.
 
 1.  In the Grafana dashboard, in the `Dashboard variable` field, select the stocks
     to graph. Adjust the time range of the dashboard if needed. Make sure the
