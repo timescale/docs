@@ -22,8 +22,7 @@ This tutorial shows you how to:
 
 *   [Create a pie chart](#create-a-pie-chart-with-preaggregated-data)
   with pre-aggregated data using `time_bucket()`.
-*   [Create transaction volume with raw data](https://docs.timescale.com/timescaledb/latest/tutorials/grafana/visualizations/pie-chart/#create-transaction-volume-with-raw-data)
-  using a donut chart.
+*   [Create a donut chart](#create-a-donut-chart-with-volume-transactions) to show volume of stock transactions.
 
 When displaying data using a pie chart, there are two kinds of styles to consider
 in Grafana: the pie and the donut display shown in the tutorial.
