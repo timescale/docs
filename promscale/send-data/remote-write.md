@@ -35,7 +35,7 @@ including:
 
 ## General format for time-series data
 
-A time series must contain both labels and samples.
+A Prometheus time series must contain both labels and samples.
 
 Labels are a collection of label name/value pairs with unique label names. Every
 request must contain a label named `__name__` which cannot have an empty value.
