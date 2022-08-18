@@ -16,17 +16,19 @@ Given a timestamptz, returns how many days are in that month.
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `date` | `TIMESTAMPTZ` | Timestamp to use to calculate how many days in the month |
+|-|-|-|
+|`date`|`TIMESTAMPTZ`|Timestamp to use to calculate how many days in the month|
 
 ### Sample usage
 
-Calculate how many days in the month of January 1st, 2022.
+Calculate how many days in the month of January 1st, 2022:
+
 ```sql
 SELECT toolkit_experimental.days_in_month('2021-01-01 00:00:00+03'::timestamptz)
 ```
 
-The expected output:
+The output looks like this:
+
 ```
 days_in_month
 ----------------------
