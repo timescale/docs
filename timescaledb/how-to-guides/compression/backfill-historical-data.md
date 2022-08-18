@@ -28,9 +28,9 @@ truncating your table in preparation for the next backfill.
 
 ## Backfill with a supplied function
 
-To simplify backfilling, you can use the [backfilling
-functions][timescaledb-extras-backfill] in the [TimescaleDB
-extras][timescaledb-extras] GitHub repository. In particular, the
+To make backfilling easier, you can use the 
+[backfilling functions][timescaledb-extras-backfill] in the 
+[TimescaleDB extras][timescaledb-extras] GitHub repository. In particular, the
 `decompress_backfill` procedure automates many of the backfilling steps for you.
 
 <procedure>
