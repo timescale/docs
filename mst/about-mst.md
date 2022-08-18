@@ -73,7 +73,9 @@ more information, see the
 
 By default, all new Managed Service for TimescaleDB services require a credit
 card, which is charged at the end of the month for all charges accrued over that
-month. Each project is charged separately.
+month. Each project is charged separately. Your credit card statament records
+the transaction as coming from Aiven, as Aiven provide billing services for
+Managed Service for TimescaleDB.
 
 Managed Service for TimescaleDB uses hourly billing. This charge is
 automatically calculated, based on the services you have been running in your
@@ -101,6 +103,13 @@ service is charged at the new rate.
 
 Migrating a service to another cloud region or different cloud provider does not
 incur extra charges.
+
+<highlight type="note">
+All prices listed for Managed Service for TimescaleDB are inclusive of credit
+card and processing fees. However, in some cases, your credit card provider
+might charge additional fees, such as an international transaction fee. These
+fees are not charged by Timescale or Aiven.
+</highlight>
 
 ### Corporate billing
 
@@ -223,6 +232,39 @@ during automatic failover.
 
 For more information about adjusting keep alive settings, see the
 [PostgreSQL documentation][pg-keepalive].
+
+## Long running queries
+
+Managed Service for TimescaleDB does not cancel database queries. If you
+have created a query that is taking a very long time, or that has hung, it could
+lock resources on your service, and could prevent database administration tasks
+from being performed.
+
+You can find out if you have any long-running queries by navigating to the
+service `Current Queries` tab. You can also cancel long running queries from
+this tab.
+
+Alternatively, you can use your connection client to view running queries with
+this command:
+
+```sql
+SELECT * FROM pg_stat_activity
+    WHERE state <> 'idle';
+```
+
+Cancel long-running queries using this command, with the PID of the query you
+want to cancel:
+
+```sql
+SELECT pg_terminate_backend(<PID>);
+```
+
+If you want to automatically cancel any query that runs over a specified length
+of time, you can use this command:
+
+```sql
+SET statement_timeout = <milliseconds>
+```
 
 [timescale-features]: https://www.timescale.com/products/#features
 [mst-install]: /install/:currentVersion:/installation-mst/
