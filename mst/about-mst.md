@@ -54,88 +54,6 @@ information about migrating data, see
 [migrating your data](https://docs.timescale.com/mst/latest/migrate-to-mst/).
 </highlight>
 
-### Service configuration plans
-
-When you create a new service, you need to select a configuration plan. The plan
-determines the number of VMs the service runs in, the high availability
-configuration, the number of CPU cores, and size of RAM and storage volumes.
-
-The plans are:
-
-*   Basic Plans: include 2 days of backups and automatic backup and restore if
-  your instance fails.
-*   Dev Plans: include 1 day of backups and automatic backup and restore if your
-  instance fails.
-*   Pro Plans: include 3 days of backups and automatic failover to a hot standby
-  if your instance fails.
-
-The Basic and Dev plans are serviced by a single virtual machine (VM) node. This
-means that if the node fails, the service is unavailable until a new VM is
-built. This can result in data loss, if some of the latest changes to the data
-weren't backed up before the failure. Sometimes, it can also take a long time to
-return the service back to normal operation, because a new VM needs to be
-created and restored from backups before the service can resume. The time to
-recover depends on the amount of data you have to restore.
-
-The Pro plans are much more resilient to failures. A single node failure causes
-no data loss, and the possible downtime is minimal. If an acting TimescaleDB
-master node fails, an up-to-date replica node is automatically promoted to
-become the new master. This means there is only a small outage while
-applications reconnect to the database and access the new master.
-
-You can upgrade your plan while the service is running. The service is
-reconfigured to run on larger VMs in the background and when the reconfiguration
-is complete, the DNS names are pointed to the new hosts. This can cause a short
-disruption to your service while DNS changes are propagated.
-
-Within each configuration plan option, there are several plan types available:
-
-*   `IO-Optimized` and `Compute-Optimized` These configurations are optimized
-    for input/output (I/O) performance, using SSD storage media.
-*   `Storage-Optimized`: These configurations usually have larger amounts of
-    overall storage, using HDD storage media.
-*   `Dev-Only`: These configurations are typically smaller footprints, and lower
-    cost, designed for development and testing scenarios.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
-
-### Service termination protection
-
-You can protect your services from accidentally being terminated, by enabling
-service termination protection. When termination protection is enabled, you
-cannot power down the service from the web console, the REST API, or with a
-command-line client. To power down a protected service, you need to turn off
-termination protection first. Termination protection does not interrupt service
-migrations or upgrades.
-
-To enable service termination protection, navigate to the service `Overview`
-tab. Locate the `Termination protection` section, and toggle to enable
-protection.
-
-<highlight type="important">
-If you run out of free sign-up credit, and have not entered a valid credit card
-for payment, your service is powered down, even if you have enabled termination
-protection.
-</highlight>
-
-### Idle connections
-
-Managed Service for TimescaleDB uses the default keep alive settings for TCP
-connections. The default settings are:
-
-*   `tcp_keepalives_idle`: 7200
-*   `tcp_keepalive_count`: 9
-*   `tcp_keepalives_interval`: 75
-
-If you have long idle database connection sessions, you might need to adjust
-these settings to ensure that your TCP connection remains stable. If you
-experience a broken TCP connection, when you reconnect make sure that your
-client resolves the DNS address correctly, as the underlying address changes
-during automatic failover.
-
-For more information about adjusting keep alive settings, see the
-[PostgreSQL documentation][pg-keepalive].
-
 ## Databases
 
 Each service can contain one or more databases. To view existing databases, or
@@ -199,8 +117,112 @@ Pounds Sterling (GBP) at the invoice date's currency exchange rates.
 
 To switch from credit card to corporate billing, make sure your billing profile
 and email address is correct in project's billing settings, and send a message
-to [our support team][timescale-support] asking to be changed to corporate
+to the [Timescale support team][timescale-support] asking to be changed to corporate
 billing.
+
+## Service configuration plans
+
+When you create a new service, you need to select a configuration plan. The plan
+determines the number of VMs the service runs in, the high availability
+configuration, the number of CPU cores, and size of RAM and storage volumes.
+
+The plans are:
+
+*   Basic Plans: include 2 days of backups and automatic backup and restore if
+    your instance fails.
+*   Dev Plans: include 1 day of backups and automatic backup and restore if your
+    instance fails.
+*   Pro Plans: include 3 days of backups and automatic failover to a hot standby
+    if your instance fails.
+
+The Basic and Dev plans are serviced by a single virtual machine (VM) node. This
+means that if the node fails, the service is unavailable until a new VM is
+built. This can result in data loss, if some of the latest changes to the data
+weren't backed up before the failure. Sometimes, it can also take a long time to
+return the service back to normal operation, because a new VM needs to be
+created and restored from backups before the service can resume. The time to
+recover depends on the amount of data you have to restore.
+
+The Pro plans are much more resilient to failures. A single node failure causes
+no data loss, and the possible downtime is minimal. If an acting TimescaleDB
+master node fails, an up-to-date replica node is automatically promoted to
+become the new master. This means there is only a small outage while
+applications reconnect to the database and access the new master.
+
+You can upgrade your plan while the service is running. The service is
+reconfigured to run on larger VMs in the background and when the reconfiguration
+is complete, the DNS names are pointed to the new hosts. This can cause a short
+disruption to your service while DNS changes are propagated.
+
+Within each configuration plan option, there are several plan types available:
+
+*   `IO-Optimized` and `Compute-Optimized` These configurations are optimized
+    for input/output (I/O) performance, using SSD storage media.
+*   `Storage-Optimized`: These configurations usually have larger amounts of
+    overall storage, using HDD storage media.
+*   `Dev-Only`: These configurations are typically smaller footprints, and lower
+    cost, designed for development and testing scenarios.
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
+
+## Connection limits
+
+Managed Service for TimescaleDB limits the maximum number of connections to each
+service. The maximum number of allowed connections depends on your service plan.
+To see the current connection limit for your service, navigate to the service
+`Overview` tab and locate the `Connection Limit` section.
+
+If you have a lot of clients or client threads connecting to your database, use
+connection pooling to limit the number of connections. For more information
+about connection pooling, see the
+[connection pooling section][connection-pooling].
+
+<highlight type="note">
+If you have a high number of connections to your database, your service might
+run more slowly, and could run out of memory. Remain aware of how many open
+connections your have to your database at any given time.
+</highlight>
+
+If you require a higher maximum number of connections, but cannot use connection
+pooling, contact the
+[Timescale support team][timescale-support].
+
+## Service termination protection
+
+You can protect your services from accidentally being terminated, by enabling
+service termination protection. When termination protection is enabled, you
+cannot power down the service from the web console, the REST API, or with a
+command-line client. To power down a protected service, you need to turn off
+termination protection first. Termination protection does not interrupt service
+migrations or upgrades.
+
+To enable service termination protection, navigate to the service `Overview`
+tab. Locate the `Termination protection` section, and toggle to enable
+protection.
+
+<highlight type="important">
+If you run out of free sign-up credit, and have not entered a valid credit card
+for payment, your service is powered down, even if you have enabled termination
+protection.
+</highlight>
+
+## Idle connections
+
+Managed Service for TimescaleDB uses the default keep alive settings for TCP
+connections. The default settings are:
+
+*   `tcp_keepalives_idle`: 7200
+*   `tcp_keepalive_count`: 9
+*   `tcp_keepalives_interval`: 75
+
+If you have long idle database connection sessions, you might need to adjust
+these settings to ensure that your TCP connection remains stable. If you
+experience a broken TCP connection, when you reconnect make sure that your
+client resolves the DNS address correctly, as the underlying address changes
+during automatic failover.
+
+For more information about adjusting keep alive settings, see the
+[PostgreSQL documentation][pg-keepalive].
 
 [timescale-features]: https://www.timescale.com/products/#features
 [mst-install]: /install/:currentVersion:/installation-mst/
@@ -208,3 +230,4 @@ billing.
 [timescale-support]: https://www.timescale.com/support
 [aiven-sla]: https://aiven.io/sla
 [pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
+[connection-pooling]: /mst/:currentversion/connection-pools/
