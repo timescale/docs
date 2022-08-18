@@ -1,20 +1,29 @@
 ---
 api_name: stderror()
 excerpt: Estimate the relative standard error of a hyperloglog
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [hyperloglog, hyperfunctions, toolkit]
 tags: [standard error, percentiles]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: approximate count distinct
+  type: accessor
+  aggregates:
+    - approx_count_distinct()
+    - hyperloglog()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'approximate count distinct'
 hyperfunction_subfamily: hyperloglog
 hyperfunction_type: accessor
 ---
 
 # stderror()  <tag type="toolkit">Toolkit</tag>
+
 The `stderror` function returns an estimate of the relative standard error of the hyperloglog, based on the hyperloglog error formula. Approximate results are:
 
 |precision|registers (bucket size)|error|bytes|
@@ -53,6 +62,7 @@ For more information about approximate count distinct functions, see the
 <!---Any special notes about the returns-->
 
 ## Sample usage
+
 This examples retrieves the standard error from a hyperloglog called `hyperloglog`:
 
 ``` sql
@@ -64,6 +74,5 @@ FROM generate_series(1, 100000) data
  0.005745242597140698
 
 ```
-
 
 [hyperfunctions-approx-count-distincts]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/

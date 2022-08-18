@@ -1,14 +1,22 @@
 ---
 api_name: rollup()
 excerpt: Roll up multiple hyperloglogs
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [rollup, hyperloglog, hyperfunctions, toolkit]
 tags: [approximate, count, distinct]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: approximate count distinct
+  type: rollup
+  aggregates:
+    - approx_count_distinct()
+    - hyperloglog()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'approximate count distinct'
 hyperfunction_subfamily: hyperloglog
 hyperfunction_type: rollup
@@ -40,7 +48,6 @@ For more information about approximate count distinct functions, see the
 |-|-|-|
 |`hyperloglog`|`Hyperloglog`|A hyperloglog containing the count of the union of the input hyperloglogs.|
 
-
 ## Sample usage
 
 ```SQL
@@ -55,6 +62,5 @@ FROM (
 ----------------
          150147
 ```
-
 
 [hyperfunctions-approx-count-distincts]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/approx-count-distincts/

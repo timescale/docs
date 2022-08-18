@@ -1,13 +1,15 @@
 ---
-api_name: chunks_detailed_size
+api_name: chunks_detailed_size()
 excerpt: Get detailed information about disk space used by chunks
-license: community
-topic: hypertables
+topics: [hypertables]
 keywords: [chunks, hypertables, size, information]
 tags: [disk space, schemas]
+api:
+  license: community
+  type: function
 ---
 
-## chunks_detailed_size()   
+## chunks_detailed_size()
 
 Get information about the disk space used by the chunks belonging to a
 hypertable, returning size information for each chunk table, any
@@ -18,7 +20,7 @@ If the function is executed on a distributed hypertable, it returns
 disk space usage information as a separate row per node. The access
 node is not included since it doesn't have any local chunk data.
 
-Additional metadata associated with a chunk can be accessed 
+Additional metadata associated with a chunk can be accessed
 via the `timescaledb_information.chunks` view.
 
 ### Required arguments
@@ -27,7 +29,8 @@ via the `timescaledb_information.chunks` view.
 |---|---|---|
 | `hypertable` | REGCLASS | Name of the hypertable |
 
-### Returns 
+### Returns
+
 |Column|Type|Description|
 |---|---|---|
 |chunk_schema| TEXT | Schema name of the chunk |
@@ -43,7 +46,8 @@ If executed on a relation that is not a hypertable, the function
 returns `NULL`.
 </highlight>
 
-### Sample usage 
+### Sample usage
+
 ```sql
 SELECT * FROM chunks_detailed_size('dist_table')
   ORDER BY chunk_name, node_name;
@@ -54,4 +58,3 @@ SELECT * FROM chunks_detailed_size('dist_table')
  _timescaledb_internal | _dist_hyper_1_2_chunk |        8192 |       32768 |           0 |       40960 | data_node_2
  _timescaledb_internal | _dist_hyper_1_3_chunk |        8192 |       32768 |           0 |       40960 | data_node_3
 ```
-
