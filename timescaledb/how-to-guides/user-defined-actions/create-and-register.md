@@ -45,7 +45,7 @@ parameters, use a NULL config.
 For example:
 
 ```sql
-SELECT add_job('user_defined_action', '1h', config => '{"hypertable":"metr"}');
+SELECT add_job('user_defined_action', '1h', config => '{"hypertable":"metrics"}');
 ```
 
 The `add_job` call returns a `job_id`. It stores the `job_id` and `config` in
