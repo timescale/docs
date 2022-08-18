@@ -155,8 +155,7 @@ with very similar, small slices, it becomes harder to compare slice sizes. Use
 pie charts for a small number of categories, and consider another chart type when
 you have large amounts of data.
 
-There are plenty of great ways to visualize data using TimescaleDB and Grafana,
-check out the other
+For more ways to visualize data using TimescaleDB and Grafana, see the other
 [Grafana visualization tutorials][grafana-tutorials].
 
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
