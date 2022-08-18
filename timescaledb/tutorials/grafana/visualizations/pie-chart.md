@@ -80,7 +80,7 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
 1.  In the `Visualizations` field, select `Pie chart`. Grafana turns the query
     into a pie chart. This example shows a pie chart price distribution of JPM, IBM, AAPL, AMD, and CVS stocks which has 22%, 23%, 24%, 15%, and 16%, respectively, within a specific period. The returned data had lots of data, but only the lowest values for each stock were displayed because it was the selected option in the calculation field.
 
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/pie+chart.png" alt="Screenshot of the pie chart produced by Grafana. The pie chart represents the price and percentage of Google in the past 3 months."/>
+    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/pie+chart.png" alt="Screenshot of the pie chart produced by Grafana. The pie chart represents the price of five different stocks in the past 3 months, and the percentage each makes up of the total sum."/>
 
 1.  How data is displayed depends on how the value options are refined on the dashboard.
     There are two  options for choosing how much information is displayed: Calculate, which reduces each value to a single series, and All values, which shows every value from a single series.
