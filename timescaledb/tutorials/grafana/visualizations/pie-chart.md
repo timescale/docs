@@ -99,7 +99,9 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
 
 ## Create a donut chart with volume transactions
 
-A  donut chart is just a pie chart with the middle cut out. People favor them because the human eye often finds it easier to differentiate when looking at arcs not slices. A donut can help you compare respective categories or dimensions to the larger whole. Each donut arc has the same width but a different length. So when you compare which one is greater, you only have to make one point of comparison—which has a longer length?
+A donut chart is a pie chart with the middle cut out. Compared to a pie chart,
+it can be easier to compare segments on a donut chart because the human eye
+is better at comparing the lengths of arcs. Otherwise, they're exactly the same.
 
 Follow this section to create a donut chart displaying the average transaction
 volume of each stock within a bucket interval. The transaction volume per
