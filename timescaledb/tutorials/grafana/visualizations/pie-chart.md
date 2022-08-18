@@ -148,7 +148,12 @@ calculation on a single trading day instead.
 
 </procedure>
 
-Pie charts are a good comparison tool for data visualization. They can be used to convey your data pictorially and aesthetically, but they don’t work well with data with similar-value categories. This is because when we divide the data into many slices, the similarity makes it hard to differentiate them. Also, the more the number of categories increases, the more the number of slices increases and the more complex the chart is to analyze. This makes pie charts unfitting for large amounts of data.
+Pie charts are a great tool for comparing categorized data. They're especially good
+for visualizing percentages. But they don't work as well if you have too many categories
+with similar percentages. With more slices, the chart becomes harder to analyze, and
+with very similar, small slices, it becomes harder to compare slice sizes. Use
+pie charts for a small number of categories, and consider another chart type when
+you have large amounts of data.
 
 There are plenty of great ways to visualize data using TimescaleDB and Grafana,
 check out the other
