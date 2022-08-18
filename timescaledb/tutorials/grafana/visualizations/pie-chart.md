@@ -82,9 +82,10 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/pie+chart.png" alt="Screenshot of the pie chart produced by Grafana. The pie chart represents the price of five different stocks in the past 3 months, and the percentage each makes up of the total sum."/>
 
-1.  How data is displayed depends on how the value options are refined on the dashboard.
-    There are two  options for choosing how much information is displayed: Calculate, which reduces each value to a single series, and All values, which shows every value from a single series.
-    Displaying all the values from the returned data, select ‘all value’ in the value option, show specific fields to display and the limit of the returned data:
+1.  You can change how your data is displayed by changing the value options for `Show`.
+    The `Calculate` option, used in the previous step, reduces each time series to a single
+    value. The `All values` option shows every value from every series. Select `All values`
+    to see the difference.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/datadisplaytype.png" alt="Screenshot of the all values shown in pie chart produced by Grafana. The pie chart represents the price of selected stocks in the past 3 months."/>
 
