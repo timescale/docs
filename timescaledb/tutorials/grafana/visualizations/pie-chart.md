@@ -24,8 +24,8 @@ This tutorial shows you how to:
   with pre-aggregated data using `time_bucket()`.
 *   [Create a donut chart](#create-a-donut-chart-with-volume-transactions) to show volume of stock transactions.
 
-When displaying data using a pie chart, there are two kinds of styles to consider
-in Grafana: the pie and the donut display shown in the tutorial.
+A pie chart can be in the traditional pie style or in donut style. Both display the
+same information. This tutorial shows you how to create either.
 
 ## Prerequisites
 
