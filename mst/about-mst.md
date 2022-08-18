@@ -15,7 +15,7 @@ required.
 Powered by [TimescaleDB][timescale-features], you can create database instances
 in the  cloud and automate many of your most common operational tasks. This
 allows you to spend more time focusing on your time-series workloads and less
-time worrying  about database management.
+time worrying about database management.
 
 Your Managed Service for TimescaleDB account has three main components:
 projects, services, and databases.
@@ -123,7 +123,7 @@ project. The price charged for your project includes:
 *   Setting up
 
 <highlight type="note">
-Managed Service for TiemscaleDB does not charge you for network traffic used by
+Managed Service for TimescaleDB does not charge you for network traffic used by
 your service. However, your application cloud service provider might charge you
 for the network traffic going to or from your service.
 </highlight>
