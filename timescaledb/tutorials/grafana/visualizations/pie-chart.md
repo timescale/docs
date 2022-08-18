@@ -89,7 +89,9 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/datadisplaytype.png" alt="Screenshot of the all values shown in pie chart produced by Grafana. The pie chart represents the price of selected stocks in the past 3 months."/>
 
-1.  The new chart looks like this, with a limit of 40:
+1.  The new chart looks like this. Note that each stock has multiple slices to
+    represent it, corresponding to each row in your table. The number of slices
+    is limited to 40:
 
    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/piechart2.png" alt="Screenshot of the all values shown in pie chart produced by Grafana. The pie chart represents the price of selected stocks in the past 3 months."/>
 
