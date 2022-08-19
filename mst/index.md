@@ -81,5 +81,5 @@ For more information on Managed Service for TimescaleDB's terms of service, visi
 [security]: /mst/:currentVersion:/security
 [sign-up]: https://www.timescale.com/mst-signup
 [tos]: https://www.timescale.com/legal/mst-terms-of-service
-[backups]: /mst/:currentVersion:/backup-types
+[backups]: /mst/:currentVersion:/manage-backups
 [manage-backups]: /mst/:currentVersion:/manage-backups
