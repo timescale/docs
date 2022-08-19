@@ -116,7 +116,7 @@ appear in the `Main` tab of `Connection settings`.
    |Username|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB service|
    |Password|*password*|The password for the database user you are connecting to.|
    |Save password locally|*Check*|Check this box if you don't want to enter the password each time you connect.|
-   |Database|tsdb, defaultdb|This option connects to default database. The database name for Timescale Cloud service is `tsdb`and for Managed Service for TimescaleDB service is `defaultdb`. You can also specify the name of the database to connect to.|
+   |Database|tsdb, defaultdb|This option connects to the default database. The database name for Timescale Cloud service is `tsdb`and for Managed Service for TimescaleDB service is `defaultdb`. You can also specify the name of the database to connect to.|
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/
