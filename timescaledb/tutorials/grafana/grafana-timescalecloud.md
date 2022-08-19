@@ -7,18 +7,20 @@ keywords: [Grafana, visualizations, analytics]
 import CloudTrial from 'versionContent/_partials/_cloudtrial.mdx';
 
 # Connect TimescaleDB and Grafana
+
 Grafana ships with built-in Prometheus, PostgreSQL, Jaeger, and other data
 source plugins that allow you to query and visualize data from a compatible
 database. To add a data source in Grafana you must be signed as a user with
 organization administration role privileges.
 
-To connect Grafana with TimescaleCloud database instance, install Grafana. For
-information about installing Grafana, see the [Grafana installation documentation][grafana-install].
+To connect Grafana with TimescaleCloud database instance, install
+[Grafana][install-grafana].
 
 This section shows you how to connect TimescaleCloud database instance as data
 source in [Grafana][grafana-homepage].
 
 ## Configure TimescaleDB as a data source
+
 To configure TimscaleCloud database as a data source you need to create a
 service, and then configure TimescaleDB as the data source in
 Grafana.
@@ -63,3 +65,4 @@ When you have configured TimescaleDB as a data source in Grafana, you can create
 [grafana-homepage]: https://grafana.com/
 [grafana-install]: https://grafana.com/docs/grafana/latest/installation/
 [tsc-portal]: https://console.cloud.timescale.com/
+[install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation
