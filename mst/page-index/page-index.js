@@ -68,6 +68,10 @@ module.exports = [
         href: "manage-backups",
       },
       {
+        title: "Integrate Managed Service for TimescaleDB as a data source in Grafana",
+        href: "grafana-mst",
+      },
+      {
         title: "Migrate your data to Managed Service for TimescaleDB",
         href: "migrate-to-mst",
       },
