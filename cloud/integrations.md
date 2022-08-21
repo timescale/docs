@@ -19,8 +19,8 @@ CPU usage, RAM usage, and storage.
 
 Export telemetry data to Datadog by:
 
-1.  Creating a data exporter
-1.  Attaching your database service to the exporter
+1.  [Creating a data exporter](#creating-a-data-exporter-for-datadog)
+1.  [Attaching your database service to the exporter](#attaching-a-datadog-data-exporter-to-a-service)
 
 <ExporterRegionNote />
 
@@ -48,7 +48,7 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 
 </procedure>
 
-<AttachExporter />
+<AttachExporter integration="Datadog" />
 
 You can now monitor your service metrics from the [metrics explorer in
 Datadog][datadog-metrics-explorer]. For more information, see the [Datadog
@@ -58,8 +58,8 @@ documentation][datadog-docs].
 
 Export telemetry data to AWS CloudWatch by:
 
-1.  Creating a data exporter
-1.  Attaching your database service to the exporter
+1.  [Creating a data exporter](#creating-a-data-exporter-for-aws-cloudwatch)
+1.  [Attaching your database service to the exporter](#attaching-a-cloudwatch-data-exporter-to-a-service)
 
 <ExporterRegionNote />
 
@@ -98,7 +98,7 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 
 </procedure>
 
-<AttachExporter />
+<AttachExporter integration="CloudWatch" />
 
 You can now query your service metrics from the CloudWatch metrics page in AWS
 Console. For more information, see the [CloudWatch
