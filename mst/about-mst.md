@@ -74,7 +74,7 @@ more information, see the
 By default, all new Managed Service for TimescaleDB services require a credit
 card, which is charged at the end of the month for all charges accrued over that
 month. Each project is charged separately. Your credit card statement records
-the transaction as coming from Aiven, as Aiven provide billing services for
+the transaction as coming from Aiven, as Aiven provides billing services for
 Managed Service for TimescaleDB.
 
 Managed Service for TimescaleDB uses hourly billing. This charge is
@@ -125,7 +125,7 @@ Dollars (USD), but you can request your invoices be sent in either Euros (EUR)
 or Pounds Sterling (GBP) at the invoice date's currency exchange rates.
 
 To switch from credit card to corporate billing, make sure your billing profile
-and email address is correct in project's billing settings, and send a message
+and email address is correct in your project's billing settings, and send a message
 to the [Timescale support team][timescale-support] asking to be changed to corporate
 billing.
 
