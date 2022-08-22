@@ -32,7 +32,7 @@ window.
 
 ### Creating a new continuous aggregate with an explicit refresh window
 
-1.  Create a continuous aggregate using the `WITH NO DATA` option.
+1.  Create a continuous aggregate using the `WITH NO DATA` option:
 
     ```sql
     CREATE MATERIALIZED VIEW <continuous_aggregate_name>
