@@ -199,6 +199,13 @@ module.exports = [
         excerpt: "Timescale Cloud high availabilioty",
       },
       {
+        title: "Security",
+        href: "security",
+        tags: ["encryption", "VPC", "privacy"],
+        keywords: ["security"],
+        excerpt: "Learn how your Timescale Cloud instance is secured",
+      },
+      {
         title: "Migrate a TimescaleDB database to Cloud",
         href: "migrate-to-cloud",
         tags: ["services", "migrate", "manage", "tsc"],

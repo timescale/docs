@@ -34,7 +34,9 @@ services.
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
-    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_dbeaver.png"alt="Connecting to TimescaleDB using DBeaver"/>
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_dbeaver.png"
+    alt="Connecting to TimescaleDB using DBeaver"/>
 
 </procedure>
 
@@ -47,7 +49,7 @@ services.
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
-1.  **OPTIONAL**If you do not know the password for the service, navigate to the
+1.  **OPTIONAL** If you do not know the password for the service, navigate to the
     `Operations` tab, and click `Reset password`. You can choose
     your own password for the service, or allow Timescale Cloud to generate a
     secure password for you. Take a note of your new password.
@@ -62,7 +64,9 @@ services.
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
-    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_dbeaver.png"alt="Connecting to Timescale Cloud using DBeaver"/>
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_dbeaver.png"
+    alt="Connecting to Timescale Cloud using DBeaver"/>
 
 </procedure>
 
@@ -94,7 +98,9 @@ Service for TimescaleDB, see [the security section](https://docs.timescale.com/m
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
-    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_dbeaver.png"alt="Connecting to Managed Service for TimescaleDB using Dbeaver"/>
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_dbeaver.png"
+    alt="Connecting to Managed Service for TimescaleDB using Dbeaver"/>
 
 </procedure>
 
@@ -110,7 +116,7 @@ appear in the `Main` tab of `Connection settings`.
    |Username|postgres, tsdbadmin|The user name you want to log in with. Use `tsdbadmin` for Timescale Cloud service and Managed Service for TimescaleDB service|
    |Password|*password*|The password for the database user you are connecting to.|
    |Save password locally|*Check*|Check this box if you don't want to enter the password each time you connect.|
-   |Database|tsdb|This option connects to default database. The database name for Timescale Cloud service and Managed Service for TimescaleDB service is `tsdb`. You can also specify the name of the database to connect to.|
+   |Database|tsdb, defaultdb|This option connects to the default database. The database name for Timescale Cloud service is `tsdb`and for Managed Service for TimescaleDB service is `defaultdb`. You can also specify the name of the database to connect to.|
 
 [dbeaver]: https://dbeaver.io/
 [dbeaver-downloads]: https://dbeaver.io/download/

@@ -5,6 +5,8 @@ product: cloud
 keywords: [troubleshooting]
 ---
 
+import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
+
 # Troubleshooting
 
 This section covers some common errors or problems you might run into while
@@ -29,5 +31,12 @@ compatibility with older clients.
 
 For information on changing your authentication type, see the documentation on
 [resetting your service password][password-reset].
+
+## Scheduled jobs stop running
+
+Your scheduled jobs might stop running for various reasons. You can restart them
+by restarting your background workers.
+
+<CloudMSTRestartWorkers />
 
 [password-reset]: /cloud/:currentVersion:/service-operations/general/#reset-service-password

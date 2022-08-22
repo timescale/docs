@@ -45,5 +45,5 @@ For example, you might have:
 
 [hypertable-architecture]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/hypertable-architecture/
 [hypertable-benefits]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/hypertables-and-chunks-benefits/
-[hypertable-how-to]: /how-to-guides/hypertables/
+[hypertable-how-to]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
 [performance-benchmark]: https://www.timescale.com/blog/timescaledb-vs-6a696248104e/
