@@ -162,6 +162,13 @@ module.exports = [
         ],
       },
       {
+        title: "Integrations",
+        href: "integrations",
+        tags: ['integrations', 'tsc', 'datadog', 'cloudwatch'],
+        keywords: ['integrations', 'DataDog', 'AWS CloudWatch', 'Timescale Cloud'],
+        excerpt: "Export telemetry data to a third-party monitoring service",
+      },
+      {
         title: "Billing",
         href: "billing",
         tags: ["accounts", "manage", "tsc"],
