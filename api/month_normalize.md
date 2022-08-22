@@ -1,15 +1,18 @@
 ---
 api_name: month_normalize()
-excerpt: Normalization metric based on reference date and days 
-license: community
-toolkit: true
-api_experimental: true
-topic: hyperfunctions
-tags: [normalization, hyperfunctions]
-api_category: hyperfunctions
-hyperfunction_toolkit: true
+excerpt: Normalize a monthly metric based on number of days in month
+topics: [hyperfunctions]
+keywords: [hyperfunctions, toolkit, normalization]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  type: one-step operation
 ---
-## month_normalize()
+
+## month_normalize() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 
 Normalize the provided metric based on reference date and days.
 
@@ -23,7 +26,8 @@ Normalize the provided metric based on reference date and days.
 
 ### Sample usage
 
-Get the normalized value for a metric of 1000, and a reference date of January 1, 2021:
+Get the normalized value for a metric of 1000, and a reference date of January
+1, 2021:
 
 ```sql
 SELECT toolkit_experimental.month_normalize(1000,'2021-01-01 00:00:00+03'::timestamptz
@@ -31,7 +35,7 @@ SELECT toolkit_experimental.month_normalize(1000,'2021-01-01 00:00:00+03'::times
 
 The output looks like this:
 
-```
+```sql
 month_normalize
 ----------------------
 981.8548387096774
