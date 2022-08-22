@@ -1,21 +1,23 @@
 ---
 api_name: chunk_compression_stats()
 excerpt: Get compression-related statistics for chunks
-license: community
-topic: compression
+topics: [compression]
 keywords: [compression, statistics, chunks, information]
 tags: [disk space, schemas, size]
+api:
+  license: community
+  type: function
 ---
 
-## chunk_compression_stats() <tag type="community">Community</tag> 
+## chunk_compression_stats() <tag type="community">Community</tag>
 
 Get chunk-specific statistics related to hypertable compression.
 All sizes are in bytes.
 
-This view shows the cached size of chunks. The cached sizes are computed 
-when `compress_chunk` is executed, or when a compression policy touches 
-the chunk. An insert into a compressed chunk does not update the cached 
-sizes. For more information about how to compute exact sizes, rather than 
+This view shows the cached size of chunks. The cached sizes are computed
+when `compress_chunk` is executed, or when a compression policy touches
+the chunk. An insert into a compressed chunk does not update the cached
+sizes. For more information about how to compute exact sizes, rather than
 cached sizes, see the `chunks_detailed_size` section.
 
 ### Required arguments
@@ -24,7 +26,8 @@ cached sizes, see the `chunks_detailed_size` section.
 |---|---|---|
 | `hypertable` | REGCLASS | Name of the hypertable |
 
-### Returns 
+### Returns
+
 |Column|Type|Description|
 |---|---|---|
 |`chunk_schema` | TEXT | Schema name of the chunk |
@@ -40,7 +43,8 @@ cached sizes, see the `chunks_detailed_size` section.
 |`after_compression_total_bytes` | BIGINT | Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed) |
 |`node_name` | TEXT | nodes on which the chunk is located, applicable only to distributed hypertables |
 
-### Sample usage 
+### Sample usage
+
 ```sql
 SELECT * FROM chunk_compression_stats('conditions')
   ORDER BY chunk_name LIMIT 2;
@@ -74,6 +78,7 @@ node_name                      |
 ```
 
 Use `pg_size_pretty` get the output in a more human friendly format.
+
 ```sql
 SELECT pg_size_pretty(after_compression_total_bytes) AS total
   FROM chunk_compression_stats('conditions')

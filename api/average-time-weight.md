@@ -1,14 +1,20 @@
 ---
 api_name: average()
 excerpt: Calculate the time-weighted average of values in a `TimeWeightSummary`
-license: community
-toolkit: true
-experimental: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [average, time-weighted, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: time-weighted averages
+  type: accessor
+  aggregates:
+    - stats_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'time-weighted averages'
 hyperfunction_subfamily: 'time-weighted averages'
 hyperfunction_type: accessor
@@ -55,7 +61,6 @@ FROM (
     GROUP BY id
 ) t
 ```
-
 
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/

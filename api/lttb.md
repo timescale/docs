@@ -1,14 +1,20 @@
 ---
 api_name: lttb()
 excerpt: Downsample a time series using the Largest Triangle Three Buckets method
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [downsample, smooth, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: downsample
+  type: one-step aggregate
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'downsample'
 hyperfunction_subfamily: 'downsample'
 hyperfunction_type: other
@@ -16,7 +22,7 @@ hyperfunction_type: other
 
 # lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 
-[Largest triangle three buckets][gh-lttb] is a downsampling method that
+[Largest Triangle Three Buckets][gh-lttb] is a downsampling method that
 tries to retain visual similarity between the downsampled data and the
 original dataset. The TimescaleDB Toolkit implementation of this takes
 `(timestamp, value)` pairs, sorts them if needed, and downsamples them.
@@ -37,8 +43,7 @@ original dataset. The TimescaleDB Toolkit implementation of this takes
 
 ## Sample usage
 
-This example creates a dramatically downsampled dataset from a `sample_data`
-table:
+This example creates a dramatically downsampled data set from a `sample_data` table:
 
 ```sql
 SELECT time, value

@@ -1,13 +1,20 @@
 ---
 api_name: rolling()
 excerpt: Roll up multiple statistical aggregates to calculate rolling window aggregates
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: statistical aggregates
+  type: rollup
+  aggregates:
+    - stats_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'statistical aggregates'
 hyperfunction_subfamily: 'statistical aggregates'
 hyperfunction_type: rollup
@@ -20,6 +27,7 @@ rolling(
     ss StatsSummary1D
 ) RETURNS StatsSummary1D
 ```
+
 ```SQL
 rolling(
     ss StatsSummary2D
@@ -29,15 +37,15 @@ rolling(
 This combines multiple outputs from the [`stats_agg()` function][stats_agg] function.
 It works with both one and two dimensional statistical aggregates. It is optimized
 for use in a [window function][postgres-window-functions] context for computing tumbling window
-statistical aggregates. 
+statistical aggregates.
 
-This is especially useful for computing tumbling window aggregates from a continuous aggregate. 
+This is especially useful for computing tumbling window aggregates from a continuous aggregate.
 It uses inverse transition and combine functions to do more efficient windowed aggregates, with the
-possibility that more floating point errors can occur in unusual scenarios. 
+possibility that more floating point errors can occur in unusual scenarios.
 
-It also works for re-aggregation in a non-window context, but the [`rollup` function][rollup-func] 
+It also works for re-aggregation in a non-window context, but the [`rollup` function][rollup-func]
 is more clear. The `rollup` function also work for windowed aggregates, less efficiently but without
-the risk of extra floating point error. 
+the risk of extra floating point error.
 
 For more information about statistical aggregation functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-aggs].
@@ -55,7 +63,9 @@ For more information about statistical aggregation functions, see the
 |`rolling`|`StatsSummary1D`/`StatsSummary2D`|A StatsSummary object that can be passed to further APIs|
 
 ## Sample usage
+
 Create a tumbling window daily aggregate from an hourly continuous aggregate, then use accessors:
+
 ```SQL
 CREATE MATERIALIZED VIEW foo_hourly
 WITH (timescaledb.continuous)
@@ -71,7 +81,6 @@ SELECT
     stddev(rolling(stats) OVER (ORDER BY bucket RANGE '1 day' PRECEDING))
 FROM foo_hourly;
 ```
-
 
 [stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
 [hyperfunctions-stats-aggs]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
