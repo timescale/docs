@@ -21,7 +21,7 @@ Given a timestamptz, returns how many days are in that month.
 
 ### Sample usage
 
-Calculate how many days in the month of January 1st, 2022:
+Calculate how many days in the month of January 1, 2022:
 
 ```sql
 SELECT toolkit_experimental.days_in_month('2021-01-01 00:00:00+03'::timestamptz)
