@@ -34,7 +34,9 @@ services.
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
-    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_dbeaver.png"alt="Connecting to TimescaleDB using DBeaver"/>
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/on_premise_dbeaver.png"
+    alt="Connecting to TimescaleDB using DBeaver"/>
 
 </procedure>
 
@@ -62,7 +64,9 @@ services.
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
-    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_dbeaver.png"alt="Connecting to Timescale Cloud using DBeaver"/>
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale_cloud_dbeaver.png"
+    alt="Connecting to Timescale Cloud using DBeaver"/>
 
 </procedure>
 
@@ -94,7 +98,9 @@ Service for TimescaleDB, see [the security section](https://docs.timescale.com/m
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
 
-    <img class="maincontent__illustration"src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_dbeaver.png"alt="Connecting to Managed Service for TimescaleDB using Dbeaver"/>
+    <img class="maincontent__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst_dbeaver.png"
+    alt="Connecting to Managed Service for TimescaleDB using Dbeaver"/>
 
 </procedure>
 
