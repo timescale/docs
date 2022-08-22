@@ -9,23 +9,39 @@ api:
   type: function
 ---
 
-## remove_continuous_aggregate_policy() <tag type="community">Community</tag>
+# remove_continuous_aggregate_policy() <tag type="community">Community</tag>
 
-Remove refresh policy for a continuous aggregate. To view the policies that
-already exist, see [informational views][informational-views].
+Remove the refresh policy from a continuous aggregate.
 
-### Required arguments
+```sql
+remove_continuous_aggregate_policy(
+    continuous_aggregate REGCLASS,
+    if_exists BOOL = NULL
+) RETURNS VOID
+```
+
+<highlight type="note">
+To view the existing continuous aggregate policies, see the [policies
+informational view](/api/latest/informational-views/policies/).
+</highlight>
+
+## Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `continuous_aggregate` | REGCLASS | Name of the continuous aggregate the policy should be removed from |
+|-|-|-|
+|`continuous_aggregate`|`REGCLASS`|Name of the continuous aggregate the policy should be removed from|
 
-### Sample usage
+## Optional arguments
 
-Remove the refresh policy from the 'cpu_view' continuous aggregate:
+|Name|Type|Description|
+|-|-|-|
+|`if_not_exists`|`BOOL`|When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to false. Deprecated in TimescaleDB 2.8.|
+|`if_exists`|`BOOL`|When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to `NULL`, which is the same as false. Introduced in TimescaleDB 2.8.|
+
+## Sample usage
+
+Remove the refresh policy from the `cpu_view` continuous aggregate:
 
 ``` sql
 SELECT remove_continuous_aggregate_policy('cpu_view');
 ```
-
-[informational-views]: /api/:currentVersion:/informational-views/jobs/

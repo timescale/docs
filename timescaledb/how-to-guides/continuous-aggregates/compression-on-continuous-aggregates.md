@@ -4,7 +4,10 @@ excerpt: How to compress a continuous aggregate
 keywords: [continuous aggregates, compression]
 ---
 
+import OneStepPolicy from "versionContent/_partials/_caggs-one-step-policy.mdx";
+
 # Compress continuous aggregates
+
 Continuous aggregates are often used to downsample historical data. If the data
 is only used for analytical queries and never modified, you can compress the
 aggregate to save on storage.
@@ -25,27 +28,32 @@ to a larger interval than the `start_offset` of your
 </highlight>
 
 ## Enable compression on continuous aggregates
+
 You can enable and disable compression on continuous aggregated by setting the
 `compress` parameter when you alter the view.
 
 <procedure>
 
 ### Enabling and disabling compression on continuous aggregates
+
 1.  For an existing continuous aggregate, at the `psql` prompt, enable
  compression:
+
     ```sql
     ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = true);
     ```
+
 1.  Disable compression:
+
     ```sql
     ALTER MATERIALIZED VIEW cagg_name set (timescaledb.compress = false);
     ```
 
 </procedure>
 
-Disabling compression on a continuous aggregate fails if there are 
-compressed chunks associated with the continuous aggregate. In this case, you 
-need to decompress the chunks, and then drop any compression policy on the 
+Disabling compression on a continuous aggregate fails if there are
+compressed chunks associated with the continuous aggregate. In this case, you
+need to decompress the chunks, and then drop any compression policy on the
 continuous aggregate, before you disable compression. For more detailed information, see the
 [decompress chunks] [decompress-chunks] section:
 
@@ -54,6 +62,7 @@ SELECT decompress_chunk(c, true) FROM show_chunks('cagg_name') c;
 ```
 
 ## Compression policies on continuous aggregates
+
 Before  setting up a compression policy on a continuous aggregate, you should
 set up a [refresh policy][refresh-policy]. The compression policy interval should be set so that
 actively refreshed regions are not compressed. This is to prevent refresh
@@ -66,14 +75,16 @@ SELECT add_continuous_aggregate_policy('cagg_name',
   schedule_interval => INTERVAL '1 hour');
 ```
 
-With this kind of refresh policy, the compression policy needs the `compress_after` 
+With this kind of refresh policy, the compression policy needs the `compress_after`
 parameter greater than the `refresh_start` parameter of the continuous aggregate policy:
 
 ```sql
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
 
+<OneStepPolicy policyType="compression" withHeading={true} />
+
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks 
+[decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
 [refresh-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
 [troubleshooting]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#cannot-refresh-compressed-chunks-of-a-continuous-aggregate

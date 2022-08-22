@@ -4,7 +4,10 @@ excerpt: How data retention works with continuous aggregates for downsampling
 keywords: [continuous aggregates, data retention]
 ---
 
+import OneStepPolicy from "versionContent/_partials/_caggs-one-step-policy.mdx";
+
 # About data retention with continuous aggregates
+
 You can downsample your data by combining a data retention policy with
 [continuous aggregates][continuous_aggregates]. If you set your refresh policies
 correctly, you can delete old data from a hypertable without deleting it from
@@ -25,6 +28,7 @@ example.
 
 As an example, say that you add a continuous aggregate to a `conditions`
 hypertable that stores device temperatures:
+
 ```sql
 CREATE MATERIALIZED VIEW conditions_summary_daily (day, device, temp)
 WITH (timescaledb.continuous) AS
@@ -46,6 +50,7 @@ than 1 day, the aggregate also deletes the data. You end up with no data in the
 `conditions_summary_daily` table.
 
 To fix this, set a longer retention policy, for example 30 days:
+
 ```sql
 SELECT add_retention_policy('conditions', INTERVAL '30 days');
 ```
@@ -56,8 +61,11 @@ days and 1 day ago. The raw hypertable still contains data for that time period.
 So your aggregate retains the data.
 
 ## Data retention on a continuous aggregate itself
+
 You can also apply data retention on a continuous aggregate itself. For example,
 you can keep raw data for 30 days, as above. Meanwhile, you can keep daily data
 for 600 days, and no data beyond that.
+
+<OneStepPolicy policyType="data retention" />
 
 [continuous_aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates

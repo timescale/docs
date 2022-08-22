@@ -4,12 +4,16 @@ excerpt: Refresh a continuous aggregate to keep it up to date
 keywords: [continuous aggregates, refresh, policies]
 ---
 
+import OneStepPolicy from "versionContent/_partials/_caggs-one-step-policy.mdx";
+
 # Refresh continuous aggregates
+
 Continuous aggregates can have a range of different refresh policies. In
 addition to refreshing the continuous aggregate automatically using a policy,
 you can also refresh it manually.
 
 ## Change the refresh policy
+
 Continuous aggregates require a policy for automatic refreshing. You can adjust
 this to suit different use cases. For example, you can have the continuous
 aggregate and the hypertable stay in sync, even when data is removed from the
@@ -19,30 +23,36 @@ it is removed from the hypertable.
 You can change the way your continuous aggregate is refreshed by adjusting the
 [add_continuous_aggregate_policy][api-add-continuous-aggregate-policy].
 The policy takes three arguments:
+
 *   `start_offset`: the start of the refresh window relative to when the policy
     runs
 *   `end_offset`: the end of the refresh window relative to when the policy runs
 *   `schedule_interval`: the refresh interval in minutes or hours. Defaults to
     24 hours.
 
-If you set the `start_offset` or `end_offset` to NULL, the range is open-ended
-and extends to the beginning or end of time. However, we recommend that you
-set the `end_offset` so that at least the most recent time bucket is excluded.
-For time-series data that mostly contains writes that occur in time stamp order,
-the time buckets that see lots of writes quickly have out-of-date
-aggregates. You get better performance by excluding the time buckets that are
-getting a lot of writes.
+If you set the `start_offset` or `end_offset` to `NULL`, the range is open-ended
+and extends to the beginning or end of time. However, it's recommended to set
+the `end_offset` so that at least the most recent time bucket is excluded. For
+time-series data that mostly contains writes that occur in time stamp order, the
+time buckets that see lots of writes quickly have out-of-date aggregates. You
+get better performance by excluding the time buckets that are getting a lot of
+writes.
+
+In addition, materializing the most recent bucket might interfere with
+[real-time aggregation][future-watermark].
 
 <procedure>
 
-### Changing a refresh policy to use a NULL start_offset
+### Changing a refresh policy to use a `NULL` `start_offset`
+
 1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
     that keeps the continuous aggregate up to date, and runs every hour:
+
     ```sql
     SELECT add_continuous_aggregate_policy('conditions_summary_hourly',
-	     start_offset => NULL,
-	     end_offset => INTERVAL '1 h',
-	     schedule_interval => INTERVAL '1 h');
+      start_offset => NULL,
+      end_offset => INTERVAL '1 h',
+      schedule_interval => INTERVAL '1 h');
     ```
 
 </procedure>
@@ -65,19 +75,21 @@ not refresh the dropped data.
 <procedure>
 
 ### Changing a refresh policy to keep removed data
+
 1.  At the `psql` prompt, create a new policy called `conditions_summary_hourly`
     that keeps data removed from the hypertable in the continuous aggregate, and
     runs every hour:
+
     ```sql
     SELECT add_continuous_aggregate_policy('conditions_summary_hourly',
-	     start_offset => INTERVAL '1 month',
-	     end_offset => INTERVAL '1 h',
-	     schedule_interval => INTERVAL '1 h');
+      start_offset => INTERVAL '1 month',
+      end_offset => INTERVAL '1 h',
+      schedule_interval => INTERVAL '1 h');
     ```
 
 </procedure>
 
-<highlight type="tip">
+<highlight type="note">
 It is important to consider your data retention policies when you're setting up
 continuous aggregate policies. If the continuous aggregate policy window covers
 data that is removed by the data retention policy, the data will be removed when
@@ -86,9 +98,13 @@ retention policy that removes all data older than two weeks, the continuous
 aggregate policy will only have data for the last two weeks.
 </highlight>
 
+<OneStepPolicy policyType="refresh" withHeading={true} />
+
 ## Manually refresh a continuous aggregate
-If you need to manually refresh a continuous aggeregate, you can use the `refresh` command. This recomputes the data within the window that has changed in the
-underlying hypertable since the last refresh. Therefore, if only a few
+
+If you need to manually refresh a continuous aggregate, you can use the
+`refresh` command. This recomputes the data within the window that has changed
+in the underlying hypertable since the last refresh. Therefore, if only a few
 buckets need updating, the refresh runs quickly.
 
 If you have recently dropped data from a hypertable with a continuous aggregate,
@@ -97,6 +113,7 @@ recalculates the aggregate without the dropped data. See
 [drop data][cagg-drop-data] for more information.
 
 The `refresh` command takes three arguments:
+
 *   The name of the continuous aggregate view to refresh
 *   The timestamp of the beginning of the refresh window
 *   The timestamp of the end of the refresh window
@@ -112,7 +129,9 @@ policies like data retention.
 <procedure>
 
 ### Manually refreshing a continuous aggregate
+
 1.  To manually refresh a continuous aggregate, use the `refresh` command:
+
     ```sql
     CALL refresh_continuous_aggregate('example', '2021-05-01', '2021-06-01');
     ```
@@ -129,5 +148,6 @@ use [real-time aggregation][real-time-aggregates] instead.
 
 [api-add-continuous-aggregate-policy]: /api/:currentVersion:/continuous-aggregates/add_continuous_aggregate_policy
 [cagg-drop-data]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/drop-data
+[future-watermark]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/troubleshooting/#continuous-aggregate-watermark-is-in-the-future
 [real-time-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates
 [sec-data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
