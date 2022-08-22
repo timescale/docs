@@ -45,8 +45,6 @@ You're all set to follow along locally!
 
 ### Background
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/docs.timescale.com/hello-timescale/NYC_taxis.png" alt="NYC Taxis"/>
-
 New York City is home to more than 8.3 million people. In this tutorial,
 we analyze and monitor data from New York's yellow cab taxis
 using TimescaleDB in order to identify ways to gain efficiency and
@@ -99,8 +97,6 @@ your platform in order to
 [setup the psql command-line utility][setup-psql].
 
 Next, locate your `host`, `port`, and `password`.
-
-<img class="main-content__illustration" src="https://s3.amazonaws.com/docs.timescale.com/hello-timescale/NYC_figure1_1.png" alt="NYC Taxis"/>
 
 Afterward, connect to your TimescaleDB instance from `psql`
 by typing the command below into your terminal,
@@ -359,7 +355,7 @@ identify the days of the week and month in which the most rides take place.
 Your result should look like this:
 
 ```sql
-         day         | count  
+         day         | count
 ---------------------+--------
  2016-01-01 00:00:00 | 345037
  2016-01-02 00:00:00 | 312831
@@ -423,7 +419,7 @@ GROUP BY day ORDER BY day;
 Your result should look like this:
 
 ```sql
-         day         |         avg         
+         day         |         avg
 ---------------------+---------------------
  2016-01-01 00:00:00 | 12.5464748850129787
  2016-01-02 00:00:00 | 12.1129878886746750
@@ -512,6 +508,7 @@ footprint associated with airport trips.
 Prior to instituting any programs, they would like you to more closely
 examine trips to JFK (code 2) and Newark (code 3). For each airport, they
 would like to know the following for the month of January:
+
 *   Number of trips to that airport
 *   Average trip duration (i.e drop off time - pickup time)
 *   Average trip cost
@@ -560,6 +557,7 @@ avg_passengers    | 1.7435501129473309
 ```
 
 Based on your analysis, you are able to identify:
+
 *   There are 13x more rides to JFK than Newark. This often leads to heavy traffic on the roads to and from JFK, especially during peak times. They've decided to explore road improvements to those areas, as well as increasing public transport to and from the airport (e.g, buses, subway, trains, etc.)
 *   Each airport ride has on average the same number of passengers per trip (~1.7 passengers per trip).
 *   The trip distances are roughly the same 16-17 miles.
@@ -817,6 +815,7 @@ as how TimescaleDB is compatible with other extensions like *PostGIS*, for fast
 querying by time and location.
 
 Ready for more learning? Here's a few suggestions:
+
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 *   [Continuous Aggregates][continuous-aggregates]
 *   [Try Other Sample Datasets][other-samples]
