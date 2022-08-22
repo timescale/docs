@@ -32,7 +32,7 @@ find new insights in your time-series data. To dig in further, consider reading:
 <br/>
 <br/>
 
-
+<apiReference />
 
 [getting-started]: /getting-started/:currentVersion:/
 [core-concepts]: /timescaledb/:currentVersion:/overview/core-concepts/
