@@ -33,13 +33,13 @@ we might not be able to do so. It is important that you schedule your
 maintenance window to minimize the disruption that a short downtime might have
 on your workloads.
 
-To track the status of maintenance events, you can do so on the Timescale Cloud 
+To track the status of maintenance events, see the Timescale Cloud 
 [status page][status-page].
 
 <highlight type="note">
-If you would like to apply the changes to your service manually rather than 
-wait for your maintenance window, you can simply `Pause` then `Resume` your 
-service and the changes will automatically be applied.
+To apply changes manually instead of waiting for the maintenance window,
+`Pause` then `Resume` your service. Maintenance changes are automatically
+applied when your service is resumed.
 </highlight>
 
 ## Non-critical maintenance updates
