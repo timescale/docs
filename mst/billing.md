@@ -53,26 +53,26 @@ Aiven provides billing services for Managed Service for TimescaleDB. These
 services are provided by Aiven Ltd, a private limited company incorporated in
 Finland.
 
-If you are within the European Union, we are required by Finnish law to charge a
-value-added tax (VAT). The VAT percentage depends on where you are domiciled.
+If you are within the European Union, Finnish law requires that you are charged
+a value-added tax (VAT). The VAT percentage depends on where you are domiciled.
 For business customers in EU countries other than Finland, you can use the
 reverse charge mechanism of 2006/112/EC article 196, by entering a valid VAT ID
 into the billing information of your project.
 
 If you are within the United States, no tax is withheld from your payments. In
 most cases, you do not require a W-8 form to confirm this, however, if you
-require a `W-8BEN-E` form describing our status, you can request one from the
+require a `W-8BEN-E` form describing this status, you can request one from the
 [Timescale support team][timescale-support].
 
 If you are elsewhere in the world, no taxes are applied to your account,
-according to the Value-Added Tax Act of Finland, section 69h.
+according to the Value-Added Tax Act of Finland, section 69&nbsp;h.
 
 ## Corporate billing
 
 If you prefer to pay by invoice, or if you are unable to provide a credit card
 for billing, you can switch your project to corporate billing instead. Under
 this model, invoices are generated at the end of the month based on actual
-usage, and are sent in PDF format by email to the billing email addresses you
+usage, and are sent in `.pdf` format by email to the billing email addresses you
 configured in your dashboard.
 
 Payment terms for corporate invoices are 10 days net, by bank transfer, to the
