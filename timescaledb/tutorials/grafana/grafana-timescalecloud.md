@@ -13,18 +13,20 @@ source plugins that allow you to query and visualize data from a compatible
 database. To add a data source in Grafana you must be signed as a user with
 organization administration role privileges.
 
-To connect Grafana service on MST with your TimescaleDB database on Timescale Cloud,
-create a [Grafana][install-grafana] service on [MST][mst-login]. You can try it for
-free for 30 days.
+To connect Grafana with TimescaleDB service on Timescale Cloud, install Grafana.
+For information about installing Grafana, see the [Grafana installation documentation][grafana-install].
 
-This section shows you how to connect TimescaleDB database on Timescale Cloud instance
-as data source in [Grafana][grafana-homepage].
+Alternatively, to connect Grafana service on MST with your TimescaleDB service
+on Timescale Cloud, create a [Grafana][install-grafana] service on
+[MST][mst-login]. You can try it for free for 30 days.
+
+This section shows you how to connect TimescaleDB service on Timescale Cloud
+instance as data source in [Grafana][grafana-homepage].
 
 ## Configure TimescaleDB as a data source
 
-To configure TimscaleCloud database as a data source you need to create a
-service, and then configure TimescaleDB as the data source in
-Grafana.
+To configure TimscaleDB database as a data source you need to create a service,
+and then configure TimescaleDB as the data source in Grafana.
 
 <procedure>
 
@@ -43,6 +45,9 @@ Grafana.
 <procedure>
 
 ### Configuring TimescaleDB as data source
+
+To configure TimescaleDB service on Timescale Cloud with your Grafana
+installation, log in to Grafana and proceed to step 5 in this procedure.
 
 1.  In the [MST account][mst-login] `Services` view, click the name of your new
     Grafana service.
@@ -73,3 +78,4 @@ When you have configured TimescaleDB as a data source in Grafana, you can create
 [tsc-portal]: https://console.cloud.timescale.com/
 [install-grafana]: /timescaledb/:currentVersion:/tutorials/grafana/installation/#create-a-new-service-for-grafana
 [mst-login]: https://portal.managed.timescale.com
+[grafana-install]: https://grafana.com/docs/grafana/latest/installation/
