@@ -8,8 +8,8 @@ keywords: [services]
 # About Managed Service for TimescaleDB
 
 Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
-than 75 regions in AWS, Azure, or GCP. You can
-[try Managed Service for TimescaleDB for free][sign-up], no credit card
+than 75 regions in Amazon Web Services, Microsoft Azure, or Google Cloud. You
+can [try Managed Service for TimescaleDB for free][sign-up], no credit card
 required.
 
 Powered by [TimescaleDB][timescale-features], you can create database instances
@@ -54,7 +54,82 @@ information about migrating data, see
 [migrating your data](https://docs.timescale.com/mst/latest/migrate-to-mst/).
 </highlight>
 
-### Service configuration plans
+## Databases
+
+Each service can contain one or more databases. To view existing databases, or
+to create a new database, click the name of the service in the services list,
+and navigate to the `Databases` tab.
+
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.png" alt="Managed Service for TimescaleDB databases list"/>
+
+## Service level agreement
+
+Managed Service for TimescaleDB is provided through a partnership with Aiven.
+This provides you with a service commitment to deliver 99.99% availability. For
+more information, see the
+[Aiven Service Level Agreement policy][aiven-sla].
+
+## Billing
+
+By default, all new Managed Service for TimescaleDB services require a credit
+card, which is charged at the end of the month for all charges accrued over that
+month. Each project is charged separately. Your credit card statement records
+the transaction as coming from Aiven, as Aiven provides billing services for
+Managed Service for TimescaleDB.
+
+Managed Service for TimescaleDB uses hourly billing. This charge is
+automatically calculated, based on the services you have been running in your
+project. The price charged for your project includes:
+
+*   Virtual machine
+*   Networking
+*   Backups
+*   Setting up
+
+<highlight type="note">
+Managed Service for TimescaleDB does not charge you for network traffic used by
+your service. However, your application cloud service provider might charge you
+for the network traffic going to or from your service.
+</highlight>
+
+Terminating or powering a service down stops the accumulation of new charges
+immediately. However, the minimum hourly charge unit is one hour. For example,
+if you launch a Managed Service for TimescaleDB service and shut it down after
+40 minutes, you are charged for one full hour.
+
+Migrating to different service plan levels does not incur extra charges. Note,
+though, that some service plan levels are more costly per hour, and your new
+service is charged at the new rate.
+
+Migrating a service to another cloud region or different cloud provider does not
+incur extra charges.
+
+<highlight type="note">
+All prices listed for Managed Service for TimescaleDB are inclusive of credit
+card and processing fees. However, in some cases, your credit card provider
+might charge additional fees, such as an international transaction fee. These
+fees are not charged by Timescale or Aiven.
+</highlight>
+
+### Corporate billing
+
+If you prefer to pay by invoice, or if you are unable to provide a credit card
+for billing, you can switch your project to corporate billing instead. Under
+this model, invoices are generated at the end of the month based on actual
+usage, and are sent in PDF format by email to the billing email addresses you
+configured in your dashboard.
+
+Payment terms for corporate invoices are 10 days net, by bank transfer, to the
+bank details provided on the invoice. By default, services are charged in US
+Dollars (USD), but you can request your invoices be sent in either Euros (EUR)
+or Pounds Sterling (GBP) at the invoice date's currency exchange rates.
+
+To switch from credit card to corporate billing, make sure your billing profile
+and email address is correct in your project's billing settings, and send a message
+to the [Timescale support team][timescale-support] asking to be changed to corporate
+billing.
+
+## Service configuration plans
 
 When you create a new service, you need to select a configuration plan. The plan
 determines the number of VMs the service runs in, the high availability
@@ -63,11 +138,11 @@ configuration, the number of CPU cores, and size of RAM and storage volumes.
 The plans are:
 
 *   Basic Plans: include 2 days of backups and automatic backup and restore if
-  your instance fails.
+    your instance fails.
 *   Dev Plans: include 1 day of backups and automatic backup and restore if your
-  instance fails.
+    instance fails.
 *   Pro Plans: include 3 days of backups and automatic failover to a hot standby
-  if your instance fails.
+    if your instance fails.
 
 The Basic and Dev plans are serviced by a single virtual machine (VM) node. This
 means that if the node fails, the service is unavailable until a new VM is
@@ -99,66 +174,102 @@ Within each configuration plan option, there are several plan types available:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
 
-## Databases
+## Connection limits
 
-Each service can contain one or more databases. To view existing databases, or
-to create a new database, click the name of the service in the services list,
-and navigate to the `Databases` tab.
+Managed Service for TimescaleDB limits the maximum number of connections to each
+service. The maximum number of allowed connections depends on your service plan.
+To see the current connection limit for your service, navigate to the service
+`Overview` tab and locate the `Connection Limit` section.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-databases.png" alt="Managed Service for TimescaleDB databases list"/>
-
-## Billing
-
-By default, all new Managed Service for TimescaleDB services require a credit
-card, which is charged at the end of the month for all charges accrued over that
-month. Each project is charged separately.
-
-Managed Service for TimescaleDB uses hourly billing. This charge is
-automatically calculated, based on the services you have been running in your
-project. The price charged for your project includes:
-
-*   Virtual machine
-*   Networking
-*   Backups
-*   Setting up
+If you have a lot of clients or client threads connecting to your database, use
+connection pooling to limit the number of connections. For more information
+about connection pooling, see the
+[connection pooling section][connection-pooling].
 
 <highlight type="note">
-Managed Service for TimescaleDB does not charge you for network traffic used by
-your service. However, your application cloud service provider might charge you
-for the network traffic going to or from your service.
+If you have a high number of connections to your database, your service might
+run more slowly, and could run out of memory. Remain aware of how many open
+connections your have to your database at any given time.
 </highlight>
 
-Terminating or powering a service down stops the accumulation of new charges
-immediately. However, the minimum hourly charge unit is one hour. For example,
-if you launch a Managed Service for TimescaleDB service and terminate it after
-40 minutes, you are charged for one full hour.
+If you require a higher maximum number of connections, but cannot use connection
+pooling, contact the
+[Timescale support team][timescale-support].
 
-Migrating to different service plan levels does not incur extra charges. Note,
-though, that some service plan levels are more costly per hour, and your new
-service is charged at the new rate.
+## Service termination protection
 
-Migrating a service to another cloud region or different cloud provider does not
-incur extra charges.
+You can protect your services from accidentally being terminated, by enabling
+service termination protection. When termination protection is enabled, you
+cannot power down the service from the web console, the REST API, or with a
+command-line client. To power down a protected service, you need to turn off
+termination protection first. Termination protection does not interrupt service
+migrations or upgrades.
 
-### Corporate billing
+To enable service termination protection, navigate to the service `Overview`
+tab. Locate the `Termination protection` section, and toggle to enable
+protection.
 
-If you prefer to pay by invoice, or if you are unable to provide a credit card
-for billing, you can switch your project to corporate billing instead. Under
-this model, invoices are generated at the end of the month based on actual
-usage, and are sent in PDF format by email to the billing email addresses you
-configured in your dashboard.
+<highlight type="important">
+If you run out of free sign-up credit, and have not entered a valid credit card
+for payment, your service is powered down, even if you have enabled termination
+protection.
+</highlight>
 
-Payment terms for corporate invoices are 10 days net, by bank transfer, to the
-bank details provided on the invoice. By default, services are charged in US
-Dollars (USD), but you can request your invoices be sent in either Euros (EUR)or
-Pounds Sterling (GBP) at the invoice date's currency exchange rates.
+## Idle connections
 
-To switch from credit card to corporate billing, make sure your billing profile
-and email address is correct in project's billing settings, and send a message
-to [our support team][timescale-support] asking to be changed to corporate
-billing.
+Managed Service for TimescaleDB uses the default keep alive settings for TCP
+connections. The default settings are:
+
+*   `tcp_keepalives_idle`: 7200
+*   `tcp_keepalive_count`: 9
+*   `tcp_keepalives_interval`: 75
+
+If you have long idle database connection sessions, you might need to adjust
+these settings to ensure that your TCP connection remains stable. If you
+experience a broken TCP connection, when you reconnect make sure that your
+client resolves the DNS address correctly, as the underlying address changes
+during automatic failover.
+
+For more information about adjusting keep alive settings, see the
+[PostgreSQL documentation][pg-keepalive].
+
+## Long running queries
+
+Managed Service for TimescaleDB does not cancel database queries. If you
+have created a query that is taking a very long time, or that has hung, it could
+lock resources on your service, and could prevent database administration tasks
+from being performed.
+
+You can find out if you have any long-running queries by navigating to the
+service `Current Queries` tab. You can also cancel long running queries from
+this tab.
+
+Alternatively, you can use your connection client to view running queries with
+this command:
+
+```sql
+SELECT * FROM pg_stat_activity
+    WHERE state <> 'idle';
+```
+
+Cancel long-running queries using this command, with the PID of the query you
+want to cancel:
+
+```sql
+SELECT pg_terminate_backend(<PID>);
+```
+
+If you want to automatically cancel any query that runs over a specified length
+of time, you can use this command:
+
+```sql
+SET statement_timeout = <milliseconds>
+```
 
 [timescale-features]: https://www.timescale.com/products/#features
 [mst-install]: /install/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-support]: https://www.timescale.com/support
+[aiven-sla]: https://aiven.io/sla
+[pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
+[connection-pooling]: /mst/:currentversion/connection-pools/
