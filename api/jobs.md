@@ -1,7 +1,7 @@
 ---
 api_name: timescaledb_information.jobs
 excerpt: Get information about all jobs registered with the automatic scheduler
-topics: [jobs]
+topics: [information, jobs]
 keywords: [jobs, information]
 tags: [background jobs, scheduled jobs, user-defined actions, automation framework]
 api:

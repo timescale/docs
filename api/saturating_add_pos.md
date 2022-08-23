@@ -9,7 +9,7 @@ api:
   experimental: true
   toolkit: true
 hyperfunction:
-  family: saturating match
+  family: saturating math
   type: one-step operation
 # fields below will be deprecated
 api_category: hyperfunction

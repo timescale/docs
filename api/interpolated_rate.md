@@ -11,7 +11,7 @@ api:
 hyperfunction:
   family: metric aggregation
   type: function
-  accessors:
+  aggregates:
     - counter_agg()
     - gauge_agg()
 # fields below will be deprecated
