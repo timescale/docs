@@ -21,7 +21,7 @@ on Timescale Cloud, create a [Grafana][install-grafana] service on
 [MST][mst-login]. You can try it for free for 30 days.
 
 This section shows you how to connect TimescaleDB service on Timescale Cloud
-as data source in [Grafana][grafana-homepage].
+as a data source in [Grafana][grafana-homepage].
 
 ## Configure TimescaleDB as a data source
 
