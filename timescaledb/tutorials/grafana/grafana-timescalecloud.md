@@ -25,7 +25,7 @@ as data source in [Grafana][grafana-homepage].
 
 ## Configure TimescaleDB as a data source
 
-To configure TimscaleDB as a data source you need to create a service,
+To configure TimescaleDB as a data source you need to create a service,
 and then configure TimescaleDB as the data source in Grafana.
 
 <procedure>
