@@ -14,7 +14,7 @@ the transaction as coming from Aiven, as Aiven provides billing services for
 Managed Service for TimescaleDB.
 
 Managed Service for TimescaleDB uses hourly billing. This charge is
-automatically calculated, based on the services you have been running in your
+automatically calculated, based on the services you are running in your
 project. The price charged for your project includes:
 
 *   Virtual machine
@@ -33,7 +33,7 @@ immediately. However, the minimum hourly charge unit is one hour. For example,
 if you launch a Managed Service for TimescaleDB service and shut it down after
 40 minutes, you are charged for one full hour.
 
-Migrating to different service plan levels does not incur extra charges. Note,
+Migrating to different service plan levels does not incur extra charges for the migration itself. Note,
 though, that some service plan levels are more costly per hour, and your new
 service is charged at the new rate.
 
