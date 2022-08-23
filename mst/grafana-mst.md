@@ -38,7 +38,7 @@ that allow you to query and visualize data from a compatible database.
    `Service URI` field to open Grafana.
 1.  Log in to Grafana with your service credentials.
 1.  Navigate to `Configuration` → `Data sources`. The data sources page lists
-    Managed Service for TimescaleDB as configured data sources for the Grafana instance.
+    Managed Service for TimescaleDB as a configured data source for the Grafana instance.
 
 </procedure>
 
