@@ -3,7 +3,7 @@ api_name: intercept()
 excerpt: Calculate the intercept from values in a `CounterSummary`
 topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
-tags: [intercept, least squares, regression]
+tags: [intercept, least squares, linear regression]
 api:
   license: community
   type: function

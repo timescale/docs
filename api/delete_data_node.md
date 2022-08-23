@@ -1,7 +1,7 @@
 ---
 api_name: delete_data_node()
 excerpt: Remove a data node from a database and detach it from all hypertables
-topics: [multi-node]
+topics: [distributed hypertables, multi-node]
 keywords: [multi-node]
 tags: [distributed hypertables, data nodes, detach, delete]
 api:
