@@ -3,7 +3,7 @@ api_name: x_intercept()
 excerpt: Calculate the x-intercept for values in a 2-dimensional statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [least squares, regression]
+tags: [least squares, linear regression]
 api:
   license: community
   type: function

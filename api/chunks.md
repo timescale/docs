@@ -1,7 +1,7 @@
 ---
 api_name: timescaledb_information.chunks
 excerpt: Get metadata about hypertable chunks
-topics: [hypertables]
+topics: [information, hypertables]
 keywords: [chunks, hypertables, information]
 tags: [schemas, tablespaces, data nodes, time ranges]
 api:

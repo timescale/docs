@@ -1,7 +1,7 @@
 ---
 api_name: timescaledb_information.dimensions
 excerpt: Get information on the dimensions of hypertables
-topics: [hypertables]
+topics: [information, hypertables]
 keywords: [hypertables, information]
 tags: [dimensions, partitions]
 api:
