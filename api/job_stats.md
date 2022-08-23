@@ -1,7 +1,7 @@
 ---
 api_name: timescaledb_information.job_stats
 excerpt: Get information and statistics about automatically run jobs
-topics: [jobs]
+topics: [information, jobs]
 keywords: [jobs, information]
 tags: [background jobs, scheduled jobs, automation framework, scheduled views, statistics]
 api:

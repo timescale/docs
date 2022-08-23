@@ -1,7 +1,7 @@
 ---
 api_name: cleanup_copy_chunk_operation()
 excerpt: Clean up after a failed chunk move or chunk copy operation
-topics: [multi-node, distributed hypertables]
+topics: [distributed hypertables, multi-node]
 keywords: [chunks, multi-node, distributed hypertables, move, copy]
 api:
   license: community
