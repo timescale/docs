@@ -15,9 +15,11 @@ that allow you to query and visualize data from a compatible database.
 *   Create a Managed Service for TimescaleDB [service][mst-install]
 *   Create a service for [Grafana in MST][grafana-install]
 
-### Configuring Managed Service for TimescaleDB as a data source
+## Configure Managed Service for TimescaleDB as a data source
 
 <procedure>
+
+### Configuring Managed Service for TimescaleDB as a data source
 
 1.  In the [MST account][mst-login] `Services` view, click the Managed Service
     for TimescaleDB service that you want to add as a data source for the Grafana
