@@ -33,9 +33,9 @@ immediately. However, the minimum hourly charge unit is one hour. For example,
 if you launch a Managed Service for TimescaleDB service and shut it down after
 40 minutes, you are charged for one full hour.
 
-Migrating to different service plan levels does not incur extra charges for the migration itself. Note,
-though, that some service plan levels are more costly per hour, and your new
-service is charged at the new rate.
+Migrating to different service plan levels does not incur extra charges for the 
+migration itself. Note, though, that some service plan levels are more costly 
+per hour, and your new service is charged at the new rate.
 
 Migrating a service to another cloud region or different cloud provider does not
 incur extra charges.
