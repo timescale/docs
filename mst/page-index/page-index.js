@@ -24,6 +24,10 @@ module.exports = [
         href: "user-management",
       },
       {
+        title: "Billing",
+        href: "billing",
+      },
+      {
         title: "Create a multi-node cluster",
         href: "mst-multi-node",
       },
@@ -36,8 +40,8 @@ module.exports = [
         href: "viewing-service-logs",
       },
       {
-        title: "Logging integrations",
-        href: "logging-integrations",
+        title: "Logging",
+        href: "logging",
       },
       {
         title: "VPC peering",
