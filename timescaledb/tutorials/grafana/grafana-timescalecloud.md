@@ -14,7 +14,7 @@ database. To add a data source in Grafana you must be signed as a user with
 organization administration role privileges.
 
 To connect Grafana with TimescaleDB service on Timescale Cloud, install Grafana.
-For information about installing Grafana, see the [Grafana installation documentation][grafana-install].
+For more information about installing Grafana, see the [Grafana installation documentation][grafana-install].
 
 Alternatively, to connect Grafana service on MST with your TimescaleDB service
 on Timescale Cloud, create a [Grafana][install-grafana] service on
