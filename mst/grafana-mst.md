@@ -16,7 +16,8 @@ that allow you to query and visualize data from a compatible database.
 *   Create a service for [Grafana in MST][grafana-install]
 
 ## Configure Managed Service for TimescaleDB as a data source
-
+You can configure a TimescaleDB service as a data source to a Grafana service
+to query and visualize the data from the database. 
 <procedure>
 
 ### Configuring Managed Service for TimescaleDB as a data source
