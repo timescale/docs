@@ -1,7 +1,7 @@
 ---
 api_name: detach_data_node()
 excerpt: Detach a data node from one or all hypertables
-topics: [multi-node]
+topics: [distributed hypertables, multi-node]
 keywords: [multi-node, detach]
 tags: [distributed hypertables, cluster, data nodes]
 api:

@@ -1,7 +1,7 @@
 ---
 api_name: timescaledb_information.hypertables
 excerpt: Get metadata about hypertables
-topics: [hypertables]
+topics: [information, hypertables]
 keywords: [hypertables, information]
 tags: [schemas, tablespaces, data nodes, dimensions]
 api:

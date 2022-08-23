@@ -3,6 +3,7 @@ api_name: corr()
 excerpt: Calculate the correlation coefficient from values in a 2-dimensional `StatsSummary`
 topics: [hyperfunctions]
 keywords: [correlation coefficient, statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [least squares, linear regression]
 api:
   license: community
   type: function

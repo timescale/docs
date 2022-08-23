@@ -24,6 +24,10 @@ module.exports = [
         href: "user-management",
       },
       {
+        title: "Billing",
+        href: "billing",
+      },
+      {
         title: "Create a multi-node cluster",
         href: "mst-multi-node",
       },
