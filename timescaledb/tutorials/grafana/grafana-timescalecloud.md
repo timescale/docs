@@ -16,7 +16,7 @@ organization administration role privileges.
 To connect Grafana with TimescaleDB service on Timescale Cloud, install Grafana.
 For more information about installing Grafana, see the [Grafana installation documentation][grafana-install].
 
-Alternatively, to connect Grafana service on MST with your TimescaleDB service
+Alternatively, to connect your Grafana service to MST with your TimescaleDB service
 on Timescale Cloud, create a [Grafana][install-grafana] service on
 [MST][mst-login]. You can try it for free for 30 days.
 
