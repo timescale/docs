@@ -13,7 +13,7 @@ module.exports = [
       },
       {
         title: "Command Line tool for Managed Service for TimescaleDB",
-        href: "aiven-client-install",
+        href: "aiven-client",
       }
       {
         title: "Clouds and regions",
