@@ -69,7 +69,7 @@ Export telemetry data to AWS CloudWatch by:
 
 1.  In the Timescale Cloud console, navigate to `Integrations`.
 1.  Click `Create exporter`.
-1.  Under `Choose a provder`, choose `AWS CloudWatch`.
+1.  Under `Choose a provider`, choose `AWS CloudWatch`.
 1.  Choose an AWS region for your exporter to live within Timescale Cloud. The
     exporter is only available to database services in the same AWS region.
 1.  Name your exporter. This name appears in the Cloud console, so choose a
