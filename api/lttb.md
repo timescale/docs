@@ -63,7 +63,8 @@ FROM unnest((
     FROM metrics))
 ```
 
-Which gives us:
+The output looks like this:
+
 
 ```sql
           time          |        value        
