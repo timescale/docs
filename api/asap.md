@@ -42,7 +42,7 @@ an ASAP smoothed [`timevector`][hyperfunctions-timevectors] line.
 
 |Column|Type|Description|
 |-|-|-|
-|`timevector`|`Timevector`|An object representing a series of values occurring at set intervals from a starting time. It can be unpacked via `unnest`.|
+|`timevector`|`Timevector`|An object representing a series of values occurring at set intervals from a starting time. It can be unpacked with `unnest`.|
 
 ## Sample usage
 

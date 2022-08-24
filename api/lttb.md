@@ -6,14 +6,12 @@ keywords: [downsample, smooth, hyperfunctions, toolkit]
 api:
   license: community
   type: function
-  experimental: false
   toolkit: true
 hyperfunction:
   family: downsample
   type: one-step aggregate
 # fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
 toolkit: true
 hyperfunction_family: 'downsample'
 hyperfunction_subfamily: 'downsample'
@@ -39,10 +37,12 @@ original dataset. The TimescaleDB Toolkit implementation of this takes
 
 |Column|Type|Description|
 |-|-|-|
-|`timevector`|`Timevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points. It can be unpacked via `unnest`.|
+|`timevector`|`Timevector`|A [`timevector`][hyperfunctions-timevectors] object containing the downsampled points. It can be unpacked with `unnest`.|
 
 ## Sample usage
-For this example we'll use a table with raw data generated as a sine wave.
+
+This examples uses a table with raw data generated as a sine wave:
+
 ```sql
 SET TIME ZONE 'UTC';
 CREATE TABLE metrics(date TIMESTAMPTZ, reading DOUBLE PRECISION);
@@ -53,8 +53,9 @@ SELECT
     FROM generate_series(1,168) foo;
 ```
 
-Using LTTB we can dramatically reduce the number of points while still
-capturing the peaks and valleys in the data.
+You can use LTTB to dramatically reduce the number of points while still
+capturing the peaks and valleys in the data:
+
 ```sql
 SELECT time, value
 FROM unnest((
@@ -63,6 +64,7 @@ FROM unnest((
 ```
 
 Which gives us:
+
 ```sql
           time          |        value        
 ------------------------+---------------------
