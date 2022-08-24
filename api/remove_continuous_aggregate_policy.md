@@ -35,8 +35,7 @@ informational view](/api/latest/informational-views/policies/).
 
 |Name|Type|Description|
 |-|-|-|
-|`if_not_exists`|`BOOL`|When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to false. Deprecated in TimescaleDB 2.8.|
-|`if_exists`|`BOOL`|When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to `NULL`, which is the same as false. Introduced in TimescaleDB 2.8.|
+|`if_exists` (formerly `if_not_exists`)|`BOOL`|When true, prints a warning instead of erroring if the policy doesn't exist. Defaults to false. Renamed in TimescaleDB 2.8.|
 
 ## Sample usage
 

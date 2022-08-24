@@ -37,7 +37,7 @@ timescaledb_experimental.remove_all_policies(
 
 |Name|Type|Description|
 |-|-|-|
-|`if_exists`|`BOOL`|When true, prints a warning instead of erroring if no policies exist. Defaults to false.|
+|`if_exists`|`BOOL`|When true, prints a warning instead of erroring if any policies are missing. Defaults to false.|
 
 ## Returns
 
@@ -45,9 +45,9 @@ Returns true if successful.
 
 ## Sample usage
 
-Given a continuous aggregate named `example_continuous_aggregate`, remove all
-policies from it. This includes refresh policies, compression policies, and data
-retention policies. It doesn't include user-defined jobs:
+Remove all policies from a continuous aggregate named
+`example_continuous_aggregate`. This includes refresh policies, compression
+policies, and data retention policies. It doesn't include user-defined jobs:
 
 ```sql
 SELECT timescaledb_experimental.remove_all_policies('example_continuous_aggregate');
