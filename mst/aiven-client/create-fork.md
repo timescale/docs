@@ -34,7 +34,7 @@ Before you begin, make sure you have:
      avn switch <PROJECT>
     ```
 
-1.  List the services in the `Project`:
+1.  List the services in the project:
 
     ```bash
      avn service list
