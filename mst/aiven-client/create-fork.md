@@ -26,7 +26,9 @@ Before you begin, make sure you have:
 
 ## Creating a fork of your service
 
-1.  Switch to the `Project` that contains the service that you want to fork:
+1.  In the Aiven Client, log in to your Managed Service for TimescaleDB account.
+
+1.  Switch to the project that contains the service you want to fork:
 
     ```bash
      avn switch <PROJECT>
