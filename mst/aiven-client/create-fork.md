@@ -49,7 +49,7 @@ Before you begin, make sure you have:
     avn service get <SERVICE_NAME>
     ```
 
-1.  Create a fork of the service
+1.  Create the fork:
 
     ```bash
     avn service create <NAME_OF_FORK> --project <PROJECT>\
