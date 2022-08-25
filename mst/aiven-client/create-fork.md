@@ -7,10 +7,11 @@ product: mst
 # Create a fork of your service using Aiven Client
 
 When you a fork a service, you create an exact copy of the service, including
-the underlying database. You can use it to create a development copy of your
-production environment, set up a snapshot to analyze an issue or test an
-upgrade, or create an instance in a different cloud, geographical location, or
-under a different plan.
+the underlying database. You can use a fork of your service to:
+*   create a development copy of your production environment
+*   set up a snapshot to analyze an issue or test an upgrade
+*   create an instance in a different cloud, geographical location, or under
+    a different plan.
 
 ## Before you begin
 
@@ -46,7 +47,9 @@ under a different plan.
 1.  Create a fork of the service
 
     ```bash
-    avn service create <NAME_OF_FORK> --project <PROJECT> -t <SERVICE_TYPE> --plan <PLAN> --cloud <CLOUD_NAME> -c service_to_fork_from=<NAME_OF_SERVICE_TO_FORK>
+    avn service create <NAME_OF_FORK> --project <PROJECT>\
+    -t <SERVICE_TYPE> --plan <PLAN> --cloud <CLOUD_NAME>\
+    -c service_to_fork_from=<NAME_OF_SERVICE_TO_FORK>
     ```
 
     For more information about projects, plans, and other details about
@@ -56,8 +59,10 @@ under a different plan.
 
 ## Example
 
-To create a fork named `grafana-fork` for a service named `grafana` in `fork-project`
-on `timescale-aws-us-east-1` with the plan `dashboard-1`: 
+To create a fork named `grafana-fork` for a service named `grafana` with these parameters:
+* PROJECT: `fork-project`
+* CLOUD_NAME: `timescale-aws-us-east-1`
+* PLAN: `dashboard-1` 
 
 ```bash
    avn service create grafana-fork --project project-fork -t grafana --plan dashboard-1 --cloud timescale-aws-us-east-1  -c service_to_fork_from=grafana
