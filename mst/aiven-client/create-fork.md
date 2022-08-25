@@ -8,9 +8,10 @@ product: mst
 
 When you a fork a service, you create an exact copy of the service, including
 the underlying database. You can use a fork of your service to:
-*   create a development copy of your production environment
-*   set up a snapshot to analyze an issue or test an upgrade
-*   create an instance in a different cloud, geographical location, or under
+
+*   Create a development copy of your production environment.
+*   Set up a snapshot to analyze an issue or test an upgrade.
+*   Create an instance in a different cloud, geographical location, or under
     a different plan.
 
 ## Before you begin
