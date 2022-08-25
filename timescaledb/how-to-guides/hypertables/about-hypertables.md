@@ -72,10 +72,10 @@ care to check the total size of the chunk and its index. You can do so using the
 [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size) function.
 </highlight>
 
-For a detailed analysis of how to optimize your chunk sizes, see the [blog post
-on chunk time intervals][blog-chunk-time]. To learn how to view and set your
-chunk time intervals, see the section on [changing hypertable chunk
-intervals][change-chunk-intervals].
+For a detailed analysis of how to optimize your chunk sizes, see the 
+[blog post on chunk time intervals][blog-chunk-time]. To learn how 
+to view and set your chunk time intervals, see the section on 
+[changing hypertable chunk intervals][change-chunk-intervals].
 
 ### Space partitioning
 
