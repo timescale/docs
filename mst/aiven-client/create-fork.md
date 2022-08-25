@@ -4,7 +4,7 @@ excerpt: Create a fork of the service using Aiven Command Line tool for fully ma
 product: mst
 ---
 
-# Create a fork of your service using Aiven Client
+# Fork services with Aiven Client
 
 When you a fork a service, you create an exact copy of the service, including
 the underlying database. You can use a fork of your service to:
