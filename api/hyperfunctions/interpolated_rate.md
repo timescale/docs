@@ -10,7 +10,7 @@ api:
   toolkit: true
 hyperfunction:
   family: metric aggregation
-  type: function
+  type: accessor
   aggregates:
     - counter_agg()
     - gauge_agg()
