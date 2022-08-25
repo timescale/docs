@@ -5,6 +5,8 @@ product: mst
 keywords: [services]
 ---
 
+import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
+
 # About Managed Service for TimescaleDB
 
 Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
@@ -16,6 +18,8 @@ Powered by [TimescaleDB][timescale-features], you can create database instances
 in the  cloud and automate many of your most common operational tasks. This
 allows you to spend more time focusing on your time-series workloads and less
 time worrying about database management.
+
+<CloudMSTComparison />
 
 Your Managed Service for TimescaleDB account has three main components:
 projects, services, and databases.

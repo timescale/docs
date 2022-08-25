@@ -4,6 +4,8 @@ excerpt: A fully managed TimescaleDB service on AWS, Azure, or GCP, available in
 product: mst
 ---
 
+import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
+
 # Managed Service for TimescaleDB
 
 Managed Service for TimescaleDB provides a fully managed TimescaleDB service
@@ -12,6 +14,8 @@ service to create database instances, or services, in the cloud and automate
 most of your most common operational tasks. This allows you to spend more time
 focusing on your time-series workloads and less time worrying about database
 management.
+
+<CloudMSTComparison />
 
 *   Find out [about services][create-a-service]
 *   Create a [multi-node cluster][mst-multi-node]
