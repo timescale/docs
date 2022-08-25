@@ -70,5 +70,5 @@ You can switch to `project-fork` and view the newly created `grafana-fork` using
 ```
 
 [about-mst]: /mst/:currentVersion:/about-mst/
-[aiven-client-install]: /mst/aiven-client/aiven-client-install/
+[aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
 [create-service]: /install/:currentVersion:/installation-mst/#create-your-first-service
