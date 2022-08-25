@@ -16,9 +16,11 @@ the underlying database. You can use a fork of your service to:
 
 ## Before you begin
 
-*   [Install Aiven Client and connect][aiven-client-install] to Managed Service
-    for TimescaleDB
-*   [Create a service][create-service] in Managed Service for TimescaleDB
+Before you begin, make sure you have: 
+
+*   Installed [Aiven Client][aiven-client-install].
+*   Signed in to your [Managed Service for TimescaleDB dashboard][mst-login].
+*   Created a [service][create-service] in Managed Service for TimescaleDB.
 
 <procedure>
 
