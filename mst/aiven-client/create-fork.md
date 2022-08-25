@@ -13,6 +13,9 @@ the underlying database. You can use a fork of your service to:
 *   Set up a snapshot to analyze an issue or test an upgrade.
 *   Create an instance in a different cloud, geographical location, or under
     a different plan.
+    
+For more information about projects, plans, and other details about
+services,see [Services][about-mst].
 
 ## Before you begin
 
@@ -34,14 +37,12 @@ Before you begin, make sure you have:
      avn switch <PROJECT>
     ```
 
-1.  List the services in the project:
+1.  List the services in the project, and make a note of the service that you
+    want to fork, listed under `SERVICE_NAME` column in the output.
 
     ```bash
      avn service list
     ```
-
-1.  Make a note of the service that you want to fork, listed under
-    `SERVICE_NAME` column in the output.
 
 1.  Get the details of the service that you want to fork:
 
@@ -56,9 +57,6 @@ Before you begin, make sure you have:
     -t <SERVICE_TYPE> --plan <PLAN> --cloud <CLOUD_NAME>\
     -c service_to_fork_from=<NAME_OF_SERVICE_TO_FORK>
     ```
-
-    For more information about projects, plans, and other details about
-    services,see [Services][about-mst].
 
 </procedure>
 
