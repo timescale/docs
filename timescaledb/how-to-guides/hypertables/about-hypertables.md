@@ -5,6 +5,7 @@ keywords: [hypertables, partitions]
 ---
 
 # About hypertables
+
 Hypertables are PostgreSQL tables with special features that make it easy to
 work with time-series data. You interact with them just as you would with
 regular PostgreSQL tables. But behind the scenes, hypertables automatically
@@ -16,6 +17,7 @@ performance, and access to useful time-series features. Use regular PostgreSQL
 tables for other relational data.
 
 ## Hypertable partitioning
+
 When you create and use a hypertable, it automatically partitions data by time,
 and optionally by space.
 
@@ -25,6 +27,7 @@ also partitioned by space, each chunk is also assigned a subset of the space
 values.
 
 ### Time partitioning
+
 Each chunk of a hypertable only holds data from a specific time range. When you
 insert data from a time range that doesn't yet have a chunk, TimescaleDB
 automatically creates a chunk to store it.
@@ -50,6 +53,7 @@ the number of chunks you see when inspecting it.
 </highlight>
 
 ### Best practices for time partitioning
+
 Chunk size affects insert and query performance. You want a chunk small enough
 to fit into memory. This allows you to insert and query recent data without
 reading from disk. But you don't want too many small and sparsely filled chunks.
@@ -68,10 +72,13 @@ care to check the total size of the chunk and its index. You can do so using the
 [`chunks_detailed_size`](/api/latest/hypertable/chunks_detailed_size) function.
 </highlight>
 
-For information on how to view and set your chunk time intervals, see the
-section on [changing hypertable chunk intervals][change-chunk-intervals].
+For a detailed analysis of how to optimize your chunk sizes, see the 
+[blog post on chunk time intervals][blog-chunk-time]. To learn how 
+to view and set your chunk time intervals, see the section on 
+[changing hypertable chunk intervals][change-chunk-intervals].
 
 ### Space partitioning
+
 Space partitioning is optional. It is not usually recommended for regular
 hypertables, except in very particular circumstances. It is recommended for
 distributed hypertables, to balance inserts between nodes. For more information,
@@ -93,11 +100,24 @@ src="https://s3.amazonaws.com/assets.timescale.com/docs/images/hypertable-time-s
 alt="A hypertable visualized as a rectangular plane carved into smaller rectangles, which are chunks. One dimension of the rectangular plane is time and the other is space. Data enters the hypertable and flows to a chunk based on its time and space values." />
 
 ### Closed and open dimensions for space partitioning
-Space partitioning dimensions can be open or closed. A closed dimension has a fixed number of partitions, and usually uses some hashing to match values to partitions. An open dimension does not have a fixed number of partitions, and usually has each chunk cover a certain range. In most cases the time dimension is open and the space dimension is closed.
 
-If you use the `create_hypertable` command to create your hypertable, then the space dimension is open, and there is no way to adjust this. To create a hypertable with a closed space dimension, create the hypertable with only the time dimension first. Then use the `add_dimension` command to explicitly add an open device. If you set the range to `1`, each device has its own chunks. This can help you work around some limitations of normal space dimensions, and is especially useful if you want to make some chunks readily available for exclusion.
+Space partitioning dimensions can be open or closed. A closed dimension has a
+fixed number of partitions, and usually uses some hashing to match values to
+partitions. An open dimension does not have a fixed number of partitions, and
+usually has each chunk cover a certain range. In most cases the time dimension
+is open and the space dimension is closed.
+
+If you use the `create_hypertable` command to create your hypertable, then the
+space dimension is open, and there is no way to adjust this. To create a
+hypertable with a closed space dimension, create the hypertable with only the
+time dimension first. Then use the `add_dimension` command to explicitly add an
+open device. If you set the range to `1`, each device has its own chunks. This
+can help you work around some limitations of normal space dimensions, and is
+especially useful if you want to make some chunks readily available for
+exclusion.
 
 ### Best practices for space partitioning
+
 Space partitioning is not usually recommended for non-distributed hypertables.
 It's only useful if you have multiple physical disks, each corresponding to a
 separate tablespace. Each disk can then store some of the space partitions. If
@@ -112,11 +132,13 @@ hypertable, without any space partitioning.
 </highlight>
 
 ## Hypertable indexes
+
 By default, indexes are automatically created when you create a hypertable. You
 can prevent index creation by setting the `create_default_indexes` option to
 `false`.
 
 The default indexes are:
+
 *   On all hypertables, an index on time, descending
 *   On hypertables with space partitions, an index on the space parameter and
     time
@@ -127,12 +149,14 @@ columns for the table. To learn more, see the section on [creating unique
 indexes on a hypertable][hypertables-and-unique-indexes].
 
 ## Learn more
+
 *   [Create a hypertable][create-hypertables]
 *   Read about the
     [benefits and architecture of hypertables][hypertable-concepts]
 
 [about-distributed-hypertables]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/
 [best-practices-space]: #best-practices-for-space-partitioning
+[blog-chunk-time]: https://www.timescale.com/blog/timescale-cloud-tips-testing-your-chunk-size/
 [change-chunk-intervals]: /timescaledb/:currentVersion:/how-to-guides/hypertables/change-chunk-intervals/
 [create-hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/create/
 [hypertable-concepts]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
