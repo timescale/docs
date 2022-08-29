@@ -16,15 +16,15 @@ module.exports = [
         href: "aiven-client",
         children: [
           {
-          title: "Aiven Client for Managed Service for TimescaleDB",
-           href: "aiven-client-install",
+            title: "Aiven Client for Managed Service for TimescaleDB",
+            href: "aiven-client-install",
           },
           {
-          title: "Create a fork using Aiven Client",
-          href: "create-fork",
+            title: "Create a fork using Aiven Client",
+            href: "create-fork",
           },
        ],
-      }, 
+      },
       {
         title: "Clouds and regions",
         href: "cloud-regions",

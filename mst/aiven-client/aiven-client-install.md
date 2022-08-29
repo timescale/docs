@@ -32,9 +32,9 @@ create an authentication token.
 ## Install the Aiven Client
 
 [Aiven Client][aiven-github] is provided as a Python package, so you can install
-it on a Linux, MacOS, or Windows system using `pip`, if you have already installed Python. 
+it on a Linux, MacOS, or Windows system using `pip`, if you have already installed Python.
 
-Use this command: 
+Use this command:
 
 ```bash
 pip install aiven-client
@@ -45,8 +45,8 @@ For more information about installing the Aiven Client, see the
 
 ## Configure Aiven Client to connect to Managed Service for TimescaleDB
 
-To access Managed Service for TimescaleDB with the Aiven Client, you need an 
-authentication token. Aiven Client uses this authentication token to access your 
+To access Managed Service for TimescaleDB with the Aiven Client, you need an
+authentication token. Aiven Client uses this authentication token to access your
 services on Managed Service for TimescaleDB.
 
 <procedure>
@@ -65,8 +65,8 @@ services on Managed Service for TimescaleDB.
 
     ```bash
     {
-    "auth_token": "ABC1+123...TOKEN==",
-    "user_email": "your.email@timescale.com"
+      "auth_token": "ABC1+123...TOKEN==",
+      "user_email": "your.email@timescale.com"
     }
     ```
 
@@ -82,7 +82,6 @@ services on Managed Service for TimescaleDB.
     This command shows a list of all your projects:
 
     ```bash
-    
      PROJECT_NAME       DEFAULT_CLOUD            CREDIT_CARD
      =============     =======================   ===================
      project-xxxx      timescale-aws-us-east-1   xxxx-xxxx-xxxx-xxxx
