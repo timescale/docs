@@ -12,18 +12,8 @@ module.exports = [
         href: "about-mst",
       },
       {
-        title: "Command Line tool for Managed Service for TimescaleDB",
-        href: "aiven-client",
-        children: [
-          {
-            title: "Aiven Client for Managed Service for TimescaleDB",
-            href: "aiven-client-install",
-          },
-          {
-            title: "Create a fork using Aiven Client",
-            href: "create-fork",
-          },
-       ],
+        title: "Aiven Client for Managed Service for TimescaleDB",
+        href: "aiven-client-install",
       },
       {
         title: "Clouds and regions",
