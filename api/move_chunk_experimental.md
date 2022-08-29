@@ -1,7 +1,7 @@
 ---
 api_name: move_chunk()
 excerpt: Move a chunk to a different data node in a multi-node cluster
-topics: [multi-node, distributed hypertables]
+topics: [distributed hypertables, multi-node]
 keywords: [multi-node, chunks]
 tags: [data nodes, cluster, rebalance, rebalancing]
 api:

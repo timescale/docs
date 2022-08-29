@@ -1,7 +1,7 @@
 ---
 api_name: set_number_partitions()
 excerpt: Set the number of space partitions for a hypertable
-topics: [hypertables]
+topics: [distributed hypertables, hypertables]
 keywords: [hypertables, partitions]
 api:
   license: community
