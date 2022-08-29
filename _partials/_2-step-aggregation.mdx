@@ -1,0 +1,27 @@
+## Two-step aggregation
+
+This hyperfunction family follows the two-step aggregation pattern. This differs
+from the more commonly seen one-step aggregation pattern.
+
+In a one-step aggregation, you apply a single function to a set of rows to get a
+final result. For example, the single PostgreSQL function `AVG` directly
+calculates the average.
+
+In a two-step aggregation, you apply two separate functions to get a final
+result:
+
+1.  The aggregate function, which aggregates a set of rows into an intermediate
+    form
+1.  An accessor function, which operates on the intermediate form to produce the
+    final result
+
+One aggregate can have multiple accessors. Different accessors use the same
+intermediate form to produce different final results, such as average and
+standard deviation.
+
+The two-step aggregation pattern can improve performance. It also makes it
+easier to reason about your code when you perform aggregations on top of
+aggregations. To learn more about this pattern, see the [two-step aggregation
+section][two-step].
+
+[two-step]: FIXME

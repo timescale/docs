@@ -1,0 +1,49 @@
+api_name: average() | average_y() | average_x()
+excerpt: Calculate the average of values in a statistical aggregate
+topics: [hyperfunctions]
+keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: statistical aggregates
+  type: accessor, 1D
+  aggregates:
+    - stats_agg()
+summary: >-
+  Calculate an average from the values in a statistical aggregate.
+signatures:
+  - language: sql
+    signature: |-
+      average(summary StatsSummary1D) RETURNS BIGINT
+  - language: sql
+    signature: |-
+      average_y(summary StatsSummary 2D) RETURNS BIGINT
+  - language: sql
+    signature: |-
+      average_x(summary StatsSummary 2D) RETURNS BIGINT
+parameters:
+  required:
+    - name: summary
+      type: StatsSummary1D | StatsSummary2D
+      description: >-
+        The statistical aggregate produced by a `stats_agg` call
+  returns:
+    - column: average | average_y | average_x
+      type: DOUBLE PRECISION
+      description: >-
+        The average of the values in the statistical aggregates
+examples:
+  - description: >-
+      Calculate the average of the integers from 0 to 100.
+    input:
+      - language: sql
+        code: |-
+          SELECT average(stats_agg(data))
+            FROM generate_series(0, 100) data;
+    output:
+      - code: |-
+          average
+          -----------
+          50

@@ -305,6 +305,18 @@ module.exports = [
                 href: "hyperloglog",
               },
               {
+                title: "rollup",
+                href: "rollup-hyperloglog",
+              },
+              {
+                title: "distinct_count",
+                href: "distinct_count",
+              },
+              {
+                title: "stderror",
+                href: "stderror",
+              },
+              {
                 title: "approx_count_distinct",
                 href: "approx_count_distinct",
               },
@@ -312,19 +324,83 @@ module.exports = [
           },
           {
             title: "Saturating math",
+            type: "directory",
             href: "saturating_math",
+            children: [
+              {
+                title: "saturating_add",
+                href: "saturating_add",
+              },
+              {
+                title: "saturating_add_pos",
+                href: "saturating_add_pos",
+              },
+              {
+                title: "saturating_mul",
+                href: "saturating_mul",
+              },
+              {
+                title: "saturating_sub",
+                href: "saturating_sub",
+              },
+              {
+                title: "saturating_sub_pos",
+                href: "saturating_sub_pos",
+              },
+            ],
           },
           {
             title: "Statistical aggregates",
+            type: "directory",
             href: "stats_aggs",
+            children: [
+              {
+                title: "stats_agg",
+                href: "stats_agg",
+              },
+            ],
           },
           {
             title: "Financial analysis",
+            type: "directory",
             href: "financial-analysis",
+            children: [
+              {
+                title: "ohlc",
+                href: "ohlc",
+              },
+              {
+                title: "open, high, low, close",
+                href: "open-high-low-close",
+              },
+              {
+                title: "open-at, high_at, low_at, close_at",
+                href: "open-high-low-close-at",
+              },
+              {
+                title: "rollup",
+                href: "rollup",
+              },
+            ],
           },
           {
             title: "Gapfilling and interpolation",
+            type: "directory",
             href: "gapfilling-interpolation",
+            children: [
+              {
+                title: "time_bucket_gapfill",
+                href: "time_bucket_gapfill",
+              },
+              {
+                title: "locf",
+                href: "locf",
+              },
+              {
+                title: "interpolate",
+                href: "interpolate",
+              },
+            ],
           },
           {
             title: "Percentile approximation",
@@ -336,12 +412,51 @@ module.exports = [
                 href: "percentile_agg",
               },
               {
-                title: "uddsketch",
-                href: "uddsketch",
+                title: "approx_percentile",
+                href: "approx_percentile",
               },
               {
-                title: "tdigest",
-                href: "tdigest",
+                title: "approx_percentile_rank",
+                href: "approx_percentile_rank",
+              },
+              {
+                title: "rollup",
+                href: "rollup-percentile",
+              },
+              {
+                title: "max_val",
+                href: "max_val",
+              },
+              {
+                title: "mean",
+                href: "mean",
+              },
+              {
+                title: "error",
+                href: "error",
+              },
+              {
+                title: "min_val",
+                href: "min_val",
+              },
+              {
+                title: "num_vals",
+                href: "num_vals-pct",
+              },
+              {
+                title: "Advanced aggregation methods",
+                type: "directory",
+                href: "percentile-aggregation-methods",
+                children: [
+                  {
+                    title: "uddsketch",
+                    href: "uddsketch",
+                  },
+                  {
+                    title: "tdigest",
+                    href: "tdigest",
+                  },
+                ],
               },
             ],
           },
@@ -358,17 +473,117 @@ module.exports = [
                 title: "gauge_agg",
                 href: "gauge_agg",
               },
+              {
+                title: "rollup",
+                href: "rollup-counter",
+              },
+              {
+                title: "corr",
+                href: "corr-counter",
+              },
+              {
+                title: "counter_zero_time",
+                href: "counter_zero_time",
+              },
+              {
+                title: "delta",
+                href: "delta",
+              },
+              {
+                title: "extrapolated_delta",
+                href: "extrapolated_delta",
+              },
+              {
+                title: "extrapolated_rate",
+                href: "extrapolated_rate",
+              },
+              {
+                title: "interpolated_delta",
+                href: "interpolated_delta",
+              },
+              {
+                title: "interpolated_rate",
+                href: "interpolated_rate",
+              },
+              {
+                title: "idelta",
+                href: "idelta",
+              },
+              {
+                title: "intercept",
+                href: "intercept-counter",
+              },
+              {
+                title: "irate",
+                href: "irate",
+              },
+              {
+                title: "num_changes",
+                href: "num_changes",
+              },
+              {
+                title: "num_elements",
+                href: "num_elements",
+              },
+              {
+                title: "num_resets",
+                href: "num_resets",
+              },
+              {
+                title: "rate",
+                href: "rate",
+              },
+              {
+                title: "slope",
+                href: "slope-counter",
+              },
+              {
+                title: "time_delta",
+                href: "time_delta",
+              },
+              {
+                title: "with_bounds",
+                href: "with_bounds",
+              },
             ],
           },
           {
             title: "Time-weighted averages",
             type: "directory",
             href: "time-weighted-averages",
+            children: [
+              {
+                title: "time_weight",
+                href: "time_weight",
+              },
+              {
+                title: "rollup",
+                href: "rollup-timeweight",
+              },
+              {
+                title: "average",
+                href: "average-time-weight",
+              },
+              {
+                title: "interpolated_average",
+                href: "interpolated_average",
+              },
+            ],
           },
           {
             title: "Downsample",
             type: "directory",
             href: "downsample",
+            children: [
+              {
+                title: "asap",
+                href: "asap",
+              },
+              {
+                title: "lttb",
+                href: "lttb",
+              },
+            ],
           },
           {
             title: "Frequency Analysis",
@@ -382,6 +597,42 @@ module.exports = [
               {
                 title: "topn_agg",
                 href: "topn_agg",
+              },
+              {
+                title: "topn",
+                href: "topn",
+              },
+              {
+                title: "count_min_sketch",
+                href: "count_min_sketch",
+              },
+              {
+                title: "approx_count",
+                href: "approx_count",
+              },
+              {
+                title: "into_values (for freq_agg)",
+                href: "into_values-freq_agg",
+              },
+              {
+                title: "min_frequency / max_frequency",
+                href: "min_frequency-max_frequency",
+              },
+              {
+                title: "state_agg",
+                href: "state_agg",
+              },
+              {
+                title: "duration_in",
+                href: "duration_in",
+              },
+              {
+                title: "interpolated_duration_in",
+                href: "interpolated_duration_in",
+              },
+              {
+                title: "into_values (for state_agg)",
+                href: "into_values-state_agg",
               },
             ],
           },
