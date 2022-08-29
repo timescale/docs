@@ -31,10 +31,9 @@ aggregated into a bucket after such a cast can be irregular. For example, if the
 daylight savings time boundaries can be either three hours or one hour.
 
 <highlight type="important">
-Month, year, and timezones are not supported by the `time_bucket`
-function. If you need to use month, year, or timezone arguments, try the
-experimental [`time_bucket_ng`](/api/latest/hyperfunctions/time_bucket_ng/)
-function instead.
+Timezones are not supported by the `time_bucket` function. If you need to use
+timezone arguments, try the experimental
+[`time_bucket_ng`](/api/latest/hyperfunctions/time_bucket_ng/) function instead.
 </highlight>
 
 ## Required arguments for interval time inputs
@@ -43,6 +42,10 @@ function instead.
 |-|-|-|
 |`bucket_width`|INTERVAL|A PostgreSQL time interval for how long each bucket is|
 |`ts`|TIMESTAMP|The timestamp to bucket|
+
+If you use months as an interval for `bucket_width`, you cannot combine it with
+a non-month component. For example, `1 month` and `3 months` are both valid
+bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
 
 ## Optional arguments for interval time inputs
 
@@ -127,12 +130,3 @@ FROM metrics
 GROUP BY five_min
 ORDER BY five_min DESC LIMIT 10;
 ```
-
-<highlight type="important">
-If you are upgrading from a version earlier than 1.0.0, the default origin is
-moved from 2000-01-01 (Saturday) to 2000-01-03 (Monday) between versions 0.12.1
-and 1.0.0. This change was made to make `time_bucket` compliant with the ISO
-standard for Monday as the start of a week. This should only affect multi-day
-calls to `time_bucket`. The old behavior can be reproduced by passing
-`2000-01-01` as the origin parameter to `time_bucket`.
-</highlight>

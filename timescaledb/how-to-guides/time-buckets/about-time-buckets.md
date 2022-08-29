@@ -5,6 +5,7 @@ keywords: [time buckets]
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
+import TimeBucketComparison from 'versionContent/_partials/_time-bucket-function-comparison.mdx';
 
 # About time buckets
 The [`time_bucket`][time_bucket] function allows you to aggregate data into
@@ -36,9 +37,8 @@ within a bucket.
 />
 
 <highlight type="note"> 
-`time_bucket` doesn't support months, years, or timezones. The experimental
-function `time_bucket_ng` adds support for these intervals and parameters. To
-learn more, see the section on
+`time_bucket` doesn't support timezones. The experimental function
+`time_bucket_ng` adds timezone support. To learn more, see the section on
 [`time_bucket_ng`](#experimental-function-time-bucket-ng).
 </highlight>
 
@@ -63,8 +63,9 @@ for the beginning of the bucket.
   alt="Diagram showing how time buckets are calculated from the origin"
 />
 
-The default origin for `time_bucket` is January 3, 2000. For integer time
-values, the default origin is 0.
+The default origin for `time_bucket`, for intervals shorter than a month, is
+January 3, 2000. For month, year, or century intervals, the default origin is
+January 1, 2000. For integer time values, the default origin is 0.
 
 For example, say that your data's earliest timestamp is April 24, 2020. If you
 bucket by an interval of two weeks, the first bucket doesn't start on April 24,
@@ -73,13 +74,15 @@ preceding Monday. It starts on April 13, because you can get to April 13, 2020,
 by counting in two-week increments from January 3, 2000.
 
 #### Choice of origin
-In TimescaleDB 1.0 and above, the default origin for `time_bucket` is January 3,
-2000. That date is a Monday, which allows week-based buckets to begin on Monday
-by default. This behavior is compliant with the ISO standard for Monday as the
-start of a week.
+The default origin for `time_bucket`, for intervals shorter than a month, is
+January 3, 2000. That date is a Monday, which allows week-based buckets to begin
+on Monday by default. This behavior is compliant with the ISO standard for
+Monday as the start of a week.
 
-In prior versions, the default origin was January 1, 2000. `time_bucket_ng` also
-uses January 1, 2000. That date is more natural for counting months and years.
+For intervals greater than a month, and for all buckets using `time_bucket_ng`,
+the default origin is January 1, 2000. `time_bucket_ng` also uses January 1,
+2000. This allows your monthly and yearly buckets to start on the first date of
+the calendar year or month.
 
 If you prefer another origin, you can set it yourself using the [`origin`
 parameter][origin]. For example, to start weeks on Sunday, set the origin to
@@ -91,7 +94,7 @@ The origin time depends on the data type of your time values.
 If you use `TIMESTAMP`, by default, bucket start times are aligned with
 `00:00:00`. Daily and weekly buckets start at `00:00:00`. Shorter buckets start
 at a time that you can get to by counting in bucket increments from `00:00:00`
-on January 3, 2000.
+on the origin date.
 
 If you use `TIMESTAMPTZ`, by default, bucket start times are aligned with
 `00:00:00 UTC`. To get buckets aligned to local time, cast the `TIMESTAMPTZ` to
@@ -118,19 +121,13 @@ Continuous aggregates also don't allow named parameters.
 
 ## Experimental function: time_bucket_ng
 The experimental function [`time_bucket_ng`][time_bucket_ng] adds new features,
-including support for months, years, and timezones.
+including support for timezones.
 
 <Experimental />
 
-### Months and years
-In addition to the time units supported by `time_bucket`, `time_bucket_ng` also
-supports months and years. For example, you can bucket data into 3-month or
-5-year intervals.
-
 ### Origin
-By default, `time_bucket_ng` uses Saturday, January 1, 2000 for its origin. This
-differs from `time_bucket`. Because `time_bucket_ng` supports months and years,
-January 1 provides a more natural starting date for counting intervals.
+By default, `time_bucket_ng` uses Saturday, January 1, 2000 for its origin,
+regardless of bucket size. This differs from `time_bucket`.
 
 Unlike `time_bucket`, `time_bucket_ng` doesn't support dates before the origin.
 In other words, by default, you cannot use `time_bucket_ng` with data from
@@ -161,13 +158,7 @@ Here are the `time_bucket_ng` features supported by continuous aggregates:
 ## Time_bucket compared to time_bucket_ng
 There are several differences between `time_bucket` and `time_bucket_ng`:
 
-|Feature|`time_bucket`|`time_bucket_ng`|
-|-|-|-|
-|Bucket by microseconds, milliseconds, seconds, hours, minutes, days, and weeks|✅|✅|
-|Bucket by months and years|❌|✅|
-|Bucket `TIMESTAMPTZ` values according to local time using the `timezone` parameter|❌|✅|
-|Origin|January 3, 2000|January 1, 2000|
-|Bucket dates before the origin|✅|❌ Work around this by changing the origin.|
+<TimeBucketComparison />
 
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [date_trunc]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-TRUNC
