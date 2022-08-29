@@ -638,6 +638,14 @@ module.exports = [
             excerpt: "Compress continuous aggregates",
           },
           {
+            title: "Migrate a continuous aggregate to the new form",
+            href: "migrate",
+            tags: ["caggs", "compression", "timescaledb"],
+            keywords: ["caggs", "compression", "TimescaleDB"],
+            excerpt:
+              "Migrate old continuous aggregates to the new form introduced in TimescaleDB 2.7",
+          },
+          {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
             tags: ["caggs", "tshoot", "timescaledb"],
@@ -705,7 +713,7 @@ module.exports = [
             tags: ["action", "example", "backfill", "timescaledb"],
             keywords: ["action", "example", "backfill", "TimescaleDB"],
             excerpt: "Example user-defined action for scheduled backfills",
-          }
+          },
         ],
       },
       {
