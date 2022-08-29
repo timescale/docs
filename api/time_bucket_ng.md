@@ -8,22 +8,21 @@ api:
   license: apache
   type: function
   experimental: true
+  deprecated: true
 hyperfunction:
   type: bucket
 ---
 
-import Experimental from "versionContent/_partials/_experimental.mdx";
-import TimeBucketComparison from 'versionContent/_partials/_time-bucket-function-comparison.mdx';
+import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
 
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
 
-The `time_bucket_ng()` (next generation) experimental function is an updated
-version of  the original [`time_bucket()`][time_bucket] function. It supports
-a new timezone argument.
+The `time_bucket_ng()` function is an experimental version of the
+[`time_bucket()`][time_bucket] function. It introduced some new capabilities,
+such as monthly buckets and timezone support. Those features are now part of the
+regular `time_bucket()` function.
 
-<Experimental />
-
-<TimeBucketComparison />
+<DeprecationNotice />
 
 <highlight type="warning">
 The `time_bucket()` and `time_bucket_ng()` functions are similar, but not

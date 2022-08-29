@@ -1,6 +1,0 @@
-|Feature|`time_bucket`|`time_bucket_ng`|
-|-|-|-|
-|Bucket by microseconds, milliseconds, seconds, hours, minutes, days, weeks, months, years, and centuries|✅|✅|
-|Bucket `TIMESTAMPTZ` values according to local time using the `timezone` parameter|❌|✅|
-|Origin|January 3, 2000 for buckets shorter than a month, and January 1, 2000 for buckets longer than a month|January 1, 2000|
-|Bucket dates before the origin|✅|❌ Work around this by changing the origin.|
