@@ -152,15 +152,23 @@ There is no ability for any customer or member of the public to access any
 virtual machines used in Managed Service for TimescaleDB.
 
 TimescaleDB services are periodically assessed and penetration tested for any
-security issues by an independent professional cybersecurity vendor. The most
+security issues by an independent professional cybersecurity vendor.
+
+<!---
+The most
 recent evaluation report
 [is available for download][cloud-security-eval].
+This link is currently timing out.
+-->
 
 Aiven is fully GDPR-compliant, and has executed data processing agreements
 (DPAs) with relevant cloud infrastructure providers. If you require a DPA, or if
 you want more information about information security policies, contact
 [Timescale Support][timescale-support].
 
+<!---
 [cloud-security-eval]: https://www.elfgroup.fi/ecc/1708-S6-71acd0046.pdf
+-->
+
 [mst-portal]: https://portal.managed.timescale.com
 [timescale-support]: https://www.timescale.com/support
