@@ -76,7 +76,7 @@ module.exports = [
         href: "grafana-mst",
       },
       {
-        title: "Integreate authentication plugins in Grafana",
+        title: "Integrate authentication plugins in Grafana",
         href: "grafana-authentication-plugins",
       },
       {
