@@ -185,6 +185,7 @@ set the following:
     ```
 
 1.  Log in to Grafana with your service credentials.
+
 1.  Navigate to `Configuration` → `Plugins`. The Plugins page lists
     GitLab OAuth application for the Grafana instance.
 
