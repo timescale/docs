@@ -216,4 +216,4 @@ SET statement_timeout = <milliseconds>
 [aiven-sla]: https://aiven.io/sla
 [pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/
-[mst-billing]: mst/:currentVersion:/billing
+[mst-billing]: /mst/:currentVersion:/billing/
