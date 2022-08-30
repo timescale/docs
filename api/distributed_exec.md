@@ -1,7 +1,7 @@
 ---
 api_name: distributed_exec()
 excerpt: Execute a procedure across all the data nodes of a multi-node cluster
-topics: [multi-node]
+topics: [distributed hypertables, multi-node]
 keywords: [multi-node]
 tags: [data nodes, cluster, procedure, roles, permissions]
 api:
