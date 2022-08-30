@@ -11,7 +11,7 @@ hyperfunction:
   family: time-weighted averages
   type: accessor
   aggregates:
-    - stats_agg()
+    - time_weight()
 # fields below will be deprecated
 api_category: hyperfunction
 toolkit: true
