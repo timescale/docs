@@ -65,7 +65,7 @@ ID and client secret.
 <highlight type="note">
      When you allow sign-ups using `-c auth_google.allow_sign_up=true` option,
      by default each new user is created with `viewer` permissions, and added to
-     their own newly-created organizations. To specify different permissions,
+     their own newly created organizations. To specify different permissions,
      use `-c user_auto_assign_org_role=<role name>`. To add all new users
      to the main organization, use `-c user_auto_assign_org=true` option.
 
