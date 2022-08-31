@@ -21,7 +21,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Manage materialized hypertables][cagg-mat-hypertables].
 *   [Use real-time aggregates][cagg-realtime].
 *   [Compression with continuous aggregates][cagg-compression].
-*   [Migrate your continuous aggregates][cagg-migrate] from old to new form.
+*   [Migrate your continuous aggregates][cagg-migrate] from old to new format.
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
 [about-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates

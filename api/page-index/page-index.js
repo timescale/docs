@@ -218,6 +218,10 @@ module.exports = [
             title: "remove_continuous_aggregate_policy",
             href: "remove_continuous_aggregate_policy",
           },
+          {
+            title: "cagg_migrate",
+            href: "cagg_migrate",
+          },
         ],
       },
       {
