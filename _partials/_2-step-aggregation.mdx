@@ -1,27 +1,35 @@
-## Two-step aggregation
+This hyperfunction family follows the two-step aggregation pattern.
+This differs from the more commonly seen one-step aggregation pattern,
+making it easier to work with window functions and continuous aggregates.
 
-This hyperfunction family follows the two-step aggregation pattern. This differs
-from the more commonly seen one-step aggregation pattern.
+<details>
+<summary>
+Expand to learn more.
+</summary>
 
-In a one-step aggregation, you apply a single function to a set of rows to get a
-final result. For example, the single PostgreSQL function `AVG` directly
-calculates the average.
+<p>
+In a one-step aggregation, you apply a single function to a set of rows to get a final result.
+For example, the single PostgreSQL function <code>AVG</code> directly calculates the average.
+</p>
 
-In a two-step aggregation, you apply two separate functions to get a final
-result:
+<p>
+In a two-step aggregation, you apply two separate functions to get a final result:
+<ol>
+<li>The aggregate function, which aggregates a set of rows into an intermediate form</li>
+<li>An accessor function, which operates on the intermediate form to produce the final result</li>
+</ol>
+</p>
 
-1.  The aggregate function, which aggregates a set of rows into an intermediate
-    form
-1.  An accessor function, which operates on the intermediate form to produce the
-    final result
+<p>
+One aggregate can have multiple accessors.
+Different accessors use the same intermediate form to produce different final results,
+such as average and standard deviation.
+</p>
 
-One aggregate can have multiple accessors. Different accessors use the same
-intermediate form to produce different final results, such as average and
-standard deviation.
+<p>
+The two-step aggregation pattern can improve performance.
+It also makes it easier to reason about your code when you perform aggregations on top of aggregations.
+To learn more about this pattern, see the <a href="#">two-step aggregation section</a>.
+</p>
 
-The two-step aggregation pattern can improve performance. It also makes it
-easier to reason about your code when you perform aggregations on top of
-aggregations. To learn more about this pattern, see the [two-step aggregation
-section][two-step].
-
-[two-step]: FIXME
+</details>

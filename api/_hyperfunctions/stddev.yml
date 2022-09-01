@@ -1,4 +1,3 @@
----
 api_name: stddev() | stddev_y() | stddev_x()
 excerpt: Calculate the standard deviation from values in a statistical aggregate
 topics: [hyperfunctions]
@@ -53,15 +52,13 @@ parameters:
       description: >-
         The standard deviation of the values in the statistical aggregate
 examples:
-  - input:
-      - language: sql
-        code: |-
-          SELECT stddev_y(stats_agg(data, data))
-            FROM generate_series(0, 100) data;
-    output:
-      - code: |-
-          stddev_y
-          --------
-          29.3002
----
-
+  - command:
+      language: sql
+      code: |-
+        SELECT stddev_y(stats_agg(data, data))
+          FROM generate_series(0, 100) data;
+    return:
+      code: |-
+        stddev_y
+        --------
+        29.3002

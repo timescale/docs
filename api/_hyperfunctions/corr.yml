@@ -1,4 +1,3 @@
----
 api_name: corr()
 excerpt: Calculate the correlation coefficient from values in a 2-dimensional `StatsSummary`
 topics: [hyperfunctions]
@@ -45,14 +44,12 @@ examples:
   - description: >-
       Calculate the correlation coefficient of independent variable `y` and
       dependent variable `x` for each 15-minute time bucket.
-    input:
-      - language: sql
-        code: |-
-          SELECT
-            id,
-            time_bucket('15 min'::interval, ts) AS bucket,
-            corr(stats_agg(y, x)) AS summary
-          FROM foo
-          GROUP BY id, time_bucket('15 min'::interval, ts)
----
-
+    command:
+      language: sql
+      code: |-
+        SELECT
+          id,
+          time_bucket('15 min'::interval, ts) AS bucket,
+          corr(stats_agg(y, x)) AS summary
+        FROM foo
+        GROUP BY id, time_bucket('15 min'::interval, ts)

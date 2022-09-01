@@ -1,4 +1,3 @@
----
 api_name: skewness() | skewness_y() | skewness_x()
 excerpt: Calculate the skewness from values in a statistical aggregate
 topics: [hyperfunctions]
@@ -44,15 +43,14 @@ parameters:
       description: >-
         The skewness of the values in the statistical aggregate
 examples:
-  - input:
-      - language: sql
-        code: |-
-          SELECT skewness_x(stats_agg(data, data))
-            FROM generate_series(0, 100) data;
-    output:
-      - code: |-
-          skewness_x
-          ----------
-          0
----
-
+  - command:
+      language: sql
+      code: |-
+        SELECT skewness_x(stats_agg(data, data))
+          FROM generate_series(0, 100) data;
+    return:
+      language: sql
+      code: |-
+        skewness_x
+        ----------
+        0

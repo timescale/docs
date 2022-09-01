@@ -1,4 +1,3 @@
----
 api_name: stats_agg()
 excerpt: Aggregate statistical data into a statistical aggregate for further analysis
 topics: [hyperfunctions]
@@ -54,22 +53,20 @@ examples:
       about two variables. Use the statistical aggregates to calculate the
       average of the dependent variable and the slope of the linear-regression
       fit.
-    input:
-      - language: sql
-        code: |-
-          WITH t as (
-              SELECT
-                  time_bucket('1 day'::interval, ts) as dt,
-                  stats_agg(val2, val1) AS stats2D,
-                  stats_agg(val1) AS stats1D
-              FROM foo
-              WHERE id = 'bar'
-              GROUP BY time_bucket('1 day'::interval, ts)
-          )
-          SELECT
-              average_x(stats2D), -- use average_x on 2D summary
-              average(stats1D), -- use normal average on 1D summary to get same value
-              slope(stats2D) -- slope and other regression functions only work on 2D aggregates
-          FROM t;
----
-
+    command:
+      language: sql
+      code: |-
+        WITH t as (
+            SELECT
+                time_bucket('1 day'::interval, ts) as dt,
+                stats_agg(val2, val1) AS stats2D,
+                stats_agg(val1) AS stats1D
+            FROM foo
+            WHERE id = 'bar'
+            GROUP BY time_bucket('1 day'::interval, ts)
+        )
+        SELECT
+            average_x(stats2D), -- use average_x on 2D summary
+            average(stats1D), -- use normal average on 1D summary to get same value
+            slope(stats2D) -- slope and other regression functions only work on 2D aggregates
+        FROM t;

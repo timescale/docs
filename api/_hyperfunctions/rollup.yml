@@ -1,9 +1,7 @@
----
 api_name: rollup()
 excerpt: Roll up multiple statistical aggregates
 topics: [hyperfunctions]
-keywords:
-  [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
+keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
 api:
   license: community
   type: function
@@ -53,21 +51,19 @@ examples:
       Combine hourly continuous aggregates into daily buckets. Calculate the
       [average](#average) and [standard deviation](#stddev) using the
       appropriate accessors.
-    input:
-      - language: sql
-        code: |-
-          CREATE MATERIALIZED VIEW foo_hourly
-          WITH (timescaledb.continuous)
-          AS SELECT
-              time_bucket('1 h'::interval, ts) as bucket,
-              stats_agg(value) as stats
-          FROM foo
-          GROUP BY 1;
-          SELECT
-              time_bucket('1 day'::interval, bucket) as bucket,
-              average(rollup(stats)),
-              stddev(rollup(stats))
-          FROM foo_hourly
-          GROUP BY 1;
----
-
+    command:
+      language: sql
+      code: |-
+        CREATE MATERIALIZED VIEW foo_hourly
+        WITH (timescaledb.continuous)
+        AS SELECT
+            time_bucket('1 h'::interval, ts) as bucket,
+            stats_agg(value) as stats
+        FROM foo
+        GROUP BY 1;
+        SELECT
+            time_bucket('1 day'::interval, bucket) as bucket,
+            average(rollup(stats)),
+            stddev(rollup(stats))
+        FROM foo_hourly
+        GROUP BY 1;
