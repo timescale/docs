@@ -37,11 +37,21 @@ CREATE MATERIALIZED VIEW conditions_daily
 ## Manually create and drop indexes
 
 You can use a regular PostgreSQL statement to create or drop an index on a
-continuous aggregate. For example, to create an index on `avg_temp` for a
-materialized hypertable named `weather_daily`:
+continuous aggregate.
+
+For example, to create an index on `avg_temp` for a materialized hypertable
+named `weather_daily`:
 
 ```sql
 CREATE INDEX avg_temp_idx ON weather_daily (avg_temp);
+```
+
+Indexes are created under the `_timescaledb_internal` schema, where the
+continuous aggregate data is stored. To drop the index, specify the schema. For
+example, to drop the index `avg_temp_idx`, run:
+
+```sql
+DROP INDEX _timescaledb_internal.avg_temp_idx
 ```
 
 ### Limitations on created indexes
@@ -51,5 +61,5 @@ materialized view. This includes aggregated columns, such as those storing sums
 and averages. In earlier versions of TimescaleDB, you can't create an index on
 an aggregated column.
 
-In all versions of TimescaleDB, you can't create a unique index on a continuous
-aggregate.
+You can't create unique indexes on a continuous aggregate, in any version
+of TimescaleDB.
