@@ -352,12 +352,11 @@ module.exports = [
           {
             title: "Statistical aggregates",
             href: "statistical-aggregates",
-            type: "placeholder",
+            type: "directory",
             children: [
               {
                 title: "stats_agg",
                 href: "stats_agg",
-                type: "placeholder",
               },
             ],
           },

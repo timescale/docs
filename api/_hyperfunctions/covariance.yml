@@ -1,3 +1,4 @@
+---
 api_name: covariance()
 excerpt: Calculate the covariance from values in a 2-dimensional `StatsSummary`
 topics: [hyperfunctions]
@@ -18,10 +19,10 @@ summary: >-
   The calculation uses linear least-squares regression.
 signatures:
   - language: sql
-    signature: |-
+    code: |-
       covariance(
           summary StatsSummary2D,
-          method TEXT 
+          method TEXT
       ) RETURNS DOUBLE PRECISION
 parameters:
   required:
@@ -54,3 +55,5 @@ examples:
               covariance(stats_agg(y, x)) AS summary
           FROM foo
           GROUP BY id, time_bucket('15 min'::interval, ts)
+---
+

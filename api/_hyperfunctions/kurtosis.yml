@@ -1,3 +1,4 @@
+---
 api_name: kurtosis() | kurtosis_y() | kurtosis_x()
 excerpt: Calculate the kurtosis from values in a statistical aggregate
 topics: [hyperfunctions]
@@ -17,13 +18,13 @@ summary: >-
   kurtosis is the fourth statistical moment.
 signatures:
   - language: sql
-    signature: |-
+    code: |-
       kurtosis(summary StatsSummary1D, method TEXT) RETURNS BIGINT
   - language: sql
-    signature: |-
+    code: |-
       kurtosis_y(summary StatsSummary2D, method TEXT) RETURNS BIGINT
   - language: sql
-    signature: |-
+    code: |-
       kurtosis_x(summary StatsSummary2D, method TEXT) RETURNS BIGINT
 parameters:
   required:
@@ -44,15 +45,15 @@ parameters:
       description: >-
         The kurtosis of the values in the statistical aggregate
 examples:
-  - description: >-
-      Calculate the kurtosis of the numbers from 0 to 100.
-    input:
+  - input:
       - language: sql
         code: |-
           SELECT kurtosis_y(stats_agg(data, data))
             FROM generate_series(0, 100) data;
     output:
       - code: |-
-          kurtosis_y 
+          kurtosis_y
           ----------
           1.78195
+---
+

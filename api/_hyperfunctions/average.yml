@@ -14,36 +14,44 @@ hyperfunction:
 summary: >-
   Calculate an average from the values in a statistical aggregate.
 signatures:
-  - language: sql
-    signature: |-
+  signature1:
+    language: sql
+    code: |-
       average(summary StatsSummary1D) RETURNS BIGINT
-  - language: sql
-    signature: |-
+  signature2:
+    language: sql
+    code: |-
       average_y(summary StatsSummary 2D) RETURNS BIGINT
-  - language: sql
-    signature: |-
+  signature3:
+    language: sql
+    code: |-
       average_x(summary StatsSummary 2D) RETURNS BIGINT
 parameters:
   required:
-    - name: summary
+    parameter1:
+      name: summary
       type: StatsSummary1D | StatsSummary2D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
-    - column: average | average_y | average_x
+    parameter2:
+      column: average | average_y | average_x
       type: DOUBLE PRECISION
       description: >-
         The average of the values in the statistical aggregate
 examples:
-  - description: >-
+  example1:
+    description: >-
       Calculate the average of the integers from 0 to 100.
     input:
-      - language: sql
+      input1:
+        language: sql
         code: |-
           SELECT average(stats_agg(data))
             FROM generate_series(0, 100) data;
     output:
-      - code: |-
+      output1:
+        code: |-
           average
           -----------
           50
