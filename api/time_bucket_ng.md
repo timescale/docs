@@ -8,30 +8,21 @@ api:
   license: apache
   type: function
   experimental: true
+  deprecated: true
 hyperfunction:
   type: bucket
 ---
 
+import DeprecationNotice from "versionContent/_partials/_deprecated.mdx";
+
 ## timescaledb_experimental.time_bucket_ng() <tag type="experimental">Experimental</tag>
 
-The `time_bucket_ng()` (next generation) experimental function is an updated
-version of  the original [`time_bucket()`][time_bucket] function. While
-`time_bucket` works only with small units of time,  `time_bucket_ng()`
-supports years and months in addition to small units of time.
+The `time_bucket_ng()` function is an experimental version of the
+[`time_bucket()`][time_bucket] function. It introduced some new capabilities,
+such as monthly buckets and timezone support. Those features are now part of the
+regular `time_bucket()` function.
 
-<highlight type="warning">
-Experimental features could have bugs! They might not be backwards compatible,
-and could be removed in future releases. When this function is no longer experimental,
-you will need to delete and rebuild any continuous aggregate that uses it.
-Use experimental features at your own risk and we do not recommend to use
-any experimental feature in a production environment.
-</highlight>
-
-|Functionality|time_bucket()|time_bucket_ng()|
-|-|-|-|
-|Buckets by seconds, minutes, hours, days and weeks|YES|YES|
-|Buckets by months and years|NO|YES|
-|Timezones support|NO|YES|
+<DeprecationNotice />
 
 <highlight type="warning">
 The `time_bucket()` and `time_bucket_ng()` functions are similar, but not
@@ -41,10 +32,8 @@ Firstly, `time_bucket_ng()` doesn't work with timestamps prior to `origin`,
 while `time_bucket()` does.
 
 Secondly, the default `origin` values differ. `time_bucket()` uses an origin
-date of January 3, 2000, because that date is a Monday. This works better with
-weekly buckets. `time_bucket_ng()` uses an origin date of January 1, 2000, because
-it is the first day of the month and the year. This works better with monthly
-or annual aggregates.
+date of January 3, 2000, for buckets shorter than a month. `time_bucket_ng()`
+uses an origin date of January 1, 2000, for all bucket sizes.
 </highlight>
 
 ### Required arguments
