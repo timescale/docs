@@ -351,12 +351,13 @@ module.exports = [
           },
           {
             title: "Statistical aggregates",
-            type: "directory",
-            href: "stats_aggs",
+            href: "statistical-aggregates",
+            type: "placeholder",
             children: [
               {
                 title: "stats_agg",
                 href: "stats_agg",
+                type: "placeholder",
               },
             ],
           },
