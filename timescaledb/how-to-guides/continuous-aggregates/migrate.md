@@ -12,7 +12,8 @@ aggregates created in older versions of TimescaleDB, or created in a new version
 with the option `timescaledb.finalized` set to `false`, use the old format.
 
 To migrate a continuous aggregate from the old format to the new format, you can
-use this procedure. It automatically copies over your data and policies.
+use this procedure. It automatically copies over your data and policies. You can
+continue to use the continuous aggregate while the migration is happening.
 
 Connect to your database and run:
 

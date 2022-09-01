@@ -22,6 +22,8 @@ only the data that has changed needs to be computed, not the entire dataset.
 *   [Use real-time aggregates][cagg-realtime].
 *   [Compression with continuous aggregates][cagg-compression].
 *   [Migrate your continuous aggregates][cagg-migrate] from old to new format.
+    Continuous aggregates created in TimescaleDB 2.7 and above are in the new
+    format, unless explicitly created in the old format.
 *   [Troubleshoot][cagg-tshoot] continuous aggregates.
 
 [about-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/about-continuous-aggregates
