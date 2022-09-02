@@ -195,6 +195,17 @@ workers. Default value is 8.
 
 ### Distributed hypertables
 
+#### `timescaledb.hypertable_distributed_default (enum)`
+
+Set default policy to create local or distributed hypertables for
+`create_hypertable()` command, when the `distributed` argument is not provided.
+Supported values are `auto`, `local` or `distributed`.
+
+#### `timescaledb.hypertable_replication_factor_default (int)`
+
+Global default value for replication factor to use with hypertables
+when the `replication_factor` argument is not provided in. Default is 1.
+
 #### `timescaledb.enable_2pc (bool)`
 
 Enables two-phase commit for distributed hypertables. If disabled, it
