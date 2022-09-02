@@ -18,29 +18,38 @@ function. Unlike `date_trunc`, it allows for arbitrary time intervals instead of
 second, minute, and hour intervals. The return value is the bucket's
 start time.
 
+`TIMESTAMPTZ` arguments are bucketed by the time in UTC, so the alignment of
+buckets is on UTC time. One consequence of this is that daily buckets are
+aligned to midnight UTC, not local time. If you want buckets aligned by local
+time, cast the `TIMESTAMPTZ` input to `TIMESTAMP`, which converts the value to
+local time, before you pass it to `time_bucket`. For an example, see the sample
+use in this section.
+
 Note that daylight savings time boundaries means that the amount of data
 aggregated into a bucket after such a cast can be irregular. For example, if the
 `bucket_width` is 2 hours, the number of UTC hours bucketed by local time on
 daylight savings time boundaries can be either three hours or one hour.
+
+<highlight type="important">
+Month, year, and timezones are not supported by the `time_bucket`
+function. If you need to use month, year, or timezone arguments, try the
+experimental [`time_bucket_ng`](/api/latest/hyperfunctions/time_bucket_ng/)
+function instead.
+</highlight>
 
 ## Required arguments for interval time inputs
 
 |Name|Type|Description|
 |-|-|-|
 |`bucket_width`|INTERVAL|A PostgreSQL time interval for how long each bucket is|
-|`ts`|TIMESTAMP or TIMESTAMPTZ|The timestamp to bucket|
-
-If you use months as an interval for `bucket_width`, you cannot combine it with
-a non-month component. For example, `1 month` and `3 months` are both valid
-bucket widths, but `1 month 1 day` and `3 months 2 weeks` are not.
+|`ts`|TIMESTAMP|The timestamp to bucket|
 
 ## Optional arguments for interval time inputs
 
 |Name|Type|Description|
 |-|-|-|
-|`timezone`|TEXT|The timezone for calculating bucket start and end times. Can only be used with `TIMESTAMPTZ`. Defaults to UTC.|
 |`offset`|INTERVAL|The time interval to offset all time buckets by. A positive value shifts bucket start and end times later. A negative value shifts bucket start and end times earlier. `offset` must be surrounded with double quotes when used as a named argument, because it is a reserved key word in PostgreSQL.|
-|`origin`|TIMESTAMP|Buckets are aligned relative to this timestamp. Defaults to midnight on January 3, 2000, for buckets that don't include a month or year interval, and to midnight on January 1, 2000, for month, year, and century buckets.|
+|`origin`|TIMESTAMP|Buckets are aligned relative to this timestamp|
 
 ## Required arguments for integer time inputs
 
@@ -119,14 +128,11 @@ GROUP BY five_min
 ORDER BY five_min DESC LIMIT 10;
 ```
 
-Bucket temperature values to calculate the average monthly temperature. Set the
-timezone to 'Europe/Berlin' so bucket start and end times are aligned to
-midnight in Berlin.
-
-```sql
-SELECT time_bucket('1 month', ts, 'Europe/Berlin') AS month_bucket,
-  avg(temperature) AS avg_temp
-FROM weather
-GROUP BY month_bucket
-ORDER BY month_bucket DESC LIMIT 10;
-```
+<highlight type="important">
+If you are upgrading from a version earlier than 1.0.0, the default origin is
+moved from 2000-01-01 (Saturday) to 2000-01-03 (Monday) between versions 0.12.1
+and 1.0.0. This change was made to make `time_bucket` compliant with the ISO
+standard for Monday as the start of a week. This should only affect multi-day
+calls to `time_bucket`. The old behavior can be reproduced by passing
+`2000-01-01` as the origin parameter to `time_bucket`.
+</highlight>
