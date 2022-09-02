@@ -43,6 +43,7 @@ packages and instructions, see the [Docker installation documentation][docker-in
     also port forwards to port `5432` on your local system:
     ```bash
     docker run --name timescaledb -e POSTGRES_PASSWORD=<password> \
+    -e TSTUNE_PROFILE=promscale \
     -d -p 5432:5432 \
     --network promscale \
     timescale/timescaledb-ha:pg14-latest \
