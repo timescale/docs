@@ -1,13 +1,16 @@
 ---
 api_name: add_dimension()
 excerpt: Add a space-partitioning dimension to a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [hypertables, partitions]
 tags: [dimensions, chunks]
+api:
+  license: apache
+  type: function
 ---
 
 ## add_dimension()
+
 Add an additional partitioning dimension to a TimescaleDB hypertable.
 The column selected as the dimension can either use interval
 partitioning (for example, for a second time partition) or hash partitioning.
@@ -33,6 +36,7 @@ across multiple disks within the same time interval
 (in the case of single-node deployments).
 
 ### Parallelizing queries across multiple data nodes
+
 In a distributed hypertable, space partitioning enables inserts to be
 parallelized across data nodes, even while the inserted rows share
 timestamps from the same time interval, and thus increases the ingest rate.
@@ -45,6 +49,7 @@ when using `location` as a space partition). Please see our
 for more information.
 
 ### Parallelizing disk I/O on a single node
+
 Parallel I/O can benefit in two scenarios: (a) two or more concurrent
 queries should be able to read from different disks in parallel, or
 (b) a single query should be able to use query parallelization to read
@@ -52,10 +57,10 @@ from multiple disks in parallel.
 
 Thus, users looking for parallel I/O have two options:
 
-1. Use a RAID setup across multiple physical disks, and expose a
+1.  Use a RAID setup across multiple physical disks, and expose a
 single logical disk to the hypertable (that is, via a single tablespace).
 
-1. For each physical disk, add a separate tablespace to the
+1.  For each physical disk, add a separate tablespace to the
 database. TimescaleDB allows you to actually add multiple tablespaces
 to a *single* hypertable (although under the covers, a hypertable's
 chunks are spread across the tablespaces associated with that hypertable).
@@ -108,11 +113,11 @@ dimension uses hash or interval partitioning.
 
 The `chunk_time_interval` should be specified as follows:
 
-- If the column to be partitioned is a TIMESTAMP, TIMESTAMPTZ, or
+*   If the column to be partitioned is a TIMESTAMP, TIMESTAMPTZ, or
 DATE, this length should be specified either as an INTERVAL type or
 an integer value in *microseconds*.
 
-- If the column is some other integer type, this length
+*   If the column is some other integer type, this length
 should be an integer that reflects
 the column's underlying semantics (for example, the
 `chunk_time_interval` should be given in milliseconds if this column
@@ -122,11 +127,14 @@ is the number of milliseconds since the UNIX epoch).
  Supporting more than **one** additional dimension is currently
  experimental. For any production environments, users are recommended
  to use at most one "space" dimension.
+
 </highlight>
 
 ### Sample use
+
 First convert table `conditions` to hypertable with just time
 partitioning on column `time`, then add an additional partition key on `location` with four partitions:
+
 ```sql
 SELECT create_hypertable('conditions', 'time');
 SELECT add_dimension('conditions', 'location', number_partitions => 4);

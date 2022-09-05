@@ -5,11 +5,33 @@ product: mst
 keywords: [troubleshooting]
 ---
 
+import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
+
 # Troubleshooting
+
 This section covers some common errors or problems you might run into while
 using your Managed Service for TimescaleDB account.
 
+## Permission denied when changing ownership of tables and hypertables
+
+You might see this error when using the `ALTER TABLE` command to change the
+ownership of tables or hypertables:
+
+```bash
+ERROR: permission denied for schema _timescaledb_internal
+```
+
+This use of `ALTER TABLE` is blocked because the `tsdbadmin` user is not a
+superuser.
+
+To change table ownership, use the [`REASSIGN`][sql-reassign] command instead:
+
+```sql
+REASSIGN OWNED BY <current_role> TO <desired_role>
+```
+
 ## Database is low on disk, memory, or CPU
+
 When your database reaches 90% of your allocated disk, memory, or CPU resources,
 an automated message is sent to the email address listed on your account. The
 email looks like this:
@@ -35,7 +57,15 @@ using [continuous aggregates][howto-caggs], or
 resources your database uses. If you still need help, reach out to our [support
 team][timescale-support] to have a conversation.
 
+## Scheduled jobs stop running
+
+Your scheduled jobs might stop running for various reasons. You can restart them
+by restarting your background workers.
+
+<CloudMSTRestartWorkers />
+
 [howto-compression]: /timescaledb/:currentVersion:/how-to-guides/compression
 [howto-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 [howto-dataretention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
+[sql-reassign]: https://www.postgresql.org/docs/current/sql-reassign-owned.html
 [timescale-support]: https://www.timescale.com/support

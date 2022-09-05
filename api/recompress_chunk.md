@@ -1,14 +1,18 @@
 ---
 api_name: recompress_chunk()
 excerpt: Recompress a chunk that had new data inserted after compression
-license: community
-topic: compression
+topics: [compression]
 keywords: [compression, recompression, chunks]
 tags: [hypertables]
+api:
+  license: community
+  type: function
 ---
 
 # recompress_chunk() <tag type="community" content="Community" />
+
 Recompresses a compressed chunk that had more data inserted after compression.
+
 ```sql
 recompress_chunk(
     chunk REGCLASS,
@@ -16,9 +20,9 @@ recompress_chunk(
 )
 ```
 
-You can also recompress chunks by 
-[running the job associated with your compression policy][run-job]. 
-`recompress_chunk` gives you more fine-grained control by 
+You can also recompress chunks by
+[running the job associated with your compression policy][run-job].
+`recompress_chunk` gives you more fine-grained control by
 allowing you to target a specific chunk.
 
 <highlight type="important">
@@ -44,17 +48,21 @@ chunk for the first time, use [`compress_chunk`](/api/latest/compression/compres
 |`if_not_compressed`|`BOOLEAN`|If `true`, prints a notice instead of erroring if the chunk is already compressed. Defaults to `false`.|
 
 ## Sample usage
+
 Recompress the chunk `timescaledb_internal._hyper_1_2_chunk`:
+
 ```sql
 CALL recompress_chunk('_timescaledb_internal._hyper_1_2_chunk');
 ```
 
 ## Troubleshooting
+
 In TimescaleDB 2.6.0 and above, `recompress_chunk` is implemented as a procedure.
 Previously, it was implemented as a function. If you are upgrading to
-TimescaleDB 2.6.0 or above, the`recompress_chunk` 
+TimescaleDB 2.6.0 or above, the`recompress_chunk`
 function could cause an error. For example, trying to run `SELECT
 recompress_chunk(i.show_chunks, true) FROM...` gives the following error:
+
 ```sql
 ERROR:  recompress_chunk(regclass, boolean) is a procedure
 ```
@@ -62,6 +70,7 @@ ERROR:  recompress_chunk(regclass, boolean) is a procedure
 To fix the error, use `CALL` instead of `SELECT`. You might also need to write a
 procedure to replace the full functionality in your `SELECT` statement. For
 example:
+
 ```sql
 DO $$
 DECLARE chunk regclass;

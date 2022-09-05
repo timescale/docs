@@ -1,19 +1,27 @@
 ---
 api_name: saturating_mul()
 excerpt: Multiples two numbers, saturating at the numeric bounds instead of overflowing
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 tags: [hyperfunctions, saturating math]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: saturating math
+  type: one-step operation
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'saturating math'
 hyperfunction_subfamily: saturating math
 hyperfunction_type: one-step
 ---
 
 # saturating_mul()  <tag type="toolkit">Toolkit</tag><tag type="toolkit-experimental" content="Experimental" />
+
 The `saturating_mul` function multiples two numbers, saturating at -2147483648 and 2147483647 instead of overflowing.
 
 For more information about saturating math functions, see the
@@ -31,6 +39,5 @@ For more information about saturating math functions, see the
 |Column|Type|Description|
 |-|-|-|
 |saturating_mul |INT| The result of `x*y`, saturating at the numeric bounds instead of overflowing|
-
 
 [saturating-math-docs]: /api/:currentVersion:/hyperfunctions/saturating_math/

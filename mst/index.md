@@ -5,6 +5,7 @@ product: mst
 ---
 
 # Managed Service for TimescaleDB
+
 Managed Service for TimescaleDB provides a fully managed TimescaleDB service
 hosted in more than 75 regions using AWS, Azure, or GCP. You can use this
 service to create database instances, or services, in the cloud and automate
@@ -21,6 +22,7 @@ management.
 *   Understand [backups][backups]
 
 Some important terms:
+
 *   **Account:** Your Managed Service for TimescaleDB account. You can register
     for an account on the
     [Managed Service for TimescaleDB signup][sign-up] page.
@@ -37,8 +39,10 @@ Some important terms:
     database management that is performed for a given TimescaleDB deployment.
 
 ## Hosted TimescaleDB
+
 Built and operated by the TimescaleDB team, Managed Service for TimescaleDB
 provides a flexible relational time-series database:
+
 *   Select between more than 75 regions across AWS, GCP, or Azure
 *   Choose from more than 2000 possible configurations, from 1&nbsp;CPUs and
     20&nbsp;GB disk to 72&nbsp;CPUs and 10&nbsp;TB disk.
@@ -48,24 +52,30 @@ provides a flexible relational time-series database:
     highly-available pairs and auto-failover.
 
 ## Accelerated performance
+
 Ingest high velocity data and perform fast SQL analysis across massive,
 high-cardinality datasets.
+
 *   Write millions of data points per second.
 *   10 to 100 times faster queries than PostgreSQL, InfluxDB, and MongoDB.
 *   Advanced columnar compression for 94 - 97% compression savings.
 *   Built-in query optimizations and parallelization.
 
 ## Postgres for time-series
+
 Purpose-built time-series analytical functions that build on PostgreSQL.
+
 *   Advanced time-series functions, including downsampling and interpolation.
 *   Real-time continuous aggregations for fast, up-to-date answers.
 *   Unlimited metadata, JOIN relational and time-series data.
 *   Data retention policies for both raw and aggregate data.
 
 ## Works with everything you know and use
+
 Build data-driven apps, services, and systems faster using the programming
 languages and tools you already know, proven PostgreSQL ecosystem, and pre-built
 integrations and extensions.
+
 *   Full SQL, no restrictions
 *   Entire toolset available, including PostgreSQL extensions, ORMs, connectors,
     JDBC, and applications.
@@ -74,12 +84,12 @@ integrations and extensions.
 
 For more information on Managed Service for TimescaleDB's terms of service, visit the [Timescale website][tos].
 
-[create-a-service]: /mst/:currentVersion:/create-a-service
+[create-a-service]: /mst/:currentVersion:/about-mst
 [mst-multi-node]: /mst/:currentVersion:/mst-multi-node
 [viewing-service-logs]: /mst/:currentVersion:/viewing-service-logs
 [vpc-peering]: /mst/:currentVersion:/vpc-peering
 [security]: /mst/:currentVersion:/security
 [sign-up]: https://www.timescale.com/mst-signup
 [tos]: https://www.timescale.com/legal/mst-terms-of-service
-[backups]: /mst/:currentVersion:/backup-types
+[backups]: /mst/:currentVersion:/manage-backups
 [manage-backups]: /mst/:currentVersion:/manage-backups

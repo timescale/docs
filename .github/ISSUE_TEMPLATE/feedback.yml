@@ -1,0 +1,35 @@
+name: Feedback
+description: Help us improve the Timescale documentation site by leaving your feedback
+title: "[Feedback]"
+labels: ["documentation", "feedback", "community"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to leave your feedback!
+  - type: dropdown
+    id: navigation
+    attributes:
+      label: Is it easy to find the information you need?
+      options:
+        - "Yes"
+        - "No"
+  - type: dropdown
+    id: instructions
+    attributes:
+      label: Are the instructions clear?
+      options:
+        - "Yes"
+        - "No"
+  - type: textarea
+    id: improvements
+    attributes:
+      label: How could we improve the Timescale documentation site?
+      placeholder: Send us your ideas!
+  - type: markdown
+    attributes:
+      value: |
+        We welcome documentation contributions!
+
+        * For information about how to suggest a change, see the [contributing guide](https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md) in our GitHub repository.
+        * For information on style and word usage, see the [style guide](https://docs.timescale.com/timescaledb/latest/contribute-to-docs).

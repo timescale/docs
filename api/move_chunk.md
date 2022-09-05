@@ -1,12 +1,15 @@
 ---
 api_name: move_chunk()
 excerpt: Move a chunk and its indexes to a different tablespace
-license: community
-topic: hypertables
+topics: [hypertables]
 keywords: [chunks, hypertables, tablespaces, move, data tiering]
+api:
+  license: community
+  type: function
 ---
 
 ## move_chunk() <tag type="community">Community</tag>
+
 TimescaleDB allows you to move data and indexes to different tablespaces. This
 allows you to move data to more cost-effective storage as it ages.
 
@@ -30,15 +33,14 @@ to use the `move_chunk()` call.
 |-|-|-|
 |`chunk`|REGCLASS|Name of chunk to be moved|
 |`destination_tablespace`|NAME|Target tablespace for chunk being moved|
+|`index_destination_tablespace`|NAME|Target tablespace for index associated with the chunk you are moving|
 
 ### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`index_destination_tablespace`|NAME|Target tablespace for index associated with the chunk you are moving|
 |`reorder_index`|REGCLASS|The name of the index (on either the hypertable or chunk) to order by|
 |`verbose`|BOOLEAN|Setting to true displays messages about the progress of the move_chunk command. Defaults to false.|
-
 
 ### Sample usage
 

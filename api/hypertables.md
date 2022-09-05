@@ -1,17 +1,19 @@
 ---
 api_name: timescaledb_information.hypertables
 excerpt: Get metadata about hypertables
-license: apache
-topic: hypertables
+topics: [information, hypertables]
 keywords: [hypertables, information]
 tags: [schemas, tablespaces, data nodes, dimensions]
+api:
+  license: apache
+  type: view
 ---
 
-## timescaledb_information.hypertables 
+## timescaledb_information.hypertables
 
 Get metadata information about hypertables.
 
-### Available columns 
+### Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -26,7 +28,7 @@ Get metadata information about hypertables.
 | `data_nodes` | TEXT | Nodes on which hypertable is distributed|
 | `tablespaces` | TEXT | Tablespaces attached to the hypertable |
 
-### Sample usage 
+### Sample usage
 
 Get information about a hypertable.
 

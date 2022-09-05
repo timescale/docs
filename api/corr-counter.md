@@ -1,19 +1,29 @@
 ---
 api_name: corr()
 excerpt: Calculate the correlation coefficient from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [correlation coefficient, counters, hyperfunctions, toolkit]
+tags: [least squares, linear regression]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # corr() <tag type="toolkit" content="Toolkit" />
+
 The correlation coefficient of the least squares fit line of the adjusted
 counter value and epoch value of the time column. Given that the slope of a line for any counter value must be
 non-negative, this must also always be non-negative and in the range from 0.0 to
@@ -58,6 +68,5 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

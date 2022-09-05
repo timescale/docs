@@ -1,4 +1,11 @@
+---
+title: Saturating math
+excerpt: Perform saturating math on integers to keep results within bounds
+keywords: [hyperfunctions, saturating math]
+---
+
 # Saturating math
+
 The saturating math hyperfunctions help you perform saturating math on integers.
 In saturating math, the final result is bounded. If the result of a normal mathematical
 operation exceeds either the minimum or maximum bound, the result of the
@@ -19,4 +26,4 @@ additional hyperfunctions, you need to install the
     sortByType
 />
 
-[install-toolkit]: timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit
+[install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

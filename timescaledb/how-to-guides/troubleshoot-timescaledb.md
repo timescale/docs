@@ -4,31 +4,34 @@ excerpt: Troubleshoot common problems that occur when using TimescaleDB
 keywords: [troubleshooting]
 ---
 
+import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
+
 # Troubleshooting
 
 If you run into problems when using TimescaleDB, there are a few things that you
-can do. There are some solutions to common errors below as well as ways to output
-diagnostic information about your setup. If you need more guidance, you can join
-the support [slack group][slack] or post an issue on the TimescaleDB [github][].
+can do. There are some solutions to common errors in this section as well as ways to
+output diagnostic information about your setup. If you need more guidance, you
+can join the community [Slack group][slack] or post an issue on the TimescaleDB
+[GitHub][github].
 
 ## Common errors
 
-### Error updating TimescaleDB when using a third-party PostgreSQL admin tool
+### Error updating TimescaleDB when using a third-party PostgreSQL administration tool
 
-The update command `ALTER EXTENSION timescaledb UPDATE` must be the first command
-executed upon connection to a database. Some admin tools execute command before
-this, which can disrupt the process. It may be necessary for you to manually update
-the database with `psql`.  See our [update docs][update-db] for details.
+The `ALTER EXTENSION timescaledb UPDATE` command must be the first
+command executed upon connection to a database. Some administration tools
+execute commands before this, which can disrupt the process. You might
+need to manually update the database with `psql`.  See the 
+[update docs][update-db] for details.
 
-###  Log error: could not access file "timescaledb"
+### Log error: could not access file "timescaledb"
 
-If your PostgreSQL logs have this error preventing it from starting up,
-you should double check that the TimescaleDB files have been installed
-to the correct location. Our installation methods use `pg_config` to
-get PostgreSQL's location. However if you have multiple versions of
-PostgreSQL installed on the same machine, the location `pg_config`
-points to may not be for the version you expect. To check which
-version TimescaleDB used:
+If your PostgreSQL logs have this error preventing it from starting up, you
+should double check that the TimescaleDB files have been installed to the
+correct location. The installation methods use `pg_config` to get PostgreSQL's
+location. However if you have multiple versions of PostgreSQL installed on the
+same machine, the location `pg_config` points to may not be for the version you
+expect. To check which version TimescaleDB used:
 
 ```bash
 $ pg_config --version
@@ -44,37 +47,61 @@ $ pg_config --bindir
 /usr/local/Cellar/postgresql/11.0/bin
 ```
 
-If either of those steps is not the version you are expecting, you need
-to either (a) uninstall the incorrect version of PostgreSQL if you can or
-(b) update your `PATH` environmental variable to have the correct
-path of `pg_config` listed first, that is, by prepending the full path:
+If either of those steps is not the version you are expecting, you need to
+either uninstall the incorrect version of PostgreSQL if you can, or update your
+`PATH` environmental variable to have the correct path of `pg_config` listed
+first, that is, by prepending the full path:
 
 ```bash
-$ export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
+export PATH = /usr/local/Cellar/postgresql/11.0/bin:$PATH
 ```
+
 Then, reinstall TimescaleDB and it should find the correct installation
 path.
 
 ### ERROR: could not access file "timescaledb-\<version\>": No such file or directory
 
 If the error occurs immediately after updating your version of TimescaleDB and
-the file mentioned is from the previous version, it is probably due to an incomplete
-update process. Within the greater PostgreSQL server instance, each
+the file mentioned is from the previous version, it is probably due to an
+incomplete update process. Within the greater PostgreSQL server instance, each
 database that has TimescaleDB installed needs to be updated with the SQL command
-`ALTER EXTENSION timescaledb UPDATE;` while connected to that database. Otherwise,
-the database will be looking for the previous version of the timescaledb files.
+`ALTER EXTENSION timescaledb UPDATE;` while connected to that database.
+Otherwise, the database looks for the previous version of the `timescaledb` files.
 
 See [our update docs][update-db] for more info.
 
 ### Scheduled jobs stop running
-If your scheduled jobs stop running, try restarting the background workers:
-```
+
+Your scheduled jobs might stop running for various reasons. On self-hosted
+TimescaleDB, you can fix this by restarting background workers:
+
+```sql
 SELECT _timescaledb_internal.start_background_workers();
 ```
 
+<CloudMSTRestartWorkers />
+
+### Failed to start a background worker
+
+You might see this error message in the logs if background workers aren't
+properly configured:
+
+```bash
+"<TYPE_OF_BACKGROUND_JOB>": failed to start a background worker
+```
+
+To fix this error, make sure that `max_worker_processes`,
+`max_parallel_workers`, and `timescaledb.max_background_workers` are properly
+set. `timescaledb.max_background_workers` should equal the number of databases
+plus the number of concurrent background workers. `max_worker_processes` should
+equal the sum of `timescaledb.max_background_workers` and
+`max_parallel_workers`.
+
+For more information, see the [worker configuration docs][worker-config].
+
 ## Getting more information
 
-###  EXPLAINing query performance
+### EXPLAINing query performance
 
 PostgreSQL's EXPLAIN feature allows users to understand the underlying query
 plan that PostgreSQL uses to execute a query. There are multiple ways that
@@ -104,6 +131,7 @@ or via [slack][], providing the EXPLAIN output of a
 query is immensely helpful.
 
 ### View logs in Docker
+
 If you have TimescaleDB installed in a Docker container, you can view your logs
 using Docker, instead of looking in `/var/lib/logs` or `/var/logs`. For more
 information, see the [Docker documentation on logs][docker-logs].
@@ -131,3 +159,4 @@ and then inspect `dump_file.txt` before sending it together with a bug report or
 [track_io_timing]: https://www.postgresql.org/docs/current/static/runtime-config-statistics.html#GUC-TRACK-IO-TIMING
 [update-db]: /timescaledb/:currentVersion:/how-to-guides/upgrades/
 [using explain]: https://www.postgresql.org/docs/current/static/using-explain.html
+[worker-config]: /timescaledb/latest/how-to-guides/configuration/about-configuration/#workers

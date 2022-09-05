@@ -22,10 +22,6 @@ _Use this template for reporting bugs in the docs._
 
 [Provide the URL to the page you noticed the bug on]
 
-# Version affected
-
-[Which version of the site you noticed the bug on]
-
 # Subject matter expert (SME)
 
 [If known, who is a good person to ask about this topic]
@@ -37,3 +33,10 @@ _Use this template for reporting bugs in the docs._
 # Any further info
 
 [Anything else you want to add, or further links]
+
+## Contributing to documentation
+
+We welcome documentation contributions!
+
+* For information about how to suggest a change, see the [contributing guide](https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md) in our GitHub repository.
+* For information on style and word usage, see the [style guide](https://docs.timescale.com/timescaledb/latest/contribute-to-docs)

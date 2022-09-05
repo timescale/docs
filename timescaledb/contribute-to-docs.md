@@ -5,6 +5,7 @@ tags: [contribute, docs, style guide]
 ---
 
 # Contributing to Timescale documentation
+
 Timescale documentation is hosted in a [GitHub repository][github-docs]  and is
 open for contribution from all community members. If you  find errors or would
 like to add content to our docs, you can create a pull request using GitHub for
@@ -32,17 +33,20 @@ community is free and confident in its ability to use your contributions. You
 are prompted to sign the CLA during the pull request process.
 
 ## Resources
+
 When making style decisions, consult resources in this order:
+
 1.  This guide: always check this guide first, it contains project-specific
-guidance, and in some cases differs from the other resources listed here.
+    guidance, and in some cases differs from the other resources listed here.
 1.  The [Google Developer Documentation Style Guide][google-style]: for most
-general style guidance, we rely on the style defined here.
+    general style guidance, we rely on the style defined here.
 1.  The Chicago Manual of Style: we use this guide for some formatting decisions
-that are not covered in other resources
+    that are not covered in other resources
 1.  Merriam-Webster: Timescale documentation is written in US English, for
-spelling and definitions, consult the dictionary.
+    spelling and definitions, consult the dictionary.
 
 ## Language
+
 We use standard US English, with an emphasis on plain (or classical) language,
 in simple present tense, using the second person singular ("you"). We prefer the
 active voice, but do not be afraid to use the passive voice if it serves a
@@ -50,10 +54,11 @@ purpose. Always choose the simplest and clearest language, regardless of whether
 it's passive or active voice.
 
 For example, here are three ways of writing one sentence:
+
 *   Natural English: In order to perform X installation process, please ensure
-that all of the following steps are done ...
-*   Tech writer's English: To perform the X installation process, verify you have
-done the subsequent steps ...
+    that all of the following steps are done ...
+*   Tech writer's English: To perform the X installation process, verify you
+    have done the subsequent steps ...
 *   Plain English: To install X, do these steps ...
 
 Remember that the order of words is important in English. Put the most important
@@ -72,6 +77,7 @@ readers know it later in the document. You can use cross-references to help
 guide readers to further information if they need it.
 
 ## Grammar
+
 Grammar rules are tacit evolving conventions. They have no implicit value by
 themselves, they only gain value because everyone is doing it.
 
@@ -80,7 +86,70 @@ or ending sentences with prepositions. Obeying these rules can often make
 language clearer but, in some cases, they make language more complicated. In
 that case, feel free to ignore them.
 
+## Headings
+
+All headings should be written in sentence case: capitalize only the first word
+in the heading, and proper nouns.
+
+For top-level page headings, and most section headings, use the simplest noun
+phrase possible. For example, instead of "Using hypertables", call the page
+"Hypertables".
+
+For level two sections that contain one or more procedures, use a simple verb
+phrase. For example, "Install TimescaleDB". For the associated procedures, use a
+level three heading, with the gerund form of the same heading. For example,
+"Installing TimescaleDB".
+
+## Processes and procedures
+
+We use processes and procedures to provide readers with numbered steps to
+achieve a specific goal.
+
+Processes contain procedures. If the task you are describing is very lengthy, or
+has a series of distinct components, break it up into a series of procedures
+within a process.
+
+Procedures contain these elements:
+
+<!-- markdownlint-disable -->
+
+1.  Level two section title in simple verb form
+1.  Short introduction
+1.  Open `<procedure>` tag
+1.  Level three procedure title in gerund verb form
+1.  Numbered steps
+1.  Screenshot
+1.  Close `</procedure>` tag
+
+<!-- markdownlint-enable -->
+
+For example:
+
+```txt
+## Install TimescaleDB
+
+This section describes how to install TimescaleDB on premise.
+
+<procedure>
+
+### Installing TimescaleDB
+
+1. Start each step with a verb, or a location.
+1. For example, "Run the `example` command", or "At the command prompt, open the
+   `example` file."
+
+<Add screenshot here>
+
+</procedure>
+
+```
+
+In general, do not use result statements. However, if you feel it is absolutely
+necessary, include it immediately before the closing procedure tag, and do not
+put it as a step.
+
 ## Verbs
+
 *   `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
 *   `Press` a key or key combination on a keyboard.
 *   `Type` words or numbers using a keyboard.
@@ -88,10 +157,14 @@ that case, feel free to ignore them.
 *   `Select` or `deselect` an item in a menu.
 *   `Navigate` to a page or location in a graphical user interface.
 
-
 ## Word usage
 
 ### A [](#A)
+
+*Above*
+: Avoid all directional words. You cannot guarantee that things will stay in the
+same position, or be in the position you expect on an individual reader's
+device.
 
 *Adverbs*
 : Do not use.
@@ -107,12 +180,35 @@ that case, feel free to ignore them.
 
 &#128077; I like apples and oranges.
 
+*Appears*
+: Do not use.
+
 ### B [](#B)
+
+*Bare metal*
+: Noun.
+&#128077; "Install TimescaleDB on bare metal."
+
+&#10060; "Perform a bare metal installation."
+
+*Bare-metal*
+: Noun.
+&#128077; "Perform a bare-metal installation."
+
+&#10060; "Install TimescaleDB on bare-metal."
+
+*Below*
+: Avoid all directional words. You cannot guarantee that things will stay in the
+same position, or be in the position you expect on an individual reader's
+device.
 
 ### C [](#C)
 
 *Contractions*
 : Absolutely fine to use, but try not to overdo it.
+
+*Cybersecurity*
+: One word.
 
 ### D [](#D)
 
@@ -153,6 +249,13 @@ device.
 
 ### O [](#O)
 
+*Once*
+: Do not use. Use "when" instead.
+
+&#10060; "Once you have finished the installation, you can..."
+
+&#128077; "When you have finished the installation, you can."
+
 ### P [](#P)
 
 *Previous*
@@ -174,6 +277,9 @@ device.
 ### R [](#R)
 
 ### S [](#S)
+
+*Superuser*
+: One word.
 
 ### T [](#T)
 
@@ -197,6 +303,14 @@ device.
 &#10060; "TimescaleDB is hosting a virtual event."
 
 &#10060; "I want to install TimeScaleDB"
+
+*tobs*
+: The observability suite. Do not use capitalization, even when it begins
+a sentence. If possible, rewrite the sentence to avoid this.
+
+&#128077; "Install using tobs"
+
+&#10060; "Tobs can be used to install."
 
 ### U [](#U)
 

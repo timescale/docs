@@ -1,13 +1,15 @@
 ---
 api_name: timescaledb_information.data_nodes
 excerpt: Get information on data nodes in a multi-node cluster
-license: community
-topic: multi-node
+topics: [information, multi-node]
 keywords: [multi-node, information]
 tags: [data nodes, cluster]
+api:
+  license: community
+  type: view
 ---
 
-# timescaledb_information.data_nodes 
+# timescaledb_information.data_nodes
 
 Get information on data nodes. This function is specific to running
 TimescaleDB in a multi-node setup.
@@ -34,11 +36,11 @@ SELECT * FROM timescaledb_information.data_nodes;
 (2 rows)
 ```
 
-## timescaledb_information.hypertables 
+## timescaledb_information.hypertables
 
 Get metadata information about hypertables.
 
-### Available columns 
+### Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -53,7 +55,7 @@ Get metadata information about hypertables.
 | `data_nodes` | ARRAY | Nodes on which hypertable is distributed|
 | `tablespaces` | ARRAY | Tablespaces attached to the hypertable |
 
-### Sample usage 
+### Sample usage
 
 Get information about a hypertable.
 

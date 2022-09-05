@@ -5,8 +5,10 @@ keywords: [continuous aggregates, troubleshooting]
 ---
 
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
+import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
 
 # Troubleshooting continuous aggregates
+
 This section contains some ideas for troubleshooting common problems experienced
 with continuous aggregates.
 
@@ -21,6 +23,7 @@ with continuous aggregates.
 -->
 
 ## Retention policies
+
 If you have hypertables that use a different retention policy to your continuous
 aggregates, the retention policies are applied separately. The retention policy
 on a hypertable determines how long the raw data is kept for. The retention
@@ -30,6 +33,7 @@ week and a continuous aggregate with a retention policy of a month, the raw
 data is kept for a week, and the continuous aggregate is kept for a month.
 
 ## Insert irregular data into a continuous aggregate
+
 Materialized views are generally used with ordered data. If you insert historic
 data, or data that is not related to the current time, you need to refresh
 policies and reevaluate the values that are dragging from past to present.
@@ -43,6 +47,7 @@ need to refresh E and F.  However, if you insert C we'll need to refresh C, D, E
 and F.
 
 For example:
+
 1.  A, B, D, and F are already materialized in a view with all data.
 1.  To insert C, split the data into `AB` and `DEF` subsets.
 1.  `AB` are consistent and the materialized data is too; you only need to
@@ -58,16 +63,14 @@ be hard to refresh and would make more sense to isolate these columns in another
 hypertable. Alternatively, you might create one hypertable per metric and
 refresh them independently.
 
-### Updates to previously materialized regions are not shown in real-time aggregates
-If you have a time bucket that has already been materialized, the real-time
-aggregate does not show the data that has been inserted, updated, or deleted 
-into that bucket until the next `refresh_continuous_aggregate` call is executed.
-The continuous aggregate is refreshed either when you manually call 
-`refresh_continuous_aggregate` or when a continuous aggregate policy is executed. 
-This worked example shows the expected behavior of continuous aggregates, when
-real time aggregation is enabled.
+## Updates to previously materialized regions are not shown in real-time aggregates
+
+<CaggsRealTimeHistoricalDataRefreshes />
+
+The following example shows how this works.
 
 Create and fill the hypertable:
+
 ```sql
 CREATE TABLE conditions(
   day DATE NOT NULL,
@@ -98,6 +101,7 @@ INSERT INTO conditions (day, city, temperature) VALUES
 
 Create a continuous aggregate but do not materialize any data. Note that real
  time aggregation is enabled by default:
+
 ```sql
 CREATE MATERIALIZED VIEW conditions_summary
 WITH (timescaledb.continuous) AS
@@ -119,6 +123,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
  ```
 
 Materialize data into the continuous aggregate:
+
 ```sql
 CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
 
@@ -132,6 +137,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
 ```
 
 Update the data in the previously materialized bucket:
+
 ```sql
 UPDATE conditions
 SET temperature = 35
@@ -141,6 +147,7 @@ WHERE day = '2021-06-14' and city = 'Moscow';
 The updated data is not yet visible when you query the continuous aggregate. This
 is because these changes have not been materialized.( Similarly, any
 INSERTs or DELETEs would also not be visible).
+
 ```sql
 SELECT * FROM conditions_summary ORDER BY bucket;
   city  |   bucket   | min | max
@@ -150,6 +157,7 @@ SELECT * FROM conditions_summary ORDER BY bucket;
 ```
 
 Refresh the data again to update the previously materialized region:
+
 ```sql
 CALL refresh_continuous_aggregate('conditions_summary', '2021-06-14', '2021-06-21');
 
@@ -161,24 +169,24 @@ SELECT * FROM conditions_summary ORDER BY bucket;
 ```
 
 ## Queries that work on regular tables, fail on continuous aggregates
+
 Continuous aggregates don't work on all queries. If you are using a function
 that continuous aggregates do not support, you see an error like this:
+
 ```sql
 ERROR:  invalid continuous aggregate view
 SQL state: 0A000
 ```
 
-TimescaleDB doesn't support window functions or `JOIN` clauses on continuous
-aggregates. In versions earlier than 2.7, it doesn't support any
-[non-parallelizable SQL aggregates][postgres-parallel-agg].
-
 <CaggsFunctionSupport />
 
 ## Queries using locf() do not return NULL values
+
 When you have a query that uses a last observation carried forward (locf)
 function, the query carries forward NULL values by default. If you want the
 function to ignore NULL values instead, you can set `treat_null_as_missing=TRUE`
 as the second parameter in the query. For example:
+
 ```sql
 dev=# select * FROM (select time_bucket_gapfill(4, time,-5,13), locf(avg(v)::int,treat_null_as_missing:=true) FROM (VALUES (0,0),(8,NULL)) v(time, v) WHERE time BETWEEN 0 AND 10 GROUP BY 1) i ORDER BY 1 DESC;
  time_bucket_gapfill | locf
@@ -193,10 +201,12 @@ dev=# select * FROM (select time_bucket_gapfill(4, time,-5,13), locf(avg(v)::int
 ```
 
 ## Cannot refresh compressed chunks of a continuous aggregate
+
 Compressed chunks of a continuous aggregate can't be refreshed. This follows
 from a general limitation where compressed chunks can't be updated or deleted.
 
 If you try to refresh the compressed regions, you get this error:
+
 ```
 ERROR:  cannot update/delete rows from chunk <CHUNK_NAME> as it is compressed
 ```
@@ -205,6 +215,86 @@ If you receive historical data and must refresh a compressed region, first
 [decompress the chunk][decompression]. Then manually run
 [`refresh_continuous_aggregate`][refresh_continuous_aggregate].
 
+## Continuous aggregate watermark is in the future
+
+Continuous aggregates use a watermark to indicate which time buckets have
+already been materialized. When you query a continuous aggregate, your query
+returns materialized data from before the watermark. It returns real-time,
+non-materialized data from after the watermark.
+
+In certain cases, the watermark might be in the future. If this happens, all
+buckets, including the most recent bucket, are materialized and below the
+watermark. No real-time data is returned.
+
+This might happen if you refresh your continuous aggregate over the time window
+`<START_TIME>, NULL`, which materializes all recent data. It might also happen
+if you create a continuous aggregate using the `WITH DATA` option. This also
+implicitly refreshes your continuous aggregate with a window of `NULL, NULL`.
+
+To fix this, create a new continuous aggregate using the `WITH NO DATA` option.
+Then use a policy to refresh this continuous aggregate over an explicit time
+window.
+
+<procedure>
+
+### Creating a new continuous aggregate with an explicit refresh window
+
+1.  Create a continuous aggregate using the `WITH NO DATA` option.
+
+    ```sql
+    CREATE MATERIALIZED VIEW <continuous_aggregate_name>
+        WITH (timescaledb.continuous)
+        AS SELECT time_bucket('<interval>', <time_column>),
+        <other_columns_to_select>,
+        ... 
+        FROM <hypertable>
+        GROUP BY bucket, <optional_other_columns>
+        WITH NO DATA;
+    ```
+
+1.  Refresh the continuous aggregate using a policy with an explicit
+    `end_offset`. For example:
+
+    ```sql
+    SELECT add_continuous_aggregate_policy('<continuous_aggregate_name>',
+        start_offset => INTERVAL '30 day',
+        end_offset => INTERVAL '1 hour',
+        schedule_interval => INTERVAL '1 hour');
+    ```
+
+1.  Check your new continuous aggregate's watermark to make sure it is in the
+    past, not the future.
+
+    Get the ID for the materialization hypertable that contains the actual
+    continuous aggregate data:
+
+    ```sql
+    SELECT id from _timescaledb_catalog.hypertable 
+        WHERE table_name=(
+            SELECT materialization_hypertable_name 
+                FROM timescaledb_information.continuous_aggregates
+                WHERE view_name='<continuous_aggregate_name'
+        );
+    ```
+
+1.  Use the returned ID to query for the watermark's timestamp:
+
+    ```sql
+    SELECT COALESCE(
+        _timescaledb_internal.to_timestamp(_timescaledb_internal.cagg_watermark(<ID>)),
+        '-infinity'::timestamp with time zone
+    );
+    ```
+
+<highlight type="warning">
+If you choose to delete your old continuous aggregate after creating a new one,
+beware of historical data loss. If your old continuous aggregate contained data
+that you dropped from your original hypertable, for example through a data
+retention policy, the dropped data is not included in your new continuous
+aggregate.
+</highlight>
+
+</procedure>
+
 [decompression]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
-[postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [refresh_continuous_aggregate]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/

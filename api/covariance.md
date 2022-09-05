@@ -1,13 +1,20 @@
 ---
 api_name: covariance()
 excerpt: Calculate the covariance from values in a 2-dimensional `StatsSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [covariance, statistics, statistical aggregate, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: statistical aggregates
+  type: accessor, 2D
+  aggregates:
+    - stats_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'statistical aggregates'
 hyperfunction_subfamily: 'statistical aggregates'
 hyperfunction_type: accessor-2d
@@ -21,10 +28,11 @@ covariance(
     method TEXT 
 ) RETURNS DOUBLE PRECISION
 ```
-The covariance of the [least squares fit][least-squares] line 
-computed from a two-dimensional statistical aggregate. 
 
-The `method` determines whether you calculate a 'population' or 'sample' covariance. 
+The covariance of the [least squares fit][least-squares] line
+computed from a two-dimensional statistical aggregate.
+
+The `method` determines whether you calculate a 'population' or 'sample' covariance.
 These values can be provided as their full names, or you can abbreviate them as `pop` or `samp`. These
 are the only four accepted values for the `method` argument. The default is `sample`.
 
@@ -59,7 +67,6 @@ SELECT
 FROM foo
 GROUP BY id, time_bucket('15 min'::interval, ts)
 ```
-
 
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
