@@ -2,7 +2,7 @@
 api_name: rollup()
 excerpt: Roll up multiple `CounterSummary` aggregates
 topics: [hyperfunctions]
-hyperfunctions: [counters, rollup, hyperfunctions, toolkit]
+keywords: [counters, rollup, hyperfunctions, toolkit]
 api:
   license: community
   type: function

@@ -3,7 +3,7 @@ api_name: skewness() | skewness_y() | skewness_x()
 excerpt: Calculate the skewness from values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-type:
+api:
   license: community
   type: function
   toolkit: true

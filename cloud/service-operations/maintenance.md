@@ -6,6 +6,7 @@ keywords: [updates, upgrades, maintenance]
 ---
 
 # Service operations - Maintenance
+
 On Timescale Cloud, minor software updates are handled automatically by us, and
 you do not need to perform any actions.
 
@@ -33,7 +34,17 @@ we might not be able to do so. It is important that you schedule your
 maintenance window to minimize the disruption that a short downtime might have
 on your workloads.
 
+To track the status of maintenance events, see the Timescale Cloud
+[status page][status-page].
+
+<highlight type="note">
+To apply changes manually instead of waiting for the maintenance window,
+`Pause` then `Resume` your service. Maintenance changes are automatically
+applied when your service is resumed.
+</highlight>
+
 ## Non-critical maintenance updates
+
 Non-critical upgrades are made available before the upgrade is performed
 automatically. During this time you can click `Apply upgrades` to start the
 upgrade at any time. However, after the time expires, usually around a week,
@@ -53,6 +64,7 @@ system during the upgrade.
 <procedure>
 
 ### Adjusting your maintenance window
+
 1.  [Log in to your Timescale Cloud account][cloud-login]. Click the name of the
     service that you want to manage the maintenance window for.
 1.  In the `Operations` tab, navigate to the `Maintenance` section, and
@@ -68,6 +80,7 @@ system during the upgrade.
 </procedure>
 
 ## Critical updates
+
 Critical upgrades and security fixes are installed outside normal maintenance
 windows when necessary, and sometimes require a short outage. In this case, the
 downtime is usually between 30&nbsp;seconds and 5&nbsp;minutes. We endeavor to
@@ -75,10 +88,7 @@ notify you on email ahead of the upgrade if downtime is required, so that you
 can plan accordingly. However, in some cases, we might not be able to do so.
 
 <highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-
 </highlight>
 
+[status-page]: https://status.timescale.com/
 [cloud-login]: https://cloud.timescale.com
-[operations-forking]: /cloud/:currentVersion:/operations/#fork-a-service
-[postgres-relnotes]: https://www.postgresql.org/docs/release/
-[timescale-relnotes]: /timescaledb/:currentVersion:/overview/release-notes/
