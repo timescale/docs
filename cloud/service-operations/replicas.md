@@ -23,6 +23,10 @@ To learn more about how replicas work in Timescale Cloud, see the section on
 To learn how to create a replica, see the section on
 [creating replicas](#create-a-database-replica).
 
+<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+
+</highlight>
+
 ## How replicas work
 Replicas in Timescale Cloud are asynchronous hot standbys. They use streaming
 replication to minimize the chance of data loss during failover. To learn more,
