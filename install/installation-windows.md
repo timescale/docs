@@ -8,25 +8,32 @@ keywords: [install, self-hosted, Windows]
 ---
 
 # Install self-hosted TimescaleDB on Windows systems
+
 You can host TimescaleDB yourself on your Microsoft Windows system.
 These instructions use a `zip` installer on these versions:
+
 *   Microsoft Windows 10
 *   Microsoft Windows 11
 *   Microsoft Windows Server 2019
 
+The minimum supported PostgreSQL versions are:
+
+*   PostgreSQL 12.8
+*   PostgreSQL 13.5
+*   PostgreSQL 14.0
+
 <highlight type="warning">
-If you have already installed PostgreSQL using a method other than the `zip`
-installer provided here, you could encounter errors following these
-instructions. It is safest to remove any existing PostgreSQL installations
-before you begin. If you want to keep your current PostgreSQL installation, do
-not install TimescaleDB using this method.
-[Install from source](/install/latest/self-hosted/installation-source/)
-instead.
+If you have already installed PostgreSQL using another method, you could
+encounter errors following these instructions. It is safest to remove any
+existing PostgreSQL installations before you begin. If you want to keep your
+current PostgreSQL installation, do not install TimescaleDB using this method.
+[Install from source](/install/latest/self-hosted/installation-source/) instead.
 </highlight>
 
 <procedure>
 
-### Installing self-hosted TimescaleDB on Windows-based systems
+## Installing self-hosted TimescaleDB on Windows-based systems
+
 1.  Download and install the Visual C++ Redistributable for Visual Studio from
     [www.microsoft.com][ms-download].
 1.  Download and install PostgreSQL from [www.postgresql.org][pg-download].
@@ -50,6 +57,7 @@ script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
 ## Set up the TimescaleDB extension
+
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
 your local system using the `psql` command-line utility. This is the same tool
 you might have used to connect to PostgreSQL before, but if you haven't
@@ -58,33 +66,45 @@ installed it yet, check out our [installing psql][install-psql] section.
 <procedure>
 
 ### Setting up the TimescaleDB extension
+
 1.  On your local system, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
+
     ```powershell
     psql -U postgres -h localhost
     ```
+
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
-    ```
+
+    ```powershell
     psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
     SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
     Type "help" for help.
     tsdb=>
     ```
+
 1.  At the `psql` prompt, create an empty database. Our database is
     called `example`:
+
     ```sql
     CREATE database example;
     ```
+
 1.  Connect to the database you created:
+
     ```sql
     \c example
     ```
+
 1.  Add the TimescaleDB extension:
+
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
+
 1.  You can now connect to your database using this command:
+
     ```powershell
     psql -U postgres -h localhost -d example
     ```
@@ -93,6 +113,7 @@ installed it yet, check out our [installing psql][install-psql] section.
 
 You can check that the TimescaleDB extension is installed by using the `\dx`
 command at the `psql` prompt. It looks like this:
+
 ```sql
 tsdb=> \dx
 List of installed extensions
@@ -138,6 +159,7 @@ information on releases, check out the
     </tag>
 
 ## Where to next
+
 Now that you have your first TimescaleDB database up and running, you can check
 out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what
 you can do with it.

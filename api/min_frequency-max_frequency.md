@@ -1,22 +1,34 @@
 ---
-api_name: 'min_frequency() | max_frequency()'
+api_name: min_frequency() | max_frequency()
 excerpt: Calculate the minimum or maximum estimated frequencies of a value from a frequency aggregate
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [frequency, hyperfunctions, toolkit]
 tags: [minimum, maximum]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: accessor
+  aggregates:
+    - freq_agg()
+    - topn_agg()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
 ---
 
 # min_frequency() and max_frequency() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
+
 Returns the minimum or maximum estimated frequencies of a value within a
 dataset.
+
 ```sql
 max_frequency (
     agg SpaceSavingAggregate,
@@ -49,8 +61,10 @@ that appear with lower-than-threshold frequency are not tracked. Calling
 </highlight>
 
 ## Sample usage
+
 Find the minimum frequency of the value `3` in a column named `value` within the
 table `value_test`:
+
 ```sql
 SELECT toolkit_experimental.min_frequency(
     (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),
@@ -60,6 +74,7 @@ SELECT toolkit_experimental.min_frequency(
 
 Find the maximum frequency of the value `foo` in a column named `value` within
 the table `value_test`:
+
 ```sql
 SELECT toolkit_experimental.max_frequency(
     (SELECT toolkit_experimental.freq_agg(0.05, value) FROM value_test),

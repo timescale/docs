@@ -5,6 +5,8 @@ keywords: [noun, verb, tutorial]
 tags: [noun, noun]
 ---
 
+<!-- markdown-link-check-disable -->
+
 # Query the data
 
 Use this section to talk about the queries that readers can do on the dataset.

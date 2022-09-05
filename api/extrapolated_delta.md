@@ -1,20 +1,29 @@
 ---
 api_name: extrapolated_delta()
 excerpt: Calculate the extrapolated change in a counter from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [change, extrapolate]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # extrapolated_delta() <tag type="toolkit" content="Toolkit" />
+
 The change in the counter during the time period specified by the bounds in the
 CounterSummary. To calculate the extrapolated delta, any counter resets are
 accounted for and the observed values are extrapolated to the bounds using the
@@ -70,6 +79,5 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

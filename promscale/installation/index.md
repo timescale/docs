@@ -10,6 +10,7 @@ related_pages:
 ---
 
 # Install Promscale
+
 You can install Promscale in several different ways. The method you choose
 depends on if your system is instrumented and collecting telemetry, or if you
 need to set these up.
@@ -21,17 +22,8 @@ from your applications and infrastructure. It is expected that you use
 instrumentation set up, you can use Promscale to ingest the metric and
 trace data.
 
-<highlight type="note">
-The PostgreSQL `search_path` variable determines in what order schemas are
-searched and which objects such as tables, views, functions, and others do not
-require schema qualification to use. When you install Promscale, the Promscale
-extension modifies the `search_path` of the database that it is connected to
-and adds its public schemas to the search path. This makes querying Promscale
-data easier. The public schemas that Promscale adds are: `ps_tag`, `prom_api`,
-`prom_metric`, `ps_trace`. 
-</highlight>
-
 ## Install Promscale without instrumentation
+
 If you have Prometheus or OpenTelemetry installed, you can install Promscale
 on these environments:
 
@@ -47,6 +39,7 @@ When you have Promscale installed, you can configure
 [OpenTelemetry][config-otel] to send data to Promscale.
 
 ## Install Promscale with instrumentation
+
 If you have a Kubernetes environment, you can install a complete, pre-configured
 observability stack with Promscale. The observability stack (tobs) for
 Kubernetes includes Prometheus, OpenTelemetry, and Promscale.

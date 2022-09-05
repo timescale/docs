@@ -6,39 +6,30 @@ Jaeger and OpenTelemetry. It also includes some additional pre-configured toolin
 to get familiar with additional Promscale features, such as application performance
 monitoring dashboards and visualization tools.
 
-To learn more about how Promscale can improve your observability stack, see
-[About Promscale][about-promscale]. For instructions on installing Promscale in your
+For instructions on installing Promscale in your
 production or staging environments, see [Installing Promscale][install-promscale].
 
 Before you begin, make sure that you have [installed Docker Compose][docker-compose].
-
-## Install Promscale with Docker Compose
-To install Promscale with Docker Compose, you need to start by cloning the Promscale 
-[repository][gh-promscale], and then use the Docker Compose tool to install it. The 
-`docker-compose` directory contains services for these components:
-* Promscale for analytics and long term storage of metrics and traces
-* Prometheus with the node exporter to generate and collect metrics
-* A microservices application and the OpenTelemetry Collector to generate and collect traces
-* Grafana and Jaeger to visualize metrics and traces
 
 ### Installing Promscale with Docker Compose
 
 <procedure>
 
-1. Clone the repository that defines the services for Promscale:
+1. Clone the repository that defines the services for Promscale, change to
+   the `promscale-demo` directory and use docker compose to run Promscale:
    ```bash
    git clone git@github.com:timescale/promscale.git
-   ```
-1. Change to the `promscale-demo` directory:
-   ```bash
    cd promscale/docker-compose/promscale-demo
-   ```
-1. Use Docker Compose to run Promscale:
-   ```bash
    docker compose up -d
-   ```  
+   ```
 
 </procedure >
+
+The above quick start contains services for these below components:
+* Promscale for analytics and long term storage of metrics and traces
+* Prometheus with the node exporter to generate and collect metrics
+* A microservices application and the OpenTelemetry Collector to generate and collect traces
+* Grafana and Jaeger to visualize metrics and traces
 
 ## Explore data in Promscale
 When you have Promscale up and running, you can explore the services installed 
@@ -93,7 +84,5 @@ service and operation is at the origin of that increase.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/apm-upstream-dependency-dashboard.png" alt="A dashboard representing the upstream dependencies specific to a service"/>
 
-[gh-promscale]: https://github.com/timescale/promscale
 [docker-compose]: https://docs.docker.com/compose/install/
-[about-promscale]: /promscale/:currentVersion:/about-promscale
 [install-promscale]: /promscale/:currentVersion:/installation

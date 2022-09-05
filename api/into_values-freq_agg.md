@@ -1,14 +1,23 @@
 ---
 api_name: into_values()
 excerpt: Calculate all frequency estimates from a frequency aggregate or top N aggregate
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [frequency, top N, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: accessor
+  aggregates:
+    - freq_agg()
+    - topn_agg()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
@@ -17,6 +26,7 @@ hyperfunction_type: accessor
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # into_values()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+
 This function returns the data accumulated in a
 [frequency aggregate][freq_agg] or [top N aggregate][topn_agg].
 The aggregate operates over `AnyElement` types, so this method
@@ -39,14 +49,17 @@ requires a type parameter to determine the type of the output.
 |`max_freq`|`DOUBLE PRECISION`|The maximum frequency of the value in the originating data|
 
 ## Sample usage
-This test uses a table of randomly generated data. The values used are the integer 
+
+This test uses a table of randomly generated data. The values used are the integer
 square roots of a random number in the range (0,400).
+
 ```sql
 CREATE TABLE value_test(value INTEGER);
 INSERT INTO value_test SELECT floor(sqrt(random() * 400)) FROM generate_series(1,100000);
 ```
 
 This returns values representing more than 5% of the input:
+
 ```sql
 SELECT value, min_freq, max_freq
 FROM toolkit_experimental.into_values(
@@ -54,6 +67,7 @@ FROM toolkit_experimental.into_values(
 ```
 
 The output for this query looks like this, with some variation due to randomness:
+
 ```sql
  value | min_freq | max_freq 
 -------+----------+----------

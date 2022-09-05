@@ -1,13 +1,16 @@
 ---
 api_name: timescaledb_information.jobs
 excerpt: Get information about all jobs registered with the automatic scheduler
-license: community
-topic: jobs
+topics: [information, jobs]
 keywords: [jobs, information]
 tags: [background jobs, scheduled jobs, user-defined actions, automation framework]
+api:
+  license: community
+  type: view
 ---
 
 ## timescaledb_information.jobs
+
 Shows information about all jobs registered with the automation framework.
 
 ### Arguments
@@ -32,6 +35,7 @@ Shows information about all jobs registered with the automation framework.
 ### Sample use
 
 Shows a job associated with the refresh policy for continuous aggregates:
+
 ```sql
 SELECT * FROM timescaledb_information.jobs;
 job_id            | 1001
@@ -73,6 +77,7 @@ hypertable_name   | conditions
 ```
 
 Find jobs that are run by user defined actions:
+
 ```sql
 SELECT * FROM timescaledb_information.jobs where application_name like 'User-Define%';
 -[ RECORD 1 ]-----+------------------------------
