@@ -1,7 +1,7 @@
 ---
 api_name: attach_data_node()
 excerpt: Attach a data node to a distributed hypertable
-topics: [multi-node, distributed hypertables]
+topics: [distributed hypertables, multi-node]
 keywords: [multi-node, distributed hypertables]
 tags: [distributed hypertables, data nodes, attach]
 api:

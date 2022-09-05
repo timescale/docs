@@ -4,10 +4,10 @@ module.exports = [
     filePath: "index.md",
     href: "cloud",
     name: "About Timescale Cloud",
-    excerpt: "Timescale Cloud is a fully managed, hosted TimescaleDB service",
+    excerpt:
+      "Timescale Cloud is a cloud-native TimescaleDB as a service that is easy to get started and powerful enough for the most demanding scenarios",
     tags: ["tsc"],
     keywords: ["Timescale Cloud"],
-    excerpt: "Timescale Cloud documentation",
     children: [
       {
         title: "Services",
@@ -160,6 +160,18 @@ module.exports = [
             excerpt: "Timescale Cloud members list",
           },
         ],
+      },
+      {
+        title: "Integrations",
+        href: "integrations",
+        tags: ["integrations", "tsc", "datadog", "cloudwatch"],
+        keywords: [
+          "integrations",
+          "DataDog",
+          "AWS CloudWatch",
+          "Timescale Cloud",
+        ],
+        excerpt: "Export telemetry data to a third-party monitoring service",
       },
       {
         title: "Billing",
