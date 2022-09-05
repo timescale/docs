@@ -1,20 +1,29 @@
 ---
 api_name: num_elements()
 excerpt: Calculate the number of points with distinct times from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [distinct, count]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # num_elements() <tag type="toolkit" content="Toolkit" />
+
 The total number of points seen while calculating the CounterSummary. Only
 points with distinct times are counted, as duplicate times are usually discarded
 in these calculations.
@@ -56,6 +65,5 @@ FROM (
     GROUP BY id, time_bucket('15 min'::interval, ts)
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

@@ -1,14 +1,21 @@
 ---
 api_name: min_val()
 excerpt: Calculate the minimum from values in a `tdigest`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [tdigest, hyperfunctions, toolkit]
 tags: [minimum, percentiles]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: accessor
+  aggregates:
+    - tdigest()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: false
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: accessor
@@ -32,6 +39,7 @@ compute a single percentile estimator and do not need to specify a separate
     [hyperfunctions documentation][hyperfunctions-percentile-approx].
 
 ## Required arguments
+
 |Name|Type|Description|
 |-|-|-|
 |`digest`|`TDigest`|The digest to extract the min value from|
@@ -54,7 +62,6 @@ FROM generate_series(1, 100) data;
 -----------
          1
 ```
-
 
 [hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/

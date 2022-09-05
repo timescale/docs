@@ -1,14 +1,23 @@
 ---
 api_name: rollup()
 excerpt: Roll up multiple percentile aggregates, `uddsketch`es, or `tdigest`s
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [rollup, percentiles, hyperfunctions, toolkit]
 tags: [uddsketch, tdigest]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: rollup
+  aggregates:
+    - percentile_agg()
+    - tdigest()
+    - uddsketch()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: rollup
@@ -21,6 +30,7 @@ rollup(
     sketch uddsketch
 ) RETURNS UddSketch
 ```
+
 ```SQL
 rollup(
     digest tdigest
@@ -62,8 +72,10 @@ additional errors compared to calculating the estimator directly on the
 underlying data.
 
 ## Sample usage
+
 Re-aggregate an hourly continuous aggregate into daily buckets, the usage with
 `uddsketch` & `tdigest` is exactly the same:
+
 ```SQL
 CREATE MATERIALIZED VIEW foo_hourly
 WITH (timescaledb.continuous)

@@ -37,14 +37,14 @@ module.exports = [
             excerpt: "Install psql to connect to TimescaleDB",
           },
           {
-            title: "Install Azure Data Studio",
+            title: "Connect using Azure Data Studio",
             href: "azure-data-studio",
             tags: ["connect", "install", "timescaledb"],
             keywords: ["TimescaleDB", "connect", "install"],
             excerpt: "Install Azure Data Studio to connect to TimescaleDB",
           },
           {
-            title: "Install DBeaver",
+            title: "Connect using DBeaver",
             href: "dbeaver",
             tags: ["connect", "install", "timescaledb"],
             keywords: ["TimescaleDB", "connect", "install"],
@@ -699,6 +699,13 @@ module.exports = [
             keywords: ["action", "example", "TimescaleDB"],
             excerpt: "Example user-defined action for downsample and compress",
           },
+          {
+            title: "Use an action to backfill data periodically",
+            href: "example-backfill",
+            tags: ["action", "example", "backfill", "timescaledb"],
+            keywords: ["action", "example", "backfill", "TimescaleDB"],
+            excerpt: "Example user-defined action for scheduled backfills",
+          }
         ],
       },
       {

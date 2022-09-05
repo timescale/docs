@@ -1,10 +1,12 @@
 ---
 api_name: delete_data_node()
 excerpt: Remove a data node from a database and detach it from all hypertables
-license: community
-topic: multi-node
+topics: [distributed hypertables, multi-node]
 keywords: [multi-node]
 tags: [distributed hypertables, data nodes, detach, delete]
+api:
+  license: community
+  type: function
 ---
 
 ## delete_data_node() <tag type="community">Community</tag>
@@ -57,6 +59,7 @@ A boolean indicating if the operation was successful or not.
 ### Sample usage
 
 To delete a data node named `dn1`:
+
 ```sql
 SELECT delete_data_node('dn1');
 ```

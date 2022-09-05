@@ -1,10 +1,12 @@
 ---
 api_name: detach_data_node()
 excerpt: Detach a data node from one or all hypertables
-license: community
-topic: multi-node
+topics: [distributed hypertables, multi-node]
 keywords: [multi-node, detach]
 tags: [distributed hypertables, cluster, data nodes]
+api:
+  license: community
+  type: function
 ---
 
 ## detach_data_node() <tag type="community">Community</tag>
@@ -13,9 +15,9 @@ Detach a data node from one hypertable or from all hypertables.
 
 Reasons for detaching a data node include:
 
-- A data node should no longer be used by a hypertable and needs to be
+*   A data node should no longer be used by a hypertable and needs to be
 removed from all hypertables that use it
-- You want to have fewer data nodes for a distributed hypertable to
+*   You want to have fewer data nodes for a distributed hypertable to
 partition across
 
 ### Required arguments
@@ -40,9 +42,10 @@ The number of hypertables the data node was detached from.
 #### Errors
 
 Detaching a node is not permitted:
-- If it would result in data loss for the hypertable due to the data node
+
+*   If it would result in data loss for the hypertable due to the data node
 containing chunks that are not replicated on other data nodes
-- If it would result in under-replicated chunks for the distributed hypertable
+*   If it would result in under-replicated chunks for the distributed hypertable
 (without the `force` argument)
 
 <highlight type="tip">

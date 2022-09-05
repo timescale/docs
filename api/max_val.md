@@ -1,14 +1,21 @@
 ---
 api_name: max_val()
 excerpt: Calculate the maximum from values in a `tdigest`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [tdigest, hyperfunctions, toolkit]
 tags: [percentiles, maximum]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: accessor
+  aggregates:
+    - tdigest()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: false
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: accessor
@@ -33,11 +40,13 @@ aggregates. You can calculate a single percentile estimator by extracting the
     [hyperfunctions documentation][hyperfunctions-percentile-approx].
 
 ### Required arguments
+
 |Name|Type|Description|
 |-|-|-|
 |`digest`|`TDigest`|The digest to extract the max value from|
 
 ### Returns
+
 |Column|Type|Description|
 |-|-|-|
 |`max_val`|`DOUBLE PRECISION`|The maximum value entered into the t-digest.|
@@ -54,7 +63,6 @@ FROM generate_series(1, 100) data;
 ---------
      100
 ```
-
 
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
 [hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/

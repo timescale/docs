@@ -1,23 +1,25 @@
 ---
 api_name: timescaledb_information.job_stats
 excerpt: Get information and statistics about automatically run jobs
-license: community
-topic: jobs
+topics: [information, jobs]
 keywords: [jobs, information]
 tags: [background jobs, scheduled jobs, automation framework, scheduled views, statistics]
+api:
+  license: community
+  type: view
 ---
 
-## timescaledb_information.job_stats 
+## timescaledb_information.job_stats
 
 Shows information and statistics about jobs run by the automation framework.
-This includes jobs set up for user defined actions and jobs run by policies 
+This includes jobs set up for user defined actions and jobs run by policies
 created to manage data retention, continuous aggregates, compression, and
-other automation policies.  (See [policies][actions]). 
+other automation policies.  (See [policies][actions]).
 The statistics include information useful for administering jobs and determining
 whether they ought be rescheduled, such as: when and whether the background job
 used to implement the policy succeeded and when it is scheduled to run next.
 
-### Available columns 
+### Available columns
 
 |Name|Type|Description|
 |---|---|---|
@@ -34,7 +36,7 @@ used to implement the policy succeeded and when it is scheduled to run next.
 |`total_successes` | BIGINT | The total number of times this job succeeded |
 |`total_failures` | BIGINT | The total number of times this job failed |
 
-### Sample usage 
+### Sample usage
 
 Get job success/failure information for a specific hypertable.
 
@@ -52,6 +54,7 @@ SELECT job_id, total_runs, total_failures, total_successes
 ```
 
 Get information about continuous aggregate policy related statistics
+
 ``` sql
 SELECT  js.* FROM
   timescaledb_information.job_stats js, timescaledb_information.continuous_aggregates cagg

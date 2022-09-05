@@ -1,13 +1,15 @@
 ---
 api_name: hypertable_compression_stats()
 excerpt: Get hypertable statistics related to compression
-license: community
-topic: compression
+topics: [compression]
 keywords: [compression, hypertables, information]
 tags: [statistics, size]
+api:
+  license: community
+  type: function
 ---
 
-## hypertable_compression_stats() <tag type="community">Community</tag> 
+## hypertable_compression_stats() <tag type="community">Community</tag>
 
 Get statistics related to hypertable compression.
 All sizes are in bytes.
@@ -18,7 +20,8 @@ All sizes are in bytes.
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to show stats for. |
 
-### Returns 
+### Returns
+
 |Column|Type|Description|
 |---|---|---|
 |`total_chunks` | BIGINT | the number of chunks used by the hypertable |
@@ -33,7 +36,8 @@ All sizes are in bytes.
 |`after_compression_total_bytes` | BIGINT | Size of the entire table (table+indexes+toast) after compression (NULL if currently uncompressed) |
 |`node_name` | TEXT | nodes on which the hypertable is located, applicable only to distributed hypertables |
 
-### Sample usage 
+### Sample usage
+
 ```sql
 SELECT * FROM hypertable_compression_stats('conditions');
 
@@ -52,6 +56,7 @@ node_name                      |
 ```
 
 Use `pg_size_pretty` get the output in a more human friendly format.
+
 ```sql
 SELECT pg_size_pretty(after_compression_total_bytes) as total
   FROM hypertable_compression_stats('conditions');

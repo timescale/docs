@@ -1,10 +1,12 @@
 ---
 api_name: hypertable_size()
 excerpt: Get the total disk space used by a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [hypertables, information]
 tags: [disk space, size]
+api:
+  license: apache
+  type: function
 ---
 
 ## hypertable_size()  
@@ -21,7 +23,8 @@ output of `hypertable_detailed_size` function.
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to show size of. |
 
-### Returns 
+### Returns
+
 |Name|Type|Description|
 |---|---|---|
 |hypertable_size| BIGINT | Total disk space used by the specified hypertable, including all indexes and TOAST data. |
@@ -30,8 +33,10 @@ output of `hypertable_detailed_size` function.
 `NULL` is returned if the function is executed on a non-hypertable relation.
 </highlight>
 
-### Sample usage 
+### Sample usage
+
 Get size information for a hypertable.
+
 ```sql
 SELECT hypertable_size('devices') ;
 
@@ -41,6 +46,7 @@ SELECT hypertable_size('devices') ;
 ```
 
 Get size information for all hypertables.
+
 ```sql
 SELECT hypertable_name, hypertable_size(format('%I.%I', hypertable_schema, hypertable_name)::regclass)
   FROM timescaledb_information.hypertables;

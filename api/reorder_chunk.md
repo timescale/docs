@@ -1,9 +1,11 @@
 ---
 api_name: reorder_chunk()
 excerpt: Reorder rows in a chunk
-license: community
-topic: hypertables
+topics: [hypertables]
 keywords: [chunks, hypertables, reorder]
+api:
+  license: community
+  type: function
 ---
 
 ## reorder_chunk() <tag type="community">Community</tag>
@@ -41,7 +43,6 @@ using [add_reorder_policy][add_reorder_policy] is often much more convenient.
 ### Returns
 
 This function returns void.
-
 
 ### Sample usage
 
