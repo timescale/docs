@@ -6,13 +6,14 @@ keywords: [analytics, Docker]
 tags: [install]
 related_pages:
   - /promscale/:currentVersion:/guides/resource-recomm/
-  - /promscale/:currentVersion:/send-data/ 
+  - /promscale/:currentVersion:/send-data/
 ---
 
 # Install Promscale using a Docker image
-You can use Docker to install 
-[TimescaleDB with the Promscale extension][timescaledb-docker-image], 
-and the [Promscale Connector][promscale-docker-image]. 
+
+You can use Docker to install
+[TimescaleDB with the Promscale extension][timescaledb-docker-image],
+and the [Promscale Connector][promscale-docker-image].
 The Docker images are available for download from Docker Hub.
 
 The TimescaleDB images have a suffix that indicates the version of PostgreSQL
@@ -29,18 +30,23 @@ example.
 </highlight>
 
 ## Install Promscale with Docker
+
 Before you begin, you must have Docker installed on your local system. For
 packages and instructions, see the [Docker installation documentation][docker-install].
 
 <procedure>
 
 ### Installing Promscale using Docker
+
 1.  Use Docker to create a network for Promscale and TimescaleDB:
+
     ```bash
     docker network create --driver bridge promscale
     ```
+
 1.  Install TimescaleDB in a Docker container on a network named `promscale`. It
     also port forwards to port `5432` on your local system:
+
     ```bash
     docker run --name timescaledb -e POSTGRES_PASSWORD=<password> \
     -d -p 5432:5432 \
@@ -48,8 +54,10 @@ packages and instructions, see the [Docker installation documentation][docker-in
     timescale/timescaledb-ha:pg14-latest \
     postgres -csynchronous_commit=off
     ```
+
 1.  Run the Promscale Connector Docker container on a network named `promscale`.
     It also port forwards to port `9201` on your local system:
+
     ```bash
     docker run --name promscale -d -p 9201:9201 \
     --network promscale timescale/promscale:latest \
@@ -62,14 +70,14 @@ packages and instructions, see the [Docker installation documentation][docker-in
 
 </procedure>
 
-After you have installed Promscale, you can ingest data.
-For instructions, see the [send data][send-data] section.
+<PromscaleSendData />
 
 For upgrading the Promscale, see the [upgrade] section.
 
 [alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
-[promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
 [send-data]: /promscale/:currentVersion:/send-data/
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
+[promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
+[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension

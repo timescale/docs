@@ -20,6 +20,10 @@ disk. For more information about autoscaling, including instructions for setting
 the maximum limit, or turning autoscaling off, see the
 [autoscaling][autoscaling] section.
 
+<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+
+</highlight>
+
 ## Online storage resizing
 You can increase your storage size in the Timescale Cloud console.
 
