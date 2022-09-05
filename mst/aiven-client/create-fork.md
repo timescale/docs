@@ -29,7 +29,8 @@ Before you begin, make sure you have:
 
 ## Creating a fork of your service
 
-1.  In the Aiven Client, log in to your [Managed Service for TimescaleDB dashboard][mst-login].
+1.  In the Aiven Client, connect to your
+    [Managed Service for TimescaleDB service][aiven-client-mst].
 
 1.  Switch to the project that contains the service you want to fork:
 
@@ -81,3 +82,4 @@ You can switch to `project-fork` and view the newly created `grafana-fork` using
 [aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
 [create-service]: /install/:currentVersion:/installation-mst/#create-your-first-service
 [mst-login]: https://portal.managed.timescale.com
+[aiven-client-mst]: /mst/:currentVersion:/aiven-client-install
