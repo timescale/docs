@@ -54,6 +54,14 @@ marked 'experimental' are still under development.
  sortByType
 />
 
+### Financial analysis
+
+<hyperfunctionTable
+    hyperfunctionFamily='financial analysis'
+    includeExperimental
+    sortByType
+/>
+
 ### Gapfilling and interpolation
 
 <hyperfunctionTable
