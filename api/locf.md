@@ -1,20 +1,24 @@
 ---
 api_name: locf()
 excerpt: Carry the last-seen value forward when gapfilling
-license: community
-toolkit: false
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [gapfill, interpolate, hyperfunctions, toolkit]
 tags: [missing values]
+api:
+  license: community
+  type: function
+hyperfunction:
+  family: gapfilling and interpolation
+  type: interpolator
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: false
 hyperfunction_family: 'gapfilling and interpolation'
 hyperfunction_subfamily: interpolation
 hyperfunction_type: other
 ---
 
 # locf() <tag type="community">Community</tag>
+
 The `locf` (last observation carried forward) function allows you to carry the
 last seen value in an aggregation group forward. It can only be used in an
 aggregation query with
@@ -48,8 +52,10 @@ expression is only evaluated when no previous value is returned by the outer
 query. For example, when the first bucket in the queried time range is empty.
 
 ## Sample usage
+
 Get the average temperature every day for each device over the last seven days,
 carrying forward the last value for missing readings:
+
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time, now() - INTERVAL '1 week', now()) AS day,
@@ -75,6 +81,7 @@ ORDER BY day;
 
 Get the average temperature every day for each device over the last seven days,
 carrying forward the last value for missing readings with out-of-bounds lookup:
+
 ```sql
 SELECT
   time_bucket_gapfill('1 day', time, now() - INTERVAL '1 week', now()) AS day,

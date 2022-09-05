@@ -1,13 +1,20 @@
 ---
 api_name: count_min_sketch()
 excerpt: Aggregate data in a `count_min_sketch` for calculation of estimates
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 tags: [hyperfunctions, frequency, count min sketch]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: aggregate
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: CountMinSketch
 hyperfunction_type: aggregate
@@ -16,6 +23,7 @@ hyperfunction_type: aggregate
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # count_min_sketch() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+
 Produces a [Count-Min Sketch][count-min-sketch] in the form of an aggregate that can be passed to the [`approx_count` function][approx-count] to estimate how many times a particular value has appeared in a column.
 
 ```sql
@@ -35,7 +43,6 @@ count_min_sketch(
 |`values`|`TEXT`|Column to aggregate|
 |`error`|`DOUBLE PRECISION`|Error tolerance in estimate, calculated relative to the number of values added to the sketch|
 |`probability`|`DOUBLE PRECISION`|Probability that an estimate falls outside the error bounds|
-
 
 ## Returns
 

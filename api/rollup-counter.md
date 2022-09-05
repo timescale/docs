@@ -1,13 +1,21 @@
 ---
 api_name: rollup()
 excerpt: Roll up multiple `CounterSummary` aggregates
-license: community
-toolkit: true
-topic: hyperfunctions
-hyperfunctions: [counters, rollup, hyperfunctions, toolkit]
+topics: [hyperfunctions]
+keywords: [counters, rollup, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: rollup
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: rollup
@@ -40,7 +48,6 @@ For more information about counter aggregation functions, see the
 |-|-|-|
 |`counter_agg`|CounterSummary|A CounterSummary object that can be passed to accessor functions or other objects in the counter aggregate API|
 
-
 ## Sample usage
 
 ```SQL
@@ -61,6 +68,5 @@ SELECT
     delta(counter_summary) / (SELECT delta(full_cs) FROM q LIMIT 1)  as normalized -- get the fraction of the delta that happened each day compared to the full change of the counter
 FROM t;
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

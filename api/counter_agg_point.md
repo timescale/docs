@@ -1,19 +1,25 @@
 ---
 api_name: counter_agg()
 excerpt: Aggregate counter data into a `CounterSummary` for further analysis
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, aggregates, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: aggregate
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: aggregate
 ---
 
 # counter_agg() <tag type="toolkit" content="Toolkit" />
+
 An aggregate that produces a CounterSummary from timestamps and associated
 values.
 
@@ -59,6 +65,7 @@ extrapolation, but not for other accessor functions.
 <!---Any special notes about the returns-->
 
 ## Sample usage
+
 This example produces a CounterSummary from timestamps and associated values,
 then computes the [`irate_right`][irate] accessor:
 
@@ -76,7 +83,6 @@ SELECT
     irate_right(cs) -- extract instantaneous rate from the CounterSummary
 FROM t;
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
 [irate]: /api/:currentVersion:/hyperfunctions/counter_aggs/irate/

@@ -1,20 +1,26 @@
 ---
 api_name: tdigest()
 excerpt: Aggregate data in a `tdigest` for further calculation of percentile estimates
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [percentiles, aggregate, hyperfunctions, toolkit]
 tags: [tdigest]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: aggregate
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'advanced aggregation'
 hyperfunction_type: aggregate
 ---
 
 # tdigest() <tag type="toolkit">Toolkit</tag>
+
 ```SQL
 tdigest(
     buckets INTEGER,
@@ -48,7 +54,6 @@ have subtle differences if the call is being parallelized by PostgreSQL.
 *   For some more technical details and usage examples of this algorithm,
     see the [developer documentation][gh-tdigest].
 
-
 ### Required arguments
 
 |Name| Type |Description|
@@ -63,20 +68,22 @@ have subtle differences if the call is being parallelized by PostgreSQL.
 |||A  `tdigest` object which can be passed to other  `tdigest` APIs|
 
 ### Sample usage
+
 This example uses a table called `samples`, with a column called `weights`, that
 holds `DOUBLE PRECISION` values. This query returns a digest over that column:
+
 ```SQL
 SELECT tdigest(100, data) FROM samples;
 ```
 
 This example builds a view from the aggregate that can be passed to other
 `tdigest` functions:
+
 ```SQL
 CREATE VIEW digest AS
     SELECT tdigest(100, data)
     FROM samples;
 ```
-
 
 [hyperfunctions-percentile-approx]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/
 [gh-tdigest]: https://github.com/timescale/timescaledb-toolkit/blob/main/docs/tdigest.md

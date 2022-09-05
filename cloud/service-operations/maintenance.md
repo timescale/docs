@@ -33,6 +33,15 @@ we might not be able to do so. It is important that you schedule your
 maintenance window to minimize the disruption that a short downtime might have
 on your workloads.
 
+To track the status of maintenance events, see the Timescale Cloud 
+[status page][status-page].
+
+<highlight type="note">
+To apply changes manually instead of waiting for the maintenance window,
+`Pause` then `Resume` your service. Maintenance changes are automatically
+applied when your service is resumed.
+</highlight>
+
 ## Non-critical maintenance updates
 Non-critical upgrades are made available before the upgrade is performed
 automatically. During this time you can click `Apply upgrades` to start the
@@ -74,6 +83,7 @@ downtime is usually between 30&nbsp;seconds and 5&nbsp;minutes. We endeavor to
 notify you on email ahead of the upgrade if downtime is required, so that you
 can plan accordingly. However, in some cases, we might not be able to do so.
 
+[status-page]: https://status.timescale.com/
 [cloud-login]: https://cloud.timescale.com
 [operations-forking]: /cloud/:currentVersion:/operations/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/

@@ -1,13 +1,15 @@
 ---
 api_name: show_tablespaces()
 excerpt: Show the tablespaces attached to a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [tablespaces, hypertables]
 tags: [show, get]
+api:
+  license: apache
+  type: function
 ---
 
-## show_tablespaces() 
+## show_tablespaces()
 
 Show the tablespaces attached to a hypertable.
 
@@ -17,8 +19,7 @@ Show the tablespaces attached to a hypertable.
 |---|---|---|
 | `hypertable` | REGCLASS | Hypertable to show attached tablespaces for.|
 
-
-### Sample usage 
+### Sample usage
 
 ```sql
 SELECT * FROM show_tablespaces('conditions');

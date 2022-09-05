@@ -5,6 +5,8 @@ keywords: [noun, verb, tutorial]
 tags: [noun, noun]
 ---
 
+<!-- markdown-link-check-disable -->
+
 # Verb the widget in the tool
 
 A single paragraph description of the tutorial. Make sure to cover what the

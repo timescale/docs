@@ -1,13 +1,20 @@
 ---
 api_name: rollup()
 excerpt: Roll up multiple statistical aggregates
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: statistical aggregates
+  type: rollup
+  aggregates:
+    - stats_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'statistical aggregates'
 hyperfunction_subfamily: 'statistical aggregates'
 hyperfunction_type: rollup
@@ -20,6 +27,7 @@ rollup(
     ss StatsSummary1D
 ) RETURNS StatsSummary1D
 ```
+
 ```SQL
 rollup(
     ss StatsSummary2D
@@ -51,7 +59,9 @@ For more information about statistical aggregation functions, see the
 |`rollup`|`StatsSummary1D`/`StatsSummary2D`|A StatsSummary object which may be passed to further APIs|
 
 ## Sample usage
+
 Re-aggregate an hourly continuous aggregate into daily buckets, then use accessors:
+
 ```SQL
 CREATE MATERIALIZED VIEW foo_hourly
 WITH (timescaledb.continuous)
@@ -68,7 +78,6 @@ SELECT
 FROM foo_hourly
 GROUP BY 1;
 ```
-
 
 [stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
 [hyperfunctions-stats-aggs]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/

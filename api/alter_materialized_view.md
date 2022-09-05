@@ -1,39 +1,46 @@
 ---
 api_name: ALTER MATERLIALIZED VIEW (Continuous Aggregate)
 excerpt: Change an existing continuous aggregate
-license: community
-topic: continuous aggregates
+topics: [continuous aggregates]
 keywords: [continuous aggregates]
 tags: [materialized views, hypertables, alter, change]
+api:
+  license: community
+  type: command
 ---
 
 ## ALTER MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
+
 `ALTER MATERIALIZED VIEW` statement can be used to modify some of the `WITH` clause [options][create_materialized_view] for the continuous aggregate view.
 `ALTER MATERIALIZED VIEW` statement also supports the following
 [PostgreSQL clauses][postgres-alterview] on the
 continuous aggregate view:
 
-- `RENAME TO` clause to rename the continuous aggregate view;
-- `SET SCHEMA` clause to set the new schema for the continuous aggregate view;
-- `SET TABLESPACE` clause to move the materialization of the continuous
+*   `RENAME TO` clause to rename the continuous aggregate view;
+*   `SET SCHEMA` clause to set the new schema for the continuous aggregate view;
+*   `SET TABLESPACE` clause to move the materialization of the continuous
   aggregate view to the new tablespace;
-- `OWNER TO` clause to set new owner for the continuous aggregate view.
+*   `OWNER TO` clause to set new owner for the continuous aggregate view.
 
 ``` sql
 ALTER MATERIALIZED VIEW <view_name> SET ( timescaledb.<option> =  <value> [, ... ] )
 ```
+
 ### Parameters
+
 |Name|Type|Description|
 |---|---|---|
 | `<view_name>` | TEXT | Name (optionally schema-qualified) of continuous aggregate view to be created.|
 
 ### Options
+
 |Name|Description|
 |-|-|
 |timescaledb.materialized_only|Enable and disable real time aggregation|
 |timescaledb.compress|Enable and disable compression|
 
 ### Sample usage
+
 To disable real-time aggregates for a
 continuous aggregate:
 

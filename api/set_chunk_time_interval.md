@@ -1,13 +1,16 @@
 ---
 api_name: set_chunk_time_interval()
 excerpt: Change the chunk time interval of a hypertable
-license: apache
-topic: hypertables
+topics: [hypertables]
 keywords: [chunks, hypertables]
 tags: [time ranges, time intervals]
+api:
+  license: apache
+  type: function
 ---
 
 ## set_chunk_time_interval()
+
 Sets the `chunk_time_interval` on a hypertable. The new interval is used
 when new chunks are created, and time intervals on existing chunks are
 not changed.
@@ -44,9 +47,10 @@ For more information, see the [`create_hypertable` section][create-hypertable].
 You need to use `dimension_name` argument only if your hypertable has multiple
 time dimensions.
 
-
 ### Sample usage
+
 For a TIMESTAMP column, set `chunk_time_interval` to 24 hours:
+
 ```sql
 SELECT set_chunk_time_interval('conditions', INTERVAL '24 hours');
 SELECT set_chunk_time_interval('conditions', 86400000000);
@@ -54,9 +58,9 @@ SELECT set_chunk_time_interval('conditions', 86400000000);
 
 For a time column expressed as the number of milliseconds since the
 UNIX epoch, set `chunk_time_interval` to 24 hours:
+
 ```sql
 SELECT set_chunk_time_interval('conditions', 86400000);
 ```
-
 
 [create-hypertable]: /api/:currentVersion:/hypertable/create_hypertable
