@@ -21,7 +21,7 @@ You can configure the Jaeger Collector to store the traces using Promscale's nat
 implementation of [Jaeger gRPC storage specification][jaeger-grpc-storage].
 
 Here's an example configuration to enable the Jaeger collector to forward traces
-to Promscale.
+to Promscale:
 
 ```sh
 docker run \
