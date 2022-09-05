@@ -9,10 +9,12 @@ tags: [configure, traces]
 # Send Jaeger traces to Promscale
 Promscale natively supports both Jaeger gRPC based remote storage(Promscale >= 0.14.0) and
 OpenTelemetry Protocol (OTLP) for traces.
-To ingest Jaeger traces to Promscale, you can use either of the following,
- - Use the Jaeger Collector, it ingests Jaeger spans directly to configured remote storage and 
-this avoid using any non Jaeger components like OpenTelemetry collector.
- - Use the OpenTelemetry Collector, it converts Jaeger traces to OpenTelemetry traces.
+To ingest Jaeger traces to Promscale, you can either:
+
+* Use the Jaeger Collector to ingest Jaeger spans directly to configured 
+   remote storage. This avoids using any non-Jaeger components, including 
+   the OpenTelemetry collector.
+* Use the OpenTelemetry Collector to convert Jaeger traces to OpenTelemetry traces.
 
 # Send data using the Jaeger Collector
 You can configure the Jaeger Collector to store the traces using Promscale's native 
