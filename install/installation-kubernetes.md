@@ -176,6 +176,6 @@ To get help or chat with the Timescale team, [get in contact][contact].
 [microk8s-install]: https://microk8s.io/docs/getting-started
 [contact]: https://www.timescale.com/contact
 [tsdb-docs]: /timescaledb/:currentVersion:/
-[admin-guide]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/admin-guide.md
+[admin-guide]: https://github.com/timescale/helm-charts/blob/master/charts/timescaledb-single/docs/admin-guide.md
 [timescaledb-k8s]: /timescaledb/:currentVersion:/overview/timescale-kubernetes/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/

@@ -8,8 +8,16 @@ module.exports = [
       "Managed Service for TimescaleDB is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP",
     children: [
       {
-        title: "Create services",
-        href: "create-a-service",
+        title: "About Managed Service for TimescaleDB",
+        href: "about-mst",
+      },
+      {
+        title: "Aiven Client for Managed Service for TimescaleDB",
+        href: "aiven-client-install",
+      },
+      {
+        title: "Clouds and regions",
+        href: "cloud-regions",
       },
       {
         title: "Ingest data",
@@ -18,6 +26,10 @@ module.exports = [
       {
         title: "User management",
         href: "user-management",
+      },
+      {
+        title: "Billing",
+        href: "billing",
       },
       {
         title: "Create a multi-node cluster",
@@ -32,8 +44,8 @@ module.exports = [
         href: "viewing-service-logs",
       },
       {
-        title: "Logging integrations",
-        href: "logging-integrations",
+        title: "Logging",
+        href: "logging",
       },
       {
         title: "VPC peering",
@@ -60,12 +72,12 @@ module.exports = [
         href: "maintenance",
       },
       {
-        title: "Manage backups",
+        title: "Backups",
         href: "manage-backups",
       },
       {
-        title: "Backups",
-        href: "backup-types",
+        title: "Integrate Managed Service for TimescaleDB as a data source in Grafana",
+        href: "grafana-mst",
       },
       {
         title: "Migrate your data to Managed Service for TimescaleDB",

@@ -1,14 +1,22 @@
 ---
 api_name: topn()
 excerpt: Calculate the top N most common values from data in a frequency or top N aggregate
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [frequency, top N, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: accessor
+  aggregates:
+    - topn_agg()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: SpaceSavingAggregate
 hyperfunction_type: accessor
@@ -17,14 +25,17 @@ hyperfunction_type: accessor
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # topn()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+
 Returns the most common values accumulated in a [frequency aggregate][freq_agg]
 or [top N aggregate][topn_agg].
+
 ```sql
 topn (
     agg FrequencyAggregate,
     n INTEGER
 ) RETURNS topn AnyElement
 ```
+
 ```sql
 topn (
     agg TopnAggregate,
@@ -61,9 +72,10 @@ calculate top N.
 |`topn`|`AnyElement`|The `n` most-frequent values in the aggregate.|
 
 In some cases, the function might return fewer than `n` values. This happens if:
-* The underlying frequency aggregate doesn't contain `n` elements with the
+
+*   The underlying frequency aggregate doesn't contain `n` elements with the
   minimum frequency
-* The data isn't skewed enough to support `n` values from a top N aggregate
+*   The data isn't skewed enough to support `n` values from a top N aggregate
 
 <highlight type="warning">
 Requesting more values from a top N aggregate than it was created for will return an
@@ -72,14 +84,17 @@ error. To get more values, adjust the target `n` in
 </highlight>
 
 ## Sample usage
-This test uses a table of randomly generated data. The values used are the 
+
+This test uses a table of randomly generated data. The values used are the
 integer square roots of a random number in the range (0,400).
+
 ```sql
 CREATE TABLE value_test(value INTEGER);
 INSERT INTO value_test SELECT floor(sqrt(random() * 400)) FROM generate_series(1,100000);
 ```
 
 This returns the 5 most common values seen in the table:
+
 ```sql
 SELECT toolkit_experimental.topn(
     toolkit_experimental.freq_agg(0.05, value), 
@@ -88,6 +103,7 @@ FROM value_test;
 ```
 
 The output for this query:
+
 ```sql
  topn 
 ------

@@ -254,7 +254,7 @@ compression][improving-compression].
 [compression-algorithms]: #type-specific-compression-algorithms
 [compression-algorithms-blog]: https://www.timescale.com/blog/time-series-compression-algorithms-explained/
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
-[decompress]: https://docs.timescale.com/timescaledb/latest/how-to-guides/compression/decompress-chunks/
+[decompress]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
 [improving-compression]: /timescaledb/:currentVersion:/how-to-guides/compression/improve-compression.md
 [indexes]: #indexes-on-compressed-chunks
 [ordering-and-segmenting]: #data-ordering-and-segmenting

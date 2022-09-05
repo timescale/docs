@@ -1,10 +1,12 @@
 ---
 api_name: create_distributed_hypertable()
 excerpt: Create a distributed hypertable in a multi-node cluster
-license: community
-topic: distributed hypertables
+topics: [distributed hypertables]
 keywords: [distributed hypertables, multi-node, create]
 tags: [cluster]
+api:
+  license: community
+  type: function
 ---
 
 ## create_distributed_hypertable()  <tag type="community">Community</tag>
@@ -53,11 +55,13 @@ nodes by the 'location' column. Note that the number of space
 partitions is automatically equal to the number of data nodes assigned
 to this hypertable (all configured data nodes in this case, as
 `data_nodes` is not specified).
+
 ```sql
 SELECT create_distributed_hypertable('conditions', 'time', 'location');
 ```
 
 Create a table `conditions` using a specific set of data nodes.
+
 ```sql
 SELECT create_distributed_hypertable('conditions', 'time', 'location',
     data_nodes => '{ "data_node_1", "data_node_2", "data_node_4", "data_node_7" }');
@@ -84,7 +88,7 @@ a larger time interval.
 For example, assume you are ingesting 10&nbsp;GB of data per day and you
 have five data nodes, each with 64&nbsp;GB of memory. If this is the only
 table being served by these data nodes, then you should use a time
-interval of 1 week (7 * 10&nbsp;GB / 5 * 64&nbsp;GB ~= 22% main memory used for
+interval of 1 week (`7 * 10 GB / 5 * 64 GB ~= 22% main memory` used for
 most recent chunks).
 
 If space partitioning is not being used, the `chunk_time_interval`

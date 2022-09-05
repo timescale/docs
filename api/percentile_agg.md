@@ -1,13 +1,18 @@
 ---
 api_name: percentile_agg()
 excerpt: Aggregate data into a percentile aggregate for further analysis
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: percentile approximation
+  type: aggregate
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'percentile approximation'
 hyperfunction_subfamily: 'percentile approximation'
 hyperfunction_type: aggregate
@@ -52,13 +57,16 @@ The `percentile_agg` function uses the UddSketch algorithm, so it returns the
 `UddSketch` data structure for use in further calls.
 
 ## Sample usage
+
 Get the approximate first percentile using the `percentile_agg()` plus the
 [`approx_percentile`][approx_percentile] accessor function:
+
 ```SQL
 SELECT
     approx_percentile(0.01, percentile_agg(data))
 FROM generate_series(0, 100) data;
 ```
+
 ```output
 approx_percentile
 -------------------
@@ -77,7 +85,6 @@ AS SELECT
 FROM foo
 GROUP BY 1;
 ```
-
 
 [approx_percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/approx_percentile/
 [rollup]: /api/:currentVersion:/hyperfunctions/percentile-approximation/rollup-percentile/

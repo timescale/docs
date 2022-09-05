@@ -5,16 +5,11 @@ excerpt: Get started with your first TimescaleDB instance
 
 # Getting started with TimescaleDB
 
-**Congratulations!** You're here because you have successfully spun
-up your first instance of TimescaleDB, can connect to it, and are ready to
-explore some of the most popular TimescaleDB features. If you have not yet
-created a TimescaleDB instance or learned how to connect to it, make sure to
-check out these two sections:
-
-* [Install TimescaleDB][install]
-* [Connect to TimescaleDB][connecting]
+Get started with TimescaleDB to experience the power of its core features, such
+as hypertables, continuous aggregates, and compression.
 
 ## What is TimescaleDB?
+
 TimescaleDB is an extension on top of PostgreSQL.
 When you use TimescaleDB, you get all the time-series optimizations and special
 features that TimescaleDB provides, along with all the features available
@@ -26,6 +21,7 @@ all the tools and connectors within the PostgreSQL ecosystem. If it works with
 PostgreSQL, it works with TimescaleDB.
 
 ## About this tutorial
+
 This Getting Started section gives you a hands-on introduction to the
 fundamentals of TimescaleDB. You'll learn definitions
 of key terms like hypertables and chunks, and use some of TimescaleDB's key
@@ -38,12 +34,12 @@ and the other containing company information which maps to the symbols.
 
 Let's jump right in!
 
+## Getting help
+
 If you have any questions or concerns as you go through the tutorial,
 check out the Timescale community [Slack][slack] and [Timescale Forum][forum], where
 you can find help from the Timescale community and team.
 
-[connecting]: /timescaledb/:currentVersion:/how-to-guides/connecting/
 [forum]: https://www.timescale.com/forum
-[install]: /install/:currentVersion:/
 [slack]: https://slack.timescale.com/
 [twelve-data]: https://twelvedata.com/

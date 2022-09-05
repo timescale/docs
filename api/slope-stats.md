@@ -1,14 +1,21 @@
 ---
 api_name: slope()
 excerpt: Calculate the slope from values in a 2-dimensional statistical aggregate
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [least squares, regression]
+tags: [least squares, linear regression]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: statistical aggregates
+  type: accessor, 2D
+  aggregates:
+    - stats_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'statistical aggregates'
 hyperfunction_subfamily: 'statistical aggregates'
 hyperfunction_type: accessor-2d
@@ -21,8 +28,9 @@ slope(
     summary StatsSummary2D
 ) RETURNS DOUBLE PRECISION
 ```
+
 The slope of the [least squares fit][least-squares] line computed from
-a two-dimensional statistical aggregate. 
+a two-dimensional statistical aggregate.
 
 For more information about statistical aggregate functions, see the
 [hyperfunctions documentation][hyperfunctions-stats-agg].
@@ -49,7 +57,6 @@ SELECT
 FROM foo
 GROUP BY id, time_bucket('15 min'::interval, ts)
 ```
-
 
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [stats-agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/

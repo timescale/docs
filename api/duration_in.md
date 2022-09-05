@@ -1,14 +1,22 @@
 ---
 api_name: duration_in()
 excerpt: Calculate the total time spent in a given state from values in a state aggregate
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [hyperfunctions, duration, states, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: accessor
+  aggregates:
+    - state_agg()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: StateAgg
 hyperfunction_type: accessor
@@ -17,6 +25,7 @@ hyperfunction_type: accessor
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+
 Use this function to report the total duration for a given state in a [state aggregate][state_agg].
 
 <Experimental />
@@ -35,7 +44,9 @@ Use this function to report the total duration for a given state in a [state agg
 |`duration_in`|`INTERVAL`|The total time spent in the target state. Displayed as `days`, `hh:mm:ss`, or a combination of the two.|
 
 ## Sample usage
+
 This example creates a simple test table:
+
 ```sql
 SET timezone TO 'UTC';
 CREATE TABLE states(time TIMESTAMPTZ, state TEXT);
@@ -49,6 +60,7 @@ INSERT INTO states VALUES
 ```
 
 You can query this table for the time spent in the running state, like this:
+
 ```sql
 SELECT toolkit_experimental.duration_in(
   'running',
@@ -57,6 +69,7 @@ SELECT toolkit_experimental.duration_in(
 ```
 
 Which gives the result:
+
 ```sql
 duration_in  
 ---------------

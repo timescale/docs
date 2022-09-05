@@ -5,6 +5,7 @@ keywords: [schemas, indexes]
 ---
 
 # Indexing data
+
 Because looking up data can take a long time, especially if you have a lot of
 data in your hypertable, you can use an index to speed up read operations. You
 can create an index on any combination of columns, as long as you include the
@@ -15,6 +16,7 @@ Consider a simple example with temperatures collected from two locations called
 `office` and `garage`:
 
 An index on `(location, time DESC)` is organized like this:
+
 ```
 garage-0940
 garage-0930
@@ -26,6 +28,7 @@ office-0910
 ```
 
 An index on `(time DESC, location)` is organized like this:
+
 ```
 0940-garage
 0930-garage
@@ -94,7 +97,7 @@ This query is not effective, because it would need to scan multiple sections of
 the list. This is because the part of the list that contains data for
 `time > 10` for one device would be located in a different section than for a
 different device. In this case, consider building an index on `(store_id, time)`
-insetad.
+instead.
 
 ```sql
 SELECT * FROM devices WHERE device_id = M, time > 10

@@ -1,14 +1,22 @@
 ---
 api_name: interpolated_duration_in()
 excerpt: Calculate the total time spent in a given state, interpolating values at interval boundaries if they don't exist
-license: community
-toolkit: true
-experimental: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 tags: [hyperfunctions, duration, state, state aggregates, interpolated]
+api:
+  license: community
+  type: function
+  experimental: true
+  toolkit: true
+hyperfunction:
+  family: frequency analysis
+  type: accessor
+  aggregates:
+    - state_agg()
+# fields below will be deprecated
 api_category: hyperfunction
 api_experimental: true
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'frequency analysis'
 hyperfunction_subfamily: StateAgg
 hyperfunction_type: accessor
@@ -17,6 +25,7 @@ hyperfunction_type: accessor
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # interpolated_duration_in()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+
 Calculate the total duration in a given state from a [state aggregate][state_agg].
 Unlike [`duration_in`][duration_in], you can use this function across multiple state
 aggregates that cover different time buckets. Any missing values at the time bucket
@@ -58,7 +67,9 @@ interpolated_duration_in(
 |`interpolated_duration_in`|`INTERVAL`|The total time spent in the target state. Displayed as `days`, `hh:mm:ss`, or a combination of the two.|
 
 ## Sample usage
+
 This example creates a simple test table:
+
 ```sql
 SET timezone TO 'UTC';
 CREATE TABLE states(time TIMESTAMPTZ, state TEXT);
@@ -72,6 +83,7 @@ INSERT INTO states VALUES
 ```
 
 You can query this table for the time spent in the running state, like this:
+
 ```sql
 SELECT 
   time,
@@ -93,6 +105,7 @@ SELECT
 ```
 
 Which gives the result:
+
 ```sql
           time          | interpolated_duration_in 
 ------------------------+--------------------------

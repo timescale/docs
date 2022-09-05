@@ -1,20 +1,29 @@
 ---
 api_name: rate()
 excerpt: Calculate the rate of change from values in a `CounterSummary`
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [counters, hyperfunctions, toolkit]
 tags: [rate, change]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: metric aggregation
+  type: accessor
+  aggregates:
+    - counter_agg()
+    - gauge_agg()
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'metric aggregation'
 hyperfunction_subfamily: 'counter and gauge aggregation'
 hyperfunction_type: accessor
 ---
 
 # rate() <tag type="toolkit" content="Toolkit" />
+
 The rate of change of the counter over the observed time period. This is the raw
 or simple rate, equivalent to `delta(summary)` or `time_delta(summary)`. After
 accounting for resets, the last value is subtracted from the first value and
@@ -56,6 +65,5 @@ FROM (
     GROUP BY id
 ) t
 ```
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/

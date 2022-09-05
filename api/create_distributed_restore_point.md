@@ -1,13 +1,16 @@
 ---
 api_name: create_distributed_restore_point()
 excerpt: Create a consistent restore point for all nodes in a multi-node cluster
-license: community
-topic: distributed hypertables
+topics: [distributed hypertables, multi-node]
 keywords: [distributed hypertables, restore, backup, multi-node]
 tags: [clusters, write-ahead logs, recovery]
+api:
+  license: community
+  type: function
 ---
 
 # create_distributed_restore_point()
+
 Creates a same-named marker record, for example `restore point`, in the
 write-ahead logs of all nodes in a multi-node TimescaleDB cluster.
 
@@ -40,6 +43,7 @@ privileges.
 ### Errors
 
 An error is given if:
+
 *   The restore point `name` is more than 64 characters
 *   A recovery is in progress
 *   The current WAL level is not set to `replica` or `logical`
@@ -48,8 +52,10 @@ An error is given if:
 *   TimescaleDB's 2PC transactions are not enabled
 
 ## Sample usage
+
 This example create a restore point called `pitr` across three data nodes and
 the access node:
+
 ```sql
 SELECT * FROM create_distributed_restore_point('pitr');
  node_name |  node_type  | restore_point
@@ -60,7 +66,6 @@ SELECT * FROM create_distributed_restore_point('pitr');
  dn3       | data_node   | 0/3694B68
 (4 rows)
 ```
-
 
 [pg-create-restore-point]: https://www.postgresql.org/docs/current/functions-admin.html#FUNCTIONS-ADMIN-BACKUP-TABLE
 [pg-lsn]: https://www.postgresql.org/docs/current/datatype-pg-lsn.html

@@ -1,13 +1,18 @@
 ---
 api_name: time_weight()
 excerpt: Aggregate data in a `TimeWeightSummary` for further time-weighted analysis
-license: community
-toolkit: true
-topic: hyperfunctions
+topics: [hyperfunctions]
 keywords: [time-weighted, aggregate, hyperfunctions, toolkit]
+api:
+  license: community
+  type: function
+  toolkit: true
+hyperfunction:
+  family: time-weighted averages
+  type: aggregate
+# fields below will be deprecated
 api_category: hyperfunction
-api_experimental: false
-hyperfunction_toolkit: true
+toolkit: true
 hyperfunction_family: 'time-weighted averages'
 hyperfunction_subfamily: 'time-weighted averages'
 hyperfunction_type: aggregate
@@ -35,7 +40,6 @@ For more information about time-weighted average functions, see the
 |`method`|`TEXT`| The weighting method we should use, options are `linear` or `LOCF`, not case sensitive|
 |`ts`|`TIMESTAMPTZ`|The time at each point|
 |`value`|`DOUBLE PRECISION`|The value at each point to use for the time-weighted average|
-
 
 Note that `ts` and `value` can be `null`, however the aggregate is not evaluated
 on `null` values and returns `null`, but does not error on `null` inputs.
@@ -68,10 +72,12 @@ FROM t;
 ```
 
 ## Advanced usage notes
+
 Most cases work out of the box, but for power users, or those who want to
 dive deeper, we've included a bit more context below.
 
 ### Interpolation methods details
+
 Discrete time values don't always allow for an obvious calculation of the time-weighted average. In order to calculate a time-weighted average, you need to choose
 how to weight each value. The two methods currently available in TimescaleDB
 Toolkit are last observation
@@ -87,6 +93,7 @@ interpolation approach is used to account for irregularly sampled data where the
 sensor doesn't provide any guarantees.
 
 ### Parallelism and ordering
+
 The time-weighted average calculations we perform require a strict ordering of
 inputs and therefore the calculations are not parallelizable in the strict
 Postgres sense. This is because when Postgres does parallelism it hands out rows
@@ -144,6 +151,5 @@ SELECT measure_id,
 FROM t
 GROUP BY measure_id;
 ```
-
 
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/

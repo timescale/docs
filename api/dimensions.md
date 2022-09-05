@@ -1,17 +1,19 @@
 ---
 api_name: timescaledb_information.dimensions
 excerpt: Get information on the dimensions of hypertables
-license: community
-topic: hypertables
+topics: [information, hypertables]
 keywords: [hypertables, information]
 tags: [dimensions, partitions]
+api:
+  license: community
+  type: view
 ---
 
 ## timescaledb_information.dimensions
 
 Get metadata about the dimensions of hypertables, returning one row of metadata
 for each dimension of a hypertable. For a time-and-space-partitioned
-hypertable, for example, two rows of metadata are returned for the 
+hypertable, for example, two rows of metadata are returned for the
 hypertable.
 
 A time-based dimension column has either an integer datatype
@@ -77,6 +79,7 @@ num_partitions    | 2
 ```
 
 Get information about dimensions of a hypertable that has two time-based dimensions.
+
 ``` sql
 CREATE TABLE hyper_2dim (a_col date, b_col timestamp, c_col integer);
 SELECT table_name from create_hypertable('hyper_2dim', 'a_col');
