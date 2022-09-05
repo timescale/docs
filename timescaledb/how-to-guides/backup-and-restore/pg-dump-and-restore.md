@@ -29,6 +29,11 @@ example, to backup a database named `tsdb`:
 ```bash
 pg_dump -Fc -f tsdb.bak tsdb
 ```
+To backup a database named `tsdb` hosted on a remote server:
+
+```bash
+pg_dump -h <REMOTE_HOST> -p 55555 -U tsdbadmin -Fc -f tsdb.bak tsdb
+```
 
 You might see some errors when running `pg_dump`. To learn if they can be safely
 ignored, see the [troubleshooting section][troubleshooting].
