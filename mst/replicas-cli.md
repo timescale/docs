@@ -7,7 +7,7 @@ product: mst
 # Read-only Replica with Aiven Client
 
 Read-only replicas provide a great way to reduce the load on the primary server
-by enabling read-only queries to be performed against the replica. It’s also a
+by enabling read-only queries to be performed against the replica. It is also a
 good way to optimise query response times across different geographical
 locations because the replica can be placed in different regions or
 even different cloud providers.
