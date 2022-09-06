@@ -77,7 +77,7 @@ These extensions are available on Managed Service for TimescaleDB:
 *   postgis_sfcgal
 *   postgis_tiger_geocoder
 *   postgis_topology
-*   postgis_legacy ([See more information](#post-gis-legacy-support))
+*   postgis_legacy (see notes in this section)
 *   postgres_fdw
 *   rum
 *   sslinfo
@@ -90,8 +90,6 @@ These extensions are available on Managed Service for TimescaleDB:
 *   wal2json
 
 <!-- vale Vale.Spelling = YES -->
-
-<span id="post-gis-legacy-support"></span>
 
 <highlight type="note">
 The `postgis_legacy` extension is not packaged or supported as an extension by
