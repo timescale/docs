@@ -8,7 +8,7 @@ product: mst
 
 Read-only replicas provide a great way to reduce the load on the primary server
 by enabling read-only queries to be performed against the replica. It is also a
-good way to optimise query response times across different geographical
+good way to optimize query response times across different geographical
 locations because the replica can be placed in different regions or
 even different cloud providers.
 
