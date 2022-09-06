@@ -80,6 +80,10 @@ module.exports = [
         href: "grafana-mst",
       },
       {
+        title: "Integrate authentication plugins in Grafana",
+        href: "grafana-authentication-plugins",
+      },
+      {
         title: "Migrate your data to Managed Service for TimescaleDB",
         href: "migrate-to-mst",
       },
