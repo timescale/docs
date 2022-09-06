@@ -79,7 +79,7 @@ You get the error:
 ERROR: cannot create a unique index without the column "<COLUMN_NAME>" (used in partitioning) 
 ```
 
-Fix the error by adding `device_id` to your unique index.
+Fix the error by adding `time` to your unique index.
 </highlight>
 
 ## Create a hypertable from a table with unique indexes
