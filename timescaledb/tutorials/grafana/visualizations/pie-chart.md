@@ -11,6 +11,10 @@ import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx
 
 Pie charts are used to plot categorized data. The chart presents each
 category as a slice of a pie, so you can see its contribution to the total.
+It is good to note that, with more slices, the chart becomes harder to analyze, and
+with very similar, small slices, it becomes harder to compare slice sizes. Use
+pie charts for a small number of categories, and consider another chart type when
+you have large amounts of data.
 
 Pie charts can answer questions like:
 
@@ -161,10 +165,7 @@ calculation on a single trading day instead.
 
 Pie charts are a great tool for comparing categorized data. They're especially good
 for visualizing percentages. But they don't work as well if you have too many categories
-with similar percentages. With more slices, the chart becomes harder to analyze, and
-with very similar, small slices, it becomes harder to compare slice sizes. Use
-pie charts for a small number of categories, and consider another chart type when
-you have large amounts of data.
+with similar percentages or large amount of data. 
 
 For more ways to visualize data using TimescaleDB and Grafana, see the other
 [Grafana visualization tutorials][grafana-tutorials].
