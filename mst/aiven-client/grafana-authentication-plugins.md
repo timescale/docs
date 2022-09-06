@@ -63,12 +63,11 @@ ID and client secret.
     Google OAuth application is listed as a plugin.
 
 <highlight type="note">
-     When you allow sign-ups using `-c auth_google.allow_sign_up=true` option,
-     by default each new user is created with `viewer` permissions, and added to
-     their own newly created organizations. To specify different permissions,
-     use `-c user_auto_assign_org_role=<role name>`. To add all new users
-     to the main organization, use `-c user_auto_assign_org=true` option.
-
+When you allow sign-ups using `-c auth_google.allow_sign_up=true` option, by
+default each new user is created with `viewer` permissions, and added to their
+own newly created organizations. To specify different permissions, use
+`-c user_auto_assign_org_role=ROLE_NAME`. To add all new users to the main
+organization, use `-c user_auto_assign_org=true` option.
 </highlight>
 
 </procedure>
@@ -122,12 +121,11 @@ your client ID and client secret.
     GitHub OAuth application for the Grafana instance.
 
 <highlight type="note">
-     When you allow sign-ups using `-c auth_github.allow_sign_up=true` option,
-     by default each new user is created with `viewer`permission and added to
-     their own newly created organizations. To specify different permissions,
-     use `-c user_auto_assign_org_role=<role name>`. To add all new users
-     to the main organization, use `-c user_auto_assign_org=true` option.
-
+When you allow sign-ups using `-c auth_github.allow_sign_up=true` option,
+by default each new user is created with `viewer`permission and added to
+their own newly created organizations. To specify different permissions,
+use `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users
+to the main organization, use `-c user_auto_assign_org=true` option.
 </highlight>
 
 </procedure>
@@ -190,12 +188,11 @@ set the following:
     GitLab OAuth application for the Grafana instance.
 
 <highlight type="note">
-     When you allow sign-ups using `-c auth_gitlab.allow_sign_up=true` option,
-     by default each new user is created with `viewer`permission and added to
-     their own newly created organizations. To specify different permissions,
-     use `-c user_auto_assign_org_role=<role name>`. To add all new users
-     to the main organization, use `-c user_auto_assign_org=true` option.
-
+When you allow sign-ups using `-c auth_gitlab.allow_sign_up=true` option,
+by default each new user is created with `viewer`permission and added to
+their own newly created organizations. To specify different permissions,
+use `-c user_auto_assign_org_role=ROLE_NAME`. To add all new users
+to the main organization, use `-c user_auto_assign_org=true` option.
 </highlight>
 
 </procedure>

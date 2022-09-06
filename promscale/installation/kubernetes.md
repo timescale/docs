@@ -184,8 +184,7 @@ can provide the database URI, or specify connection parameters.
 
     <highlight type="note">
     Replace `&lt;RELEASE_NAME&gt;` with the name of your choice
-
-</highlight>
+    </highlight>
 
 </procedure>
 
