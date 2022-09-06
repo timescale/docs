@@ -8,7 +8,7 @@ keywords: [install]
 
 # Install TimescaleDB
 
-TimescaleDB extends  PostgreSQL for time-series data—giving PostgreSQL the
+TimescaleDB extends PostgreSQL for time-series data—giving PostgreSQL the
 high-performance, scalability, and analytical capabilities required by modern
 data-intensive applications.
 
