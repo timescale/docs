@@ -41,6 +41,10 @@ accessible using the public internet. It is only accessible using your peered
 AWS VPC.
 </highlight>
 
+<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+
+</highlight>
+
 ## Create a new VPC in Timescale Cloud
 To begin, you need to create a new VPC in the Timescale Cloud console.
 
