@@ -27,8 +27,8 @@ import Experimental from 'versionContent/_partials/_experimental.mdx';
 Produces an `OpenHighLowClose` aggregate which stores the opening, high, low,
 and closing prices alongside the times at which they each occurred. This
 aggregate can either be later re-aggregated using `rollup` or passed directly to
-any of the following hyperfunctions: `open`, `high`, `low`, `close`, `open_at`,
-`high_at`, `low_at`, or `close_at`.
+any of the following hyperfunctions: `open`, `high`, `low`, `close`, `open_time`,
+`high_time`, `low_time`, or `close_time`.
 
 ```sql
 ohlc(

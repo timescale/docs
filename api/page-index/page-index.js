@@ -434,8 +434,8 @@ module.exports = [
                 href: "open-high-low-close",
               },
               {
-                title: "open-at, high_at, low_at, close_at",
-                href: "open-high-low-close-at",
+                title: "open_time, high_time, low_time, close_time",
+                href: "open-high-low-close-time",
               },
               {
                 title: "rollup",
