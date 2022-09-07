@@ -8,6 +8,7 @@ tags: [time-series]
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
 
 # Build a time-series graph in Grafana
+
 A time-series graph is a line graph that plots points changing over time. It
 allows you to see trends and fluctuations in your data. It's usually plotted in
 two dimensions. The x-axis represents time, and the y-axis represents the
@@ -17,16 +18,19 @@ Because the time-series graph is the most common graph in Grafana, it's also
 the default panel type.
 
 With a time-series graph, you can answer questions like:
+
 *   What is the hourly stock price of AMD today?
 *   How many users visited a website page each day in the past week?
 *   What was the temperature yesterday?
 
 ## Data for Grafana time-series graphs
+
 To plot a time-series graph, Grafana requires you to provide a time column and
 a value column. To plot multiple time-series graphs in a single
 panel, you need to provide multiple value columns.
 
 This is an example of valid time-series data:
+
 ```bash
 Time                | Value_1 | Value_2 |
 --------------------+---------+---------+
@@ -38,8 +42,9 @@ Time                | Value_1 | Value_2 |
 ```
 
 This tutorial shows you how to:
+
 *   [Create a time-series graph with raw data](#create-a-time-series-graph-with-raw-data)
-*   [Create a time-series graph with pre-aggregated data using time_bucket()](#create-a-time-series-graph-from-pre-aggregated-data-using-time_bucket())
+*   [Create a time-series graph with pre-aggregated data using time_bucket()](#create-a-time-series-graph-from-pre-aggregated-data-using-time-bucket)
 *   [Create multiple time-series graphs in a single panel](#create-multiple-time-series-graphs-in-a-single-panel)
 
 ## Prerequisites
@@ -106,6 +111,7 @@ extra calculations are needed to make the graph.
 </procedure>
 
 ## Create a time-series graph from pre-aggregated data using time_bucket()
+
 In the previous example, you queried for all transactions of AMD stock in a 6 -hour period.
 This returned approximately 3 800 data points. If you query for all transactions
 of AMD stock in a 3-month period, you get approximately 1,500,000 data
@@ -128,7 +134,7 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
 
     ```sql
     SELECT time_bucket('$bucket_interval', time) AS time,
-    	AVG(price) AS price
+     AVG(price) AS price
     FROM stocks_real_time
     WHERE symbol = '$symbol'
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
@@ -158,7 +164,7 @@ To solve this problem, you can pre-aggregate your data using TimescaleDB's
 
     ```SQL
     SELECT time_bucket_gapfill('$bucket_interval', time) AS time,
-	    AVG(price) AS price
+     AVG(price) AS price
     FROM stocks_real_time
     WHERE symbol = '$symbol'
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
@@ -225,13 +231,10 @@ change to your query.
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/select-stock.png" alt="A screenshot of the symbol variable selector. The symbols 'AAPL' and 'AMD' are selected."/>
 
-
 1.  Grafana returns a graph similar to this one:
 
     <img class="main-content__illustration" src="https://assets.timescale.com/docs/images/tutorials/visualizations/time-series/multi-value-graph.png" alt="A screenshot of the multi-value time-series graph produced by Grafana. This graph displays the stock price for 'AAPL' in green and 'AMD' in yellow for the past 30 days."/>
 
 </procedure>
 
-[gsg-data]: /timescaledb/:currentVersion:/getting-started/
-[install-timescale]: /install/:currentVersion:/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
