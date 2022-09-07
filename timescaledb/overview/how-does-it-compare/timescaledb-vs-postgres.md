@@ -10,9 +10,9 @@ tags: [compare]
 TimescaleDB offers three key benefits over vanilla PostgreSQL or other
 traditional RDBMSs for storing time-series data:
 
- * Much higher data ingest rates, especially at larger database sizes.
- * Query performance ranging from equivalent to _orders of magnitude greater_.
- * Time-oriented features.
+*   Much higher data ingest rates, especially at larger database sizes.
+*   Query performance ranging from equivalent to _orders of magnitude greater_.
+*   Time-oriented features.
 
 And because TimescaleDB still allows you to use the full range of
 PostgreSQL features and tools &mdash; for example, JOINs with relational tables,
@@ -36,7 +36,7 @@ hundreds of rows per second once your time-series table is in the tens
 of millions of rows.
 
 TimescaleDB solves this through its heavy utilization of
-time-space partitioning, even when running *on a single machine*.  So
+time-space partitioning, even when running _on a single machine_.  So
 all writes to recent time intervals are only to tables that remain in
 memory, and updating any secondary indexes is also fast as a result.
 
@@ -50,7 +50,7 @@ this case, 10).  Here, experiments were performed on a standard Azure VM
 
 <!-- vale Google.Units = NO -->
 
-<img width="100%" src="//assets.timescale.com/benchmarks/timescale-vs-postgres-insert-1B.jpg"></img>
+<img width="100%" src="https://s3.amazonaws.com/assets.timescale.com/benchmarks/timescale-vs-postgres-insert-1B.jpg"></img>
 
 <!-- vale Google.Units = YES -->
 
@@ -160,15 +160,15 @@ as well as other time-oriented functions (some of which are listed below).
 
 #### Time-oriented analytics
 
-TimescaleDB includes *new* functions for time-oriented analytics,
+TimescaleDB includes _new_ functions for time-oriented analytics,
 including some of the following:
 
-- **Time bucketing**: A more powerful version of the standard `date_trunc` function,
+*   **Time bucketing**: A more powerful version of the standard `date_trunc` function,
     it allows for arbitrary time intervals (for example, 5 minutes, 6 hours, etc.),
     as well as flexible groupings and offsets, instead of just second,
     minute, hour, etc.
 
-- **Last** and **first** aggregates: These functions allow you
+*   **Last** and **first** aggregates: These functions allow you
     to get the value of one column as ordered by another. For
     example, `last(temperature, time)` returns the latest
     temperature value based on time within a group (for example, an hour).
@@ -194,7 +194,7 @@ example, a common technique in financial reporting is "bitemporal
 modeling", which separately reasons about the time associated with an
 observation from the time that observation was recorded. In such a
 model, corrections are inserted as a new row (with a more
-recent *time_recorded* field) and do not replace existing data.
+recent _time_recorded_ field) and do not replace existing data.
 
 The following query returns the daily price for each assets, as
 ordered by the latest recorded price.
@@ -217,7 +217,7 @@ time features, [see our API][api].
 TimescaleDB also provides certain data management capabilities that
 are not readily available or performant in PostgreSQL.  For example, when dealing
 with time-series data, data often builds up very quickly. So, you then want
-to write a *data retention* policy along the lines of "only store raw
+to write a _data retention_ policy along the lines of "only store raw
 data for a week."
 
 In fact, it's common to couple this with the use of continuous
