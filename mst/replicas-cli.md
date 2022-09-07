@@ -69,7 +69,7 @@ To create a fork named `replica-fork` for a service named `timescaledb` with the
 * PLAN: `timescale-basic-100-compute-optimized` 
 
 ```bash
-   avn service create replica-fork --project fork-project -t pg --plan timescale-basic-100-compute-optimized --cloud timescale-aws-us-east-1 -c pg_read_replica=true -c service_to_fork_from=timescaledb -c pg_version=11 -c variant=timescale
+avn service create replica-fork --project fork-project -t pg --plan timescale-basic-100-compute-optimized --cloud timescale-aws-us-east-1 -c pg_read_replica=true -c service_to_fork_from=timescaledb -c pg_version=11 -c variant=timescale
 ```
 
 You can switch to `project-fork` and view the newly created `replica-fork` using:
