@@ -204,7 +204,7 @@ Supported values are `auto`, `local` or `distributed`.
 #### `timescaledb.hypertable_replication_factor_default (int)`
 
 Global default value for replication factor to use with hypertables
-when the `replication_factor` argument is not provided in. Default is 1.
+when the `replication_factor` argument is not provided. Defaults to 1.
 
 #### `timescaledb.enable_2pc (bool)`
 
