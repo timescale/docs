@@ -5,6 +5,7 @@ keywords: [crypto, finance, analytics]
 ---
 
 # Analyze cryptocurrency market data
+
 This tutorial is a step-by-step guide on how to analyze a time-series
 cryptocurrency dataset using TimescaleDB. The instructions in this tutorial
 were used to create [this analysis of 4100+ cryptocurrencies][crypto-blog].
@@ -17,7 +18,7 @@ The tutorial covers these steps:
 1.  Query the data in TimescaleDB
 
 You can
-[skip ahead to the TimescaleDB portion](#step-load-the-dataset-into-timescaledb)
+[skip ahead to the TimescaleDB portion](#load-the-dataset-into-timescaledb)
 if you would prefer not to run through the scripts to create your database
 schema or your dataset.
 
@@ -31,6 +32,7 @@ You can also download the resources for this tutorial:
 <!-- vale Google.Units = YES -->
 
 ## Prerequisites
+
 To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
@@ -43,17 +45,20 @@ This tutorial leads directly into a second tutorial that covers
 time-series data.
 
 ## Design the database schema
+
 When you have a new database up and running, you need some data to insert into
 it. Before you get data for analysis, you need to define what kind of data you
 want to perform queries on.
 
 In this analysis, we have two main goals:
+
 *   Explore the price of Bitcoin and Ethereum, expressed in different fiat
     currencies, over time.
 *   Explore the price of different cryptocurrencies, expressed in Bitcoin, over
     time.
 
 Some questions you might want to ask:
+
 *   How has Bitcoin's price in USD varied over time?
 *   How has Ethereum's price in ZAR varied over time?
 *   How has Bitcoin's trading volume in KRW increased or decreased over time?
@@ -154,6 +159,7 @@ SQL. For more on hypertables, see the [Timescale docs][hypertable-docs] and this
 [blog post][hypertable-blog].
 
 ## Create a dataset to analyze
+
 Now that you've defined the data you want, you can construct a dataset
 containing that data. You can write a small Python script for extracting data
 from [CryptoCompare][cryptocompare] into four CSV files, called `coin_names.csv`,
@@ -164,6 +170,7 @@ To get data from CryptoCompare, you'll need to
 sufficient.
 
 The script consists of five parts:
+
 *   Import the necessary Python libraries in order to complete the data
     extraction
 *   Populate the `currency_info` table with a list of coin names
@@ -345,10 +352,12 @@ python crypto_data_extraction.py
 ```
 
 ## Load the dataset into TimescaleDB
+
 Before you start, you need a
 [working installation of TimescaleDB][install-timescale].
 
 ### Set up the schema
+
 Now all your hard work at the beginning comes in handy, and you can use the SQL
 script you created to set up the TimescaleDB unstance. If you don't want to
 enter the SQL script by yourself, you can download
@@ -356,11 +365,13 @@ enter the SQL script by yourself, you can download
 
 Log in to the TimescaleDB instance. Locate your `host`, `port`, and `password`
 and then connect to the database:
+
 ```bash
 psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/defaultdb?sslmode=require"
 ```
 
 From the `psql` command line, create a database. Let's call it `crypto_data`:
+
 ```sql
 CREATE DATABASE crypto_data;
 \c crypto_data
@@ -369,11 +380,13 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 
 From the command prompt, you can apply the schema creation script to the
 database like this:
+
 ```bash
 psql -x "postgres://tsdbadmin:{YOUR_PASSWORD_HERE}@{|YOUR_HOSTNAME_HERE}:{YOUR_PORT_HERE}/crypto_data?sslmode=require" < schema.sql
 ```
 
 The output should look something like this:
+
 ```sql
 NOTICE:  00000: table "currency_info" does not exist, skipping
 LOCATION:  DropErrorMsgNonExistent, tablecmds.c:1057
@@ -421,6 +434,7 @@ Time: 81.864 ms
 
 Now when you log back in to the TimescaleDB instance using `psql`, you can run
 the `\dt` command and see that the tables have been created properly:
+
 ```sql
              List of relations
  Schema |     Name      | Type  |   Owner
@@ -433,11 +447,13 @@ the `\dt` command and see that the tables have been created properly:
 ```
 
 ### Ingest data
+
 Now that you've created the tables with the desired schema, all that's left is
 to insert the data from the .csv files you created into the tables.
 
 Make sure you are logged into TimescaleDB using `psql` so that you can run each
 of these commands in turn:
+
 ```sql
 \COPY btc_prices FROM btc_prices.csv CSV;
 \COPY eth_prices FROM eth_prices.csv CSV;
@@ -452,11 +468,13 @@ connection.
 
 You can verify that the ingestion worked by running a simple SQL command, such
 as:
+
 ```sql
 SELECT * FROM btc_prices LIMIT 5;
 ```
 
 You should get something like this output:
+
 ```sql
 -[ RECORD 1 ]---+-----------------------
 time            | 2013-03-11 00:00:00+00
@@ -508,11 +526,13 @@ Time: 224.741 ms
 ```
 
 ## Query and analyze the data
+
 At the beginning of the tutorial, we defined some questions to answer.
 Naturally, each of those questions has an answer in the form of a SQL query. Now that you database
 is set up properly, and the data is captured and ingested, you can find some answers:
 
 For example, **How did Bitcoin price in USD vary over time?**
+
 ```sql
 SELECT time_bucket('7 days', time) AS period,
       last(closing_price, time) AS last_closing_price
@@ -523,6 +543,7 @@ ORDER BY period
 ```
 
 **How did BTC daily returns vary over time? Which days had the worst and best returns?**
+
 ```sql
 SELECT time,
       closing_price / lead(closing_price) over prices AS daily_factor
@@ -536,6 +557,7 @@ FROM (
 ```
 
 **How did the trading volume of Bitcoin vary over time in different fiat currencies?**
+
 ```sql
 SELECT time_bucket('7 days', time) AS period,
       currency_code,
@@ -546,6 +568,7 @@ ORDER BY period
 ```
 
 **How did Ethereum (ETH) price in BTC vary over time?**
+
 ```sql
 SELECT
    time_bucket('7 days', time) AS time_period,
@@ -557,6 +580,7 @@ ORDER BY time_period
 ```
 
 **How did ETH prices, in different fiat currencies, vary over time?**
+
 ```sql
 SELECT time_bucket('7 days', c.time) AS time_period,
       last(c.closing_price, c.time) AS last_closing_price_in_btc,
@@ -574,6 +598,7 @@ ORDER BY time_period
 ```
 
 **Which cryptocurrencies had the most transaction volume in the past 14 days?**
+
 ```sql
 SELECT 'BTC' AS currency_code,
        sum(b.volume_currency) AS total_volume_in_usd
@@ -594,6 +619,7 @@ ORDER BY total_volume_in_usd DESC
 ```
 
 **Which cryptocurrencies had the top daily return?**
+
 ```sql
 WITH
    prev_day_closing AS (
@@ -624,12 +650,14 @@ GROUP BY
 ```
 
 ## Next steps
+
 While it's fun to run SQL queries in the command line, the real magic is when you're
 able to visualize it. Follow the companion tutorial to this piece and
 [learn how to use TimescaleDB and Tableau together][tableau-tutorial] to
 visualize your time-series data.
 
 Ready for even more learning? Here's a few suggestions:
+
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 *   [Continuous Aggregates][continuous-aggregates]
 *   [Try Other Sample Datasets][other-samples]

@@ -159,7 +159,7 @@ put it as a step.
 
 ## Word usage
 
-### A [](#A)
+### A
 
 *Above*
 : Avoid all directional words. You cannot guarantee that things will stay in the
@@ -183,7 +183,7 @@ device.
 *Appears*
 : Do not use.
 
-### B [](#B)
+### B
 
 *Bare metal*
 : Noun.
@@ -202,7 +202,7 @@ device.
 same position, or be in the position you expect on an individual reader's
 device.
 
-### C [](#C)
+### C
 
 *Contractions*
 : Absolutely fine to use, but try not to overdo it.
@@ -210,26 +210,26 @@ device.
 *Cybersecurity*
 : One word.
 
-### D [](#D)
+### D
 
-### E [](#E)
+### E
 
-### F [](#F)
+### F
 
 *File system*
 : Two words.
 
-### G [](#G)
+### G
 
-### H [](#H)
+### H
 
-### I [](#I)
+### I
 
-### J [](#J)
+### J
 
-### K [](#K)
+### K
 
-### L [](#L)
+### L
 
 *Latin abbreviations*
 : Do not use.
@@ -238,16 +238,16 @@ device.
 
 &#10060; eg
 
-### M [](#M)
+### M
 
-### N [](#N)
+### N
 
 *Next*
 : Avoid all directional words. You cannot guarantee that things will stay in the
 same position, or be in the position you expect on an individual reader's
 device.
 
-### O [](#O)
+### O
 
 *Once*
 : Do not use. Use "when" instead.
@@ -256,7 +256,7 @@ device.
 
 &#128077; "When you have finished the installation, you can."
 
-### P [](#P)
+### P
 
 *Previous*
 : Avoid all directional words. You cannot guarantee that things will stay in the
@@ -272,16 +272,16 @@ device.
 
 &#10060; "Install the promscale connector."
 
-### Q [](#Q)
+### Q
 
-### R [](#R)
+### R
 
-### S [](#S)
+### S
 
 *Superuser*
 : One word.
 
-### T [](#T)
+### T
 
 *Thus*
 : Do not use.
@@ -312,7 +312,7 @@ a sentence. If possible, rewrite the sentence to avoid this.
 
 &#10060; "Tobs can be used to install."
 
-### U [](#U)
+### U
 
 *Update*
 : An update is a small or minor improvement, often delivered in a patch. Updates
@@ -332,13 +332,13 @@ prepatory backups, and planned downtime.
 *Utilize*
 : Do not use. Use "use" instead.
 
-### V [](#V)
+### V
 
 *Via*
 : Avoid if possible. There is usually a more accurate English word, like
 "through," "with," or "using."
 
-### W [](#W)
+### W
 
 *Will*
 : Do not use. It usually indicates that you are writing in future tense.
@@ -348,11 +348,11 @@ Always write in simple present tense.
 
 &#10060; After installation, you will see a message.
 
-### X [](#X)
+### X
 
-### Y [](#Y)
+### Y
 
-### Z [](#Z)
+### Z
 
 [contributors]: https://github.com/timescale/docs/blob/latest/CONTRIBUTING.md
 [github-docs]: https://github.com/timescale/docs
