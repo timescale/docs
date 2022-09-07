@@ -5,6 +5,7 @@ keywords: [distributed hypertables, multi-node]
 ---
 
 # About distributed hypertables
+
 Distributed hypertables are hypertables that span multiple nodes. With
 distributed hypertables, you can scale your data storage across multiple
 machines. The database can also parallelize some inserts and queries.
@@ -24,6 +25,7 @@ hypertables](/timescaledb/latest/how-to-guides/distributed-hypertables/create-di
 </highlight>
 
 ## Architecture of a distributed hypertable
+
 Distributed hypertables are used with multi-node clusters. Each cluster has an
 access node and multiple data nodes. You connect to your database via the access
 node, but the data is stored on the data nodes. For more information on
@@ -35,6 +37,7 @@ communicates with the relevant data nodes and pushes down any processing if it
 can.
 
 ## Space partitions for distributed hypertables
+
 Distributed hypertables are always partitioned by time, just like regular
 hypertables. But unlike non-distributed hypertables, distributed hypertables
 should also be partitioned by space. This allows you to balance inserts and
@@ -54,6 +57,7 @@ dimension corresponds to a data node. One data node may hold many buckets, but
 each bucket may belong to only one node for each time interval.
 
 ### Repartitioning distributed hypertables
+
 You can expand distributed hypertables by adding additional data nodes. If you
 now have fewer space partitions than data nodes, you need to increase the
 number of space partitions to make use of your new nodes. The new partitioning
@@ -65,9 +69,10 @@ four chunks, while the previous time intervals still include three:
 
 This can affect queries that span the two different partitioning configurations.
 For more information, see the section on [limitations of query push
-down][limitations-pushing-down].
+down](#limitations-of-pushing-down-queries).
 
 ## Replicating distributed hypertables
+
 To replicate distributed hypertables at the chunk level, configure the
 hypertables to write each chunk to multiple data nodes. This native replication
 ensures that a distributed hypertable is protected against data node failures
@@ -79,6 +84,7 @@ For more information about replication and high availability, see the
 [multi-node HA section][multi-node-ha].
 
 ## Performance of distributed hypertables
+
 A distributed hypertable horizontally scales your data storage, so you're not
 limited by the storage of any single machine. It also increases performance for
 some queries.
@@ -107,6 +113,7 @@ overhead of inter-node communication.
 </highlight>
 
 ## Query push down
+
 The access node can use 1 of 2 methods to push down queries: full or partial.
 Computations that can be pushed down include sorts and groupings. Joins on data
 nodes aren't currently supported.
@@ -115,14 +122,17 @@ To see how a query is pushed down to a data node, use `EXPLAIN VERBOSE` to
 inspect the query plan and the remote SQL statement sent to each data node.
 
 ### Full push down
+
 In the full push-down method, the access node offloads all computation to the
 data nodes. It receives final results from the data nodes and appends them. To
 fully push down an aggregate query, the `GROUP BY` clause must include either:
-*	All the partitioning columns _or_
-*	Only the first space-partitioning column
+
+*   All the partitioning columns _or_
+*   Only the first space-partitioning column
 
 For example, say that you want to calculate the `max` temperature for each
 location:
+
 ```sql
 SELECT location, max(temperature)
   FROM conditions
@@ -133,6 +143,7 @@ If `location` is your only space partition, each data node can compute the
 maximum on its own subset of the data.
 
 ### Partial push down
+
 In the partial push-down method, the access node offloads most of the
 computation to the data nodes. It receives partial results from the data nodes
 and calculates a final aggregate by combining the partials.
@@ -140,37 +151,40 @@ and calculates a final aggregate by combining the partials.
 For example, say that you want to calculate the `max` temperature across all
 locations. Each data node computes a local maximum, and the access node computes
 the final result by computing the maximum of all the local maximums:
+
 ```sql
 SELECT max(temperature) FROM conditions;
 ```
 
 ### Limitations of query push down
+
 Distributed hypertables get improved performance when they can push down queries
 to the data nodes. But the query planner might not be able to push down every
 query. Or it might only be able to partially push down a query. This can occur
 for several reasons:
-*	You changed the partitioning configuration. For example, you added new data
-	nodes and increased the number of space partitions to match. This can cause
-	chunks for the same space value to be stored on different nodes. For
-	instance, say you partition by `device_id`. You start with 3 partitions, and
-	data for `device_B` is stored on node 3. You later increase to 4 partitions.
-	New chunks for `device_B` are now stored on node 4. If you query across the
-	repartitioning boundary, a final aggregate for `device_B` cannot be
-	calculated on node 3 or node 4 alone. Partially processed data must be sent
-	to the access node for final aggregation. The TimescaleDB query planner
-	dynamically detects such overlapping chunks and reverts to the appropriate
-	partial aggregation plan. This means that you can add data nodes and
-	repartition your data to achieve elasticity without worrying about query
-	results. In some cases, your query could be slightly less performant, but
-	this is rare and the affected chunks usually move quickly out of your
-	retention window.
-*	The query includes [non-immutable functions][volatility] and expressions.
-	The function cannot be pushed down to the data node, because by definition,
-	it isn't guaranteed to have a consistent result across each node. An example
-	non-immutable function is [`random()`][random-func], which depends on the
-	current seed.
-*	The query includes a user-defined function. The access node assumes the
-	function doesn't exist on the data nodes, and doesn't push it down.
+
+*   You changed the partitioning configuration. For example, you added new data
+ nodes and increased the number of space partitions to match. This can cause
+ chunks for the same space value to be stored on different nodes. For
+ instance, say you partition by `device_id`. You start with 3 partitions, and
+ data for `device_B` is stored on node 3. You later increase to 4 partitions.
+ New chunks for `device_B` are now stored on node 4. If you query across the
+ repartitioning boundary, a final aggregate for `device_B` cannot be
+ calculated on node 3 or node 4 alone. Partially processed data must be sent
+ to the access node for final aggregation. The TimescaleDB query planner
+ dynamically detects such overlapping chunks and reverts to the appropriate
+ partial aggregation plan. This means that you can add data nodes and
+ repartition your data to achieve elasticity without worrying about query
+ results. In some cases, your query could be slightly less performant, but
+ this is rare and the affected chunks usually move quickly out of your
+ retention window.
+*   The query includes [non-immutable functions][volatility] and expressions.
+ The function cannot be pushed down to the data node, because by definition,
+ it isn't guaranteed to have a consistent result across each node. An example
+ non-immutable function is [`random()`][random-func], which depends on the
+ current seed.
+*   The query includes a user-defined function. The access node assumes the
+ function doesn't exist on the data nodes, and doesn't push it down.
 
 TimescaleDB uses several optimizations to avoid these limitations, and push down
 as many queries as possible. For example, `now()` is a non-immutable function.
@@ -178,6 +192,7 @@ The database converts it to a constant on the access node and pushes down the
 constant timestamp to the data nodes.
 
 ## Combine distributed hypertables and regular hypertables
+
 You can use distributed hypertables in the same database as regular hypertables
 and regular PostgreSQL tables. This mostly works the same way as having multiple
 regular tables, with a few nuances. For example, if you `JOIN` a regular table

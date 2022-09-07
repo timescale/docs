@@ -55,9 +55,8 @@ main contributor.
 You can modify the TimescaleDB Community Edition source code and run it for
 production use. Developers using TimescaleDB Community Edition have the "right
 to repair" and make modifications to the source code and run it in their own
-on-premises or cloud infrastructure. However, you cannot make 
-modifications to the TimescaleDB Community Edition
-source code and offer it as a service.
+on-premises or cloud infrastructure. However, you cannot make modifications to
+the TimescaleDB Community Edition source code and offer it as a service.
 
 Timescale provides hosted versions of TimescaleDB Community Edition:
 [Timescale Cloud][timescale-cloud] and
