@@ -40,7 +40,7 @@ Before you begin, make sure you have:
     the output:
 
     ```bash
-     avn service list
+    avn service list
     ```
 
 1.  Get the details of the service that you want to fork:
