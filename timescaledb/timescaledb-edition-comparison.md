@@ -40,12 +40,12 @@ TimescaleDB Community Edition is the latest, most updated version of TimescaleDB
 available under the
 [Timescale License (TSL)][timescale-license].
 
-For more information about the Timecale licence, see [this blog post][license-blog].
+For more information about the Timescale licence, see [this blog post][license-blog].
 
 Many of the most recent features of TimescaleDB are only available in
 TimescaleDB Community Edition.
 
-You can install TimescaleDB Community Edition in my own on-premises or cloud
+You can install TimescaleDB Community Edition in your own on-premises or cloud
 infrastructure and run it for free. TimescaleDB Community Edition is completely
 free if you manage your own service.
 
@@ -55,8 +55,8 @@ main contributor.
 You can modify the TimescaleDB Community Edition source code and run it for
 production use. Developers using TimescaleDB Community Edition have the "right
 to repair" and make modifications to the source code and run it in their own
-on-premises or cloud infrastructure. However, consistent with the previous
-question, users may not make modifications to the TimescaleDB Community Edition
+on-premises or cloud infrastructure. However, you cannot make 
+modifications to the TimescaleDB Community Edition
 source code and offer it as a service.
 
 Timescale provides hosted versions of TimescaleDB Community Edition:
