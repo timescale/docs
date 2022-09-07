@@ -36,7 +36,7 @@ Before you begin, make sure you have:
     ```
 
 1.  List the services in the project, and make a note of the service that you
-    want to create a read-only replica, it is listed under the`SERVICE_NAME` column in
+    want to create a read-only replica for. It is listed under the`SERVICE_NAME` column in
     the output:
 
     ```bash
