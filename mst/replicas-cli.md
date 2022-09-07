@@ -75,7 +75,7 @@ To create a fork named `replica-fork` for a service named `timescaledb` with the
 You can switch to `project-fork` and view the newly created `replica-fork` using:
 
 ```bash
-   avn service list
+avn service list
 ```
 
 [about-mst]: /mst/:currentVersion:/about-mst/
