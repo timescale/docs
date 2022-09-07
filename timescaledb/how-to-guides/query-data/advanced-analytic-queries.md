@@ -76,11 +76,12 @@ SELECT
 
 ## Calculate the rate of change
 
-Like [increase](#increase), rate applies to a situation with monotonically
-increasing counters. If your sample interval is variable or you use different
-sampling intervals between different series it is helpful to normalize the
-values to a common time interval to make the calculated values comparable.
-This example finds bytes per second sent, and takes counter resets into account:
+Like [increase](#calculate-the-increase-in-a-value), rate applies to a situation
+with monotonically increasing counters. If your sample interval is variable or
+you use different sampling intervals between different series it is helpful to
+normalize the values to a common time interval to make the calculated values
+comparable. This example finds bytes per second sent, and takes counter resets
+into account:
 
 ```sql
 SELECT

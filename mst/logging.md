@@ -84,4 +84,4 @@ Service for TimescaleDB.
 
 [loggly-site]: https://www.loggly.com/
 [mst-portal]: https://portal.managed.timescale.com
-[aiven-cli]: /mst/:currentVersion:/aiven-client/
+[aiven-cli]: /mst/:currentVersion:/aiven-client-install/
