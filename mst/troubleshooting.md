@@ -66,7 +66,7 @@ by restarting your background workers.
 
 ## Connection terminates while trying to update Timescale extension
 
-When attempting to upgrade your timescaleDB version using `ALTER EXTENSION
+When attempting to upgrade your TimescaleDB version using `ALTER EXTENSION
 timescaledb`, and if you have connection pooling enabled, an error appears that reads:
 
 ```bash
