@@ -24,7 +24,7 @@ Before you start, make sure you have:
 *   A running instance of InfluxDB and a means to connect to it.
 *   An [installation of TimescaleDB][install] and a means to connect to it.
 *   Data in your InfluxDB instance. If you need to import some sample data for a
-    test, see the instructions for [importing sample data](#import-sample-data).
+    test, see the instructions for [importing sample data][import-data].
 
 ## Procedures
 
@@ -117,7 +117,7 @@ schema-transfer`:
 outflux schema-transfer <DATABASE_NAME> <INFLUX_MEASUREMENT_NAME> \
 --input-server=http://localhost:8086 \
 --output-conn="dbname=tsdb user=tsdbadmin"
-```  
+```
 
 To transfer all measurements from the database, leave out the measurement name
 argument.
@@ -186,6 +186,7 @@ migrate`][outflux-migrate]. Alternatively, see the command line help:
 outflux migrate --help
 ```
 
+[import-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/migrate-influxdb/#import-sample-data-into-influxdb/
 [influx-cmd]: https://docs.influxdata.com/influxdb/v1.7/tools/shell/
 [install]: /install/latest/
 [outflux-migrate]: https://github.com/timescale/outflux#migrate
