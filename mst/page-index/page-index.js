@@ -64,6 +64,10 @@ module.exports = [
         href: "security",
       },
       {
+        title: "Create a replica for PostgreSQL service",
+        href: "postgresql-read-replica",
+      },
+      {
         title: "Troubleshooting",
         href: "troubleshooting",
       },
