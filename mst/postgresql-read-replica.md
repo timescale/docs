@@ -14,7 +14,7 @@ be created in different regions or on different cloud providers.
 <highlight type="note">
 If you are running a Managed Service for TimescaleDB 
 [Pro plan](https://docs.timescale.com/mst/latest/about-mst/#service-configuration-plans),
-you have standby nodes available in a high availability setup. These support
+you have standby nodes available in a high availability setup. The standby nodes support
 read-only queries to reduce the effect of slow queries on the primary node.
 </highlight>
 
