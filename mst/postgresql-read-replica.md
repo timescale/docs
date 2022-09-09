@@ -12,7 +12,8 @@ response times across different geographical locations because the replica can
 be created in different regions or on different cloud providers.
 
 <highlight type="note">
-If your PostgreSQL service is running a [Pro plan](https://docs.timescale.com/mst/latest/about-mst/#service-configuration-plans),
+If you are running a Managed Service for TimescaleDB 
+[Pro plan](https://docs.timescale.com/mst/latest/about-mst/#service-configuration-plans),
 you have standby nodes available in a high availability setup. These support
 read-only queries to reduce the effect of slow queries on the primary node.
 </highlight>
