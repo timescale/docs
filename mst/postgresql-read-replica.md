@@ -7,7 +7,7 @@ product: mst
 # Create a read-only replica of PostgreSQL service
 
 PostgreSQL read-only replicas allow you to perform read-only queries against
-the replica and reduce the load on the primary server. You can optimise query
+the replica and reduce the load on the primary server. You can optimize query
 response times across different geographical locations because the replica can
 be created in different regions or on different cloud providers.
 
