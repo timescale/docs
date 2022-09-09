@@ -56,7 +56,7 @@ This release includes these noteworthy features:
 * time_bucket now supports bucketing by month, year and timezone
 * Improve performance of bulk SELECT and COPY for distributed hypertables
 * 1 step continuous aggregate policy management
-* Migrate Continuous Aggregates to the new format
+* Migrate continuous aggregates to the new format
 
 **Features**
 * #4188 Use COPY protocol in row-by-row fetcher
