@@ -42,7 +42,7 @@ follow these [setup instructions][distributed-hypertables-setup].
 
 * time_bucket now supports bucketing by month, year and timezone
 * 1 step continuous aggregate policy management
-* Migrate Continuous Aggregates to the new format
+* Migrate continuous aggregates to the new format
 
 ## Release notes
 
