@@ -41,7 +41,7 @@ follow these [setup instructions][distributed-hypertables-setup].
 ### What's new in TimescaleDB 2.8:
 
 * time_bucket now supports bucketing by month, year and timezone
-* 1 step CAgg policy management
+* 1 step continuous aggregate policy management
 * Migrate Continuous Aggregates to the new format
 
 ## Release notes
