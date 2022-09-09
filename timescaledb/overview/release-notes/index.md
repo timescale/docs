@@ -85,7 +85,7 @@ This release includes these noteworthy features:
 * #4641 Allow bucketing by month, year, century in time_bucket and time_bucket_gapfill
 * #4642 Add timezone support to time_bucket
 
-**Bugfixes**
+**Bug fixes**
 * #4359 Create composite index on segmentby columns
 * #4374 Remove constified now() constraints from plan
 * #4416 Handle TRUNCATE TABLE on chunks
