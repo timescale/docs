@@ -26,7 +26,7 @@ read-only queries to reduce the effect of slow queries on the primary node.
 
 1.  Select the PostgreSQL instance for which you want to create a remote replica.
 
-1.  In the `Overview` tab, click `Create a read replica` button.
+1.  In the `Overview` tab, click `Create a read replica`.
 
 1.  In the `Create a PostgreSQL read` page, type a name for the remote replica,
     select the cloud provider, location, plan that you want to use, and click
