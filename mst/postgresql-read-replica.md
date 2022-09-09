@@ -34,7 +34,7 @@ read-only queries to reduce the effect of slow queries on the primary node.
 
 </procedure>
 
-After the read-only replica is created it is listed as a service in your
+When the read-only replica is created it is listed as a service in your
 project. The `Overview` tab of the replica also lists the name of the primary
 service for the replica. To promote a read-only replica as a master database,
 click the `Promote to master` button.
