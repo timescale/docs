@@ -707,7 +707,7 @@ This table lists all function pipeline elements in alphabetical order:
 |`average()`|Aggregate Finalizer|DOUBLE PRECISION|
 |`cbrt()`|Unary Mathematical| `timevector` pipeline|
 |`ceil()`|Unary Mathematical| `timevector` pipeline|
-|counter_agg()`|Aggregate Finalizer| `CounterAgg`|
+|`counter_agg()`|Aggregate Finalizer| `CounterAgg`|
 |`delta()`|Compound|`timevector` pipeline|
 |`div`|Binary Mathematical|`timevector` pipeline|
 |`fill_to`|Compound|`timevector` pipeline|

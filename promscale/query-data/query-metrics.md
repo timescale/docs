@@ -7,26 +7,37 @@ tags: [sql, prometheus]
 ---
 
 # Query metric data with SQL
+
 This section covers information about the different SQL queries you can use for
-metric data. 
+metric data.
 
 You can query the data in Promscale with your preferred SQL tool. For example,
 you can use `psql`.
 For more information about installing and using `psql`, see the
 [installing psql section][install-psql].
 
-## Metric views
+<highlight type="note">
+The PostgreSQL `search_path` variable determines in what order schemas are
+searched and which objects such as tables, views, functions, and others do not
+require schema qualification to use. When you install Promscale, the Promscale
+extension modifies the `search_path` of the database that it is connected to
+and adds its public schemas to the search path. This makes querying Promscale
+data easier. The public schemas that Promscale adds are: `ps_tag`, `prom_api`,
+`prom_metric`, `ps_trace`.
+</highlight>
 
-When you query a metric, the query is performed against the view
-of the metric you're interested in. The name of the view is the metric name.
+## Query metric data with SQL
+
+This section covers information about the different SQL queries you can use for metrics data.
 
 For example, to query a metric named `go_dc_duration_seconds` for its samples in the
-past five minutes: 
+past five minutes:
 
 ```sql
 SELECT * from go_gc_duration_seconds
 WHERE time > now() - INTERVAL '5 minutes';
 ```
+
 This metric measures for how long garbage collection takes in
 Go applications.
 
@@ -44,14 +55,15 @@ The output is similar to:
 
 In this output:
 
-* The `series_id` uniquely identifies the measurements label set. This enables
+*   The `series_id` uniquely identifies the measurements label set. This enables
   efficient aggregation by series.
-* The `labels` field contains an array of foreign keys to label key-value pairs
+*   The `labels` field contains an array of foreign keys to label key-value pairs
   that make up the label set.
-* The `<LABEL_KEY>_id` fields are separate fields for each label key in the
+*   The `<LABEL_KEY>_id` fields are separate fields for each label key in the
   label set, to simplify access.
 
 ## Query values for label keys
+
 Each label key is expanded into its own column, which stores foreign key
 identifiers to their value. This allows you to `JOIN`, aggregate, and filter by
 label keys and values.
@@ -84,6 +96,7 @@ The output is similar to:
 ```
 
 ## Query label sets for a metric
+
 The `labels` field in any metric row represents the full set of labels
 associated with the measurement. It is represented as an array of identifiers.
 To return the entire label set in JSON, you can use the `jsonb()` function:
@@ -114,6 +127,7 @@ This query returns the label set for the metric `go_gc_duration` in JSON format,
 so you can read or further interact with it.
 
 ## Filter by labels
+
 You can filter by labels, because matching operators correspond to the selectors
 in PromQL. The operators are used in a `WHERE` clause, in the
 `labels ? (<label_key> <operator> <pattern>)`.
@@ -144,6 +158,7 @@ WHERE
 ```
 
 The output is similar to:
+
 ```sql
 | time                       |   value   |              labels                                                                                              |
 |----------------------------|-----------|------------------------------------------------------------------------------------------------------------------|
@@ -159,6 +174,7 @@ This sections provides a number of different examples to illustrate how you can
 use SQL to do more sophisticated analysis on your metric data.
 
 ### Query the number of data points in a series
+
 Each row in a metric's view has a `series_id` that uniquely identifies the
 measurement's label set. This allows you to aggregate by series more
 efficiently. You can retrieve the labels array from a `series_id` using the
@@ -172,6 +188,7 @@ GROUP BY series_id;
 ```
 
 The output is similar to:
+
 ```sql
 |                                                       labels                                                        | count |
 |---------------------------------------------------------------------------------------------------------------------|-------|
@@ -188,6 +205,7 @@ The output is similar to:
 ```
 
 ### Query percentiles aggregated over time and series
+
 This query calculates the ninety-ninth percentile over both time and series
 (`app_id`) for the metric named `go_gc_duration_seconds`. This metric is a
 measurement for how long garbage collection is taking in Go applications:
@@ -205,6 +223,7 @@ ORDER BY p99 desc;
 ```
 
 An example of the output for this query:
+
 ```sql
 |       app         |     p99      |
 |-------------------|------------  |
@@ -218,6 +237,7 @@ PromQL alone to accurately calculate percentiles when aggregating over both time
 and series.
 
 ### A complex example: identifying over-provisioned containers
+
 The example in this section queries metrics from Prometheus and the
 `node_exporter` to identify Kubernetes containers that are over-provisioned.
 In this query, you find containers whose ninety-ninth percentile memory

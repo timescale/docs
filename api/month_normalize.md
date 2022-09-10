@@ -30,7 +30,7 @@ Get the normalized value for a metric of 1000, and a reference date of January
 1, 2021:
 
 ```sql
-SELECT toolkit_experimental.month_normalize(1000,'2021-01-01 00:00:00+03'::timestamptz
+SELECT toolkit_experimental.month_normalize(1000,'2021-01-01 00:00:00+03'::timestamptz)
 ```
 
 The output looks like this:

@@ -18,6 +18,7 @@ This exposes metrics from the [node_exporter][node-exporter-metrics] as well
 as [pg_stats][pg-stats-metrics] metrics.
 
 ### Prerequisites
+
 In order to proceed with this tutorial, you need a managed service for TimescaleDB database.
 To create one, see these instructions for how to
 [get started with managed service for TimescaleDB][timescale-mst-get-started]
@@ -25,7 +26,7 @@ To create one, see these instructions for how to
 ### Step 1: Enable Prometheus service integration
 
 In the navigation bar, select 'Service Integrations'. Navigate to the service
-integrations, pictured below.  
+integrations, pictured below.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/docs.iobeam.com/images/Prometheus_service_integration_0.png" alt="Service Integrations Menu Option"/>
 
@@ -104,4 +105,4 @@ and analyze Prometheus metrics from your managed TimescaleDB instance.
 [pg-stats-metrics]: https://www.postgresql.org/docs/current/monitoring-stats.html
 [promscale]: https://github.com/timescale/timescale-prometheus
 [timescale-mst]: https://www.timescale.com/products
-[timescale-mst-get-started]: /mst/:currentVersion:/create-a-service/
+[timescale-mst-get-started]: /mst/:currentVersion:/about-mst

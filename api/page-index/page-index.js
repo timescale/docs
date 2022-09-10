@@ -287,6 +287,14 @@ module.exports = [
             href: "time_bucket_ng",
           },
           {
+            title: "days_in_month",
+            href: "days_in_month",
+          },
+          {
+            title: "month_normalize",
+            href: "month_normalize",
+          },
+          {
             title: "Approximate count distincts",
             type: "directory",
             href: "approx_count_distincts",
