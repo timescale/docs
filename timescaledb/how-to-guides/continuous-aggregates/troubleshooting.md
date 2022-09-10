@@ -6,6 +6,7 @@ keywords: [continuous aggregates, troubleshooting]
 
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
+import CaggMigratePermissions from 'versionContent/_partials/_caggs-migrate-permissions.mdx';
 
 # Troubleshooting continuous aggregates
 
@@ -295,6 +296,10 @@ aggregate.
 </highlight>
 
 </procedure>
+
+## Permissions error when migrating a continuous aggregate
+
+<CaggMigratePermissions />
 
 [decompression]: /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks/
 [refresh_continuous_aggregate]: /api/:currentVersion:/continuous-aggregates/refresh_continuous_aggregate/

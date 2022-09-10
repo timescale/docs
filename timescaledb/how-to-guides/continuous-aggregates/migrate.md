@@ -4,6 +4,8 @@ excerpt: Migrate old continuous aggregates to the new form introduced in Timesca
 keywords: [continuous aggregates]
 ---
 
+import CaggMigratePermissions from 'versionContent/_partials/_caggs-migrate-permissions.mdx';
+
 # Migrate a continuous aggregate to the new form
 
 In TimescaleDB 2.7 and above, continuous aggregates use a new format that
@@ -42,3 +44,9 @@ planning table:
 ```sql
 SELECT * FROM _timescaledb_catalog.continuous_agg_migrate_plan_step;
 ```
+
+## Troubleshooting
+
+### Permissions error when migrating a continuous aggregate
+
+<CaggMigratePermissions />
