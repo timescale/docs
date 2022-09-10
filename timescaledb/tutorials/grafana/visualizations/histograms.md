@@ -292,7 +292,7 @@ You can do this with a pre-aggregation query, using:
 
 [raw-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-raw-data/
 [pre-agg-data]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-transaction-histogram-with-aggregated-data/
-[create-panel]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#table-of-contents-create-a-panel-with-multiple-price-transaction-histograms/
+[create-panel]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-panel-with-multiple-price-transaction-histograms
 [price-volume]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/histograms/#create-a-price-volume-histogram/
 [lag]: <https://www.postgresql.org/docs/14/functions-window.html>
 [max]: <https://www.postgresql.org/docs/current/tutorial-agg.html>

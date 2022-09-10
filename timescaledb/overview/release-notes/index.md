@@ -81,10 +81,12 @@ in the planner.
 This release also contains bug fixes and minor feature improvements since the 2.7.0 release.
 
 <!-- <highlight type="note"> This release is low priority for upgrade. We recommend that you upgrade when you can. </highlight> -->
-<highlight type="important">
- This release is medium priority for upgrade. We recommend that you upgrade at the next available opportunity.
 
+<highlight type="important">
+This release is medium priority for upgrade. We recommend that you upgrade at
+the next available opportunity.
 </highlight>
+
 <!-- <highlight type="warning"> This release is high priority for upgrade. We strongly recommend that you upgrade as soon as possible. </highlight> -->
 
 The experimental features in the 2.7 release are:
@@ -1813,7 +1815,7 @@ For more information on this release, read the [blog announcement](https://blog.
 
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
-[whats-new]: /timescaledb/:currentVersion:/overview/release-notes/#v2-3-1-2021-07-05
+[whats-new]: #what-x27-s-new-in-timescaledb-2-7
 [compress-data]: /getting-started/:currentVersion:/compress-data/
 [distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
 [distributed-hypertables-setup]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/

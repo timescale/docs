@@ -201,7 +201,7 @@ the data nodes and perform the `JOIN` locally.
 
 [limitations]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/#query-push-down/
 [hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[limitations-pushing-down]: #limitations-of-pushing-down-queries
+[limitations-pushing-down]: #limitations-of-query-push-down
 [multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
 [multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [random-func]: <https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE>

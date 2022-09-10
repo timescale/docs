@@ -186,7 +186,7 @@ migrate`][outflux-migrate]. Alternatively, see the command line help:
 outflux migrate --help
 ```
 
-[import-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/migrate-influxdb/#import-sample-data-into-influxdb/
+[import-data]: #import-sample-data-into-influxdb
 [influx-cmd]: https://docs.influxdata.com/influxdb/v1.7/tools/shell/
 [install]: /install/latest/
 [outflux-migrate]: https://github.com/timescale/outflux#migrate
