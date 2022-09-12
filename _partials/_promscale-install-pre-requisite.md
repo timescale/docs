@@ -1,10 +1,11 @@
 <highlight type="note">
+Before installing Promscale, refer to:
 
-Before you install Promscale please refer to:
-
-*   Promscale Resource recommendation [guide][recomm-guide] to understand the
-    resource requirements.
-*   Promscale Configuration recommendation [guide][config-guide] to understand
+*   Promscale Resource recommendation
+    [guide](/promscale/latest/recommendations/resource-recomm/) to understand
+    the resource requirements.
+*   Promscale Configuration recommendation
+    [guide](/promscale/latest/recommendations/config-recomm/) to understand
     configuration requirements.
 
 </highlight>
