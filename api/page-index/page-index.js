@@ -440,6 +440,29 @@ module.exports = [
             ],
           },
           {
+            title: "Financial analysis",
+            type: "directory",
+            href: "financial-analysis",
+            children: [
+              {
+                title: "ohlc",
+                href: "ohlc",
+              },
+              {
+                title: "open, high, low, close",
+                href: "open-high-low-close",
+              },
+              {
+                title: "open_time, high_time, low_time, close_time",
+                href: "open-high-low-close-time",
+              },
+              {
+                title: "rollup",
+                href: "rollup",
+              },
+            ],
+          },
+          {
             title: "Gapfilling and interpolation",
             type: "directory",
             href: "gapfilling-interpolation",
