@@ -206,16 +206,36 @@ module.exports = [
             href: "drop_materialized_view",
           },
           {
-            title: "add_continuous_aggregate_policy",
-            href: "add_continuous_aggregate_policy",
-          },
-          {
             title: "refresh_continuous_aggregate",
             href: "refresh_continuous_aggregate",
           },
           {
+            title: "add_continuous_aggregate_policy",
+            href: "add_continuous_aggregate_policy",
+          },
+          {
+            title: "add_policies",
+            href: "add_policies",
+          },
+          {
+            title: "alter_policies",
+            href: "alter_policies",
+          },
+          {
+            title: "show_policies",
+            href: "show_policies",
+          },
+          {
             title: "remove_continuous_aggregate_policy",
             href: "remove_continuous_aggregate_policy",
+          },
+          {
+            title: "remove_policies",
+            href: "remove_policies",
+          },
+          {
+            title: "remove_all_policies",
+            href: "remove_all_policies",
           },
         ],
       },
@@ -710,6 +730,10 @@ module.exports = [
           {
             title: "timescaledb_information.job_stats",
             href: "job_stats",
+          },
+          {
+            title: "timescaledb_experimental.policies",
+            href: "policies",
           },
         ],
       },
