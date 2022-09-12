@@ -7,7 +7,10 @@ tags: [telemetry, monitor]
 ---
 
 import AttachExporter from 'versionContent/_partials/_cloud-integrations-attach-exporter.mdx';
+
 import ExporterRegionNote from 'versionContent/_partials/_cloud-integrations-exporter-region.mdx';
+
+import Metrics from "versionContent/_partials/_cloud-integrations-metrics.mdx";
 
 # Integrate Timescale Cloud services with third-party monitoring tools
 
@@ -63,6 +66,8 @@ Export telemetry data to AWS CloudWatch by:
 
 <ExporterRegionNote />
 
+<Metrics />
+
 <procedure>
 
 ### Creating a data exporter for AWS CloudWatch
@@ -103,6 +108,8 @@ alt="Screenshot of the menu for adding a Datadog exporter" />
 You can now query your service metrics from the CloudWatch metrics page in AWS
 Console. For more information, see the [CloudWatch
 documentation][cloudwatch-docs].
+
+<Metrics />
 
 ## Edit a data exporter
 
