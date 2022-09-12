@@ -24,9 +24,9 @@ Pie charts can answer questions like:
 
 This tutorial shows you how to:
 
-*   [Create a pie chart](#create-a-pie-chart-with-preaggregated-data)
-  with pre-aggregated data using `time_bucket()`.
-*   [Create a donut chart](#create-a-donut-chart-with-volume-transactions) to show volume of stock transactions.
+*   [Create a pie chart][pie-chart] with pre-aggregated data using
+    `time_bucket()`.
+*   [Create a donut chart][donut-chart] to show volume of stock transactions.
 
 A pie chart can be in the traditional pie style or in donut style. Both display the
 same information. This tutorial shows you how to create both.
@@ -82,10 +82,10 @@ Create a pie chart visualization using the data in the table `stocks_real_time`.
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/piecharttabledata2.png" alt="Screenshot of the table view of valid time-series data for stocks."/>
 
 1.  In the `Visualizations` field, select `Pie chart`. Grafana turns the query
-    into a pie chart. This example shows a pie chart price distribution of 
-    JPM, IBM, AAPL, AMD, and CVS stocks which has 20%, 23%, 25%, 
-    15%, and 17%, respectively, within a specific period. The returned data 
-    has lots of information, but only the first values for each stock are 
+    into a pie chart. This example shows a pie chart price distribution of
+    JPM, IBM, AAPL, AMD, and CVS stocks which has 20%, 23%, 25%,
+    15%, and 17%, respectively, within a specific period. The returned data
+    has lots of information, but only the first values for each stock are
     displayed, because of the options selected in the calculation field.
 
     <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/piecharttable2view.png" alt="Screenshot of the pie chart produced by Grafana. The pie chart represents the price of five different stocks in 3 months, and the percentage of each makes up of the total sum."/>
@@ -147,7 +147,7 @@ in the `stocks_real_time` hypertable.
 
   <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/piecharttype.png" alt="Screenshot of Grafana dashboard, showing pie chart."/>
 
-1.  Refresh the panel. The donut chart view shows the percentage of trading volume 
+1.  Refresh the panel. The donut chart view shows the percentage of trading volume
     for a 10-minute bucket, averaged over the entire day:
 
    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/visualizations/piechart/donutchart.png" alt="Screenshot of Grafana dashboard, showing a donut chart."/>
@@ -163,10 +163,12 @@ calculation on a single trading day instead.
 
 Pie charts are a great tool for comparing categorized data. They're especially good
 for visualizing percentages. But they don't work as well if you have too many categories
-with similar percentages or large amount of data. 
+with similar percentages or large amount of data.
 
 For more ways to visualize data using TimescaleDB and Grafana, see the other
 [Grafana visualization tutorials][grafana-tutorials].
 
+[pie-chart]: /timescaledb/:currentVersion:/tutorials/grafana/visualizations/pie-chart/#create-a-pie-chart-with-preaggregated-data
+[donut-chart]: /timescaledb/:currentversion:/tutorials/grafana/visualizations/pie-chart/#create-a-donut-chart-with-volume-transactions
 [grafana-tutorials]: /timescaledb/:currentVersion:/tutorials/grafana/
 [gsg-data]: /getting-started/:currentVersion:/
