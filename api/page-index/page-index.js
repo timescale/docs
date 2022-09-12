@@ -4,7 +4,6 @@ module.exports = [
     filePath: "index.md",
     href: "api",
     name: "API Reference",
-    pageComponents: ["content-list"],
     excerpt:
       "The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension",
     description:
@@ -421,29 +420,6 @@ module.exports = [
               {
                 title: "x_intercept",
                 href: "x_intercept",
-              },
-            ],
-          },
-          {
-            title: "Financial analysis",
-            type: "directory",
-            href: "financial-analysis",
-            children: [
-              {
-                title: "ohlc",
-                href: "ohlc",
-              },
-              {
-                title: "open, high, low, close",
-                href: "open-high-low-close",
-              },
-              {
-                title: "open-at, high_at, low_at, close_at",
-                href: "open-high-low-close-at",
-              },
-              {
-                title: "rollup",
-                href: "rollup",
               },
             ],
           },
