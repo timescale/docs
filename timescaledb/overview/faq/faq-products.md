@@ -9,25 +9,26 @@ tags: [cloud regions, PostgreSQL]
 
 ## What is the difference between Timescale, TimescaleDB, Timescale Cloud, and Managed Service for TimescaleDB?
 
-**Timescale** is the company.
+**Timescale** is our company. We're building the next database company, helping
+developers collect, store, and analyze their time-series data. We're the
+creators of TimescaleDB and Timescale Cloud.
 
-Timescale builds an open-source relational database for time-series called
-**TimescaleDB**.
+**TimescaleDB** expands PostgreSQL for time-series data. Leveraging rock-solid
+PostgreSQL foundations, TimescaleDB adds the extra performance, scalability, and
+usability required to handle relentless streams of time-series data. TimescaleDB
+is packaged as a PostgreSQL extension. If you're self-hosting your own
+PostgreSQL instance, TimescaleDB can be added to it completely for free.
 
-Timescale hosts and manages TimescaleDB on behalf of its customers via
-hosted services called **Timescale Cloud** and **Managed Service for TimescaleDB**.
+**Timescale Cloud** is the hosted high-performance PostgreSQL for time-series
+and analytics. It gives you the reliability of PostgreSQL, the time-series
+superpowers of TimescaleDB, and the peace of mind of a fully managed service
+with automatic backup and restore, high availability via replication, seamless
+scaling and resizing, and much more. We recommend using Timescale Cloud if
+you're hosting in AWS. See the [Timescale Cloud section][cloud] to learn more.
 
-**Timescale Cloud** is a cloud-native database-as-a-service that supports all
-TimescaleDB features. It gives you the rock-solid foundation of PostgreSQL and
-TimescaleDB, plus the peace-of-mind of a fully managed service. We recommend
-Timescale Cloud if you're thinking of hosting TimescaleDB on AWS. See the
-[Timescale Cloud][cloud] section to learn more.
-
-**Managed Service for TimescaleDB** is our partnered service that lets us
-provide managed TimescaleDB on GCP and Azure. For most AWS deployments, we
-recommend Timescale Cloud. For GCP, Azure, and less common AWS regions, we
-recommend Managed Service for TimescaleDB. See the [Managed Service for
-TimescaleDB][mst] section to learn more.
+**Managed Service for TimescaleDB** is our partnered service, through which we
+support managed TimescaleDB deployments in Azure, GCP, and less-common regions
+of AWS. See the [Managed Service for TimescaleDB section][mst] to learn more.
 
 ## What is TimescaleDB?
 
