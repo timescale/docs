@@ -57,6 +57,8 @@ You can now monitor your service metrics from the [metrics explorer in
 Datadog][datadog-metrics-explorer]. For more information, see the [Datadog
 documentation][datadog-docs].
 
+<Metrics />
+
 ## Export telemetry data to AWS CloudWatch
 
 Export telemetry data to AWS CloudWatch by:
@@ -65,8 +67,6 @@ Export telemetry data to AWS CloudWatch by:
 1.  [Attaching your database service to the exporter][attach-exporter-aws]
 
 <ExporterRegionNote />
-
-<Metrics />
 
 <procedure>
 
