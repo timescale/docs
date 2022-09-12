@@ -1,5 +1,5 @@
 ---
-api_name: open_at() | high_at() | low_at() | close_at()
+api_name: open_time() | high_time() | low_time() | close_time()
 excerpt: Get the timestamp corresponding to OHLC points in financial analysis
 topics: [hyperfunctions]
 tags: [hyperfunctions, finance]
@@ -22,34 +22,34 @@ hyperfunction_subfamily: OpenHighLowClose
 hyperfunction_type: accessor
 ---
 
-# `open_at`, `high_at`, `low_at`, `close_at` <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+# `open_time`, `high_time`, `low_time`, `close_time` <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 This group of functions each returns the timestamp of the OHLC component for
-which it is named. For example, the `high_at()` hyperfunction returns the
+which it is named. For example, the `high_time()` hyperfunction returns the
 timestamp of the highest price during the aggregated time period.
 
 ```sql
-open_at(
+open_time(
     ohlc OpenHighLowClose
 ) RETURNS TIMESTAMPTZ
 ```
 
 ```sql
-high_at(
+high_time(
     ohlc OpenHighLowClose
 ) RETURNS TIMESTAMPTZ
 ```
 
 ```sql
-low_at(
+low_time(
     ohlc OpenHighLowClose
 ) RETURNS TIMESTAMPTZ
 ```
 
 ```sql
-close_at(
+close_time(
     ohlc OpenHighLowClose
 ) RETURNS TIMESTAMPTZ
 ```
@@ -66,19 +66,19 @@ close_at(
 
 |Column|Type|Description|
 |-|-|-|
-|`open_at`|`TIMESTAMPTZ`|The time at which the opening price occurred|
+|`open_time`|`TIMESTAMPTZ`|The time at which the opening price occurred|
 
 |Column|Type|Description|
 |-|-|-|
-|`high_at`|`TIMESTAMPTZ`|The first time at which the high price occurred|
+|`high_time`|`TIMESTAMPTZ`|The first time at which the high price occurred|
 
 |Column|Type|Description|
 |-|-|-|
-|`low_at`|`TIMESTAMPTZ`|The first time at which the low price occurred|
+|`low_time`|`TIMESTAMPTZ`|The first time at which the low price occurred|
 
 |Column|Type|Description|
 |-|-|-|
-|`close_at`|`TIMESTAMPTZ`|The time at which closing price occurred|
+|`close_time`|`TIMESTAMPTZ`|The time at which closing price occurred|
 
 ## Sample usage
 
@@ -87,13 +87,13 @@ Query your continuous aggregate on stock trade data:
 ```sql
 SELECT ts,
   symbol,
-  toolkit_experimental.open_at(ohlc),
+  toolkit_experimental.open_time(ohlc),
   toolkit_experimental.open(ohlc),
-  toolkit_experimental.high_at(ohlc),
+  toolkit_experimental.high_time(ohlc),
   toolkit_experimental.high(ohlc),
-  toolkit_experimental.low_at(ohlc),
+  toolkit_experimental.low_time(ohlc),
   toolkit_experimental.low(ohlc),
-  toolkit_experimental.close_at(ohlc)
+  toolkit_experimental.close_time(ohlc)
   toolkit_experimental.close(ohlc)
 FROM ohlc
 ;
@@ -112,13 +112,13 @@ WITH ohlc AS (
 )
 SELECT minute_bucket,
   symbol,
-  toolkit_experimental.open_at(ohlc),
+  toolkit_experimental.open_time(ohlc),
   toolkit_experimental.open(ohlc),
-  toolkit_experimental.high_at(ohlc),
+  toolkit_experimental.high_time(ohlc),
   toolkit_experimental.high(ohlc),
-  toolkit_experimental.low_at(ohlc),
+  toolkit_experimental.low_time(ohlc),
   toolkit_experimental.low(ohlc),
-  toolkit_experimental.close_at(ohlc)
+  toolkit_experimental.close_time(ohlc)
   toolkit_experimental.close(ohlc)
 FROM ohlc
 ;
