@@ -4,8 +4,6 @@ excerpt: How data retention works with continuous aggregates for downsampling
 keywords: [continuous aggregates, data retention]
 ---
 
-import OneStepPolicy from "versionContent/_partials/_caggs-one-step-policy.mdx";
-
 # About data retention with continuous aggregates
 
 You can downsample your data by combining a data retention policy with
@@ -65,7 +63,5 @@ So your aggregate retains the data.
 You can also apply data retention on a continuous aggregate itself. For example,
 you can keep raw data for 30 days, as above. Meanwhile, you can keep daily data
 for 600 days, and no data beyond that.
-
-<OneStepPolicy policyType="data retention" />
 
 [continuous_aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates

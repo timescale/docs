@@ -4,8 +4,6 @@ excerpt: Refresh a continuous aggregate to keep it up to date
 keywords: [continuous aggregates, refresh, policies]
 ---
 
-import OneStepPolicy from "versionContent/_partials/_caggs-one-step-policy.mdx";
-
 # Refresh continuous aggregates
 
 Continuous aggregates can have a range of different refresh policies. In
@@ -97,8 +95,6 @@ the aggregates for those buckets are refreshed. For example, if you have a data
 retention policy that removes all data older than two weeks, the continuous
 aggregate policy will only have data for the last two weeks.
 </highlight>
-
-<OneStepPolicy policyType="refresh" withHeading={true} />
 
 ## Manually refresh a continuous aggregate
 

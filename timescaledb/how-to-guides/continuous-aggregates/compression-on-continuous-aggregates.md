@@ -4,8 +4,6 @@ excerpt: How to compress a continuous aggregate
 keywords: [continuous aggregates, compression]
 ---
 
-import OneStepPolicy from "versionContent/_partials/_caggs-one-step-policy.mdx";
-
 # Compress continuous aggregates
 
 Continuous aggregates are often used to downsample historical data. If the data
@@ -81,8 +79,6 @@ parameter greater than the `refresh_start` parameter of the continuous aggregate
 ```sql
 SELECT add_compression_policy('cagg_name', compress_after=>'45 days'::interval);
 ```
-
-<OneStepPolicy policyType="compression" withHeading={true} />
 
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [decompress-chunks]:  /timescaledb/:currentVersion:/how-to-guides/compression/decompress-chunks
