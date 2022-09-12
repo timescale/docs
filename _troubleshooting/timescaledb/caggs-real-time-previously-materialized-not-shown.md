@@ -3,8 +3,11 @@ title: Updates to previously materialized regions aren't shown in real-time aggr
 section: troubleshooting
 topics: [continuous aggregates]
 apis:
-  - [continuous aggregates, CREATE MATERIALIZED VIEW (Continuous Aggregate)]
   - [continuous aggregates, add_continuous_aggregate_policy()]
+  - [continuous aggregates, add_policies()]
+  - [continuous aggregates, alter_policies()]
+  - [continuous aggregates, CREATE MATERIALIZED VIEW (Continuous Aggregate)]
+  - [continuous aggregates, refresh_continuous_aggregate()]
 keywords: [continuous aggregates, real-time aggregates]
 tags: [continuous aggregates, real-time aggregates, materialized views]
 ---

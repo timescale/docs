@@ -289,7 +289,7 @@ public class Main {
             stmt.execute("SELECT create_hypertable('sensor_data', 'time')");
         }
     }
-}    
+}
 ```
 
 Congratulations, you've successfully created a hypertable in your TimescaleDB database using Java.
@@ -616,10 +616,10 @@ be sure to check out these advanced tutorials:
 *   Refer to the [PostgreSQL JDBC Driver documentation][pg-jdbc-driver-docs] for more information.
 
 [jdk]: https://openjdk.java.net
-[pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download.html
-[pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/head/connect.html
+[pg-jdbc-driver-artifact]: https://jdbc.postgresql.org/download/
+[pg-jdbc-driver-conn-docs]: https://jdbc.postgresql.org/documentation/datasource/
 [pg-jdbc-driver-dependency]: https://mvnrepository.com/artifact/org.postgresql/postgresql
-[pg-jdbc-driver-docs]: https://jdbc.postgresql.org/documentation/head/index.html
+[pg-jdbc-driver-docs]: https://jdbc.postgresql.org/documentation/
 [pg-jdbc-driver]: https://jdbc.postgresql.org
 [timescaledb-getting-started]: /getting-started/:currentVersion:/
 [timescaledb-hypertable-create-docs]: /api/:currentVersion:/hypertable/create_hypertable
