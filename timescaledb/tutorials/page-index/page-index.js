@@ -301,6 +301,13 @@ module.exports = [
                 tags: ['grafana', 'visualize', 'bar chart', 'learn', 'timescaledb'],
                 keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'bar chart'],
                 excerpt: 'How to build a bar chart in Grafana',
+              },
+              {
+                title: 'Pie chart',
+                href: 'pie-chart',
+                tags: ['grafana', 'visualize', 'pie chart', 'learn', 'timescaledb'],
+                keywords: ['Grafana', 'tutorial', 'TimescaleDB', 'pie chart'],
+                excerpt: 'How to build a pie chart in Grafana',
               }
             ]
           }

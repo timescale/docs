@@ -19,8 +19,8 @@ CPU usage, RAM usage, and storage.
 
 Export telemetry data to Datadog by:
 
-1.  [Creating a data exporter](#creating-a-data-exporter-for-datadog)
-1.  [Attaching your database service to the exporter](#attaching-a-datadog-data-exporter-to-a-service)
+1.  [Creating a data exporter][create-exporter-datadog]
+1.  [Attaching your database service to the exporter][attach-exporter-datadog]
 
 <ExporterRegionNote />
 
@@ -58,8 +58,8 @@ documentation][datadog-docs].
 
 Export telemetry data to AWS CloudWatch by:
 
-1.  [Creating a data exporter](#creating-a-data-exporter-for-aws-cloudwatch)
-1.  [Attaching your database service to the exporter](#attaching-a-cloudwatch-data-exporter-to-a-service)
+1.  [Creating a data exporter][create-exporter-aws]
+1.  [Attaching your database service to the exporter][attach-exporter-aws]
 
 <ExporterRegionNote />
 
@@ -139,11 +139,15 @@ Delete any data exporters that you no longer need.
 
 </procedure>
 
-[aws-access-keys]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console
-[cloudwatch]: https://aws.amazon.com/cloudwatch/
-[cloudwatch-docs]: https://docs.aws.amazon.com/cloudwatch/index.html
-[cloudwatch-log-naming]: https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
-[datadog]: https://www.datadoghq.com
-[datadog-api-key]: https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token
-[datadog-docs]: https://docs.datadoghq.com/
-[datadog-metrics-explorer]: https://app.datadoghq.com/metric/explorer
+[create-exporter-datadog]: /cloud/:currentVersion:/integrations/#export-telemetry-data-to-datadog
+[attach-exporter-datadog]: /cloud/:currentVersion:/integrations/#attaching-a-datadog-data-exporter-to-a-service
+[create-exporter-aws]: /cloud/:currentVersion:/integrations/#creating-a-data-exporter-for-aws-cloudwatch
+[attach-exporter-aws]: /cloud/:currentVersion:/integrations/#attaching-a-cloudwatch-data-exporter-to-a-service
+[aws-access-keys]: <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console>
+[cloudwatch]: <https://aws.amazon.com/cloudwatch/>
+[cloudwatch-docs]: <https://docs.aws.amazon.com/cloudwatch/index.html>
+[cloudwatch-log-naming]: <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html>
+[datadog]: <https://www.datadoghq.com>
+[datadog-api-key]: <https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token>
+[datadog-docs]: <https://docs.datadoghq.com/>
+[datadog-metrics-explorer]: <https://app.datadoghq.com/metric/explorer>
