@@ -1,7 +1,7 @@
 ---
 title: Backing up or upgrading Promscale gives an out-of-memory error
 section: troubleshooting
-product: promscale
+products: [promscale]
 topics: [performance]
 keywords: [locks, memory]
 tags: [promscale, locks, memory, out-of-memory, OOM, resources, performance]

@@ -1,7 +1,7 @@
 ---
 title: Tracing span data is missing
 section: troubleshooting
-product: promscale
+products: [promscale]
 topics: [tracing]
 errors:
   - language: yml
