@@ -20,7 +20,7 @@ capacity. This gives you the flexibility to decompress chunks when necessary,
 for actions such as bulk inserts.
 </highlight>
 
-This section describes comamnds to use for decompressing chunks. You can filter
+This section describes commands to use for decompressing chunks. You can filter
 by time to select the chunks you want to decompress. To learn how to backfill
 data, see the [backfilling section][backfill].
 
