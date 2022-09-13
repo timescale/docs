@@ -54,7 +54,7 @@ Before you begin, make sure you have:
 1.  Create the fork:
 
     ```bash
-    avn service create <NAME_OF_FORK> --project <PROJECT>\
+    avn service create <NAME_OF_FORK> --project <PROJECT_ID>\
     -t <SERVICE_TYPE> --plan <PLAN> --cloud <CLOUD_NAME>\
     -c service_to_fork_from=<NAME_OF_SERVICE_TO_FORK>
     ```
@@ -64,9 +64,9 @@ Before you begin, make sure you have:
 ## Example
 
 To create a fork named `grafana-fork` for a service named `grafana` with these parameters:
-* PROJECT: `fork-project`
+* PROJECT_ID: `project-fork`
 * CLOUD_NAME: `timescale-aws-us-east-1`
-* PLAN: `dashboard-1` 
+* PLAN_TYPE: `dashboard-1` 
 
 ```bash
    avn service create grafana-fork --project project-fork -t grafana --plan dashboard-1 --cloud timescale-aws-us-east-1  -c service_to_fork_from=grafana
