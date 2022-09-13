@@ -22,6 +22,8 @@ hyperfunction_subfamily: OpenHighLowClose
 hyperfunction_type: accessor
 ---
 
+import Experimental from 'versionContent/_partials/_experimental.mdx';
+
 # `open`, `high`, `low`, `close` <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
 
 This group of functions each returns the OHLC component for which it is named.
