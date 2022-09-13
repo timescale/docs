@@ -4,8 +4,7 @@ module.exports = [
     filePath: "index.md",
     href: "mst",
     name: "Managed Service for TimescaleDB",
-    excerpt:
-      "Managed Service for TimescaleDB is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP",
+    excerpt: "Managed TimescaleDB in the cloud for Azure and GCP deployments",
     children: [
       {
         title: "About Managed Service for TimescaleDB",
@@ -76,12 +75,23 @@ module.exports = [
         href: "manage-backups",
       },
       {
-        title: "Integrate Managed Service for TimescaleDB as a data source in Grafana",
+        title:
+          "Integrate Managed Service for TimescaleDB as a data source in Grafana",
         href: "grafana-mst",
       },
       {
-        title: "Integrate authentication plugins in Grafana",
-        href: "grafana-authentication-plugins",
+        title: "Aiven Client for Managed Service for TimescaleDB",
+        href: "aiven-client",
+        excerpt:
+          "A Command Line tool for fully managed TimescaleDB service on AWS, Azure, or GCP.",
+        children: [
+          {
+            title: "Integrate authentication plugins in Grafana",
+            href: "grafana-authentication-plugins",
+            excerpt:
+              "Configure Google, GitHub, or GitLab authentication plugins for Grafana",
+          },
+        ],
       },
       {
         title: "Migrate your data to Managed Service for TimescaleDB",
