@@ -1816,7 +1816,7 @@ For more information on this release, read the [blog announcement](https://blog.
 
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
-[whats-new]: #what-x27-s-new-in-timescaledb-2-7
+[whats-new]: #what-x27-s-new-in-timescaledb-2-8
 [compress-data]: /getting-started/:currentVersion:/compress-data/
 [distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
 [distributed-hypertables-setup]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
