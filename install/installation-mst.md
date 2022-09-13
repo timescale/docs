@@ -8,20 +8,19 @@ order: 2
 keywords: [install]
 ---
 
-# Install Managed Service for TimescaleDB
-Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
-than 75 regions in AWS, Azure, or GCP. You can
-[try Managed Service for TimescaleDB for free][sign-up], no credit card
-required.
+import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
+import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
 
-Powered by [TimescaleDB][timescale-features], you can create database instances
-in the  cloud and automate many of your most common operational tasks. This
-allows you  to spend more time focusing on your time-series workloads and less
-time worrying  about database management.
+# Install Managed Service for TimescaleDB
+
+<MSTIntro />
+
+<CloudMSTComparison />
 
 <procedure>
 
-### Installing Managed Service for TimescaleDB
+## Installing Managed Service for TimescaleDB
+
 1.  Sign up for a [Managed Service for TimescaleDB account][sign-up] with your
     name and email address. You do not need to provide payment details to
     get started. A confirmation email is sent to the email address you provide.
@@ -29,7 +28,9 @@ time worrying  about database management.
     forget to check your spam folder in case the email ends up there.
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal] with the
     password you set:
-    <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-portal-noservices.png" alt="Managed Service for TimescaleDB Portal"/>
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/mst-portal-noservices.png"
+    alt="Managed Service for TimescaleDB Portal"/>
 
 <highlight type="important">
 Your Managed Service for TimescaleDB trial includes up to US$300 credit for you
@@ -40,12 +41,14 @@ of your own.
 </procedure>
 
 ## Create your first service
+
 A service in Managed Service for TimescaleDB is a cloud instance on your chosen
 cloud provider, which you can install your database on.
 
 <procedure>
 
 ### Creating your first service
+
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
 1.  Click `Create a new service`, and complete these details:
     *   In the `Select Your Service` field, click `TimescaleDB`.
@@ -74,6 +77,7 @@ of your own.
 </procedure>
 
 ## Connect to your service from the command prompt
+
 When you have a service up and running, you can connect to it from your local
 system using the `psql` command-line utility. This is the same tool you might
 have used to connect to PostgreSQL before, but if you haven't installed it yet,
@@ -82,6 +86,7 @@ check out our [installing psql][install-psql] section.
 <procedure>
 
 ### Connecting to your service from the command prompt
+
 1.  Sign in to the [Managed Service for TimescaleDB portal][mst-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
@@ -89,12 +94,15 @@ check out our [installing psql][install-psql] section.
     information. Take a note of the `host`, `port`, and `password`.
 1.  On your local system, at the command prompt, connect to the service, using
     your own service details:
+
     ```bash
     psql -x "postgres://tsdbadmin:<PASSWORD>@<HOSTNAME>:<PORT>/defaultdb?sslmode=require"
     ```
+
     If your connection is successful, you'll see a message like this, followed
     by the `psql` prompt:
-    ```
+
+    ```bash
     psql (13.3, server 13.4)
     SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
     Type "help" for help.
@@ -104,10 +112,12 @@ check out our [installing psql][install-psql] section.
 </procedure>
 
 ## Check that you have the TimescaleDB extension
+
 TimescaleDB is provided as an extension to your PostgreSQL database, and it is
 enabled by default when you create a new service on Managed Service for
 TimescaleDB. You can check that the TimescaleDB extension is installed by using
 the `\dx` command at the `psql` prompt. It looks like this:
+
 ```sql
 defaultdb=> \dx
 
@@ -127,6 +137,7 @@ defaultdb=>
 ```
 
 ## Where to next
+
 Now that you have your first service up and running, you can check out the
 [Managed Service for TimescaleDB][mst-docs] section in our documentation, and
 find out what you can do with it.
@@ -137,11 +148,9 @@ TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
 
-
-[mst-portal]: https://portal.managed.timescale.com
-[sign-up]: https://www.timescale.com/timescale-signup
-[timescale-features]: https://www.timescale.com/products/#Features
 [contact]: https://www.timescale.com/contact
 [install-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/psql/
 [mst-docs]: /mst/:currentVersion:/
+[mst-portal]: https://portal.managed.timescale.com
+[sign-up]: https://www.timescale.com/timescale-signup
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
