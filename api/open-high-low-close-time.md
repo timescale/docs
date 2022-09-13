@@ -22,9 +22,9 @@ hyperfunction_subfamily: OpenHighLowClose
 hyperfunction_type: accessor
 ---
 
-# `open_time`, `high_time`, `low_time`, `close_time` <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
-
 import Experimental from 'versionContent/_partials/_experimental.mdx';
+
+# open_time, high_time, low_time, close_time <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
 
 This group of functions each returns the timestamp of the OHLC component for
 which it is named. For example, the `high_time()` hyperfunction returns the
