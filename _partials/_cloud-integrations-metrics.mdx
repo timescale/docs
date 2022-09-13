@@ -2,18 +2,20 @@ When you have set up your integration, you can check that it is working
 correctly by looking for the metrics that Timescale Cloud exports. The metric
 names are:
 
-- `timescale.cloud.system.cpu.usage.millicores`
-- `timescale.cloud.system.cpu.total.millicores`
-- `timescale.cloud.system.memory.usage.bytes`
-- `timescale.cloud.system.memory.total.bytes`
-- `timescale.cloud.system.disk.usage.bytes`
-- `timescale.cloud.system.disk.total.bytes`
+* `timescale.cloud.system.cpu.usage.millicores`
+* `timescale.cloud.system.cpu.total.millicores`
+* `timescale.cloud.system.memory.usage.bytes`
+* `timescale.cloud.system.memory.total.bytes`
+* `timescale.cloud.system.disk.usage.bytes`
+* `timescale.cloud.system.disk.total.bytes`
 
 Additionally, Timescale Cloud exports tags that you can use to filter your results. You can also check that these tags are being correctly exported:
 
-- `host = <timescale-region>.timescale-cloud`
-- `project-id`
-- `service-id`
-- `region` (The Timescale Cloud region)
-- `role = replica` or `role = primary` (for services with replicas)
-- `node-id` (for multi-node services)
+|Tag|Example variable|Description|
+|-|-|-|
+|`host`|`us-east-1.timescale.cloud`||
+|`project-id`|||
+|`service-id`|||
+|`region`|`us-east-1`|Timescale Cloud region|
+|`role`|`replica` or `primary`|For services with replicas|
+|`node-id`||For multi-node services|
