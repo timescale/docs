@@ -64,6 +64,18 @@ by restarting your background workers.
 
 <CloudMSTRestartWorkers />
 
+## Connection terminates while trying to update Timescale extension
+
+When attempting to upgrade your TimescaleDB version using `ALTER EXTENSION
+timescaledb`, and if you have connection pooling enabled, an error appears that reads:
+
+```bash
+extension "timescaledb" version mismatch:
+```
+
+It is likely that connection pooling is the issue blocking update.
+Connect to your database directly and not through the pool.
+
 [howto-compression]: /timescaledb/:currentVersion:/how-to-guides/compression
 [howto-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates
 [howto-dataretention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
