@@ -49,7 +49,7 @@ to distributed hypertables:
 *   Parallel-aware scans and appends are not supported.
 *   Distributed hypertables do not natively provide a consistent restore point
     for backup and restore across nodes. Use the
-    `create_distributed_restore_point` command, and make sure you take care when
+    [`create_distributed_restore_point`][create_distributed_restore_point] command, and make sure you take care when
     you restore individual backups to access and data nodes.
 *   For native replication limitations, see the
     [native replication section][native-replication].
