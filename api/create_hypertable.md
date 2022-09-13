@@ -255,4 +255,4 @@ hypertables are described in the [add_dimension][add_dimension] section.
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/#hypertable-partitioning
 [migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
-[set_chunk_time_interval]:
+[set_chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/
