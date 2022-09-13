@@ -245,6 +245,7 @@ module.exports = [
       {
         title: "Troubleshooting",
         href: "troubleshooting",
+        type: "placeholder",
         tags: ["tshoot, tsc"],
         keywords: ["troubleshoot", "Timescale Cloud"],
         excerpt:
