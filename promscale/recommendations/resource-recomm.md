@@ -27,7 +27,7 @@ remote_write:
   remote_timeout: 100s
   queue_config:
     capacity: 100000
-    max_samples_per_second: 10000
+    max_samples_per_send: 10000
     batch_send_deadline: 30s
     min_shards: 20
     max_shards: 20

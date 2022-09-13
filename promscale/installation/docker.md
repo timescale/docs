@@ -21,7 +21,8 @@ and TimescaleDB. For example, the tag `pg14.2-ts2.6.1-latest` includes
 PostgreSQL `14.2`and TimescaleDB `2.6.1`. `pg14-latest` is the latest image
 available for PostgreSQL version 14. Reference the appropriate images when
 deploying Promscale and follow the instructions provided by your container
-platform. If you are using Kubernetes follow [these instructions][promscale-install-kubernetes] instead.
+platform. If you are using Kubernetes follow
+[these instructions][promscale-install-kubernetes] instead.
 
 <highlight type="important">
 Running Promscale directly using `docker run` is not recommended for production
@@ -49,6 +50,7 @@ packages and instructions, see the [Docker installation documentation][docker-in
 
     ```bash
     docker run --name timescaledb -e POSTGRES_PASSWORD=<password> \
+    -e TSTUNE_PROFILE=promscale \
     -d -p 5432:5432 \
     --network promscale \
     timescale/timescaledb-ha:pg14-latest \
@@ -74,10 +76,7 @@ packages and instructions, see the [Docker installation documentation][docker-in
 
 For upgrading the Promscale, see the [upgrade] section.
 
-[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
-[send-data]: /promscale/:currentVersion:/send-data/
 [timescaledb-docker-image]: https://hub.docker.com/r/timescale/timescaledb-ha/tags
-[promscale-install-kubernetes]: promscale/:currentVersion:/installation/kubernetes/
-[alpine-image]: https://hub.docker.com/r/timescaledev/promscale-extension
+[promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
