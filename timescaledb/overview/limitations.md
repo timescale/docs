@@ -49,8 +49,9 @@ to distributed hypertables:
 *   Parallel-aware scans and appends are not supported.
 *   Distributed hypertables do not natively provide a consistent restore point
     for backup and restore across nodes. Use the
-    [`create_distributed_restore_point`][create_distributed_restore_point] command, and make sure you take care when
-    you restore individual backups to access and data nodes.
+    [`create_distributed_restore_point`][create_distributed_restore_point]
+    command, and make sure you take care when you restore individual backups to
+    access and data nodes.
 *   For native replication limitations, see the
     [native replication section][native-replication].
 *   User defined functions have to be manually installed on the data nodes so
@@ -64,3 +65,4 @@ but such usage is neither tested nor officially supported. Future versions
 of TimescaleDB might remove some of these limitations.
 
 [native-replication]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/#replicating-distributed-hypertables
+[create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/
