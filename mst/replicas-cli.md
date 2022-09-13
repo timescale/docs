@@ -53,7 +53,7 @@ Before you begin, make sure you have:
 
     ```bash
     avn service create <NAME_OF_REPLICA> --project <PROJECT_ID>\
-    -t pg --plan <PLAN> --cloud timescale-aws-us-east-1\
+    -t pg --plan <PLAN_TYPE> --cloud timescale-aws-us-east-1\
     -c pg_read_replica=true\
     -c service_to_fork_from=<NAME_OF_SERVICE_TO_FORK>\
     -c pg_version=11 -c variant=timescale
@@ -64,9 +64,9 @@ Before you begin, make sure you have:
 ## Example
 
 To create a fork named `replica-fork` for a service named `timescaledb` with these parameters:
-* PROJECT: `fork-project`
+* PROJECT_ID: `fork-project`
 * CLOUD_NAME: `timescale-aws-us-east-1`
-* PLAN: `timescale-basic-100-compute-optimized` 
+* PLAN_TYPE: `timescale-basic-100-compute-optimized` 
 
 ```bash
 avn service create replica-fork --project fork-project\
