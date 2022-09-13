@@ -5,7 +5,7 @@ module.exports = [
     href: "cloud",
     name: "About Timescale Cloud",
     excerpt:
-      "Timescale Cloud is a cloud-native TimescaleDB as a service that is easy to get started and powerful enough for the most demanding scenarios",
+      "Cloud-native TimescaleDB as a service, including all the features of TimescaleDB without the hassle of managing your database",
     tags: ["tsc"],
     keywords: ["Timescale Cloud"],
     children: [
