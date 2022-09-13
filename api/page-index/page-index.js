@@ -520,7 +520,7 @@ module.exports = [
               },
               {
                 title: "num_vals",
-                href: "num_vals-pct",
+                href: "num_vals-percentile",
               },
               {
                 title: "Advanced aggregation methods",
