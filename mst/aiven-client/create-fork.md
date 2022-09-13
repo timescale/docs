@@ -1,10 +1,10 @@
 ---
-title: Create a fork using Aiven Client 
+title: Create a fork using Aiven client 
 excerpt: Create a fork of the service using Aiven Command Line tool for fully managed services on AWS, Azure, or GCP.
 product: mst
 ---
 
-# Fork services with Aiven Client
+# Fork services with Aiven client
 
 When you a fork a service, you create an exact copy of the service, including
 the underlying database. You can use a fork of your service to:
@@ -29,7 +29,7 @@ Before you begin, make sure you have:
 
 ## Creating a fork of your service
 
-1.  In the Aiven Client, connect to your
+1.  In the Aiven client, connect to your
     [Managed Service for TimescaleDB service][aiven-client-mst].
 
 1.  Switch to the project that contains the service you want to fork:
