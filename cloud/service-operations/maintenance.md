@@ -44,15 +44,21 @@ applied when your service is resumed.
 </highlight>
 
 ## Replicas and maintenance
-Instead of downtime, services with replicas will have one or two failover 
-events during maintenance, taking less than a few seconds each. During a 
-maintenance event, services with replicas perform maintenance on each node 
-independently. Maintenance begins on one node, which is promoted to the primary 
-once it finishes. The other node will then undergo maintenance and remain the 
-replica after completion. Sometimes, maintenance will begin with the primary 
-first, causing the replica node to be promoted at the start, meaning the 
-service will experience two total promotions (failovers) during a maintenance 
-event. For more information about replicas, see the [replicas documentation][replicas-docs]. 
+
+Services with replicas do not require maintenance downtime. Instead, they have
+one or two failover events during maintenance, taking less than a few seconds
+each.
+
+During a maintenance event, services with replicas perform maintenance on each
+node independently. Maintenance begins on one node, and when it is finished,
+that node is promoted to primary. The other node then begins maintenance, and
+when it is complete it remains the replica. Sometimes, maintenance begins with
+the primary, causing the replica node to be promoted at the start, meaning the
+service experiences two total promotions, or failovers, during a maintenance
+event.
+
+For more information about replicas, see the
+[replicas section][replicas-docs].
 
 ## Non-critical maintenance updates
 
