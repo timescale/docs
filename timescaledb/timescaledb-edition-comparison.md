@@ -414,7 +414,7 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-pct/">num_vals</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/">num_vals</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>

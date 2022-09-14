@@ -15,6 +15,10 @@ module.exports = [
         href: "aiven-client-install",
       },
       {
+        title: "Create a read-only replica using Aiven Client",
+        href: "replicas-cli",
+      },
+      {
         title: "Clouds and regions",
         href: "cloud-regions",
       },
