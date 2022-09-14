@@ -52,7 +52,7 @@ each.
 During a maintenance event, services with replicas perform maintenance on each
 node independently. Maintenance begins on one node, and when it is finished,
 that node is promoted to primary. The other node then begins maintenance, and
-when it is complete it remains the replica. Sometimes, maintenance begins with
+when it is complete, it remains the replica. Sometimes, maintenance begins with
 the primary. This causes the replica node to be promoted at the start. If this happens, the
 service experiences two promotions, or failovers, during the maintenance
 event.
