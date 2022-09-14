@@ -41,9 +41,9 @@ follow these [setup instructions][distributed-hypertables-setup].
 
 ### What's new in TimescaleDB 2.8:
 
-* time_bucket now supports bucketing by month, year and timezone
-* 1 step continuous aggregate policy management
-* Migrate continuous aggregates to the new format
+*   time_bucket now supports bucketing by month, year and timezone
+*   1 step continuous aggregate policy management
+*   Migrate continuous aggregates to the new format
 
 ## Release notes
 
@@ -54,73 +54,76 @@ We deem it moderate priority for upgrading.
 
 This release includes these noteworthy features:
 
-* time_bucket now supports bucketing by month, year and timezone
-* Improve performance of bulk SELECT and COPY for distributed hypertables
-* 1 step continuous aggregate policy management
-* Migrate continuous aggregates to the new format
+*   time_bucket now supports bucketing by month, year and timezone
+*   Improve performance of bulk SELECT and COPY for distributed hypertables
+*   1 step continuous aggregate policy management
+*   Migrate continuous aggregates to the new format
 
 **Features**
-* #4188 Use COPY protocol in row-by-row fetcher
-* #4307 Mark partialize_agg as parallel safe
-* #4380 Enable chunk exclusion for space dimensions in UPDATE/DELETE
-* #4384 Add schedule_interval to policies
-* #4390 Faster lookup of chunks by point
-* #4393 Support intervals with day component when constifying now()
-* #4397 Support intervals with month component when constifying now()
-* #4405 Support ON CONFLICT ON CONSTRAINT for hypertables
-* #4412 Add telemetry about replication
-* #4415 Drop remote data when detaching data node
-* #4416 Handle TRUNCATE TABLE on chunks
-* #4425 Add parameter check_config to alter_job
-* #4430 Create index on Continuous Aggregates
-* #4439 Allow ORDER BY on continuous aggregates
-* #4443 Add stateful partition mappings
-* #4484 Use non-blocking data node connections for COPY
-* #4495 Support add_dimension() with existing data
-* #4502 Add chunks to baserel cache on chunk exclusion
-* #4545 Add hypertable distributed argument and defaults
-* #4552 Migrate Continuous Aggregates to the new format
-* #4556 Add runtime exclusion for hypertables
-* #4561 Change get_git_commit to return full commit hash
-* #4563 1 step CAgg policy management
-* #4641 Allow bucketing by month, year, century in time_bucket and time_bucket_gapfill
-* #4642 Add timezone support to time_bucket
+
+*   #4188 Use COPY protocol in row-by-row fetcher
+*   #4307 Mark partialize_agg as parallel safe
+*   #4380 Enable chunk exclusion for space dimensions in UPDATE/DELETE
+*   #4384 Add schedule_interval to policies
+*   #4390 Faster lookup of chunks by point
+*   #4393 Support intervals with day component when constifying now()
+*   #4397 Support intervals with month component when constifying now()
+*   #4405 Support ON CONFLICT ON CONSTRAINT for hypertables
+*   #4412 Add telemetry about replication
+*   #4415 Drop remote data when detaching data node
+*   #4416 Handle TRUNCATE TABLE on chunks
+*   #4425 Add parameter check_config to alter_job
+*   #4430 Create index on Continuous Aggregates
+*   #4439 Allow ORDER BY on continuous aggregates
+*   #4443 Add stateful partition mappings
+*   #4484 Use non-blocking data node connections for COPY
+*   #4495 Support add_dimension() with existing data
+*   #4502 Add chunks to baserel cache on chunk exclusion
+*   #4545 Add hypertable distributed argument and defaults
+*   #4552 Migrate Continuous Aggregates to the new format
+*   #4556 Add runtime exclusion for hypertables
+*   #4561 Change get_git_commit to return full commit hash
+*   #4563 1 step CAgg policy management
+*   #4641 Allow bucketing by month, year, century in time_bucket and time_bucket_gapfill
+*   #4642 Add timezone support to time_bucket
 
 **Bug fixes**
-* #4359 Create composite index on segmentby columns
-* #4374 Remove constified now() constraints from plan
-* #4416 Handle TRUNCATE TABLE on chunks
-* #4478 Synchronize chunk cache sizes
-* #4486 Adding boolean column with default value doesn't work on compressed table
-* #4512 Fix unaligned pointer access
-* #4519 Throw better error message on incompatible row fetcher settings
-* #4549 Fix dump_meta_data for windows
-* #4553 Fix timescaledb_post_restore GUC handling
-* #4573 Load TSL library on compressed_data_out call
-* #4575 Fix use of `get_partition_hash` and `get_partition_for_key` inside an IMMUTABLE function
-* #4577 Fix segfaults in compression code with corrupt data
-* #4580 Handle default privileges on CAggs properly
-* #4582 Fix assertion in GRANT .. ON ALL TABLES IN SCHEMA
-* #4583 Fix partitioning functions
-* #4589 Fix rename for distributed hypertable
-* #4601 Reset compression sequence when group resets
-* #4611 Fix a potential OOM when loading large data sets into a hypertable
-* #4624 Fix heap buffer overflow
-* #4627 Fix telemetry initialization
-* #4631 Ensure TSL library is loaded on database upgrades
-* #4646 Fix time_bucket_ng origin handling
-* #4647 Fix the error "SubPlan found with no parent plan" that occurred if using joins in RETURNING clause.
+
+*   #4359 Create composite index on segmentby columns
+*   #4374 Remove constified now() constraints from plan
+*   #4416 Handle TRUNCATE TABLE on chunks
+*   #4478 Synchronize chunk cache sizes
+*   #4486 Adding boolean column with default value doesn't work on compressed table
+*   #4512 Fix unaligned pointer access
+*   #4519 Throw better error message on incompatible row fetcher settings
+*   #4549 Fix dump_meta_data for windows
+*   #4553 Fix timescaledb_post_restore GUC handling
+*   #4573 Load TSL library on compressed_data_out call
+*   #4575 Fix use of `get_partition_hash` and `get_partition_for_key` inside an IMMUTABLE function
+*   #4577 Fix segfaults in compression code with corrupt data
+*   #4580 Handle default privileges on CAggs properly
+*   #4582 Fix assertion in GRANT .. ON ALL TABLES IN SCHEMA
+*   #4583 Fix partitioning functions
+*   #4589 Fix rename for distributed hypertable
+*   #4601 Reset compression sequence when group resets
+*   #4611 Fix a potential OOM when loading large data sets into a hypertable
+*   #4624 Fix heap buffer overflow
+*   #4627 Fix telemetry initialization
+*   #4631 Ensure TSL library is loaded on database upgrades
+*   #4646 Fix time_bucket_ng origin handling
+*   #4647 Fix the error "SubPlan found with no parent plan" that occurred if using joins in RETURNING clause.
 
 **Thanks**
-* @AlmiS for reporting error on `get_partition_hash` executed inside an IMMUTABLE function
-* @Creatation for reporting an issue with renaming hypertables
-* @janko for reporting an issue when adding bool column with default value to compressed hypertable
-* @jayadevanm for reporting error of TRUNCATE TABLE on compressed chunk
-* @michaelkitson for reporting permission errors using default privileges on Continuous Aggregates
-* @mwahlhuetter for reporting error in joins in RETURNING clause
-* @ninjaltd and @mrksngl for reporting a potential OOM when loading large data sets into a hypertable
-* @PBudmark for reporting an issue with dump_meta_data.sql on Windows
-* @ssmoss for reporting an issue with time_bucket_ng origin handling
+
+*   @AlmiS for reporting error on `get_partition_hash` executed inside an IMMUTABLE function
+*   @Creatation for reporting an issue with renaming hypertables
+*   @janko for reporting an issue when adding bool column with default value to compressed hypertable
+*   @jayadevanm for reporting error of TRUNCATE TABLE on compressed chunk
+*   @michaelkitson for reporting permission errors using default privileges on Continuous Aggregates
+*   @mwahlhuetter for reporting error in joins in RETURNING clause
+*   @ninjaltd and @mrksngl for reporting a potential OOM when loading large data sets into a hypertable
+*   @PBudmark for reporting an issue with dump_meta_data.sql on Windows
+*   @ssmoss for reporting an issue with time_bucket_ng origin handling
 
 ## 2.7.2 (2022-07-26)
 
@@ -1816,7 +1819,7 @@ For more information on this release, read the [blog announcement](https://blog.
 
 **For releases prior to 1.0, please visit the [changelog](https://github.com/timescale/timescaledb/blob/master/CHANGELOG.md).**
 
-[whats-new]: #what-x27-s-new-in-timescaledb-2-8
+[whats-new]: /timescaledb/:currentVersion:/overview/release-notes/#what-x27-s-new-in-timescaledb-2-8/
 [compress-data]: /getting-started/:currentVersion:/compress-data/
 [distributed-hypertables]: /timescaledb/:currentVersion:/overview/core-concepts/distributed-hypertables/
 [distributed-hypertables-setup]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
