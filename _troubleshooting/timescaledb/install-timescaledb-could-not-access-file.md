@@ -3,7 +3,8 @@ title: Can't access file "timescaledb" after installation
 section: troubleshooting
 topics: [installation, configuration]
 errors:
-  - message: |-
+  - language: text
+    message: |-
       Log error: could not access file "timescaledb"
 keywords: [install, configuration]
 tags: [install, configuration]

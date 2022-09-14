@@ -1,10 +1,11 @@
 ---
 title: Service is running low on disk, memory, or CPU
 section: troubleshooting
-product: mst
+products: [mst]
 topics: [performance]
 errors:
-  - message: |-
+  - language: text
+    message: |-
       Your Managed Service for TimescaleDB service, in project "ExampleAccount", is running low on
       CPU. Running low on CPU affects performance and could affect service
       availability. Please either optimize your usage pattern or reduce the workload,
