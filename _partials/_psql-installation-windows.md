@@ -14,3 +14,5 @@ EnterpriseDB.
 1.  Complete the installation wizard to install the package.
 
 </procedure>
+
+[windows-installer]: https://www.postgresql.org/download/windows/

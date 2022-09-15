@@ -182,4 +182,3 @@ if you want to have a chat.
 [tsdb-docs]: /timescaledb/:currentVersion:/
 [tutorials]: /timescaledb/:currentVersion:/tutorials/
 [windows-releases]: #windows-releases
-[windows-installer]: https://www.postgresql.org/download/windows/

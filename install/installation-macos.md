@@ -8,7 +8,7 @@ keywords: [install, self-hosted, macOS]
 ---
 
 import Homebrew from "versionContent/_partials/_psql-installation-homebrew.mdx";
-import Macports from "versionContent/_partials/_psql-installation-macports.mdx";
+import MacPorts from "versionContent/_partials/_psql-installation-macports.mdx";
 
 # Install self-hosted TimescaleDB on macOS systems
 
@@ -117,7 +117,7 @@ section.
 
 </procedure>
 
-<Macports />
+<MacPorts />
 
 ## Set up the TimescaleDB extension
 
