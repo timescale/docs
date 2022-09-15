@@ -206,16 +206,36 @@ module.exports = [
             href: "drop_materialized_view",
           },
           {
-            title: "add_continuous_aggregate_policy",
-            href: "add_continuous_aggregate_policy",
-          },
-          {
             title: "refresh_continuous_aggregate",
             href: "refresh_continuous_aggregate",
           },
           {
+            title: "add_continuous_aggregate_policy",
+            href: "add_continuous_aggregate_policy",
+          },
+          {
+            title: "add_policies",
+            href: "add_policies",
+          },
+          {
+            title: "alter_policies",
+            href: "alter_policies",
+          },
+          {
+            title: "show_policies",
+            href: "show_policies",
+          },
+          {
             title: "remove_continuous_aggregate_policy",
             href: "remove_continuous_aggregate_policy",
+          },
+          {
+            title: "remove_policies",
+            href: "remove_policies",
+          },
+          {
+            title: "remove_all_policies",
+            href: "remove_all_policies",
           },
         ],
       },
@@ -420,6 +440,29 @@ module.exports = [
             ],
           },
           {
+            title: "Financial analysis",
+            type: "directory",
+            href: "financial-analysis",
+            children: [
+              {
+                title: "ohlc",
+                href: "ohlc",
+              },
+              {
+                title: "open, high, low, close",
+                href: "open-high-low-close",
+              },
+              {
+                title: "open_time, high_time, low_time, close_time",
+                href: "open-high-low-close-time",
+              },
+              {
+                title: "rollup",
+                href: "rollup",
+              },
+            ],
+          },
+          {
             title: "Gapfilling and interpolation",
             type: "directory",
             href: "gapfilling-interpolation",
@@ -477,7 +520,7 @@ module.exports = [
               },
               {
                 title: "num_vals",
-                href: "num_vals-pct",
+                href: "num_vals-percentile",
               },
               {
                 title: "Advanced aggregation methods",
@@ -710,6 +753,10 @@ module.exports = [
           {
             title: "timescaledb_information.job_stats",
             href: "job_stats",
+          },
+          {
+            title: "timescaledb_experimental.policies",
+            href: "policies",
           },
         ],
       },

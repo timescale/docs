@@ -4,8 +4,7 @@ module.exports = [
     filePath: "index.md",
     href: "mst",
     name: "Managed Service for TimescaleDB",
-    excerpt:
-      "Managed Service for TimescaleDB is a fully managed TimescaleDB service that allows you to quickly deploy across 75+ regions in AWS, Azure or GCP",
+    excerpt: "Managed TimescaleDB in the cloud for Azure and GCP deployments",
     children: [
       {
         title: "About Managed Service for TimescaleDB",
@@ -14,6 +13,10 @@ module.exports = [
       {
         title: "Aiven Client for Managed Service for TimescaleDB",
         href: "aiven-client-install",
+      },
+      {
+        title: "Create a read-only replica using Aiven Client",
+        href: "replicas-cli",
       },
       {
         title: "Clouds and regions",
@@ -62,6 +65,10 @@ module.exports = [
       {
         title: "Security",
         href: "security",
+      },
+      {
+        title: "Create a replica for PostgreSQL service",
+        href: "postgresql-read-replica",
       },
       {
         title: "Troubleshooting",
