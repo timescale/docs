@@ -73,6 +73,7 @@ module.exports = [
       {
         title: "Troubleshooting",
         href: "troubleshooting",
+        type: "placeholder",
       },
       {
         title: "Maintenance",
