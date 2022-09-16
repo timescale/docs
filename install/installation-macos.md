@@ -83,6 +83,9 @@ You can use Homebrew to install TimescaleDB on macOS-based systems.
 
 </procedure>
 
+When you have PostgreSQL and TimescaleDB installed, you can connect to it from
+your local system using the `psql` command-line utility.
+
 <Homebrew />
 
 ## Install self-hosted TimescaleDB using MacPorts
@@ -117,12 +120,14 @@ section.
 
 </procedure>
 
+When you have PostgreSQL and TimescaleDB installed, you can connect to it from
+your local system using the `psql` command-line utility.
+
 <MacPorts />
 
 ## Set up the TimescaleDB extension
-
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
-your local system using the `psql` command-line utility.
+Connect to it PostgreSQL from your local system using the `psql` command-line
+utility and set up the TimescaleDB extension.
 
 <procedure>
 
