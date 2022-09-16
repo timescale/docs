@@ -26,7 +26,7 @@ Before you begin, make sure you have:
 ## Creating a read-only replica of your service
 
 1.  In the Aiven client, connect to your
-    [Managed Service for TimescaleDB service][aiven-client-mst].
+    [Managed Service for TimescaleDB service][aiven-client-install].
 
 1.  Switch to the project that contains the TimescaleDB service you want to
     create a read-only replica for:
@@ -85,4 +85,3 @@ avn service list
 [aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
 [create-service]: /install/:currentVersion:/installation-mst/#create-your-first-service
 [mst-login]: https://portal.managed.timescale.com
-[aiven-client-mst]: /mst/:currentVersion:/aiven-client-install
