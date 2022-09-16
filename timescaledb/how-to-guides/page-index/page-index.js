@@ -108,6 +108,7 @@ module.exports = [
           {
             title: "Troubleshoot hypertables",
             href: "troubleshooting",
+            type: "placeholder",
             tags: ["hypertables", "tshoot", "timescaledb"],
             keywords: ["hypertables", "troubleshooting", "TimescaleDB"],
             excerpt: "Troubleshooting and error fixes for hypertables",
@@ -177,6 +178,11 @@ module.exports = [
             keywords: ["hypertables", "distributed", "TimescaleDB"],
             excerpt:
               "Use row- and statement-level triggers in distributed hypertables",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -285,7 +291,8 @@ module.exports = [
           },
           {
             title: "Troubleshoot data migration",
-            href: "troubleshoot-data-migration",
+            href: "troubleshooting",
+            type: "placeholder",
             tags: ["troubleshooting", "migrate", "data", "timescaledb"],
             keywords: ["troubleshooting", "migrate", "data", "TimescaleDB"],
             excerpt: "Troubleshoot problems that occur during  data migration",
@@ -371,6 +378,11 @@ module.exports = [
             keywords: ["hypertables", "hyperfunctions", "TimescaleDB"],
             excerpt: "Use advanced analytics queries",
           },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {
@@ -421,6 +433,11 @@ module.exports = [
             tags: ["configure", "telemetry", "timescaledb"],
             keywords: ["configure", "telemetry", "timescaledb"],
             excerpt: "Configure telemetry gathered by TimescaleDB",
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
@@ -524,6 +541,11 @@ module.exports = [
             keywords: ["compression", "chunks", "TimescaleDB"],
             excerpt: "Change the data schema in compressed chunks",
           },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {
@@ -563,6 +585,7 @@ module.exports = [
           {
             title: "Troubleshooting data retention",
             href: "troubleshooting",
+            type: "placeholder",
             tags: ["retention", "data", "tshoot", "timescaledb"],
             keywords: ["retention", "data", "troubleshooting", "TimescaleDB"],
             excerpt: "Troubleshoot data retention",
@@ -640,6 +663,7 @@ module.exports = [
           {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
+            type: "placeholder",
             tags: ["caggs", "tshoot", "timescaledb"],
             keywords: ["caggs", "TimescaleDB"],
             excerpt: "Troubleshoot continuous aggregates",
@@ -705,7 +729,12 @@ module.exports = [
             tags: ["action", "example", "backfill", "timescaledb"],
             keywords: ["action", "example", "backfill", "TimescaleDB"],
             excerpt: "Example user-defined action for scheduled backfills",
-          }
+          },
+          {
+            title: "Troubleshooting",
+            href: "troubleshooting",
+            type: "placeholder",
+          },
         ],
       },
       {
@@ -763,6 +792,7 @@ module.exports = [
           {
             title: "Troubleshooting",
             href: "troubleshooting",
+            type: "placeholder",
             tags: ["tshoot", "backup", "restore", "timescaledb"],
             keywords: ["troubleshoot", "backup", "TimescaleDB"],
             excerpt: "Troubleshoot problems with backing up TimescaleDB",
@@ -819,6 +849,7 @@ module.exports = [
           {
             title: "Troubleshooting upgrades",
             href: "troubleshooting",
+            type: "placeholder",
             tags: ["tshoot", "upgrade", "update", "timescaledb"],
             keywords: ["troubleshooting", "upgrade", "TimescaleDB"],
             excerpt: "Troubleshoot upgrading your TimescaleDB installation",
@@ -969,16 +1000,8 @@ module.exports = [
           },
           {
             title: "Troubleshoot hyperfunctions",
-            href: "troubleshoot-hyperfunctions",
-            tags: ["hyperfunctions", "toolkit", "tshoot", "timescaledb"],
-            keywords: [
-              "TimescaleDB",
-              "hyperfunctions",
-              "Toolkit",
-              "troubleshoot",
-            ],
-            excerpt:
-              "Troubleshoot problems with hyperfunctions and TimescaleDB Toolkit",
+            href: "troubleshooting",
+            type: "placeholder",
           },
         ],
       },
