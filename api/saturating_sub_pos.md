@@ -38,6 +38,6 @@ For more information about saturating math functions, see the
 
 |Column|Type|Description|
 |-|-|-|
-|`saturating_sub_pos` |`INT|` The result of `x-y`, saturating at 0 for the minimum bound |
+|`saturating_sub_pos` |`INT`| The result of `x-y`, saturating at 0 for the minimum bound |
 
 [saturating-math-docs]: /api/:currentVersion:/hyperfunctions/saturating_math/
