@@ -24,7 +24,7 @@ on a large dataset, or in production.
 SQL is the best language for data analysis, but it is not perfect, and at times
 it can be difficult to construct the query you want. For example, this query gets data from the last day from the measurements table, sorts the data by the time column, calculates the delta between the values, takes the absolute value of the delta, and then takes the sum of the result of the previous steps:
 ```sql
-SELECT device id,
+SELECT device_id,
 sum(abs_delta) as volatility
 FROM (
 	SELECT device_id,
@@ -37,11 +37,11 @@ GROUP BY device_id;
 You can express the same query with a function pipeline like this:
 ```sql
 SELECT device_id,
-    toolkit_experimental.timevector(ts, val)
+    timevector(ts, val)
         -> toolkit_experimental.sort()
-        -> toolkit_experimental.delta()
+        -> delta()
         -> toolkit_experimental.abs()
-        -> toolkit_experimental.sum() as volatility
+        -> sum() as volatility
 FROM measurements
 WHERE ts >= now()-'1 day'::interval
 GROUP BY device_id;
@@ -72,7 +72,7 @@ within that dataset, which could look something like this:
 To construct a `timevector` from your data, we use a custom aggregate and pass in the columns to become the time,value pairs. It uses a `WHERE` clause to define the limits of the subset, and a `GROUP BY` clause to provide identifying information about the time-series. For example, to construct a `timevector` from a dataset that contains temperatures, the SQL looks like this:
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
+	timevector(ts, val)
 FROM measurements
 WHERE ts >= now() - '1 day'::interval
 GROUP BY device_id;
@@ -87,11 +87,11 @@ operator. To put it more plainly, you can think of it as "do the next thing."
 A typical function pipeline could look something like this:
 ```sql
 SELECT device_id,
- 	toolkit_experimental.timevector(ts, val)
+ 	timevector(ts, val)
         -> toolkit_experimental.sort()
-        -> toolkit_experimental.delta()
+        -> delta()
         -> toolkit_experimental.abs()
-        -> toolkit_experimental.sum() as volatility
+        -> sum() as volatility
 FROM measurements
 WHERE ts >= now() - '1 day'::interval
 GROUP BY device_id;
@@ -127,9 +127,9 @@ the simplest element to compose, because they produce the same type. For
 example:
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
+	timevector(ts, val)
     	-> toolkit_experimental.sort()
-        -> toolkit_experimental.delta()
+        -> delta()
         -> toolkit_experimental.map($$ ($value^3 + $value^2 + $value * 2) $$)
         -> toolkit_experimental.lttb(100)
 FROM measurements
@@ -142,9 +142,9 @@ an output in a specified format. or they can produce an aggregate of the
 For example, a finalizer element that produces an output:
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
+	timevector(ts, val)
     -> toolkit_experimental.sort()
-    -> toolkit_experimental.delta()
+    -> delta()
     -> toolkit_experimental.unnest()
 FROM measurements
 ```
@@ -152,10 +152,10 @@ FROM measurements
 Or a finalizer element that produces an aggregate:
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
+	timevector(ts, val)
     -> toolkit_experimental.sort()
-    -> toolkit_experimental.delta()
-    -> toolkit_experimental.time_weight()
+    -> delta()
+    -> time_weight()
 FROM measurements
 ```
 
@@ -163,7 +163,7 @@ The third type of pipeline elements are aggregate accessors and mutators. These
 work on a `timevector` in a pipeline, but they also work in regular aggregate
 queries. An example of using these in a pipeline:
 ```sql
-SELECT percentile_agg(val) -> toolkit_experimental.approx_percentile(0.5)
+SELECT percentile_agg(val) -> approx_percentile(0.5)
 FROM measurements
 ```
 
@@ -218,7 +218,7 @@ floating point representation of the integer. For example:
 ```sql
 -- NOTE: the (pipeline -> unnest()).* allows for time, value columns to be produced without a subselect
 SELECT (
-    toolkit_experimental.timevector(time, value)
+    timevector(time, value)
     -> toolkit_experimental.abs()
     -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
@@ -260,7 +260,7 @@ These elements calculate `vector -> power(2)` by squaring all of the `values`,
 and `vector -> logn(3)` gives the log-base-3 of each `value`. For example:
 ```sql
 SELECT (
-    toolkit_experimental.timevector(time, value)
+    timevector(time, value)
     -> toolkit_experimental.power(2)
     -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
@@ -298,9 +298,9 @@ previous value and it cannot have a `delta()`. Data should be sorted using the
 `sort()` element before passing into `delta()`. For example:
 ```sql
 SELECT (
-    toolkit_experimental.timevector(time, value)
+    timevector(time, value)
     -> toolkit_experimental.sort()
-    -> toolkit_experimental.delta()
+    -> delta()
     -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
@@ -342,7 +342,7 @@ available fill methods are:
 For example:
 ```sql
 SELECT (
-    toolkit_experimental.timevector(time, value)
+    timevector(time, value)
     -> toolkit_experimental.sort()
     -> toolkit_experimental.fill_to('1 day', 'LOCF')
     -> toolkit_experimental.unnest()).*
@@ -379,7 +379,7 @@ The `sort()` transform sorts the `timevector` by time, in ascending order. This
 transform is ignored if the `timevector` is already sorted. For example:
 ```sql
 SELECT (
-    toolkit_experimental.timevector(time, value)
+    timevector(time, value)
     -> toolkit_experimental.sort()
     -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
@@ -457,7 +457,7 @@ times and values are changed. An example of the `map()` Lambda with a
 `DOUBLE PRECISION` return:
 ```sql
 SELECT (
-   toolkit_experimental.timevector(time, value)
+   timevector(time, value)
    -> toolkit_experimental.map($$ $value + 1 $$)
    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
@@ -484,7 +484,7 @@ An example of the `map()` Lambda with a `(TIMESTAMPTZ, DOUBLE PRECISION)`
 return:
 ```sql
 SELECT (
-   toolkit_experimental.timevector(time, value)
+   timevector(time, value)
    -> toolkit_experimental.map($$ ($time + '1day'i, $value * 2) $$)
    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
@@ -513,7 +513,7 @@ returns `true` for every point that should stay in the `timevector` timeseries,
 and `false` for every point that should be removed. For example:
 ```sql
 SELECT (
-   toolkit_experimental.timevector(time, value)
+   timevector(time, value)
    -> toolkit_experimental.filter($$ $time != '2021-01-01't AND $value > 0 $$)
    -> toolkit_experimental.unnest()).*
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
@@ -557,7 +557,7 @@ to produce a result.. The possible elements are:
 
 An example of an aggregate output using `num_vals()`:
 ```sql
-SELECT toolkit_experimental.timevector(time, value) -> toolkit_experimental.num_vals()
+SELECT timevector(time, value) -> num_vals()
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),
@@ -578,9 +578,9 @@ An example of an aggregate output using `stats_agg()`:
 
 ```sql
 SELECT
-    toolkit_experimental.timevector(time, value)
+    timevector(time, value)
     -> toolkit_experimental.stats_agg()
-    -> toolkit_experimental.stddev()
+    -> stddev()
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
              (            '2021-01-01 UTC',  25.0 ),
              (            '2021-01-02 UTC',   0.10),

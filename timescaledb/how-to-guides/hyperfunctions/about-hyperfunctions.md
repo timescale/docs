@@ -126,7 +126,7 @@ between the values, takes the absolute value of the delta, and then takes the
 sum of the result of the previous steps:
 
 ```SQL
-SELECT device id,
+SELECT device_id,
 sum(abs_delta) as volatility
 FROM (
  SELECT device_id,
