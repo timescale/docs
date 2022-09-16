@@ -126,7 +126,7 @@ your local system using the `psql` command-line utility.
 <MacPorts />
 
 ## Set up the TimescaleDB extension
-Connect to it PostgreSQL from your local system using the `psql` command-line
+Connect to PostgreSQL from your local system using the `psql` command-line
 utility and set up the TimescaleDB extension.
 
 <procedure>
