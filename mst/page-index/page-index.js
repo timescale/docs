@@ -97,7 +97,7 @@ module.exports = [
             href: "create-fork",
             excerpt:
               "Create a fork of the service using Aiven Client"
-          }
+          },
           {
             title: "Create a read-only replica using Aiven Client",
             href: "replicas-cli",
