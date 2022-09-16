@@ -434,6 +434,7 @@ module.exports = [
       {
         title: "Troubleshooting Promscale",
         href: "troubleshooting",
+        type: "placeholder",
         tags: ["promscale", "learn", "troubleshooting", "prometheus"],
         keywords: ["Promscale", "troubleshooting"],
         excerpt: "Troubleshooting Promscale",
