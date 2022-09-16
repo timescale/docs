@@ -21,7 +21,7 @@ services,see [Services][about-mst].
 
 Before you begin, make sure you have: 
 
-*   Installed [Aiven Client][aiven-client-install].
+*   Installed [Aiven Client][aiven-client-mst].
 *   Signed in to your [Managed Service for TimescaleDB dashboard][mst-login].
 *   Created a [service][create-service] in Managed Service for TimescaleDB.
 
@@ -79,7 +79,6 @@ You can switch to `project-fork` and view the newly created `grafana-fork` using
 ```
 
 [about-mst]: /mst/:currentVersion:/about-mst/
-[aiven-client-install]: /mst/:currentVersion:/aiven-client/aiven-client-install/
 [create-service]: /install/:currentVersion:/installation-mst/#create-your-first-service
 [mst-login]: https://portal.managed.timescale.com
-[aiven-client-mst]: /mst/:currentVersion:/aiven-client-install
+[aiven-client-mst]: /mst/:currentVersion:/aiven-client/aiven-client-install
