@@ -213,9 +213,25 @@ module.exports = [
       {
         title: "Security",
         href: "security",
-        tags: ["encryption", "VPC", "privacy"],
-        keywords: ["security"],
+        tags: ["security"],
         excerpt: "Learn how your Timescale Cloud instance is secured",
+        children: [
+          {
+            title: "Security overview",
+            href: "overview",
+            tags: ["encryption", "VPC", "privacy"],
+            keywords: ["security"],
+            excerpt: "Get an overview of Timescale Cloud security",
+          },
+          {
+            title: "Connect with a stricter SLL mode",
+            href: "strict-ssl",
+            tags: ["security", "certificates"],
+            keywords: ["ssl"],
+            excerpt:
+              "Connect to Timescale Cloud with a stricter SSL mode of verify-ca or verify-full",
+          },
+        ],
       },
       {
         title: "Migrate a TimescaleDB database to Cloud",
