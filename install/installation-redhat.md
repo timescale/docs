@@ -140,9 +140,9 @@ instead.
     ```
 
      <highlight type="note">
-     When installing on CentOS 8 you need to disable the built-in PostgreSQL
-     module in the system using the `sudo dnf -qy module disable postgresql`
-     command.
+     When installing on CentOS 8 or Red Hat Enterprise Linux 8 you need
+     to disable the built-in PostgreSQL module in the system using the
+     `sudo dnf -qy module disable postgresql`command.
 
 </highlight>
 
