@@ -201,7 +201,8 @@ the `psql` command-line utility.
     postgres=#\password postgres 
     ```
 
-1.  Exit from PostgreSQL using the command `\q` and use `psql` to connect:
+1.  Exit from PostgreSQL using the command `\q`.
+1.  Use `psql` client to connect to PostgreSQL:
 
     ```bash
     psql -U postgres -h localhost
