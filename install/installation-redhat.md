@@ -193,7 +193,6 @@ the `psql` command-line utility.
     Type "help" for help.
 
     postgres=#
-
     ```
 
 1.  Set the password for the `postgres` user using:
