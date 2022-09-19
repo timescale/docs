@@ -143,6 +143,13 @@ module.exports = [
             keywords: ["Services", "Configuration", "Timescale Cloud"],
             excerpt: "Timescale Cloud services settings",
           },
+          {
+            title: "PostgreSQL extensions",
+            href: "postgresql-extensions",
+            tags: ["services", "configure", "extensions", "tsc"],
+            keywords: ["Services", "Extensions", "Timescale Cloud"],
+            excerpt: "Timescale Cloud PostgreSQL extensions",
+          },
         ],
       },
       {
@@ -245,6 +252,7 @@ module.exports = [
       {
         title: "Troubleshooting",
         href: "troubleshooting",
+        type: "placeholder",
         tags: ["tshoot, tsc"],
         keywords: ["troubleshoot", "Timescale Cloud"],
         excerpt:

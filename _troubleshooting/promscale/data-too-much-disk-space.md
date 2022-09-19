@@ -1,7 +1,7 @@
 ---
 title: Data takes up too much disk space
 section: troubleshooting
-product: promscale
+products: [promscale]
 topics: [compression]
 keywords: [disk, storage]
 tags: [promscale, resources, disk, storage, compression]
@@ -35,6 +35,7 @@ jobs, and that they are returning success. When compression is working
 correctly, your data is being compressed as it ages.
 
 If compression is working properly, then do the following:
+
 *   Check you are using the most recent version of Promscale, to ensure you have
     the latest features.
 *   Consider reducing the length of time that you retain data for.
