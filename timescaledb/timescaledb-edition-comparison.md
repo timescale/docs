@@ -414,7 +414,7 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-pct/">num_vals</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/">num_vals</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
@@ -512,6 +512,7 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
 </table>
 
 <!-- vale Google.Units = NO -->
+
 [aiven]: https://aiven.io/postgresql
 [azure-database]: https://azure.microsoft.com/en-us/services/postgresql/?&ef_id=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&OCID=AID2200277_SEM_CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE:G:s&gclid=CjwKCAjwhOyJBhA4EiwAEcJdcWZ6_o9d5INkZvm1MGsOsinuXgDwV_ySL5vc34z3pyxxrP0R49J_8xoCVvIQAvD_BwE#overview
 [digital-ocean]: https://docs.digitalocean.com/products/databases/postgresql/details/supported-extensions/

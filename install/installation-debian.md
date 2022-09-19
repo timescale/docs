@@ -7,6 +7,8 @@ subsection: self-hosted
 keywords: [install, self-hosted, Debian]
 ---
 
+import Debian from "versionContent/_partials/_psql-installation-debian-ubuntu.mdx";
+
 # Install self-hosted TimescaleDB on Debian-based systems
 You can host TimescaleDB yourself, on your Debian or Ubuntu system. These
 instructions use the `apt` package manager on these distributions:
@@ -100,11 +102,12 @@ that you can use it. The easiest way to do this is to run the `timescaledb-tune`
 script, which is included with the `timescaledb-tools` package. For more
 information, see the [configuration][config] section.
 
+
 ## Set up the TimescaleDB extension
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
-your local system using the `psql` command-line utility. This is the same tool
-you might have used to connect to PostgreSQL before, but if you haven't
-installed it yet, check out our [installing psql][install-psql] section.
+your local system using the `psql` command-line utility.
+
+<Debian />
 
 <procedure>
 

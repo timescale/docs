@@ -35,7 +35,7 @@ of data modifications that can occur on data inside a compressed chunk.
 The table below provides a brief outline of allowed modifications 
 based on the version of TimescaleDB you are currently running.
 
-|TimscaleDB Version|Supported data modifications on compressed chunks|
+|TimescaleDB Version|Supported data modifications on compressed chunks|
 |---|---|
 | 1.5 - 2.0 | Data and schema modifications are not supported. |
 | 2.1 - 2.2 | Schema may be modified on compressed hypertables. Data modification not supported. |

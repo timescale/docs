@@ -16,4 +16,4 @@ You can use the Aiven Client tool to:
 *   Create a fork
 *   Add authentication plugins to your attached Grafana service
 
-[aiven-client]: /mst/:currentVersion:/aiven-client-install/
+[aiven-client]: /mst/:currentVersion:/aiven-client/aiven-client-install/

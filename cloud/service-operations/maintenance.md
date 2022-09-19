@@ -43,6 +43,23 @@ To apply changes manually instead of waiting for the maintenance window,
 applied when your service is resumed.
 </highlight>
 
+## Replicas and maintenance
+
+Services with replicas do not require maintenance downtime. Instead, they have
+one or two failover events during maintenance, taking less than a few seconds
+each.
+
+During a maintenance event, services with replicas perform maintenance on each
+node independently. Maintenance begins on one node, and when it is finished,
+that node is promoted to primary. The other node then begins maintenance, and
+when it is complete, it remains the replica. Sometimes, maintenance begins with
+the primary. This causes the replica node to be promoted at the start. If this happens, the
+service experiences two promotions, or failovers, during the maintenance
+event.
+
+For more information about replicas, see the
+[replicas section][replicas-docs].
+
 ## Non-critical maintenance updates
 
 Non-critical upgrades are made available before the upgrade is performed
@@ -92,3 +109,4 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 
 [status-page]: https://status.timescale.com/
 [cloud-login]: https://cloud.timescale.com
+[replicas-docs]: /cloud/:currentVersion:/service-operations/replicas/
