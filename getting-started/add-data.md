@@ -69,7 +69,7 @@ dataset and copy the data to your database.
     ```
 
 1.  At the `psql` prompt, use the `COPY` command to transfer data into your
-    TimescleDB instance . If the `.csv` files aren't in your current directory,
+    TimescaleDB instance. If the `.csv` files aren't in your current directory,
     specify the file paths in the following commands:
 
     ```sql
