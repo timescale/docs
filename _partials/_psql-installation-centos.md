@@ -7,11 +7,11 @@ the `psql` tool.
 ### Installing psql using the apt package manager
 1.  Make sure your `apt` repository is up to date:
     ```bash
-    sudo yum update
+    yum update
     ```
 1.  Install the `postgresql-client` package:
     ```bash
-    sudo dnf install postgresql14
+    dnf install postgresql14
     ```
 
 </procedure>
