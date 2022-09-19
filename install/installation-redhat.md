@@ -44,7 +44,7 @@ instead.
     <tab label='Red Hat'>
 
     ```bash
-    sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{rhel})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{rhel})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     ```
 
     </tab>
@@ -52,7 +52,7 @@ instead.
     <tab label="Fedora">
 
     ```bash
-    sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/F-$(rpm -E %{fedora})-x86_64/pgdg-fedora-repo-latest.noarch.rpm
+    yum install https://download.postgresql.org/pub/repos/yum/reporpms/F-$(rpm -E %{fedora})-x86_64/pgdg-fedora-repo-latest.noarch.rpm
     ```
 
     </tab>
@@ -60,7 +60,7 @@ instead.
     <tab label="CentOS">
 
     ```bash
-    sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{centos})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+    yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{centos})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
     ```
 
     </tab>
@@ -72,7 +72,7 @@ instead.
     <tab label='Red Hat'>
 
     ```bash
-    sudo tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
+    tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
     [timescale_timescaledb]
     name=timescale_timescaledb
     baseurl=https://packagecloud.io/timescale/timescaledb/el/$(rpm -E %{rhel})/\$basearch
@@ -91,7 +91,7 @@ instead.
     <tab label="Fedora">
 
     ```bash
-    sudo tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
+    tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
     [timescale_timescaledb]
     name=timescale_timescaledb
     baseurl=https://packagecloud.io/timescale/timescaledb/el/8/$basearch
@@ -110,7 +110,7 @@ instead.
     <tab label="CentOS">
 
     ```bash
-    sudo tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
+    tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
     [timescale_timescaledb]
     name=timescale_timescaledb
     baseurl=https://packagecloud.io/timescale/timescaledb/el/$(rpm -E %{rhel})/\$basearch
@@ -130,13 +130,13 @@ instead.
 1.  Update your local repository list:
 
     ```bash
-    sudo yum update
+    yum update
     ```
 
 1.  Install TimescaleDB:
 
     ```bash
-    sudo yum install timescaledb-2-postgresql-14
+    yum install timescaledb-2-postgresql-14
     ```
 
      <highlight type="note">
@@ -149,7 +149,8 @@ instead.
 1.  Initialize the database:
 
     ```bash
-    sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
+    /usr/pgsql-14/bin/postgresql-14-setup initdb
+    ```
 
 </procedure>
 
@@ -174,14 +175,14 @@ the `psql` command-line utility.
 1.  Enable and start the service:
 
     ```bash
-    sudo systemctl enable postgresql-14
-    sudo systemctl start postgresql-14
+    systemctl enable postgresql-14
+    systemctl start postgresql-14
     ```
 
 1.  Connect to the PostgreSQL instance as the `postgres` superuser:
 
     ```bash
-    sudo -u postgres psql
+    -u postgres psql
     ```
 
     If your connection is successful, you see a message similar to this, followed
