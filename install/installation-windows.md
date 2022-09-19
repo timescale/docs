@@ -7,6 +7,8 @@ subsection: self-hosted
 keywords: [install, self-hosted, Windows]
 ---
 
+import Windows from "versionContent/_partials/_psql-installation-windows.mdx";
+
 # Install self-hosted TimescaleDB on Windows systems
 
 You can host TimescaleDB yourself on your Microsoft Windows system.
@@ -59,9 +61,9 @@ information, see the [configuration][config] section.
 ## Set up the TimescaleDB extension
 
 When you have PostgreSQL and TimescaleDB installed, you can connect to it from
-your local system using the `psql` command-line utility. This is the same tool
-you might have used to connect to PostgreSQL before, but if you haven't
-installed it yet, check out our [installing psql][install-psql] section.
+your local system using the `psql` command-line utility. 
+
+<Windows />
 
 <procedure>
 
