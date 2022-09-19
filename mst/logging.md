@@ -35,10 +35,8 @@ and use this command to dump your logs to a text file called `tslogs.txt`:
 avn service logs -S desc -f --project <project name> <service_name> > tslogs.txt
 ```
 
-<!--->
 For more information about the Aiven CLI tool, see the
 [Aiven CLI section][aiven-cli].
--->
 
 ## Logging integrations
 
@@ -70,11 +68,16 @@ Service for TimescaleDB.
       *   In the `Port` field, type `514`.
       *   Uncheck the `TLS` checkbox.
       *   In the `Format` field, select `rfc5425`.
-      *   In the `Structured Data` field, type `<LOGGLY_TOKEN>@41058`, using the Loggly token you copied earlier. You can also add a tag here, which you can use to more easily search for your logs in Loggly. For example, `8480330f5-aa09-46b0-b220-a0efa372b17b@41058 TAG="example-tag"`.
+      *   In the `Structured Data` field, type `<LOGGLY_TOKEN>@41058`, using the
+          Loggly token you copied earlier. You can also add a tag here, which
+          you can use to more easily search for your logs in Loggly. For
+          example,
+          `8480330f5-aa09-46b0-b220-a0efa372b17b@41058 TAG="example-tag"`.
 
-    Click `Create` to create the endpoint. When the endpoint has been created, it shows as an enabled service integration, with a green `active` indicator.
-1.  In the Loggly dashboard, navigate to `Search` to see your incoming logs. From here,
-    you can create custom dashboards and view reports for your logs.
+    Click `Create` to create the endpoint. When the endpoint has been created,
+    it shows as an enabled service integration, with a green `active` indicator.
+1.  In the Loggly dashboard, navigate to `Search` to see your incoming logs.
+    From here, you can create custom dashboards and view reports for your logs.
 
     <img class="main-content__illustration"
       src="https://s3.amazonaws.com/assets.timescale.com/docs/images/loggly-view-logs.png" alt="Viewing incoming MST logs in Loggly"
@@ -84,4 +87,4 @@ Service for TimescaleDB.
 
 [loggly-site]: https://www.loggly.com/
 [mst-portal]: https://portal.managed.timescale.com
-[aiven-cli]: /mst/:currentVersion:/aiven-client-install/
+[aiven-cli]: /mst/:currentVersion:/aiven-client/aiven-client-install/
