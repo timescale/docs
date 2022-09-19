@@ -1,7 +1,7 @@
 ---
 title: Permission denied when changing ownership of tables and hypertables
 section: troubleshooting
-product: mst
+products: [mst]
 topics: [hypertables]
 errors:
   - language: bash
