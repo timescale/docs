@@ -30,6 +30,13 @@ module.exports = [
             keywords: ["Services", "Timescale Cloud"],
             excerpt: "Timescale Cloud demo service",
           },
+          {
+            title: "Create a PostgreSQL service",
+            href: "create-a-pg-service",
+            tags: ["services", "postgresql", "create", "setup", "tsc"],
+            keywords: ["Services", "Timescale Cloud"],
+            excerpt: "Timescale Cloud PostgreSQL service",
+          },
         ],
       },
       {
