@@ -110,6 +110,12 @@ module.exports = [
             excerpt:
               "Configure Google, GitHub, or GitLab authentication plugins for Grafana",
           },
+          {
+            title: "Send Grafana emails using Aiven Client",
+            href: "grafana-email",
+            excerpt:
+              "Configure the Simple Mail Transfer Protocol (SMTP) server in MST for Grafana"
+          },
         ],
       },
       {
