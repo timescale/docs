@@ -7,10 +7,14 @@ subsection: self-hosted
 keywords: [install, self-hosted, Red Hat]
 ---
 
+import Debian from "versionContent/_partials/_psql-installation-centos.mdx";
+
 # Install self-hosted TimescaleDB on Red Hat-based systems
+
 You can host TimescaleDB yourself on your Red Hat, CentOS, or Fedora system.
 These instructions use the `yum` package manager on these
 distributions:
+
 *   Red Hat Enterprise Linux 7
 *   Red Hat Enterprise Linux 8
 *   CentOS 7
@@ -32,6 +36,7 @@ instead.
 <procedure>
 
 ### Installing self-hosted TimescaleDB on Red Hat-based systems
+
 1.  At the command prompt, as root, add the PostgreSQL third party repository
     to get the latest PostgreSQL packages:
     <terminal>
@@ -123,93 +128,130 @@ instead.
 
     </terminal>
 1.  Update your local repository list:
+
     ```bash
     yum update
     ```
+
 1.  Install TimescaleDB:
+
     ```bash
     yum install timescaledb-2-postgresql-14
+    ```
+
+     <highlight type="note">
+     When installing on CentOS 8 or Red Hat Enterprise Linux 8 you need
+     to disable the built-in PostgreSQL module in the system using the
+     `sudo dnf -qy module disable postgresql`command.
+
+</highlight>
+
+1.  Initialize the database:
+
+    ```bash
+    /usr/pgsql-14/bin/postgresql-14-setup initdb
     ```
 
 </procedure>
 
 When you have completed the installation, you need to configure your database so
 that you can use it. The easiest way to do this is to run the `timescaledb-tune`
-script, which is included with the `timescaledb-tools` package. For more
+script, which is included with the `timescaledb-tools` package. Run the
+`timescaledb-tune` script using the
+`sudo timescaledb-tune --pg-config=/usr/pgsql-14/bin/pg_config` command. For more
 information, see the [configuration][config] section.
 
 ## Set up the TimescaleDB extension
-When you have PostgreSQL and TimescaleDB installed, you can connect to it from
-your local system using the `psql` command-line utility. This is the same tool
-you might have used to connect to PostgreSQL before, but if you haven't
-installed it yet, check out our [installing psql][install-psql] section.
+
+When you have PostgreSQL and TimescaleDB installed, you can connect to it using
+the `psql` command-line utility.
+
+<CentOS />
 
 <procedure>
 
 ### Setting up the TimescaleDB extension
-1.  Initialize the database:
+
+1.  Enable and start the service:
+
     ```bash
-    /usr/pgsql-14/bin/postgresql-14-setup initdb
-    ```
-1. Enable and start the service:
-    ```
     systemctl enable postgresql-14
     systemctl start postgresql-14
     ```
 
 1.  Connect to the PostgreSQL instance as the `postgres` superuser:
+
     ```bash
-    su postgres -c psql
+    -u postgres psql
     ```
-    If your connection is successful, you see a message like this, followed
+
+    If your connection is successful, you see a message similar to this, followed
     by the `psql` prompt:
-    ```
-    psql (13.3, server 12.8 (Ubuntu 12.8-1.pgdg21.04+1))
-    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+
+    ```bash
+    could not change directory to "/root": Permission denied
+    psql (14.5)
     Type "help" for help.
-    tsdb=>
+
+    postgres=#
     ```
+
+1.  Set the password for the `postgres` user using:
+
+    ```sql
+    postgres=#\password postgres 
+    ```
+
+1.  Exit from PostgreSQL using the command `\q`.
+1.  Use `psql` client to connect to PostgreSQL:
+
+    ```bash
+    psql -U postgres -h localhost
+    ```
+
 1.  At the `psql` prompt, create an empty database. Our database is
-    called `example`:
+    called `tsdb`:
+
     ```sql
-    CREATE database example;
+    CREATE database tsdb;
     ```
+
 1.  Connect to the database you created:
+
     ```sql
-    \c example
+    \c tsdb
     ```
+
 1.  Add the TimescaleDB extension:
+
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```
-1.  You can now connect to your database using this command:
-    ```bash
-    su postgres -c 'psql -d example'
+
+1.  Check that the TimescaleDB extension is installed by using the `\dx`
+    command at the `psql` prompt. Output is similar to:
+
+    ```sql
+    tsdb-# \dx
+                                          List of installed extensions
+        Name     | Version |   Schema   |                            Description                            
+    -------------+---------+------------+-------------------------------------------------------------------
+     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+     timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
+    (2 rows)
     ```
 
 </procedure>
 
-You can check that the TimescaleDB extension is installed by using the `\dx`
-command at the `psql` prompt. It looks like this:
-```sql
-tsdb=> \dx
-List of installed extensions
--[ RECORD 1 ]------------------------------------------------------------------
-Name        | plpgsql
-Version     | 1.0
-Schema      | pg_catalog
-Description | PL/pgSQL procedural language
--[ RECORD 2 ]------------------------------------------------------------------
-Name        | timescaledb
-Version     | 2.6.1
-Schema      | public
-Description | Enables scalable inserts and complex queries for time-series data
+After you have created the extension and the database, you can connect to your
+database directly using this command:
 
-
-tsdb=>
+```bash
+psql -U postgres -h localhost -d tsdb
 ```
 
 ## Where to next
+
 Now that you have your first TimescaleDB database up and running, you can check
 out the [TimescaleDB][tsdb-docs] section in our documentation, and find out what
 you can do with it.
@@ -219,7 +261,6 @@ TimescaleDB and time-series data, check out our [tutorials][tutorials] section.
 
 You can always [contact us][contact] if you need help working something out, or
 if you want to have a chat.
-
 
 [contact]: https://www.timescale.com/contact
 [install-psql]: /timescaledb/latest/how-to-guides/connecting/psql/
