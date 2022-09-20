@@ -48,19 +48,26 @@ For more information about gapfilling and interpolation functions, see the
 |-|-|-|
 |`start`|TIMESTAMP|The start of the gapfill period|
 |`finish`|TIMESTAMP|The end of the gapfill period|
+|`timezone`|TEXT|The timezone ID to use. For example: `Europe/Berlin`|
 
 In TimescaleDB 1.3 and later, `start` and `finish` are optional arguments. If
-they are not supplied, the parameters are inferred from the `WHERE` clause. We
-recommend using a `WHERE` clause if possible, instead of `start` and `finish`
-arguments. This is because `start` and `finish` arguments do not filter input
-rows. If you do not provide a `WHERE` clause, TimescaleDB's planner selects all
-data, and does not perform constraint exclusion to exclude chunks from further
-processing, which is less performant.
+they are not supplied, the parameters are inferred from the `WHERE` clause. If
+possible, use a `WHERE` clause instead of `start` and `finish` arguments,
+because `start` and `finish` arguments do not filter input rows. If you do not
+provide a `WHERE` clause, TimescaleDB's planner selects all data, and does not
+perform constraint exclusion to exclude chunks from further processing, which is
+less performant.
 
 Values explicitly provided in `start` and `stop` arguments, or values derived
 from `WHERE` clause values, must be simple expressions. They should be evaluated
 to constants at query planning. For example, simple expressions can contain
 constants or call to `now()`, but cannot reference columns of a table.
+
+In TimescaleDB 2.9 and later, the `timezone` argument allows you to specify
+which timezone to use for bucketing. This could create a problem if you have a
+query that uses an untyped `start` or `finish` argument. In this case,
+explicitly name the positional argument, or resolve the type ambiguity by
+casting to the intended type directly.
 
 ## For integer time inputs
 
