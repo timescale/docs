@@ -9,23 +9,29 @@ tags: [ssl]
 # Connect with a stricter SSL mode
 
 The default connection string for Timescale Cloud uses the SSL mode `require`.
-If you want more security, you can connect with a SSL mode of `verify-ca` or
-`verify-full`. To do so, you need to store a copy of the certificate chain where
-your connection tool can find it.
+If you want your connection client to verify the server's identity, you can
+connect with an [SSL mode][ssl-modes] of `verify-ca` or `verify-full`. To do so,
+you need to store a copy of the certificate chain where your connection tool can
+find it.
 
-This section provides instructions on setting up a stricter SSL connection.
+This section provides instructions for setting up a stricter SSL connection.
 
 ## SSL certificates on Timescale Cloud
 
-To spin up your service quickly, Timescale Cloud databases are started up with a
-self-signed certificate. After your service is started, a signed certificate is
-requested behind the scenes. When it's received, the certificate is replaced
-with almost no interruption. Connections are reset, and most connection services
-reconnect automatically.
+All connections to Timescale Cloud are encrypted. As part of the secure
+connection protocol, the server proves its identity by providing clients with a
+certificate. This certificate should be issued and signed by a well-known and
+trusted Certificate Authority.
+
+Because requesting a certificate from a Certificate Authority takes some time,
+Timescale Cloud databases are initialized with a self-signed certificate. This
+lets you start up a database immediately. After your service is started, a
+signed certificate is requested behind the scenes. When it's received, the
+certificate is replaced with almost no interruption. Connections are reset, and
+most clients reconnect automatically.
 
 With the signed certificate, you can switch your connections to a stricter SSL
-mode, such as `verify-ca` or `verify-full`. These modes verify the certificate
-chain.
+mode, such as `verify-ca` or `verify-full`.
 
 For more information on the different SSL modes, see the [PostgreSQL SSL mode
 descriptions][ssl-modes].
@@ -58,7 +64,9 @@ To set up a stricter SSL connection:
     pbcopy < bundle.crt
     ```
 
-1.  Navigate to <https://whatsmychaincert.com/>.
+1.  Navigate to <https://whatsmychaincert.com/>. This online tool generates a
+    full certificate chain, including the root CA certificate, which is not
+    included in the bundle.
 
 1.  Paste your certificate bundle in the provided box. Check `Include Root
     Certificate`. Click `Generate Chain`.
