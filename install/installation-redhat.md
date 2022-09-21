@@ -139,12 +139,16 @@ instead.
     yum install timescaledb-2-postgresql-14
     ```
 
-     <highlight type="note">
-     When installing on CentOS 8 or Red Hat Enterprise Linux 8 you need
-     to disable the built-in PostgreSQL module in the system using the
-     `sudo dnf -qy module disable postgresql`command.
+    <!-- hack until we have bandwidth to rewrite this linting rule -->
 
-</highlight>
+    <!-- markdownlint-disable TS007 -->
+    <highlight type="note">
+    When installing on CentOS 8 or Red Hat Enterprise Linux 8 you need
+    to disable the built-in PostgreSQL module in the system using the
+    `sudo dnf -qy module disable postgresql`command.
+    </highlight>
+
+    <!-- markdownlint-enable TS007 -->
 
 1.  Initialize the database:
 
