@@ -25,7 +25,7 @@ AdWords, and others.
 ### Connecting to Managed Service for TimescaleDB data source from Data Studio
 
 1.  Login to Google and open [Google Data Studio][google-data-studio].
-1.  Click the `Create` + button and choose `Data source`.
+1.  Click the `Create +` button and choose `Data source`.
 1.  Select the `PostgreSQL` as Google Connector.
 1.  In the `Database Authentication` tab, type details for the `Host Name`,
     `Port`, `Database`, `Username`, and `Password` fields.
