@@ -66,7 +66,7 @@ To set up a stricter SSL connection:
 
 1.  Navigate to <https://whatsmychaincert.com/>. This online tool generates a
     full certificate chain, including the root CA certificate, which is not
-    included in the bundle.
+    included in the certificate bundle returned by the database.
 
 1.  Paste your certificate bundle in the provided box. Check `Include Root
     Certificate`. Click `Generate Chain`.
