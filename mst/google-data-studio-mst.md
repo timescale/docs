@@ -15,7 +15,7 @@ AdWords, and others.
 
 *   You should also have a Google account.
 *   In the service overview page of the Managed Service for TimescaleDB service:
-    *   Download he CA certificate anmed `ca.pem` for your Managed Service for
+    *   Download the CA certificate named `ca.pem` for your Managed Service for
         TimescaleDB service.
     *   Make a note of the `Host`, `Port`, `Database name`, `User`, and `Password`
         fields for the Managed Service for TimescaleDB service.
