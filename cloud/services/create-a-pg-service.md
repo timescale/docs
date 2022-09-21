@@ -2,7 +2,7 @@
 title: Create a PostgreSQL service
 excerpt: Create a PostgreSQL service in Timescale Cloud
 product: cloud
-keywords: [services, postgresql, create, install]
+keywords: [services, PostgreSQL, create, install]
 ---
 
 # Create a PostgreSQL service
