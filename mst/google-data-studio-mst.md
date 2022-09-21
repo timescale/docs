@@ -22,7 +22,7 @@ AdWords, and others.
 
 <Procedure>
 
-### Connecting to Managed Service for TimescaleDB datasource from Data Studio
+### Connecting to Managed Service for TimescaleDB data source from Data Studio
 
 1.  Login to Google and open [Google Data Studio][google-data-studio].
 1.  Click the `Create` + button and choose `Data source`.
