@@ -20,7 +20,7 @@ AdWords, and others.
     *   Make a note of the `Host`, `Port`, `Database name`, `User`, and `Password`
         fields for the Managed Service for TimescaleDB service.
 
-<Procedure>
+<procedure>
 
 ### Connecting to Managed Service for TimescaleDB data source from Data Studio
 
