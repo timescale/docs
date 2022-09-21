@@ -46,7 +46,7 @@ To decompress a set of chunks based on a time range, you can use the output of
 
 ```sql
 SELECT decompress_chunk(i)
-    FROM show_chunks('table_name', newer_than, older_than) i;
+    FROM show_chunks('table_name', older_than, newer_than) i;
 ```
 
 ### Decompress chunks on more precise constraints
