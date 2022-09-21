@@ -34,6 +34,6 @@ AdWords, and others.
 1.  Choose the table to be queried, or select `CUSTOM QUERY` to create an SQL query.
 1.  Click `CONNECT`.
 
-</Procedure>
+</procedure>
 
 [google-data-studio]: https://datastudio.google.com/
