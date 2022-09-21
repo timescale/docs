@@ -1,6 +1,6 @@
 ---
 title: Integrate Managed Service for TimescaleDB and Google Data Studio
-excerpt: Integrate Google Data Studiol for fully managed services on AWS, Azure, or GCP.
+excerpt: Integrate Google Data Studio for fully managed services on AWS, Azure, or GCP.
 product: mst
 ---
 
