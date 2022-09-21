@@ -26,7 +26,7 @@ AdWords, and others.
 
 1.  Login to Google and open [Google Data Studio][google-data-studio].
 1.  Click the `Create +` button and choose `Data source`.
-1.  Select the `PostgreSQL` as Google Connector.
+1.  Select `PostgreSQL` as the Google Connector.
 1.  In the `Database Authentication` tab, type details for the `Host Name`,
     `Port`, `Database`, `Username`, and `Password` fields.
 1.  Select `Enable SSL` and upload your server certificate file, `ca.pem`.
