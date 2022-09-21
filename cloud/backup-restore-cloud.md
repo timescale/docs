@@ -22,11 +22,11 @@ S3 service with the most recent incremental backups. This means that you always
 have a full "base" backup for the current and the previous week, and we can 
 restore your backup to any point up to the point of failure. 
 
-To perform a point-in-time recovery, we first restore using the full backup, 
+To perform a point-in-time recovery, your database is first restored using the full backup, 
 then any available incremental backups, and finally by replaying any WAL to 
 cover any gap in time between the incremental backup and the target recovery 
-point. For more information about how our backup and restore works, our 
-[blog post on high availability][https://www.timescale.com/blog/how-high-availability-works-in-our-cloud-database/#what-if-theres-a-failure-affecting-your-storage] covers this in detail.
+point. For more information about how backup and restore works, see 
+the [blog post on high availability][https://www.timescale.com/blog/how-high-availability-works-in-our-cloud-database/#what-if-theres-a-failure-affecting-your-storage].
 
 When you delete an instance, we retain a backup of the instance for seven days.
 If you need to restore your database from a backup, [contact support][support].
