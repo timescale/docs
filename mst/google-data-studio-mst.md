@@ -8,7 +8,7 @@ product: mst
 
 You can create reports or perform some analysis on data you have in Managed
 Service for TimescaleDB using Google Data Studio. You can use Data Studio to
-integrate other data sources such as, YouTube Analytics, MySQL, BigQuery,
+integrate other data sources, such as YouTube Analytics, MySQL, BigQuery,
 AdWords, and others.
 
 ## Before you begin
