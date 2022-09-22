@@ -8,7 +8,7 @@ product: mst
 
 Use the Aiven client to configure the Simple Mail Transfer Protocol (SMTP)
 server settings and send emails from Managed Service for
-TimescaleDB for Grafana such as invite emails, reset password emails, and alert
+TimescaleDB for Grafana, including invite emails, reset password emails, and alert
 messages.
 
 ## Before you begin
