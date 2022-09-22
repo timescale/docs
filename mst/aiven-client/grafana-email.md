@@ -16,8 +16,8 @@ messages.
 *   Install [Aiven Client][aiven-client-mst].
 *   Sign in to your [Managed Service for TimescaleDB dashboard][mst-login].
 *   Create a service for [Grafana in MST][grafana-install]
-*   Make a note of these values in the SMTP server: `IP or hostname`, SMTP
-    server port, `Username`, `Password`, `Sender email address`, `Sender name`
+*   Make a note of these values in the SMTP server: `IP or hostname`, `SMTP
+    server port`, `Username`, `Password`, `Sender email address`, `Sender name`
     (optional).
 
 <procedure>
