@@ -51,6 +51,10 @@ module.exports = [
         href: "metrics-datadog",
       },
       {
+        title: "Integrate Managed Service for TimescaleDB and Google Data Studio",
+        href: "google-data-studio-mst",
+      },
+      {
         title: "Supported extensions",
         href: "extensions",
       },
