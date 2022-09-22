@@ -48,3 +48,24 @@ Refresh the continuous aggregate `conditions` between `2020-01-01` and
 ```sql
 CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01');
 ```
+
+Alternatively, incrementally refresh the continuous aggregate `conditions`
+between `2020-01-01` and `2020-02-01` exclusive, working in `12h` intervals.
+
+```sql
+DO
+$$
+DECLARE
+  refresh_interval INTERVAL = '12h'::INTERVAL;
+  start_timestamp TIMESTAMPTZ = '2020-01-01T00:00:00Z';
+  end_timestamp TIMESTAMPTZ = start_timestamp + refresh_interval;
+BEGIN
+  WHILE start_timestamp < '2020-02-01T00:00:00Z' LOOP
+    CALL refresh_continuous_aggregate('conditions', start_timestamp, end_timestamp);
+    RAISE NOTICE 'finished with timestamp %', end_timestamp;
+    start_timestamp = end_timestamp;
+    end_timestamp = end_timestamp + refresh_interval;
+  END LOOP;
+END
+$$;
+```
