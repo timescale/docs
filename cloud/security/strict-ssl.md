@@ -58,11 +58,35 @@ To set up a stricter SSL connection:
                  awk '/BEGIN CERTIFICATE/,/END CERTIFICATE/{ print }' > bundle.crt
     ```
 
-1.  Copy the bundle to your clipboard. On MacOS, you can run:
+1.  Copy the bundle to your clipboard:
+
+    <terminal>
+
+    <tab label="MacOS">
 
     ```shell
     pbcopy < bundle.crt
     ```
+
+    </tab>
+
+    <tab label="Linux">
+
+    ```shell
+    xclip -sel clip < bundle.crt
+    ```
+
+    </tab>
+
+    <tab label="Windows">
+
+    ```shell
+    clip.exe < bundle.crt
+    ```
+
+    </tab>
+
+    </terminal>
 
 1.  Navigate to <https://whatsmychaincert.com/>. This online tool generates a
     full certificate chain, including the root CA certificate, which is not
