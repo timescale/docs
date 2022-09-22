@@ -26,9 +26,10 @@ trusted Certificate Authority.
 Because requesting a certificate from a Certificate Authority takes some time,
 Timescale Cloud databases are initialized with a self-signed certificate. This
 lets you start up a database immediately. After your service is started, a
-signed certificate is requested behind the scenes. When it's received, the
-certificate is replaced with almost no interruption. Connections are reset, and
-most clients reconnect automatically.
+signed certificate is requested behind the scenes. The new certificate is
+usually received within 30 minutes. Your database certificate is then replaced
+with almost no interruption. Connections are reset, and most clients reconnect
+automatically.
 
 With the signed certificate, you can switch your connections to a stricter SSL
 mode, such as `verify-ca` or `verify-full`.
@@ -106,5 +107,14 @@ To set up a stricter SSL connection:
     ```
 
 </procedure>
+
+## Verify certificate type used by your database
+
+To check whether the certificate has been replaced yet, connect to your database
+instance and inspect the returned certificate:
+
+```shell
+openssl s_client -showcerts -partial_chain -starttls postgres -connect <HOST>:<PORT> < /dev/null 2>/dev/null  | grep "ZeroSSL"
+```
 
 [ssl-modes]: https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS
