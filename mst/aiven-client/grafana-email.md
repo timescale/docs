@@ -59,7 +59,7 @@ messages.
        -c smtp_server.from_address="grafana@yourcompany.com"
     ```
 
-1.  (*OPTIONAL*)Review all available custom options, and configure:
+1.  (*OPTIONAL*) Review all available custom options, and configure:
 
     ```bash
        avn service types -v
