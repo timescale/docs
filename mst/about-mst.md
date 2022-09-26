@@ -5,17 +5,14 @@ product: mst
 keywords: [services]
 ---
 
+import MSTIntro from "versionContent/_partials/_mst-intro.mdx";
+import CloudMSTComparison from "versionContent/_partials/_cloud-mst-comparison.mdx";
+
 # About Managed Service for TimescaleDB
 
-Managed service for TimescaleDB is a managed TimescaleDB service hosted in more
-than 75 regions in Amazon Web Services, Microsoft Azure, or Google Cloud. You
-can [try Managed Service for TimescaleDB for free][sign-up], no credit card
-required.
+<MSTIntro />
 
-Powered by [TimescaleDB][timescale-features], you can create database instances
-in the  cloud and automate many of your most common operational tasks. This
-allows you to spend more time focusing on your time-series workloads and less
-time worrying about database management.
+<CloudMSTComparison />
 
 Your Managed Service for TimescaleDB account has three main components:
 projects, services, and databases.
@@ -209,11 +206,10 @@ of time, you can use this command:
 SET statement_timeout = <milliseconds>
 ```
 
-[timescale-features]: https://www.timescale.com/products/#features
 [mst-install]: /install/:currentVersion:/installation-mst/
 [sign-up]: https://www.timescale.com/cloud-signup
 [timescale-support]: https://www.timescale.com/support
 [aiven-sla]: https://aiven.io/sla
 [pg-keepalive]: http://www.postgresql.org/docs/9.5/static/libpq-connect.html#LIBPQ-KEEPALIVES
 [connection-pooling]: /mst/:currentVersion:/connection-pools/
-[mst-billing]: mst/:currentVersion:/billing
+[mst-billing]: /mst/:currentVersion:/billing/

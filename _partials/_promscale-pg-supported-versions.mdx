@@ -1,3 +1,0 @@
-You can also use other versions of Postgres by changing the version in
-`promscale-extension-postgresql-<version>`, Promscale supports Postgres
-12, 13 and 14 versions.

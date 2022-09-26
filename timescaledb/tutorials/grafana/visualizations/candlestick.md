@@ -3,6 +3,8 @@ title: Build a candlestick chart in Grafana
 excerpt: Create a candlestick chart in Grafana to visualize opening, closing, high, and low prices of financial assets
 keywords: [Grafana, visualization, analytics, finance]
 tags: [candlestick]
+seo:
+  metaImage: https://s3.amazonaws.com/assets.timescale.com/docs/images/meta-images/meta-image-grafana-candlestick.png
 ---
 
 import GrafanaVizPrereqs from 'versionContent/_partials/_grafana-viz-prereqs.mdx';
@@ -59,16 +61,16 @@ Create a candlestick visualization using the raw data in the table `stocks_real_
       for the time period covered by each candlestick.
       ```sql
       SELECT
-          time_bucket($bucket_interval, time) AS time,
+          time_bucket('$bucket_interval', time) AS time,
           symbol,
           FIRST(price, time) AS "open",
           MAX(price) AS high,
           MIN(price) AS low,
-          LAST(price, time) AS "close",
+          LAST(price, time) AS "close"
       FROM stocks_real_time
-      WHERE symbol =  $symbol
+      WHERE symbol IN ($symbol)
           AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
-      GROUP BY symbol;
+      GROUP BY time_bucket('$bucket_interval', time), symbol;
       ```
   1.  Click outside of the query editor, or click the refresh icon to
       update the Grafana chart.
@@ -142,8 +144,8 @@ difference gives the traded volume for that bucket.
           ORDER BY time_bucket('$bucket_interval', time)
         ) AS bucket_volume
     FROM stocks_real_time
-    WHERE symbol =  $symbol
-        AND time > $__timeFrom()::timestamptz and time < $__timeTo()::timestamptz
+    WHERE symbol IN ($symbol)
+        AND time > $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
     GROUP BY time_bucket('$bucket_interval', time), symbol;
     ```
 

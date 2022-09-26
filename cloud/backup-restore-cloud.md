@@ -12,13 +12,21 @@ automated backups in Timescale Cloud are created using the `pgBackRest` tool.
 There is no need for you to manually perform backups for your Timescale Cloud
 service.
 
-Timescale Cloud automatically creates one full backup every week. We also create
-incremental backups every day, which store any changes since the last full
-backup. The two most recent full backups are stored securely on an Amazon S3
-service, along with the most recent incremental backups, and a write-ahead log
-(WAL) of all the changes that have occurred. This means that you always have a
-backup for the current and the previous week, and we can restore your backup to
-any point during that timeframe.  
+Timescale Cloud allows a point-in-time recovery to any point since the service 
+was created, regardless of when a failure occurs. To achieve this, Timescale 
+Cloud automatically creates one full backup every week. We also take 
+incremental backups every day, which store any changes since the last full 
+backup. Finally, all generated WAL ([Write-Ahead Log][wal]) files are streamed 
+to S3. The two most recent full backups are also stored securely on an Amazon 
+S3 service with the most recent incremental backups. This means that you always 
+have a full "base" backup for the current and the previous week, and we can 
+restore your backup to any point up to the point of failure. 
+
+To perform a point-in-time recovery, your database is first restored using the full backup, 
+then any available incremental backups, and finally by replaying any WAL to 
+cover any gap in time between the incremental backup and the target recovery 
+point. For more information about how backup and restore works, see 
+the [blog post on high availability][ha-post].
 
 When you delete an instance, we retain a backup of the instance for seven days.
 If you need to restore your database from a backup, [contact support][support].
@@ -28,6 +36,10 @@ query from the `psql` prompt:
 ```sql
 SELECT pg_is_in_backup()::text
 ```
+
+<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+
+</highlight>
 
 ## Weekly backups
 A full database backup is performed weekly. The two most recent full backups are
@@ -82,3 +94,5 @@ SELECT pg_is_in_recovery()::text
 
 
 [support]: https://www.timescale.com/support
+[wal]: https://www.postgresql.org/docs/current/wal-intro.html
+[ha-post]: https://www.timescale.com/blog/how-high-availability-works-in-our-cloud-database/#what-if-theres-a-failure-affecting-your-storage

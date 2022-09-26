@@ -3,8 +3,11 @@ title: Continuous aggregate doesn't refresh with newly inserted historical data
 section: troubleshooting
 topics: [continuous aggregates]
 apis:
-  - [continuous aggregates, CREATE MATERIALIZED VIEW (Continuous Aggregate)]
   - [continuous aggregates, add_continuous_aggregate_policy()]
+  - [continuous aggregates, add_policies()]
+  - [continuous aggregates, alter_policies()]
+  - [continuous aggregates, CREATE MATERIALIZED VIEW (Continuous Aggregate)]
+  - [continuous aggregates, refresh_continuous_aggregate()]
 keywords: [continuous aggregates]
 tags: [continuous aggregates, materalized views, refresh, insert]
 ---
@@ -33,11 +36,11 @@ and F.
 
 For example:
 
-1. A, B, D, and F are already materialized in a view with all data.
-1. To insert C, split the data into `AB` and `DEF` subsets.
-1. `AB` are consistent and the materialized data is too; you only need to
+1.  A, B, D, and F are already materialized in a view with all data.
+1.  To insert C, split the data into `AB` and `DEF` subsets.
+1.  `AB` are consistent and the materialized data is too; you only need to
     reuse it.
-1. Insert C, `DEF`, and refresh policies after C.
+1.  Insert C, `DEF`, and refresh policies after C.
 
 This can use a lot of resources to process, especially if you have any important
 data in the past that also needs to be brought to the present.

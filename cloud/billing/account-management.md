@@ -7,18 +7,30 @@ tags: [payment]
 ---
 
 # Billing - Account management
+
 If you haven't yet added a payment method, you can add one in this section. You
 can also update to a new credit card here.
 
+<highlight type="important">
+If you prefer to pay by invoice, or if you are unable to provide a credit card
+for billing, you can switch your project to corporate billing instead. To switch
+from credit card to corporate billing, send a message to the
+[Timescale support team](https://www.timescale.com/support)
+asking to be changed to corporate billing.
+</highlight>
+
 ## Add, update, or delete a payment method
+
 You can add up to three credit cards to the `Wallet` and set one of the cards as
 `primary` for payments. If you want to delete the last card in the `Wallet`, you
 have to first delete all the services and then schedule the last card to be
 deleted at the end of the month. However, if you are still on trial, you can
 delete the card in the `Wallet` without deleting the services.
+
 <procedure>
 
 ### Adding, updating, or deleting a payment method
+
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
 1.  In the `Wallet` section, click `Add payment method`. If you already have
@@ -29,9 +41,9 @@ delete the card in the `Wallet` without deleting the services.
     The `Add payment method: billing address` page appears.
 1.  Type your billing and company addresses. The company address is
     required to determine any applicable sales tax.
-    * If your billing address is the same as your company address, select
+    *   If your billing address is the same as your company address, select
       `Billing  address is the same as company address`, and click `Save`.
-    * If your billing address is not the same as your company address, click
+    *   If your billing address is not the same as your company address, click
       `Continue`. Type your company address, and click `Save`.
 1.  Confirm your new credit card is saved by checking the details on the
     `Billing` page.
@@ -55,6 +67,7 @@ month.
 </highlight>
 
 ## Add or update your billing email address
+
 By default, your Timescale Cloud payment confirmations are sent to the email
 address that you used when you signed up. This is also the address that receives
 alerts about your Timescale Cloud services. If you want your payment
@@ -70,6 +83,7 @@ email address you add, and the original email address that you signed up with.
 <procedure>
 
 ### Adding a billing email address
+
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
 1.  In the `Payment emails` tab, click `Add New Email`.
@@ -85,6 +99,7 @@ email address you add, and the original email address that you signed up with.
 </procedure>
 
 ## Add or update your company details
+
 By default, your company name and address is set to be the same as that used for
 your payment method. You can change your company name and address in the
 `Billing` details section.
@@ -92,6 +107,7 @@ your payment method. You can change your company name and address in the
 <procedure>
 
 ### Adding or updating your company name and address
+
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Billing` details section.
 1.  In the `Billing details` tab, locate the `Company info` section and click

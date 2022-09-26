@@ -4,7 +4,6 @@ module.exports = [
     filePath: "index.md",
     href: "api",
     name: "API Reference",
-    pageComponents: ["content-list"],
     excerpt:
       "The API Reference is your go-to resource for all functions, VIEWs and special feature interfaces available with the TimescaleDB extension",
     description:
@@ -207,16 +206,36 @@ module.exports = [
             href: "drop_materialized_view",
           },
           {
-            title: "add_continuous_aggregate_policy",
-            href: "add_continuous_aggregate_policy",
-          },
-          {
             title: "refresh_continuous_aggregate",
             href: "refresh_continuous_aggregate",
           },
           {
+            title: "add_continuous_aggregate_policy",
+            href: "add_continuous_aggregate_policy",
+          },
+          {
+            title: "add_policies",
+            href: "add_policies",
+          },
+          {
+            title: "alter_policies",
+            href: "alter_policies",
+          },
+          {
+            title: "show_policies",
+            href: "show_policies",
+          },
+          {
             title: "remove_continuous_aggregate_policy",
             href: "remove_continuous_aggregate_policy",
+          },
+          {
+            title: "remove_policies",
+            href: "remove_policies",
+          },
+          {
+            title: "remove_all_policies",
+            href: "remove_all_policies",
           },
         ],
       },
@@ -374,8 +393,8 @@ module.exports = [
                 href: "open-high-low-close",
               },
               {
-                title: "open-at, high_at, low_at, close_at",
-                href: "open-high-low-close-at",
+                title: "open_time, high_time, low_time, close_time",
+                href: "open-high-low-close-time",
               },
               {
                 title: "rollup",
@@ -441,7 +460,7 @@ module.exports = [
               },
               {
                 title: "num_vals",
-                href: "num_vals-pct",
+                href: "num_vals-percentile",
               },
               {
                 title: "Advanced aggregation methods",
@@ -674,6 +693,10 @@ module.exports = [
           {
             title: "timescaledb_information.job_stats",
             href: "job_stats",
+          },
+          {
+            title: "timescaledb_experimental.policies",
+            href: "policies",
           },
         ],
       },

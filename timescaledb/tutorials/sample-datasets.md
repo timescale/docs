@@ -22,7 +22,7 @@ that are collected from mobile devices. Click on the name to download.
 *   <tag type="download" >[devices_big](https://timescaledata.blob.core.windows.net/datasets/devices_big.tar.gz)</tag> 3,000 devices recorded over 10,000 time intervals - 1.2&nbsp;GB
 
 For more details and example usage, see
-[device ops datasets](#in-depth-device-ops-datasets).
+[device ops datasets](#device-ops-datasets).
 
 **Weather**: these datasets include metrics like temperature and humidity data
 from a variety of locations. Click on the name to download.
@@ -34,7 +34,7 @@ from a variety of locations. Click on the name to download.
 *   <tag type="download" >[weather_big](https://timescaledata.blob.core.windows.net/datasets/weather_big.tar.gz)</tag>
     2,000 locations over 20,000 two-minute intervals - 305&nbsp;MB
 
-For more details and example usage, see [weather datasets](#in-depth-weather-datasets).
+For more details and example usage, see [weather datasets](#weather-datasets).
 
 ## Importing
 <!-- Add steps format-->
