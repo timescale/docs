@@ -189,7 +189,7 @@ module.exports = [
             excerpt: "Get an overview of Timescale Cloud security",
           },
           {
-            title: "Connect with a stricter SLL mode",
+            title: "Connect with a stricter SSL mode",
             href: "strict-ssl",
             tags: ["security", "certificates", "sslmode"],
             keywords: ["ssl"],
