@@ -20,7 +20,7 @@ read-only queries to reduce the effect of slow queries on the primary node.
 
 <procedure>
 
-## Creating a replica of POstgreSQL
+## Creating a replica of PostgreSQL
 
 1.  Log in to the Aiven web console.
 
