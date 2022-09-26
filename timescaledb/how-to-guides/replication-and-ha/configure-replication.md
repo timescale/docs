@@ -74,7 +74,7 @@ There are several replication settings that need to be added or edited in the
     value is usually appropriate.
 1.  Set the `max_replication_slots` parameter to the total number of replication
     slots the primary database can support.
-1.  Set the `listen_address` parameter to the address of the primary database.
+1.  Set the `listen_addresses` parameter to the address of the primary database.
     Do not leave this parameter as the local loopback address, because the
     remote replicas must be able to connect to the primary to stream the WAL.
 1.  Restart PostgreSQL to pick up the changes. This must be done before you
