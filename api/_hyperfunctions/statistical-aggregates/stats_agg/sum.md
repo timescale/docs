@@ -1,5 +1,5 @@
 ---
-api_name: sum() | sum_y() | sum_x()
+api_name: sum()
 excerpt: Calculate the sum from values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
@@ -10,7 +10,7 @@ api:
   toolkit: true
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D or 2D
+  type: accessor, 1D
   aggregates:
     - stats_agg()
 summary: >-
@@ -19,16 +19,10 @@ signatures:
   - language: sql
     code: |-
       sum(summary StatsSummary1D) RETURNS BIGINT
-  - language: sql
-    code: |-
-      sum_y(summary StatsSummary2D) RETURNS BIGINT
-  - language: sql
-    code: |-
-      sum_x(summary StatsSummary2D) RETURNS BIGINT
 parameters:
   required:
     - name: summary
-      type: StatsSummary1D | StatsSummary2D
+      type: StatsSummary1D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
@@ -42,11 +36,11 @@ examples:
     command:
       language: sql
       code: |-
-        SELECT sum_y(stats_agg(data, data))
+        SELECT sum(stats_agg(data))
           FROM generate_series(0, 100) data;
     return:
       code: |-
-        sum_y
+        sum
         -----
         5050
 ---

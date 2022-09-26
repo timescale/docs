@@ -1,45 +1,50 @@
 ---
-api_name: num_vals()
-excerpt: Calculate the number of values contained in a statistical aggregate
+api_name: sum_y() | sum_x()
+excerpt: Calculate the sum from values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [count, number]
+tags: [sum]
 api:
   license: community
   type: function
   toolkit: true
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor, 2D
   aggregates:
     - stats_agg()
 summary: >-
-  Calculate the number of values contained in a statistical aggregate.
+  Calculate the sum of the values contained in a statistical aggregate.
 signatures:
   - language: sql
     code: |-
-      num_vals(summary StatsSummary1D) RETURNS BIGINT
+      sum_y(summary StatsSummary2D) RETURNS BIGINT
+  - language: sql
+    code: |-
+      sum_x(summary StatsSummary2D) RETURNS BIGINT
 parameters:
   required:
     - name: summary
-      type: StatsSummary1D
+      type: StatsSummary2D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
-    - column: num_vals
+    - column: sum
       type: DOUBLE PRECISION
       description: >-
-        The number of values in the statistical aggregate
+        The sum of the values in the statistical aggregate
 examples:
-  - command:
+  - description: >-
+      Calculate the sum of the numbers from 0 to 100.
+    command:
       language: sql
       code: |-
-        SELECT num_vals(stats_agg(data))
+        SELECT sum_y(stats_agg(data, data))
           FROM generate_series(0, 100) data;
     return:
       code: |-
-        num_vals
-        --------
-        101
+        sum_y
+        -----
+        5050
 ---
 

@@ -1,5 +1,5 @@
 ---
-api_name: variance()
+api_name: variance_y() | variance_x()
 excerpt: Calculate the variance of values from a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
@@ -9,7 +9,7 @@ api:
   toolkit: true
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor, 2D
   aggregates:
     - stats_agg()
 summary: >-
@@ -17,14 +17,20 @@ summary: >-
 signatures:
   - language: sql
     code: |-
-      variance(summary
-        StatsSummary1D,
+      variance_y(summary
+        StatsSummary2D,
+        method TEXT
+      ) RETURNS BIGINT
+  - language: sql
+    code: |-
+      variance_x(summary
+        StatsSummary2D,
         method TEXT
       ) RETURNS BIGINT
 parameters:
   required:
     - name: summary
-      type: StatsSummary1D
+      type: StatsSummary2D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   optional:
@@ -43,11 +49,11 @@ examples:
   - command:
       language: sql
       code: |-
-        SELECT variance(stats_agg(data))
+        SELECT variance_y(stats_agg(data, data))
           FROM generate_series(0, 100) data;
     return:
       code: |-
-        variance
+        variance_y
         ----------
         858.5
 ---

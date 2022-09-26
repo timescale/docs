@@ -10,7 +10,7 @@ api:
   toolkit: true
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor, 2D
   aggregates:
     - stats_agg()
 summary: >-
@@ -18,11 +18,11 @@ summary: >-
 signatures:
   - language: sql
     code: |-
-      num_vals(summary StatsSummary1D) RETURNS BIGINT
+      num_vals(summary StatsSummary2D) RETURNS BIGINT
 parameters:
   required:
     - name: summary
-      type: StatsSummary1D
+      type: StatsSummary2D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
@@ -34,12 +34,13 @@ examples:
   - command:
       language: sql
       code: |-
-        SELECT num_vals(stats_agg(data))
-          FROM generate_series(0, 100) data;
+        SELECT num_vals(stats_agg(y, x))
+          FROM generate_series(1, 5)   y,
+               generate_series(0, 100) x;
     return:
       code: |-
         num_vals
         --------
-        101
+        505
 ---
 

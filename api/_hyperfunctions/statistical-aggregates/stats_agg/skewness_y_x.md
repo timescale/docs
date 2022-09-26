@@ -1,54 +1,56 @@
 ---
-api_name: kurtosis()
-excerpt: Calculate the kurtosis from values in a statistical aggregate
+api_name: skewness_y() | skewness_x()
+excerpt: Calculate the skewness from values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [skew]
 api:
   license: community
   type: function
   toolkit: true
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor, 2D
   aggregates:
     - stats_agg()
 summary: >-
-  Calculate the kurtosis from the values in a statistical aggregate. The
-  kurtosis is the fourth statistical moment.
+  Calculate the skewness from the values in a statistical aggregate. The
+  kurtosis is the third statistical moment.
 signatures:
   - language: sql
     code: |-
-      kurtosis(summary StatsSummary1D, method TEXT) RETURNS BIGINT
+      skewness_y(summary StatsSummary2D, method TEXT) RETURNS BIGINT
+  - language: sql
+    code: |-
+      skewness_x(summary StatsSummary2D, method TEXT) RETURNS BIGINT
 parameters:
   required:
     - name: summary
-      type: StatsSummary1D
+      type: StatsSummary2D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   optional:
     - name: method
       type: TEXT
       description: >-
-        The method used for calculating the kurtosis. The two options are
+        The method used for calculating the skewness. The two options are
         `population` and `sample`, which can be abbreviated to `pop` or `samp`.
         Defaults to `sample`.
   returns:
-    - column: kurtosis
+    - column: skewness_y | skewness_x
       type: DOUBLE PRECISION
       description: >-
-        The kurtosis of the values in the statistical aggregate
+        The skewness of the values in the statistical aggregate
 examples:
   - command:
       language: sql
       code: |-
-        SELECT kurtosis(stats_agg(data))
+        SELECT skewness_x(stats_agg(data, data))
           FROM generate_series(0, 100) data;
     return:
       language: sql
       code: |-
-        kurtosis
+        skewness_x
         ----------
-        1.78195
+        0
 ---
 

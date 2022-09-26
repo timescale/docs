@@ -1,30 +1,37 @@
 ---
-api_name: variance()
-excerpt: Calculate the variance of values from a statistical aggregate
+api_name: stddev_y() | stddev_x()
+excerpt: Calculate the standard deviation from values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+tags: [standard deviation]
 api:
   license: community
   type: function
   toolkit: true
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor, 2D
   aggregates:
     - stats_agg()
 summary: >-
-  Calculate the variance from the values in a statistical aggregate.
+  Calculate the standard deviation from the values in a statistical aggregate.
 signatures:
   - language: sql
     code: |-
-      variance(summary
-        StatsSummary1D,
+      stddev_y(summary
+        StatsSummary2D,
+        method TEXT
+      ) RETURNS BIGINT
+  - language: sql
+    code: |-
+      stddev_x(summary
+        StatsSummary2D,
         method TEXT
       ) RETURNS BIGINT
 parameters:
   required:
     - name: summary
-      type: StatsSummary1D
+      type: StatsSummary2D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   optional:
@@ -35,20 +42,20 @@ parameters:
         are `population` and `sample`, which can be abbreviated to `pop` or
         `samp`. Defaults to `sample`.
   returns:
-    - column: variance
+    - column: stddev_y | stddev_x
       type: DOUBLE PRECISION
       description: >-
-        The variance of the values in the statistical aggregate
+        The standard deviation of the values in the statistical aggregate
 examples:
   - command:
       language: sql
       code: |-
-        SELECT variance(stats_agg(data))
+        SELECT stddev_y(stats_agg(data, data))
           FROM generate_series(0, 100) data;
     return:
       code: |-
-        variance
-        ----------
-        858.5
+        stddev_y
+        --------
+        29.3002
 ---
 

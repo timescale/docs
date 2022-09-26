@@ -15,6 +15,12 @@ functions][window-functions] and [continuous aggregates][continuous-aggregates].
 It consists of one subfamily of functions, based on the
 [`stats_agg`][stats_agg] aggregate.
 
+<hyperfunctionTable
+    hyperfunctionFamily='statistical aggregates'
+    includeExperimental
+    sortByType
+/>
+
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [pg-stats-aggs]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
 [stats_agg]: /api/:currentVersion:/hyperfunctions/statistical-aggregates/stats_agg/

@@ -1,5 +1,5 @@
 ---
-api_name: average()
+api_name: average_y() | average_x()
 excerpt: Calculate the average of values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
@@ -9,7 +9,7 @@ api:
   toolkit: true
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor, 2D
   aggregates:
     - stats_agg()
 summary: >-
@@ -17,15 +17,18 @@ summary: >-
 signatures:
   - language: sql
     code: |-
-      average(summary StatsSummary1D) RETURNS BIGINT
+      average_y(summary StatsSummary 2D) RETURNS BIGINT
+  - language: sql
+    code: |-
+      average_x(summary StatsSummary 2D) RETURNS BIGINT
 parameters:
   required:
     - name: summary
-      type: StatsSummary1D
+      type: StatsSummary2D
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
-    - column: average
+    - column: average_y | average_x
       type: DOUBLE PRECISION
       description: >-
         The average of the values in the statistical aggregate
@@ -35,8 +38,9 @@ examples:
     command:
       language: sql
       code: |-
-        SELECT average(stats_agg(data))
-          FROM generate_series(0, 100) data;
+        SELECT average_x(stats_agg(y, x))
+          FROM generate_series(1, 5)   y,
+               generate_series(0, 100) x;
     return:
       code: |-
         average
