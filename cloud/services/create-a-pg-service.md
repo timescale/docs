@@ -9,8 +9,9 @@ keywords: [services, PostgreSQL, create, install]
 
 Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
 quickly spin up new TimescaleDB instances. In addition to your TimescaleDB
-databases, you can also create services that run PostgreSQL, if you need to
-handle other data alongside your time-series data.
+databases, you can also create services that run standard PostgreSQL, without
+Timescale's time-series capabilities, if you need to handle other data alongside
+your time-series data.
 
 You can [try Timescale Cloud for free][sign-up], no credit card required.
 
