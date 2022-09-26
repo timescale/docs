@@ -35,7 +35,7 @@ Before you begin, make sure you have:
 1.  Switch to the project that contains the service you want to fork:
 
     ```bash
-     avn switch <PROJECT>
+     avn project switch <PROJECT>
     ```
 
 1.  List the services in the project, and make a note of the service that you
