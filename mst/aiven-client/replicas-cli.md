@@ -32,7 +32,7 @@ Before you begin, make sure you have:
     create a read-only replica for:
 
     ```bash
-    avn switch <PROJECT>
+    avn project switch <PROJECT>
     ```
 
 1.  List the services in the project, and make a note of the service that you

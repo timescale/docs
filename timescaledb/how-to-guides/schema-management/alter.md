@@ -6,9 +6,17 @@ tags: [change]
 ---
 
 # Altering and updating table schemas
+
 To modify the schema of an existing hypertable, you can use the `ALTER TABLE`
 command. When you change the hypertable schema, the changes are also propagated
 to each underlying chunk.
+
+<highlight type="note">
+While you can change the schema of an existing hypertable, you cannot change
+the schema of a continuous aggregate. For continuous aggregates, the only
+permissible changes are renaming a view, setting a schema, changing the owner,
+and adjusting other parameters.
+</highlight>
 
 For example, to add a new column called `address` to a table called `distributors`:
 

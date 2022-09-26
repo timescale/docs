@@ -213,7 +213,8 @@ selected values, and Grafana buckets them in separate histograms.
     FROM stocks_real_time srt
     WHERE symbol IN ($symbol)
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
-    GROUP BY time_bucket('$bucket_interval', time), symbol;
+    GROUP BY time_bucket('$bucket_interval', time), symbol
+    ORDER BY time;
     ```
 
 1.  This query results in the following histograms:
@@ -273,7 +274,8 @@ You can do this with a pre-aggregation query, using:
         CASE WHEN lag(dv_max ,1) OVER (PARTITION BY symbol ORDER BY time) IS NULL THEN dv_max
         WHEN (dv_max - lag(dv_max, 1) OVER (PARTITION BY symbol ORDER BY time)) < 0 THEN dv_max
         ELSE (dv_max - lag(dv_max, 1) OVER (PARTITION BY symbol ORDER BY time)) END vol
-    FROM buckets;
+    FROM buckets
+    ORDER BY time;
     ```
 
 1.  This query results in the following histogram:
