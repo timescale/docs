@@ -1,6 +1,6 @@
 extends: conditional
 message: "Spell out '%s', if it's unfamiliar to the audience."
-link: 'https://developers.google.com/style/abbreviations'
+link: "https://developers.google.com/style/abbreviations"
 level: suggestion
 ignorecase: false
 # Ensures that the existence of 'first' implies the existence of 'second'.
@@ -16,6 +16,7 @@ exceptions:
   - CSS
   - CSV
   - DEBUG
+  - DNS
   - DOM
   - DPI
   - FAQ
@@ -46,6 +47,7 @@ exceptions:
   - POST
   - RAM
   - REPL
+  - REST
   - RSA
   - SCM
   - SCSS
