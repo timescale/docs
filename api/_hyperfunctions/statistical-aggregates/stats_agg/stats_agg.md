@@ -1,3 +1,4 @@
+---
 api_name: stats_agg()
 excerpt: Aggregate statistical data into a statistical aggregate for further analysis
 topics: [hyperfunctions]
@@ -70,3 +71,5 @@ examples:
             average(stats1D), -- use normal average on 1D summary to get same value
             slope(stats2D) -- slope and other regression functions only work on 2D aggregates
         FROM t;
+---
+

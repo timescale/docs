@@ -1,3 +1,4 @@
+---
 api_name: stddev() | stddev_y() | stddev_x()
 excerpt: Calculate the standard deviation from values in a statistical aggregate
 topics: [hyperfunctions]
@@ -62,3 +63,5 @@ examples:
         stddev_y
         --------
         29.3002
+---
+

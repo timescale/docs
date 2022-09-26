@@ -1,14 +1,8 @@
-api_name: corr()
-excerpt: Calculate the correlation coefficient from values in a 2-dimensional `StatsSummary`
+---
+api_name: slope()
+excerpt: Calculate the slope from values in a 2-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords:
-  [
-    correlation coefficient,
-    statistics,
-    statistical aggregate,
-    hyperfunctions,
-    toolkit,
-  ]
+keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 tags: [least squares, linear regression]
 api:
   license: community
@@ -20,14 +14,13 @@ hyperfunction:
   aggregates:
     - stats_agg()
 summary: >-
-  Calculate the correlation coefficient from the values in a statistical
-  aggregate.
+  Calculate the slope from the values in a statistical aggregate.
   The calculation uses linear least-squares regression.
 signatures:
   - language: sql
     code: |-
-      corr(
-        summary StatsSummary2D
+      slope(
+          summary StatsSummary2D
       ) RETURNS DOUBLE PRECISION
 parameters:
   required:
@@ -36,20 +29,22 @@ parameters:
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
-    - column: corr
+    - column: slope
       type: DOUBLE PRECISION
       description: >-
-        The correlation coefficient of the least-squares fit line
+        The slope of the least-squares fit line
 examples:
   - description: >-
-      Calculate the correlation coefficient of independent variable `y` and
-      dependent variable `x` for each 15-minute time bucket.
+      Calculate the slope from independent variable `y` and dependent
+      variable `x` for each 15-minute time bucket.
     command:
       language: sql
       code: |-
         SELECT
-          id,
-          time_bucket('15 min'::interval, ts) AS bucket,
-          corr(stats_agg(y, x)) AS summary
+            id,
+            time_bucket('15 min'::interval, ts) AS bucket,
+            slope(stats_agg(y, x)) AS summary
         FROM foo
         GROUP BY id, time_bucket('15 min'::interval, ts)
+---
+

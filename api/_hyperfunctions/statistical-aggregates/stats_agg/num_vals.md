@@ -1,3 +1,4 @@
+---
 api_name: num_vals()
 excerpt: Calculate the number of values contained in a statistical aggregate
 topics: [hyperfunctions]
@@ -43,3 +44,5 @@ examples:
         num_vals
         --------
         101
+---
+

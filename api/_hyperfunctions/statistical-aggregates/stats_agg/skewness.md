@@ -1,8 +1,8 @@
-api_name: kurtosis() | kurtosis_y() | kurtosis_x()
-excerpt: Calculate the kurtosis from values in a statistical aggregate
+---
+api_name: skewness() | skewness_y() | skewness_x()
+excerpt: Calculate the skewness from values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [skew]
 api:
   license: community
   type: function
@@ -13,18 +13,18 @@ hyperfunction:
   aggregates:
     - stats_agg()
 summary: >-
-  Calculate the kurtosis from the values in a statistical aggregate. The
-  kurtosis is the fourth statistical moment.
+  Calculate the skewness from the values in a statistical aggregate. The
+  kurtosis is the third statistical moment.
 signatures:
   - language: sql
     code: |-
-      kurtosis(summary StatsSummary1D, method TEXT) RETURNS BIGINT
+      skewness(summary StatsSummary1D, method TEXT) RETURNS BIGINT
   - language: sql
     code: |-
-      kurtosis_y(summary StatsSummary2D, method TEXT) RETURNS BIGINT
+      skewness_y(summary StatsSummary2D, method TEXT) RETURNS BIGINT
   - language: sql
     code: |-
-      kurtosis_x(summary StatsSummary2D, method TEXT) RETURNS BIGINT
+      skewness_x(summary StatsSummary2D, method TEXT) RETURNS BIGINT
 parameters:
   required:
     - name: summary
@@ -35,23 +35,25 @@ parameters:
     - name: method
       type: TEXT
       description: >-
-        The method used for calculating the kurtosis. The two options are
+        The method used for calculating the skewness. The two options are
         `population` and `sample`, which can be abbreviated to `pop` or `samp`.
         Defaults to `sample`.
   returns:
-    - column: kurtosis | kurtosis_y | kurtosis_x
+    - column: skewness | skewness_y | skewness_y
       type: DOUBLE PRECISION
       description: >-
-        The kurtosis of the values in the statistical aggregate
+        The skewness of the values in the statistical aggregate
 examples:
   - command:
       language: sql
       code: |-
-        SELECT kurtosis_y(stats_agg(data, data))
+        SELECT skewness_x(stats_agg(data, data))
           FROM generate_series(0, 100) data;
     return:
       language: sql
       code: |-
-        kurtosis_y
+        skewness_x
         ----------
-        1.78195
+        0
+---
+

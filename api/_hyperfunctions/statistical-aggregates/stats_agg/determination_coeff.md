@@ -1,8 +1,15 @@
-api_name: intercept()
-excerpt: Calculate the intercept from values in a 2-dimensional statistical aggregate
+---
+api_name: determination_coeff()
+excerpt: Calculate the determination coefficient from values in a 2-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [intercept, least squares, linear regression]
+keywords:
+  [
+    determination coefficient,
+    statistics,
+    statistical aggregate,
+    hyperfunctions,
+    toolkit,
+  ]
 api:
   license: community
   type: function
@@ -13,12 +20,13 @@ hyperfunction:
   aggregates:
     - stats_agg()
 summary: >-
-  Calculate the y intercept from the values in a statistical aggregate.
+  Calculate the determination coefficient from the values in a statistical
+  aggregate.
   The calculation uses linear least-squares regression.
 signatures:
   - language: sql
     code: |-
-      intercept(
+      determination_coeff(
           summary StatsSummary2D
       ) RETURNS DOUBLE PRECISION
 parameters:
@@ -28,20 +36,22 @@ parameters:
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
-    - column: intercept
+    - column: determination_coeff
       type: DOUBLE PRECISION
       description: >-
-        The y intercept of the least-squares fit line
+        The determination coefficient of the least-squares fit line
 examples:
   - description: >-
-      Calculate the y intercept from independent variable `y` and dependent
-      variable `x` for each 15-minute time bucket.
+      Calculate the determination coefficient of independent variable `y` and
+      dependent variable `x` for each 15-minute time bucket.
     command:
       language: sql
       code: |-
         SELECT
             id,
             time_bucket('15 min'::interval, ts) AS bucket,
-            intercept(stats_agg(y, x)) AS summary
+            determination_coeff(stats_agg(y, x)) AS summary
         FROM foo
         GROUP BY id, time_bucket('15 min'::interval, ts)
+---
+

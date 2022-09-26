@@ -1,3 +1,4 @@
+---
 api_name: rollup()
 excerpt: Roll up multiple statistical aggregates
 topics: [hyperfunctions]
@@ -67,3 +68,5 @@ examples:
             stddev(rollup(stats))
         FROM foo_hourly
         GROUP BY 1;
+---
+

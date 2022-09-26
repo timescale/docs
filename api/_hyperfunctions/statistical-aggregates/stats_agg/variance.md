@@ -1,3 +1,4 @@
+---
 api_name: variance() | variance_y() | variance_x()
 excerpt: Calculate the variance of values from a statistical aggregate
 topics: [hyperfunctions]
@@ -61,3 +62,5 @@ examples:
         variance_y
         ----------
         858.5
+---
+

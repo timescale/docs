@@ -376,6 +376,7 @@ module.exports = [
               {
                 title: "stats_agg",
                 href: "stats_agg",
+                type: "placeholder",
               },
             ],
           },

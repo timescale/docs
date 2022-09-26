@@ -1,3 +1,4 @@
+---
 api_name: rolling()
 excerpt: Roll up multiple statistical aggregates to calculate rolling window aggregates
 topics: [hyperfunctions]
@@ -70,3 +71,5 @@ examples:
           average(rolling(stats) OVER (ORDER BY bucket RANGE '1 day' PRECEDING)),
           stddev(rolling(stats) OVER (ORDER BY bucket RANGE '1 day' PRECEDING)),
         FROM foo_hourly;
+---
+

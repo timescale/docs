@@ -1,3 +1,4 @@
+---
 api_name: sum() | sum_y() | sum_x()
 excerpt: Calculate the sum from values in a statistical aggregate
 topics: [hyperfunctions]
@@ -48,3 +49,5 @@ examples:
         sum_y
         -----
         5050
+---
+

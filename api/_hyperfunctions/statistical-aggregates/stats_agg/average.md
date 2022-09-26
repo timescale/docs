@@ -1,3 +1,4 @@
+---
 api_name: average() | average_y() | average_x()
 excerpt: Calculate the average of values in a statistical aggregate
 topics: [hyperfunctions]
@@ -47,3 +48,5 @@ examples:
         average
         -----------
         50
+---
+

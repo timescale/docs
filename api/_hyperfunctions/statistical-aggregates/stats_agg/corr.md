@@ -1,7 +1,15 @@
-api_name: x_intercept()
-excerpt: Calculate the x-intercept for values in a 2-dimensional statistical aggregate
+---
+api_name: corr()
+excerpt: Calculate the correlation coefficient from values in a 2-dimensional `StatsSummary`
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords:
+  [
+    correlation coefficient,
+    statistics,
+    statistical aggregate,
+    hyperfunctions,
+    toolkit,
+  ]
 tags: [least squares, linear regression]
 api:
   license: community
@@ -13,14 +21,14 @@ hyperfunction:
   aggregates:
     - stats_agg()
 summary: >-
-  Calculate the x intercept from the values in a statistical
+  Calculate the correlation coefficient from the values in a statistical
   aggregate.
   The calculation uses linear least-squares regression.
 signatures:
   - language: sql
     code: |-
-      x_intercept(
-          summary StatsSummary2D
+      corr(
+        summary StatsSummary2D
       ) RETURNS DOUBLE PRECISION
 parameters:
   required:
@@ -29,20 +37,22 @@ parameters:
       description: >-
         The statistical aggregate produced by a `stats_agg` call
   returns:
-    - column: intercept
+    - column: corr
       type: DOUBLE PRECISION
       description: >-
-        The x intercept of the least-squares fit line
+        The correlation coefficient of the least-squares fit line
 examples:
   - description: >-
-      Calculate the x intercept from independent variable `y` and dependent
-      variable `x` for each 15-minute time bucket.
+      Calculate the correlation coefficient of independent variable `y` and
+      dependent variable `x` for each 15-minute time bucket.
     command:
       language: sql
       code: |-
         SELECT
-            id,
-            time_bucket('15 min'::interval, ts) AS bucket,
-            x_intercept(stats_agg(y, x)) AS summary
+          id,
+          time_bucket('15 min'::interval, ts) AS bucket,
+          corr(stats_agg(y, x)) AS summary
         FROM foo
         GROUP BY id, time_bucket('15 min'::interval, ts)
+---
+
