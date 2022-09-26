@@ -1,251 +1,197 @@
 ---
-title: Why use TimescaleDB over relational databases?
-excerpt: TimescaleDB's advantages over regular relational databases, including regular PostgreSQL
+title: Why use TimescaleDB over PostgreSQL?
+excerpt: How TimescaleDB + PostgreSQL compares to regular PostgreSQL alone
 keywords: [PostgreSQL]
 tags: [compare]
 ---
 
-# Why Use TimescaleDB over relational databases?
+# Why use TimescaleDB over PostgreSQL?
 
-TimescaleDB offers three key benefits over vanilla PostgreSQL or other
-traditional RDBMSs for storing time-series data:
+TimescaleDB _is_ PostgreSQL. Because TimescaleDB is a PostgreSQL extension, the
+question isn't "Why use TimescaleDB over PostgreSQL?", but rather, "Why use
+TimescaleDB and PostgreSQL over PostgreSQL alone?"
 
-*   Much higher data ingest rates, especially at larger database sizes.
-*   Query performance ranging from equivalent to _orders of magnitude greater_.
-*   Time-oriented features.
+TimescaleDB expands PostgreSQL in 3 key areas:
 
-And because TimescaleDB still allows you to use the full range of
-PostgreSQL features and tools &mdash; for example, JOINs with relational tables,
-geospatial queries via PostGIS, `pg_dump` and `pg_restore`, any
-connector that speaks PostgreSQL &mdash; there is little reason **not** to
-use TimescaleDB for storing time-series data within a PostgreSQL node.
+*   [Better performance at scale][better-performance]
+*   [Lower storage costs][lower-cost]
+*   [Features that speed up development time][dev-features]
 
-## Much higher ingest rates
+Alongside these features, you still get 100% of regular PostgreSQL. That's
+because TimescaleDB is an extension, not a fork. With your TimescaleDB database,
+you can install other PostgreSQL extensions, make full use of the type system,
+and benefit from the diverse PostgreSQL ecosystem.
 
-TimescaleDB achieves a much higher and more stable ingest rate than
-PostgreSQL for time-series data. As described in our [architectural discussion][],
-PostgreSQL's performance begins to significantly suffer as soon as indexed tables
-can no longer fit in memory.
+## Better performance at scale
 
-In particular, whenever a new row is inserted, the database needs to
-update the indexes (for example, B-trees) for each of the table's indexed
-columns, which involves swapping one or more pages in from disk.
-Throwing more memory at the problem only delays the inevitable, and
-your throughput in the 10K-100K+ rows per second can crash to
-hundreds of rows per second once your time-series table is in the tens
-of millions of rows.
+TimescaleDB performs orders of magnitude better at high data volumes. Your
+applications are future-proof even as they grow rapidly.
 
-TimescaleDB solves this through its heavy utilization of
-time-space partitioning, even when running _on a single machine_.  So
-all writes to recent time intervals are only to tables that remain in
-memory, and updating any secondary indexes is also fast as a result.
+### 1000 times faster performance for time-series queries
 
-Benchmarking shows the clear advantage of this approach. The
-following benchmark out to 1 billion rows (on a single machine)
-emulates a common monitoring
-scenario, with database clients inserting moderately sized batches of
-data containing time, a device's tagset, and multiple numeric metrics (in
-this case, 10).  Here, experiments were performed on a standard Azure VM
-(DS4 v2, 8 core) with network-attached SSD storage.
+We tested the performance of TimescaleDB + PostgreSQL against PostgreSQL alone,
+using different time-based queries. We used one month's worth of data, which
+amounted to one billion rows organized into four-hour partitions. Running 100
+queries at a time, TimescaleDB + PostgreSQL consistently outperformed a standard
+PostgreSQL database. Queries are up to 1000&nbsp;times faster.
 
-<!-- vale Google.Units = NO -->
+This table shows the query latency of PostgreSQL compared to TimescaleDB +
+PostgreSQL. The data uses PostgreSQL 14 and TimescaleDB 2.7. For more
+information on the comparison, see the [comparison blog
+post][blog-postgresql-vs-timescaledb].
 
-<img width="100%" src="https://s3.amazonaws.com/assets.timescale.com/benchmarks/timescale-vs-postgres-insert-1B.jpg"></img>
+<img class="main-content__illustration"
+src="https://www.timescale.com/blog/content/images/2022/09/Query-latency-deep-dive--1--1.png"
+alt="PostgreSQL query latency in milliseconds, compared to TimescaleDB. For 14
+query statements, TimescaleDB performs faster in 13 cases, with improvement
+ranging from 4 times to 1031 times. In the thirteenth case, TimescaleDB performs
+slightly worse, at 0.8 times as fast as standard PostgreSQL." />
 
-<!-- vale Google.Units = YES -->
+TimescaleDB achieves this performance by using [hypertables][hypertables]. With
+hypertables, your data is seamlessly and automatically partitioned by time, but
+you get the ergonomic experience of interacting with a single, virtual table.
 
-We observe that both PostgreSQL and TimescaleDB start at around the
-same throughput (106K and 114K, respectively) for the first 20M
-requests, or over 1M metrics per second. However, at around 50M rows,
-PostgreSQL's performance begins to drop precipitously. Its average
-over the last 100M rows is only 5K rows/s, while TimescaleDB retains its
-throughput of 111K rows/s.
+Partitioning makes queries faster by quickly excluding irrelevant data. It also
+allows us to make enhancements to query planning and execution.
 
-In short, TimescaleDB loads the one billion row database in
-**one-fifteenth** the total time of PostgreSQL, and sees throughput
-more than **20x** that of PostgreSQL at these larger sizes.
+When hypertables are [compressed][compression], performance can improve even
+more, because less data needs to be read from disk.
 
-Our benchmarks of TimescaleDB show that it maintains its constant
-performance at over 10&nbsp;B rows, even with a single disk.
+### Millisecond performance for commonly run aggregate queries
 
-Additionally, users have reported such stable performance for **hundreds
-of billions of rows** when leveraging many disks on a single
-machine, either in RAIDed configuration or using TimescaleDB's support
-for spreading a single hypertable across multiple disks
-(through multiple tablespaces, which is not possible on a traditional
-PostgreSQL table).
+When working with time-series data, you often need to aggregate data by grouping
+over minutes, hours, days, months, or more. TimescaleDB's continuous aggregates
+make time-based aggregates faster. When comparing continuous aggregates to
+directly querying raw data, TimescaleDB users often see queries take
+milliseconds, where they once took minutes or hours. To learn more, see the
+[FlightAware case study][flightaware].
 
-## Superior or similar query performance
+Continuous aggregates automatically materialize aggregated data. They also stay
+up-to-date automatically, providing a more convenient developer experience. With
+automatically refreshing continuous aggregates, you can downsample your data
+automatically. Delete the underlying raw data on a schedule, while the
+continuous aggregate stores the aggregated data.
 
-On single-disk machines, many simple queries that just
-perform indexed lookups or table scans are similarly performant
-between PostgreSQL and TimescaleDB.
+Continuous aggregates are similar to PostgreSQL materialized views, but they
+solve some limitations of materialized views. Regular materialized views
+recreate the entire view every time the materialization process runs, even if
+little or no data has changed. Materialized views also don't provide any data
+retention management. Any time you delete raw data and update the materialized
+view, the aggregated data is removed as well.
 
-For example, on a 100M row table with indexed time, hostname, and cpu
-usage information, the following query takes less than 5&nbsp;ms for
-each database:
+In contrast, TimescaleDB's continuous aggregates automatically update on the
+schedule you set. They refresh only the portions of new data that were modified
+since the last materialization. And they can have data retention policies
+applied separately from the raw data, so you can keep old data in a continuous
+aggregate even as you delete it from the underlying hypertable.
 
-```sql
-SELECT date_trunc('minute', time) AS minute, max(user_usage)
-  FROM cpu
-  WHERE hostname = 'host_1234'
-    AND time >= '2017-01-01 00:00' AND time < '2017-01-01 01:00'
-  GROUP BY minute ORDER BY minute;
-```
+### Scale PostgreSQL horizontally
 
-Similar queries which involve a basic scan over an index are also
-equivalently performant between the two:
+With TimescaleDB multi-node, you can scale PostgreSQL horizontally to insert
+over 1 million rows per second into petabyte-scale datasets, while maintaining
+ingest and query performance.
 
-```sql
-SELECT * FROM cpu
-  WHERE usage_user > 90.0
-    AND time >= '2017-01-01' AND time < '2017-01-02';
-```
+TimescaleDB multi-node works with distributed hypertables, which automatically
+partition your data across multiple data nodes. This happens behind the scenes,
+and you still get the ergonomic experience of interacting with your distributed
+hypertable as if it were a regular PostgreSQL table.
 
-Larger queries involving time-based GROUP BYs -- quite common in
-time-oriented analysis -- often achieve superior performance in TimescaleDB.
+## Lower storage costs
 
-For example, the following query that touches 33M rows is **5x** faster
-in TimescaleDB when the entire (hyper)table is 100M rows, and
-around **2x** faster when it is 1&nbsp;B rows.
+With compression and downsampling, TimescaleDB can dramatically reduce the size
+of your tables and reduce your storage costs.
 
-```sql
-SELECT date_trunc('hour', time) as hour,
-    hostname, avg(usage_user)
-  FROM cpu
-  WHERE time >= '2017-01-01' AND time < '2017-01-02'
-  GROUP BY hour, hostname
-  ORDER BY hour;
-```
+### Greater than 90% storage savings with best-in-class compression algorithms
 
-Moreover, other queries that can reason specifically about time ordering can
-be _much_ more performant in TimescaleDB.
+TimescaleDB provides [native columnar compression][compression]. Users often see
+their disk consumption decrease by over 90%, compared to storing the same amount
+of data in standard PostgreSQL. If you're using [Timescale Cloud][cloud], which
+decouples billing for compute and storage, enabling compression significantly
+decreases your storage bill.
 
-For example, TimescaleDB introduces a time-based "merge append" optimization to
-minimize the number of groups which must be processed to execute the
-following (given its knowledge that time is already ordered).  For our
-100M row table, this results in query latency that is **396x** faster
-than PostgreSQL (82&nbsp;ms vs. 32566&nbsp;ms).
+This chart shows the size of an example dataset when stored in TimescaleDB with
+compression, compared to its size in a regular PostgreSQL database. For more
+information on the comparison, see the [comparison blog
+post][blog-postgresql-vs-timescaledb].
 
-```sql
-SELECT date_trunc('minute', time) AS minute, max(usage_user)
-  FROM cpu
-  WHERE time < '2017-01-01'
-  GROUP BY minute
-  ORDER BY minute DESC
-  LIMIT 5;
-```
+<img class="main-content__illustration"
+src="https://www.timescale.com/blog/content/images/2022/09/image-5.png"
+alt="Storage size of a dataset in TimescaleDB compared to PostgreSQL.
+TimescaleDB stores the data in 8.6 GB, while standard PostgreSQL stores the data
+in 159 GB." />
 
-We are always publishing more complete benchmarking comparisons between
-PostgreSQL and TimescaleDB, as well as the software to replicate
-our benchmarks.
+With compression policies,  chunks can be compressed automatically once all data
+in the chunk has aged beyond the specified time interval. In practice, this
+means that a hypertable can store data as row-oriented for newer data and
+column-oriented for older data.
 
-The high-level result from our query benchmarking is that
-for almost **every query** that we have tried, TimescaleDB achieves
-either **similar or superior (or vastly superior) performance** to vanilla PostgreSQL.
+Having the data stored as both row and column store also matches the typical
+query patterns of time-series applications. This improves overall query
+performance.
 
-The one additional cost of TimescaleDB compared to PostgreSQL is more
-complex planning (given that a single hypertable can be comprised of
-many chunks).  This can translate to a few extra milliseconds of
-planning time, which can have a disproportional influence for very
-low-latency queries (< 10&nbsp;ms).
+### Automatic downsampling and removal of old data with one command
 
-## Time-oriented features
+To save even more on storage costs, you can set up an automatic [data retention
+policy][retention] with one SQL command. To set this up in standard PostgreSQL,
+you'd either need to `DELETE` individual records, which is an inefficient
+operation, or set up declarative partitioning and automation yourself.
 
-TimescaleDB also includes a number of time-oriented features that
-aren't found in traditional relational databases. These include
-special query optimizations (like the merge append above) that provide
-some of the huge performance improvements for time-oriented queries,
-as well as other time-oriented functions (some of which are listed below).
+In TimescaleDB, you can combine continuous aggregates and data retention
+policies to downsample data, and then drop the raw measurements. This allows you
+to retain higher-level rollups of historical data. You have control over the
+granularity of your data and your storage costs.
 
-#### Time-oriented analytics
+## Features that speed up development time
 
-TimescaleDB includes _new_ functions for time-oriented analytics,
-including some of the following:
+TimescaleDB adds many features to standard PostgreSQL, which make it faster to
+build and run time-series applications. This includes a library of over 100
+hyperfunctions. These hyperfunctions improve the ergonomics of writing complex
+SQL queries, including queries that handle count approximation, statistical
+aggregates, and more. TimescaleDB also includes a job-scheduling engine for
+setting up automated workflows.
 
-*   **Time bucketing**: A more powerful version of the standard `date_trunc` function,
-    it allows for arbitrary time intervals (for example, 5 minutes, 6 hours, etc.),
-    as well as flexible groupings and offsets, instead of just second,
-    minute, hour, etc.
+### Hyperfunctions that make data analysis easy in SQL
 
-*   **Last** and **first** aggregates: These functions allow you
-    to get the value of one column as ordered by another. For
-    example, `last(temperature, time)` returns the latest
-    temperature value based on time within a group (for example, an hour).
+TimescaleDB includes a library of more than 100 hyperfunctions. These functions
+simplify calculations that would otherwise be complex in SQL, including
+time-weighted averages, downsampling, complex time-bucketing, and backfilling.
 
-These type of functions enable very natural time-oriented queries.
-The following financial query, for example, prints the opening,
-closing, high, and low price of each asset.
+The example below shows average temperature every day for each device over the
+last seven days, carrying forward the last value for missing readings.
 
 ```sql
-SELECT time_bucket('3 hours', time) AS period
-    asset_code,
-    first(price, time) AS opening, last(price, time) AS closing,
-    max(price) AS high, min(price) AS low
-  FROM prices
-  WHERE time > NOW() - INTERVAL '7 days'
-  GROUP BY period, asset_code
-  ORDER BY period DESC, asset_code;
+SELECT
+  time_bucket_gapfill('1 day', time) AS day,
+  device_id,
+  avg(temperature) AS value,
+  locf(avg(temperature))
+FROM metrics
+WHERE time > now () - INTERVAL '1 week'
+GROUP BY day, device_id
+ORDER BY day;
 ```
 
-The ability of `last` to order by a secondary column (even different
-than the aggregate) enables some powerful types of queries. For
-example, a common technique in financial reporting is "bitemporal
-modeling", which separately reasons about the time associated with an
-observation from the time that observation was recorded. In such a
-model, corrections are inserted as a new row (with a more
-recent _time_recorded_ field) and do not replace existing data.
+To learn more, see the [hyperfunctions API documentation][hyperfunctions].
 
-The following query returns the daily price for each assets, as
-ordered by the latest recorded price.
+### Built-in job scheduler for workflow automation
 
-```sql
-SELECT time_bucket('1 day', time) AS day,
-    asset_code,
-    last(price, time_recorded)
-  FROM prices
-  WHERE time > '2017-01-01'
-  GROUP BY day, asset_code
-  ORDER BY day DESC, asset_code;
-```
+TimescaleDB lets you add [user-defined actions][user-defined-actions], so you
+can execute custom stored procedures on a schedule. TimescaleDB users rely on
+user-defined actions to calculate complex service level agreements, send event
+emails based on data correctness, poll tables, and more.
 
-For more information about TimescaleDB's current (and growing) list of
-time features, [see our API][api].
+User-defined actions provide similar capabilities to a third-party scheduler
+such `pg_cron`, but without the need to maintain multiple PostgreSQL extensions
+or databases.
 
-#### Time-oriented data management
-
-TimescaleDB also provides certain data management capabilities that
-are not readily available or performant in PostgreSQL.  For example, when dealing
-with time-series data, data often builds up very quickly. So, you then want
-to write a _data retention_ policy along the lines of "only store raw
-data for a week."
-
-In fact, it's common to couple this with the use of continuous
-aggregations, so you might keep two hypertables: one with raw data,
-the other with data that has already been rolled up into minutely or
-hourly aggregates. Then, you might want to define different retention
-policies on the two (hyper)tables, storing the aggregated data much
-longer.
-
-TimescaleDB allows efficient deletion of old data at the **chunk** level,
-rather than at the row level, via its `drop_chunks` functionality.
-
-```sql
-SELECT drop_chunks('conditions', INTERVAL '7 days');
-```
-
-This deletes all chunks (files) from the hypertable 'conditions'
-that only include data older than this duration, rather than deleting
-any individual rows of data in chunks. This avoids fragmentation in
-the underlying database files, which in turn avoids the need for
-vacuuming that can be prohibitively expensive in very large tables.
-
-For more details, see our [data retention][] discussion, including how
-to automate your data retention policies.
-
-**Next:** How does TimescaleDB compare to NoSQL time-series DBs? [TimescaleDB vs. NoSQL][vs NoSQL]
-
-[architectural discussion]: /timescaledb/:currentVersion:/overview/core-concepts/
-[api]: /api/:currentVersion:/
-[data retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention
-[vs NoSQL]: /timescaledb/:currentVersion:/overview/how-does-it-compare/timescaledb-vs-nosql/
+[better-performance]: #better-performance-at-scale
+[blog-postgresql-vs-timescaledb]: https://www.timescale.com/blog/postgresql-timescaledb-1000x-faster-queries-90-data-compression-and-much-more/
+[cloud]: /cloud/latest/
+[compression]: /timescaledb/:currentVersion:/overview/core-concepts/compression/
+[dev-features]: #features-that-speed-up-development-time
+[flightaware]: https://www.timescale.com/blog/how-flightaware-fuels-flight-prediction-models-with-timescaledb-and-grafana/
+[hyperfunctions]: /api/:currentVersion:/hyperfunctions/
+[hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/
+[lower-cost]: #lower-storage-costs
+[retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/about-data-retention/
+[user-defined-actions]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/
