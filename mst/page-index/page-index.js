@@ -51,6 +51,10 @@ module.exports = [
         href: "metrics-datadog",
       },
       {
+        title: "Integrate Managed Service for TimescaleDB and Google Data Studio",
+        href: "google-data-studio-mst",
+      },
+      {
         title: "Supported extensions",
         href: "extensions",
       },
@@ -109,6 +113,12 @@ module.exports = [
             href: "grafana-authentication-plugins",
             excerpt:
               "Configure Google, GitHub, or GitLab authentication plugins for Grafana",
+          },
+          {
+            title: "Send Grafana emails using Aiven Client",
+            href: "grafana-email",
+            excerpt:
+              "Configure the Simple Mail Transfer Protocol (SMTP) server in MST for Grafana"
           },
         ],
       },
