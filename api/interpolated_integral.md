@@ -1,8 +1,8 @@
 ---
-api_name: interpolated_average()
-excerpt: Calculate the time-weighted average of values within an interval, interpolating the interval bounds
+api_name: interpolated_integral()
+excerpt: Calculate the time-weighted integral of values within an interval, interpolating the interval bounds
 topics: [hyperfunctions]
-tags: [hyperfunctions, average, time-weighted, TimeWeightSummary, interpolated]
+tags: [hyperfunctions, integral, time-weighted, TimeWeightSummary, interpolated]
 api:
   license: community
   type: function
@@ -22,32 +22,34 @@ hyperfunction_subfamily: 'time-weighted averages'
 hyperfunction_type: accessor
 ---
 
-# interpolated_average() <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+# interpolated_integral() <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 
 ```SQL
-interpolated_average(
+interpolated_integral(
     tws TimeWeightSummary,
     start TIMESTAMPTZ,
     interval INTERVAL,
     prev TimeWeightSummary,
-    next TimeWeightSummary
+    next TimeWeightSummary,
+    unit TEXT
 ) RETURNS DOUBLE PRECISION
 ```
 
-A function to compute a time-weighted average over the interval, defined as `start`
+A function to compute a time-weighted integral over the interval, defined as `start`
 plus `interval`, given a `prev` and `next` time-weight summary from which to
 compute the boundary points. This is intended to allow a precise time-weighted
-average over intervals even when the points representing the intervals are grouped
+integral over intervals even when the points representing the intervals are grouped
 into discrete time-weight summaries. PostgreSQL window functions such as
 `LEAD` and `LAG` can be used to determine the `prev` and `next` arguments,
 as used in the examples in this section.
 
 Note that if either `prev` or `next` are `NULL`, the first or last point in the
 summary is treated as the edge of the interval. The interpolated point is
-determined using LOCF or linear interpolation, depending on which interpolation
-style the time-weight summary was created with.
+determined using LOCF (Last Observation Carries Forward) or linear
+interpolation, depending on which interpolation style the time-weight summary
+was created with.
 
-This function is similar to [`interpolated_integral`][hyperfunctions-interpolated-integral] but divides by the length of time being averaged.
+This function is similar to [`interpolated_average`][hyperfunctions-interpolated-average] but doesn't divide by the length of time being integrated.
 
 *   For more information about time-weighted average functions, see the
     [hyperfunctions documentation][hyperfunctions-time-weight-average].
@@ -59,8 +61,8 @@ This function is similar to [`interpolated_integral`][hyperfunctions-interpolate
 |Name|Type|Description|
 |-|-|-|
 |`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`][hyperfunctions-time-weight] call|
-|`start`|`TIMESTAMPTZ`|The start of the interval which the time-weighted average should cover (if there is a preceeding point)|
-|`interval`|`INTERVAL`|The length of the interval which the time-weighted average should cover|
+|`start`|`TIMESTAMPTZ`|The start of the interval which the time-weighted integral should cover (if there is a preceeding point)|
+|`interval`|`INTERVAL`|The length of the interval which the time-weighted integral should cover|
 
 ### Optional arguments
 
@@ -68,12 +70,13 @@ This function is similar to [`interpolated_integral`][hyperfunctions-interpolate
 |-|-|-|
 |`prev`|`TimeWeightSummary`|The TimeWeightSummary from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `tws` is used as the start of the interval.|
 |`next`|`TimeWeightSummary`|The TimeWeightSummary from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `tws` is used as the end of the interval.|
+|`unit`|`TEXT`|The unit of time to express the integral in. Can be `microsecond`/`millisecond`/`second`/`minute`/`hour` or any alias for those units supported by PostgreSQL. If `NULL`, `second` is defaulted to.|
 
 ### Returns
 
 |Column|Type|Description|
 |-|-|-|
-|`interpolated_average`|`DOUBLE PRECISION`|The time-weighted average for the interval (`start`, `start` + `interval`) computed from the `TimeWeightSummary` plus end points interpolated from `prev` and `next`|
+|`interpolated_integral`|`DOUBLE PRECISION`|The time-weighted integral for the interval (`start`, `start` + `interval`) computed from the `TimeWeightSummary` plus end points interpolated from `prev` and `next`|
 
 ### Sample usage
 
@@ -81,7 +84,7 @@ This function is similar to [`interpolated_integral`][hyperfunctions-interpolate
 SELECT
     id,
     time,
-    interpolated_average(
+    interpolated_integral(
         tws,
         time,
         '1 day',
@@ -100,5 +103,5 @@ FROM (
 
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
 [hyperfunctions-time-weight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/time_weight/
+[hyperfunctions-interpolated-average]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/interpolated_average/
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
-[hyperfunctions-interpolated-integral]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/interpolated_integral/

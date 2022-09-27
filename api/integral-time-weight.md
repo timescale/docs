@@ -1,11 +1,12 @@
 ---
-api_name: average()
-excerpt: Calculate the time-weighted average of values in a `TimeWeightSummary`
+api_name: integral()
+excerpt: Calculate the time-weighted integral of values in a `TimeWeightSummary`
 topics: [hyperfunctions]
 keywords: [average, time-weighted, hyperfunctions, toolkit]
 api:
   license: community
   type: function
+  experimental: true
   toolkit: true
 hyperfunction:
   family: time-weighted averages
@@ -14,23 +15,25 @@ hyperfunction:
     - time_weight()
 # fields below will be deprecated
 api_category: hyperfunction
+api_experimental: true
 toolkit: true
 hyperfunction_family: 'time-weighted averages'
 hyperfunction_subfamily: 'time-weighted averages'
 hyperfunction_type: accessor
 ---
 
-# average() <tag type="toolkit">Toolkit</tag>
+# integral() <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 
 ```SQL
-average(
-    tws TimeWeightSummary
+integral(
+    tws TimeWeightSummary,
+    unit TEXT
 ) RETURNS DOUBLE PRECISION
 ```
 
-A function to compute a time-weighted average from a `TimeWeightSummary`.
+A function to compute a time-weighted integral from a `TimeWeightSummary`.
 
-This function is similar to [`integral`][hyperfunctions-integral] but divides by the length of time being averaged.
+This function is similar to [`average`][hyperfunctions-average] but doesn't divide by the length of time being integrated.
 
 *   For more information about time-weighted average functions, see the
     [hyperfunctions documentation][hyperfunctions-time-weight-average].
@@ -47,14 +50,14 @@ This function is similar to [`integral`][hyperfunctions-integral] but divides by
 
 |Column|Type|Description|
 |-|-|-|
-|`average`|`DOUBLE PRECISION`|The time-weighted average computed from the `TimeWeightSummary`|
+|`integral`|`DOUBLE PRECISION`|The time-weighted integral computed from the `TimeWeightSummary`|
 
 ### Sample usage
 
 ```SQL
 SELECT
     id,
-    average(tws)
+    integral(tws)
 FROM (
     SELECT
         id,
@@ -67,4 +70,4 @@ FROM (
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [time_weight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/time_weight/
-[hyperfunctions-integral]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/integral-time-weight/
+[hyperfunctions-average]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/average-time-weight/
