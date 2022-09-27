@@ -25,7 +25,7 @@ and benefit from the diverse PostgreSQL ecosystem.
 ## Better performance at scale
 
 TimescaleDB performs orders of magnitude better at high data volumes. Your
-applications are future-proof even as they grow rapidly.
+applications are future-proof even if they grow rapidly.
 
 ### 1000 times faster performance for time-series queries
 
@@ -62,18 +62,18 @@ more, because less data needs to be read from disk.
 When working with time-series data, you often need to aggregate data by grouping
 over minutes, hours, days, months, or more. TimescaleDB's continuous aggregates
 make time-based aggregates faster. When comparing continuous aggregates to
-directly querying raw data, TimescaleDB users often see queries take
-milliseconds, where they once took minutes or hours. To learn more, see the
+directly querying raw data, TimescaleDB often means queries take
+milliseconds, instead of minutes or hours. For more information, see the
 [FlightAware case study][flightaware].
 
 Continuous aggregates automatically materialize aggregated data. They also stay
 up-to-date automatically, providing a more convenient developer experience. With
 automatically refreshing continuous aggregates, you can downsample your data
-automatically. Delete the underlying raw data on a schedule, while the
+automatically. You can delete the underlying raw data on a schedule, while the
 continuous aggregate stores the aggregated data.
 
 Continuous aggregates are similar to PostgreSQL materialized views, but they
-solve some limitations of materialized views. Regular materialized views
+solve some of their limitations. PostgreSQL materialized views
 recreate the entire view every time the materialization process runs, even if
 little or no data has changed. Materialized views also don't provide any data
 retention management. Any time you delete raw data and update the materialized
@@ -94,7 +94,7 @@ ingest and query performance.
 TimescaleDB multi-node works with distributed hypertables, which automatically
 partition your data across multiple data nodes. This happens behind the scenes,
 and you still get the ergonomic experience of interacting with your distributed
-hypertable as if it were a regular PostgreSQL table.
+hypertable in the same way as a regular PostgreSQL table.
 
 ## Lower storage costs
 
@@ -120,9 +120,9 @@ alt="Storage size of a dataset in TimescaleDB compared to PostgreSQL.
 TimescaleDB stores the data in 8.6 GB, while standard PostgreSQL stores the data
 in 159 GB." />
 
-With compression policies,  chunks can be compressed automatically once all data
+With compression policies, chunks can be compressed automatically once all data
 in the chunk has aged beyond the specified time interval. In practice, this
-means that a hypertable can store data as row-oriented for newer data and
+means that a hypertable can store data as row-oriented for newer data, and
 column-oriented for older data.
 
 Having the data stored as both row and column store also matches the typical
@@ -156,8 +156,8 @@ TimescaleDB includes a library of more than 100 hyperfunctions. These functions
 simplify calculations that would otherwise be complex in SQL, including
 time-weighted averages, downsampling, complex time-bucketing, and backfilling.
 
-The example below shows average temperature every day for each device over the
-last seven days, carrying forward the last value for missing readings.
+This example shows average temperature every day for each device over the
+last seven days, carrying forward the last value for missing readings:
 
 ```sql
 SELECT
@@ -176,7 +176,7 @@ To learn more, see the [hyperfunctions API documentation][hyperfunctions].
 ### Built-in job scheduler for workflow automation
 
 TimescaleDB lets you add [user-defined actions][user-defined-actions], so you
-can execute custom stored procedures on a schedule. TimescaleDB users rely on
+can execute custom stored procedures on a schedule. You can rely on
 user-defined actions to calculate complex service level agreements, send event
 emails based on data correctness, poll tables, and more.
 
