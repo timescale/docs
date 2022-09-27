@@ -1,7 +1,7 @@
 ---
 title: PromQL dashboard doesn't show Promscale data
 section: troubleshooting
-product: promscale
+products: [promscale]
 topics: [visualization]
 tags: [PromQL]
 keywords: [promscale, PromQL, dashboard, disk, memory, CPU]
@@ -23,6 +23,7 @@ PromQL dashboard to not show Promscale data.
 To fix this error, enable the `read_recent` option for Promscale in the
 Prometheus configuration's `remote_read` section. This ensures that backfilled
 data is shown in the PromQL dashboard:
+
 ```yml
 remote_read:
   - url: "http://<CONNECTOR-ADDRESS>:9201/read"

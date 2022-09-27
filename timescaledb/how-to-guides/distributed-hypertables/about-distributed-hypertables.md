@@ -68,8 +68,8 @@ four chunks, while the previous time intervals still include three:
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/repartitioning.png" alt="Diagram showing repartitioning on a distributed hypertable"/>
 
 This can affect queries that span the two different partitioning configurations.
-For more information, see the section on [limitations of query push
-down](#limitations-of-pushing-down-queries).
+For more information, see the section on
+[limitations of query push down][limitations].
 
 ## Replicating distributed hypertables
 
@@ -199,10 +199,11 @@ regular tables, with a few nuances. For example, if you `JOIN` a regular table
 and a distributed hypertable, the access node needs to fetch the raw data from
 the data nodes and perform the `JOIN` locally.
 
+[limitations]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/about-distributed-hypertables/#query-push-down/
 [hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[limitations-pushing-down]: #limitations-of-pushing-down-queries
+[limitations-pushing-down]: #limitations-of-query-push-down
 [multi-node-ha]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/multinode-ha/
 [multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
-[random-func]: https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE
+[random-func]: <https://www.postgresql.org/docs/current/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE>
 [space-partitioning]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables#space-partitioning
-[volatility]: https://www.postgresql.org/docs/current/xfunc-volatility.html
+[volatility]: <https://www.postgresql.org/docs/current/xfunc-volatility.html>

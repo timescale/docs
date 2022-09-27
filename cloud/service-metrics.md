@@ -9,12 +9,11 @@ tags: [dashboard, cpu, memory, storage, disk space]
 # Service metrics
 
 You can view your service metrics from Timescale Cloud's
-[metrics dashboard](#metrics-dashboard). This dashboard gives you service-level
+[metrics dashboard][metrics-dashboard]. This dashboard gives you service-level
 information, such as CPU, memory, and storage usage.
 
 You can also view your query-level statistics by using the pre-installed
-[`pg_stat_statements`](#query-level-statistics-with-pg-stat-statements)
-extension from a PostgreSQL client.
+[`pg_stat_statements`][pg-stat] extension from a PostgreSQL client.
 
 ## Metrics dashboard
 
@@ -160,5 +159,7 @@ LIMIT 5;
 For more examples and detailed explanations, see the [blog post on identifying
 performance bottlenecks with `pg_stat_statements`][blog-pg_stat_statements].
 
-[blog-pg_stat_statements]: https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/
+[metrics-dashboard]: /cloud/:currentVersion:/service-metrics/#metrics-dashboard
+[pg-stat]: /cloud/:currentVersion:/service-metrics/#query-level-statistics-with-pg-stat-statements
+[blog-pg_stat_statements]: <https://www.timescale.com/blog/identify-postgresql-performance-bottlenecks-with-pg_stat_statements/>
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/

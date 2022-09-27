@@ -155,7 +155,7 @@ set the following:
     integrate:
 
     ```bash
-     avn switch <PROJECT>
+     avn project switch <PROJECT>
     ```
 
 1.  List the services in the project, and make a note of the Grafana service
@@ -197,7 +197,7 @@ to the main organization, use `-c user_auto_assign_org=true` option.
 
 </procedure>
 
-[aiven-client-mst]: /mst/:currentVersion:/aiven-client-install
+[aiven-client-mst]: /mst/:currentVersion:/aiven-client/aiven-client-install
 [google-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/google/
 [github-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/github/
 [gitlab-oauth-keys]: https://grafana.com/docs/grafana/v9.0/setup-grafana/configure-security/configure-authentication/gitlab/
