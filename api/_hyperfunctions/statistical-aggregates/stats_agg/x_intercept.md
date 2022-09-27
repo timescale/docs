@@ -13,39 +13,40 @@ hyperfunction:
   type: accessor, 2D
   aggregates:
     - stats_agg()
-summary: >-
-  Calculate the x intercept from the values in a statistical
-  aggregate.
-  The calculation uses linear least-squares regression.
-signatures:
-  - language: sql
-    code: |-
-      x_intercept(
-          summary StatsSummary2D
-      ) RETURNS DOUBLE PRECISION
-parameters:
-  required:
-    - name: summary
-      type: StatsSummary2D
-      description: >-
-        The statistical aggregate produced by a `stats_agg` call
-  returns:
-    - column: intercept
-      type: DOUBLE PRECISION
-      description: >-
-        The x intercept of the least-squares fit line
-examples:
-  - description: >-
-      Calculate the x intercept from independent variable `y` and dependent
-      variable `x` for each 15-minute time bucket.
-    command:
-      language: sql
+api_details:
+  summary: >-
+    Calculate the x intercept from the values in a statistical
+    aggregate.
+    The calculation uses linear least-squares regression.
+  signatures:
+    - language: sql
       code: |-
-        SELECT
-            id,
-            time_bucket('15 min'::interval, ts) AS bucket,
-            x_intercept(stats_agg(y, x)) AS summary
-        FROM foo
-        GROUP BY id, time_bucket('15 min'::interval, ts)
+        x_intercept(
+            summary StatsSummary2D
+        ) RETURNS DOUBLE PRECISION
+  parameters:
+    required:
+      - name: summary
+        type: StatsSummary2D
+        description: >-
+          The statistical aggregate produced by a `stats_agg` call
+    returns:
+      - column: intercept
+        type: DOUBLE PRECISION
+        description: >-
+          The x intercept of the least-squares fit line
+  examples:
+    - description: >-
+        Calculate the x intercept from independent variable `y` and dependent
+        variable `x` for each 15-minute time bucket.
+      command:
+        language: sql
+        code: |-
+          SELECT
+              id,
+              time_bucket('15 min'::interval, ts) AS bucket,
+              x_intercept(stats_agg(y, x)) AS summary
+          FROM foo
+          GROUP BY id, time_bucket('15 min'::interval, ts)
 ---
 

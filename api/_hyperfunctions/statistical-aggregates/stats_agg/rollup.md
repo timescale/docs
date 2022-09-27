@@ -12,61 +12,62 @@ hyperfunction:
   type: rollup
   aggregates:
     - stats_agg()
-summary: |-
-  Combine multiple statistical aggregates into a single statistical aggregate.
-  For example, you can use `rollup` to combine statistical aggregates from
-  15-minute buckets into daily buckets.
-  This function work with both one- and two-dimensional statistical aggregates.
-details:
-  - type: note
-    content: |-
-      For use in [window
-      functions](https://www.postgresql.org/docs/current/tutorial-window.html),
-      see [`rolling`](#rollup). `rollup` also works in window functions, but
-      `rolling` can be more efficient.
-signatures:
-  - language: sql
-    code: |-
-      rolling(
-          ss StatsSummary1D
-      ) RETURNS StatsSummary1D
-  - language: sql
-    code: |-
-      rolling(
-          ss StatsSummary2D
-      ) RETURNS StatsSummary2D
-parameters:
-  required:
-    - name: summary
-      type: StatsSummary1D | StatsSummary2D
-      description: >-
-        The statistical aggregate produced by a `stats_agg` call
-  returns:
-    - column: rollup
-      type: StatsSummary1D | StatsSummary2D
-      description: >-
-        A new statistical aggregate produced by combining the input statistical
-        aggregates
-examples:
-  - description: >-
-      Combine hourly continuous aggregates into daily buckets. Calculate the
-      [average](#average) and [standard deviation](#stddev) using the
-      appropriate accessors.
-    command:
-      language: sql
+api_details:
+  summary: |-
+    Combine multiple statistical aggregates into a single statistical aggregate.
+    For example, you can use `rollup` to combine statistical aggregates from
+    15-minute buckets into daily buckets.
+    This function work with both one- and two-dimensional statistical aggregates.
+  details:
+    - type: note
+      content: |-
+        For use in [window
+        functions](https://www.postgresql.org/docs/current/tutorial-window.html),
+        see [`rolling`](#rollup). `rollup` also works in window functions, but
+        `rolling` can be more efficient.
+  signatures:
+    - language: sql
       code: |-
-        CREATE MATERIALIZED VIEW foo_hourly
-        WITH (timescaledb.continuous)
-        AS SELECT
-            time_bucket('1 h'::interval, ts) as bucket,
-            stats_agg(value) as stats
-        FROM foo
-        GROUP BY 1;
-        SELECT
-            time_bucket('1 day'::interval, bucket) as bucket,
-            average(rollup(stats)),
-            stddev(rollup(stats))
-        FROM foo_hourly
-        GROUP BY 1;
+        rolling(
+            ss StatsSummary1D
+        ) RETURNS StatsSummary1D
+    - language: sql
+      code: |-
+        rolling(
+            ss StatsSummary2D
+        ) RETURNS StatsSummary2D
+  parameters:
+    required:
+      - name: summary
+        type: StatsSummary1D | StatsSummary2D
+        description: >-
+          The statistical aggregate produced by a `stats_agg` call
+    returns:
+      - column: rollup
+        type: StatsSummary1D | StatsSummary2D
+        description: >-
+          A new statistical aggregate produced by combining the input statistical
+          aggregates
+  examples:
+    - description: >-
+        Combine hourly continuous aggregates into daily buckets. Calculate the
+        [average](#average) and [standard deviation](#stddev) using the
+        appropriate accessors.
+      command:
+        language: sql
+        code: |-
+          CREATE MATERIALIZED VIEW foo_hourly
+          WITH (timescaledb.continuous)
+          AS SELECT
+              time_bucket('1 h'::interval, ts) as bucket,
+              stats_agg(value) as stats
+          FROM foo
+          GROUP BY 1;
+          SELECT
+              time_bucket('1 day'::interval, bucket) as bucket,
+              average(rollup(stats)),
+              stddev(rollup(stats))
+          FROM foo_hourly
+          GROUP BY 1;
 ---
 

@@ -13,38 +13,39 @@ hyperfunction:
   type: accessor, 2D
   aggregates:
     - stats_agg()
-summary: >-
-  Calculate the sum of the values contained in a statistical aggregate.
-signatures:
-  - language: sql
-    code: |-
-      sum_y(summary StatsSummary2D) RETURNS BIGINT
-  - language: sql
-    code: |-
-      sum_x(summary StatsSummary2D) RETURNS BIGINT
-parameters:
-  required:
-    - name: summary
-      type: StatsSummary2D
-      description: >-
-        The statistical aggregate produced by a `stats_agg` call
-  returns:
-    - column: sum
-      type: DOUBLE PRECISION
-      description: >-
-        The sum of the values in the statistical aggregate
-examples:
-  - description: >-
-      Calculate the sum of the numbers from 0 to 100.
-    command:
-      language: sql
+api_details:
+  summary: >-
+    Calculate the sum of the values contained in a statistical aggregate.
+  signatures:
+    - language: sql
       code: |-
-        SELECT sum_y(stats_agg(data, data))
-          FROM generate_series(0, 100) data;
-    return:
+        sum_y(summary StatsSummary2D) RETURNS BIGINT
+    - language: sql
       code: |-
-        sum_y
-        -----
-        5050
+        sum_x(summary StatsSummary2D) RETURNS BIGINT
+  parameters:
+    required:
+      - name: summary
+        type: StatsSummary2D
+        description: >-
+            The statistical aggregate produced by a `stats_agg` call
+    returns:
+      - column: sum
+        type: DOUBLE PRECISION
+        description: >-
+            The sum of the values in the statistical aggregate
+  examples:
+    - description: >-
+        Calculate the sum of the numbers from 0 to 100.
+      command:
+        language: sql
+        code: |-
+            SELECT sum_y(stats_agg(data, data))
+            FROM generate_series(0, 100) data;
+      return:
+        code: |-
+            sum_y
+            -----
+            5050
 ---
 

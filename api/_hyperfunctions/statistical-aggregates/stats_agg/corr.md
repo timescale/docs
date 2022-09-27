@@ -20,39 +20,40 @@ hyperfunction:
   type: accessor, 2D
   aggregates:
     - stats_agg()
-summary: >-
-  Calculate the correlation coefficient from the values in a statistical
-  aggregate.
-  The calculation uses linear least-squares regression.
-signatures:
-  - language: sql
-    code: |-
-      corr(
-        summary StatsSummary2D
-      ) RETURNS DOUBLE PRECISION
-parameters:
-  required:
-    - name: summary
-      type: StatsSummary2D
-      description: >-
-        The statistical aggregate produced by a `stats_agg` call
-  returns:
-    - column: corr
-      type: DOUBLE PRECISION
-      description: >-
-        The correlation coefficient of the least-squares fit line
-examples:
-  - description: >-
-      Calculate the correlation coefficient of independent variable `y` and
-      dependent variable `x` for each 15-minute time bucket.
-    command:
-      language: sql
+api_details:
+  summary: >-
+    Calculate the correlation coefficient from the values in a statistical
+    aggregate.
+    The calculation uses linear least-squares regression.
+  signatures:
+    - language: sql
       code: |-
-        SELECT
-          id,
-          time_bucket('15 min'::interval, ts) AS bucket,
-          corr(stats_agg(y, x)) AS summary
-        FROM foo
-        GROUP BY id, time_bucket('15 min'::interval, ts)
+        corr(
+          summary StatsSummary2D
+        ) RETURNS DOUBLE PRECISION
+  parameters:
+    required:
+      - name: summary
+        type: StatsSummary2D
+        description: >-
+          The statistical aggregate produced by a `stats_agg` call
+    returns:
+      - column: corr
+        type: DOUBLE PRECISION
+        description: >-
+          The correlation coefficient of the least-squares fit line
+  examples:
+    - description: >-
+        Calculate the correlation coefficient of independent variable `y` and
+        dependent variable `x` for each 15-minute time bucket.
+      command:
+        language: sql
+        code: |-
+          SELECT
+            id,
+            time_bucket('15 min'::interval, ts) AS bucket,
+            corr(stats_agg(y, x)) AS summary
+          FROM foo
+          GROUP BY id, time_bucket('15 min'::interval, ts)
 ---
 

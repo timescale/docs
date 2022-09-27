@@ -12,43 +12,44 @@ hyperfunction:
   type: accessor, 1D
   aggregates:
     - stats_agg()
-summary: >-
-  Calculate the variance from the values in a statistical aggregate.
-signatures:
-  - language: sql
-    code: |-
-      variance(summary
-        StatsSummary1D,
-        method TEXT
-      ) RETURNS BIGINT
-parameters:
-  required:
-    - name: summary
-      type: StatsSummary1D
-      description: >-
-        The statistical aggregate produced by a `stats_agg` call
-  optional:
-    - name: method
-      type: TEXT
-      description: >-
-        The method used for calculating the standard deviation. The two options
-        are `population` and `sample`, which can be abbreviated to `pop` or
-        `samp`. Defaults to `sample`.
-  returns:
-    - column: variance
-      type: DOUBLE PRECISION
-      description: >-
-        The variance of the values in the statistical aggregate
-examples:
-  - command:
-      language: sql
+api_details:
+  summary: >-
+    Calculate the variance from the values in a statistical aggregate.
+  signatures:
+    - language: sql
       code: |-
-        SELECT variance(stats_agg(data))
-          FROM generate_series(0, 100) data;
-    return:
-      code: |-
-        variance
-        ----------
-        858.5
+        variance(summary
+          StatsSummary1D,
+          method TEXT
+        ) RETURNS BIGINT
+  parameters:
+    required:
+      - name: summary
+        type: StatsSummary1D
+        description: >-
+          The statistical aggregate produced by a `stats_agg` call
+    optional:
+      - name: method
+        type: TEXT
+        description: >-
+          The method used for calculating the standard deviation. The two options
+          are `population` and `sample`, which can be abbreviated to `pop` or
+          `samp`. Defaults to `sample`.
+    returns:
+      - column: variance
+        type: DOUBLE PRECISION
+        description: >-
+          The variance of the values in the statistical aggregate
+  examples:
+    - command:
+        language: sql
+        code: |-
+          SELECT variance(stats_agg(data))
+            FROM generate_series(0, 100) data;
+      return:
+        code: |-
+          variance
+          ----------
+          858.5
 ---
 

@@ -13,33 +13,34 @@ hyperfunction:
   type: accessor, 1D
   aggregates:
     - stats_agg()
-summary: >-
-  Calculate the number of values contained in a statistical aggregate.
-signatures:
-  - language: sql
-    code: |-
-      num_vals(summary StatsSummary1D) RETURNS BIGINT
-parameters:
-  required:
-    - name: summary
-      type: StatsSummary1D
-      description: >-
-        The statistical aggregate produced by a `stats_agg` call
-  returns:
-    - column: num_vals
-      type: DOUBLE PRECISION
-      description: >-
-        The number of values in the statistical aggregate
-examples:
-  - command:
-      language: sql
+api_details:
+  summary: >-
+    Calculate the number of values contained in a statistical aggregate.
+  signatures:
+    - language: sql
       code: |-
-        SELECT num_vals(stats_agg(data))
-          FROM generate_series(0, 100) data;
-    return:
-      code: |-
-        num_vals
-        --------
-        101
+        num_vals(summary StatsSummary1D) RETURNS BIGINT
+  parameters:
+    required:
+      - name: summary
+        type: StatsSummary1D
+        description: >-
+          The statistical aggregate produced by a `stats_agg` call
+    returns:
+      - column: num_vals
+        type: DOUBLE PRECISION
+        description: >-
+          The number of values in the statistical aggregate
+  examples:
+    - command:
+        language: sql
+        code: |-
+          SELECT num_vals(stats_agg(data))
+            FROM generate_series(0, 100) data;
+      return:
+        code: |-
+          num_vals
+          --------
+          101
 ---
 
