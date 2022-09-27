@@ -108,7 +108,7 @@ the name that you provided during the installation.
    ```
 2. Run `psql` inside the Pod containing the primary:
    ```bash
-   kubectl exec -i --tty --namespace default {MASTERPOD} -- psql -U postgres
+   kubectl exec -i --tty --namespace default ${MASTERPOD} -- psql -U postgres
    ```
 
 </procedure>

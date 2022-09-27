@@ -66,9 +66,10 @@ Create a bar chart visualization using the data in the table `stocks_real_time`.
         symbol,
         AVG(price) AS price
     FROM stocks_real_time srt
-    WHERE symbol = $symbol
+    WHERE symbol IN ($symbol)
         AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
-    GROUP BY time_bucket('$bucket_interval', time), symbol;
+    GROUP BY time_bucket('$bucket_interval', time), symbol
+    ORDER BY time;
     ```
 
 1. In the Grafana dashboard, in the `Dashboard variable` field, select a stock
@@ -131,7 +132,8 @@ charts.
       FROM stocks_real_time srt
       WHERE symbol IN ($symbol)
           AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
-      GROUP BY time_bucket('$bucket_interval', time), symbol;
+      GROUP BY time_bucket('$bucket_interval', time), symbol
+      ORDER BY time;
       ```
 
 1. In Grafana, refresh the dashboard. The returned data looks like this:
@@ -181,9 +183,9 @@ traded volume. This helps to calculate the volume of data for each bucket.
               ORDER BY time_bucket('$bucket_interval', time)
           ) AS bucket_volume
       FROM stocks_real_time srt
-      WHERE symbol = $symbol
+      WHERE symbol IN ($symbol)
           AND time >= $__timeFrom()::timestamptz AND time < $__timeTo()::timestamptz
-      GROUP BY time_bucket('$bucket_interval', time), symbol;
+      GROUP BY time_bucket('$bucket_interval', time), symbol
       ORDER BY time_bucket('$bucket_interval', time), symbol;
       ```
 

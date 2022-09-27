@@ -7,17 +7,19 @@ keywords: [Golang]
 # Quick Start: Go and TimescaleDB
 
 ## Goal
+
 This quick start guide is designed to get the Golang developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#connect-to-database)
-* [Create a relational table](#create-a-table)
-* [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
-* [Insert a batch of rows into your Timescale database](#insert-a-batch-of-rows-into-your-timescale-database)
-* [Execute a query on your Timescale database](#execute-a-query-on-your-timescale=database)
+*   [Connect to TimescaleDB](#connect-to-database)
+*   [Create a relational table](#create-a-table)
+*   [Generate a Hypertable](/api/:currentVersion:/hypertable/create_hypertable)
+*   [Insert a batch of rows into your Timescale database](#insert-a-batch-of-rows-into-your-timescale-database)
+*   [Execute a query on your Timescale database](#execute-a-query-on-your-timescale-database)
 
 ## Prerequisites
+
 To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
@@ -26,8 +28,9 @@ To start, [install TimescaleDB][timescaledb-install]. Once your installation is 
 we can proceed to ingesting or creating sample data and finishing the tutorial.
 
 You also need:
-* Go installed on your machine. ([Install instructions][golang-install])
-* The [PGX driver][pgx-driver-github] for Go
+
+*   Go installed on your machine. ([Install instructions][golang-install])
+*   The [PGX driver][pgx-driver-github] for Go
 
 ## Connect to database
 
@@ -35,11 +38,12 @@ Locate your TimescaleDB credentials in order to compose a connection string for
 PGX to use in order to connect to your TimescaleDB instance.
 
 You'll need the following credentials:
-* password
-* username
-* host URL
-* port number
-* database name
+
+*   password
+*   username
+*   host URL
+*   port number
+*   database name
 
 Next, compose your connection string variable, as a [libpq connection string][libpq-docs],
 using the following format:
@@ -103,7 +107,6 @@ you can use the following syntax to access it in place of the variable
 
 ```os.Getenv("DATABASE_CONNECTION_STRING")```
 
-
 ### Using a connection pool (for multiple connections)
 
 Connection pooling is useful to ensure you don't waste resources and can
@@ -119,11 +122,11 @@ used to create a single connection.
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
+ "context"
+ "fmt"
+ "os"
 
-	"github.com/jackc/pgx/v4/pgxpool"
+ "github.com/jackc/pgx/v4/pgxpool"
 )
 
 func main() {
@@ -243,7 +246,7 @@ queryCreateHypertable := `CREATE TABLE sensor_data (
        cpu DOUBLE PRECISION,
        FOREIGN KEY (sensor_id) REFERENCES sensors (id)
        );
-       SELECT create_hypertable('sensor_data', 'time');       
+       SELECT create_hypertable('sensor_data', 'time');
        `
 ```
 
@@ -727,7 +730,6 @@ located on location `ceiling` and of type `a`.
 
 Notice the use of placeholders for sensor location and type.
 
-
 ### Step 2: Execute the query
 
 Secondly, use the `.Query()` function to query your TimescaleDB database.
@@ -872,12 +874,13 @@ func main() {
 Congratulations, you've successfully executed a query on TimescaleDB using Go and pgx.
 
 ## Next steps
+
 Now that you're able to connect, read, and write to a TimescaleDB instance from your
 Golang application, be sure to check out these advanced TimescaleDB tutorials:
 
-* Refer to the [pgx documentation][pgx-docs] for more information about pgx.
-* Get up and running with TimescaleDB with our [Getting Started][getting-started] tutorial.
-* Want fast inserts on CSV data? Check out [TimescaleDB parallel copy][parallel-copy-tool], our tool for fast inserts, written in Golang.
+*   Refer to the [pgx documentation][pgx-docs] for more information about pgx.
+*   Get up and running with TimescaleDB with our [Getting Started][getting-started] tutorial.
+*   Want fast inserts on CSV data? Check out [TimescaleDB parallel copy][parallel-copy-tool], our tool for fast inserts, written in Golang.
 
 [getting-started]: /getting-started/:currentVersion:/
 [golang-install]: https://golang.org/doc/install

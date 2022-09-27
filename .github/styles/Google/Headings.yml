@@ -1,11 +1,11 @@
 extends: capitalization
 message: "'%s' should use sentence-style capitalization."
-link: 'https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings'
+link: "https://developers.google.com/style/capitalization#capitalization-in-titles-and-headings"
 level: warning
 scope: heading
 match: $sentence
 indicators:
-  - ':'
+  - ":"
 exceptions:
   - API
   - AWS
@@ -23,6 +23,7 @@ exceptions:
   - Grafana
   - gRPC
   - Hat
+  - Homebrew
   - I
   - InfluxDB
   - Java
@@ -31,6 +32,7 @@ exceptions:
   - Lambda
   - Linux
   - macOS
+  - MacPorts
   - Managed
   - Marketplace
   - MongoDB
