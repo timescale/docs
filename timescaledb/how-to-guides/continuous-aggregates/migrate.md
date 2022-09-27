@@ -26,15 +26,15 @@ CALL cagg_migrate('<CONTINUOUS_AGGREGATE_NAME>');
 ## Configure continuous aggregate migration
 
 The migration procedure provides two boolean configuration parameters,
-`_override` and `_drop_old`. By default, the name of your new continuous
+`override` and `drop_old`. By default, the name of your new continuous
 aggregate is the name of your old continuous aggregate, with the suffix `_new`.
 
-Set `_override` to true to rename your new continuous aggregate with the
+Set `override` to true to rename your new continuous aggregate with the
 original name. The old continuous aggregate is renamed with the suffix `_old`.
 
 To both rename and drop the old continuous aggregate entirely, set both
-parameters to true. Note that `_drop_old` must be used together with
-`_override`.
+parameters to true. Note that `drop_old` must be used together with
+`override`.
 
 ## Check on continuous aggregate migration status
 

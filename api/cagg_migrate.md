@@ -16,9 +16,9 @@ in TimescaleDB 2.7.
 
 ```sql
 CALL cagg_migrate (
-    _cagg REGCLASS,
-    _override BOOLEAN DEFAULT FALSE,
-    _drop_old BOOLEAN DEFAULT FALSE
+    cagg REGCLASS,
+    override BOOLEAN DEFAULT FALSE,
+    drop_old BOOLEAN DEFAULT FALSE
 );
 ```
 
@@ -39,13 +39,13 @@ For more information, see the [migration how-to guide][how-to-migrate].
 
 |Name|Type|Description|
 |-|-|-|
-|`_cagg`|`REGCLASS`|The continuous aggregate to migrate|
+|`cagg`|`REGCLASS`|The continuous aggregate to migrate|
 
 ## Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`_override`|`BOOLEAN`|If false, the old continuous aggregate keeps its name. The new continuous aggregate is named `<OLD_CONTINUOUS_AGGREGATE_NAME>_new`. If true, the new continuous aggregate gets the old name. The old continuous aggregate is renamed `<OLD_CONTINUOUS_AGGREGATE_NAME>_old`. Defaults to `false`.|
-|`_drop_old`|`BOOLEAN`|If true, the old continuous aggregate is deleted. Must be used together with `_override`. Defaults to `false`.|
+|`override`|`BOOLEAN`|If false, the old continuous aggregate keeps its name. The new continuous aggregate is named `<OLD_CONTINUOUS_AGGREGATE_NAME>_new`. If true, the new continuous aggregate gets the old name. The old continuous aggregate is renamed `<OLD_CONTINUOUS_AGGREGATE_NAME>_old`. Defaults to `false`.|
+|`drop_old`|`BOOLEAN`|If true, the old continuous aggregate is deleted. Must be used together with `override`. Defaults to `false`.|
 
 [how-to-migrate]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate/
