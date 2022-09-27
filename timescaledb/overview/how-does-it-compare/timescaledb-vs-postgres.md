@@ -48,8 +48,8 @@ ranging from 4 times to 1031 times. In the thirteenth case, TimescaleDB performs
 slightly worse, at 0.8 times as fast as standard PostgreSQL." />
 
 TimescaleDB achieves this performance by using [hypertables][hypertables]. With
-hypertables, your data is seamlessly and automatically partitioned by time, but
-you get the ergonomic experience of interacting with a single, virtual table.
+hypertables, your data is automatically partitioned by time, but you get the
+simplified experience of interacting with a single, virtual table.
 
 Partitioning makes queries faster by quickly excluding irrelevant data. It also
 allows us to make enhancements to query planning and execution.
@@ -93,7 +93,7 @@ ingest and query performance.
 
 TimescaleDB multi-node works with distributed hypertables, which automatically
 partition your data across multiple data nodes. This happens behind the scenes,
-and you still get the ergonomic experience of interacting with your distributed
+and you still get the simplified experience of interacting with your distributed
 hypertable in the same way as a regular PostgreSQL table.
 
 ## Lower storage costs
@@ -132,14 +132,14 @@ performance.
 ### Automatic downsampling and removal of old data with one command
 
 To save even more on storage costs, you can set up an automatic [data retention
-policy][retention] with one SQL command. To set this up in standard PostgreSQL,
-you'd either need to `DELETE` individual records, which is an inefficient
-operation, or set up declarative partitioning and automation yourself.
+policy][retention] with one SQL command. By combining continuous aggregates and
+data retention policies, you can downsample data and drop the raw measurements.
+This allows you to retain higher-level rollups of historical data. You have
+control over the granularity of your data and your storage costs.
 
-In TimescaleDB, you can combine continuous aggregates and data retention
-policies to downsample data, and then drop the raw measurements. This allows you
-to retain higher-level rollups of historical data. You have control over the
-granularity of your data and your storage costs.
+To set this up in standard PostgreSQL, you'd either need to `DELETE` individual
+records, which is inefficient, or set up declarative partitioning and automation
+yourself.
 
 ## Features that speed up development time
 
