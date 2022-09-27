@@ -166,6 +166,9 @@ Follow these optional recommendations for a smooth upgrade experience:
 <highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
 </highlight>
 
-[status-page]: https://status.timescale.com/
 [cloud-login]: https://cloud.timescale.com
+[operations-forking]: /cloud/:currentVersion:/service-operations/general/#fork-a-service
+[postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /cloud/:currentVersion:/service-operations/replicas/
+[status-page]: https://status.timescale.com/
+[timescale-relnotes]: /timescaledb/latest/overview/release-notes/
