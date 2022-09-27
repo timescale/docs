@@ -1,6 +1,6 @@
 ---
 title: Contribute to TimescaleDB documentation
-excerpt: contribute-to-docs
+excerpt: Advice and style guide for contributing to TimescaleDB documentation
 tags: [contribute, docs, style guide]
 ---
 
@@ -187,12 +187,14 @@ device.
 
 *Bare metal*
 : Noun.
+
 &#128077; "Install TimescaleDB on bare metal."
 
 &#10060; "Perform a bare metal installation."
 
 *Bare-metal*
-: Noun.
+: Adjective.
+
 &#128077; "Perform a bare-metal installation."
 
 &#10060; "Install TimescaleDB on bare-metal."
@@ -237,6 +239,20 @@ device.
 &#128077; For example
 
 &#10060; eg
+
+*Log in*
+: Verb.
+
+&#128077; "Log in to Timescale Cloud."
+
+&#10060; "Enter your log in information."
+
+*Login*
+: Adjective or noun.
+
+&#128077; "Enter your login information."
+
+&#10060; "Login to Timescale Cloud."
 
 ### M
 
