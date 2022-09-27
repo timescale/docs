@@ -10,66 +10,69 @@ api:
 hyperfunction:
   family: statistical aggregates
   type: aggregate
-summary: |-
-  This is the first step for performing any statistical aggregate calculations.
-  Use `stats_agg` to create an intermediate aggregate from your data. This
-  intermediate form can then be used by any accessor on this page to compute a
-  final result.
+  aggregates:
+    - stats_agg()
+api_details:
+  summary: |-
+    This is the first step for performing any statistical aggregate calculations.
+    Use `stats_agg` to create an intermediate aggregate from your data. This
+    intermediate form can then be used by any accessor on this page to compute a
+    final result.
 
-  There are both 2D and 1D forms of this function. Use the 1D form for one
-  variable and the 2D forms for two variables. The 2D form is usually used for
-  regression and correlation analysis.
-signatures:
-  - language: sql
-    code: |-
-      stats_agg(
-          value DOUBLE PRECISION
-      ) RETURNS StatsSummary1D
-  - language: sql
-    code: |-
-      stats_agg(
-          y DOUBLE PRECISION,
-          x DOUBLE PRECISION
-      ) RETURNS StatsSummary2D
-parameters:
-  required:
-    - name: value | y | x
-      type: DOUBLE PRECISION
-      description: >-
-        The variables to use for the statistical aggregate. For a 1D aggregate,
-        provide a single variable, `value`. For a 1D aggregate, provide two
-        variables, `y` and `x`, with the dependent variable first.
-  returns:
-    - column: stats_agg
-      type: StatsSummary1D | StatsSummary2D
-      description: >-
-        The statistical aggregate, containing data about the variables in an
-        intermediate form. Pass the aggregate to accessor functions in the
-        statistical aggregates API to perform final calculations. Or, pass the
-        aggregate to rollup functions to combine multiple statistical aggregates
-        into larger aggregates.
-examples:
-  - description: |-
-      Create statistical aggregates that summarize daily statistical data
-      about two variables. Use the statistical aggregates to calculate the
-      average of the dependent variable and the slope of the linear-regression
-      fit.
-    command:
-      language: sql
+    There are both 2D and 1D forms of this function. Use the 1D form for one
+    variable and the 2D forms for two variables. The 2D form is usually used for
+    regression and correlation analysis.
+  signatures:
+    - language: sql
       code: |-
-        WITH t as (
-            SELECT
-                time_bucket('1 day'::interval, ts) as dt,
-                stats_agg(val2, val1) AS stats2D,
-                stats_agg(val1) AS stats1D
-            FROM foo
-            WHERE id = 'bar'
-            GROUP BY time_bucket('1 day'::interval, ts)
-        )
-        SELECT
-            average_x(stats2D), -- use average_x on 2D summary
-            average(stats1D), -- use normal average on 1D summary to get same value
-            slope(stats2D) -- slope and other regression functions only work on 2D aggregates
-        FROM t;
+        stats_agg(
+            value DOUBLE PRECISION
+        ) RETURNS StatsSummary1D
+    - language: sql
+      code: |-
+        stats_agg(
+            y DOUBLE PRECISION,
+            x DOUBLE PRECISION
+        ) RETURNS StatsSummary2D
+  parameters:
+    required:
+      - name: value | y | x
+        type: DOUBLE PRECISION
+        description: >-
+          The variables to use for the statistical aggregate. For a 1D aggregate,
+          provide a single variable, `value`. For a 1D aggregate, provide two
+          variables, `y` and `x`, with the dependent variable first.
+    returns:
+      - column: stats_agg
+        type: StatsSummary1D | StatsSummary2D
+        description: >-
+          The statistical aggregate, containing data about the variables in an
+          intermediate form. Pass the aggregate to accessor functions in the
+          statistical aggregates API to perform final calculations. Or, pass the
+          aggregate to rollup functions to combine multiple statistical aggregates
+          into larger aggregates.
+  examples:
+    - description: |-
+        Create statistical aggregates that summarize daily statistical data
+        about two variables. Use the statistical aggregates to calculate the
+        average of the dependent variable and the slope of the linear-regression
+        fit.
+      command:
+        language: sql
+        code: |-
+          WITH t as (
+              SELECT
+                  time_bucket('1 day'::interval, ts) as dt,
+                  stats_agg(val2, val1) AS stats2D,
+                  stats_agg(val1) AS stats1D
+              FROM foo
+              WHERE id = 'bar'
+              GROUP BY time_bucket('1 day'::interval, ts)
+          )
+          SELECT
+              average_x(stats2D), -- use average_x on 2D summary
+              average(stats1D), -- use normal average on 1D summary to get same value
+              slope(stats2D) -- slope and other regression functions only work on 2D aggregates
+          FROM t;
 ---
 
