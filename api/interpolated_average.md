@@ -51,8 +51,6 @@ This function is similar to [`interpolated_integral`][hyperfunctions-interpolate
 
 *   For more information about time-weighted average functions, see the
     [hyperfunctions documentation][hyperfunctions-time-weight-average].
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ### Required arguments
 

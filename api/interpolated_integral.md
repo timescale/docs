@@ -35,7 +35,7 @@ interpolated_integral(
 ) RETURNS DOUBLE PRECISION
 ```
 
-A function to compute a time-weighted integral over the interval, defined as `start`
+Compute a time-weighted integral over the interval, defined as `start`
 plus `interval`, given a `prev` and `next` time-weight summary from which to
 compute the boundary points. This is intended to allow a precise time-weighted
 integral over intervals even when the points representing the intervals are grouped
@@ -70,7 +70,7 @@ This function is similar to [`interpolated_average`][hyperfunctions-interpolated
 |-|-|-|
 |`prev`|`TimeWeightSummary`|The TimeWeightSummary from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `tws` is used as the start of the interval.|
 |`next`|`TimeWeightSummary`|The TimeWeightSummary from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `tws` is used as the end of the interval.|
-|`unit`|`TEXT`|The unit of time to express the integral in. Can be `microsecond`/`millisecond`/`second`/`minute`/`hour` or any alias for those units supported by PostgreSQL. If `NULL`, `second` is defaulted to.|
+|`unit`|`TEXT`|The unit of time to express the integral in. Can be `microsecond`/`millisecond`/`second`/`minute`/`hour` or any alias for those units supported by PostgreSQL. If `NULL`, defaults to `second`.|
 
 ### Returns
 
@@ -79,26 +79,28 @@ This function is similar to [`interpolated_average`][hyperfunctions-interpolated
 |`interpolated_integral`|`DOUBLE PRECISION`|The time-weighted integral for the interval (`start`, `start` + `interval`) computed from the `TimeWeightSummary` plus end points interpolated from `prev` and `next`|
 
 ### Sample usage
-
 ```SQL
+-- Create a table to track irregularly sampled storage usage
+CREATE TABLE user_storage_usage(ts TIMESTAMP, storage_bytes BIGINT);
+INSERT INTO user_storage_usage(ts, storage_bytes) VALUES
+    ('01-01-2022 20:55', 27),
+    ('01-02-2022 18:33', 100),
+    ('01-03-2022 03:05', 300),
+    ('01-04-2022 12:13', 1000),
+    ('01-05-2022 07:26', 817);
+
+-- Get the total byte-hours used between Jan. 1 and Jan. 6
 SELECT
-    id,
-    time,
-    interpolated_integral(
-        tws,
-        time,
-        '1 day',
-        LAG(tws) OVER (ORDER BY time PARTITION BY id),
-        LEAD(tws) OVER (ORDER BY time PARTITION BY id)
+    toolkit_experimental.interpolated_integral(
+        time_weight('LOCF', ts, storage_bytes),
+        '01-01-2022',
+        '5 days',
+        NULL,
+        NULL,
+        'hours'
     )
-FROM (
-    SELECT
-        id,
-        time_bucket('1 day', ts) AS time,
-        time_weight('LOCF', ts, val) AS tws
-    FROM foo
-    GROUP BY id, time
-) t
+FROM
+    user_storage_usage;
 ```
 
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
