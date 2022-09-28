@@ -38,13 +38,10 @@ query from the `psql` prompt:
 SELECT pg_is_in_backup()::text
 ```
 
-<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
-</highlight>
-
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-cloud-aws-infra.png" alt="Diagram explaining the different backups taken in Timescale Cloud"/>
 
 For more information about how backups are handled on Timescale Cloud, see the
-blog post[backup-blog].
+[blog post][backup-blog].
 
 ## Weekly backups
 
