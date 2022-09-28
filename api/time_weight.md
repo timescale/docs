@@ -37,14 +37,14 @@ For more information about time-weighted average functions, see the
 
 |Name|Type|Description|
 |---|---|---|
-|`method`|`TEXT`| The weighting method we should use, options are `linear` or `LOCF`, not case sensitive|
+|`method`|`TEXT`| The weighting method to use, options are `linear` (or its alias `trapezoidal`) or `LOCF`, not case sensitive|
 |`ts`|`TIMESTAMPTZ`|The time at each point|
 |`value`|`DOUBLE PRECISION`|The value at each point to use for the time-weighted average|
 
 Note that `ts` and `value` can be `null`, however the aggregate is not evaluated
 on `null` values and returns `null`, but does not error on `null` inputs.
 
-Only two values for `method` are currently supported: `linear` and `LOCF`, and
+Only two values for `method` are currently supported: `linear` (or its alias `trapezoidal`) and `LOCF`, and
 any capitalization is accepted. See [interpolation methods](#interpolation-methods-details)
 for more information.
 

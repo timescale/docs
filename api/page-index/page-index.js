@@ -648,9 +648,17 @@ module.exports = [
                 href: "average-time-weight",
               },
               {
+                title: "integral",
+                href: "integral-time-weight",
+              },
+              {
                 title: "interpolated_average",
                 href: "interpolated_average",
               },
+              {
+                title: "interpolated_integral",
+                href: "interpolated_integral",
+              }
             ],
           },
           {
