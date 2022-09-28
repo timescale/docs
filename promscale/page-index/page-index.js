@@ -87,6 +87,31 @@ module.exports = [
             ],
             excerpt: "Install Promscale on RPM based Linux",
           },
+          {
+            title: "Promscale with Timescale cloud",
+            href: "promscale-with-timescale-cloud",
+            excerpt: "Install Promscale with Timescale cloud",
+            children: [
+              {
+                title: "Kubernetes",
+                href: "kubernetes",
+                tags: ["promscale", "analytics", "sql", "prometheus"],
+                excerpt: "Install Promscale on Kubernetes with Timescale cloud",
+              },
+              {
+                title: "Docker",
+                href: "docker",
+                tags: ["promscale", "analytics", "sql", "traces"],
+                excerpt: "Install Promscale on Docker with Timesale cloud",
+              },
+              {
+                title: "Binary",
+                href: "binary",
+                tags: ["promscale", "analytics", "sql", "traces"],
+                excerpt: "Install Promscale as binary with Timesale cloud",
+              },
+            ],
+          },
         ],
       },
       {
