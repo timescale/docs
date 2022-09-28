@@ -26,7 +26,8 @@ backup to any point up to the point of failure.
 To perform a point-in-time recovery, your database is first restored using the
 full backup, then any available incremental backups, and finally by replaying
 any WAL to cover any gap in time between the incremental backup and the target
-recovery point. For more information about how backup and restore works, see the [blog post on high availability][ha-post].
+recovery point. For more information about how backup and restore works, see the
+[blog post on high availability][ha-post].
 
 When you delete an instance, a backup of the instance is retained for seven days.
 If you need to restore your database from a backup, [contact support][support].
