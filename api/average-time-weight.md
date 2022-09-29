@@ -28,12 +28,12 @@ average(
 ) RETURNS DOUBLE PRECISION
 ```
 
-A function to compute a time-weighted average from a `TimeWeightSummary`.
+Compute a time-weighted average from a `TimeWeightSummary`.
+
+This function is similar to [`integral`][hyperfunctions-integral] but divides by the length of time being averaged.
 
 *   For more information about time-weighted average functions, see the
     [hyperfunctions documentation][hyperfunctions-time-weight-average].
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ### Required arguments
 
@@ -65,3 +65,4 @@ FROM (
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
 [time_weight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/time_weight/
+[hyperfunctions-integral]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/integral-time-weight/

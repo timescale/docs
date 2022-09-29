@@ -6,10 +6,10 @@ tags: [mean]
 ---
 
 # Time-weighted average functions <tag type="toolkit">Toolkit</tag>
-This section contains functions related to time-weighted averages. Time weighted
-averages are commonly used in cases where a time series is not evenly sampled,
-so a traditional average gives misleading results. For more information
-about time-weighted average functions, see the
+This section contains functions related to time-weighted averages and integrals.
+Time weighted averages and integrals are commonly used in cases where a time
+series is not evenly sampled, so a traditional average gives misleading results.
+For more information about these functions, see the
 [hyperfunctions documentation][hyperfunctions-time-weight-average].
 
 Some hyperfunctions are included in the default TimescaleDB product. For
