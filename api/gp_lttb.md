@@ -92,3 +92,4 @@ Which provides these results:
 ```
 
 [lttb]: /api/:currentVersion:/hyperfunctions/downsample/lttb/
+[hyperfunctions-timevectors]: FIXME
