@@ -76,3 +76,15 @@ api_details:
           FROM t;
 ---
 
+[Not finalized text, will integrate some stuff from Jerry's document]
+
+This group of functions helps with performing standard statistical anaysis on 1D
+and 2D data.
+
+It follows the two-step aggregation pattern.
+
+<highlight type="important">
+The two-step aggregation pattern...
+
+To learn more, see the [blog post on two-step aggregates](https://www.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/).
+</highlight>
