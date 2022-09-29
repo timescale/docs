@@ -651,6 +651,7 @@ module.exports = [
                 title: "average",
                 href: "average-time-weight",
               },
+              {
                 title: "first_time, last_time",
                 href: "first-last-time-timeweight",
               },
