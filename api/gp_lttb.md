@@ -41,8 +41,15 @@ target resolution, because each range returns at least two points.
 |-|-|-|
 |`time`|`TIMESTAMPTZ`|Time (x) value for the data point|
 |`value`|`DOUBLE PRECISION`|Data (y) value for the data point|
-|`gapsize`|`INTERVAL`|(Optional) Minimum gap size to divide input on|
 |`resolution`|`INTEGER`|Number of points the output should have|
+
+## Optional arguments
+
+|Name|Type|Description|
+|-|-|-|
+|`gapsize`|`INTERVAL`|Minimum gap size to divide input on|
+
+If the gapsize is not provided it will be computed as the interval between the first and last times, divided by the resolution.
 
 ## Returns
 
