@@ -92,4 +92,4 @@ Which provides these results:
 ```
 
 [lttb]: /api/:currentVersion:/hyperfunctions/downsample/lttb/
-[hyperfunctions-timevectors]: FIXME
+[hyperfunctions-timevectors]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/function-pipelines/#timevectors
