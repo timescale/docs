@@ -62,7 +62,7 @@ moves automatically, you can write a user-defined action.
 <highlight type="note">
 This procedure uses PostgreSQL's regular `ALTER TABLE ... SET TABLESPACE` syntax
 to move chunks. You could also write the procedure using TimescaleDB's
-[`move_chunk`](/api/:currentVersion:/hypertable/move_chunk) function. The
+[`move_chunk`](/api/latest/hypertable/move_chunk) function. The
 `move_chunk` function reorders the data as part of the move, which makes
 subsequent queries faster. It also requires lower lock levels, so the chunk
 remains available for reads during the move.
