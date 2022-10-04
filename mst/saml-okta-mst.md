@@ -4,11 +4,11 @@ excerpt: Learn how to make corporate level configuration like the authentication
 product: mst
 ---
 
-# Set up SAML (Security Assertion Markup Language) authentication with Okta
+# Set up authentication with Okta
 
-SAML is a standard for exchanging authentication and authorization data between
-an identity provider and a service provider. You can operate it with MST so that
-you and your collaborators can use your company's favorite authentication service.
+Security Assertion Markup Language (SAML) is a standard for exchanging authentication
+and authorization data between an identity provider and a service provider. You can operate
+it with MST so that you and your collaborators can use your company's favorite authentication service.
 
 ## Before you begin
 
