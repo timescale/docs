@@ -104,9 +104,71 @@ downtime is usually between 30&nbsp;seconds and 5&nbsp;minutes. We endeavor to
 notify you on email ahead of the upgrade if downtime is required, so that you
 can plan accordingly. However, in some cases, we might not be able to do so.
 
+## Upgrade to a new PostgreSQL version
+
+Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, and 14. You can see
+your PostgreSQL and TimescaleDB versions from the Timescale Cloud dashboard.
+
+<!-- TODO: Add screenshot
+<img class="main-content__illustration"
+    src="FIXME"
+    alt="The Timescale Cloud dashboard, showing the PostgreSQL and TimescaleDB
+    versions"
+/>
+-->
+
+You can also manually upgrade to the newest supported PostgreSQL version
+(PostgreSQL&nbsp;14) from the dashboard.
+
+Upgrading to a newer version of PostgreSQL allows you to take advantage of new
+features, enhancements, and security fixes. It also ensures that you are using a
+version of PostgreSQL that's compatible with the newest version of TimescaleDB,
+allowing you to take advantage of everything Timescale has to offer. For more
+information about feature changes between versions, see the
+[PostgreSQL release notes][postgres-relnotes] and
+[TimescaleDB release notes][timescale-relnotes].
+
+<highlight type="warning">
+Your Timescale Cloud service is unavailable for use until the upgrade is
+complete. Upgrading can take up to several hours, so we recommend
+that you plan ahead, and upgrade during a time with low usage.
+</highlight>
+
+### Recommended practices for upgrading
+
+Follow these optional recommendations for a smooth upgrade experience:
+
+*   Fork your database, and try out the upgrade on the fork before running it on
+    your production system. This gives you a good idea of what happens during
+    the upgrade, and how long it might take. For more information about forking,
+    see the section on [forking][operations-forking].
+*   Keep a copy of your database with your old version and data, if you're
+    worried about losing it. You can fork your database without upgrading the
+    fork to keep a duplicate Timescale Cloud service. You can immediately pause
+    this fork to only pay for storage until you are comfortable deleting it.
+
+<procedure>
+
+### Upgrading to a new PostgreSQL version
+
+1.  In the Timescale Cloud console, navigate to `Services` and click the service
+    you want to upgrade.
+1.  Navigate to the `Operations` tab, and go to the `Maintenance` section.
+1.  If a new PostgreSQL version is available, click the `Upgrade` button, and
+    confirm that you are ready to start the upgrade. Your Timescale Cloud
+    service is unavailable for use until the upgrade is complete.
+1.  When the upgrade is finished, your service automatically resumes normal
+    operations. If the upgrade is unsuccessful, the service returns to the state
+    it was in before you started the upgrade.
+
+</procedure>
+
 <highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
 </highlight>
 
-[status-page]: https://status.timescale.com/
 [cloud-login]: https://cloud.timescale.com
+[operations-forking]: /cloud/:currentVersion:/service-operations/general/#fork-a-service
+[postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /cloud/:currentVersion:/service-operations/replicas/
+[status-page]: https://status.timescale.com/
+[timescale-relnotes]: /timescaledb/latest/overview/release-notes/
