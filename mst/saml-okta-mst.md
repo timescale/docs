@@ -4,7 +4,7 @@ excerpt: Learn how to make corporate level configuration like the authentication
 product: mst
 ---
 
-# Set up authentication with Okta
+# Set up authentication
 
 Security Assertion Markup Language (SAML) is a standard for exchanging authentication
 and authorization data between an identity provider and a service provider. You can operate
