@@ -686,6 +686,10 @@ module.exports = [
                 title: "lttb",
                 href: "lttb",
               },
+              {
+                title: 'gp_lttb',
+                href: 'gp_lttb',
+              },
             ],
           },
           {
