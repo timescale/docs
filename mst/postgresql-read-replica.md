@@ -22,9 +22,8 @@ read-only queries to reduce the effect of slow queries on the primary node.
 
 ## Creating a replica of PostgreSQL
 
-1.  Log in to the Aiven web console.
-
-1.  Select the PostgreSQL instance for which you want to create a remote replica.
+1.  In the [MST account][mst-login], select the PostgreSQL instance for which
+    you want to create a remote replica.
 
 1.  In the `Overview` tab, click `Create a read replica`.
 
@@ -38,3 +37,5 @@ When the read-only replica is created it is listed as a service in your
 project. The `Overview` tab of the replica also lists the name of the primary
 service for the replica. To promote a read-only replica as a master database,
 click the `Promote to master` button.
+
+[mst-login]: https://portal.managed.timescale.com

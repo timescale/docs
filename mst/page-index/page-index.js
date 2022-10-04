@@ -123,6 +123,10 @@ module.exports = [
         ],
       },
       {
+        title: "Set up SAML authentication with Okta on MST",
+        href: "saml-okta-mst",
+      },
+      {
         title: "Migrate your data to Managed Service for TimescaleDB",
         href: "migrate-to-mst",
       },
