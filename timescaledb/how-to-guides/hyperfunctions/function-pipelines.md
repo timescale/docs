@@ -549,6 +549,7 @@ need to use them in another pipeline later on. The two types of output are:
 These elements take a `timevector` and run the corresponding aggregate over it
 to produce a result.. The possible elements are:
 *   `average()`
+*   `integral()`
 *   `counter_agg()`
 *   `hyperloglog()`
 *   `stats_agg()`

@@ -1,6 +1,6 @@
 ---
 title: Timescale Cloud security
-excerpt: Learn how your Timescale Cloud instance is secured
+excerpt: Get an overview of security on Timescale Cloud
 product: cloud
 keywords: [security]
 tags: [encryption, VPC, privacy]

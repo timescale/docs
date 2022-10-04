@@ -577,6 +577,14 @@ module.exports = [
                 href: "extrapolated_rate",
               },
               {
+                title: "first_time, last_time",
+                href: "first-last-time-counter",
+              },
+              {
+                title: "first_val, last_val",
+                href: "first-last-val-counter",
+              },
+              {
                 title: "interpolated_delta",
                 href: "interpolated_delta",
               },
@@ -644,8 +652,24 @@ module.exports = [
                 href: "average-time-weight",
               },
               {
+                title: "first_time, last_time",
+                href: "first-last-time-timeweight",
+              },
+              {
+                title: "first_val, last_val",
+                href: "first-last-val-timeweight",
+              },
+              {
+                title: "integral",
+                href: "integral-time-weight",
+              },
+              {
                 title: "interpolated_average",
                 href: "interpolated_average",
+              },
+              {
+                title: "interpolated_integral",
+                href: "interpolated_integral",
               },
             ],
           },
@@ -661,6 +685,10 @@ module.exports = [
               {
                 title: "lttb",
                 href: "lttb",
+              },
+              {
+                title: 'gp_lttb',
+                href: 'gp_lttb',
               },
             ],
           },
