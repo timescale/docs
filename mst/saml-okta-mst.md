@@ -80,7 +80,7 @@ the Managed Service for TimescaleDB login page.
 
 1.  In the `Sign On` tab of the Okta application, click `View Setup Instructions`
     and gather the required information to configure Okta in MST.
-1.  Download the *Certificate file* that you require to configure Okta in MST.
+1.  Download the Certificate file to configure Okta in MST.
 
 </procedure>
 
