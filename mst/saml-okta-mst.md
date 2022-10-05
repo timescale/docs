@@ -6,7 +6,7 @@ product: mst
 
 # Set up authentication
 
-Security Assertion Markup Language (SAML) is a standard for exchanging authentication
+SAML (security assertion markup language) is a standard for exchanging authentication
 and authorization data between an identity provider and a service provider. You can operate
 it with MST so that you and your collaborators can use your company's favorite authentication service.
 
