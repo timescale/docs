@@ -56,15 +56,13 @@ the Managed Service for TimescaleDB login page.
     then click `Next`.
 
 1.  Update the `Configure SAML` page with these values:
-    |Parameter|Example value|Description|
-   |-|-|-|
-   |Single sign on URL|`https://api.timescale.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id/acs`|
-   The value in Timescale Console on the newly created `Authentication method` page.|
-   |Audience URI (SP Entity ID)|`https://api.timescale.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id}/metadata`|
-   The value in Timescale Console on the newly created `Authentication method` page.|
-   |Default Relay State|https://portal.managed.timescale.com/| is the homepage
+    *   Single sign on URL|`https://api.timescale.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id/acs`
+   The value in Timescale Console on the newly created `Authentication method` page.
+    *   Audience URI (SP Entity ID)|`https://api.timescale.io/v1/sso/saml/account/{account_id}/method/{account_authentication_method_id}/metadata`
+   The value in Timescale Console on the newly created `Authentication method` page.
+    *   Default Relay State|https://portal.managed.timescale.com/ the homepage
    of the MST Console and is fundamental for IdP initiated sign-on to function
-   correctly.|
+   correctly.
 
 1.  In the `ATTRIBUTE STATEMENTS`should have an entry with these values:
 
