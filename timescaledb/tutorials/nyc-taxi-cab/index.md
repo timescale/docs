@@ -62,8 +62,8 @@ during that time.
 
 Include reference-style links at the bottom of the page.
 
-[install-docs]: install/:currentVersion:/
-[psql]: timescaledb/:currentVersion:/how-to-guides/connecting/
-[tutorial-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
-[tutorial-query]: timescaledb/tutorials/_template/_query-template
-[tutorial-advanced]: timescaledb/tutorials/_template/_advanced-tutorial
+[install-docs]: /install/:currentVersion:/
+[psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/
+[dataset-iot]: /timescaledb/tutorials/nyc-taxi-cab/dataset-iot/
+[query-iot]: /timescaledb/tutorials/nyc-taxi-cab/query-iot/
+[monitor-iot]: /timescaledb/tutorials/nyc-taxi-cab/monitor-iot/
