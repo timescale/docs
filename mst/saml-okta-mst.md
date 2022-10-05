@@ -78,7 +78,7 @@ the Managed Service for TimescaleDB login page.
 1.  In the `Assignments` tab of the Okta application, click Assign` to assign
     users or groups to the application.
 
-1.  In the `Sign On` tab of the application on Okta, click the `View Setup Instructions`
+1.  In the `Sign On` tab of the Okta application, click `View Setup Instructions`
     and gather the required information to configure Okta in MST.
 1.  Download the *Certificate file* that you require to configure Okta in MST.
 
