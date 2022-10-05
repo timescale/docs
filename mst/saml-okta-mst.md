@@ -4,56 +4,53 @@ excerpt: Learn how to make corporate level configuration like the authentication
 product: mst
 ---
 
-# Set up Security Assertion Markup Language (SAML) authentication with Okta
+# Set up authentication
 
-SAML is a standard for exchanging authentication and authorization data between
-an identity provider and a service provider. You can operate it with MSTso that
-you and your collaborators can use your company's favorite authentication
-service.
-
-The following is the procedure to setup SAML with `Okta <https://www.okta.com/>`.
+SAML (security assertion markup language) is a standard for exchanging authentication
+and authorization data between an identity provider and a service provider. You can operate
+it with MST so that you and your collaborators can use your preferred authentication service.
 
 ## Before you begin
 
 1.  Create a new authentication method in MST.
-1.  Create the Okta application and assign users to the Okta application.
+1.  Create the Okta application and assign users to it.
 
 <procedure>
 
 ## Creating a new authentication method
 
-1.  Login to the [MST account] [mst-login].
+1.  Log in to your [MST account] [mst-login].
 
 1.  Under `PROJECT` in the top left, click the drop down arrow and select `See all projects & accounts`.
 
-1.  Click the `Account` you want to edit or create a new one.
+1.  Click the `Account` you want to edit, or create a new one.
 
 1.  In the `Account page`, select the `Authentication` tab.
 
-1.  Click `Add Authentication Method` and set the `Method Name` as `<OKTA>` and
+1.  Click `Add Authentication Method`. Set the `Method Name` as `<OKTA>` and
     `Method Type` as `SAML`.
 
-1.  Choose the team to add invited people or leave it blank and click `Add`.
+1.  Choose the team to add invited people or leave the field blank and click `Add`.
 
-1.  The two parameter `Metadata URL`, and `ACS URL` to setup the SAML
-    authentication in your Identity Provider appears.
+1.  The system shows two parameters required to set up SAML 
+    authentication in your identity provider: `Metadata URL` and `ACS URL`.
 
 </procedure>
 
 ## Creating the Okta application and assigning users
 
-This is a two step process. First create the SAML SP-Initiated
+This is a two step process. First create the SAML SP-initiated
 authentication flow, then create a bookmark app that redirects to
 the Managed Service for TimescaleDB login page.
 
 <procedure>
 
-1.  Login to the `Admin` portal and navigate to the `Applications` tab.
+1.  Log in to the `Admin` portal and navigate to the `Applications` tab.
 
-1.  Click `Add Application` and click `Create New App` You should see
+1.  Click `Add Application` and click `Create New App`. You should see
     the `Create a new Application Integration` form.
 
-1.  Select `SAML 2.0` for the `Sign on method`, then click `Create`.
+1.  Select `SAML 2.0` for the `Sign on method`, and click `Create`.
 
 1.  In the `Create SAML Integration` set the `App name`, `App logo`, and `App visibility`,
     then click `Next`.
@@ -76,14 +73,14 @@ the Managed Service for TimescaleDB login page.
    |name|`email`|
    |value|`user.email`|
 
-1.  Click `Next` then `Finish`. You will be redirect to your application in Okta.
+1.  Click `Next`, then click Finish`. You are redirected to your application in Okta.
 
-1.  In the `Assignments` tab of the application on Okta, click the `Assign` to assign
+1.  In the `Assignments` tab of the Okta application, click Assign` to assign
     users or groups to the application.
 
-1.  In the `Sign On` tab of the application on Okta, click the `View Setup Instructions`
+1.  In the `Sign On` tab of the Okta application, click `View Setup Instructions`
     and gather the required information to configure Okta in MST.
-1.  Download the *Certificate file* that you require to configure Okta in MST.
+1.  Download the Certificate file to configure Okta in MST.
 
 </procedure>
 
@@ -91,17 +88,17 @@ the Managed Service for TimescaleDB login page.
 
 <procedure>
 
-1.  Login to the [MST account] [mst-login].
-1.  Finalize the configuration on the `Authentication` tab of the `Account page`.
-1.  Add the *Certificate file* in the `SAML Certificate` field.
-1.  Enable the `Enable IdP Login` and `Enable authentication method`.
+1.  Log in to your [MST account] [mst-login].
+1.  In the `Authentication` tab of the `Account page, finalize the configuration.
+1.  In the `SAML Certificate` field, add the Certificate file.
+1.  Check `Enable IdP Login`, and `Enable authentication method`.
 1.  Click `Edit methd` to save the settings.
 
 </procedure>
 
 You can now use the `Account Link URL` on the authentication configuration page
 to link your Okta account and MST profile. You can also invite other members of
-your team to login or signup to MST using Okta with the **Signup link** shown in
+your team to log in or sign up to MST using Okta with the sign up link shown in
 the `Authentication method` page.
 
 ## Troubleshooting
