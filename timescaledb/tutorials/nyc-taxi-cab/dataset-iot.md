@@ -17,7 +17,7 @@ Install Timescale Cloud by signing up for an account. It's free for thirty days.
 
 <Install />
 
-## Create your first service
+## Create a service
 
 <CreateService demoData={false} />
 
@@ -27,12 +27,8 @@ Install Timescale Cloud by signing up for an account. It's free for thirty days.
 
 # The dataset
 
-New York City is home to about 9 million people. This tutorial uses historical
-data from New York's yellow taxi network, provided by the New York City Taxi and
-Limousine Commission [[NYC TLC]](nyc-tlc). The NYC TLC tracks over 200,000
-licensee vehicles completing about 1 million trips each day. Because nearly all
-of this data is time-series data, proper analysis requires a purpose-built
-time-series database, like TimescaleDB.
+This tutorial uses historical data from New York's yellow taxi network, provided
+by the New York City Taxi and Limousine Commission [[NYC TLC]](nyc-tlc).
 
 <CreateHypertable />
 
