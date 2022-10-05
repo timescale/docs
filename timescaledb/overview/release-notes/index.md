@@ -4,48 +4,21 @@ excerpt: New features and fixes are released regularly
 keywords: [upgrade, update, releases]
 ---
 
-# TimescaleDB release notes and future plans
+# TimescaleDB release notes
 
-Interested in what's coming down the pipeline? Review our [Future
-Plans](#future-plans) section. Interested in learning more about what's already
-available? Jump to [What's New][whats-new] to see
-what's been released.
+TimescaleDB is an open-source project with a vibrant community. To get involved,
+join our [community][community].
 
 <highlight type="note">
 Want to stay up-to-date with new releases? Subscribe to get
 [release notes email updates](https://www.timescale.com/signup/release-notes).
 </highlight>
 
-## Future plans
-
-TimescaleDB is an open-source project with a vibrant community. We are currently
-focusing on making our priorities known by that community; we welcome you to
-visit our [Github repo][github-repo] or join our [Slack
-community][timescale-slack].
-
-### What to expect from our next releases
-
-For our next releases, we plan to add:
-
-*   Performance improvements for:
-    *   Inserts and common queries on Multi-node
-    *   Continuous aggregates by removing re-aggregation
-*   Custom origin's support in continuous aggregates with `time_bucket_ng`
-
-You can read more about our architecture and design for distributed hypertables
-[here][distributed-hypertables].
-
-If you have questions about distributed hypertables, join our #multinode channel
-on [community Slack](https://slack.timescale.com/) for installation details and
-follow these [setup instructions][distributed-hypertables-setup].
-
-### What's new in TimescaleDB 2.8:
+## What's new in TimescaleDB 2.8:
 
 *   time_bucket now supports bucketing by month, year and timezone
 *   1 step continuous aggregate policy management
 *   Migrate continuous aggregates to the new format
-
-## Release notes
 
 ## 2.8.0 (2022-08-30)
 
@@ -1825,4 +1798,4 @@ For more information on this release, read the [blog announcement](https://blog.
 [distributed-hypertables-setup]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
 [github-issue]: <https://github.com/timescale/timescaledb/issues/new/choose>
 [github-repo]: <https://github.com/timescale/timescaledb>
-[timescale-slack]: <https://slack.timescale.com>
+[community]: https://www.timescale.com/community/
