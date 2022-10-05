@@ -98,7 +98,7 @@ the Managed Service for TimescaleDB login page.
 
 You can now use the `Account Link URL` on the authentication configuration page
 to link your Okta account and MST profile. You can also invite other members of
-your team to login or signup to MST using Okta with the **Signup link** shown in
+your team to log in or sign up to MST using Okta with the sign up link shown in
 the `Authentication method` page.
 
 ## Troubleshooting
