@@ -23,7 +23,7 @@ it with MST so that you and your collaborators can use your preferred authentica
 
 1.  Under `PROJECT` in the top left, click the drop down arrow and select `See all projects & accounts`.
 
-1.  Click the `Account` you want to edit or create a new one.
+1.  Click the `Account` you want to edit, or create a new one.
 
 1.  In the `Account page`, select the `Authentication` tab.
 
