@@ -10,6 +10,19 @@ module.exports = [
         href: "nyc-taxi-cab",
         tags: ["iot", "query", "learn", "tsc"],
         excerpt: "An introduction to IoT using NYC taxi data",
+        children: [
+          {
+            title: "IoT tutorial - set up",
+            href: "dataset-iot",
+            tags: ["tutorials", "create", "dataset", "iot"],
+            excerpt: "Set up a dataset so you can query IoT data]",
+          },
+          {
+            title: "IoT tutorial - query data",
+            href: "query-iot",
+            tags: ["tutorials", "query", "iot"],
+            excerpt: "Query IoT data]",
+          },
       },
       {
         title: "Introduction to time-series forecasting",
