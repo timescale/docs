@@ -50,7 +50,7 @@ the Managed Service for TimescaleDB login page.
 1.  Click `Add Application` and click `Create New App`. You should see
     the `Create a new Application Integration` form.
 
-1.  Select `SAML 2.0` for the `Sign on method`, then click `Create`.
+1.  Select `SAML 2.0` for the `Sign on method`, and click `Create`.
 
 1.  In the `Create SAML Integration` set the `App name`, `App logo`, and `App visibility`,
     then click `Next`.
