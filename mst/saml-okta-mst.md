@@ -8,7 +8,7 @@ product: mst
 
 SAML (security assertion markup language) is a standard for exchanging authentication
 and authorization data between an identity provider and a service provider. You can operate
-it with MST so that you and your collaborators can use your company's favorite authentication service.
+it with MST so that you and your collaborators can use your preferred authentication service.
 
 ## Before you begin
 
