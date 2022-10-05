@@ -19,7 +19,7 @@ it with MST so that you and your collaborators can use your preferred authentica
 
 ## Creating a new authentication method
 
-1.  Login to the [MST account] [mst-login].
+1.  Log in to your [MST account] [mst-login].
 
 1.  Under `PROJECT` in the top left, click the drop down arrow and select `See all projects & accounts`.
 
