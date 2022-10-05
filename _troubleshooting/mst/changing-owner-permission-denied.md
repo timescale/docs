@@ -4,7 +4,7 @@ section: troubleshooting
 products: [mst]
 topics: [hypertables]
 errors:
-  - language: bash
+  - language: sql
     message: |-
       ERROR: permission denied for schema _timescaledb_internal
 keywords: [hypertables]

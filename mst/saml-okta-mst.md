@@ -106,7 +106,7 @@ the `Authentication method` page.
 
 ### Authentication failed
 
-When launching Aiven SAML application getting the following error::
+When launching MST SAML application getting the following error::
 
    ```bash
    Authentication Failed
@@ -114,7 +114,7 @@ When launching Aiven SAML application getting the following error::
    Login failed.  Please contact your account administrator for more details.
    ```
 
-Check Okta authentication in Aiven console if `Enable IdP login` and `Enable authentication method` are
+Check Okta authentication in MST console if `Enable IdP login` and `Enable authentication method` are
 enabled.
 
 ### Invalid `RelayState`
@@ -125,11 +125,13 @@ Previously, MST did not support IdP-initiated flows, but now it is possible if
 you set the `Default RelayState` in Okta to the corresponding console of your
 account.
 
-### The Okta password does not work
+### [The Okta password does not work
 
-Make sure to use the `Account Link URL` to add the Okta Authentication method to your MST profile.
+Make sure to use the `Account Link URL` to add the Okta Authentication method to
+your MST profile.
 
-After it is linked, you should get the choice of multiple sign-in methods as well as see the other
-Authentication method in `User Information`-> `Authentication` section on the [MST account] [mst-login].
+After it is linked, you should get the choice of multiple sign-in methods as
+well as see the other Authentication method in `User Information`->
+`Authentication` section on the [MST account] [mst-login].
 
-mst-login]: <https://portal.managed.timescale.com>
+[mst-login]: https://portal.managed.timescale.com
