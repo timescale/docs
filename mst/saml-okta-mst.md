@@ -13,7 +13,7 @@ it with MST so that you and your collaborators can use your preferred authentica
 ## Before you begin
 
 1.  Create a new authentication method in MST.
-1.  Create the Okta application and assign users to the Okta application.
+1.  Create the Okta application and assign users to it.
 
 <procedure>
 
