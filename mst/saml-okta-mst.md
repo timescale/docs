@@ -75,7 +75,7 @@ the Managed Service for TimescaleDB login page.
 
 1.  Click `Next`, then click Finish`. You are redirected to your application in Okta.
 
-1.  In the `Assignments` tab of the application on Okta, click the `Assign` to assign
+1.  In the `Assignments` tab of the Okta application, click Assign` to assign
     users or groups to the application.
 
 1.  In the `Sign On` tab of the application on Okta, click the `View Setup Instructions`
