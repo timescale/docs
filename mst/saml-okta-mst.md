@@ -39,7 +39,7 @@ it with MST so that you and your collaborators can use your preferred authentica
 
 ## Creating the Okta application and assigning users
 
-This is a two step process. First create the SAML SP-Initiated
+This is a two step process. First create the SAML SP-initiated
 authentication flow, then create a bookmark app that redirects to
 the Managed Service for TimescaleDB login page.
 
