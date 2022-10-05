@@ -45,7 +45,7 @@ the Managed Service for TimescaleDB login page.
 
 <procedure>
 
-1.  Login to the `Admin` portal and navigate to the `Applications` tab.
+1.  Log in to the `Admin` portal and navigate to the `Applications` tab.
 
 1.  Click `Add Application` and click `Create New App` You should see
     the `Create a new Application Integration` form.
