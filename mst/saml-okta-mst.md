@@ -88,7 +88,7 @@ the Managed Service for TimescaleDB login page.
 
 <procedure>
 
-1.  Login to the [MST account] [mst-login].
+1.  Log in to your [MST account] [mst-login].
 1.  Finalize the configuration on the `Authentication` tab of the `Account page`.
 1.  Add the *Certificate file* in the `SAML Certificate` field.
 1.  Enable the `Enable IdP Login` and `Enable authentication method`.
