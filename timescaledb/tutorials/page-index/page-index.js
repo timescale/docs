@@ -23,6 +23,7 @@ module.exports = [
             tags: ["tutorials", "query", "iot"],
             excerpt: "Query IoT data]",
           },
+        ],
       },
       {
         title: "Introduction to time-series forecasting",
