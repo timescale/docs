@@ -32,8 +32,8 @@ it with MST so that you and your collaborators can use your preferred authentica
 
 1.  Choose the team to add invited people or leave the field blank and click `Add`.
 
-1.  The two parameter `Metadata URL`, and `ACS URL` to setup the SAML
-    authentication in your Identity Provider appears.
+1.  The system shows two parameters required to set up SAML 
+    authentication in your identity provider: `Metadata URL` and `ACS URL`.
 
 </procedure>
 
