@@ -27,7 +27,7 @@ it with MST so that you and your collaborators can use your preferred authentica
 
 1.  In the `Account page`, select the `Authentication` tab.
 
-1.  Click `Add Authentication Method` and set the `Method Name` as `<OKTA>` and
+1.  Click `Add Authentication Method`. Set the `Method Name` as `<OKTA>` and
     `Method Type` as `SAML`.
 
 1.  Choose the team to add invited people or leave it blank and click `Add`.
