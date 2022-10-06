@@ -45,7 +45,7 @@ You can install Promscale Connector with Timescale Cloud in these environments:
 *   **Docker**: use a [pre-built Docker container][promscale-install-docker].
 *   **VM or bare metal**: use the [source][promscale-install-source] file.
 
-You can also use our [prom-migrator tool][promscale-install-prom-migrator] to
+You can also use the [prom-migrator tool][promscale-install-prom-migrator] to
 migrate your existing Prometheus data into Promscale.
 
 When you have Promscale installed, you can configure
@@ -55,8 +55,6 @@ When you have Promscale installed, you can configure
 [config-jaeger]: /promscale/:currentVersion:/send-data/jaeger/
 [config-otel]: /promscale/:currentVersion:/send-data/opentelemetry/
 [config-prometheus]: /promscale/:currentVersion:/send-data/prometheus/
-[otel]: https://opentelemetry.io/docs/
-[prometheus-install]: https://prometheus.io/docs/prometheus/latest/installation/
 [promscale-install-docker]: /promscale/:currentVersion:/installation/promscale-with-timescale-cloud/docker/
 [promscale-install-helm]: https://docs.timescale.com/promscale/latest/installation/promscale-with-timescale-cloud/kubernetes/#install-promscale-with-helm
 [promscale-install-k8s-manifest]: /promscale/:currentVersion:/installation/promscale-with-timescale-cloud/kubernetes/#install-promscale-with-a-manifest-file

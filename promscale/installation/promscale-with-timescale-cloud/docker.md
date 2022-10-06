@@ -47,7 +47,7 @@ example.
 
 <PromscaleSendData />
 
-For upgrading the Promscale, see the [upgrade] section.
+For upgrading the Promscale, see the [upgrade][upgrade-promscale] section.
 
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags

@@ -91,6 +91,5 @@ manifest file.
 <PromscaleSendData />
 
 [install-helm]: /promscale/:currentVersion:/installation/kubernetes/#install-promscale-with-helm
-[send-data]: /promscale/:currentVersion:/send-data/
 [template-manifest]: https://github.com/timescale/promscale/blob/0.14.0/deploy/static/deploy.yaml
 [create-service]: /promscale/:currentVersion:/installation/promscale-with-timescale-cloud/
