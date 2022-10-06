@@ -30,7 +30,7 @@ example only.
 ### Installing Promscale using Docker
 
 1.  Run the [Promscale Connector][promscale-docker-image] container on a network
-    named `promscale`. It also port forwards to port `9201` on your local system:
+    named `promscale`. Set the port forwards to port `9201` on your local system:
 
     ```bash
     docker run --name promscale -d -p 9201:9201 \
