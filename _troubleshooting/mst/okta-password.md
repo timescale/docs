@@ -10,7 +10,7 @@ keywords: [authentication, SAML, Okta]
 tags: [mst]
 ---
 
-Make sure to use the `Account Link URL` to add the Okta Authentication method to
+Make sure you use the `Account Link URL` to add the Okta Authentication method to
 your MST profile.
 
 After it is linked, you should get the choice of multiple sign-in methods as
