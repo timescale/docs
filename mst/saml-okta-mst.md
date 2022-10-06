@@ -121,7 +121,7 @@ enabled.
 ### Invalid `RelayState`
 
 If you get an `Invalid RelayState` error, then you are attempting an IdP-initiated
-auth flow, for example by clicking the MST SAML app from the Okta UI.
+authentication flow. This can happen if you click the MST SAML app from the Okta UI.
 Previously, MST did not support IdP-initiated flows, but now it is possible if
 you set the `Default RelayState` in Okta to the corresponding console of your
 account.
