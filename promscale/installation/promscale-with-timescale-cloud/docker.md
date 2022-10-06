@@ -13,7 +13,7 @@ import PromscaleSendData from "versionContent/_partials/_promscale-send-data.mdx
 
 # Install Promscale Connector using a Docker image with Timescale Cloud
 
-<highlight type="important">
+<highlight type="warning">
 Running Promscale directly using `docker run` is not recommended for production
 environments. This can be useful for testing purposes and is just provided as an
 example.
