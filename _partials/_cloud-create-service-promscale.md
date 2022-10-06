@@ -7,7 +7,7 @@ Each service contains a single database, named `tsdb`.
 
 1.  Sign in to the [Timescale Cloud portal][timescale-cloud]
 1.  Click `Create service`.
-1.  Click  `Advanced configuration` and set the `Region`, `Compute`and `Disk size`
+1.  Click  `Advanced configuration` and set the `Region`, `Compute`, and `Disk size`
     for the service.
     To store your observability data it is recommended that you allocate
     a minimum of 4 CPU, 16 GB of Memory and 50 GB of disk that is equivalent to
