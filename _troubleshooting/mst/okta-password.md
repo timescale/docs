@@ -15,6 +15,6 @@ your MST profile.
 
 After it is linked, you get a choice of authentication methods, and 
 can see the other authentication method in the`User Information`->
-`Authentication` section on the [MST account] [mst-login].
+`Authentication` section in your [MST account] [mst-login].
 
 [mst-login]: https://portal.managed.timescale.com
