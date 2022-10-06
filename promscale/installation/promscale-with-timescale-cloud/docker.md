@@ -21,9 +21,9 @@ example only.
 
 ## Before you begin
 
-*   Install Docker on your local system. For packages and instructions, see 
-    the [Docker installation documentation][docker-install].
-*   Create a [TimescaleDB service] [create-service] on Timescale Cloud.
+1.   Install Docker on your local system. For packages and instructions, see 
+     the [Docker installation documentation][docker-install].
+1.  Create a [TimescaleDB service][create-service] on Timescale Cloud.
 
 <procedure>
 
