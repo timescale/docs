@@ -114,7 +114,8 @@ When you launch the MST SAML application, you might get this error:
    Login failed.  Please contact your account administrator for more details.
    ```
 
-Check Okta authentication in MST console if `Enable IdP login` and `Enable authentication method` are
+Check Okta authentication in the MST console, and make sure that Enable IdP login` 
+and `Enable authentication method` are
 enabled.
 
 ### Invalid `RelayState`
