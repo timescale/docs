@@ -126,7 +126,7 @@ Previously, MST did not support IdP-initiated flows, but now it is possible if
 you set the `Default RelayState` in Okta to the corresponding console of your
 account.
 
-### [The Okta password does not work
+### The Okta password does not work
 
 Make sure you use the `Account Link URL` to add the Okta Authentication method to
 your MST profile.
