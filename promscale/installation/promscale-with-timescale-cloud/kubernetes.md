@@ -22,7 +22,7 @@ You can install Promscale on Kubernetes using Helm or using a manifest file.
 
 *   Install Helm. For more information, including packages and installation
     instructions, see the [Helm documentation][install-helm].
-*   Create a [TimescaleDB service] [create-service] on Timescale Cloud.
+*   Create a [TimescaleDB service][create-service] on Timescale Cloud.
 
 ### Install the Promscale using Helm chart
 
