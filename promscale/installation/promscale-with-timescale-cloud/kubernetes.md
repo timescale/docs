@@ -63,8 +63,7 @@ can provide the database URI, or specify connection parameters.
 
 ### Install Promscale with a manifest file
 
-This section includes instructions to install the Promscale Connector using a
-manifest file.
+You can install the Promscale Connector using a manifest file.
 
 <procedure>
 
