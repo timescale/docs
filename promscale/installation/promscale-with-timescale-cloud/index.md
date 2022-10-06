@@ -15,7 +15,7 @@ import CreateServicePromscale from "versionContent/_partials/_cloud-create-servi
 # Install Promscale with Timescale cloud
 
 You can install Promscale with Timescale Cloud by running Promscale Connector on
-and leverag the Timescale Cloud as the storage layer for your observability data.
+and leverage the Timescale Cloud as the storage layer for your observability data.
 To get started with Promscale with Timescale Cloud first create a Timescale Cloud
 service and then install Promscale Connector.
 
@@ -62,3 +62,5 @@ When you have Promscale installed, you can configure
 [promscale-install-k8s-manifest]: /promscale/:currentVersion:/installation/promscale-with-timescale-cloud/kubernetes/#install-promscale-with-a-manifest-file
 [promscale-install-prom-migrator]: /promscale/:currentVersion:/guides/prom-migrator/
 [promscale-install-source]: /promscale/:currentVersion:/installation/promscale-with-timescale-cloud/binary/
+[timescale-features]: https://www.timescale.com/products/#Features
+[sign-up]: https://www.timescale.com/timescale-signup

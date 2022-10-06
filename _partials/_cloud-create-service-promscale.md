@@ -5,14 +5,14 @@ Each service contains a single database, named `tsdb`.
 
 ### Creating your first service
 
-1.  Sign in to the [Timescale Clou portal][https://console.cloud.timescale.com/]
+1.  Sign in to the [Timescale Cloud portal][timescale-cloud]
 1.  Click `Create service`.
-1.  Click  `Advanced configuration` and and set the `Region`, `Compute`and `Disk size`
+1.  Click  `Advanced configuration` and set the `Region`, `Compute`and `Disk size`
     for the service.
     To store your observability data it is recommended that you allocate
-    a minimum of 4 CPUs, 16GB of Memory and 50GB of disk that is equivalent to 840GB
-    of uncompressed data. You can scale up this configuration later when your data
-    ingestion and query rate increases.
+    a minimum of 4 CPU, 16 GB of Memory and 50 GB of disk that is equivalent to
+    840 GB of uncompressed data. You can scale up this configuration later when
+    your data ingestion and query rate increases.
 1.  Click `Create service`. When you have a service up and running, you can connect
     to the service.
 1.  In the `Services` tab, find the service you want to connect to, and check
@@ -21,3 +21,5 @@ Each service contains a single database, named `tsdb`.
     information. Take a note of the `Service URL`.
 
 </procedure>
+
+[timescale-cloud]: https://console.cloud.timescale.com/

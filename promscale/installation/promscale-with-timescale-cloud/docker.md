@@ -29,8 +29,8 @@ example.
 
 ### Installing Promscale using Docker
 
-1.  Run the Promscale Connector Docker container on a network named `promscale`.
-    It also port forwards to port `9201` on your local system:
+1.  Run the [Promscale Connector][promscale-docker-image] container on a network
+    named `promscale`. It also port forwards to port `9201` on your local system:
 
     ```bash
     docker run --name promscale -d -p 9201:9201 \
@@ -51,5 +51,5 @@ For upgrading the Promscale, see the [upgrade] section.
 
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
-[promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
 [create-service]: /promscale/:currentVersion:/installation/promscale-with-timescale-cloud/
+[upgrade-promscale]: /promscale/:currentVersion:/guides/upgrade/

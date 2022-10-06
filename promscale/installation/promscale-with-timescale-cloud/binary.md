@@ -9,6 +9,8 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
+import PromscaleSendData from 'versionContent/_partials/_promscale-send-data.mdx';
+
 # Install Promscale from binary
 
 You can install Promscale from a pre-complied binary on any operating systems. The
@@ -53,6 +55,8 @@ Download the Promscale binary file and run the file.
 </highlight>
 
 </procedure>
+
+<PromscaleSendData />
 
 [gh-promscale-download]: https://github.com/timescale/promscale/releases
 [releases]: https://github.com/timescale/promscale/releases/
