@@ -76,14 +76,14 @@ Create a topN aggregate over the `country` column of the `users` table. Targets
 the top 10 most-frequent values:
 
 ```sql
-CREATE toolkit_experimental.topn_agg(10, country) FROM users;
+SELECT toolkit_experimental.topn_agg(10, country) FROM users;
 ```
 
 Create a topN aggregate over the `type` column of the `devices` table. Estimates
 the skew of the data to be 1.05, and targets the 5 most-frequent values:
 
 ```sql
-CREATE toolkit_experimental.topn_agg(5, 1.05, type) FROM devices;
+SELECT toolkit_experimental.topn_agg(5, 1.05, type) FROM devices;
 ```
 
 Get the 20 most frequent `zip_code` values of the `employees` table. Uses
