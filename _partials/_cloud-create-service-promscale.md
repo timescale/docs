@@ -10,8 +10,8 @@ Each service contains a single database, named `tsdb`.
 1.  Click  `Advanced configuration` and set the `Region`, `Compute`, and `Disk size`
     for the service.
     To store your observability data it is recommended that you allocate
-    a minimum of 4 CPU, 16 GB of Memory and 50 GB of disk that is equivalent to
-    840 GB of uncompressed data. You can scale up this configuration later when
+    at least 4&nbsp;CPU, 16&nbsp;GB of memory, and 50&nbsp;GB of disk equivalent to
+    840&nbsp;GB of uncompressed data. You can scale up this configuration later if
     your data ingestion and query rate increases.
 1.  Click `Create service`. When you have a service up and running, you can connect
     to the service.
