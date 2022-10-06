@@ -9,7 +9,9 @@ related_pages:
   - /promscale/:currentVersion:/send-data/
 ---
 
-# Install Promscale Connector using a Docker image with Timescale cloud
+import PromscaleSendData from "versionContent/_partials/_promscale-send-data.mdx";
+
+# Install Promscale Connector using a Docker image with Timescale Cloud
 
 <highlight type="important">
 Running Promscale directly using `docker run` is not recommended for production
@@ -17,10 +19,11 @@ environments. This can be useful for testing purposes and is just provided as an
 example.
 </highlight>
 
-## Install Promscale with Docker
+## Before you begin
 
-Before you begin, you must have Docker installed on your local system. For
-packages and instructions, see the [Docker installation documentation][docker-install].
+*   Install Docker on your local system. For packages and instructions, see 
+    the [Docker installation documentation][docker-install].
+*   Create a [TimescaleDB service] [create-service] on Timescale Cloud.
 
 <procedure>
 
@@ -35,9 +38,10 @@ packages and instructions, see the [Docker installation documentation][docker-in
     ```
 
     <highlight type="note">
-    Replace `&lt;TS_CLOUD_DB_URI&gt;` with the `DB_URI` you copied on service creation in Timescale cloud. [Here](/promscale/:currentVersion:/installation/promscale-with-timescale-cloud/#create-a-timescale-cloud-service) are the steps to create Timescale cloud service, 
-    if you haven't created one already.
-    </highlight>
+    Replace `&lt;TS_CLOUD_DB_URI&gt;` with the `Service URL` that you made note of
+    when you created the TimescaleDB service.
+
+</highlight>
 
 </procedure>
 
@@ -48,3 +52,4 @@ For upgrading the Promscale, see the [upgrade] section.
 [docker-install]: https://docs.docker.com/get-docker/
 [promscale-docker-image]: https://hub.docker.com/r/timescale/promscale/tags
 [promscale-install-kubernetes]: /promscale/:currentVersion:/installation/kubernetes/
+[create-service]: /promscale/:currentVersion:/installation/promscale-with-timescale-cloud/

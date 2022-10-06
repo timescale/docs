@@ -8,28 +8,42 @@ related_pages:
   - /promscale/:currentVersion:/guides/resource-recomm/
   - /promscale/:currentVersion:/send-data/
 ---
+
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateServicePromscale from "versionContent/_partials/_cloud-create-service-promscale.mdx";
+
 # Install Promscale with Timescale cloud
 
-You can install Promscale with Timescale cloud by running Promscale Connector on your end and by leveraging the Timescale cloud as the storage layer for your observability data. To get started 
-with Promscale with Timescale cloud first you have to create a Timescale cloud service and next install Promscale Connector on the desired environment.
+You can install Promscale with Timescale Cloud by running Promscale Connector on
+and leverag the Timescale Cloud as the storage layer for your observability data.
+To get started with Promscale with Timescale Cloud first create a Timescale Cloud
+service and then install Promscale Connector.
 
-## Create a Timescale cloud managed service
+## Install Timescale Cloud
 
-Before diving into the Promscale Connector, let’s first create a Timescale Cloud service  (i.e., a TimescaleDB instance) to store our observability data: 
+Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
+quickly spin up new TimescaleDB instances. You can
+[try Timescale Cloud for free][sign-up], no credit card required.
 
-1. If you are new to Timescale Cloud, create an account (**free for 30 days, no credit card required**) and log in. 
-2. Once you’re in the Services page, click on “Create service” in the top right, and select “Advanced options”. 
-3. A configuration screen will appear, in which you will be able to select the compute and storage of your new service. To store your observability data, we recommend that you allocate a minimum of 4 CPUs, 16GB of Memory, and 50GB of disk (equivalent to 840GB of uncompressed data) as a starting point. You can scale up this setup as you need it, once your data ingestion and query rate increase. 
-4. Once you’re done, click on “Create service”.
-5. Wait for the service creation to complete, and copy the service URL highlighted with the red rectangle in the screenshot below. You will need it later! 
+Powered by [TimescaleDB][timescale-features], Timescale Cloud is an innovative
+and cost-effective way to store and analyze your time-series data. Get started
+super fast with demo data, or your own dataset, and enjoy the security of
+automated upgrades and backups.
 
+<Install />
+
+## Create a service on Timescale Cloud
+
+</CreateServicePromscale>
 
 ## Install Promscale Connector with Timescale cloud
 
-You can install Promscale Connector with Timescale cloud in below environments:
-* **Kubernetes**: use [Helm charts][promscale-install-helm] or [a manifest][promscale-install-k8s-manifest] file.
-* **Docker**: use a [pre-built Docker container][promscale-install-docker].
-* **VM or bare metal**: use the [source][promscale-install-source] file.
+You can install Promscale Connector with Timescale Cloud in these environments:
+
+*   **Kubernetes**: use [Helm charts][promscale-install-helm] or 
+    [a manifest][promscale-install-k8s-manifest] file.
+*   **Docker**: use a [pre-built Docker container][promscale-install-docker].
+*   **VM or bare metal**: use the [source][promscale-install-source] file.
 
 You can also use our [prom-migrator tool][promscale-install-prom-migrator] to
 migrate your existing Prometheus data into Promscale.
