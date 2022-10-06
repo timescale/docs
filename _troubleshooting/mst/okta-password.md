@@ -14,7 +14,7 @@ Make sure you use the `Account Link URL` to add the Okta Authentication method t
 your MST profile.
 
 After it is linked, you get a choice of authentication methods, and 
-well as see the other Authentication method in `User Information`->
+can see the other authentication method in the`User Information`->
 `Authentication` section on the [MST account] [mst-login].
 
 [mst-login]: https://portal.managed.timescale.com
