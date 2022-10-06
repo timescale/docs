@@ -24,20 +24,21 @@ other useful statistics for deciding what the new schedule should be.
 
 |Name|Type|Description|
 |-|-|-|
-|`job_id`|INTEGER|The ID of the policy job being modified|
+|`job_id`|`INTEGER`|The ID of the policy job being modified|
 
 ### Optional arguments
 
 |Name|Type|Description|
 |-|-|-|
-|`schedule_interval`|INTERVAL|The interval at which the job runs. Defaults to 24 hours|
-|`max_runtime`|INTERVAL|The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped|
-|`max_retries`|INTEGER|The number of times the job is retried if it fails|
-|`retry_period`|INTERVAL|The amount of time the scheduler waits between retries of the job on failure|
-|`scheduled`|BOOLEAN|Set to `FALSE` to exclude this job from being run as background job|
-|`config`|JSONB|Job-specific configuration, passed to the function when it runs|
-|`next_start`|TIMESTAMPTZ|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`|
-|`if_exists`|BOOLEAN|Set to `true`to issue a notice instead of an error if the job does not exist. Defaults to false.|
+|`schedule_interval`|`INTERVAL`|The interval at which the job runs. Defaults to 24 hours|
+|`max_runtime`|`INTERVAL`|The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped|
+|`max_retries`|`INTEGER`|The number of times the job is retried if it fails|
+|`retry_period`|`INTERVAL`|The amount of time the scheduler waits between retries of the job on failure|
+|`scheduled`|`BOOLEAN`|Set to `FALSE` to exclude this job from being run as background job|
+|`config`|`JSONB`|Job-specific configuration, passed to the function when it runs|
+|`next_start`|`TIMESTAMPTZ`|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`|
+|`if_exists`|`BOOLEAN`|Set to `true`to issue a notice instead of an error if the job does not exist. Defaults to false.|
+|`check_config`|`REGPROC`|A function that takes a single argument, the `JSONB` `config` structure. The function is expected to raise an error if the configuration is valid, and return nothing otherwise. Can be used to validate the configuration when updating a job. Only functions, not procedures, are allowed as values for `check_config`.|
 
 When a job begins, the `next_start` parameter is set to `infinity`. This
 prevents the job from attempting to be started again while it is running. When
@@ -48,14 +49,15 @@ automatically updated to the next computed start time.
 
 |Column|Type|Description|
 |-|-|-|
-|`job_id`|INTEGER|The ID of the job being modified|
-|`schedule_interval`|INTERVAL|The interval at which the job runs. Defaults to 24 hours|
-|`max_runtime`|INTERVAL|The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped|
+|`job_id`|`INTEGER`|The ID of the job being modified|
+|`schedule_interval`|`INTERVAL`|The interval at which the job runs. Defaults to 24 hours|
+|`max_runtime`|`INTERVAL`|The maximum amount of time the job is allowed to run by the background worker scheduler before it is stopped|
 |`max_retries`|INTEGER|The number of times the job is retried if it fails|
-|`retry_period`|INTERVAL|The amount of time the scheduler waits between retries of the job on failure|
-|`scheduled`|BOOLEAN|Returns `true` if the job is executed by the TimescaleDB scheduler|
-|`config`|JSONB|Job-specific configuration, passed to the function when it runs|
-|`next_start`|TIMESTAMPTZ|The next time to run the job|
+|`retry_period`|`INTERVAL`|The amount of time the scheduler waits between retries of the job on failure|
+|`scheduled`|`BOOLEAN`|Returns `true` if the job is executed by the TimescaleDB scheduler|
+|`config`|`JSONB`|Job-specific configuration, passed to the function when it runs|
+|`next_start`|`TIMESTAMPTZ`|The next time to run the job|
+|`check_config`|`TEXT`|The function used to validate updated job configurations|
 
 ### Sample usage
 
