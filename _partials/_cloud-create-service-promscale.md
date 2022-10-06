@@ -13,8 +13,7 @@ Each service contains a single database, named `tsdb`.
     at least 4&nbsp;CPU, 16&nbsp;GB of memory, and 50&nbsp;GB of disk equivalent to
     840&nbsp;GB of uncompressed data. You can scale up this configuration later if
     your data ingestion and query rate increases.
-1.  Click `Create service`. When you have a service up and running, you can connect
-    to the service.
+1.  Click `Create service`.
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
 1.  Click the name of the service you want to connect to see the connection
