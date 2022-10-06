@@ -106,7 +106,7 @@ the `Authentication method` page.
 
 ### Authentication failed
 
-When launching MST SAML application getting the following error::
+When you launch the MST SAML application, you might get this error:
 
    ```bash
    Authentication Failed
