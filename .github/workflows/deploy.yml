@@ -2,6 +2,9 @@ name: Deploy docs to dev
 
 on: pull_request
 
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
 jobs:
   trigger:
     if: github.repository == 'timescale/docs'
@@ -23,7 +26,7 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: timescale/web-documentation
           event-type: build-docs-content
-          client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "staging_branch": "${{ steps.timescale.outputs.STAGING_BRANCH }}", "pr_number": "${{github.event.pull_request.number}}"}'
+          client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "staging_branch": "${{ steps.timescale.outputs.STAGING_BRANCH }}", "pr_number": "${{ env.PR_NUMBER }}"}'
 
       - name: Write comment
         uses: marocchino/sticky-pull-request-comment@39c5b5dc7717447d0cba270cd115037d32d28443
