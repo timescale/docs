@@ -75,9 +75,10 @@ You can install the Promscale Connector using a manifest file.
     curl https://raw.githubusercontent.com/timescale/promscale/0.14.0/deploy/static/deploy.yaml --output promscale-connector.yaml
     ```
 
-1.  Edit the manifest and configure the TimescaleDB database details by adding the
-    parameter `<PROMSCALE_DB_URI>` in promscale secret and remove the other `<PROMSCALE_DB_*>`
-    parameters because Promscale Connector integrates with Timescale Cloud.
+1.  Edit the manifest and configure the TimescaleDB database details. Add the
+    `<PROMSCALE_DB_URI>` parameter in `promscale secret`, and remove the 
+    other `<PROMSCALE_DB_*>` parameters. These are not required, because 
+    Promscale Connector integrates with Timescale Cloud directly.
 
 1.  Deploy the manifest:
 
