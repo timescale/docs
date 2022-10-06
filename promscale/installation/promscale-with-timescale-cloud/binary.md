@@ -18,8 +18,8 @@ Promscale binary file is available at [GitHub releases page][gh-promscale-downlo
 
 ## Before you begin
 
-*   Ensure that you have a working Prometheus or OpenTelemetry collector environment.
-*   Create a [TimescaleDB service] [create-service] on Timescale Cloud.
+1.   Ensure that you have a working Prometheus or OpenTelemetry collector environment.
+1.   Create a [TimescaleDB service] [create-service] on Timescale Cloud.
 
 ## Install the Promscale pre-compiled binary
 
