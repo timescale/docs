@@ -52,11 +52,9 @@ can provide the database URI, or specify connection parameters.
     helm install <RELEASE_NAME> timescale/promscale --set connection.uri=<TS_CLOUD_DB_URI>
     ```
 
-<highlight type="note">
-Replace `&lt;RELEASE_NAME&gt;` with the name of your choice and
-`&lt;TS_CLOUD_DB_URI&gt;` with the `Service URL` that you made note of when
-you created the TimescaleDB service.
-</highlight>
+    Replace `RELEASE_NAME` with the name of your choice and `TS_CLOUD_DB_URI` with
+    the `Service URL` that you made note of when you created the TimescaleDB
+    service.
 
 </procedure>
 
