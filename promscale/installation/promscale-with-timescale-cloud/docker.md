@@ -13,6 +13,10 @@ import PromscaleSendData from "versionContent/_partials/_promscale-send-data.mdx
 
 # Install Promscale Connector using a Docker image with Timescale Cloud
 
+You can install Promscale Connector from a Docker container using
+Timescale Cloud. This is useful for developing a proof of concept, or
+for testing purposes. Do not use this method in a production environment.
+
 <highlight type="warning">
 Running Promscale from a Docker container is not suitable for production
 environments. This can be useful for testing purposes and is provided here as an

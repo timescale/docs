@@ -11,6 +11,7 @@ related_pages:
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";
 import CreateServicePromscale from "versionContent/_partials/_cloud-create-service-promscale.mdx";
+import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 # Install Promscale with Timescale cloud
 
@@ -21,14 +22,7 @@ service, and then install Promscale Connector.
 
 ## Install Timescale Cloud
 
-Timescale Cloud is a hosted, cloud-native TimescaleDB service that allows you to
-quickly spin up new TimescaleDB instances. You can
-[try Timescale Cloud for free][sign-up], no credit card required.
-
-Powered by [TimescaleDB][timescale-features], Timescale Cloud is an innovative
-and cost-effective way to store and analyze your time-series data. Get started
-super fast with demo data, or your own dataset, and enjoy the security of
-automated upgrades and backups.
+<CloudIntro />
 
 <Install />
 
