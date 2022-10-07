@@ -32,7 +32,7 @@ Shows information about all jobs registered with the automation framework.
 |`hypertable_schema`|`TEXT`|Schema name of the hypertable. Set to `NULL` for user-defined action|
 |`hypertable_name`|`TEXT`|Table name of the hypertable. Set to `NULL` for user-defined action|
 |`check_schema`|`TEXT`|Schema name of the optional configuration validation function, set when the job is created or updated|
-|`check_table`|`TEXT`|Table name of the optional configuration validation function, set when the job is created or updated|
+|`check_name`|`TEXT`|Name of the optional configuration validation function, set when the job is created or updated|
 
 ### Sample use
 
@@ -56,7 +56,7 @@ next_start        | 2020-10-02 12:38:07.014042-04
 hypertable_schema | _timescaledb_internal
 hypertable_name   | _materialized_hypertable_2
 check_schema      | _timescaledb_internal
-check_table       | policy_refresh_continuous_aggregate_check
+check_name       | policy_refresh_continuous_aggregate_check
 ```
 
 Find all jobs related to compression policies:
@@ -79,7 +79,7 @@ next_start        | 2020-10-18 01:31:40.493764-04
 hypertable_schema | public
 hypertable_name   | conditions
 check_schema      | _timescaledb_internal
-check_table       | policy_compression_check
+check_name        | policy_compression_check
 ```
 
 Find jobs that are run by user defined actions:
