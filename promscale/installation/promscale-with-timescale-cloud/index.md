@@ -16,9 +16,9 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 # Install Promscale with Timescale cloud
 
 You can install Promscale with Timescale Cloud by running Promscale Connector.
-This allows you to use Timescale Cloud as the storage layer for your observability data.
-To get started with Promscale on Timescale Cloud, create a Timescale Cloud
-service, and then install Promscale Connector.
+This allows you to use Timescale Cloud as the storage layer for your
+observability data. To get started with Promscale on Timescale Cloud, create a
+Timescale Cloud service, and then install Promscale Connector.
 
 ## Install Timescale Cloud
 

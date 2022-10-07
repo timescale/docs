@@ -52,11 +52,10 @@ can provide the database URI, or specify connection parameters.
     helm install <RELEASE_NAME> timescale/promscale --set connection.uri=<TS_CLOUD_DB_URI>
     ```
 
-    <highlight type="note">
-    Replace `&lt;RELEASE_NAME&gt;` with the name of your choice and
-    `&lt;TS_CLOUD_DB_URI&gt;` with the `Service URL` that you made note of when
-    you created the TimescaleDB service.
-
+<highlight type="note">
+Replace `&lt;RELEASE_NAME&gt;` with the name of your choice and
+`&lt;TS_CLOUD_DB_URI&gt;` with the `Service URL` that you made note of when
+you created the TimescaleDB service.
 </highlight>
 
 </procedure>
@@ -76,8 +75,8 @@ You can install the Promscale Connector using a manifest file.
     ```
 
 1.  Edit the manifest and configure the TimescaleDB database details. Add the
-    `<PROMSCALE_DB_URI>` parameter in `promscale secret`, and remove the 
-    other `<PROMSCALE_DB_*>` parameters. These are not required, because 
+    `<PROMSCALE_DB_URI>` parameter in `promscale secret`, and remove the
+    other `<PROMSCALE_DB_*>` parameters. These are not required, because
     Promscale Connector integrates with Timescale Cloud directly.
 
 1.  Deploy the manifest:
