@@ -5,9 +5,7 @@ keywords: [noun, verb, tutorial]
 tags: [noun, noun]
 ---
 
-<!-- markdown-link-check-disable -->
-
-# Verb the widget in the tool
+# Analyze IoT data with NYC tax cabs
 
 New York City is home to about 9 million people. This tutorial uses historical
 data from New York's yellow taxi network, provided by the New York City Taxi and
