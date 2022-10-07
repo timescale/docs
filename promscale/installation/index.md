@@ -31,7 +31,7 @@ on these environments:
 *   **Docker**: use a [pre-built Docker container][promscale-install-docker].
 *   **VM or bare metal**: use the [source][promscale-install-source] file.
 
-You can also use our [prom-migrator tool][promscale-install-prom-migrator] to
+You can also use the [prom-migrator tool][promscale-install-prom-migrator] to
 migrate your existing Prometheus data into Promscale.
 
 When you have Promscale installed, you can configure

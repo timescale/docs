@@ -15,7 +15,7 @@ import CloudIntro from "versionContent/_partials/_cloud-intro.mdx";
 
 # Install Promscale with Timescale cloud
 
-You can install Promscale with Timescale Cloud by running Promscale Connector. 
+You can install Promscale with Timescale Cloud by running Promscale Connector.
 This allows you to use Timescale Cloud as the storage layer for your observability data.
 To get started with Promscale on Timescale Cloud, create a Timescale Cloud
 service, and then install Promscale Connector.
@@ -28,13 +28,13 @@ service, and then install Promscale Connector.
 
 ## Create a service on Timescale Cloud
 
-</CreateServicePromscale>
+<CreateServicePromscale />
 
 ## Install Promscale Connector with Timescale cloud
 
 You can install Promscale Connector with Timescale Cloud in these environments:
 
-*   **Kubernetes**: use [Helm charts][promscale-install-helm] or 
+*   **Kubernetes**: use [Helm charts][promscale-install-helm] or
     [a manifest][promscale-install-k8s-manifest] file.
 *   **Docker**: use a [pre-built Docker container][promscale-install-docker].
 *   **VM or bare metal**: use the [source][promscale-install-source] file.
@@ -43,7 +43,7 @@ You can also use the [prom-migrator tool][promscale-install-prom-migrator] to
 migrate your existing Prometheus data into Promscale.
 
 When you have Promscale installed, you can configure
-[Prometheus][config-prometheus], [OpenTelemetry][config-otel] and 
+[Prometheus][config-prometheus], [OpenTelemetry][config-otel] and
 [Jaeger][config-jaeger] to send data to Promscale.
 
 [config-jaeger]: /promscale/:currentVersion:/send-data/jaeger/
