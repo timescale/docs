@@ -34,15 +34,14 @@ example only.
 ### Installing Promscale using Docker
 
 1.  Run the [Promscale Connector][promscale-docker-image] container on a network
-    named `promscale`. Set the port forwards to port `9201` on your local system:
+    named `promscale`. Set the port forwards to port `9201` on your local
+    system. Replace `TS_CLOUD_DB_URI` with the `Service URL` that you made note
+    of when you created the TimescaleDB service:
 
     ```bash
     docker run --name promscale -d -p 9201:9201 \
     -db.uri=<TS_CLOUD_DB_URI>
     ```
-
-    Replace `TS_CLOUD_DB_URI` with the `Service URL` that you made note
-    of when you created the TimescaleDB service.
 
 </procedure>
 

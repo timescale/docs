@@ -43,14 +43,13 @@ Download the Promscale binary file and run the file.
     chmod +x promscale
     ```
 
-1.  Run Promscale with the connection details for your TimescaleDB service:
+1.  Run Promscale with the connection details for your TimescaleDB service.
+    Replace `TS_CLOUD_DB_URI` with the `Service URL` that you made note of when
+    you created the TimescaleDB service:
 
     ```bash
     ./promscale --db-uri <TS_CLOUD_DB_URI>
     ```
-
-    Replace `TS_CLOUD_DB_URI` with the `Service URL` that you made note of
-    when you created the TimescaleDB service.
 
 </procedure>
 

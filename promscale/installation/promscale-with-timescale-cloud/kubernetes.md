@@ -46,15 +46,13 @@ can provide the database URI, or specify connection parameters.
     helm repo update
     ```
 
-1.  Install the Promscale Helm chart:
+1.  Install the Promscale Helm chart. Replace `RELEASE_NAME` with the name of
+    your choice and `TS_CLOUD_DB_URI` with the `Service URL` that you made note
+    of when you created the TimescaleDB service:
 
     ```bash
     helm install <RELEASE_NAME> timescale/promscale --set connection.uri=<TS_CLOUD_DB_URI>
     ```
-
-    Replace `RELEASE_NAME` with the name of your choice and `TS_CLOUD_DB_URI` with
-    the `Service URL` that you made note of when you created the TimescaleDB
-    service.
 
 </procedure>
 
