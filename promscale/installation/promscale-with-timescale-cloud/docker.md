@@ -25,7 +25,7 @@ example only.
 
 ## Before you begin
 
-1.   Install Docker on your local system. For packages and instructions, see 
+1.  Install Docker on your local system. For packages and instructions, see
      the [Docker installation documentation][docker-install].
 1.  Create a [TimescaleDB service][create-service] on Timescale Cloud.
 
@@ -41,11 +41,8 @@ example only.
     -db.uri=<TS_CLOUD_DB_URI>
     ```
 
-    <highlight type="note">
-    Replace `&lt;TS_CLOUD_DB_URI&gt;` with the `Service URL` that you made note of
-    when you created the TimescaleDB service.
-
-</highlight>
+    Replace `TS_CLOUD_DB_URI` with the `Service URL` that you made note
+    of when you created the TimescaleDB service.
 
 </procedure>
 
