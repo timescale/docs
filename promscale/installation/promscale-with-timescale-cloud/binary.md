@@ -18,8 +18,8 @@ Promscale binary file is available at [GitHub releases page][gh-promscale-downlo
 
 ## Before you begin
 
-1.   Ensure that you have a working Prometheus or OpenTelemetry collector environment.
-1.   Create a [TimescaleDB service] [create-service] on Timescale Cloud.
+1.  Ensure that you have a working Prometheus or OpenTelemetry collector environment.
+1.  Create a [TimescaleDB service] [create-service] on Timescale Cloud.
 
 ## Install the Promscale pre-compiled binary
 
@@ -30,7 +30,7 @@ Download the Promscale binary file and run the file.
 ### Installing Promscale from binary
 
 1.  At the command prompt, as a root user, download the appropriate file
-    for your operating system. You can find the correct URL on the 
+    for your operating system. You can find the correct URL on the
     [GitHub repository releases page][releases]:
 
     ```bash
@@ -49,11 +49,8 @@ Download the Promscale binary file and run the file.
     ./promscale --db-uri <TS_CLOUD_DB_URI>
     ```
 
-    <highlight type="note">
-    Replace `&lt;TS_CLOUD_DB_URI&gt;` with the `Service URL` that you made note of
+    Replace `TS_CLOUD_DB_URI` with the `Service URL` that you made note of
     when you created the TimescaleDB service.
-
-</highlight>
 
 </procedure>
 
