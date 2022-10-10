@@ -62,7 +62,7 @@ services.
     about these settings, see [the connection settings section][connection-settings].
 
    <highlight type="note">
-    If you configured Timescale Cloud service to connect with stricter
+    If you configured your Timescale Cloud service to connect using
     [SSL mode] [ssl-mode], then in the `SSL` tab enable `Use SSL`,
     set `SSL mode` to `verify-full`, and in the `CA Certificate` field type 
     the location of the SSL root CA certificate to use.

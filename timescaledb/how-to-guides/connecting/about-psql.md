@@ -22,6 +22,7 @@ psql -h <HOSTNAME> -p <PORT> -U <USERNAME> -W -d <DATABASENAME>
 ```
 
 Alternatively, you can use a service URL to provide the details, like this:
+
 ```bash
 psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
 ```
@@ -29,8 +30,8 @@ psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
 If you configured your Timescale Cloud service to connect using [SSL mode] [ssl-mode],
 use:
 
-```shell
-    psql "postgres://tsdbadmin@$SERVICE_URL_WITH_PORT/tsdb?sslmode=verify-full"
+```bash
+psql "postgres://tsdbadmin@$SERVICE_URL_WITH_PORT/tsdb?sslmode=verify-full"
     
 ```
 
