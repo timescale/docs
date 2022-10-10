@@ -26,7 +26,7 @@ Alternatively, you can use a service URL to provide the details, like this:
 psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
 ```
 
-If you configured Timescale Cloud service to connect with stricter [SSL mode] [ssl-mode],
+If you configured your Timescale Cloud service to connect using [SSL mode] [ssl-mode],
 then use:
 
 ```shell
