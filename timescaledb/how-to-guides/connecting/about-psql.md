@@ -26,11 +26,20 @@ Alternatively, you can use a service URL to provide the details, like this:
 psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
 ```
 
+If you configured Timescale Cloud service to connect with stricter [SSL mode] [ssl-mode],
+then use:
+
+```shell
+    psql "postgres://tsdbadmin@$SERVICE_URL_WITH_PORT/tsdb?sslmode=verify-full"
+    
+```
+
 When you run one of these commands, you are prompted for your password. If you
 don't want to prompted, you can supply your password directly within the service
 URL instead. like this:
+
 ```bash
-psql postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
+   psql "postgres://<USERNAME>:<PASSWORD>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require"
 ```
 
 ## Common psql commands
@@ -89,3 +98,4 @@ edited query by pressing `↑`, and press `Enter` to run it.
 [about-connecting]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-connecting/
 [psql-cheat-sheet]: https://postgrescheatsheet.com/
 [psql-docs]: https://www.postgresql.org/docs/13/app-psql.html
+[ssl-mode]: /cloud/:currentVersion:/security/strict-ssl/

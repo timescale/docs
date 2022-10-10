@@ -58,6 +58,14 @@ services.
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
+    <highlight type="note">
+    If you configured Timescale Cloud service to connect with stricter
+    [SSL mode] [ssl-mode], then set `SSL mode` to `Verify-Full`, and in the
+    `SSL root certificate filename` field type the location of the SSL root
+    CA certificate to use.
+
+</highlight>
+
 1.  Click `Connect`.
 
     <img class="main-content__illustration"
@@ -122,4 +130,4 @@ appear in the `Connection Details` dialog.
 [tsc-portal]: https://console.cloud.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
 [connection-details]: /timescaledb/:currentVersion:/how-to-guides/connecting/azure-data-studio/#settings-in-the-connection-details
-
+[ssl-mode]: /cloud/:currentVersion:/security/strict-ssl/
