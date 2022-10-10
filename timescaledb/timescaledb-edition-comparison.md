@@ -49,14 +49,14 @@ You can install TimescaleDB Community Edition in your own on-premises or cloud
 infrastructure and run it for free. TimescaleDB Community Edition is completely
 free if you manage your own service.
 
-You cannot sell TimescaleDB Community Edition as a service, even if you are the
-main contributor.
+You cannot sell TimescaleDB Community Edition unaltered as part of a value-added
+service, even if you are the main contributor. However, you can modify the
+TimescaleDB Community Edition source code and run it for production use.
 
-You can modify the TimescaleDB Community Edition source code and run it for
-production use. Developers using TimescaleDB Community Edition have the "right
-to repair" and make modifications to the source code and run it in their own
-on-premises or cloud infrastructure. However, you cannot make modifications to
-the TimescaleDB Community Edition source code and offer it as a service.
+Developers using TimescaleDB Community Edition have the "right to repair" and
+make modifications to the source code and run it in their own on-premises or
+cloud infrastructure. However, you cannot make modifications to the TimescaleDB
+Community Edition source code and offer it as a service.
 
 Timescale provides hosted versions of TimescaleDB Community Edition:
 [Timescale Cloud][timescale-cloud] and
