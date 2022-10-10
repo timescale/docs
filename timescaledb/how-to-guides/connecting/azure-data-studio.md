@@ -58,7 +58,8 @@ services.
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
-    <highlight type="note">
+
+<highlight type="note">
     If you configured Timescale Cloud service to connect with stricter
     [SSL mode] [ssl-mode], then set `SSL mode` to `Verify-Full`, and in the
     `SSL root certificate filename` field type the location of the SSL root
