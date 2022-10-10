@@ -29,8 +29,9 @@ any WAL to cover any gap in time between the incremental backup and the target
 recovery point. For more information about how backup and restore works, see the
 [blog post on high availability][ha-post].
 
-When you delete an instance, a backup of the instance is retained for seven days.
-If you need to restore your database from a backup, [contact support][support].
+When you delete an instance, a backup of your instance is retained for at least
+seven days. If you need to restore your database from a backup,
+[contact support][support].
 
 If you want to verify that your service is being backed up, you can run this
 query from the `psql` prompt:
@@ -39,10 +40,9 @@ query from the `psql` prompt:
 SELECT pg_is_in_backup()::text
 ```
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timescale-cloud-aws-infra.png" alt="Diagram explaining the different backups taken in Timescale Cloud"/>
-
-For more information about how backups are handled on Timescale Cloud, see the
-[blog post][backup-blog].
+<highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
+You can try Timescale Cloud for free, no credit card required.
+</highlight>
 
 ## Weekly backups
 
