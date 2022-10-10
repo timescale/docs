@@ -27,7 +27,7 @@ psql postgres://<USERNAME>@<HOSTNAME>:<PORT>/<DATABASENAME>?sslmode=require
 ```
 
 If you configured your Timescale Cloud service to connect using [SSL mode] [ssl-mode],
-then use:
+use:
 
 ```shell
     psql "postgres://tsdbadmin@$SERVICE_URL_WITH_PORT/tsdb?sslmode=verify-full"
