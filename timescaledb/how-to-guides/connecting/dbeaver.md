@@ -63,9 +63,9 @@ services.
 
    <highlight type="note">
     If you configured Timescale Cloud service to connect with stricter
-    [SSL mode] [ssl-mode], then in the `SSL` tab set `SSL mode` to `Verify-Full`,
-    and in the `CA Certificate` field type the location of the SSL root
-    CA certificate to use.
+    [SSL mode] [ssl-mode], then in the `SSL` tab enable `Use SSL`,
+    set `SSL mode` to `verify-full`, and in the `CA Certificate` field type 
+    the location of the SSL root CA certificate to use.
 
 </highlight>
 
