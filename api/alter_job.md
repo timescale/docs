@@ -38,7 +38,7 @@ other useful statistics for deciding what the new schedule should be.
 |`config`|`JSONB`|Job-specific configuration, passed to the function when it runs|
 |`next_start`|`TIMESTAMPTZ`|The next time at which to run the job. The job can be paused by setting this value to `infinity`, and restarted with a value of `now()`|
 |`if_exists`|`BOOLEAN`|Set to `true`to issue a notice instead of an error if the job does not exist. Defaults to false.|
-|`check_config`|`REGPROC`|A function that takes a single argument, the `JSONB` `config` structure. The function is expected to raise an error if the configuration is valid, and return nothing otherwise. Can be used to validate the configuration when updating a job. Only functions, not procedures, are allowed as values for `check_config`.|
+|`check_config`|`REGPROC`|A function that takes a single argument, the `JSONB` `config` structure. The function is expected to raise an error if the configuration is not valid, and return nothing otherwise. Can be used to validate the configuration when updating a job. Only functions, not procedures, are allowed as values for `check_config`.|
 
 When a job begins, the `next_start` parameter is set to `infinity`. This
 prevents the job from attempting to be started again while it is running. When
