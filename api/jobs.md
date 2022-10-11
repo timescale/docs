@@ -102,7 +102,7 @@ next_start        | 2020-10-02 14:45:33.339885-04
 hypertable_schema |
 hypertable_name   |
 check_schema      | NULL
-check_table       | NULL
+check_name        | NULL
 -[ RECORD 2 ]-----+------------------------------
 job_id            | 1004
 application_name  | User-Defined Action [1004]
@@ -119,5 +119,5 @@ next_start        | 2020-10-02 14:45:33.353733-04
 hypertable_schema |
 hypertable_name   |
 check_schema      | NULL
-check_table       | NULL
+check_name        | NULL
 ```
