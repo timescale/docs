@@ -61,13 +61,12 @@ services.
     `Host`, `Port`,`Database`, `Username` and `Password`. For more information
     about these settings, see [the connection settings section][connection-settings].
 
-   <highlight type="note">
+    <highlight type="note">
     If you configured your Timescale Cloud service to connect using
     [SSL mode] [ssl-mode], then in the `SSL` tab enable `Use SSL`,
-    set `SSL mode` to `verify-full`, and in the `CA Certificate` field type 
+    set `SSL mode` to `verify-full`, and in the `CA Certificate` field, type
     the location of the SSL root CA certificate to use.
-
-</highlight>
+    </highlight>
 
 1.  Click the `Test Connection` button to check if the connection is successful.
 1.  Click the `Finish` button to connect to the database server. The server is
