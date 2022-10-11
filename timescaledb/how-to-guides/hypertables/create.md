@@ -5,15 +5,18 @@ keywords: [hypertables, create]
 ---
 
 # Create hypertables
+
 After [creating a TimescaleDB database][install], you're ready to create your
 first hypertable. Creating a hypertable is a 2-step process:
+
 1.  Create a PostgreSQL table as usual
-2.  Convert it to a TimescaleDB hypertable
+1.  Convert it to a TimescaleDB hypertable
 
 You can [create a distributed hypertable][create-distributed-hypertable]
 similarly.
 
 ## Create a hypertable
+
 To create a hypertable, you need to create a standard PostgreSQL table, and then
 convert it into a TimescaleDB hypertable.
 
@@ -23,7 +26,9 @@ holds time values. This can be a timestamp, date, or integer.
 <procedure>
 
 ### Creating a hypertable
+
 1.  Create a standard [PostgreSQL table][postgres-createtable]:
+
     ```sql
     CREATE TABLE conditions (
        time        TIMESTAMPTZ       NOT NULL,
@@ -32,8 +37,11 @@ holds time values. This can be a timestamp, date, or integer.
        humidity    DOUBLE PRECISION  NULL
     );
     ```
-1.  Convert the table to a hypertable. Specify the name of the table you want to
-    convert, and the column that holds its time values.
+
+1.  Convert the table to a hypertable by using the
+    [`create_hypertable`][create_hypertable] function. Specify the name of the
+    table you want to convert, and the column that holds its time values.
+
      ```sql
      SELECT create_hypertable('conditions', 'time');
      ```
@@ -49,5 +57,6 @@ section](/timescaledb/latest/how-to-guides/migrate-data).
 </procedure>
 
 [create-distributed-hypertable]: /timescaledb/:currentVersion:/how-to-guides/distributed-hypertables/create-distributed-hypertables/
+[create_hypertable]: /api/:currentVersion:/hypertable/create_hypertable/
 [install]: /install/:currentVersion:/
 [postgres-createtable]: https://www.postgresql.org/docs/current/sql-createtable.html
