@@ -6,6 +6,9 @@ on:
 
 permissions: {}
 
+env:
+  PR_NUMBER: ${{ github.event.client_payload.pr_number }}
+
 jobs:
   comment:
     name: Write comment on PR
@@ -17,7 +20,7 @@ jobs:
         with:
           script: |
             github.rest.issues.createComment({
-              issue_number: github.event.client_payload.pr_number,
+              issue_number: env.PR_NUMBER,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Site build failed. For Timescale internal contributors, check the logs in the web-documentation repo to see the failure reason. For help, contact the docs team.'
