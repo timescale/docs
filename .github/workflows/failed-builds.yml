@@ -19,8 +19,10 @@ jobs:
       - uses: actions/github-script@7dff1a87643417cf3b95bb10b29f4c4bc60d8ebd
         with:
           script: |
+            const { PR_NUMBER } = process.env;
+
             github.rest.issues.createComment({
-              issue_number: env.PR_NUMBER,
+              issue_number: PR_NUMBER,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: 'Site build failed. For Timescale internal contributors, check the logs in the web-documentation repo to see the failure reason. For help, contact the docs team.'
