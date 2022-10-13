@@ -26,8 +26,7 @@ You can install Promscale on Kubernetes using Helm or using a manifest file.
 
 ### Install the Promscale using Helm chart
 
-When you have your TimescaleDB Helm chart installed, you can install the
-Promscale Helm chart. Promscale needs to access your TimescaleDB database. You
+Promscale needs to access your TimescaleDB database. You
 can provide the database URI, or specify connection parameters.
 
 <procedure>
