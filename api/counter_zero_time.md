@@ -8,6 +8,9 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.2.0
+    stable: 1.3.0
 hyperfunction:
   family: metric aggregation
   type: accessor

@@ -15,6 +15,9 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 1.0.0
+    stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
   type: accessor, 2D

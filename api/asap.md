@@ -9,6 +9,9 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 0.2.0
+    stable: 1.11.0
 hyperfunction:
   family: downsample
   type: one-step aggregate

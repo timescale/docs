@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.5.0
 hyperfunction:
   family: frequency analysis
   type: aggregate

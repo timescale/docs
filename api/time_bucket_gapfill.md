@@ -7,6 +7,8 @@ tags: [time buckets]
 api:
   license: community
   type: function
+  version:
+    experimental: 1.2.0
 hyperfunction:
   family: gapfilling and interpolation
   type: bucket
