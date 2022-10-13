@@ -50,7 +50,7 @@ CALL refresh_continuous_aggregate('conditions', '2020-01-01', '2020-02-01');
 ```
 
 Alternatively, incrementally refresh the continuous aggregate `conditions`
-between `2020-01-01` and `2020-02-01` exclusive, working in `12h` intervals.
+between `2020-01-01` and `2020-02-01` exclusive, working in `12h` intervals:
 
 ```sql
 DO
