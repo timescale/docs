@@ -72,8 +72,8 @@ After the restore completes, run the following two commands to finalize the
 restore.
 
 ```sql
-SELECT public.timescaledb_post_restore();
 SELECT prom_api.promscale_post_restore();
+SELECT public.timescaledb_post_restore();
 ```
 
 [prerequisites]: #prerequisites
