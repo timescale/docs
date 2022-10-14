@@ -27,6 +27,7 @@ Register an action for scheduling by the automation framework. For more informat
 |`config`|JSONB|Job-specific configuration, passed to the function when it runs|
 |`initial_start`|TIMESTAMPTZ|Time the job is first run|
 |`scheduled`|BOOLEAN|Set to `FALSE` to exclude this job from scheduling. Defaults to `TRUE`. |
+|`check_config`|`REGPROC`|A function that takes a single argument, the `JSONB` `config` structure. The function is expected to raise an error if the configuration is not valid, and return nothing otherwise. Can be used to validate the configuration when adding a job. Only functions, not procedures, are allowed as values for `check_config`.|
 
 ### Returns
 
