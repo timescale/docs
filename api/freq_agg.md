@@ -52,7 +52,7 @@ This example creates frequency aggregate over a field `ZIP` in a `HomeSales`
 table. This aggregate tracks any `ZIP` value that occurs in at least 5% of rows.
 
 ```sql
-CREATE toolkit_experimental.freq_agg(0.05, ZIP) FROM HomeSales;
+SELECT toolkit_experimental.freq_agg(0.05, ZIP) FROM HomeSales;
 ```
 
 [spacesaving-algorithm]: https://www.cse.ust.hk/~raywong/comp5331/References/EfficientComputationOfFrequentAndTop-kElementsInDataStreams.pdf

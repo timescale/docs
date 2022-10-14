@@ -7,7 +7,7 @@ tags: [toolkit]
 api:
   license: community
   type: function
-  experimental: true
+  experimental: false
   toolkit: true
   version:
     experimental: 0.2.0
@@ -17,14 +17,14 @@ hyperfunction:
   type: one-step aggregate
 # fields below will be deprecated
 api_category: hyperfunction
-api_experimental: true
+api_experimental: false
 toolkit: true
 hyperfunction_family: 'downsample'
 hyperfunction_subfamily: 'downsample'
 hyperfunction_type: other
 ---
 
-# asap_smooth()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+# asap_smooth()  <tag type="toolkit">Toolkit</tag>
 
 The [ASAP smoothing algorithm][asap-algorithm] is designed to create
 human-readable graphs that preserve the rough shape and larger trends
@@ -68,7 +68,7 @@ SELECT
 
 ```sql
 SELECT * FROM unnest(
-    (SELECT toolkit_experimental.asap_smooth(date, reading, 8)
+    (SELECT asap_smooth(date, reading, 8)
      FROM metrics));
 ```
 

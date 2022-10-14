@@ -49,10 +49,10 @@ summary is treated as the edge of the interval. The interpolated point is
 determined using LOCF or linear interpolation, depending on which interpolation
 style the time-weight summary was created with.
 
+This function is similar to [`interpolated_integral`][hyperfunctions-interpolated-integral] but divides by the length of time being averaged.
+
 *   For more information about time-weighted average functions, see the
     [hyperfunctions documentation][hyperfunctions-time-weight-average].
-*   For more information about statistical aggregate functions, see the
-    [hyperfunctions documentation][hyperfunctions-stats-agg].
 
 ### Required arguments
 
@@ -66,8 +66,8 @@ style the time-weight summary was created with.
 
 |Name|Type|Description|
 |-|-|-|
-|`prev`|`TimeWeightSummary`|The TimeWeightSummary from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `tws` will be used as the start of the interval.|
-|`next`|`TimeWeightSummary`|The TimeWeightSummary from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `tws` will be used as the end of the interval.|
+|`prev`|`TimeWeightSummary`|The TimeWeightSummary from the prior interval, used to interpolate the value at `start`. If `NULL`, the first timestamp in `tws` is used as the start of the interval.|
+|`next`|`TimeWeightSummary`|The TimeWeightSummary from the following interval, used to interpolate the value at `start` + `interval`. If `NULL`, the last timestamp in `tws` is used as the end of the interval.|
 
 ### Returns
 
@@ -101,3 +101,4 @@ FROM (
 [hyperfunctions-time-weight-average]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/time-weighted-averages/
 [hyperfunctions-time-weight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/time_weight/
 [hyperfunctions-stats-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/stats-aggs/
+[hyperfunctions-interpolated-integral]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/interpolated_integral/

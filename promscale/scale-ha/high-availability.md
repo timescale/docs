@@ -59,10 +59,9 @@ global:
 ```
 
 When you have configured your Prometheus instances to send the correct labels,
-you can start Promscale with the `--high-availability` CLI flag, like this:
+you can start Promscale with the `--metrics.high-availability` CLI flag, like this:
 ```bash
-FIXME
-promscale --high-availability
+promscale --metrics.high-availability
 ```
 
 Promscale automatically elects a single replica in each cluster as the current

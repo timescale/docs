@@ -4,48 +4,57 @@ excerpt: New features and fixes are released regularly
 keywords: [upgrade, update, releases]
 ---
 
-# TimescaleDB release notes and future plans
+# TimescaleDB release notes
 
-Interested in what's coming down the pipeline? Review our [Future
-Plans](#future-plans) section. Interested in learning more about what's already
-available? Jump to [What's New][whats-new] to see
-what's been released.
+TimescaleDB is an open-source project with a vibrant community. To get involved,
+join our [community][community].
 
 <highlight type="note">
 Want to stay up-to-date with new releases? Subscribe to get
 [release notes email updates](https://www.timescale.com/signup/release-notes).
 </highlight>
 
-## Future plans
-
-TimescaleDB is an open-source project with a vibrant community. We are currently
-focusing on making our priorities known by that community; we welcome you to
-visit our [Github repo][github-repo] or join our [Slack
-community][timescale-slack].
-
-### What to expect from our next releases
-
-For our next releases, we plan to add:
-
-*   Performance improvements for:
-    *   Inserts and common queries on Multi-node
-    *   Continuous aggregates by removing re-aggregation
-*   Custom origin's support in continuous aggregates with `time_bucket_ng`
-
-You can read more about our architecture and design for distributed hypertables
-[here][distributed-hypertables].
-
-If you have questions about distributed hypertables, join our #multinode channel
-on [community Slack](https://slack.timescale.com/) for installation details and
-follow these [setup instructions][distributed-hypertables-setup].
-
-### What's new in TimescaleDB 2.8:
+## What's new in TimescaleDB 2.8:
 
 *   time_bucket now supports bucketing by month, year and timezone
 *   1 step continuous aggregate policy management
 *   Migrate continuous aggregates to the new format
 
-## Release notes
+## 2.8.1 (2022-10-06)
+
+This release is a patch release. We recommend that you upgrade at the
+next available opportunity.
+
+**Bug fixes**
+
+*   #4454 Keep locks after reading job status
+*   #4658 Fix error when querying a compressed hypertable with compress_segmentby on an enum column
+*   #4671 Fix a possible error while flushing the COPY data
+*   #4675 Fix bad TupleTableSlot drop
+*   #4676 Fix a deadlock when decompressing chunks and performing SELECTs
+*   #4685 Fix chunk exclusion for space partitions in SELECT FOR UPDATE queries
+*   #4694 Change parameter names of cagg_migrate procedure
+*   #4698 Do not use row-by-row fetcher for parameterized plans
+*   #4711 Remove support for procedures as custom checks
+*   #4712 Fix assertion failure in constify_now
+*   #4713 Fix Continuous Aggregate migration policies
+*   #4720 Fix chunk exclusion for prepared statements and dst changes
+*   #4726 Fix gapfill function signature
+*   #4737 Fix join on time column of compressed chunk
+*   #4738 Fix error when waiting for remote COPY to finish
+*   #4739 Fix continuous aggregate migrate check constraint
+*   #4760 Fix segfault when INNER JOINing hypertables
+*   #4767 Fix permission issues on index creation for CAggs
+
+**Thanks**
+
+*   @boxhock and @cocowalla for reporting a segfault when JOINing hypertables
+*   @carobme for reporting constraint error during continuous aggregate migration
+*   @choisnetm, @dustinsorensen, @jayadevanm and @joeyberkovitz for reporting a problem with JOINs on compressed hypertables
+*   @daniel-k for reporting a background worker crash
+*   @justinpryzby for reporting an error when compressing very wide tables
+*   @maxtwardowski for reporting problems with chunk exclusion and space partitions
+*   @yuezhihan for reporting GROUP BY error when having compress_segmentby on an enum column
 
 ## 2.8.0 (2022-08-30)
 
@@ -1825,4 +1834,4 @@ For more information on this release, read the [blog announcement](https://blog.
 [distributed-hypertables-setup]: /timescaledb/:currentVersion:/how-to-guides/multi-node-setup/
 [github-issue]: <https://github.com/timescale/timescaledb/issues/new/choose>
 [github-repo]: <https://github.com/timescale/timescaledb>
-[timescale-slack]: <https://slack.timescale.com>
+[community]: https://www.timescale.com/community/

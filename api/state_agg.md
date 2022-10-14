@@ -52,5 +52,5 @@ This example creates a state aggregate over a `status` column in a `devices`
 table, with a timestamp column `time`.
 
 ```sql
-CREATE toolkit_experimental.state_agg(time, status) FROM devices;
+SELECT toolkit_experimental.state_agg(time, status) FROM devices;
 ```
