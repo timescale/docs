@@ -130,7 +130,7 @@ information about feature changes between versions, see the
 [TimescaleDB release notes][timescale-relnotes].
 
 <highlight type="warning">
-Your Timescale Cloud service will be unavailable until the upgrade is complete. 
+Your Timescale Cloud service is unavailable until the upgrade is complete. 
 This can take several hours. We estimate roughly one second of downtime per 
 100MB, but strongly encourage testing on a fork first for a better estimate.
 </highlight>
