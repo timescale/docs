@@ -1,8 +1,8 @@
 ---
-title: Verb the widget in the tool
-excerpt: Verb your widgets to achieve an outcome using the tool
-keywords: [noun, verb, tutorial]
-tags: [noun, noun]
+title: Query IoT data tutorial
+excerpt: Learn how to query IoT data
+keywords: [tutorials, query, learn, iot]
+tags: [tutorials, IoT]
 ---
 
 # Analyze IoT data with NYC tax cabs

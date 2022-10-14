@@ -1,8 +1,8 @@
 ---
-title: Verb the widget tutorial - Advanced steps
-excerpt: Advanced steps to verb your widgets to achieve an outcome using the tool
-keywords: [noun, verb, tutorial]
-tags: [noun, noun]
+title: Query IoT data tutorial - advanced steps
+excerpt: Extra things to try with IoT data
+keywords: [tutorials, advanced, query, iot]
+tags: [tutorials, IoT]
 ---
 
 <!-- markdown-link-check-disable -->

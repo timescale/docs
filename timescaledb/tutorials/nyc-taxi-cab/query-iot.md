@@ -1,8 +1,8 @@
 ---
-title: Verb the widget tutorial - query the data
-excerpt: Query data to verb your widgets to achieve an outcome using the tool
-keywords: [noun, verb, tutorial]
-tags: [noun, noun]
+title: Query IoT data tutorial - query the data
+excerpt: Query IoT data
+keywords: [tutorials, query, iot]
+tags: [tutorials, IoT]
 ---
 
 <!-- markdown-link-check-disable -->
