@@ -132,7 +132,7 @@ information about feature changes between versions, see the
 <highlight type="warning">
 Your Timescale Cloud service is unavailable until the upgrade is complete. 
 This can take several hours. To estimate the length of time, it is usually one second of downtime per 
-100MB, but strongly encourage testing on a fork first for a better estimate.
+100&nbsp;MB, but for a better estimate, you can test on a fork first.
 </highlight>
 
 ### Recommended practices for upgrading
