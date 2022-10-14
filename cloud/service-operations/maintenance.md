@@ -139,7 +139,7 @@ This can take several hours. To estimate the length of time, it is usually one s
 
 For a smooth upgrade experience, make sure you:
 
-*   Plan ahead! Upgrades will cause downtime, so ideally perform an upgrade 
+*   Plan ahead. Upgrades cause downtime, so ideally perform an upgrade 
     during a low traffic time.
 *   Fork your database, and try out the upgrade on the fork before running it on
     your production system. This gives you a good idea of what happens during
