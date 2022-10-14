@@ -137,7 +137,7 @@ This can take several hours. To estimate the length of time, it is usually one s
 
 ### Recommended practices for upgrading
 
-We strongly recommend the following for a smooth upgrade experience:
+For a smooth upgrade experience, make sure you:
 
 *   Plan ahead! Upgrades will cause downtime, so ideally perform an upgrade 
     during a low traffic time.
