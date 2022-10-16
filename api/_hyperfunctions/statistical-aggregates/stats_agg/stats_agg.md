@@ -39,7 +39,7 @@ api_details:
         ) RETURNS StatsSummary2D
   parameters:
     required:
-      - name: value | y | x
+      - name: value OR y, x
         type: DOUBLE PRECISION
         description: >-
           The variables to use for the statistical aggregate. For a 1D aggregate,
