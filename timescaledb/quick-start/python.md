@@ -235,7 +235,14 @@ then add this line to your list of `import` statements:
 from pgcopy import CopyManager
 ```
 
+<highlight type="note">
+The following section provides step by step instructions to insert rows using `pgcopy`.
+The full sample code to insert data into TimescaleDB using `pgcopy`, with the
+example of sensor data from four sensors is provided in Step 3.
+</highlight>
+
 ### Step 1: Get data to insert into database
+
 First we generate random sensor data using the `generate_series` function provided by PostgreSQL.
 This example inserts a total of 480 rows of data (4 readings, every 5 minutes, for 24 hours).
 In your application, this would be the query that saves your time-series data into the hypertable.
