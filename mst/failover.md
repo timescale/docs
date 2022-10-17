@@ -20,7 +20,7 @@ The two distinct cases during which failovers occur are:
 
 *   When unexpectedly master or replica fail because of the hardware hosting the
     virtual machine fails.
-*   When controlled failover happend because of upgrades.
+*   When controlled failover happens because of upgrades.
 
 ## Uncontrolled master or replica fail
 
@@ -30,9 +30,9 @@ glitch with cloud provider's network.
 
 There is a 300 seconds timeout before Managed Service for TimescaleDB
 automatically decides the server is gone and spins up a replica new server.
-During this 300s period the `replica.servicename.timescaledb.io` points to a
+During this 300 second the `replica.servicename.timescaledb.io` points to a
 server that may not serve queries anymore. DNS record pointing to the master
-server `servicename.timescaledb.io` conitune to serve the queries. If replica
+server `servicename.timescaledb.io` continue to serve the queries. If replica
 server does not come back up within this 300 seconds,
 `replica.servicename.timescaledb.io` points to the master server, until a new
 replica server is built.
