@@ -236,7 +236,7 @@ from pgcopy import CopyManager
 ```
 
 <highlight type="note">
-The following section provides step by step instructions to insert rows using `pgcopy`.
+This section provides step by step instructions to insert rows using `pgcopy`.
 The full sample code to insert data into TimescaleDB using `pgcopy`, with the
 example of sensor data from four sensors is provided in Step 3.
 </highlight>
