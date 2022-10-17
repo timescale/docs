@@ -582,6 +582,13 @@ module.exports = [
             excerpt: "Compress continuous aggregates",
           },
           {
+            title: "Migrate a continuous aggregate to the new form",
+            href: "migrate",
+            tags: ["caggs", "compression", "timescaledb"],
+            excerpt:
+              "Migrate old continuous aggregates to the new form introduced in TimescaleDB 2.7",
+          },
+          {
             title: "Troubleshoot continuous aggregates",
             href: "troubleshooting",
             type: "placeholder",
