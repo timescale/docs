@@ -79,15 +79,18 @@ api_details:
           FROM t;
 ---
 
-[Not finalized text, will integrate some stuff from Jerry's document]
+import TwoStepAggregation from 'versionContent/_partials/_2-step-aggregation.mdx';
 
-This group of functions helps with performing standard statistical anaysis on 1D
-and 2D data.
+Perform common statistical analyses, such as averaging and linear regression,
+using this group of functions. These functions are similar to the [PostgreSQL
+statistical aggregates][pg-stats-aggs], but they include more features and are
+easier to use in [continuous aggregates][caggs] and window functions.
 
-It follows the two-step aggregation pattern.
+They work with both one-dimensional (1D) and two-dimensional (2D) data. For
+example, you can calculate the average of a single variable (1D), or the slope
+of two related variables (2D).
 
-<highlight type="important">
-The two-step aggregation pattern...
+<TwoStepAggregation />
 
-To learn more, see the [blog post on two-step aggregates](https://www.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/).
-</highlight>
+[caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[pg-stats-aggs]: https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
