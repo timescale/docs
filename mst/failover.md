@@ -29,7 +29,7 @@ whether the server really failed, or whether there is a temporary network
 glitch with the cloud provider's network.
 
 There is a 300 seconds timeout before Managed Service for TimescaleDB
-automatically decides the server is gone and spins up a replica new server.
+automatically decides the server is gone and spins up a new replica server.
 During this 300 second the `replica.servicename.timescaledb.io` points to a
 server that may not serve queries anymore. DNS record pointing to the master
 server `servicename.timescaledb.io` continue to serve the queries. If replica
