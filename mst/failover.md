@@ -58,8 +58,8 @@ following the old master server. After the new server is up and running,
 deleted.
 
 For premium plans, this step is executed for both replica servers before the master
-server is replaced. Two new servers are started, backup is restored, and one new
-server is synced up to old master server. When it is time to switch the master
+server is replaced. Two new servers are started, a backup is restored, and one new
+server is synced up to the old master server. When it is time to switch the master
 to a new server, the old master is terminated and one of the new replica servers
 is immediately promoted as a master. At this point, `servicename.timescaledb.io`
 is updated to point at the new master server. Similarly, the new master is
