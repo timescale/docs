@@ -52,7 +52,7 @@ server.
 When applying upgrades or plan changes or business or premium plans, the standby
 server are replaced:
 
-A new server is started, and the backup is restored, and the new server starts
+A new server is started, the backup is restored, and the new server starts
 following the old master server. After the new server is up and running,
 `replica.servicename.timescaledb.io` is updated, and the old replica server is
 deleted.
