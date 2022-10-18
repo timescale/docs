@@ -50,7 +50,7 @@ server.
 ## Controlled failover during upgrades
 
 When applying upgrades or plan changes on business or premium plans, the standby
-server are replaced:
+server is replaced:
 
 A new server is started, the backup is restored, and the new server starts
 following the old master server. After the new server is up and running,
