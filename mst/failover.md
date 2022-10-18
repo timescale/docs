@@ -57,7 +57,7 @@ following the old master server. After the new server is up and running,
 `replica.servicename.timescaledb.io` is updated, and the old replica server is
 deleted.
 
-For premium plans this step is executed for both replica servers before master
+For premium plans, this step is executed for both replica servers before the master
 server is replaced. Two new servers are started, backup is restored, and one new
 server is synced up to old master server. When it is time to switch the master
 to a new server, the old master is terminated and one of the new replica servers
