@@ -63,4 +63,4 @@ server is synced up to old master server. When it is time to switch the master
 to a new server, the old master is terminated and one of the new replica servers
 is immediately promoted as a master. At this point, `servicename.timescaledb.io`
 is updated to point at the new master server. Similarly, the new master is
-removed from `replica.servicename.timescaledb.io` record.
+removed from the `replica.servicename.timescaledb.io` record.
