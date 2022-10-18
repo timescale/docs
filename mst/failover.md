@@ -31,7 +31,7 @@ glitch with the cloud provider's network.
 There is a 300 seconds timeout before Managed Service for TimescaleDB
 automatically decides the server is gone and spins up a new replica server.
 During these 300 seconds, `replica.servicename.timescaledb.io` points to a
-server that may not serve queries anymore. DNS record pointing to the master
+server that may not serve queries anymore. The DNS record pointing to the master
 server `servicename.timescaledb.io` continue to serve the queries. If replica
 server does not come back up within this 300 seconds,
 `replica.servicename.timescaledb.io` points to the master server, until a new
