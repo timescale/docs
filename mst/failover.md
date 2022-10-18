@@ -43,7 +43,7 @@ promoting itself as master. During this 60-second timeout, the master server
 `replica.servicename.timescaledb.io` works in read-only mode. After the replica
 server promotes itself as master, `servicename.timescaledb.io` points to the new
 master server, and `replica.servicename.timescaledb.io` continues to point to
-the new master server. New replica server is built automatically, and after it
+the new master server. A new replica server is built automatically, and after it
 is in sync, `replica.servicename.timescaledb.io` points to the new replica
 server.
 
