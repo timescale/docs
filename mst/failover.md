@@ -38,7 +38,7 @@ server does not come back up within 300 seconds,
 replica server is built.
 
 When the master server fails, a replica server waits for 60 seconds before
-promoting itself as master. During this 60 second timeout the master server
+promoting itself as master. During this 60-second timeout, the master server
 `servicename.timescaledb.io` remains unavailable and does not respond. However,
 `replica.servicename.timescaledb.io` works in read-only mode. After the replica
 server promotes itself as master, `servicename.timescaledb.io` points to the new
