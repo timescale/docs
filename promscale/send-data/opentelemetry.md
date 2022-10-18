@@ -61,6 +61,8 @@ exporters:
     timeout: 10s
   prometheusremotewrite:
     endpoint: "http://<PROMSCALE_HOST>:<HTTP_PORT>/write"
+    resource_to_telemetry_conversion:
+      enabled: true # Convert resource attributes to metric labels
     tls:
       insecure: true
 
