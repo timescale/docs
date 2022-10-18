@@ -26,7 +26,7 @@ The two distinct cases during which failovers occur are:
 
 When a replica server fails unexpectedly, there is no way to know
 whether the server really failed, or whether there is a temporary network
-glitch with cloud provider's network.
+glitch with the cloud provider's network.
 
 There is a 300 seconds timeout before Managed Service for TimescaleDB
 automatically decides the server is gone and spins up a replica new server.
