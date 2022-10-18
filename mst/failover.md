@@ -18,7 +18,7 @@ are not promoted as master servers.
 
 The two distinct cases during which failovers occur are:
 
-*   When unexpectedly master or replica fail because of the hardware hosting the
+*   When the master or replica fails unexpectedly, for example because the hardware hosting the
     virtual machine fails.
 *   When controlled failover happens because of upgrades.
 
