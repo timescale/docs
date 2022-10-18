@@ -14,7 +14,7 @@ TimescaleDB on a Pro plan. You can query a read-only replica server, but cannot
 write to a read-only replica server. When a master server fails, the standby replica
 server is automatically promoted as master. If you manually created a read-only
 replica service, then if a master server fails, the read-only replica services
-are not be promoted as master server.
+are not promoted as master servers.
 
 The two distinct cases during which failovers occur are:
 
