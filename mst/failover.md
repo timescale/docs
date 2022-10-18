@@ -24,7 +24,7 @@ The two distinct cases during which failovers occur are:
 
 ## Uncontrolled master or replica fail
 
-When a replica server fail unexpectedly, there is no way to know
+When a replica server fails unexpectedly, there is no way to know
 whether the server really failed, or whether there is a temporary network
 glitch with cloud provider's network.
 
