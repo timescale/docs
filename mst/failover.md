@@ -9,7 +9,7 @@ tags: [failover window]
 
 # Failover in Managed Service for TimescaleDB
 
-One standby read-only replica server configured, for Managed Service for
+One standby read-only replica server is configured, for Managed Service for
 TimescaleDB on a Pro plan. You can query a read-only replica server, but cannot
 write to a read-only replica server. When a master server fails, standby replica
 server is automatically promoted as master. If you manually created a read-only
