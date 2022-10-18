@@ -32,7 +32,7 @@ There is a 300 seconds timeout before Managed Service for TimescaleDB
 automatically decides the server is gone and spins up a new replica server.
 During these 300 seconds, `replica.servicename.timescaledb.io` points to a
 server that may not serve queries anymore. The DNS record pointing to the master
-server `servicename.timescaledb.io` continue to serve the queries. If replica
+server `servicename.timescaledb.io` continues to serve the queries. If the replica
 server does not come back up within this 300 seconds,
 `replica.servicename.timescaledb.io` points to the master server, until a new
 replica server is built.
