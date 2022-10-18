@@ -49,7 +49,7 @@ server.
 
 ## Controlled failover during upgrades
 
-When applying upgrades or plan changes or business or premium plans, the standby
+When applying upgrades or plan changes on business or premium plans, the standby
 server are replaced:
 
 A new server is started, the backup is restored, and the new server starts
