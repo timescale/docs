@@ -54,7 +54,7 @@ server are replaced:
 
 A new server is started, and the backup is restored, and the new server starts
 following the old master server. After the new server is up and running,
-`replica.servicename.timescaledb.io` is updated, and old replica server is
+`replica.servicename.timescaledb.io` is updated, and the old replica server is
 deleted.
 
 For premium plans this step is executed for both replica servers before master
