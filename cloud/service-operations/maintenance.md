@@ -107,7 +107,8 @@ can plan accordingly. However, in some cases, we might not be able to do so.
 ## Upgrade to a new PostgreSQL version
 
 Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, and 14. You can see
-your PostgreSQL and TimescaleDB versions from the Timescale Cloud dashboard.
+your PostgreSQL and TimescaleDB versions from the Timescale Cloud service 
+overview page.
 
 <!-- TODO: Add screenshot
 <img class="main-content__illustration"
@@ -118,7 +119,7 @@ your PostgreSQL and TimescaleDB versions from the Timescale Cloud dashboard.
 -->
 
 You can also manually upgrade to the newest supported PostgreSQL version
-(PostgreSQL&nbsp;14) from the dashboard.
+(PostgreSQL&nbsp;14) from the service overview page.
 
 Upgrading to a newer version of PostgreSQL allows you to take advantage of new
 features, enhancements, and security fixes. It also ensures that you are using a
@@ -129,15 +130,17 @@ information about feature changes between versions, see the
 [TimescaleDB release notes][timescale-relnotes].
 
 <highlight type="warning">
-Your Timescale Cloud service is unavailable for use until the upgrade is
-complete. Upgrading can take up to several hours, so we recommend
-that you plan ahead, and upgrade during a time with low usage.
+Your Timescale Cloud service is unavailable until the upgrade is complete. 
+This can take several hours. To estimate the length of time, it is usually one second of downtime per 
+100&nbsp;MB, but for a better estimate, you can test on a fork first.
 </highlight>
 
 ### Recommended practices for upgrading
 
-Follow these optional recommendations for a smooth upgrade experience:
+For a smooth upgrade experience, make sure you:
 
+*   Plan ahead. Upgrades cause downtime, so ideally perform an upgrade 
+    during a low traffic time.
 *   Fork your database, and try out the upgrade on the fork before running it on
     your production system. This gives you a good idea of what happens during
     the upgrade, and how long it might take. For more information about forking,
