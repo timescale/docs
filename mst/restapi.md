@@ -30,7 +30,7 @@ can use the API for all the tasks that can be performed using the web console.
 
 ### Using cURL to get your details
 
-1.  Set the environmental variable `MST_API_TOKEN` with the access token that you generated.
+1.  Set the environment variable `MST_API_TOKEN` with the access token that you generate:
 
     ```bash
     export MST_API_TOKEN="access token"
