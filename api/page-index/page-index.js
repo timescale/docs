@@ -375,7 +375,7 @@ module.exports = [
           {
             title: "Statistical aggregates",
             href: "statistical-aggregates",
-            type: "directory",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "stats_agg (1D)",
