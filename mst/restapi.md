@@ -42,7 +42,7 @@ can use the API for all the tasks that can be performed using the web console.
     curl -s -H "Authorization: aivenv1 $MST_API_TOKEN" https://api.aiven.io/v1/me|json_pp
     ```
 
-    An output similar to the following appears:
+    The output looks similar to this:
 
     ```bash
     {
