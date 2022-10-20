@@ -442,6 +442,12 @@ module.exports = [
             tags: ["schema", "hypertables", "json", "data", "timescaledb"],
             excerpt: "Using JSON data types in a hypertable",
           },
+          {
+            title: "Manage storage using tablespaces",
+            href: "manage-storage",
+            tags: ["tablespaces", "storage", "move", "manage"],
+            excerpt: "Manage storage by moving data between tablespaces",
+          },
         ],
       },
       {
@@ -661,24 +667,6 @@ module.exports = [
         href: "alerting",
         tags: ["alert", "configure", "timescaledb"],
         excerpt: "Configure alerting within TimescaleDB",
-      },
-      {
-        title: "Data tiering",
-        href: "data-tiering",
-        children: [
-          {
-            title: "About data tiering",
-            href: "about-data-tiering",
-            tags: ["tiering", "data", "timescaledb"],
-            excerpt: "Learn about data tiering",
-          },
-          {
-            title: "Move data for data tiering",
-            href: "move-data",
-            tags: ["tiering", "data", "migrate", "chunks", "timescaledb"],
-            excerpt: "Move data with data tiering",
-          },
-        ],
       },
       {
         title: "Backup and restore",

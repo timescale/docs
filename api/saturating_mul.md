@@ -22,7 +22,7 @@ hyperfunction_subfamily: saturating math
 hyperfunction_type: one-step
 ---
 
-# saturating_mul()  <tag type="toolkit">Toolkit</tag><tag type="toolkit-experimental" content="Experimental" />
+# saturating_mul()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit" content="Experimental" />
 
 The `saturating_mul` function multiples two numbers, saturating at -2147483648 and 2147483647 instead of overflowing.
 
