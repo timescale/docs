@@ -1,5 +1,5 @@
 ---
-api_name: skewness()
+api_name: skewness_y() | skewness_x()
 excerpt: Calculate the skewness from values in a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
@@ -12,9 +12,9 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (2D)
 api_details:
   summary: >-
     Calculate the skewness from the values in a statistical aggregate. The
@@ -22,36 +22,45 @@ api_details:
   signatures:
     - language: sql
       code: |-
-        skewness(summary StatsSummary1D, method TEXT) RETURNS BIGINT
+        skewness_y(
+          summary StatsSummary2D,
+          method TEXT
+        ) RETURNS BIGINT
+    - language: sql
+      code: |-
+        skewness_x(
+          summary StatsSummary2D,
+          method TEXT
+        ) RETURNS BIGINT
   parameters:
     required:
       - name: summary
-        type: StatsSummary1D
+        type: StatsSummary2D
         description: >-
-          The statistical aggregate produced by a `stats_agg` call
+            The statistical aggregate produced by a `stats_agg` call
     optional:
       - name: method
         type: TEXT
         description: >-
-          The method used for calculating the skewness. The two options are
-          `population` and `sample`, which can be abbreviated to `pop` or `samp`.
-          Defaults to `sample`.
+            The method used for calculating the skewness. The two options are
+            `population` and `sample`, which can be abbreviated to `pop` or `samp`.
+            Defaults to `sample`.
     returns:
-      - column: skewness
+      - column: skewness_y | skewness_x
         type: DOUBLE PRECISION
         description: >-
-          The skewness of the values in the statistical aggregate
+            The skewness of the values in the statistical aggregate
   examples:
     - command:
         language: sql
         code: |-
-          SELECT skewness(stats_agg(data))
+            SELECT skewness_x(stats_agg(data, data))
             FROM generate_series(0, 100) data;
       return:
         language: sql
         code: |-
-          skewness_x
-          ----------
-          0
+            skewness_x
+            ----------
+            0
 ---
 

@@ -13,9 +13,9 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 2D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (2D)
 api_details:
   summary: >-
     Calculate the x intercept from the values in a statistical
@@ -25,7 +25,7 @@ api_details:
     - language: sql
       code: |-
         x_intercept(
-            summary StatsSummary2D
+          summary StatsSummary2D
         ) RETURNS DOUBLE PRECISION
   parameters:
     required:

@@ -20,17 +20,17 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 2D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (2D)
 api_details:
-  summary: >-
+  summary: >
     Calculate the correlation coefficient from the values in a statistical
     aggregate.
     The calculation uses linear least-squares regression.
   signatures:
     - language: sql
-      code: |-
+      code: |
         corr(
           summary StatsSummary2D
         ) RETURNS DOUBLE PRECISION
@@ -38,20 +38,20 @@ api_details:
     required:
       - name: summary
         type: StatsSummary2D
-        description: >-
+        description: >
           The statistical aggregate produced by a `stats_agg` call
     returns:
       - column: corr
         type: DOUBLE PRECISION
-        description: >-
+        description: >
           The correlation coefficient of the least-squares fit line
   examples:
-    - description: >-
+    - description: >
         Calculate the correlation coefficient of independent variable `y` and
         dependent variable `x` for each 15-minute time bucket.
       command:
         language: sql
-        code: |-
+        code: |
           SELECT
             id,
             time_bucket('15 min'::interval, ts) AS bucket,

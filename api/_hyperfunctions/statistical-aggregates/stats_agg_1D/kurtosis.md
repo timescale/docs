@@ -13,44 +13,47 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (1D)
 api_details:
-  summary: >-
+  summary: >
     Calculate the kurtosis from the values in a statistical aggregate. The
     kurtosis is the fourth statistical moment.
   signatures:
     - language: sql
-      code: |-
-        kurtosis(summary StatsSummary1D, method TEXT) RETURNS BIGINT
+      code: |
+        kurtosis(
+          summary StatsSummary1D,
+          method TEXT
+        ) RETURNS BIGINT
   parameters:
     required:
       - name: summary
         type: StatsSummary1D
-        description: >-
+        description: >
           The statistical aggregate produced by a `stats_agg` call
     optional:
       - name: method
         type: TEXT
-        description: >-
+        description: >
           The method used for calculating the kurtosis. The two options are
           `population` and `sample`, which can be abbreviated to `pop` or `samp`.
           Defaults to `sample`.
     returns:
       - column: kurtosis
         type: DOUBLE PRECISION
-        description: >-
+        description: >
           The kurtosis of the values in the statistical aggregate
   examples:
     - command:
         language: sql
-        code: |-
+        code: |
           SELECT kurtosis(stats_agg(data))
             FROM generate_series(0, 100) data;
       return:
         language: sql
-        code: |-
+        code: |
           kurtosis
           ----------
           1.78195

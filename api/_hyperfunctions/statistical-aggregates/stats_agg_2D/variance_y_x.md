@@ -1,6 +1,6 @@
 ---
-api_name: skewness_y() | skewness_x()
-excerpt: Calculate the skewness from values in a statistical aggregate
+api_name: variance_y() | variance_x()
+excerpt: Calculate the variance of values from a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 api:
@@ -12,20 +12,25 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 2D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (2D)
 api_details:
   summary: >-
-    Calculate the skewness from the values in a statistical aggregate. The
-    kurtosis is the third statistical moment.
+    Calculate the variance from the values in a statistical aggregate.
   signatures:
     - language: sql
       code: |-
-        skewness_y(summary StatsSummary2D, method TEXT) RETURNS BIGINT
+        variance_y(
+          summary StatsSummary2D,
+          method TEXT
+        ) RETURNS BIGINT
     - language: sql
       code: |-
-        skewness_x(summary StatsSummary2D, method TEXT) RETURNS BIGINT
+        variance_x(summary
+            StatsSummary2D,
+            method TEXT
+        ) RETURNS BIGINT
   parameters:
     required:
       - name: summary
@@ -36,25 +41,24 @@ api_details:
       - name: method
         type: TEXT
         description: >-
-            The method used for calculating the skewness. The two options are
-            `population` and `sample`, which can be abbreviated to `pop` or `samp`.
-            Defaults to `sample`.
+            The method used for calculating the standard deviation. The two options
+            are `population` and `sample`, which can be abbreviated to `pop` or
+            `samp`. Defaults to `sample`.
     returns:
-      - column: skewness_y | skewness_x
+      - column: variance
         type: DOUBLE PRECISION
         description: >-
-            The skewness of the values in the statistical aggregate
+            The variance of the values in the statistical aggregate
   examples:
     - command:
         language: sql
         code: |-
-            SELECT skewness_x(stats_agg(data, data))
+            SELECT variance_y(stats_agg(data, data))
             FROM generate_series(0, 100) data;
       return:
-        language: sql
         code: |-
-            skewness_x
+            variance_y
             ----------
-            0
+            858.5
 ---
 

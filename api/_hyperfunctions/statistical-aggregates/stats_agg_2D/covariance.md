@@ -13,17 +13,17 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 2D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (2D)
 api_details:
-  summary: >-
+  summary: >
     Calculate the covariance from the values in a statistical
     aggregate.
     The calculation uses linear least-squares regression.
   signatures:
     - language: sql
-      code: |-
+      code: |
         covariance(
             summary StatsSummary2D,
             method TEXT
@@ -32,27 +32,27 @@ api_details:
     required:
       - name: summary
         type: StatsSummary2D
-        description: >-
+        description: >
           The statistical aggregate produced by a `stats_agg` call
     optional:
       - name: method
         type: TEXT
-        description: >-
+        description: >
           The method used for calculating the covariance. The two options are
           `population` and `sample`, which can be abbreviated to `pop` or `samp`.
           Defaults to `sample`.
     returns:
       - column: covariance
         type: DOUBLE PRECISION
-        description: >-
+        description: >
           The covariance of the least-squares fit line
   examples:
-    - description: >-
+    - description: >
         Calculate the covariance of independent variable `y` and
         dependent variable `x` for each 15-minute time bucket.
       command:
         language: sql
-        code: |-
+        code: |
           SELECT
               id,
               time_bucket('15 min'::interval, ts) AS bucket,

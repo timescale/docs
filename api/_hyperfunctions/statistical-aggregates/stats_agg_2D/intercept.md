@@ -1,9 +1,9 @@
 ---
-api_name: slope()
-excerpt: Calculate the slope from values in a 2-dimensional statistical aggregate
+api_name: intercept()
+excerpt: Calculate the intercept from values in a 2-dimensional statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [least squares, linear regression]
+tags: [intercept, least squares, linear regression]
 api:
   license: community
   type: function
@@ -13,17 +13,17 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 2D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (2D)
 api_details:
   summary: >-
-    Calculate the slope from the values in a statistical aggregate.
+    Calculate the y intercept from the values in a statistical aggregate.
     The calculation uses linear least-squares regression.
   signatures:
     - language: sql
       code: |-
-        slope(
+        intercept(
             summary StatsSummary2D
         ) RETURNS DOUBLE PRECISION
   parameters:
@@ -33,13 +33,13 @@ api_details:
         description: >-
           The statistical aggregate produced by a `stats_agg` call
     returns:
-      - column: slope
+      - column: intercept
         type: DOUBLE PRECISION
         description: >-
-          The slope of the least-squares fit line
+          The y intercept of the least-squares fit line
   examples:
     - description: >-
-        Calculate the slope from independent variable `y` and dependent
+        Calculate the y intercept from independent variable `y` and dependent
         variable `x` for each 15-minute time bucket.
       command:
         language: sql
@@ -47,7 +47,7 @@ api_details:
           SELECT
               id,
               time_bucket('15 min'::interval, ts) AS bucket,
-              slope(stats_agg(y, x)) AS summary
+              intercept(stats_agg(y, x)) AS summary
           FROM foo
           GROUP BY id, time_bucket('15 min'::interval, ts)
 ---

@@ -12,37 +12,39 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (1D)
 api_details:
-  summary: >-
+  summary: >
     Calculate an average from the values in a statistical aggregate.
   signatures:
     - language: sql
-      code: |-
-        average(summary StatsSummary1D) RETURNS BIGINT
+      code: |
+        average(
+          summary StatsSummary1D
+        ) RETURNS BIGINT
   parameters:
     required:
       - name: summary
         type: StatsSummary1D
-        description: >-
+        description: >
           The statistical aggregate produced by a `stats_agg` call
     returns:
       - column: average
         type: DOUBLE PRECISION
-        description: >-
+        description: >
           The average of the values in the statistical aggregate
   examples:
-    - description: >-
+    - description: >
         Calculate the average of the integers from 0 to 100.
       command:
         language: sql
-        code: |-
+        code: |
           SELECT average(stats_agg(data))
             FROM generate_series(0, 100) data;
       return:
-        code: |-
+        code: |
           average
           -----------
           50

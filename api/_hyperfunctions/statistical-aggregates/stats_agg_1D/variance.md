@@ -1,9 +1,8 @@
 ---
-api_name: stddev()
-excerpt: Calculate the standard deviation from values in a statistical aggregate
+api_name: variance()
+excerpt: Calculate the variance of values from a statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
-tags: [standard deviation]
 api:
   license: community
   type: function
@@ -13,47 +12,47 @@ api:
     stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 1D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (1D)
 api_details:
-  summary: >-
-    Calculate the standard deviation from the values in a statistical aggregate.
+  summary: >
+    Calculate the variance from the values in a statistical aggregate.
   signatures:
     - language: sql
-      code: |-
-        stddev(summary
-          StatsSummary1D,
+      code: |
+        variance(
+          summary StatsSummary1D,
           method TEXT
         ) RETURNS BIGINT
   parameters:
     required:
       - name: summary
         type: StatsSummary1D
-        description: >-
+        description: >
           The statistical aggregate produced by a `stats_agg` call
     optional:
       - name: method
         type: TEXT
-        description: >-
+        description: >
           The method used for calculating the standard deviation. The two options
           are `population` and `sample`, which can be abbreviated to `pop` or
           `samp`. Defaults to `sample`.
     returns:
-      - column: stddev
+      - column: variance
         type: DOUBLE PRECISION
-        description: >-
-          The standard deviation of the values in the statistical aggregate
+        description: >
+          The variance of the values in the statistical aggregate
   examples:
     - command:
         language: sql
-        code: |-
-          SELECT stddev(stats_agg(data))
+        code: |
+          SELECT variance(stats_agg(data))
             FROM generate_series(0, 100) data;
       return:
-        code: |-
-          stddev_y
-          --------
-          29.3002
+        code: |
+          variance
+          ----------
+          858.5
 ---
 

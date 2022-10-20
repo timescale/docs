@@ -378,8 +378,13 @@ module.exports = [
             type: "directory",
             children: [
               {
-                title: "stats_agg",
-                href: "stats_agg",
+                title: "stats_agg (1D)",
+                href: "stats_agg-1d",
+                type: "placeholder",
+              },
+              {
+                title: "stats_agg (2D)",
+                href: "stats_agg-2d",
                 type: "placeholder",
               },
             ],

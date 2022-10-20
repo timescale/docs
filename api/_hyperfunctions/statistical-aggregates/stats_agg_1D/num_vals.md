@@ -8,40 +8,44 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 1.0.0
+    stable: 1.3.0
 hyperfunction:
   family: statistical aggregates
-  type: accessor, 2D
+  type: accessor
   aggregates:
-    - stats_agg()
+    - stats_agg() (1D)
 api_details:
-  summary: >-
+  summary: >
     Calculate the number of values contained in a statistical aggregate.
   signatures:
     - language: sql
-      code: |-
-        num_vals(summary StatsSummary2D) RETURNS BIGINT
+      code: |
+        num_vals(
+          summary StatsSummary1D
+        ) RETURNS BIGINT
   parameters:
     required:
       - name: summary
-        type: StatsSummary2D
-        description: >-
+        type: StatsSummary1D
+        description: >
           The statistical aggregate produced by a `stats_agg` call
     returns:
       - column: num_vals
         type: DOUBLE PRECISION
-        description: >-
+        description: >
           The number of values in the statistical aggregate
   examples:
     - command:
         language: sql
-        code: |-
-          SELECT num_vals(stats_agg(y, x))
-            FROM generate_series(1, 5)   y,
-                 generate_series(0, 100) x;
+        code: |
+          SELECT num_vals(stats_agg(data))
+            FROM generate_series(0, 100) data;
       return:
-        code: |-
+        code: |
           num_vals
           --------
-          505
+          101
 ---
 
