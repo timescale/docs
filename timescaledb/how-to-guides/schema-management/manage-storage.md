@@ -7,8 +7,8 @@ tags: [move, manage, chunks]
 
 # Manage storage using tablespaces
 
-You can save on storage by moving chunks between tablespaces when you run
-TimescaleDB on your own hardware. By moving older chunks to cheaper, slower
+If you are running TimescaleDB on your own hardware, you can save storage 
+by moving chunks between tablespaces. By moving older chunks to cheaper, slower
 storage, you can save on storage costs while still using faster, more expensive
 storage for frequently accessed data. Moving infrequently accessed chunks can
 also improve performance, because it isolates historical data from the continual
