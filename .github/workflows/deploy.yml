@@ -21,7 +21,7 @@ jobs:
         id: timescale
 
       - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@b8601598d81a169e6e83657904679c500a0af9b8
+        uses: peter-evans/repository-dispatch@f2696244ec00ed5c659a5cc77f7138ad0302dffb
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: timescale/web-documentation
