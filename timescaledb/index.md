@@ -16,6 +16,8 @@ to understand what TimescaleDB is, how it works, how to get started, and how
 to successfully use and implement all of the powerful features for your next
 project.
 
+[:embedded explainer thingamabob:](/install/latest) with some text after it
+
 ### Overview
 
 In the **[Overview section][overview]** you'll find everything you need to know about the design

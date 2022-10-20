@@ -32,37 +32,37 @@ can use the API for all the tasks that can be performed using the web console.
 
 1.  Set the environmental variable `MST_API_TOKEN` with the access token that you generated.
 
-```bash
-export MST_API_TOKEN="access token"
-```
+    ```bash
+    export MST_API_TOKEN="access token"
+    ```
 
 1.  To get the details about the current user session using the `/me` endpoint:
 
-```bash
-curl -s -H "Authorization: aivenv1 $MST_API_TOKEN" https://api.aiven.io/v1/me|json_pp
-```
+    ```bash
+    curl -s -H "Authorization: aivenv1 $MST_API_TOKEN" https://api.aiven.io/v1/me|json_pp
+    ```
 
-An output similar to the following appears:
+    An output similar to the following appears:
 
-```bash
-{
-   "user": {
-"auth": [],
-"create_time": "string",
-"features": { },
-"intercom": {},
-"invitations": [],
-"project_membership": {},
-"project_memberships": {},
-"projects": [],
-"real_name": "string",
-"state": "string",
-"token_validity_begin": "string",
-"user": "string",
-"user_id": "string"
-}
-}
-```
+    ```bash
+    {
+        "user": {
+            "auth": [],
+            "create_time": "string",
+            "features": { },
+            "intercom": {},
+            "invitations": [],
+            "project_membership": {},
+            "project_memberships": {},
+            "projects": [],
+            "real_name": "string",
+            "state": "string",
+            "token_validity_begin": "string",
+            "user": "string",
+            "user_id": "string"
+        }
+    }
+    ```
 
 </procedure>
 
