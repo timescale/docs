@@ -20,7 +20,7 @@ hyperfunction_subfamily: saturating math
 hyperfunction_type: one-step
 ---
 
-# saturating_sub()  <tag type="toolkit">Toolkit</tag><tag type="toolkit-experimental" content="Experimental" />
+# saturating_sub()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit" content="Experimental" />
 
 The `saturating_sub` function subtracts the second number from the first, saturating at -2147483648 and 2147483647 instead of overflowing.
 

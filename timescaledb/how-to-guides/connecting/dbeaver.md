@@ -58,8 +58,16 @@ services.
 1.  In the `Connect to a database` window, search for `TimescaleDB`.
 1.  Select `TimescaleDB` and click `Next` to continue.
 1.  In the `Main` tab type the details for your connection, including the
- `Host`, `Port`,`Database`, `Username` and `Password`. For more information
- about these settings, see [the connection settings section][connection-settings].
+    `Host`, `Port`,`Database`, `Username` and `Password`. For more information
+    about these settings, see [the connection settings section][connection-settings].
+
+    <highlight type="note">
+    If you configured your Timescale Cloud service to connect using
+    [SSL mode] [ssl-mode], then in the `SSL` tab enable `Use SSL`,
+    set `SSL mode` to `verify-full`, and in the `CA Certificate` field, type
+    the location of the SSL root CA certificate to use.
+    </highlight>
+
 1.  Click the `Test Connection` button to check if the connection is successful.
 1.  Click the `Finish` button to connect to the database server. The server is
     listed in the `Database Navigator` pane.
@@ -123,3 +131,4 @@ appear in the `Main` tab of `Connection settings`.
 [connection-settings]: /timescaledb/:currentVersion:/how-to-guides/connecting/dbeaver/#connection-settings-in-connect-to-a-database
 [tsc-portal]: https://console.cloud.timescale.com/
 [mst-portal]: https://portal.managed.timescale.com
+[ssl-mode]: /cloud/:currentVersion:/security/strict-ssl/

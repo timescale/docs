@@ -12,7 +12,7 @@ hyperfunction:
   type: one-step operation
 ---
 
-## month_normalize() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
+## month_normalize() <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
 
 Normalize the provided metric based on reference date and days.
 
