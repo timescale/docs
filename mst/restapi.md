@@ -8,7 +8,7 @@ keywords: [rest api]
 # Using REST API in Managed Service for TimescaleDB
 
 Managed Service for TimescaleDB has an API for integration and automation tasks.
-For information about using the endpoints, see the [API Documentation][https://api.aiven.io/doc/].
+For information about using the endpoints, see the [API Documentation](https://api.aiven.io/doc/).
 MST offers an HTTP API with token authentication and JSON-formatted data. You
 can use the API for all the tasks that can be performed using the web console.
 
