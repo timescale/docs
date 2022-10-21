@@ -18,9 +18,9 @@ TimescaleDB is an extension on top of PostgreSQL. It gives you all the power of
 PostgreSQL, plus new superpowers that help you work with time-series data and
 complex SQL queries.
 
-## About the getting-started guide
+## About this guide
 
-In this tutorial, you'll set up a TimescaleDB database and work with some
+This guide helps you set up a TimescaleDB database, so you can work with some
 real-time stock trading data, provided by [Twelve Data][twelve-data].
 
 If you have any questions or concerns as you go through the tutorial, check out
