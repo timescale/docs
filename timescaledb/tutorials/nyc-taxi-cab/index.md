@@ -9,7 +9,7 @@ tags: [tutorials, IoT]
 
 New York City is home to about 9 million people. This tutorial uses historical
 data from New York's yellow taxi network, provided by the New York City Taxi and
-Limousine Commission [[NYC TLC]](nyc-tlc). The NYC TLC tracks over 200,000
+Limousine Commission [NYC TLC][nyc-tlc]. The NYC TLC tracks over 200,000
 vehicles making about 1 million trips each day. Because nearly all of this data
 is time-series data, proper analysis requires a purpose-built time-series
 database, like TimescaleDB.
@@ -36,10 +36,10 @@ This tutorial covers:
 
 ## About querying IoT data with TimescaleDB
 
-This tutorial uses the NYC taxi data to show you how to construct queries for IoT
-devices. The analysis you do in this tutorial is similar to the kind of analysis
-data science organizations use to do things like plan upgrades, set budgets, and
-allocate resources.
+This tutorial uses the [NYC taxi data][nyc-tlc] to show you how to construct
+queries for IoT devices. The analysis you do in this tutorial is similar to the
+kind of analysis data science organizations use to do things like plan upgrades,
+set budgets, and allocate resources.
 
 It starts by teaching you how to set up and connect to a Timescale database,
 create tables, and load data into the tables using `psql`.
@@ -57,3 +57,4 @@ for faster queries.
 [dataset-iot]: /timescaledb/tutorials/nyc-taxi-cab/dataset-iot/
 [query-iot]: /timescaledb/tutorials/nyc-taxi-cab/query-iot/
 [monitor-iot]: /timescaledb/tutorials/nyc-taxi-cab/monitor-iot/
+[nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page

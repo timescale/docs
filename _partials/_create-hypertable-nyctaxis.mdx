@@ -100,15 +100,15 @@ there is one other table of data called `company`.
 
 </procedure>
 
-You can confirm the success of these scripts by running the `\dt` command
-in the `psql` command line. You should see the following:
+You can confirm that the scripts were successful by running the `\dt` command in
+the `psql` command line. You should see this:
 
 ```sql
            List of relations
  Schema |     Name      | Type  |  Owner
 --------+---------------+-------+----------
- public | payment_types | table | postgres
- public | rates         | table | postgres
- public | rides         | table | postgres
+ public | payment_types | table | tsdbadmin
+ public | rates         | table | tsdbadmin
+ public | rides         | table | tsdbadmin
 (3 rows)
 ```

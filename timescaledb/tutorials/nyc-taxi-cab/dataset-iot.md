@@ -28,7 +28,7 @@ Install Timescale Cloud by signing up for an account. It's free for thirty days.
 # The dataset
 
 This tutorial uses historical data from New York's yellow taxi network, provided
-by the New York City Taxi and Limousine Commission [[NYC TLC]](nyc-tlc).
+by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
 
 <CreateHypertable />
 
