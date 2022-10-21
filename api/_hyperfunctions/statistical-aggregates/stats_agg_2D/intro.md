@@ -3,8 +3,6 @@ section: hyperfunction
 subsection: stats_agg() (2D)
 ---
 
-import TwoStepAggregation from 'versionContent/_partials/_2-step-aggregation.mdx';
-
 Perform common statistical analyses on two-dimensional data, such as fitting a
 linear regression model. These functions are similar to the [PostgreSQL
 statistical aggregates][pg-stats-aggs], but they include more features and are
@@ -13,8 +11,6 @@ easier to use in [continuous aggregates][caggs] and window functions.
 They work on two-dimensional data. To work with one-dimensional data, for
 example to perform linear regression, see [the one-dimensional `stats_agg`
 functions][stats_agg-1d].
-
-<TwoStepAggregation />
 
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [pg-stats-aggs]:
