@@ -173,87 +173,42 @@ information from both in your results.
 
 </procedure>
 
-#### Analysis of rides to JFK and EWR
+## What kind of trips are going to and from airports
 
-From your work calculating rides by rate type, the NYC TLC noticed that
-rides to John F Kennedy International Airport (JFK) and Newark International
-Airport (EWR) were the second and fourth most popular ride types, respectively.
-Given this popularity in airport rides and consequent carbon footprint,
-the city of New York thinks that airport public transportation could be
-an area of improvement - reducing traffic in the city and overall carbon
-footprint associated with airport trips.
+There are two primary airports in the dataset: John F. Kennedy airport, or JFK, is represented by rate code 2; Newark airport, or EWR, is represented by rate code 3.
 
-Prior to instituting any programs, they would like you to more closely
-examine trips to JFK (code 2) and Newark (code 3). For each airport, they
-would like to know the following for the month of January:
+Information about the trips that are going to and from the two airports is useful for city planning, as well as for organizations like the NYC Tourism Bureau.
 
-*   Number of trips to that airport
-*   Average trip duration (i.e drop off time - pickup time)
-*   Average trip cost
-*   Average tip
-*   Minimum, Maximum and Average trip distance
-*   Average number of passengers
+This section shows you how to contruct a query that returns trip information for trips going only to the new main airports.
 
-To do this, we can run the following query:
+### Finding what kind of trips are going to and from airports
 
-```sql
--- For each airport: num trips, avg trip duration, avg cost, avg tip, avg distance, min distance, max distance, avg number of passengers
-SELECT rates.description, COUNT(vendor_id) AS num_trips,
-   AVG(dropoff_datetime - pickup_datetime) AS avg_trip_duration, AVG(total_amount) AS avg_total,
-   AVG(tip_amount) AS avg_tip, MIN(trip_distance) AS min_distance, AVG (trip_distance) AS avg_distance, MAX(trip_distance) AS max_distance,
-   AVG(passenger_count) AS avg_passengers
- FROM rides
- JOIN rates ON rides.rate_code = rates.rate_code
- WHERE rides.rate_code IN (2,3) AND pickup_datetime < '2016-02-01'
- GROUP BY rates.description
- ORDER BY rates.description;
-```
+1.  Connect to the Timescale Cloud database that contains the NYC taxi dataset.
+1.  At the psql prompt, use this query to select all rides taken to and from JFK
+    and EWR airports, in the first week of January 2016, and return the number
+    of trips to that airport, the average trip duration, average trip cost, and
+    average number of passengers:
 
-Which produces the following output:
+    ```sql
+    SELECT rates.description,
+        COUNT(vendor_id) AS num_trips,
+        AVG(dropoff_datetime - pickup_datetime) AS avg_trip_duration,
+        AVG(total_amount) AS avg_total,
+        AVG(passenger_count) AS avg_passengers
+    FROM rides
+    JOIN rates ON rides.rate_code = rates.rate_code
+    WHERE rides.rate_code IN (2,3) AND pickup_datetime < '2016-01-08'
+    GROUP BY rates.description
+    ORDER BY rates.description;
+    ```
 
-```sql
--[ RECORD 1 ]-----+--------------------
-description       | JFK
-num_trips         | 225019
-avg_trip_duration | 00:45:46.822517
-avg_total         | 64.3278115181384683
-avg_tip           | 7.3334228220728027
-min_distance      | 0.00
-avg_distance      | 17.2602816651038357
-max_distance      | 221.00
-avg_passengers    | 1.7333869584346211
--[ RECORD 2 ]-----+--------------------
-description       | Newark
-num_trips         | 16822
-avg_trip_duration | 00:35:16.157472
-avg_total         | 86.4633688027582927
-avg_tip           | 9.5461657353465700
-min_distance      | 0.00
-avg_distance      | 16.2706122934252764
-max_distance      | 177.23
-avg_passengers    | 1.7435501129473309
-```
+    The result of the query looks like this:
 
-Based on your analysis, you are able to identify:
+    ```sql
+     description | num_trips | avg_trip_duration |      avg_total      |   avg_passengers
+    -------------+-----------+-------------------+---------------------+--------------------
+     JFK         |     54832 | 00:46:44.614222   | 63.7791311642836300 | 1.8062080536912752
+     Newark      |      4126 | 00:34:45.575618   | 84.3841783809985458 | 1.8979641299079011
+    ```
 
-*   There are 13x more rides to JFK than Newark. This often leads to heavy traffic on the roads to and from JFK, especially during peak times. They've decided to explore road improvements to those areas, as well as increasing public transport to and from the airport (e.g, buses, subway, trains, etc.)
-*   Each airport ride has on average the same number of passengers per trip (~1.7 passengers per trip).
-*   The trip distances are roughly the same 16-17 miles.
-*   JFK is about 30% cheaper, most likely because of NJ tunnel and highway tolls.
-*   Newark trips are 22% (10 min) shorter.
-
-This data is useful not just for city planners, but also for airport travellers
-and tourism organizations like the NYC Tourism Bureau. For example, a tourism
-organization could recommend cost-conscious travelers who'd rather not fork out
-$84 for a ride to Newark to use public transport instead, like the NJ Transit
-train from Penn Station ($15.25 for an adult ticket). Similarly, they could
-recommend to those travelling to JFK airport, and who are weary of heavy traffic,
-to take the subway and airtrain instead, for just $7.50.
-
-Moreover, you could also make recommendations for those flying out of
-New York City about which airport to choose. For example, from the data above,
-we can recommend those travellers who think they'd be in a rush and who don't
-mind paying a little extra to consider flying out of Newark over JFK.
-
-If you've made it this far, you've successfully completed Mission 2 and now
-have a basic understanding of how to analyze time-series data using TimescaleDB!
+</procedure>
