@@ -61,7 +61,8 @@ const fixBlankLine = ({ tag, tagType, errorCallback }) => {
  * @param {('opening'|'closing')} tagType Whether the tag is an opening or closing tag.
  * @param {String[]} lines The lines in the document
  * @param {addErrorCallback} onError The callback to add a markdownlint error and fix.
- * @param {boolean} withExceptions Whether to make exceptions for code blocks and lists.
+ * @param {Boolean} withExceptions Whether to make exceptions for code blocks and lists.
+ * @param {Number} indent Number of spaces that the tag should be indented.
  */
 module.exports.checkTagBlankLine = ({
   tag,
@@ -69,6 +70,7 @@ module.exports.checkTagBlankLine = ({
   lines,
   onError,
   withExceptions = false,
+  indent = 0,
 }) => {
   if (!isValidTagType(tagType)) {
     throw `The tag type for checkTagLineBreak must be either opening or closing: ${tagType}`;
@@ -85,9 +87,9 @@ module.exports.checkTagBlankLine = ({
     const exceptionLineNumber = hasBlankNeighbor
       ? lineNumberToCheck - 1
       : lineNumberToCheck;
-    const isException = !!lines[exceptionLineNumber].match(
-      "```|\\d\\. .+|^\\s+"
-    );
+    const isException =
+      !!lines[exceptionLineNumber].match("```|\\d\\. .+") ||
+      (!!lines[exceptionLineNumber].match("^\\s+") && !indent);
     if (isException && !hasBlankNeighbor) {
       onError({
         lineNumber: tag.lineNumber,
@@ -129,7 +131,7 @@ module.exports.checkTagLineBreak = ({
   }
 
   // Check for lack of line break
-  const regex = tagType === "opening" ? `${pattern}$` : `^${pattern}`;
+  const regex = tagType === "opening" ? `${pattern}$` : `^\\s*${pattern}`;
   if (!tag.line.match(regex)) {
     const match = tag.line.match(pattern);
     const indexOfTag = match.index + 1;

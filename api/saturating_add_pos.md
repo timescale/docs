@@ -20,7 +20,7 @@ hyperfunction_subfamily: saturating math
 hyperfunction_type: one-step
 ---
 
-# saturating_add_pos()  <tag type="toolkit">Toolkit</tag><tag type="toolkit-experimental" content="Experimental" />
+# saturating_add_pos()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit" content="Experimental" />
 
 The `saturating_add_pos` function adds two numbers, saturating at 0 and 2147483647 instead of overflowing.
 

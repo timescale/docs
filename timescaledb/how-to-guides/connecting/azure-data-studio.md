@@ -25,8 +25,8 @@ services.
 1.  Start `Azure Data Studio`.
 1.  In the `SERVERS` page, click `New Connection`.
 1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
-    Fill in the fields using the server name, database,user name, and password for your 
-    TimescaleDB instance. For more information about these settings, see 
+    Fill in the fields using the server name, database,user name, and password for your
+    TimescaleDB instance. For more information about these settings, see
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
@@ -45,7 +45,7 @@ services.
 1.  Sign in to the [Timescale Cloud portal][tsc-portal].
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
-1.  Click the name of the service you want to connect to, and take a note 
+1.  Click the name of the service you want to connect to, and take a note
      of the `Host`, `Port`, `Database name`, and `Username`.
 1.  Navigate to the `Operations` tab, and click `Reset password`. You can choose
     your own password for the service, or allow Timescale Cloud to generate a
@@ -54,10 +54,18 @@ services.
 1.  In the `SERVERS` page, click `New Connection`.
 1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
     Fill in the fields using the server name, database, user name, port, and password for your
-    TimescaleDB Cloud service. For more information about these settings, see 
+    TimescaleDB Cloud service. For more information about these settings, see
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
+
+    <highlight type="note">
+    If you configured your Timescale Cloud service to connect using
+    [SSL mode](https://docs.timescale.com/cloud/latest/security/strict-ssl/), then set `SSL mode` to `Verify-Full`, and in the
+    `SSL root certificate filename` field, type the location of the SSL root
+    CA certificate to use.
+    </highlight>
+
 1.  Click `Connect`.
 
     <img class="main-content__illustration"
@@ -70,9 +78,9 @@ services.
 
 <highlight type="important">
 To ensure a secure network access to your Managed Service for TimescaleDB
-service, make sure you add the IP address of the machine running Azure Data 
+service, make sure you add the IP address of the machine running Azure Data
 Studio to the `Allowed IP Addresses`. For more information about network
-security in Managed Service for TimescaleDB, see 
+security in Managed Service for TimescaleDB, see
 [the security section](https://docs.timescale.com/mst/latest/security/).
 </highlight>
 
@@ -88,7 +96,7 @@ security in Managed Service for TimescaleDB, see
 1.  In the `SERVERS` page, click `New Connection`.
 1.  In the `Connection Details` dialog, navigate to `Connection type`, and select `PostgreSQL`.
     Fill in the fields using the server name, database, user name, port, and password for your
-    Managed Service for TimescaleDB service. For more information about these settings, see 
+    Managed Service for TimescaleDB service. For more information about these settings, see
     [the connection details section][connection-details].
 1.  Click `Advanced`.
 1.  In the `Port` field, type the port number, and click `OK`.
