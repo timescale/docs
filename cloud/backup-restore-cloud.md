@@ -13,15 +13,15 @@ automated backups in Timescale Cloud are created using the `pgBackRest` tool.
 There is no need for you to manually perform backups for your Timescale Cloud
 service.
 
-Timescale Cloud allows a point-in-time recovery to any point since the service
-was created, regardless of when a failure occurs. To achieve this, Timescale
-Cloud automatically creates one full backup every week. We also take
-incremental backups every day, which store any changes since the last full
-backup. Finally, all generated WAL ([Write-Ahead Log][wal]) files are streamed
-to S3. The two most recent full backups are also stored securely on an Amazon
-S3 service with the most recent incremental backups. This means that you always
-have a full "base" backup for the current and the previous week, and we can
-restore your backup to any point up to the point of failure.
+Timescale Cloud allows point-in-time recovery to any time since the service was
+created, regardless of when a failure occurs. To achieve this, Timescale Cloud
+automatically creates one full backup every week. We also take incremental
+backups every day using a WAL ([Write-Ahead Log][wal]), which stores any changes
+since the last full backup. All generated WAL files are streamed to S3. The two
+most recent full backups are also stored securely on an Amazon S3 service with
+the most recent incremental backups. This means that you always have a full
+"base" backup for the current and the previous week, and we can restore your
+backup to any point up to the point of failure.
 
 To perform a point-in-time recovery, your database is first restored using the
 full backup, then any available incremental backups, and finally by replaying
@@ -70,7 +70,7 @@ Because writes to the database occur in real time, the service commits
 write-ahead log (WAL) segments of all changes by streaming them to an Amazon S3
 service. This ensures that any data committed is available for recovery.
 
-If an incremental backup fails to complete, it will try again the next day. In
+If an incremental backup fails to complete, it tries again the next day. In
 this case, the backup contains the difference between the last complete backup
 and the current day.
 
@@ -102,3 +102,4 @@ SELECT pg_is_in_recovery()::text
 [support]: https://www.timescale.com/support
 [wal]: https://www.postgresql.org/docs/current/wal-intro.html
 [ha-post]: https://www.timescale.com/blog/how-high-availability-works-in-our-cloud-database/#what-if-theres-a-failure-affecting-your-storage
+[backup-blog]: https://www.timescale.com/blog/how-high-availability-works-in-our-cloud-database/

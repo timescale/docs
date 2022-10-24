@@ -30,7 +30,7 @@ For more information about counter aggregation functions, see the
 
 |Name|Type|Description|
 |-|-|-|
-|ts|TIMESTAMPZ|The time at each point|
+|ts|TIMESTAMPTZ|The time at each point|
 |value|DOUBLE PRECISION|The value at each point to use for the counter aggregate|
 
 The `value` argument is currently only accepted as a DOUBLE PRECISION number,
