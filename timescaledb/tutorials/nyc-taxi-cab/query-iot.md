@@ -175,11 +175,16 @@ information from both in your results.
 
 ## What kind of trips are going to and from airports
 
-There are two primary airports in the dataset: John F. Kennedy airport, or JFK, is represented by rate code 2; Newark airport, or EWR, is represented by rate code 3.
+There are two primary airports in the dataset: John F. Kennedy airport, or JFK,
+is represented by rate code 2; Newark airport, or EWR, is represented by rate
+code 3.
 
-Information about the trips that are going to and from the two airports is useful for city planning, as well as for organizations like the NYC Tourism Bureau.
+Information about the trips that are going to and from the two airports is
+useful for city planning, as well as for organizations like the NYC Tourism
+Bureau.
 
-This section shows you how to contruct a query that returns trip information for trips going only to the new main airports.
+This section shows you how to construct a query that returns trip information for
+trips going only to the new main airports.
 
 ### Finding what kind of trips are going to and from airports
 
