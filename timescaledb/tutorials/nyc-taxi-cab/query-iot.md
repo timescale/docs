@@ -7,8 +7,8 @@ tags: [tutorials, IoT]
 
 # Query the data
 
-Now that you have your dataset loaded, you can start constructing some queries
-to discover what your data tells you. In this section, you learn how to write
+When you have your dataset loaded, you can start constructing some queries to
+discover what your data tells you. In this section, you learn how to write
 queries that answer these questions:
 
 *   How many rides take place each day?
@@ -185,6 +185,8 @@ Bureau.
 
 This section shows you how to construct a query that returns trip information for
 trips going only to the new main airports.
+
+<procedure>
 
 ### Finding what kind of trips are going to and from airports
 
