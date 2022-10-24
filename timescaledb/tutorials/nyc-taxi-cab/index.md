@@ -30,7 +30,7 @@ This tutorial covers:
     Cloud service, and load data into your database using psql.
 1.  [Querying your dataset][query-nyc]: Analyze a dataset containing NYC taxi
     trip data using TimescaleDB and PostgreSQL.
-1.  [Monitoring your IoT devices][monitor-nyc]: Use TimescaleDB with the PostGIS
+1.  [Advanced queries][advanced-nyc]: Use TimescaleDB with the PostGIS
     extension to query geospatial data.
 
 ## About querying data with TimescaleDB
@@ -55,5 +55,5 @@ for faster queries.
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/
 [dataset-nyc]: /timescaledb/tutorials/nyc-taxi-cab/dataset-nyc/
 [query-nyc]: /timescaledb/tutorials/nyc-taxi-cab/query-nyc/
-[monitor-nyc]: /timescaledb/tutorials/nyc-taxi-cab/monitor-nyc/
+[advanced-nyc]: /timescaledb/tutorials/nyc-taxi-cab/advanced-nyc/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
