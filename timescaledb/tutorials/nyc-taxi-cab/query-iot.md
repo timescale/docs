@@ -236,7 +236,7 @@ result to take the floor of that quotient. When you had that result, you could
 multiply the truncated quotient by 30.
 
 In your Timescale database, you can use the `time_bucket` function to segment
-the data into time intervals.
+the data into time intervals instead.
 
 <procedure>
 
@@ -247,17 +247,17 @@ the data into time intervals.
     day of January 2016, and return a count of rides for each 30 minute interval:
 
     ```sql
-    SELECT time_bucket('30 minute', pickup_datetime) AS half_hour, count(*)
+    SELECT time_bucket('30 minute', pickup_datetime) AS thirty_min, count(*)
     FROM rides
     WHERE pickup_datetime < '2016-01-02 00:00'
-    GROUP BY half_hour
-    ORDER BY half_hour;
+    GROUP BY thirty_min
+    ORDER BY thirty_min;
     ```
 
     The result of the query starts like this:
 
     ```sql
-          half_hour      | count
+         thirty_min      | count
     ---------------------+-------
      2016-01-01 00:00:00 | 10920
      2016-01-01 00:30:00 | 14350
