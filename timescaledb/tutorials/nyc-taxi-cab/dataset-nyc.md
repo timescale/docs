@@ -1,8 +1,8 @@
 ---
-title: Query IoT data tutorial - set up dataset
-excerpt: Set up a dataset so you can query IoT data
-keywords: [tutorials, create, dataset, iot]
-tags: [tutorials, IoT]
+title: Query time-series data tutorial - set up dataset
+excerpt: Set up a dataset so you can query time-series data
+keywords: [tutorials, create, dataset]
+tags: [tutorials, beginner]
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";

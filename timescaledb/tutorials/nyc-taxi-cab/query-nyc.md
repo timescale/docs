@@ -1,8 +1,8 @@
 ---
-title: Query IoT data tutorial - query the data
-excerpt: Query IoT data
-keywords: [tutorials, query, iot]
-tags: [tutorials, IoT]
+title: Query time-series data tutorial - query the data
+excerpt: Query time-series data
+keywords: [tutorials, query]
+tags: [tutorials, beginner]
 ---
 
 # Query the data

@@ -1,11 +1,11 @@
 ---
-title: Query IoT data tutorial
-excerpt: Learn how to query IoT data
-keywords: [tutorials, query, learn, iot]
-tags: [tutorials, IoT]
+title: Query time-series data tutorial
+excerpt: Learn how to query time-series data
+keywords: [tutorials, query, learn]
+tags: [tutorials, beginner]
 ---
 
-# Analyze IoT data with NYC tax cabs
+# Analyze NYC taxi cab data
 
 New York City is home to about 9 million people. This tutorial uses historical
 data from New York's yellow taxi network, provided by the New York City Taxi and
@@ -26,20 +26,19 @@ Before you begin, make sure you have:
 
 This tutorial covers:
 
-1.  [Setting up up your dataset][dataset-iot]: Set up and connect to a Timescale
+1.  [Setting up up your dataset][dataset-nyc]: Set up and connect to a Timescale
     Cloud service, and load data into your database using psql.
-1.  [Querying your dataset][query-iot]: Analyze a dataset containing IoT data using
-    TimescaleDB and PostgreSQL.
-1.  [Monitoring your IoT devices][monitor-iot]: Use TimescaleDB to monitor IoT
-    devices, and understand some other PostgreSQL extensions, such as PostGIS,
-    for querying geospatial data.
+1.  [Querying your dataset][query-nyc]: Analyze a dataset containing NYC taxi
+    trip data using TimescaleDB and PostgreSQL.
+1.  [Monitoring your IoT devices][monitor-nyc]: Use TimescaleDB with the PostGIS
+    extension to query geospatial data.
 
-## About querying IoT data with TimescaleDB
+## About querying data with TimescaleDB
 
 This tutorial uses the [NYC taxi data][nyc-tlc] to show you how to construct
-queries for IoT devices. The analysis you do in this tutorial is similar to the
-kind of analysis data science organizations use to do things like plan upgrades,
-set budgets, and allocate resources.
+queries for time-series data. The analysis you do in this tutorial is similar to
+the kind of analysis data science organizations use to do things like plan
+upgrades, set budgets, and allocate resources.
 
 It starts by teaching you how to set up and connect to a Timescale database,
 create tables, and load data into the tables using `psql`.
@@ -54,7 +53,7 @@ for faster queries.
 
 [install-docs]: /install/:currentVersion:/
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/
-[dataset-iot]: /timescaledb/tutorials/nyc-taxi-cab/dataset-iot/
-[query-iot]: /timescaledb/tutorials/nyc-taxi-cab/query-iot/
-[monitor-iot]: /timescaledb/tutorials/nyc-taxi-cab/monitor-iot/
+[dataset-nyc]: /timescaledb/tutorials/nyc-taxi-cab/dataset-nyc/
+[query-nyc]: /timescaledb/tutorials/nyc-taxi-cab/query-nyc/
+[monitor-nyc]: /timescaledb/tutorials/nyc-taxi-cab/monitor-nyc/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page

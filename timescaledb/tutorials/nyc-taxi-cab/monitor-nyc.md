@@ -1,8 +1,8 @@
 ---
-title: Query IoT data tutorial - advanced steps
-excerpt: Extra things to try with IoT data
-keywords: [tutorials, advanced, query, iot]
-tags: [tutorials, IoT]
+title: Query time-series data tutorial - advanced steps
+excerpt: Extra things to try with time-series data
+keywords: [tutorials, advanced, query]
+tags: [tutorials, beginner]
 ---
 
 # Advanced steps
