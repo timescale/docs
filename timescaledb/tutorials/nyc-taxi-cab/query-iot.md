@@ -11,10 +11,11 @@ When you have your dataset loaded, you can start constructing some queries to
 discover what your data tells you. In this section, you learn how to write
 queries that answer these questions:
 
-*   How many rides take place each day?
-*   What is the average fare amount?
-*   How many rides of each rate type were taken?
-*   What kind of trips are going to and from airports?
+*   [How many rides take place each day?](#how-many-rides-take-place-every-day)
+*   [What is the average fare amount?](#what-is-the-average-fare-amount)
+*   [How many rides of each rate type were taken?](#how-many-rides-of-each-rate-type-were-taken)
+*   [What kind of trips are going to and from airports?](#what-kind-of-trips-are-going-to-and-from-airports)
+*   [How many rides took place on New Year's Day 2016](#how-many-rides-took-place-on-new-years-day-2016)?
 
 ## How many rides take place every day?
 
@@ -216,6 +217,55 @@ trips going only to the new main airports.
     -------------+-----------+-------------------+---------------------+--------------------
      JFK         |     54832 | 00:46:44.614222   | 63.7791311642836300 | 1.8062080536912752
      Newark      |      4126 | 00:34:45.575618   | 84.3841783809985458 | 1.8979641299079011
+    ```
+
+</procedure>
+
+## How many rides took place on New Year's Day 2016?
+
+New York City is famous for the Ball Drop New Year's Eve celebration in Times
+Square. Thousands of people gather to bring in the New Year and then head out
+into the city: to their favorite bar, to gather with friends for a meal, or back
+home. This section shows you how to construct a query that returns the number of
+taxi trips taken on 1 January, 2016, in 30 minute intervals.
+
+In PotsgreSQL, it's not particularly easy to segment the data by 30 minute time
+intervals. To do this, you would need to use a `TRUNC` function to calculate the
+quotient of the minute that a ride began in divided by 30, then truncate the
+result to take the floor of that quotient. When you had that result, you could
+multiply the truncated quotient by 30.
+
+In your Timescale database, you can use the `time_bucket` function to segment
+the data into time intervals.
+
+<procedure>
+
+### Finding how many rides took place on New Year's Day 2016
+
+1.  Connect to the Timescale Cloud database that contains the NYC taxi dataset.
+1.  At the psql prompt, use this query to select all rides taken on the first
+    day of January 2016, and return a count of rides for each 30 minute interval:
+
+    ```sql
+    SELECT time_bucket('30 minute', pickup_datetime) AS half_hour, count(*)
+    FROM rides
+    WHERE pickup_datetime < '2016-01-02 00:00'
+    GROUP BY half_hour
+    ORDER BY half_hour;
+    ```
+
+    The result of the query starts like this:
+
+    ```sql
+          half_hour      | count
+    ---------------------+-------
+     2016-01-01 00:00:00 | 10920
+     2016-01-01 00:30:00 | 14350
+     2016-01-01 01:00:00 | 14660
+     2016-01-01 01:30:00 | 13851
+     2016-01-01 02:00:00 | 13260
+     2016-01-01 02:30:00 | 12230
+     2016-01-01 03:00:00 | 11362
     ```
 
 </procedure>
