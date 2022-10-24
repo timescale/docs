@@ -1,7 +1,7 @@
 ---
 title: Problem resolving DNS
 section: troubleshooting
-product: mst
+products: [mst]
 topics: [networking]
 keywords: [networking]
 tags: [tshoot, connect, networking]

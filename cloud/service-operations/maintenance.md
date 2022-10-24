@@ -43,6 +43,23 @@ To apply changes manually instead of waiting for the maintenance window,
 applied when your service is resumed.
 </highlight>
 
+## Replicas and maintenance
+
+Services with replicas do not require maintenance downtime. Instead, they have
+one or two failover events during maintenance, taking less than a few seconds
+each.
+
+During a maintenance event, services with replicas perform maintenance on each
+node independently. Maintenance begins on one node, and when it is finished,
+that node is promoted to primary. The other node then begins maintenance, and
+when it is complete, it remains the replica. Sometimes, maintenance begins with
+the primary. This causes the replica node to be promoted at the start. If this happens, the
+service experiences two promotions, or failovers, during the maintenance
+event.
+
+For more information about replicas, see the
+[replicas section][replicas-docs].
+
 ## Non-critical maintenance updates
 
 Non-critical upgrades are made available before the upgrade is performed
@@ -87,8 +104,74 @@ downtime is usually between 30&nbsp;seconds and 5&nbsp;minutes. We endeavor to
 notify you on email ahead of the upgrade if downtime is required, so that you
 can plan accordingly. However, in some cases, we might not be able to do so.
 
+## Upgrade to a new PostgreSQL version
+
+Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, and 14. You can see
+your PostgreSQL and TimescaleDB versions from the Timescale Cloud service 
+overview page.
+
+<!-- TODO: Add screenshot
+<img class="main-content__illustration"
+    src="FIXME"
+    alt="The Timescale Cloud dashboard, showing the PostgreSQL and TimescaleDB
+    versions"
+/>
+-->
+
+You can also manually upgrade to the newest supported PostgreSQL version
+(PostgreSQL&nbsp;14) from the service overview page.
+
+Upgrading to a newer version of PostgreSQL allows you to take advantage of new
+features, enhancements, and security fixes. It also ensures that you are using a
+version of PostgreSQL that's compatible with the newest version of TimescaleDB,
+allowing you to take advantage of everything Timescale has to offer. For more
+information about feature changes between versions, see the
+[PostgreSQL release notes][postgres-relnotes] and
+[TimescaleDB release notes][timescale-relnotes].
+
+<highlight type="warning">
+Your Timescale Cloud service is unavailable until the upgrade is complete. 
+This can take several hours. To estimate the length of time, it is usually one second of downtime per 
+100&nbsp;MB, but for a better estimate, you can test on a fork first.
+</highlight>
+
+### Recommended practices for upgrading
+
+For a smooth upgrade experience, make sure you:
+
+*   Plan ahead. Upgrades cause downtime, so ideally perform an upgrade 
+    during a low traffic time.
+*   Fork your database, and try out the upgrade on the fork before running it on
+    your production system. This gives you a good idea of what happens during
+    the upgrade, and how long it might take. For more information about forking,
+    see the section on [forking][operations-forking].
+*   Keep a copy of your database with your old version and data, if you're
+    worried about losing it. You can fork your database without upgrading the
+    fork to keep a duplicate Timescale Cloud service. You can immediately pause
+    this fork to only pay for storage until you are comfortable deleting it.
+
+<procedure>
+
+### Upgrading to a new PostgreSQL version
+
+1.  In the Timescale Cloud console, navigate to `Services` and click the service
+    you want to upgrade.
+1.  Navigate to the `Operations` tab, and go to the `Maintenance` section.
+1.  If a new PostgreSQL version is available, click the `Upgrade` button, and
+    confirm that you are ready to start the upgrade. Your Timescale Cloud
+    service is unavailable for use until the upgrade is complete.
+1.  When the upgrade is finished, your service automatically resumes normal
+    operations. If the upgrade is unsuccessful, the service returns to the state
+    it was in before you started the upgrade.
+
+</procedure>
+
 <highlight type="cloud" header="Sign up for Timescale Cloud" button="Try for free">
 </highlight>
 
-[status-page]: https://status.timescale.com/
 [cloud-login]: https://cloud.timescale.com
+[operations-forking]: /cloud/:currentVersion:/service-operations/general/#fork-a-service
+[postgres-relnotes]: https://www.postgresql.org/docs/release/
+[replicas-docs]: /cloud/:currentVersion:/service-operations/replicas/
+[status-page]: https://status.timescale.com/
+[timescale-relnotes]: /timescaledb/latest/overview/release-notes/

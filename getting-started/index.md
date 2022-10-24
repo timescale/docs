@@ -3,6 +3,10 @@ title: Getting started with TimescaleDB
 excerpt: Get started with your first TimescaleDB instance
 ---
 
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
+import Connect from "versionContent/_partials/_cloud-connect.mdx";
+
 # Getting started with TimescaleDB
 
 Get started with TimescaleDB to experience the power of its core features, such
@@ -10,36 +14,56 @@ as hypertables, continuous aggregates, and compression.
 
 ## What is TimescaleDB?
 
-TimescaleDB is an extension on top of PostgreSQL.
-When you use TimescaleDB, you get all the time-series optimizations and special
-features that TimescaleDB provides, along with all the features available
-in regular PostgreSQL. Developers refer to TimescaleDB as PostgreSQL with
-superpowers.
+TimescaleDB is an extension on top of PostgreSQL. It gives you all the power of
+PostgreSQL, plus new superpowers that help you work with time-series data and
+complex SQL queries.
 
-TimescaleDB supports the full SQL language and you can use TimescaleDB with
-all the tools and connectors within the PostgreSQL ecosystem. If it works with
-PostgreSQL, it works with TimescaleDB.
+## About this guide
 
-## About this tutorial
+This guide helps you set up a TimescaleDB database, so you can work with some
+real-time stock trading data, provided by [Twelve Data][twelve-data].
 
-This Getting Started section gives you a hands-on introduction to the
-fundamentals of TimescaleDB. You'll learn definitions
-of key terms like hypertables and chunks, and use some of TimescaleDB's key
-features like continuous aggregation, compression, and data retention.
+If you have any questions or concerns as you go through the tutorial, check out
+the Timescale community [Slack][slack] and [Timescale Forum][forum], where you
+can find help from the Timescale community and team.
 
-The data you ingest and use for this tutorial is real-time stock trading data
-provided by [Twelve Data][twelve-data]. The dataset consists of two tables,
-one with second-by-second stock-trade data for the top 100 most-traded symbols
-and the other containing company information which maps to the symbols.
+## Get started with a TimescaleDB database
 
-Let's jump right in!
+<!-- vale Google.We = NO -->
+To work with TimescaleDB, you need a TimescaleDB database. The easiest way to
+get started is to use Timescale Cloud, our hosted, cloud-native database
+service.
+<!-- vale Google.We = YES -->
 
-## Getting help
+### Install Timescale Cloud
 
-If you have any questions or concerns as you go through the tutorial,
-check out the Timescale community [Slack][slack] and [Timescale Forum][forum], where
-you can find help from the Timescale community and team.
+Install Timescale Cloud by signing up for an account. It's free for thirty days.
+It's a cloud service, so you don't need to download anything to your own
+machines.
+
+<highlight type="note">
+Need to self-host your own database? See the other installation options in the
+[install section](/install/latest/).
+</highlight>
+
+<Install />
+
+### Create your first service
+
+<CreateService demoData={false} />
+
+### Connect to your service
+
+<Connect />
+
+## Next steps
+
+Now that you have a database and a way of connecting to it, you're ready to
+start using TimescaleDB features. In the next section, [learn about
+hypertables][gsg-hypertables] and how they improve ingest and query for
+time-based data.
 
 [forum]: https://www.timescale.com/forum
+[gsg-hypertables]: /getting-started/:currentVersion:/create-hypertable/
 [slack]: https://slack.timescale.com/
 [twelve-data]: https://twelvedata.com/

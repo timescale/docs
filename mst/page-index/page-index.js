@@ -11,10 +11,6 @@ module.exports = [
         href: "about-mst",
       },
       {
-        title: "Aiven Client for Managed Service for TimescaleDB",
-        href: "aiven-client-install",
-      },
-      {
         title: "Clouds and regions",
         href: "cloud-regions",
       },
@@ -55,6 +51,10 @@ module.exports = [
         href: "metrics-datadog",
       },
       {
+        title: "Integrate Managed Service for TimescaleDB and Google Data Studio",
+        href: "google-data-studio-mst",
+      },
+      {
         title: "Supported extensions",
         href: "extensions",
       },
@@ -63,8 +63,13 @@ module.exports = [
         href: "security",
       },
       {
+        title: "Create a replica for PostgreSQL service",
+        href: "postgresql-read-replica",
+      },
+      {
         title: "Troubleshooting",
         href: "troubleshooting",
+        type: "placeholder",
       },
       {
         title: "Maintenance",
@@ -86,10 +91,34 @@ module.exports = [
           "A Command Line tool for fully managed TimescaleDB service on AWS, Azure, or GCP.",
         children: [
           {
+            title: "Install Aiven Client for Managed Service for TimescaleDB",
+            href: "aiven-client-install",
+            excerpt:
+              "Install Aiven Client to manage your services on MST"
+          },
+          {
+            title: "Create a fork of the service using Aiven Client",
+            href: "create-fork",
+            excerpt:
+              "Create a fork of the service using Aiven Client"
+          },
+          {
+            title: "Create a read-only replica using Aiven Client",
+            href: "replicas-cli",
+            excerpt:
+              "Create a read-only replica using Aivent Client"
+          },
+          {
             title: "Integrate authentication plugins in Grafana",
             href: "grafana-authentication-plugins",
             excerpt:
               "Configure Google, GitHub, or GitLab authentication plugins for Grafana",
+          },
+          {
+            title: "Send Grafana emails using Aiven Client",
+            href: "grafana-email",
+            excerpt:
+              "Configure the Simple Mail Transfer Protocol (SMTP) server in MST for Grafana"
           },
         ],
       },

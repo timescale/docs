@@ -20,7 +20,7 @@ hyperfunction_subfamily: saturating math
 hyperfunction_type: one-step
 ---
 
-# saturating_add_pos()  <tag type="toolkit">Toolkit</tag><tag type="toolkit-experimental" content="Experimental" />
+# saturating_add_pos()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit" content="Experimental" />
 
 The `saturating_add_pos` function adds two numbers, saturating at 0 and 2147483647 instead of overflowing.
 
@@ -38,6 +38,6 @@ For more information about saturating math functions, see the
 
 |Column|Type|Description|
 |-|-|-|
-|`saturating_add_pos`|`INT`| The result of x+y, saturating at 0 for the minimum bound |
+|`saturating_add_pos`|`INT`| The result of `x+y`, saturating at 0 for the minimum bound |
 
 [saturating-math-docs]: /api/:currentVersion:/hyperfunctions/saturating_math/
