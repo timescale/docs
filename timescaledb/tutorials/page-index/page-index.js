@@ -8,25 +8,21 @@ module.exports = [
       {
         title: "Introduction to time-series data",
         href: "nyc-taxi-cab",
-        tags: ["query", "learn", "tsc"],
         excerpt: "An introduction to time-series using NYC taxi data",
         children: [
           {
             title: "Time-series tutorial - set up",
             href: "dataset-nyc",
-            tags: ["tutorials", "create", "dataset"],
             excerpt: "Set up a dataset so you can query NYC data]",
           },
           {
             title: "Time-series tutorial - query data",
             href: "query-nyc",
-            tags: ["tutorials", "query"],
             excerpt: "Query NYC data]",
           },
           {
             title: "Time-series tutorial - advanced queries",
             href: "advanced-nyc",
-            tags: ["tutorials", "query"],
             excerpt: "Advanced queries NYC data]",
           },
         ],

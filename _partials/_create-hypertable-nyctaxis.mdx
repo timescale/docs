@@ -10,7 +10,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
 
 ### Creating a hypertable
 
-1.  Create a standard PostgreSQL table to store the real-time stock trade data
+1.  Create a standard PostgreSQL table to store the taxi trip data
     using `CREATE TABLE`:
 
     ```sql
@@ -45,7 +45,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
     SELECT create_hypertable('rides', 'pickup_datetime', 'payment_type', 2, create_default_indexes=>FALSE);
     ```
 
-2.  Create an index to support efficient queries on the `symbol` and `time`
+2.  Create an index to support efficient queries by vendor, rate code, and passenger count:
     columns:
 
     ```sql
@@ -60,7 +60,7 @@ with TimescaleDB tables similar to standard PostgreSQL.
 
 When you have other relational data that enhances your time-series data, you can
 create standard PostgreSQL tables just as you would normally. For this dataset,
-there is one other table of data called `company`.
+there are two other tables of data, called `payment_types` and `rates`.
 
 <procedure>
 

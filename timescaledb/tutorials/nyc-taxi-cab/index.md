@@ -40,7 +40,7 @@ queries for time-series data. The analysis you do in this tutorial is similar to
 the kind of analysis data science organizations use to do things like plan
 upgrades, set budgets, and allocate resources.
 
-It starts by teaching you how to set up and connect to a Timescale database,
+It starts by teaching you how to set up and connect to a TimescaleDB database,
 create tables, and load data into the tables using `psql`.
 
 You then learn how to conduct analysis and monitoring on your dataset. It walks
@@ -53,7 +53,7 @@ for faster queries.
 
 [install-docs]: /install/:currentVersion:/
 [psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/
-[dataset-nyc]: /timescaledb/tutorials/nyc-taxi-cab/dataset-nyc/
-[query-nyc]: /timescaledb/tutorials/nyc-taxi-cab/query-nyc/
-[advanced-nyc]: /timescaledb/tutorials/nyc-taxi-cab/advanced-nyc/
+[dataset-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/dataset-nyc/
+[query-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/query-nyc/
+[advanced-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/advanced-nyc/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page

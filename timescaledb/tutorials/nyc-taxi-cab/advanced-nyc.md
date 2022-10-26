@@ -26,7 +26,7 @@ You need to start by altering your hypertable so it's ready for geospatial
 queries. The `rides` table contains columns for pickup latitude and longitude,
 but it needs to be converted into geometry coordinates so that it works well
 with PostGIS. Once you have done that, you can construct a query to return the
-number of rides on New Year's Day that originated in Times Square, by 30 min
+number of rides on New Year's Day that originated in Times Square, by 30-minute
 buckets.
 
 <procedure>
