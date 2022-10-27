@@ -373,8 +373,8 @@ module.exports = [
             ],
           },
           {
-            title: "Statistical aggregates",
-            href: "statistical-aggregates",
+            title: "Statistical analysis",
+            href: "statistical-analysis",
             type: "redirect-to-child-page",
             children: [
               {

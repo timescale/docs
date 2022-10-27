@@ -16,6 +16,7 @@
   "^/api/latest/analytics/time_bucket/": "https://docs.timescale.com/api/latest/hyperfunctions/time_bucket/",
   "^/api/latest/hyperfunctions/counter_aggs/corr-stats/": "https://docs.timescale.com/api/latest/hyperfunctions/counter_aggs/corr-counter/",
   "^/api/latest/hyperfunctions/percentile-approximation/num_vals/$": "https://docs.timescale.com/api/latest/hyperfunctions/percentile-approximation/num_vals-percentile/",
+  "^/api/latest/hyperfunctions/statistical-aggregates": "https://docs.timescale.com/api/latest/hyperfunctions/statistical-analysis/",
   "^/api/latest$": "https://docs.timescale.com/api/latest/",
   "^/cloud/latest/account-management": "https://docs.timescale.com/cloud/latest/billing/",
   "^/cloud/latest/backup-restore-cloud.md/": "https://docs.timescale.com/cloud/latest/backup-restore-cloud/",

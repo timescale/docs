@@ -1,3 +1,5 @@
+<!-- markdownlint-disable -->
+<!-- vale off -->
 # Gauge Aggregates [<sup><mark>experimental</mark></sup>](/docs/README.md#tag-notes)
 
 A gauge is a metric similar to a counter, with the primary difference being
