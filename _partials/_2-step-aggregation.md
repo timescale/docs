@@ -1,5 +1,3 @@
-## Two-step aggregation
-
 This group of functions uses the two-step aggregation pattern.
 
 Rather than calculating the final result in one step, you first create an
