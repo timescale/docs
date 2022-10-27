@@ -378,13 +378,13 @@ module.exports = [
             type: "redirect-to-child-page",
             children: [
               {
-                title: "stats_agg (1D)",
-                href: "stats_agg-1d",
+                title: "stats_agg (one variable)",
+                href: "stats_agg-one-variable",
                 type: "placeholder",
               },
               {
-                title: "stats_agg (2D)",
-                href: "stats_agg-2d",
+                title: "stats_agg (two variables)",
+                href: "stats_agg-two-variables",
                 type: "placeholder",
               },
             ],
