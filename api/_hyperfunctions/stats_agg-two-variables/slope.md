@@ -1,6 +1,6 @@
 ---
 api_name: slope()
-excerpt: Calculate the slope from values in a 2-dimensional statistical aggregate
+excerpt: Calculate the slope from a two-dimensional statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 tags: [least squares, linear regression]
@@ -12,14 +12,15 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate the slope from the values in a statistical aggregate.
-    The calculation uses linear least-squares regression.
+    Calculate the slope of the linear fitting line from a two-dimensional
+    statistical aggregate. The calculation uses the standard least-squares
+    fitting for linear regression.
   signatures:
     - language: sql
       code: |

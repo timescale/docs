@@ -1,6 +1,6 @@
 ---
 api_name: average()
-excerpt: Calculate the average of values in a statistical aggregate
+excerpt: Calculate the average from a one-dimensional statistical aggregate
 topics: [hyperfunctions]
 keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
 api:
@@ -11,13 +11,13 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (one variable)
 api_details:
   summary: >
-    Calculate an average from the values in a statistical aggregate.
+    Calculate a simple average (or mean) from the values in a statistical aggregate.
   signatures:
     - language: sql
       code: |

@@ -1,6 +1,6 @@
 ---
 api_name: stddev_y() | stddev_x()
-excerpt: Calculate the standard deviation from values in a statistical aggregate
+excerpt: Calculate the standard deviation from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 tags: [standard deviation]
@@ -12,13 +12,16 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate the standard deviation from the values in a statistical aggregate.
+    Calculate the standard deviation from a two-dimensional statistical
+    aggregate for the given dimension. For example, `stddev_y()` calculates the
+    skewness for all the values of the `y` variable, independent of values of
+    the `x` variable.
   signatures:
     - language: sql
       code: |

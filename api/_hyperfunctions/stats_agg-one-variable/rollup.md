@@ -1,6 +1,6 @@
 ---
 api_name: rollup()
-excerpt: Roll up multiple statistical aggregates
+excerpt: Combine multiple one-dimensional statistical aggregates
 topics: [hyperfunctions]
 keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
 api:
@@ -11,22 +11,18 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: rollup
   aggregates:
     - stats_agg() (one variable)
 api_details:
   summary: >
-    Combine multiple statistical aggregates into a single statistical aggregate.
-    For example, you can use `rollup` to combine statistical aggregates from
-    15-minute buckets into daily buckets.
-  details:
-    - type: note
-      content: >
-        For use in [window
-        functions](https://www.postgresql.org/docs/current/tutorial-window.html),
-        see [`rolling`](#rollup). `rollup` also works in window functions, but
-        `rolling` can be more efficient.
+    Combine multiple intermediate statistical aggregate (`StatsSummary1D`)
+    objects produced by `stats_agg` (one variable) into a single intermediate
+    `StatsSummary1D` object. For example, you can use `rollup` to combine
+    statistical aggregates from 15-minute buckets into daily buckets.
+
+    For use in window functions, see [`rolling()`](#rolling).
   signatures:
     - language: sql
       code: |

@@ -1,6 +1,6 @@
 ---
 api_name: kurtosis_y() | kurtosis_x()
-excerpt: Calculate the kurtosis from values in a statistical aggregate
+excerpt: Calculate the kurtosis from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 tags: [skew]
@@ -12,14 +12,17 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate the kurtosis from the values in a statistical aggregate. The
-    kurtosis is the fourth statistical moment.
+    Calculate the kurtosis from a two-dimensional statistical aggregate for the
+    given dimension. For example, `kurtosis_y()` calculates the kurtosis for all
+    the values of the `y` variable, independent of values of the `x` variable.
+    The kurtosis is the fourth statistical moment. It is a measure of
+    “tailedness” of a data distribution compared to a normal distribution.
   signatures:
     - language: sql
       code: |

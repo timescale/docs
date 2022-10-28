@@ -16,4 +16,4 @@ functions][stats_agg-2d].
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [pg-stats-aggs]:
     https://www.postgresql.org/docs/current/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE
-[stats_agg-2d]: /api/:currentVersion:/hyperfunctions/statistical-analysis/stats_agg-two-variables/
+[stats_agg-2d]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-two-variables/

@@ -1,6 +1,6 @@
 ---
 api_name: rolling()
-excerpt: Roll up multiple statistical aggregates to calculate rolling window aggregates
+excerpt: Combine multiple two-dimensional statistical aggregates to calculate rolling window aggregates
 topics: [hyperfunctions]
 keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
 api:
@@ -11,25 +11,24 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: rollup
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Combine multiple statistical aggregates into a single statistical aggregate.
-    For example, you can use `rolling` to combine statistical aggregates from
-    15-minute buckets into daily buckets.
-  details:
-    - type: note
-      content: >
-        Compared to [`rollup`](#rollup), `rolling` is more efficient for computing
-        [tumbling window
-        aggregates](https://www.postgresql.org/docs/current/tutorial-window.html).
-        Though `rollup` also works for windowed aggregates, it is less efficient.
-
-        In certain unusual scenarios, `rolling` might introduce more floating point
-        errors. `rollup` doesn't have this risk of extra errors.
+    Combine multiple intermediate two-dimensional statistical aggregate
+    (`StatsSummary2D`) objects into a single `StatsSummary2D` object. It is
+    optimized for use in a window function context for computing tumbling window
+    statistical aggregates.
+  
+    This is especially useful for computing tumbling window aggregates from a
+    continuous aggregate. It can be orders of magnitude faster because it uses
+    inverse transition and combine functions, with the possibility that bigger
+    floating point errors can occur in unusual scenarios.
+  
+    For re-aggregation in a non-window function context, such as combining
+    hourly buckets into daily buckets, see [`rollup()`](#rollup).
   signatures:
     - language: sql
       code: |

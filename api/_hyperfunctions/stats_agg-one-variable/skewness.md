@@ -1,6 +1,6 @@
 ---
 api_name: skewness()
-excerpt: Calculate the skewness from values in a statistical aggregate
+excerpt: Calculate the skewness from a one-dimensional statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 api:
@@ -11,13 +11,15 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (one variable)
 api_details:
   summary: >
-    Calculate the skewness from the values in a statistical aggregate.
+    Calculate the skewness from the values in a statistical aggregate. The
+    skewness is the third statistical moment. It is a measure of asymmetry in a
+    data distribution.
   signatures:
     - language: sql
       code: |

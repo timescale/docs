@@ -373,8 +373,8 @@ module.exports = [
             ],
           },
           {
-            title: "Statistical analysis",
-            href: "statistical-analysis",
+            title: "Statistical and regression analysis",
+            href: "statistical-and-regression-analysis",
             type: "redirect-to-child-page",
             children: [
               {

@@ -1,6 +1,6 @@
 ---
 api_name: average_y() | average_x()
-excerpt: Calculate the average of values in a statistical aggregate
+excerpt: Calculate the average from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
 keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
 api:
@@ -11,13 +11,15 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate an average from the values in a statistical aggregate.
+    Calculate the average from a two-dimensional aggregate tfor the given
+    dimension. For example, `average_y()` calculates the average for all the
+    values of the `y` variable, independent of the values of the `x` variable.
   signatures:
     - language: sql
       code: |

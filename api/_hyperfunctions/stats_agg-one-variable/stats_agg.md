@@ -1,6 +1,6 @@
 ---
 api_name: stats_agg() (one variable)
-excerpt: Aggregate one-dimensional statistical data for further analysis
+excerpt: Aggregate data into an intermediate statistical aggregate form for further calculation
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 api:
@@ -11,16 +11,25 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: aggregate
   aggregates:
     - stats_agg() (one variable)
 api_details:
-  summary: >
-    This is the first step for performing any statistical aggregate calculations.
-    Use `stats_agg` to create an intermediate aggregate from your data. This
-    intermediate form can then be used by any accessor on this page to compute a
-    final result.
+  summary: |
+    This is the first step for performing any statistical aggregate calculations
+    on one-dimensional data. Use `stats_agg` to create an intermediate aggregate
+    (`StatsSummary1D`) from your data. This intermediate form can then be used
+    by one or more accessors in this group to compute final results. Optionally,
+    multiple such intermediate aggregate objects can be combined using
+    [`rollup()`](#rollup) or [`rolling()`](#rolling) before an accessor is
+    applied.
+
+    `stats_agg` is well suited for creating a continuous aggregate that can
+    serve multiple purposes later. For example, you can create a continuous
+    aggregate using `stats_agg` to calculate average and sum. Later, you can
+    reuse the same `StatsSummary1D` objects to calculate standard deviation from
+    the same continuous aggregate.
   signatures:
     - language: sql
       code: |

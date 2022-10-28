@@ -1,6 +1,6 @@
 ---
 api_name: num_vals()
-excerpt: Calculate the number of values contained in a statistical aggregate
+excerpt: Calculate the number of values in a two-dimensional statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 tags: [count, number]
@@ -9,13 +9,14 @@ api:
   type: function
   toolkit: true
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate the number of values contained in a statistical aggregate.
+    Calculate the number of values contained in a two-dimensional statistical
+    aggregate.
   signatures:
     - language: sql
       code: |

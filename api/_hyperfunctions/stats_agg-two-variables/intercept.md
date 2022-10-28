@@ -1,6 +1,6 @@
 ---
 api_name: intercept()
-excerpt: Calculate the intercept from values in a 2-dimensional statistical aggregate
+excerpt: Calculate the intercept from a two-dimensional statistical aggregate
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 tags: [intercept, least squares, linear regression]
@@ -12,14 +12,14 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate the y intercept from the values in a statistical aggregate.
-    The calculation uses linear least-squares regression.
+    Calculate the y intercept from a two-dimensional statistical aggregate. The
+    calculation uses the standard least-squares fitting for linear regression.
   signatures:
     - language: sql
       code: |

@@ -1,6 +1,6 @@
 ---
 api_name: stats_agg() (two variables)
-excerpt: Aggregate statistical data into a statistical aggregate for further analysis
+excerpt: Aggregate data into an intermediate statistical aggregate form for further calculation
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 api:
@@ -11,16 +11,29 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: aggregate
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    This is the first step for performing any statistical aggregate calculations.
-    Use `stats_agg` to create an intermediate aggregate from your data. This
-    intermediate form can then be used by any accessor on this page to compute a
-    final result.
+    This is the first step for performing any statistical aggregate calculations
+    on two-dimensional data. Use stats_agg to create an intermediate aggregate
+    (`StatsSummary2D`) from your data. This intermediate form can then be used
+    by one or more accessors in this group to compute the final results.
+    Optionally, multiple such intermediate aggregate objects can be combined
+    using [`rollup()`](#rollup) or [`rolling()`](#rolling) before an accessor is
+    applied. 
+  details:
+    - type: note
+      content: >
+        This is especially useful for computing tumbling window aggregates from
+        a continuous aggregate. It can be orders of magnitude faster because it
+        uses inverse transition and combine functions, with the possibility that
+        bigger floating point errors can occur in unusual scenarios.
+        
+        For re-aggregation in a non-window function context, such as combining
+        hourly buckets into daily buckets, see [`rollup()`](#rollup).
   signatures:
     - language: sql
       code: |

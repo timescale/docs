@@ -1,6 +1,6 @@
 ---
 api_name: variance_y() | variance_x()
-excerpt: Calculate the variance of values from a statistical aggregate
+excerpt: Calculate the variance from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
 keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
 api:
@@ -11,13 +11,15 @@ api:
     experimental: 1.0.0
     stable: 1.3.0
 hyperfunction:
-  family: statistical analysis
+  family: statistical and regression analysis
   type: accessor
   aggregates:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate the variance from the values in a statistical aggregate.
+    Calculate the variance from a two-dimensional statistical aggregate for the
+    given dimension. For example, `variance_y()` calculates the skewness for all
+    the values of the `y` variable, independent of values of the `x` variable.
   signatures:
     - language: sql
       code: |
