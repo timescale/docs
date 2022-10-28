@@ -18,7 +18,7 @@ hyperfunction:
 api_details:
   summary: >
     This is the first step for performing any statistical aggregate calculations
-    on two-dimensional data. Use stats_agg to create an intermediate aggregate
+    on two-dimensional data. Use `stats_agg` to create an intermediate aggregate
     (`StatsSummary2D`) from your data. This intermediate form can then be used
     by one or more accessors in this group to compute the final results.
     Optionally, multiple such intermediate aggregate objects can be combined
