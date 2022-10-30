@@ -114,7 +114,7 @@ Within each configuration plan option, there are several plan types available:
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/mst-service-plans.png" alt="Managed Service for TimescaleDB selecting a service configuration plan"/>
 
-## High Availability
+## High availability
 
 Minor failures such as a service process crashes or temporary loss of network
 access are handled automatically in all plans without any major changes to the
@@ -152,7 +152,7 @@ starts the automatic process of creating a new replacement node. The new node
 starts up, restores its state from the latest available backup and resumes the
 service. Because there was just a single node providing the service, the service
 is unavailable for the duration of the restore operation. Also any writes made
-since the backup of the latest Write Ahead Log (WAL) file is lost. Typically
+since the backup of the latest write-ahead log (WAL) file is lost. Typically
 this time window is limited to either one of five minutes of time or one WAL
 file.
 
@@ -165,7 +165,7 @@ starts replicating the master in real time as the situation reverts to normal.
 
 When the PostgreSQL master fails, the combined information from the MST
 monitoring infra and the standby node is used to make a failover decision. On
-the nodes, the Open Source monitoring daemon PGLookout in combination with the
+the nodes, the Open Source monitoring daemon `PGLookout` in combination with the
 information from the MST system infra report the failover. If the master node is
 down completely, the standby node promotes itself as the new master node and
 immediately starts serving clients. A new replacement node is automatically
@@ -175,7 +175,7 @@ If both master and standby nodes fail at the same time, two new nodes are
 automatically scheduled for creation and becomes the new master and standby
 nodes respectively. The master node restores itself from the latest available
 backup, which means that there can be some degree of data loss involved such as,
-any writes made since the backup of the latest Write Ahead Log (WAL) file are
+any writes made since the backup of the latest write-ahead log (WAL) file are
 lost.
 
 The amount of time it takes to replace a failed node depends mainly on the cloud
@@ -185,8 +185,8 @@ during the recreation of the other node. All of this is automatic and requires
 no administrator intervention.
 
 For backups and restoration, Managed Service for TimescaleDB utilizes the
-popular Open Source backup daemon PGHoard that MST maintains. It makes real-time
-copies of Write Ahead Log (WAL) files to an object store in a compressed and
+popular Open Source backup daemon `PGHoard` that MST maintains. It makes real-time
+copies of write-ahead log (WAL) files to an object store in a compressed and
 encrypted format.
 
 ## Connection limits
