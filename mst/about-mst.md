@@ -185,7 +185,7 @@ during the recreation of the other node. This process is entirely automatic and 
 no manual intervention.
 
 For backups and restoration, Managed Service for TimescaleDB uses the
-popular Open Source backup daemon `PGHoard` that MST maintains. It makes real-time
+open source backup daemon `PGHoard` that MST maintains. It makes real-time
 copies of write-ahead log (WAL) files to an object store in a compressed and
 encrypted format.
 
