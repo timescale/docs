@@ -129,7 +129,7 @@ failure.
 
 A failing node is automatically detected by the MST monitoring infrastructure.
 Either the node starts reporting that its own self-diagnostics is having
-problems or the node stops communicating entirely. The monitoring infra
+problems or the node stops communicating entirely. The monitoring infrastructure
 automatically schedules a new replacement node to be created when this happens.
 
 <highlight type="note">
