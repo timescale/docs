@@ -175,7 +175,7 @@ If both master and standby nodes fail at the same time, two new nodes are
 automatically scheduled for creation and become the new master and standby
 nodes respectively. The master node restores itself from the latest available
 backup, which means that there can be some degree of data loss involved. For example,
-any writes made since the backup of the latest write-ahead log (WAL) file are
+any writes made since the backup of the latest write-ahead log (WAL) file can be
 lost.
 
 The amount of time it takes to replace a failed node depends mainly on the cloud
