@@ -128,7 +128,7 @@ machine could happen for example due to hardware failure or a severe software
 failure.
 
 A failing node is automatically detected by the MST monitoring infrastructure.
-Either the node starts reporting that its own self-diagnostics is having
+Either the node starts reporting that its own self-diagnostics is reporting
 problems or the node stops communicating entirely. The monitoring infrastructure
 automatically schedules a new replacement node to be created when this happens.
 
