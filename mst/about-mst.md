@@ -163,7 +163,7 @@ normally and provides normal service level to the client applications. When the
 new replacement standby node is ready and synchronized with the master, it
 starts replicating the master in real time and normal operation resumes.
 
-When the PostgreSQL master fails, the combined information from the MST
+If the PostgreSQL master fails, the combined information from the MST
 monitoring infra and the standby node is used to make a failover decision. On
 the nodes, the Open Source monitoring daemon `PGLookout` in combination with the
 information from the MST system infra report the failover. If the master node is
