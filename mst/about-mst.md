@@ -184,7 +184,7 @@ services with two-node Pro plans the surviving node keeps serving clients even
 during the recreation of the other node. This process is entirely automatic and requires
 no manual intervention.
 
-For backups and restoration, Managed Service for TimescaleDB utilizes the
+For backups and restoration, Managed Service for TimescaleDB uses the
 popular Open Source backup daemon `PGHoard` that MST maintains. It makes real-time
 copies of write-ahead log (WAL) files to an object store in a compressed and
 encrypted format.
