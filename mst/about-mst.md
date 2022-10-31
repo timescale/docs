@@ -147,7 +147,7 @@ availability, and three day backup histories.
 
 ### Single-node
 
-In the Basic and Dev plans losing the only node from the service immediately
+In the Basic and Dev plans, if you lose the only node from the service, it immediately
 starts the automatic process of creating a new replacement node. The new node
 starts up, restores its state from the latest available backup and resumes the
 service. Because there was just a single node providing the service, the service
