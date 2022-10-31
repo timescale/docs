@@ -172,7 +172,7 @@ immediately starts serving clients. A new replacement node is automatically
 scheduled and becomes the new standby node.
 
 If both master and standby nodes fail at the same time, two new nodes are
-automatically scheduled for creation and becomes the new master and standby
+automatically scheduled for creation and become the new master and standby
 nodes respectively. The master node restores itself from the latest available
 backup, which means that there can be some degree of data loss involved such as,
 any writes made since the backup of the latest write-ahead log (WAL) file are
