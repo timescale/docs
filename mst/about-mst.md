@@ -133,7 +133,7 @@ problems or the node stops communicating entirely. The monitoring infra
 automatically schedules a new replacement node to be created when this happens.
 
 <highlight type="note">
-In case of database failover, the Service URL of your service remains the same,
+In case of database failover, the service URL of your service remains the same,
 only the IP address changes to point at the new master node.
 </highlight>
 
