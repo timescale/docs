@@ -76,6 +76,10 @@ module.exports = [
         href: "maintenance",
       },
       {
+        title: "Failover",
+        href: "failover",
+      },
+      {
         title: "Backups",
         href: "manage-backups",
       },
@@ -129,6 +133,10 @@ module.exports = [
       {
         title: "Migrate your data to Timescale Cloud",
         href: "migrate-to-cloud",
+      },
+      {
+        title: "Using REST API on Managed Service for TimescaleDB",
+        href: "restapi",
       },
     ],
   },
