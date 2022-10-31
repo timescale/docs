@@ -116,11 +116,11 @@ Within each configuration plan option, there are several plan types available:
 
 ## High availability
 
-Minor failures such as a service process crashes or temporary loss of network
-access are handled automatically in all plans without any major changes to the
-service deployment. The service automatically restores normal operation once the
-crashed process is automatically restarted or when the network access is
-restored.
+Most minor failures are handled automatically without making any changes to your
+service deployment. This includes failures such as service process crashes, or a
+temporary loss of network access. The service automatically restores normal
+operation when the crashed process restarts automatically or when the network
+access is restored.
 
 However, more severe failure modes such as losing a single node entirely,
 require more drastic recovery measures. Losing an entire node or a virtual
