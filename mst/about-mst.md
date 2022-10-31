@@ -153,7 +153,7 @@ starts up, restores its state from the latest available backup, and resumes the
 service. Because there was just a single node providing the service, the service
 is unavailable for the duration of the restore operation. Also, any writes made
 since the backup of the latest write-ahead log (WAL) file is lost. Typically
-this time window is limited to either one of five minutes of time or one WAL
+this time window is limited to either five minutes, or one WAL
 file.
 
 ### Highly available nodes
