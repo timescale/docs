@@ -18,8 +18,6 @@ instructions use the `apt` package manager on these distributions:
 *   Debian 11 Bullseye
 *   Ubuntu 18.04 LTS Bionic Beaver
 *   Ubuntu 20.04 LTS Focal Fossa
-*   Ubuntu 21.04 Hirsute Hippo
-*   Ubuntu 21.10 Impish Indri
 *   Ubuntu 22.04 LTS Jammy Jellyfish
 
 <highlight type="warning">
