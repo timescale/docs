@@ -20,7 +20,7 @@ If you receive historical data and need to refresh a compressed chunk, see
 
 <highlight type="warning">
 You can't refresh the compressed regions of a continuous aggregate. To avoid
-conflicts between compression and refresh, make sure you set `compress_after` to
+conflicts between compression and refresh, make sure you set `compress_after`
 to a larger interval than the `start_offset` of your
 [refresh policy](/api/latest/continuous-aggregates/add_continuous_aggregate_policy).
 </highlight>
