@@ -48,9 +48,9 @@ No customer access to the virtual machine level is provided.
 ## Customer data privacy
 
 Customer data privacy is of utmost importance at Timescale and is covered by
-internal Security and Customer Privacy policies as well as the strict EU
-regulations. Timescale operators never access customer data, unless explicitly
-requested by the customer to troubleshoot a technical issue.
+internal Security and Customer Privacy policies. We conform with strict EU
+regulations, including GDPR. Timescale operators never access customer data,
+unless explicitly requested by the customer to troubleshoot a technical issue.
 
 The Timescale operations team has mandatory recurring training regarding the
 applicable policies.
