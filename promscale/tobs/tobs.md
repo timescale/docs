@@ -26,8 +26,10 @@ charts to configure and update [tobs][tobs] deployments.
 *  Install [Helm 3][helm] in your local machine.
 * Install a certificate manager for your cluster.
    <highlight type="note">
-   For the latest and updated instructions to install, see the [certificate manager][cert-manager-docs] documentation.
-   You may choose not to install certificate manager if you plan to use tobs with opentelemetry support disabled.
+   For the latest and updated instructions to install, see the
+   [certificate manager][cert-manager-docs] documentation. You may choose not to
+   install certificate manager if you plan to use tobs with opentelemetry support
+   disabled.
    </highlight> 
 
 ## Installing Promscale with tobs 
