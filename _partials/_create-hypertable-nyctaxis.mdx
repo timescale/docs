@@ -45,8 +45,8 @@ with TimescaleDB tables similar to standard PostgreSQL.
     SELECT create_hypertable('rides', 'pickup_datetime', 'payment_type', 2, create_default_indexes=>FALSE);
     ```
 
-2.  Create an index to support efficient queries by vendor, rate code, and passenger count:
-    columns:
+1.  Create an index to support efficient queries by vendor, rate code, and
+    passenger count:
 
     ```sql
     CREATE INDEX ON rides (vendor_id, pickup_datetime DESC);
