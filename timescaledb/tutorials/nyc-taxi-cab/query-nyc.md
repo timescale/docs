@@ -193,7 +193,7 @@ trips going only to the new main airports.
 
 1.  Connect to the Timescale Cloud database that contains the NYC taxi dataset.
 1.  At the psql prompt, use this query to select all rides taken to and from JFK
-    and EWR airports, in the first week of January 2016, and return the number
+    and Newark airports, in the first week of January 2016, and return the number
     of trips to that airport, the average trip duration, average trip cost, and
     average number of passengers:
 
