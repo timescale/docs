@@ -18,9 +18,13 @@ database, like TimescaleDB.
 
 Before you begin, make sure you have:
 
-*   A TimescaleDB instance running locally or on the cloud.
-    For more information, see [installation options][install-docs].
-*   [`psql`][psql], or any other PostgreSQL client.
+*   Signed up for a [free Timescale Cloud account][cloud-install].
+
+<highlight type="cloud" header="Run all tutorials free" button="Try for free">
+Your Timescale Cloud trial is completely free for you to use for the first
+thirty days. This gives you enough time to complete all our tutorials and run
+a few test projects of your own.
+</highlight>
 
 ## Steps in this tutorial
 
@@ -57,3 +61,4 @@ for faster queries.
 [query-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/query-nyc/
 [advanced-nyc]: /timescaledb/:currentVersion:/tutorials/nyc-taxi-cab/advanced-nyc/
 [nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+[cloud-install]: /install/:currentVersion:/installation-cloud/
