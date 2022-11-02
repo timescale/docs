@@ -53,10 +53,10 @@ Timescale uses various technical mechanisms, processes, and software development
 lifecycle practices, to help ensure the security and privacy of your data.
 
 Timescale complies with the European Union's General Data Protection Regulation
-(GDPR), and all practices are covered the
+(GDPR), and all practices are covered by the
 [Timescale Privacy Policy][timescale-privacy-policy]
-and the [Timescale Cloud terms of service][tsc-tos]. All customer data is
-processed in accordance with Timescale's GDPR-compliance
+and the [Timescale Cloud Terms of Service][tsc-tos]. All customer data is
+processed in accordance with Timescale's GDPR-compliant
 [Data Processor Addendum][tsc-data-processor-addendum],
 which applies to all Timescale Cloud customers.
 
