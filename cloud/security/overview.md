@@ -47,14 +47,26 @@ No customer access to the virtual machine level is provided.
 
 ## Customer data privacy
 
-Customer data privacy is of utmost importance at Timescale and is covered by
-internal Security and Customer Privacy policies as well as the strict EU
-regulations. Timescale operators never access customer data, unless explicitly
-requested by the customer to troubleshoot a technical issue.
+Customer data privacy is of utmost importance at Timescale. By default, your
+Timescale Cloud data is encrypted both in transit and at rest. To do this,
+Timescale uses various technical mechanisms, processes, and software development
+lifecycle practices, to help ensure the security and privacy of your data.
 
-The Timescale operations team has mandatory recurring training regarding the
-applicable policies.
+Timescale complies with the European Union's General Data Protection Regulation
+(GDPR), and all practices are covered by the
+[Timescale Privacy Policy][timescale-privacy-policy]
+and the [Timescale Cloud Terms of Service][tsc-tos]. All customer data is
+processed in accordance with Timescale's GDPR-compliant
+[Data Processor Addendum][tsc-data-processor-addendum],
+which applies to all Timescale Cloud customers.
 
+Timescale operators never access customer data, unless explicitly requested by
+the customer to troubleshoot a technical issue. The Timescale operations team
+has mandatory recurring training regarding the applicable policies.
+
+[timescale-privacy-policy]: https://www.timescale.com/legal/privacy
+[tsc-tos]: https://www.timescale.com/legal/timescale-cloud-terms-of-service
+[tsc-data-processor-addendum]: https://www.timescale.com/legal/timescale-cloud-data-processing-addendum
 [aws-kms]: https://aws.amazon.com/kms/
 [ec2-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-protection.html
 [ebs-security]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
