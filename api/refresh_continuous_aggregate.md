@@ -13,12 +13,12 @@ api:
 Refresh all buckets of a continuous aggregate in the refresh window given by
 `window_start` and `window_end`.
 
-A continuous aggregate materializes aggregates in time buckets (for example,
-min, max, average over 1 day worth of data), as determined by the `time_bucket`
-interval specified when the continuous aggregate was created. Therefore, when
+A continuous aggregate materializes aggregates in time buckets. For example,
+min, max, average over 1 day worth of data, and is determined by the `time_bucket`
+interval. Therefore, when
 refreshing the continuous aggregate, only buckets that completely fit within the
 refresh window are refreshed. In other words, it is not possible to compute the
-aggregate over, for example, half a bucket. Therefore, any buckets that do not
+aggregate over, for an incomplete bucket. Therefore, any buckets that do not
 fit within the given refresh window are excluded.
 
 The function expects the window parameter values to have a time type that is
