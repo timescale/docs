@@ -76,8 +76,8 @@ SELECT
         summary,
         bucket,
         '15 min',
-        LAG(summary) OVER (ORDER by bucket PARTITION BY id),
-        LEAD(summary) OVER (ORDER by bucket PARTITION BY id)
+        LAG(summary) OVER (PARTITION BY id ORDER by bucket),
+        LEAD(summary) OVER (PARTITION BY id ORDER by bucket)
     )
 FROM (
     SELECT
