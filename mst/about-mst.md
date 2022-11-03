@@ -140,7 +140,7 @@ only the IP address changes to point at the new master node.
 Managed Service for TimescaleDB availability features differ based on the service
 plan:
 
-*   Basic and Dev plans: These are single-node plans and with a two day with one
+*   Basic and Dev plans: These are single-node plans and with a two day backup history for Basic plan and with one day backup history for Dev plan
 day for Dev backup histories.
 *   Pro plans: These are two-node plans with a master and a standby for higher
 availability, and three day backup histories.
