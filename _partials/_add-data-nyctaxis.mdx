@@ -29,16 +29,6 @@ connection.
     \COPY rides FROM nyc_data_rides.csv CSV;
     ```
 
-1.  **OPTIONAL:** If you want a faster copy, you can use the TimescaleDB
-   [parallel COPY command][parallel-copy] instead:
-
-    ```bash
-    timescaledb-parallel-copy --connection {CONNECTION STRING} \
-    --db-name {DATABASE NAME} --table rides \
-    --file {PATH TO `nyc_data_rides.csv`} --workers 4 --truncate \
-    --reporting-period 30s
-    ```
-
 </procedure>
 
 You can check that the data has been copied successfully with this command:
