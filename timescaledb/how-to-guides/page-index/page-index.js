@@ -272,7 +272,7 @@ module.exports = [
             excerpt: "Make DISTINCT queries faster with SkipScan",
           },
           {
-            title: "Peform advanced analytic queries",
+            title: "Perform advanced analytic queries",
             href: "advanced-analytic-queries",
             excerpt: "Use advanced analytics queries",
           },

@@ -26,8 +26,10 @@ charts to configure and update [tobs][tobs] deployments.
 *  Install [Helm 3][helm] in your local machine.
 * Install a certificate manager for your cluster.
    <highlight type="note">
-   For the latest and updated instructions to install, see the [certificate manager][cert-manager-docs] documentation.
-   You may choose not to install certificate manager if you plan to use tobs with opentelemetry support disabled.
+   For the latest and updated instructions to install, see the
+   [certificate manager](https://cert-manager.io/docs/installation/) documentation.
+   If you plan to use tobs without OpenTelemetry support, you do not need to
+   install certificate manager.
    </highlight> 
 
 ## Installing Promscale with tobs 
@@ -111,4 +113,3 @@ When accessing Grafana, log in as `admin`. You can get the
 [tobs]: https://github.com/timescale/tobs#tobs---the-observability-stack-for-kubernetes
 [resource-requirements]: /promscale/:currentVersion:/recommendations/resource-recomm/ 
 [stack-components]: /promscale/:currentVersion:/tobs/about/
-[cert-manager-docs]: https://cert-manager.io/docs/installation/
