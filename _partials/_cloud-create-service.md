@@ -3,7 +3,7 @@ Each service contains a single database, named `tsdb`.
 
 <procedure>
 
-### Creating your first service
+### Create a Timescale Cloud service
 
 <ol>
   <li>
