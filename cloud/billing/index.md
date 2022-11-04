@@ -7,6 +7,7 @@ tags: [payment]
 ---
 
 # Billing
+
 When you log in to your [Timescale Cloud account][cloud-login], navigate to the
 `Billing` page to manage billing for your Timescale Cloud account. From here,
 you can see your monthly usage, past payments you have made, the estimated cost
@@ -15,6 +16,7 @@ of your next payment confirmation, and your current payment method.
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-billing-details.png" alt="Timescale Cloud Billing"/>
 
 ## About Timescale Cloud billing
+
 Timescale Cloud payment confirmations are issued on the first day of every
 month, and cover usage of your Timescale Cloud services for the entire calendar
 month. By default, your payment confirmation is sent to the email address you
@@ -39,6 +41,5 @@ discount applied to bring the payment confirmation total to $0.00. If the
 entirety of your consumption for the month was within the trial, you do not
 receive an emailed payment confirmation, but the payment confirmation is
 available to download in the `Past Payments` section.
-
 
 [cloud-login]: https://console.cloud.timescale.com/
