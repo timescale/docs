@@ -51,7 +51,7 @@ delete the card in the `Wallet` without deleting the services.
     icon in the `primary` payment method. However, you can only edit the billing
     address on other payment methods.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/add_credit_card.png" alt="Adding a payment method in Timescale Cloud"/>
+<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-add-creditcard.png" alt="Adding a payment method in Timescale Cloud"/>
 
 </procedure>
 
