@@ -151,8 +151,8 @@ For a smooth upgrade experience, make sure you:
     this fork to only pay for storage until you are comfortable deleting it.
 
 <highlight type="important">
-Services with replicas cannot upgrade. In order to upgrade a service 
-with an upgrade, the replica must be deleted first.
+Timescale Cloud services with replicas cannot be upgraded. To upgrade a service 
+with a replica,  you must first delete the replica and then upgrade the service.
 </highlight>
 
 <procedure>
