@@ -1,5 +1,5 @@
 ---
-title: Services operations - General
+title: Services operations - Service management
 excerpt: Manage your service from the Operations dashboard
 product: cloud
 keywords: [services, operations, forks]
@@ -7,10 +7,12 @@ tags: [manage, admin, passwords, pause, stop, terminate]
 ---
 
 # Services operations - General
+
 In the `General` section of the Operations dashboard, you can fork your service,
-reset the password, pause, or terminate the service.
+reset the password, pause, or delete the service.
 
 ### Fork a service
+
 When you a fork a service, you create an exact copy of the service, including
 the underlying database. This allows you to create a copy that you can use for
 testing purposes, or to prepare for a major version upgrade. The only difference
@@ -28,7 +30,7 @@ complete the transition before you start forking.
 
 <highlight type="warning">
 Forks only have data up to the point when the original service was forked. Any
-data written to the original service after the time of forking does not appear 
+data written to the original service after the time of forking does not appear
 in the fork. If you want the fork to assume operations from the original
 service, pause your main service before forking to avoid any
 data discrepancy between services.
@@ -37,6 +39,7 @@ data discrepancy between services.
 <procedure>
 
 ### Forking a service
+
 1.  In the Timescale Cloud console, from the `Services` list, ensure the service you want to form has a status of `Running` or `Paused`, then click the name of
     the service you want to fork.
 1.  Navigate to the `Operations` tab.
@@ -53,6 +56,7 @@ data discrepancy between services.
 </procedure>
 
 ### Reset service password
+
 You can reset your service password from the `Operations` dashboard. This is the
 password you use to connect to your database, not the password to your Timescale
 Cloud account. To reset your Timescale Cloud password, navigate to the `Account`
@@ -69,11 +73,13 @@ by default. It is more secure and strongly recommended. The MD5 option is provid
 for compatibility with older clients.
 
 ### Pause service
+
 You can pause a service if you want to stop it running temporarily. This stops
 your service from costing you, but the service is still available and ready to
 be restarted at any time.
 
-### Terminate a service
-You can terminate a service to delete it completely. This removes the service
-and its underlying data from the server. You cannot recover a terminated
+### Delete a service
+
+You can delete a service to remove it completely. This removes the service
+and its underlying data from the server. You cannot recover a deleted
 service.

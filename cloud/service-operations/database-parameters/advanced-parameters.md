@@ -8,18 +8,22 @@ tags: [configuration, schemas]
 
 # Service settings - advanced parameters
 
-It is possible to configure a wide variety of service database parameters
-by toggling `Show advanced parameters` in the upper-right corner of the
-`Settings` tab.
+It is possible to configure a wide variety of service database parameters by
+navigating to the `Advanced parameters` tab underneath the `Database
+configuration` heading.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-advanced.png" alt="View Timescale Cloud advanced configuration parameters"/>
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-advanced.png"
+alt="View Timescale Cloud advanced configuration parameters"/>
 
 The advanced parameters are displayed in a scrollable and searchable list:
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-search.png" alt="Search Timescale Cloud configuration parameters"/>
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-search.png"
+alt="Search Timescale Cloud configuration parameters"/>
 
 As with the basic database configuration parameters, any changes are highlighted
-and the `Apply changes`, or `Restart and apply changes`, button is available,
+and the `Apply changes`, or `Apply changes and restart`, button is available,
 prompting you to confirm changes before the service is modified.
 
 ## Multiple databases
