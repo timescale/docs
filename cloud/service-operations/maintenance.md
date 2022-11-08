@@ -150,6 +150,11 @@ For a smooth upgrade experience, make sure you:
     fork to keep a duplicate Timescale Cloud service. You can immediately pause
     this fork to only pay for storage until you are comfortable deleting it.
 
+<highlight type="important">
+Timescale Cloud services with replicas cannot be upgraded. To upgrade a service 
+with a replica,  you must first delete the replica and then upgrade the service.
+</highlight>
+
 <procedure>
 
 ### Upgrading to a new PostgreSQL version
