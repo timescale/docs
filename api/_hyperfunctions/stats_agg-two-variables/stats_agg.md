@@ -24,16 +24,6 @@ api_details:
     Optionally, multiple such intermediate aggregate objects can be combined
     using [`rollup()`](#rollup) or [`rolling()`](#rolling) before an accessor is
     applied. 
-  details:
-    - type: note
-      content: >
-        This is especially useful for computing tumbling window aggregates from
-        a continuous aggregate. It can be orders of magnitude faster because it
-        uses inverse transition and combine functions, with the possibility that
-        bigger floating point errors can occur in unusual scenarios.
-        
-        For re-aggregation in a non-window function context, such as combining
-        hourly buckets into daily buckets, see [`rollup()`](#rollup).
   signatures:
     - language: sql
       code: |

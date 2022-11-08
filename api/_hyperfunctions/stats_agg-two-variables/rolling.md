@@ -16,7 +16,7 @@ hyperfunction:
   aggregates:
     - stats_agg() (two variables)
 api_details:
-  summary: >
+  summary: |
     Combine multiple intermediate two-dimensional statistical aggregate
     (`StatsSummary2D`) objects into a single `StatsSummary2D` object. It is
     optimized for use in a window function context for computing tumbling window

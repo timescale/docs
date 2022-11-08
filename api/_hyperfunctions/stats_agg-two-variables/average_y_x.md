@@ -44,13 +44,13 @@ api_details:
           The average of the values in the statistical aggregate
   examples:
     - description: >
-        Calculate the average of the integers from 1 to 5, and from 0 to 100.
+        Calculate the average of the integers from 0 to 100.
       command:
         language: sql
         code: |
           SELECT average_x(stats_agg(y, x))
             FROM generate_series(1, 5) y,
-                generate_series(0, 100) x;
+                 generate_series(0, 100) x;
       return:
         code: |
           average
