@@ -85,8 +85,8 @@ SELECT
         tws,
         time,
         '1 day',
-        LAG(tws) OVER (ORDER BY time PARTITION BY id),
-        LEAD(tws) OVER (ORDER BY time PARTITION BY id)
+        LAG(tws) OVER (PARTITION BY id ORDER by time),
+        LEAD(tws) OVER (PARTITION BY id ORDER by time)
     )
 FROM (
     SELECT

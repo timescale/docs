@@ -90,6 +90,7 @@
   "^/latest/getting-started": "https://docs.timescale.com/getting-started/latest/",
   "^/latest/getting-started/configuring": "https://docs.timescale.com/timescaledb/latest/how-to-guides/configuration/timescaledb-tune/",
   "^/latest/getting-started/creating-hypertables": "https://docs.timescale.com/timescaledb/latest/how-to-guides/hypertables/",
+  "^/latest/getting-started/create-hypertable/#chunks-and-hypertables": "https://docs.timescale.com/getting-started/latest/create-hypertable/#hypertables-and-chunks",
   "^/latest/getting-started/exploring-cloud": "https://docs.timescale.com/cloud/latest/customize-configuration/",
   "^/latest/getting-started/exploring-cloud/cloud-multi-node": "https://docs.timescale.com/cloud/latest/customize-configuration/",
   "^/latest/getting-started/exploring-forge": "https://docs.timescale.com/cloud/latest/create-a-service/",

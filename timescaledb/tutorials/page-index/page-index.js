@@ -5,9 +5,26 @@ module.exports = [
     excerpt: "Learn about common scenarios and use cases for TimescaleDB",
     children: [
       {
-        title: "Introduction to IoT",
+        title: "Introduction to time-series data",
         href: "nyc-taxi-cab",
-        excerpt: "An introduction to IoT using NYC taxi data",
+        excerpt: "An introduction to time-series using NYC taxi data",
+        children: [
+          {
+            title: "Time-series tutorial - set up",
+            href: "dataset-nyc",
+            excerpt: "Set up a dataset so you can query NYC data]",
+          },
+          {
+            title: "Time-series tutorial - query data",
+            href: "query-nyc",
+            excerpt: "Query NYC data]",
+          },
+          {
+            title: "Time-series tutorial - advanced queries",
+            href: "advanced-nyc",
+            excerpt: "Advanced queries NYC data]",
+          },
+        ],
       },
       {
         title: "Introduction to time-series forecasting",
