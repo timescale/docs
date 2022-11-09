@@ -1,3 +1,7 @@
-After you have installed Promscale, you can ingest data using the below options:
- * To migrate existing Prometheus data use [Prom-migrator][prom-migrator].
- * To ingest the currrent incoming data, see the [send data][send-data] section.
+When you have installed Promscale, you can ingest data in a few different ways:
+
+*   Migrate existing Prometheus data with [Prom-migrator][promscale-migrator].
+*   Ingest incoming data. For more information, see the [send data][send-data] section.
+
+ [send-data]: /promscale/:currentVersion:/send-data/
+ [promscale-migrator]: /promscale/:currentVersion:/guides/prom-migrator/

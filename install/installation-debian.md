@@ -18,8 +18,6 @@ instructions use the `apt` package manager on these distributions:
 *   Debian 11 Bullseye
 *   Ubuntu 18.04 LTS Bionic Beaver
 *   Ubuntu 20.04 LTS Focal Fossa
-*   Ubuntu 21.04 Hirsute Hippo
-*   Ubuntu 21.10 Impish Indri
 *   Ubuntu 22.04 LTS Jammy Jellyfish
 
 <highlight type="warning">
@@ -51,7 +49,7 @@ instead.
     <tab label='Debian'>
 
     ```bash
-    echo "deb https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main" > /etc/apt/sources.list.d/timescaledb.list
+    echo "deb https://packagecloud.io/timescale/timescaledb/debian/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/timescaledb.list
     ```
 
     </tab>
@@ -59,7 +57,7 @@ instead.
     <tab label="Ubuntu">
 
     ```bash
-    echo "deb https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main" > /etc/apt/sources.list.d/timescaledb.list
+    echo "deb https://packagecloud.io/timescale/timescaledb/ubuntu/ $(lsb_release -c -s) main" | sudo tee /etc/apt/sources.list.d/timescaledb.list
     ```
 
     </tab>
@@ -68,14 +66,14 @@ instead.
 
 1.  Install Timescale GPG key
     ```bash
-    wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | apt-key add -
+    wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo apt-key add -
     ```
-    
+
     <highlight type="note">
     For Ubuntu 21.10 and later use the following command to install Timescale GPG key
-    `wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo sh -c "gpg --dearmor > /etc/apt/trusted.gpg.d/timescaledb.gpg"`
+    `wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/timescaledb.gpg`
     </highlight>
-    
+
 1.  Update your local repository list:
     ```bash
     apt update
@@ -89,7 +87,7 @@ instead.
     If you want to install a specific version of TimescaleDB, instead of the
     most recent, you can specify the version like this:
     `apt-get install timescaledb-2-postgresql-12='2.6.0*' timescaledb-2-loader-postgresql-12='2.6.0*'`
-    
+
     You can see the full list of TimescaleDB releases by visiting our
     [releases page][releases-page]. Note that older versions of TimescaleDB
     don't always support all the OS versions listed above.
