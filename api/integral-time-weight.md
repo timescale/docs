@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.11.0
 hyperfunction:
   family: time-weighted averages
   type: accessor
@@ -45,6 +47,7 @@ This function is similar to [`average`][hyperfunctions-average] but doesn't divi
 |`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`][time_weight] call|
 
 ### Optional arguments
+
 |Name|Type|Description|
 |-|-|-|
 |`unit`|`TEXT`|The unit of time to express the integral in. Can be `microsecond`/`millisecond`/`second`/`minute`/`hour` or any alias for those units supported by PostgreSQL. If `NULL`, defaults to `second`.|
