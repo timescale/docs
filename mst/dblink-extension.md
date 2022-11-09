@@ -114,7 +114,7 @@ INSERT INTO inventory (id) VALUES (100), (200), (300);
 To query a foreign data wrapper, you must be a database user with the necessary
 permissions on the remote server. The following examples continue to use the user
 `user1`. To query the remote table `inventory` defined in the target
-PostgreSQL database pointed by the `mst_remote` server definition:
+PostgreSQL database from the `mst_remote` server definition:
 
 1.  Connect with the MST service as `user1` with necessary grants to the remote server.
 
