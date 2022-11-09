@@ -127,7 +127,6 @@ PostgreSQL database from the `mst_remote` server definition:
 1.  Query using the foreign server definition as parameter:
 
 ```sql
-
     SELECT * FROM dblink('my_new_conn','SELECT * FROM inventory') AS t(a int); 
 ```
 
