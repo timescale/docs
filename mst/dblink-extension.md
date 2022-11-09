@@ -59,7 +59,7 @@ CREATE TABLE inventory (id int);
 1.  Insert data into the `inventory` table:
 
 ```sql
-INSERT INTO inventory (id) VALUES (100), (200), (300);INSERT 0 3
+INSERT INTO inventory (id) VALUES (100), (200), (300);
 ```
 
 </procedure>
