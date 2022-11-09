@@ -118,7 +118,7 @@ PostgreSQL database from the `mst_remote` server definition:
 
 1.  Connect to the MST service as `user1` with necessary grants to the remote server.
 
-1.  Establish the ``dblink`` connection to the remote target server:
+1.  Establish the `dblink` connection to the remote target server:
 
 ```sql
 
