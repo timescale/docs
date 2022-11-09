@@ -53,13 +53,13 @@ To enable the `dblink` extension on an MST PostgreSQL service:
 1.  Create a table named `inventory`:
 
 ```sql
-CREATE TABLE inventory (id int);
+    CREATE TABLE inventory (id int);
 ```
 
 1.  Insert data into the `inventory` table:
 
 ```sql
-INSERT INTO inventory (id) VALUES (100), (200), (300);
+    INSERT INTO inventory (id) VALUES (100), (200), (300);
 ```
 
 </procedure>
@@ -133,7 +133,7 @@ PostgreSQL database from the `mst_remote` server definition:
 Output is similar to:
 
 ```sql
-  a  
+ a  
 -----
  100
  200
