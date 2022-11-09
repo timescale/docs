@@ -12,6 +12,8 @@ import Connect from "versionContent/_partials/_cloud-connect.mdx";
 Get started with TimescaleDB to experience the power of its core features, such
 as hypertables, continuous aggregates, and compression.
 
+<TutorialTracker id="getting-started" />
+
 ## What is TimescaleDB?
 
 TimescaleDB is an extension on top of PostgreSQL. It gives you all the power of

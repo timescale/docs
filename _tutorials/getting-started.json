@@ -1,0 +1,16 @@
+{
+  "type": "tutorial",
+  "tutorialID": "getting-started",
+  "tutorialHeading": "Get started with TimescaleDB",
+  "tutorialSteps": [
+    "/getting-started/:currentVersion:/create-hypertable/",
+    "/getting-started/:currentVersion:/add-data/",
+    "/getting-started/:currentVersion:/query-data/",
+    "/getting-started/:currentVersion:/create-cagg/",
+    "/getting-started/:currentVersion:/create-cagg/create-cagg-basics/",
+    "/getting-started/:currentVersion:/create-cagg/create-cagg-policy/",
+    "/getting-started/:currentVersion:/compress-data/",
+    "/getting-started/:currentVersion:/data-retention/",
+    "/getting-started/:currentVersion:/next-steps/"
+  ]
+}
