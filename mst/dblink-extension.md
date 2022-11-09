@@ -116,7 +116,7 @@ permissions on the remote server. The following examples continue to use the use
 `user1`. To query the remote table `inventory` defined in the target
 PostgreSQL database from the `mst_remote` server definition:
 
-1.  Connect with the MST service as `user1` with necessary grants to the remote server.
+1.  Connect to the MST service as `user1` with necessary grants to the remote server.
 
 1.  Establish the ``dblink`` connection to the remote target server:
 
