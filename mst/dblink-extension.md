@@ -24,7 +24,7 @@ about the PostgreSQL remote server:
 *   `USER`: The remote database user to connect. The default user is `tsdbadmin`.
 *   `PASSWORD`: The remote database password for the
   `USER`
-*   `DATABASE_NAME`: The remote database name. The default database name is 1`defaultdb`.
+*   `DATABASE_NAME`: The remote database name. The default database name is `defaultdb`.
 
 <highlight type="note">
 The details are available in the [MST portal](https://portal.managed.timescale.com)
