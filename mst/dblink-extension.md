@@ -9,7 +9,7 @@ tags: [extension]
 `dblink` is a [PostgreSQLextension](https://www.postgresql.org/docs/current/dblink.html)
 that allows you to connect to other PostgreSQL databases and to run arbitrary queries.
 
-With [Foreign Data Wrappers](https://www.postgresql.org/docs/current/postgres-fdw.html)(FDW)
+With [Foreign Data Wrappers](https://www.postgresql.org/docs/current/postgres-fdw.html) (FDW)
 you can define a remote `foreign server` in order to access its data. The
 database connection details such as hostnames are kept in a single place, and you
 only need to create a `user mapping` to store remote connections credentials.
