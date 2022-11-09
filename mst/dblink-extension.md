@@ -104,7 +104,6 @@ INSERT INTO inventory (id) VALUES (100), (200), (300);
 1.  Enable `user1` to use the remote PostgreSQL connection `mst_remote`:
 
 ```sql
-
     GRANT USAGE ON FOREIGN SERVER mst_remote TO user1;
 ```
 
