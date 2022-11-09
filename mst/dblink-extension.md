@@ -121,7 +121,6 @@ PostgreSQL database from the `mst_remote` server definition:
 1.  Establish the `dblink` connection to the remote target server:
 
 ```sql
-
     SELECT dblink_connect('my_new_conn', 'mst_remote');
 ```
 
