@@ -9,7 +9,7 @@ tags: [configuration, schemas]
 # Service settings - advanced parameters
 
 It is possible to configure a wide variety of service database parameters by
-navigating to the `Advanced parameters` tab underneath the `Database
+navigating to the `Advanced parameters` tab under the `Database
 configuration` heading.
 
 <img class="main-content__illustration"
