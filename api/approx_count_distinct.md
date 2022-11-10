@@ -13,13 +13,6 @@ api:
 hyperfunction:
   family: approximate count distinct
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'approximate count distinct'
-hyperfunction_subfamily: hyperloglog
-hyperfunction_type: aggregate
 ---
 
 # approx_count_distinct()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>

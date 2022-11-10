@@ -13,13 +13,6 @@ api:
 hyperfunction:
   family: financial analysis
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'financial analysis'
-hyperfunction_subfamily: OpenHighLowClose
-hyperfunction_type: aggregate
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

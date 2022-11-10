@@ -17,12 +17,6 @@ hyperfunction:
   aggregates:
     - approx_count_distinct()
     - hyperloglog()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'approximate count distinct'
-hyperfunction_subfamily: hyperloglog
-hyperfunction_type: accessor
 ---
 
 # distinct_count()  <tag type="toolkit">Toolkit</tag>

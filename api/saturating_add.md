@@ -13,13 +13,6 @@ api:
 hyperfunction:
   family: saturating math
   type: one-step operation
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'saturating math'
-hyperfunction_subfamily: saturating math
-hyperfunction_type: one-step
 ---
 
 # saturating_add()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit" content="Experimental" />
