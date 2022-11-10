@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.10.1
 hyperfunction:
   family: financial analysis
   type: accessor

@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.6.0
 hyperfunction:
   family: metric aggregation
   type: aggregate
