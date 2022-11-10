@@ -122,7 +122,7 @@ temporary loss of network access. The service automatically restores normal
 operation when the crashed process restarts automatically or when the network
 access is restored.
 
-However, more severe failure modes such as losing a single node entirely,
+However, more severe failure modes, such as losing a single node entirely,
 require more drastic recovery measures. Losing an entire node or a virtual
 machine could happen for example due to hardware failure or a severe software
 failure.
