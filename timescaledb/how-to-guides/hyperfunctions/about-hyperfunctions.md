@@ -30,84 +30,8 @@ marked 'experimental' are still under development.
 
 <Experimental />
 
-### Approximate count distincts
-
 <hyperfunctionTable
- hyperfunctionFamily='approximate count distinct'
- includeExperimental
- sortByType
-/>
-
-### Saturating math
-
-<hyperfunctionTable
- hyperfunctionFamily='saturating math'
- includeExperimental
- sortByType
-/>
-
-### Statistical aggregates
-
-<hyperfunctionTable
- hyperfunctionFamily='statistical aggregates'
- includeExperimental
- sortByType
-/>
-
-### Financial analysis
-
-<hyperfunctionTable
-    hyperfunctionFamily='financial analysis'
     includeExperimental
-    sortByType
-/>
-
-### Gapfilling and interpolation
-
-<hyperfunctionTable
- hyperfunctionFamily='gapfilling and interpolation'
- includeExperimental
- sortByType
-/>
-
-### Percentile approximation
-
-<hyperfunctionTable
- hyperfunctionFamily='percentile approximation'
- includeExperimental
- sortByType
-/>
-
-### Metric aggregation
-
-<hyperfunctionTable
- hyperfunctionFamily='metric aggregation'
- includeExperimental
- sortByType
-/>
-
-### Time-weighted averages
-
-<hyperfunctionTable
- hyperfunctionFamily='time-weighted averages'
- includeExperimental
- sortByType
-/>
-
-### Downsample
-
-<hyperfunctionTable
- hyperfunctionFamily='downsample'
- includeExperimental
- sortByType
-/>
-
-### Frequency analysis
-
-<hyperfunctionTable
- hyperfunctionFamily='frequency analysis'
- includeExperimental
- sortByType
 />
 
 For more information about each of the API calls listed in this table, see our [hyperfunction API documentation][api-hyperfunctions].

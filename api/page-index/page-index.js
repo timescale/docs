@@ -373,73 +373,19 @@ module.exports = [
             ],
           },
           {
-            title: "Statistical aggregates",
-            type: "directory",
-            href: "stats_aggs",
+            title: "Statistical and regression analysis",
+            href: "statistical-and-regression-analysis",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "stats_agg",
-                href: "stats_agg",
+                title: "stats_agg (one variable)",
+                href: "stats_agg-one-variable",
+                type: "placeholder",
               },
               {
-                title: "rolling",
-                href: "rolling-stats",
-              },
-              {
-                title: "rollup",
-                href: "rollup-stats",
-              },
-              {
-                title: "average / average_y / average_x",
-                href: "average-stats",
-              },
-              {
-                title: "corr (correlation coefficient)",
-                href: "corr-stats",
-              },
-              {
-                title: "covariance",
-                href: "covariance",
-              },
-              {
-                title: "determination_coeff (R squared)",
-                href: "determination_coeff",
-              },
-              {
-                title: "intercept",
-                href: "intercept-stats",
-              },
-              {
-                title: "kurtosis / kurtosis_y / kurtosis_x",
-                href: "kurtosis",
-              },
-              {
-                title: "num_vals",
-                href: "num_vals-stats",
-              },
-              {
-                title: "skewness / skewness_y / skewness_x",
-                href: "skewness",
-              },
-              {
-                title: "stddev / stddev_y / stddev_x",
-                href: "stddev",
-              },
-              {
-                title: "slope",
-                href: "slope-stats",
-              },
-              {
-                title: "sum/ sum_y / sum_x",
-                href: "sum-stats",
-              },
-              {
-                title: "variance / variance_y / variance_x",
-                href: "variance",
-              },
-              {
-                title: "x_intercept",
-                href: "x_intercept",
+                title: "stats_agg (two variables)",
+                href: "stats_agg-two-variables",
+                type: "placeholder",
               },
             ],
           },
@@ -691,8 +637,8 @@ module.exports = [
                 href: "lttb",
               },
               {
-                title: 'gp_lttb',
-                href: 'gp_lttb',
+                title: "gp_lttb",
+                href: "gp_lttb",
               },
             ],
           },
