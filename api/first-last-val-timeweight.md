@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.11.0
 hyperfunction:
   family: time-weighted averages
   type: accessor

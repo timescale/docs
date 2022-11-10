@@ -6,6 +6,8 @@ keywords: [hyperfunctions]
 api:
   license: apache
   type: function
+  version:
+    stable: 0.0.11-beta
 hyperfunction:
   type: one-step aggregate
 ---

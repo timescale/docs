@@ -7,6 +7,9 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.3.0
+    stable: 1.0.0
 hyperfunction:
   family: time-weighted averages
   type: rollup
