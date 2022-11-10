@@ -142,7 +142,7 @@ plan:
 
 *   Basic and Dev plans: These are single-node plans. Basic plans include a two-day backup history, and Dev plans include a one-day backup history.
 *   Pro plans: These are two-node plans with a master and a standby for higher
-availability, and three day backup histories.
+availability, and three-day backup histories.
 
 ### Single-node
 
