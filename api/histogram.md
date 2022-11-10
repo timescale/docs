@@ -6,6 +6,8 @@ keywords: [histogram, hyperfunctions]
 api:
   license: apache
   type: function
+  version:
+    stable: 0.5.0
 hyperfunction:
   type: one-step aggregate
 ---
