@@ -7,6 +7,8 @@ tags: [approximate, rows]
 api:
   license: apache
   type: function
+  version:
+    stable: 0.10.0
 hyperfunction:
   type: one-step aggregate
 ---

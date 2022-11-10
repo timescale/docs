@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.8.0
 hyperfunction:
   family: frequency analysis
   type: accessor

@@ -8,9 +8,11 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.8.0
 hyperfunction:
   family: metric aggregation
-  type: function
+  type: accessor
   aggregates:
     - counter_agg()
     - gauge_agg()
