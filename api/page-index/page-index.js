@@ -422,18 +422,13 @@ module.exports = [
             type: "redirect-to-child-page",
             children: [
               {
-                title: "ohlc",
-                href: "ohlc",
-                type: "placeholder",
-              },
-              {
                 title: "candlestick_agg",
                 href: "candlestick_agg",
                 type: "placeholder",
               },
               {
-                title: "candlestick",
-                href: "candlestick",
+                title: "ohlc",
+                href: "ohlc",
                 type: "placeholder",
               },
             ],
