@@ -144,7 +144,7 @@ plan:
 *   Pro plans: These are two-node plans with a master and a standby for higher
 availability, and three-day backup histories.
 
-### Single-node
+### Single node
 
 In the Basic and Dev plans, if you lose the only node from the service, it immediately
 starts the automatic process of creating a new replacement node. The new node
