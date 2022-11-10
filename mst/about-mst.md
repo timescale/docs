@@ -179,7 +179,7 @@ lost.
 
 The amount of time it takes to replace a failed node depends mainly on the cloud
 region and the amount of data that needs to be restored. However, in the case of
-services with two-node Pro plans the surviving node keeps serving clients even
+services with two-node Pro plans, the surviving node keeps serving clients even
 during the recreation of the other node. This process is entirely automatic and requires
 no manual intervention.
 
