@@ -133,8 +133,8 @@ problems or the node stops communicating entirely. The monitoring infrastructure
 automatically schedules a new replacement node to be created when this happens.
 
 <highlight type="note">
-In case of database failover, the service URL of your service remains the same,
-only the IP address changes to point at the new master node.
+In case of database failover, the service URL of your service remains the same.
+Only the IP address changes to point at the new master node.
 </highlight>
 
 Managed Service for TimescaleDB availability features differ based on the service
