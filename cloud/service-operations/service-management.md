@@ -40,18 +40,24 @@ data discrepancy between services.
 
 ### Forking a service
 
-1.  In the Timescale Cloud console, from the `Services` list, ensure the service you want to form has a status of `Running` or `Paused`, then click the name of
-    the service you want to fork.
+1.  In the Timescale Cloud console, from the `Services` list, ensure the service
+    you want to form has a status of `Running` or `Paused`, then click the name
+    of the service you want to fork.
 1.  Navigate to the `Operations` tab.
-1.  In the `General` section, click `Fork service`. In the dialog, confirm by
-    clicking `Fork service`. The forked service takes a few minutes to start.
-1.  To change the configuration of your fork, click
-    `Advanced options`. You can set different compute and
-    storage options, separate from your original database.
+1.  In the `Service management` section, click `Fork service`. In the dialog,
+    confirm by clicking `Fork service`. The forked service takes a few minutes
+    to start.
+1.  **(optional)** To change the configuration of your fork, click `Advanced
+    options`. You can set different compute and storage options, separate from
+    your original database.
+1.  Confirm by clicking `Fork service`. The forked service takes a few minutes
+    to start.
 1.  The forked service shows in the `Services` dashboard with a label stating
     which service it has been forked from.
 
-<img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png" alt="Fork a Timescale Cloud service"/>
+<img class="main-content__illustration"
+src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-forked-service.png"
+alt="Fork a Timescale Cloud service"/>
 
 </procedure>
 
