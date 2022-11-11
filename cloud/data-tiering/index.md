@@ -7,10 +7,13 @@ tags: [storage, data management]
 ---
 
 import ExperimentalPrivateBeta from 'versionContent/_partials/_experimental-private-beta.mdx';
+import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
 # Data tiering
 
 <ExperimentalPrivateBeta />
+
+<TieringBeta />
 
 Save on storage costs by tiering data to a low-cost object-storage layer.
 

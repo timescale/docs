@@ -7,14 +7,16 @@ tags: [storage, data management]
 ---
 
 import ExperimentalPrivateBeta from 'versionContent/_partials/_experimental-private-beta.mdx';
+import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
 # Tier data to object storage
-
-<ExperimentalPrivateBeta />
 
 Tier data from primary storage to object storage to save on storage costs. You
 can continue to query a hypertable as normal after migration. All queries,
 including `JOIN`s, work as usual.
+
+<ExperimentalPrivateBeta />
+<TieringBeta />
 
 ## Manually tier a chunk
 
@@ -89,11 +91,6 @@ informational view:
 ```sql
 SELECT * FROM timescaledb_osm.tiered_chunks;
 ```
-
-<highlight type="cloud" header="Request access and start tiering">
-To request access to the private beta for data tiering, [contact
-us](https://www.timescale.com/contact).
-</highlight>
 
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [show_chunks]: /api/:currentVersion:/hypertable/show_chunks/
