@@ -11,10 +11,6 @@ import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
 # Data tiering
 
-<ExperimentalPrivateBeta />
-
-<TieringBeta />
-
 Save on storage costs by tiering data to a low-cost object-storage layer.
 
 Timescale Cloud includes a low-cost object-storage layer built on Amazon S3.
@@ -22,6 +18,9 @@ This allows you to tier your hypertable data across different storage layers to
 get the best price performance. You can use primary storage for data that
 requires quick access, and low-cost object storage for historical data. You can
 query all your data with standard SQL, no matter where it's stored.
+
+<ExperimentalPrivateBeta />
+<TieringBeta />
 
 ## Benefits of data tiering
 
