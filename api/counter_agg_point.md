@@ -65,7 +65,7 @@ extrapolation, but not for other accessor functions.
 |-|-|-|
 |counter_agg|CounterSummary|A CounterSummary object that can be passed to accessor functions or other objects in the counter aggregate API|
 
-<!---Any special notes about the returns-->
+{/* <!-- Any special notes about the return --> */}
 
 ## Sample usage
 

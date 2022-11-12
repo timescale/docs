@@ -11,7 +11,6 @@ api:
 
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
-<!-- markdownlint-disable-next-line line-length -->
 # remove_all_policies() <tag type="community" content="Community" /><tag type="experimental" content="Experimental" />
 
 Remove all policies from a continuous aggregate. The removed compression and

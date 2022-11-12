@@ -5,8 +5,6 @@ keywords: [noun, verb, tutorial]
 tags: [noun, noun]
 ---
 
-<!-- markdown-link-check-disable -->
-
 # Advanced steps
 
 Use this section to provide additional or extra things that readers can try with

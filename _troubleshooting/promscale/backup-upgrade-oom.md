@@ -7,7 +7,7 @@ keywords: [locks, memory]
 tags: [promscale, locks, memory, out-of-memory, OOM, resources, performance]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -15,7 +15,7 @@ tags: [promscale, locks, memory, out-of-memory, OOM, resources, performance]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 Promscale creates a table for each metric. When you run `pg_dump` and
 `pg_restore`, they lock each table to work on it. This can require a lot of

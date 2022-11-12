@@ -6,26 +6,29 @@ keywords: [Promtheus, alert, Alert Manager]
 ---
 
 # Monitor Promscale
+
 Promscale includes a set of out-of-the-box alerts, runbooks, and a Grafana
 dashboard that you can use to monitor it.
 
-<highlight type="note"> To monitor Promscale, make sure that a Prometheus
-instance is scraping the Promscale HTTP metrics endpoint, which defaults to port `9201`
-port in the `/metrics` API. Use Prometheus to evaluate the Promscale alerting
-rules, and configure Prometheus as a data source in Grafana to visualize the
-Promscale dashboard. This helps to troubleshoot issues when Promscale isn't
-working as expected. You should be using a separate Prometheus instance and not Promscale.
+<highlight type="note">
+To monitor Promscale, make sure that a Prometheus instance is scraping the
+Promscale HTTP metrics endpoint, which defaults to port `9201` port in the
+`/metrics` API. Use Prometheus to evaluate the Promscale alerting rules, and
+configure Prometheus as a data source in Grafana to visualize the Promscale
+dashboard. This helps to troubleshoot issues when Promscale isn't working as
+expected. You should be using a separate Prometheus instance and not Promscale.
 You don't want your monitoring tool monitoring itself.
 </highlight>
 
 ## Dashboard
 
 The Grafana dashboard consists of Promscale metrics grouped in several rows:
-* Overview
-* Ingest
-* Query
-* Database
-* Cache
+
+*   Overview
+*   Ingest
+*   Query
+*   Database
+*   Cache
 
 <procedure>
 
@@ -43,7 +46,7 @@ Import the Promscale Grafana dashboard by following the instructions below
     `Load`. The `Importing dashboard from Grafana.com` page appears.
 1.  In  the `Folder` drop-down menu, choose the folder to which you want to add
     the dashboard..
-1.  Select the data source that corresponds to the Prometheus instance that you 
+1.  Select the data source that corresponds to the Prometheus instance that you
     are using to monitor Promcsale in the `Prometheus` drop-down.
 1.  Click `Import`.
 

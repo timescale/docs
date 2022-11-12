@@ -18,7 +18,7 @@ SELECT pae.* FROM current_setting('extwlist.extensions') AS cs(e) CROSS JOIN reg
 
 These are the currently supported extensions:
 
-<!-- vale Vale.Spelling = NO -->
+{/* <!-- vale Vale.Spelling = NO --> */}
 
 |Extension|Description|
 |-|-|
@@ -55,4 +55,4 @@ These are the currently supported extensions:
 |unaccent|Text search dictionary that removes accents|
 |uuid-ossp|Generate universally unique identifiers (UUIDs)|
 
-<!-- vale Vale.Spelling = YES -->
+{/* <!-- vale Vale.Spelling = YES --> */}

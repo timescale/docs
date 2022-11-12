@@ -10,7 +10,7 @@ keywords: [install, configuration]
 tags: [install, configuration]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -18,7 +18,7 @@ tags: [install, configuration]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 If your PostgreSQL logs have this error preventing it from starting up,
 you should double check that the TimescaleDB files have been installed

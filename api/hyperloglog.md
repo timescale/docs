@@ -52,7 +52,7 @@ See [stderror][stderror] for how estimated error rate is related to `buckets`.
 |-|-|-|
 |hyperloglog|hyperloglog|A hyperloglog object which can be passed to other hyperloglog APIs.|
 
-<!---Any special notes about the returns-->
+{/* <!-- Any special notes about the return --> */}
 
 ## Sample usage
 

@@ -7,7 +7,7 @@ keywords: [disk, storage]
 tags: [promscale, resources, disk, storage, compression]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -15,7 +15,7 @@ tags: [promscale, resources, disk, storage, compression]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 Promscale keeps metric data in chunks. The most recent chunk is kept
 uncompressed as a cache for faster querying, and chunks are compressed as they

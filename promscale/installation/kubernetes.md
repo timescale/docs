@@ -206,7 +206,7 @@ manifest file. To deploy TimescaleDB on Kubernetes use
     ```
 
 1.  Edit the manifest and configure the TimescaleDB database details using the
-    parameters starting with <PROMSCALE_DB>.
+    parameters starting with `<PROMSCALE_DB>`.
 1.  Deploy the manifest:
 
     ```bash

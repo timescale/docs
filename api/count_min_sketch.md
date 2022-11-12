@@ -82,6 +82,7 @@ SELECT toolkit_experimental.approx_count('AAPL', symbol_sketch)
 FROM t;
 ```
 
+{/* <!-- vale Google.EnDash = NO --> */}
+
 [approx-count]: /api/:currentVersion:/hyperfunctions/frequency-analysis/approx_count/
-<!-- vale Google.EnDash = NO -->
 [count-min-sketch]: https://en.wikipedia.org/wiki/Count–min_sketch

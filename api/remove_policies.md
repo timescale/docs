@@ -11,7 +11,6 @@ api:
 
 import Experimental from "versionContent/_partials/_experimental.mdx";
 
-<!-- markdownlint-disable-next-line line-length -->
 # remove_policies() <tag type="community" content="Community" /><tag type="experimental" content="Experimental" />
 
 Remove refresh, compression, and data retention policies from a continuous

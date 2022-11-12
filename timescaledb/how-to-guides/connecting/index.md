@@ -5,6 +5,7 @@ keywords: [connect]
 ---
 
 # Connecting to TimescaleDB
+
 When you have your TimescaleDB service up and running, either in the cloud or
 own your own self-hosted hardware, you need a way to talk to it from your local
 machine. Most of the instructions we give you assume you are using `psql`, but
@@ -19,9 +20,10 @@ you instructions for installing `psql`, as well as some other common tools.
 *   Install and use [DBeaver][connect-dbeaver].
 *   Install and use [pgAdmin][connect-pgadmin].
 
-<!----
+{/* <!----
+
 *   [Troubleshoot][connect-tshoot] connection issues.
--->
+--> */}
 
 [about-connecting]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-connecting/
 [about-psql]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-psql/

@@ -1,9 +1,9 @@
-<!-- vale off -->
 # Create a widget
+
 This is the first page that contains procedures. It should cover the most
 important and first task a reader is going to need to do with this feature, which
 is usually installing, creating, or setting up the feature. It answers the
-question "How do I do it?". This initial paragraph should provide a short
+question "How do I do it?" This initial paragraph should provide a short
 description of the procedures that are covered in this section. For example:
 
 ```txt
@@ -22,6 +22,7 @@ to this entire section, add the warning here in an admonition.
 </highlight>
 
 ## Create a widget
+
 This is the introduction to your first procedure. Use one or two sentences to
 explain the procedure, including giving more context to any examples you might be
 using in the procedure. Make sure you explicitly call out any prerequisites for
@@ -41,19 +42,22 @@ hypertable. Additionally, all functions and their arguments included in
 <procedure>
 
 ### Creating a widget
+
 1.  Start each step with a verb (create, use, install, etc), or a location (at
     the `psql` prompt, on your local filesystem, on the server, etc) followed by
     a verb.
-1. Do the next step:
+1.  Do the next step:
+
    ```sql|bash|...
    Add any commands in a block like this.
    Make sure you specify the language.
    Do not include any prompts, or sudo commands. If root is required \
    state it in the step instead. Break long lines appropriately.
    ```
-1. Make sure that any action that is the result of the step stays with the step.
+
+1.  Make sure that any action that is the result of the step stays with the step.
    For example, clicking a button, and a dialog box appearing, is a single step.
-1. Finish the procedure on the final step. Do not include a result statement.
+1.  Finish the procedure on the final step. Do not include a result statement.
 
 <highlight type="note|important|warning">
 Do not embed admonitions within steps. If you need an admonition in the procedure,
@@ -63,6 +67,7 @@ add it before or after the steps, but inside the procedure tags,
 </procedure>
 
 ## Verb the noun
+
 Go on to continue creating procedures in the same format. Make sure there is a
 logical progression through the procedures, and that they go from simpler to more
 complex (as much as is possible). If you find you have a procedure that only has

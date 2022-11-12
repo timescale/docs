@@ -110,13 +110,13 @@ Timescale Cloud currently supports PostgreSQL&nbsp;12, 13, and 14. You can see
 your PostgreSQL and TimescaleDB versions from the Timescale Cloud service
 overview page.
 
-<!-- TODO: Add screenshot
+{/* <!-- TODO: Add screenshot
 <img class="main-content__illustration"
     src="FIXME"
     alt="The Timescale Cloud dashboard, showing the PostgreSQL and TimescaleDB
     versions"
 />
--->
+--> */}
 
 You can also manually upgrade to the newest supported PostgreSQL version
 (PostgreSQL&nbsp;14) from the service overview page.
@@ -151,7 +151,7 @@ For a smooth upgrade experience, make sure you:
     this fork to only pay for storage until you are comfortable deleting it.
 
 <highlight type="important">
-Timescale Cloud services with replicas cannot be upgraded. To upgrade a service 
+Timescale Cloud services with replicas cannot be upgraded. To upgrade a service
 with a replica,  you must first delete the replica and then upgrade the service.
 </highlight>
 

@@ -5,6 +5,7 @@ keywords: [compression, hypertables]
 ---
 
 # About compression
+
 When compression is enabled, TimescaleDB converts data stored in many rows into
 an array. This means that instead of using lots of rows to store the data, it
 stores the same data in a single row. Because a single row takes up less disk
@@ -26,9 +27,10 @@ When compression is applied, the data is converted to a single row containing an
 |---|---|---|---|
 |[12:00:02, 12:00:02, 12:00:01, 12:00:1]|[1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[0.8, 0.9, 0.85, 0.95]|
 
-<highlight type="tip"> Most indexes set on the hypertable are removed or ignored
-when reading from compressed chunks! TimescaleDB creates and uses custom indexes
-to incorporate the `segmentby` and `orderby` parameters during compression.
+<highlight type="tip">
+Most indexes set on the hypertable are removed or ignored when reading from
+compressed chunks! TimescaleDB creates and uses custom indexes to incorporate
+the `segmentby` and `orderby` parameters during compression.
 </highlight>
 
 This section explains how to enable native compression, and then goes into
@@ -36,6 +38,7 @@ detail on the most important settings for compression, to help you get the
 best possible compression ratio.
 
 ## Enable compression
+
 You can enable compression on individual hypertables, by declaring which column
 you want to segment by. In this procedure, we are using this example table,
 called `example`, and we are going to segment it by the `device_id` column. We
@@ -50,14 +53,18 @@ compressed.
 <procedure>
 
 ### Enabling compression
+
 1.  At the `psql` prompt, alter the table:
+
     ```sql
     ALTER TABLE example SET (
       timescaledb.compress,
       timescaledb.compress_segmentby = 'device_id'
     );
     ```
+
 2.  Add a compression policy to compress chunks that are older than seven days:
+
     ```SQL
     SELECT add_compression_policy('example', INTERVAL '7 days');
     ```
@@ -69,7 +76,9 @@ For more information, see the API reference for [`ALTER TABLE
 [`add_compression_policy`][add_compression_policy].
 
 ## View current compression policy
+
 To view the compression policy that you've set:
+
 ```sql
 SELECT * FROM timescaledb_information.jobs
   WHERE proc_name='policy_compression';
@@ -78,8 +87,10 @@ SELECT * FROM timescaledb_information.jobs
 For more information, see the API reference for [`timescaledb_information.jobs`][timescaledb_information-jobs].
 
 ## Remove compression policy
+
 To remove a compression policy, use `remove_compression_policy`. For example, to remove a compression policy for a
 hypertable named `cpu`:
+
 ```sql
 SELECT remove_compression_policy('cpu');
 ```
@@ -88,6 +99,7 @@ For more information, see the API reference for
 [`remove_compression_policy`][remove_compression_policy].
 
 ## Disable compression
+
 You can disable compression entirely on individual hypertables. This command works only if you don't currently have any compressed chunks:
 
 ```sql
@@ -99,12 +111,14 @@ If your hypertable contains compressed chunks, you need to
 compression.
 
 ## Compression policy intervals
+
 Data is usually compressed after an interval of time, and not
 immediately. In the "Enabling compression" procedure, we used a seven day
 compression interval. Choosing a good compression interval can make your queries
 more efficient, and also allow you to handle data that is out of order.
 
 ### Query efficiency
+
 From our research and experience we know that when data is newly ingested, the
 queries are more likely to be shallow in time, and wide in columns. Generally,
 they are debugging queries, or queries that cover the whole system, rather than
@@ -129,6 +143,7 @@ consideration for choosing the age at which to compress the data is when your
 query patterns change from shallow and wide to deep and narrow.
 
 ### Modified data
+
 Trying to change chunks that have already been compressed can be inefficient.
 You can always query data in compressed chunks, but the current version of
 compression does not support `DELETE` actions on compressed chunks. This
@@ -143,7 +158,9 @@ information on how to do that,
 see [decompressing chunks][decompress-chunks].
 
 ### Compression states over time
+
 A chunk can be in one of three states:
+
 *   `Active` and uncompressed
 *   `Compression candidate` and uncompressed
 *   `Compressed`
@@ -157,6 +174,7 @@ to the compression policy.
 ![compression timeline](https://assets.timescale.com/images/diagrams/compression_diagram.png)
 
 ## Segment by columns
+
 When you compress data, you need to select which column to segment by. Each row
 in a compressed table must contain data about a single item. The column that a
 table is segmented by contains only a single entry, while all other columns can
@@ -200,6 +218,7 @@ at least 100 rows per chunk. To achieve this, you might also need to use
 the `compress_orderby` column.
 
 ## Order entries
+
 By default, the items inside a compressed array are arranged in descending order
 according to the hypertable's `time` column. In most cases, this works well,
 provided you have set the `segmentby` option appropriately. However, in some
@@ -224,6 +243,7 @@ showing numbers around 88, and device 2 showing numbers around 300:
 
 To improve the performance of this data, you can order by `device_id, time DESC`
 instead, using these commands:
+
 ```sql
 ALTER TABLE  example
   SET (timescaledb.compress,

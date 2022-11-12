@@ -1,11 +1,14 @@
 # Hypertable and chunk architecture
+
 A hypertable looks and acts like a regular table. But it's actually a parent
 table made of many regular PostgreSQL tables, called chunks.
 
 ## Hypertables partition data
+
 Hypertables partition data into chunks by time, and optionally by space.
 
 ### Time-based partitioning
+
 A hypertable is composed from many child tables, called chunks. Each chunk has a
 time constraint, and only contains data from that time range. When you insert
 data into a hypertable, TimescaleDB automatically creates chunks based on the time values of your data.
@@ -32,6 +35,7 @@ intervals, see the documentation on
 </highlight>
 
 ## Time-and-space partitioning
+
 All TimescaleDB hypertables are partitioned by time. In addition, they might
 also be partitioned by other columns. This is called time-and-space
 partitioning.
@@ -58,6 +62,7 @@ For more information, see the section on
 [distributed hypertables][distributed-hypertables].
 
 ## Chunk architecture
+
 Hypertables are made of chunks. Each chunk is itself a standard PostgreSQL
 table. In PostgreSQL terminology, the hypertable is a parent table and the
 chunks are its child tables.
@@ -78,10 +83,12 @@ All of this happens in the background. From your perspective, the hypertable
 should look just like a regular PostgreSQL table.
 
 ### Space-partitioning architecture
+
 Space partitions are also enforced with chunk constraints.
 
 To choose how the space values map to partitions, TimescaleDB uses one of two
 methods:
+
 *   Hashing, which maps each value into one of several defined hash buckets.
     This is the most common method.
 *   Interval-based partitioning. This works the same way as time-based
@@ -91,13 +98,14 @@ methods:
 Like time partitions, space partitions never overlap.
 
 ### Chunk local indexes
+
 Rather than building a global index over an entire hypertable, TimescaleDB
 builds local indexes on each chunk. In other words, each chunk has its own index
 that only indexes data within that chunk. This optimization improves insert
 speed for recent data. For more information, see the section on the
 [benefits of local indexes][hypertable-benefits-indexes].
 
-<!-- TODO: insert local indexes diagram -->
+{/* <!-- TODO: insert local indexes diagram --> */}
 
 Even with multiple local indexes, TimescaleDB can still ensure global uniqueness
 for keys. It enforces an important constraint: any key that requires uniqueness,
@@ -110,7 +118,7 @@ identifies the corresponding time chunk. Using that chunk's unique index, it
 checks for uniqueness within the chunk. Because no other chunk can contain that
 time value, uniqueness within the chunk implies global uniqueness.
 
-<!-- TODO: insert local indexes and time partitioning diagram -->
+{/* <!-- TODO: insert local indexes and time partitioning diagram --> */}
 
 If another column is used for partitioning, the same logic applies. TimescaleDB
 identifies the correct chunk using the time-and-space partitions and checks for

@@ -10,7 +10,7 @@ keywords: [update]
 tags: [update]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -18,7 +18,7 @@ tags: [update]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 If the error occurs immediately after updating your version of TimescaleDB and
 the file mentioned is from the previous version, it is probably due to an incomplete

@@ -12,7 +12,7 @@ keywords: [authentication, connect]
 tags: [passwords, md5, scram, jdbc]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -20,7 +20,7 @@ tags: [passwords, md5, scram, jdbc]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 When connecting to Timescale Cloud with a Java Database Connectivity (JDBC)
 driver, you might get this error message.

@@ -42,7 +42,7 @@ For more information about approximate count distinct functions, see the
 |-|-|-|
 |hyperloglog|hyperloglog|A hyperloglog object which can be passed to other hyperloglog APIs.|
 
-<!---Any special notes about the returns-->
+{/* <!-- Any special notes about the return --> */}
 
 ## Sample usage
 

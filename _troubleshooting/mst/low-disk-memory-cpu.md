@@ -14,7 +14,7 @@ keywords: [disk, memory, CPU]
 tags: [mst, resources, performance, disk, memory, CPU]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -22,7 +22,7 @@ tags: [mst, resources, performance, disk, memory, CPU]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 When your database reaches 90% of your allocated disk, memory, or CPU resources,
 an automated message with the text above is sent to your email address.

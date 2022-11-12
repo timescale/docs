@@ -111,7 +111,7 @@ within a process.
 
 Procedures contain these elements:
 
-<!-- markdownlint-disable -->
+{/* <!-- markdownlint-disable --> */}
 
 1.  Level two section title in simple verb form
 1.  Short introduction
@@ -120,8 +120,6 @@ Procedures contain these elements:
 1.  Numbered steps
 1.  Screenshot
 1.  Close `</procedure>` tag
-
-<!-- markdownlint-enable -->
 
 For example:
 

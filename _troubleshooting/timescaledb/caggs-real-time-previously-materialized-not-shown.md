@@ -14,7 +14,7 @@ tags: [continuous aggregates, real-time aggregates, materialized views]
 
 import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_caggs-real-time-historical-data-refreshes.mdx';
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -22,7 +22,7 @@ import CaggsRealTimeHistoricalDataRefreshes from 'versionContent/_partials/_cagg
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 <CaggsRealTimeHistoricalDataRefreshes />
 

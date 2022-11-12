@@ -13,7 +13,7 @@ keywords: [hypertables, distributed hypertables, indexes, partitions]
 tags: [hypertables, distributed hypertables, indexes, primary keys, partitions]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -21,7 +21,7 @@ tags: [hypertables, distributed hypertables, indexes, primary keys, partitions]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 You might get a unique index and partitioning column error in 2 situations:
 

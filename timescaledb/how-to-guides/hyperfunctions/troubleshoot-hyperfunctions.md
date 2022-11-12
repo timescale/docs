@@ -5,10 +5,11 @@ keywords: [hyperfunctions, Toolkit, troubleshooting]
 ---
 
 # Troubleshooting hyperfunctions and TimescaleDB Toolkit
+
 This section contains some ideas for troubleshooting common problems experienced
 with hyperfunctions and TimescaleDB Toolkit.
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -16,9 +17,10 @@ with hyperfunctions and TimescaleDB Toolkit.
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 ## Updating the Toolkit extension fails with an error saying `no update path`
+
 In some cases, when you create the extension, or use the `ALTER EXTENSION timescaledb_toolkit UPDATE` command to
 update the Toolkit extension, it might fail with an error like this:
 
@@ -35,6 +37,7 @@ again.
 <procedure>
 
 #### Troubleshooting TimescaleDB Toolkit setup
+
 1.  If you're installing Toolkit from a package, check your package manager's
     local repository list. Make sure the TimescaleDB repository is available and
     contains Toolkit. For instructions on adding the TimescaleDB repository, see
@@ -44,11 +47,14 @@ again.
 1.  Update your local repository list with `apt update` or `yum update`.
 1.  Restart your PostgreSQL service.
 1.  Check that the right version of Toolkit is among your available extensions:
+
     ```sql
     SELECT * FROM pg_available_extensions
       WHERE name = 'timescaledb_toolkit';
     ```
+
     The result should look like this:
+
     ```
     -[ RECORD 1 ]-----+--------------------------------------------------------------------------------------
     name              | timescaledb_toolkit
@@ -56,6 +62,7 @@ again.
     installed_version | 1.6.0
     comment           | Library of analytical hyperfunctions, time-series pipelining, and other SQL utilities
     ```
+
 1.  Retry `CREATE EXTENSION` or `ALTER EXTENSION`.
 
 </procedure>

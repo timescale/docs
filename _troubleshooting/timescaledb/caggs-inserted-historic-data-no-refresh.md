@@ -12,7 +12,7 @@ keywords: [continuous aggregates]
 tags: [continuous aggregates, materalized views, refresh, insert]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -20,7 +20,7 @@ tags: [continuous aggregates, materalized views, refresh, insert]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 Materialized views are generally used with ordered data. If you insert historic
 data, or data that is not related to the current time, you need to refresh

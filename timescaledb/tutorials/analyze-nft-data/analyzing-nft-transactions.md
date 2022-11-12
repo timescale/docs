@@ -6,6 +6,7 @@ tags: [nft]
 ---
 
 # Analyzing NFT transactions
+
 When you have successfully collected and ingested the data, it's time to analyze
 it. For this analysis, we use data collected with our ingestion script that
 contains only successful sale transactions that happened between
@@ -21,14 +22,13 @@ All the queries in this section, plus some additional ones, are in our
 in the [`queries.sql` file][queries].
 
 We divide our analysis into two parts: simple queries and complex queries. But
-first we create something to speed up our queries: TimescaleDB continuous 
+first we create something to speed up our queries: TimescaleDB continuous
 aggregates.
 
 <highlight type="note">
 All queries in this section only include data that's accessible from the
 OpenSea API.
 </highlight>
-
 
 ## Speeding up queries with continuous aggregates
 
@@ -49,6 +49,7 @@ This tutorial creates two continuous aggregates to speed up queries on assets
 and on collections.
 
 ### Assets continuous aggregates
+
 Create a new continuous aggregate called `assets_daily` that computes and stores
 the following information about all assets for each day: `asset_id`, the collection
 it belongs to, `daily average price`, `median price`, `sale volume`, `ETH volume`,
@@ -77,6 +78,7 @@ GROUP BY bucket, asset_id, collection_id
 Add a refresh policy to update the continuous aggregate daily with the latest data,
 so that you can save
 computation at query time:
+
 ```sql
 SELECT add_continuous_aggregate_policy('assets_daily',
     start_offset => INTERVAL '3 days',
@@ -85,6 +87,7 @@ SELECT add_continuous_aggregate_policy('assets_daily',
 ```
 
 ### Collections continuous aggregates
+
 Create another continuous aggregate called `collections_daily` that computes and
 stores the following information about all collections for each day,
 including `daily average price`, `median price`, `sale volume`,  `ETH volume`,
@@ -118,6 +121,7 @@ you can query the continuous aggregate, rather than the raw data in the `nft_sal
 hypertable. This helps speed up the result.
 
 ## Simple queries
+
 You can start your analysis by asking simple questions about NFT sales that
 happened in 2021 and answering them using SQL queries. Use these queries
 as a starting point for your own further analysis. You can modify each query
@@ -129,12 +133,14 @@ sales using free, open-source tools. You can find the code used to create each
 graph in the [NFT Starter Kit Github repo][nft-starter-kit].
 
 ### Collections with the highest sales volume
+
 Which collections have the highest volume of sales? Answering this is a great
 starting point for finding collections with assets that are frequently traded,
 which is important for buyers thinking about the resale value of their NFTs. If
 you buy an NFT in one of the collections below, there is a good chance you'll
 be able to find a buyer. In this query, you order the collections by total volume
 of sales, but you could also order them by ETH volume instead:
+
 ```sql
 /* Collections with the highest volume? */
 SELECT
@@ -146,6 +152,7 @@ INNER JOIN collections c ON cagg.collection_id = c.id
 GROUP BY cagg.collection_id, slug
 ORDER BY total_volume DESC;
 ```
+
 | slug               | total_volume | total_volume_eth   |
 |--------------------|--------------|--------------------|
 | sorare             | 339776       | 35113.062124036835 |
@@ -169,6 +176,7 @@ more readable queries. It is a pattern that you'll use again in this tutorial,
 so look out for it!
 
 ### Daily sales of a collection
+
 How many sales took place each day for a certain collection? This query looks
 at the daily volume of sales for NFTs in the `cryptokitties` collection. This
 can help you find which days the NFT traders have been more active, and help you
@@ -176,6 +184,7 @@ spot patterns about which days of the week or month have higher or lower volume 
 
 You can modify this query to look at your favorite NFT collection, such as
 `cryptopunks`, `lazy-lions`, or `afrodroids-by-owo`:
+
 ```sql
 SELECT bucket, slug, volume
 FROM collections_daily cagg
@@ -202,9 +211,11 @@ modify as part of the pre-built dashboards
 in our [NFT Starter Kit][nft-starter-kit].
 
 ### Comparison of daily NFT sales for different collections
+
 How do the daily sales of NFTs in one collection compare to that of another
 collection? This query compares the daily sales of two popular NFT collections:
 CryptoKitties and Ape Gang, in the past three months:
+
 ```sql
 /* Daily number of NFT transactions, "CryptoKitties" vs Ape Gang from past 3 months? */
 SELECT bucket, slug, volume
@@ -231,8 +242,8 @@ interested in or own assets in, so you can see the activity of other NFT holders
 Also, you can modify the time-period under consideration to look at larger
 (such as 9 months), or smaller (such as 14 days) periods of time.
 
-
 ### Snoop Dogg's NFT activity (or individual account activity)
+
 How many NFTs did a particular person buy in a certain period of time? This
 sort of query is useful to monitor the activity of popular NFT collectors,
 like American rapper Snoop Dogg (or [Cozomo_de_Medici][snoop-dogg-opensea]) or
@@ -245,6 +256,7 @@ activity of a specific account.
 This query analyzes [Snoop Dogg's](https://twitter.com/cozomomedici) address to
 analyze his trades, but you can edit the query to add any address in the `WHERE`
 clause to see the specified account's transactions:
+
 ```sql
 /* Snoop Dogg's transactions in the past 3 months aggregated */
 WITH snoop_dogg AS (
@@ -275,10 +287,12 @@ and sold only once). His trades included 57 individual NFTs and 23 collections, 
 minimum paid price of 0 and max of 1300 ETH.
 
 ### Most expensive asset in a collection
+
 Whats the most expensive NFT in a certain collection? This query looks at a
 specific collection (CryptoKitties) and finds the most expensive NFT sold from it.
 This can help you find the rarest items in a collection and look at the properties
 that make it rare in order to help you buy items with similar properties from that collection:
+
 ```sql
 /* Top 5 most expensive NFTs in the CryptoKitties collection */
 SELECT a.name AS nft, total_price, time, a.url  FROM nft_sales s
@@ -289,19 +303,20 @@ ORDER BY total_price DESC
 LIMIT 5
 ```
 
-<!-- markdown-link-check-disable -->
+{/* <!-- markdown-link-check-disable --> */}
 
-nft            |total_price|time               |url                                                                    |
----------------|-----------|-------------------|-----------------------------------------------------------------------|
-Founder Cat #40|      225.0|2021-09-03 14:59:16|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/40|
-Founder Cat #17|      177.0|2021-09-03 01:58:13|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/17|
-润龙🐱‍👓创世猫王44# |      150.0|2021-09-03 02:01:11|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/44|
-grey           |      149.0|2021-09-03 02:32:26|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/16|
-Founder Cat #38|      148.0|2021-09-03 01:58:13|https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/38|
+|nft|total_price|time|url|
+|-|-|-|-|
+|Founder Cat #40|225.0|2021-09-03 14:59:16|\<https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/40\>|
+|Founder Cat #17|177.0|2021-09-03 01:58:13|\<https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/17\>|
+|润龙🐱‍👓创世猫王44#|150.0|2021-09-03 02:01:11|\<https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/44\>|
+|grey|149.0|2021-09-03 02:32:26|\<https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/16\>|
+|Founder Cat #38|148.0|2021-09-03 01:58:13|\<https://opensea.io/assets/0x06012c8cf97bead5deae237070f9587f8e7a266d/38\>|
 
-<!-- markdown-link-check-enable -->
+{/* <!-- markdown-link-check-enable --> */}
 
 ### Daily ETH volume of assets in a collection
+
 What is the daily volume of Ether (ETH) for a specific collection? Using the
 example of CryptoKitties, this query calculates the daily total ETH spent in
 sales of NFTs in a certain collection:
@@ -314,6 +329,7 @@ INNER JOIN collections c ON cagg.collection_id = c.id
 WHERE slug = 'cryptokitties'
 ORDER BY bucket DESC;
 ```
+
 bucket             |slug         |volume_eth         |
 -------------------|-------------|-------------------|
 2021-10-12 02:00:00|cryptokitties| 1.6212453906698892|
@@ -332,6 +348,7 @@ This graph uses a logarithmic scale, which you can configure in the graph's sett
 </highlight>
 
 ### Comparison of daily ETH volume of multiple collections
+
 How does the daily volume of ETH spent on assets in one collection compare to
 others? This query uses CryptoKitties and Ape Gang as examples, to find the daily
 ETH spent on buying assets in those collections in the past three months. You
@@ -365,9 +382,11 @@ settings in Superset.
 </highlight>
 
 ### Daily mean and median sale price of assets in a collection
+
 When you are analyzing the daily price of assets in a specific collection, two
 useful statistics to use are the mean price and the median price. This query
 finds the daily mean and median sale prices of assets in the CryptoKitties collection:
+
 ```sql
 /* Mean vs median sale price of CryptoKitties? */
 SELECT bucket, slug, mean_price, median_price
@@ -411,12 +430,14 @@ GROUP BY bucket, collection_id;
 ```
 
 ### Daily total volume of  top buyers
+
 What days do the most prolific accounts buy on? To answer that question, you
 can analyze the top five NFT buyer accounts based on the number of NFT purchases,
 and their total daily volume of NFT bought over time. This is a good starting
 point to dig deeper into the analysis, as it can help you find days when something
 happened that made these users buy a lot of NFTs. For example a dip in ETH prices,
 leading to lower gas fees, or drops of high anticipated collections:
+
 ```sql
 /* Daily total volume of the 5 top buyers */
 WITH top_five_buyers AS (
@@ -434,11 +455,13 @@ ORDER BY bucket DESC
 ![volume top buyers](https://assets.timescale.com/docs/images/tutorials/nft-tutorial/volume-top-buyers.jpg)
 
 ## Complex queries
+
 Let's take a look at some more complex questions you can ask about the NFT
 dataset, as well as more complex queries to
 retrieve interesting things.
 
 ### Calculating 30-min mean and median sale prices of highest trade count NFT from yesterday
+
 What are the mean and median sales prices of the highest traded NFT from the
 past day, in 30-minute intervals?
 
@@ -519,6 +542,7 @@ the `LIMIT 5` and replace it with an additional WHERE clause filtering for a
 specific time-period to make the query more useful.
 
 ### Assets with the biggest intraday price change
+
 Which assets had the biggest intraday sale price change? You can identify
 interesting behaviour such as an asset being bought and then sold again for a
 much higher (or lower) amount within the same day. This can help you
@@ -527,45 +551,48 @@ NFT price thanks to it being part of their collection.
 
 This query finds the assets with the biggest intraday sale price change in the
 last six months:
+
 ```sql
 /* Daily assets sorted by biggest intraday price change in the last 6 month*/
 WITH top_assets AS (
-	SELECT time_bucket('1 day', time) AS bucket, asset_id,
-	FIRST(total_price, time) AS open_price, LAST(total_price, time) AS close_price,
-	MAX(total_price)-MIN(total_price) AS intraday_max_change
-	FROM nft_sales s
-	WHERE payment_symbol = 'ETH' AND time > NOW() - INTERVAL '6 month'
-	GROUP BY bucket, asset_id
-	ORDER BY intraday_max_change DESC
-	LIMIT 5
+ SELECT time_bucket('1 day', time) AS bucket, asset_id,
+ FIRST(total_price, time) AS open_price, LAST(total_price, time) AS close_price,
+ MAX(total_price)-MIN(total_price) AS intraday_max_change
+ FROM nft_sales s
+ WHERE payment_symbol = 'ETH' AND time > NOW() - INTERVAL '6 month'
+ GROUP BY bucket, asset_id
+ ORDER BY intraday_max_change DESC
+ LIMIT 5
 )
 SELECT bucket, nft, url,
         open_price, close_price,
-	intraday_max_change
+ intraday_max_change
 FROM top_assets ta
 INNER JOIN LATERAL (
-	SELECT name AS nft, url FROM assets a
-	WHERE a.id = ta.asset_id
+ SELECT name AS nft, url FROM assets a
+ WHERE a.id = ta.asset_id
 ) assets ON TRUE;```
 ```
 
-<!-- markdown-link-check-disable -->
+{/* <!-- markdown-link-check-disable --> */}
 
-bucket             |nft           |url                                                                           |open_price|close_price|intraday_max_change|
--------------------|--------------|------------------------------------------------------------------------------|----------|-----------|-------------------|
-2021-09-22 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      0.72|     0.9999|           239.2889|
-2021-09-23 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |    0.9999|       1.14|              100.0|
-2021-09-27 02:00:00|Skulptuur #647|https://opensea.io/assets/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/173000647|      25.0|       90.0|               65.0|
-2021-09-25 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      1.41|      1.475|               61.3|
-2021-09-26 02:00:00|Page          |https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1        |      1.48|      4.341|              43.05|
+|bucket|nft|url|open_price|close_price|intraday_max_change|
+|-|-|-|-|-|-|
+|2021-09-22 02:00:00|Page|\<https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1\>|0.72|0.9999|239.2889|
+|2021-09-23 02:00:00|Page|\<https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1\>|0.9999|1.14|100.0|
+|2021-09-27 02:00:00|Skulptuur #647|\<https://opensea.io/assets/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/173000647\>|25.0|90.0|65.0|
+|2021-09-25 02:00:00|Page|\<https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1\>|1.41|1.475|61.3|
+|2021-09-26 02:00:00|Page|\<https://opensea.io/assets/0xa7206d878c5c3871826dfdb42191c49b1d11f466/1\>|1.48|4.341|43.05|
 
-<!-- markdown-link-check-enable -->
+{/* <!-- markdown-link-check-enable --> */}
 
 ## Resources and next steps
+
 This section contains information about what to do when you've completed the
 tutorial, and some links to more resources.
 
 ### Claim your limited edition Time Travel Tigers NFT
+
 The first 20 people to complete this tutorial can earn a limited edition NFT
 from the
 [Time Travel Tigers collection][eon-collection], for free!
@@ -577,25 +604,29 @@ of the limited-edition Eon NFTs to your ETH address (at no cost to you!).
 You can see all NFTs in the Time Travel Tigers collection live on [OpenSea][eon-collection].
 
 ### Build on the NFT Starter Kit
+
 Congratulations! You're now up and running with NFT data and TimescaleDB. Check out
 our [NFT Starter Kit][nft-starter-kit] to use as your starting point to
 build your own, more complex NFT analysis projects.
 
 The Starter Kit contains:
-* A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB
-* A sample dataset, to get started quickly, if you don't want to ingest real-time data
-* A schema for storing NFT sales, assets, collections, and owners
-* A local TimescaleDB database, pre-loaded with sample NFT data
-* Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana]
+
+*   A data ingestion script, which collects real-time data from OpenSea and ingests it into TimescaleDB
+*   A sample dataset, to get started quickly, if you don't want to ingest real-time data
+*   A schema for storing NFT sales, assets, collections, and owners
+*   A local TimescaleDB database, pre-loaded with sample NFT data
+*   Pre-built dashboards and charts in [Apache Superset][superset] and [Grafana][grafana]
 for visualizing your data analysis
-* Queries to use as a starting point for your own analysis
+*   Queries to use as a starting point for your own analysis
 
 ### Learn more about how to use TimescaleDB to store and analyze crypto data
+
 Check out these resources for more about using TimescaleDB with crypto data:
-* [Analyze cryptocurrency market data][analyze-cryptocurrency]
-* [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB][analyze-bitcoin]
-* [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone][messari]
-* [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
+
+*   [Analyze cryptocurrency market data][analyze-cryptocurrency]
+*   [Analyzing Analyzing Bitcoin, Ethereum, and 4100+ other cryptocurrencies using PostgreSQL and TimescaleDB][analyze-bitcoin]
+*   [Learn how TimescaleDB user Messari uses data to open the crypto economy to everyone][messari]
+*   [How one TimescaleDB user built a successful crypto trading bot][trading-bot]
 
 [analyze-bitcoin]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
 [analyze-cryptocurrency]: /timescaledb/:currentVersion:/tutorials/analyze-cryptocurrency-data/

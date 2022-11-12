@@ -10,7 +10,7 @@ keywords: [upgrade]
 tags: [upgrade]
 ---
 
-<!---
+{/* <!---
 * Keep this section in alphabetical order
 * Use this format for writing troubleshooting sections:
  - Cause: What causes the problem?
@@ -18,7 +18,7 @@ tags: [upgrade]
  - Fix/Workaround: What can the user do to fix or work around the problem? Provide a "Resolving" Procedure if required.
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
--->
+--> */}
 
 In some cases, when you use the `ALTER EXTENSION timescaledb UPDATE` command to
 upgrade, it might fail with the above error.

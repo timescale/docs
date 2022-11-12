@@ -62,7 +62,7 @@ For more information about approximate count distinct functions, see the
 |-|-|-|
 |stderror|BIGINT|The number of distinct elements counted by the hyperloglog.|
 
-<!---Any special notes about the returns-->
+{/* <!-- Any special notes about the return --> */}
 
 ## Sample usage
 

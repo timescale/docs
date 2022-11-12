@@ -18,10 +18,10 @@ For time-series data, these conditions usually apply to older data. The exact
 age depends on your application insert and query patterns. To learn more, see
 the section on [benefits and trade-offs of compression][benefits-trade-offs].
 
-<!-- TODO: add this link as well when section is complete
+{/* <!-- TODO: add this link as well when section is complete
 [improving
 compression](/timescaledb/latest/how-to-guides/compression/improve-compression/).
--->
+--> */}
 
 ## Native compression to column-based storage
 
@@ -37,9 +37,11 @@ section][compression-architecture].
 The user interface remains the same after your data is compressed. You continue
 to query your data as normal, and the database decompresses data as needed.
 
-<highlight type="important"> Inserts and queries work as usual, but there are
+<highlight type="important">
+ Inserts and queries work as usual, but there are
 limitations on updates and deletes. For more information, see the section on
-[trade-offs](#benefits-and-trade-offs-of-compression).</highlight>
+[trade-offs](#benefits-and-trade-offs-of-compression).
+</highlight>
 
 ## Compression performance
 
@@ -55,10 +57,10 @@ compressed data have improved performance.
 For more information about query performance, see the section on [queries
 on compressed data][compressed-queries].
 
-<!-- TODO: add after improving compression page is done
+{/* <!-- TODO: add after improving compression page is done
 To optimize compression for your query patterns, see the section on [improving
 compression performance][improving-compression].
--->
+--> */}
 
 ## Benefits and trade-offs of compression
 

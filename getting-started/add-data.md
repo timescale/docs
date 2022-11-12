@@ -6,11 +6,13 @@ tags: [add, data, time-series]
 ---
 
 # Add time-series data
+
 To explore TimescaleDB's features, you need some sample data. This tutorial
 provides real-time stock trade data, also known as tick data, from
 [Twelve Data][twelve-data].
 
 ## About the dataset
+
 The dataset contains second-by-second stock-trade data for the top 100
 most-traded symbols, in a hypertable named `stocks_real_time`. It also includes
 a separate table of company symbols and company names, in a regular PostgreSQL
@@ -22,9 +24,9 @@ Monday through Friday, typically during normal trading hours of the New York Sto
 Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 
 <highlight type="note">
-In case you want to ingest real-time data, instead of sample data,
-read the tutorial
-[Ingest real-time financial websocket data](https://docs.timescale.com/timescaledb/latest/tutorials/ingest-real-time-websocket-data)
+In case you want to ingest real-time data, instead of sample data, read the
+tutorial [Ingest real-time financial websocket
+data](https://docs.timescale.com/timescaledb/latest/tutorials/ingest-real-time-websocket-data)
 and ingest data directly from the Twelve Data financial API.
 </highlight>
 
@@ -48,6 +50,7 @@ second during trading hours.
 |name|text|Corresponding company name|
 
 ## Ingest the dataset
+
 To ingest data into the tables that you created, you need to download the
 dataset and copy the data to your database.
 
@@ -58,9 +61,7 @@ dataset and copy the data to your database.
 1.  Download the `real_time_stock_data.zip` file. The file contains two `.csv`
     files; one with company information, and one with real-time stock trades for
     the past month. Download:
-    <tag
-    type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)
-    </tag>
+    <tag type="download">[real_time_stock_data.zip](https://assets.timescale.com/docs/downloads/get-started/real_time_stock_data.zip)</tag>
 
 1.  In a new terminal window, run this command to unzip the `.csv` files:
 
@@ -101,6 +102,7 @@ docker cp tutorial_sample_company.csv timescaledb:/tutorial_sample_company.csv
 <video url="https://www.youtube.com/embed/YwidcyBFgAU"></video>
 
 ## Next steps
+
 Now that you have data in your TimescaleDB instance, learn how to [query the
 data][query-data].
 
