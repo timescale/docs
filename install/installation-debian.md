@@ -152,7 +152,12 @@ Restart PostgreSQL and create the TimescaleDB extension:
     \password postgres 
     ```
 
-1.  Exit from PostgreSQL using the command `\q`.
+1.  Exit from PostgreSQL:
+
+    ```bash
+    \q
+    ```
+    
 1.  Use `psql` client to connect to PostgreSQL:
 
     ```bash
