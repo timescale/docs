@@ -7,6 +7,9 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.2.0
+    stable: 1.10.1
 hyperfunction:
   family: downsample
   type: one-step aggregate
@@ -64,7 +67,6 @@ FROM unnest((
 ```
 
 The output looks like this:
-
 
 ```sql
           time          |        value        
