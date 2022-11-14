@@ -28,7 +28,7 @@ about the PostgreSQL remote server:
 
 <highlight type="note">
 The details you need are available in the [MST portal](https://portal.managed.timescale.com)
-service `Overview` tab or use the `avn service get` command if you installed
+service `Overview` tab. Alternatively, you can use the `avn service get` command in the
 Aiven client.
 </highlight>
 
