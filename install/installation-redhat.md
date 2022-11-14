@@ -17,8 +17,11 @@ distributions:
 
 *   Red Hat Enterprise Linux 7
 *   Red Hat Enterprise Linux 8
+*   Red Hat Enterprise Linux 9
 *   CentOS 7
 *   CentOS 8
+*   Rocky Linux 8
+*   Rocky Linux 9
 *   Fedora 33
 *   Fedora 34
 *   Fedora 35
