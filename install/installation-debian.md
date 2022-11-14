@@ -146,7 +146,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
     Type "help" for help.
     ```
 
-1.  Set the password for the `postgres` user using:
+1.  Set the password for the `postgres` user:
 
     ```sql
     \password postgres 
