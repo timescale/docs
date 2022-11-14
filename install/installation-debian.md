@@ -122,7 +122,7 @@ your local system using the `psql` command-line utility.
 
 ### Setting up the TimescaleDB extension
 
-   Before you create a TimescaleDB extension 
+Restart PostgreSQL and create the TimescaleDB extension:
 
 1.  Restart the service after enabling TimescaleDB with `timescaledb-tune`:
 
