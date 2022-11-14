@@ -28,7 +28,7 @@ array, like this:
 |---|---|---|---|
 |[12:00:02, 12:00:02, 12:00:01, 12:00:1]|[1, 2, 1, 2]|[88.2, 300.5, 88.6, 299.1]|[0.8, 0.9, 0.85, 0.95]|
 
-<highlight type="tip">
+<highlight type="note">
 Most indexes set on the hypertable are removed or ignored
 when reading from compressed chunks! TimescaleDB creates and uses custom indexes
 to incorporate the `segmentby` and `orderby` parameters during compression.
