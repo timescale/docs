@@ -16,7 +16,7 @@ only need to create a `user mapping` to store remote connections credentials.
 
 ## Before you begin
 
-To create a `dblink` foreign data wrapper you need the following information
+To create a `dblink` foreign data wrapper you need this information
 about the PostgreSQL remote server:
 
 *   `HOSTNAME`: The remote database hostname
