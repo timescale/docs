@@ -76,7 +76,7 @@ instead.
     ```
 
     <highlight type="note">
-    For Ubuntu 21.10 and later use the following command to install Timescale
+    For Ubuntu 21.10 and later use this command to install Timescale
     GPG key
     `wget --quiet -O - https://packagecloud.io/timescale/timescaledb/gpgkey | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/timescaledb.gpg`
     </highlight>
