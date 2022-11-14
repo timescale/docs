@@ -62,7 +62,7 @@ create one.
 1.  [Log in to your Timescale Cloud account][cloud-login] and navigate to
     the `Members` section.
 1.  Click `Leave project`.
-1.  Confirm the action, and click `Leave`.
+1.  Confirm the action by clicking `Leave`.
 1.  Your account is removed from the project immediately, and you can no longer
     switch to the shared project.
 
