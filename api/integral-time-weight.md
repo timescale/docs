@@ -15,13 +15,6 @@ hyperfunction:
   type: accessor
   aggregates:
     - time_weight()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: accessor
 ---
 
 # integral() <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>

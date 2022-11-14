@@ -13,12 +13,6 @@ api:
 hyperfunction:
   family: time-weighted averages
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: aggregate
 ---
 
 ## time_weight() <tag type="toolkit">Toolkit</tag>

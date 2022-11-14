@@ -13,12 +13,6 @@ api:
 hyperfunction:
   family: percentile approximation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: aggregate
 ---
 
 # percentile_agg()  <tag type="toolkit">Toolkit</tag>
