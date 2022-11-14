@@ -27,7 +27,7 @@ about the PostgreSQL remote server:
 *   `DATABASE_NAME`: The remote database name. The default database name is `defaultdb`.
 
 <highlight type="note">
-The details are available in the [MST portal](https://portal.managed.timescale.com)
+The details you need are available in the [MST portal](https://portal.managed.timescale.com)
 service `Overview` tab or use the `avn service get` command if you installed
 Aiven client.
 </highlight>
