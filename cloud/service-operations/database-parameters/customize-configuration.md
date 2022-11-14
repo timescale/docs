@@ -63,7 +63,7 @@ change, click `Apply changes`. For some changes, such as
 case, the button reads `Apply changes and restart`.
 
 A confirmation dialog is displayed which indicates whether a restart is
-required. Click `Confirm` to apply the changes (and restart if necessary).
+required. Click `Confirm` to apply the changes, and restart if necessary.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-settings-confirm.png"
