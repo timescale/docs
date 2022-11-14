@@ -7,6 +7,8 @@ tags: [missing values]
 api:
   license: community
   type: function
+  version:
+    stable: 1.1.1
 hyperfunction:
   family: gapfilling and interpolation
   type: interpolator

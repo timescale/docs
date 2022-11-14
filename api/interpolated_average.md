@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.8.0
 hyperfunction:
   family: time-weighted averages
   type: accessor
@@ -83,8 +85,8 @@ SELECT
         tws,
         time,
         '1 day',
-        LAG(tws) OVER (ORDER BY time PARTITION BY id),
-        LEAD(tws) OVER (ORDER BY time PARTITION BY id)
+        LAG(tws) OVER (PARTITION BY id ORDER by time),
+        LEAD(tws) OVER (PARTITION BY id ORDER by time)
     )
 FROM (
     SELECT

@@ -8,6 +8,8 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.8.0
 hyperfunction:
   family: metric aggregation
   type: accessor
@@ -73,8 +75,8 @@ SELECT
         summary,
         bucket,
         '15 min',
-        LAG(summary) OVER (ORDER by bucket PARTITION BY id),
-        LEAD(summary) OVER (ORDER by bucket PARTITION BY id)
+        LAG(summary) OVER (PARTITION BY id ORDER by bucket),
+        LEAD(summary) OVER (PARTITION BY id ORDER by bucket)
     )
 FROM (
     SELECT

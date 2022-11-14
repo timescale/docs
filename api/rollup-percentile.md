@@ -8,6 +8,9 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.3.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: rollup
