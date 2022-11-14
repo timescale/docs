@@ -109,12 +109,17 @@ To enable the `dblink` extension on an MST PostgreSQL service:
 
 </procedure>
 
-### Query data using a foreign data wrapper
+## Query data using a foreign data wrapper
+
+In this example in the `user1` user queries the remote table `inventory` defined in the target
+PostgreSQL database from the `mst_remote` server definition:
+
+### Quering data using a foreign data wrapper
 
 To query a foreign data wrapper, you must be a database user with the necessary
-permissions on the remote server. The examples in this section assume a user called
-`user1`. To query the remote table `inventory` defined in the target
-PostgreSQL database from the `mst_remote` server definition:
+permissions on the remote server.
+
+<procedure>
 
 1. Connect to the MST service as `user1` with necessary grants to the remote server.
 
@@ -141,3 +146,4 @@ Output is similar to:
     (3 rows)
    ```
 
+</procedure>
