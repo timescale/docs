@@ -5,6 +5,7 @@ keywords: [Toolkit, install, hyperfunctions, function pipelines]
 ---
 
 # Install and update TimescaleDB Toolkit
+
 Some hyperfunctions are included in the default TimescaleDB product. For
 additional hyperfunctions, you need to install the TimescaleDB Toolkit PostgreSQL
 extension.
@@ -12,19 +13,24 @@ extension.
 If you're using [Timescale Cloud][cloud], the Toolkit is already installed.
 
 ## Install and update Toolkit on Managed Service for TimescaleDB
+
 On [Managed Service for TimescaleDB][mst], run this command on each database you
 want to use the Toolkit with:
+
 ```sql
 CREATE EXTENSION timescaledb_toolkit;
 ```
 
 Update an installed version of the Toolkit using this command:
+
 ```sql
 ALTER EXTENSION timescaledb_toolkit UPDATE;
 ```
 
 ## Install Toolkit on self-hosted TimescaleDB
+
 If you're hosting your own TimescaleDB database, you can install Toolkit by:
+
 *   Using the TimescaleDB high-availability Docker image
 *   Using a package manager such as `yum`, `apt`, or `brew` on platforms where
     pre-built binaries are available
@@ -35,6 +41,7 @@ If you're hosting your own TimescaleDB database, you can install Toolkit by:
 The recommended way to install the Toolkit is to use the
 [TimescaleDB Docker image](https://github.com/timescale/timescaledb-docker-ha).
 To get Toolkit, use the high availability image, `timescaledb-ha`:
+
 ```bash
 docker pull timescale/timescaledb-ha:pg14-latest
 ```
@@ -61,15 +68,20 @@ and may also work on other Red Hat-based systems, such as Red Hat Enterprise Lin
     repository in your `yum` `repo.d` directory. For more information, see [the
     instructions for Red Hat-based systems][red-hat-install].
 1.  Update your local repository list:
+
     ```bash
     yum update
     ```
+
 1.  Install TimescaleDB Toolkit:
+
     ```bash
     yum install timescaledb-toolkit-postgresql-14
     ```
+
 1.  Connect to the database where you want to use Toolkit.
 1.  Create the Toolkit extension in the database:
+
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
     ```
@@ -89,15 +101,20 @@ and may also work on other Debian-based systems.
     repository and GPG key. For more information, see [the instructions for
     Debian-based systems][debian-install].
 1.  Update your local repository list:
+
     ```bash
     apt update
     ```
+
 1.  Install TimescaleDB Toolkit:
+
     ```bash
     apt install timescaledb-toolkit-postgresql-14
     ```
+
 1.  Connect to the database where you want to use Toolkit.
 1.  Create the Toolkit extension in the database:
+
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
     ```
@@ -115,25 +132,31 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 
 1.  Tap the Timescale formula repository, which also contains formulae for
     TimescaleDB and `timescaledb-tune`.
+
     ```bash
     brew tap timescale/tap
     ```
+
 1.  Update your local brew installation:
+
     ```bash
     brew update
     ```
+
 1.  Install TimescaleDB Toolkit:
+
     ```bash
     brew install timescaledb-toolkit
     ```
+
 1.  Connect to the database where you want to use Toolkit.
 1.  Create the Toolkit extension in the database:
+
     ```sql
     CREATE EXTENSION timescaledb_toolkit;
     ```
 
 </procedure>
-
 
 ## Update Toolkit on self-hosted TimescaleDB
 
@@ -201,11 +224,11 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     </tab>
 
-
     </terminal>
-    
+
 1.  Connect to the database where you want to use the new version of Toolkit.
 1.  Update the Toolkit extension in the database:
+
     ```sql
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
@@ -218,6 +241,7 @@ sessions.
 </procedure>
 
 ### Build Toolkit from source
+
 You can build Toolkit from source. For more information, see the [Toolkit
 developer documentation][toolkit-gh-docs].
 
