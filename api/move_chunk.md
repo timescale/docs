@@ -2,7 +2,7 @@
 api_name: move_chunk()
 excerpt: Move a chunk and its indexes to a different tablespace
 topics: [hypertables]
-keywords: [chunks, hypertables, tablespaces, move, data tiering]
+keywords: [chunks, hypertables, tablespaces, move]
 api:
   license: community
   type: function
@@ -20,7 +20,7 @@ these PostgreSQL commands, however, the `move_chunk` function uses lower lock
 levels so that the chunk and hypertable are able to be read for most of the
 process. This comes at a cost of slightly higher disk usage during the
 operation. For a more detailed discussion of this capability, see the
-[Data Tiering][using-data-tiering] documentation.
+documentation on [managing storage with tablespaces][manage-storage].
 
 <highlight type="note">
 You must be logged in as a super user, such as the `postgres` user,
@@ -54,6 +54,6 @@ SELECT move_chunk(
 );
 ```
 
+[manage-storage]: /timescaledb/:currentVersion:/how-to-guides/schema-management/manage-storage/
 [postgres-cluster]: https://www.postgresql.org/docs/current/sql-cluster.html
 [postgres-altertable]: https://www.postgresql.org/docs/13/sql-altertable.html
-[using-data-tiering]: /timescaledb/:currentVersion:/how-to-guides/data-tiering/

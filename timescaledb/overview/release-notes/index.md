@@ -1394,15 +1394,14 @@ are rolled up into columnar-like arrays on a per chunk basis.
 The query planner then handles transparent decompression for compressed
 chunks at execution time.
 
-This release also adds support for basic data tiering by supporting
-the migration of chunks between tablespaces, as well as support for
-parallel query coordination to the ChunkAppend node.
-Previously ChunkAppend would rely on parallel coordination in the
-underlying scans for parallel plans.
+This release also adds support for migrating of chunks between tablespaces, as
+well as support for parallel query coordination to the ChunkAppend node.
+Previously ChunkAppend would rely on parallel coordination in the underlying
+scans for parallel plans.
 
 For more information on this release, read the
 [announcement blog](https://blog.timescale.com/blog/building-columnar-compression-in-a-row-oriented-database), this [tutorial][compress-data],
-and the [blog on data tiering](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
+and the [blog on managing chunk migrations](https://blog.timescale.com/blog/optimize-your-storage-costs-with-timescaledbs-data-tiering-functionality/).
 
 **For this release only**, you need to restart the database before running
 `ALTER EXTENSION`
