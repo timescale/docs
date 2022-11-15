@@ -18,12 +18,6 @@ hyperfunction:
     - percentile_agg()
     - tdigest()
     - uddsketch()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: accessor
 ---
 
 # num_vals()  <tag type="toolkit">Toolkit</tag>
