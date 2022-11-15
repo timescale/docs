@@ -5,11 +5,13 @@ keywords: [crypto, blockchain, Bitcoin, finance, analytics]
 ---
 
 # Analyze the blockchain with hyperfunctions
+
 In this section, analyze Bitcoin transactions with SQL in different ways.
 See how hyperfunctions and continuous aggregates can make it easier to query
 and analyze blockchain data.
 
 ## Hyperfunctions for simplified statistical queries
+
 In some of the following queries you can find custom SQL functions that are
 not part of vanilla PostgreSQL. These queries are TimescaleDB
 [hyperfunctions][docs-hyperfunctions] and they are
@@ -20,6 +22,7 @@ and analyze time-series data in PostgreSQL. You need to
 the whole set of hyperfunctions and successfully run the following queries.
 
 After installing the extension, enable it:
+
 ```sql
 CREATE EXTENSION timescaledb_toolkit;
 ```
@@ -27,6 +30,7 @@ CREATE EXTENSION timescaledb_toolkit;
 Now set up a few continuous aggregates for faster and simplifed analysis.
 
 ## Continuous aggregates for blockchain analytics
+
 [Continuous aggregates][docs-cagg] are materialized views for time-series data.
 They make
 queries faster by continuously materializing aggregated data. At the same
@@ -37,9 +41,10 @@ By using continuous aggregates, you simplify and speed up your queries.
 
 In this tutorial, you create three continuous aggregates, focusing
 on three aspects of the dataset:
-* Bitcoin transactions
-* Bitcoin blocks
-* Coinbase transactions (miner revenue)
+
+*   Bitcoin transactions
+*   Bitcoin blocks
+*   Coinbase transactions (miner revenue)
 
 Pre-aggregating your data is important because the dataset contains a lot
 of transactions: over 10,000 per hour.
@@ -48,6 +53,7 @@ In this section, you also learn how to keep your continuous
 aggregate views up-to-date with automatic refresh policies.
 
 ### Continuous aggregate: transactions
+
 Create a continuous aggregate called `one_hour_transactions`. This view holds
 aggregated data about each hour of transactions.
 
@@ -74,19 +80,19 @@ GROUP BY bucket;
 In this query, you create these aggregate columns within the continuous
 aggregate:
 
-* `tx_count`: Total transaction volume
-* `total_fee_sat`: Total fees paid in Sat
-* `total_fee_usd`: Total fees paid in USD
-* `stats_fee_sat`: Fee stats (in Sat)
+*   `tx_count`: Total transaction volume
+*   `total_fee_sat`: Total fees paid in Sat
+*   `total_fee_usd`: Total fees paid in USD
+*   `stats_fee_sat`: Fee stats (in Sat)
     This column uses a hyperfunction called [`stats_agg`][stats_agg].
     The raw `stats_agg` value isn't easily interpretable.
     Later, you can use `stats_agg` to calculate other statistics, such as the average.
-* `avg_tx_size`: Average transaction size in KB
-* `high_fee_count`: Number of transactions where the fee is higher than the
+*   `avg_tx_size`: Average transaction size in KB
+*   `high_fee_count`: Number of transactions where the fee is higher than the
     transaction volume
- 
 
 Add a refresh policy to keep the continuous aggregate up-to-date:
+
 ```sql
 SELECT add_continuous_aggregate_policy('one_hour_transactions',
    start_offset => INTERVAL '3 hours',
@@ -95,6 +101,7 @@ SELECT add_continuous_aggregate_policy('one_hour_transactions',
 ```
 
 ### Continuous aggregate: blocks
+
 Create a continuous aggregate called `one_hour_blocks`. This view holds
 aggregated data about all the blocks that were mined each hour.
 
@@ -123,20 +130,21 @@ GROUP BY bucket, block_id;
 Running this query, you create these aggregate columns within the continuous
 aggregate:
 
-* `tx_count`: Number of transactions per block
-* `block_fee_sat`: Transaction fee paid per block (in Sat)
-* `block_fee_usd`:  Transaction fee paid per block (in USD)
-* `stats_tx_fee_sat`: Stats for transaction fees
-* `avg_tx_size`: Average transaction size within the block
-* `avg_tx_weight`: Average transaction weight within the block
-* `block_size`: Total block size
-* `block_weight`: Total block weight
-* `max_tx_size`: Maximum transaction size within the block
-* `max_tx_weight`: Maximum transaction weight within the block
-* `min_tx_size`: Minimum transaction size within the block
-* `min_tx_weight`: Minimum transaction weight within the block
+*   `tx_count`: Number of transactions per block
+*   `block_fee_sat`: Transaction fee paid per block (in Sat)
+*   `block_fee_usd`:  Transaction fee paid per block (in USD)
+*   `stats_tx_fee_sat`: Stats for transaction fees
+*   `avg_tx_size`: Average transaction size within the block
+*   `avg_tx_weight`: Average transaction weight within the block
+*   `block_size`: Total block size
+*   `block_weight`: Total block weight
+*   `max_tx_size`: Maximum transaction size within the block
+*   `max_tx_weight`: Maximum transaction weight within the block
+*   `min_tx_size`: Minimum transaction size within the block
+*   `min_tx_weight`: Minimum transaction weight within the block
 
 Add a refresh policy to keep the continuous aggregate up-to-date:
+
 ```sql
 SELECT add_continuous_aggregate_policy('one_hour_blocks',
    start_offset => INTERVAL '3 hours',
@@ -144,12 +152,11 @@ SELECT add_continuous_aggregate_policy('one_hour_blocks',
    schedule_interval => INTERVAL '1 hour');
 ```
 
-
 ## Continuous aggregate: coinbase transactions (miner revenue)
+
 Create a continuous aggregate called `one_hour_coinbase`. This view holds
 aggregated data about all the transactions that miners received as
 rewards each hour.
-
 
 ```sql
 CREATE MATERIALIZED VIEW one_hour_coinbase
@@ -166,13 +173,14 @@ GROUP BY bucket;
 
 Running this query, you create these aggregate columns within the continuous
 aggregate:
-* `tx_count`: Number of coinbase transactions per day
-* `stats_miner_revenue`: Stats for miner revenue (both in Sat and USD)
-* `min_miner_revenue`: Minimum miner revenue received after mining a block per day
-* `max_miner_revenue`: Maximum miner revenue received after mining a block per day
 
+*   `tx_count`: Number of coinbase transactions per day
+*   `stats_miner_revenue`: Stats for miner revenue (both in Sat and USD)
+*   `min_miner_revenue`: Minimum miner revenue received after mining a block per day
+*   `max_miner_revenue`: Maximum miner revenue received after mining a block per day
 
 Add a refresh policy to keep the continuous aggregate up-to-date:
+
 ```sql
 SELECT add_continuous_aggregate_policy('one_hour_coinbase',
    start_offset => INTERVAL '3 hours',
@@ -185,21 +193,23 @@ how large the time buckets are. The examples all use 1-hour time
 buckets.
 
 ## Generate insights with SQL
+
 Here are some questions you might ask about blockchain
 transactions, blocks, and miner revenue. For each question,
 you get a relevant SQL query and a chart that answers the question.
 
 **Questions**
-* [Is there any connection between the number of transactions and the transaction fees?](#is-there-any-connection-between-the-number-of-transactions-and-the-transaction-fees)
-* [Does the transaction volume affect the BTC-USD rate?](#does-the-transaction-volume-affect-the-btc-usd-rate)
-* [Do more transactions in a block mean the block is more expensive to mine?](#do-more-transactions-in-a-block-mean-the-block-is-more-expensive-to-mine)
-* [What percentage of the average miner's revenue comes from fees vs. block rewards?](#what-percentage-of-the-average-miners-revenue-comes-from-fees-compared-to-block-rewards)
-* [How does block weight affect miner fees?](#how-does-block-weight-affect-miner-fees)
-* [What’s the average miner revenue per block?](#whats-the-average-miner-revenue-per-block)
 
+*   [Is there any connection between the number of transactions and the transaction fees?](#is-there-any-connection-between-the-number-of-transactions-and-the-transaction-fees)
+*   [Does the transaction volume affect the BTC-USD rate?](#does-the-transaction-volume-affect-the-btc-usd-rate)
+*   [Do more transactions in a block mean the block is more expensive to mine?](#do-more-transactions-in-a-block-mean-the-block-is-more-expensive-to-mine)
+*   [What percentage of the average miner's revenue comes from fees vs. block rewards?](#what-percentage-of-the-average-miners-revenue-comes-from-fees-compared-to-block-rewards)
+*   [How does block weight affect miner fees?](#how-does-block-weight-affect-miner-fees)
+*   [What’s the average miner revenue per block?](#whats-the-average-miner-revenue-per-block)
 
 ### Is there any connection between the number of transactions and the transaction fees?
-Transaction fees are a major concern for blockchain users. 
+
+Transaction fees are a major concern for blockchain users.
 If a blockchain is too expensive, you might not want to use it. This query
 shows you whether there's any correlation between the
 number of Bitcoin transactions and the fees. The time range for this analysis
@@ -245,6 +255,7 @@ submit a transaction now or wait a few days for fees to
 decrease.
 
 ### Does the transaction volume affect the BTC-USD rate?
+
 In cryptocurrency trading, there's a lot of speculation. You can adopt
 a data-based trading strategy by looking at correlations between blockchain
 metrics, such as transaction volume and fees.
@@ -289,6 +300,7 @@ Next, get block-level insights by analyzing the connection
 between transactions and blocks.
 
 ### Do more transactions in a block mean the block is more expensive to mine?
+
 See how the number of transactions in a block influences the overall block
 mining fee. For this analysis, you might want to look at a larger time frame.
 Change the analyzed time range to the last five days.
@@ -382,6 +394,7 @@ also includes block rewards after mining a new block. This reward is currently
 6.25 BTC, and it gets halved every four years. What are some trends in miner revenue?
 
 ### What percentage of the average miner's revenue comes from fees compared to block rewards?
+
 Miners are incentivized to keep the network up and running because they earn
 fees and rewards after mining each block. How much of their
 revenue comes from each source?
@@ -422,7 +435,6 @@ time               |fees                  |reward    |
 
 </terminal>
 
-
 ![Line graph with two lines showing the average fee and block reward, over the last five days](https://assets.timescale.com/docs/images/tutorials/bitcoin-blockchain/revenue_ratio.png)
 
 This chart analyzes the last five days of average miner revenue. The left
@@ -430,7 +442,7 @@ axis shows the percentage of total revenue that
 comes from transaction fees (green) and block rewards (yellow). Most miner
 revenue actually comes from block rewards
 (6.25&nbsp;BTC at the moment). Fees never accounted for more than 3% in the
-last five days. 
+last five days.
 
 This kind of analysis can start discussions around the long-term fading of
 block rewards and how on-chain fees need to rise to
@@ -438,10 +450,11 @@ incentivize miners and sustain the network. (Note that the left axis is
 logarithmic-scale, so it's easier to see the green "fees" portion.)
 
 ### How does block weight affect miner fees?
+
 You've already seen that more transactions in a block mean it's more expensive
 to mine. Is it the same with block weights? The more transactions a block has,
 the larger its size (or weight), so the block weight and mining fee should
-be tightly correlated. 
+be tightly correlated.
 
 This query uses a 12-hour moving average to calculate the block weight and
 block mining fee over time.
@@ -493,6 +506,7 @@ This means that, looking at this graph, there's still room to grow for
 individual blocks, and they could include even more transactions.
 
 ### What's the average miner revenue per block?
+
 Now, analyze how much revenue miners actually generate by mining a
 new block on the blockchain, including fees and block rewards. This query
 analyzes the last day with 12-hour moving averages.
@@ -568,4 +582,4 @@ time               |revenue in BTC    |revenue in USD    |
 [docs-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [docs-hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
 [install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit/
-[stats_agg]: /api/:currentVersion:/hyperfunctions/stats_aggs/stats_agg/
+[stats_agg]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/

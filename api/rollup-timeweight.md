@@ -15,12 +15,6 @@ hyperfunction:
   type: rollup
   aggregates:
     - time_weight()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: rollup
 ---
 
 # rollup(TimeWeightSummary) <tag type="toolkit">Toolkit</tag>

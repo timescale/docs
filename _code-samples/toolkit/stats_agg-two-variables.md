@@ -82,7 +82,7 @@ SELECT covariance(
 Which will still return the population covariance.
 
 This is a minimum working version of the documentation for now, another working
-document can be found [here](docs/rolling_average_api_working.md), which goes
+document can be found [here](./rolling_average_api_working.md), which goes
 into the window function usecase and some of the reasoning behind our naming
 decisions. Please feel free to open issues or discussions if you have questions
 or comments on the current API. We will further develop the documentation as we

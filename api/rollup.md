@@ -15,13 +15,6 @@ hyperfunction:
   type: rollup
   aggregates:
     - ohlc()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'financial analysis'
-hyperfunction_subfamily: OpenHighLowClose
-hyperfunction_type: rollup
 ---
 
 # rollup <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />

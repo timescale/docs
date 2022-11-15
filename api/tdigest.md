@@ -14,12 +14,6 @@ api:
 hyperfunction:
   family: percentile approximation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'advanced aggregation'
-hyperfunction_type: aggregate
 ---
 
 # tdigest() <tag type="toolkit">Toolkit</tag>
