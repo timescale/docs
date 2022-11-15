@@ -59,7 +59,7 @@ alt="Change Timescale Cloud configuration parameters"/>
 
 When you have modified the configuration parameters that you would like to
 change, click `Apply changes`. For some changes, such as
-`timescaledb.max_background_workers`, the Service needs to be restarted. In this
+`timescaledb.max_background_workers`, the service needs to be restarted. In this
 case, the button reads `Apply changes and restart`.
 
 A confirmation dialog is displayed which indicates whether a restart is
