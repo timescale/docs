@@ -1,6 +1,6 @@
 ---
 api_name: max_n_by()
-excerpt: =======================TODO=======================
+excerpt: Track the largest values and associated data in a set of values
 topics: [hyperfunctions]
 tags: [hyperfunctions, toolkit, maximum]
 api:
@@ -17,31 +17,31 @@ hyperfunction:
     - max_n_by()
 api_details:
   summary: |
-    =======================TODO=======================
+    Construct an aggregate which will keep track of the largest values passed 
+    through it, as well as some associated data which is passed alongside the
+    value.
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        max_n_by(
+            value BIGINT | DOUBLE PRECISION | TIMESTAMPTZ,
+            data ANYELEMENT,
+            capacity BIGINT
+        ) MaxNBy
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: value
+        type: BIGINT | DOUBLE PRECISION | TIMESTAMPTZ
+        description: The values passed into the aggregate
+      - name: data
+        type: ANYELEMENT
+        description: The data associated with a particular value
+      - name: capacity
+        type: BIGINT
+        description: The number of values to retain.
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
+      - column: max_n_by
+        type: MaxNBy
         description: >
-          =======================TODO=======================
-  examples:
-    # put examples that only use this single function here. for examples that
-    # use multiple functions from this family, put them in examples.md, which
-    # you can write as a normal freeform text doc
-    # 
-    # can delete the examples section if you only want to use examples.md
-    - description: >
-        =======================TODO=======================
-      command:
-        language: sql
-        code: |
-          =======================TODO=======================
+          The compiled aggregate.  Note that the exact type will be MaxByInts, MaxByFloats, or MaxByTimes depending on the input type
 ---

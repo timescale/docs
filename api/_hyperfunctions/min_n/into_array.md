@@ -1,6 +1,6 @@
 ---
 api_name: into_array()
-excerpt: =======================TODO=======================
+excerpt: Returns an array of the lowest values from a MinN aggregate
 topics: [hyperfunctions]
 tags: [hyperfunctions, toolkit, minimum]
 api:
@@ -17,32 +17,42 @@ hyperfunction:
     - min_n()
 api_details:
   summary: |
-    =======================TODO=======================
+    This will return the N lowest values seen by the aggregate. They will be 
+    formatted as an array ordered in increasing order.
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        into_array (
+            agg MinN
+        ) BIGINT[] | DOUBLE PRECISION[] | TIMESTAMPTZ[]
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
-    returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
+      - name: agg
+        type: MinN
         description: >
-          =======================TODO=======================
+          The aggregate to return the results from.  Note that the exact type 
+          here will vary based on the type of data stored.
+    returns:
+      - column: into_array
+        type: BIGINT[] | DOUBLE PRECISION[] | TIMESTAMPTZ[]
+        description: >
+          The lowest values seen while creating this aggregate.
   examples:
-    # put examples that only use this single function here. for examples that
-    # use multiple functions from this family, put them in examples.md, which
-    # you can write as a normal freeform text doc
-    # 
-    # can delete the examples section if you only want to use examples.md
     - description: >
-        =======================TODO=======================
-      command:
-        language: sql
-        code: |
-          =======================TODO=======================
+      Find the bottom 5 values from i * 13 % 10007 for i = 1 to 10000.
+    command:
+      language: sql
+      code: |
+        SELECT toolkit_experimental.into_array(
+            toolkit_experimental.min_n(sub.val, 5))
+        FROM (
+          SELECT (i * 13) % 10007 AS val 
+          FROM generate_series(1,10000) as i
+        ) sub;
+    return :
+      language: sql
+      code: |
+        into_array            
+        ---------------------------------
+        {1,2,3,4,5}
 ---
-
