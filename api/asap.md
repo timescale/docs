@@ -15,13 +15,6 @@ api:
 hyperfunction:
   family: downsample
   type: one-step aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: false
-toolkit: true
-hyperfunction_family: 'downsample'
-hyperfunction_subfamily: 'downsample'
-hyperfunction_type: other
 ---
 
 # asap_smooth()  <tag type="toolkit">Toolkit</tag>
