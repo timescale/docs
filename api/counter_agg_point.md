@@ -7,15 +7,12 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.2.0
+    stable: 1.3.0
 hyperfunction:
   family: metric aggregation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: aggregate
 ---
 
 # counter_agg() <tag type="toolkit" content="Toolkit" />

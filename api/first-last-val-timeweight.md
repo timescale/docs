@@ -8,18 +8,13 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.11.0
 hyperfunction:
   family: time-weighted averages
   type: accessor
   aggregates:
     - time_weight()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: accessor
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

@@ -8,16 +8,11 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.8.0
 hyperfunction:
   family: frequency analysis
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: CountMinSketch
-hyperfunction_type: aggregate
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

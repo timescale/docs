@@ -8,18 +8,13 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.10.1
 hyperfunction:
   family: financial analysis
   type: accessor
   aggregates:
     - ohlc()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'financial analysis'
-hyperfunction_subfamily: OpenHighLowClose
-hyperfunction_type: accessor
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

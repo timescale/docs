@@ -8,18 +8,13 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.11.0
 hyperfunction:
   family: metric aggregation
   type: accessor
   aggregates:
     - counter_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

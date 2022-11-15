@@ -8,18 +8,13 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.5.0
 hyperfunction:
   family: frequency analysis
   type: accessor
   aggregates:
     - state_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: StateAgg
-hyperfunction_type: accessor
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

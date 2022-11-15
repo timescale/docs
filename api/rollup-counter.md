@@ -7,18 +7,15 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.3.0
+    stable: 1.3.0
 hyperfunction:
   family: metric aggregation
   type: rollup
   aggregates:
     - counter_agg()
     - gauge_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: rollup
 ---
 
 # rollup(CounterSummary) <tag type="toolkit">Toolkit</tag>

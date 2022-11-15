@@ -8,19 +8,14 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.8.0
 hyperfunction:
   family: approximate count distinct
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'approximate count distinct'
-hyperfunction_subfamily: hyperloglog
-hyperfunction_type: aggregate
 ---
 
-# approx_count_distinct()  <tag type="toolkit">Toolkit</tag>
+# approx_count_distinct()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 
 The `approx_count_distinct` function constructs and returns a hyperloglog with a
 default size appropriate for the majority of use cases.
