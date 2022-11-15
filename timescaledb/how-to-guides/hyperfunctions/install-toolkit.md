@@ -26,7 +26,8 @@ ALTER EXTENSION timescaledb_toolkit UPDATE;
 ## Install Toolkit on self-hosted TimescaleDB
 If you're hosting your own TimescaleDB database, you can install Toolkit by:
 *   Using the TimescaleDB high-availability Docker image
-*   Using the RPM or DEB package
+*   Using a package manager such as `yum`, `apt`, or `brew` on platforms where
+    pre-built binaries are available
 *   Building from source
 
 ### Install Docker image
@@ -103,6 +104,37 @@ and may also work on other Debian-based systems.
 
 </procedure>
 
+### Install Toolkit on macOS
+
+These instructions use the `brew` package manager. For more information on
+installing or using Homebrew, see [the `brew` homepage][brew-install].
+
+<procedure>
+
+#### Installing Toolkit on macOS
+
+1.  Tap the Timescale formula repository, which also contains formulae for
+    TimescaleDB and `timescaledb-tune`.
+    ```bash
+    brew tap timescale/tap
+    ```
+1.  Update your local brew installation:
+    ```bash
+    brew update
+    ```
+1.  Install TimescaleDB Toolkit:
+    ```bash
+    brew install timescaledb-toolkit
+    ```
+1.  Connect to the database where you want to use Toolkit.
+1.  Create the Toolkit extension in the database:
+    ```sql
+    CREATE EXTENSION timescaledb_toolkit;
+    ```
+
+</procedure>
+
+
 ## Update Toolkit on self-hosted TimescaleDB
 
 Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
@@ -131,6 +163,14 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     </tab>
 
+    <tab label='macOS'>
+
+    ```bash
+    brew update
+    ```
+
+    </tab>
+
     </terminal>
 
 1.  Install the latest version of TimescaleDB Toolkit:
@@ -153,6 +193,15 @@ Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
 
     </tab>
 
+    <tab label='macOS'>
+
+    ```bash
+    brew upgrade timescaledb-toolkit
+    ```
+
+    </tab>
+
+
     </terminal>
     
 1.  Connect to the database where you want to use the new version of Toolkit.
@@ -172,6 +221,7 @@ sessions.
 You can build Toolkit from source. For more information, see the [Toolkit
 developer documentation][toolkit-gh-docs].
 
+[brew-install]: https://brew.sh
 [cloud]: /cloud/:currentVersion:/
 [debian-install]: /install/latest/self-hosted/installation-debian/
 [docker-install]: /install/latest/installation-docker/
