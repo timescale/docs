@@ -35,6 +35,11 @@ new format.
 
 For more information, see the [migration how-to guide][how-to-migrate].
 
+<highlight type="warning">
+There are known issues with `cagg_migrate()` in version 2.8.0.
+Upgrade to version 2.8.1 or above before using it.
+</highlight>
+
 ## Required arguments
 
 |Name|Type|Description|
