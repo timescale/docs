@@ -28,7 +28,6 @@ there are a few other PostgreSQL parameters that you might like to adjust:
   increase ingest performance.
 
 <highlight type="important">
-
 Make sure that the maximum latency between the
 Promscale connector and the database is no more than 100&nbsp;ms.
 </highlight>
