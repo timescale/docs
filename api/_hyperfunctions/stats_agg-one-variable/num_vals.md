@@ -37,9 +37,9 @@ api_details:
         description: >
           The number of values in the statistical aggregate
   examples:
-    - command:
-        description: >
+    - description: >
           Calculate the number of values from 0 to 100, inclusive.
+      command:  
         language: sql
         code: |
           SELECT num_vals(stats_agg(data))

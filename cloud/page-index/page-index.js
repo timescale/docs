@@ -138,6 +138,19 @@ module.exports = [
         excerpt: "Timescale Cloud Multi-node",
       },
       {
+        title: "Data tiering",
+        href: "data-tiering",
+        excerpt:
+          "Save on storage costs by tiering older data to separate storage",
+        children: [
+          {
+            title: "Tier data to object storage",
+            href: "tier-data-object-storage",
+            excerpt: "How to tier Timescale Cloud data to object storage",
+          },
+        ],
+      },
+      {
         title: "Backup and restore",
         href: "backup-restore-cloud",
         excerpt: "Timescale Cloud backup and restore",

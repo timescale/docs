@@ -54,9 +54,9 @@ api_details:
         description: >
             The standard deviation of the values in the statistical aggregate
   examples:
-    - command:
-        description:
+    - description:
           Calculate the standard deviation of a sample containing the integers from 0 to 100.
+      command:
         language: sql
         code: |
             SELECT stddev_y(stats_agg(data, data))

@@ -52,9 +52,9 @@ api_details:
         description: >
             The variance of the values in the statistical aggregate
   examples:
-    - command:
-        description: >
+    - description: >
           Calculate the variance of a sample containing the integers from 0 to 100.
+      command:
         language: sql
         code: |
             SELECT variance_y(stats_agg(data, data))
