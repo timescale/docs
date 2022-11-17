@@ -2,7 +2,7 @@
 title: How-to guides
 excerpt: Migrate, upgrade, and integrate Promscale
 product: promscale
-keywords: [migrate, upgrades]
+keywords: [data migration, upgrades]
 tags: [docker, kubernetes]
 ---
 
