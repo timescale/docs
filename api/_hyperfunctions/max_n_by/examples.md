@@ -3,8 +3,7 @@ section: hyperfunction
 subsection: max_n_by()
 ---
 
-For this example assume we have some rudimentary table of stock trades that
-looks like the following:
+This example assumes that you have a table of stock trades in this format:
 
 ```sql
 CREATE TABLE stock_sales(
@@ -15,8 +14,8 @@ CREATE TABLE stock_sales(
 );
 ```
 
-Here's how we can find the 10 largest transactions in the table, what time
-they occurred, and what symbol was being traded.
+Find the 10 largest transactions in the table, what time they occurred, and what
+symbol was being traded:
 
 ```sql
 SELECT 

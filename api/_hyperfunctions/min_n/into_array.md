@@ -17,8 +17,8 @@ hyperfunction:
     - min_n()
 api_details:
   summary: |
-    This will return the N lowest values seen by the aggregate. They will be 
-    formatted as an array ordered in increasing order.
+    Returns the N lowest values seen by the aggregate. The values are 
+    formatted as an array in increasing order.
   signatures:
     - language: sql
       code: |
@@ -31,7 +31,7 @@ api_details:
         type: MinN
         description: >
           The aggregate to return the results from.  Note that the exact type 
-          here will vary based on the type of data stored.
+          here varies based on the type of data stored.
     returns:
       - column: into_array
         type: BIGINT[] | DOUBLE PRECISION[] | TIMESTAMPTZ[]
@@ -39,20 +39,21 @@ api_details:
           The lowest values seen while creating this aggregate.
   examples:
     - description: >
-      Find the bottom 5 values from i * 13 % 10007 for i = 1 to 10000.
-    command:
-      language: sql
-      code: |
-        SELECT toolkit_experimental.into_array(
-            toolkit_experimental.min_n(sub.val, 5))
-        FROM (
-          SELECT (i * 13) % 10007 AS val 
-          FROM generate_series(1,10000) as i
-        ) sub;
-    return :
-      language: sql
-      code: |
-        into_array            
-        ---------------------------------
-        {1,2,3,4,5}
+        Find the bottom 5 values from `i * 13 % 10007` for i = 1 to 10000.
+      command:
+        language: sql
+        code: |
+          SELECT toolkit_experimental.into_array(
+              toolkit_experimental.min_n(sub.val, 5))
+          FROM (
+            SELECT (i * 13) % 10007 AS val 
+            FROM generate_series(1,10000) as i
+          ) sub;
+      return :
+        language: sql
+        code: |
+          into_array            
+          ---------------------------------
+          {1,2,3,4,5}
 ---
+

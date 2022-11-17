@@ -17,7 +17,7 @@ hyperfunction:
     - min_n()
 api_details:
   summary: |
-    Construct an aggregate which will keep track of the smallest values passed 
+    Construct an aggregate that keeps track of the smallest values passed 
     through it.
   signatures:
     - language: sql
@@ -38,5 +38,6 @@ api_details:
       - column: min_n
         type: MinN
         description: >
-          The compiled aggregate.  Note that the exact type will be MinInts, MinFloats, or MinTimes depending on the input type
+          The compiled aggregate.  Note that the exact type is `MinInts`, `MinFloats`, or `MinTimes` depending on the input type
 ---
+

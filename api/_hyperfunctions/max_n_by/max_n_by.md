@@ -17,7 +17,7 @@ hyperfunction:
     - max_n_by()
 api_details:
   summary: |
-    Construct an aggregate which will keep track of the largest values passed 
+    Construct an aggregate that keeps track of the largest values passed 
     through it, as well as some associated data which is passed alongside the
     value.
   signatures:

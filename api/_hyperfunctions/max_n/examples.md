@@ -3,8 +3,9 @@ section: hyperfunction
 subsection: max_n()
 ---
 
-For this example assume we have some rudimentary table of stock trades that
-looks like the following:
+### Get the 10 largest transactions from a table of stock trades
+
+This example assumes that you have a table of stock trades in this format:
 
 ```sql
 CREATE TABLE stock_sales(
@@ -15,7 +16,7 @@ CREATE TABLE stock_sales(
 );
 ```
 
-Here's how we can query for the 10 largest transactions each day:
+You can query for the 10 largest transactions each day:
 
 ```sql
 WITH t as (

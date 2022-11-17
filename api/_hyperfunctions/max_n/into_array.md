@@ -17,8 +17,8 @@ hyperfunction:
     - max_n()
 api_details:
   summary: |
-    This will return the N largest values seen by the aggregate. They will be 
-    formatted as an array ordered in decreasing order.
+    Return the N largest values seen by the aggregate. The values are formatted 
+    as an array in decreasing order.
   signatures:
     - language: sql
       code: |
@@ -31,7 +31,7 @@ api_details:
         type: MaxN
         description: >
           The aggregate to return the results from.  Note that the exact type 
-          here will vary based on the type of data stored.
+          here varies based on the type of data stored in the aggregate.
     returns:
       - column: into_array
         type: BIGINT[] | DOUBLE PRECISION[] | TIMESTAMPTZ[]
@@ -39,20 +39,21 @@ api_details:
           The largest values seen while creating this aggregate.
   examples:
     - description: >
-      Find the top 5 values from i * 13 % 10007 for i = 1 to 10000.
-    command:
-      language: sql
-      code: |
-        SELECT toolkit_experimental.into_array(
-            toolkit_experimental.max_n(sub.val, 5))
-        FROM (
-          SELECT (i * 13) % 10007 AS val 
-          FROM generate_series(1,10000) as i
-        ) sub;
-    return :
-      language: sql
-      code: |
-        into_array            
-        ---------------------------------
-        {10006,10005,10004,10003,10002}
+        Find the top 5 values from `i * 13 % 10007` for i = 1 to 10000.
+      command:
+        language: sql
+        code: |
+          SELECT toolkit_experimental.into_array(
+              toolkit_experimental.max_n(sub.val, 5))
+          FROM (
+            SELECT (i * 13) % 10007 AS val 
+            FROM generate_series(1,10000) as i
+          ) sub;
+      return :
+        language: sql
+        code: |
+          into_array            
+          ---------------------------------
+          {10006,10005,10004,10003,10002}
 ---
+

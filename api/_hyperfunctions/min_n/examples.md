@@ -3,8 +3,7 @@ section: hyperfunction
 subsection: min_n()
 ---
 
-For this example assume we have some rudimentary table of stock trades that
-looks like the following:
+This example assumes that you have a table of stock trades in this format:
 
 ```sql
 CREATE TABLE stock_sales(
@@ -15,7 +14,7 @@ CREATE TABLE stock_sales(
 );
 ```
 
-Here's how we can query for the 10 smallest transactions each day:
+You can query for the 10 smallest transactions each day:
 
 ```sql
 WITH t as (

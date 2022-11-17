@@ -17,7 +17,7 @@ hyperfunction:
     - min_n_by()
 api_details:
   summary: |
-    Construct an aggregate which will keep track of the smallest values passed 
+    Construct an aggregate that keeps track of the smallest values passed 
     through it, as well as some associated data which is passed alongside the
     value.
   signatures:
@@ -43,5 +43,5 @@ api_details:
       - column: min_n_by
         type: MinNBy
         description: >
-          The compiled aggregate.  Note that the exact type will be MinByInts, MinByFloats, or MinByTimes depending on the input type
+          The compiled aggregate.  Note that the exact type is `MinByInts`, `MinByFloats`, or `MinByTimes` depending on the input type
 ---
