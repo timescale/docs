@@ -2,7 +2,7 @@
 api_name: average_y() | average_x()
 excerpt: Calculate the average from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
-keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [average, statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

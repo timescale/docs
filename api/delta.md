@@ -2,7 +2,7 @@
 api_name: delta()
 excerpt: Calculate the change in a counter from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [delta]
 api:
   license: community

@@ -1,5 +1,5 @@
 ---
-title: Errors occur when running pg_dump
+title: Errors occur when running `pg_dump`
 section: troubleshooting
 topics: [backups]
 errors:
@@ -8,7 +8,7 @@ errors:
       pg_dump: NOTICE:  hypertable data are in the chunks, no data will be copied
       DETAIL:  Data for hypertables are stored in the chunks of a hypertable so COPY TO of a hypertable will not copy any data.
       HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
-keywords: [backups, restores]
+keywords: [backups, restore]
 ---
 
 <!---

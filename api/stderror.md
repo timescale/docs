@@ -2,7 +2,7 @@
 api_name: stderror()
 excerpt: Estimate the relative standard error of a hyperloglog
 topics: [hyperfunctions]
-keywords: [hyperloglog, hyperfunctions, toolkit]
+keywords: [hyperloglog, hyperfunctions, Toolkit]
 tags: [standard error, percentiles]
 api:
   license: community

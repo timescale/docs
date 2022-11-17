@@ -2,7 +2,7 @@
 api_name: num_changes()
 excerpt: Calculate the number of times a value changed within the time period of a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [count, change]
 api:
   license: community

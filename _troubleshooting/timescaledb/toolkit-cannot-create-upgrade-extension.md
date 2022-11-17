@@ -6,8 +6,7 @@ errors:
   - language: sql
     message: |-
       ERROR: extension "timescaledb_toolkit" has no update path from version "1.2" to version "1.3"
-keywords: [hyperfunctions, toolkit, install, upgrades, updates]
-tags: [hyperfunctions, toolkit, install, updates, upgrades]
+keywords: [hyperfunctions, Toolkit, installation, upgrades, updates]
 ---
 
 <!---

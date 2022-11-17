@@ -2,7 +2,7 @@
 api_name: days_in_month()
 excerpt: Calculates days in month given a timestamptz
 topics: [hyperfunctions]
-keywords: [hyperfunctions, toolkit, normalization]
+keywords: [hyperfunctions, Toolkit, normalization]
 api:
   license: community
   type: function

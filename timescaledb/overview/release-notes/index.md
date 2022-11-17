@@ -1,7 +1,7 @@
 ---
 title: TimescaleDB release notes and future plans
 excerpt: New features and fixes are released regularly
-keywords: [upgrade, update, releases]
+keywords: [upgrades, updates, releases]
 ---
 
 # TimescaleDB release notes

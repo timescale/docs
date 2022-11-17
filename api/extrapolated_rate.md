@@ -2,7 +2,7 @@
 api_name: extrapolated_rate()
 excerpt: Calculate the extrapolated rate of change from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [rate, counters, hyperfunctions, toolkit]
+keywords: [rate, counters, hyperfunctions, Toolkit]
 tags: [extrapolate]
 api:
   license: community

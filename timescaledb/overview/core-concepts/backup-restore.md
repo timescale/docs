@@ -1,7 +1,7 @@
 ---
 title: Back up and restore
 excerpt: Back up TimescaleDB
-keywords: [backup, restore]
+keywords: [backups, restore]
 tags: [recovery]
 ---
 
@@ -14,10 +14,10 @@ or logical backups with [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore].
 Physical backups may also be used with write-ahead log (WAL) archiving to
 achieve an ongoing backup.
 
-If you have a multi-node deployment, make sure you can restore to a 
-point that ensures consistency across all nodes. You can create a 
+If you have a multi-node deployment, make sure you can restore to a
+point that ensures consistency across all nodes. You can create a
 restore point with the
-[`create_distributed_restore_point`][create_distributed_restore_point] 
+[`create_distributed_restore_point`][create_distributed_restore_point]
 function, and use it later when you restore from a physical backup.
 
 [create_distributed_restore_point]: /api/:currentVersion:/distributed-hypertables/create_distributed_restore_point/
