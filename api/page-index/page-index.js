@@ -390,6 +390,33 @@ module.exports = [
             ],
           },
           {
+            title: "Minimum and maximum",
+            href: "minimum-and-maximum",
+            type: "redirect-to-child-page",
+            children: [
+              {
+                title: "min_n",
+                href: "min_n",
+                type: "placeholder",
+              },
+              {
+                title: "max_n",
+                href: "max_n",
+                type: "placeholder",
+              },
+              {
+                title: "min_n_by",
+                href: "min_n_by",
+                type: "placeholder",
+              },
+              {
+                title: "max_n_by",
+                href: "max_n_by",
+                type: "placeholder",
+              },
+            ],
+          },
+          {
             title: "Financial analysis",
             type: "directory",
             href: "financial-analysis",
