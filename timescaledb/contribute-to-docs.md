@@ -328,7 +328,7 @@ device.
 &#128077; "Run the PostgreSQL query."
 
 *PostgreSQL*
-: Always refer to PostgreSQL by its full name and with correct capitilization,
+: Always refer to PostgreSQL by its full name and with correct capitalization,
 as shown.
 
 *Previous*
@@ -408,8 +408,8 @@ prepatory backups, and planned downtime.
 ### V
 
 *Vanilla PostgreSQL*
-: Do not use. If you want to diffrentiate between regular PostgreSQL tables, and
-tables that contain time-series, use "standard PostgreSQL".
+: Do not use. If you want to differentiate between regular PostgreSQL tables,
+and tables that contain time-series, use "standard PostgreSQL".
 
 &#10060; "You can also create services that run vanilla PostgreSQL."
 
