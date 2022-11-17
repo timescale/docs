@@ -1,6 +1,6 @@
 ---
 api_name: volume()
-excerpt: =======================TODO=======================
+excerpt: Get the total volume from a candlestick aggregate
 topics: [hyperfunctions]
 tags: [hyperfunctions, finance, candlestick, volume]
 api:
@@ -16,20 +16,22 @@ hyperfunction:
   aggregates:
     - candlestick_agg()
 api_details:
-  summary: =======================TODO=======================
+  summary: Get the total volume from a candlestick aggregate.
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        volume(
+            candlestick Candlestick
+        ) RETURNS DOUBLE PRECISION
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: candlestick
+        type: Candlestick
+        description: Candlestick aggregate
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - column: volume
+        type: DOUBLE PRECISION
+        description: Total volume of trades within the period
   examples:
     # put examples that only use this single function here. for examples that
     # use multiple functions from this family, put them in examples.md, which

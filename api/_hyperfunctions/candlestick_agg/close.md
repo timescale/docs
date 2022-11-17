@@ -20,16 +20,18 @@ api_details:
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        close(
+            candlestick Candlestick
+        ) RETURNS DOUBLE PRECISION
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: candlestick
+        type: Candlestick
+        description: Candlestick aggregate
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - column: close
+        type: DOUBLE PRECISION
+        description: The closing price
   examples:
     # put examples that only use this single function here. for examples that
     # use multiple functions from this family, put them in examples.md, which

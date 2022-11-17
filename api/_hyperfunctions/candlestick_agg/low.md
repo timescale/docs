@@ -20,16 +20,18 @@ api_details:
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        low(
+            candlestick Candlestick
+        ) RETURNS DOUBLE PRECISION
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: candlestick
+        type: Candlestick
+        description: Candlestick aggregate
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - column: low
+        type: DOUBLE PRECISION
+        description: The low price
   examples:
     # put examples that only use this single function here. for examples that
     # use multiple functions from this family, put them in examples.md, which

@@ -27,22 +27,34 @@ api_details:
 
     If you're starting with pre-aggregated candlestick data rather than raw tick
     data, use the companion [`candlestick()`](#candlestick) function instead.
-    This function transforms the existing aggregate into the correct form for
-    use with the candlestick accessors.
+    This function transforms the existing aggregated data into the correct form
+    for use with the candlestick accessors.
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        candlestick_agg(
+          ts TIMESTAMPTZ,
+          price DOUBLE PRECISION
+          volume DOUBLE PRECISION
+        ) RETURNS Candlestick
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: ts
+        type: TIMESTAMPTZ
+        description: Timestamp associated with stock price
+      - name: price
+        type: DOUBLE PRECISION
+        description: Stock quote/price at the given time
+      - name: volume
+        type: DOUBLE PRECISION
+        description: Volume of the trade
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
+      - column: agg
+        type: Candlestick
         description: >
-          =======================TODO=======================
+          An object storing `(timestamp, value)` pairs for each of the opening,
+          high, low, and closing prices, in addition to information used to
+          calculate the total volume and Volume Weighted Average Price.
   examples:
     # put examples that only use this single function here. for examples that
     # use multiple functions from this family, put them in examples.md, which

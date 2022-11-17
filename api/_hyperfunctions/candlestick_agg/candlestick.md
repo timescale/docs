@@ -26,17 +26,41 @@ api_details:
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        candlestick(
+          ts TIMESTAMPTZ,
+          open DOUBLE PRECISION
+          high DOUBLE PRECISION
+          low DOUBLE PRECISION
+          close DOUBLE PRECISION
+          volume DOUBLE PRECISION
+        ) RETURNS Candlestick
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: ts
+        type: TIMESTAMPTZ
+        description: Timestamp associated with stock price
+      - name: open
+        type: DOUBLE PRECISION
+        description: Opening price of candlestick
+      - name: high
+        type: DOUBLE PRECISION
+        description: High price of candlestick
+      - name: low
+        type: DOUBLE PRECISION
+        description: Low price of candlestick
+      - name: close
+        type: DOUBLE PRECISION
+        description: Closing price of candlestick
+      - name: volume
+        type: DOUBLE PRECISION
+        description: Total volume of trades during the candlestick period
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
+      - column: agg
+        type: Candlestick
         description: >
-          =======================TODO=======================
+          An object storing `(timestamp, value)` pairs for each of the opening,
+          high, low, and closing prices, in addition to information used to
+          calculate the total volume and Volume Weighted Average Price.
   examples:
     # put examples that only use this single function here, for examples that
     # use multiple functions from this family, put them in examples.md, which

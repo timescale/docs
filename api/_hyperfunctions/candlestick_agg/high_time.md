@@ -20,16 +20,18 @@ api_details:
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        high_time(
+            candlestick Candlestick
+        ) RETURNS TIMESTAMPTZ
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: candlestick
+        type: Candlestick
+        description: Candlestick aggregate
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - column: high_time
+        type: TIMESTAMPTZ
+        description: The first time at which the high price occurred
   examples:
     # put examples that only use this single function here. for examples that
     # use multiple functions from this family, put them in examples.md, which

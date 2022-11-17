@@ -20,16 +20,18 @@ api_details:
   signatures:
     - language: sql
       code: |
-        =======================TODO=======================
+        close_time(
+            candlestick Candlestick
+        ) RETURNS TIMESTAMPTZ
   parameters:
     required:
-      - name: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - name: candlestick
+        type: Candlestick
+        description: Candlestick aggregate
     returns:
-      - column: =======================TODO=======================
-        type: =======================TODO=======================
-        description: =======================TODO=======================
+      - column: close_time
+        type: TIMESTAMPTZ
+        description: The time at which the closing price occurred
   examples:
     # put examples that only use this single function here. for examples that
     # use multiple functions from this family, put them in examples.md, which

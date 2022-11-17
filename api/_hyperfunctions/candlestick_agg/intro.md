@@ -17,8 +17,8 @@ pattern. In addition to the usual aggregate function,
 function [`candlestick`][candlestick]. `candlestick_agg` produces a candlestick
 aggregate from raw tick data, which can then be used with the accessor and
 rollup functions in this group. `candlestick` takes pre-aggregated data and
-transforms it into the same format that `candlestick-agg` produces. This allows
-you to use the accessors and rollups with existing candlestick values.
+transforms it into the same format that `candlestick_agg` produces. This allows
+you to use the accessors and rollups with existing candlestick data.
 
 [candlestick]: #candlestick
 [candlestick_agg]: #candlestick_agg
