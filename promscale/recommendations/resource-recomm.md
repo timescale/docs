@@ -1,24 +1,32 @@
+---
+title: Resource recommendations
+excerpt: Compute and disk requirements recommended for Promscale, based on ingest rate and retention
+---
+
 # Resource recommendations
-This section describes the compute and disk requirements that are 
+
+This section describes the compute and disk requirements that are
 recommended for Promscale, based on the ingest rate and retention.
 
 **Disk size per day**: disk consumption per day based on the ingest rate.
 
 **Uncompressed buffer**: disk consumed by uncompressed data before compression.
 
-**Total disk size**: size of disk required to store the data based on the ingest rate and retention. 
+**Total disk size**: size of disk required to store the data based on the ingest rate and retention.
 
 <highlight type="note">
 You can calculate the `total disk size` based on retention and ingest rates with this formula:
 
-Total disk size = (Disk size per day based on the ingest rate * Retention in days) + 
+Total disk size = (Disk size per day based on the ingest rate * Retention in days) +
 Uncompressed buffer based on the ingest rate.
 </highlight>
 
 ## Metrics
-Resource recommendation for ingestion using Prometheus `remote-write`. 
+
+Resource recommendation for ingestion using Prometheus `remote-write`.
 
 ### Prometheus remote write
+
 For optimal performance of `remote_write` to Promscale, use this Prometheus
 `remote_write` configuration:
 
@@ -48,7 +56,7 @@ Disk recommendations for TimescaleDB are:
 
 The default chunk interval is `8h`
 
-|Ingest rate|Retention|Disk size per day|Uncompressed buffer|Total disk size|WAL size| 
+|Ingest rate|Retention|Disk size per day|Uncompressed buffer|Total disk size|WAL size|
 |-|-|-|-|-|-|
 |10k samples/sec|90 days|~2 GB|~21 GB|~200 GB|1.25 GB|
 |50k samples/sec|90 days|~10 GB|~105 GB|~1 TB|-|
@@ -56,12 +64,13 @@ The default chunk interval is `8h`
 |200k samples/sec|90 days|~40 GB|~420 GB|~4 TB|-|
 
 ## Traces
-Resource recommendation for ingestion through OTLP (OpenTelemetry Line Procotol) gRPC endpoint. 
+
+Resource recommendation for ingestion through OTLP (OpenTelemetry Line Procotol) gRPC endpoint.
 
 ### OpenTelemetry Line Protocol
 
-We recommend using the OpenTelemetry collector for ingesting the spans to 
-Promscale. Use this configuration with the OTLP exporter and batch processor 
+We recommend using the OpenTelemetry collector for ingesting the spans to
+Promscale. Use this configuration with the OTLP exporter and batch processor
 to help with retries for failed writes, and to batch the write requests to Promscale:
 
 ```yaml
@@ -80,9 +89,11 @@ processors:
     send_batch_max_size: 4000
     timeout: 10s
 ```
-Where: 
-* `<PROMSCALE_HOST>`: hostname of Promscale
-* `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
+
+Where:
+
+*   `<PROMSCALE_HOST>`: hostname of Promscale
+*   `<gRPC_PORT>`: gRPC port of Promscale. The default port is 9202.  
 
 Compute recommendations for the Promscale connector and TimescaleDB are:
 
@@ -97,7 +108,7 @@ Disk recommendations for TimescaleDB are:
 
 The default chunk interval is `1h`
 
-|Ingest rate|Retention|Disk size per day|Uncompressed buffer|Total disk size|WAL size| 
+|Ingest rate|Retention|Disk size per day|Uncompressed buffer|Total disk size|WAL size|
 |-|-|-|-|-|-|
 |10k spans/sec = ~2.5 MB/sec|30 days|~30 GB|~35 GB|~935 GB|20 GB|
 |50k spans/sec = ~5 MB/sec|30 days|~60 GB|~175 GB|~2 TB|-|

@@ -68,7 +68,7 @@ in the table. It can also run into deadlock if foreign key constraints exist to
 other tables.
 
 If you would like finer control over index formation and other aspects of your
-hypertable, [follow these migration instructions instead][migrate-data].
+hypertable, [follow these migration instructions instead](https://docs.timescale.com/timescaledb/latest/how-to-guides/migrate-data/).
 
 When converting a normal SQL table to a hypertable, pay attention to how you handle
 constraints. A hypertable can contain foreign keys to normal SQL table columns,
@@ -254,5 +254,4 @@ hypertables are described in the [add_dimension][add_dimension] section.
 [add_dimension]: /api/:currentVersion:/hypertable/add_dimension/
 [create_distributed_hypertable]: /api/:currentVersion:/distributed-hypertables/create_distributed_hypertable
 [hash-partitions]: /timescaledb/:currentVersion:/how-to-guides/hypertables/about-hypertables/#hypertable-partitioning
-[migrate-data]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [set_chunk_time_interval]: /api/:currentVersion:/hypertable/set_chunk_time_interval/

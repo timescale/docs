@@ -13,7 +13,7 @@ Before beginning, make sure you have [installed and set up][install] TimescaleDB
 within your PostgreSQL instance.
 
 ## Import data
-Import data form a `csv`.
+Import data from a `csv`.
 
 <procedure>
 

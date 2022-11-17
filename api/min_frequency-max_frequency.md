@@ -9,19 +9,14 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.6.0
 hyperfunction:
   family: frequency analysis
   type: accessor
   aggregates:
     - freq_agg()
     - topn_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: SpaceSavingAggregate
-hyperfunction_type: accessor
 ---
 
 # min_frequency() and max_frequency() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />

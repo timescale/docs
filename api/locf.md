@@ -7,14 +7,11 @@ tags: [missing values]
 api:
   license: community
   type: function
+  version:
+    stable: 1.1.1
 hyperfunction:
   family: gapfilling and interpolation
   type: interpolator
-# fields below will be deprecated
-api_category: hyperfunction
-hyperfunction_family: 'gapfilling and interpolation'
-hyperfunction_subfamily: interpolation
-hyperfunction_type: other
 ---
 
 # locf() <tag type="community">Community</tag>

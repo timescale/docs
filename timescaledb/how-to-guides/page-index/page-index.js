@@ -539,9 +539,10 @@ module.exports = [
             excerpt: "Example user-defined action for a retention policy",
           },
           {
-            title: "Use an action for data tiering",
+            title: "Use an action for tablespace management",
             href: "example-tiered-storage",
-            excerpt: "Example user-defined action for tiered storage",
+            excerpt:
+              "Example user-defined action for automatically moving chunks between tablespaces",
           },
           {
             title: "Use an action for downsampling and compression",

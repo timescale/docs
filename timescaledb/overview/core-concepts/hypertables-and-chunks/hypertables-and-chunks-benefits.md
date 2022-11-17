@@ -1,9 +1,16 @@
+---
+title: Benefits of hypertables
+excerpt: Hypertables help you achieve high performance and improved workflows when working with time-series data
+---
+
 # Benefits of hypertables
+
 Hypertables help TimescaleDB achieve
 [high time-series performance][performance-benchmark] and improved time-series
 workflows.
 
 ## Faster inserts and queries
+
 In time-series workflows, many inserts and queries are performed on recent data.
 That is, you're more likely to insert data from the past day than from 300 days
 ago. The exact timescales depend on your application.
@@ -17,7 +24,7 @@ disk.
 <highlight type="note">
 For more information about chunk sizing for improved performance, see the
 section on
-[chunk sizing](timescaledb/latest/how-to-guides/hypertables/best-practices/#time-intervals).
+[chunk sizing](timescaledb/latest/how-to-guides/hypertables/about-hypertables/#best-practices-for-time-partitioning).
 </highlight>
 
 Though fitting chunks in memory gives the best performance, TimescaleDB doesn't
@@ -25,6 +32,7 @@ require it, and works well with larger chunks. TimescaleDB uses least recently
 used (LRU) caching to choose which indexes and data to keep in memory.
 
 ## Faster index updates
+
 TimescaleDB builds local indexes on each chunk, rather than global indexes
 across all data. This ensures that recent data and its indexes both reside in
 memory. When inserting recent data, index updates remain fast even on large
@@ -33,9 +41,11 @@ databases.
 To learn more, see the section on [chunk local indexes][local-indexes].
 
 ## Age-based data compression and reordering
+
 To save on storage, TimescaleDB can compress chunks as they age. Its native
 compression feature converts chunks from a row-oriented form to a more
 column-oriented form. This allows:
+
 *   Type-specific compression for each column. Type-specific algorithms can
     compress more efficiently than generic compression algorithms.
 *   Efficient "deep and narrow" queries. Compared to "wide and shallow" queries,
@@ -54,6 +64,7 @@ reorder the data by `(device_id, timestamp)`. Each device's data is written
 contiguously, making "deep and narrow" scans faster.
 
 ## Easy data retention and tiering
+
 In many time series applications, you only want to store raw data for a period
 of time. After that, you might delete the data to save on storage, to comply
 with data retention regulations, or for other reasons. You might also want to
@@ -76,6 +87,7 @@ storage. Just like with deleting data, you can move an entire chunk at once from
 disk to disk.
 
 ## Instant multi-node elasticity
+
 TimescaleDB supports multi-node architecture for horizontal scaling. Because
 TimescaleDB uses time chunks, it can add and remove servers without immediately
 rebalancing data. This differs from traditional database sharding, where some
@@ -99,8 +111,10 @@ For more information, see the [chunk migration][chunk-migration] and
 [data retention][data-retention] sections.
 
 ## Data replication
+
 In addition to migrating chunks, you can also replicate chunks across nodes.
 This allows you to:
+
 *   Increase availability with multiple replicas
 *   Recover from node failure or primary server outage
 *   Horizontally scale reads by spreading query volume across multiple nodes
