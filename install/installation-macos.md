@@ -201,7 +201,7 @@ it without having to uninstall PostgreSQL.
 1.  At the `psql` prompt, remove the TimescaleDB extension:
 
     ```bash
-    tsdb=# DROP EXTENSION timescaledb;
+    DROP EXTENSION timescaledb;
     ```
 
 1.  Remove `timescaledb` from `shared_preload_libraries` in the `postgresql.conf`:
