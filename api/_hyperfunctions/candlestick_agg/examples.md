@@ -82,7 +82,8 @@ Roll up your by-minute continuous aggregate into daily buckets and return the
 Volume Weighted Average Price for `AAPL` for the last month:
 
 ``` sql
-SELECT time_bucket('1 day'::interval, ts) AS daily_bucket,
+SELECT
+    time_bucket('1 day'::interval, ts) AS daily_bucket,
     symbol,
     toolkit_experimental.vwap(toolkit_experimental.rollup(candlestick))
 FROM candlestick
@@ -98,15 +99,17 @@ the opening, high, low, and closing prices and the volume for each 1 hour period
 in the last day:
 
 ``` sql
-SELECT ts,
-  symbol,
-  toolkit_experimental.open(toolkit_experimental.rollup(candlestick)),
-  toolkit_experimental.high(toolkit_experimental.rollup(candlestick)),
-  toolkit_experimental.low(toolkit_experimental.rollup(candlestick)),
-  toolkit_experimental.close(toolkit_experimental.rollup(candlestick)),
-  toolkit_experimental.volume(toolkit_experimental.rollup(candlestick))
+SELECT
+    time_bucket('1 day'::interval, ts) AS daily_bucket,
+    symbol,
+    toolkit_experimental.open(toolkit_experimental.rollup(candlestick)),
+    toolkit_experimental.high(toolkit_experimental.rollup(candlestick)),
+    toolkit_experimental.low(toolkit_experimental.rollup(candlestick)),
+    toolkit_experimental.close(toolkit_experimental.rollup(candlestick)),
+    toolkit_experimental.volume(toolkit_experimental.rollup(candlestick))
 FROM candlestick
 WHERE ts > now() - '1 day'::interval
+GROUP BY daily_bucket
 ;
 ```
 
