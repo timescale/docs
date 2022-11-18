@@ -254,7 +254,7 @@ it without having to uninstall PostgreSQL.
 1.  Remove the TimescaleDB extension:
 
     ```sql
-    tsdb=# DROP EXTENSION timescaledb;
+    DROP EXTENSION timescaledb;
     ```
 
 1.  At the command prompt, remove `timescaledb` from `shared_preload_libraries` 
