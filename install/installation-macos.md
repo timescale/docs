@@ -235,7 +235,7 @@ it without having to uninstall PostgreSQL.
 1.  Uninstall TimescaleDB:
 
     ```bash
-    brew uninstall timescaldb
+    brew uninstall timescaledb
     ```
 
 1.  Remove all the dependencies and related files:
