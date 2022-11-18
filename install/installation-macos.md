@@ -198,7 +198,7 @@ it without having to uninstall PostgreSQL.
 ### Uninstalling TimescaleDB using Homebrew
 
 
-1.  Remove the TimescaleDB extension:
+1.  At the `psql` prompt, remove the TimescaleDB extension:
 
     ```bash
     tsdb=# DROP EXTENSION timescaledb;
