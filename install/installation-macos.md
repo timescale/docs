@@ -204,7 +204,8 @@ it without having to uninstall PostgreSQL.
     DROP EXTENSION timescaledb;
     ```
 
-1.  Remove `timescaledb` from `shared_preload_libraries` in the `postgresql.conf`:
+1.  At the command prompt, remove `timescaledb` from `shared_preload_libraries` 
+    in the `postgresql.conf` configuration file:
 
     ```bash
     nano /opt/homebrew/var/postgresql@14/postgresql.conf
