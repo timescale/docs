@@ -190,8 +190,8 @@ psql -U postgres -h localhost -d tsdb
 
 ## Uninstalling TimescaleDB
 
-You can uninstall TimescaleDB installed using Homebrew or MacPorts without
-having to uninstall PostgreSQL.
+If you installed TimescaleDB with Homebrew or MacPorts, you can uninstall 
+it without having to uninstall PostgreSQL.
 
 <procedure>
 
