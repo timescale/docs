@@ -289,7 +289,7 @@ To uninstall TimescaleDB installed using Macports:
 1.  Uninstall TimescaleDB and the related dependencies:
 
     ```bash
-    port uninstall timescaldb --follow-dependencies
+    port uninstall timescaledb --follow-dependencies
     ```
 
 </procedure>
