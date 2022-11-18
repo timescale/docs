@@ -250,7 +250,6 @@ it without having to uninstall PostgreSQL.
 
 ### Uninstalling TimescaleDB using MacPorts
 
-To uninstall TimescaleDB installed using Macports:
 
 1.  Remove the TimescaleDB extension:
 
