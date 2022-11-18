@@ -188,6 +188,111 @@ database directly using this command:
 psql -U postgres -h localhost -d tsdb
 ```
 
+## Uninstalling TimescaleDB
+
+You can uninstall TimescaleDB installed using Homebrew or MacPorts without
+having to uninstall PostgreSQL.
+
+<procedure>
+
+### Uninstalling TimescaleDB using Homebrew
+
+To uninstall TimescaleDB installed using Homebrew
+
+1.  Remove the TimescaleDB extension:
+
+    ```bash
+    tsdb=# DROP EXTENSION timescaledb;
+    ```
+
+1.  Remove `timescaledb` from `shared_preload_libraries` in the `postgresql.conf`:
+
+    ```bash
+    nano /opt/homebrew/var/postgresql@14/postgresql.conf
+    shared_preload_libraries = ''
+    ```
+
+1.  Save the changes to the `postgresql.conf` file.
+
+1.  Restart PostgreSQL:
+
+    ```bash
+    brew services restart postgresql
+    ```
+
+1.  Check that the TimescaleDB extension is uninstalled by using the `\dx`
+    command at the `psql` prompt. Output is similar to:
+
+    ```sql
+    tsdb-# \dx
+                                          List of installed extensions
+        Name     | Version |   Schema   |                            Description                            
+    -------------+---------+------------+-------------------------------------------------------------------
+     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+    (1 row) 
+    ```
+
+1.  Uninstall TimescaleDB:
+
+    ```bash
+    brew uninstall timescaldb
+    ```
+
+1.  Remove all the dependencies and related files:
+
+    ```bash
+    brew remove timescaledb
+    ```
+
+</procedure>
+
+<procedure>
+
+### Uninstalling TimescaleDB using MacPorts
+
+To uninstall TimescaleDB installed using Macports:
+
+1.  Remove the TimescaleDB extension:
+
+    ```bash
+    tsdb=# DROP EXTENSION timescaledb;
+    ```
+
+1.  Remove `timescaledb` from `shared_preload_libraries` in the `postgresql.conf`:
+
+    ```bash
+    nano /opt/homebrew/var/postgresql@14/postgresql.conf
+    shared_preload_libraries = ''
+    ```
+
+1.  Save the changes to the `postgresql.conf` file.
+
+1.  Restart PostgreSQL:
+
+    ```bash
+    port reload postgresql
+    ```
+
+1.  Check that the TimescaleDB extension is uninstalled by using the `\dx`
+    command at the `psql` prompt. Output is similar to:
+
+    ```sql
+    tsdb-# \dx
+                                          List of installed extensions
+        Name     | Version |   Schema   |                            Description                            
+    -------------+---------+------------+-------------------------------------------------------------------
+     plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
+    (1 row) 
+    ```
+
+1.  Uninstall TimescaleDB and the related dependencies:
+
+    ```bash
+    port uninstall timescaldb --follow-dependencies
+    ```
+
+</procedure>
+
 ## Where to next
 
 Now that you have your first TimescaleDB database up and running, you can check
