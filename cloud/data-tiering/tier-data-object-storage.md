@@ -6,6 +6,7 @@ keywords: [data tiering]
 tags: [storage, data management]
 ---
 
+import DataTieringNoUntier from 'versionContent/_partials/_cloud-data-tiering-no-untier.mdx';
 import ExperimentalPrivateBeta from 'versionContent/_partials/_experimental-private-beta.mdx';
 import TieringBeta from 'versionContent/_partials/_cloud-data-tiering-beta.mdx';
 
@@ -43,26 +44,27 @@ SELECT * FROM timescaledb_information.chunks WHERE hypertable_name = 'metrics';
 Tiering a chunk schedules the chunk for migration to object storage. You can
 continue to query a chunk during migration.
 
-<highlight type="warning">
-There is currently no way to move a chunk back from object storage to primary
-storage. This capability, `untier_chunk`, is planned for a future beta
-release.
-</highlight>
+<DataTieringNoUntier />
 
 ## Automate chunk tiering with a data tiering policy
 
 To automate archival of historical data, create a data tiering policy that
-automatically moves data to object storage. Any chunks that only contain data
+automatically moves data to object storage. Any chunks that solely contain data
 older than the `move_after` threshold are moved. This works similarly to a [data
 retention policy][data-retention], but chunks are moved rather than deleted.
 
-The data tiering policy schedules a job that runs periodically to migrate
-eligible chunks. The migration is asynchronous.
+The data tiering policy schedules a regular job to migrate eligible chunks. The
+migration is asynchronous. By default, the job runs hourly. You can change the
+interval using the [`alter_job`][alter_job] function.
 
 To add a tiering policy, use the `add_tiering_policy` function:
 
 ```sql
-SELECT add_tiering_policy(hypertable REGCLASS, move_after INTERVAL);
+SELECT add_tiering_policy(
+    hypertable REGCLASS,
+    move_after INTERVAL,
+    if_not_exists BOOL = false
+);
 ```
 
 For example:
@@ -92,5 +94,23 @@ informational view:
 SELECT * FROM timescaledb_osm.tiered_chunks;
 ```
 
+The output looks like this:
+
+```sql
+-[ RECORD 1 ]-----+-----------------------
+hypertable_schema | public
+hypertable_name   | metrics
+chunk_name        | _hyper_1_4_chunk
+range_start       | 2022-04-28 00:00:00+00
+range_end         | 2022-05-05 00:00:00+00
+-[ RECORD 2 ]-----+-----------------------
+hypertable_schema | public
+hypertable_name   | metrics
+chunk_name        | _hyper_1_1_chunk
+range_start       | 2022-05-26 00:00:00+00
+range_end         | 2022-06-02 00:00:00+00
+```
+
+[alter_job]: /api/:currentVersion:/actions/alter_job/
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [show_chunks]: /api/:currentVersion:/hypertable/show_chunks/
