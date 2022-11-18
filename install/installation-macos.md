@@ -253,7 +253,7 @@ To uninstall TimescaleDB installed using Macports:
 
 1.  Remove the TimescaleDB extension:
 
-    ```bash
+    ```sql
     tsdb=# DROP EXTENSION timescaledb;
     ```
 
