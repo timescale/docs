@@ -100,7 +100,7 @@ in the last day:
 
 ``` sql
 SELECT
-    time_bucket('1 day'::interval, ts) AS daily_bucket,
+    time_bucket('1 hour'::interval, ts) AS hourly_bucket,
     symbol,
     toolkit_experimental.open(toolkit_experimental.rollup(candlestick)),
     toolkit_experimental.high(toolkit_experimental.rollup(candlestick)),
@@ -109,7 +109,7 @@ SELECT
     toolkit_experimental.volume(toolkit_experimental.rollup(candlestick))
 FROM candlestick
 WHERE ts > now() - '1 day'::interval
-GROUP BY daily_bucket
+GROUP BY hourly_bucket
 ;
 ```
 
