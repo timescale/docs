@@ -3,10 +3,10 @@ section: hyperfunction
 subsection: candlestick_agg()
 ---
 
-## Starting from tick data
+### Get candlestick values from tick data
 
-Query your tick data table for the opening, high, low, and closing prices and
-the volume for each 1 hour period in the last day:
+Query your tick data table for the opening, high, low, and closing prices, and
+the trading volume, for each 1 hour period in the last day:
 
 ``` sql
 SELECT
@@ -43,8 +43,7 @@ FROM cs
 ;
 ```
 
-
-## Continuous aggregates and tick data
+### Create a continuous aggregate from tick data and roll it up
 
 Create a continuous aggregate on your stock trade data:
 
@@ -111,10 +110,10 @@ WHERE ts > now() - '1 day'::interval
 ;
 ```
 
-## Starting form already aggregated data
+### Starting from already-aggregated data
 
-If you have a table of historical data that is already aggregated, it probably
-looks like the below table of daily prices for `VTI`:
+If you have a table of pre-aggregated stock data, it might look similar this
+this format:
 
 ``` sql
            ts           │ symbol │  open  │  high  │  low   │ close  │  volume
@@ -146,8 +145,8 @@ looks like the below table of daily prices for `VTI`:
 
 You can use the [`candlestick`](#candlestick) function to transform the data
 into a form that you'll be able pass to all of the accessors and
-[`rollup`](#rollup) functions. Below we demonstrate using a few of those
-accessors to get back a table that looks just like your data:
+[`rollup`](#rollup) functions. To show that your data is preserved, this example
+shows how these accessors return a table that looks just like your data:
 
 ``` sql
 SELECT
@@ -187,10 +186,9 @@ FROM cs
 ;
 ```
 
-While there is limited utility in getting back a table that looks like one you
-already have, when you use the [`candlestick`](#candlestick) function you can
-then take advantage of other functions like [`rollup`](#rollup) and
-[`vwap`](#vwap). 
+The advantage of transforming your data into the candlestick aggergate form is
+that you can then use other functions in this group, such as [`rollup`](#rollup)
+and [`vwap`](#vwap).
 
 Roll up your by-day historical data into weekly buckets and return the Volume
 Weighted Average Price:

@@ -32,17 +32,5 @@ api_details:
       - column: open_time
         type: TIMESTAMPTZ
         description: The time at which the opening price occurred
-  examples:
-    # put examples that only use this single function here. for examples that
-    # use multiple functions from this family, put them in examples.md, which
-    # you can write as a normal freeform text doc
-    # 
-    # can delete the examples section if you only want to use examples.md
-    - description: >
-        =======================TODO=======================
-      command:
-        language: sql
-        code: |
-          =======================TODO=======================
 ---
 

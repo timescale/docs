@@ -15,8 +15,6 @@ They help you answer questions such as:
 <highlight type="deprecation">
 The
 [`candlestick_agg`](/api/latest/hyperfunctions/financial-analysis/candlestick_agg/)
-and [`candlestick`](/api/latest/hyperfunctions/financial-analysis/candlestick/)
-functions provide a better API for financial analysis that allows you to
-optionally include trading volume data. `ohlc` will be deprecated in favor of
-those functions.
+functions provide a better API for financial analysis that allows you to include
+trading volume data. `ohlc` is deprecated in favor of these functions.
 </highlight>

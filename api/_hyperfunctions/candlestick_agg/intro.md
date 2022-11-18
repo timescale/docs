@@ -14,12 +14,11 @@ They help you answer questions such as:
 This function group uses the [two-step aggregation][two-step-aggregation]
 pattern. In addition to the usual aggregate function,
 [`candlestick_agg`][candlestick_agg], it also includes the pseudo-aggregate
-function [`candlestick`][candlestick]. `candlestick_agg` produces a candlestick
-aggregate from raw tick data, which can then be used with the accessor and
-rollup functions in this group. `candlestick` takes pre-aggregated data and
-transforms it into the same format that `candlestick_agg` produces. This allows
-you to use the accessors and rollups with existing candlestick data.
+function `candlestick`. `candlestick_agg` produces a candlestick aggregate from
+raw tick data, which can then be used with the accessor and rollup functions in
+this group. `candlestick` takes pre-aggregated data and transforms it into the
+same format that `candlestick_agg` produces. This allows you to use the
+accessors and rollups with existing candlestick data.
 
-[candlestick]: #candlestick
 [candlestick_agg]: #candlestick_agg
 [two-step-aggregation]: #two-step-aggregation

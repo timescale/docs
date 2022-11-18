@@ -34,7 +34,7 @@ api_details:
       code: |
         candlestick_agg(
           ts TIMESTAMPTZ,
-          price DOUBLE PRECISION
+          price DOUBLE PRECISION,
           volume DOUBLE PRECISION
         ) RETURNS Candlestick
   parameters:
@@ -55,17 +55,5 @@ api_details:
           An object storing `(timestamp, value)` pairs for each of the opening,
           high, low, and closing prices, in addition to information used to
           calculate the total volume and Volume Weighted Average Price.
-  examples:
-    # put examples that only use this single function here. for examples that
-    # use multiple functions from this family, put them in examples.md, which
-    # you can write as a normal freeform text doc
-    # 
-    # can delete the examples section if you only want to use examples.md
-    - description: >
-        =======================TODO=======================
-      command:
-        language: sql
-        code: |
-          =======================TODO=======================
 ---
 
