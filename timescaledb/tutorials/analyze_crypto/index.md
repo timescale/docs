@@ -2,10 +2,10 @@
 title: Analyze cryptocurrency data
 excerpt: Analyze cryptocurrency data
 keywords: [tutorials, query, learn, crypto, financial]
-tags: [tutorials, beginner, crypto, financial]
+tags: [tutorials, beginner]
 ---
 
-# Verb the widget in the tool
+# Query cryptocurrency data with TimescaleDB
 
 Cryptocurrency records are a good example of a time-series dataset that changes
 rapidly, and contains a lot of different information. This tutorial shows you
@@ -35,7 +35,7 @@ This tutorial covers:
 
 1.  [Setting up up your dataset][dataset-crypto]: Set up and connect a Timescale
     Cloud service, and connect to the [CryptoCompare][cryptocompare] dataset.
-2.  [Querying your dataset][query-crypto]: Analyze your cryptocurrency dataset
+1.  [Querying your dataset][query-crypto]: Analyze your cryptocurrency dataset
     using TimescaleDB and PostgreSQL.
 
 ## About querying cryptocurrency data with TimescaleDB

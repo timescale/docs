@@ -1,0 +1,89 @@
+## Load cryptocurrency data
+
+When you have your tables set up, you can create an API key to connect to
+CryptoCompare, and load the cryptocurrency data into your database.
+
+<procedure>
+
+### Creating a CryptoCompare API key
+
+1. Open the [CryptoCompare API page][cryptocompare-api], and click
+   `Get your free API key`. In the table that pops up, in the `Personal` column, click `Get your free key`.
+
+1. Create a CryptoCompare account, or log in to your account if you have already
+   created one.
+
+1. Click `Create an API Key`, give your key a name, and select what permissions
+   you would like your key to have. For Timescale tutorials,
+   `Read/Write All User Data` is sufficient. Click `Add` when you are ready.
+
+1. When the key is created, take a note of the API key for use later on.
+
+</procedure>
+
+<procedure>
+
+### Loading cryptocurrency data
+
+<highlight type="important">
+This is a large dataset, so it might take a long time, depending on your network
+connection.
+</highlight>
+
+1.  Download this Python script, which extracts the data from CryptoCompare,
+    into the database you created:
+
+   <tag type="download">
+   [crypto_data_extraction.py](https://raw.githubusercontent.com/timescale/examples/master/crypto_tutorial/crypto_data_extraction.py)
+   </tag>
+
+1.  At the command prompt, run the script:
+
+    ```bash
+    python crypto_data_extraction.py
+    ```
+
+1.  At the psql prompt, copy the data from the `nyc_data_rides.csv` file into
+    your hypertable. Make sure you point to the correct path, if it is not in
+    your current working directory:
+
+    ```sql
+    \COPY rides FROM nyc_data_rides.csv CSV;
+    ```
+
+</procedure>
+
+You can check that the data has been copied successfully with this command:
+
+```sql
+SELECT * FROM rides LIMIT 5;
+```
+
+You should get five records that look like this:
+
+```sql
+-[ RECORD 1 ]---------+--------------------
+vendor_id             | 1
+pickup_datetime       | 2016-01-01 00:00:01
+dropoff_datetime      | 2016-01-01 00:11:55
+passenger_count       | 1
+trip_distance         | 1.20
+pickup_longitude      | -73.979423522949219
+pickup_latitude       | 40.744613647460938
+rate_code             | 1
+dropoff_longitude     | -73.992034912109375
+dropoff_latitude      | 40.753944396972656
+payment_type          | 2
+fare_amount           | 9
+extra                 | 0.5
+mta_tax               | 0.5
+tip_amount            | 0
+tolls_amount          | 0
+improvement_surcharge | 0.3
+total_amount          | 10.3
+```
+
+
+
+[parallel-copy]: https://github.com/timescale/timescaledb-parallel-copy
+[cryptocompare-api]: https://min-api.cryptocompare.com/

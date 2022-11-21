@@ -1,44 +1,35 @@
 ---
-title: Verb the widget tutorial - set up dataset
-excerpt: Set up a dataset so you can verb your widgets to achieve an outcome using the tool
-keywords: [noun, verb, tutorial]
-tags: [noun, noun]
+title: Analyze cryptocurrency data - set up dataset
+excerpt: Set up a dataset so you can analyze cryptocurrency data
+keywords: [tutorials, crypto, financial, dataset]
+tags: [tutorials, beginner]
 ---
 
-<!-- markdown-link-check-disable -->
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
+import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CreateHypertable from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
+import AddData from "versionContent/_partials/_add-data-nyctaxis.mdx";
+
+## Sign up for Timescale Cloud
+
+Install Timescale Cloud by signing up for an account. It's free for thirty days.
+
+<Install />
+
+## Create a service
+
+<CreateService demoData={false} />
+
+## Connect to your service
+
+<Connect />
 
 # The dataset
 
-Provide a very short explanation of the dataset. Explain if it being created
-from scratch, downloaded from a server and uploaded to the readers' own
-database, or being accessed directly from a third-party service.
+This tutorial uses historical data from New York's yellow taxi network, provided
+by the New York City Taxi and Limousine Commission [NYC TLC][nyc-tlc].
 
-## Set up the dataset
+<CreateHypertable />
 
-This is the introduction to the procedure about setting up the dataset. Use one
-or two sentences to explain the procedure. Note the simple verb form in the
-title; the procedure itself uses the gerund-verb form (an `-ing` word) instead.
-
-<procedure>
-
-### Setting up the dataset
-
-1.  Start each step with a verb (create, use, install, etc) or a location (at
-    the `psql` prompt, on your local filesystem, on the server, etc) followed by
-    a verb.
-1.  Do the next step:
-
-   ```sql|bash|...
-   Add any commands in a block like this.
-   Make sure you specify the language.
-   Do not include any prompts, or sudo commands. If root is required \
-   state it in the step instead. Break long lines appropriately.
-   ```
-
-1.  Make sure that any action that is the result of the step stays with the step.
-   For example: clicking a button, and a dialog box appearing, are a single step.
-1.  Finish the procedure on the final step. Do not include a result statement.
-
-</procedure>
-
-Include any reference-style links at the bottom of the page.
+<AddData />
