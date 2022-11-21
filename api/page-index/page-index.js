@@ -418,24 +418,18 @@ module.exports = [
           },
           {
             title: "Financial analysis",
-            type: "directory",
             href: "financial-analysis",
+            type: "redirect-to-child-page",
             children: [
+              {
+                title: "candlestick_agg",
+                href: "candlestick_agg",
+                type: "placeholder",
+              },
               {
                 title: "ohlc",
                 href: "ohlc",
-              },
-              {
-                title: "open, high, low, close",
-                href: "open-high-low-close",
-              },
-              {
-                title: "open_time, high_time, low_time, close_time",
-                href: "open-high-low-close-time",
-              },
-              {
-                title: "rollup",
-                href: "rollup",
+                type: "placeholder",
               },
             ],
           },
