@@ -1,3 +1,8 @@
+---
+title: Compression architecture
+excerpt: How compressed chunks are set up in TimescaleDB
+---
+
 # Compression architecture
 
 TimescaleDB compresses data by:

@@ -7,7 +7,7 @@ subsection: self-hosted
 keywords: [install, self-hosted, Red Hat]
 ---
 
-import Debian from "versionContent/_partials/_psql-installation-centos.mdx";
+import CentOS from "versionContent/_partials/_psql-installation-centos.mdx";
 
 # Install self-hosted TimescaleDB on Red Hat-based systems
 
@@ -17,8 +17,11 @@ distributions:
 
 *   Red Hat Enterprise Linux 7
 *   Red Hat Enterprise Linux 8
+*   Red Hat Enterprise Linux 9
 *   CentOS 7
 *   CentOS 8
+*   Rocky Linux 8
+*   Rocky Linux 9
 *   Fedora 33
 *   Fedora 34
 *   Fedora 35
@@ -203,7 +206,7 @@ the `psql` command-line utility.
 1.  Set the password for the `postgres` user using:
 
     ```sql
-    postgres=#\password postgres 
+    \password postgres 
     ```
 
 1.  Exit from PostgreSQL using the command `\q`.

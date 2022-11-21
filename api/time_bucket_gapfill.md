@@ -7,14 +7,11 @@ tags: [time buckets]
 api:
   license: community
   type: function
+  version:
+    experimental: 1.2.0
 hyperfunction:
   family: gapfilling and interpolation
   type: bucket
-# fields below will be deprecated
-api_category: hyperfunction
-hyperfunction_family: 'gapfilling and interpolation'
-hyperfunction_subfamily: gapfill
-hyperfunction_type: other
 ---
 
 # time_bucket_gapfill() <tag type="community">Community</tag>

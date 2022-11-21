@@ -8,17 +8,14 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: accessor
   aggregates:
     - tdigest()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: accessor
 ---
 
 # min_val()  <tag type="toolkit">Toolkit</tag>

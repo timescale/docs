@@ -8,6 +8,9 @@ api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.3.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: rollup
@@ -15,12 +18,6 @@ hyperfunction:
     - percentile_agg()
     - tdigest()
     - uddsketch()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: rollup
 ---
 
 # rollup()  <tag type="toolkit">Toolkit</tag>
