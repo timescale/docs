@@ -30,6 +30,9 @@
     },
     {
       "pattern": "^[#._]"
+    },
+    {
+      "pattern": "https://assets.timescale.com/images/diagrams/compression_diagram.png"
     }
   ]
 }
