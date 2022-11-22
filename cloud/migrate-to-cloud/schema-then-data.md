@@ -428,7 +428,7 @@ accessed. Skipping them does not affect statistics on your data.
 [cagg-policy]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies/
 [copy]: https://www.postgresql.org/docs/9.2/sql-copy.html
 [compression-policy]: /getting-started/:currentVersion:/compress-data/
-[extensions]: /cloud/:currentVersion:/customize-configuration/#postgresql-extensions
+[extensions]: /cloud/:currentVersion:/postgresql-extensions/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
 [pg_restore]: https://www.postgresql.org/docs/current/app-pgrestore.html
