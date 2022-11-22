@@ -33,7 +33,7 @@ Export telemetry data to Datadog by:
 
 1.  In the Timescale Cloud console, navigate to `Integrations`.
 1.  Click `Create exporter`.
-1.  Under `Choose a provder`, choose `Datadog`.
+1.  Under `Choose a provider`, choose `Datadog`.
 1.  Choose an AWS region for your exporter to live within Timescale Cloud. The
     exporter is only available to database services in the same AWS region.
 1.  Name your exporter. This name appears in the Cloud console, so choose a
@@ -43,7 +43,7 @@ Export telemetry data to Datadog by:
     documentation][datadog-api-key].
 1.  Under Site, choose your Datadog region. You can choose a region to meet any
     regulatory requirements or application needs you might have.
-1.  Click `Create endpoint`.
+1.  Click `Create exporter`.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-integrations-datadog.png"
@@ -88,8 +88,10 @@ Export telemetry data to AWS CloudWatch by:
     your new user has restricted access to only Cloudwatch, and keep your keys
     secret. For instructions, see the [AWS documentation][aws-access-keys].
 1.  Select an AWS Region for your CloudWatch instance.
-1.  **OPTIONAL** IAM role to use for uploading metrics. Having a dedicated role
-    with only CloudWatch permissions is a recommended security practice.
+1.  **OPTIONAL** Define an IAM role to use for uploading metrics. Having a
+    dedicated role with only CloudWatch permissions is a recommended security
+    practice.
+1.  Click `Create exporter`.
 
 <highlight type="warning">
 AWS keys give access to your AWS services. To keep your AWS account secure,
