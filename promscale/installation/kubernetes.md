@@ -141,7 +141,7 @@ can provide the database URI, or specify connection parameters.
 1.  Capture the `postgres` user password:
 
     ```bash
-    echo $(kubectl get secret --namespace default tobs-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
+    echo $(kubectl get secret --namespace default <RELEASE_NAME>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 
 1.  Download the Promscale
