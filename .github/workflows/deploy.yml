@@ -29,7 +29,7 @@ jobs:
           client-payload: '{"branch": "${{ steps.timescale.outputs.DEV_FOLDER }}", "staging_branch": "${{ steps.timescale.outputs.STAGING_BRANCH }}", "pr_number": "${{ env.PR_NUMBER }}"}'
 
       - name: Write comment
-        uses: marocchino/sticky-pull-request-comment@adca94abcaf73c10466a71cc83ae561fd66d1a56
+        uses: marocchino/sticky-pull-request-comment@fcf6fe9e4a0409cd9316a5011435be0f3327f1e1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: |
