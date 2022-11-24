@@ -841,7 +841,7 @@ module.exports = [
       },
       {
         title: "Uninstall TimescaleDB",
-        href: "uninstall-timescaledb",
+        href: "uninstall",
         excerpt: "Uninstalling TimescaleDB",
       },
       {
