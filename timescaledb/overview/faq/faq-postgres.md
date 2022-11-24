@@ -1,26 +1,29 @@
 ---
 title: FAQs - Comparing to PostgreSQL
 excerpt: Why to choose TimescaleDB over regular PostgreSQL
-keywords: [PostgreSQL, faq]
+keywords: [PostgreSQL, FAQ]
 tags: [geospatial data, compare]
 ---
 
 # FAQs - Comparing to PostgreSQL
 
 ## Why would I use TimescaleDB over vanilla PostgreSQL?
+
 Read our TimescaleDB-PostgreSQL benchmarks:
-* [TimescaleDB vs. PostgreSQL for time-series data][PostgreSQL-benchmark]
-* [Problems with PostgreSQL 10 for time-series data][PostgreSQL-problems-time-series]
+
+*   [TimescaleDB vs. PostgreSQL for time-series data][PostgreSQL-benchmark]
+*   [Problems with PostgreSQL 10 for time-series data][PostgreSQL-problems-time-series]
 
 To summarize, TimescaleDB offers:
-* Ease-of-use: TimescaleDB is far easier to use because creating partitions (or what we call
+
+*   Ease-of-use: TimescaleDB is far easier to use because creating partitions (or what we call
 "chunks") is automatically performed for the user. All of the complexity of automatic
 partitioning is abstracted away behind a hypertable, which users interact with just as
 they would with a PostgreSQL table.
-* Much higher ingest scale: TimescaleDB sees throughput more than 20 times that of 
+*   Much higher ingest scale: TimescaleDB sees throughput more than 20 times that of
 <!-- vale Google.Units = NO -->
 PostgreSQL once tables reach moderate size (for example, tens of millions of
-rows). 
+rows).
 <!-- vale Google.Units = YES -->
 While vanilla PostgreSQL is suitable for time-series data at low volumes, it does
 not scale well to the volume of data that most time-series applications produce, especially
@@ -32,21 +35,23 @@ B-Trees. TimescaleDB solves this through its heavy utilization of
 time-space partitioning, even when running _on a single machine_. So all writes
 to recent time intervals are only to tables that remain in memory, and updating any
 secondary indexes is also fast as a result.
-* Superior (or similar) query performance: Queries that can reason
+
+*   Superior (or similar) query performance: Queries that can reason
 specifically about time ordering can be _much_ more performant (thousands of times faster)
 in TimescaleDB. On single disk machines, at least, many simple queries that just perform
 indexed lookups or table scans are similarly performant between PostgreSQL and TimescaleDB.
-* Much faster data deletion: To save space or to implement data retention policies,
+*   Much faster data deletion: To save space or to implement data retention policies,
 vanilla PostgreSQL requires expensive "vacuuming" operations to defragment
 the disk storage associated with such tables. TimescaleDB avoids vacuuming operations
 and easily enforces data retention policies by specifying the data you wish to be
 deleted that is older than a specified time period. For more information, see [Data Retention][data-retention].
-* Extended time-oriented features: TimescaleDB includes time-series specific features
+*   Extended time-oriented features: TimescaleDB includes time-series specific features
 not included in vanilla PostgreSQL and entirely unique to TimescaleDB
-(such as [`time_bucket`][time_bucket],[`first`][first], and [`last`][last]), 
+(such as [`time_bucket`][time_bucket],[`first`][first], and [`last`][last]),
 with more to come.
 
 ## How compatible is TimescaleDB with PostgreSQL?
+
 TimescaleDB is implemented as an extension to PostgreSQL that introduces
 transparent scalability and performance optimizations, as well as time-series
 specific features (for example, arbitrary aggregations, data retention
@@ -57,6 +62,7 @@ your existing PostgreSQL databases and work with your current visualization and
 reporting tools.
 
 ## How does TimescaleDB handle geospatial data?
+
 As an extension of PostgreSQL, TimescaleDB works well with PostGIS. For example,
 [see our tutorial][postgis] using PostGIS and TimescaleDB on NYC taxicab data.
 

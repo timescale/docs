@@ -2,7 +2,7 @@
 api_name: error()
 excerpt: Get the maximum relative error for a percentile estimate
 topics: [hyperfunctions]
-keywords: [percentiles, hyperfunctions, toolkit]
+keywords: [percentiles, hyperfunctions, Toolkit]
 tags: [relative error]
 api:
   license: community

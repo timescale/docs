@@ -1,13 +1,14 @@
 ---
 title: How to visualize and aggregate missing time-series data in Grafana
 excerpt: Handle missing data points when plotting data in Grafana
-keywords: [Grafana, visualizations, analytics, gapfill]
+keywords: [Grafana, visualizations, analytics, gapfilling]
 tags: [time-series]
 ---
 
 # Tutorial: How to visualize and aggregate missing time-series data in Grafana
 
 ### Introduction
+
 Sometimes there are gaps in our time-series data: because systems
 are offline, or devices lose power, etc. This causes problems when you
 want to aggregate data across a large time window, for example,
@@ -22,19 +23,20 @@ handling missing time-series data (using the TimescaleDB/PostgreSQL data
 source natively available in Grafana).
 
 ### Prerequisites
+
 To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
 You also need:
 
-* Time-series dataset with missing data (Note: in case you don't have
+*   Time-series dataset with missing data (Note: in case you don't have
 one handy, we include an optional step for creating one below.)
 
-* A working [installation of TimescaleDB][install-timescale]. Once your installation
+*   A working [installation of TimescaleDB][install-timescale]. Once your installation
 is complete, we can proceed to ingesting or creating sample data and finishing the tutorial.
 
-* Grafana dashboard connected to your TimescaleDB instance ([setup
+*   Grafana dashboard connected to your TimescaleDB instance ([setup
 instructions][get-grafana])
 
 ### Step 0 - Load your time-series data into TimescaleDB and simulate missing data (optional)
@@ -121,6 +123,7 @@ have been.
 As you can see, the graph now plots data points at regular intervals for the times where we have missing data.
 
 ### Step 3 - Aggregate across a larger time window
+
 Now, we return to our original problem: wanting to aggregate data across a large time window with missing data.
 
 Here we use our interpolated data and compute the average temperature by 30 minute windows over the past 6 hours.

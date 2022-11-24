@@ -1,6 +1,7 @@
 ---
 title: Hypertables
 excerpt: Learn about hypertables and how they make it easy to handle time-series data
+keywords: [hypertables, chunks]
 ---
 
 # Hypertables

@@ -2,7 +2,7 @@
 api_name: rate()
 excerpt: Calculate the rate of change from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [rate, change]
 api:
   license: community

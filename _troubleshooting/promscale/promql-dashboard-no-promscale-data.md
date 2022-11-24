@@ -3,8 +3,7 @@ title: PromQL dashboard doesn't show Promscale data
 section: troubleshooting
 products: [promscale]
 topics: [visualization]
-tags: [PromQL]
-keywords: [promscale, PromQL, dashboard, disk, memory, CPU]
+keywords: [PromQL, disk, memory, CPU, backfilling]
 ---
 
 <!---

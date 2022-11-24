@@ -2,7 +2,7 @@
 api_name: integral()
 excerpt: Calculate the time-weighted integral of values in a `TimeWeightSummary`
 topics: [hyperfunctions]
-keywords: [average, time-weighted, hyperfunctions, toolkit]
+keywords: [average, time-weighted, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

@@ -5,7 +5,7 @@ excerpt: Start a TimescaleDB instance on Timescale Cloud, our hosted, cloud-nati
 product: cloud
 section: install
 order: 1
-keywords: [install]
+keywords: [installation]
 ---
 
 import Install from "versionContent/_partials/_cloud-installation.mdx";

@@ -2,7 +2,7 @@
 api_name: counter_agg()
 excerpt: Aggregate counter data into a `CounterSummary` for further analysis
 topics: [hyperfunctions]
-keywords: [counters, aggregates, hyperfunctions, toolkit]
+keywords: [counters, aggregates, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

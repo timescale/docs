@@ -2,7 +2,7 @@
 api_name: uddsketch()
 excerpt: Aggregate data in a `uddsketch` for further calculation of percentile estimates
 topics: [hyperfunctions]
-keywords: [percentiles, hyperfunctions, toolkit]
+keywords: [percentiles, hyperfunctions, Toolkit]
 tags: [uddsketch]
 api:
   license: community

@@ -2,7 +2,7 @@
 api_name: topn_agg()
 excerpt: Aggregate data in a top N aggregate for further calculation of most frequent values
 topics: [hyperfunctions]
-keywords: [frequency, top N, aggregate, hyperfunctions, toolkit]
+keywords: [frequency, top N, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

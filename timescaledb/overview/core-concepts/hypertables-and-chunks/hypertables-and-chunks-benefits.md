@@ -1,6 +1,7 @@
 ---
 title: Benefits of hypertables
 excerpt: Hypertables help you achieve high performance and improved workflows when working with time-series data
+keywords: [hypertables]
 ---
 
 # Benefits of hypertables

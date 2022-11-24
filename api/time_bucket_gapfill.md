@@ -2,7 +2,7 @@
 api_name: time_bucket_gapfill()
 excerpt: Bucket rows by time interval while filling gaps in data
 topics: [hyperfunctions]
-keywords: [gapfill, interpolate, aggregate, hyperfunctions, toolkit]
+keywords: [gapfilling, interpolate, aggregate, hyperfunctions, Toolkit]
 tags: [time buckets]
 api:
   license: community

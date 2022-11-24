@@ -1,7 +1,7 @@
 ---
 title: FAQs - About our products
 excerpt: Frequently asked questions about TimescaleDB, Timescale Cloud, and Managed Service for TimescaleDB
-keywords: [Timescale Cloud, Managed Service for TimescaleDB, faq]
+keywords: [Timescale Cloud, Managed Service for TimescaleDB, FAQ]
 tags: [cloud regions, PostgreSQL]
 ---
 

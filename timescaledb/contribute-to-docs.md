@@ -1,7 +1,8 @@
 ---
 title: Contribute to TimescaleDB documentation
 excerpt: Advice and style guide for contributing to TimescaleDB documentation
-tags: [contribute, docs, style guide]
+keywords: [contribute]
+tags: [docs, style guide]
 ---
 
 # Contributing to Timescale documentation
