@@ -17,7 +17,7 @@ you to rebuild the index in such situations.
 You can rebuild corrupted indexes that do not have `UNIQUE` in their definition.
 You can run the `REINDEX` command for all indexes of a table (REINDEX TABLE),
 and for all indexes in the entire database (REINDEX DATABASE).
-For more information on the `REINDEX` command, see the PostgreSQL documentation page.
+For more information on the `REINDEX` command, see the [PostgreSQL documentation][postgres-docs].
 This  command creates a new index that replaces the old one:
 
 ```sql
@@ -92,3 +92,5 @@ in the index, and filters any entries with more than one occurrence.
 Resolve the problematic entries in the rows by manually deleting or merging the
 entries until no duplicates exist. After all duplicate entries are removed, you
 can use the `REINDEX` command to rebuild the index.
+
+[postgres-docs]: https://www.postgresql.org/docs/current/sql-reindex.html
