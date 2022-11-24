@@ -840,6 +840,11 @@ module.exports = [
         ],
       },
       {
+        title: "Uninstall TimescaleDB",
+        href: "uninstall-timescaledb",
+        excerpt: "Uninstalling TimescaleDB",
+      },
+      {
         title: "Troubleshoot TimescaleDB",
         href: "troubleshoot-timescaledb",
         excerpt: "Troubleshooting TimescaleDB",
