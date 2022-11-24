@@ -138,6 +138,10 @@ module.exports = [
         title: "Using REST API on Managed Service for TimescaleDB",
         href: "restapi",
       },
+      {
+        title: "Identify and resolve issues with indexes on Managed Service for TimescaleDB",
+        href: "identify-index-issues",
+      },
     ],
   },
 ];
