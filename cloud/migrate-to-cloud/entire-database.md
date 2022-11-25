@@ -161,7 +161,7 @@ accessed. Skipping them does not affect statistics on your data.
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[extensions]: /cloud/:currentVersion:/customize-configuration/#postgresql-extensions
+[extensions]: /cloud/:currentVersion:/postgresql-extensions/
 [install-timescale-cloud]: /install/:currentVersion:/installation-cloud/
 [migrate-separately]: /cloud/:currentVersion:/migrate-to-cloud/schema-then-data/
 [pg_dump]: https://www.postgresql.org/docs/current/app-pgdump.html
