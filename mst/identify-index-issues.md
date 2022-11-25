@@ -29,7 +29,7 @@ When you use `REINDEX`, the tables are locked and you may not be able to use the
 database, until the operation is complete.
 </highlight>
 
-In some cases, you may have to manually build a second index concurrently
+In some cases, you might need to manually build a second index concurrently
 with the old index, and then remove the old index:
 
 ```sql
