@@ -43,7 +43,7 @@ ALTER INDEX test_index_new RENAME TO test_index;
 A `UNIQUE` index works on one or more columns where the combination is unique
 in a table. When the index is corrupted or disabled, duplicated
 physical rows appear in the table, breaking the uniqueness constraint of the
-index. When you try to rebuild index with `REINDEX` it fails.
+index. When you try to rebuild an index that is not unique, the `REINDEX` command fails.
 To resolve this issue, first remove the duplicate rows from the table and then
 rebuild the index.
 
