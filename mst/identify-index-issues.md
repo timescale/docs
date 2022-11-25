@@ -2,8 +2,7 @@
 title: Identify and resolve issues with indexes in Managed Service for TimescaleDB
 excerpt: Identify and resolve issues with PostgreSQL indexes in Managed Service for TimescaleDB
 product: mst
-keywords: [index, issues, reindex]
-tags: [index, issues, REINDEX,]
+keywords: [index, REINDEX]
 ---
 
 # Identify and repair issues with PostgreSQL indexes with `REINDEX`
