@@ -2,7 +2,7 @@
 api_name: num_vals()
 excerpt: Calculate the number of values in a one-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [count, number]
 api:
   license: community

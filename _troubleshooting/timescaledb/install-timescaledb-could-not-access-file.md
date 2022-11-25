@@ -6,7 +6,7 @@ errors:
   - language: text
     message: |-
       Log error: could not access file "timescaledb"
-keywords: [install, configuration]
+keywords: [configuration]
 tags: [install, configuration]
 ---
 

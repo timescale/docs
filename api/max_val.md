@@ -2,7 +2,7 @@
 api_name: max_val()
 excerpt: Calculate the maximum from values in a `tdigest`
 topics: [hyperfunctions]
-keywords: [tdigest, hyperfunctions, toolkit]
+keywords: [tdigest, hyperfunctions, Toolkit]
 tags: [percentiles, maximum]
 api:
   license: community

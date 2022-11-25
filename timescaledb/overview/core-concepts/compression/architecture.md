@@ -1,6 +1,7 @@
 ---
 title: Compression architecture
 excerpt: How compressed chunks are set up in TimescaleDB
+keywords: [compression, architecture]
 ---
 
 # Compression architecture

@@ -1,7 +1,7 @@
 ---
 title: Data model
 excerpt: Learn how to model your data in TimescaleDB, in either a wide or narrow model
-keywords: [data, hypertables]
+keywords: [hypertables]
 tags: [model]
 ---
 

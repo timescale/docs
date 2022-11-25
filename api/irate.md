@@ -2,7 +2,7 @@
 api_name: irate_left() | irate_right()
 excerpt: Calculate the instantaneous rate of change from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [rate]
 api:
   license: community

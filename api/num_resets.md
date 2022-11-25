@@ -2,7 +2,7 @@
 api_name: num_resets()
 excerpt: Calculate the total number of times a counter is reset
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [resets, count]
 api:
   license: community

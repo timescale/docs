@@ -2,7 +2,7 @@
 title: Migrate your TimescaleDB database to Timescale Cloud
 excerpt: Migrate from self-hosted TimescaleDB or Managed Service for TimescaleDB
 product: cloud
-keywords: [migrate, self-hosted, mst]
+keywords: [data migration, self-hosted, mst]
 tags: [ingest]
 ---
 

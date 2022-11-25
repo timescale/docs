@@ -1,5 +1,6 @@
 ---
 title: Install self-hosted TimescaleDB on Arch Linux-based systems
+keywords: [installation, self-hosted, Arch Linux]
 ---
 
 # Install self-hosted TimescaleDB on archlinux-based systems

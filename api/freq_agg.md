@@ -2,7 +2,7 @@
 api_name: freq_agg()
 excerpt: Aggregate frequency data into a frequency aggregate for further analysis
 topics: [hyperfunctions]
-keywords: [frequency, aggregate, hyperfunctions, toolkit]
+keywords: [frequency, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

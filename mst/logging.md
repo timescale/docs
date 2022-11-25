@@ -2,8 +2,7 @@
 title: Logging
 excerpt: Retrieve logging information on Managed Service for TimescaleDB
 product: mst
-keywords: [logging, loggly]
-tags: [logging, logs, integrations, loggly]
+keywords: [logging, Loggly, integration]
 ---
 
 # Logging

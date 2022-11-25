@@ -2,7 +2,7 @@
 api_name: kurtosis()
 excerpt: Calculate the kurtosis from a one-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [skew]
 api:
   license: community
