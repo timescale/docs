@@ -17,7 +17,8 @@ You can rebuild corrupted indexes that do not have `UNIQUE` in their definition.
 You can run the `REINDEX` command for all indexes of a table (`REINDEX TABLE`),
 and for all indexes in the entire database (`REINDEX DATABASE`).
 For more information on the `REINDEX` command, see the [PostgreSQL documentation][postgres-docs].
-This  command creates a new index that replaces the old one:
+
+This command creates a new index that replaces the old one:
 
 ```sql
 REINDEX INDEX <index-name>;
