@@ -52,7 +52,7 @@ rebuild the index.
 To identify conflicting duplicate rows, you need to run a query that counts the
 number of rows for each combination of columns included in the index definition.
 
-For example, the this `route` table has a `unique_route_index` index defining
+For example, this `route` table has a `unique_route_index` index defining
 unique rows based on the combination of the `source` and `destination` columns:
 
 ```sql
