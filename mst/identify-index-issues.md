@@ -30,7 +30,7 @@ database, until the operation is complete.
 </highlight>
 
 In some cases, you may have to manually build a second index concurrently
-along with the old index and then remove the old index:
+with the old index, and then remove the old index:
 
 ```sql
 CREATE INDEX CONCURRENTLY test_index_new ON table_a (...);
