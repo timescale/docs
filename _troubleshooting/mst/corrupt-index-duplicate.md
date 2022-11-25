@@ -6,7 +6,8 @@ topics: [performance]
 errors:
   - language: text
     message: |-
-       When you try to rebuild index with `REINDEX` it fails because of conflicting duplicated rows.
+       ERROR:  could not create unique index
+       DETAIL:  Table contains duplicated values.
 keywords: [unique index, corrupt, REINDEX]
 tags: [mst, index, performance,]
 ---
@@ -20,6 +21,8 @@ tags: [mst, index, performance,]
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
 -->
+When you try to rebuild index with `REINDEX` it fails because of conflicting
+duplicated rows.
 
 To identify conflicting duplicate rows, you need to run a query that counts the
 number of rows for each combination of columns included in the index definition.
