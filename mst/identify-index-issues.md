@@ -26,7 +26,7 @@ REINDEX INDEX <index-name>;
 
 <highlight type="note">
 When you use `REINDEX`, the tables are locked and you may not be able to use the
-database.
+database, until the operation is complete.
 </highlight>
 
 In some cases, you may have to manually build a second index concurrently
