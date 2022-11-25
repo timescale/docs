@@ -21,6 +21,7 @@ tags: [mst, index, performance,]
  - Result: When the user applies the fix, what is the result when the same action is applied?
 * Copy this comment at the top of every troubleshooting page
 -->
+
 When you try to rebuild index with `REINDEX` it fails because of conflicting
 duplicated rows.
 
