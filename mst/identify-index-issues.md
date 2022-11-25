@@ -7,7 +7,7 @@ keywords: [index, REINDEX]
 
 # Identify and repair issues with PostgreSQL indexes with `REINDEX`
 
-PostgreSQL indexes can be corrupted due to a variety of reasons including
+PostgreSQL indexes can be corrupted for a variety of reasons, including
 software bugs, hardware failures or unexpected duplicated data. `REINDEX` allows
 you to rebuild the index in such situations.
 
