@@ -50,13 +50,13 @@ click the `Promote to master` button.
 1.  At the psql prompt, connect to the read-only service:
 
     ```sql
-       psql <SERVICE_URI>
+    psql <SERVICE_URI>
     ```
 
 1.  To check whether you are connected to a primary or replica node:
 
     ```sql
-     SELECT * FROM pg_is_in_recovery();
+    SELECT * FROM pg_is_in_recovery();
     ```
 
 If the output is `TRUE` you are connected to the replica, and if the output is
