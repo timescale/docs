@@ -55,7 +55,8 @@ last_time(
 
 ## Sample usage
 
-This example produces a linear TimeWeightSummary from timestamps and associated values, then applies the `first_time` and `last_time` accessors:
+This example produces a linear TimeWeightSummary from timestamps and associated
+values, then applies the `first_time` and `last_time` accessors:
 
 ```sql
 WITH t as (
@@ -70,4 +71,17 @@ SELECT
     first_time(tw) -- extract the timestamp of the first point in the TimeWeightSummary
     last_time(tw) -- extract the timestamp of the last point in the TimeWeightSummary
 FROM t;
+```
+
+This example uses first and last with an aggregate filter, and avoids null
+values in the output:
+
+```sql
+SELECT
+   TIME_BUCKET('5 MIN', time_column) AS interv,
+   AVG(temperature) as avg_temp,
+   first(temperature,time_column) FILTER(WHERE time_column IS NOT NULL) AS beg_temp,
+   last(temperature,time_column) FILTER(WHERE time_column IS NOT NULL) AS end_temp
+FROM sensors
+GROUP BY interv
 ```
