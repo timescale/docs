@@ -46,7 +46,7 @@ WITH (timescaledb.continuous) AS
         LAST(price, time) AS "close",
         LAST(day_volume, time) AS day_volume
     FROM crypto_ticks
-    GROUP BY bucket, symbol
+    GROUP BY bucket, symbol;
 ```
 
 When you run this query, TimescaleDB queries 1-minute aggregate values of all
