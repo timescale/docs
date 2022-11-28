@@ -2,7 +2,7 @@
 api_name: tdigest()
 excerpt: Aggregate data in a `tdigest` for further calculation of percentile estimates
 topics: [hyperfunctions]
-keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+keywords: [percentiles, aggregate, hyperfunctions, Toolkit]
 tags: [tdigest]
 api:
   license: community

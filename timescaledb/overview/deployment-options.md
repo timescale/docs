@@ -1,7 +1,7 @@
 ---
 title: Deploying TimescaleDB
 excerpt: Learn all the ways you can deploy TimescaleDB, on the cloud and on your own hardware
-keywords: [install]
+keywords: [installation]
 tags: [cloud, mst, self-hosted]
 ---
 

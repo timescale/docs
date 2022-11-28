@@ -1,7 +1,7 @@
 ---
 title: Set up Grafana alerts
 excerpt: Use Grafana to get alerted when a problem occurs
-keywords: [Grafana, alerts]
+keywords: [Grafana, alert, integration]
 ---
 
 # Set up Grafana alerts
@@ -9,10 +9,10 @@ keywords: [Grafana, alerts]
 Alerts are an important aspect of monitoring because they proactively
 inform us when things go wrong and need our attention. This could be:
 
-- When something crashes
-- You're consuming too many resources (for example, memory, CPU)
-- There's an outage
-- Users report performance degradation, via support tickets
+*   When something crashes
+*   You're consuming too many resources (for example, memory, CPU)
+*   There's an outage
+*   Users report performance degradation, via support tickets
 
 In this tutorial, you'll learn how to setup Grafana to alert you when
 something goes wrong using many of the communication channels you already
@@ -24,8 +24,8 @@ To complete this tutorial, you need a cursory knowledge of the Structured Query
 Language (SQL). The tutorial walks you through each SQL command, but it is
 helpful if you've seen SQL before.
 
-* To start, [install TimescaleDB][install-timescale].
-* Next [setup Grafana][install-grafana].
+*   To start, [install TimescaleDB][install-timescale].
+*   Next [setup Grafana][install-grafana].
 
 Once your installation of TimescaleDB and Grafana are complete, follow the
 [Timescale and Prometheus tutorial][tutorial-prometheus] and configure Grafana to connect
@@ -41,9 +41,9 @@ inform you of which Grafana visualization to create and the query to use.
 
 When setting up alerts for your system, consider the following:
 
-- You should only use alerts when you require human input
-- Be careful not to overuse alerts. If an engineer gets an alert too frequently, it can cease to be useful or serve its purpose.
-- Use alerts that are directly relevant to your scenario: if you're monitoring a SaaS product, set up alerts for site uptime and latency. If you're monitoring infrastructure, set up alerts for disk usage, high CPU or memory usage, and API errors.
+*   You should only use alerts when you require human input
+*   Be careful not to overuse alerts. If an engineer gets an alert too frequently, it can cease to be useful or serve its purpose.
+*   Use alerts that are directly relevant to your scenario: if you're monitoring a SaaS product, set up alerts for site uptime and latency. If you're monitoring infrastructure, set up alerts for disk usage, high CPU or memory usage, and API errors.
 
 ### Introduction to alerts in Grafana
 
@@ -56,13 +56,13 @@ have to integrate services on your back-end. You simply use your dashboard.
 
 There are some downsides to using Grafana for alerts:
 
-- You can only set up alerts on graph visualizations with time-series output
-- Thus, you can't use table output or anything else that is not time-series data
+*   You can only set up alerts on graph visualizations with time-series output
+*   Thus, you can't use table output or anything else that is not time-series data
 
 Ultimately, for most cases, this is okay because:
 
-- You're mainly dealing with time-series data for alerts
-- You can usually turn any other visualization (for example, a Gauge or a Single Stat) into a time-series graph
+*   You're mainly dealing with time-series data for alerts
+*   You can usually turn any other visualization (for example, a Gauge or a Single Stat) into a time-series graph
 
 #### Available data soruces for Grafana alerts
 
@@ -82,9 +82,9 @@ how often rules are evaluated.
 
 In plain language, examples of rules could be:
 
-- When disk usage is greater than 90%
-- When the average memory usage is greater than 90% for 5 minutes (this is an example of an interval-based rule)
-- When the temperatore of a device is outside a given range (this is an example of a rule with many different conditions)
+*   When disk usage is greater than 90%
+*   When the average memory usage is greater than 90% for 5 minutes (this is an example of an interval-based rule)
+*   When the temperatore of a device is outside a given range (this is an example of a rule with many different conditions)
 
 #### Notification channels
 
@@ -93,10 +93,10 @@ If you have no notification channels, then your alerts only show up on Grafana.
 
 Examples of channels include tools your team may already use:
 
-- Slack
-- Email
-- OpsGenie
-- PagerDuty
+*   Slack
+*   Email
+*   OpsGenie
+*   PagerDuty
 
 Grafana provides integration with webhooks, email, and more than a
 dozen external services.
@@ -260,23 +260,23 @@ Select your PagerDuty channel in the 'Notifications' section and provide a descr
 
 Grafana supports a number of notification platforms, including:
 
-- DingDing
-- Discord
-- Email
-- Google Hangouts
-- Hipchat
-- Kafka
-- Line
-- Microsoft Teams
-- OpsGenie
-- PagerDuty
-- Prometheus Alertmanager
-- Pushover
-- Slack
-- Telegram
-- Threema
-- VictorOps
-- Webhooks
+*   DingDing
+*   Discord
+*   Email
+*   Google Hangouts
+*   Hipchat
+*   Kafka
+*   Line
+*   Microsoft Teams
+*   OpsGenie
+*   PagerDuty
+*   Prometheus Alertmanager
+*   Pushover
+*   Slack
+*   Telegram
+*   Threema
+*   VictorOps
+*   Webhooks
 
 Steps for integrating with all of these are similar to the steps you used for Slack (webhooks)
 and PagerDuty (API or Integration Key).

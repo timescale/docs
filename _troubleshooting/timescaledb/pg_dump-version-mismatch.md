@@ -2,7 +2,7 @@
 title: Versions are mismatched when dumping and restoring a database
 section: troubleshooting
 topics: [backups]
-keywords: [backups, restores]
+keywords: [backups, restore]
 ---
 
 <!---

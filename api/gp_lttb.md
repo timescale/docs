@@ -2,7 +2,7 @@
 api_name: gp_lttb()
 excerpt: An implementation of our lttb algorithm that will preserve gaps in the original data
 topics: [hyperfunctions]
-keywords: [downsample, smooth, hyperfunctions, toolkit]
+keywords: [downsample, smooth, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

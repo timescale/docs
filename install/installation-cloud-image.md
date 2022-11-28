@@ -4,7 +4,7 @@ nav-title: Cloud image
 excerpt: Install self-hosted TimescaleDB from a pre-built cloud image
 section: install
 subsection: self-hosted
-keywords: [install, self-hosted]
+keywords: [installation, self-hosted]
 tags: [cloud image]
 ---
 
@@ -19,7 +19,7 @@ from a pre-built, publicly available machine image. These instructions show you
 how to use a pre-built Amazon machine image (AMI), on Amazon Web Services (AWS).
 The currently available pre-built cloud image is:
 
-- Ubuntu 20.04 Amazon EBS-backed AMI
+*   Ubuntu 20.04 Amazon EBS-backed AMI
 
 The Timescale AMI uses Elastic Block Store (EBS) attached volumes. This allows
 you to store image snapshots, dynamic IOPS configuration, and provides some
@@ -75,19 +75,26 @@ set up the TimescaleDB extension.
 
 1.  On your instance, at the command prompt, connect to the PostgreSQL
     instance as the `postgres` superuser:
+
     ```bash
     sudo -u postgres psql
     ```
+
 1.  At the prompt, create an empty database. For example, to create a database
     called `tsdb`:
+
     ```sql
     CREATE database tsdb;
     ```
+
 1.  Connect to the database you created:
+
     ```sql
     \c tsdb
     ```
+
 1.  Add the TimescaleDB extension:
+
     ```sql
     CREATE EXTENSION IF NOT EXISTS timescaledb;
     ```

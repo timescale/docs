@@ -2,7 +2,7 @@
 api_name: rolling()
 excerpt: Combine multiple one-dimensional statistical aggregates to calculate rolling window aggregates
 topics: [hyperfunctions]
-keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

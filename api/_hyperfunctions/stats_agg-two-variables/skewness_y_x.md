@@ -2,7 +2,7 @@
 api_name: skewness_y() | skewness_x()
 excerpt: Calculate the skewness from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

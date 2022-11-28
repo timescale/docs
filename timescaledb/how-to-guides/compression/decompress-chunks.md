@@ -1,7 +1,7 @@
 ---
 title: Decompression
 excerpt: How to decompress a compressed chunk
-keywords: [compression, hypertables]
+keywords: [compression, hypertables, backfilling]
 tags: [decompression]
 ---
 

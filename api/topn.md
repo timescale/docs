@@ -2,7 +2,7 @@
 api_name: topn()
 excerpt: Calculate the top N most common values from data in a frequency or top N aggregate
 topics: [hyperfunctions]
-keywords: [frequency, top N, hyperfunctions, toolkit]
+keywords: [frequency, top N, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

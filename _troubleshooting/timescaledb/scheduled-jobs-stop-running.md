@@ -12,8 +12,8 @@ apis:
   - [information, timescaledb_information.jobs]
   - [information, timescaledb_information.job_stats]
   - [jobs, add_job()]
-keywords: [jobs, policies, user-defined actions]
-tags: [jobs, scheduled jobs, background jobs, background workers, automation framework, policies, user-defined actions]
+keywords: [jobs, policies, actions]
+tags: [jobs, scheduled jobs, background jobs, background workers, automation framework, policies, actions]
 ---
 
 import CloudMSTRestartWorkers from 'versionContent/_partials/_cloud-mst-restart-workers.mdx';
