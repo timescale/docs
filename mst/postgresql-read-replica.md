@@ -65,7 +65,7 @@ If the output is `TRUE` you are connected to the replica, and if the output is
 </procedure>
 
 <highlight type="note">
-Managed Service for TimescaleDB uses asynchronous replication and hence a lag is
+Managed Service for TimescaleDB uses asynchronous replication, so some lag is
 expected. When running an `INSERT` operation on the primary node, a minimal
 delay of less than a second is expected for the change to propagate to the
 replica.
