@@ -6,11 +6,13 @@ keywords: [compression, hypertables]
 
 # About compression
 
-When compression is enabled, TimescaleDB converts data stored in many rows into
-an array. This means that instead of using lots of rows to store the data, it
-stores the same data in a single row. Because a single row takes up less disk
-space than many rows, it decreases the amount of disk space required, and can
-also speed up some queries.
+When you enable compression, the data in your hypertable is compressed chunk by
+chunk. When the chunk is compressed, the data is converted to a hybrid
+row-columnar format. Multiple records are grouped into a single row. The columns
+of this row hold an array-like structure that stores all the data. This means
+that instead of using lots of rows to store the data, it stores the same data in
+a single row. Because a single row takes up less disk space than many rows, it
+decreases the amount of disk space required, and can also speed up some queries.
 
 As a simplified example, you might have a table that looks like this to start with:
 
@@ -218,7 +220,7 @@ should be `device_id, metric_name`:
 The `segmentby` columns are useful, but can be overused. If you specify a lot of
 `segmentby` columns, the number of items in each compressed column is reduced,
 and compression is not as effective. A good guide is for each segment to contain
-at least 100 rows per chunk. To achieve this, you might also need to use  
+at least 100 rows per chunk. To achieve this, you might also need to use
 the `compress_orderby` column.
 
 ## Order entries
@@ -239,7 +241,7 @@ In this example, we haven't set any `segmentby` columns, so the data is sorted
 by the `time` column. If you look at the `cpu` column, you can see that it might
 not be able to be compressed, because even though both devices are outputting a
 value that is a float, the measurements have different magnitudes, with device 1
-showing numbers around 88, and device 2 showing numbers around 300:  
+showing numbers around 88, and device 2 showing numbers around 300:
 
 |time|device_id|cpu|disk_io|energy_consumption|
 |---|---|---|---|---|
