@@ -59,8 +59,8 @@ click the `Promote to master` button.
     SELECT * FROM pg_is_in_recovery();
     ```
 
-If the output is `TRUE` you are connected to the replica, and if the output is
-`FALSE` you are connected to the primary server.
+    If the output is `TRUE` you are connected to the replica, and if the output is
+    `FALSE` you are connected to the primary server.
 
 </procedure>
 
