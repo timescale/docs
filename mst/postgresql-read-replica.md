@@ -47,7 +47,7 @@ click the `Promote to master` button.
 1.  In the `Overview` page of the read-only replica for the service on MST, copy
     the `Service URI`.
 
-1.  Connect to the read-only service using psql client:
+1.  At the psql prompt, connect to the read-only service:
 
     ```sql
        psql <SERVICE_URI>
