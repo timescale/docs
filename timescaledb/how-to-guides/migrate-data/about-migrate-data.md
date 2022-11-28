@@ -1,11 +1,12 @@
 ---
 title: About data migration
 excerpt: Learn how to migrate your data into TimescaleDB
-keywords: [migrate]
+keywords: [data migration]
 tags: [csv, import]
 ---
 
 # About data migration
+
 You can migrate your existing data into TimescaleDB.
 
 *   For data stored in PostgreSQL, see instructions for:
@@ -23,6 +24,7 @@ You can also migrate data between TimescaleDB instances. See instructions for
 a self-hosted database.
 
 ## Considerations for data migration
+
 For a successful migration, your destination database must have enough free disk
 space. In most cases, you need disk space of at least 1.5 times the size of the
 original data and any indexes. If your migration method requires decompression,

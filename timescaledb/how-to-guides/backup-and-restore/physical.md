@@ -1,7 +1,7 @@
 ---
 title: Physical backups
 excerpt: How to take physical backups of your TimescaleDB instance
-keywords: [backup]
+keywords: [backups]
 tags: [restore, recovery, physical backup]
 ---
 

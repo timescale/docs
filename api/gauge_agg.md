@@ -2,7 +2,7 @@
 api_name: gauge_agg()
 excerpt: Aggregate gauge data into a `GaugeSummary` for further analysis
 topics: [hyperfunctions]
-keywords: [gauges, aggregate, hyperfunctions, toolkit]
+keywords: [gauges, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

@@ -1,6 +1,7 @@
 ---
 title: Hypertable and chunk architecture
 excerpt: Learn how hypertables and chunks and structured in TimescaleDB
+keywords: [hypertables, architecture]
 ---
 
 # Hypertable and chunk architecture

@@ -1,7 +1,7 @@
 ---
 title: Alerting
 excerpt: Set up alerting with TimescaleDB
-keywords: [alert, integration, Grafana, DataDog, Nagios, Zabbix]
+keywords: [alert, integration, Grafana, Datadog, Nagios, Zabbix]
 ---
 
 # Alerting
@@ -25,9 +25,9 @@ TimescaleDB works with a variety of alerting tools within the PostgreSQL ecosyst
 
 Some popular alerting tools that work with TimescaleDB include:
 
-- DataDog: get started [here][datadog-install]
-- Nagios: get started [here][nagios-install]
-- Zabbix: get started [here][zabbix-install]
+*   DataDog: get started [here][datadog-install]
+*   Nagios: get started [here][nagios-install]
+*   Zabbix: get started [here][zabbix-install]
 
 [Grafana-install]: https://grafana.com/get
 [PostgreSQL datasource]: https://grafana.com/docs/features/datasources/postgres/

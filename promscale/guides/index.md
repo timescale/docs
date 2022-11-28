@@ -2,11 +2,12 @@
 title: How-to guides
 excerpt: Migrate, upgrade, and integrate Promscale
 product: promscale
-keywords: [migrate, upgrade]
+keywords: [data migration, upgrades]
 tags: [docker, kubernetes]
 ---
 
 # How-to Guides
+
 How-to guides for Promscale provide information related to tasks
 such as migrating, upgrading, integrating and others.
 

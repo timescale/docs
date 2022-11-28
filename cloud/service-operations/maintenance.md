@@ -151,7 +151,7 @@ For a smooth upgrade experience, make sure you:
     this fork to only pay for storage until you are comfortable deleting it.
 
 <highlight type="important">
-Timescale Cloud services with replicas cannot be upgraded. To upgrade a service 
+Timescale Cloud services with replicas cannot be upgraded. To upgrade a service
 with a replica,  you must first delete the replica and then upgrade the service.
 </highlight>
 
@@ -175,7 +175,7 @@ with a replica,  you must first delete the replica and then upgrade the service.
 </highlight>
 
 [cloud-login]: https://cloud.timescale.com
-[operations-forking]: /cloud/:currentVersion:/service-operations/general/#fork-a-service
+[operations-forking]: /cloud/:currentVersion:/service-operations/service-management/#fork-a-service
 [postgres-relnotes]: https://www.postgresql.org/docs/release/
 [replicas-docs]: /cloud/:currentVersion:/service-operations/replicas/
 [status-page]: https://status.timescale.com/

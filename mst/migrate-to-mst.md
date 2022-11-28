@@ -2,7 +2,7 @@
 title: Migrating from self-hosted TimescaleDB to Managed Service for TimescaleDB
 excerpt: Migrating an existing TimescaleDB database to Managed Service for TimescaleDB
 product: mst
-keywords: [migrate, database]
+keywords: [data migration, database]
 tags: [ingest, backup, restore]
 ---
 
@@ -13,7 +13,7 @@ TimescaleDB and automate most of your most common operational tasks.
 
 Managed Service for TimescaleDB creates a database named `defaultdb` and a
 default user account named `tsdbadmin`. You can use the Web console to create
-additional users and databases using the `Users` and `Databases` tabs. 
+additional users and databases using the `Users` and `Databases` tabs.
 
 You can switch between different plan sizes in Managed Service for TimescaleDB,
 However, during the dumping process choose a plan size that has the same
@@ -33,7 +33,9 @@ not causing downtime to your customers.
 </highlight>
 
 ## Before you begin
+
 Ensure that you have:
+
 *   Installed the PostgreSQL [`pg_dump`][pg_dump] and [`pg_restore`][pg_restore]
     utilities.
 *   Installed a client for connecting to PostgreSQL. These instructions use
@@ -61,26 +63,32 @@ information about compression and decompression, see the
 <procedure>
 
 ### Migrating the database
+
 1.  Dump all the data from your source database into a `dump.bak` file, using
     your source database connection details. If you are prompted for a password,
     use your source database credentials, and to avoid permissions errors,
     include the `--no-owner` flag:
+
     ```bash
     pg_dump -U <SOURCE_DB_USERNAME> -W \
     -h <SOURCE_DB_HOST> -p <SOURCE_DB_PORT> --no-owner -Fc -v \
     -f dump.bak <SOURCE_DB_NAME>
     ```
+
 1.  At the command prompt, restore the dumped data from the `dump.bak` file into
     your Managed Service for TimescaleDB database, using your Managed Service
     for TimescaleDB connection details. To migrate from multiple databases you
     repeat the process of dumping or loading one database after another. The
     `--jobs`  option specifies the number of CPUs to use to dump and restore the
     database concurrently.
+
     ```bash
     pg_restore -d 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require' --jobs 4 dump.bak 
     ```
+
 1.  Connect to your new database and update your table statistics by running [`ANALYZE`][analyze] on your entire
     dataset:
+
     ```sql
     psql 'postgres://CLICK_TO:REVEAL_PASSWORD@demo.demoproject.timescaledb.io:19335/defaultdb?sslmode=require'
     defaultdb=> ANALYZE;
@@ -89,10 +97,12 @@ information about compression and decompression, see the
 </procedure>
 
 ## Troubleshooting
+
 If you see these errors during the migration process, you can safely ignore
 them. The migration still occurs successfully.
 
 1.  Error when using `pg_dump`:
+
     ```bash
     pg_dump: warning: there are circular foreign-key constraints on this table:
     pg_dump: hypertable
@@ -102,12 +112,15 @@ them. The migration still occurs successfully.
     DETAIL:  Data for hypertables are stored in the chunks of a hypertable so COPY TO of a hypertable will not copy any data.
     HINT:  Use "COPY (SELECT * FROM <hypertable>) TO ..." to copy all data in hypertable, or copy each chunk individually.
     ```
-1. Error when using `pg_restore:
+
+1.  Error when using `pg_restore:
+
    ```bash
    pg_restore: while PROCESSING TOC:
    pg_restore: from TOC entry 4142; 0 0 COMMENT EXTENSION timescaledb 
    pg_restore: error: could not execute query: ERROR:  must be owner of extension timescaledb
    Command was: COMMENT ON EXTENSION timescaledb IS 'Enables scalable inserts and complex queries for time-series data';
+
  ```
 
 [analyze]: https://www.postgresql.org/docs/10/sql-analyze.html
@@ -119,5 +132,3 @@ them. The migration still occurs successfully.
 [upgrading-postgresql]: https://kb-managed.timescale.com/en/articles/5368016-perform-a-postgresql-major-version-upgrade
 [upgrading-postgresql-self-hosted]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/
 [upgrading-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/upgrades/major-upgrade/
-
-

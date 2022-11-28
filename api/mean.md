@@ -2,7 +2,7 @@
 api_name: mean()
 excerpt: Calculate the mean from values in a percentile aggregate
 topics: [hyperfunctions]
-keywords: [hyperfunctions, toolkit]
+keywords: [hyperfunctions, Toolkit]
 tags: [average, percentiles]
 api:
   license: community

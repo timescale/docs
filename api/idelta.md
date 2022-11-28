@@ -2,7 +2,7 @@
 api_name: idelta_left() | idelta_right()
 excerpt: Calculate the instantaneous change from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [delta, change]
 api:
   license: community

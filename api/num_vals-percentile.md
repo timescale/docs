@@ -2,7 +2,7 @@
 api_name: num_vals()
 excerpt: Calculate the number of values contained in a percentile estimate
 topics: [hyperfunctions]
-keywords: [percentiles, hyperfunctions, toolkit]
+keywords: [percentiles, hyperfunctions, Toolkit]
 tags: [number, count]
 api:
   license: community

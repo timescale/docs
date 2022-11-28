@@ -2,7 +2,7 @@
 api_name: state_agg()
 excerpt: Aggregate state data into a state aggregate for further analysis
 topics: [hyperfunctions]
-keywords: [states, aggregate, hyperfunctions, toolkit]
+keywords: [states, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

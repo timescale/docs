@@ -46,22 +46,17 @@ module.exports = [
         excerpt: "Timescale Cloud services operations",
         children: [
           {
-            title: "General",
-            href: "general",
-            excerpt: "Timescale Cloud services operations, General tab",
-          },
-          {
             title: "Resources",
             href: "resources",
             excerpt: "Timescale Cloud services operations, Resources tab",
           },
           {
-            title: "Autoscaling",
+            title: "Autoscale",
             href: "autoscaling",
             excerpt: "Timescale Cloud services operations, Autoscaling tab",
           },
           {
-            title: "Replicas",
+            title: "Replication",
             href: "replicas",
             excerpt: "Timescale Cloud services operations, Replicas tab",
           },
@@ -75,6 +70,32 @@ module.exports = [
             href: "vpc",
             excerpt: "Timescale Cloud services operations, VPC tab",
           },
+          {
+            title: "Service management",
+            href: "service-management",
+            excerpt:
+              "Timescale Cloud services operations, Service management tab",
+          },
+          {
+            title: "Database parameters",
+            href: "database-parameters",
+            excerpt:
+              "Timescale Cloud services operations, Database parameters tab",
+            children: [
+              {
+                title: "Customize configuration",
+                href: "customize-configuration",
+                excerpt:
+                  "Customize your Timescale Cloud database configuration",
+              },
+              {
+                title: "Advanced parameters",
+                href: "advanced-parameters",
+                excerpt:
+                  "Configure advanced database parameters for your Timescale Cloud service",
+              },
+            ],
+          },
         ],
       },
       {
@@ -86,28 +107,6 @@ module.exports = [
         title: "Service logs",
         href: "service-logs",
         excerpt: "Timescale Cloud services logs",
-      },
-      {
-        title: "Service settings",
-        href: "service-settings",
-        excerpt: "Timescale Cloud services settings",
-        children: [
-          {
-            title: "Database configuration",
-            href: "customize-configuration",
-            excerpt: "Timescale Cloud services settings",
-          },
-          {
-            title: "Advanced parameters",
-            href: "settings-advanced",
-            excerpt: "Timescale Cloud services settings",
-          },
-          {
-            title: "PostgreSQL extensions",
-            href: "postgresql-extensions",
-            excerpt: "Timescale Cloud PostgreSQL extensions",
-          },
-        ],
       },
       {
         title: "Members",
@@ -142,6 +141,11 @@ module.exports = [
         title: "Multi-node",
         href: "cloud-multi-node",
         excerpt: "Timescale Cloud Multi-node",
+      },
+      {
+        title: "PostgreSQL extensions",
+        href: "postgresql-extensions",
+        excerpt: "Timescale Cloud PostgreSQL extensions",
       },
       {
         title: "Data tiering",

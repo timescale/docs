@@ -1,7 +1,7 @@
 ---
 title: Statistical aggregation
 excerpt: Aggregate data to perform common statistical calculations in continuous aggregates and window functions
-keywords: [hyperfunctions, Toolkit, statistics, statistical aggregates]
+keywords: [hyperfunctions, Toolkit, statistics]
 ---
 
 # Statistical aggregation
