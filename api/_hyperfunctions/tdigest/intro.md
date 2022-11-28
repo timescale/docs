@@ -3,8 +3,10 @@ section: hyperfunction
 subsection: tdigest()
 ---
 
-Calculate the value at a given percentile, or the percentile rank of a given
-value.
+Estimate the value at a given percentile, or the percentile rank of a given
+value, using the t-digest algorithm. This estimation is more memory- and
+CPU-efficient than an exact calculation using PostgreSQL's `percentile_cont` and
+`percentile_disc` functions.
 
 `tdigest` is one of two advanced percentile approximation aggregates provided in
 TimescaleDB Toolkit. It is a space-efficient aggregation, and it provides more
@@ -24,5 +26,5 @@ For more information about percentile approximation algorithms, see the
 [algorithms overview][algorithms].
 
 [algorithms]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
-[percentile_agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/percentile_agg/
+[percentile_agg]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/#percentile_agg
 [uddsketch]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/

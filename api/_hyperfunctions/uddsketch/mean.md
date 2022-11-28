@@ -1,6 +1,6 @@
 ---
 api_name: mean()
-excerpt: Calculate the mean from values in a `uddsketch`
+excerpt: Calculate the exact mean from values in a `uddsketch`
 topics: [hyperfunctions]
 api:
   license: community

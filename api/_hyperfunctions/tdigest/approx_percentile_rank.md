@@ -15,7 +15,7 @@ hyperfunction:
   aggregates:
     - tdigest()
 api_details:
-  summary: Get the the percentile at which a given value would be located.
+  summary: Estimate the the percentile at which a given value would be located.
   signatures:
     - language: sql
       code: |

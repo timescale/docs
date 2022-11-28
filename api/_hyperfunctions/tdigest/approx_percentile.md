@@ -15,7 +15,7 @@ hyperfunction:
   aggregates:
     - tdigest()
 api_details:
-  summary: Get the approximate value at a percentile from a `tdigest` aggregate.
+  summary: Estimate the approximate value at a percentile from a `tdigest` aggregate.
   signatures:
     - language: sql
       code: |

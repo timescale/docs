@@ -15,7 +15,7 @@ hyperfunction:
   aggregates:
     - uddsketch()
 api_details:
-  summary: Get the approximate value at a percentile from a `uddsketch` aggregate.
+  summary: Estimate the approximate value at a percentile from a `uddsketch` aggregate.
   signatures:
     - language: sql
       code: |

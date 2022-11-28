@@ -458,12 +458,7 @@ module.exports = [
             type: "redirect-to-child-page",
             children: [
               {
-                title: "percentile_agg",
-                href: "percentile_agg",
-                type: "placeholder",
-              },
-              {
-                title: "uddsketch",
+                title: "percentile_agg and uddsketch",
                 href: "uddsketch",
                 type: "placeholder",
               },

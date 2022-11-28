@@ -17,8 +17,8 @@ hyperfunction:
 api_details:
   summary: >
     Combine multiple intermediate `tdigest` aggregates, produced by `tdigest`,
-    into a single intermediate aggregate. For example, you can use `rollup` to
-    combine `tdigest`s from 15-minute buckets into daily buckets.
+    into a single intermediate `tdigest` aggregate. For example, you can use
+    `rollup` to combine `tdigest`s from 15-minute buckets into daily buckets.
   signatures:
     - language: sql
       code: |

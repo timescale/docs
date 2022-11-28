@@ -17,12 +17,18 @@ hyperfunction:
 api_details:
   summary: |
     This is the first step for calculating approximate percentiles with the
-    `uddsketch` algorithm. Use `uddsketch` to create an intermediate aggregate from 
-    your raw data. This intermediate form can then be used by one or more
-    accessors in this group to compute final results. 
+    `uddsketch` algorithm. Use `uddsketch` to create an intermediate aggregate
+    from your raw data. This intermediate form can then be used by one or more
+    accessors in this group to compute final results.
     
     Optionally, multiple such intermediate aggregate objects can be combined
     using [`rollup()`](#rollup) before an accessor is applied.
+
+    If you aren't sure what values to set for `size` and `max_error`, try using
+    the alternate aggregate function, [`percentile_agg()`](#percentile_agg).
+    `percentile_agg` also creates a `UddSketch`, but it sets some sensible
+    default values for `size` and `max_error` that should work for many use
+    cases.
   signatures:
     - language: sql
       code: |

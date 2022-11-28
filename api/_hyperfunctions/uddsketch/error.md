@@ -16,7 +16,7 @@ hyperfunction:
     - uddsketch()
 api_details:
   summary: >
-    Calculate the maximum relative error of a `uddsketch`. The correct
+    Get the maximum relative error of a `uddsketch`. The correct
     (non-estimated) percentile falls within the range defined by
     `approx_percentile(sketch) +/- (approx_percentile(sketch) * error(sketch))`.
   signatures:

@@ -1,6 +1,6 @@
 ---
 api_name: percentile_agg()
-excerpt: Aggregate data into a percentile aggregate for further analysis
+excerpt: Aggregate data in a uddsketch, using some reasonable default values, for further calculation of percentile estimates
 topics: [hyperfunctions]
 api:
   license: community
@@ -11,13 +11,17 @@ api:
     stable: 1.0.0
 hyperfunction:
   family: percentile approximation
-  type: aggregate
+  type: alternate aggregate
   aggregates:
-    - percentile_agg()
+    - uddsketch()
 api_details:
   summary: |
-    This is the first step for calculating approximate percentiles. Use
-    `percentile_agg` to create an intermediate aggregate from your raw data.
+    This is an alternate first step for calculating approximate percentiles. It
+    provides some added convenience by using some sensible defaults to create
+    a `UddSketch`. Internally, it calls `uddsketch` with 200 buckets and a
+    maximum error rate of 0.001.
+    
+    Use `percentile_agg` to create an intermediate aggregate from your raw data.
     This intermediate form can then be used by one or more accessors in this
     group to compute final results. 
     

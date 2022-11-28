@@ -17,8 +17,8 @@ hyperfunction:
 api_details:
   summary: >
     Combine multiple intermediate `uddsketch` aggregates, produced by
-    `uddsketch`, into a single intermediate aggregate. For example, you can
-    use `rollup` to combine `uddsketch`es from 15-minute buckets into
+    `uddsketch`, into a single intermediate `uddsketch` aggregate. For example,
+    you can use `rollup` to combine `uddsketch`es from 15-minute buckets into
     daily buckets.
   signatures:
     - language: sql

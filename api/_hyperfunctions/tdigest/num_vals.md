@@ -1,6 +1,6 @@
 ---
 api_name: num_vals()
-excerpt: Calculate the number of values contained in a `tdigest`
+excerpt: Get the number of values contained in a `tdigest`
 topics: [hyperfunctions]
 api:
   license: community
