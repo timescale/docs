@@ -1,8 +1,8 @@
 ---
-title: Verb the widget tutorial - set up dataset
-excerpt: Set up a dataset so you can verb your widgets to achieve an outcome using the tool
-keywords: [noun, verb, tutorial]
-tags: [noun, noun]
+title: Analyze financial tick data - Set up the dataset
+excerpt: Set up a dataset so you can query financial tick data to analyze price changes
+keywords: [tutorials, finance, learn]
+tags: [tutorials, intermediate]
 ---
 
 import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata.mdx";
