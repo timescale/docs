@@ -83,7 +83,7 @@ Start with a `one_min_candle` continuous aggregate, which contains
 ```sql
 SELECT * FROM one_min_candle
 WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '24 hour'
-ORDER BY bucket
+ORDER BY bucket;
 ```
 
 ![1-min candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_min.png)

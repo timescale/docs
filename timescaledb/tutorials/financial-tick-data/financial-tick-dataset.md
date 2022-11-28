@@ -5,8 +5,8 @@ keywords: [tutorials, finance, learn]
 tags: [tutorials, intermediate]
 ---
 
-import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata.mdx";
-import AddData from "versionContent/_partials/_add-data-twelvedata.mdx";
+import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
+import AddData from "versionContent/_partials/_add-data-twelvedata-crypto.mdx";
 
 # Create the dataset
 

@@ -28,14 +28,14 @@ dataset and copy the data to your database.
     specify the file paths in these commands:
 
     ```sql
-    \COPY crypto_ticks FROM 'crypto_ticks.csv' CSV HEADER;
+    \COPY crypto_ticks FROM 'tutorial_sample_tick.csv' CSV HEADER;
     ```
 
     ```sql
-    \COPY crypto_assets FROM 'crypto_assets.csv' CSV HEADER;
+    \COPY crypto_assets FROM 'tutorial_sample_assets.csv' CSV HEADER;
     ```
 
-    Because there are millions of rows of data, the `COPY` process may take a
+    Because there are millions of rows of data, the `COPY` process could take a
     few minutes depending on your internet connection and local client
     resources.
 
