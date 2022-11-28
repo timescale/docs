@@ -2,7 +2,7 @@
 api_name: corr()
 excerpt: Calculate the correlation coefficient from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [correlation coefficient, counters, hyperfunctions, toolkit]
+keywords: [correlation coefficient, counters, hyperfunctions, Toolkit]
 tags: [least squares, linear regression]
 api:
   license: community

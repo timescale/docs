@@ -2,7 +2,7 @@
 api_name: lttb()
 excerpt: Downsample a time series using the Largest Triangle Three Buckets method
 topics: [hyperfunctions]
-keywords: [downsample, smooth, hyperfunctions, toolkit]
+keywords: [downsample, smooth, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

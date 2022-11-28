@@ -2,7 +2,7 @@
 api_name: stats_agg() (two variables)
 excerpt: Aggregate data into an intermediate statistical aggregate form for further calculation
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

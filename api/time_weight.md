@@ -2,7 +2,7 @@
 api_name: time_weight()
 excerpt: Aggregate data in a `TimeWeightSummary` for further time-weighted analysis
 topics: [hyperfunctions]
-keywords: [time-weighted, aggregate, hyperfunctions, toolkit]
+keywords: [time-weighted, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

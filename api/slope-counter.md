@@ -2,7 +2,7 @@
 api_name: slope()
 excerpt: Calculate the slope from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [least squares, linear regression]
 api:
   license: community

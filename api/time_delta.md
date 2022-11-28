@@ -2,7 +2,7 @@
 api_name: time_delta()
 excerpt: Calculate the difference between the start and end times from data in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

@@ -141,12 +141,13 @@ can provide the database URI, or specify connection parameters.
 1.  Capture the `postgres` user password:
 
     ```bash
-    echo $(kubectl get secret --namespace default tobs-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
+    echo $(kubectl get secret --namespace default <RELEASE_NAME>-credentials -o jsonpath="{.data.PATRONI_SUPERUSER_PASSWORD}" | base64 --decode)
     ```
 
 1.  Download the Promscale
-    [values.yaml][promscale-values-yaml], and update the `connection` section with your TimescaleDB connection details.
-    section. Add or edit this section with your TimescaleDB connection details:
+    [values.yaml][promscale-values-yaml], and update the `connection` section
+    with your TimescaleDB connection details.
+    Add or edit this section with your TimescaleDB connection details:
     <terminal>
 
     <tab label='Database URI'>
@@ -219,7 +220,7 @@ manifest file. To deploy TimescaleDB on Kubernetes use
 
 [install-binary]: /promscale/:currentVersion:/installation/binary/
 [install-helm]: /promscale/:currentVersion:/installation/kubernetes/#install-promscale-with-helm
-[promscale-values-yaml]: https://github.com/timescale/timescaledb-kubernetes/blob/master/charts/timescaledb-single/values.yaml
+[promscale-values-yaml]: https://github.com/timescale/helm-charts/blob/main/charts/promscale/values.yaml
 [send-data]: /promscale/:currentVersion:/send-data/
 [template-manifest]: https://github.com/timescale/promscale/blob/0.13.0/deploy/static/deploy.yaml
 [timescale-backups]: https://github.com/timescale/timescaledb-kubernetes/tree/master/charts/timescaledb-single#create-backups-to-s3

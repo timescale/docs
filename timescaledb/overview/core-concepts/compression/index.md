@@ -1,6 +1,7 @@
 ---
 title: Compression
 excerpt: Learn how native compression works in TimescaleDB
+keywords: [compression]
 ---
 
 # Compression

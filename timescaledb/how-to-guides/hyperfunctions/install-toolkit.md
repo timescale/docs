@@ -1,7 +1,7 @@
 ---
 title: Install and update TimescaleDB Toolkit
 excerpt: How to install TimescaleDB Toolkit to access more hyperfunctions and function pipelines
-keywords: [Toolkit, install, hyperfunctions, function pipelines]
+keywords: [Toolkit, installation, hyperfunctions, function pipelines]
 ---
 
 # Install and update TimescaleDB Toolkit

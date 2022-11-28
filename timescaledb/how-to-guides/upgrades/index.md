@@ -1,10 +1,11 @@
 ---
 title: Upgrade TimescaleDB
 excerpt: Upgrade your self-hosted TimescaleDB installation in-place
-keywords: [upgrade]
+keywords: [upgrades]
 ---
 
 # Upgrade TimescaleDB
+
 You can upgrade your on-premise TimescaleDB installation in-place.
 
 A major upgrade is when you upgrade from one major version of TimescaleDB, to

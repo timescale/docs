@@ -2,7 +2,7 @@
 api_name: hyperloglog()
 excerpt: Aggregate data into a hyperloglog for approximate counting
 topics: [hyperfunctions]
-keywords: [count, hyperloglog, hyperfunctions, toolkit]
+keywords: [count, hyperloglog, hyperfunctions, Toolkit]
 tags: [approximate, distinct]
 api:
   license: community

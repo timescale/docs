@@ -2,7 +2,7 @@
 api_name: duration_in()
 excerpt: Calculate the total time spent in a given state from values in a state aggregate
 topics: [hyperfunctions]
-keywords: [hyperfunctions, duration, states, hyperfunctions, toolkit]
+keywords: [hyperfunctions, duration, states, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

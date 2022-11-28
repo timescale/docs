@@ -1,7 +1,7 @@
 ---
 title: Hyperfunctions
 excerpt: Use hyperfunctions to simplify data analysis
-keywords: [hyperfunctions, toolkit]
+keywords: [hyperfunctions, Toolkit]
 ---
 
 # Hyperfunctions

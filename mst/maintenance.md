@@ -2,11 +2,12 @@
 title: Maintenance
 excerpt: Learn how maintenance is automatically handled on Managed Service for TimescaleDB
 product: mst
-keywords: [maintenance, update, upgrade]
+keywords: [maintenance, updates, upgrades]
 tags: [maintenace window]
 ---
 
 # Maintenance
+
 On Managed Service for TimescaleDB, software updates are handled automatically
 by us, and you do not need to perform any actions to keep up to date.
 
@@ -20,6 +21,7 @@ it points to changes.
 </highlight>
 
 ## Non-critical maintenance updates
+
 Non-critical upgrades are made available before the upgrade is performed
 automatically. During this time you can click `Apply upgrades` to start the
 upgrade at any time. However, after the time expires, usually around a week,
@@ -39,6 +41,7 @@ system during the upgrade.
 <procedure>
 
 ### Adjusting your maintenance window
+
 1.  [Log in to your account][mst-login]. Click the name of the service that
     you want to manage the maintenance window for.
 1.  In the `Maintenance window` section, click `Change`.
@@ -51,6 +54,7 @@ system during the upgrade.
 </procedure>
 
 ## Critical updates
+
 Critical upgrades and security fixes are installed outside normal maintenance windows when
 necessary, and sometimes require a short outage.
 
@@ -62,6 +66,5 @@ retired automatically after the new servers have taken over. The controlled
 failover is a very quick and safe operation and it takes less than a minute to
 get clients connected again. In most cases, there is five to ten second outage
 during this process.
-
 
 [mst-login]: https://portal.managed.timescale.com

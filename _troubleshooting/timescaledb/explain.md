@@ -2,7 +2,7 @@
 title: A particular query executes more slowly than expected
 section: troubleshooting
 topics: [queries]
-keywords: [query, explain]
+keywords: [EXPLAIN]
 tags: [queries, query, explain, performance]
 ---
 

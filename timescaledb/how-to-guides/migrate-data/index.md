@@ -1,11 +1,12 @@
 ---
 title: Data migration
 excerpt: Migrate your existing data into TimescaleDB
-keywords: [migrate]
+keywords: [data migration]
 tags: [import]
 ---
 
 # Data migration
+
 You can migrate your existing data into TimescaleDB in several ways.
 
 *   [Learn about data migration][about-data-migration] before you start

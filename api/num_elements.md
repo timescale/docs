@@ -2,7 +2,7 @@
 api_name: num_elements()
 excerpt: Calculate the number of points with distinct times from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [distinct, count]
 api:
   license: community

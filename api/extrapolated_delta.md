@@ -2,7 +2,7 @@
 api_name: extrapolated_delta()
 excerpt: Calculate the extrapolated change in a counter from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [change, extrapolate]
 api:
   license: community

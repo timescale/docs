@@ -2,7 +2,7 @@
 api_name: average()
 excerpt: Calculate the time-weighted average of values in a `TimeWeightSummary`
 topics: [hyperfunctions]
-keywords: [average, time-weighted, hyperfunctions, toolkit]
+keywords: [average, time-weighted, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

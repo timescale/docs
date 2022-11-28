@@ -2,7 +2,7 @@
 api_name: into_values()
 excerpt: Calculate all frequency estimates from a frequency aggregate or top N aggregate
 topics: [hyperfunctions]
-keywords: [frequency, top N, hyperfunctions, toolkit]
+keywords: [frequency, top N, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

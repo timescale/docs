@@ -1,12 +1,13 @@
 ---
 title: Counter and gauge aggregation
 excerpt: Perform statistical analysis of counters and gauges
-keywords: [counters, gauges, hyperfunctions, toolkit]
+keywords: [counters, gauges, hyperfunctions, Toolkit]
 ---
 
 # Counter and gauge aggregation
+
 This section contains functions related to counter and gauge aggregation.
-Counter aggregation functions are used to accumulate monotonically increasing data 
+Counter aggregation functions are used to accumulate monotonically increasing data
 by treating any decrements as resets. Gauge aggregates are similar, but are used to
 track data which can decrease as well as increase. For more information about counter
 aggregation functions, see the
@@ -26,7 +27,6 @@ additional hyperfunctions, you need to install the
 All accessors can be used with `CounterSummary`, and all but `num_resets`
 with `GaugeSummary`.
 </highlight>
-
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
 [install-toolkit]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/install-toolkit

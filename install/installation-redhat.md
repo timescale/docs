@@ -4,7 +4,7 @@ nav-title: Red Hat and CentOS
 excerpt: Install self-hosted TimescaleDB on Red Hat-based systems
 section: install
 subsection: self-hosted
-keywords: [install, self-hosted, Red Hat]
+keywords: [installation, self-hosted, Red Hat]
 ---
 
 import CentOS from "versionContent/_partials/_psql-installation-centos.mdx";

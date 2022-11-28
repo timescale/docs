@@ -2,7 +2,7 @@
 api_name: with_bounds()
 excerpt: Add bounds to a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
