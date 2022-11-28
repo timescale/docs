@@ -12,11 +12,13 @@ Each service contains a single database, named `tsdb`.
     store up to 10,000&nbsp;metric samples per second with the default 3-month retention. 
     Check our [resource recommendation guide][promscale-resource-recomm] for configuring the compute and 
     disk size based on your ingestion rate and retention.
+
     <highlight type="note">
-    Make sure the Promscale Connector and the service in Timescale cloud are
-    on the same region. Ideally we recommend the latency between the Promscale 
-    Connector and Database to be less than 100&nbsp;ms. 
+    Make sure the Promscale Connector and the service in Timescale Cloud are
+    in the same region. Ideally, the latency between the Promscale 
+    Connector and database should be less than 100&nbsp;ms. 
     </highlight>
+    
 1.  Click `Create service`.
 1.  In the `Services` tab, find the service you want to connect to, and check
     it is marked as `Running`.
