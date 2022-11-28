@@ -10,7 +10,7 @@ Each service contains a single database, named `tsdb`.
 1.  Click `Advanced configuration` and set the `Region`, `Compute`, and `Disk size`
     for the service. With 1&nbsp;CPU, 4&nbsp;GB and 250&nbsp;GB you can ingest and
     store up to 10,000&nbsp;metric samples per second with the default 3-month retention. 
-    Check our [resource recommendation guide][promscale-resource-recomm] for configuring the compute and 
+    Check the [resource recommendation guide][promscale-resource-recomm] for configuring the compute and 
     disk size based on your ingestion rate and retention.
 
     <highlight type="note">
