@@ -65,9 +65,9 @@ these stories from some Timescale community members:
 
 [install-docs]: install/:currentVersion:/
 [psql]: timescaledb/:currentVersion:/how-to-guides/connecting/
-[tutorial-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
-[tutorial-query]: timescaledb/tutorials/_template/_query-template
-[tutorial-advanced]: timescaledb/tutorials/_template/_advanced-tutorial
+[financial-tick-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
+[financial-tick-query]: timescaledb/tutorials/_template/_query-template
+[financial-tick-advanced]: timescaledb/tutorials/_template/_advanced-tutorial
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/

@@ -33,5 +33,3 @@ New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 <CreateHypertable />
 
 <AddData />
-
-[nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
