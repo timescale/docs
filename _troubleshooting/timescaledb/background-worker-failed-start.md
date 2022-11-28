@@ -14,7 +14,7 @@ apis:
   - [hypertables, add_retention_policy()]
   - [hypertables, add_compression_policy()]
   - [hypertables, add_continuous_aggregate_policy()]
-keywords: [jobs, policies, user-defined actions]
+keywords: [jobs, policies, actions]
 tags: [jobs, scheduled jobs, background jobs, background workers, automation framework, policies, user-defined actions]
 ---
 

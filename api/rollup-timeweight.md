@@ -2,22 +2,19 @@
 api_name: rollup()
 excerpt: Roll up multiple `TimeWeightSummaries`
 topics: [hyperfunctions]
-keywords: [rollup, time-weighted, hyperfunctions, toolkit]
+keywords: [time-weighted, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.3.0
+    stable: 1.0.0
 hyperfunction:
   family: time-weighted averages
   type: rollup
   aggregates:
     - time_weight()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: rollup
 ---
 
 # rollup(TimeWeightSummary) <tag type="toolkit">Toolkit</tag>

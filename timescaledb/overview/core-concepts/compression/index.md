@@ -1,3 +1,9 @@
+---
+title: Compression
+excerpt: Learn how native compression works in TimescaleDB
+keywords: [compression]
+---
+
 # Compression
 
 Compression reduces the amount of space taken up by your data. For some queries,
@@ -37,9 +43,11 @@ section][compression-architecture].
 The user interface remains the same after your data is compressed. You continue
 to query your data as normal, and the database decompresses data as needed.
 
-<highlight type="important"> Inserts and queries work as usual, but there are
+<highlight type="important">
+ Inserts and queries work as usual, but there are
 limitations on updates and deletes. For more information, see the section on
-[trade-offs](#benefits-and-trade-offs-of-compression).</highlight>
+[trade-offs](#benefits-and-trade-offs-of-compression).
+</highlight>
 
 ## Compression performance
 

@@ -2,7 +2,7 @@
 api_name: decompress_chunk()
 excerpt: Decompress a compressed chunk
 topics: [compression]
-keywords: [compression, decompression, chunks]
+keywords: [compression, decompression, chunks, backfilling]
 api:
   license: community
   type: function

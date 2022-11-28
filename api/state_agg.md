@@ -2,22 +2,17 @@
 api_name: state_agg()
 excerpt: Aggregate state data into a state aggregate for further analysis
 topics: [hyperfunctions]
-keywords: [states, aggregate, hyperfunctions, toolkit]
+keywords: [states, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.5.0
 hyperfunction:
   family: frequency analysis
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: StateAgg
-hyperfunction_type: aggregate
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

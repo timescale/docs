@@ -1,11 +1,12 @@
 ---
 title: Percentile approximation
 excerpt: Approximate percentiles from a dataset
-keywords: [percentiles, hyperfunctions, toolkit]
+keywords: [percentiles, hyperfunctions, Toolkit]
 tags: [approximate]
 ---
 
 # Percentile approximation  <tag type="toolkit">Toolkit</tag>
+
 This section contains functions related to percentile approximation.
 Approximation algorithms are used to calculate a percentile without requiring
 all of the data. For more information about percentile approximation functions,

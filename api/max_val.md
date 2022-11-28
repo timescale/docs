@@ -2,23 +2,20 @@
 api_name: max_val()
 excerpt: Calculate the maximum from values in a `tdigest`
 topics: [hyperfunctions]
-keywords: [tdigest, hyperfunctions, toolkit]
+keywords: [tdigest, hyperfunctions, Toolkit]
 tags: [percentiles, maximum]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: accessor
   aggregates:
     - tdigest()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: accessor
 ---
 
 # max_val()  <tag type="toolkit">Toolkit</tag>

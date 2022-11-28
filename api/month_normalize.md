@@ -2,12 +2,14 @@
 api_name: month_normalize()
 excerpt: Normalize a monthly metric based on number of days in month
 topics: [hyperfunctions]
-keywords: [hyperfunctions, toolkit, normalization]
+keywords: [hyperfunctions, Toolkit, normalization]
 api:
   license: community
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.10.1
 hyperfunction:
   type: one-step operation
 ---

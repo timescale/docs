@@ -2,19 +2,16 @@
 api_name: time_bucket_gapfill()
 excerpt: Bucket rows by time interval while filling gaps in data
 topics: [hyperfunctions]
-keywords: [gapfill, interpolate, aggregate, hyperfunctions, toolkit]
+keywords: [gapfilling, interpolate, aggregate, hyperfunctions, Toolkit]
 tags: [time buckets]
 api:
   license: community
   type: function
+  version:
+    experimental: 1.2.0
 hyperfunction:
   family: gapfilling and interpolation
   type: bucket
-# fields below will be deprecated
-api_category: hyperfunction
-hyperfunction_family: 'gapfilling and interpolation'
-hyperfunction_subfamily: gapfill
-hyperfunction_type: other
 ---
 
 # time_bucket_gapfill() <tag type="community">Community</tag>

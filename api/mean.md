@@ -2,12 +2,15 @@
 api_name: mean()
 excerpt: Calculate the mean from values in a percentile aggregate
 topics: [hyperfunctions]
-keywords: [hyperfunctions, toolkit]
+keywords: [hyperfunctions, Toolkit]
 tags: [average, percentiles]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: accessor
@@ -15,12 +18,6 @@ hyperfunction:
     - percentile_agg()
     - tdigest()
     - uddsketch()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: accessor
 ---
 
 # mean()  <tag type="toolkit">Toolkit</tag>

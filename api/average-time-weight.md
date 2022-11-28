@@ -2,22 +2,19 @@
 api_name: average()
 excerpt: Calculate the time-weighted average of values in a `TimeWeightSummary`
 topics: [hyperfunctions]
-keywords: [average, time-weighted, hyperfunctions, toolkit]
+keywords: [average, time-weighted, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
 hyperfunction:
   family: time-weighted averages
   type: accessor
   aggregates:
     - time_weight()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: accessor
 ---
 
 # average() <tag type="toolkit">Toolkit</tag>

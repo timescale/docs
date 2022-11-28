@@ -1,20 +1,23 @@
 ---
-title: Use a user-defined action to implement automatic data tiering
-excerpt: Implement automatic data tierign with a user-defined action
-keywords: [actions, data tiering]
+title: Use a user-defined action to implement automatic tablespace management
+excerpt: Automatically move hypertable chunks between tablespaces
+keywords: [actions, tablespaces]
 ---
 
-# Use a user-defined action to implement automatic data tiering
-[Data tiering][data-tiering] helps you save on storage costs by moving older
-data to a different tablespace. TimescaleDB supports data tiering by providing
+# Use a user-defined action to implement automatic tablespace management
+
+[Moving older data to a different tablespace][moving-data] can help you save on
+storage costs. TimescaleDB supports automatic tablespace management by providing
 the `move_chunk` function to move chunks between tablespaces. To schedule the
 moves automatically, you can write a user-defined action.
 
 <procedure>
 
-## Using a user-defined action to implement automatic data tiering
+## Using a user-defined action to implement automatic chunk moving
+
 1.  Create a procedure that moves chunks to a different tablespace if they
     contain data older than the `lag` parameter.
+
     ```sql
     CREATE OR REPLACE PROCEDURE move_chunks (job_id int, config jsonb)
     LANGUAGE PLPGSQL
@@ -47,10 +50,12 @@ moves automatically, you can write a user-defined action.
     END
     $$;
     ```
+
 1.  Register the job to run daily. In the config, set `hypertable` to `metrics`
-    to implement data tiering on the `metrics` hypertable. Set `lag` to 12
-    months to move chunks containing data older than 12 months. Set
-    `tablespace` to the destination tablespace. 
+    to implement automatic chunk moves on the `metrics` hypertable. Set `lag` to
+    12 months to move chunks containing data older than 12 months. Set
+    `tablespace` to the destination tablespace.
+
     ```sql
     SELECT add_job(
       'move_chunks',
@@ -70,4 +75,4 @@ remains available for reads during the move.
 
 </procedure>
 
-[data-tiering]: /timescaledb/:currentVersion:/how-to-guides/data-tiering/
+[moving-data]: /timescaledb/:currentVersion:/how-to-guides/schema-management/manage-storage/

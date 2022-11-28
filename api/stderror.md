@@ -2,24 +2,21 @@
 api_name: stderror()
 excerpt: Estimate the relative standard error of a hyperloglog
 topics: [hyperfunctions]
-keywords: [hyperloglog, hyperfunctions, toolkit]
+keywords: [hyperloglog, hyperfunctions, Toolkit]
 tags: [standard error, percentiles]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.3.0
 hyperfunction:
   family: approximate count distinct
   type: accessor
   aggregates:
     - approx_count_distinct()
     - hyperloglog()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'approximate count distinct'
-hyperfunction_subfamily: hyperloglog
-hyperfunction_type: accessor
 ---
 
 # stderror()  <tag type="toolkit">Toolkit</tag>
