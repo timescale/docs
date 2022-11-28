@@ -60,7 +60,7 @@ click the `Promote to master` button.
     ```
 
 If the output is `TRUE` you are connected to the replica, and if the output is
-`FALSE` if you are connected to the primary server.
+`FALSE` you are connected to the primary server.
 
 </procedure>
 
