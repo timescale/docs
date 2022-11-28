@@ -5,40 +5,33 @@ keywords: [noun, verb, tutorial]
 tags: [noun, noun]
 ---
 
-<!-- markdown-link-check-disable -->
+import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata.mdx";
+import AddData from "versionContent/_partials/_add-data-twelvedata.mdx";
 
-# The dataset
+# Create the dataset
 
-Provide a very short explanation of the dataset. Explain if it being created
-from scratch, downloaded from a server and uploaded to the readers' own
-database, or being accessed directly from a third-party service.
+This tutorial uses a dataset that contains second-by-second stock-trade data for
+the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
+also includes a separate table of company symbols and company names, in a
+regular PostgreSQL table named `company`.
 
-## Set up the dataset
+## Prerequisites
 
-This is the introduction to the procedure about setting up the dataset. Use one
-or two sentences to explain the procedure. Note the simple verb form in the
-title; the procedure itself uses the gerund-verb form (an `-ing` word) instead.
+Before you begin, make sure you have:
 
-<procedure>
+*   A TimescaleDB instance running locally or on the cloud. For more
+    information, see [installation options][install-docs].
+*   [`psql`][psql], or any other PostgreSQL client.
 
-### Setting up the dataset
+## The dataset
 
-1.  Start each step with a verb (create, use, install, etc) or a location (at
-    the `psql` prompt, on your local filesystem, on the server, etc) followed by
-    a verb.
-1.  Do the next step:
+The dataset is updated on a nightly basis and contains data from the last four
+weeks, typically around 8 million rows of data. Stock trades are recorded in
+real-time Monday through Friday, typically during normal trading hours of the
+New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 
-   ```sql|bash|...
-   Add any commands in a block like this.
-   Make sure you specify the language.
-   Do not include any prompts, or sudo commands. If root is required \
-   state it in the step instead. Break long lines appropriately.
-   ```
+<CreateHypertable />
 
-1.  Make sure that any action that is the result of the step stays with the step.
-   For example: clicking a button, and a dialog box appearing, are a single step.
-1.  Finish the procedure on the final step. Do not include a result statement.
+<AddData />
 
-</procedure>
-
-Include any reference-style links at the bottom of the page.
+[nyc-tlc]: https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page
