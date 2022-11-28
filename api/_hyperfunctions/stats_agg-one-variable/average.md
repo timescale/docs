@@ -2,7 +2,7 @@
 api_name: average()
 excerpt: Calculate the average from a one-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [average, statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [average, statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

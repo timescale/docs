@@ -1,7 +1,8 @@
 ---
 title: Contribute to TimescaleDB documentation
 excerpt: Advice and style guide for contributing to TimescaleDB documentation
-tags: [contribute, docs, style guide]
+keywords: [contribute]
+tags: [docs, style guide]
 ---
 
 # Contributing to Timescale documentation
@@ -148,6 +149,43 @@ In general, do not use result statements. However, if you feel it is absolutely
 necessary, include it immediately before the closing procedure tag, and do not
 put it as a step.
 
+## Code blocks
+
+Offset code blocks from the surrounding text by using three backticks and
+declaring the language in use in the block. Usually, this is either `sql`, for
+queries, or `bash`, for commands given at the command prompt. For a full list of
+available languages see [the prismjs site][prismjs].
+
+Make sure that the code block is indented at the same level as the surrounding text.
+
+When writing commands in a code block, do not use `#`, `$`, or any other prompt.
+Additionally, for Linux commands, do not use `sudo`, instead, use the stem
+sentence to indicate that the command must be run as the root user.
+
+For example, a bash command:
+
+```txt
+
+    At the command prompt, as root, use this command:
+
+    ```bash
+    apt install postgresql
+    ```
+
+```
+
+For example, an SQL query:
+
+```txt
+
+    At the `psql` prompt, use this query:
+
+    ```sql
+    SELECT * FROM table LIMIT 5;
+    ```
+
+```
+
 ## Verbs
 
 *   `Click` a button in a graphical user interface using a mouse. Do not `Click on`.
@@ -218,6 +256,12 @@ device.
 
 ### F
 
+*Fail over*
+: Use as a verb
+
+*Failover*
+: Use as a noun or adjective.
+
 *File system*
 : Two words.
 
@@ -256,6 +300,9 @@ device.
 
 ### M
 
+*Master/Slave*
+: Do not use. Use "Primary" and "Secondary" instead.
+
 ### N
 
 *Next*
@@ -273,6 +320,17 @@ device.
 &#128077; "When you have finished the installation, you can."
 
 ### P
+
+*Postgres*
+: Do not use. Use "PostgreSQL" instead.
+
+&#10060; "Run the Postgres query"
+
+&#128077; "Run the PostgreSQL query."
+
+*PostgreSQL*
+: Always refer to PostgreSQL by its full name and with correct capitalization,
+as shown.
 
 *Previous*
 : Avoid all directional words. You cannot guarantee that things will stay in the
@@ -350,6 +408,14 @@ prepatory backups, and planned downtime.
 
 ### V
 
+*Vanilla PostgreSQL*
+: Do not use. If you want to differentiate between regular PostgreSQL tables,
+and tables that contain time-series, use "standard PostgreSQL".
+
+&#10060; "You can also create services that run vanilla PostgreSQL."
+
+&#128077; "You can also create services that run standard PostgreSQL."
+
 *Via*
 : Avoid if possible. There is usually a more accurate English word, like
 "through," "with," or "using."
@@ -374,3 +440,4 @@ Always write in simple present tense.
 [github-docs]: https://github.com/timescale/docs
 [google-style]: https://developers.google.com/style
 [readme]: https://github.com/timescale/docs#readme
+[prismjs]: https://prismjs.com/#supported-languages

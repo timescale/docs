@@ -2,7 +2,7 @@
 api_name: rollup()
 excerpt: Roll up multiple `TimeWeightSummaries`
 topics: [hyperfunctions]
-keywords: [rollup, time-weighted, hyperfunctions, toolkit]
+keywords: [time-weighted, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

@@ -2,7 +2,7 @@
 api_name: rollup()
 excerpt: Roll up multiple hyperloglogs
 topics: [hyperfunctions]
-keywords: [rollup, hyperloglog, hyperfunctions, toolkit]
+keywords: [hyperloglog, hyperfunctions, Toolkit]
 tags: [approximate, count, distinct]
 api:
   license: community

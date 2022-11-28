@@ -2,7 +2,7 @@
 api_name: stddev()
 excerpt: Calculate the standard deviation from a one-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [standard deviation]
 api:
   license: community

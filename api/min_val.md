@@ -2,7 +2,7 @@
 api_name: min_val()
 excerpt: Calculate the minimum from values in a `tdigest`
 topics: [hyperfunctions]
-keywords: [tdigest, hyperfunctions, toolkit]
+keywords: [tdigest, hyperfunctions, Toolkit]
 tags: [minimum, percentiles]
 api:
   license: community

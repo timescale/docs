@@ -5,7 +5,7 @@ excerpt: Start a TimescaleDB instance on Managed Service for TimescaleDB
 product: mst
 section: install
 order: 2
-keywords: [install]
+keywords: [installation]
 ---
 
 import MSTIntro from "versionContent/_partials/_mst-intro.mdx";

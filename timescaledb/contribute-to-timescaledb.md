@@ -1,7 +1,8 @@
 ---
 title: Contribute to TimescaleDB
 excerpt: Learn more about how to contribute to TimescaleDB
-tags: [contribute, github]
+keywords: [contribute]
+tags: [github]
 ---
 
 # Contributing to TimescaleDB
@@ -18,12 +19,14 @@ find errors or would like to add content to our docs, this tutorial
 walks you through the process.
 
 ### Making minor changes
+
 If you want to make only minor changes to docs, you can make corrections
 and submit pull requests on the GitHub website. Go to the file you want to
 correct and click the 'pencil' icon to edit. Once done, GitHub gives you
 an option to submit a pull request at the bottom of the page.
 
 ### Making larger contributions to docs
+
 In order to modify documentation, you should have a working knowledge
 of [git][install-git] and [Markdown][markdown-tutorial]. You
 also need to create a GitHub account.
@@ -39,14 +42,14 @@ can ensure that the community is free and confident in its
 ability to use your contributions. You are prompted to sign the
 CLA during the pull request process.
 
-
 ## Contributing to TimescaleDB code
 
 Timescale appreciates any help the community can provide to make TimescaleDB better!
 
 There are multiple ways you can help:
- * Open an issue with a bug report, build issue, feature request, suggestion, etc.
- * Fork this repository and submit a pull request
+
+*   Open an issue with a bug report, build issue, feature request, suggestion, etc.
+*   Fork this repository and submit a pull request
 
 [Head over to our GitHub repository][github-timescaledb] for TimescaleDB to learn more about how you
 can help and to review our coding style guide!

@@ -2,7 +2,7 @@
 api_name: locf()
 excerpt: Carry the last-seen value forward when gapfilling
 topics: [hyperfunctions]
-keywords: [gapfill, interpolate, hyperfunctions, toolkit]
+keywords: [gapfilling, interpolate, hyperfunctions, Toolkit]
 tags: [missing values]
 api:
   license: community

@@ -2,7 +2,7 @@
 api_name: rollup()
 excerpt: Roll up multiple percentile aggregates, `uddsketch`es, or `tdigest`s
 topics: [hyperfunctions]
-keywords: [rollup, percentiles, hyperfunctions, toolkit]
+keywords: [percentiles, hyperfunctions, Toolkit]
 tags: [uddsketch, tdigest]
 api:
   license: community

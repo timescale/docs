@@ -1,7 +1,7 @@
 ---
 title: Backup and restore
 excerpt: Learn how to back up and restore your TimescaleDB instance
-keywords: [backup, restore]
+keywords: [backups, restore]
 tags: [recovery]
 ---
 
@@ -11,9 +11,9 @@ TimescaleDB takes advantage of the reliable backup and restore functionality
 provided by PostgreSQL. There are a few different mechanisms you can use to
 backup your self-hosted TimescaleDB database:
 
-- Logical backups with [pg_dump and pg_restore][logical-backups].
-- [Physical backups][physical-backups] with `pg_basebackup` or another tool.
-- _DEPRECATED_ [Ongoing physical backups][ongoing-physical-backups] using write-ahead log
+*   Logical backups with [pg_dump and pg_restore][logical-backups].
+*   [Physical backups][physical-backups] with `pg_basebackup` or another tool.
+*   _DEPRECATED_ [Ongoing physical backups][ongoing-physical-backups] using write-ahead log
   (WAL) archiving.
 
 <highlight type="cloud" header="Forget about manually creating and maintaining backups" button="Try for free">
@@ -22,7 +22,6 @@ you might find the automatic backups on Timescale Cloud useful. In addition to a
 the platform also handles automatic restore from backups with no user action required.
 [Learn more](https://docs.timescale.com/cloud/latest/backup-restore-cloud/) about backup
 and restore in Timescale Cloud or [test it out yourself](http://tsdb.co/cloud-signup) with a free trial.
-
 </highlight>
 
 [logical-backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/pg-dump-and-restore/

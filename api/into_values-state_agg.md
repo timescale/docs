@@ -2,7 +2,7 @@
 api_name: into_values()
 excerpt: Calculate all state durations from a state aggregate
 topics: [hyperfunctions]
-keywords: [duration, states, hyperfunctions, toolkit]
+keywords: [duration, states, hyperfunctions, Toolkit]
 api:
   license: community
   type: function

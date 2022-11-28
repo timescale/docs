@@ -2,7 +2,7 @@
 api_name: percentile_agg()
 excerpt: Aggregate data into a percentile aggregate for further analysis
 topics: [hyperfunctions]
-keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+keywords: [percentiles, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
