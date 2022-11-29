@@ -1,0 +1,49 @@
+---
+api_name: max_val()
+excerpt: Get the maximum value from a `tdigest`
+topics: [hyperfunctions]
+api:
+  license: community
+  type: function
+  toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
+hyperfunction:
+  family: percentile approximation
+  type: accessor
+  aggregates:
+    - tdigest()
+api_details:
+  summary: >
+    Get the maximum value from a `tdigest`. This accessor allows you to
+    calculate the maximum alongside percentiles, without needing to create
+    two separate aggregates from the same raw data.
+  signatures:
+    - code: |
+        max_val(
+          digest TDigest
+        ) RETURNS DOUBLE PRECISION
+  parameters:
+    required:
+      - name: digest
+        type: TDigest
+        description: The digest to extract the max value from.
+    returns:
+      - column: max_val
+        type: DOUBLE PRECISION
+        description: The maximum value entered into the `tdigest`.
+  examples:
+    - description: >
+        Get the maximum of the integers from 1 to 100.
+      command:
+        code: |
+          SELECT max_val(tdigest(100, data))
+            FROM generate_series(1, 100) data;
+      return:
+        code: |
+          max_val
+          ---------
+              100
+---
+
