@@ -17,7 +17,7 @@ cleanup and `freezing` of old rows. This ensures that existing rows are visible
 when more transactions are created. You can manually freeze the old rows by
 executing `VACUUM FREEZE`. It can also be done automatically using the
 `autovacuum` daemon when a configured number of transactions has been created
-since the last point of freeze.
+since the last freeze point.
 
 In Managed Service for Timescale Cloud, the limit to scale is set according to
 the size of the database up to 1.5 billion transactions. This ensures 500
