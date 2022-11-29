@@ -13,7 +13,7 @@ that row to other concurrent transactions. The transaction ID is a 32-bit number
 where two billion IDs are always in the visible past and the remaining IDs are
 reserved for future transactions and are not visible to the running transaction.
 To avoid a transaction wraparound of old rows, PostgreSQL requires occasional
-cleanup and `freezing` of old rows. This ensures that existing rows are visible
+cleanup and freezing of old rows. This ensures that existing rows are visible
 when more transactions are created. You can manually freeze the old rows by
 executing `VACUUM FREEZE`. It can also be done automatically using the
 `autovacuum` daemon when a configured number of transactions has been created
