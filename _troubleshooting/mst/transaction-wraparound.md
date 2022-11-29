@@ -2,7 +2,6 @@
 title: PostgreSQL transaction ID wraparound
 section: troubleshooting
 products: [mst]
-topics: [transaction ID]
 keywords: [transaction ID, freezing, autovacuum, control mechanism]
 tags: [tshoot, ]
 ---
