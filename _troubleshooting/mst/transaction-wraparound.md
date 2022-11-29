@@ -10,7 +10,7 @@ tags: [tshoot, ]
 The transaction control mechanism in PostgreSQL assigns a transaction ID to
 every row that is modified in the database; these IDs control the visibility of
 that row to other concurrent transactions. The transaction ID is a 32-bit number
-where two billion IDs are always in the `visible past` and the remaining IDs are
+where two billion IDs are always in the visible past and the remaining IDs are
 reserved for future transactions and are not visible to the running transaction.
 To avoid a transaction wraparound of old rows, PostgreSQL requires occasional
 cleanup and `freezing` of old rows. This ensures that existing rows are visible
