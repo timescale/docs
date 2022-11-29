@@ -2,21 +2,18 @@
 api_name: uddsketch()
 excerpt: Aggregate data in a `uddsketch` for further calculation of percentile estimates
 topics: [hyperfunctions]
-keywords: [percentiles, hyperfunctions, toolkit]
+keywords: [percentiles, hyperfunctions, Toolkit]
 tags: [uddsketch]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'advanced aggregation'
-hyperfunction_type: aggregate
 ---
 
 # uddsketch() <tag type="toolkit">Toolkit</tag>

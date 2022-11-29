@@ -2,22 +2,17 @@
 api_name: topn_agg()
 excerpt: Aggregate data in a top N aggregate for further calculation of most frequent values
 topics: [hyperfunctions]
-keywords: [frequency, top N, aggregate, hyperfunctions, toolkit]
+keywords: [frequency, top N, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.6.0
 hyperfunction:
   family: frequency analysis
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: SpaceSavingAggregate
-hyperfunction_type: aggregate
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

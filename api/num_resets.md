@@ -2,23 +2,20 @@
 api_name: num_resets()
 excerpt: Calculate the total number of times a counter is reset
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [resets, count]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.2.0
+    stable: 1.3.0
 hyperfunction:
   family: metric aggregation
   type: accessor
   aggregates:
     - counter_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
 # num_resets() <tag type="toolkit" content="Toolkit" />

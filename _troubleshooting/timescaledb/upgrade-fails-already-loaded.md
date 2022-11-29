@@ -6,7 +6,7 @@ errors:
   - language: sql
     message: |-
       ERROR: extension "timescaledb" cannot be updated after the old version has already been loaded
-keywords: [upgrade]
+keywords: [upgrades]
 tags: [upgrade]
 ---
 

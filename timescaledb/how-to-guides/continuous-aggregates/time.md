@@ -1,10 +1,11 @@
 ---
 title: Time and continuous aggregates
 excerpt: How to work with timezones and continuous aggregates
-keywords: [continuous aggregates, timezones]
+keywords: [continuous aggregates]
 ---
 
 # Time and continuous aggregates
+
 Functions that depend on a local timezone setting inside a continuous aggregate
 are not supported. You cannot adjust to a local time because the timezone setting
 changes from user to user.
@@ -14,12 +15,15 @@ Alternatively, you can create your own custom aggregation scheme for tables that
 use an integer time column.
 
 ## Declare an explicit timezone
+
 The most common method of working with timezones is to declare an explicit timezone in the view query.
 
 <procedure>
 
 ### Declaring an explicit timezone
+
 1.  At the `psql`prompt, create the view and declare the timezone:
+
     ```sql
     CREATE MATERIALIZED VIEW device_summary
     WITH (timescaledb.continuous)
@@ -34,7 +38,9 @@ The most common method of working with timezones is to declare an explicit timez
       device_readings
     GROUP BY bucket, device_id;
     ```
+
 1.  Alternatively, you can cast to a timestamp after the view using `SELECT`:
+
     ```sql
     SELECT min_time::timestamp FROM device_summary;
     ```
@@ -42,6 +48,7 @@ The most common method of working with timezones is to declare an explicit timez
 </procedure>
 
 ## Integer-based time
+
 Date and time is usually expressed as year-month-day and hours:minutes:seconds.
 Most TimescaleDB databases use a [date/time-type][postgres-date-time] column to
 express the date and time. However, in some cases, you might need to convert
@@ -62,7 +69,9 @@ minutes.
 <procedure>
 
 ### Creating a table with a custom integer-based time column
+
 1.  At the `psql` prompt, create a table and define the integer-based time column:
+
     ```sql
     CREATE TABLE devices(
       time BIGINT,        -- Time in microfortnights since epoch
@@ -71,7 +80,9 @@ minutes.
       PRIMARY KEY (time)
     );
     ```
+
 1.  Define the chunk time interval:
+
     ```sql
     SELECT create_hypertable('devices', 'time',
       chunk_time_interval => 1000);
@@ -84,16 +95,20 @@ To define a continuous aggregate on a hypertable that uses integer-based time, y
 <procedure>
 
 ### Creating a continuous aggregate with integer-based time
+
 1.  At the `psql` prompt, set up a function to convert the time to the FFF system:
+
     ```sql
     CREATE FUNCTION current_microfortnight() RETURNS BIGINT
     LANGUAGE SQL STABLE AS $$
-	   SELECT CAST(1209600 * EXTRACT(EPOCH FROM CURRENT_TIME) / 1000000 AS BIGINT)
+    SELECT CAST(1209600 * EXTRACT(EPOCH FROM CURRENT_TIME) / 1000000 AS BIGINT)
      $$;
 
      SELECT set_integer_now_func('devices', 'current_microfortnight');
      ```
+
 1.  Create the continuous aggregate for the `devices` table:
+
     ```sql
     CREATE MATERIALIZED VIEW devices_summary
     WITH (timescaledb.continuous) AS
@@ -103,18 +118,22 @@ To define a continuous aggregate on a hypertable that uses integer-based time, y
     FROM devices
     GROUP BY bucket;
     ```
+
 1.  Insert some rows into the table:
+
     ```sql
     CREATE EXTENSION tablefunc;
 
     INSERT INTO devices(time, cpu_usage, disk_usage)
     SELECT time,
        normal_rand(1,70,10) AS cpu_usage,
-	     normal_rand(1,2,1) * (row_number() over()) AS disk_usage
+      normal_rand(1,2,1) * (row_number() over()) AS disk_usage
     FROM generate_series(1,10000) AS time;
     ```
+
     This command uses the `tablefunc` extension to generate a normal distribution, and uses the `row_number` function to turn it into a cumulative sequence.
 1.  Check that the view contains the correct data:
+
     ```sql
     postgres=# SELECT * FROM devices_summary ORDER BY bucket LIMIT 10;
     bucket |       avg_cpu       |       avg_disk

@@ -2,24 +2,19 @@
 api_name: integral()
 excerpt: Calculate the time-weighted integral of values in a `TimeWeightSummary`
 topics: [hyperfunctions]
-keywords: [average, time-weighted, hyperfunctions, toolkit]
+keywords: [average, time-weighted, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.11.0
 hyperfunction:
   family: time-weighted averages
   type: accessor
   aggregates:
     - time_weight()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: accessor
 ---
 
 # integral() <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
@@ -45,6 +40,7 @@ This function is similar to [`average`][hyperfunctions-average] but doesn't divi
 |`tws`|`TimeWeightSummary`|The input TimeWeightSummary from a [`time_weight`][time_weight] call|
 
 ### Optional arguments
+
 |Name|Type|Description|
 |-|-|-|
 |`unit`|`TEXT`|The unit of time to express the integral in. Can be `microsecond`/`millisecond`/`second`/`minute`/`hour` or any alias for those units supported by PostgreSQL. If `NULL`, defaults to `second`.|

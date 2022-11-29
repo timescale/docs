@@ -97,7 +97,7 @@ queries to run efficiently.
     CREATE MATERIALIZED VIEW cagg_rides_view
     WITH (timescaledb.continuous) AS
     SELECT vendor_id,
-    time_bucket('1h', pickup_datetime) AS day,
+    time_bucket('1h', pickup_datetime) AS hour,
       count(*) total_rides,
       avg(fare_amount) avg_fare,
       max(trip_distance) as max_trip_distance,

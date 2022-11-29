@@ -2,24 +2,21 @@
 api_name: error()
 excerpt: Get the maximum relative error for a percentile estimate
 topics: [hyperfunctions]
-keywords: [percentiles, hyperfunctions, toolkit]
+keywords: [percentiles, hyperfunctions, Toolkit]
 tags: [relative error]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: accessor
   aggregates:
     - percentile_agg()
     - uddsketch()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: accessor
 ---
 
 # error()  <tag type="toolkit">Toolkit</tag>

@@ -1,7 +1,7 @@
 ---
 title: Compare TimescaleDB editions
 excerpt: Compare different editions of TimescaleDB
-keywords: [Apache, community, features]
+keywords: [Apache, community, license]
 tags: [learn, contribute]
 ---
 

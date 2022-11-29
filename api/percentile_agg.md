@@ -2,20 +2,17 @@
 api_name: percentile_agg()
 excerpt: Aggregate data into a percentile aggregate for further analysis
 topics: [hyperfunctions]
-keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+keywords: [percentiles, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.2.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'percentile approximation'
-hyperfunction_type: aggregate
 ---
 
 # percentile_agg()  <tag type="toolkit">Toolkit</tag>

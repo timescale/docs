@@ -2,24 +2,21 @@
 api_name: corr()
 excerpt: Calculate the correlation coefficient from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [correlation coefficient, counters, hyperfunctions, toolkit]
+keywords: [correlation coefficient, counters, hyperfunctions, Toolkit]
 tags: [least squares, linear regression]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.2.0
+    stable: 1.3.0
 hyperfunction:
   family: metric aggregation
   type: accessor
   aggregates:
     - counter_agg()
     - gauge_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
 # corr() <tag type="toolkit" content="Toolkit" />

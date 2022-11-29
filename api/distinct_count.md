@@ -2,24 +2,21 @@
 api_name: distinct_count()
 excerpt: Estimate the number of distinct values from values in a hyperloglog
 topics: [hyperfunctions]
-keywords: [count, hyperfunctions, toolkit]
+keywords: [count, hyperfunctions, Toolkit]
 tags: [approximate, distinct, hyperloglog]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.3.0
 hyperfunction:
   family: approximate count distinct
   type: accessor
   aggregates:
     - approx_count_distinct()
     - hyperloglog()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'approximate count distinct'
-hyperfunction_subfamily: hyperloglog
-hyperfunction_type: accessor
 ---
 
 # distinct_count()  <tag type="toolkit">Toolkit</tag>

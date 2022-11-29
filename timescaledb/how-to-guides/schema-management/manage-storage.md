@@ -7,7 +7,7 @@ tags: [move, manage, chunks]
 
 # Manage storage using tablespaces
 
-If you are running TimescaleDB on your own hardware, you can save storage 
+If you are running TimescaleDB on your own hardware, you can save storage
 by moving chunks between tablespaces. By moving older chunks to cheaper, slower
 storage, you can save on storage costs while still using faster, more expensive
 storage for frequently accessed data. Moving infrequently accessed chunks can
@@ -15,10 +15,10 @@ also improve performance, because it isolates historical data from the continual
 read-and-write workload of more recent data.
 
 <highlight type="note">
-Data tiering is one way to manage data storage costs with TimescaleDB. You can
-also use [compression](/timescaledb/latest/how-to-guides/compression) and [data
-retention](/timescaledb/latest/how-to-guides/data-retention) to reduce your
-storage requirements.
+Using tablespaces is one way to manage data storage costs with TimescaleDB. You
+can also use [compression](/timescaledb/latest/how-to-guides/compression) and
+[data retention](/timescaledb/latest/how-to-guides/data-retention) to reduce
+your storage requirements.
 </highlight>
 
 ## Move data

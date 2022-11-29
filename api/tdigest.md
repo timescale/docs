@@ -2,21 +2,18 @@
 api_name: tdigest()
 excerpt: Aggregate data in a `tdigest` for further calculation of percentile estimates
 topics: [hyperfunctions]
-keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+keywords: [percentiles, aggregate, hyperfunctions, Toolkit]
 tags: [tdigest]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.0.0
 hyperfunction:
   family: percentile approximation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'percentile approximation'
-hyperfunction_subfamily: 'advanced aggregation'
-hyperfunction_type: aggregate
 ---
 
 # tdigest() <tag type="toolkit">Toolkit</tag>

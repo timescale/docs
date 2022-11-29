@@ -8,18 +8,13 @@ api:
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.11.0
 hyperfunction:
   family: time-weighted averages
   type: accessor
   aggregates:
     - time_weight()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'time-weighted averages'
-hyperfunction_subfamily: 'time-weighted averages'
-hyperfunction_type: accessor
 ---
 
 # interpolated_integral() <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
@@ -79,6 +74,7 @@ This function is similar to [`interpolated_average`][hyperfunctions-interpolated
 |`interpolated_integral`|`DOUBLE PRECISION`|The time-weighted integral for the interval (`start`, `start` + `interval`) computed from the `TimeWeightSummary` plus end points interpolated from `prev` and `next`|
 
 ### Sample usage
+
 ```SQL
 -- Create a table to track irregularly sampled storage usage
 CREATE TABLE user_storage_usage(ts TIMESTAMP, storage_bytes BIGINT);

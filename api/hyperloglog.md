@@ -2,21 +2,18 @@
 api_name: hyperloglog()
 excerpt: Aggregate data into a hyperloglog for approximate counting
 topics: [hyperfunctions]
-keywords: [count, hyperloglog, hyperfunctions, toolkit]
+keywords: [count, hyperloglog, hyperfunctions, Toolkit]
 tags: [approximate, distinct]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.3.0
 hyperfunction:
   family: approximate count distinct
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'approximate count distinct'
-hyperfunction_subfamily: hyperloglog
-hyperfunction_type: aggregate
 ---
 
 # hyperloglog()  <tag type="toolkit">Toolkit</tag>

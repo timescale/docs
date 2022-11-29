@@ -2,24 +2,21 @@
 api_name: rollup()
 excerpt: Roll up multiple hyperloglogs
 topics: [hyperfunctions]
-keywords: [rollup, hyperloglog, hyperfunctions, toolkit]
+keywords: [hyperloglog, hyperfunctions, Toolkit]
 tags: [approximate, count, distinct]
 api:
   license: community
   type: function
   toolkit: true
+  version:
+    experimental: 0.1.0
+    stable: 1.3.0
 hyperfunction:
   family: approximate count distinct
   type: rollup
   aggregates:
     - approx_count_distinct()
     - hyperloglog()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'approximate count distinct'
-hyperfunction_subfamily: hyperloglog
-hyperfunction_type: rollup
 ---
 
 # rollup()  <tag type="toolkit">Toolkit</tag>

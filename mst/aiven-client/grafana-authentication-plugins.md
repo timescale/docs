@@ -2,6 +2,7 @@
 title: Integrate authentication plugins in Grafana
 excerpt: Configure Google, GitHub, or GitLab authentication plugins for Grafana
 product: mst
+keywords: [integration]
 ---
 
 # Grafana authentication plugins

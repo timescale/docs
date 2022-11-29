@@ -1,11 +1,12 @@
 ---
 title: Advanced percentile aggregation
 excerpt: Choose an approximation algorithm for calculating percentiles
-keywords: [percentiles, aggregate, hyperfunctions, toolkit]
+keywords: [percentiles, aggregate, hyperfunctions, Toolkit]
 tags: [approximate]
 ---
 
 # Advanced percentile aggregation <tag type="toolkit">Toolkit</tag>
+
 Timescale uses approximation algorithms to calculate a percentile without
 requiring all of the data. This also makes them more compatible with continuous
 aggregates. By default, Timescale Toolkit uses `uddsketch`, but you can also

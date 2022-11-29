@@ -2,22 +2,17 @@
 api_name: gp_lttb()
 excerpt: An implementation of our lttb algorithm that will preserve gaps in the original data
 topics: [hyperfunctions]
-keywords: [downsample, smooth, hyperfunctions, toolkit]
+keywords: [downsample, smooth, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
   experimental: true
   toolkit: true
+  version:
+    experimental: 1.11.0
 hyperfunction:
   family: downsample
   type: one-step aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'downsample'
-hyperfunction_subfamily: 'downsample'
-hyperfunction_type: other
 ---
 
 # gp_lttb()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>

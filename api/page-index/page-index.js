@@ -373,96 +373,63 @@ module.exports = [
             ],
           },
           {
-            title: "Statistical aggregates",
-            type: "directory",
-            href: "stats_aggs",
+            title: "Statistical and regression analysis",
+            href: "statistical-and-regression-analysis",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "stats_agg",
-                href: "stats_agg",
+                title: "stats_agg (one variable)",
+                href: "stats_agg-one-variable",
+                type: "placeholder",
               },
               {
-                title: "rolling",
-                href: "rolling-stats",
+                title: "stats_agg (two variables)",
+                href: "stats_agg-two-variables",
+                type: "placeholder",
+              },
+            ],
+          },
+          {
+            title: "Minimum and maximum",
+            href: "minimum-and-maximum",
+            type: "redirect-to-child-page",
+            children: [
+              {
+                title: "min_n",
+                href: "min_n",
+                type: "placeholder",
               },
               {
-                title: "rollup",
-                href: "rollup-stats",
+                title: "max_n",
+                href: "max_n",
+                type: "placeholder",
               },
               {
-                title: "average / average_y / average_x",
-                href: "average-stats",
+                title: "min_n_by",
+                href: "min_n_by",
+                type: "placeholder",
               },
               {
-                title: "corr (correlation coefficient)",
-                href: "corr-stats",
-              },
-              {
-                title: "covariance",
-                href: "covariance",
-              },
-              {
-                title: "determination_coeff (R squared)",
-                href: "determination_coeff",
-              },
-              {
-                title: "intercept",
-                href: "intercept-stats",
-              },
-              {
-                title: "kurtosis / kurtosis_y / kurtosis_x",
-                href: "kurtosis",
-              },
-              {
-                title: "num_vals",
-                href: "num_vals-stats",
-              },
-              {
-                title: "skewness / skewness_y / skewness_x",
-                href: "skewness",
-              },
-              {
-                title: "stddev / stddev_y / stddev_x",
-                href: "stddev",
-              },
-              {
-                title: "slope",
-                href: "slope-stats",
-              },
-              {
-                title: "sum/ sum_y / sum_x",
-                href: "sum-stats",
-              },
-              {
-                title: "variance / variance_y / variance_x",
-                href: "variance",
-              },
-              {
-                title: "x_intercept",
-                href: "x_intercept",
+                title: "max_n_by",
+                href: "max_n_by",
+                type: "placeholder",
               },
             ],
           },
           {
             title: "Financial analysis",
-            type: "directory",
             href: "financial-analysis",
+            type: "redirect-to-child-page",
             children: [
+              {
+                title: "candlestick_agg",
+                href: "candlestick_agg",
+                type: "placeholder",
+              },
               {
                 title: "ohlc",
                 href: "ohlc",
-              },
-              {
-                title: "open, high, low, close",
-                href: "open-high-low-close",
-              },
-              {
-                title: "open_time, high_time, low_time, close_time",
-                href: "open-high-low-close-time",
-              },
-              {
-                title: "rollup",
-                href: "rollup",
+                type: "placeholder",
               },
             ],
           },
@@ -691,8 +658,8 @@ module.exports = [
                 href: "lttb",
               },
               {
-                title: 'gp_lttb',
-                href: 'gp_lttb',
+                title: "gp_lttb",
+                href: "gp_lttb",
               },
             ],
           },

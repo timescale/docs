@@ -7,6 +7,8 @@ tags: [time buckets, date_trunc]
 api:
   license: apache
   type: function
+  version:
+    stable: 0.0.10-beta
 hyperfunction:
   type: bucket
 ---
