@@ -17,7 +17,7 @@ architecture with just two components: the Promscale Connector and the
 Promscale Database (PostgreSQL with the TimescaleDB and Promscale extensions).
 
 <highlight type="cloud" header="Promscale with Timescale Cloud" button="Get started for free"
-to="https://console.cloud.timescale.com/signup?campaign=promscale&source=docs-install-page">
+to="https://console.cloud.timescale.com/signup?campaign=promscale&source=ps-docs-home">
 The best way to use Promscale is with Timescale Cloud, our fully hosted and managed
 database platform. Enjoy all the best features of Promscale without the
 hassle of managing your database—with automatic backups and failover, high
