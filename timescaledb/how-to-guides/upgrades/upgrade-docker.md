@@ -139,7 +139,7 @@ data.
     ```
 
 <highlight type="note">
-If you have multiple databases, you need to each database separately.
+If you have multiple databases, you need to update each database separately.
 </highlight>
 
 </procedure>
