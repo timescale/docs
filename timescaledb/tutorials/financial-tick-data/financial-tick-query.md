@@ -157,7 +157,7 @@ WITH (timescaledb.continuous) AS
         LAST(price, time) AS "close",
         LAST(day_volume, time) AS day_volume
     FROM crypto_ticks
-    GROUP BY bucket, symbol
+    GROUP BY bucket, symbol;
 ```
 
 Add a refresh policy to refresh the continuous aggregate once a day:
@@ -181,7 +181,7 @@ continuous aggregate, which has one-day candlesticks:
 ```sql
 SELECT * FROM one_day_candle
 WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '14 days'
-ORDER BY bucket
+ORDER BY bucket;
 ```
 
 ![1-day candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_day.png)
