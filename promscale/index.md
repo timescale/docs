@@ -8,7 +8,7 @@ product: promscale
 Promscale is a unified metric and trace observability backend for Prometheus,
 Jaeger, and OpenTelemetry. It is built on PostgreSQL and TimescaleDB.
 
-Promscale serves as a robust and 100% PromQL-compliant Prometheus remote
+Promscale provides robust and 100% PromQL-compliant Prometheus remote
 storage. Promscale is a certified Jaeger storage backend that is durable and scalable.
 
 Unlike other observability backends, it has a simple and easy-to-manage
