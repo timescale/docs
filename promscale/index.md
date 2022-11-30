@@ -6,27 +6,29 @@ product: promscale
 
 # Promscale
 Promscale is a unified metric and trace observability backend for Prometheus,
-Jaeger and OpenTelemetry built on PostgreSQL and TimescaleDB.
+Jaeger, and OpenTelemetry. It is built on PostgreSQL and TimescaleDB.
 
 Promscale serves as a robust and 100% PromQL-compliant Prometheus remote
-storage and as a durable and scalable Jaeger storage backend. Promscale is a
-certified Jaeger storage backend.
+storage. Promscale is a certified Jaeger storage backend that is durable and scalable.
 
 Unlike other observability backends, it has a simple and easy-to-manage
 architecture with just two components: the Promscale Connector and the
-Promscale Database (PostgreSQL with the TimescaleDB and Promscale extensions).
+Promscale database. The Promscale database consists of PostgreSQL with the 
+TimescaleDB and Promscale extensions.
 
 <highlight type="cloud" header="Promscale with Timescale Cloud" button="Get started for free"
 to="https://console.cloud.timescale.com/signup?campaign=promscale&source=ps-docs-home">
-The best way to use Promscale is with Timescale Cloud, our fully hosted and managed
+The best way to use Promscale is with Timescale Cloud, a fully hosted and managed
 database platform. Enjoy all the best features of Promscale without the
-hassle of managing your database—with automatic backups and failover, high
+hassle of managing your database. Timescale Cloud provides automatic 
+backups and failover, high
 availability, flexible scaling, security and data compliance, VPC peering, and
-much more. Get cost savings up to 94% compared to managed Prometheus offerings from
+much more. Get cost savings of up to 94% compared to managed Prometheus offerings from
 AWS, GCP and Grafana.
 </highlight>
 
-See the [Promscale with Timescale Cloud installation guide][ptc-install] for details.
+For more information about using Promscale with Timescale Cloud, see the 
+[Promscale installation guide][ptc-install] for details.
 
 *   [Quick start Promscale][quick-start] to get started with Promscale in no time.
 *   [Learn about Promscale][about-promscale] to understand how it works before
