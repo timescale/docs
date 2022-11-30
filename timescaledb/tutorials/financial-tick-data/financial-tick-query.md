@@ -27,206 +27,112 @@ In TimescaleDB, the most efficient way to create candlestick views is to use
 In this tutorial, you'll create a continuous aggregate for a candlestick time
 bucket, and then query the aggregate with different refresh policies.
 
-## Create and query a 1-minute candlestick
+## Create a continuous aggregate
 
-To create a continuous aggregate of 1-minute candlestick data, use the same query
-that you previously used to get the 1-minute OHLCV values. But this time, put the
-query in a continuous aggregate definition:
+To look at 1 minute OHLCV values, the most effective way is to create a
+continuous aggregate. The continuous aggregate can then be set to refresh every
+two minutes, so that you have updated data to access.
 
-```sql
-/* 1-min candlestick view*/
-CREATE MATERIALIZED VIEW one_min_candle
-WITH (timescaledb.continuous) AS
-    SELECT
-        time_bucket('1 min', time) AS bucket,
-        symbol,
-        FIRST(price, time) AS "open",
-        MAX(price) AS high,
-        MIN(price) AS low,
-        LAST(price, time) AS "close",
-        LAST(day_volume, time) AS day_volume
-    FROM crypto_ticks
-    GROUP BY bucket, symbol;
-```
+<procedure>
 
-When you run this query, TimescaleDB queries 1-minute aggregate values of all
-your tick data, creating the continuous aggregate and materializing the
-results. But your candlestick data has only been materialized up to the
-last data point. If you want the continuous aggregate to stay up to date
-as new data comes in over time, you also need to add a continuous aggregate
-refresh policy. For example, to refresh the continuous aggregate every two
-minutes:
+### Creating a continuous aggregate
 
-```sql
-/* Refresh the continuous aggregate every two minutes */
-SELECT add_continuous_aggregate_policy('one_min_candle',
-    start_offset => INTERVAL '2 hour',
-    end_offset => INTERVAL '10 sec',
-    schedule_interval => INTERVAL '2 min');
-```
+1.  Connect to the Timescale Cloud database that contains the Twelve Data
+    cryptocurrency dataset.
 
-The continuous aggregate refreshes every hour, so every hour new
-candlesticks are materialized, **if there's new raw tick data in the hypertable**.
+1.  At the psql prompt, create the continuous aggregate to aggregate data every
+    minute:
 
-When this job runs, it only refreshes the time period between `start_offset`
-and `end_offset`, and ignores modifications outside of this window.
+    ```sql
+    CREATE MATERIALIZED VIEW one_min_candle
+    WITH (timescaledb.continuous) AS
+        SELECT
+            time_bucket('1 min', time) AS bucket,
+            symbol,
+            FIRST(price, time) AS "open",
+            MAX(price) AS high,
+            MIN(price) AS low,
+            LAST(price, time) AS "close",
+            LAST(day_volume, time) AS day_volume
+        FROM crypto_ticks
+        GROUP BY bucket, symbol;
+    ```
 
-In most cases, set `end_offset` to be the same or bigger as the
-time bucket in the continuous aggregate definition. This makes sure that only full
-buckets get materialized during the  refresh process.
+1.  Set a refresh policy to update the continuous aggregate every two minutes, if there is new data available in the hypertable:
 
-## 1-min BTC/USD candlestick chart
+    ```sql
+    SELECT add_continuous_aggregate_policy('one_min_candle',
+        start_offset => INTERVAL '2 hour',
+        end_offset => INTERVAL '10 sec',
+        schedule_interval => INTERVAL '2 min');
+    ```
 
-Start with a `one_min_candle` continuous aggregate, which contains
-1-min candlesticks:
+</procedure>
 
-```sql
-SELECT * FROM one_min_candle
-WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '24 hour'
-ORDER BY bucket;
-```
+## Query the continuous aggregate
 
-![1-min candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_min.png)
+When you have your continuous aggregate set up, you can query it to get the
+OHLCV values.
 
-### Create and query a 1-hour candlestick
+<procedure>
 
-To create a 1-hour candlestick view, follow the same process as
-in the previous step, except this time set the time bucket value to be one
-hour in the continuous aggregate definition:
+### Querying the continuous aggregate
 
-```sql
-/* 1-hour candlestick view */
-CREATE MATERIALIZED VIEW one_hour_candle
-WITH (timescaledb.continuous) AS
-    SELECT
-        time_bucket('1 hour', time) AS bucket,
-        symbol,
-        FIRST(price, time) AS "open",
-        MAX(price) AS high,
-        MIN(price) AS low,
-        LAST(price, time) AS "close",
-        LAST(day_volume, time) AS day_volume
-    FROM crypto_ticks
-    GROUP BY bucket, symbol
-```
+1.  Connect to the Timescale Cloud database that contains the Twelve Data
+    cryptocurrency dataset.
 
-Add a refresh policy to refresh the continuous aggregate every hour:
+1.  At the psql prompt, use this query to select all Bitcoin OHLCV data for the
+    past 24 hours, by time bucket:
 
-```sql
-/* Refresh the continuous aggregate every hour */
-SELECT add_continuous_aggregate_policy('one_hour_candle',
-    start_offset => INTERVAL '1 day',
-    end_offset => INTERVAL '1 min',
-    schedule_interval => INTERVAL '1 hour');
-```
+    ```sql
+    SELECT * FROM one_min_candle
+    WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '24 hour'
+    ORDER BY bucket;
+    ```
 
-Notice how this example uses a different refresh policy with different
-parameter values to accommodate the 1-hour time bucket in the continuous
-aggregate definition. The continuous aggregate will refresh every hour, so
-every hour there will be new candlestick data materialized, if there's
-new raw tick data in the hypertable.
+    The result of the query looks like this:
 
-## 1-hour BTC/USD candlestick chart
+    ```sql
+             bucket         | symbol  |  open   |  high   |   low   |  close  | day_volume
+    ------------------------+---------+---------+---------+---------+---------+------------
+     2022-11-26 03:58:00+00 | BTC/USD | 16615.4 | 16617.1 | 16615.1 | 16615.4 |      20729
+     2022-11-26 03:59:00+00 | BTC/USD | 16617.1 | 16617.1 | 16611.7 | 16615.4 |      20739
+     2022-11-26 04:00:00+00 | BTC/USD | 16611.7 | 16616.6 | 16611.7 | 16616.6 |      19040
+     2022-11-26 04:01:00+00 | BTC/USD | 16615.4 | 16619.8 | 16615.4 | 16617.5 |      19055
+    ```
 
-If you find that 1-min candlesticks are too granular, you can query the
-`one_hour_candle` continuous aggregate containing 1-hour candlesticks:
+</procedure>
 
-```sql
-SELECT * FROM one_hour_candle
-WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '2 day'
-ORDER BY bucket
-```
+## Graph OHLCV data
 
-![1-hour candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_hour.png)
+When you have extracted the raw OHLCV data, you can use it to graph the result
+in a candlestick chart, using Grafana. To do this, you need to have Grafana set up to connect to your TimescaleDB database.
 
-### Create and query a 1-day candlestick
+<procedure>
 
-Create the final view in this tutorial for 1-day candlesticks using the same
-process as above, using a 1-day time bucket size:
+### Graphing OHLCV data
 
-```sql
-/* 1-day candlestick */
-CREATE MATERIALIZED VIEW one_day_candle
-WITH (timescaledb.continuous) AS
-    SELECT
-        time_bucket('1 day', time) AS bucket,
-        symbol,
-        FIRST(price, time) AS "open",
-        MAX(price) AS high,
-        MIN(price) AS low,
-        LAST(price, time) AS "close",
-        LAST(day_volume, time) AS day_volume
-    FROM crypto_ticks
-    GROUP BY bucket, symbol;
-```
+1.  Ensure you have Grafana installed, and you are using the TimescaleDB
+    database that contains the Twelve Data cryptocurrency dataset set up as a
+    data source. For more information about how to do this, see [Grafana setup instructions][grafana-setup].
+1.  In Grafana, from the `Dashboards` menu, click `New Dashboard`. In the
+    `New Dashboard` page, click `Add a new panel`.
+1.  In the `Visualizations` menu in the top right corner, select `Candlestick`
+    from the list.
+1.  Ensure you have the Twelve Data cryptocurrency dataset as your data source.
+    You can use the query builder to input your query, or click `Edit SQL` and
+    past in the query you used earlier:
 
-Add a refresh policy to refresh the continuous aggregate once a day:
+    ```sql
+    SELECT * FROM one_min_candle
+    WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '24 hour'
+    ORDER BY bucket;
+    ```
 
-```sql
-/* Refresh the continuous aggregate every day */
-SELECT add_continuous_aggregate_policy('one_day_candle',
-    start_offset => INTERVAL '3 day',
-    end_offset => INTERVAL '1 day',
-    schedule_interval => INTERVAL '1 day');
-```
+1.  In the `Format as` section, select `Table`.
+1.  Adjust elements of the table as required.
 
-The refresh job runs every day, and materializes two days' worth of
-candlesticks.
-
-## 1-day BTC/USD candlestick chart
-
-To zoom out even more, query the `one_day_candle`
-continuous aggregate, which has one-day candlesticks:
-
-```sql
-SELECT * FROM one_day_candle
-WHERE symbol = 'BTC/USD' AND bucket >= NOW() - INTERVAL '14 days'
-ORDER BY bucket;
-```
-
-![1-day candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/one_day.png)
-
-## Add price change (delta) column in the candlestick view
-
-As an optional step, you can add an additional column in the continuous
-aggregate to calculate the price difference between the opening and closing
-price within the bucket.
-
-In general, you can calculate the price difference with the formula:
-
-```text
-(CLOSE PRICE - OPEN PRICE) / OPEN PRICE = delta
-```
-
-Calculate delta in SQL:
-
-```sql
-SELECT time_bucket('1 day', time) AS bucket, symbol, (LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
-FROM crypto_ticks
-WHERE price != 0
-GROUP BY bucket, symbol
-```
-
-The full continuous aggregate definition for a 1-day candlestick with a
-price-change column:
-
-```sql
-/* 1-day candlestick with price change column*/
-CREATE MATERIALIZED VIEW one_day_candle_delta
-WITH (timescaledb.continuous) AS
-    SELECT
-        time_bucket('1 day', time) AS bucket,
-        symbol,
-        FIRST(price, time) AS "open",
-        MAX(price) AS high,
-        MIN(price) AS low,
-        LAST(price, time) AS "close",
-        LAST(day_volume, time) AS day_volume,
-        (LAST(price, time)-FIRST(price, time))/FIRST(price, time) AS change_pct
-    FROM crypto_ticks
-    WHERE price != 0
-    GROUP BY bucket, symbol
-```
+![1-min candlestick](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/FIXME.png)
 
 ## BTC vs. ETH 1-day price changes delta line chart
 
@@ -261,3 +167,4 @@ refresh and query performance should work well.
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
+[grafana-setup]: FIXME
