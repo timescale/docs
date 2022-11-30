@@ -20,12 +20,11 @@ TimescaleDB and Promscale extensions.
 <highlight type="cloud" header="Promscale with Timescale Cloud" button="Get started for free"
 to="https://console.cloud.timescale.com/signup?campaign=promscale&source=ps-docs-home">
 The best way to use Promscale is with Timescale Cloud, a fully hosted and managed
-database platform. Enjoy all the best features of Promscale without the
-hassle of managing your database. Timescale Cloud provides automatic 
-backups and failover, high
-availability, flexible scaling, security and data compliance, VPC peering, and
-much more. Get cost savings of up to 94% compared to managed Prometheus offerings from
-AWS, GCP and Grafana.
+database platform. Enjoy all the best features of Promscale without the hassle
+of managing your database. Timescale Cloud provides automatic  backups and failover,
+high availability, flexible scaling, security and data compliance, VPC peering, and
+much more. Get cost savings of up to 94% compared to managed Prometheus offerings
+from AWS, GCP and Grafana.
 </highlight>
 
 For more information about using Promscale with Timescale Cloud, see the 
