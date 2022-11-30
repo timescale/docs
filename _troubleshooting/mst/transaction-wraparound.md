@@ -20,8 +20,8 @@ since the last freeze point.
 
 In Managed Service for Timescale Cloud, the limit to scale is set according to
 the size of the database, up to 1.5 billion transactions. This ensures 500
-million transaction IDs are available before a forced freeze and avoids the
-churn of stable data in existing tables. To check your transaction freeze
+million transaction IDs are available before a forced freeze and avoids
+churning stable data in existing tables. To check your transaction freeze
 limits, you can execute `show autovacuum_freeze_max_age` in your PostgreSQL
 instance. When this limit is reached, `autovacuum` starts freezing the old rows.
 Some applications may not automatically adjust their configuration based on
