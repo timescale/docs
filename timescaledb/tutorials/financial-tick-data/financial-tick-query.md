@@ -106,7 +106,8 @@ OHLCV values.
 ## Graph OHLCV data
 
 When you have extracted the raw OHLCV data, you can use it to graph the result
-in a candlestick chart, using Grafana. To do this, you need to have Grafana set up to connect to your TimescaleDB database.
+in a candlestick chart, using Grafana. To do this, you need to have Grafana set
+up to connect to your TimescaleDB database.
 
 <procedure>
 
