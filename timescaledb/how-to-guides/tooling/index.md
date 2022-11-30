@@ -9,7 +9,7 @@ common tasks.
 
 *   Automatically configure your TimescaleDB instance with
     [`timescaledb-tune`][tstune]
-*   Insert data in bulk with [`timescaledb-parallel-copy`][tscopy]
+*   Install and use [`timescaledb-parallel-copy`][tscopy] to insert data.
 
 [tscopy]: /timescaledb/:currentVersion:/how-to-guides/tooling/about-timescaledb-parallel-copy
 [tstune]: /timescaledb/:currentVersion:/how-to-guides/tooling/about-timescaledb-tune/
