@@ -1,5 +1,5 @@
 ---
-title: About timescaledb-parallel-copy
+title: Install and use timescaledb-parallel-copy
 excerpt: Speed up bulk inserts of data with an open-source tool
 keywords: [timescaledb-parallel-copy, copy]
 ---
