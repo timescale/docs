@@ -27,6 +27,6 @@ instance. When the limit is reached, `autovacuum` starts freezing the old rows.
 Some applications do not automatically adjust the configuration when the PostgreSQL 
 settings change, which can result in unnecessary warnings. For example,
 PGHero's default settings alert when 500 million transactions have been created
-instead of alerting after 1.5 billion transactions. Change the value of the
-`transaction_id_danger` setting from 1500000000 to 500000000 to receive warnings
-when the transaction limit reaches 1.5 billion.
+instead of alerting after 1.5 billion transactions. To avoid this, change the 
+value of the `transaction_id_danger` setting from 1,500,000,000 to 
+500,000,000, to receive warnings when the transaction limit reaches 1.5 billion.
