@@ -319,29 +319,14 @@ module.exports = [
             href: "month_normalize",
           },
           {
-            title: "Approximate count distincts",
-            type: "directory",
-            href: "approx_count_distincts",
+            title: "Approximate count distinct",
+            href: "approximate-count-distinct",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "hyperloglog",
                 href: "hyperloglog",
-              },
-              {
-                title: "rollup",
-                href: "rollup-hyperloglog",
-              },
-              {
-                title: "distinct_count",
-                href: "distinct_count",
-              },
-              {
-                title: "stderror",
-                href: "stderror",
-              },
-              {
-                title: "approx_count_distinct",
-                href: "approx_count_distinct",
+                type: "placeholder",
               },
             ],
           },
