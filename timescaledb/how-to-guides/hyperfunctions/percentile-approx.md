@@ -5,6 +5,7 @@ keywords: [hyperfunctions, Toolkit, percentiles]
 ---
 
 # Percentile approximation
+
 In general, percentiles are useful for understanding the distribution of data.
 The fiftieth percentile is the point at which half of your data is greater and half
 is lesser. The tenth percentile is the point at which 90% of the data is greater,
@@ -44,4 +45,4 @@ word for this type of function.
 
 [advanced-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/percentile-approx/advanced-agg/
 [blog-percentile-approx]: https://blog.timescale.com/blog/how-percentile-approximation-works-and-why-its-more-useful-than-averages/
-[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
+[hyperfunctions-api-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
