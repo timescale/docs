@@ -23,7 +23,7 @@ the size of the database, up to 1.5 billion transactions. This ensures 500
 million transaction IDs are available before a forced freeze and avoids
 churning stable data in existing tables. To check your transaction freeze
 limits, you can execute `show autovacuum_freeze_max_age` in your PostgreSQL
-instance. When this limit is reached, `autovacuum` starts freezing the old rows.
+instance. When the limit is reached, `autovacuum` starts freezing the old rows.
 Some applications may not automatically adjust their configuration based on
 actual PostgreSQL configuration and may show unnecessary warnings. For example,
 PGHero's default settings alert when 500 million transactions have been created
