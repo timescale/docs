@@ -67,16 +67,3 @@ SELECT
     last_val(cs) -- extract the value of the last point in the CounterSummary
 FROM t;
 ```
-
-This example uses first and last with an aggregate filter, and avoids null
-values in the output:
-
-```sql
-SELECT
-   TIME_BUCKET('5 MIN', time_column) AS interv,
-   AVG(temperature) as avg_temp,
-   first(temperature,time_column) FILTER(WHERE time_column IS NOT NULL) AS beg_temp,
-   last(temperature,time_column) FILTER(WHERE time_column IS NOT NULL) AS end_temp
-FROM sensors
-GROUP BY interv
-```
