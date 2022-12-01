@@ -115,14 +115,14 @@ up to connect to your TimescaleDB database.
 
 1.  Ensure you have Grafana installed, and you are using the TimescaleDB
     database that contains the Twelve Data cryptocurrency dataset set up as a
-    data source. For more information about how to do this, see [Grafana setup instructions][grafana-setup].
+    data source. For more information about how to do this, see the
+    [Grafana setup instructions][grafana-setup].
 1.  In Grafana, from the `Dashboards` menu, click `New Dashboard`. In the
     `New Dashboard` page, click `Add a new panel`.
 1.  In the `Visualizations` menu in the top right corner, select `Candlestick`
-    from the list.
-1.  Ensure you have the Twelve Data cryptocurrency dataset as your data source.
-    You can use the query builder to input your query, or click `Edit SQL` and
-    past in the query you used earlier:
+    from the list. Ensure you have set the Twelve Data cryptocurrency dataset as
+    your data source.
+1.  Click `Edit SQL` and paste in the query you used earlier:
 
     ```sql
     SELECT * FROM one_min_candle
@@ -153,19 +153,7 @@ ORDER BY bucket
 
 ![btc vs eth](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/pct_change.png)
 
-## Using multiple continuous aggregates
-
-You cannot currently create a continuous aggregate on top of another continuous aggregate.
-However, this is not necessary in most cases. You can get a similar result and performance by
-creating multiple continuous aggregates for the same hypertable. Due
-to the efficient materialization mechanism of continuous aggregates, both
-refresh and query performance should work well.
-
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[intraday-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/
-[last]: /api/:currentVersion:/hyperfunctions/last/
-[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
-[lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
 [grafana-setup]: FIXME
