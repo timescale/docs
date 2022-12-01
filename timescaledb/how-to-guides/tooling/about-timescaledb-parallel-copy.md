@@ -17,7 +17,7 @@ chronologically ordered with respect to the time dimension of the hypertable,
 `timescaledb-parallel-copy` improves performance by parallelizing this
 operation. This enables you to take full advantage of your hardware resources.
 
-The `timescaledb-parallel-copy` ingests data efficiently by preserving the order
+`timescaledb-parallel-copy` ingests data efficiently by preserving the order
 of the rows. The `round-robin` approach to share inserts between parallel
 workers ensures that the database switches between chunks less often. This
 improves memory management and keeps operations on the disk as sequential as
