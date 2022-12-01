@@ -153,7 +153,19 @@ ORDER BY bucket
 
 ![btc vs eth](https://s3.amazonaws.com/assets.timescale.com/docs/images/tutorials/candlestick/pct_change.png)
 
+## Using multiple continuous aggregates
+
+You cannot currently create a continuous aggregate on top of another continuous aggregate.
+However, this is not necessary in most cases. You can get a similar result and performance by
+creating multiple continuous aggregates for the same hypertable. Due
+to the efficient materialization mechanism of continuous aggregates, both
+refresh and query performance should work well.
+
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [first]: /api/:currentVersion:/hyperfunctions/first/
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/
+[intraday-tutorial]: /timescaledb/:currentVersion:/tutorials/analyze-intraday-stocks/
+[last]: /api/:currentVersion:/hyperfunctions/last/
+[time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
+[lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
 [grafana-setup]: FIXME
