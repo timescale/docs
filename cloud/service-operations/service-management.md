@@ -47,7 +47,7 @@ data discrepancy between services.
 1.  In the `Service management` section, click `Fork service`. In the dialog,
     confirm by clicking `Fork service`. The forked service takes a few minutes
     to start.
-1.  **OPTIONAL** To change the configuration of your fork, click `Advanced
+1.  <Optional />To change the configuration of your fork, click `Advanced
     options`. You can set different compute and storage options, separate from
     your original database.
 1.  Confirm by clicking `Fork service`. The forked service takes a few minutes
