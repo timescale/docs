@@ -6,10 +6,9 @@ tags: [counters, hyperfunctions, toolkit]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
-    experimental: 1.11.0
+    stable: 1.11.0
 hyperfunction:
   family: metric aggregation
   type: accessor
@@ -17,9 +16,7 @@ hyperfunction:
     - counter_agg()
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
-
-# first_val, last_val <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+# first_val, last_val <tag type="toolkit" content="Toolkit" />
 
 This pair of functions returns the values of the first and last points in a `CounterSummary` aggregate.
 
@@ -34,8 +31,6 @@ last_val(
     cs CounterSummary
 ) RETURNS DOUBLE PRECISION
 ```
-
-<Experimental />
 
 ## Required arguments
 

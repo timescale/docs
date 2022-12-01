@@ -6,10 +6,9 @@ tags: [time-weighted, hyperfunctions, toolkit]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
-    experimental: 1.11.0
+    stable: 1.11.0
 hyperfunction:
   family: time-weighted averages
   type: accessor
@@ -17,9 +16,7 @@ hyperfunction:
     - time_weight()
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
-
-# first_time, last_time <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+# first_time, last_time <tag type="toolkit" content="Toolkit" />
 
 This pair of functions returns the timestamps of the first and last points in a `TimeWeightSummary` aggregate.
 
@@ -34,8 +31,6 @@ last_time(
     tw TimeWeightSummary
 ) RETURNS TIMESTAMPTZ
 ```
-
-<Experimental />
 
 ## Required arguments
 

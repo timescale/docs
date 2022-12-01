@@ -454,59 +454,18 @@ module.exports = [
           },
           {
             title: "Percentile approximation",
-            type: "directory",
             href: "percentile-approximation",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "percentile_agg",
-                href: "percentile_agg",
+                title: "percentile_agg and uddsketch",
+                href: "uddsketch",
+                type: "placeholder",
               },
               {
-                title: "approx_percentile",
-                href: "approx_percentile",
-              },
-              {
-                title: "approx_percentile_rank",
-                href: "approx_percentile_rank",
-              },
-              {
-                title: "rollup",
-                href: "rollup-percentile",
-              },
-              {
-                title: "max_val",
-                href: "max_val",
-              },
-              {
-                title: "mean",
-                href: "mean",
-              },
-              {
-                title: "error",
-                href: "error",
-              },
-              {
-                title: "min_val",
-                href: "min_val",
-              },
-              {
-                title: "num_vals",
-                href: "num_vals-percentile",
-              },
-              {
-                title: "Advanced aggregation methods",
-                type: "directory",
-                href: "percentile-aggregation-methods",
-                children: [
-                  {
-                    title: "uddsketch",
-                    href: "uddsketch",
-                  },
-                  {
-                    title: "tdigest",
-                    href: "tdigest",
-                  },
-                ],
+                title: "tdigest",
+                href: "tdigest",
+                type: "placeholder",
               },
             ],
           },
