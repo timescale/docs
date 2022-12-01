@@ -11,7 +11,7 @@ importer][github-tscopy] program called `timescaledb-parallel-copy`. The program
 parallelizes migration by using several workers to run multiple `COPY` functions
 concurrently.
 
-PostgreSQL native COPY function is transactional and single-threaded, and is not
+PostgreSQL's native `COPY` function is transactional and single-threaded, and is not
 suitable for ingesting large amounts of data. If the file is at least
 chronologically ordered with respect to the time dimension of the hypertable,
 `timescaledb-parallel-copy` improves performance by parallelizing this
