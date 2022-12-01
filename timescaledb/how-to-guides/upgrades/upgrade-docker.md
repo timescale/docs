@@ -138,6 +138,10 @@ data.
     ALTER EXTENSION timescaledb_toolkit UPDATE;
     ```
 
+<highlight type="note">
+If you have multiple databases, you need to update each database separately.
+</highlight>
+
 </procedure>
 
 [toolkit]: https://docs.timescale.com/timescaledb/latest/how-to-guides/hyperfunctions/install-toolkit/
