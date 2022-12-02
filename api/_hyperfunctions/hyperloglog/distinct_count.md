@@ -46,6 +46,6 @@ api_details:
         code: |
           distinct_count
           ----------------
-                  100151
+                  98814
 ---
 
