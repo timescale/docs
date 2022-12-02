@@ -229,11 +229,6 @@ module.exports = [
             excerpt: "Configure Promscale and Prometheus high availability",
           },
           {
-            title: "Multi-node",
-            href: "multi-node",
-            excerpt: "Scale Promscale with a TimescaleDB multinode database",
-          },
-          {
             title: "Prometheus multi-tenancy",
             href: "prometheus-multi-tenancy",
             excerpt: "Configure Promscale multi-tenancy for Prometheus",
