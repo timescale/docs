@@ -319,29 +319,14 @@ module.exports = [
             href: "month_normalize",
           },
           {
-            title: "Approximate count distincts",
-            type: "directory",
-            href: "approx_count_distincts",
+            title: "Approximate count distinct",
+            href: "approximate-count-distinct",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "hyperloglog",
                 href: "hyperloglog",
-              },
-              {
-                title: "rollup",
-                href: "rollup-hyperloglog",
-              },
-              {
-                title: "distinct_count",
-                href: "distinct_count",
-              },
-              {
-                title: "stderror",
-                href: "stderror",
-              },
-              {
-                title: "approx_count_distinct",
-                href: "approx_count_distinct",
+                type: "placeholder",
               },
             ],
           },
@@ -454,59 +439,18 @@ module.exports = [
           },
           {
             title: "Percentile approximation",
-            type: "directory",
             href: "percentile-approximation",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "percentile_agg",
-                href: "percentile_agg",
+                title: "percentile_agg and uddsketch",
+                href: "uddsketch",
+                type: "placeholder",
               },
               {
-                title: "approx_percentile",
-                href: "approx_percentile",
-              },
-              {
-                title: "approx_percentile_rank",
-                href: "approx_percentile_rank",
-              },
-              {
-                title: "rollup",
-                href: "rollup-percentile",
-              },
-              {
-                title: "max_val",
-                href: "max_val",
-              },
-              {
-                title: "mean",
-                href: "mean",
-              },
-              {
-                title: "error",
-                href: "error",
-              },
-              {
-                title: "min_val",
-                href: "min_val",
-              },
-              {
-                title: "num_vals",
-                href: "num_vals-percentile",
-              },
-              {
-                title: "Advanced aggregation methods",
-                type: "directory",
-                href: "percentile-aggregation-methods",
-                children: [
-                  {
-                    title: "uddsketch",
-                    href: "uddsketch",
-                  },
-                  {
-                    title: "tdigest",
-                    href: "tdigest",
-                  },
-                ],
+                title: "tdigest",
+                href: "tdigest",
+                type: "placeholder",
               },
             ],
           },
