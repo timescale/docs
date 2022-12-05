@@ -414,4 +414,4 @@ use its [SkipScan][skipscan] feature.
 [percentile_cont]: https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-ORDEREDSET-TABLE
 [skipscan]: /timescaledb/:currentVersion:/how-to-guides/query-data/skipscan/
 [time_bucket]: /api/:currentVersion:/hyperfunctions/time_bucket
-[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/
+[toolkit-approx-percentile]: /api/:currentVersion:/hyperfunctions/percentile-approximation/uddsketch/
