@@ -50,7 +50,8 @@ last_val(
 
 ## Sample usage
 
-This example produces a CounterSummary from timestamps and associated values, then applies the `first_val` and `last_val` accessors:
+This example produces a CounterSummary from timestamps and associated values,
+then applies the `first_val` and `last_val` accessors:
 
 ```sql
 WITH t as (
