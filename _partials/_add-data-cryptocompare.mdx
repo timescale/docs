@@ -38,10 +38,11 @@ connection.
    [crypto_data_extraction.py](https://raw.githubusercontent.com/timescale/examples/master/crypto_tutorial/crypto_data_extraction.py)
    </tag>
 
-1.  At the command prompt, run the script:
+1.  At the command prompt, run the script to extract the data to `.csv` files.
+    Include the API key you got from CryptoCompare earlier:
 
     ```bash
-    python crypto_data_extraction.py
+    python3 crypto_data_extraction.py --apikey <API_KEY>
     ```
 
 1.  At the psql prompt, copy the data from the `nyc_data_rides.csv` file into
