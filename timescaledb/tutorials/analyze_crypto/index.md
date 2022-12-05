@@ -2,7 +2,7 @@
 title: Analyze cryptocurrency data
 excerpt: Analyze cryptocurrency data
 keywords: [tutorials, query, learn, crypto, financial]
-tags: [tutorials, beginner]
+tags: [tutorials, intermediate]
 ---
 
 # Query cryptocurrency data with TimescaleDB
@@ -25,7 +25,7 @@ Before you begin, make sure you have:
 
 <highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all our tutorials and run
+thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
 
@@ -43,8 +43,7 @@ This tutorial covers:
 For more information about analyzing cryptocurrency, you can read
 this analysis of over 4100 cryptocurrencies [on our blog][crypto-blog].
 
-[install-docs]: install/:currentVersion:/
-[psql]: timescaledb/:currentVersion:/how-to-guides/connecting/
+[cloud-install]: install/:currentVersion:/installation-cloud/
 [dataset-crypto]: /timescaledb/tutorials/analyze_crypto/dataset-crypto/
 [query-crypto]: /timescaledb/tutorials/analyze_crypto/query-crypto/
 [crypto-blog]: https://blog.timescale.com/blog/analyzing-bitcoin-ethereum-and-4100-other-cryptocurrencies-using-postgresql-and-timescaledb/
