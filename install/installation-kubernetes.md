@@ -99,7 +99,7 @@ the name that you provided during the installation.
     <MY_NAME>-credentials -o jsonpath="{.data.PATRONI_admin_PASSWORD}" | base64 --decode)
     ```
 
-1.  **OPTIONAL** Decode the super user password `PGPOSTGRESPASSWORD` that was
+1.  <Optional />Decode the super user password `PGPOSTGRESPASSWORD` that was
    generated during the Helm installation:
 
     ```bash
