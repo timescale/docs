@@ -50,7 +50,8 @@ last_time(
 
 ## Sample usage
 
-This example produces a linear TimeWeightSummary from timestamps and associated values, then applies the `first_time` and `last_time` accessors:
+This example produces a linear TimeWeightSummary from timestamps and associated
+values, then applies the `first_time` and `last_time` accessors:
 
 ```sql
 WITH t as (
