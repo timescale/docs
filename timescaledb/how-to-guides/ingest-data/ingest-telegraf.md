@@ -181,7 +181,7 @@ writing different types of data written by people who work with that data.
 </procedure>
 
 For more information about the options that you can configure in Telegraf,
-see [PostgreQL output plugin] [output-plugin]
+see [PostgreQL output plugin][output-plugin].
 
 <procedure>
 
