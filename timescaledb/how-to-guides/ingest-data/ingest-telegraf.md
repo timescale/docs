@@ -19,7 +19,7 @@ writing different types of data written by people who work with that data.
 
 ## Before you begin
 
-*   [Install Telegraf][install-telegraf] on the system you want to collect metrics.
+*   [Install Telegraf][install-telegraf] on the system where you want to collect metrics.
 *   Install TimescaleDB or create a [TimescaleDB service][create-service] on
     Timescale Cloud.
 *   Gather the connection details for [TimescaleDB][connect-timescaledb].
