@@ -44,7 +44,7 @@ writing different types of data written by people who work with that data.
     ```
 
     A configuration file enables a CPU input plugin that samples various metrics
-    of CPU usage, and the PostgreSQL output plugin. The file also includes all
+    about CPU usage, and the PostgreSQL output plugin. The file also includes all
     available input, output, processor, and aggregator plugins, commented out
     and you can enable them as required.
 
