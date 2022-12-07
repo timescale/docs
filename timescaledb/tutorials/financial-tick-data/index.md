@@ -42,7 +42,7 @@ This tutorial covers:
 
 The financial sector regularly uses [candlestick charts][charts] to visualize
 the price change of an asset. Each candlestick represents a time period, such as
-1 minute, or an hour, and shows how the asset's price changed during that time.
+one minute or one hour, and shows how the asset's price changed during that time.
 
 Candlestick charts are generated from the open, high, low, close, and volume
 data for each financial asset during the time period. This is often abbreviated
@@ -65,8 +65,8 @@ these stories from some Timescale community members:
 *   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
 
 [cloud-install]: install/:currentVersion:/installation-cloud/
-[financial-tick-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
-[financial-tick-query]: timescaledb/tutorials/_template/_query-template
+[financial-tick-dataset]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/financial-tick-dataset/
+[financial-tick-query]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/financial-tick-query/
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/

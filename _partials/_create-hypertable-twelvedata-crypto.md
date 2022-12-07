@@ -1,9 +1,9 @@
 
-# Create a hypertable
+## Create a hypertable
 
 Hypertables are the core of TimescaleDB. Hypertables enable TimescaleDB to work
 efficiently with time-series data. Because TimescaleDB is PostgreSQL, all the
-standard PostgreSQL tables, indexes, stored procedures and other objects can be
+standard PostgreSQL tables, indexes, stored procedures, and other objects can be
 created alongside your TimescaleDB hypertables. This makes creating and working
 with TimescaleDB tables similar to standard PostgreSQL.
 
