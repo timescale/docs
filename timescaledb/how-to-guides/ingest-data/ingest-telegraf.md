@@ -34,7 +34,7 @@ writing different types of data written by people who work with that data.
 1.  Check the version of Telegraf that you installed:
 
     ```bash
-    telegrapf --version
+    telegraf --version
     ```
 
 1.  Generate a sample configuration file for Telegraf using:
