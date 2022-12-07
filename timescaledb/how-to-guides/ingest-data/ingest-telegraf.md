@@ -73,7 +73,7 @@ writing different types of data written by people who work with that data.
 
 <procedure>
 
-#### Configuring the PostgreSQL output plugin
+### Configuring the PostgreSQL output plugin
 
 1.  Open the `telegraf.conf` file using an editor of your choice:
 
