@@ -211,5 +211,5 @@ panels that are populated with data using SQL.
 [output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
 [create-service]: /install/latest/installation-cloud/
-[connect-timescaledb]: /timescaledb/latest/how-to-guides/connecting/about-connecting/
+[connect-timescaledb]: /timescaledb/:currentVersion:/how-to-guides/connecting/about-connecting/
 [grafana-mst]: /timescaledb/:currentVersion:/tutorials/grafana/installation/#create-a-new-service-for-grafana
