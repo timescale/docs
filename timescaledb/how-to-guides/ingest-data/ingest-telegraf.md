@@ -114,7 +114,7 @@ writing different types of data written by people who work with that data.
 
     The output uses loaded inputs `cpu`and outputs `postgresql` along with
     `global tags`, and the intervals with which the agent collects the data from
-    the inputs, and flush to the outputs.
+    the inputs, and flushes to the outputs.
 
     An output similar to this appears:
 
