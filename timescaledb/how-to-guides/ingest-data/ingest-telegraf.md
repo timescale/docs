@@ -25,7 +25,7 @@ writing different types of data written by people who work with that data.
 *   Gather the connection details for [TimescaleDB][connect-timescaledb].
 *   Install Grafana or create a Grafana service on [Managed Service for TimescaleDB][grafana-mst]
 
-### Ingesting metrics using Telegraf plugin to TimescaleDB
+## Ingest metrics using Telegraf plugin to TimescaleDB
 
 <procedure>
 
