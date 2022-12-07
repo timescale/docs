@@ -88,8 +88,8 @@ writing different types of data written by people who work with that data.
     connection = "<SERVICE URL>"
     ```
 
-1.  Create a hypertable by adding the `table_template` parameter to the
-    templated statements to execute when creating a new table:
+1.  Create a hypertable by adding the `table_template` parameter in the config
+    file to execute when creating a new table:
 
     ```bash
     ## Templated statements to execute when creating a new table.
@@ -138,7 +138,7 @@ writing different types of data written by people who work with that data.
     Password for user tsdbadmin: <PASSWORD>
     ```
 
-1.  View the metrics collecetd in the `cpu` table in `tsdb`:
+1.  View the metrics collected in the `cpu` table in `tsdb`:
 
     ```sql
     SELECT*FROM cpu;
@@ -208,7 +208,7 @@ see [PostgreQL output plugin] [output-plugin]
 When you have configured TimescaleDB as a data source in Grafana, you can create
 panels that are populated with data using SQL.
 
-[output-lpugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
+[output-plugin]: https://github.com/influxdata/telegraf/blob/release-1.24/plugins/outputs/postgresql/README.md
 [install-telegraf]: https://docs.influxdata.com/telegraf/v1.21/introduction/installation/
 [create-service]: /install/latest/installation-cloud/
 [connect-timescaledb]: /timescaledb/latest/how-to-guides/connecting/about-connecting/
