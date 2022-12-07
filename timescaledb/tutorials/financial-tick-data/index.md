@@ -21,14 +21,17 @@ aggregated data, and visualize the data in Grafana.
 
 Before you begin, make sure you have:
 
-*   A TimescaleDB instance running locally or on the cloud. For more
-    information, see [installation options][install-docs].
-*   [`psql`][psql], or any other PostgreSQL client.
+*   Signed up for a [free Timescale Cloud account][cloud-install].
+
+<highlight type="cloud" header="Run all tutorials free" button="Try for free">
+Your Timescale Cloud trial is completely free for you to use for the first
+thirty days. This gives you enough time to complete all our tutorials and run
+a few test projects of your own.
+</highlight>
 
 ## Steps in this tutorial
 
-A numbered list of the sub-pages in the tutorial. Remember that this is
-curricula content, so these steps must be in order:
+This tutorial covers:
 
 1.  [Set up up your dataset][financial-tick-dataset]: Load data from
     [Twelve Data][twelve-data] into your TimescaleDB database.
@@ -42,7 +45,8 @@ the price change of an asset. Each candlestick represents a time period, such as
 1 minute, or an hour, and shows how the asset's price changed during that time.
 
 Candlestick charts are generated from the open, high, low, close, and volume
-data for each financial asset during the time period. This is often abbreviated as OHLCV:
+data for each financial asset during the time period. This is often abbreviated
+as OHLCV:
 
 *   Open: opening price
 *   High: highest price
