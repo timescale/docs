@@ -25,7 +25,7 @@ Before you begin, make sure you have:
 
 <highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
-thirty days. This gives you enough time to complete all our tutorials and run
+thirty days. This gives you enough time to complete all the tutorials and run
 a few test projects of your own.
 </highlight>
 
@@ -64,11 +64,9 @@ these stories from some Timescale community members:
 *   [How Messari uses data to open the cryptoeconomy to everyone][messari]
 *   [How I power a (successful) crypto trading bot with TimescaleDB][bot]
 
-[install-docs]: install/:currentVersion:/
-[psql]: timescaledb/:currentVersion:/how-to-guides/connecting/
+[cloud-install]: install/:currentVersion:/installation-cloud/
 [financial-tick-dataset]: timescaledb/tutorials/_template/_dataset-tutorial
 [financial-tick-query]: timescaledb/tutorials/_template/_query-template
-[financial-tick-advanced]: timescaledb/tutorials/_template/_advanced-tutorial
 [charts]: https://www.investopedia.com/terms/c/candlestick.asp
 [twelve-data]: https://twelvedata.com/
 [trading-strategy]: https://www.timescale.com/blog/how-trading-strategy-built-a-data-stack-for-crypto-quant-trading/
