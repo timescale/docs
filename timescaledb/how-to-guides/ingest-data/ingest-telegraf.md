@@ -199,7 +199,7 @@ see [PostgreQL output plugin] [output-plugin]
         creating the TimescaleDB service. 
     *   In the `Host` field, type `<HOST>:<PORT>` from the `.sql` file that you downloaded.
     *   Set `TLS/SSL Mode` to `require`.
-    *   In `PostgreSQL details` enable `TimescaleDB`
+    *   In `PostgreSQL details`, enable `TimescaleDB`
 1.  Click `Save & test` button. If the connection is successful
     `Database Connection OK` appears.  
 
