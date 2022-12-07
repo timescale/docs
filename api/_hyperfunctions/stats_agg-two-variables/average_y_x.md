@@ -17,7 +17,7 @@ hyperfunction:
     - stats_agg() (two variables)
 api_details:
   summary: >
-    Calculate the average from a two-dimensional aggregate tfor the given
+    Calculate the average from a two-dimensional aggregate for the given
     dimension. For example, `average_y()` calculates the average for all the
     values of the `y` variable, independent of the values of the `x` variable.
   signatures:
