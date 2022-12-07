@@ -185,7 +185,7 @@ see [PostgreQL output plugin][output-plugin].
 
 <procedure>
 
-#### Visualizing data in Grafana
+### Visualizing data in Grafana
 
 1.  Log in to Grafana and navigate to `Configuration` → `Data sources`. The data
     sources page lists previously configured data sources for the Grafana
