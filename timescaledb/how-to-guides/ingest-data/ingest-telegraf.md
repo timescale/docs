@@ -81,7 +81,7 @@ writing different types of data written by people who work with that data.
     nano telegraf.conf
     ```
 
-1.  Set the `connection` parameter in the `[[outputs.postgresql]] section to
+1.  Set the `connection` parameter in the `[[outputs.postgresql]]` section to
     the`<SERVICE URL>` of the TimescaleDB service that you created:
 
     ```bash
