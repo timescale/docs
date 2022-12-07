@@ -193,7 +193,7 @@ see [PostgreQL output plugin][output-plugin].
 1.  Click `Add data source` to see a list of all supported data sources.
 1.  Type `PostgreSQL` in the search field and click `Select`.
 1.  Configure the data source:
-    *   In the `Name` field, type name that you would like for dataset on TimescaleDB.
+    *   In the `Name` field, type the name that you would like to use for the dataset.
     *   In the `PostgreSQL Connection` section, type the  `Database`, `User`,
         and `Password` fields using the `.sql` file that you downloaded when
         creating the TimescaleDB service. 
