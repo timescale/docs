@@ -29,7 +29,7 @@ writing different types of data written by people who work with that data.
 
 <procedure>
 
-#### Generating a configuration file
+### Generating a configuration file
 
 1.  Check the version of Telegraf that you installed:
 
