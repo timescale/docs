@@ -2,7 +2,7 @@
 title: Analyze financial tick data with TimescaleDB
 excerpt: Learn how to store financial tick data and create candlestick views to analyze price changes
 keywords: [tutorials, finance, learn]
-tags: [tutorials, intermediate]
+tags: [tutorials, beginner]
 ---
 
 # Analyze financial tick data with TimescaleDB
@@ -13,10 +13,9 @@ candlestick charts that make it easier to analyze the price changes of financial
 assets over time. You can use candlestick charts to examine trends in stock,
 cryptocurrency, or NFT prices.
 
-In this tutorial, you use real raw financial data provided by [Twelve Data][twelve-data],
-store it efficiently in your TimescaleDB database, create different candlestick
-views, and query aggregated data. In the final section, it also covers how to
-download sample data containing real-world transactions for cryptocurrencies.
+In this tutorial, you use real raw financial data provided by
+[Twelve Data][twelve-data], create an aggregated candlestick view, query the
+aggregated data, and visualize the data in Grafana.
 
 ## Prerequisites
 
@@ -33,10 +32,8 @@ curricula content, so these steps must be in order:
 
 1.  [Set up up your dataset][financial-tick-dataset]: Load data from
     [Twelve Data][twelve-data] into your TimescaleDB database.
-1.  [Query your dataset][financial-tick-query]: Create candlestick views and
-    query the aggregated data.
-1.  [More things to try][financial-tick-advanced]: Learn how to analyze
-    candlestick data from other data sources.
+1.  [Query your dataset][financial-tick-query]: Create candlestick views, query
+    the aggregated data, and visualize the data in Grafana.
 
 ## About OHLCV data and candlestick charts
 
