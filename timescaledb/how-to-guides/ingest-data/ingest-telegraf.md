@@ -104,7 +104,7 @@ writing different types of data written by people who work with that data.
 
 <procedure>
 
-#### Viewing the metrics collected by Telegraf in TimescaleDB
+### Viewing the metrics collected by Telegraf in TimescaleDB
 
 1.  Run Telegraf to collect the metrics:
 
