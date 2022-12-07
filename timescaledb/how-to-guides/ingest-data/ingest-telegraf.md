@@ -45,8 +45,8 @@ writing different types of data written by people who work with that data.
 
     A configuration file enables a CPU input plugin that samples various metrics
     about CPU usage, and the PostgreSQL output plugin. The file also includes all
-    available input, output, processor, and aggregator plugins, commented out
-    and you can enable them as required.
+    available input, output, processor, and aggregator plugins. These are commented out
+    commented out by default. You can enable them as required.
 
 1.  Test the sample configuration file `telegraf.conf` that you generated:
 
