@@ -32,7 +32,7 @@ Install Timescale Cloud by signing up for an account. It's free for thirty days.
 
 </Collapsible>
 
-<Collapsble heading="Connect to your service">
+<Collapsible heading="Connect to your service">
 
 <Connect />
 
