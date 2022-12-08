@@ -18,21 +18,27 @@ the top 100 most-traded symbols, in a hypertable named `stocks_real_time`. It
 also includes a separate table of company symbols and company names, in a
 regular PostgreSQL table named `company`.
 
-## Sign up for Timescale Cloud
+<Collapsible heading="Sign up for Timescale Cloud">
 
 Install Timescale Cloud by signing up for an account. It's free for thirty days.
 
 <Install />
 
-## Create a service
+</Collapsible>
+
+<Collapsible heading="Create a service">
 
 <CreateService demoData={false} />
 
-## Connect to your service
+</Collapsible>
+
+<Collapsble heading="Connect to your service">
 
 <Connect />
 
-## The dataset
+</Collapsible>
+
+<Collapsible heading="The dataset">
 
 The dataset is updated on a nightly basis and contains data from the last four
 weeks, typically around 8 million rows of data. Stock trades are recorded in
@@ -42,3 +48,5 @@ New York Stock Exchange (9:30&nbsp;AM - 4:00&nbsp;PM EST).
 <CreateHypertable />
 
 <AddData />
+
+</Collapsible>
