@@ -23,6 +23,8 @@ policies that you set or the policies that already exist, see
 |`start_offset`|INTERVAL or integer|Start of the refresh window as an interval relative to the time when the policy is executed. `NULL` is equivalent to `MIN(timestamp)` of the hypertable.|
 |`end_offset`|INTERVAL or integer|End of the refresh window as an interval relative to the time when the policy is executed. `NULL` is equivalent to `MAX(timestamp)` of the hypertable.|
 |`schedule_interval`|INTERVAL|Interval between refresh executions in wall-clock time. Defaults to 24 hours|
+|`initial_start`|TIMESTAMPTZ|Time the policy is first run. Defaults to NULL. If omitted, then the schedule interval is the intervalbetween the finish time of the last execution and the next start. If provided, it serves as the origin with respect to which the next_start is calculated |
+|`timezone`|TEXT|A valid time zone. If `initial_start` is also specified, subsequent executions of the refresh policy will be aligned on its initial start. However, daylight savings time (DST) changes may shift this alignment. Set to a valid time zone if this is an issue you want to mitigate. If omitted, UTC bucketing is performed. Defaults to `NULL`.|
 
 The `start_offset` should be greater than `end_offset`.
 
