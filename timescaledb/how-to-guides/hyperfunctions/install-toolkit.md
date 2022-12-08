@@ -158,6 +158,11 @@ installing or using Homebrew, see [the `brew` homepage][brew-install].
 
 </procedure>
 
+### Install Toolkit on Windows
+
+TimescaleDB Toolkit isn't currently supported on Windows. As a workaround, you
+can run PostgreSQL in a Docker container.
+
 ## Update Toolkit on self-hosted TimescaleDB
 
 Update Toolkit by installing the latest version and running `ALTER EXTENSION`.
