@@ -550,41 +550,14 @@ module.exports = [
             ],
           },
           {
-            title: "Time-weighted averages",
-            type: "directory",
-            href: "time-weighted-averages",
+            title: "Time-weighted calculations",
+            href: "time-weighted-calculations",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "time_weight",
                 href: "time_weight",
-              },
-              {
-                title: "rollup",
-                href: "rollup-timeweight",
-              },
-              {
-                title: "average",
-                href: "average-time-weight",
-              },
-              {
-                title: "first_time, last_time",
-                href: "first-last-time-timeweight",
-              },
-              {
-                title: "first_val, last_val",
-                href: "first-last-val-timeweight",
-              },
-              {
-                title: "integral",
-                href: "integral-time-weight",
-              },
-              {
-                title: "interpolated_average",
-                href: "interpolated_average",
-              },
-              {
-                title: "interpolated_integral",
-                href: "interpolated_integral",
+                type: "placeholder",
               },
             ],
           },
