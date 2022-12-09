@@ -72,7 +72,7 @@ const twoStep = await rl.question(
   `Are you creating a hyperfunction group that uses the two-step aggregation pattern? (Y/n)${EOL}`
 );
 
-if (twoStep.match(/no?/i)) {
+if (twoStep.trim().match(/no?/i)) {
   console.log(
     "This tool only supports two-step hyperfunction groups for now. Sorry!"
   );
@@ -83,7 +83,9 @@ const aggregate = (
   await rl.question(
     `What is the name of the aggregate function in this group? (e.g., stats_agg)${EOL}`
   )
-).replace(/\(\)$/, "");
+)
+  .trim()
+  .replace(/\(\)$/, "");
 console.log(`Searching for existing directory for: ${aggregate}${EOL}`);
 
 const existingFiles = await fs.readdir(HYPERFUNCTION_DIRECTORY);
@@ -113,15 +115,21 @@ const promises = ["intro.md", "examples.md"].map((file) => {
 
 const isExperimental = !(
   await rl.question(`Are these functions experimental? (Y/n)${EOL}`)
-).match(/no?/i);
+)
+  .trim()
+  .match(/no?/i);
 
-const version = await rl.question(
-  `What version are these functions being introduced in?${EOL}`
-);
+const version = (
+  await rl.question(
+    `What version are these functions being introduced in?${EOL}`
+  )
+).trim();
 
-const category = await rl.question(
-  `What larger category do these functions belong in? (e.g., percentile approximation)${EOL}`
-);
+const category = (
+  await rl.question(
+    `What larger category do these functions belong in? (e.g., percentile approximation)${EOL}`
+  )
+).trim();
 
 const accessors = (
   await rl.question(
@@ -134,7 +142,9 @@ const accessors = (
 
 const hasRollup = !(
   await rl.question(`Does this group contain a rollup? (Y/n)${EOL}`)
-).match(/no?/i);
+)
+  .trim()
+  .match(/no?/i);
 
 rl.close();
 
