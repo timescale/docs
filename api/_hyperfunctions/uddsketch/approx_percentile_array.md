@@ -1,12 +1,14 @@
-
 ---
 api_name: approx_percentile_array()
-excerpt: Estimate the value for given percentiles from a `uddsketch`
+excerpt: Estimate the values for an array of given percentiles from a `uddsketch`
 topics: [hyperfunctions]
 api:
   license: community
   type: function
   toolkit: true
+  experimental: true
+  version:
+    experimental: 1.13.0
 hyperfunction:
   family: percentile approximation
   type: accessor
@@ -35,8 +37,8 @@ api_details:
         description: The estimated values at the requested percentiles.
   examples:
     - description: >
-        Estimate the value at the first percentile, given a sample containing the
-        numbers from 0 to 100.
+        Estimate the value at the 90th, 50th, and 20th percentiles, given a
+        sample containing the numbers from 0 to 100.
       command:
         code: |
           SELECT
@@ -48,3 +50,4 @@ api_details:
           -------------------
            {9.0,5.0,2.0}
 ---
+
