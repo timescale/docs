@@ -42,12 +42,12 @@ api_details:
       command:
         code: |
           SELECT
-            approx_percentile_array(array[0.9,0.5,0.2], uddsketch(data))
+            approx_percentile_array(array[0.9,0.5,0.2], uddsketch(100,0.005,data))
           FROM generate_series(0, 100) data;
       return:
         code: |
-          approx_percentile
+          approx_percentile_array
           -------------------
-           {9.0,5.0,2.0}
+           {90.0,50.0,20.0}
 ---
 
