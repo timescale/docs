@@ -11,7 +11,7 @@ api:
   version:
     experimental: 1.5.0
 hyperfunction:
-  family: frequency analysis
+  family: state aggregates
   type: accessor
   aggregates:
     - state_agg()

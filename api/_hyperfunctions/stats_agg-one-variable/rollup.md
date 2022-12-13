@@ -26,7 +26,7 @@ api_details:
   signatures:
     - language: sql
       code: |
-        rolling(
+        rollup(
             ss StatsSummary1D
         ) RETURNS StatsSummary1D
   parameters:
