@@ -832,7 +832,7 @@ module.exports = [
               "Automatically configure your TimescaleDB instance with `timescaledb-tune`",
           },
           {
-            title: "About timescaledb-parallel-copy",
+            title: "Install and use timescaledb-parallel-copy",
             href: "about-timescaledb-parallel-copy",
             excerpt:
               "Quickly insert bulk data by parallelizing `COPY` operations",
