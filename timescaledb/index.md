@@ -16,10 +16,6 @@ to understand what TimescaleDB is, how it works, how to get started, and how
 to successfully use and implement all of the powerful features for your next
 project.
 
-<Tabs>
-
-<Tab title="Overview">
-
 ### Overview
 
 In the **[Overview section][overview]** you'll find everything you need to know about the design
@@ -28,10 +24,6 @@ that it is.
 
 You'll also find [Release Notes][release-notes], our [FAQ][faq], and any [known limitations][limitations] with the
 current version of TimescaleDB that you should be aware of.
-
-</Tab>
-
-<Tab title="Getting started">
 
 ### Getting started
 
@@ -42,19 +34,11 @@ exploring the key features that make TimescaleDB a pleasure to use.
 If you've never used TimescaleDB or haven't explored many of our features yet,
 this is the place to start.
 
-</Tab>
-
-<Tab title="How-to guides">
-
 ### How-to guides
 
 Our **[How-to guides][how-to]** provide answers to common questions with each feature
 of TimescaleDB. Using hypertables, enabling native compression, setting up data retention,
 and much more are all covered here.
-
-</Tab>
-
-</Tabs>
 
 ### Tutorials
 
