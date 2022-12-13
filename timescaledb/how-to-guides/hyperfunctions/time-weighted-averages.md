@@ -5,6 +5,7 @@ keywords: [hyperfunctions, Toolkit, time-weighted]
 ---
 
 # Time-weighted averages and integrals
+
 Time weighted averages and integrals are used in cases where a time series is
 not evenly sampled. Time series data points are often evenly spaced, for
 example every 30 seconds, or every hour. But sometimes data points are recorded
@@ -35,4 +36,4 @@ CPU-hours used by a user over a given time period.
     [hyperfunction API documentation][hyperfunctions-api-timeweight].
 
 [blog-timeweight]: https://blog.timescale.com/blog/what-time-weighted-averages-are-and-why-you-should-care/
-[hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-averages/
+[hyperfunctions-api-timeweight]: /api/:currentVersion:/hyperfunctions/time-weighted-calculations/time_weight/

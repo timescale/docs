@@ -429,17 +429,17 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/time_weight/#required-arguments">time_weight</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight/">time_weight</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
    <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/rollup-timeweight/">rollup</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#rollup">rollup</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
   <tr>
-    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-averages/average-time-weight/">average</a></td>
+    <td><a href="https://docs.timescale.com/api/latest/hyperfunctions/time-weighted-calculations/time_weight#average">average</a></td>
     <td>❌</td>
     <td>✅</td>
   </tr>
