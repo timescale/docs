@@ -63,8 +63,8 @@ However, the data is limited to what is already materialized in the monthly
 continuous aggregate, and doesn't get even more recent data from the source
 hypertable. This happens because the materialized-only continuous aggregate
 provides a stopping point, and the yearly continuous aggregate is unaware of any
-layers beyond that stopping point. This is similar to how stacked views work in
-PostgreSQL.
+layers beyond that stopping point. This is similar to [how stacked views work in
+PostgreSQL][postgresql-views].
 
 To make queries on the yearly continuous aggregate access all recent data, you
 can either:
@@ -135,4 +135,5 @@ ensure valid time-bucketing:
 [create-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/
 [hyperfunctions]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/
 [migrate-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate/
+[postgresql-views]: https://www.postgresql.org/docs/current/rules-views.html
 [stats-aggs]: /api/:currentVersion:/hyperfunctions/statistical-and-regression-analysis/stats_agg-one-variable/
