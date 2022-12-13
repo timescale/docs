@@ -62,7 +62,7 @@ information, see the section on [real-time aggregates][real-time-aggs].
 
 ## Continuous aggregates on continuous aggregates
 
-You can create a continuous aggregate on top of another continuous aggregates.
+You can create a continuous aggregate on top of another continuous aggregate.
 This allows you to summarize data at different granularities. For example, you
 might have a raw hypertable that contains second-by-second data. Create a
 continuous aggregate on the hypertable to calculate hourly data. To calculate

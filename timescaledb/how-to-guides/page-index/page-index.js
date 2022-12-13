@@ -460,8 +460,8 @@ module.exports = [
             excerpt: "Create continuous aggregates",
           },
           {
-            title: "Continuous aggregates on top of continuous aggregates",
-            href: "continuous-aggregates-on-continuous-aggregates",
+            title: "Hierarchical continuous aggregates",
+            href: "hierarchical-continuous-aggregates",
           },
           {
             title: "Refresh policies for continuous aggregates",
