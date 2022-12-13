@@ -613,6 +613,13 @@ module.exports = [
                 title: "min_frequency / max_frequency",
                 href: "min_frequency-max_frequency",
               },
+            ],
+          },
+          {
+            title: "State aggregates",
+            type: "directory",
+            href: "state-aggregates",
+            children: [
               {
                 title: "state_agg",
                 href: "state_agg",
