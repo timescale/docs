@@ -176,7 +176,7 @@ a narrow width on text assists in making PRs easier to review. **Most editors su
 as Visual Studio Code have settings to do this visually.**
 *   Most links should be reference-style links where the link address is at the
 bottom of the page. The two exceptions are:
-    *   Links within Tip/Warning Callouts. These must be inline links for now
+    *   Links within highlight blocks (Note, Important, or Warning). These must be inline links for now
     *   Links to anchors on the same page as the link itself.
 *   All functions, commands and standalone function arguments (ex. `SELECT`,
 `time_bucket`) should be set as inline code within backticks ("\`command\`").
