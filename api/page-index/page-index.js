@@ -636,6 +636,26 @@ module.exports = [
                 title: "into_values (for state_agg)",
                 href: "into_values-state_agg",
               },
+              {
+                title: "rollup (for state_agg)",
+                href: "rollup-state_agg",
+              },
+              {
+                title: "state_timeline",
+                href: "state_timeline",
+              },
+              {
+                title: "state_periods",
+                href: "state_periods",
+              },
+              {
+                title: "interpolated_state_periods",
+                href: "interpolated_state_periods",
+              },
+              {
+                title: "interpolated_state_timeline",
+                href: "interpolated_state_timeline",
+              },
             ],
           },
         ],
