@@ -7,6 +7,7 @@ keywords: [Toolkit, function pipelines]
 import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # Function pipelines <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
+
 Function pipelines are an experimental feature, designed to radically improve
 how you write queries to analyze data in PostgreSQL and SQL. They work by
 applying principles from functional programming and popular tools like Python
@@ -15,19 +16,20 @@ Pandas, and PromQL.
 <Experimental />
 
 <highlight type="important">
-The `timevector()` function materializes all its data points in 
-memory. This means that if you use it on a very large dataset, 
-it runs out of memory. Do not use the `timevector` function 
+The `timevector()` function materializes all its data points in
+memory. This means that if you use it on a very large dataset,
+it runs out of memory. Do not use the `timevector` function
 on a large dataset, or in production.
 </highlight>
 
 SQL is the best language for data analysis, but it is not perfect, and at times
 it can be difficult to construct the query you want. For example, this query gets data from the last day from the measurements table, sorts the data by the time column, calculates the delta between the values, takes the absolute value of the delta, and then takes the sum of the result of the previous steps:
+
 ```sql
 SELECT device id,
 sum(abs_delta) as volatility
 FROM (
-	SELECT device_id,
+ SELECT device_id,
 abs(val - lag(val) OVER last_day) as abs_delta
 FROM measurements
 WHERE ts >= now()-'1 day'::interval) calc_delta
@@ -35,6 +37,7 @@ GROUP BY device_id;
 ```
 
 You can express the same query with a function pipeline like this:
+
 ```sql
 SELECT device_id,
     toolkit_experimental.timevector(ts, val)
@@ -51,6 +54,7 @@ Function pipelines are completely SQL compliant, meaning that any tool that
 speaks SQL is able to support data analysis using function pipelines.
 
 ## Anatomy of a function pipeline
+
 Function pipelines are built as a series of elements that work together to
 create your query. The most important part of a pipeline is a custom data type
 called a `timevector`. The other elements then work on the `timevector` to build
@@ -58,6 +62,7 @@ your query, using a custom operator to define the order in which the elements
 are run.
 
 ### Timevectors
+
 A `timevector` is a collection of time,value pairs with a defined start and end
 time, that could something like this:
 
@@ -70,24 +75,27 @@ within that dataset, which could look something like this:
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/timeseries_vector.png" alt="An example of a timevector within a larger dataset"/>
 
 To construct a `timevector` from your data, we use a custom aggregate and pass in the columns to become the time,value pairs. It uses a `WHERE` clause to define the limits of the subset, and a `GROUP BY` clause to provide identifying information about the time-series. For example, to construct a `timevector` from a dataset that contains temperatures, the SQL looks like this:
+
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
+ toolkit_experimental.timevector(ts, val)
 FROM measurements
 WHERE ts >= now() - '1 day'::interval
 GROUP BY device_id;
 ```
 
 ### Custom operator
+
 Function pipelines use a single custom operator of `->`. This operator is used
 to apply and compose multiple functions. The `->` operator takes the inputs on
 the left of the operator, and applies the operation on the right of the
 operator. To put it more plainly, you can think of it as "do the next thing."
 
 A typical function pipeline could look something like this:
+
 ```sql
 SELECT device_id,
- 	toolkit_experimental.timevector(ts, val)
+  toolkit_experimental.timevector(ts, val)
         -> toolkit_experimental.sort()
         -> toolkit_experimental.delta()
         -> toolkit_experimental.abs()
@@ -117,18 +125,21 @@ The operator determines the action to perform based on its left and right
 arguments.
 
 ### Pipeline elements
+
 There are two main types of pipeline elements:
-*  Transforms change the contents of the `timevector`, returning
+
+*   Transforms change the contents of the `timevector`, returning
    the updated vector.
-*  Finalizers finish the pipeline and output the resulting data.
+*   Finalizers finish the pipeline and output the resulting data.
 
 Transform elements take in a `timevector` and produce a `timevector`. They are
 the simplest element to compose, because they produce the same type. For
 example:
+
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
-    	-> toolkit_experimental.sort()
+ toolkit_experimental.timevector(ts, val)
+     -> toolkit_experimental.sort()
         -> toolkit_experimental.delta()
         -> toolkit_experimental.map($$ ($value^3 + $value^2 + $value * 2) $$)
         -> toolkit_experimental.lttb(100)
@@ -140,9 +151,10 @@ an output in a specified format. or they can produce an aggregate of the
 `timevector`.
 
 For example, a finalizer element that produces an output:
+
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
+ toolkit_experimental.timevector(ts, val)
     -> toolkit_experimental.sort()
     -> toolkit_experimental.delta()
     -> toolkit_experimental.unnest()
@@ -150,9 +162,10 @@ FROM measurements
 ```
 
 Or a finalizer element that produces an aggregate:
+
 ```sql
 SELECT device_id,
-	toolkit_experimental.timevector(ts, val)
+ toolkit_experimental.timevector(ts, val)
     -> toolkit_experimental.sort()
     -> toolkit_experimental.delta()
     -> toolkit_experimental.time_weight()
@@ -162,15 +175,18 @@ FROM measurements
 The third type of pipeline elements are aggregate accessors and mutators. These
 work on a `timevector` in a pipeline, but they also work in regular aggregate
 queries. An example of using these in a pipeline:
+
 ```sql
 SELECT percentile_agg(val) -> toolkit_experimental.approx_percentile(0.5)
 FROM measurements
 ```
 
 ## Transform elements
+
 Transform elements take a `timevector`, and produce a `timevector`.
 
 ### Vectorized math functions
+
 Vectorized math function elements modify each `value` inside the `timevector`
 with the specified mathematical function. They are applied point-by-point and
 they produce a one-to-one mapping from the input to output `timevector`. Each
@@ -180,11 +196,13 @@ transformed by the mathematical function specified.
 Elements are always applied left to right, so the order of operations is not
 taken into account even in the presence of explicit parentheses. This means for
 a `timevector` row `('2020-01-01 00:00:00+00', 20.0)`, this pipeline works:
+
 ```
  timevector('2021-01-01 UTC', 10) -> add(5) -> (mul(2) -> add(1))
 ```
 
 And this pipeline works in the same way:
+
 ```
 timevector('2021-01-01 UTC', 10) -> add(5) -> mul(2) -> add(1)
 ```
@@ -195,6 +213,7 @@ If multiple arithmetic operations are needed and precedence is important,
 consider using a [Lambda](#lambda-elements) instead.
 
 ### Unary mathematical functions
+
 Unary mathematical function elements apply the corresponding mathematical
 function to each datapoint in the `timevector`, leaving the timestamp and
 ordering the same. The available elements are:
@@ -215,6 +234,7 @@ ordering the same. The available elements are:
 Even if an element logically computes an integer, `timevectors` only deal with
 double precision floating point values, so the computed value is the
 floating point representation of the integer. For example:
+
 ```sql
 -- NOTE: the (pipeline -> unnest()).* allows for time, value columns to be produced without a subselect
 SELECT (
@@ -230,6 +250,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          | value
 ------------------------+-------
@@ -242,6 +263,7 @@ The output for this example:
 ```
 
 ### Binary mathematical functions
+
 Binary mathematical function elements run the corresponding mathematical function
 on the `value` in each point in the `timevector`, using the supplied number as
 the second argument of the function. The available elements are:
@@ -258,6 +280,7 @@ the second argument of the function. The available elements are:
 
 These elements calculate `vector -> power(2)` by squaring all of the `values`,
 and `vector -> logn(3)` gives the log-base-3 of each `value`. For example:
+
 ```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
@@ -272,6 +295,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          |        value         
 ------------------------+----------------------
@@ -284,6 +308,7 @@ The output for this example:
 ```
 
 ### Compound transforms
+
 Mathematical transforms are applied only to the `value` in each
 point in a `timevector` and always produce one-to-one output `timevectors`. Compound transforms can involve both the `time` and `value` parts of the points
 in the `timevector`, and they are not necessarily one-to-one. One or more points
@@ -292,10 +317,12 @@ mathematical transforms always produce `timevectors` of the same length,
 compound transforms can produce larger or smaller `timevectors` as an output.
 
 #### Delta transforms
+
 A `delta()` transform calculates the difference between consecutive `values` in
 the `timevector`. The first point in the `timevector` is omitted as there is no
 previous value and it cannot have a `delta()`. Data should be sorted using the
 `sort()` element before passing into `delta()`. For example:
+
 ```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
@@ -311,6 +338,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          | value
 ------------------------+-------
@@ -327,6 +355,7 @@ without a previous value.
 </highlight>
 
 #### Fill method transform
+
 The `fill_to()` transform ensures that there is a point at least every
 `interval`, if there is not a point, it fills in the point using the method
 provided. The `timevector` must be sorted before calling `fill_to()`. The
@@ -340,6 +369,7 @@ available fill methods are:
 |Nearest|Fill with the matching value from the closer of the points preceding or following the hole|
 
 For example:
+
 ```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
@@ -355,6 +385,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          | value
 ------------------------+-------
@@ -368,6 +399,7 @@ The output for this example:
 ```
 
 #### Largest triangle three buckets (LTTB) transform
+
 The largest triangle three buckets (LTTB) transform uses the LTTB graphical
 downsampling algorithm to downsample a `timevector` to the specified resolution
 while maintaining visual acuity.
@@ -375,8 +407,10 @@ while maintaining visual acuity.
 <!---- Insert example here. --LKB 2021-10-19-->
 
 #### Sort transform
+
 The `sort()` transform sorts the `timevector` by time, in ascending order. This
 transform is ignored if the `timevector` is already sorted. For example:
+
 ```sql
 SELECT (
     toolkit_experimental.timevector(time, value)
@@ -391,6 +425,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          | value
 ------------------------+-------
@@ -403,8 +438,10 @@ The output for this example:
 ```
 
 ### Lambda elements
+
 The Lambda element functions use the Toolkit's experimental Lambda syntax to transform
 a `timevector`. A Lambda is an expression that is applied to the elements of a `timevector`. It is written as a string, usually `$$`-quoted, containing the expression to run. For example:
+
 ```sql
 $$
  let $is_relevant = $time > '2021-01-01't and $time < '2021-10-14't;
@@ -414,6 +451,7 @@ $$
 ```
 
 A Lambda expression can be constructed using these components:
+
 *   **Variable declarations** such as `let $foo = 3; $foo * $foo`. Variable
     declarations end with a semicolon. All Lambdas must end with an
     expression, this does not have a semicolon. Multiple variable declarations
@@ -436,6 +474,7 @@ A Lambda expression can be constructed using these components:
 *   **Number literals** such as `42`, `0.0`, `-7`, or `1e2`.
 
 Lambdas follow a grammar that is roughly equivalent to EBNF. For example:
+
 ```ebnf
 Expr     = ('let' Variable '=' Tuple ';')* Tuple
 Tuple    = Binops (',' Binops)*
@@ -450,11 +489,13 @@ Number   = ? described above ?
 ```
 
 #### Map Lambda
+
 The `map()` Lambda maps each element of the `timevector`. This Lambda must
 return either a `DOUBLE PRECISION`, where only the values of each point in the
 `timevector` is altered, or a `(TIMESTAMPTZ, DOUBLE PRECISION)`, where both the
 times and values are changed. An example of the `map()` Lambda with a
 `DOUBLE PRECISION` return:
+
 ```sql
 SELECT (
    toolkit_experimental.timevector(time, value)
@@ -469,6 +510,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          | value
 ------------------------+-------
@@ -482,6 +524,7 @@ The output for this example:
 
 An example of the `map()` Lambda with a `(TIMESTAMPTZ, DOUBLE PRECISION)`
 return:
+
 ```sql
 SELECT (
    toolkit_experimental.timevector(time, value)
@@ -496,6 +539,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          | value
 ------------------------+-------
@@ -508,9 +552,11 @@ The output for this example:
 ```
 
 #### Filter Lambda
+
 The `filter()` Lambda filters a `timevector` based on a Lambda expression that
 returns `true` for every point that should stay in the `timevector` timeseries,
 and `false` for every point that should be removed. For example:
+
 ```sql
 SELECT (
    toolkit_experimental.timevector(time, value)
@@ -525,6 +571,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
           time          | value
 ------------------------+-------
@@ -534,20 +581,25 @@ The output for this example:
 ```
 
 ## Finalizer elements
+
 Finalizer elements complete the function pipeline, and output a value or an
 aggregate.
 
 ### Output element
+
 You can finalize a pipeline with a `timevector`  output element. These are used
 at the end of a pipeline to return a `timevector`. This can be useful if you
 need to use them in another pipeline later on. The two types of output are:
+
 *   `unnest()`, which returns a set of `(TimestampTZ, DOUBLE PRECISION)` pairs.
 *   `materialize()`, which forces the pipeline to materialize a `timevector`.
     This blocks any optimizations that lazily materialize a `timevector`.
 
 ### Aggregate output elements
+
 These elements take a `timevector` and run the corresponding aggregate over it
 to produce a result.. The possible elements are:
+
 *   `average()`
 *   `integral()`
 *   `counter_agg()`
@@ -557,6 +609,7 @@ to produce a result.. The possible elements are:
 *   `num_vals()`
 
 An example of an aggregate output using `num_vals()`:
+
 ```sql
 SELECT toolkit_experimental.timevector(time, value) -> toolkit_experimental.num_vals()
 FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
@@ -568,6 +621,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
  ?column?
 ----------
@@ -591,6 +645,7 @@ FROM (VALUES (TimestampTZ '2021-01-06 UTC',   0.0 ),
 ```
 
 The output for this example:
+
 ```sql
       ?column?      
 --------------------
@@ -599,9 +654,11 @@ The output for this example:
 ```
 
 ## Aggregate accessors and mutators
+
 Aggregate accessors and mutators work in function pipelines in the same way as
 they do in other aggregates. You can use them to get a value from the aggregate
 part of a function pipeline. For example:
+
 ```sql
 SELECT device_id,
 timevector(ts, val) -> sort() -> delta() -> stats_agg() -> variance()
@@ -609,18 +666,21 @@ FROM measurements
 ```
 
 When you use them in a pipeline instead of standard function accessors and mutators, they can make the syntax clearer by getting rid of nested functions. For example, the nested syntax looks like this:
+
 ```sql
 SELECT approx_percentile(0.5, percentile_agg(val))
 FROM measurements
 ```
 
 Using a function pipeline with the `->` operator instead looks like this:
+
 ```sql
 SELECT percentile_agg(val) -> approx_percentile(0.5)
 FROM measurements
 ```
 
 ### Counter aggregates
+
 Counter aggregates handle resetting counters. Counters are a common type of
 metric in application performance monitoring and metrics. All values have resets
 accounted for. These elements must have a `CounterSummary` to their left when
@@ -643,6 +703,7 @@ available counter aggregate functions are:
 |`with_bounds(range)`|Applies bounds using the `range` (a `TSTZRANGE`) to the `CounterSummary` if they weren't provided in the aggregation step|
 
 ### Percentile approximation
+
 Percentile approximation aggregate accessors are used to approximate
 percentiles. Currently, only accessors are implemented for `percentile_agg` and
 `uddsketch` based aggregates. We have not yet implemented the pipeline aggregate
@@ -656,9 +717,8 @@ for percentile approximation with `tdigest`.
 |`mean()`| The exact average of the input values.|
 |`num_vals()`| The number of input values|
 
-
-
 ### Statistical aggregates
+
 Statistical aggregate accessors add support for common statistical aggregates.
 These allow you to compute and `rollup()` common statistical aggregates like
 `average` and `stddev`, more advanced aggregates like `skewness`, and
@@ -685,20 +745,120 @@ average on each of two dimensions. The available statistical aggregates are:
 |`x_intercept()`|The x intercept of the least squares fit line|
 
 ### Time-weighted averages aggregates
+
 The `average()` accessor can be called on the output of a `time_weight()`. For
 example:
+
 ```sql
 SELECT time_weight('Linear', ts, val) -> average()  FROM measurements;
 ```
 
 ### Approximate count distinct aggregates
+
 This is an approximation for distinct counts. The `distinct_count()` accessor
 can be called on the output of a `hyperloglog()`. For example:
+
 ```sql
 SELECT hyperloglog(device_id) -> distinct_count() FROM measurements;
 ```
 
+## Formatting timevectors
+
+You can turn a timevector into a formatted text representation. There are two
+functions for turning a timevector to text:
+
+*   [`to_text`](#to-text), which allows you to specify the template
+*   [`to_plotly`](#to-plotly), which outputs a format suitable for use with Plotly
+
+### `to_text`
+
+```sql
+toolkit_experimental.to_text(
+    timevector(time, value),
+    format_string
+)
+```
+
+This function produces a text representation, formatted according to the
+`format_string`. The format string can use any valid [Tera template
+syntax][tera], and it can include any of the built-in variables:
+
+*   `TIMES`: All the times in the timevector, as an array
+*   `VALUES`: All the values in the timevector, as an array
+*   `TIMEVALS`: All the time-value pairs in the timevector, formatted as
+    `{"time": $TIME, "val": $VAL}`, as an array
+
+For example, given this table of data:
+
+```sql
+CREATE TABLE data(time TIMESTAMPTZ, value DOUBLE PRECISION);
+
+INSERT INTO data VALUES
+    ('2020-1-1', 30.0),
+    ('2020-1-2', 45.0),
+    ('2020-1-3', NULL),
+    ('2020-1-4', 55.5),
+    ('2020-1-5', 10.0);
+```
+
+You can use a format string with `TIMEVALS` to produce the following text:
+
+```sql
+SELECT toolkit_experimental.to_text(
+    timevector(time, value),
+    '{{TIMEVALS}}'
+) FROM data;
+```
+
+```txt
+[{\"time\": \"2020-01-01 00:00:00+00\", \"val\": 30}, {\"time\": \"2020-01-02 00:00:00+00\", \"val\": 45}, {\"time\": \"2020-01-03 00:00:00+00\", \"val\": null}, {\"time\": \"2020-01-04 00:00:00+00\", \"val\": 55.5}, {\"time\": \"2020-01-05 00:00:00+00\", \"val\": 10} ]
+```
+
+Or you can use a format string with `TIMES` and `VALUES` to produce the
+following text:
+
+```sql
+SELECT toolkit_experimental.to_text(
+    timevector(time,value),
+    '{\"times\": {{ TIMES }}, \"vals\": {{ VALUES }}}'
+) FROM data
+```
+
+```txt
+{\"times\": [\"2020-01-01 00:00:00+00\",\"2020-01-02 00:00:00+00\",\"2020-01-03 00:00:00+00\",\"2020-01-04 00:00:00+00\",\"2020-01-05 00:00:00+00\"], \"vals\": [\"30\",\"45\",\"null\",\"55.5\",\"10\"]}
+```
+
+### `to_plotly`
+
+This function produces a text representation, formatted for use with Plotly.
+
+For example, given this table of data:
+
+```sql
+CREATE TABLE data(time TIMESTAMPTZ, value DOUBLE PRECISION);
+
+INSERT INTO data VALUES
+    ('2020-1-1', 30.0),
+    ('2020-1-2', 45.0),
+    ('2020-1-3', NULL),
+    ('2020-1-4', 55.5),
+    ('2020-1-5', 10.0);
+```
+
+You can produce the following Plotly-compatible text:
+
+```sql
+SELECT toolkit_experimental.to_plotly(
+    timevector(time, value)
+) FROM data;
+```
+
+```txt
+{\"times\": [\"2020-01-01 00:00:00+00\",\"2020-01-02 00:00:00+00\",\"2020-01-03 00:00:00+00\",\"2020-01-04 00:00:00+00\",\"2020-01-05 00:00:00+00\"], \"vals\": [\"30\",\"45\",\"null\",\"55.5\",\"10\"]}
+```
+
 ## All function pipeline elements
+
 This table lists all function pipeline elements in alphabetical order:
 
 |Element|Category|Output|
@@ -734,3 +894,5 @@ This table lists all function pipeline elements in alphabetical order:
 |`sum`|Aggregate Finalizer|`timevector` pipeline|
 |`trunc`|Unary Mathematical|`timevector` pipeline|
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
+
+[tera]: https://tera.netlify.app/docs/#templates
