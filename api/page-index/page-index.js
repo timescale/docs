@@ -636,6 +636,42 @@ module.exports = [
                 title: "into_values (for state_agg)",
                 href: "into_values-state_agg",
               },
+              {
+                title: "heartbeat_agg",
+                href: "heartbeat_agg",
+              },
+              {
+                title: "live_ranges",
+                href: "live_ranges",
+              },
+              {
+                title: "dead_ranges",
+                href: "dead_ranges",
+              },
+              {
+                title: "uptime",
+                href: "uptime",
+              },
+              {
+                title: "downtime",
+                href: "downtime",
+              },
+              {
+                title: "interpolated_uptime",
+                href: "interpolated_uptime",
+              },
+              {
+                title: "interpolated_downtime",
+                href: "interpolated_downtime",
+              },
+              {
+                title: "interpolate",
+                href: "interpolate",
+              },
+              {
+                title: "live_at",
+                href: "live_at",
+              },
             ],
           },
         ],
