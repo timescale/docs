@@ -768,7 +768,8 @@ You can turn a timevector into a formatted text representation. There are two
 functions for turning a timevector to text:
 
 *   [`to_text`](#to-text), which allows you to specify the template
-*   [`to_plotly`](#to-plotly), which outputs a format suitable for use with Plotly
+*   [`to_plotly`](#to-plotly), which outputs a format suitable for use with the
+    [Plotly JSON chart schema][plotly]
 
 ### `to_text`
 
@@ -895,4 +896,5 @@ This table lists all function pipeline elements in alphabetical order:
 |`trunc`|Unary Mathematical|`timevector` pipeline|
 |`unnest`|Output|`TABLE (time TIMESTAMPTZ, value DOUBLE PRECISION)`|
 
+[plotly]: https://plotly.com/chart-studio-help/json-chart-schema/
 [tera]: https://tera.netlify.app/docs/#templates
