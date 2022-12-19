@@ -67,25 +67,34 @@ interpolated_state_timeline(
 Getting the interpolated history of states in a timeline aggregate:
 
 ```sql
-SELECT state, start_time, end_time FROM toolkit_experimental.interpolated_state_timeline(
-    (SELECT toolkit_experimental.timeline_agg(ts, state) FROM states_test),
-    '2019-12-31', '1 days',
-    (SELECT toolkit_experimental.timeline_agg(ts, state) FROM states_test_3),
-    (SELECT toolkit_experimental.timeline_agg(ts, state) FROM states_test_3)
-)
-ORDER BY start_time;
+SELECT
+    bucket,
+    (toolkit_experimental.interpolated_state_timeline(
+        summary,
+        bucket,
+        '15 min',
+        LAG(summary) OVER (ORDER by bucket),
+        LEAD(summary) OVER (ORDER by bucket)
+    )).*
+FROM (
+    SELECT
+        time_bucket('1 min'::interval, ts) AS bucket,
+        toolkit_experimental.timeline_agg(ts, state) AS summary
+    FROM states_test
+    GROUP BY time_bucket('1 min'::interval, ts)
+) t;
 ```
 
 Example output:
 
 ```
- state |       start_time       |        end_time
--------+------------------------+------------------------
- START | 2019-12-31 00:00:00+00 | 2020-01-01 00:00:11+00
- OK    | 2020-01-01 00:00:11+00 | 2020-01-01 00:01:00+00
- ERROR | 2020-01-01 00:01:00+00 | 2020-01-01 00:01:03+00
- OK    | 2020-01-01 00:01:03+00 | 2020-01-01 00:02:00+00
- STOP  | 2020-01-01 00:02:00+00 | 2020-01-01 00:02:00+00
+         bucket         | state |       start_time       |        end_time
+------------------------+-------+------------------------+------------------------
+ 2020-01-01 00:00:00+00 | START | 2020-01-01 00:00:00+00 | 2020-01-01 00:00:11+00
+ 2020-01-01 00:00:00+00 | OK    | 2020-01-01 00:00:11+00 | 2020-01-01 00:15:00+00
+ 2020-01-01 00:01:00+00 | ERROR | 2020-01-01 00:01:00+00 | 2020-01-01 00:01:03+00
+ 2020-01-01 00:01:00+00 | OK    | 2020-01-01 00:01:03+00 | 2020-01-01 00:16:00+00
+ 2020-01-01 00:02:00+00 | STOP  | 2020-01-01 00:02:00+00 | 2020-01-01 00:02:00+00
 ```
 
 [state_agg]: /api/:currentVersion:/hyperfunctions/state-aggregates/state_agg/
