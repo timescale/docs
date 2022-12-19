@@ -21,7 +21,7 @@ import Experimental from 'versionContent/_partials/_experimental.mdx';
 
 # rollup()  <tag type="toolkit">Toolkit</tag><tag type="experimental-toolkit">Experimental</tag>
 
-Combines multiple `StateAgg` aggregates. Using `rollup`, you can
+Combines multiple `StateAgg`/`TimelineAgg` aggregates. Using `rollup`, you can
 reaggregate a continuous aggregate into larger [time buckets][time_bucket].
 
 ```sql
