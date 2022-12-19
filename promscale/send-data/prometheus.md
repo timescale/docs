@@ -38,13 +38,7 @@ Remote-write performance is dependent on `queue_config`. Changing values in `que
 remote_write:
   remote_timeout: 100s
   queue_config:
-    capacity: 100000
     max_samples_per_send: 10000
-    batch_send_deadline: 30s
-    min_shards: 20
-    max_shards: 20
-    min_backoff: 100ms
-    max_backoff: 10s
 ```
 
 This section contains further explanation of each parameter.
