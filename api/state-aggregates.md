@@ -15,7 +15,9 @@ For these hyperfunctions, you need to install the [TimescaleDB Toolkit][install-
 `timeline_agg` supports all hyperfunctions that operate on StateAggs, in addition
 to some additional functions that need a full state timeline.
 
-All `state_agg` and `timeline_agg` hyperfunctions support both string (`TEXT`) and integer (`BIGINT`) states. You can't mix different types of states within a single aggregate.
+All `state_agg` and `timeline_agg` hyperfunctions support both string (`TEXT`) and integer (`BIGINT`) states. 
+You can't mix different types of states within a single aggregate.
+Integer states are useful when the state value is a foreign key representing a row in another table that stores all possible states.
 
 ## Hyperfunctions
 
