@@ -16,7 +16,7 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    This will combine multiple heartbeat aggregates into one. This can be used
+    This combines multiple heartbeat aggregates into one. This can be used
     to combine aggregates into adjacent intervals into one larger interval,
     such as rolling daily aggregates into a weekly or monthly aggregate.
 
@@ -24,7 +24,7 @@ api_details:
     systems to determine if there were any overlapping failures. For instance,
     a master and standby system can have their heartbeats combined to see if
     there were any intervals where both systems were down at the same time. The
-    result of rolling overlapping heartbeats together like this will be a
+    result of rolling overlapping heartbeats together like this is a
     heartbeat aggregate which considers a time live if any of its component
     aggregates were live.
   signatures:
@@ -42,5 +42,5 @@ api_details:
       - column: rollup
         type: HeartbeatAgg
         description: >
-          A heartbeat aggregate covering the interval from the earliest start time of its component aggregates to the latest end time.  It will combine the live ranges of all the components.
+          A heartbeat aggregate covering the interval from the earliest start time of its component aggregates to the latest end time.  It combines the live ranges of all the components.
 ---

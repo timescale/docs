@@ -16,10 +16,10 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    Given a heartbeat aggregate and a timestamp, this will return whether the
+    Given a heartbeat aggregate and a timestamp, this returns whether the
     aggregate has a heartbeat indicating the system was live at the given time.
 
-    Note that this will return false for any time not covered by the aggregate.
+    Note that this returns false for any time not covered by the aggregate.
   signatures:
     - language: sql
       code: |
@@ -51,7 +51,7 @@ api_details:
           FROM liveness
           WHERE date = '01-9-2022 UTC'
       return:
-        code: |
+        code: |2
            live_at     
           ---------
            f

@@ -16,7 +16,7 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    Given a heartbeat aggregate, this will return a set of (start_time,
+    Given a heartbeat aggregate, this returns a set of (start_time,
     end_time) pairs representing when the underlying system was live during the
     interval of the aggregate.
   signatures:
@@ -48,7 +48,7 @@ api_details:
           FROM liveness
           WHERE date = '01-9-2022 UTC'
       return:
-        code: |
+        code: |2
                               live_ranges                     
           -----------------------------------------------------
           ("2022-01-09 00:00:30+00","2022-01-12 15:27:22+00")

@@ -16,11 +16,11 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    This will take a heartbeat aggregate and the aggregate immediately
-    preceeding it. It will upate the aggregate to include any live ranges that
+    This takes a heartbeat aggregate and the aggregate immediately
+    preceding it. It updates the aggregate to include any live ranges that
     should have been carried over from the last heartbeat in the predecessor,
     even if there aren't heartbeats for that range in the interval covered by
-    this aggregate. It will return the updated aggregate, which can then be
+    this aggregate. It returns the updated aggregate, which can then be
     used with any of the heartbeat aggregate accessors.
   signatures:
     - language: sql
@@ -47,7 +47,7 @@ api_details:
           A copy of `agg` which has been update to include any heartbeat intervals extending past the end of `pred`.
   examples:
     - description: >
-        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, we can use the following to get the intervals where the system was unhealthy during the week of Jan 9, 2022.  This will correctly exclude any ranges covered by a heartbeat at the end of the Jan 2 week.
+        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, we can use the following to get the intervals where the system was unhealthy during the week of Jan 9, 2022.  This correctly excludes any ranges covered by a heartbeat at the end of the Jan 2 week.
       command:
         code: |
           SELECT dead_ranges(
@@ -59,7 +59,7 @@ api_details:
           FROM liveness
           WHERE date = '01-9-2022 UTC'
       return:
-        code: |
+        code: |2
                               dead_ranges                     
           -----------------------------------------------------
           ("2022-01-12 15:27:22+00","2022-01-12 15:31:17+00")

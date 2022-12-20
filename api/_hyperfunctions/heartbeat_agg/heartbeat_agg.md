@@ -52,7 +52,7 @@ api_details:
           The liveness data for the heartbeated system over the provided interval.
   examples:
     - description: >
-        Given a table called `system_health` with a `ping_time` column, construct an aggregate of system liveness for 10 days starting from Jan 1, 2022.  This assumes a system is unhealthy if we haven't heard from in a 5 minute window.
+        Given a table called `system_health` with a `ping_time` column, construct an aggregate of system liveness for 10 days starting from Jan 1, 2022.  This assumes a system is unhealthy if it hasn't been heard from in a 5 minute window.
       command:
         code: |
           SELECT heartbeat_agg(

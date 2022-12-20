@@ -16,7 +16,7 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    This behaves very similarly to [`uptime()`](#uptime), but it also takes the heartbeat aggregate from the preceeding interval.  It will check when the last heartbeat in the predecessor was received and make sure that the entire heartbeat interval after that is considered live.  This addresses the issue where `uptime` would consider the interval between the start of the interval and the first heartbeat as dead.
+    This behaves very similarly to [`uptime()`](#uptime), but it also takes the heartbeat aggregate from the preceding interval.  It checks when the last heartbeat in the predecessor was received and makes sure that the entire heartbeat interval after that is considered live. This addresses the issue where `uptime` would consider the interval between the start of the interval and the first heartbeat as dead.
   signatures:
     - language: sql
       code: |
@@ -42,7 +42,7 @@ api_details:
           The sum of all the live ranges in the aggregate, including those covered by the last heartbeat of the previous interval.
   examples:
     - description: >
-        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, we can use the following to get the total interpolated uptime of the system during the week of Jan 9, 2022.
+        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, you can use this command to get the total interpolated uptime of the system during the week of Jan 9, 2022.
       command:
         code: |
           SELECT interpolated_uptime(

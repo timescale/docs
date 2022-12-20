@@ -16,8 +16,8 @@ hyperfunction:
     - heartbeat_agg()
 api_details:
   summary: |
-    Given a heartbeat aggregate, this will sum all the ranges where the system
-    was live and return the total.
+    Given a heartbeat aggregate, this sums all the ranges where the system
+    was live and returns the total.
     
     There may appear to be some downtime between the start of the aggregate and
     the first heartbeat. If there is a heartbeat aggregage covering the
@@ -42,14 +42,14 @@ api_details:
           The sum of all the live ranges in the aggregate.
   examples:
     - description: >
-        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, we can use the following to get the total uptime of the system during the week of Jan 9, 2022.
+        Given a table called `liveness` containing weekly heartbeat aggregates in column `health` with timestamp column `date`, you can use this command to get the total uptime of the system during the week of Jan 9, 2022.
       command:
         code: |
           SELECT uptime(health)
           FROM liveness
           WHERE date = '01-9-2022 UTC'
       return:
-        code: |
+        code: |2
               uptime     
           -----------------
           6 days 23:55:35
