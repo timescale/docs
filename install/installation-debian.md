@@ -14,10 +14,8 @@ import Debian from "versionContent/_partials/_psql-installation-debian-ubuntu.md
 You can host TimescaleDB yourself, on your Debian or Ubuntu system. These
 instructions use the `apt` package manager on these distributions:
 
-*   Debian 9 Stretch
 *   Debian 10 Buster
 *   Debian 11 Bullseye
-*   Ubuntu 18.04 LTS Bionic Beaver
 *   Ubuntu 20.04 LTS Focal Fossa
 *   Ubuntu 22.04 LTS Jammy Jellyfish
 
