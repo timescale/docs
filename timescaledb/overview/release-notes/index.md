@@ -47,7 +47,7 @@ This release also includes several bug fixes.
 * #4820 Support parameterized data node scans in joins
 * #4830 Add function to change configuration of a data nodes
 * #4966 Handle DML activity when datanode is not available
-* #4971 Add function to drop stale chunks on a datanode
+* #4971 Add function to drop stale chunks on a data node
 
 **Bugfixes**
 * #4663 Don't error when compression metadata is missing
