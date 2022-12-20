@@ -23,6 +23,7 @@ The minimum supported PostgreSQL versions are:
 *   PostgreSQL 12.8
 *   PostgreSQL 13.5
 *   PostgreSQL 14.0
+*   PostgreSQL 15.0
 
 <highlight type="warning">
 If you have already installed PostgreSQL using another method, you could
@@ -145,11 +146,14 @@ tsdb=>
 
 ## Windows releases
 
-Here are the latest TimescaleDB releases for PostgreSQL 12, 13, and 14. To see
+Here are the latest TimescaleDB releases for PostgreSQL 12, 13, 14, and 15. To see
 information on releases, check out the
 [GitHub releases page][gh-releases]. Also see the
 [release notes][release-notes].
 
+*   <tag type="download">
+    [PostgreSQL 15: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-15_latest-windows-amd64.zip)
+    </tag>
 *   <tag type="download">
     [PostgreSQL 14: TimescaleDB release](https://timescalereleases.blob.core.windows.net/windows/timescaledb-postgresql-14_latest-windows-amd64.zip)
     </tag>
