@@ -25,8 +25,8 @@ api_details:
         live_ranges(
             agg HEARTBEATAGG
         ) RETURNS TABLE (
-	        start TIMESTAMPTZ,
-	        end TIMESTAMPTZ
+            start TIMESTAMPTZ,
+            end TIMESTAMPTZ
         )
   parameters:
     required:
