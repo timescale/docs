@@ -35,7 +35,7 @@ This release includes these noteworthy features:
 This release also includes several bug fixes.
 
 **Features**
-* #4476 Batch rows on access node for distributed COPY
+* #4476 Batch rows on access node for distributed `COPY`
 * #4567 Exponentially backoff when out of background workers
 * #4650 Show warnings when not following best practices
 * #4664 Introduce fixed schedules for background jobs
