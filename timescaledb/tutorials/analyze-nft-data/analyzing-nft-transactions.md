@@ -253,9 +253,9 @@ blockchain and our database contains seller (`seller_account`) and
 buyer (`winner_account`) columns as well, you can analyze the purchase
 activity of a specific account.
 
-This query analyzes [Snoop Dogg's](https://twitter.com/cozomomedici) address to
-analyze his trades, but you can edit the query to add any address in the `WHERE`
-clause to see the specified account's transactions:
+This query uses Snoop Dogg's address to analyze his trades, but you can edit the
+query to add any address in the `WHERE` clause to see the specified account's
+transactions:
 
 ```sql
 /* Snoop Dogg's transactions in the past 3 months aggregated */
