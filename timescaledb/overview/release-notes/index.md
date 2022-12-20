@@ -49,7 +49,7 @@ This release also includes several bug fixes.
 * #4966 Handle DML activity when datanode is not available
 * #4971 Add function to drop stale chunks on a data node
 
-**Bugfixes**
+**Bug fixes**
 * #4663 Don't error when compression metadata is missing
 * #4673 Fix now() constification for VIEWs
 * #4681 Fix compression_chunk_size primary key
