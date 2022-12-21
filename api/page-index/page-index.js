@@ -656,6 +656,11 @@ module.exports = [
                 title: "interpolated_state_timeline",
                 href: "interpolated_state_timeline",
               },
+              {
+                title: "heartbeat_agg",
+                href: "heartbeat_agg",
+                type: "placeholder",
+              },
             ],
           },
         ],
