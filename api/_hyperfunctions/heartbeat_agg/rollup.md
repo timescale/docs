@@ -11,7 +11,7 @@ api:
     experimental: 1.13.0
 hyperfunction:
   family: state aggregates
-  type: aggregate
+  type: rollup
   aggregates:
     - heartbeat_agg()
 api_details:
