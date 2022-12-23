@@ -21,6 +21,19 @@ Want to stay up-to-date with new releases? Subscribe to get
 * Introduce fixed schedules for background jobs and the ability to check job errors.
 * Use `alter_data_node()` to change the data node configuration. This function introduces the option to configure the availability of the data node.
 
+## 2.9.1 (2022-12-23)
+
+This release contains bug fixes since the 2.9.0 release.
+This release is high priority for upgrade. We strongly recommend that you
+upgrade as soon as possible.
+
+**Bugfixes**
+* #5072 Fix CAgg on CAgg bucket size validation
+* #5101 Fix enabling compression on caggs with renamed columns
+* #5106 Fix building against PG15 on Windows
+* #5117 Fix postgres server restart on background worker exit
+* #5121 Fix privileges for job_errors in update script
+
 ## 2.9.0 (2022-12-15)
 
 This release adds major new features since the 2.8.1 release.
