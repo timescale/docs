@@ -39,20 +39,36 @@ module.exports = [
         href: "viewing-service-logs",
       },
       {
-        title: "Logging",
-        href: "logging",
-      },
-      {
         title: "VPC peering",
         href: "vpc-peering",
       },
       {
-        title: "Send metrics to Datadog",
-        href: "metrics-datadog",
-      },
-      {
-        title: "Integrate Managed Service for TimescaleDB and Google Data Studio",
-        href: "google-data-studio-mst",
+        title: "Integrations",
+        href: "integrations",
+        excerpt: " MST integrates with the other tools you are already using, and makes it easy to add more integrations",
+        children:  [
+          {
+           title: "Integrate Managed Service for TimescaleDB and Google Data Studio",
+           href: "google-data-studio-mst",
+          },
+          {
+            title:
+          "Integrate Managed Service for TimescaleDB as a data source in Grafana",
+            href: "grafana-mst",
+          },
+          {
+            title: "Logging",
+            href: "logging",
+          },
+          {
+            title: "Send metrics to Datadog",
+            href: "metrics-datadog",
+          }, 
+          {
+            title: "Prometheus endpoint for Managed Service for TimescaleDB",
+            href: "prometheus-mst",
+          }
+        ],
       },
       {
         title: "Supported extensions",
@@ -82,11 +98,6 @@ module.exports = [
       {
         title: "Backups",
         href: "manage-backups",
-      },
-      {
-        title:
-          "Integrate Managed Service for TimescaleDB as a data source in Grafana",
-        href: "grafana-mst",
       },
       {
         title: "Aiven Client for Managed Service for TimescaleDB",
