@@ -20,7 +20,7 @@ instructions here to do archiving against cloud providers such as AWS S3, and
 run it in an orchestration framework such as Kubernetes.
 
 <highlight type="deprecation">
-This section describes using the WAL-E sidecar for archiving, that is deprecated
+This section describes using the WAL-E sidecar for archiving, which is deprecated
 on TimescaleDB. We strongly recommend that you do not use this feature in a
 production environment.
 </highlight>
