@@ -129,11 +129,11 @@ Restart PostgreSQL and create the TimescaleDB extension:
     systemctl restart postgresql
     ```
 
-1.  On your local system, at the command prompt, connect to the PostgreSQL
-    instance as the `postgres` superuser:
+1.  On your local system, at the command prompt, open the `psql` command-line
+    utility as the `postgres` superuser:
 
     ```bash
-    -u postgres psql
+    sudo -u postgres psql
     ```
 
     If your connection is successful, you'll see a message like this, followed
@@ -148,7 +148,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
 1.  Set the password for the `postgres` user:
 
     ```sql
-    \password postgres 
+    \password postgres
     ```
 
 1.  Exit from PostgreSQL:
@@ -188,7 +188,7 @@ Restart PostgreSQL and create the TimescaleDB extension:
     ```sql
     tsdb-# \dx
                                           List of installed extensions
-        Name     | Version |   Schema   |                            Description                            
+        Name     | Version |   Schema   |                            Description
     -------------+---------+------------+-------------------------------------------------------------------
      plpgsql     | 1.0     | pg_catalog | PL/pgSQL procedural language
      timescaledb | 2.7.0   | public     | Enables scalable inserts and complex queries for time-series data
