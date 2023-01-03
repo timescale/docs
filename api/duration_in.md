@@ -14,7 +14,7 @@ hyperfunction:
   family: state aggregates
   type: accessor
   aggregates:
-    - state_agg()
+    - state_agg() | timeline_agg()
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
@@ -29,8 +29,8 @@ Use this function to report the total duration for a given state in a [state agg
 
 |Name|Type|Description|
 |-|-|-|
-|`state`|`TEXT`|State to query|
-|`aggregate`|`stateagg`|Previously created aggregate|
+|`state`|`TEXT` or `BIGINT`|State to query|
+|`aggregate`|`StateAgg` or `TimelineAgg`|Previously created aggregate|
 
 ## Returns
 
@@ -75,4 +75,4 @@ If you prefer to see the result in seconds, [`EXTRACT`][extract] the epoch from
 the returned result.
 
 [extract]: https://www.postgresql.org/docs/current/functions-datetime.html#FUNCTIONS-DATETIME-EXTRACT
-[state_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/state_agg/
+[state_agg]: /api/:currentVersion:/hyperfunctions/state-aggregates/state_agg/
