@@ -14,7 +14,7 @@ hyperfunction:
   family: state aggregates
   type: accessor
   aggregates:
-    - state_agg()
+    - state_agg() | timeline_agg()
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';
@@ -25,8 +25,12 @@ Returns the data accumulated in a [state aggregate][state_agg].
 
 ```sql
 into_values (
-    agg StateAgg
+    agg [StateAgg | TimelineAgg]
 ) RETURNS (TEXT, BIGINT)
+
+into_int_values (
+    agg [StateAgg | TimelineAgg]
+) RETURNS (INT, BIGINT)
 ```
 
 <Experimental />
@@ -35,14 +39,14 @@ into_values (
 
 |Name|Type|Description|
 |-|-|-|
-|`agg`|`StateAgg`|The aggregate to display data for|
+|`agg`|`StateAgg` or `TimelineAgg`|The aggregate to display data for|
 
 ## Returns
 
 |Column|Type|Description|
 |-|-|-|
-|`state`|`TEXT`|A state found in the `StateAgg`|
-|`duration`|`BIGINT`|The duration of time spent in that state|
+|`state`|`TEXT`|A state found in the `StateAgg` or `TimelineAgg`|
+|`duration`|`BIGINT` or `INT`|The duration of time spent in that state|
 
 ## Sample usage
 
@@ -66,4 +70,4 @@ OK    | 106000000
 START |  11000000
 ```
 
-[state_agg]: /api/:currentVersion:/hyperfunctions/frequency-analysis/state_agg/
+[state_agg]: /api/:currentVersion:/hyperfunctions/state-aggregates/state_agg/
