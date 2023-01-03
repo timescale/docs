@@ -105,7 +105,7 @@ ensure valid time-bucketing:
     aggregate on top of a continuous aggregate in the old format, you need to
     [migrate your continuous aggregate][migrate-cagg] to the new format first.
 
-*   The time bucket of a continuous aggregate should be greater than the time
+*   The time bucket of a continuous aggregate should be greater than or equal to the time
     bucket of the underlying continuous aggregate. It also needs to be a
     multiple of the underlying time bucket. For example, you can rebucket an
     hourly continuous aggregate into a new continuous aggregate with time
