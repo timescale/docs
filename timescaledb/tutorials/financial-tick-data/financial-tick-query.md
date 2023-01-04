@@ -25,7 +25,7 @@ lowest prices, you can use the standard PostgreSQL aggregate functions `MIN` and
 In TimescaleDB, the most efficient way to create candlestick views is to use
 [continuous aggregates][caggs].
 In this tutorial, you create a continuous aggregate for a candlestick time
-bucket, and then query the aggregate with different refresh policies. Finally, 
+bucket, and then query the aggregate with different refresh policies. Finally,
 you can use Grafana to visualize your data as a candlestick chart.
 
 ## Create a continuous aggregate
@@ -153,4 +153,4 @@ this, see the [Grafana setup instructions][grafana-setup].
 [last]: /api/:currentVersion:/hyperfunctions/last/
 [time-bucket]: /api/:currentVersion:/hyperfunctions/time_bucket/
 [lag]: https://www.postgresqltutorial.com/postgresql-lag-function/
-[grafana-setup]: FIXME
+[grafana-setup]: /timescaledb/:currentVersion:/tutorials/grafana/grafana-timescalecloud/
