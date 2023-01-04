@@ -81,7 +81,7 @@ database and restore the data.
     SELECT timescaledb_post_restore();
     ```
 
-1.  **OPTIONAL** Reindex your database to improve query performance:
+1.  <Optional />Reindex your database to improve query performance:
 
     ```sql
     REINDEX DATABASE tsdb;
