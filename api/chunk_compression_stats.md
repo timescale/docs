@@ -23,25 +23,25 @@ cached sizes, see the `chunks_detailed_size` section.
 ### Required arguments
 
 |Name|Type|Description|
-|---|---|---|
-| `hypertable` | REGCLASS | Name of the hypertable |
+|-|-|-|
+|`hypertable`|REGCLASS|Name of the hypertable|
 
 ### Returns
 
 |Column|Type|Description|
-|---|---|---|
-|`chunk_schema` | TEXT | Schema name of the chunk |
-|`chunk_name` | TEXT | Name of the chunk |
-|`number_compressed_chunks` | INTEGER | the number of chunks used by the hypertable that are currently compressed |
-|`before_compression_table_bytes` | BIGINT | Size of the heap before compression (NULL if currently uncompressed) |
-|`before_compression_index_bytes` | BIGINT | Size of all the indexes before compression (NULL if currently uncompressed) |
-|`before_compression_toast_bytes` | BIGINT | Size the TOAST table before compression (NULL if currently uncompressed) |
-|`before_compression_total_bytes` | BIGINT | Size of the entire chunk table (table+indexes+toast) before compression (NULL if currently uncompressed) |
-|`after_compression_table_bytes` | BIGINT | Size of the heap after compression (NULL if currently uncompressed) |
-|`after_compression_index_bytes` | BIGINT | Size of all the indexes after compression (NULL if currently uncompressed) |
-|`after_compression_toast_bytes` | BIGINT | Size the TOAST table after compression (NULL if currently uncompressed) |
-|`after_compression_total_bytes` | BIGINT | Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed) |
-|`node_name` | TEXT | nodes on which the chunk is located, applicable only to distributed hypertables |
+|-|-|-|
+|`chunk_schema`|TEXT|Schema name of the chunk|
+|`chunk_name`|TEXT|Name of the chunk|
+|`compression_status`|TEXT|the current compression status of the chunk|
+|`before_compression_table_bytes`|BIGINT|Size of the heap before compression (NULL if currently uncompressed)|
+|`before_compression_index_bytes`|BIGINT|Size of all the indexes before compression (NULL if currently uncompressed)|
+|`before_compression_toast_bytes`|BIGINT|Size the TOAST table before compression (NULL if currently uncompressed)|
+|`before_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) before compression (NULL if currently uncompressed)|
+|`after_compression_table_bytes`|BIGINT|Size of the heap after compression (NULL if currently uncompressed)|
+|`after_compression_index_bytes`|BIGINT|Size of all the indexes after compression (NULL if currently uncompressed)|
+|`after_compression_toast_bytes`|BIGINT|Size the TOAST table after compression (NULL if currently uncompressed)|
+|`after_compression_total_bytes`|BIGINT|Size of the entire chunk table (table+indexes+toast) after compression (NULL if currently uncompressed)|
+|`node_name`|TEXT|nodes on which the chunk is located, applicable only to distributed hypertables|
 
 ### Sample usage
 
