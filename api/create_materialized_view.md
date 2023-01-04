@@ -1,6 +1,6 @@
 ---
 api_name: CREATE MATERIALIZED VIEW (Continuous Aggregate)
-excerpt: Create a continuous aggregate on a hypertable
+excerpt: Create a continuous aggregate on a hypertable or another continuous aggregate
 topics: [continuous aggregates]
 keywords: [continuous aggregates, create]
 tags: [materialized view, hypertables]
@@ -28,7 +28,7 @@ CREATE MATERIALIZED VIEW <view_name> [ ( column_name [, ...] ) ]
 
 ```sql
 SELECT <grouping_exprs>, <aggregate_functions>
-    FROM <hypertable>
+    FROM <hypertable or another continuous aggregate>
 [WHERE ... ]
 GROUP BY time_bucket( <const_value>, <partition_col_of_hypertable> ),
          [ optional grouping exprs>]
@@ -36,8 +36,8 @@ GROUP BY time_bucket( <const_value>, <partition_col_of_hypertable> ),
 ```
 
 The continuous aggregate view defaults to `WITH DATA`. This means that when the
-view is created, it refreshes using all the current data in its underlying
-hypertable. This occurs once when the view is created. If you want the view to
+view is created, it refreshes using all the current data in the underlying
+hypertable or continuous aggregate. This occurs once when the view is created. If you want the view to
 be refreshed regularly, you can use a refresh policy. If you do not want the
 view to update when it is first created, use the `WITH NO DATA`
 parameter. For more information, see
@@ -45,19 +45,21 @@ parameter. For more information, see
 
 Continuous aggregates have some limitations of what types of queries they can
 support, described in more length below. For example, the `FROM` clause must
-provide only one hypertable, and joins, CTEs, views or subqueries are not
-supported. The `GROUP BY` clause must include a time bucket on the hypertable
+provide only one hypertable or underlying continuous aggregate, and joins, CTEs, or subqueries are not
+supported. The `GROUP BY` clause must include a time bucket on the underlying
 time column, and all aggregates must be parallelizable.
 
 Some important things to remember when constructing your `SELECT` query:
 
-*   Only a single hypertable can be specified in the `FROM` clause of
+*   Only a single hypertable or continuous aggregate can be specified in the `FROM` clause of
     the `SELECT` query. You cannot include more hypertables, joins, tables,
     views, or subqueries.
-*   The hypertable used in the `SELECT` query might not have
+*   The source hypertable or continuous aggregate used in the `SELECT` query must not have
     [row-level-security policies][postgres-rls] enabled.
 *   The `GROUP BY` clause must include a `time_bucket` expression that uses the
-    time dimension of the hypertable. For more information, see the
+    time dimension of the hypertable. When creating a continuous aggregate on
+    top of another continuous aggregate, `time_bucket` must use the
+    time-bucketing column of the underlying continuous aggregate. For more information, see the
     [`time_bucket`][time-bucket] section.
 *   You cannot use [`time_bucket_gapfill`][time-bucket-gapfill] in continuous
     aggregates, but you can run them in a `SELECT` query from the continuous
