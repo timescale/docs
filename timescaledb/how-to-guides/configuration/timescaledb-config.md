@@ -18,7 +18,7 @@ when starting PostgreSQL.
 
 Max background worker processes allocated to TimescaleDB. Set to at least 1 +
 the number of databases loaded with a TimescaleDB extension in a PostgreSQL
-instance, to use background workers. Default value is 16.
+instance. Default value is 16.
 
 ## Distributed hypertables
 
