@@ -7,6 +7,7 @@ keywords: [continuous aggregates]
 import CaggsFunctionSupport from 'versionContent/_partials/_caggs-function-support.mdx';
 
 # About continuous aggregates
+
 Time-series data usually grows very quickly. Large data volumes can become slow
 when aggregating the data into useful summaries. To make aggregating data
 faster, TimescaleDB uses continuous aggregates. For example, if you have a table
@@ -57,9 +58,22 @@ By default, querying continuous aggregates provides you with real-time data.
 Pre-aggregated data from the materialized view is combined with recent data that
 hasn't been aggregated yet. This gives you up-to-date results on every query. If
 you prefer not to see recent data, you can turn this setting off. For more
-information, see the section on [real-time aggregates][real-time-aggs]. 
+information, see the section on [real-time aggregates][real-time-aggs].
+
+## Continuous aggregates on continuous aggregates
+
+You can create a continuous aggregate on top of another continuous aggregate.
+This allows you to summarize data at different granularities. For example, you
+might have a raw hypertable that contains second-by-second data. Create a
+continuous aggregate on the hypertable to calculate hourly data. To calculate
+daily data, create a continuous aggregate on top of your hourly continuous
+aggregate.
+
+For more information, see the documentation about [continuous aggregates on
+continuous aggregates][caggs-on-caggs].
 
 ## Function support
+
 In TimescaleDB 2.7 and above, continuous aggregates support all PostgreSQL
 aggregate functions. This includes both parallelizable aggregates, such as `SUM`
 and `AVG`, and non-parallelizable aggregates, such as `RANK`.
@@ -76,7 +90,9 @@ If you want the old behavior in TimescaleDB 2.7 and above, set the parameter
 `timescaledb.finalized` to `false` when creating your continuous aggregate.
 
 ## Components of a continuous aggregate
+
 Continuous aggregates consist of:
+
 *   Materialization hypertable to store the aggregated data in
 *   Materialization engine to aggregate data from the raw, underlying, table to
     the materialization hypertable
@@ -85,6 +101,7 @@ Continuous aggregates consist of:
 *   Query engine to access the aggregated data
 
 ### Materialization hypertable
+
 Continuous aggregates take raw data from the original hypertable, aggregate it,
 and store the intermediate state in a materialization hypertable. When you query
 the continuous aggregate view, the state is returned to you as needed.
@@ -114,6 +131,7 @@ multiple chunks.
 For more information, see [materialization hypertables][cagg-mat-hypertables].
 
 ### Materialization engine
+
 When you query the continuous aggregate view, the materialization engine
 combines the aggregate partials into a single partial for each time range, and
 calculates the value that is returned. For example, to compute an average, each
@@ -122,6 +140,7 @@ total count, then the average is computed as the total sum divided by the total
 count.
 
 ### Invalidation Engine
+
 Any change to the data in a hypertable could potentially invalidate some
 materialized rows. The invalidation engine checks to ensure that the system does
 not become swamped with invalidations.
@@ -146,6 +165,7 @@ logging does cause some write load, but because the threshold lags behind the
 area of data that is currently changing, the writes are small and rare.
 
 ### Materialization engine
+
 The materialization engine performs two transactions. The first transaction
 blocks all INSERTs, UPDATEs, and DELETEs, determines the time range to
 materialize, and updates the invalidation threshold. The second transaction
@@ -154,6 +174,7 @@ transaction is very quick, and most of the work happens during the second
 transaction, to ensure that the work does not interfere with other operations.
 
 ## Using continuous aggregates in a multi-node environment
+
 If you are using Timescale in a multi-node environment, there are some
 additional considerations for continuous aggregates.
 
@@ -181,6 +202,7 @@ For more information about setting up multi-node, see the
 
 [cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
 [cagg-window-functions]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
+[caggs-on-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/continuous-aggregates-on-continuous-aggregates/
 [multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[real-time-aggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
+[real-time-aggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
