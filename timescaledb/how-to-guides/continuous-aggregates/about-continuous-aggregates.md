@@ -202,7 +202,7 @@ For more information about setting up multi-node, see the
 
 [cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
 [cagg-window-functions]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate/#use-continuous-aggregates-with-window-functions
-[caggs-on-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/continuous-aggregates-on-continuous-aggregates/
+[caggs-on-caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
 [multi-node]: /timescaledb/:currentVersion:/how-to-guides/multinode-timescaledb/
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
-[real-time-aggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/real-time-aggregates/
+[real-time-aggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
