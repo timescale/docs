@@ -5,6 +5,7 @@ keywords: [finance, analytics, websockets, data pipeline]
 ---
 
 # Ingest real-time financial websocket data
+
 This tutorial shows you how to ingest real-time time-series data into
 TimescaleDB using a websocket connection. The tutorial sets up a data pipeline to
 ingest real-time data from our data partner, [Twelve Data][twelve-data].
@@ -17,18 +18,20 @@ in real-time during market hours.
 When you complete this tutorial, you'll have a data pipeline set
 up that ingests real-time financial data into your TimescaleDB instance.
 
-This tutorial uses Python and the API 
+This tutorial uses Python and the API
 [wrapper library][twelve-wrapper] provided by Twelve Data.
 
 ## Prerequisites
+
 Before you begin, make sure you have:
 
-*  A TimescaleDB instance running locally or on the cloud. For more information,
+*   A TimescaleDB instance running locally or on the cloud. For more information,
    [see installation options][install-ts]
-*  Installed Python 3
-*  Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for this tutorial.
+*   Installed Python 3
+*   Signed up for [Twelve Data][twelve-signup]. The free tier is perfect for this tutorial.
 
 ## Set up a new Python environment
+
 Create a new Python virtual environment for this project and activate it. All
 the packages you need to complete for this tutorial are installed in this environment.
 
@@ -36,19 +39,23 @@ the packages you need to complete for this tutorial are installed in this enviro
 
 ### Setting up a new Python environment
 
-1. Create and activate a Python virtual environment:
+1.  Create and activate a Python virtual environment:
+
     ```bash
     virtualenv env
     source env/bin/activate
-    ``` 
-1. Install the Twelve Data Python 
+    ```
+
+1.  Install the Twelve Data Python
     [wrapper library][twelve-wrapper]
     with websocket support. This library makes it easy to make requests to the
     API and maintain a stable websocket connection.
+
     ```bash
     pip install twelvedata websocket-client
     ```
-1. Install [Psycopg2][psycopg2] so that you can connect the
+
+1.  Install [Psycopg2][psycopg2] so that you can connect the
     TimescaleDB from your Python script:
 
     ```bash
@@ -58,6 +65,7 @@ the packages you need to complete for this tutorial are installed in this enviro
 </procedure>
 
 ## Create the websocket connection
+
 When you connect to the Twelve Data API through a websocket, you create a
 persistent connection between your computer and the websocket server. This
 persistent connection can then be used to receive data for as long as the
@@ -66,19 +74,20 @@ websocket object and establish connection.
 
 ### Websocket arguments
 
-* `on_event`
+*   `on_event`
 
     This argument needs to be a function that is invoked whenever there's a
     new data record is received from the websocket:
+
     ```python
     def on_event(event):
         print(event) # prints out the data record (dictionary)
     ```
-    
+
     This is where you want to implement the ingestion logic so whenever
     there's new data available you insert it into the database.
 
-* `symbols`
+*   `symbols`
 
     This argument needs to be a list of stock ticker symbols (for example, `MSFT`) or
     crypto trading pairs (for example, `BTC/USD`). When using a websocket connection you
@@ -91,30 +100,33 @@ websocket object and establish connection.
 
 ### Connecting to the websocket server
 
-1. Create a new Python file called `websocket_test.py` and connect to the
+1.  Create a new Python file called `websocket_test.py` and connect to the
     Twelve Data servers using the wrapper library:
-    
+
     ```python
     # websocket_test.py:
     from twelvedata import TDClient
     
     def on_event(event):
-    	print(event) # prints out the data record (dictionary)
+     print(event) # prints out the data record (dictionary)
     
     td = TDClient(apikey="TWELVE_DATA_APIKEY")
     ws = td.websocket(symbols=["BTC/USD", "ETH/USD"], on_event=on_event)
     ws.connect()
     ws.keep_alive()
     ```
-    
+
     Make sure to pass your API key as an argument for the `TDClient` object.
 
-1. Now run the Python script:
+1.  Now run the Python script:
+
     ```bash
     python websocket_test.py
     ```
-1. After running the script, you immediately get a response from the server 
+
+1.  After running the script, you immediately get a response from the server
     about the status of your connection:
+
     ```bash
     {'event': 'subscribe-status',
      'status': 'ok',
@@ -135,7 +147,7 @@ stay active until it gets terminated. If you don't add this line the
 connection might break instantly.
 </highlight>
 
-When you have established a connection to the websocket server, 
+When you have established a connection to the websocket server,
 wait a few seconds, and you can see actual data records, like this:
 
 ```bash
@@ -155,8 +167,9 @@ At this point the websocket connection works and data keeps flowing. You need
 to implement the `on_event` function so data gets ingested into TimescaleDB.
 
 ## Ingesting websocket data into TimescaleDB
+
 Now that the websocket connection is set up, you can use the `on_event` function
-to ingest data into the database. 
+to ingest data into the database.
 
 When you ingest data into a transactional database like TimescaleDB, it is more efficient to
 insert data in batches rather than inserting data row-by-row. Using one transaction to
@@ -164,6 +177,7 @@ insert multiple rows can significantly increase the overall ingest capacity and 
 of your TimescaleDB instance.
 
 ### Batching in memory
+
 A common practice to implement batching is to store new records in memory
 first, then after the batch reaches a certain size, insert all the records
 from memory into the database in one transaction. The perfect batch size isn't
@@ -176,15 +190,16 @@ Now you can see
 how to implement a batching solution in Python with Psycopg2.
 
 ### Implement batching with Psycopg2
+
 Remember to implement the ingestion logic within the `on_event` function that
 you can then pass over to the websocket object.
 
 This function needs to:
 
-1. Check if the item is a data item, and not some websocket metadata.
-1. Adjust the data so that it fits the database schema, including the data types, and order of columns.
-1. Add it to the in-memory batch, which is a list in Python.
-1. If the batch reaches a certain size, insert the data and reset or empty the list.
+1.  Check if the item is a data item, and not some websocket metadata.
+1.  Adjust the data so that it fits the database schema, including the data types, and order of columns.
+1.  Add it to the in-memory batch, which is a list in Python.
+1.  If the batch reaches a certain size, insert the data and reset or empty the list.
 
 Here's the full implementation:
 
@@ -225,6 +240,7 @@ After you have implemented the `on_event` function, your Python script can conne
 the websocket server and ingest data in real time.
 
 ## Full code example
+
 Cleaned-up version of the Python script that prints out the current batch size,
 so you can follow when data gets ingested from memory into TimescaleDB:
 
@@ -313,6 +329,7 @@ websocket.start(symbols=symbols)
 ```
 
 Run the script:
+
 ```python
 python websocket_test.py
 ```
@@ -322,18 +339,20 @@ connections for different types of symbols (for example, one for stock, and
 another one for crypto prices)
 
 If you see an error message similar to this:
+
 ```bash
 2022-05-13 18:51:41,976 - ws-twelvedata - ERROR - TDWebSocket ERROR: Handshake status 200 OK
 ```
+
 Then check that you use a proper API key received from Twelve Data.
 
 Continue with one of our other tutorials that show you how to
 efficiently store and analyze your data after ingestion:
 
-- [Store financial tick data in TimescaleDB using the OHLCV (candlestick) format][candlestick-tutorial]
-- [Getting started with TimescaleDB][get-started]
+*   [Store financial tick data in TimescaleDB using the OHLCV (candlestick) format][candlestick-tutorial]
+*   [Getting started with TimescaleDB][get-started]
 
-[candlestick-tutorial]: /timescaledb/:currentVersion:/tutorials/financial-candlestick-tick-data/
+[candlestick-tutorial]: /timescaledb/:currentVersion:/tutorials/financial-tick-data/
 [get-started]: /getting-started/:currentVersion:/
 [install-ts]: /install/latest/
 [psycopg2]: https://www.psycopg.org/docs/
