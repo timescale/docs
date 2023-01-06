@@ -193,9 +193,11 @@ Invalidation logs are on kept on the data nodes, which is designed to limit the
 amount of data that needs to be transferred. However, some statements send
 invalidations directly to the log, for example, when dropping a chunk or
 truncate a hypertable. This action could slow down performance, in comparison to
-a local update. Additionally, if you have infrequent refreshes but a lot of changes to the hypertable, the
-invalidation logs could get very large, which could cause performance issues.
-Make sure you are maintaining your invalidation log size to avoid this, for example, by refreshing the continuous aggregate frequently.
+a local update. Additionally, if you have infrequent refreshes but a lot of
+changes to the hypertable, the invalidation logs could get very large, which
+could cause performance issues. Make sure you are maintaining your invalidation
+log size to avoid this, for example, by refreshing the continuous aggregate
+frequently.
 
 For more information about setting up multi-node, see the
 [multi-node section][multi-node]
