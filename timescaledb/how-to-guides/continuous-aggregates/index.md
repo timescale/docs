@@ -31,7 +31,7 @@ only the data that has changed needs to be computed, not the entire dataset.
 [cagg-autorefresh]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/refresh-policies
 [cagg-compression]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/compression-on-continuous-aggregates
 [cagg-create]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/create-a-continuous-aggregate
-[cagg-on-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/continuous-aggregates-on-continuous-aggregates
+[cagg-on-cagg]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/hierarchical-continuous-aggregates/
 [cagg-drop]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/drop-data
 [cagg-mat-hypertables]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/materialized-hypertables
 [cagg-migrate]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/migrate
