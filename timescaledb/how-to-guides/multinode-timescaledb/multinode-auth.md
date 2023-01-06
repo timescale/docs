@@ -343,7 +343,7 @@ When you have created the certificates and keys, and moved all the files into th
     ssl_key_file = 'server.key'
     ```
 
-    **OPTIONAL:** If you want the access node to use certificate authentication
+1. <optional />If you want the access node to use certificate authentication
     for login, make these changes on the access node as well.
 
 1.  On each data node, open the `pg_hba.conf` configuration file, and add or
