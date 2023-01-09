@@ -1,6 +1,6 @@
 ---
-title: Install TimescaleDB on Red Hat and CentOS
-nav-title: Red Hat and CentOS
+title: Install TimescaleDB on Red Hat
+nav-title: Red Hat 
 excerpt: Install self-hosted TimescaleDB on Red Hat-based systems
 section: install
 subsection: self-hosted
@@ -11,15 +11,13 @@ import CentOS from "versionContent/_partials/_psql-installation-centos.mdx";
 
 # Install self-hosted TimescaleDB on Red Hat-based systems
 
-You can host TimescaleDB yourself on your Red Hat, CentOS, or Fedora system.
+You can host TimescaleDB yourself on your Red Hat, or Fedora system.
 These instructions use the `yum` package manager on these
 distributions:
 
 *   Red Hat Enterprise Linux 7
 *   Red Hat Enterprise Linux 8
 *   Red Hat Enterprise Linux 9
-*   CentOS 7
-*   CentOS 8
 *   Rocky Linux 8
 *   Rocky Linux 9
 *   Fedora 33
@@ -59,15 +57,6 @@ instead.
     ```
 
     </tab>
-
-    <tab label="CentOS">
-
-    ```bash
-    yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -E %{centos})-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-    ```
-
-    </tab>
-
     </terminal>
 1.  Create the Timescale repository:
     <terminal>
@@ -109,26 +98,6 @@ instead.
     ```
 
     </tab>
-
-    <tab label="CentOS">
-
-    ```bash
-    tee /etc/yum.repos.d/timescale_timescaledb.repo <<EOL
-    [timescale_timescaledb]
-    name=timescale_timescaledb
-    baseurl=https://packagecloud.io/timescale/timescaledb/el/$(rpm -E %{rhel})/\$basearch
-    repo_gpgcheck=1
-    gpgcheck=0
-    enabled=1
-    gpgkey=https://packagecloud.io/timescale/timescaledb/gpgkey
-    sslverify=1
-    sslcacert=/etc/pki/tls/certs/ca-bundle.crt
-    metadata_expire=300
-    EOL
-    ```
-
-    </tab>
-
     </terminal>
 1.  Update your local repository list:
 
@@ -146,7 +115,7 @@ instead.
 
     <!-- markdownlint-disable TS007 -->
     <highlight type="note">
-    When installing on CentOS 8 or Red Hat Enterprise Linux 8 you need
+    When installing on Red Hat Enterprise Linux 8 you need
     to disable the built-in PostgreSQL module in the system using the
     `sudo dnf -qy module disable postgresql`command.
     </highlight>
