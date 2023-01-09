@@ -19,7 +19,8 @@ the [upgrading instructions][timescaledb-upgrade].
 <highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
-information, see "Versions are mismatched when dumping and restoring a database" in the section [Troubleshooting](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
+information, see "Versions are mismatched when dumping and restoring a database" 
+in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
 </highlight>
 
 ## Back up your entire database
