@@ -5,11 +5,13 @@ keywords: [finance, analytics, AWS Lambda, psycopg2, pandas, GitHub Actions, pip
 ---
 
 # Create a data API for TimescaleDB
+
 This tutorial covers creating an API to fetch data from your TimescaleDB
 instance. It uses an API gateway to trigger a Lambda function, that then fetches
 the requested data from TimescaleDB and returns it in JSON format.
 
 ## Connect to TimescaleDB from Lambda
+
 To connect to the TimescaleDB instance, you need to use a database connector
 library. This tutorial uses [`psycopg2`][psycopg2].
 
@@ -29,26 +31,33 @@ workaround to this issue is to download the
 <procedure>
 
 ### Adding the psycopg2 library as a Lambda layer
+
 1.  Download and unzip the compiled `psycopg2` library:
+
     ```bash
     wget https://github.com/jkehler/awslambda-psycopg2/archive/refs/heads/master.zip
     unzip master.zip
     ```
+
 1.  In the directory you downloaded the library to, copy the `psycopg2` files
-    into a new directory called `python`. Make sure you copy the directory that
+    into a new directory called `/python/psycopg2/`. Make sure you copy the directory that
     matches your Python version:
+
     ```bash
     cd awslambda-psycopg2-master/
-    mkdir python
-    cp -r psycopg2-3.8/ python/
+    mkdir -p python/psycopg2/
+    cp -r psycopg2-3.8/* python/psycopg2/
     ```
+
 1.  Zip the `python` directory and upload the zipped file as a Lambda layer:
+
   ```bash
   zip -r psycopg2_layer.zip python/
   aws lambda publish-layer-version --layer-name psycopg2 \
   --description "psycopg2 for Python3.8" --zip-file fileb://psycopg2_layer.zip \
   --compatible-runtimes python3.8
   ```
+
 1.  At the AWS Lambda console, check to see if your `psycopg2` has been uploaded
     as a Lambda layer:
     ![aws layers](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/layers.png)
@@ -56,6 +65,7 @@ workaround to this issue is to download the
 </procedure>
 
 ## Create a function to fetch and return data from the database
+
 When the layer is available to your Lambda function, you can create an API to
 return data from the database. This section shows you how to create the Python
 function that returns data from the database and uploads it to AWS Lambda.
@@ -63,14 +73,18 @@ function that returns data from the database and uploads it to AWS Lambda.
 <procedure>
 
 ### Creating a function to fetch and return data from the database
+
 1.  Create a new directory called `timescaledb_api`, to store the function
     code, and change into the new directory:
+
     ```bash
     mkdir timescaledb_api
     cd timescaledb_api
     ```
+
 1.  In the new directory, create a new function called `function.py`, with this
     content:
+
     ```python
     import json
     import psycopg2
@@ -111,28 +125,35 @@ function that returns data from the database and uploads it to AWS Lambda.
 </procedure>
 
 ## Upload the function in AWS Lambda
+
 When you have created the function, you can zip the Python file and upload it to
 Lambda using the `create-function` AWS command.
 
 <procedure>
 
 ## Uploading the function to AWS Lambda
+
 1.  At the command prompt, zip the function directory:
+
     ```bash
     zip function.zip function.py
     ```
+
 1.  Upload the function:
+
     ```bash
     aws lambda create-function --function-name simple_api_function \
     --runtime python3.8 --handler function.lambda_handler \
     --role <ARN_LAMBDA_ROLE> --zip-file fileb://function.zip \
     --layers <LAYER_ARN>
     ```
+
 1.  You can check that the function has been uploaded correctly by using this
     command in the AWS console:
     ![aws lambda uploaded](https://assets.timescale.com/docs/images/tutorials/aws-lambda-tutorial/lambda_function.png)
 1.  If you make changes to your function code, you need to zip the file again
     and use the `update-function-code` command to upload the changes:
+
     ```bash
     zip function.zip function.py
     aws lambda update-function-code --function-name simple_api_function --zip-file fileb://function.zip
@@ -149,7 +170,9 @@ environment.
 <procedure>
 
 ### Adding database configuration to AWS Lambda with environment variables
+
 1.  Create a JSON file that contains the variables required for the function:
+
     ```json
     {
         "Variables": {"DB_NAME": "db",
@@ -159,14 +182,18 @@ environment.
           "DB_PASS": "pass"}
     }
     ```
+
 1.  Upload your connection details. In this example, the JSON file that contains
     the variables is saved at `file://env.json`:
+
     ``` bash
     aws lambda update-function-configuration \
     --function-name simple_api_function --environment file://env.json
     ```
+
 1.  When the configuration is uploaded to AWS Lambda, you can reach the
     variables using the `os.environ` parameter in the function:
+
     ```python
     import os
     config = {'DB_USER': os.environ['DB_USER'],
@@ -179,19 +206,24 @@ environment.
 </procedure>
 
 ## Test the database connection
+
 When your function code is uploaded along with the database connection details,
 you can check to see if it retrieves the data you expect it to.
 
 <procedure>
 
 ### Testing the database connection
+
 1.  Invoke the function. Make sure you include the name of the function, and
     provide a name for an output file. In this example, the output file is
     called `output.json`:
+
     ```bash
     aws lambda invoke --function-name simple_api_function output.json
     ```
+
 1.  If your function is working correctly, your output file looks like this:
+
     ```json
     {
       "statusCode": 200,
@@ -228,6 +260,7 @@ you can check to see if it retrieves the data you expect it to.
 </procedure>
 
 ## Create a new API gateway
+
 Now that you have confirmed that the Lambda function works, you can create the
 API gateway. In AWS terms, you are setting up a
 [custom Lambda integration][custom-lambda-integration].
@@ -235,9 +268,11 @@ API gateway. In AWS terms, you are setting up a
 <procedure>
 
 ### Creating a new API gateway
+
 1.  Create the API. In this example, the new API is called `TestApiTimescale`.
     Take note of the `id` field in the response, you need to use this to make
     changes later on:
+
     ```bash
     aws apigateway create-rest-api --name 'TestApiTimescale' --region us-east-1
     {
@@ -253,7 +288,9 @@ API gateway. In AWS terms, you are setting up a
       "disableExecuteApiEndpoint": false
     }
     ```
+
 1.  Retrieve the `id` of the root resource, to add a new GET endpoint:
+
     ```bash
     aws apigateway get-resources --rest-api-id <API_ID> --region us-east-1
     {
@@ -274,7 +311,9 @@ API gateway. In AWS terms, you are setting up a
       ]
     }
     ```
+
 1.  Create a new resource. In this example, the new resource is called `ticker`:
+
     ```bash
     aws apigateway create-resource --rest-api-id <API_ID> \
     --region us-east-1 --parent-id <RESOURCE_ID> --path-part ticker
@@ -285,21 +324,27 @@ API gateway. In AWS terms, you are setting up a
       "path": "/ticker"
     }
     ```
+
 1.  Create a GET request for the root resource:
+
     ```bash
     aws apigateway put-method --rest-api-id <API_ID> \
     --region us-east-1 --resource-id <RESOURCE_ID> \
     --http-method GET --authorization-type "NONE" \
     --request-parameters method.request.querystring.symbol=false
     ```
+
 1.  Set up a `200 OK` response to the method request
     of `GET /ticker?symbol={symbol}`:
+
     ```bash
     aws apigateway put-method-response --region us-east-1 \
     --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
     --http-method GET --status-code 200
     ```
+
 1.  Connect the API Gateway to the Lambda function:
+
     ```bash
     aws apigateway put-integration --region us-east-1 \
     --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
@@ -307,13 +352,17 @@ API gateway. In AWS terms, you are setting up a
     --uri <ARN_LAMBDA_FUNCTION> \
     --request-templates file://path/to/integration-request-template.json
     ```
+
 1.  Pass the Lambda function output to the client as a `200 OK` response:
+
     ```bash
     aws apigateway put-integration-response --region us-east-1 \
     --rest-api-id <API_ID> / --resource-id <RESOURCE_ID> \
     --http-method GET --status-code 200 --selection-pattern ""
     ```
+
 1.  Deploy the API:
+
     ```bash
     aws apigateway create-deployment --rest-api-id <API_ID> --stage-name test
     ```
@@ -321,8 +370,10 @@ API gateway. In AWS terms, you are setting up a
 </procedure>
 
 ## Test the API
+
 You can test the API is working correctly by making a GET request to the
 endpoint with `curl`:
+
 ```bash
 curl 'https://hlsu4rwrkl.execute-api.us-east-1.amazonaws.com/test/ticker?symbol=MSFT'
 [
@@ -341,13 +392,13 @@ curl 'https://hlsu4rwrkl.execute-api.us-east-1.amazonaws.com/test/ticker?symbol=
 If everything is working properly, you see the output of the Lambda function. In
 this example, it's the latest stock price of MSFT (Microsoft) in JSON format.
 
-
 [psycopg2]: https://www.psycopg.org/docs/
 [lambda-layers]: https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html
 [lambda-psycopg2]: https://github.com/jkehler/awslambda-psycopg2
 [custom-lambda-integration]: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-custom-integrations.html
 
 ## Create a Lambda function to insert data into the database
+
 When you have created the `GET` API for your database, you can
 create a `POST` API. This allows you to insert data into the database
 with a JSON payload.
@@ -355,7 +406,9 @@ with a JSON payload.
 <procedure>
 
 ### Creating a Lambda function to insert data into the database
+
 1.  Create a new function called `insert_function.py`, with this content:
+
     ```python
     import json
     import psycopg2
@@ -396,18 +449,24 @@ with a JSON payload.
         }
 
       ```
-1. Upload the function to AWS Lambda:
+
+1.  Upload the function to AWS Lambda:
+
     ```bash
     zip insert_function.zip insert_function.py
     aws lambda create-function --function-name insert_function \
     --runtime python3.8 --handler function.lambda_handler \
     --role <ARN_LAMBDA_ROLE> --zip-file fileb://insert_function.zip
     ```
-1. Create a new API Gateway, called `InsertApi`:
+
+1.  Create a new API Gateway, called `InsertApi`:
+
     ```bash
     aws apigateway create-rest-api --name 'InsertApi' --region us-east-1
     ```
+
 1.  Retrieve the `id` of the root resource, and add a new POST endpoint:
+
     ```bash
     aws apigateway get-resources --rest-api-id <API_ID> --region us-east-1
     {
@@ -428,7 +487,9 @@ with a JSON payload.
       ]
     }
     ```
+
 1.  Create a new resource. In this example, the new resource is called `insert`:
+
     ```bash
     aws apigateway create-resource --rest-api-id <API_ID> --region us-east-1
     --parent-id <RESOURCE_ID> --path-part insert
@@ -439,18 +500,24 @@ with a JSON payload.
         "path": "/insert"
     }
     ```
+
 1.  Create a POST request for the `insert` resource:
+
     ```bash
     aws apigateway put-method --rest-api-id <API_ID> --region us-east-1 \
     --resource-id <RESOURCE_ID> --http-method POST --authorization-type "NONE"
     ```
+
 1.  Set up a `200 OK` response to the method request of `POST /insert`:
+
     ```bash
     aws apigateway put-method-response --region us-east-1 \
     --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
     --http-method POST --status-code 200
     ```
+
 1.  Connect the API Gateway to the Lambda function:
+
     ```bash
     aws apigateway put-integration --region us-east-1 \
     --rest-api-id <API_ID> --resource-id <RESOURCE_ID> \
@@ -458,13 +525,17 @@ with a JSON payload.
     --uri <ARN_LAMBDA_FUNCTION> \
     --request-templates '{ "application/json": "{\"statusCode\": 200}" }'
     ```
+
 1.  Pass the Lambda function output to the client as a `200 OK` response:
+
     ```bash
     aws apigateway put-integration-response --region us-east-1 \
     --rest-api-id <API_ID> / --resource-id <RESOURCE_ID> \
     --http-method POST --status-code 200 --selection-pattern ""
     ```
+
 1.  Deploy the API:
+
     ```bash
     aws apigateway create-deployment --rest-api-id <API_ID> --stage-name test_post_api
     ```
@@ -472,9 +543,11 @@ with a JSON payload.
 </procedure>
 
 ### Test the API with a JSON payload
+
 You can test the API by making a `POST` request with a JSON payload.
 
 Create a new payload file, called `post.json`:
+
 ```json
 {
     "records": [
@@ -510,6 +583,7 @@ Create a new payload file, called `post.json`:
 ```
 
 Use `curl` to make the request:
+
 ```bash
 curl -X POST -H "Content-Type: application/json" -d @./post.json
 https://h45kwepq8g.execute-api.us-east-1.amazonaws.com/test_post_api/insert_function
