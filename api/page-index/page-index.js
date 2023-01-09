@@ -110,6 +110,10 @@ module.exports = [
             href: "attach_data_node",
           },
           {
+            title: "alter_data_node",
+            href: "alter_data_node",
+          },
+          {
             title: "detach_data_node",
             href: "detach_data_node",
           },
