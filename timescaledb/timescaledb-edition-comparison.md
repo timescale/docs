@@ -179,6 +179,11 @@ for TimescaleDB. MST is offered in AWS, Azure, and Google Cloud.
     <td>✅</td>
   </tr>
   <tr>
+    <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/alter_data_node/">alter_data_node</a></td>
+    <td>❌</td>
+    <td>✅</td>
+  </tr>
+  <tr>
     <td><a href="https://docs.timescale.com/api/latest/distributed-hypertables/attach_data_node/">attach_data_node</a></td>
     <td>❌</td>
     <td>✅</td>
