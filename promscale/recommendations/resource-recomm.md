@@ -45,23 +45,31 @@ remote_write:
 
 Compute recommendations for the Promscale connector and TimescaleDB are:
 
-|Ingestion Rate|Connector CPU|Connector Memory|DB CPU|DB Memory|DB connections|
-|-|-|-|-|-|-|
-|10k samples/sec|0.5|250 MB|1|4 GB|1|
-|50k samples/sec|2|700 MB|4|16 GB|2|
-|100k samples/sec|4|2 GB|8|32 GB|4|
-|200k samples/sec|8|4.5 GB|16|64 GB|8|
+|Ingestion Rate|Active Series|Connector CPU|Connector Memory|DB CPU|DB Memory|DB connections|DB Shared Buffers|
+|-|-|-|-|-|-|-|-|
+|10k samples/sec|500K|0.5|2 GB|1|12 GB|1|8 GB|
+|50k samples/sec|2M|2|8 GB|4|32 GB|2|16 GB|
+|100k samples/sec|3M|2|8 GB|8|64 GB|4|24 GB|
+|200k samples/sec|5M|4|16 GB|16|64 GB|8|40 GB|
+
+<highlight type="note">
+You can use `shared_buffers` PostgreSQL configuration to set `DB Shared Buffers`.
+</highlight>
 
 Disk recommendations for TimescaleDB are:
 
 The default chunk interval is `8h`
 
-|Ingest rate|Retention|Disk size per day|Uncompressed buffer|Total disk size|WAL size|
-|-|-|-|-|-|-|
-|10k samples/sec|90 days|~2 GB|~21 GB|~200 GB|1.25 GB|
-|50k samples/sec|90 days|~10 GB|~105 GB|~1 TB|-|
-|100k samples/sec|90 days|~20 GB|~210 GB|~2 TB|-|
-|200k samples/sec|90 days|~40 GB|~420 GB|~4 TB|-|
+|Ingest rate|Active Series|Retention|Disk size per day|Uncompressed buffer|Total disk size|WAL size|
+|-|-|-|-|-|-|-|
+|10k samples/sec|500K|90 days|~2 GB|~21 GB|~200 GB|6 GB|
+|50k samples/sec|2M|90 days|~10 GB|~105 GB|~1 TB|25 GB|
+|100k samples/sec|3M|90 days|~20 GB|~210 GB|~2 TB|66 GB|
+|200k samples/sec|5M|90 days|~40 GB|~420 GB|~4 TB|96 GB|
+
+<highlight type="note">
+You can use `max_wal_size` PostgreSQL configuration to set desired `WAL size`.
+</highlight>
 
 ## Traces
 
