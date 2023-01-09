@@ -1,4 +1,4 @@
-## Install psql on CentOS
+## Install psql on Red Hat-based systems 
 You can use the `yum` package manager on CentOS systems to install
 the `psql` tool.
 
