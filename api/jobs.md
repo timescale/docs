@@ -27,8 +27,10 @@ Shows information about all jobs registered with the automation framework.
 |`proc_name`|`TEXT`|Name of the function or procedure executed by the job|
 |`owner`|`TEXT`|Owner of the job|
 |`scheduled`|`BOOLEAN`|Set to `true` to run the job automatically|
+|`fixed_schedule`|BOOLEAN|Set to `true` for jobs executing at fixed times according to a schedule interval and initial start.|
 |`config`|`JSONB`|Configuration passed to the function specified by `proc_name` at execution time|
 |`next_start`|`TIMESTAMP WITH TIME ZONE`|Next start time for the job, if it is scheduled to run automatically|
+|`initial_start`|`TIMESTAMP WITH TIME ZONE`|Time the job is first run and also the time on which execution times are aligned for jobs with fixed schedules.|
 |`hypertable_schema`|`TEXT`|Schema name of the hypertable. Set to `NULL` for user-defined action|
 |`hypertable_name`|`TEXT`|Table name of the hypertable. Set to `NULL` for user-defined action|
 |`check_schema`|`TEXT`|Schema name of the optional configuration validation function, set when the job is created or updated|

@@ -45,6 +45,16 @@ prevents the job from attempting to be started again while it is running. When
 the job completes, whether or not the job is successful, the parameter is
 automatically updated to the next computed start time.
 
+Note that, the optional parameters `initial_start` and `timezone` are not
+modifiable with `alter_job`. It is not currently possible to alter these
+parameters for an existing job. If you wish to do so, you must drop the
+existing job and register it again with the new values. It is also not possible
+to change the value of the `fixed_schedule` parameter. You must drop and
+recreate the job if you wish to alter this behavior. 
+Also note that altering the `next_start` value is only effective for the next
+execution of the job in case of fixed schedules. On the next execution, it will
+automatically return to the schedule.
+
 ### Returns
 
 |Column|Type|Description|
