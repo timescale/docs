@@ -13,7 +13,7 @@ open-source metrics-based systems monitoring solution.
 
 ## Before you begin
 
-*   Create a [Managed Service for TimescaleDB][timescale-mst-get-started].
+*   Create a [Managed Service for TimescaleDB][timescale-mst-get-started] instance.
 *   Make a note of the `Port`and `Host` of your Managed Service for TimescaleDB instance.
 
 <procedure>
