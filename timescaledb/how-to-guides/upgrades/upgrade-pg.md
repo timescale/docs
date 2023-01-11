@@ -1,7 +1,7 @@
 ---
 title: Upgrade PostgreSQL
 excerpt: Upgrade the PostgreSQL installation associated with TimescaleDB
-keywords: [upgrades, PostgreSQL]
+keywords: [upgrades, PostgreSQL, versions, compatibility]
 ---
 
 # Upgrade PostgreSQL
