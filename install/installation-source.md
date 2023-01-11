@@ -48,8 +48,12 @@ If you are installing from source on a Microsoft Windows system, you also need:
     our [Releases page][gh-releases]:
 
     ```bash
-    git checkout 2.5.1
+    git checkout 2.9.1
     ```
+
+    This command produces an error that you are now in `detached head` state. It
+    is expected behavior, and it occurs because you have checked out a tag, and
+    not a branch. Continue with the steps in this procedure as normal.
 
 1.  Bootstrap the build system:
     <terminal>
@@ -151,7 +155,7 @@ to find out which PostgreSQL installation TimescaleDB is using.
     <tab label='Linux'>
 
     ```bash
-    service postgresql restart  
+    service postgresql restart
     ```
 
     </tab>
