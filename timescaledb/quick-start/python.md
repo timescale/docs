@@ -7,23 +7,26 @@ keywords: [Python]
 # Quick Start: Python and TimescaleDB
 
 ## Goal
+
 This quick start guide is designed to get the Python developer up
 and running with TimescaleDB as their database. In this tutorial,
 you'll learn how to:
 
-* [Connect to TimescaleDB](#connect-python-to-timescaledb)
-* [Create a relational table](#create-a-relational-table)
-* [Create a hypertable](#create-hypertable)
-* [Insert a batch of rows into TimescaleDB](#insert-rows-into-timescaledb)
-* [Execute a query on TimescaleDB](#execute-a-query)
+*   [Connect to TimescaleDB](#connect-python-to-timescaledb)
+*   [Create a relational table](#create-a-relational-table)
+*   [Create a hypertable](#create-hypertable)
+*   [Insert a batch of rows into TimescaleDB](#insert-rows-into-timescaledb)
+*   [Execute a query on TimescaleDB](#execute-a-query)
 
 ## Prerequisites
+
 Before you start, make sure you have:
-* At least some knowledge of SQL (structured query language). The tutorial walks you through each SQL command,
+
+*   At least some knowledge of SQL (structured query language). The tutorial walks you through each SQL command,
   but it is helpful if you've seen SQL before.
-* TimescaleDB installed, either in a [self-hosted environment][self-hosted-install] or [in the cloud][cloud-install]
-* The `psycopg2` library installed, [which you can install with pip][psycopg2-docs].
-* Optionally, a [Python virtual environment][virtual-env].
+*   TimescaleDB installed, either in a [self-hosted environment][self-hosted-install] or [in the cloud][cloud-install]
+*   The `psycopg2` library installed, [which you can install with pip][psycopg2-docs].
+*   Optionally, a [Python virtual environment][virtual-env].
 
 ## Connect Python to TimescaleDB
 
@@ -39,11 +42,11 @@ Locate your TimescaleDB credentials. You need them to compose a connection strin
 
 You'll need the following credentials:
 
-* password
-* username
-* host URL
-* port
-* database name
+*   password
+*   username
+*   host URL
+*   port
+*   database name
 
 Compose your connection string variable as a [libpq connection string][pg-libpq-string],
 using the following format:
@@ -60,7 +63,6 @@ CONNECTION = "postgres://username:password@host:port/dbname?sslmode=require"
 ```
 
 Alternatively you can specify each parameter in the connection string as follows
-
 
 ```python
 CONNECTION = "dbname =tsdb user=tsdbadmin password=secret host=host.com port=5432 sslmode=require"
@@ -81,7 +83,7 @@ In your `main` function, add the following lines:
 CONNECTION = "postgres://username:password@host:port/dbname"
 def main():
     with psycopg2.connect(CONNECTION) as conn:
-		cursor = conn.cursor()
+  cursor = conn.cursor()
         # use the cursor to interact with your database
         # cursor.execute("SELECT * FROM table")
 ```
@@ -91,7 +93,7 @@ around as needed, like opening a cursor to perform database operations:
 
 ```python
 CONNECTION = "postgres://username:password@host:port/dbname"
-def main():  
+def main():
     conn = psycopg2.connect(CONNECTION)
     cursor = conn.cursor()
     # use the cursor to interact with your database
@@ -104,6 +106,7 @@ Congratulations, you've successfully connected to TimescaleDB using Python.
 ## Create a relational table
 
 ### Step 1: Formulate your SQL statement
+
 First, compose a string which contains the SQL statement that you would use to create
 a relational table. In the example below, we create a table called `sensors`, with
 columns `id`, `type` and `location`:
@@ -113,6 +116,7 @@ query_create_sensors_table = "CREATE TABLE sensors (id SERIAL PRIMARY KEY, type 
 ```
 
 ### Step 2: Execute the SQL statement and commit changes
+
 Next, we execute the `CREATE TABLE` statement by opening a cursor, executing the
 query from Step 1 and committing the query we executed in order to make the changes persistent.
 Afterward, we close the cursor to clean up:
@@ -139,7 +143,6 @@ all be executed on the hypertable.
 
 A hypertable is defined by a standard schema with column names and types, with at
 least one column specifying a time value. Learn more about using hypertables in the [API documentation][hypertable-api].
-
 
 ### Step 1: Formulate the CREATE TABLE SQL statement for your hypertable
 
@@ -262,6 +265,7 @@ for id in range(1, 4, 1):
 ```
 
 ### Step 2: Define columns of table you're inserting data into
+
 Then we define the column names of the table we want to insert data into. In this
 case, we're using the `sensor_data` hypertable that we created in the
 "Generate a Hypertable" section above. This hypertable consists of the columns
@@ -273,6 +277,7 @@ cols = ['time', 'sensor_id', 'temperature', 'cpu']
 ```
 
 ### Step 3: Instantiate a CopyManager with your target table and column definition
+
 Lastly we create an instance of the `pgcopy` CopyManager, `mgr`, and pass our
 connection variable, hypertable name, and list of column names. Then we use
 the `copy` function of the CopyManager to insert the data into the database
@@ -333,6 +338,7 @@ using Python and the `pgcopy` library.
 ## Execute a query
 
 ### Step 1: Define your query in SQL
+
 First, define the SQL query you'd like to run on the database. The example below
 is a simple `SELECT` statement querying each row from the previously created `sensor_data` table.
 
@@ -341,6 +347,7 @@ query = "SELECT * FROM sensor_data;"
 ```
 
 ### Step 2: Execute the query
+
 Next, open a cursor from our existing database connection, `conn`,
 and then execute the query you defined in Step 1:
 
@@ -351,6 +358,7 @@ cursor.execute(query)
 ```
 
 ### Step 3: Access results returned by the query
+
 To access all resulting rows returned by your query, use
 one of `pyscopg2`'s [results retrieval methods][results-retrieval-methods],
 such as `fetchall()` or `fetchmany()`. In the example below, we're simply
@@ -375,6 +383,7 @@ cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 Using this cursor, `cursor.fetchall()` returns a list of dictionary-like objects.
 
 ### Executing queries using prepared statements
+
 For more complex queries than a simple `SELECT *`, we can use prepared statements
 to ensure our queries are executed safely against the database. We write our
 query using placeholders as shown in the sample code below. For more information about properly using placeholders
@@ -409,10 +418,10 @@ Python application, and generate the scaffolding necessary to build a new applic
 from an existing TimescaleDB instance, be sure to check out these advanced TimescaleDB
 tutorials:
 
-- [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
-- [Continuous Aggregates][continuous-aggregates]
-- [Try Other Sample Datasets][other-samples]
-- [Migrate your own Data][migrate]
+*   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
+*   [Continuous Aggregates][continuous-aggregates]
+*   [Try Other Sample Datasets][other-samples]
+*   [Migrate your own Data][migrate]
 
 [cloud-install]: https://www.timescale.com/timescale-signup
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
