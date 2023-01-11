@@ -87,11 +87,11 @@ SELECT compress_chunk(i, if_not_compressed => true)
     ) i;
 ```
 
-## Roll up uncompressed chunks into compressed chunks
+## Roll up uncompressed chunks when compressing
 
 In TimescaleDB 2.9 and later, you can roll up multiple uncompressed chunks into
-a single, compressed, chunk as part of your compression procedure. This allows
-you to have much smaller uncompressed chunks. For example, if you have multiple
+the previous compressed chunk as part of your compression procedure. This allows
+you to have uncompressed chunks with a smaller chunk time interval than the compressed chunks. For example, if you have multiple
 smaller uncompressed chunks in your data, you can roll them up into a single
 compressed chunk. This allows you to have much smaller uncompressed chunks than
 compressed chunks, which reduces your disk space use for uncompressed data.
@@ -105,5 +105,5 @@ compress_chunk_time_interval
 
 The time interval you choose must be a multiple of the uncompressed chunk
 interval. For example, if your uncompressed chunk interval is one week, your
-`compress_chunk_time_interval` could be two weeks, or six weeks, but not one
+`<time_interval>` of the compressed chunk could be two weeks, or six weeks, but not one
 month.
