@@ -94,8 +94,8 @@ a previously compressed chunk as part of your compression procedure. This allows
 you to have uncompressed chunks with a smaller chunk time interval than the
 compressed chunks. For example, if you have multiple smaller uncompressed chunks
 in your data, you can roll them up into a single compressed chunk. This allows
-you to have much smaller uncompressed chunks than compressed chunks, which
-reduces your disk space use for uncompressed data.
+you to have much smaller uncompressed chunk intervals, which reduces your disk
+space use for uncompressed data.
 
 To roll up your uncompressed chunks into a compressed chunk, use this command,
 specifying the interval to use:
