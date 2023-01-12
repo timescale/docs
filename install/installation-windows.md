@@ -46,6 +46,8 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
     click `Edit...`. In the `Edit environment variable` dialog, click `New` and
     type the path to your PostgreSQL `pg_config` file. It should
     be `C:\Program Files\PostgreSQL\14\bin\`. Click `OK` to save your changes.
+1.  If installing PostgreSQL version 15.1.1 or above, make sure OpenSSL 1.1.1 is
+    installed on the system.
 1.  Download the TimescaleDB installation `.zip` file from our
     [Windows releases][windows-releases].
 1.  Locate the downloaded file on your local file system, and extract the files.
