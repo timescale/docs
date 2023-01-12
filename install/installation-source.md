@@ -88,7 +88,7 @@ Visual Studio components for CMake and Git when you run the installer.
     the Visual Studio directory.
     </highlight>
 
-2.  Build the extension:
+1.  Build the extension:
 
     <terminal>
 
@@ -110,7 +110,7 @@ Visual Studio components for CMake and Git when you run the installer.
 
     </terminal>
 
-3.  Install TimescaleDB:
+1.  Install TimescaleDB:
 
     <terminal>
 
