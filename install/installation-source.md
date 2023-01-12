@@ -22,6 +22,8 @@ Before you start, make sure you have installed:
     including downloads and instructions, see the
     [CMake documentation][cmake-download].
 *   C language compiler for your operating system, such as `gcc` or `clang`.
+*   Check the compatibility matrix[compatibility-matrix] of TimescaleDB versions
+    with the PostgreSQL versions.
 
 If you are installing from source on a Microsoft Windows system, you also need:
 
@@ -282,3 +284,4 @@ if you want to have a chat.
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
+[compatibility-matrix]: /timescaledb/:currentVersion:/how-to-guides/upgrade-pg/
