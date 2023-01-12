@@ -194,7 +194,7 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "directory",
+        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
