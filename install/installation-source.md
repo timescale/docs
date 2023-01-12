@@ -18,15 +18,18 @@ Before you start, make sure you have installed:
 *   PostgreSQL 12 or later, with a development environment. For more information
     about PostgreSQL installation, including downloads and instructions, see the
     [PostgreSQL documentation][postgres-download].
-*   CMake version 3.11 or later. For more information about CMake installation,
-    including downloads and instructions, see the
-    [CMake documentation][cmake-download].
+
+You also need:
+
+*   CMake version 3.11 or later for your operating system. For more information
+    about CMake installation, including downloads and instructions, see the [CMake documentation][cmake-download].
 *   C language compiler for your operating system, such as `gcc` or `clang`.
 
-If you are installing from source on a Microsoft Windows system, you also need:
-
-*   Visual Studio 2015 or later, packaged with CMake version 3.11 or later, and
-    Git components.
+<highlight type="note">
+If you are using a Microsoft Windows system, you can install Visual Studio 2015
+or later instead of CMake and a C language compiler. Ensure you install the
+Visual Studio components for CMake and Git when you run the installer.
+</highlight>
 
 <procedure>
 
@@ -35,7 +38,7 @@ If you are installing from source on a Microsoft Windows system, you also need:
 1.  At the command prompt, clone the Timescale GitHub repository:
 
     ```bash
-    git clone https://github.com/timescale/timescaledb.git
+    git clone https://github.com/timescale/timescaledb
     ```
 
 1.  Change into the cloned directory:
@@ -56,6 +59,7 @@ If you are installing from source on a Microsoft Windows system, you also need:
     not a branch. Continue with the steps in this procedure as normal.
 
 1.  Bootstrap the build system:
+
     <terminal>
 
     <tab label='Linux'>
@@ -75,7 +79,17 @@ If you are installing from source on a Microsoft Windows system, you also need:
     </tab>
 
     </terminal>
-1.  Build the extension:
+
+    <highlight type="important">
+    For installation on Microsoft Windows, you might need to add the `pg_config`
+    and `cmake` file locations to your path. In the Windows Search tool, search
+    for `system environment variables`. The path for `pg_config` should be
+    `C:\Program Files\PostgreSQL\<version>\bin`. The path for `cmake` is within
+    the Visual Studio directory.
+    </highlight>
+
+2.  Build the extension:
+
     <terminal>
 
     <tab label='Linux'>
@@ -95,7 +109,9 @@ If you are installing from source on a Microsoft Windows system, you also need:
     </tab>
 
     </terminal>
-1.  Install TimescaleDB:
+
+3.  Install TimescaleDB:
+
     <terminal>
 
     <tab label='Linux'>
