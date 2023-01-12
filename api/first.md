@@ -12,7 +12,7 @@ hyperfunction:
   type: one-step aggregate
 ---
 
-## first()
+# first()
 
 The `first` aggregate allows you to get the value of one column
 as ordered by another. For example, `first(temperature, time)` returns the
