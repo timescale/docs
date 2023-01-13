@@ -4,7 +4,7 @@ excerpt: Get started with TimescaleDB for a Python application
 keywords: [Python]
 ---
 
-import Intro from "versionContent/_partials/_quickstart-intro.md";
+import Intro from "versionContent/_partials/_quickstart-intro.mdx";
 
 # Python Quick Start
 
