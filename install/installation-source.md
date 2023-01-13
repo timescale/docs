@@ -80,15 +80,13 @@ Visual Studio components for CMake and Git when you run the installer.
 
     </terminal>
 
-    <highlight type="important">
     For installation on Microsoft Windows, you might need to add the `pg_config`
     and `cmake` file locations to your path. In the Windows Search tool, search
     for `system environment variables`. The path for `pg_config` should be
     `C:\Program Files\PostgreSQL\<version>\bin`. The path for `cmake` is within
     the Visual Studio directory.
-    </highlight>
 
-1.  Build the extension:
+2.  Build the extension:
 
     <terminal>
 
@@ -110,7 +108,7 @@ Visual Studio components for CMake and Git when you run the installer.
 
     </terminal>
 
-1.  Install TimescaleDB:
+3.  Install TimescaleDB:
 
     <terminal>
 
