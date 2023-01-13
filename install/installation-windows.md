@@ -43,10 +43,10 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
     You might need to add the `pg_config` file location to your path. In the Windows
     Search tool, search for `system environment variables`. The path should be
     `C:\Program Files\PostgreSQL\<version>\bin`.
-1.  Download the TimescaleDB installation `.zip` file from our
+2.  Download the TimescaleDB installation `.zip` file from
     [Windows releases][windows-releases].
-1.  Locate the downloaded file on your local file system, and extract the files.
-1.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
+3.  Locate the downloaded file on your local file system, and extract the files.
+4.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
     select `Run as Administrator` to start the installer.
 
 </procedure>
