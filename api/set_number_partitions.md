@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-## set_number_partitions() <tag type="community">Community</tag>
+# set_number_partitions() <tag type="community">Community</tag>
 
 Sets the number of partitions (slices) of a space dimension on a
 hypertable. The new partitioning only affects new chunks.

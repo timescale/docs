@@ -4,7 +4,8 @@ excerpt: Create a visualization of a football play using matplotlib
 keywords: [continuous aggregates, hyperfunctions, analytics, pandas, matplotlib]
 ---
 
-## Visualize pre-snap positions and player movement
+# Visualize pre-snap positions and player movement
+
 Interestingly, the NFL data set includes data on player movement within each
 football play. Visualizing the changes in your time-series data can often provide
 even more insight. In this section, we use `pandas` and `matplotlib` to
@@ -156,10 +157,11 @@ draw_play(game_id=2018112900,
           away_label='displayname',
           movements=True)
 ```
+
 ![player movement figure](https://assets.timescale.com/docs/images/tutorials/nfl_tutorial/player_movement.png)
 
-
 ## Conclusion
+
 We hope that through this tutorial you have been able to see how data that does
 not appear to be time-series initially, is in fact time-series data after all.
 With TimescaleDB, analyzing time-series data can be easy (and fun!) when you use

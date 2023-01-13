@@ -9,10 +9,10 @@ api:
   type: command
 ---
 
-## CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
+# CREATE MATERIALIZED VIEW (Continuous Aggregate) <tag type="community">Community</tag>
 
 The `CREATE MATERIALIZED VIEW` statement is used to create continuous
-aggregates.
+aggregates. To learn more, see the [continuous aggregate how-to guides][cagg-how-tos].
 
 The syntax is:
 
@@ -133,6 +133,7 @@ WITH (timescaledb.continuous) AS
     GROUP BY time_bucket('1h', timec);
 ```
 
+[cagg-how-tos]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [postgres-immutable]: https://www.postgresql.org/docs/current/xfunc-volatility.html
 [postgres-parallel-agg]: https://www.postgresql.org/docs/current/parallel-plans.html#PARALLEL-AGGREGATION
 [postgres-rls]: https://www.postgresql.org/docs/current/ddl-rowsecurity.html

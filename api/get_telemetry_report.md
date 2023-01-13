@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## get_telemetry_report()
+# get_telemetry_report()
 
 If background [telemetry][telemetry] is enabled, returns the string sent to our servers.
 If telemetry is not enabled, outputs INFO message affirming telemetry is disabled

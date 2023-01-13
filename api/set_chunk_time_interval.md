@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## set_chunk_time_interval()
+# set_chunk_time_interval()
 
 Sets the `chunk_time_interval` on a hypertable. The new interval is used
 when new chunks are created, and time intervals on existing chunks are
