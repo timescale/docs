@@ -26,7 +26,7 @@ Before you start, make sure you have:
     [installation documentation][install].
 *   Installed the `psycopg2` library. For more information, see the
     [psycopg2 documentation][psycopg2-docs].
-*   <Optional />A [Python virtual environment][virtual-env].
+*   <Optional /> A [Python virtual environment][virtual-env].
 
 <highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
@@ -36,7 +36,14 @@ a few test projects of your own.
 
 ## Connect to TimescaleDB
 
-FIXME
+In this ?section? you will learn how to create a connection to TimescaleDB using the `psycopg2`
+library which is one of the most popular PostgreSQL libraries for Python. 
+This library allows you to execute raw SQL queries efficiently and safely by
+preventing common attacks such as SQL injection. 
+However you are not required to use psycopg2, because TimescaleDB is built on 
+top of PostgreSQL, most libraries with PostgreSQL support will work for TimescaleDB
+but might lack certain features.
+
 
 <procedure>
 
@@ -91,11 +98,10 @@ import psycopg2
 
     ```python
     CONNECTION = "postgres://username:password@host:port/dbname"
-    def main():
-        with psycopg2.connect(CONNECTION) as conn:
-      cursor = conn.cursor()
-            # use the cursor to interact with your database
-            # cursor.execute("SELECT * FROM table")
+    with psycopg2.connect(CONNECTION) as conn:
+        cursor = conn.cursor()
+        # use the cursor to interact with your database
+        # cursor.execute("SELECT * FROM table")
     ```
 
     Alternatively, you can create a connection object and pass the object
@@ -103,19 +109,22 @@ import psycopg2
 
     ```python
     CONNECTION = "postgres://username:password@host:port/dbname"
-    def main():
-        conn = psycopg2.connect(CONNECTION)
-        cursor = conn.cursor()
-        # use the cursor to interact with your database
-        cursor.execute("SELECT 'hello world'")
-        print(cursor.fetchone())
+    conn = psycopg2.connect(CONNECTION)
+    cursor = conn.cursor()
+    # use the cursor to interact with your database
+    cursor.execute("SELECT 'hello world'")
+    print(cursor.fetchone())
     ```
 
 </procedure>
 
 ## Create a relational table
 
-FIXME
+In this ?section? you will create a table called `sensors` which holds the id,
+type and location of your fictional sensors. Additionally, you will create
+a hypertable called `sensor_data` which holds the measurements of those sensors.
+The measurements contain the time, sensor_id, temperature reading and cpu 
+percentage of the sensors.
 
 <procedure>
 
@@ -126,7 +135,12 @@ FIXME
    `type` and `location`:
 
     ```python
-    query_create_sensors_table = "CREATE TABLE sensors (id SERIAL PRIMARY KEY, type VARCHAR(50), location VARCHAR(50));"
+    query_create_sensors_table = """CREATE TABLE sensors (
+                                        id SERIAL PRIMARY KEY, 
+                                        type VARCHAR(50), 
+                                        location VARCHAR(50)
+                                    );
+                                    """
     ```
 
 1.  Open a cursor, execute the query you created in the previous step, and commit
@@ -168,12 +182,13 @@ in the [API documentation][hypertable-api].
     ```python
     # create sensor data hypertable
     query_create_sensordata_table = """CREATE TABLE sensor_data (
-                                               time TIMESTAMPTZ NOT NULL,
-                                               sensor_id INTEGER,
-                                               temperature DOUBLE PRECISION,
-                                               cpu DOUBLE PRECISION,
-                                               FOREIGN KEY (sensor_id) REFERENCES sensors (id)
-                                               );"""
+                                            time TIMESTAMPTZ NOT NULL,
+                                            sensor_id INTEGER,
+                                            temperature DOUBLE PRECISION,
+                                            cpu DOUBLE PRECISION,
+                                            FOREIGN KEY (sensor_id) REFERENCES sensors (id)
+                                        );
+                                        """
     ```
 
 1.  Formulate a `SELECT` statement that converts the `sensor_data` table to a
@@ -267,9 +282,9 @@ from pgcopy import CopyManager
         data = (id,)
         # create random data
         simulate_query = """SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
-                                   %s as sensor_id,
-                                   random()*100 AS temperature,
-                                   random() AS cpu
+                                %s as sensor_id,
+                                random()*100 AS temperature,
+                                random() AS cpu;
                                 """
         cursor.execute(simulate_query, data)
         values = cursor.fetchall()
@@ -313,10 +328,10 @@ from pgcopy import CopyManager
             data = (id,)
             # create random data
             simulate_query = """SELECT generate_series(now() - interval '24 hour', now(), interval '5 minute') AS time,
-                               %s as sensor_id,
-                               random()*100 AS temperature,
-                               random() AS cpu
-                            """
+                                    %s as sensor_id,
+                                    random()*100 AS temperature,
+                                    random() AS cpu;
+                                    """
             cursor.execute(simulate_query, data)
             values = cursor.fetchall()
 
