@@ -6,7 +6,7 @@ keywords: [Python]
 
 import Intro from "versionContent/_partials/_quickstart-intro.mdx";
 
-# Python Quick Start
+# Python quick start
 
 <Intro />
 
