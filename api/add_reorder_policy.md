@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## add_reorder_policy() <tag type="community">Community</tag>
+# add_reorder_policy() <tag type="community">Community</tag>
 
 Create a policy to reorder chunks on a given hypertable index in the
 background. (See [reorder_chunk][reorder_chunk]). Only one reorder policy may

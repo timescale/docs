@@ -9,7 +9,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.chunks
+# timescaledb_information.chunks
 
 Get metadata about the chunks of hypertables.
 

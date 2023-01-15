@@ -45,17 +45,13 @@ PostgreSQL version 15.1.1 or above.
 1.  Download and install the Visual C++ Redistributable for Visual Studio from
     [www.microsoft.com][ms-download].
 1.  Download and install PostgreSQL from [www.postgresql.org][pg-download].
-
-    <highlight type="important">
     You might need to add the `pg_config` file location to your path. In the Windows
     Search tool, search for `system environment variables`. The path should be
     `C:\Program Files\PostgreSQL\<version>\bin`.
-    </highlight>
-
-1.  Download the TimescaleDB installation `.zip` file from our
+2.  Download the TimescaleDB installation `.zip` file from
     [Windows releases][windows-releases].
-1.  Locate the downloaded file on your local file system, and extract the files.
-1.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
+3.  Locate the downloaded file on your local file system, and extract the files.
+4.  In the extracted TimescaleDB directory, right-click the `setup.exe` file and
     select `Run as Administrator` to start the installer.
 
 </procedure>

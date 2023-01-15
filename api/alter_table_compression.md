@@ -9,7 +9,7 @@ api:
   type: command
 ---
 
-## ALTER TABLE (Compression) <tag type="community" content="community" />
+# ALTER TABLE (Compression) <tag type="community" content="community" />
 
 'ALTER TABLE' statement is used to turn on compression and set compression
 options.

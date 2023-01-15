@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## hypertable_size()  
+# hypertable_size()  
 
 Get the total disk space used by a hypertable, that is, the sum of the
 size for the table itself (including chunks), any indexes on the

@@ -9,7 +9,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.job_stats
+# timescaledb_information.job_stats
 
 Shows information and statistics about jobs run by the automation framework.
 This includes jobs set up for user defined actions and jobs run by policies
