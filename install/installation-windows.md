@@ -33,6 +33,11 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/) instead.
 </highlight>
 
+## Prerequisites
+
+Make sure OpenSSL 1.1.1 is installed on the system if installing
+PostgreSQL version 15.1.1 or above.
+
 <procedure>
 
 ## Installing self-hosted TimescaleDB on Windows-based systems
@@ -47,8 +52,6 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
     `C:\Program Files\PostgreSQL\<version>\bin`.
     </highlight>
 
-1.  If installing PostgreSQL version 15.1.1 or above, make sure OpenSSL 1.1.1 is
-    installed on the system.
 1.  Download the TimescaleDB installation `.zip` file from our
     [Windows releases][windows-releases].
 1.  Locate the downloaded file on your local file system, and extract the files.
