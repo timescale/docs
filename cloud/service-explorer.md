@@ -45,12 +45,47 @@ aggregates, and policies such as data retention policies and data reordering.
 You can also inspect individual hypertables, including their sizes, dimension
 ranges, and compression status.
 
+You can also set a compression policy from this section. See [Setting a
+compression policy from Timescale Cloud console][set-compression] for details.
+
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer-tables.png"
 alt="Timescale Cloud Explorer, Tables section"/>
 
 For more information about hypertables, see our
 [hypertables section][hypertables].
+
+## Setting a compression policy from Timescale Cloud console
+
+You can set a [compression policy][compression] on a hypertable directly from
+Timescale Cloud console.
+
+<procedure>
+
+### Set a compression policy from Timescale Cloud console
+
+1.  Inside the Timescale Cloud Service Explorer, select a hypertable.
+1.  Select the `Policies` tab.
+1.  In the `Compression policy` section, click `Create compression policy`. A
+    suggested policy interval is pre-selected for you, but you can change this
+    in the next step.
+
+    <img class="main-content__illustration"
+    src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer-compression-policy.png"
+    alt='A screenshot of the compression policy section, showing the "Create
+    compression policy" button and a default policy interval of 14 days.' />
+
+1.  A modal appears with options for different compression policy intervals.
+    Select your desired interval, and click `Save changes`.
+1.  Your new compression policy appears in the list of policies. You can expand
+    each row to see the policy details and change your configuration.
+
+    <highlight type="note">
+    Compression begins immediately if you already have data older than the
+    selected interval. The order of compression is from oldest to newest chunks.
+    </highlight>
+
+</procedure>
 
 ## Continuous aggregates
 
@@ -66,4 +101,6 @@ For more information about continuous aggregates, see our
 [continuous aggregates section][caggs].
 
 [caggs]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
+[compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
 [hypertables]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
+[set-compression]: #setting-a-compression-policy-from-timescale-cloud-console
