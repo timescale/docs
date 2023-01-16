@@ -9,7 +9,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.continuous_aggregates
+# timescaledb_information.continuous_aggregates
 
 Get metadata and settings information for continuous aggregates.
 

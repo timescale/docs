@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: <PUT MAIN AGGREGATE FOR GROUP HERE E.G. uddsketch()>
 ---
 
-### Example 1
+# Example 1
 
 Extended examples that use multiple hyperfunctions from the group go here.
 

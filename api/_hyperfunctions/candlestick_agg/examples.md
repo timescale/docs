@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: candlestick_agg()
 ---
 
-### Get candlestick values from tick data
+# Get candlestick values from tick data
 
 Query your tick data table for the opening, high, low, and closing prices, and
 the trading volume, for each 1 hour period in the last day:

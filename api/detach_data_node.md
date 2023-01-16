@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## detach_data_node() <tag type="community">Community</tag>
+# detach_data_node() <tag type="community">Community</tag>
 
 Detach a data node from one hypertable or from all hypertables.
 
