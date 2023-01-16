@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## show_tablespaces()
+# show_tablespaces()
 
 Show the tablespaces attached to a hypertable.
 

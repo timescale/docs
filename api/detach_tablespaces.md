@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-## detach_tablespaces()
+# detach_tablespaces()
 
 Detach all tablespaces from a hypertable. After issuing this command
 on a hypertable, it no longer has any tablespaces attached to

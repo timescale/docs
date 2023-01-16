@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: time_weight()
 ---
 
-### Aggregate data into a `TimeWeightSummary` and calculate the average
+# Aggregate data into a `TimeWeightSummary` and calculate the average
 
 Given a table `foo` with data in a column `val`, aggregate data into a daily
 `TimeWeightSummary`. Use that to calculate the average for column `val`:

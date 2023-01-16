@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## timescaledb_post_restore()
+# timescaledb_post_restore()
 
 Perform the proper operations after restoring the database has completed.
 Specifically this resets the `timescaledb.restoring` GUC and restarts any

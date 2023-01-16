@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## add_job() <tag type="community">Community</tag>
+# add_job() <tag type="community">Community</tag>
 
 Register an action for scheduling by the automation framework. For more information about scheduling, including example actions, see the [actions section][using-actions].
 

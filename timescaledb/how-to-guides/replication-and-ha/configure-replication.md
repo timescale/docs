@@ -5,16 +5,16 @@ keywords: [replicas]
 ---
 
 # Configure replication
+
 This section outlines how to set up asynchronous streaming replication on one or
 more database replicas.
 
 <highlight header="Enable replication in one click and avoid manual configuration work" type="cloud">
-If you would prefer not to manually configure replication for your TimescaleDB instance, 
-you might find Timescale Cloud's one-click replicas useful. Create multiple replicas per database 
-and enable or disable them with a single click. Test it out for yourself today with a 
+If you would prefer not to manually configure replication for your TimescaleDB instance,
+you might find Timescale Cloud's one-click replicas useful. Create multiple replicas per database
+and enable or disable them with a single click. Test it out for yourself today with a
 [free Timescale Cloud trial](http://tsdb.co/cloud-signup).
 </highlight>
-
 
 Before you begin, make sure you have at least two separate instances of
 TimescaleDB running. If you installed TimescaleDB using a Docker container, use
@@ -24,15 +24,17 @@ configuration. For sample Docker configuration and run scripts, see the
 
 To configure replication on self-hosted TimescaleDB, you need to perform these
 procedures:
-1.   [Configure the primary database][configure-primary-db]
-1.   [Configure replication parameters][configure-params]
-1.   [Create replication slots][create-replication-slots]
-1.   [Configure host-based authentication parameters][configure-pghba]
-1.   [Create a base backup on the replica][create-base-backup]
-1.   [Configure replication and recovery settings][configure-replication]
-1.   [Verify that the replica is working][verify-replica]
+
+1.  [Configure the primary database][configure-primary-db]
+1.  [Configure replication parameters][configure-params]
+1.  [Create replication slots][create-replication-slots]
+1.  [Configure host-based authentication parameters][configure-pghba]
+1.  [Create a base backup on the replica][create-base-backup]
+1.  [Configure replication and recovery settings][configure-replication]
+1.  [Verify that the replica is working][verify-replica]
 
 ## Configure the primary database
+
 To configure the primary database, you need a PostgreSQL user with a role that
 allows it to initialize streaming replication. This is the user each replica
 uses to stream from the primary database.
@@ -40,12 +42,16 @@ uses to stream from the primary database.
 <procedure>
 
 ### Configuring the primary database
+
 1.  On the primary database, as a user with superuser privileges, such as the
     `postgres` user, set the password encryption level to `scram-sha-256`:
+
     ```sql
     SET password_encryption = 'scram-sha-256';
     ```
+
 1.  Create a new user called `repuser`:
+
     ```sql
     CREATE ROLE repuser WITH REPLICATION PASSWORD '<PASSWORD>' LOGIN;
     ```
@@ -58,12 +64,14 @@ password-based authentication available in PostgreSQL. It is only available in P
 </procedure>
 
 ## Configure replication parameters
+
 There are several replication settings that need to be added or edited in the
 `postgresql.conf` configuration file.
 
 <procedure>
 
 ### Configuring replication parameters
+
 1.  Set the `synchronous_commit` parameter to `off`.
 1.  Set the `max_wal_senders` parameter to the total number of concurrent
     connections from replicas or backup clients. As a minimum, this should equal
@@ -91,11 +99,12 @@ loss in the event of a system failure. It also makes no guarantees that the
 replica is fully up to date with the primary, which could cause inconsistencies
 between read queries on the primary and the replica. The example configuration
 for this use case:
+
 ```yaml
 listen_addresses = '*'
 wal_level = replica
-max_wal_senders = 1
-max_replication_slots = 1
+max_wal_senders = 2
+max_replication_slots = 2
 synchronous_commit = off
 ```
 
@@ -106,6 +115,7 @@ more information about the different replication modes, see the
 [replication modes section][replication-modes].
 
 ## Create replication slots
+
 When you have configured `postgresql.conf` and restarted PostgreSQL, you can
 create a [replication slot][postgres-rslots-docs] for each replica. Replication
 slots ensure that the primary does not delete segments from the WAL until they
@@ -118,16 +128,20 @@ provide the strongest protection for streaming replication.
 <procedure>
 
 ### Creating replication slots
+
 1.  At the `psql` slot, create the first replication slot. The name of the slot
     is arbitrary. In this example, it is called `replica_1_slot`:
+
     ```sql
     SELECT * FROM pg_create_physical_replication_slot('replica_1_slot');
     ```
+
 1.  Repeat for each required replication slot.
 
 </procedure>
 
 ## Configure host-based authentication parameters
+
 There are several replication settings that need to be added or edited to the
 `pg_hba.conf` configuration file. In this example, the settings restrict
 replication connections to traffic coming from `REPLICATION_HOST_IP` as the
@@ -142,16 +156,20 @@ For more information about `pg_hba.conf`, see the
 <procedure>
 
 ### Configuring host-based authentication parameters
+
 1.  Open the `pg_hba.conf` configuration file and add or edit this line:
+
     ```yaml
     TYPE  DATABASE    USER    ADDRESS METHOD            AUTH_METHOD
     host  replication repuser <REPLICATION_HOST_IP>/32  scram-sha-256
     ```
+
 1.  Restart PostgreSQL to pick up the changes.
 
 </procedure>
 
 ## Create a base backup on the replica
+
 Replicas work by streaming the primary server's WAL log and replaying its
 transactions in PostgreSQL recovery mode. To do this, the replica needs to be in
 a state where it can replay the log. You can do this by restoring the replica
@@ -160,27 +178,33 @@ from a base backup of the primary instance.
 <procedure>
 
 ### Creating a base backup on the replica
+
 1.  Stop PostgreSQL services.
 1.  If the replica database already contains data, delete it before you run the
     backup, by removing the PostgreSQL data directory:
+
     ```bash
     rm -rf <DATA_DIRECTORY>/*
     ```
+
     If you don't know the location of the data directory, find it with the
     `show data_directory;` command.
 1.  Restore from the base backup, using the IP address of the primary database
     and the replication username:
+
     ```bash
     pg_basebackup -h <PRIMARY_IP> \
     -D <DATA_DIRECTORY> \
     -U repuser -vP -W
     ```
+
     The -W flag prompts you for a password. If you are using this command in an
     automated setup, you might need to use a [pgpass file][pgpass-file].
 1.  When the backup is complete, create a
     [standby.signal][postgres-recovery-docs] file in your data directory. When
     PostgreSQL finds a `standby.signal` file in its data directory, it starts in
     recovery mode and streams the WAL through the replication protocol:
+
     ```bash
     touch <DATA_DIRECTORY>/standby.signal
     ```
@@ -188,23 +212,28 @@ from a base backup of the primary instance.
 </procedure>
 
 ## Configure replication and recovery settings
+
 When you have successfully created a base backup and a `standby.signal` file, you
 can configure the replication and recovery settings.
 
 <procedure>
 
 ## Configuring replication and recovery settings
+
 1.  In the replica's `postgresql.conf` file, add details for communicating with the
     primary server. If you are using streaming replication, the
     `application_name` in `primary_conninfo` should be the same as the name used
     in the primary's `synchronous_standby_names` settings:
+
     ```yaml
     primary_conninfo = 'host=<PRIMARY_IP> port=5432 user=repuser
     password=<POSTGRES_USER_PASSWORD> application_name=r1'
     primary_slot_name = 'replica_1_slot'
     ```
+
 1.  Add details to mirror the configuration of the primary database. If you are
     using asynchronous replication, use these settings:
+
     ```yaml
     hot_standby = on
     wal_level = replica
@@ -212,6 +241,7 @@ can configure the replication and recovery settings.
     max_replication_slots = 2
     synchronous_commit = off
     ```
+
     The `hot_standby` parameter must be set to `on` to allow read-only queries
     on the replica. In PostgreSQL 10 and later, this setting is `on` by default.
 1.  Restart PostgreSQL to pick up the changes.
@@ -219,9 +249,11 @@ can configure the replication and recovery settings.
 </procedure>
 
 ## Verify that the replica is working
+
 At this point, your replica should be fully synchronized with the primary
 database and prepared to stream from it. You can verify that it is working
 properly by checking the logs on the replica, which should look like this:
+
 ```txt
 LOG:  database system was shut down in recovery at 2018-03-09 18:36:23 UTC
 LOG:  entering standby mode
@@ -236,6 +268,7 @@ inserts, updates, or other modifications to your data on the primary database,
 and then querying the replica to ensure they have been properly copied over.
 
 ## Replication modes
+
 In most cases, asynchronous streaming replication is sufficient. However, you
 might require greater consistency between the primary and replicas, especially
 if you have a heavy workload. Under heavy workloads, replicas can lag far behind
@@ -313,6 +346,7 @@ were out of service are able to reconnect and replay the missed WAL transactions
 asynchronously.
 
 ## Replication diagnostics
+
 The PostgreSQL [pg_stat_replication][postgres-pg-stat-replication-docs] view
 provides information about each replica. This view is particularly useful for
 calculating replication lag, which measures how far behind the primary the
@@ -326,11 +360,13 @@ exactly what each replica is currently doing; the available modes are `startup`,
 `catchup`, `streaming`, `backup`, and `stopping`.
 
 To see the data, on the primary database, run this command:
+
 ```sql
 SELECT * FROM pg_stat_replication;
 ```
 
 The output looks like this:
+
 ```sql
 -[ RECORD 1 ]----+------------------------------
 pid              | 52343
@@ -375,6 +411,7 @@ sync_state       | sync
 ```
 
 ## Failover
+
 PostgreSQL provides some failover functionality, where the replica is promoted
 to  primary in the event of a failure. This is provided using the
 [pg_ctl][pgctl-docs] command or the `trigger_file`. However, PostgreSQL does

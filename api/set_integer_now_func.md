@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## set_integer_now_func()
+# set_integer_now_func()
 
 This function is only relevant for hypertables with integer (as opposed to
 TIMESTAMP/TIMESTAMPTZ/DATE) time values. For such hypertables, it sets a

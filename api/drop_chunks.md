@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## drop_chunks()
+# drop_chunks()
 
 Removes data chunks whose time range falls completely before (or
 after) a specified time. Shows a list of the chunks that were
