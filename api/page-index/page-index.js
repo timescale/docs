@@ -707,6 +707,10 @@ module.exports = [
             href: "job_stats",
           },
           {
+            title: "timescaledb_information.job_errors",
+            href: "job_errors",
+          },
+          {
             title: "timescaledb_experimental.policies",
             href: "policies",
           },
