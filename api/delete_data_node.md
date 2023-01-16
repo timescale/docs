@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## delete_data_node() <tag type="community">Community</tag>
+# delete_data_node() <tag type="community">Community</tag>
 
 This function is executed on an access node to remove a data
 node from the local database. As part of the deletion, the data node

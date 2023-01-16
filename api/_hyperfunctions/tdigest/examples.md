@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: tdigest()
 ---
 
-### Aggregate and roll up percentile data to calculate daily percentiles
+# Aggregate and roll up percentile data to calculate daily percentiles
 
 Create an hourly continuous aggregate that contains a percentile aggregate:
 

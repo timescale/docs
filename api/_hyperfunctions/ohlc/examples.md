@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: ohlc()
 ---
 
-### Calculate by-minute stock-tick prices
+# Calculate by-minute stock-tick prices
 
 Combine stock tick data into one-minute buckets. Return the asset prices and
 timestamps for each minute:

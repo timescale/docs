@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: uddsketch()
 ---
 
-### Aggregate and roll up percentile data to calculate daily percentiles using `percentile_agg`
+# Aggregate and roll up percentile data to calculate daily percentiles using `percentile_agg`
 
 Create an hourly continuous aggregate that contains a percentile aggregate:
 

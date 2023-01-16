@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-## refresh_continuous_aggregate() <tag type="community">Community</tag>
+# refresh_continuous_aggregate() <tag type="community">Community</tag>
 
 Refresh all buckets of a continuous aggregate in the refresh window given by
 `window_start` and `window_end`.
