@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## attach_tablespace()
+# attach_tablespace()
 
 Attach a tablespace to a hypertable and use it to store chunks. A
 [tablespace][postgres-tablespaces] is a directory on the filesystem

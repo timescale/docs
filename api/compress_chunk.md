@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## compress_chunk() <tag type="community">Community</tag>
+# compress_chunk() <tag type="community">Community</tag>
 
 The compress_chunk function is used to compress a specific chunk. This is
 most often used instead of the

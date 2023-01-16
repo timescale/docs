@@ -9,7 +9,7 @@ api:
   type: view
 ---
 
-## timescaledb_information.jobs
+# timescaledb_information.jobs
 
 Shows information about all jobs registered with the automation framework.
 

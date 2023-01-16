@@ -8,7 +8,7 @@ api:
   type: script
 ---
 
-## Dump TimescaleDB meta data
+# Dump TimescaleDB meta data
 
 To help when asking for support and reporting bugs,
 TimescaleDB includes a SQL script that outputs metadata
