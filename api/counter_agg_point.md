@@ -2,7 +2,7 @@
 api_name: counter_agg()
 excerpt: Aggregate counter data into a `CounterSummary` for further analysis
 topics: [hyperfunctions]
-keywords: [counters, aggregates, hyperfunctions, toolkit]
+keywords: [counters, aggregates, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
@@ -13,12 +13,6 @@ api:
 hyperfunction:
   family: metric aggregation
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: aggregate
 ---
 
 # counter_agg() <tag type="toolkit" content="Toolkit" />

@@ -2,7 +2,7 @@
 api_name: idelta_left() | idelta_right()
 excerpt: Calculate the instantaneous change from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [delta, change]
 api:
   license: community
@@ -17,12 +17,6 @@ hyperfunction:
   aggregates:
     - counter_agg()
     - gauge_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
 # idelta_left() and idelta_right() <tag type="toolkit" content="Toolkit" />

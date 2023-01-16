@@ -2,7 +2,7 @@
 api_name: topn()
 excerpt: Calculate the top N most common values from data in a frequency or top N aggregate
 topics: [hyperfunctions]
-keywords: [frequency, top N, hyperfunctions, toolkit]
+keywords: [frequency, top N, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
@@ -15,13 +15,6 @@ hyperfunction:
   type: accessor
   aggregates:
     - topn_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: SpaceSavingAggregate
-hyperfunction_type: accessor
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

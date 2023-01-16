@@ -1,3 +1,7 @@
+---
+title: Write data to Promscale using the remote-write API
+---
+
 # Write data to Promscale using the remote-write API
 
 Promscale provides a remote-write endpoint for ingesting data. The endpoint is
@@ -5,7 +9,7 @@ compatible with Prometheus. You can also push data to Promscale from a custom
 application.
 
 To configure Prometheus for remote writing to Promscale, see the section on
-[writing from Prometheus][write-prometheus]. This section covers how to 
+[writing from Prometheus][write-prometheus]. This section covers how to
 use the remote-write endpoint with a custom application.
 
 ## Overview of remote-write endpoint
@@ -20,7 +24,7 @@ Only the HTTP POST method is supported.
 The default data format is Protobuf, but JSON streaming and text are also
 supported.
 
-For more information on endpoint details, see the 
+For more information on endpoint details, see the
 [Prometheus documentation][prometheus-remote-storage].
 
 ## Formats
@@ -51,7 +55,7 @@ A sample must contain two things:
 
 ## Protobuf format
 
-Protobuf is the default data format. It is slightly more complex than the 
+Protobuf is the default data format. It is slightly more complex than the
 [JSON streaming format][json-format], but it is usually more performant, because the
 payload is smaller. We recommend this format if you're building a system to
 ingest a lot of data continuously.
@@ -60,13 +64,13 @@ ingest a lot of data continuously.
 
 ### Using the Promscale endpoint with the Protobuf format
 
-1.  Fetch the protocol buffer definition files 
+1.  Fetch the protocol buffer definition files
     [from the Prometheus GitHub repository][protobuf-definition].
 1.  Compile the definitions into the structures of the programming language
-    you're using. For instructions, see the 
+    you're using. For instructions, see the
     [Google Protobuf tutorials][protobuf-tutorials].
 1.  Use the structures to construct requests to send to the Promscale write
-    endpoint. For more information, see 
+    endpoint. For more information, see
     [this sample request written in Go][go-sample].
 
 </procedure>
@@ -251,10 +255,10 @@ http_request_duration_seconds_count 144320
 Each sample entry is a single line in this format:
 
 *   Metric name
-*   **OPTIONAL** Collection label name and value, in curly braces, immediately
+*   <Optional />Collection label name and value, in curly braces, immediately
     following the metric name
 *   Floating point number that represents the actual measured value
-*   **OPTIONAL** An integer timestamp in milliseconds since the UNIX epoch. In
+*   <Optional />An integer timestamp in milliseconds since the UNIX epoch. In
     other words, the number of milliseconds since `1970-01-01 00:00:00 UTC`,
     excluding leap seconds. This should be represented as required by Go's
     [ParseInt][parseint] function.

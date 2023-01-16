@@ -110,6 +110,10 @@ module.exports = [
             href: "attach_data_node",
           },
           {
+            title: "alter_data_node",
+            href: "alter_data_node",
+          },
+          {
             title: "detach_data_node",
             href: "detach_data_node",
           },
@@ -190,7 +194,7 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "directory",
+        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -319,29 +323,14 @@ module.exports = [
             href: "month_normalize",
           },
           {
-            title: "Approximate count distincts",
-            type: "directory",
-            href: "approx_count_distincts",
+            title: "Approximate count distinct",
+            href: "approximate-count-distinct",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "hyperloglog",
                 href: "hyperloglog",
-              },
-              {
-                title: "rollup",
-                href: "rollup-hyperloglog",
-              },
-              {
-                title: "distinct_count",
-                href: "distinct_count",
-              },
-              {
-                title: "stderror",
-                href: "stderror",
-              },
-              {
-                title: "approx_count_distinct",
-                href: "approx_count_distinct",
+                type: "placeholder",
               },
             ],
           },
@@ -390,25 +379,46 @@ module.exports = [
             ],
           },
           {
-            title: "Financial analysis",
-            type: "directory",
-            href: "financial-analysis",
+            title: "Minimum and maximum",
+            href: "minimum-and-maximum",
+            type: "redirect-to-child-page",
             children: [
+              {
+                title: "min_n",
+                href: "min_n",
+                type: "placeholder",
+              },
+              {
+                title: "max_n",
+                href: "max_n",
+                type: "placeholder",
+              },
+              {
+                title: "min_n_by",
+                href: "min_n_by",
+                type: "placeholder",
+              },
+              {
+                title: "max_n_by",
+                href: "max_n_by",
+                type: "placeholder",
+              },
+            ],
+          },
+          {
+            title: "Financial analysis",
+            href: "financial-analysis",
+            type: "redirect-to-child-page",
+            children: [
+              {
+                title: "candlestick_agg",
+                href: "candlestick_agg",
+                type: "placeholder",
+              },
               {
                 title: "ohlc",
                 href: "ohlc",
-              },
-              {
-                title: "open, high, low, close",
-                href: "open-high-low-close",
-              },
-              {
-                title: "open_time, high_time, low_time, close_time",
-                href: "open-high-low-close-time",
-              },
-              {
-                title: "rollup",
-                href: "rollup",
+                type: "placeholder",
               },
             ],
           },
@@ -433,59 +443,18 @@ module.exports = [
           },
           {
             title: "Percentile approximation",
-            type: "directory",
             href: "percentile-approximation",
+            type: "redirect-to-child-page",
             children: [
               {
-                title: "percentile_agg",
-                href: "percentile_agg",
+                title: "percentile_agg and uddsketch",
+                href: "uddsketch",
+                type: "placeholder",
               },
               {
-                title: "approx_percentile",
-                href: "approx_percentile",
-              },
-              {
-                title: "approx_percentile_rank",
-                href: "approx_percentile_rank",
-              },
-              {
-                title: "rollup",
-                href: "rollup-percentile",
-              },
-              {
-                title: "max_val",
-                href: "max_val",
-              },
-              {
-                title: "mean",
-                href: "mean",
-              },
-              {
-                title: "error",
-                href: "error",
-              },
-              {
-                title: "min_val",
-                href: "min_val",
-              },
-              {
-                title: "num_vals",
-                href: "num_vals-percentile",
-              },
-              {
-                title: "Advanced aggregation methods",
-                type: "directory",
-                href: "percentile-aggregation-methods",
-                children: [
-                  {
-                    title: "uddsketch",
-                    href: "uddsketch",
-                  },
-                  {
-                    title: "tdigest",
-                    href: "tdigest",
-                  },
-                ],
+                title: "tdigest",
+                href: "tdigest",
+                type: "placeholder",
               },
             ],
           },
@@ -585,41 +554,14 @@ module.exports = [
             ],
           },
           {
-            title: "Time-weighted averages",
-            type: "directory",
-            href: "time-weighted-averages",
+            title: "Time-weighted calculations",
+            href: "time-weighted-calculations",
+            type: "redirect-to-child-page",
             children: [
               {
                 title: "time_weight",
                 href: "time_weight",
-              },
-              {
-                title: "rollup",
-                href: "rollup-timeweight",
-              },
-              {
-                title: "average",
-                href: "average-time-weight",
-              },
-              {
-                title: "first_time, last_time",
-                href: "first-last-time-timeweight",
-              },
-              {
-                title: "first_val, last_val",
-                href: "first-last-val-timeweight",
-              },
-              {
-                title: "integral",
-                href: "integral-time-weight",
-              },
-              {
-                title: "interpolated_average",
-                href: "interpolated_average",
-              },
-              {
-                title: "interpolated_integral",
-                href: "interpolated_integral",
+                type: "placeholder",
               },
             ],
           },
@@ -675,6 +617,13 @@ module.exports = [
                 title: "min_frequency / max_frequency",
                 href: "min_frequency-max_frequency",
               },
+            ],
+          },
+          {
+            title: "State aggregates",
+            type: "directory",
+            href: "state-aggregates",
+            children: [
               {
                 title: "state_agg",
                 href: "state_agg",
@@ -690,6 +639,31 @@ module.exports = [
               {
                 title: "into_values (for state_agg)",
                 href: "into_values-state_agg",
+              },
+              {
+                title: "rollup (for state_agg)",
+                href: "rollup-state_agg",
+              },
+              {
+                title: "state_timeline",
+                href: "state_timeline",
+              },
+              {
+                title: "state_periods",
+                href: "state_periods",
+              },
+              {
+                title: "interpolated_state_periods",
+                href: "interpolated_state_periods",
+              },
+              {
+                title: "interpolated_state_timeline",
+                href: "interpolated_state_timeline",
+              },
+              {
+                title: "heartbeat_agg",
+                href: "heartbeat_agg",
+                type: "placeholder",
               },
             ],
           },

@@ -4,7 +4,7 @@ excerpt: Learn how hypertables are partitioned into chunks
 keywords: [hypertables, chunks, partitions]
 ---
 
-### Partitioning in hypertables with chunks
+# Partitioning in hypertables with chunks
 
 Chunks are created by partitioning a hypertable's data into one
 (or potentially multiple) dimensions. All hypertables are partitioned
@@ -68,7 +68,7 @@ a standard SQL statement.
 This chunk-based architecture benefits many aspects of time-series data
 management. These includes:
 
-- **In-memory data**. Chunks can be configured (based on their time intervals)
+*   **In-memory data**. Chunks can be configured (based on their time intervals)
   so that the recent chunks (and their indexes) fit in memory. This helps ensure that inserts to
   recent time intervals, as well as queries to recent data, typically accesses
   data already stored in memory, rather than from disk. But TimescaleDB
@@ -76,7 +76,7 @@ management. These includes:
   rather, the database follows LRU caching rules on disk pages to maintain
   in-memory data and index caching.
 
-- **Local indexes**. Indexes are built on each chunk independently, rather than
+*   **Local indexes**. Indexes are built on each chunk independently, rather than
   a global index across all data. This similarly ensures that *both* data and
   indexes from the latest chunks typically reside in memory, so that updating
   indexes when inserting data remains fast. And TimescaleDB can still ensure
@@ -88,7 +88,7 @@ management. These includes:
   on the hypertable, and these operations (and configurations) are pushed down
   to both existing and new chunks.
 
-- **Easy data retention**.  In many time-series applications, whether based on
+*   **Easy data retention**.  In many time-series applications, whether based on
   cost, storage, compliance, or other reasons, users often only want to retain
   data only for a certain amount of time. With TimescaleDB, users can quickly
   delete chunks based on their time ranges (for example, all chunks whose data has
@@ -99,7 +99,7 @@ management. These includes:
   requires more expensive "vacuum" operations to later garbage collect and
   defragment these deleted rows.
 
-- **Age-based compression, data reordering, and more**.  Many other data
+*   **Age-based compression, data reordering, and more**.  Many other data
   management features can also take advantage of this chunk-based architecture,
   which allows users to execute specific commands on chunks or employ
   hypertable policies to automate these actions. These include TimescaleDB's
@@ -112,7 +112,7 @@ management. These includes:
   specific device becomes written contiguously on disk, making "deep and
   narrow" scans for a particular device's data much faster.
 
-- **Instant multi-node elasticity**.  TimescaleDB supports horizontally
+*   **Instant multi-node elasticity**.  TimescaleDB supports horizontally
   scaling across multiple nodes. Unlike traditional one-dimensional
   database sharding, where shards must be migrated to a newly added
   server as part of the process of expanding the cluster, TimescaleDB
@@ -126,16 +126,16 @@ management. These includes:
   either by asynchronously migrating chunks or handled via data
   retention policies if desired.
 
-- **Data replication**.  Chunks can be individually replicated across
+*   **Data replication**.  Chunks can be individually replicated across
   nodes transactionally, either by configuring a replication factor on a
   distributed hypertable (which occurs as part of a 2PC transaction at
   insert time) or by copying an older chunk from one node to another
   to increase its replication factor, for example, after a node failure (coming soon).
 
-- **Data migration**.  Chunks can be individually migrated transactionally.
-  This migration can be across tablespaces (disks) residing on a single
-  server, often as a form of data tiering; for example, moving older data from a
-  faster, more expensive disks to slower, cheaper storage. This migration
-  can also occur across nodes in a distributed hypertable, for example, in order to
+*   **Data migration**.  Chunks can be individually migrated transactionally. This
+  migration can be across tablespaces (disks) residing on a single server, often
+  as a form of storage cost management; for example, moving older data from a
+  faster, more expensive disks to slower, cheaper storage. This migration can
+  also occur across nodes in a distributed hypertable, for example, in order to
   asynchronous rebalance a cluster after adding a server or to prepare for
   retiring a server (coming soon).

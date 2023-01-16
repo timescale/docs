@@ -2,7 +2,7 @@
 api_name: variance_y() | variance_x()
 excerpt: Calculate the variance from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
@@ -52,9 +52,9 @@ api_details:
         description: >
             The variance of the values in the statistical aggregate
   examples:
-    - command:
-        description: >
+    - description: >
           Calculate the variance of a sample containing the integers from 0 to 100.
+      command:
         language: sql
         code: |
             SELECT variance_y(stats_agg(data, data))

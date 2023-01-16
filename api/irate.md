@@ -2,7 +2,7 @@
 api_name: irate_left() | irate_right()
 excerpt: Calculate the instantaneous rate of change from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [rate]
 api:
   license: community
@@ -17,12 +17,6 @@ hyperfunction:
   aggregates:
     - counter_agg()
     - gauge_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
 # irate_left() and irate_right() <tag type="toolkit" content="Toolkit" />

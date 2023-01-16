@@ -6,27 +6,17 @@ tags: [counters, hyperfunctions, toolkit]
 api:
   license: community
   type: function
-  experimental: true
   toolkit: true
   version:
-    experimental: 1.11.0
+    stable: 1.11.0
 hyperfunction:
   family: metric aggregation
   type: accessor
   aggregates:
     - counter_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
-import Experimental from 'versionContent/_partials/_experimental.mdx';
-
-# first_val, last_val <tag type="toolkit" content="Toolkit" /><tag type="experimental-toolkit" content="Experimental" />
+# first_val, last_val <tag type="toolkit" content="Toolkit" />
 
 This pair of functions returns the values of the first and last points in a `CounterSummary` aggregate.
 
@@ -41,8 +31,6 @@ last_val(
     cs CounterSummary
 ) RETURNS DOUBLE PRECISION
 ```
-
-<Experimental />
 
 ## Required arguments
 
@@ -62,7 +50,8 @@ last_val(
 
 ## Sample usage
 
-This example produces a CounterSummary from timestamps and associated values, then applies the `first_val` and `last_val` accessors:
+This example produces a CounterSummary from timestamps and associated values,
+then applies the `first_val` and `last_val` accessors:
 
 ```sql
 WITH t as (

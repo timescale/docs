@@ -2,7 +2,7 @@
 api_name: rollup()
 excerpt: Combine multiple one-dimensional statistical aggregates
 topics: [hyperfunctions]
-keywords: [rollup, statistics, statistical aggregates, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
@@ -26,7 +26,7 @@ api_details:
   signatures:
     - language: sql
       code: |
-        rolling(
+        rollup(
             ss StatsSummary1D
         ) RETURNS StatsSummary1D
   parameters:

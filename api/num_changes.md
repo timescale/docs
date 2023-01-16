@@ -2,7 +2,7 @@
 api_name: num_changes()
 excerpt: Calculate the number of times a value changed within the time period of a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [count, change]
 api:
   license: community
@@ -17,12 +17,6 @@ hyperfunction:
   aggregates:
     - counter_agg()
     - gauge_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
 # num_changes() <tag type="toolkit" content="Toolkit" />

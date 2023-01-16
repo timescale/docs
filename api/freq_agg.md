@@ -2,7 +2,7 @@
 api_name: freq_agg()
 excerpt: Aggregate frequency data into a frequency aggregate for further analysis
 topics: [hyperfunctions]
-keywords: [frequency, aggregate, hyperfunctions, toolkit]
+keywords: [frequency, aggregate, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
@@ -13,13 +13,6 @@ api:
 hyperfunction:
   family: frequency analysis
   type: aggregate
-# fields below will be deprecated
-api_category: hyperfunction
-api_experimental: true
-toolkit: true
-hyperfunction_family: 'frequency analysis'
-hyperfunction_subfamily: SpaceSavingAggregate
-hyperfunction_type: aggregate
 ---
 
 import Experimental from 'versionContent/_partials/_experimental.mdx';

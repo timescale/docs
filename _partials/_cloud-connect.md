@@ -20,7 +20,7 @@ psql][install-psql] section.
     you just created:
 
     ```bash
-    psql -x "postgres://tsdbadmin@t9aggksc24.gspnhi29bv.tsdb.cloud.timescale.com:33251/tsdb?sslmode=require"
+    psql -x "<SERVICE_URL>"
     Password for user tsdbadmin:
     ```
 

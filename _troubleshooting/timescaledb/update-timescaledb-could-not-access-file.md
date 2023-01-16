@@ -6,8 +6,7 @@ errors:
   - language: text
     message: |-
       ERROR: could not access file "timescaledb-<VERSION>": No such file or directory
-keywords: [update]
-tags: [update]
+keywords: [updates]
 ---
 
 <!---

@@ -2,7 +2,7 @@
 api_name: days_in_month()
 excerpt: Calculates days in month given a timestamptz
 topics: [hyperfunctions]
-keywords: [hyperfunctions, toolkit, normalization]
+keywords: [hyperfunctions, Toolkit, normalization]
 api:
   license: community
   type: function
@@ -14,7 +14,7 @@ hyperfunction:
   type: one-step operation
 ---
 
-## days_in_month() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
+# days_in_month() <tag type="toolkit" content="Toolkit" /><tag type="experimental" content="Experimental" />
 
 Given a timestamptz, returns how many days are in that month.
 

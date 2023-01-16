@@ -1,10 +1,11 @@
 ---
 title: Time bucket gapfill
 excerpt: Fill in gaps within your time-series data when calculating time buckets
-keywords: [hyperfunctions, Toolkit, gapfill, interpolate]
+keywords: [hyperfunctions, Toolkit, gapfilling, interpolate]
 ---
 
 # Time bucket gapfill
+
 Sometimes data sorted into time buckets can have gaps. This can happen if you
 have irregular sampling intervals, or you have experienced an outage of some
 sort. If you have a time bucket that has no data at all, the average returned

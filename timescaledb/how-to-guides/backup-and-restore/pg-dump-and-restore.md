@@ -1,7 +1,7 @@
 ---
 title: Logical backups with pg_dump and pg_restore
 excerpt: Back up and restore a hypertable or entire database with native PostgreSQL commands
-keywords: [backup, restore]
+keywords: [backups, restore]
 tags: [recovery, logical backup, pg_dump, pg_restore]
 ---
 
@@ -19,7 +19,8 @@ the [upgrading instructions][timescaledb-upgrade].
 <highlight type="warning">
 If you are using this `pg_dump` backup method regularly, make sure you keep
 track of which versions of PostgreSQL and TimescaleDB you are running. For more
-information, see "Troubleshooting version mismatches" in this section.
+information, see "Versions are mismatched when dumping and restoring a database" 
+in the [Troubleshooting section](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/troubleshooting/).
 </highlight>
 
 ## Back up your entire database
@@ -79,6 +80,12 @@ database and restore the data.
 
     ```sql
     SELECT timescaledb_post_restore();
+    ```
+
+1.  <Optional />Reindex your database to improve query performance:
+
+    ```sql
+    REINDEX DATABASE tsdb;
     ```
 
 </procedure>

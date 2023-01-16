@@ -1,7 +1,7 @@
 ---
 title: Backfill historical data on compressed chunks
 excerpt: How to backfill a batch of historical data on a compressed hypertable
-keywords: [compression, backfill, hypertables]
+keywords: [compression, backfilling, hypertables]
 ---
 
 # Backfill historical data on compressed chunks
@@ -28,8 +28,8 @@ truncating your table in preparation for the next backfill.
 
 ## Backfill with a supplied function
 
-To make backfilling easier, you can use the 
-[backfilling functions][timescaledb-extras-backfill] in the 
+To make backfilling easier, you can use the
+[backfilling functions][timescaledb-extras-backfill] in the
 [TimescaleDB extras][timescaledb-extras] GitHub repository. In particular, the
 `decompress_backfill` procedure automates many of the backfilling steps for you.
 

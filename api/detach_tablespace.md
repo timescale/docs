@@ -2,13 +2,13 @@
 api_name: detach_tablespace()
 excerpt: Detach a tablespace from a hypertable
 topics: [hypertables]
-keywords: [tablespaces, hypertables, data tiering, detach]
+keywords: [tablespaces, hypertables, detach]
 api:
   license: apache
   type: function
 ---
 
-## detach_tablespace()
+# detach_tablespace()
 
 Detach a tablespace from one or more hypertables. This _only_ means
 that _new_ chunks are not placed on the detached tablespace. This

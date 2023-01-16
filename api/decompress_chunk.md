@@ -2,13 +2,13 @@
 api_name: decompress_chunk()
 excerpt: Decompress a compressed chunk
 topics: [compression]
-keywords: [compression, decompression, chunks]
+keywords: [compression, decompression, chunks, backfilling]
 api:
   license: community
   type: function
 ---
 
-## decompress_chunk() <tag type="community">Community</tag>
+# decompress_chunk() <tag type="community">Community</tag>
 
 If you need to modify or add data to a chunk that has already been
 compressed, you need to decompress the chunk first. This is especially

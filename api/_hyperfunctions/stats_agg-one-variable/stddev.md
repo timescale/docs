@@ -2,7 +2,7 @@
 api_name: stddev()
 excerpt: Calculate the standard deviation from a one-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [standard deviation]
 api:
   license: community
@@ -45,9 +45,9 @@ api_details:
         description: >
           The standard deviation of the values in the statistical aggregate
   examples:
-    - command:
-        description: >
+    - description: >
           Calculate the standard deviation of a sample containing the integers from 0 to 100.
+      command:  
         language: sql
         code: |
           SELECT stddev(stats_agg(data))

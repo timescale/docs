@@ -2,7 +2,7 @@
 api_name: rollup()
 excerpt: Roll up multiple `CounterSummary` aggregates
 topics: [hyperfunctions]
-keywords: [counters, rollup, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
@@ -16,12 +16,6 @@ hyperfunction:
   aggregates:
     - counter_agg()
     - gauge_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: rollup
 ---
 
 # rollup(CounterSummary) <tag type="toolkit">Toolkit</tag>

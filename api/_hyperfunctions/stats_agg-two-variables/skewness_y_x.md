@@ -2,7 +2,7 @@
 api_name: skewness_y() | skewness_x()
 excerpt: Calculate the skewness from a two-dimensional statistical aggregate for the dimension specified
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 api:
   license: community
   type: function
@@ -54,9 +54,9 @@ api_details:
         description: >
             The skewness of the values in the statistical aggregate
   examples:
-    - command:
-        description: >
+    - description: >
           Calculate the skewness of a sample containing the integers from 0 to 100.
+      command:
         language: sql
         code: |
             SELECT skewness_x(stats_agg(data, data))

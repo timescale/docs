@@ -2,7 +2,7 @@
 api_name: num_vals()
 excerpt: Calculate the number of values in a one-dimensional statistical aggregate
 topics: [hyperfunctions]
-keywords: [statistics, statistical aggregate, hyperfunctions, toolkit]
+keywords: [statistics, hyperfunctions, Toolkit]
 tags: [count, number]
 api:
   license: community
@@ -37,9 +37,9 @@ api_details:
         description: >
           The number of values in the statistical aggregate
   examples:
-    - command:
-        description: >
+    - description: >
           Calculate the number of values from 0 to 100, inclusive.
+      command:  
         language: sql
         code: |
           SELECT num_vals(stats_agg(data))

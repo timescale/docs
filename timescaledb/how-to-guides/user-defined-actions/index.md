@@ -6,11 +6,13 @@ tags: [user-defined actions, scheduled jobs, background jobs, automation framewo
 ---
 
 # User-defined actions
+
 User-defined actions let you schedule custom-defined procedures to run within
 TimescaleDB. They help you automate periodic tasks that aren't covered by
 TimescaleDB's policy features.
 
 In this section:
+
 *   [Learn about user-defined actions][about-user-defined-actions] before you
     start using them
 *   [Create and register][create-and-register] a user-defined action
@@ -21,7 +23,7 @@ In this section:
         [generic data retention][generic-retention] policy that applies across
         all hypertables
     *   Use a user-defined action to implement
-        [automatic data tiering][tiered-storage]
+        [automatic moving of chunks between tablespaces][manage-storage]
     *   Use a user-defined action to automatically
         [downsample and compress][downsample-compress] older chunks
 
@@ -30,5 +32,5 @@ In this section:
 [create-and-register]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/create-and-register/
 [downsample-compress]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-downsample-and-compress
 [generic-retention]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-generic-retention
+[manage-storage]: /timescaledb/:currentVersion:/how-to-guides/schema-management/manage-storage/
 [test-and-debug]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/test-and-debug/
-[tiered-storage]: /timescaledb/:currentVersion:/how-to-guides/user-defined-actions/example-tiered-storage

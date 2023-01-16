@@ -2,7 +2,7 @@
 api_name: rate()
 excerpt: Calculate the rate of change from values in a `CounterSummary`
 topics: [hyperfunctions]
-keywords: [counters, hyperfunctions, toolkit]
+keywords: [counters, hyperfunctions, Toolkit]
 tags: [rate, change]
 api:
   license: community
@@ -17,12 +17,6 @@ hyperfunction:
   aggregates:
     - counter_agg()
     - gauge_agg()
-# fields below will be deprecated
-api_category: hyperfunction
-toolkit: true
-hyperfunction_family: 'metric aggregation'
-hyperfunction_subfamily: 'counter and gauge aggregation'
-hyperfunction_type: accessor
 ---
 
 # rate() <tag type="toolkit" content="Toolkit" />

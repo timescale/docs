@@ -2,7 +2,7 @@
 api_name: locf()
 excerpt: Carry the last-seen value forward when gapfilling
 topics: [hyperfunctions]
-keywords: [gapfill, interpolate, hyperfunctions, toolkit]
+keywords: [gapfilling, interpolate, hyperfunctions, Toolkit]
 tags: [missing values]
 api:
   license: community
@@ -12,11 +12,6 @@ api:
 hyperfunction:
   family: gapfilling and interpolation
   type: interpolator
-# fields below will be deprecated
-api_category: hyperfunction
-hyperfunction_family: 'gapfilling and interpolation'
-hyperfunction_subfamily: interpolation
-hyperfunction_type: other
 ---
 
 # locf() <tag type="community">Community</tag>
