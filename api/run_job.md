@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## run_job() <tag type="community">Community</tag>
+# run_job() <tag type="community">Community</tag>
 
 Run a previously registered job in the current session.
 This works for user-defined actions as well as policies.

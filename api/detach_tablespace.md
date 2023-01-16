@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-## detach_tablespace()
+# detach_tablespace()
 
 Detach a tablespace from one or more hypertables. This _only_ means
 that _new_ chunks are not placed on the detached tablespace. This
