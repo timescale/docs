@@ -26,11 +26,11 @@ module.exports = [
             excerpt: "Install self-hosted TimescaleDB on Debian using apt",
           },
           {
-            title: "RHEL/CentOS",
+            title: "RHEL",
             href: "installation-redhat",
             iconSrc: "//assets.iobeam.com/images/docs/redhat_centos.png",
             excerpt:
-              "Install self-hosted TimescaleDB on Red Hat or CentOS using dnf",
+              "Install self-hosted TimescaleDB on Red Hat-based systems using dnf",
           },
           {
             title: "Arch Linux",

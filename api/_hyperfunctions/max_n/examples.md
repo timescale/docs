@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: max_n()
 ---
 
-### Get the 10 largest transactions from a table of stock trades
+# Get the 10 largest transactions from a table of stock trades
 
 This example assumes that you have a table of stock trades in this format:
 

@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## add_dimension()
+# add_dimension()
 
 Add an additional partitioning dimension to a TimescaleDB hypertable.
 The column selected as the dimension can either use interval
