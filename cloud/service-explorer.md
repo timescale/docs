@@ -45,8 +45,8 @@ aggregates, and policies such as data retention policies and data reordering.
 You can also inspect individual hypertables, including their sizes, dimension
 ranges, and compression status.
 
-You can also set a compression policy from this section. See [Setting a
-compression policy from Timescale Cloud console][set-compression] for details.
+You can also set a compression policy from this section. For more information, see the 
+[Setting a compression policy from Timescale Cloud console][set-compression] section.
 
 <img class="main-content__illustration"
 src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-explorer-tables.png"
