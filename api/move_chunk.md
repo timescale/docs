@@ -8,7 +8,7 @@ api:
   type: function
 ---
 
-## move_chunk() <tag type="community">Community</tag>
+# move_chunk() <tag type="community">Community</tag>
 
 TimescaleDB allows you to move data and indexes to different tablespaces. This
 allows you to move data to more cost-effective storage as it ages.

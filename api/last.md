@@ -12,7 +12,7 @@ hyperfunction:
   type: one-step aggregate
 ---
 
-## last()
+# last()
 
 The `last` aggregate allows you to get the value of one column
 as ordered by another. For example, `last(temperature, time)` returns the
