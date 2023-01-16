@@ -3,7 +3,7 @@ section: hyperfunction
 subsection: hyperloglog()
 ---
 
-# Roll up two hyperloglogs
+### Roll up two hyperloglogs
 
 Roll up two hyperloglogs. The first hyperloglog buckets the integers from 1 to
 100,000, and the second hyperloglog buckets the integers from 50,000 to
