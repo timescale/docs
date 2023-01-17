@@ -14,11 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set variables
-        run: |
-          echo "::set-output name=DEV_FOLDER::$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')"
-          echo "::set-output name=STAGING_BRANCH::$(echo ${GITHUB_HEAD_REF})"
-
         id: timescale
+        run: |
+          echo "DEV_FOLDER=$(echo ${GITHUB_HEAD_REF} | sed 's|/|-|')" >> $GITHUB_OUTPUT
+          echo "STAGING_BRANCH=$(echo ${GITHUB_HEAD_REF})" >> $GITHUB_OUTPUT
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@26b39ed245ab8f31526069329e112ab2fb224588
