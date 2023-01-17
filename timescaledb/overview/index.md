@@ -4,11 +4,13 @@ excerpt: Learn about TimescaleDB, the open-source relational database for time-s
 ---
 
 # TimescaleDB Overview
+
 TimescaleDB is an open-source relational database for time-series data. It uses
 full SQL and is just as easy to use as a traditional relational database, yet
 scales in ways previously reserved for NoSQL databases.
 
 ## Supercharged PostgreSQL
+
 TimescaleDB uses the same PostgreSQL you know and love, with full SQL,
 rock‑solid reliability, and the largest ecosystem of developer and management
 tools.
@@ -20,6 +22,7 @@ tools.
 *   Visualize data using **[the dashboards you love][grafana]**
 
 ## Accelerated performance
+
 Achieve 10-100x faster queries than PostgreSQL, InfluxDB, and MongoDB. Leverage
 query parallelization, continuous aggregates, and other performance
 optimizations.
@@ -34,6 +37,7 @@ optimizations.
 *   **Query faster** over longer time horizons with downsampling
 
 ## Massive scale
+
 Write millions of data points per second. Store hundreds of terabytes on a single
 node or petabytes across multiple nodes. Handle high‑cardinality data easily.
 
@@ -46,6 +50,7 @@ node or petabytes across multiple nodes. Handle high‑cardinality data easily.
 *   **Parallelize scans and aggregation queries** across many nodes
 
 ## Relational and time-series, together
+
 Simplify your stack and store your relational data alongside time‑series data.
 Ask more complex queries, and build more powerful applications faster.
 
@@ -56,6 +61,7 @@ Ask more complex queries, and build more powerful applications faster.
 *   **Ensure clean, correct data** with foreign keys and constraints
 
 ## Worry-free operations
+
 Let us run TimescaleDB for you, fully managed on AWS, Azure, or GCP in over 75
 regions, with a top-rated support team to ensure your success.
 
@@ -67,6 +73,7 @@ regions, with a top-rated support team to ensure your success.
 *   **Integrated metrics, logs, security and user controls** at your fingertips
 
 ## Lower costs
+
 Spend less with compression savings from best‑in‑class algorithms, including delta-delta and Gorilla, and a memory‑efficient architecture.
 
 *   **Reduce storage costs** with 94-97% lossless
@@ -82,12 +89,13 @@ architecture, including why time-series data is different, and how we leverage
 its characteristics with TimescaleDB.
 
 ## Watch the videos
+
 If you prefer to learn by watching and want an intro to TimescaleDB, check out
 our [YouTube channel][youtube].
 
 [backups]: /timescaledb/:currentVersion:/how-to-guides/backup-and-restore/
 [compression]: /timescaledb/:currentVersion:/how-to-guides/compression/
-[continuous-aggregates]: /api/:currentVersion:/continuous-aggregates/
+[continuous-aggregates]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
 [data-retention]: /timescaledb/:currentVersion:/how-to-guides/data-retention/
 [grafana]: /timescaledb/:currentVersion:/tutorials/grafana/
 [hyperfunctions]: /api/:currentVersion:/hyperfunctions/

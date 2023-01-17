@@ -298,4 +298,4 @@ if you want to have a chat.
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
-[compatibility-matrix]: /timescaledb/:currentVersion:/how-to-guides/upgrade-pg/
+[compatibility-matrix]: /timescaledb/:currentVersion:/how-to-guides/upgrades/upgrade-pg/

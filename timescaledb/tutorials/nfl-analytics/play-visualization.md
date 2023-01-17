@@ -171,4 +171,4 @@ try these functions in your own database and try experimenting with different
 kinds of analysis.
 
 [api-hyperfunctions]: /api/:currentVersion:/hyperfunctions/
-[api-caggs]: /api/:currentVersion:/continuous-aggregates/
+[api-caggs]: /api/:currentVersion:/continuous-aggregates/create_materialized_view/
