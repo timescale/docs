@@ -17,15 +17,23 @@ TimescaleDB supports these PostgreSQL releases. If you are not running a
 compatible PostgreSQL version, make sure you upgrade PostgreSQL before you
 upgrade TimescaleDB:
 
-||PostgreSQL&nbsp;9.6|PostgreSQL&nbsp;10|PostgreSQL&nbsp;11|PostgreSQL&nbsp;12|PostgreSQL&nbsp;13|PostgreSQL&nbsp;14|
-|-|-|-|-|-|-|-|
-|TimescaleDB&nbsp;1.7|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|
-|TimescaleDB&nbsp;2.1|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|
-|TimescaleDB&nbsp;2.2|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|
-|TimescaleDB&nbsp;2.3|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|
-|TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|
-|TimescaleDB&nbsp;2.5 and higher|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|
+||PostgreSQL&nbsp;15|PostgreSQL&nbsp;14|PostgreSQL&nbsp;13|PostgreSQL&nbsp;12|PostgreSQL&nbsp;11|PostgreSQL&nbsp;10|PostgreSQL&nbsp;9.6|
+|-|-|-|-|-|-|-|-|
+|TimescaleDB&nbsp;2.10 and higher|&#9989;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.5 to 2.9|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.4|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.3|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.2|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.1|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#10060;|&#10060;|
+|TimescaleDB&nbsp;2.0|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#10060;|&#10060;
+|TimescaleDB&nbsp;1.7|&#10060;|&#10060;|&#10060;|&#9989;|&#9989;|&#9989;|&#9989;|
+
+<highlight type="cloud" header="Upgrade in one click with Timescale Cloud">
+On Timescale Cloud, you can upgrade your PostgreSQL major version with one
+click. See the [Timescale Cloud
+documentation](https://docs.timescale.com/cloud/latest/service-operations/maintenance/#upgrade-to-a-new-postgresql-version)
+for details.
+</highlight>
 
 You need to upgrade PostgreSQL and TimescaleDB in two separate steps. This is so
 that you can make sure each upgrade completes properly. For example, if you are
