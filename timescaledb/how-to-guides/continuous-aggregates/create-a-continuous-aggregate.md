@@ -18,6 +18,13 @@ By default, views are automatically refreshed. You can adjust this by setting
 the [WITH NO DATA](#using-the-with-no-data-option) option. Additionally, the
 view can not be a [security barrier view][postgres-security-barrier].
 
+Continuous aggregates use hypertables in the background, which means that they
+also use chunk time intervals. By default, the continuous aggregate's chunk time
+interval is 10 times what the original hypertable's chunk time interval is. For
+example, if the original hypertable's chunk time interval is 7 days, the
+continuous aggregates that are on top of it will have a 70 day chunk time
+interval.
+
 ## Create a continuous aggregate
 
 In this example, we are using a hypertable called `conditions`, and creating a
@@ -132,7 +139,7 @@ queries to run efficiently.
       end_offset   => INTERVAL '1 hour',
       schedule_interval => INTERVAL '30 minutes');
     ```
-  
+
 </procedure>
 
 ## Query continuous aggregates
