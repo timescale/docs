@@ -24,6 +24,8 @@ You also need:
 *   CMake version 3.11 or later for your operating system. For more information
     about CMake installation, including downloads and instructions, see the [CMake documentation][cmake-download].
 *   C language compiler for your operating system, such as `gcc` or `clang`.
+*   Check the [compatibility matrix][compatibility-matrix] of TimescaleDB versions
+    with PostgreSQL versions.
 
 <highlight type="note">
 If you are using a Microsoft Windows system, you can install Visual Studio 2015
@@ -296,3 +298,4 @@ if you want to have a chat.
 [postgres-download]: https://www.postgresql.org/download/
 [cmake-download]: https://cmake.org/download/
 [gh-releases]: https://github.com/timescale/timescaledb/releases
+[compatibility-matrix]: /timescaledb/:currentVersion:/how-to-guides/upgrade-pg/
