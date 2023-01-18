@@ -45,7 +45,7 @@ PostgreSQL support work with TimescaleDB, but some can lack certain features.
 
 <procedure>
 
-### Connecting to TimescaleDB
+<Collabsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
 1.  Import the psycogpg2 library:
 
@@ -115,6 +115,8 @@ PostgreSQL support work with TimescaleDB, but some can lack certain features.
     cursor.execute("SELECT 'hello world'")
     print(cursor.fetchone())
     ```
+
+</Collapsible>
 
 </procedure>
 
