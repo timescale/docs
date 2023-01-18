@@ -358,7 +358,7 @@ from pgcopy import CopyManager
 
 This section covers how to execute queries against your database.
 
-The first prcoedure shows a simple `SELECT *` query. For more complex queries,
+The first procedure shows a simple `SELECT *` query. For more complex queries,
 you can use prepared statements to ensure queries are executed safely against
 the database.
 
@@ -455,16 +455,13 @@ advanced TimescaleDB tutorials:
 *   [Try Other Sample Datasets][other-samples]
 *   [Migrate Your own Data][migrate]
 
-[install]: /install/:currentVersion:/
-[cloud-install]: https://www.timescale.com/timescale-signup
+[install]: /install/:currentVersion:/installation-cloud/
 [continuous-aggregates]: /timescaledb/:currentVersion:/how-to-guides/continuous-aggregates/
 [create-hypertable-docs]: /api/:currentVersion:/hypertable/create_hypertable
 [dictcursor-docs]: https://www.psycopg.org/docs/extras.html#dictionary-like-cursor
 [hypertable-howto]: /timescaledb/:currentVersion:/how-to-guides/hypertables/
-[hypertable]: /timescaledb/:currentVersion:/overview/core-concepts/hypertables-and-chunks/
 [migrate]: /timescaledb/:currentVersion:/how-to-guides/migrate-data/
 [other-samples]: /timescaledb/:currentVersion:/tutorials/sample-datasets/
-[pg-copy-docs]: https://pgcopy.readthedocs.io/en/latest/
 [pg-libpq-string]: https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING
 [pgcopy-install]: https://pypi.org/project/pgcopy/
 [psycopg2-connect]: https://www.psycopg.org/docs/module.html?highlight=connect#psycopg2.connect
@@ -472,7 +469,6 @@ advanced TimescaleDB tutorials:
 [psycopg2-docs-basics]: https://www.psycopg.org/docs/usage.html
 [psycopg2-docs]: https://pypi.org/project/psycopg2/
 [results-retrieval-methods]:https://www.psycopg.org/docs/cursor.html
-[self-hosted-install]: /install/latest/self-hosted/
 [time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
 [virtual-env]: https://docs.python.org/3/library/venv.html
 [connect]: #connect-to-timescaledb
