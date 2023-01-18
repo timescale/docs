@@ -45,7 +45,7 @@ PostgreSQL support work with TimescaleDB, but some can lack certain features.
 
 <procedure>
 
-<Collabsible heading="Connecting to TimescaleDB" headingLevel={3}>
+<Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
 1.  Import the psycogpg2 library:
 
