@@ -10,7 +10,7 @@ import Intro from "versionContent/_partials/_quickstart-intro.mdx";
 
 <Intro />
 
-This Quick Start Guide walks you through:
+This quick start guide walks you through:
 
 *   [Connecting to TimescaleDB][connect]
 *   [Creating a relational table][create-table]
