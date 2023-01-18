@@ -22,7 +22,7 @@ there are a few other PostgreSQL parameters that you might like to adjust:
   inconsistency. However, in case of a crash, some of the most recent data points could be
   lost. For a monitoring observability use case, it's a reasonable trade-off to
   increase ingest performance.
-* `shared_buffers` - set it to at least 50% of available memory, we tried to estimate it for metrics ingestion,  see [Promscale Resource recommendations guide][promscale-resource-recommendations].
+* `shared_buffers` - set it to at least 50% of available memory and estimated based on metrics ingestion,  see [Promscale Resource recommendations guide][promscale-resource-recommendations].
 
 <highlight type="important">
 Make sure that the maximum latency between the
