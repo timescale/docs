@@ -43,9 +43,9 @@ prevents common attacks such as SQL injection. You don't need to use `psycopg2`,
 because TimescaleDB is built on top of PostgreSQL. Most libraries with
 PostgreSQL support work with TimescaleDB, but some can lack certain features.
 
-<procedure>
-
 <Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
+
+<procedure>
 
 1.  Import the psycogpg2 library:
 
@@ -116,9 +116,9 @@ PostgreSQL support work with TimescaleDB, but some can lack certain features.
     print(cursor.fetchone())
     ```
 
-</Collapsible>
-
 </procedure>
+
+</Collapsible>
 
 ## Create a relational table
 
