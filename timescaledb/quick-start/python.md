@@ -81,7 +81,7 @@ PostgreSQL support work with TimescaleDB, but some can lack certain features.
     Alternatively you can specify each parameter in the connection string as follows
 
     ```python
-    CONNECTION = "dbname =tsdb user=tsdbadmin password=secret host=host.com port=5432 sslmode=require"
+    CONNECTION = "dbname=tsdb user=tsdbadmin password=secret host=host.com port=5432 sslmode=require"
     ```
 
     <highlight type="warning">
@@ -451,7 +451,7 @@ advanced TimescaleDB tutorials:
 *   [Time Series Forecasting using TimescaleDB, R, Apache MADlib and Python][time-series-forecasting]
 *   [Continuous Aggregates][continuous-aggregates]
 *   [Try Other Sample Datasets][other-samples]
-*   [Migrate your own Data][migrate]
+*   [Migrate Your own Data][migrate]
 
 [install]: /install/:currentVersion:/
 [cloud-install]: https://www.timescale.com/timescale-signup
