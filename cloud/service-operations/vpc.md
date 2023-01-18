@@ -33,9 +33,7 @@ VPC peering:
 *   Configure route table rules
 *   Configure security group and firewall rules
 
-By default, Timescale Cloud allows you to have three VPCs in each project. If
-you need more VPCs, [contact our support team][timescale-support] to ask for a
-quota increase.
+Timescale Cloud allows you to create as many VPCs in your project as you need to.
 
 <highlight type="warning">
 When you have attached your Timescale Cloud service to a VPC, it is no longer
@@ -72,6 +70,7 @@ trial has finished.
         peer. If the CIDR blocks overlap, the peering process fails. You can find the
         CIDR block of your AWS VPC from the AWS console. This example uses the
         `10.0.0.0/16` CIDR block.
+1.  Repeat for each VPC connection you require.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
