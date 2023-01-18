@@ -158,7 +158,7 @@ return only a single aggregate value and can be easily applied in queries, while
 the detailed functions return multiple columns and possibly multiple rows of
 information.
 
-*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):  
+*   [`hypertable_detailed_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_detailed_size):
 The function has been renamed from `hypertable_relation_size(hypertable)`.  Further, if the hypertable is distributed,
 it returns multiple rows, one per each of the hypertable's data nodes.
 *   [`hypertable_size(hypertable)`](/api/:currentVersion:/hypertable/hypertable_size):  Returns a single
@@ -404,11 +404,11 @@ In TimescaleDB 2.0, views surrounding continuous aggregates (and other policies)
 
 #### Changes and additions
 
-*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/continuous-aggregates/):
+*   [`timescaledb_information.continuous_aggregates`](/api/:currentVersion:/continuous-aggregates/create_materialized_view/):
 now provides information related to the materialized view, which includes the view name and owner, the real
 time aggregation flag, the materialization and the view definition (the select statement defining the view).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs/): displays information for
-all policies including continuous aggregates.  
+all policies including continuous aggregates.
 *   [`timescaledb_information.job_stats`](/api/:currentVersion:/informational-views/job_stats/): displays job
 statistics related to all jobs.
 
@@ -449,7 +449,7 @@ hypertable or continuous aggregate as the first argument, and does not allow dro
 in a database. Additionally, the arguments `cascade` and `cascade_to_materializations` were removed (and behave as
 if the arguments were set to `false` in earlier versions). In TimescaleDB 2.0, we instead recommend creating a
 separate retention policy on each continuous aggregate.
-*   [`add_retention_policy`](/api/:currentVersion:/data-retention/add_retention_policy), [`remove_retention_policy`](/api/:currentVersion:/data-retention/remove_retention_policy):  
+*   [`add_retention_policy`](/api/:currentVersion:/data-retention/add_retention_policy), [`remove_retention_policy`](/api/:currentVersion:/data-retention/remove_retention_policy):
 Creating (or removing) a data retention policy now has explicit functions. Additionally, the arguments `cascade`
 and `cascade_to_materializations` were removed (and behave as if the arguments were set to `false` in earlier versions).
 *   [`timescaledb_information.jobs`](/api/:currentVersion:/informational-views/jobs/): General information about data retention
@@ -466,7 +466,7 @@ explicit functions above.
 
 #### Changes and additions
 
-*   [`add_compression_policy`](/api/:currentVersion:/compression/add_compression_policy), [`remove_compression_policy`](/api/:currentVersion:/compression/remove_compression_policy):  
+*   [`add_compression_policy`](/api/:currentVersion:/compression/add_compression_policy), [`remove_compression_policy`](/api/:currentVersion:/compression/remove_compression_policy):
 Creating (or removing) a compression policy now has explicit functions.
 *   [`hypertable_compression_stats(hypertable)`](/api/:currentVersion:/compression/hypertable_compression_stats): The function
  returns statistics only for hypertables with compression enabled.

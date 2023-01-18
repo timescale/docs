@@ -194,7 +194,7 @@ module.exports = [
       },
       {
         title: "Continuous aggregates",
-        type: "directory",
+        type: "redirect-to-child-page",
         href: "continuous-aggregates",
         children: [
           {
@@ -705,6 +705,10 @@ module.exports = [
           {
             title: "timescaledb_information.job_stats",
             href: "job_stats",
+          },
+          {
+            title: "timescaledb_information.job_errors",
+            href: "job_errors",
           },
           {
             title: "timescaledb_experimental.policies",

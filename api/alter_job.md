@@ -9,7 +9,7 @@ api:
   type: function
 ---
 
-## alter_job() <tag type="community">Community</tag>
+# alter_job() <tag type="community">Community</tag>
 
 Actions scheduled using the TimescaleDB automation framework run periodically in
 a background worker. You can change the schedule of these jobs with the
