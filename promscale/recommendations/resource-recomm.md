@@ -53,7 +53,7 @@ Compute recommendations for the Promscale connector and TimescaleDB are:
 |200k samples/sec|5M|4|16 GB|16|64 GB|8|40 GB|
 
 <highlight type="note">
-You can use `shared_buffers` PostgreSQL configuration to set `DB Shared Buffers`.
+Use `shared_buffers` in PostgreSQL configuration to set `DB Shared Buffers`.
 </highlight>
 
 Disk recommendations for TimescaleDB are:
