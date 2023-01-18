@@ -128,9 +128,9 @@ called `sensor_data` which holds the measurements of those sensors. The
 measurements contain the time, sensor_id, temperature reading, and CPU
 percentage of the sensors.
 
-<procedure>
+<Collapsible heading="Creating a relational table" headingLevel={3}>
 
-### Creating a relational table
+<procedure>
 
 1.  Compose a string which contains the SQL statement to create a relational
     table. This example creates a table called `sensors`, with columns `id`,
@@ -145,7 +145,7 @@ percentage of the sensors.
                                     """
     ```
 
-1.  Open a cursor, execute the query you created in the previous step, and
+2.  Open a cursor, execute the query you created in the previous step, and
     commit the query to make the changes persistent. Afterward, close the cursor
     to clean up:
 
@@ -159,6 +159,8 @@ percentage of the sensors.
 
 </procedure>
 
+</Collapsible>
+
 ## Create a hypertable
 
 Virtually all user interactions with TimescaleDB are with hypertables. Creating
@@ -169,9 +171,9 @@ A hypertable is defined by a standard schema with column names and types, with
 at least one column specifying a time value. For more information about
 hypertables, see the [hypertables documentation][hypertable-howto].
 
-<procedure>
+<Collapsible heading="Creating a hypertable" headingLevel={3}>
 
-### Creating a hypertable
+<procedure>
 
 1.  Create a string variable that contains the `CREATE TABLE` SQL statement for
     your hypertable. Notice how the hypertable has the compulsory time column:
@@ -211,15 +213,17 @@ hypertables, see the [hypertables documentation][hypertable-howto].
 
 </procedure>
 
+</Collapsible>
+
 ## Insert rows of data
 
 You can insert data into your hypertables in several different ways. In this
 section, you can use `psycopg2` with prepared statements, or you can use
 `pgcopy` for a faster insert.
 
-<procedure>
+<Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3}>
 
-### Inserting rows into TimescaleDB with psycopg2
+<procedure>
 
 1.  This example inserts a list of tuples, or relational data, called `sensors`,
     into the relational table named `sensors`. Open a cursor with a connection
@@ -257,6 +261,8 @@ section, you can use `psycopg2` with prepared statements, or you can use
 
 </procedure>
 
+</Collapsible>
+
 If you choose to use `pgcopy` instead, install the `pgcopy` package
 [using pip][pgcopy-install], and then add this line to your list of
 `import` statements:
@@ -265,9 +271,9 @@ If you choose to use `pgcopy` instead, install the `pgcopy` package
 from pgcopy import CopyManager
 ```
 
-<procedure>
+<Collapsible heading="Inserting rows into TimescaleDB with pgcopy" headingLevel={3}>
 
-### Inserting rows into TimescaleDB with pgcopy
+<procedure>
 
 1.  Generate some random sensor data using the `generate_series` function
     provided by PostgreSQL. This example inserts a total of 480 rows of data (4
@@ -354,6 +360,8 @@ from pgcopy import CopyManager
 
 </procedure>
 
+</Collapsible>
+
 ## Execute a query
 
 This section covers how to execute queries against your database.
@@ -367,9 +375,9 @@ For more information about properly using placeholders in `psycopg2`, see the
 For more information about how to execute more complex queries in `psycopg2`,
 see the [psycopg2 documentation][psycopg2-docs-basics].
 
-<procedure>
+<Collapsible heading="Executing a simple query" headingLevel={3}>
 
-### Executing a simple query
+<procedure>
 
 1.  Define the SQL query you'd like to run on the database. This example is a
     simple `SELECT` statement querying each row from the previously created
@@ -414,12 +422,14 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
 
 </procedure>
 
+</Collapsible>
+
 For more complex queries, you can use prepared statements to ensure queries are
 executed safely against the database.
 
-<procedure>
+<Collapsible heading="Executing queries using prepared statements" headingLevel={3}>
 
-### Executing queries using prepared statements
+<procedure>
 
 1.  Write the query using prepared statements:
 
@@ -442,6 +452,8 @@ executed safely against the database.
     ```
 
 </procedure>
+
+</Collapsible>
 
 ## Next steps
 
