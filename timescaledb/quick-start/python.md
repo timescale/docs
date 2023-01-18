@@ -475,8 +475,8 @@ advanced TimescaleDB tutorials:
 [self-hosted-install]: /install/latest/self-hosted/
 [time-series-forecasting]: /timescaledb/:currentVersion:/tutorials/time-series-forecast/
 [virtual-env]: https://docs.python.org/3/library/venv.html
-[connect]: /timescaledb/:currentVersion:/quick-start/python/#connect-to-timescaledb
-[create-table]: /timescaledb/:currentVersion:/quick-start/python/#create-a-relational-table
-[create-hypertable]: /timescaledb/:currentVersion:/quick-start/python/#create-hypertable
-[insert]: /timescaledb/:currentVersion:/quick-start/python/#insert-rows-of-data
-[query]: /timescaledb/:currentVersion:/quick-start/python/#execute-a-query
+[connect]: #connect-to-timescaledb
+[create-table]: #create-a-relational-table
+[create-hypertable]: #create-hypertable
+[insert]: #insert-rows-of-data
+[query]: #execute-a-query
