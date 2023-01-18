@@ -68,7 +68,7 @@ The default chunk interval is `8h`
 |200k samples/sec|5M|90 days|~40 GB|~420 GB|~4 TB|96 GB|
 
 <highlight type="note">
-You can use `max_wal_size` PostgreSQL configuration to set desired `WAL size`.
+Use `max_wal_size` in PostgreSQL configuration to set desired `WAL size`.
 </highlight>
 
 ## Traces
