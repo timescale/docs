@@ -39,9 +39,7 @@ a few test projects of your own.
 In this section, you create a connection to TimescaleDB using the `psycopg2`
 library. This library is one of the most popular PostgreSQL libraries for
 Python. It allows you to execute raw SQL queries efficiently and safely, and
-prevents common attacks such as SQL injection. You don't need to use `psycopg2`,
-because TimescaleDB is built on top of PostgreSQL. Most libraries with
-PostgreSQL support work with TimescaleDB, but some can lack certain features.
+prevents common attacks such as SQL injection.
 
 <Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
