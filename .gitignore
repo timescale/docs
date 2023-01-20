@@ -4,4 +4,4 @@
 _notes/
 .github/workflows/update-search.yml
 *.swp
-.helper-scripts/hyperfunctions/target
+.helper-scripts/hyperfunctions/target/

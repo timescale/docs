@@ -223,6 +223,7 @@
   "^/timescaledb/latest/how-to-guides/install-timescaledb/": "https://docs.timescale.com/install/latest/",
   "^/timescaledb/latest/how-to-guides/multi-node-setup/": "https://docs.timescale.com/timescaledb/latest/how-to-guides/multinode-timescaledb/",
   "^/timescaledb/latest/overview/core-concepts$": "https://docs.timescale.com/timescaledb/latest/overview/core-concepts/",
+  "^/timescaledb/latest/tutorials/financial-candlestick-tick-data/": "https://docs.timescale.com/timescaledb/latest/tutorials/financial-tick-data/",
   "^/timescaledb/latest/tutorials/howto-monitor-django-prometheus": "https://docs.timescale.com/timescaledb/latest/tutorials/monitor-django-with-prometheus/",
   "^/timescaledb/latest/tutorials/promscale/": "https://docs.timescale.com/promscale/latest/",
   "^/timescaledb/latest/tutorials/setting-up-mst-endpoint-for-prometheus/": "https://docs.timescale.com/timescaledb/latest/tutorials/monitor-mst-with-prometheus/",
