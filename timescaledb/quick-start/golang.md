@@ -77,7 +77,7 @@ FIXME
        "fmt"
        "os"
 
-       "github.com/jackc/pgx/v4"
+       "github.com/jackc/pgx/v5"
     )
 
     //connect to database using a single connection
@@ -124,9 +124,9 @@ lead to faster queries on your database.
 ### Connecting to TimescaleDB with a connection pool
 
 1.  To create a connection pool that can be used for concurrent connections to
-   your database, use the `pgxpool.Connect()` function instead of
+   your database, use the `pgxpool.New()` function instead of
    `pgx.Connect()`. Also note that this script imports
-   `github.com/jackc/pgx/v4/pgxpool`, instead of `pgx/v4` which was used to
+   `github.com/jackc/pgx/v5/pgxpool`, instead of `pgx/v5` which was used to
    create a single connection:
 
     ```go
@@ -137,14 +137,14 @@ lead to faster queries on your database.
      "fmt"
      "os"
 
-     "github.com/jackc/pgx/v4/pgxpool"
+     "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
 
        ctx := context.Background()
        connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.Connect(ctx, connStr)
+       dbpool, err := pgxpool.New(ctx, connStr)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
            os.Exit(1)
@@ -193,15 +193,15 @@ FIXME
        "fmt"
        "os"
 
-       "github.com/jackc/pgx/v4"
-       "github.com/jackc/pgx/v4/pgxpool"
+       "github.com/jackc/pgx/v5"
+       "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
 
        ctx := context.Background()
        connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.Connect(ctx, connStr)
+       dbpool, err := pgxpool.New(ctx, connStr)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
            os.Exit(1)
@@ -272,15 +272,15 @@ other tasks can and should all be executed on the hypertable.
        "fmt"
        "os"
 
-       "github.com/jackc/pgx/v4"
-       "github.com/jackc/pgx/v4/pgxpool"
+       "github.com/jackc/pgx/v5"
+       "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
 
        ctx := context.Background()
        connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.Connect(ctx, connStr)
+       dbpool, err := pgxpool.New(ctx, connStr)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
            os.Exit(1)
@@ -342,14 +342,14 @@ the process.
        "fmt"
        "os"
 
-       "github.com/jackc/pgx/v4"
-       "github.com/jackc/pgx/v4/pgxpool"
+       "github.com/jackc/pgx/v5"
+       "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
        ctx := context.Background()
        connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.Connect(ctx, connStr)
+       dbpool, err := pgxpool.New(ctx, connStr)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
            os.Exit(1)
@@ -488,8 +488,8 @@ FIXME
        "os"
        "time"
 
-        "github.com/jackc/pgx/v4"
-       "github.com/jackc/pgx/v4/pgxpool"
+        "github.com/jackc/pgx/v5"
+       "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
@@ -498,7 +498,7 @@ FIXME
        /********************************************/
        ctx := context.Background()
        connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.Connect(ctx, connStr)
+       dbpool, err := pgxpool.New(ctx, connStr)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
            os.Exit(1)
@@ -602,8 +602,8 @@ the previous procedure. It uses the pgx `Batch` object.
        "os"
        "time"
 
-       "github.com/jackc/pgx/v4"
-       "github.com/jackc/pgx/v4/pgxpool"
+       "github.com/jackc/pgx/v5"
+       "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
@@ -612,7 +612,7 @@ the previous procedure. It uses the pgx `Batch` object.
        /********************************************/
        ctx := context.Background()
        connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.Connect(ctx, connStr)
+       dbpool, err := pgxpool.New(ctx, connStr)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
            os.Exit(1)
@@ -809,13 +809,13 @@ FIXME
        "os"
        "time"
 
-       "github.com/jackc/pgx/v4/pgxpool"
+       "github.com/jackc/pgx/v5/pgxpool"
     )
 
     func main() {
        ctx := context.Background()
        connStr := "yourConnectionStringHere"
-       dbpool, err := pgxpool.Connect(ctx, connStr)
+       dbpool, err := pgxpool.New(ctx, connStr)
        if err != nil {
            fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
            os.Exit(1)
