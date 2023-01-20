@@ -33,11 +33,13 @@ VPC peering:
 *   Configure route table rules
 *   Configure security group and firewall rules
 
-Timescale Cloud allows you to create as many VPCs in your project as you need to.
+By default, Timescale Cloud allows you to have three VPCs in each project. If
+you need more VPCs, [contact our support team][timescale-support] to ask for a
+quota increase. Each VPC can have as many peering connections as you need.
 
 <highlight type="warning">
 When you have attached your Timescale Cloud service to a VPC, it is no longer
-accessible using the public internet. It is only accessible using your peered
+accessible using the public internet. It is only accessible using a peered
 AWS VPC.
 </highlight>
 
@@ -70,7 +72,6 @@ trial has finished.
         peer. If the CIDR blocks overlap, the peering process fails. You can find the
         CIDR block of your AWS VPC from the AWS console. This example uses the
         `10.0.0.0/16` CIDR block.
-1.  Repeat for each VPC connection you require.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-create.png" alt="Create a new Timescale Cloud VPC"/>
 
@@ -91,6 +92,7 @@ between your Timescale Cloud VPC and your AWS VPC.
 1.  Provide the AWS account ID, the VPC ID, and the AWS VPC region for the new
     peering connection.
 1.  Click `Add peering connection` to begin the peering process.
+1.  Repeat for each peering connection you require.
 
 <img class="main-content__illustration" src="https://s3.amazonaws.com/assets.timescale.com/docs/images/tsc-vpc-addpeering.png" alt="Expand the VPC Peering dropdown menu and enter info"/>
 
