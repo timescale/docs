@@ -3,6 +3,10 @@ title: Timescale Cloud services
 excerpt: Learn more about Timescale Cloud services
 product: cloud
 keywords: [services]
+cloud_ui:
+    path:
+        - [services]
+    priority: 1
 ---
 
 # Timescale Cloud services
