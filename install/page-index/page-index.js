@@ -20,21 +20,21 @@ module.exports = [
         excerpt: "Install self-hosted TimescaleDB",
         children: [
           {
-            title: "Debian/Ubuntu",
-            href: "installation-debian",
+            title: "Debian",
+            href: "installation-linux",
             iconSrc: "//assets.iobeam.com/images/docs/debian_ubuntu.png",
             excerpt: "Install self-hosted TimescaleDB on Debian using apt",
           },
           {
             title: "RHEL",
-            href: "installation-redhat",
+            href: "installation-linux",
             iconSrc: "//assets.iobeam.com/images/docs/redhat_centos.png",
             excerpt:
               "Install self-hosted TimescaleDB on Red Hat-based systems using dnf",
           },
           {
             title: "Arch Linux",
-            href: "installation-archlinux",
+            href: "installation-linux",
             iconSrc:
               "//assets.iobeam.com/images/docs/archlinux-logo-light-1200dpi.7ccd81fd52dc.png",
             excerpt:
