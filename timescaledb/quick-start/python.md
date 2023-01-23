@@ -143,7 +143,7 @@ percentage of the sensors.
                                     """
     ```
 
-2.  Open a cursor, execute the query you created in the previous step, and
+1.  Open a cursor, execute the query you created in the previous step, and
     commit the query to make the changes persistent. Afterward, close the cursor
     to clean up:
 
@@ -221,7 +221,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
 
 <procedure>
 
-<Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3}>
+<Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3} defaultExpanded={false}>
 
 1.  This example inserts a list of tuples, or relational data, called `sensors`,
     into the relational table named `sensors`. Open a cursor with a connection
@@ -271,7 +271,7 @@ from pgcopy import CopyManager
 
 <procedure>
 
-<Collapsible heading="Inserting rows into TimescaleDB with pgcopy" headingLevel={3}>
+<Collapsible heading="Inserting rows into TimescaleDB with pgcopy" headingLevel={3} defaultExpanded={false}>
 
 1.  Generate some random sensor data using the `generate_series` function
     provided by PostgreSQL. This example inserts a total of 480 rows of data (4
@@ -375,7 +375,7 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
 
 <procedure>
 
-<Collapsible heading="Executing a simple query" headingLevel={3}>
+<Collapsible heading="Executing a simple query" headingLevel={3} defaultExpanded={false}>
 
 1.  Define the SQL query you'd like to run on the database. This example is a
     simple `SELECT` statement querying each row from the previously created
@@ -427,7 +427,7 @@ executed safely against the database.
 
 <procedure>
 
-<Collapsible heading="Executing queries using prepared statements" headingLevel={3}>
+<Collapsible heading="Executing queries using prepared statements" headingLevel={3} defaultExpanded={false}>
 
 1.  Write the query using prepared statements:
 
