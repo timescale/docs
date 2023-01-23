@@ -5,11 +5,11 @@ keywords: [tutorials, create, dataset]
 tags: [tutorials, beginner]
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.mdx";
-import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
-import Connect from "versionContent/_partials/_cloud-connect.mdx";
-import CreateHypertable from "versionContent/_partials/_create-hypertable-nyctaxis.mdx";
-import AddData from "versionContent/_partials/_add-data-nyctaxis.mdx";
+import Install from "versionContent/_partials/_cloud-installation.md";
+import CreateService from "versionContent/_partials/_cloud-create-service.md";
+import Connect from "versionContent/_partials/_cloud-connect.md";
+import CreateHypertable from "versionContent/_partials/_create-hypertable-nyctaxis.md";
+import AddData from "versionContent/_partials/_add-data-nyctaxis.md";
 
 ## Sign up for Timescale Cloud
 
