@@ -221,7 +221,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
 
 <procedure>
 
-<Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3} defaultExpanded={false}>
+<Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3}>
 
 1.  This example inserts a list of tuples, or relational data, called `sensors`,
     into the relational table named `sensors`. Open a cursor with a connection
@@ -240,7 +240,7 @@ section, you can use `psycopg2` with prepared statements, or you can use
     conn.commit()
     ```
 
-1.  <Optional />Alternatively, you can pass variables to the `cursor.execute`
+2.  <Optional />Alternatively, you can pass variables to the `cursor.execute`
     function and separate the formulation of the SQL statement, `SQL`, from the
     data being passed with it into the prepared statement, `data`:
 
@@ -375,7 +375,7 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
 
 <procedure>
 
-<Collapsible heading="Executing a simple query" headingLevel={3} defaultExpanded={false}>
+<Collapsible heading="Executing a simple query" headingLevel={3}>
 
 1.  Define the SQL query you'd like to run on the database. This example is a
     simple `SELECT` statement querying each row from the previously created
