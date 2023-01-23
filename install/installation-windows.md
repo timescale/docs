@@ -33,6 +33,12 @@ current PostgreSQL installation, do not install TimescaleDB using this method.
 [Install from source](/install/latest/self-hosted/installation-source/) instead.
 </highlight>
 
+## Prerequisites
+
+To install PostgreSQL version 15.1.1 or later, make sure you have:
+
+* Installed OpenSSL 1.1.1
+
 <procedure>
 
 ## Installing self-hosted TimescaleDB on Windows-based systems
