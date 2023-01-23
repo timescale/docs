@@ -41,9 +41,9 @@ library. This library is one of the most popular PostgreSQL libraries for
 Python. It allows you to execute raw SQL queries efficiently and safely, and
 prevents common attacks such as SQL injection.
 
-<Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
-
 <procedure>
+
+<Collapsible heading="Connecting to TimescaleDB" headingLevel={3}>
 
 1.  Import the psycogpg2 library:
 
@@ -114,9 +114,9 @@ prevents common attacks such as SQL injection.
     print(cursor.fetchone())
     ```
 
-</procedure>
-
 </Collapsible>
+
+</procedure>
 
 ## Create a relational table
 
@@ -126,9 +126,9 @@ called `sensor_data` which holds the measurements of those sensors. The
 measurements contain the time, sensor_id, temperature reading, and CPU
 percentage of the sensors.
 
-<Collapsible heading="Creating a relational table" headingLevel={3}>
-
 <procedure>
+
+<Collapsible heading="Creating a relational table" headingLevel={3}>
 
 1.  Compose a string which contains the SQL statement to create a relational
     table. This example creates a table called `sensors`, with columns `id`,
@@ -155,9 +155,9 @@ percentage of the sensors.
     cursor.close()
     ```
 
-</procedure>
-
 </Collapsible>
+
+</procedure>
 
 ## Create a hypertable
 
@@ -169,9 +169,9 @@ A hypertable is defined by a standard schema with column names and types, with
 at least one column specifying a time value. For more information about
 hypertables, see the [hypertables documentation][hypertable-howto].
 
-<Collapsible heading="Creating a hypertable" headingLevel={3}>
-
 <procedure>
+
+<Collapsible heading="Creating a hypertable" headingLevel={3}>
 
 1.  Create a string variable that contains the `CREATE TABLE` SQL statement for
     your hypertable. Notice how the hypertable has the compulsory time column:
@@ -209,9 +209,9 @@ hypertables, see the [hypertables documentation][hypertable-howto].
     cursor.close()
     ```
 
-</procedure>
-
 </Collapsible>
+
+</procedure>
 
 ## Insert rows of data
 
@@ -219,9 +219,9 @@ You can insert data into your hypertables in several different ways. In this
 section, you can use `psycopg2` with prepared statements, or you can use
 `pgcopy` for a faster insert.
 
-<Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3}>
-
 <procedure>
+
+<Collapsible heading="Inserting rows into TimescaleDB with psycopg2" headingLevel={3}>
 
 1.  This example inserts a list of tuples, or relational data, called `sensors`,
     into the relational table named `sensors`. Open a cursor with a connection
@@ -257,9 +257,9 @@ section, you can use `psycopg2` with prepared statements, or you can use
     conn.commit()
     ```
 
-</procedure>
-
 </Collapsible>
+
+</procedure>
 
 If you choose to use `pgcopy` instead, install the `pgcopy` package
 [using pip][pgcopy-install], and then add this line to your list of
@@ -269,9 +269,9 @@ If you choose to use `pgcopy` instead, install the `pgcopy` package
 from pgcopy import CopyManager
 ```
 
-<Collapsible heading="Inserting rows into TimescaleDB with pgcopy" headingLevel={3}>
-
 <procedure>
+
+<Collapsible heading="Inserting rows into TimescaleDB with pgcopy" headingLevel={3}>
 
 1.  Generate some random sensor data using the `generate_series` function
     provided by PostgreSQL. This example inserts a total of 480 rows of data (4
@@ -356,9 +356,9 @@ from pgcopy import CopyManager
     print(cursor.fetchall())
     ```
 
-</procedure>
-
 </Collapsible>
+
+</procedure>
 
 ## Execute a query
 
@@ -373,9 +373,9 @@ For more information about properly using placeholders in `psycopg2`, see the
 For more information about how to execute more complex queries in `psycopg2`,
 see the [psycopg2 documentation][psycopg2-docs-basics].
 
-<Collapsible heading="Executing a simple query" headingLevel={3}>
-
 <procedure>
+
+<Collapsible heading="Executing a simple query" headingLevel={3}>
 
 1.  Define the SQL query you'd like to run on the database. This example is a
     simple `SELECT` statement querying each row from the previously created
@@ -418,16 +418,16 @@ see the [psycopg2 documentation][psycopg2-docs-basics].
 
     Using this cursor, `cursor.fetchall()` returns a list of dictionary-like objects.
 
-</procedure>
-
 </Collapsible>
+
+</procedure>
 
 For more complex queries, you can use prepared statements to ensure queries are
 executed safely against the database.
 
-<Collapsible heading="Executing queries using prepared statements" headingLevel={3}>
-
 <procedure>
+
+<Collapsible heading="Executing queries using prepared statements" headingLevel={3}>
 
 1.  Write the query using prepared statements:
 
@@ -449,9 +449,9 @@ executed safely against the database.
     results = cursor.fetchall()
     ```
 
-</procedure>
-
 </Collapsible>
+
+</procedure>
 
 ## Next steps
 
