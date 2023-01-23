@@ -35,14 +35,16 @@ a few test projects of your own.
 
 ## Connect to TimescaleDB
 
-FIXME
+In this section, you create a connection to TimescaleDB using the PGX driver.
+PGX is a toolkit designed to help Go developers work directly with PostgreSQL.
+You can use it to help your Go application interact directly with TimescaleDB.
 
 <procedure>
 
-### Connecting to TimescaleDB with a connection string
+<Collapsible heading="Connecting to TimescaleDB with a connection string" headingLevel={3}>
 
 1.  Locate your TimescaleDB credentials and use them to compose a connection
-   string for PGX.
+    string for PGX.
 
     You'll need:
 
@@ -53,21 +55,21 @@ FIXME
     *   database name
 
 1.  Compose your connection string variable as a
-   [libpq connection string][libpq-docs], using this format:
+    [libpq connection string][libpq-docs], using this format:
 
     ```go
     connStr := "postgres://username:password@host:port/dbname"
     ```
 
-    If you're using a hosted version of TimescaleDB, or generally require an SSL
-    connection, use this version instead:
+    If you're using a hosted version of TimescaleDB, or if you need an SSL
+    connection, use this format instead:
 
     ```go
     connStr := "postgres://username:password@host:port/dbname?sslmode=require"
     ```
 
 1.  <Optional />You can check that you're connected to your database with this
-   hello world program:
+    hello world program:
 
     ```go
     package main
@@ -107,21 +109,23 @@ FIXME
     ```
 
     If you'd like to specify your connection string as an environment variable,
-    you can use this syntax to access it in place of the variable
-    `connStr` above:
+    you can use this syntax to access it in place of the `connStr` variable:
 
     ```go
     os.Getenv("DATABASE_CONNECTION_STRING")
     ```
 
+</Collapsible>
+
 </procedure>
 
-Connection pooling is useful to ensure you don't waste resources and can
-lead to faster queries on your database.
+Alternatively, you can connect to TimescaleDB using a connection pool.
+Connection pooling is useful to conserve computing resources, and can also
+result in faster database queries:
 
 <procedure>
 
-### Connecting to TimescaleDB with a connection pool
+<Collapsible heading="Connecting to TimescaleDB with a connection pool" headingLevel={3} defaultExpanded={false}>
 
 1.  To create a connection pool that can be used for concurrent connections to
    your database, use the `pgxpool.New()` function instead of
@@ -163,27 +167,33 @@ lead to faster queries on your database.
     }
     ```
 
+</Collapsible>
+
 </procedure>
 
 ## Create a relational table
 
-FIXME
+In this section, you create a table called `sensors` which holds the ID, type,
+and location of your fictional sensors. Additionally, you create a hypertable
+called `sensor_data` which holds the measurements of those sensors. The
+measurements contain the time, sensor_id, temperature reading, and CPU
+percentage of the sensors.
 
 <procedure>
 
-### Creating a relational table
+<Collapsible heading="Creating a relational table" headingLevel={3}>
 
 1.  Compose a string that contains the SQL statement to create a relational
-   table. This example creates a table called `sensors`, with columns for ID,
-   type, and location:
+    table. This example creates a table called `sensors`, with columns for ID,
+    type, and location:
 
     ```go
     queryCreateTable := `CREATE TABLE sensors (id SERIAL PRIMARY KEY, type VARCHAR(50), location VARCHAR(50));`
     ```
 
 1.  Execute the `CREATE TABLE` statement with the `Exec()` function on the
-   `dbpool` object, using the arguments of the current context and the statement
-   string you created:
+    `dbpool` object, using the arguments of the current context and the
+    statement string you created:
 
     ```go
     package main
@@ -223,6 +233,8 @@ FIXME
     }
        ```
 
+</Collapsible>
+
 </procedure>
 
 ## Generate a hypertable
@@ -233,10 +245,10 @@ other tasks can and should all be executed on the hypertable.
 
 <procedure>
 
-### Generating a hypertable
+<Collapsible heading="Generating a hypertable" headingLevel={3}>
 
 1.  Create a variable for the `CREATE TABLE SQL` statement for your hypertable.
-   Notice how the hypertable has the compulsory time column:
+    Notice how the hypertable has the compulsory time column:
 
     ```go
     FIXME
@@ -260,9 +272,9 @@ other tasks can and should all be executed on the hypertable.
     ```
 
 1.  Execute the `CREATE TABLE` statement and `SELECT` statement which converts
-   the table into a hypertable. You can do this by calling the `Exec()` function
-   on the `dbpool` object, using the arguments of the current context, and the
-   `queryCreateHypertable` statement string:
+    the table into a hypertable. You can do this by calling the `Exec()`
+    function on the `dbpool` object, using the arguments of the current context,
+    and the `queryCreateHypertable` statement string:
 
     ```go
     package main
@@ -315,6 +327,8 @@ other tasks can and should all be executed on the hypertable.
     }
     ```
 
+</Collapsible>
+
 </procedure>
 
 ## Insert rows of data
@@ -329,10 +343,10 @@ the process.
 
 <procedure>
 
-### Inserting a single row of data
+<Collapsible heading="Inserting a single row of data" headingLevel={3}>
 
 1.  Open a connection pool to the database, then use the prepared statements to
-   formulate an `INSERT` SQL statement, and execute it:
+    formulate an `INSERT` SQL statement, and execute it:
 
     ```go
     package main
@@ -384,20 +398,23 @@ the process.
     }
     ```
 
+</Collapsible>
+
 </procedure>
 
-FIXME
+Instead of inserting a single row of data at a time, you can use this procedure
+to insert multiple rows of data, instead:
 
 <procedure>
 
-### Inserting multiple rows of data
+<Collapsible heading="Inserting multiple rows of data" headingLevel={3} defaultExpanded={false}>
 
 1.  This example uses PostgreSQL to generate some sample time-series to insert
-   into the `sensor_data` hypertable. Define the SQL statement to generate the
-   data, called `queryDataGeneration`. Then use use the `.Query()` function to
-   execute the statement and return the sample data. The data returned by the
-   query is stored in `results`, a slice of structs, which is then used as a
-   source to insert data into the hypertable:
+    into the `sensor_data` hypertable. Define the SQL statement to generate the
+    data, called `queryDataGeneration`. Then use use the `.Query()` function to
+    execute the statement and return the sample data. The data returned by the
+    query is stored in `results`, a slice of structs, which is then used as a
+    source to insert data into the hypertable:
 
     ```go
        // Generate data to insert
@@ -477,7 +494,7 @@ FIXME
     ```
 
 1.  <Optional />This example `main.go` generates sample data and inserts it into
-   the `sensor_data` hypertable:
+    the `sensor_data` hypertable:
 
     ```go
     package main
@@ -578,20 +595,22 @@ FIXME
     }
     ```
 
+</Collapsible>
+
 </procedure>
 
-The method above executes as many `insert` statements as there are samples to be
-inserted. This can make ingestion of data slow. To speed up ingestion, you can
-batch insert data instead.
+Inserting multiple rows of data using this method executes as many `insert`
+statements as there are samples to be inserted. This can make ingestion of data
+slow. To speed up ingestion, you can batch insert data instead.
 
 Here's a sample pattern for how to do so, using the sample data you generated in
-the previous procedure. It uses the pgx `Batch` object.
+the previous procedure. It uses the pgx `Batch` object:
 
 <procedure>
 
-### Inserting rows of data in batches
+<Collapsible heading="Inserting rows of data in batches" headingLevel={3} defaultExpanded={false}>
 
-1.  FIXME:
+1.  This example batch inserts data into the database:
 
     ```go
     package main
@@ -715,15 +734,17 @@ the previous procedure. It uses the pgx `Batch` object.
     }
     ```
 
+<Collapsible>
+
 </procedure>
 
 ## Execute a query
 
-FIXME
+This section covers how to execute queries against your database.
 
 <procedure>
 
-### Executing a query
+<Collapsible heading="Executing a query" headingLevel={3}>
 
 1.  Define the SQL query you'd like to run on the database. This example uses a
     SQL query that combines time-series and relational data. It returns the
@@ -874,6 +895,10 @@ FIXME
 
     }
     ```
+
+</Collapsible>
+
+</procedure>
 
 ## Next steps
 
