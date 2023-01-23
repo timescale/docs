@@ -5,11 +5,11 @@ keywords: [tutorials, finance, learn]
 tags: [tutorials, beginner]
 ---
 
-import Install from "versionContent/_partials/_cloud-installation.md";
-import CreateService from "versionContent/_partials/_cloud-create-service.md";
-import Connect from "versionContent/_partials/_cloud-connect.md";
-import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-crypto.md";
-import AddData from "versionContent/_partials/_add-data-twelvedata-crypto.md";
+import Install from "versionContent/_partials/_cloud-installation.mdx";
+import CreateService from "versionContent/_partials/_cloud-create-service.mdx";
+import Connect from "versionContent/_partials/_cloud-connect.mdx";
+import CreateHypertable from "versionContent/_partials/_create-hypertable-twelvedata-crypto.mdx";
+import AddData from "versionContent/_partials/_add-data-twelvedata-crypto.mdx";
 
 # Create the dataset
 
