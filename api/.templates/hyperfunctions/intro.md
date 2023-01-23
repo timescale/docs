@@ -1,6 +1,6 @@
 ---
 section: hyperfunction
-subsection: <PUT MAIN AGGREGATE FOR GROUP HERE E.G. uddsketch()>
+subsection: <AGGREGATE>()
 ---
 
 Freeform text that goes at the very top of the page, describing why you would

@@ -16,9 +16,9 @@ when starting PostgreSQL.
 
 ### `timescaledb.max_background_workers (int)`
 
-Max background worker processes allocated to TimescaleDB.  Set to at
-least 1 + number of databases in Postgres instance to use background
-workers. Default value is 16.
+Max background worker processes allocated to TimescaleDB. Set to at least 1 +
+the number of databases loaded with a TimescaleDB extension in a PostgreSQL
+instance. Default value is 16.
 
 ## Distributed hypertables
 

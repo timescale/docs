@@ -64,8 +64,8 @@ SELECT
     extrapolated_rate(
         with_bounds(
             summary,
-            time_bucket_range('15 min'::interval, bucket)
-        )
+            toolkit_experimental.time_bucket_range('15 min'::interval, bucket)
+        ),'prometheus'
     )
 FROM (
     SELECT
@@ -74,7 +74,7 @@ FROM (
         counter_agg(ts, val) AS summary
     FROM foo
     GROUP BY id, time_bucket('15 min'::interval, ts)
-) t
+) t;
 ```
 
 [hyperfunctions-counter-agg]: /timescaledb/:currentVersion:/how-to-guides/hyperfunctions/counter-aggregation/
