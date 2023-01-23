@@ -33,7 +33,7 @@ instead.
 
 <Tabs label="Install TimescaleDB">
 
-<Tab title="Debian-based">
+<Tab title="Debian">
 
 <procedure>
 
@@ -118,7 +118,7 @@ information, see the [configuration][config] section.
 
 </Tab>
 
-<Tab title="Red Hat-based">
+<Tab title="Red Hat">
 
 <procedure>
 
@@ -225,7 +225,7 @@ information, see the [configuration][config] section.
 
 </Tab>
 
-<Tab title="Archlinux-based">
+<Tab title="Archlinux">
 
 <procedure>
 
