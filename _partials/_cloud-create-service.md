@@ -14,11 +14,6 @@ Each service contains a single database, named `tsdb`.
   </li>
   <li>
     <p>
-      Click <code>Create service</code>.
-    </p>
-  </li>
-  <li>
-    <p>
       {" "}
       {props.demoData ? (
         <>
