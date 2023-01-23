@@ -734,7 +734,7 @@ the previous procedure. It uses the pgx `Batch` object:
     }
     ```
 
-<Collapsible>
+</Collapsible>
 
 </procedure>
 
