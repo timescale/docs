@@ -411,7 +411,7 @@ to insert multiple rows of data, instead:
 
 1.  This example uses PostgreSQL to generate some sample time-series to insert
     into the `sensor_data` hypertable. Define the SQL statement to generate the
-    data, called `queryDataGeneration`. Then use use the `.Query()` function to
+    data, called `queryDataGeneration`. Then use the `.Query()` function to
     execute the statement and return the sample data. The data returned by the
     query is stored in `results`, a slice of structs, which is then used as a
     source to insert data into the hypertable:
@@ -467,7 +467,7 @@ to insert multiple rows of data, instead:
        }
     ```
 
-1.  Formulate a SQL insert statement for the `sensor_data` hypertable:
+1.  Formulate an SQL insert statement for the `sensor_data` hypertable:
 
     ```go
     //SQL query to generate sample data
@@ -906,7 +906,7 @@ Now that you're able to connect, read, and write to a TimescaleDB instance from
 your Go application, be sure to check out these advanced TimescaleDB tutorials:
 
 *   Refer to the [pgx documentation][pgx-docs] for more information about pgx.
-*   Get up and running with TimescaleDB with our [Getting Started][getting-started]
+*   Get up and running with TimescaleDB with the [Getting Started][getting-started]
     tutorial.
 *   Want fast inserts on CSV data? Check out
     [TimescaleDB parallel copy][parallel-copy-tool], a tool for fast inserts,
