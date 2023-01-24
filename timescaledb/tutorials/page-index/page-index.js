@@ -12,17 +12,17 @@ module.exports = [
           {
             title: "Time-series tutorial - set up",
             href: "dataset-nyc",
-            excerpt: "Set up a dataset so you can query NYC data]",
+            excerpt: "Set up a dataset so you can query NYC data",
           },
           {
             title: "Time-series tutorial - query data",
             href: "query-nyc",
-            excerpt: "Query NYC data]",
+            excerpt: "Query NYC data",
           },
           {
             title: "Time-series tutorial - advanced queries",
             href: "advanced-nyc",
-            excerpt: "Advanced queries NYC data]",
+            excerpt: "Advanced queries NYC data",
           },
         ],
       },
