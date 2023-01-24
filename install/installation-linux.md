@@ -9,7 +9,7 @@ keywords: [installation, self-hosted, Debian, Ubuntu, RHEL, Fedora]
 
 import Linux from "versionContent/_partials/_psql-installation-linux.mdx";
 
-## Install TimescaleDB on Linux
+# Install TimescaleDB on Linux
 
 You can host TimescaleDB yourself, on your Debian-based, Red Hat-based, or Arch
 Linux-based systems. These instructions use the `apt`, `yum`, and `pacman`
