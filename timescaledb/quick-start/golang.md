@@ -318,11 +318,11 @@ other tasks can and should all be executed on the hypertable.
        //execute statement
        _, err = dbpool.Exec(ctx, queryCreateHypertable)
        if err != nil {
-           fmt.Fprintf(os.Stderr, "Unable to create SENSOR_DATA hypertable: %v\n", err)
+           fmt.Fprintf(os.Stderr, "Unable to create the `sensor_data` hypertable: %v\n", err)
            os.Exit(1)
        }
 
-       fmt.Println("Successfully created hypertable SENSOR_DATA")
+       fmt.Println("Successfully created hypertable `sensor_data`")
 
     }
     ```
