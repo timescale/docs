@@ -229,7 +229,7 @@ information, see the [configuration][config] section.
 
 <procedure>
 
-### Installing self-hosted TimescaleDB on archlinux-based systems
+### Installing self-hosted TimescaleDB on ArchLinux-based systems
 
 1.  Install TimescaleDB and timescaledb-tune:
 
