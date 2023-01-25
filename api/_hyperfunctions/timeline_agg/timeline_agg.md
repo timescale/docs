@@ -17,7 +17,7 @@ hyperfunction:
 api_details:
   summary: >
     Aggregate state data into a timeline aggregate to track state transitions.
-    Unlike [`state_agg`](/api/latest/hyperfunctions/state-tracking/state-agg/),
+    Unlike [`state_agg`](/api/latest/hyperfunctions/state-tracking/state_agg/),
     which only stores durations, `timeline_agg` also stores the timestamps of
     state transitions.
   signatures:
