@@ -891,7 +891,6 @@ This section covers how to execute queries against your database.
            fmt.Fprintf(os.Stderr, "rows Error: %v\n", rows.Err())
            os.Exit(1)
        }
-
     }
     ```
 
