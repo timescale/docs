@@ -917,7 +917,7 @@ your Go application, be sure to check out these advanced TimescaleDB tutorials:
 [parallel-copy-tool]: https://github.com/timescale/timescaledb-parallel-copy
 [pgx-docs]: https://pkg.go.dev/github.com/jackc/pgx
 [pgx-driver-github]: https://github.com/jackc/pgx
-[install]: /install/latest/
+[install]: /install/:currentVersion:/installation-cloud/
 [connect]: #connect-to-database/
 [create-table]: #create-a-table
 [create-hypertable]: #generate-a-hypertable
