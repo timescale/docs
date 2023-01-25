@@ -225,7 +225,7 @@ information, see the [configuration][config] section.
 
 </Tab>
 
-<Tab title="Archlinux">
+<Tab title="ArchLinux">
 
 <procedure>
 
