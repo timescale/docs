@@ -493,7 +493,7 @@ to insert multiple rows of data, instead:
        fmt.Println("Successfully inserted samples into sensor_data hypertable")
     ```
 
-1.  <Optional />This example `main.go` generates sample data and inserts it into
+1.  [](#)<Optional />This example `main.go` generates sample data and inserts it into
     the `sensor_data` hypertable:
 
     ```go
