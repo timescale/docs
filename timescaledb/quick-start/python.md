@@ -26,7 +26,7 @@ Before you start, make sure you have:
     [installation documentation][install].
 *   Installed the `psycopg2` library. For more information, see the
     [psycopg2 documentation][psycopg2-docs].
-*   <Optional /> A [Python virtual environment][virtual-env].
+*   [](#)<Optional />A [Python virtual environment][virtual-env].
 
 <highlight type="cloud" header="Run all tutorials free" button="Try for free">
 Your Timescale Cloud trial is completely free for you to use for the first
